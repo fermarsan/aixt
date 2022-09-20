@@ -1,5 +1,6 @@
 # Aix Project
 
+Transpiler from **Aix** (a V-like language) to C, focused on microcontrollers.
 
 
 ## Getting started
