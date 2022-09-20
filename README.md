@@ -1,4 +1,4 @@
-# Aix Project
+# Aixt Project
 
 The aim of this project is provide a tool for programing microcontrollers in a modern language but allowing compiling code even in low-resource devices. This project is composed by 3 main componentes:
 
@@ -37,3 +37,7 @@ The transpiler is written in _Python_ using _SLY_ module as Lexer and Parser.
 ## Aixt API
 
 The **Aixt API** is inspired on _Micropython_, _Arduino_ and _Tinygo_ projects.
+
+
+#### Project's name
+The project's name is inspired in _Veasel_ the Weasel pet of _V Language_, as weel as tribute to _Ticuna_ people who live in the Amazonic forest in the borders of _Colombia_, _Brasil_ and _Peru_. Weasels are multelids as weel as otters, so the name **Aixt** comes from _Aixtu_ word wich is a way to say otter in _Ticuna_. 
