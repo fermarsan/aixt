@@ -10,7 +10,7 @@ The aim of this project is provide a tool for programing microcontrollers in a m
 
 **Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all of the variables in **Aixt** are mutable by default.
 
-```go
+```v
 /*blinking led example (XC16 compiler)
 working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 
