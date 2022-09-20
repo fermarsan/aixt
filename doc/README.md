@@ -1,0 +1,18 @@
+# Microcontrollers
+
+## PIC microcontrollers
+
+### 16-bit
+- PIC24FJ128GA010
+- dsPIC33FJ256GP710A
+
+### 8-bit
+- PIC18F4550
+- PIC18F452
+- PIC16F866
+- PIC16F873A
+- PIC16F628A
+- PIC16F84A
+- PIC12F1028
+
+ 
