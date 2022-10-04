@@ -1,6 +1,7 @@
+//declare and assign 
 fn main() {
-    contador := i16(10)
-    contador += 5
-    contador--
-    contador++
+    
+    contador = 10;
+    //contador = +5;
+    contador = -4;
 }
