@@ -1,13 +1,13 @@
-from aix_lexer import aix_lexer
-from aix_parser import aix_parser
+from aixt_lexer import aixt_lexer
+from aixt_parser import aixt_parser
 import re
 #from os import system
 import sys
 
 if len(sys.argv) > 1:
 
-    lexer = aix_lexer()        #carga el analizador Léxico
-    parser = aix_parser()      #y el sintáctico
+    lexer = aixt_lexer()        #carga el analizador Léxico
+    parser = aixt_parser()      #y el sintáctico
     
     #carga el archivo
     name = sys.argv[1]
