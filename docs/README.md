@@ -1,6 +1,6 @@
 
 --------------------
-# Supported features
+# Supported Aixt language features
 
 - Inspired by the _V language_ grammar [https://vlang.io/](https://vlang.io/)
     - _Golang_ grammar was taken as reference [https://github.com/antlr/grammars-v4/tree/master/golang](https://github.com/antlr/grammars-v4/tree/master/golang)
@@ -21,6 +21,10 @@
 - block expressions '{ Code_block }' (a tab is added to the block in the uotput file)
 <!-- - function declarations and return values
 - if-else statements, infinity for , for as while -->
+
+# Other features
+
+- YAML setup file support
 
 ----------------------------
 # Supported Microcontrollers
