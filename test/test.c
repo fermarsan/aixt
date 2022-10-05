@@ -2,11 +2,11 @@ int main() {
 
 	float a = 10.445345;
 	
-	const char e[] = 'Hello World!';
+	const char e[] = "Hello World!";
 	
 	int16_t b = 35;
 	
-	char d = `y`;
+	char d = 'y';
 	
 	int32_t k = 90123;
 	long double j = 0.1;

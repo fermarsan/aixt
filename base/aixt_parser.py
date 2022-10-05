@@ -1,5 +1,7 @@
 from aixt_lexer import aixt_lexer
 from sly import Parser
+import yaml
+
 #import sys, os
 
 class aixt_parser(Parser):
@@ -30,6 +32,9 @@ class aixt_parser(Parser):
         self.values = []
         self.types = []
         self.main = False
+
+        with open(r'./setup.yaml') as setup_file:
+            self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
         
 
         # self.output_header =    """include <stdint.h>
@@ -38,15 +43,15 @@ class aixt_parser(Parser):
     
     #guarda los archivos de salida
     def saveOutput(self, name):
-        outText = open(name,'w' )
-        if not self.main:       #adds the main function structure if not exist
-            out_text = 'int main() {\n' 
-            out_text += ('\n' + self.output_s).replace('\n','\n\t')
-            out_text += 'return 0;\n}' 
-        else:
-            out_text = self.output_s
-        outText.write(out_text)  
-        outText.close()
+        with open(name,'w') as outText:
+            if not self.main:       #adds the main function structure if not exist
+                out_text = 'int main() {\n' 
+                out_text += ('\n' + self.output_s).replace('\n','\n\t')
+                out_text += 'return 0;\n}' 
+            else:
+                out_text = self.output_s
+            outText.write(out_text)  
+            outText.close()
         
         # outText = open(name + '.var', 'w' )
         # for v in self.vars:
@@ -403,42 +408,24 @@ class aixt_parser(Parser):
     def typeName(self, p):
         return p[0]
     
-    #--------------- Floating point types ---------------
-    @_( 'F64' )
+    #--------------- Integer & floating point types ---------------
+    @_( 'U8', 'U16', 'U32', 'U64', 'USIZE',
+        'I8', 'I16', 'I32', 'I64', 'ISIZE',  
+        'F64', 'F32' )
     def numericType(self, p):
-        return 'long double'
-    
-    @_( 'F32' )
-    def numericType(self, p):
-        return 'float'
-    
-    #--------------- INT_LIT types ---------------
-    @_( 'U8', 'U16', 'U32', 'U64' )
-    def numericType(self, p):
-        return p[0].replace( 'u', 'uint' ) + '_t'
-
-    @_( 'I8', 'I16', 'I32', 'I64' )
-    def numericType(self, p):
-        return p[0].replace( 'i', 'int' ) + '_t'
-
-    @_( 'USIZE', 'ISIZE' )
-    def numericType(self, p):
-        if p[0][0] == 'u':
-            return'uint16_t'
-        else:
-            return'int16_t'
+        return self.setup[p[0]]
 
     #--------------- Literals ---------------
     @_( 'STRING_LIT' )                   
     def basicLit(self, p):
         self.types.append('char []')
-        self.values.append(p[0])
+        self.values.append(p[0].replace("'",'"'))
         return p[0].replace("'",'"')
     
     @_( 'RUNE_LIT' )                   
     def basicLit(self, p):
         self.types.append('char')
-        self.values.append(p[0])
+        self.values.append(p[0].replace('`',"'"))
         return p[0].replace('`',"'")
 
     @_( 'TRUE', 'FALSE' )                   
@@ -449,13 +436,13 @@ class aixt_parser(Parser):
 
     @_( 'FLOAT_LIT' )                   
     def basicLit(self, p):
-        self.types.append('float')
+        self.types.append(self.setup['default_float'])
         self.values.append(p[0].replace( '_', '' ))
         return p[0].replace( '_', '' )  # remove underscore
 
     @_( 'INT_LIT' )                   
     def basicLit(self, p):
-        self.types.append('int16_t')
+        self.types.append(self.setup['default_int'])
         self.values.append(p[0].replace( '_', '' ))
         return p[0].replace( '_', '' )  # remove underscore
 

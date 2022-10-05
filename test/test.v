@@ -1,4 +1,4 @@
-/*miltiline
+/*multiline
 comment*/
 a := 10.445_345
 
