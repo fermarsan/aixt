@@ -6,38 +6,40 @@ The aim of this project is provide a tool for programing microcontrollers in a m
 - The **Aixt to C Transpiler**, which translate de **Aixt** source code to C, for the expecific C compiler of each microcontroller.
 - The **Aixt API**, which makes the programming easy by standardizing the setup and I/O functions.  
 
-```
-+---------------------------------------+  
-|         Aixt (V-like language)        |
-|  +---------------+  +--------------+  |  
-|  |  Source code  |  |   Aixt API   |  |
-|  +------------+--+  +--+-----------+  |
-+---------------|--------|--------------+  
-                |        |
-             +--v--------v--+
-             |   Aixt to C  |
-             |  Transpiler  |     
-             +------+-------+
-                    |
-         +----------|------------------------------+  
-         |          |          C                   |
-         |  +-------v---------+  +--------------+  |  
+<!-- ```
+.----------------------------------------.  
+|                  Aixt                  |
+|  +---------------+  +---------------+  |  
+|  |  Source code  |  |  API in Aixt  |  |
+|  +------------+--+  +--+------------+  |
+'---------------|--------|---------------'  
+                v        v   
+            +----------------+
+            |  Aixt  to  C   |
+            |   Transpiler   |     
+            +--------+-------+
+                     |
+         .-----------|-----------------------------.  
+         |           v         C                   |
+         |  +-----------------+  +--------------+  |  
          |  | Transpiled code |  |   API in C   |  |
          |  +--------------+--+  +--+-----------+  |
-         +-----------------|--------|--------------+  
-                           |        |
-                        +--v--------v--+
-                        |   Native C   |
+         '-----------------|--------|--------------'  
+                           v        v
+                        +--------------+
+                        |  Native  C   |
                         |   Compiler   |     
                         +--------+-----+
                                  |   
-                     +-----------|-------+ 
-                     | Machine   |       |
-                     |  +--------v----+  |
+                     .-----------|-------. 
+                     |  Machine  v       |
+                     |  +-------------+  |
                      |  | Binary file |  |
                      |  +-------------+  |
-                     +-------------------+
-```
+                     '-------------------'
+``` -->
+
+![](/logo/diagram.svg)
 
 ## Aixt Language
 
