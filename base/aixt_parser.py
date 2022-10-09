@@ -51,7 +51,6 @@ class aixt_parser(Parser):
             else:
                 out_text = self.output_s
             outText.write(out_text)  
-            outText.close()
         
         # outText = open(name + '.var', 'w' )
         # for v in self.vars:
@@ -72,8 +71,8 @@ class aixt_parser(Parser):
     #     self.output_s += p.Statements
 
     @_( #'moduleClause eos importDecl eos topLevelDecl eos',
-        'topLevelDecls' 
-     )    
+        'topLevelDecls', 
+        )    
     def prog(self, p):
         #self.output_s += p.moduleClause + '\n\n'
         #self.output_s += p.importDecl + '\n\n'
@@ -82,7 +81,7 @@ class aixt_parser(Parser):
             print(v, '\t', t)
 
     @_( 'topLevelDecl eos',
-        'topLevelDecls topLevelDecl eos' 
+        'topLevelDecls topLevelDecl eos', 
         )    
     def topLevelDecls(self, p):
         if len(p) == 3:
@@ -119,7 +118,8 @@ class aixt_parser(Parser):
         return ret_value
 
     @_( 'IDENTIFIER',
-        'identifierList "," IDENTIFIER' )
+        'identifierList "," IDENTIFIER',
+        )
     def identifierList(self, p):
         self.identifiers.append(p.IDENTIFIER)
         if len(p) == 3:
@@ -128,10 +128,20 @@ class aixt_parser(Parser):
             return p[0]
 
     @_( 'expression',
-        'expressionList "," expression' )
+        'expressionList "," expression', 
+        )
     def expressionList(self, p):
         if len(p) == 3:
             return p[0] + ' ' + p[1] + ' ' + p[2]
+        elif len(p) == 1:
+            return p[0]
+
+    @_( 'statement',
+        'statementList eos statement', 
+        )
+    def statementList(self, p):
+        if len(p) == 3:
+            return p[0] + p[1] + p[2]
         elif len(p) == 1:
             return p[0]
 
@@ -281,17 +291,46 @@ class aixt_parser(Parser):
     # def IncDecExpression(self, p):
     #     return p[0] + p[1]
 
-    # @_( 'Expression PLUS_ASGN Expression', 'Expression MINUS_ASGN Expression',
-    #     'Expression STAR_ASGN Expression', 'Expression DIV_ASGN Expression',
-    #     'Expression MOD_ASGN Expression', 'Expression AND_ASGN Expression',
-    #     'Expression OR_ASGN Expression', 'Expression XOR_ASGN Expression',
-    #     'Expression LSHIFT_ASGN Expression', 'Expression RSHIFT_ASGN Expression' )      
-    # def CompoundAssignmentExpression(self, p):
-    #     return p[0] + ' ' + p[1] + ' ' + p[2]
 
-    # @_( 'Expression ASSIGN Expression' )      
-    # def AssignmentExpression(self, p):
-    #     return p[0] + ' = ' + p[2]
+    @_( '"{" statementList "}"' )
+    def block(self, p):
+        return p[0]
+
+    
+    @_( 'declaration',
+        'simpleStmt',
+        #'returnStmt',
+        #'breakStmt',
+        #'continueStmt',
+        'block',
+        #'ifStmt',
+        #'switchStmt',
+        #'forStmt',
+    )
+    def statement(self, p):
+        return p[0]
+
+
+    @_( 'expressionStmt',
+        #'incDecStmt',
+        'assignment',
+        )
+    def simpleStmt(self, p):
+        return p[0]
+
+    @_( 'expression' )
+    def expressionStmt(self, p):
+        return p[0]
+
+    @_( 'expressionList assign_op expressionList' )      
+    def assignment(self, p):
+        return p[0] + ' ' + p[1] + ' ' + p[2]
+
+    @_( 'ASSIGN', 'PLUS_ASGN', 'MINUS_ASGN', 'XOR_ASGN', 'STAR_ASGN', 
+        'AND_ASGN', 'OR_ASGN', 'DIV_ASGN', 'MOD_ASGN', 'SHL_ASGN', 'SHR_ASGN',  
+        )      
+    def assign_op(self, p):
+        return p[0]    
     
     # @_( 'Expression ASSIGN error' )      
     # def AssignmentExpression(self, p):
@@ -341,7 +380,8 @@ class aixt_parser(Parser):
     #         return p[0]
 
     @_( 'unaryExpr', 
-        'unaryExpr BINARY_OP unaryExpr' )      
+        'expression BINARY_OP unaryExpr', 
+        )      
     def expression(self, p):
         if len(p) == 3:
             return p[0] + ' ' + p[1] + ' ' + p[2]
@@ -349,7 +389,7 @@ class aixt_parser(Parser):
             return p[0]
 
     @_( 'primaryExpr', 
-        'UNARY_OP unaryExpr %prec UOP' 
+        'UNARY_OP unaryExpr %prec UOP', 
         )      
     def unaryExpr(self, p):
         if len(p) == 1:
@@ -357,15 +397,17 @@ class aixt_parser(Parser):
         else:
             return p[0] + p[1]
 
-
-    @_( 'operand', 'conversion')
+    @_( 'operand', 
+        'conversion',
+        )
     def primaryExpr(self, p):
         return p[0]
 
     @_( 'literal',
-    'operandName',
-    #'methodExpr',
-    '"(" expression ")"', )
+        'operandName',
+        #'methodExpr',
+        '"(" expression ")"', 
+        )
     def operand(self, p):
         if len(p) == 3:
             return p[0] + ' ' + p[1] + ' ' + p[2]
@@ -374,7 +416,7 @@ class aixt_parser(Parser):
 
     @_( 'IDENTIFIER',
         'qualifiedIdent',
-     )
+        )
     def operandName(self, p):
         self.identifiers.append(p[0])
         return p[0]
@@ -457,7 +499,7 @@ class aixt_parser(Parser):
         return ';\n'   
 
     @_( 'NEWL', 
-        'eos NEWL' 
+        'eos NEWL', 
         )
     def eos(self, p):
         self.lineno += 1    #line counter

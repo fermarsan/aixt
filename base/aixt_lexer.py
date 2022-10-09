@@ -25,7 +25,7 @@ class aixt_lexer(Lexer):
  
     }
 
-    ignore_comment = r'(//.*)|(/\*(.|\n)*\*/)'    # Ignored pattern
+    #ignore_comment = r'(//.*)|(/\*(.|\n)*\*/)'    # Ignored pattern
 
     #Tokens
     BOOL            = r'bool'   # Types

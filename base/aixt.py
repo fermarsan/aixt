@@ -11,17 +11,14 @@ if len(sys.argv) > 1:
     
     #carga el archivo
     name = sys.argv[1]
-    inFile = open(name,'r')  #abre el archivo de entrada
-    program = inFile.read()
+    with open(name,'r') as inFile:  #abre el archivo de entrada
+        program = inFile.read()
 
-    # preprocessing
-    program = re.sub("//.*\n","",program)           # remove the line comments
-    program = re.sub("/\*(.|\n)*\*/","",program)    # remove the multi-line comments
-    program = re.sub("\n+","\n",program)            # remove multiple new lines
-    program = program[1:] if program[0] == '\n' else program     # ignore the first new line
-
-    #print(program)
-    inFile.close()
+        # preprocessing
+        program = re.sub("//.*\n","",program)           # remove the line comments
+        program = re.sub("/\*(.|\n)*\*/","",program)    # remove the multi-line comments
+        program = re.sub("\n+","\n",program)            # remove multiple new lines
+        program = program[1:] if program[0] == '\n' else program     # ignore the first new line
     
     #analiza el archivo
     # for t in lexer.tokenize(program):   
