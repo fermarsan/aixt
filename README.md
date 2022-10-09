@@ -6,6 +6,39 @@ The aim of this project is provide a tool for programing microcontrollers in a m
 - The **Aixt to C Transpiler**, which translate de **Aixt** source code to C, for the expecific C compiler of each microcontroller.
 - The **Aixt API**, which makes the programming easy by standardizing the setup and I/O functions.  
 
+```
++---------------------------------------+  
+|         Aixt (V-like language)        |
+|  +---------------+  +--------------+  |  
+|  |  Source code  |  |   Aixt API   |  |
+|  +------------+--+  +--+-----------+  |
++---------------|--------|--------------+  
+                |        |
+             +--v--------v--+
+             |   Aixt to C  |
+             |  Transpiler  |     
+             +------+-------+
+                    |
+         +----------|------------------------------+  
+         |          |          C                   |
+         |  +-------v---------+  +--------------+  |  
+         |  | Transpiled code |  |   API in C   |  |
+         |  +--------------+--+  +--+-----------+  |
+         +-----------------|--------|--------------+  
+                           |        |
+                        +--v--------v--+
+                        |   Native C   |
+                        |   Compiler   |     
+                        +--------+-----+
+                                 |   
+                     +-----------|-------+ 
+                     | Machine   |       |
+                     |  +--------v----+  |
+                     |  | Binary file |  |
+                     |  +-------------+  |
+                     +-------------------+
+```
+
 ## Aixt Language
 
 **Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all of the variables in **Aixt** are mutable by default.
@@ -49,4 +82,4 @@ The **Aixt API** is inspired on _Micropython_, _Arduino_ and _Tinygo_ projects.
 
 
 #### Project's name
-The project's name is inspired in _Veasel_ the Weasel pet of _V Language_, and as tribute to _Ticuna_ people who live in the Amazonic forest in the borders of _Colombia_, _Brasil_ and _Peru_. Weasels are _multelids_ like otters, so the name **Aixt** comes from _Aixtü_ word wich is a way to say otter in [_Ticuna_](https://www.sil.org/system/files/reapdata/90/20/51/90205190508691852389084667097660892450/tca_Ticuna_Dictionary_2016_web.pdf) language.
+The project's name is inspired in _Veasel_, the Weasel pet of _V Language_, and as tribute to _Ticuna_ people who live in the Amazonic forest in the borders of _Colombia_, _Brasil_ and _Peru_. Weasels are _mustelids_ just like otters, so the name **Aixt** comes from _Aixtü_, which is a way to say otter in [_Ticuna_](https://www.sil.org/system/files/reapdata/90/20/51/90205190508691852389084667097660892450/tca_Ticuna_Dictionary_2016_web.pdf) language.
