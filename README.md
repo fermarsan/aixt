@@ -46,7 +46,7 @@ The aim of this project is provide a tool for programing microcontrollers in a m
 **Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all of the variables in **Aixt** are mutable by default.
 
 ### Example with `main` function
-```go
+```v
 import machine { pin }
 
 fn main() {
@@ -57,7 +57,7 @@ fn main() {
 ```
 
 ### Example without `main` function
-```go
+```v
 /*blinking led example (XC16 compiler)
 working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 
