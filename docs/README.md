@@ -45,7 +45,8 @@
     - PIC12F1822
 
 ## AVR
-- ATmega328p
+- ATmega328p 
+- ATtiny88 **_soon....._**
 
 ## Cypress
 
@@ -53,9 +54,11 @@
     - Cy8c2744324pxi
 
 ## Espressif
-- ESP8266
+- ESP8266 **_soon....._**
+- ESP32 **_soon....._**
 
 ## Raspberry Pi
-- RP2040
+- Pico (RP2040) **_soon....._**
+- Pico W (RP2040 + wifi) **_soon....._**
 
 
