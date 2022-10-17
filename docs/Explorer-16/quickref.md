@@ -1,15 +1,17 @@
  
 # Quick reference for the Explorer 16 board
 
-this board please consider reading the following sections first:
-
+Development board for Microchip 16-bit microcontrollers. It includes the families:
+- PIC24
+- dsPIC33
 
 ## Delay and timing
 
-```v
-import time}
+```go
+import time
 
 sleep_us(1)     // sleep for 1 microsecond
 sleep_ms(500)   // sleep for 500 milliseconds
+```
 
 
