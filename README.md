@@ -15,7 +15,7 @@ Aixt is a programming framework for microcontrollers which uses a modern languag
 **Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all of the variables in **Aixt** are mutable by default.
 
 ### Example with `main` function
-```go
+```rust
 import machine { pin }
 
 fn main() {
@@ -26,7 +26,7 @@ fn main() {
 ```
 
 ### Example without `main` function
-```go
+```rust
 /*blinking led example (XC16 compiler)
 working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 
