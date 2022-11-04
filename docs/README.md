@@ -40,13 +40,14 @@
     - PIC18F452
     - PIC16F866
     - PIC16F873A
+    - PIC16F676
     - PIC16F628A
     - PIC16F84A
     - PIC12F1822
 
 ## AVR
-- ATmega328p 
-- ATtiny88 **_soon....._**
+- ATtiny88 
+- ATmega328p **_soon....._**
 
 ## Cypress
 
@@ -56,9 +57,16 @@
 ## Espressif
 - ESP8266 **_soon....._**
 - ESP32 **_soon....._**
+- ESP32-C3 **_soon....._**
+
+## ST
+- STM32F103C6 **_soon....._**
 
 ## Raspberry Pi
 - Pico (RP2040) **_soon....._**
 - Pico W (RP2040 + wifi) **_soon....._**
+
+## WCH
+- CH552  **_soon....._**
 
 
