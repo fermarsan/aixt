@@ -1,17 +1,13 @@
 # Aixt Project
 
-<div align="center">
-<img src="/logo/Aixtu-ru.jpeg" width="25%" />
-</div>
-
-The aim of this project is to provide a tool for programing microcontrollers in a modern language but allowing compiling code even in low-resource devices. This project is composed by 3 main componentes:
+Aixt is a programming framework for microcontrollers using a modern language but allowing compiling code even in low-resource devices. This project is composed by 3 main componentes:
 
 - The **Aixt** programing language based on the [_V language_](https://vlang.io/) syntax.
-- The **Aixt to C Transpiler**, which translate de **Aixt** source code to _C_, for the expecific _C_ compiler of each microcontroller.
+- The **Aixt to C Transpiler**, which translate de **Aixt** source code to _C_, for the expecific native _C_ compiler of each microcontroller.
 - The **Aixt API**, which makes the programming easy by standardizing the setup and I/O functions.  
 
 <div align="center">
-<img src="/logo/diagram.svg" width="45%" />
+<img src="/logo/Aixt_Diagram.png" width="45%" />
 </div>
 
 ## Aixt Language
