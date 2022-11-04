@@ -1,6 +1,6 @@
 # Aixt Project
 
-Aixt is a programming framework for microcontrollers which uses a modern language and allows compiling code even in low-resource devices. This project is composed by 3 main componentes:
+Aixt is a programming framework for microcontrollers which uses a modern language syntax and is focused on low-resource devices. This project is composed by 3 main componentes:
 
 - The **Aixt** programing language based on the [_V language_](https://vlang.io/) syntax.
 - The **Aixt to C Transpiler**, which translate de **Aixt** source code to _C_, for the expecific native _C_ compiler of each microcontroller.
@@ -15,7 +15,7 @@ Aixt is a programming framework for microcontrollers which uses a modern languag
 **Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all of the variables in **Aixt** are mutable by default.
 
 ### Example with `main` function
-```javascript
+```v
 import machine { pin }
 
 fn main() {
@@ -26,7 +26,7 @@ fn main() {
 ```
 
 ### Example without `main` function
-```javascript
+```v
 /*blinking led example (XC16 compiler)
 working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 
