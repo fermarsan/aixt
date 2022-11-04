@@ -26,7 +26,7 @@ fn main() {
 ```
 
 ### Example without `main` function
-```go
+```rust
 /*blinking led example (XC16 compiler)
 working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 
