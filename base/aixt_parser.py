@@ -28,11 +28,12 @@ class aixt_parser(Parser):
         self.output_s = ''      #output stream
         self.exType = ''
         self.lineno = 1
-        self.identifiers = []
+        self.identifiers = []   #stacks
         self.values = []
         self.types = []
         self.main = False
 
+        #load de setup file
         with open(r'./setup.yaml') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
         
@@ -43,9 +44,29 @@ class aixt_parser(Parser):
     
     #guarda los archivos de salida
     def saveOutput(self, name):
+        with open('./settings.h','w') as outSettings:   #settings file creation
+            out_text = '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n'
+
+            for h in self.setup['headers']:             #append the header files
+                out_text += '#include ' + h + '\n'
+            out_text += '\n'
+
+            for m in self.setup['macros']:              #append the macros
+                out_text += '#define ' + m + '\n'
+            out_text += '\n'
+            
+            for c in self.setup['configuration']:       #append the configuration lines
+                out_text += self.setup['config_operator'] + ' ' + c + '\n'    
+
+            out_text += '\n#endif  //_SETTINGS_H_'
+            outSettings.write(out_text) 
+
         with open(name,'w') as outText:
+            out_text = '//Generated C file for:  Device = '
+            out_text += self.setup['device'] + '  Board = '
+            out_text += self.setup['board'] + '\n\n#include "settings.h"\n\n'
             if not self.main:       #adds the main function structure if not exist
-                out_text = 'int main() {\n' 
+                out_text += 'int main() {\n' 
                 out_text += ('\n' + self.output_s).replace('\n','\n\t')
                 out_text += 'return 0;\n}' 
             else:
@@ -446,7 +467,7 @@ class aixt_parser(Parser):
     def qualifiedIdent(self, p):
         return p[0]
 
-    @_( 'RUNE', 'BOOL', 'numericType' )
+    @_( 'RUNE', 'BOOL', 'STRING', 'numericType' )
     def typeName(self, p):
         return p[0]
     

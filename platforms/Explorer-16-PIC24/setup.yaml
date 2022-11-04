@@ -17,19 +17,20 @@ default_float:  float
 main_ret:       true
 main_type_ret:  int
 
-device:   p24FJ128GA010
+device:   PIC24FJ128GA010
 board:    "Explorer 16"
 
 headers:
   - <xc.h>
   - <stdint.h>
   - <stdbool.h>
+  - <p24FJ128GA010.h>
   - <libpic30.h>
 
 macros:
   - "FCY 4000000UL"
 
-config_operator:  "#praga config"
+config_operator:  "#pragma config"
 
 configuration:
   - "POSCMOD = XT"

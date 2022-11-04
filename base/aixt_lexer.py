@@ -6,7 +6,7 @@ class aixt_lexer(Lexer):
 
     tokens = {  
         I8, I16, I32, I64, ISIZE, U8, U16, U32, U64, USIZE,         # Types
-        F32, F64, BOOL, RUNE,                               
+        F32, F64, BOOL, RUNE, STRING,                               
 
         AS, BREAK, CONST, CONTINUE, ELSE, ENUM, FN, FOR, IF,        # Keywords and identifierS
         IMPORT, IN, MAP, MATCH, RETURN, STATIC, STRUCT, TYPE,
@@ -30,6 +30,7 @@ class aixt_lexer(Lexer):
     #Tokens
     BOOL            = r'bool'   # Types
     RUNE            = r'rune'
+    STRING          = r'string'
     USIZE           = r'usize'
     ISIZE           = r'isize'
     U8              = r'u8'
