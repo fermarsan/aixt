@@ -2,7 +2,7 @@
 
 #include "settings.h"
 
-int main() {
+int main(void) {
 
 	AD1PCFG = 0xFFFF; // all I/O digital
 	float a = 10.445345;

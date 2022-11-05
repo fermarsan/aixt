@@ -14,8 +14,8 @@ f64:    "long double"
 default_int:    int16_t
 default_float:  float
 
-main_ret:       true
-main_type_ret:  int
+main_ret_type:  int
+main_params:    void    
 
 device:   PIC24FJ128GA010
 board:    "Explorer 16"

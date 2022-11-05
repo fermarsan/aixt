@@ -66,13 +66,12 @@ class aixt_parser(Parser):
             out_text += self.setup['device'] + '  Board = '
             out_text += self.setup['board'] + '\n\n#include "settings.h"\n\n'
             if not self.main:       #adds the main function structure if not exist
-                if self.setup['main_ret']:
-                    out_text += self.setup['main_type_ret'] + ' main() {\n' 
-                    out_text += ('\n' + self.output_s).replace('\n','\n\t')
+                out_text += self.setup['main_ret_type'] + ' main('
+                out_text += self.setup['main_params'] + ') {\n' 
+                out_text += ('\n' + self.output_s).replace('\n','\n\t')
+                if self.setup['main_ret_type'] == 'int':
                     out_text += 'return 0;\n}' 
                 else:
-                    out_text += 'void main() {\n' 
-                    out_text += ('\n' + self.output_s).replace('\n','\n\t')
                     out_text += '\n}' 
             else:
                 out_text = self.output_s
