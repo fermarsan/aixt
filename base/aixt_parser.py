@@ -66,9 +66,14 @@ class aixt_parser(Parser):
             out_text += self.setup['device'] + '  Board = '
             out_text += self.setup['board'] + '\n\n#include "settings.h"\n\n'
             if not self.main:       #adds the main function structure if not exist
-                out_text += 'int main() {\n' 
-                out_text += ('\n' + self.output_s).replace('\n','\n\t')
-                out_text += 'return 0;\n}' 
+                if self.setup['main_ret']:
+                    out_text += self.setup['main_type_ret'] + ' main() {\n' 
+                    out_text += ('\n' + self.output_s).replace('\n','\n\t')
+                    out_text += 'return 0;\n}' 
+                else:
+                    out_text += 'void main() {\n' 
+                    out_text += ('\n' + self.output_s).replace('\n','\n\t')
+                    out_text += '\n}' 
             else:
                 out_text = self.output_s
             outText.write(out_text)  
@@ -97,6 +102,8 @@ class aixt_parser(Parser):
     def prog(self, p):
         #self.output_s += p.moduleClause + '\n\n'
         #self.output_s += p.importDecl + '\n\n'
+        for i in self.setup['initialization']:
+            self.output_s += i + '\n'
         self.output_s += p.topLevelDecls + '\n\n'
         for v, t in zip(self.values,self.types):
             print(v, '\t', t)

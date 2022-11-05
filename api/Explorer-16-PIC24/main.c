@@ -10,8 +10,6 @@ int main(void) {
 
     uart2(9600);
     
-    
-    
     uart2_put('S');
     uart2_put('T');
     uart2_put('A');

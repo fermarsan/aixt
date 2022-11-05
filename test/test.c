@@ -4,6 +4,7 @@
 
 int main() {
 
+	AD1PCFG = 0xFFFF; // all I/O digital
 	float a = 10.445345;
 	
 	const char e[] = "Hello World!";

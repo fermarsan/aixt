@@ -47,3 +47,6 @@ configuration:
   - "GCP = OF"
   - "JTAGEN = OFF"
 
+initialization:
+  - "AD1PCFG = 0xFFFF; // all I/O digital"
+
