@@ -5,7 +5,7 @@ isize:  int16_t
 
 u8:     uint8_t
 u16:    uint16_t
-u32:    uint32_tv
+u32:    uint32_t
 usize:  uint16_t
 
 f32:    float
@@ -44,9 +44,9 @@ configuration:
   - "FWDTEN = OFF"
   - "ICS = PGx2"
   - "GWRP = OFF"
-  - "GCP = OF"
+  - "GCP = OFF"
   - "JTAGEN = OFF"
 
 initialization:
-  - "AD1PCFG = 0xFFFF; // all I/O digital"
-
+  - ""
+#  - "AD1PCFG = 0xFFFF; // set all I/O digital"

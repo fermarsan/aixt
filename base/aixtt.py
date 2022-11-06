@@ -13,6 +13,7 @@ if len(sys.argv) > 1:
     name = sys.argv[1]
     with open(name,'r') as inFile:  #abre el archivo de entrada
         program = inFile.read()
+        program += '\n'
 
         # preprocessing
         program = re.sub("//.*\n","",program)           # remove the line comments
@@ -30,9 +31,3 @@ if len(sys.argv) > 1:
 
 else:
     print('No se especificó un archivo de entrada.\n')
-        
-
-    
-
-    
-    

@@ -20,7 +20,7 @@
 #pragma config FWDTEN = OFF
 #pragma config ICS = PGx2
 #pragma config GWRP = OFF
-#pragma config GCP = OF
+#pragma config GCP = OFF
 #pragma config JTAGEN = OFF
 
 #endif  //_SETTINGS_H_

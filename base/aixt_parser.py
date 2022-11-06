@@ -1,6 +1,7 @@
 from aixt_lexer import aixt_lexer
 from sly import Parser
 import yaml
+import re
 
 #import sys, os
 
@@ -44,6 +45,7 @@ class aixt_parser(Parser):
     
     #guarda los archivos de salida
     def saveOutput(self, name):
+
         with open('./settings.h','w') as outSettings:   #settings file creation
             out_text = '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n'
 
@@ -136,12 +138,12 @@ class aixt_parser(Parser):
     def varDecl(self, p):
         ret_value = ''
         for i in range(len(self.values)):
-            if self.types[-1] == 'char []':
-                ret_value += 'const char ' + self.identifiers.pop(-1) + '[] = ' 
+            if self.types[0] == 'char []':
+                ret_value += 'const char ' + self.identifiers.pop(0) + '[] = ' 
             else: 
-                ret_value += self.types[-1] + ' ' + self.identifiers.pop(-1) + ' = ' 
-            ret_value += self.values.pop(-1) + ';\n'
-            self.types.pop(-1)
+                ret_value += self.types[0] + ' ' + self.identifiers.pop(0) + ' = ' 
+            ret_value += self.values.pop(0) + ';\n'
+            self.types.pop(0)
         return ret_value
 
     @_( 'IDENTIFIER',
