@@ -489,15 +489,17 @@ class aixt_parser(Parser):
     #--------------- Literals ---------------
     @_( 'STRING_LIT' )                   
     def basicLit(self, p):
+        s = p[0].replace("'",'"')
         self.types.append('char []')
-        self.values.append(p[0].replace("'",'"'))
-        return p[0].replace("'",'"')
+        self.values.append(s)
+        return s
     
     @_( 'RUNE_LIT' )                   
     def basicLit(self, p):
+        s = p[0].replace('`',"'")
         self.types.append('char')
-        self.values.append(p[0].replace('`',"'"))
-        return p[0].replace('`',"'")
+        self.values.append(s)
+        return s
 
     @_( 'TRUE', 'FALSE' )                   
     def basicLit(self, p):
@@ -505,17 +507,26 @@ class aixt_parser(Parser):
         self.values.append(p[0])
         return p[0]
 
+    @_( 'ENG_LIT' )                   
+    def basicLit(self, p):
+        s = p[0].replace( '_', '' )  # remove underscore
+        self.types.append(self.setup['default_float'])
+        self.values.append('{:.15f}'.format(eval(s))) # from engineering annotation to float
+        return '{:.15f}'.format(eval(s)) # from engineering annotation to float
+
     @_( 'FLOAT_LIT' )                   
     def basicLit(self, p):
+        s = p[0].replace( '_', '' )  # remove underscore
         self.types.append(self.setup['default_float'])
-        self.values.append(p[0].replace( '_', '' ))
-        return p[0].replace( '_', '' )  # remove underscore
+        self.values.append(s)
+        return s
 
     @_( 'INT_LIT' )                   
     def basicLit(self, p):
+        s = p[0].replace( '_', '' )  # remove underscore
         self.types.append(self.setup['default_int'])
-        self.values.append(p[0].replace( '_', '' ))
-        return p[0].replace( '_', '' )  # remove underscore
+        self.values.append(s)
+        return s
 
     @_( 'DECIMAL_LIT', 'BINARY_LIT', 'OCTAL_LIT', 'HEX_LIT' )                   
     def INT_LIT(self, p):

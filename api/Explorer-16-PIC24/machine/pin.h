@@ -1,7 +1,6 @@
 #ifndef _PIN_H_
 #define _PIN_H_
 
-#include "../settings.h"
 #include "../ports.h"
 
 #define IN      1

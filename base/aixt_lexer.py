@@ -13,7 +13,7 @@ class aixt_lexer(Lexer):
         IDENTIFIER,   
 
         DECIMAL_LIT, BINARY_LIT, OCTAL_LIT, HEX_LIT, FLOAT_LIT,     # literals      
-        TRUE, FALSE, RUNE_LIT, STRING_LIT,
+        ENG_LIT, TRUE, FALSE, RUNE_LIT, STRING_LIT,
 
         LOGIC_OR, LOGIC_AND, EQ, NE, LT, LE, GT, GE,                # operators
         PLUS, MINUS, OR, XOR, STAR, DIV, MOD, SHL, SHR, AND,
@@ -28,92 +28,93 @@ class aixt_lexer(Lexer):
     #ignore_comment = r'(//.*)|(/\*(.|\n)*\*/)'    # Ignored pattern
 
     #Tokens
-    BOOL            = r'bool'   # Types
-    RUNE            = r'rune'
-    STRING          = r'string'
-    USIZE           = r'usize'
-    ISIZE           = r'isize'
-    U8              = r'u8'
-    U16             = r'u16'
-    U32             = r'u32'
-    U64             = r'u64'
-    I8              = r'i8'
-    I16             = r'i16'
-    I32             = r'i32'
-    I64             = r'i64'
-    F32             = r'f32'
-    F64             = r'f64'
+    BOOL        = r'bool'   # Types
+    RUNE        = r'rune'
+    STRING      = r'string'
+    USIZE       = r'usize'
+    ISIZE       = r'isize'
+    U8          = r'u8'
+    U16         = r'u16'
+    U32         = r'u32'
+    U64         = r'u64'
+    I8          = r'i8'
+    I16         = r'i16'
+    I32         = r'i32'
+    I64         = r'i64'
+    F32         = r'f32'
+    F64         = r'f64'
 
-    TRUE            = r'true'   # Boolean literals  
-    FALSE           = r'false'
+    TRUE        = r'true'   # Boolean literals  
+    FALSE       = r'false'
 
-    AS              = r'as'         # Keywords 
-    BREAK           = r'break'      
-    CONST           = r'const' 
-    CONTINUE        = r'continue' 
-    ELSE            = r'else' 
-    ENUM            = r'enum'
-    FN              = r'fn'   
-    FOR             = r'for'
-    IF              = r'if'
-    IMPORT          = r'import'
-    IN              = r'in'
-    MAP             = r'map' 
-    MATCH           = r'match'
-    RETURN          = r'return'
-    STATIC          = r'static'  
-    STRUCT          = r'struct'            
-    TYPE            = r'type'
+    AS          = r'as'         # Keywords 
+    BREAK       = r'break'      
+    CONST       = r'const' 
+    CONTINUE    = r'continue' 
+    ELSE        = r'else' 
+    ENUM        = r'enum'
+    FN          = r'fn'   
+    FOR         = r'for'
+    IF          = r'if'
+    IMPORT      = r'import'
+    IN          = r'in'
+    MAP         = r'map' 
+    MATCH       = r'match'
+    RETURN      = r'return'
+    STATIC      = r'static'  
+    STRUCT      = r'struct'            
+    TYPE        = r'type'
 
-    ASSIGN          = r'='
-    DECL_ASGN       = r':='
-    PLUS_PLUS       = r'\+\+'
-    MINUS_MINUS     = r'--'
+    ASSIGN      = r'='
+    DECL_ASGN   = r':='
+    PLUS_PLUS   = r'\+\+'
+    MINUS_MINUS = r'--'
 
-    PLUS_ASGN       = r'\+='    # Compound operators    
-    MINUS_ASGN      = r'-='     
-    XOR_ASGN        = r'\^='    
-    STAR_ASGN       = r'\*='    
-    AND_ASGN        = r'&='     
-    OR_ASGN         = r'\|='    
-    DIV_ASGN        = r'/='    
-    MOD_ASGN        = r'%='    
-    SHL_ASGN        = r'<<='     
-    SHR_ASGN        = r'>>='    
+    PLUS_ASGN   = r'\+='    # Compound operators    
+    MINUS_ASGN  = r'-='     
+    XOR_ASGN    = r'\^='    
+    STAR_ASGN   = r'\*='    
+    AND_ASGN    = r'&='     
+    OR_ASGN     = r'\|='    
+    DIV_ASGN    = r'/='    
+    MOD_ASGN    = r'%='    
+    SHL_ASGN    = r'<<='     
+    SHR_ASGN    = r'>>='    
 
-    LOGIC_OR        = r'\|\|'   # Logicas operators
-    LOGIC_AND       = r'&&'
-    EXCLM           = r'!'
+    LOGIC_OR    = r'\|\|'   # Logicas operators
+    LOGIC_AND   = r'&&'
+    EXCLM       = r'!'
 
-    OR              = r'\|'     # Arithmetic operators
-    DIV             = r'/'
-    MOD             = r'%'
-    SHL             = r'<<'
-    SHR             = r'>>'
+    OR          = r'\|'     # Arithmetic operators
+    DIV         = r'/'
+    MOD         = r'%'
+    SHL         = r'<<'
+    SHR         = r'>>'
 
-    PLUS            = r'\+'     # Mixed operators
-    MINUS           = r'-'
-    XOR             = r'\^'
-    STAR            = r'\*'
-    AND             = r'&'
+    PLUS        = r'\+'     # Mixed operators
+    MINUS       = r'-'
+    XOR         = r'\^'
+    STAR        = r'\*'
+    AND         = r'&'
 
-    EQ              = r'=='     # Relation operators
-    NE              = r'!='
-    LT              = r'<'
-    LE              = r'<='
-    GT              = r'>'
-    GE              = r'>='
+    EQ          = r'=='     # Relation operators
+    NE          = r'!='
+    LT          = r'<'
+    LE          = r'<='
+    GT          = r'>'
+    GE          = r'>='
 
-    NEWL            = r'\n+'
+    NEWL        = r'\n+'
 
-    IDENTIFIER      = r'[a-zA-Z_][a-zA-Z0-9_]*'
-    STRING_LIT      = r'\'.*\''
-    RUNE_LIT        = r'`.`'
-    FLOAT_LIT       = r'[0-9_]+\.[0-9_]+'
-    HEX_LIT         = r'0x[0-9A-Fa-f_]+'
-    OCTAL_LIT       = r'0o[0-7_]+'
-    BINARY_LIT      = r'0b[01_]+'
-    DECIMAL_LIT     = r'[0-9_]+'
+    IDENTIFIER  = r'[a-zA-Z_][a-zA-Z0-9_]*'
+    STRING_LIT  = r'\'.*\''
+    RUNE_LIT    = r'`.`'
+    ENG_LIT     = r'([0-9_]+\.)?[0-9_]+e-?[0-9_]+'
+    FLOAT_LIT   = r'[0-9_]+\.[0-9_]+'
+    HEX_LIT     = r'0x[0-9A-Fa-f_]+'
+    OCTAL_LIT   = r'0o[0-7_]+'
+    BINARY_LIT  = r'0b[01_]+'
+    DECIMAL_LIT = r'[0-9_]+'
     
     ignore = ' \t'
 

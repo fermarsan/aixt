@@ -5,7 +5,8 @@ c_source=${target:0:(-2)}".c"
 #Compiler
 cc=/opt/microchip/xc16/v2.00/bin/xc16-gcc
 cflags=-mcpu=24fj128ga010
-cflags+=" -I ./"
+cflags+=" -I ."
+cflags+=" -I ../../api/Explorer-16-PIC24"
 cflags+=" -o "${target:0:(-2)}".hex"
 
 

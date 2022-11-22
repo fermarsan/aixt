@@ -1,8 +1,6 @@
 #ifndef _UART_H_
 #define _UART_H_
 
-#include "../settings.h"
-
 #define CTS1 	_RF12		        // Clear To Send
 #define RTS1    _RF13               // Request To Send
 #define TRTS1   TRISFbits.TRISF13   // tris control for RTS

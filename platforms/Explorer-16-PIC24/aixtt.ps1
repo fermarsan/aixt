@@ -8,6 +8,7 @@ $c_source=$target.replace('.v','.c')
 $cc="C:\Program files\microchip\xc16\v2.00\bin\xc16-gcc.exe"
 $cflags=-mcpu=24fj128ga010
 $cflags+=" -I .\"
+$cflags+=" -I ../../api/Explorer-16-PIC24"
 $cflags+=" -o "$target.replace('.v','.hex')
 
 
