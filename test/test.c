@@ -5,7 +5,15 @@
 int main(void) {
 
 	AD1PCFG = 0xFFFF; // set all I/O digital
-	float a = 0.000001500000000;
+	float a = 0.1;
+	
+	float b = 1.0;
+	
+	float c = 1.1;
+	
+	int16_t d = 4;
+	
+	float e = 1000.000000000000000;
 	
 	
 	

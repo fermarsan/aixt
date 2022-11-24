@@ -49,4 +49,4 @@ configuration:
 
 initialization:
 #  - ""
-  - "AD1PCFG = 0xFFFF; // set all I/O digital"
+  - "//AD1PCFG = 0xFFFF; // set all I/O digital"

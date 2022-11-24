@@ -85,6 +85,12 @@ class aixt_parser(Parser):
         # outText.close()
         #pass
 
+    def del_zeros(self, s):   # removes final zeros in a float string 
+        l = list(s)
+        while l[-1] == '0' and l[-2] != '.':
+            l.pop()
+        return ''.join(l)
+        
     def error(self, p):
         if p:
             print( '\nSyntax error in the line ' + str(self.lineno) )
@@ -507,12 +513,14 @@ class aixt_parser(Parser):
         self.values.append(p[0])
         return p[0]
 
-    @_( 'ENG_LIT' )                   
+    @_( 'FLOAT_LIT EXPONENT',       #ENGINEERING ANNOTATION
+        'DECIMAL_LIT EXPONENT' )                   
     def basicLit(self, p):
-        s = p[0].replace( '_', '' )  # remove underscore
+        s = (p[0]+p[1]).replace( '_', '' )  # remove underscore
         self.types.append(self.setup['default_float'])
-        self.values.append('{:.15f}'.format(eval(s))) # from engineering annotation to float
-        return '{:.15f}'.format(eval(s)) # from engineering annotation to float
+        s = '{:.15f}'.format(eval(s))   # from engineering annotation to pure float
+        self.values.append(self.del_zeros(s))   # delete final zeros 
+        return self.del_zeros(s)    # delete final zeros
 
     @_( 'FLOAT_LIT' )                   
     def basicLit(self, p):
@@ -520,6 +528,15 @@ class aixt_parser(Parser):
         self.types.append(self.setup['default_float'])
         self.values.append(s)
         return s
+
+    @_( 'DECIMAL_LIT "." DECIMAL_LIT', 
+        'DECIMAL_LIT "."',
+        '"." DECIMAL_LIT' )                   
+    def FLOAT_LIT(self, p):
+        if len(p) == 3:
+            return p[0] + '.' + p[2]
+        else:
+            return str(eval('0' + p[0] + p[1] + '0'))  #complete the float ex: 02.0  0.20
 
     @_( 'INT_LIT' )                   
     def basicLit(self, p):

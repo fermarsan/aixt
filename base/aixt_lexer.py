@@ -12,8 +12,10 @@ class aixt_lexer(Lexer):
         IMPORT, IN, MAP, MATCH, RETURN, STATIC, STRUCT, TYPE,
         IDENTIFIER,   
 
-        DECIMAL_LIT, BINARY_LIT, OCTAL_LIT, HEX_LIT, FLOAT_LIT,     # literals      
-        ENG_LIT, TRUE, FALSE, RUNE_LIT, STRING_LIT,
+        DECIMAL_LIT, BINARY_LIT, OCTAL_LIT, HEX_LIT,     # literals      
+        #ENG_LIT, FLOAT_LIT, 
+        TRUE, FALSE, RUNE_LIT, STRING_LIT,
+        EXPONENT,
 
         LOGIC_OR, LOGIC_AND, EQ, NE, LT, LE, GT, GE,                # operators
         PLUS, MINUS, OR, XOR, STAR, DIV, MOD, SHL, SHR, AND,
@@ -106,11 +108,10 @@ class aixt_lexer(Lexer):
 
     NEWL        = r'\n+'
 
+    EXPONENT    = r'(e|E)(\+|-)?[0-9_]+'
     IDENTIFIER  = r'[a-zA-Z_][a-zA-Z0-9_]*'
-    STRING_LIT  = r'\'.*\''
     RUNE_LIT    = r'`.`'
-    ENG_LIT     = r'([0-9_]+\.)?[0-9_]+e-?[0-9_]+'
-    FLOAT_LIT   = r'[0-9_]+\.[0-9_]+'
+    STRING_LIT  = r'\'.*\''
     HEX_LIT     = r'0x[0-9A-Fa-f_]+'
     OCTAL_LIT   = r'0o[0-7_]+'
     BINARY_LIT  = r'0b[01_]+'
