@@ -138,3 +138,4 @@ class aixt_lexer(Lexer):
         self.error_s += 'Error: ilegal character \'' + str(t.value[0]) 
         self.error_s += '\'. Line ' + str(t.lineno) + '\n'
         self.index += 1
+        
