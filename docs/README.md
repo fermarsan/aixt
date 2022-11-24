@@ -27,30 +27,29 @@
 - YAML setup file support
 
 ----------------------------
-# Supported Microcontrollers
+# Supported devices and boards
 
-## PIC
-
-- **8-bit**
-    - PIC18F4550
-    - PIC18F452
-
+## Microchip
+- **8-bit 16F**
     - PIC16F84A
     - PIC16F676
     - PIC16F628A
     - PIC16F866
     - PIC16F873A
-
-    
+- **8-bit 18F**
+    - PIC18F452
+    - PIC18F2550 **_soon....._**
+    - PIC18F4550 **_soon....._**
 - **16-bit**
-    - PIC24FJ128GA010
-    - dsPIC33FJ256GP710A
-
-
+    - PIC24FJ128GA010 (Explorer 16)
+    - dsPIC33FJ256GP710A (Explorer 16)
 
 ## AVR
 - ATtiny88 
 - ATmega328p **_soon....._**
+
+## LogicGreen 
+- lgt8f328p **_soon....._**
 
 ## Cypress
 
@@ -65,11 +64,19 @@
 ## ST
 - STM32F103C6 **_soon....._**
 
+## LuatOS
+- AIR32F103 **_soon....._**
+
 ## Raspberry Pi
 - Pico (RP2040) **_soon....._**
 - Pico W (RP2040 + wifi) **_soon....._**
 
 ## WCH
-- CH552  **_soon....._**
+- CH552 **_soon....._**
+
+## WinnerMicro
+- W801-C400 **_soon....._**
+
+
 
 
