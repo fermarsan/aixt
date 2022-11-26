@@ -34,19 +34,18 @@
     - PIC16F84A
     - PIC16F676
     - PIC16F628A
-    - PIC16F866
     - PIC16F873A
 - **8-bit 18F**
     - PIC18F452
     - PIC18F2550 **_soon....._**
     - PIC18F4550 **_soon....._**
 - **16-bit**
-    - PIC24FJ128GA010 (Explorer 16)
-    - dsPIC33FJ256GP710A (Explorer 16)
+    - _Explorer 16_: PIC24FJ128GA010
+    - _Explorer 16_: dsPIC33FJ256GP710A
 
 ## AVR
 - ATtiny88 
-- ATmega328p **_soon....._**
+- _Arduino nano_: ATmega328p **_soon....._**
 
 ## LogicGreen 
 - lgt8f328p **_soon....._**
