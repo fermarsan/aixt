@@ -48,7 +48,7 @@
 - **_Arduino nano_**: ATmega328p
 
 ## LogicGreen 
-- _LQFP32 MiniEVB_: lgt8f328p **_soon....._**
+- **_LQFP32 MiniEVB_**: lgt8f328p **_soon....._**
 
 ## Cypress
 
