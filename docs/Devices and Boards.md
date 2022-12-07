@@ -47,3 +47,6 @@
 ## WinnerMicro
 - W801-C400 **_soon....._**
 
+## LEGO Mindstorms NXT
+- **_NXT Intelligent Brick_**: AT91SAM7S256 (Using NXC Language)
+
