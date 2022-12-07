@@ -10,7 +10,7 @@
 - Declaration of variables in floating point of 32 and 64 bits
 - Single and multiple declaration and assignment
 - Declaration by default type inference
-- By default all variables are mutable, so `mut` keyword is not supported 
+- By default all variables are mutable, so `mut` keyword is not supported (give support at least dummy)
 - line and block comments
 - bitwise arithmetic and logical operations
 - parentheses in expressions
