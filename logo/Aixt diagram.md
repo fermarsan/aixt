@@ -1,16 +1,4 @@
 ```mermaid
-%%{ init: { 'theme': 'base', 
-            'themeVariables': { 'primaryColor': '#847160',
-                                'secondaryColor': '#6f7c84',
-                                'primaryTextColor': '#efece7',
-                                'primaryBorderColor': '#372a21',
-                                'tertiaryTextColor': '#c3c2f',
-                                'tertiaryBorderColor': '#472a21',
-                                'lineColor': '#372a21'
-                              }
-          }
-}%%
-
 stateDiagram-v2
 
     Aixt: Aixt language
@@ -63,7 +51,4 @@ stateDiagram-v2
     C_Compiler  --> machine
 
     Microcontrollers --> API_C
-
-%% general block diagram in mermaid.js
-%% converted in svg image by using https://mermaid.live/edit
 ```
