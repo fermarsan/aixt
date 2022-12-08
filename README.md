@@ -19,11 +19,8 @@ stateDiagram-v2
 
     C: C language
     state C {
-        state join_C <<fork>>
         Tr_Code: Transpiled code
         API_C: API in C
-        Tr_Code --> join_C
-        API_C --> join_C
     }
 
     state Microcontrollers {
@@ -54,7 +51,7 @@ stateDiagram-v2
     API     --> Aixt2C 
     Aixt2C  --> Tr_Code
 
-    join_C     --> C_Compiler
+    C     --> C_Compiler
 
     C_Compiler  --> machine
 
