@@ -56,7 +56,6 @@ The **Aixt API** is inspired on _Micropython_, _Arduino_ and _Tinygo_ projects.
 The project's name is inspired in _Veasel_, the Weasel pet of _V Language_, and as tribute to _Ticuna_ people who live in the Amazonic forest in the borders of _Colombia_, _Brasil_ and _Peru_. Weasels are _mustelids_ just like otters, so the name **Aixt** comes from _Aixtü_, which is a way to say otter in [_Ticuna_](https://www.sil.org/system/files/reapdata/90/20/51/90205190508691852389084667097660892450/tca_Ticuna_Dictionary_2016_web.pdf) language.
 
 ```mermaid
-```mermaid
 graph TD;
   A-->B;
   A-->C;
