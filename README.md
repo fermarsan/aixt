@@ -16,7 +16,7 @@ stateDiagram-v2
     }
 
     Aixt2C: Aixt to C Transpiler
-    state: Aixt2C {
+    state Aixt2C {
         Transpiler: Transpiler (Python)
         setup: setup file (YAML)
     }
