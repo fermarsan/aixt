@@ -75,14 +75,13 @@ stateDiagram-v2
         BF: Binary file
     }
     
-    SC  --> Aixt2C
-    API --> Aixt2C 
+    SC      --> Aixt2C
+    API     --> Aixt2C 
+    Aixt2C  --> TC
 
-    TR  --> TC
-
-    TC    --> NC
-    API_C --> NC
-    NC    --> machine
+    TC      --> NC
+    API_C   --> NC
+    NC      --> machine
 
 %% general block diagram in mermaid.js
 %% converted in svg image by using https://mermaid.live/edit
