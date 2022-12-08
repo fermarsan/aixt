@@ -6,9 +6,60 @@ Aixt is a programming framework for microcontrollers which uses a modern languag
 - The **Aixt to C Transpiler**, which translate de **Aixt** source code to _C_, for the expecific native _C_ compiler of each microcontroller.
 - The **Aixt API**, which makes the programming easy by standardizing the setup and I/O functions.  
 
-<div align="center">
-<img src="/logo/Aixt_Diagram.png" width="45%" />
-</div>
+```mermaid
+stateDiagram-v2
+
+    Aixt: Aixt language
+    state Aixt {
+        source: Source code
+        API
+    }
+
+    Aixt2C: Aixt to C\nTranspiler
+
+    C: C language
+    state C {
+        state join_C <<fork>>
+        Tr_Code: Transpiled code
+        API_C: API in C
+        Tr_Code --> join_C
+        API_C --> join_C
+    }
+
+    state Microcontrollers {
+        PICs: PICXX
+        ATM: AT Mega
+        ATT: AT Tiny
+        others2: ...
+        ESP32
+        RP2040
+    }
+
+    C_Compiler: C Compiler
+    state C_Compiler {
+        others: ...
+        XC8  
+        XC16 
+        ImageCraft  
+        others 
+        GCC 
+    }
+    
+    machine
+    state machine {
+        BF: Binary file
+    }
+    
+    source  --> Aixt2C
+    API     --> Aixt2C 
+    Aixt2C  --> Tr_Code
+
+    join_C     --> C_Compiler
+
+    C_Compiler  --> machine
+
+    Microcontrollers --> API_C
+```
 
 ## Aixt Language
 
@@ -54,24 +105,3 @@ The **Aixt API** is inspired on _Micropython_, _Arduino_ and _Tinygo_ projects.
 
 #### Project's name
 The project's name is inspired in _Veasel_, the Weasel pet of _V Language_, and as tribute to _Ticuna_ people who live in the Amazonic forest in the borders of _Colombia_, _Brasil_ and _Peru_. Weasels are _mustelids_ just like otters, so the name **Aixt** comes from _Aixtü_, which is a way to say otter in [_Ticuna_](https://www.sil.org/system/files/reapdata/90/20/51/90205190508691852389084667097660892450/tca_Ticuna_Dictionary_2016_web.pdf) language.
-
-```mermaid
-graph TD;
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
-```
-```svgbob
-project
-   |
-   +---- setup.h
-   |
-   +---- machine
-            |
-            +----- pin.h
-            |
-            +----- adc.h
-```
-
-```
