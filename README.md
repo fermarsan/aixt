@@ -15,7 +15,11 @@ stateDiagram-v2
         API
     }
 
-    Aixt2C: Aixt to C\nTranspiler
+    Aixt2C: Aixt to C Transpiler
+    state: Aixt2C {
+        Transpiler: Transpiler (Python)
+        setup: setup file (YAML)
+    }
 
     C: C language
     state C {
@@ -47,8 +51,7 @@ stateDiagram-v2
         BF: Binary file
     }
     
-    source  --> Aixt2C
-    API     --> Aixt2C 
+    Aixt     --> Aixt2C 
     Aixt2C  --> Tr_Code
 
     C     --> C_Compiler
