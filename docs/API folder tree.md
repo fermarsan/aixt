@@ -11,6 +11,9 @@ API
  |        +----- pin.h
  |        |
  |        +----- adc.h
+ |
+ +---- time.h
+ |
  +---- time
  |       |
  |       +----- sleep_ms.h
