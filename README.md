@@ -28,6 +28,7 @@ stateDiagram-v2
     }
 
     state Microcontrollers {
+        direction RL
         PICs: PICXX
         ATM: AT Mega
         ATT: AT Tiny
