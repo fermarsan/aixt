@@ -62,5 +62,16 @@ graph TD;
   B-->D;
   C-->D;
 ```
+```bob
+project
+   |
+   +---- setup.h
+   |
+   +---- machine
+            |
+            +----- pin.h
+            |
+            +----- adc.h
+```
 
 ```
