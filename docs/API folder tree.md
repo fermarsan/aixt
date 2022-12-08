@@ -15,7 +15,7 @@ API/
       └── sleep_us.h
 ```
 
-`API/`
+`API/` \
 ` ├── setup.h`
 ` ├── machine.h`
 ` ├── machine/`
