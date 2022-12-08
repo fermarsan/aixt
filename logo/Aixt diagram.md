@@ -23,15 +23,30 @@ stateDiagram-v2
 
     C: C language
     state C {
+        state join_C <<fork>>
         Tr_Code: Transpiled code
         API_C: API in C
+        Tr_Code --> join_C
+        API_C --> join_C
+    }
+
+    state Microcontrollers {
+        PICs: PICXX
+        ATM: AT Mega
+        ATT: AT Tiny
+        others2: ...
+        ESP32
+        RP2040
     }
 
     C_Compiler: C Compiler
     state C_Compiler {
-        sel_Compiler <<fork>>
-        XC8  --> sel_Compiler
-        XC16 --> sel_Compiler
+        others: ...
+        XC8  
+        XC16 
+        ImageCraft  
+        others 
+        GCC 
     }
     
     machine
@@ -43,9 +58,11 @@ stateDiagram-v2
     API     --> Aixt2C 
     Aixt2C  --> Tr_Code
 
-    Tr_Code     --> C_Compiler
-    API_C       --> C_Compiler
-    sel_Compiler  --> machine
+    join_C     --> C_Compiler
+
+    C_Compiler  --> machine
+
+    Microcontrollers --> API_C
 
 %% general block diagram in mermaid.js
 %% converted in svg image by using https://mermaid.live/edit
