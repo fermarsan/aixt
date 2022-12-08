@@ -1,7 +1,7 @@
 # **_Aixt_** API folder tree
 All the API implementations follow this basic folder tree:
 
-```markup
+```bash
 API/
  ├── setup.h
  ├── machine.h
