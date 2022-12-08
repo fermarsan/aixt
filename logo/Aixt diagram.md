@@ -11,52 +11,11 @@
           }
 }%%
 
-flowchart TB
-
-    subgraph Aixt
-    SC(Source code)
-    API(API)
-    end
-
-    subgraph C
-    TC(Transpiled code)
-    API_C(API in C) 
-    end
-    
-    subgraph machine
-    BF(Binary file)
-    end
-
-    SC  --> TR(Aixt to C\nTranspiler)
-    API --> TR
-    TR  --> TC
-
-    TC    --> NC(Native C\nCompiler)
-    API_C --> NC
-    NC    --> machine
-
-%% general block diagram in mermaid.js
-%% converted in svg image by using https://mermaid.live/edit
-```
-
-```mermaid
-%%{ init: { 'theme': 'base', 
-            'themeVariables': { 'primaryColor': '#847160',
-                                'secondaryColor': '#6f7c84',
-                                'primaryTextColor': '#efece7',
-                                'primaryBorderColor': '#372a21',
-                                'tertiaryTextColor': '#c3c2f',
-                                'tertiaryBorderColor': '#472a21',
-                                'lineColor': '#372a21'
-                              }
-          }
-}%%
-
 stateDiagram-v2
 
     Aixt: Aixt language
     state Aixt {
-        SC: Source code
+        source: Source code
         API
     }
 
@@ -64,24 +23,29 @@ stateDiagram-v2
 
     C: C language
     state C {
-        TC: Transpiled code
+        Tr_Code: Transpiled code
         API_C: API in C
     }
 
-    NC: Native C\nCompiler
+    C_Compiler: C Compiler
+    state C_Compiler {
+        sel_Compiler <<fork>>
+        XC8  --> sel_Compiler
+        XC16 --> sel_Compiler
+    }
     
     machine
     state machine {
         BF: Binary file
     }
     
-    SC      --> Aixt2C
+    source  --> Aixt2C
     API     --> Aixt2C 
-    Aixt2C  --> TC
+    Aixt2C  --> Tr_Code
 
-    TC      --> NC
-    API_C   --> NC
-    NC      --> machine
+    Tr_Code     --> C_Compiler
+    API_C       --> C_Compiler
+    sel_Compiler  --> machine
 
 %% general block diagram in mermaid.js
 %% converted in svg image by using https://mermaid.live/edit
