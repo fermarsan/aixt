@@ -62,7 +62,7 @@ graph TD;
   B-->D;
   C-->D;
 ```
-```bob
+```svgbob
 project
    |
    +---- setup.h
