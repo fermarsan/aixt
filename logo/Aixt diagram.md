@@ -62,6 +62,9 @@ stateDiagram-v2
 
     Aixt2C: Aixt to C Transpiler
 
+    SC  --> Aixt2C
+    API --> Aixt2C 
+
     %%subgraph C
     %%TC(Transpiled code)
     %%API_C(API in C) 
