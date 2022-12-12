@@ -28,6 +28,8 @@
     - **_CY3209-ExpressEVK_**: CY8C27643-24LFXI
     - **_CY3209-ExpressEVK_**: CY8C24894-24LFXI
     - **_CY3209-ExpressEVK_**: CY8C29666-24LFXI
+- **PSoC 4**
+  - **_CY8CKIT-049-42xx_**: CY8C4245AXI-483 **_soon....._**
 
 ## Espressif
 - ESP8266 **_soon....._**
