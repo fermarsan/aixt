@@ -24,7 +24,10 @@
 ## Cypress
 
 - **PSoC 1**
-    - Cy8c2744324pxi
+    - **_CY3209-ExpressEVK_**: CY8C21434-24LFX
+    - **_CY3209-ExpressEVK_**: CY8C27643-24LFXI
+    - **_CY3209-ExpressEVK_**: CY8C24894-24LFXI
+    - **_CY3209-ExpressEVK_**: CY8C29666-24LFXI
 
 ## Espressif
 - ESP8266 **_soon....._**
