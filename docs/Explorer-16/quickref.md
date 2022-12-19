@@ -17,7 +17,11 @@ Development board for Microchip 16-bit microcontrollers. It includes the familie
 ## Delay and timing
 
 ```go
-import time
+import time {
+	sleep,
+	sleep_ms,
+	sleep_us
+}
 
 sleep(2)	// sleep for 2 seconds
 sleep_us(1)     // sleep for 1 microsecond
