@@ -1,2 +1,2 @@
 ## How to contribute?
-The main idea of using the `setup.yaml` is to make the contributions easy. Each contributor has to code the API functions for the specific C compiler and the setup file. Also, it is necesary to do a Makeile to run in sequence the transiler and compiler tools.
+The main idea of using the `setup.yaml` is making the contributions easier. Each contributor has to code the API functions for the specific C compiler and aditionally the setup file. Also, it is necesary to do a Makefile to run in sequence the transiler and compiler tools.
