@@ -30,9 +30,9 @@
     - **_CY3209-ExpressEVK_**: CY8C27643-24LFXI
     - **_CY3209-ExpressEVK_**: CY8C24894-24LFXI
     - **_CY3209-ExpressEVK_**: CY8C29666-24LFXI
-    - **_CY8CKIT-001 + (008)_**: CY8C29.... **_soon....._**
+    - **_CY8CKIT-001 + (008)_**: CY8C29000-24AXI **_soon....._**
 - **PSoC 3**
-    - **_CY8CKIT-001 + (009)_**: CY8C3866AXI **_soon....._**
+    - **_CY8CKIT-001 + (009)_**: CY8C38866AXI-040 **_soon....._**
 - **PSoC 4**
   - **_CY8CKIT-049-42xx_**: CY8C4245AXI-483 **_soon....._**
 - **PSoC 5LP**
