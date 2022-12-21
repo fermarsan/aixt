@@ -15,8 +15,8 @@ Development board for Microchip 16-bit microcontrollers. It includes the familie
 |**E** |E0|E1|E2|E3|E4|E5|E6|E7|E8|E9|-  |-  |-  |-  |-  |-  |
 |**F** |F0|F1|F2|F3|F4|F5|F6|F7|F8|- |-  |-  |F12|F13|-  |-  |
 |**G** |G0|G1|G2|G3|G4|G5|G6|G7|G8|G9|-  |-  |G12|G13|G14|G15|
-## Delay and timing
 
+## Delay and timing
 ```go
 import time {
 	sleep,
@@ -30,7 +30,6 @@ sleep_ms(500)   // sleep for 500 milliseconds
 ```
 
 ## Pin and GPIO
-
 ```go
 import machine { pin }
 
