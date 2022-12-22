@@ -36,7 +36,7 @@ task main()
  }
 }
 
-[task] check_sensors() {
+[task] fn check_sensors() {
  for {
  if sensor_1 == 1 {
  acquire(move_mutex)
@@ -46,10 +46,11 @@ task main()
  }
  }
 }
-[task] fn main() {
- precedes(move_square, check_sensors)
- set_sensor_touch(in_1)
-}
+
+
+precedes(move_square, check_sensors)
+set_sensor_touch(in_1)
+
 ```
 
 ```c
