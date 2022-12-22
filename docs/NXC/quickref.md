@@ -23,3 +23,64 @@ task main()
     Off(OUT_AC);
 }
 ```
+
+## Multitasking
+```go
+[mutex] move_mutex
+[task] fn move_square() {
+ for {
+ acquire(move_mutex)
+ on_fwd(out_AC, 75); wait(1000)
+ on_rev(out_C, 75); wait(500)
+ release(move_mutex)
+ }
+}
+
+[task] check_sensors() {
+ for {
+ if sensor_1 == 1 {
+ acquire(move_mutex)
+ on_rev(out_AC, 75); wait(500)
+ on_fwd(out_A, 75); wait(500)
+ release(move_mutex)
+ }
+ }
+}
+[task] fn main() {
+ precedes(move_square, check_sensors)
+ set_sensor_touch(in_1)
+}
+```
+
+```c
+mutex moveMutex;
+task move_square()
+{
+ while (true)
+ {
+ Acquire(moveMutex);
+ OnFwd(OUT_AC, 75); Wait(1000);
+ OnRev(OUT_C, 75); Wait(500);
+ Release(moveMutex);
+ }
+}
+task check_sensors()
+{
+ while (true)
+ {
+ if (SENSOR_1 == 1)
+ {
+ Acquire(moveMutex);
+ OnRev(OUT_AC, 75); Wait(500);
+ OnFwd(OUT_A, 75); Wait(500);
+ Release(moveMutex);
+ }
+ }
+}
+task main()
+{
+ Precedes(move_square, check_sensors);
+ SetSensorTouch(IN_1);
+}
+
+```
