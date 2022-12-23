@@ -28,7 +28,7 @@ task main()
 The **Aixt** port for **NXC** language suport the _tasks_ by using attributes. In this case the attribute `[task]` for task functions and `[mutex]` for mutex variables. For instance, the follow code: 
 
 ```go
-[mutex] move_mutex
+[mutex] move_mutex := true //initialization value is necesary but will be ingnored 
 
 [task] fn move_square() {
     for {
