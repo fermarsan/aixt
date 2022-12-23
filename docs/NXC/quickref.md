@@ -25,7 +25,7 @@ task main()
 ```
 
 ## Multitasking
-The port of **Aixt** for **NXC** language suport the _tasks_ by using attributes. In this case the attribute `[task]`. For instance, the follow code: 
+The **Aixt** port for **NXC** language suport the _tasks_ by using attributes. In this case the attribute `[task]` for task functions and `[mutex]` for mutex variables. For instance, the follow code: 
 
 ```go
 [mutex] move_mutex
@@ -55,7 +55,7 @@ set_sensor_touch(in_1)
 ```
 
 will be transpiled to:
- 
+
 ```c
 mutex moveMutex;
 
