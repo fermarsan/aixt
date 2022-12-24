@@ -110,25 +110,25 @@ Rule 106   UNARY_OP -> MINUS  [precedence=left, level=4]
 
 Unused terminals:
 
-    FN
-    MATCH
-    IF
-    IN
-    TYPE
-    MAP
-    STATIC
-    ENUM
-    FOR
     IMPORT
-    CONST
-    CONTINUE
+    FN
+    TYPE
+    IF
     RETURN
+    MAP
     UMINUS
-    STRUCT
-    MINUS_MINUS
-    AS
-    ELSE
     PLUS_PLUS
+    CONST
+    AS
+    MATCH
+    FOR
+    STATIC
+    ELSE
+    STRUCT
+    CONTINUE
+    IN
+    MINUS_MINUS
+    ENUM
     BREAK
 
 Terminals, with rules where they appear:
