@@ -1,0 +1,52 @@
+i8:     int8_t
+i16:    int16_t
+i32:    int32_t
+isize:  int16_t
+
+u8:     uint8_t
+u16:    uint16_t
+u32:    uint32_t
+usize:  uint16_t
+
+f32:    float
+f64:    "long double"
+
+default_int:    int16_t
+default_float:  float
+
+main_ret_type:  int
+main_params:    void    
+
+device:   PIC24FJ128GA010
+board:    "Explorer 16"
+
+headers:
+  - <xc.h>
+  - <stdint.h>
+  - <stdbool.h>
+  - <p24FJ128GA010.h>
+  - <libpic30.h>
+
+macros:
+  - "FCY 4000000UL"
+
+config_operator:  "#pragma config"
+
+configuration:
+  - "POSCMOD = XT"
+  - "OSCIOFNC = ON"
+  - "FCKSM = CSDCMD"
+  - "FNOSC = PRI"
+  - "IESO = ON"
+  - "WDTPS = PS32768"
+  - "FWPSA = PR128"
+  - "WINDIS = ON"
+  - "FWDTEN = OFF"
+  - "ICS = PGx2"
+  - "GWRP = OFF"
+  - "GCP = OFF"
+  - "JTAGEN = OFF"
+
+initialization:
+#  - ""
+  - "//AD1PCFG = 0xFFFF; // set all I/O digital"
