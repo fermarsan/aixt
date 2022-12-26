@@ -1,11 +1,14 @@
  
 # Quick reference for the Explorer 16 board
-
 Development board for Microchip 16-bit microcontrollers. It includes the families:
-- PIC24
-- dsPIC33
+- _PIC24_: PIC24FJ128GA010
+- _dsPIC33_: dsPIC33FJ256GP710
 
 ## Pin names
+The pin names are named with a capitalized letter indicating the port and a number indicating the pin. For example `B12` indicates de pin 12 of port B.
+That pin definition is done in `aixt-project/api/Explorer-16-xxxxx/ports.h`.
+
+### Pins names for PIC24
 | port |0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |14 |15 |
 |:----:|--|--|--|--|--|--|--|--|--|--|---|---|---|---|---|---| 
 |**A** |A0|A1|A2|A3|A4|A5|A6|A7|- |A9|A10|-  |-  |-  |A14|A15|
