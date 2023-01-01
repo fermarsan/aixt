@@ -2,11 +2,13 @@ i8:     int8_t
 i16:    int16_t
 i32:    int32_t
 isize:  int16_t
+int:    int16_t
 
 u8:     uint8_t
 u16:    uint16_t
 u32:    uint32_t
 usize:  uint16_t
+uint:   uint16_t
 
 f32:    float
 f64:    "long double"
