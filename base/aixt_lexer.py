@@ -9,7 +9,7 @@ class aixt_lexer(Lexer):
         F32, F64, BOOL, RUNE, STRING,                               
 
         AS, BREAK, CONST, CONTINUE, ELSE, ENUM, FN, FOR, IF,        # Keywords and identifierS
-        IMPORT, IN, MAP, MATCH, RETURN, STATIC, STRUCT, TYPE,
+        IMPORT, IN, MAP, MATCH, RETURN, STATIC, STRING, STRUCT, TYPE,
         IDENTIFIER,   
 
         DECIMAL_LIT, BINARY_LIT, OCTAL_LIT, HEX_LIT,     # literals      
@@ -19,7 +19,9 @@ class aixt_lexer(Lexer):
 
         LOGIC_OR, LOGIC_AND, EQ, NE, LT, LE, GT, GE,                # operators
         PLUS, MINUS, OR, XOR, STAR, DIV, MOD, SHL, SHR, AND,
-        PLUS_PLUS, MINUS_MINUS, EXCLM, UMINUS, ASSIGN, 
+        PLUS_PLUS, MINUS_MINUS, EXCLM, UMINUS, 
+        
+        ASSIGN,                                                     # assign operators 
         DECL_ASGN, PLUS_ASGN, MINUS_ASGN, XOR_ASGN, STAR_ASGN, 
         AND_ASGN, OR_ASGN, DIV_ASGN, MOD_ASGN, SHL_ASGN, SHR_ASGN,  
 
@@ -28,6 +30,8 @@ class aixt_lexer(Lexer):
     }
 
     #ignore_comment = r'(//.*)|(/\*(.|\n)*\*/)'    # Ignored pattern
+
+    IDENTIFIER  = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
     #Tokens
     BOOL        = r'bool'   # Types
@@ -67,12 +71,11 @@ class aixt_lexer(Lexer):
     STRUCT      = r'struct'            
     TYPE        = r'type'
 
-    ASSIGN      = r'='
     DECL_ASGN   = r':='
     PLUS_PLUS   = r'\+\+'
     MINUS_MINUS = r'--'
 
-    PLUS_ASGN   = r'\+='    # Compound operators    
+    PLUS_ASGN   = r'\+='    # Compound assign operators    
     MINUS_ASGN  = r'-='     
     XOR_ASGN    = r'\^='    
     STAR_ASGN   = r'\*='    
@@ -83,6 +86,8 @@ class aixt_lexer(Lexer):
     SHL_ASGN    = r'<<='     
     SHR_ASGN    = r'>>='    
 
+    ASSIGN      = r'='
+    
     LOGIC_OR    = r'\|\|'   # Logicas operators
     LOGIC_AND   = r'&&'
     EXCLM       = r'!'
@@ -109,7 +114,7 @@ class aixt_lexer(Lexer):
     NEWL        = r'\n+'
 
     EXPONENT    = r'(e|E)(\+|-)?[0-9_]+'
-    IDENTIFIER  = r'[a-zA-Z_][a-zA-Z0-9_]*'
+    #IDENTIFIER  = r'[a-zA-Z_][a-zA-Z0-9_]*'
     RUNE_LIT    = r'`.`'
     STRING_LIT  = r'\'.*\''
     HEX_LIT     = r'0x[0-9A-Fa-f_]+'

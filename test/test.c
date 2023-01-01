@@ -4,7 +4,7 @@
 
 int main(void) {
 
-	AD1PCFG = 0xFFFF; // set all I/O digital
+	//AD1PCFG = 0xFFFF; // set all I/O digital
 	float a = 0.1;
 	
 	float b = 1.0;
@@ -13,7 +13,9 @@ int main(void) {
 	
 	int16_t d = 4;
 	
-	float e = 1000.000000000000000;
+	float e = 1000.0;
+	
+	float f = 0.001;
 	
 	
 	

@@ -35,7 +35,7 @@ class aixt_parser(Parser):
         self.main = False
 
         #load de setup file
-        with open(r'./setup.yaml') as setup_file:
+        with open(r'./setup.yaml','r') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
         
 
@@ -150,6 +150,7 @@ class aixt_parser(Parser):
                 ret_value += self.types[0] + ' ' + self.identifiers.pop(0) + ' = ' 
             ret_value += self.values.pop(0) + ';\n'
             self.types.pop(0)
+        print(ret_value)
         return ret_value
 
     @_( 'IDENTIFIER',
@@ -357,15 +358,12 @@ class aixt_parser(Parser):
     def expressionStmt(self, p):
         return p[0]
 
-    @_( 'expressionList assign_op expressionList' )      
+    @_( 'expressionList ASSIGN expressionList' )#@_( 'expressionList assign_op expressionList' ) 
     def assignment(self, p):
+        print('\n\n' + p[0] + ' ' + p[1] + ' ' + p[2] + '\n\n')
         return p[0] + ' ' + p[1] + ' ' + p[2]
 
-    @_( 'ASSIGN', 'PLUS_ASGN', 'MINUS_ASGN', 'XOR_ASGN', 'STAR_ASGN', 
-        'AND_ASGN', 'OR_ASGN', 'DIV_ASGN', 'MOD_ASGN', 'SHL_ASGN', 'SHR_ASGN',  
-        )      
-    def assign_op(self, p):
-        return p[0]    
+ 
     
     # @_( 'Expression ASSIGN error' )      
     # def AssignmentExpression(self, p):
@@ -450,7 +448,7 @@ class aixt_parser(Parser):
             return p[0]
 
     @_( 'IDENTIFIER',
-        'qualifiedIdent',
+        # 'qualifiedIdent',
         )
     def operandName(self, p):
         self.identifiers.append(p[0])
@@ -472,14 +470,14 @@ class aixt_parser(Parser):
 
     #************************* Types *************************
     @_( 'typeName', 
-        'qualifiedIdent',
+        # 'qualifiedIdent',
         )
     def type_(self, p):
         return p[0]
     
-    @_( 'IDENTIFIER "." IDENTIFIER')
-    def qualifiedIdent(self, p):
-        return p[0]
+    # @_( 'IDENTIFIER "." IDENTIFIER')
+    # def qualifiedIdent(self, p):
+    #     return p[0]
 
     @_( 'RUNE', 'BOOL', 'STRING', 'numericType' )
     def typeName(self, p):
@@ -563,6 +561,12 @@ class aixt_parser(Parser):
         return ';\n'   
 
     #--------------- Lexer operators ---------------
+    # @_( 'ASSIGN', 'PLUS_ASGN', 'MINUS_ASGN', 'XOR_ASGN', 'STAR_ASGN', 
+    #     'AND_ASGN', 'OR_ASGN', 'DIV_ASGN', 'MOD_ASGN', 'SHL_ASGN', 'SHR_ASGN' )      
+    # def assign_op(self, p):
+    #     print('\n\n' + p[0] + '\n\n')
+    #     return p[0]   
+
     @_( 'LOGIC_OR', 'LOGIC_AND', 'REL_OP', 'ADD_OP', 'MUL_OP' )
     def BINARY_OP(self, p):
         return p[0]     
@@ -582,4 +586,3 @@ class aixt_parser(Parser):
     @_( 'MINUS', 'EXCLM', 'AND' )   #NO unary plus
     def UNARY_OP(self, p):
         return p[0]
-        
