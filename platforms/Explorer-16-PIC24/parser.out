@@ -98,36 +98,35 @@ Rule 94    UNARY_OP -> MINUS  [precedence=left, level=4]
 
 Unused terminals:
 
-    ENUM
-    STAR_ASGN
-    XOR_ASGN
-    AND_ASGN
-    MINUS_ASGN
-    FN
-    MAP
     MOD_ASGN
-    UMINUS
-    BREAK
-    FOR
-    IMPORT
-    STRUCT
-    SHR_ASGN
-    IF
-    STATIC
-    TYPE
-    PLUS_ASGN
-    CONST
-    PLUS_PLUS
-    AS
-    DIV_ASGN
     CONTINUE
-    ELSE
+    BREAK
+    IMPORT
+    STATIC
+    STAR_ASGN
     RETURN
-    MINUS_MINUS
-    OR_ASGN
-    IN
-    MATCH
+    FOR
+    PLUS_PLUS
+    SHR_ASGN
+    CONST
     SHL_ASGN
+    ELSE
+    ENUM
+    OR_ASGN
+    MINUS_MINUS
+    AS
+    MATCH
+    MAP
+    IN
+    TYPE
+    DIV_ASGN
+    IF
+    AND_ASGN
+    PLUS_ASGN
+    MINUS_ASGN
+    XOR_ASGN
+    FN
+    STRUCT
 
 Terminals, with rules where they appear:
 
@@ -211,7 +210,6 @@ U32                  : 49
 U64                  : 48
 U8                   : 51
 UINT                 : 46
-UMINUS               : 
 USIZE                : 47
 XOR                  : 82
 XOR_ASGN             : 
