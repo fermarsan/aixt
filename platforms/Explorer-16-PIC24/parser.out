@@ -1,11 +1,11 @@
 Grammar:
 
-Rule 0     S' -> prog
-Rule 1     prog -> topLevelDecls eos
-Rule 2     prog -> topLevelDecls
+Rule 0     S' -> program
+Rule 1     program -> topLevelDecls orphanStmtList
+Rule 2     program -> topLevelDecls
 Rule 3     topLevelDecls -> topLevelDecls topLevelDecl eos
 Rule 4     topLevelDecls -> topLevelDecl eos
-Rule 5     topLevelDecl -> statementList eos
+Rule 5     orphanStmtList -> statementList eos
 Rule 6     topLevelDecl -> declaration
 Rule 7     declaration -> varDecl
 Rule 8     varDecl -> identifierList DECL_ASGN expressionList
@@ -95,35 +95,35 @@ Rule 91    UNARY_OP -> MINUS  [precedence=left, level=4]
 
 Unused terminals:
 
-    DIV_ASGN
-    MOD_ASGN
-    IF
-    FOR
-    AS
     FN
-    STAR_ASGN
     ENUM
-    STATIC
-    XOR_ASGN
-    MINUS_ASGN
-    AND_ASGN
-    MATCH
-    PLUS_PLUS
-    ELSE
-    TYPE
-    CONST
-    BREAK
-    IMPORT
-    PLUS_ASGN
-    MINUS_MINUS
-    OR_ASGN
-    STRUCT
+    MOD_ASGN
     SHR_ASGN
-    RETURN
+    FOR
+    MINUS_ASGN
+    PLUS_PLUS
+    XOR_ASGN
     IN
+    MINUS_MINUS
     SHL_ASGN
-    CONTINUE
+    MATCH
+    OR_ASGN
+    STAR_ASGN
+    STRUCT
+    PLUS_ASGN
+    ELSE
     MAP
+    IF
+    DIV_ASGN
+    IMPORT
+    STATIC
+    CONTINUE
+    AND_ASGN
+    RETURN
+    BREAK
+    CONST
+    TYPE
+    AS
 
 Terminals, with rules where they appear:
 
@@ -225,7 +225,7 @@ assignment           : 16
 basicLit             : 28
 conversion           : 24
 declaration          : 6
-eos                  : 1 3 4 5 13 64 66
+eos                  : 3 4 5 13 64 66
 expression           : 11 12 18 20 26 29
 expressionList       : 8 11 19
 expressionStmt       : 17
@@ -233,8 +233,9 @@ identifierList       : 8 9 19
 literal              : 27
 numericType          : 31
 operand              : 25
+orphanStmtList       : 1
 primaryExpr          : 23
-prog                 : 0
+program              : 0
 simpleStmt           : 15
 statement            : 13 14
 statementList        : 5 13
@@ -248,143 +249,36 @@ varDecl              : 7
 
 state 0
 
-    (0) S' -> . prog
-    (1) prog -> . topLevelDecls eos
-    (2) prog -> . topLevelDecls
+    (0) S' -> . program
+    (1) program -> . topLevelDecls orphanStmtList
+    (2) program -> . topLevelDecls
     (3) topLevelDecls -> . topLevelDecls topLevelDecl eos
     (4) topLevelDecls -> . topLevelDecl eos
-    (5) topLevelDecl -> . statementList eos
     (6) topLevelDecl -> . declaration
-    (13) statementList -> . statementList eos statement
-    (14) statementList -> . statement
     (7) declaration -> . varDecl
-    (15) statement -> . simpleStmt
     (8) varDecl -> . identifierList DECL_ASGN expressionList
-    (16) simpleStmt -> . assignment
-    (17) simpleStmt -> . expressionStmt
     (9) identifierList -> . identifierList , IDENTIFIER
     (10) identifierList -> . IDENTIFIER
-    (19) assignment -> . identifierList ASSIGN expressionList
-    (18) expressionStmt -> . expression
-    (20) expression -> . expression BINARY_OP unaryExpr
-    (21) expression -> . unaryExpr
-    (22) unaryExpr -> . UNARY_OP unaryExpr
-    (23) unaryExpr -> . primaryExpr
-    (89) UNARY_OP -> . AND
-    (90) UNARY_OP -> . EXCLM
-    (91) UNARY_OP -> . MINUS
-    (24) primaryExpr -> . conversion
-    (25) primaryExpr -> . operand
-    (29) conversion -> . type_ ( expression )
-    (26) operand -> . ( expression )
-    (27) operand -> . literal
-    (30) type_ -> . typeName
-    (28) literal -> . basicLit
-    (31) typeName -> . numericType
-    (32) typeName -> . STRING
-    (33) typeName -> . BOOL
-    (34) typeName -> . RUNE
-    (49) basicLit -> . INT_LIT
-    (50) basicLit -> . FLOAT_LIT
-    (51) basicLit -> . DECIMAL_LIT EXPONENT
-    (52) basicLit -> . FLOAT_LIT EXPONENT
-    (53) basicLit -> . FALSE
-    (54) basicLit -> . TRUE
-    (55) basicLit -> . RUNE_LIT
-    (56) basicLit -> . STRING_LIT
-    (35) numericType -> . F32
-    (36) numericType -> . F64
-    (37) numericType -> . INT
-    (38) numericType -> . ISIZE
-    (39) numericType -> . I64
-    (40) numericType -> . I32
-    (41) numericType -> . I16
-    (42) numericType -> . I8
-    (43) numericType -> . UINT
-    (44) numericType -> . USIZE
-    (45) numericType -> . U64
-    (46) numericType -> . U32
-    (47) numericType -> . U16
-    (48) numericType -> . U8
-    (60) INT_LIT -> . HEX_LIT
-    (61) INT_LIT -> . OCTAL_LIT
-    (62) INT_LIT -> . BINARY_LIT
-    (63) INT_LIT -> . DECIMAL_LIT
-    (57) FLOAT_LIT -> . . DECIMAL_LIT
-    (58) FLOAT_LIT -> . DECIMAL_LIT .
-    (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
-    IDENTIFIER      shift and go to state 12
-    AND             shift and go to state 17
-    EXCLM           shift and go to state 18
-    MINUS           shift and go to state 19
-    (               shift and go to state 23
-    STRING          shift and go to state 28
-    BOOL            shift and go to state 29
-    RUNE            shift and go to state 30
-    DECIMAL_LIT     shift and go to state 33
-    FALSE           shift and go to state 34
-    TRUE            shift and go to state 35
-    RUNE_LIT        shift and go to state 36
-    STRING_LIT      shift and go to state 37
-    F32             shift and go to state 38
-    F64             shift and go to state 39
-    INT             shift and go to state 40
-    ISIZE           shift and go to state 41
-    I64             shift and go to state 42
-    I32             shift and go to state 43
-    I16             shift and go to state 44
-    I8              shift and go to state 45
-    UINT            shift and go to state 46
-    USIZE           shift and go to state 47
-    U64             shift and go to state 48
-    U32             shift and go to state 49
-    U16             shift and go to state 50
-    U8              shift and go to state 51
-    HEX_LIT         shift and go to state 52
-    OCTAL_LIT       shift and go to state 53
-    BINARY_LIT      shift and go to state 54
-    .               shift and go to state 55
+    IDENTIFIER      shift and go to state 7
 
-    prog                           shift and go to state 1
+    program                        shift and go to state 1
     topLevelDecls                  shift and go to state 2
     topLevelDecl                   shift and go to state 3
-    statementList                  shift and go to state 4
-    declaration                    shift and go to state 5
-    statement                      shift and go to state 6
-    varDecl                        shift and go to state 7
-    simpleStmt                     shift and go to state 8
-    identifierList                 shift and go to state 9
-    assignment                     shift and go to state 10
-    expressionStmt                 shift and go to state 11
-    expression                     shift and go to state 13
-    unaryExpr                      shift and go to state 14
-    UNARY_OP                       shift and go to state 15
-    primaryExpr                    shift and go to state 16
-    conversion                     shift and go to state 20
-    operand                        shift and go to state 21
-    type_                          shift and go to state 22
-    literal                        shift and go to state 24
-    typeName                       shift and go to state 25
-    basicLit                       shift and go to state 26
-    numericType                    shift and go to state 27
-    INT_LIT                        shift and go to state 31
-    FLOAT_LIT                      shift and go to state 32
+    declaration                    shift and go to state 4
+    varDecl                        shift and go to state 5
+    identifierList                 shift and go to state 6
 
 state 1
 
-    (0) S' -> prog .
+    (0) S' -> program .
 
 
 state 2
 
-    (1) prog -> topLevelDecls . eos
-    (2) prog -> topLevelDecls .
+    (1) program -> topLevelDecls . orphanStmtList
+    (2) program -> topLevelDecls .
     (3) topLevelDecls -> topLevelDecls . topLevelDecl eos
-    (64) eos -> . eos NEWL
-    (65) eos -> . NEWL
-    (66) eos -> . eos ;
-    (67) eos -> . ;
-    (5) topLevelDecl -> . statementList eos
+    (5) orphanStmtList -> . statementList eos
     (6) topLevelDecl -> . declaration
     (13) statementList -> . statementList eos statement
     (14) statementList -> . statement
@@ -444,64 +338,62 @@ state 2
     (57) FLOAT_LIT -> . . DECIMAL_LIT
     (58) FLOAT_LIT -> . DECIMAL_LIT .
     (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
-    $end            reduce using rule 2 (prog -> topLevelDecls .)
-    NEWL            shift and go to state 58
-    ;               shift and go to state 59
-    IDENTIFIER      shift and go to state 12
-    AND             shift and go to state 17
-    EXCLM           shift and go to state 18
-    MINUS           shift and go to state 19
-    (               shift and go to state 23
-    STRING          shift and go to state 28
-    BOOL            shift and go to state 29
-    RUNE            shift and go to state 30
-    DECIMAL_LIT     shift and go to state 33
-    FALSE           shift and go to state 34
-    TRUE            shift and go to state 35
-    RUNE_LIT        shift and go to state 36
-    STRING_LIT      shift and go to state 37
-    F32             shift and go to state 38
-    F64             shift and go to state 39
-    INT             shift and go to state 40
-    ISIZE           shift and go to state 41
-    I64             shift and go to state 42
-    I32             shift and go to state 43
-    I16             shift and go to state 44
-    I8              shift and go to state 45
-    UINT            shift and go to state 46
-    USIZE           shift and go to state 47
-    U64             shift and go to state 48
-    U32             shift and go to state 49
-    U16             shift and go to state 50
-    U8              shift and go to state 51
-    HEX_LIT         shift and go to state 52
-    OCTAL_LIT       shift and go to state 53
-    BINARY_LIT      shift and go to state 54
-    .               shift and go to state 55
+    $end            reduce using rule 2 (program -> topLevelDecls .)
+    IDENTIFIER      shift and go to state 7
+    AND             shift and go to state 20
+    EXCLM           shift and go to state 21
+    MINUS           shift and go to state 22
+    (               shift and go to state 26
+    STRING          shift and go to state 31
+    BOOL            shift and go to state 32
+    RUNE            shift and go to state 33
+    DECIMAL_LIT     shift and go to state 36
+    FALSE           shift and go to state 37
+    TRUE            shift and go to state 38
+    RUNE_LIT        shift and go to state 39
+    STRING_LIT      shift and go to state 40
+    F32             shift and go to state 41
+    F64             shift and go to state 42
+    INT             shift and go to state 43
+    ISIZE           shift and go to state 44
+    I64             shift and go to state 45
+    I32             shift and go to state 46
+    I16             shift and go to state 47
+    I8              shift and go to state 48
+    UINT            shift and go to state 49
+    USIZE           shift and go to state 50
+    U64             shift and go to state 51
+    U32             shift and go to state 52
+    U16             shift and go to state 53
+    U8              shift and go to state 54
+    HEX_LIT         shift and go to state 55
+    OCTAL_LIT       shift and go to state 56
+    BINARY_LIT      shift and go to state 57
+    .               shift and go to state 58
 
-    eos                            shift and go to state 56
-    topLevelDecl                   shift and go to state 57
-    statementList                  shift and go to state 4
-    declaration                    shift and go to state 5
-    statement                      shift and go to state 6
-    varDecl                        shift and go to state 7
-    simpleStmt                     shift and go to state 8
-    identifierList                 shift and go to state 9
-    assignment                     shift and go to state 10
-    expressionStmt                 shift and go to state 11
-    expression                     shift and go to state 13
-    unaryExpr                      shift and go to state 14
-    UNARY_OP                       shift and go to state 15
-    primaryExpr                    shift and go to state 16
-    conversion                     shift and go to state 20
-    operand                        shift and go to state 21
-    type_                          shift and go to state 22
-    literal                        shift and go to state 24
-    typeName                       shift and go to state 25
-    basicLit                       shift and go to state 26
-    numericType                    shift and go to state 27
-    INT_LIT                        shift and go to state 31
-    FLOAT_LIT                      shift and go to state 32
+    orphanStmtList                 shift and go to state 8
+    topLevelDecl                   shift and go to state 9
+    statementList                  shift and go to state 10
+    declaration                    shift and go to state 4
+    statement                      shift and go to state 11
+    varDecl                        shift and go to state 5
+    simpleStmt                     shift and go to state 12
+    identifierList                 shift and go to state 13
+    assignment                     shift and go to state 14
+    expressionStmt                 shift and go to state 15
+    expression                     shift and go to state 16
+    unaryExpr                      shift and go to state 17
+    UNARY_OP                       shift and go to state 18
+    primaryExpr                    shift and go to state 19
+    conversion                     shift and go to state 23
+    operand                        shift and go to state 24
+    type_                          shift and go to state 25
+    literal                        shift and go to state 27
+    typeName                       shift and go to state 28
+    basicLit                       shift and go to state 29
+    numericType                    shift and go to state 30
+    INT_LIT                        shift and go to state 34
+    FLOAT_LIT                      shift and go to state 35
 
 state 3
 
@@ -510,77 +402,34 @@ state 3
     (65) eos -> . NEWL
     (66) eos -> . eos ;
     (67) eos -> . ;
-    NEWL            shift and go to state 58
-    ;               shift and go to state 59
+    NEWL            shift and go to state 60
+    ;               shift and go to state 61
 
-    eos                            shift and go to state 60
+    eos                            shift and go to state 59
 
 state 4
-
-    (5) topLevelDecl -> statementList . eos
-    (13) statementList -> statementList . eos statement
-    (64) eos -> . eos NEWL
-    (65) eos -> . NEWL
-    (66) eos -> . eos ;
-    (67) eos -> . ;
-    NEWL            shift and go to state 58
-    ;               shift and go to state 59
-
-    eos                            shift and go to state 61
-
-state 5
 
     (6) topLevelDecl -> declaration .
     NEWL            reduce using rule 6 (topLevelDecl -> declaration .)
     ;               reduce using rule 6 (topLevelDecl -> declaration .)
 
 
-state 6
-
-    (14) statementList -> statement .
-    NEWL            reduce using rule 14 (statementList -> statement .)
-    ;               reduce using rule 14 (statementList -> statement .)
-
-
-state 7
+state 5
 
     (7) declaration -> varDecl .
     NEWL            reduce using rule 7 (declaration -> varDecl .)
     ;               reduce using rule 7 (declaration -> varDecl .)
 
 
-state 8
-
-    (15) statement -> simpleStmt .
-    NEWL            reduce using rule 15 (statement -> simpleStmt .)
-    ;               reduce using rule 15 (statement -> simpleStmt .)
-
-
-state 9
+state 6
 
     (8) varDecl -> identifierList . DECL_ASGN expressionList
     (9) identifierList -> identifierList . , IDENTIFIER
-    (19) assignment -> identifierList . ASSIGN expressionList
     DECL_ASGN       shift and go to state 62
     ,               shift and go to state 63
-    ASSIGN          shift and go to state 64
 
 
-state 10
-
-    (16) simpleStmt -> assignment .
-    NEWL            reduce using rule 16 (simpleStmt -> assignment .)
-    ;               reduce using rule 16 (simpleStmt -> assignment .)
-
-
-state 11
-
-    (17) simpleStmt -> expressionStmt .
-    NEWL            reduce using rule 17 (simpleStmt -> expressionStmt .)
-    ;               reduce using rule 17 (simpleStmt -> expressionStmt .)
-
-
-state 12
+state 7
 
     (10) identifierList -> IDENTIFIER .
     DECL_ASGN       reduce using rule 10 (identifierList -> IDENTIFIER .)
@@ -588,7 +437,76 @@ state 12
     ASSIGN          reduce using rule 10 (identifierList -> IDENTIFIER .)
 
 
+state 8
+
+    (1) program -> topLevelDecls orphanStmtList .
+    $end            reduce using rule 1 (program -> topLevelDecls orphanStmtList .)
+
+
+state 9
+
+    (3) topLevelDecls -> topLevelDecls topLevelDecl . eos
+    (64) eos -> . eos NEWL
+    (65) eos -> . NEWL
+    (66) eos -> . eos ;
+    (67) eos -> . ;
+    NEWL            shift and go to state 60
+    ;               shift and go to state 61
+
+    eos                            shift and go to state 64
+
+state 10
+
+    (5) orphanStmtList -> statementList . eos
+    (13) statementList -> statementList . eos statement
+    (64) eos -> . eos NEWL
+    (65) eos -> . NEWL
+    (66) eos -> . eos ;
+    (67) eos -> . ;
+    NEWL            shift and go to state 60
+    ;               shift and go to state 61
+
+    eos                            shift and go to state 65
+
+state 11
+
+    (14) statementList -> statement .
+    NEWL            reduce using rule 14 (statementList -> statement .)
+    ;               reduce using rule 14 (statementList -> statement .)
+
+
+state 12
+
+    (15) statement -> simpleStmt .
+    NEWL            reduce using rule 15 (statement -> simpleStmt .)
+    ;               reduce using rule 15 (statement -> simpleStmt .)
+
+
 state 13
+
+    (8) varDecl -> identifierList . DECL_ASGN expressionList
+    (9) identifierList -> identifierList . , IDENTIFIER
+    (19) assignment -> identifierList . ASSIGN expressionList
+    DECL_ASGN       shift and go to state 62
+    ,               shift and go to state 63
+    ASSIGN          shift and go to state 66
+
+
+state 14
+
+    (16) simpleStmt -> assignment .
+    NEWL            reduce using rule 16 (simpleStmt -> assignment .)
+    ;               reduce using rule 16 (simpleStmt -> assignment .)
+
+
+state 15
+
+    (17) simpleStmt -> expressionStmt .
+    NEWL            reduce using rule 17 (simpleStmt -> expressionStmt .)
+    ;               reduce using rule 17 (simpleStmt -> expressionStmt .)
+
+
+state 16
 
     (18) expressionStmt -> expression .
     (20) expression -> expression . BINARY_OP unaryExpr
@@ -615,31 +533,31 @@ state 13
     (78) REL_OP -> . EQ
     NEWL            reduce using rule 18 (expressionStmt -> expression .)
     ;               reduce using rule 18 (expressionStmt -> expression .)
-    LOGIC_AND       shift and go to state 69
-    LOGIC_OR        shift and go to state 70
-    SHR             shift and go to state 71
-    SHL             shift and go to state 72
-    AND             shift and go to state 73
-    MOD             shift and go to state 74
-    DIV             shift and go to state 75
-    STAR            shift and go to state 76
-    XOR             shift and go to state 77
-    OR              shift and go to state 78
-    MINUS           shift and go to state 79
-    PLUS            shift and go to state 80
-    GE              shift and go to state 81
-    GT              shift and go to state 82
-    LE              shift and go to state 83
-    LT              shift and go to state 84
-    NE              shift and go to state 85
-    EQ              shift and go to state 86
+    LOGIC_AND       shift and go to state 71
+    LOGIC_OR        shift and go to state 72
+    SHR             shift and go to state 73
+    SHL             shift and go to state 74
+    AND             shift and go to state 75
+    MOD             shift and go to state 76
+    DIV             shift and go to state 77
+    STAR            shift and go to state 78
+    XOR             shift and go to state 79
+    OR              shift and go to state 80
+    MINUS           shift and go to state 81
+    PLUS            shift and go to state 82
+    GE              shift and go to state 83
+    GT              shift and go to state 84
+    LE              shift and go to state 85
+    LT              shift and go to state 86
+    NE              shift and go to state 87
+    EQ              shift and go to state 88
 
-    BINARY_OP                      shift and go to state 65
-    MUL_OP                         shift and go to state 66
-    ADD_OP                         shift and go to state 67
-    REL_OP                         shift and go to state 68
+    BINARY_OP                      shift and go to state 67
+    MUL_OP                         shift and go to state 68
+    ADD_OP                         shift and go to state 69
+    REL_OP                         shift and go to state 70
 
-state 14
+state 17
 
     (21) expression -> unaryExpr .
     LOGIC_AND       reduce using rule 21 (expression -> unaryExpr .)
@@ -666,7 +584,7 @@ state 14
     ,               reduce using rule 21 (expression -> unaryExpr .)
 
 
-state 15
+state 18
 
     (22) unaryExpr -> UNARY_OP . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
@@ -714,51 +632,51 @@ state 15
     (57) FLOAT_LIT -> . . DECIMAL_LIT
     (58) FLOAT_LIT -> . DECIMAL_LIT .
     (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
-    AND             shift and go to state 17
-    EXCLM           shift and go to state 18
-    MINUS           shift and go to state 19
-    (               shift and go to state 23
-    STRING          shift and go to state 28
-    BOOL            shift and go to state 29
-    RUNE            shift and go to state 30
-    DECIMAL_LIT     shift and go to state 33
-    FALSE           shift and go to state 34
-    TRUE            shift and go to state 35
-    RUNE_LIT        shift and go to state 36
-    STRING_LIT      shift and go to state 37
-    F32             shift and go to state 38
-    F64             shift and go to state 39
-    INT             shift and go to state 40
-    ISIZE           shift and go to state 41
-    I64             shift and go to state 42
-    I32             shift and go to state 43
-    I16             shift and go to state 44
-    I8              shift and go to state 45
-    UINT            shift and go to state 46
-    USIZE           shift and go to state 47
-    U64             shift and go to state 48
-    U32             shift and go to state 49
-    U16             shift and go to state 50
-    U8              shift and go to state 51
-    HEX_LIT         shift and go to state 52
-    OCTAL_LIT       shift and go to state 53
-    BINARY_LIT      shift and go to state 54
-    .               shift and go to state 55
+    AND             shift and go to state 20
+    EXCLM           shift and go to state 21
+    MINUS           shift and go to state 22
+    (               shift and go to state 26
+    STRING          shift and go to state 31
+    BOOL            shift and go to state 32
+    RUNE            shift and go to state 33
+    DECIMAL_LIT     shift and go to state 36
+    FALSE           shift and go to state 37
+    TRUE            shift and go to state 38
+    RUNE_LIT        shift and go to state 39
+    STRING_LIT      shift and go to state 40
+    F32             shift and go to state 41
+    F64             shift and go to state 42
+    INT             shift and go to state 43
+    ISIZE           shift and go to state 44
+    I64             shift and go to state 45
+    I32             shift and go to state 46
+    I16             shift and go to state 47
+    I8              shift and go to state 48
+    UINT            shift and go to state 49
+    USIZE           shift and go to state 50
+    U64             shift and go to state 51
+    U32             shift and go to state 52
+    U16             shift and go to state 53
+    U8              shift and go to state 54
+    HEX_LIT         shift and go to state 55
+    OCTAL_LIT       shift and go to state 56
+    BINARY_LIT      shift and go to state 57
+    .               shift and go to state 58
 
-    UNARY_OP                       shift and go to state 15
-    unaryExpr                      shift and go to state 87
-    primaryExpr                    shift and go to state 16
-    conversion                     shift and go to state 20
-    operand                        shift and go to state 21
-    type_                          shift and go to state 22
-    literal                        shift and go to state 24
-    typeName                       shift and go to state 25
-    basicLit                       shift and go to state 26
-    numericType                    shift and go to state 27
-    INT_LIT                        shift and go to state 31
-    FLOAT_LIT                      shift and go to state 32
+    UNARY_OP                       shift and go to state 18
+    unaryExpr                      shift and go to state 89
+    primaryExpr                    shift and go to state 19
+    conversion                     shift and go to state 23
+    operand                        shift and go to state 24
+    type_                          shift and go to state 25
+    literal                        shift and go to state 27
+    typeName                       shift and go to state 28
+    basicLit                       shift and go to state 29
+    numericType                    shift and go to state 30
+    INT_LIT                        shift and go to state 34
+    FLOAT_LIT                      shift and go to state 35
 
-state 16
+state 19
 
     (23) unaryExpr -> primaryExpr .
     LOGIC_AND       reduce using rule 23 (unaryExpr -> primaryExpr .)
@@ -785,7 +703,7 @@ state 16
     ,               reduce using rule 23 (unaryExpr -> primaryExpr .)
 
 
-state 17
+state 20
 
     (89) UNARY_OP -> AND .
     AND             reduce using rule 89 (UNARY_OP -> AND .)
@@ -820,7 +738,7 @@ state 17
     .               reduce using rule 89 (UNARY_OP -> AND .)
 
 
-state 18
+state 21
 
     (90) UNARY_OP -> EXCLM .
     AND             reduce using rule 90 (UNARY_OP -> EXCLM .)
@@ -855,7 +773,7 @@ state 18
     .               reduce using rule 90 (UNARY_OP -> EXCLM .)
 
 
-state 19
+state 22
 
     (91) UNARY_OP -> MINUS .
     AND             reduce using rule 91 (UNARY_OP -> MINUS .)
@@ -890,7 +808,7 @@ state 19
     .               reduce using rule 91 (UNARY_OP -> MINUS .)
 
 
-state 20
+state 23
 
     (24) primaryExpr -> conversion .
     LOGIC_AND       reduce using rule 24 (primaryExpr -> conversion .)
@@ -917,7 +835,7 @@ state 20
     ,               reduce using rule 24 (primaryExpr -> conversion .)
 
 
-state 21
+state 24
 
     (25) primaryExpr -> operand .
     LOGIC_AND       reduce using rule 25 (primaryExpr -> operand .)
@@ -944,13 +862,13 @@ state 21
     ,               reduce using rule 25 (primaryExpr -> operand .)
 
 
-state 22
+state 25
 
     (29) conversion -> type_ . ( expression )
-    (               shift and go to state 88
+    (               shift and go to state 90
 
 
-state 23
+state 26
 
     (26) operand -> ( . expression )
     (20) expression -> . expression BINARY_OP unaryExpr
@@ -1000,52 +918,52 @@ state 23
     (57) FLOAT_LIT -> . . DECIMAL_LIT
     (58) FLOAT_LIT -> . DECIMAL_LIT .
     (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
-    AND             shift and go to state 17
-    EXCLM           shift and go to state 18
-    MINUS           shift and go to state 19
-    (               shift and go to state 23
-    STRING          shift and go to state 28
-    BOOL            shift and go to state 29
-    RUNE            shift and go to state 30
-    DECIMAL_LIT     shift and go to state 33
-    FALSE           shift and go to state 34
-    TRUE            shift and go to state 35
-    RUNE_LIT        shift and go to state 36
-    STRING_LIT      shift and go to state 37
-    F32             shift and go to state 38
-    F64             shift and go to state 39
-    INT             shift and go to state 40
-    ISIZE           shift and go to state 41
-    I64             shift and go to state 42
-    I32             shift and go to state 43
-    I16             shift and go to state 44
-    I8              shift and go to state 45
-    UINT            shift and go to state 46
-    USIZE           shift and go to state 47
-    U64             shift and go to state 48
-    U32             shift and go to state 49
-    U16             shift and go to state 50
-    U8              shift and go to state 51
-    HEX_LIT         shift and go to state 52
-    OCTAL_LIT       shift and go to state 53
-    BINARY_LIT      shift and go to state 54
-    .               shift and go to state 55
+    AND             shift and go to state 20
+    EXCLM           shift and go to state 21
+    MINUS           shift and go to state 22
+    (               shift and go to state 26
+    STRING          shift and go to state 31
+    BOOL            shift and go to state 32
+    RUNE            shift and go to state 33
+    DECIMAL_LIT     shift and go to state 36
+    FALSE           shift and go to state 37
+    TRUE            shift and go to state 38
+    RUNE_LIT        shift and go to state 39
+    STRING_LIT      shift and go to state 40
+    F32             shift and go to state 41
+    F64             shift and go to state 42
+    INT             shift and go to state 43
+    ISIZE           shift and go to state 44
+    I64             shift and go to state 45
+    I32             shift and go to state 46
+    I16             shift and go to state 47
+    I8              shift and go to state 48
+    UINT            shift and go to state 49
+    USIZE           shift and go to state 50
+    U64             shift and go to state 51
+    U32             shift and go to state 52
+    U16             shift and go to state 53
+    U8              shift and go to state 54
+    HEX_LIT         shift and go to state 55
+    OCTAL_LIT       shift and go to state 56
+    BINARY_LIT      shift and go to state 57
+    .               shift and go to state 58
 
-    expression                     shift and go to state 89
-    unaryExpr                      shift and go to state 14
-    UNARY_OP                       shift and go to state 15
-    primaryExpr                    shift and go to state 16
-    conversion                     shift and go to state 20
-    operand                        shift and go to state 21
-    type_                          shift and go to state 22
-    literal                        shift and go to state 24
-    typeName                       shift and go to state 25
-    basicLit                       shift and go to state 26
-    numericType                    shift and go to state 27
-    INT_LIT                        shift and go to state 31
-    FLOAT_LIT                      shift and go to state 32
+    expression                     shift and go to state 91
+    unaryExpr                      shift and go to state 17
+    UNARY_OP                       shift and go to state 18
+    primaryExpr                    shift and go to state 19
+    conversion                     shift and go to state 23
+    operand                        shift and go to state 24
+    type_                          shift and go to state 25
+    literal                        shift and go to state 27
+    typeName                       shift and go to state 28
+    basicLit                       shift and go to state 29
+    numericType                    shift and go to state 30
+    INT_LIT                        shift and go to state 34
+    FLOAT_LIT                      shift and go to state 35
 
-state 24
+state 27
 
     (27) operand -> literal .
     LOGIC_AND       reduce using rule 27 (operand -> literal .)
@@ -1072,13 +990,13 @@ state 24
     ,               reduce using rule 27 (operand -> literal .)
 
 
-state 25
+state 28
 
     (30) type_ -> typeName .
     (               reduce using rule 30 (type_ -> typeName .)
 
 
-state 26
+state 29
 
     (28) literal -> basicLit .
     LOGIC_AND       reduce using rule 28 (literal -> basicLit .)
@@ -1105,31 +1023,31 @@ state 26
     ,               reduce using rule 28 (literal -> basicLit .)
 
 
-state 27
+state 30
 
     (31) typeName -> numericType .
     (               reduce using rule 31 (typeName -> numericType .)
 
 
-state 28
+state 31
 
     (32) typeName -> STRING .
     (               reduce using rule 32 (typeName -> STRING .)
 
 
-state 29
+state 32
 
     (33) typeName -> BOOL .
     (               reduce using rule 33 (typeName -> BOOL .)
 
 
-state 30
+state 33
 
     (34) typeName -> RUNE .
     (               reduce using rule 34 (typeName -> RUNE .)
 
 
-state 31
+state 34
 
     (49) basicLit -> INT_LIT .
     LOGIC_AND       reduce using rule 49 (basicLit -> INT_LIT .)
@@ -1156,7 +1074,7 @@ state 31
     ,               reduce using rule 49 (basicLit -> INT_LIT .)
 
 
-state 32
+state 35
 
     (50) basicLit -> FLOAT_LIT .
     (52) basicLit -> FLOAT_LIT . EXPONENT
@@ -1182,16 +1100,16 @@ state 32
     ;               reduce using rule 50 (basicLit -> FLOAT_LIT .)
     )               reduce using rule 50 (basicLit -> FLOAT_LIT .)
     ,               reduce using rule 50 (basicLit -> FLOAT_LIT .)
-    EXPONENT        shift and go to state 90
+    EXPONENT        shift and go to state 92
 
 
-state 33
+state 36
 
     (51) basicLit -> DECIMAL_LIT . EXPONENT
     (63) INT_LIT -> DECIMAL_LIT .
     (58) FLOAT_LIT -> DECIMAL_LIT . .
     (59) FLOAT_LIT -> DECIMAL_LIT . . DECIMAL_LIT
-    EXPONENT        shift and go to state 91
+    EXPONENT        shift and go to state 93
     LOGIC_AND       reduce using rule 63 (INT_LIT -> DECIMAL_LIT .)
     LOGIC_OR        reduce using rule 63 (INT_LIT -> DECIMAL_LIT .)
     SHR             reduce using rule 63 (INT_LIT -> DECIMAL_LIT .)
@@ -1214,10 +1132,10 @@ state 33
     ;               reduce using rule 63 (INT_LIT -> DECIMAL_LIT .)
     )               reduce using rule 63 (INT_LIT -> DECIMAL_LIT .)
     ,               reduce using rule 63 (INT_LIT -> DECIMAL_LIT .)
-    .               shift and go to state 92
+    .               shift and go to state 94
 
 
-state 34
+state 37
 
     (53) basicLit -> FALSE .
     LOGIC_AND       reduce using rule 53 (basicLit -> FALSE .)
@@ -1244,7 +1162,7 @@ state 34
     ,               reduce using rule 53 (basicLit -> FALSE .)
 
 
-state 35
+state 38
 
     (54) basicLit -> TRUE .
     LOGIC_AND       reduce using rule 54 (basicLit -> TRUE .)
@@ -1271,7 +1189,7 @@ state 35
     ,               reduce using rule 54 (basicLit -> TRUE .)
 
 
-state 36
+state 39
 
     (55) basicLit -> RUNE_LIT .
     LOGIC_AND       reduce using rule 55 (basicLit -> RUNE_LIT .)
@@ -1298,7 +1216,7 @@ state 36
     ,               reduce using rule 55 (basicLit -> RUNE_LIT .)
 
 
-state 37
+state 40
 
     (56) basicLit -> STRING_LIT .
     LOGIC_AND       reduce using rule 56 (basicLit -> STRING_LIT .)
@@ -1325,91 +1243,91 @@ state 37
     ,               reduce using rule 56 (basicLit -> STRING_LIT .)
 
 
-state 38
+state 41
 
     (35) numericType -> F32 .
     (               reduce using rule 35 (numericType -> F32 .)
 
 
-state 39
+state 42
 
     (36) numericType -> F64 .
     (               reduce using rule 36 (numericType -> F64 .)
 
 
-state 40
+state 43
 
     (37) numericType -> INT .
     (               reduce using rule 37 (numericType -> INT .)
 
 
-state 41
+state 44
 
     (38) numericType -> ISIZE .
     (               reduce using rule 38 (numericType -> ISIZE .)
 
 
-state 42
+state 45
 
     (39) numericType -> I64 .
     (               reduce using rule 39 (numericType -> I64 .)
 
 
-state 43
+state 46
 
     (40) numericType -> I32 .
     (               reduce using rule 40 (numericType -> I32 .)
 
 
-state 44
+state 47
 
     (41) numericType -> I16 .
     (               reduce using rule 41 (numericType -> I16 .)
 
 
-state 45
+state 48
 
     (42) numericType -> I8 .
     (               reduce using rule 42 (numericType -> I8 .)
 
 
-state 46
+state 49
 
     (43) numericType -> UINT .
     (               reduce using rule 43 (numericType -> UINT .)
 
 
-state 47
+state 50
 
     (44) numericType -> USIZE .
     (               reduce using rule 44 (numericType -> USIZE .)
 
 
-state 48
+state 51
 
     (45) numericType -> U64 .
     (               reduce using rule 45 (numericType -> U64 .)
 
 
-state 49
+state 52
 
     (46) numericType -> U32 .
     (               reduce using rule 46 (numericType -> U32 .)
 
 
-state 50
+state 53
 
     (47) numericType -> U16 .
     (               reduce using rule 47 (numericType -> U16 .)
 
 
-state 51
+state 54
 
     (48) numericType -> U8 .
     (               reduce using rule 48 (numericType -> U8 .)
 
 
-state 52
+state 55
 
     (60) INT_LIT -> HEX_LIT .
     LOGIC_AND       reduce using rule 60 (INT_LIT -> HEX_LIT .)
@@ -1436,7 +1354,7 @@ state 52
     ,               reduce using rule 60 (INT_LIT -> HEX_LIT .)
 
 
-state 53
+state 56
 
     (61) INT_LIT -> OCTAL_LIT .
     LOGIC_AND       reduce using rule 61 (INT_LIT -> OCTAL_LIT .)
@@ -1463,7 +1381,7 @@ state 53
     ,               reduce using rule 61 (INT_LIT -> OCTAL_LIT .)
 
 
-state 54
+state 57
 
     (62) INT_LIT -> BINARY_LIT .
     LOGIC_AND       reduce using rule 62 (INT_LIT -> BINARY_LIT .)
@@ -1490,119 +1408,17 @@ state 54
     ,               reduce using rule 62 (INT_LIT -> BINARY_LIT .)
 
 
-state 55
-
-    (57) FLOAT_LIT -> . . DECIMAL_LIT
-    DECIMAL_LIT     shift and go to state 93
-
-
-state 56
-
-    (1) prog -> topLevelDecls eos .
-    (64) eos -> eos . NEWL
-    (66) eos -> eos . ;
-    $end            reduce using rule 1 (prog -> topLevelDecls eos .)
-    NEWL            shift and go to state 94
-    ;               shift and go to state 95
-
-
-state 57
-
-    (3) topLevelDecls -> topLevelDecls topLevelDecl . eos
-    (64) eos -> . eos NEWL
-    (65) eos -> . NEWL
-    (66) eos -> . eos ;
-    (67) eos -> . ;
-    NEWL            shift and go to state 58
-    ;               shift and go to state 59
-
-    eos                            shift and go to state 96
-
 state 58
 
-    (65) eos -> NEWL .
-    NEWL            reduce using rule 65 (eos -> NEWL .)
-    ;               reduce using rule 65 (eos -> NEWL .)
-    $end            reduce using rule 65 (eos -> NEWL .)
-    IDENTIFIER      reduce using rule 65 (eos -> NEWL .)
-    AND             reduce using rule 65 (eos -> NEWL .)
-    EXCLM           reduce using rule 65 (eos -> NEWL .)
-    MINUS           reduce using rule 65 (eos -> NEWL .)
-    (               reduce using rule 65 (eos -> NEWL .)
-    STRING          reduce using rule 65 (eos -> NEWL .)
-    BOOL            reduce using rule 65 (eos -> NEWL .)
-    RUNE            reduce using rule 65 (eos -> NEWL .)
-    DECIMAL_LIT     reduce using rule 65 (eos -> NEWL .)
-    FALSE           reduce using rule 65 (eos -> NEWL .)
-    TRUE            reduce using rule 65 (eos -> NEWL .)
-    RUNE_LIT        reduce using rule 65 (eos -> NEWL .)
-    STRING_LIT      reduce using rule 65 (eos -> NEWL .)
-    F32             reduce using rule 65 (eos -> NEWL .)
-    F64             reduce using rule 65 (eos -> NEWL .)
-    INT             reduce using rule 65 (eos -> NEWL .)
-    ISIZE           reduce using rule 65 (eos -> NEWL .)
-    I64             reduce using rule 65 (eos -> NEWL .)
-    I32             reduce using rule 65 (eos -> NEWL .)
-    I16             reduce using rule 65 (eos -> NEWL .)
-    I8              reduce using rule 65 (eos -> NEWL .)
-    UINT            reduce using rule 65 (eos -> NEWL .)
-    USIZE           reduce using rule 65 (eos -> NEWL .)
-    U64             reduce using rule 65 (eos -> NEWL .)
-    U32             reduce using rule 65 (eos -> NEWL .)
-    U16             reduce using rule 65 (eos -> NEWL .)
-    U8              reduce using rule 65 (eos -> NEWL .)
-    HEX_LIT         reduce using rule 65 (eos -> NEWL .)
-    OCTAL_LIT       reduce using rule 65 (eos -> NEWL .)
-    BINARY_LIT      reduce using rule 65 (eos -> NEWL .)
-    .               reduce using rule 65 (eos -> NEWL .)
+    (57) FLOAT_LIT -> . . DECIMAL_LIT
+    DECIMAL_LIT     shift and go to state 95
 
 
 state 59
 
-    (67) eos -> ; .
-    NEWL            reduce using rule 67 (eos -> ; .)
-    ;               reduce using rule 67 (eos -> ; .)
-    $end            reduce using rule 67 (eos -> ; .)
-    IDENTIFIER      reduce using rule 67 (eos -> ; .)
-    AND             reduce using rule 67 (eos -> ; .)
-    EXCLM           reduce using rule 67 (eos -> ; .)
-    MINUS           reduce using rule 67 (eos -> ; .)
-    (               reduce using rule 67 (eos -> ; .)
-    STRING          reduce using rule 67 (eos -> ; .)
-    BOOL            reduce using rule 67 (eos -> ; .)
-    RUNE            reduce using rule 67 (eos -> ; .)
-    DECIMAL_LIT     reduce using rule 67 (eos -> ; .)
-    FALSE           reduce using rule 67 (eos -> ; .)
-    TRUE            reduce using rule 67 (eos -> ; .)
-    RUNE_LIT        reduce using rule 67 (eos -> ; .)
-    STRING_LIT      reduce using rule 67 (eos -> ; .)
-    F32             reduce using rule 67 (eos -> ; .)
-    F64             reduce using rule 67 (eos -> ; .)
-    INT             reduce using rule 67 (eos -> ; .)
-    ISIZE           reduce using rule 67 (eos -> ; .)
-    I64             reduce using rule 67 (eos -> ; .)
-    I32             reduce using rule 67 (eos -> ; .)
-    I16             reduce using rule 67 (eos -> ; .)
-    I8              reduce using rule 67 (eos -> ; .)
-    UINT            reduce using rule 67 (eos -> ; .)
-    USIZE           reduce using rule 67 (eos -> ; .)
-    U64             reduce using rule 67 (eos -> ; .)
-    U32             reduce using rule 67 (eos -> ; .)
-    U16             reduce using rule 67 (eos -> ; .)
-    U8              reduce using rule 67 (eos -> ; .)
-    HEX_LIT         reduce using rule 67 (eos -> ; .)
-    OCTAL_LIT       reduce using rule 67 (eos -> ; .)
-    BINARY_LIT      reduce using rule 67 (eos -> ; .)
-    .               reduce using rule 67 (eos -> ; .)
-
-
-state 60
-
     (4) topLevelDecls -> topLevelDecl eos .
     (64) eos -> eos . NEWL
     (66) eos -> eos . ;
-  ! shift/reduce conflict for NEWL resolved as shift
-  ! shift/reduce conflict for ; resolved as shift
     IDENTIFIER      reduce using rule 4 (topLevelDecls -> topLevelDecl eos .)
     AND             reduce using rule 4 (topLevelDecls -> topLevelDecl eos .)
     EXCLM           reduce using rule 4 (topLevelDecls -> topLevelDecl eos .)
@@ -1635,13 +1451,236 @@ state 60
     BINARY_LIT      reduce using rule 4 (topLevelDecls -> topLevelDecl eos .)
     .               reduce using rule 4 (topLevelDecls -> topLevelDecl eos .)
     $end            reduce using rule 4 (topLevelDecls -> topLevelDecl eos .)
-    NEWL            shift and go to state 94
-    ;               shift and go to state 95
+    NEWL            shift and go to state 96
+    ;               shift and go to state 97
+
+
+state 60
+
+    (65) eos -> NEWL .
+    NEWL            reduce using rule 65 (eos -> NEWL .)
+    ;               reduce using rule 65 (eos -> NEWL .)
+    IDENTIFIER      reduce using rule 65 (eos -> NEWL .)
+    AND             reduce using rule 65 (eos -> NEWL .)
+    EXCLM           reduce using rule 65 (eos -> NEWL .)
+    MINUS           reduce using rule 65 (eos -> NEWL .)
+    (               reduce using rule 65 (eos -> NEWL .)
+    STRING          reduce using rule 65 (eos -> NEWL .)
+    BOOL            reduce using rule 65 (eos -> NEWL .)
+    RUNE            reduce using rule 65 (eos -> NEWL .)
+    DECIMAL_LIT     reduce using rule 65 (eos -> NEWL .)
+    FALSE           reduce using rule 65 (eos -> NEWL .)
+    TRUE            reduce using rule 65 (eos -> NEWL .)
+    RUNE_LIT        reduce using rule 65 (eos -> NEWL .)
+    STRING_LIT      reduce using rule 65 (eos -> NEWL .)
+    F32             reduce using rule 65 (eos -> NEWL .)
+    F64             reduce using rule 65 (eos -> NEWL .)
+    INT             reduce using rule 65 (eos -> NEWL .)
+    ISIZE           reduce using rule 65 (eos -> NEWL .)
+    I64             reduce using rule 65 (eos -> NEWL .)
+    I32             reduce using rule 65 (eos -> NEWL .)
+    I16             reduce using rule 65 (eos -> NEWL .)
+    I8              reduce using rule 65 (eos -> NEWL .)
+    UINT            reduce using rule 65 (eos -> NEWL .)
+    USIZE           reduce using rule 65 (eos -> NEWL .)
+    U64             reduce using rule 65 (eos -> NEWL .)
+    U32             reduce using rule 65 (eos -> NEWL .)
+    U16             reduce using rule 65 (eos -> NEWL .)
+    U8              reduce using rule 65 (eos -> NEWL .)
+    HEX_LIT         reduce using rule 65 (eos -> NEWL .)
+    OCTAL_LIT       reduce using rule 65 (eos -> NEWL .)
+    BINARY_LIT      reduce using rule 65 (eos -> NEWL .)
+    .               reduce using rule 65 (eos -> NEWL .)
+    $end            reduce using rule 65 (eos -> NEWL .)
 
 
 state 61
 
-    (5) topLevelDecl -> statementList eos .
+    (67) eos -> ; .
+    NEWL            reduce using rule 67 (eos -> ; .)
+    ;               reduce using rule 67 (eos -> ; .)
+    IDENTIFIER      reduce using rule 67 (eos -> ; .)
+    AND             reduce using rule 67 (eos -> ; .)
+    EXCLM           reduce using rule 67 (eos -> ; .)
+    MINUS           reduce using rule 67 (eos -> ; .)
+    (               reduce using rule 67 (eos -> ; .)
+    STRING          reduce using rule 67 (eos -> ; .)
+    BOOL            reduce using rule 67 (eos -> ; .)
+    RUNE            reduce using rule 67 (eos -> ; .)
+    DECIMAL_LIT     reduce using rule 67 (eos -> ; .)
+    FALSE           reduce using rule 67 (eos -> ; .)
+    TRUE            reduce using rule 67 (eos -> ; .)
+    RUNE_LIT        reduce using rule 67 (eos -> ; .)
+    STRING_LIT      reduce using rule 67 (eos -> ; .)
+    F32             reduce using rule 67 (eos -> ; .)
+    F64             reduce using rule 67 (eos -> ; .)
+    INT             reduce using rule 67 (eos -> ; .)
+    ISIZE           reduce using rule 67 (eos -> ; .)
+    I64             reduce using rule 67 (eos -> ; .)
+    I32             reduce using rule 67 (eos -> ; .)
+    I16             reduce using rule 67 (eos -> ; .)
+    I8              reduce using rule 67 (eos -> ; .)
+    UINT            reduce using rule 67 (eos -> ; .)
+    USIZE           reduce using rule 67 (eos -> ; .)
+    U64             reduce using rule 67 (eos -> ; .)
+    U32             reduce using rule 67 (eos -> ; .)
+    U16             reduce using rule 67 (eos -> ; .)
+    U8              reduce using rule 67 (eos -> ; .)
+    HEX_LIT         reduce using rule 67 (eos -> ; .)
+    OCTAL_LIT       reduce using rule 67 (eos -> ; .)
+    BINARY_LIT      reduce using rule 67 (eos -> ; .)
+    .               reduce using rule 67 (eos -> ; .)
+    $end            reduce using rule 67 (eos -> ; .)
+
+
+state 62
+
+    (8) varDecl -> identifierList DECL_ASGN . expressionList
+    (11) expressionList -> . expressionList , expression
+    (12) expressionList -> . expression
+    (20) expression -> . expression BINARY_OP unaryExpr
+    (21) expression -> . unaryExpr
+    (22) unaryExpr -> . UNARY_OP unaryExpr
+    (23) unaryExpr -> . primaryExpr
+    (89) UNARY_OP -> . AND
+    (90) UNARY_OP -> . EXCLM
+    (91) UNARY_OP -> . MINUS
+    (24) primaryExpr -> . conversion
+    (25) primaryExpr -> . operand
+    (29) conversion -> . type_ ( expression )
+    (26) operand -> . ( expression )
+    (27) operand -> . literal
+    (30) type_ -> . typeName
+    (28) literal -> . basicLit
+    (31) typeName -> . numericType
+    (32) typeName -> . STRING
+    (33) typeName -> . BOOL
+    (34) typeName -> . RUNE
+    (49) basicLit -> . INT_LIT
+    (50) basicLit -> . FLOAT_LIT
+    (51) basicLit -> . DECIMAL_LIT EXPONENT
+    (52) basicLit -> . FLOAT_LIT EXPONENT
+    (53) basicLit -> . FALSE
+    (54) basicLit -> . TRUE
+    (55) basicLit -> . RUNE_LIT
+    (56) basicLit -> . STRING_LIT
+    (35) numericType -> . F32
+    (36) numericType -> . F64
+    (37) numericType -> . INT
+    (38) numericType -> . ISIZE
+    (39) numericType -> . I64
+    (40) numericType -> . I32
+    (41) numericType -> . I16
+    (42) numericType -> . I8
+    (43) numericType -> . UINT
+    (44) numericType -> . USIZE
+    (45) numericType -> . U64
+    (46) numericType -> . U32
+    (47) numericType -> . U16
+    (48) numericType -> . U8
+    (60) INT_LIT -> . HEX_LIT
+    (61) INT_LIT -> . OCTAL_LIT
+    (62) INT_LIT -> . BINARY_LIT
+    (63) INT_LIT -> . DECIMAL_LIT
+    (57) FLOAT_LIT -> . . DECIMAL_LIT
+    (58) FLOAT_LIT -> . DECIMAL_LIT .
+    (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
+    AND             shift and go to state 20
+    EXCLM           shift and go to state 21
+    MINUS           shift and go to state 22
+    (               shift and go to state 26
+    STRING          shift and go to state 31
+    BOOL            shift and go to state 32
+    RUNE            shift and go to state 33
+    DECIMAL_LIT     shift and go to state 36
+    FALSE           shift and go to state 37
+    TRUE            shift and go to state 38
+    RUNE_LIT        shift and go to state 39
+    STRING_LIT      shift and go to state 40
+    F32             shift and go to state 41
+    F64             shift and go to state 42
+    INT             shift and go to state 43
+    ISIZE           shift and go to state 44
+    I64             shift and go to state 45
+    I32             shift and go to state 46
+    I16             shift and go to state 47
+    I8              shift and go to state 48
+    UINT            shift and go to state 49
+    USIZE           shift and go to state 50
+    U64             shift and go to state 51
+    U32             shift and go to state 52
+    U16             shift and go to state 53
+    U8              shift and go to state 54
+    HEX_LIT         shift and go to state 55
+    OCTAL_LIT       shift and go to state 56
+    BINARY_LIT      shift and go to state 57
+    .               shift and go to state 58
+
+    expressionList                 shift and go to state 98
+    expression                     shift and go to state 99
+    unaryExpr                      shift and go to state 17
+    UNARY_OP                       shift and go to state 18
+    primaryExpr                    shift and go to state 19
+    conversion                     shift and go to state 23
+    operand                        shift and go to state 24
+    type_                          shift and go to state 25
+    literal                        shift and go to state 27
+    typeName                       shift and go to state 28
+    basicLit                       shift and go to state 29
+    numericType                    shift and go to state 30
+    INT_LIT                        shift and go to state 34
+    FLOAT_LIT                      shift and go to state 35
+
+state 63
+
+    (9) identifierList -> identifierList , . IDENTIFIER
+    IDENTIFIER      shift and go to state 100
+
+
+state 64
+
+    (3) topLevelDecls -> topLevelDecls topLevelDecl eos .
+    (64) eos -> eos . NEWL
+    (66) eos -> eos . ;
+    IDENTIFIER      reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    AND             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    EXCLM           reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    MINUS           reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    (               reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    STRING          reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    BOOL            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    RUNE            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    DECIMAL_LIT     reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    FALSE           reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    TRUE            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    RUNE_LIT        reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    STRING_LIT      reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    F32             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    F64             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    INT             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    ISIZE           reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    I64             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    I32             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    I16             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    I8              reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    UINT            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    USIZE           reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    U64             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    U32             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    U16             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    U8              reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    HEX_LIT         reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    OCTAL_LIT       reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    BINARY_LIT      reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    .               reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    $end            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
+    NEWL            shift and go to state 96
+    ;               shift and go to state 97
+
+
+state 65
+
+    (5) orphanStmtList -> statementList eos .
     (13) statementList -> statementList eos . statement
     (64) eos -> eos . NEWL
     (66) eos -> eos . ;
@@ -1699,166 +1738,61 @@ state 61
     (57) FLOAT_LIT -> . . DECIMAL_LIT
     (58) FLOAT_LIT -> . DECIMAL_LIT .
     (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
-  ! shift/reduce conflict for NEWL resolved as shift
-  ! shift/reduce conflict for ; resolved as shift
-    NEWL            shift and go to state 94
-    ;               shift and go to state 95
-    IDENTIFIER      shift and go to state 12
-    AND             shift and go to state 17
-    EXCLM           shift and go to state 18
-    MINUS           shift and go to state 19
-    (               shift and go to state 23
-    STRING          shift and go to state 28
-    BOOL            shift and go to state 29
-    RUNE            shift and go to state 30
-    DECIMAL_LIT     shift and go to state 33
-    FALSE           shift and go to state 34
-    TRUE            shift and go to state 35
-    RUNE_LIT        shift and go to state 36
-    STRING_LIT      shift and go to state 37
-    F32             shift and go to state 38
-    F64             shift and go to state 39
-    INT             shift and go to state 40
-    ISIZE           shift and go to state 41
-    I64             shift and go to state 42
-    I32             shift and go to state 43
-    I16             shift and go to state 44
-    I8              shift and go to state 45
-    UINT            shift and go to state 46
-    USIZE           shift and go to state 47
-    U64             shift and go to state 48
-    U32             shift and go to state 49
-    U16             shift and go to state 50
-    U8              shift and go to state 51
-    HEX_LIT         shift and go to state 52
-    OCTAL_LIT       shift and go to state 53
-    BINARY_LIT      shift and go to state 54
-    .               shift and go to state 55
+    $end            reduce using rule 5 (orphanStmtList -> statementList eos .)
+    NEWL            shift and go to state 96
+    ;               shift and go to state 97
+    IDENTIFIER      shift and go to state 7
+    AND             shift and go to state 20
+    EXCLM           shift and go to state 21
+    MINUS           shift and go to state 22
+    (               shift and go to state 26
+    STRING          shift and go to state 31
+    BOOL            shift and go to state 32
+    RUNE            shift and go to state 33
+    DECIMAL_LIT     shift and go to state 36
+    FALSE           shift and go to state 37
+    TRUE            shift and go to state 38
+    RUNE_LIT        shift and go to state 39
+    STRING_LIT      shift and go to state 40
+    F32             shift and go to state 41
+    F64             shift and go to state 42
+    INT             shift and go to state 43
+    ISIZE           shift and go to state 44
+    I64             shift and go to state 45
+    I32             shift and go to state 46
+    I16             shift and go to state 47
+    I8              shift and go to state 48
+    UINT            shift and go to state 49
+    USIZE           shift and go to state 50
+    U64             shift and go to state 51
+    U32             shift and go to state 52
+    U16             shift and go to state 53
+    U8              shift and go to state 54
+    HEX_LIT         shift and go to state 55
+    OCTAL_LIT       shift and go to state 56
+    BINARY_LIT      shift and go to state 57
+    .               shift and go to state 58
 
-    statement                      shift and go to state 97
-    simpleStmt                     shift and go to state 8
-    assignment                     shift and go to state 10
-    expressionStmt                 shift and go to state 11
-    identifierList                 shift and go to state 98
-    expression                     shift and go to state 13
-    unaryExpr                      shift and go to state 14
-    UNARY_OP                       shift and go to state 15
-    primaryExpr                    shift and go to state 16
-    conversion                     shift and go to state 20
-    operand                        shift and go to state 21
-    type_                          shift and go to state 22
-    literal                        shift and go to state 24
-    typeName                       shift and go to state 25
-    basicLit                       shift and go to state 26
-    numericType                    shift and go to state 27
-    INT_LIT                        shift and go to state 31
-    FLOAT_LIT                      shift and go to state 32
+    statement                      shift and go to state 101
+    simpleStmt                     shift and go to state 12
+    assignment                     shift and go to state 14
+    expressionStmt                 shift and go to state 15
+    identifierList                 shift and go to state 102
+    expression                     shift and go to state 16
+    unaryExpr                      shift and go to state 17
+    UNARY_OP                       shift and go to state 18
+    primaryExpr                    shift and go to state 19
+    conversion                     shift and go to state 23
+    operand                        shift and go to state 24
+    type_                          shift and go to state 25
+    literal                        shift and go to state 27
+    typeName                       shift and go to state 28
+    basicLit                       shift and go to state 29
+    numericType                    shift and go to state 30
+    INT_LIT                        shift and go to state 34
+    FLOAT_LIT                      shift and go to state 35
 
-state 62
-
-    (8) varDecl -> identifierList DECL_ASGN . expressionList
-    (11) expressionList -> . expressionList , expression
-    (12) expressionList -> . expression
-    (20) expression -> . expression BINARY_OP unaryExpr
-    (21) expression -> . unaryExpr
-    (22) unaryExpr -> . UNARY_OP unaryExpr
-    (23) unaryExpr -> . primaryExpr
-    (89) UNARY_OP -> . AND
-    (90) UNARY_OP -> . EXCLM
-    (91) UNARY_OP -> . MINUS
-    (24) primaryExpr -> . conversion
-    (25) primaryExpr -> . operand
-    (29) conversion -> . type_ ( expression )
-    (26) operand -> . ( expression )
-    (27) operand -> . literal
-    (30) type_ -> . typeName
-    (28) literal -> . basicLit
-    (31) typeName -> . numericType
-    (32) typeName -> . STRING
-    (33) typeName -> . BOOL
-    (34) typeName -> . RUNE
-    (49) basicLit -> . INT_LIT
-    (50) basicLit -> . FLOAT_LIT
-    (51) basicLit -> . DECIMAL_LIT EXPONENT
-    (52) basicLit -> . FLOAT_LIT EXPONENT
-    (53) basicLit -> . FALSE
-    (54) basicLit -> . TRUE
-    (55) basicLit -> . RUNE_LIT
-    (56) basicLit -> . STRING_LIT
-    (35) numericType -> . F32
-    (36) numericType -> . F64
-    (37) numericType -> . INT
-    (38) numericType -> . ISIZE
-    (39) numericType -> . I64
-    (40) numericType -> . I32
-    (41) numericType -> . I16
-    (42) numericType -> . I8
-    (43) numericType -> . UINT
-    (44) numericType -> . USIZE
-    (45) numericType -> . U64
-    (46) numericType -> . U32
-    (47) numericType -> . U16
-    (48) numericType -> . U8
-    (60) INT_LIT -> . HEX_LIT
-    (61) INT_LIT -> . OCTAL_LIT
-    (62) INT_LIT -> . BINARY_LIT
-    (63) INT_LIT -> . DECIMAL_LIT
-    (57) FLOAT_LIT -> . . DECIMAL_LIT
-    (58) FLOAT_LIT -> . DECIMAL_LIT .
-    (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
-    AND             shift and go to state 17
-    EXCLM           shift and go to state 18
-    MINUS           shift and go to state 19
-    (               shift and go to state 23
-    STRING          shift and go to state 28
-    BOOL            shift and go to state 29
-    RUNE            shift and go to state 30
-    DECIMAL_LIT     shift and go to state 33
-    FALSE           shift and go to state 34
-    TRUE            shift and go to state 35
-    RUNE_LIT        shift and go to state 36
-    STRING_LIT      shift and go to state 37
-    F32             shift and go to state 38
-    F64             shift and go to state 39
-    INT             shift and go to state 40
-    ISIZE           shift and go to state 41
-    I64             shift and go to state 42
-    I32             shift and go to state 43
-    I16             shift and go to state 44
-    I8              shift and go to state 45
-    UINT            shift and go to state 46
-    USIZE           shift and go to state 47
-    U64             shift and go to state 48
-    U32             shift and go to state 49
-    U16             shift and go to state 50
-    U8              shift and go to state 51
-    HEX_LIT         shift and go to state 52
-    OCTAL_LIT       shift and go to state 53
-    BINARY_LIT      shift and go to state 54
-    .               shift and go to state 55
-
-    expressionList                 shift and go to state 99
-    expression                     shift and go to state 100
-    unaryExpr                      shift and go to state 14
-    UNARY_OP                       shift and go to state 15
-    primaryExpr                    shift and go to state 16
-    conversion                     shift and go to state 20
-    operand                        shift and go to state 21
-    type_                          shift and go to state 22
-    literal                        shift and go to state 24
-    typeName                       shift and go to state 25
-    basicLit                       shift and go to state 26
-    numericType                    shift and go to state 27
-    INT_LIT                        shift and go to state 31
-    FLOAT_LIT                      shift and go to state 32
-
-state 63
-
-    (9) identifierList -> identifierList , . IDENTIFIER
-    IDENTIFIER      shift and go to state 101
-
-
-state 64
+state 66
 
     (19) assignment -> identifierList ASSIGN . expressionList
     (11) expressionList -> . expressionList , expression
@@ -1910,53 +1844,53 @@ state 64
     (57) FLOAT_LIT -> . . DECIMAL_LIT
     (58) FLOAT_LIT -> . DECIMAL_LIT .
     (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
-    AND             shift and go to state 17
-    EXCLM           shift and go to state 18
-    MINUS           shift and go to state 19
-    (               shift and go to state 23
-    STRING          shift and go to state 28
-    BOOL            shift and go to state 29
-    RUNE            shift and go to state 30
-    DECIMAL_LIT     shift and go to state 33
-    FALSE           shift and go to state 34
-    TRUE            shift and go to state 35
-    RUNE_LIT        shift and go to state 36
-    STRING_LIT      shift and go to state 37
-    F32             shift and go to state 38
-    F64             shift and go to state 39
-    INT             shift and go to state 40
-    ISIZE           shift and go to state 41
-    I64             shift and go to state 42
-    I32             shift and go to state 43
-    I16             shift and go to state 44
-    I8              shift and go to state 45
-    UINT            shift and go to state 46
-    USIZE           shift and go to state 47
-    U64             shift and go to state 48
-    U32             shift and go to state 49
-    U16             shift and go to state 50
-    U8              shift and go to state 51
-    HEX_LIT         shift and go to state 52
-    OCTAL_LIT       shift and go to state 53
-    BINARY_LIT      shift and go to state 54
-    .               shift and go to state 55
+    AND             shift and go to state 20
+    EXCLM           shift and go to state 21
+    MINUS           shift and go to state 22
+    (               shift and go to state 26
+    STRING          shift and go to state 31
+    BOOL            shift and go to state 32
+    RUNE            shift and go to state 33
+    DECIMAL_LIT     shift and go to state 36
+    FALSE           shift and go to state 37
+    TRUE            shift and go to state 38
+    RUNE_LIT        shift and go to state 39
+    STRING_LIT      shift and go to state 40
+    F32             shift and go to state 41
+    F64             shift and go to state 42
+    INT             shift and go to state 43
+    ISIZE           shift and go to state 44
+    I64             shift and go to state 45
+    I32             shift and go to state 46
+    I16             shift and go to state 47
+    I8              shift and go to state 48
+    UINT            shift and go to state 49
+    USIZE           shift and go to state 50
+    U64             shift and go to state 51
+    U32             shift and go to state 52
+    U16             shift and go to state 53
+    U8              shift and go to state 54
+    HEX_LIT         shift and go to state 55
+    OCTAL_LIT       shift and go to state 56
+    BINARY_LIT      shift and go to state 57
+    .               shift and go to state 58
 
-    expressionList                 shift and go to state 102
-    expression                     shift and go to state 100
-    unaryExpr                      shift and go to state 14
-    UNARY_OP                       shift and go to state 15
-    primaryExpr                    shift and go to state 16
-    conversion                     shift and go to state 20
-    operand                        shift and go to state 21
-    type_                          shift and go to state 22
-    literal                        shift and go to state 24
-    typeName                       shift and go to state 25
-    basicLit                       shift and go to state 26
-    numericType                    shift and go to state 27
-    INT_LIT                        shift and go to state 31
-    FLOAT_LIT                      shift and go to state 32
+    expressionList                 shift and go to state 103
+    expression                     shift and go to state 99
+    unaryExpr                      shift and go to state 17
+    UNARY_OP                       shift and go to state 18
+    primaryExpr                    shift and go to state 19
+    conversion                     shift and go to state 23
+    operand                        shift and go to state 24
+    type_                          shift and go to state 25
+    literal                        shift and go to state 27
+    typeName                       shift and go to state 28
+    basicLit                       shift and go to state 29
+    numericType                    shift and go to state 30
+    INT_LIT                        shift and go to state 34
+    FLOAT_LIT                      shift and go to state 35
 
-state 65
+state 67
 
     (20) expression -> expression BINARY_OP . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
@@ -2004,51 +1938,51 @@ state 65
     (57) FLOAT_LIT -> . . DECIMAL_LIT
     (58) FLOAT_LIT -> . DECIMAL_LIT .
     (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
-    AND             shift and go to state 17
-    EXCLM           shift and go to state 18
-    MINUS           shift and go to state 19
-    (               shift and go to state 23
-    STRING          shift and go to state 28
-    BOOL            shift and go to state 29
-    RUNE            shift and go to state 30
-    DECIMAL_LIT     shift and go to state 33
-    FALSE           shift and go to state 34
-    TRUE            shift and go to state 35
-    RUNE_LIT        shift and go to state 36
-    STRING_LIT      shift and go to state 37
-    F32             shift and go to state 38
-    F64             shift and go to state 39
-    INT             shift and go to state 40
-    ISIZE           shift and go to state 41
-    I64             shift and go to state 42
-    I32             shift and go to state 43
-    I16             shift and go to state 44
-    I8              shift and go to state 45
-    UINT            shift and go to state 46
-    USIZE           shift and go to state 47
-    U64             shift and go to state 48
-    U32             shift and go to state 49
-    U16             shift and go to state 50
-    U8              shift and go to state 51
-    HEX_LIT         shift and go to state 52
-    OCTAL_LIT       shift and go to state 53
-    BINARY_LIT      shift and go to state 54
-    .               shift and go to state 55
+    AND             shift and go to state 20
+    EXCLM           shift and go to state 21
+    MINUS           shift and go to state 22
+    (               shift and go to state 26
+    STRING          shift and go to state 31
+    BOOL            shift and go to state 32
+    RUNE            shift and go to state 33
+    DECIMAL_LIT     shift and go to state 36
+    FALSE           shift and go to state 37
+    TRUE            shift and go to state 38
+    RUNE_LIT        shift and go to state 39
+    STRING_LIT      shift and go to state 40
+    F32             shift and go to state 41
+    F64             shift and go to state 42
+    INT             shift and go to state 43
+    ISIZE           shift and go to state 44
+    I64             shift and go to state 45
+    I32             shift and go to state 46
+    I16             shift and go to state 47
+    I8              shift and go to state 48
+    UINT            shift and go to state 49
+    USIZE           shift and go to state 50
+    U64             shift and go to state 51
+    U32             shift and go to state 52
+    U16             shift and go to state 53
+    U8              shift and go to state 54
+    HEX_LIT         shift and go to state 55
+    OCTAL_LIT       shift and go to state 56
+    BINARY_LIT      shift and go to state 57
+    .               shift and go to state 58
 
-    unaryExpr                      shift and go to state 103
-    UNARY_OP                       shift and go to state 15
-    primaryExpr                    shift and go to state 16
-    conversion                     shift and go to state 20
-    operand                        shift and go to state 21
-    type_                          shift and go to state 22
-    literal                        shift and go to state 24
-    typeName                       shift and go to state 25
-    basicLit                       shift and go to state 26
-    numericType                    shift and go to state 27
-    INT_LIT                        shift and go to state 31
-    FLOAT_LIT                      shift and go to state 32
+    unaryExpr                      shift and go to state 104
+    UNARY_OP                       shift and go to state 18
+    primaryExpr                    shift and go to state 19
+    conversion                     shift and go to state 23
+    operand                        shift and go to state 24
+    type_                          shift and go to state 25
+    literal                        shift and go to state 27
+    typeName                       shift and go to state 28
+    basicLit                       shift and go to state 29
+    numericType                    shift and go to state 30
+    INT_LIT                        shift and go to state 34
+    FLOAT_LIT                      shift and go to state 35
 
-state 66
+state 68
 
     (68) BINARY_OP -> MUL_OP .
     AND             reduce using rule 68 (BINARY_OP -> MUL_OP .)
@@ -2083,7 +2017,7 @@ state 66
     .               reduce using rule 68 (BINARY_OP -> MUL_OP .)
 
 
-state 67
+state 69
 
     (69) BINARY_OP -> ADD_OP .
     AND             reduce using rule 69 (BINARY_OP -> ADD_OP .)
@@ -2118,7 +2052,7 @@ state 67
     .               reduce using rule 69 (BINARY_OP -> ADD_OP .)
 
 
-state 68
+state 70
 
     (70) BINARY_OP -> REL_OP .
     AND             reduce using rule 70 (BINARY_OP -> REL_OP .)
@@ -2153,7 +2087,7 @@ state 68
     .               reduce using rule 70 (BINARY_OP -> REL_OP .)
 
 
-state 69
+state 71
 
     (71) BINARY_OP -> LOGIC_AND .
     AND             reduce using rule 71 (BINARY_OP -> LOGIC_AND .)
@@ -2188,7 +2122,7 @@ state 69
     .               reduce using rule 71 (BINARY_OP -> LOGIC_AND .)
 
 
-state 70
+state 72
 
     (72) BINARY_OP -> LOGIC_OR .
     AND             reduce using rule 72 (BINARY_OP -> LOGIC_OR .)
@@ -2223,7 +2157,7 @@ state 70
     .               reduce using rule 72 (BINARY_OP -> LOGIC_OR .)
 
 
-state 71
+state 73
 
     (83) MUL_OP -> SHR .
     AND             reduce using rule 83 (MUL_OP -> SHR .)
@@ -2258,7 +2192,7 @@ state 71
     .               reduce using rule 83 (MUL_OP -> SHR .)
 
 
-state 72
+state 74
 
     (84) MUL_OP -> SHL .
     AND             reduce using rule 84 (MUL_OP -> SHL .)
@@ -2293,7 +2227,7 @@ state 72
     .               reduce using rule 84 (MUL_OP -> SHL .)
 
 
-state 73
+state 75
 
     (85) MUL_OP -> AND .
     AND             reduce using rule 85 (MUL_OP -> AND .)
@@ -2328,7 +2262,7 @@ state 73
     .               reduce using rule 85 (MUL_OP -> AND .)
 
 
-state 74
+state 76
 
     (86) MUL_OP -> MOD .
     AND             reduce using rule 86 (MUL_OP -> MOD .)
@@ -2363,7 +2297,7 @@ state 74
     .               reduce using rule 86 (MUL_OP -> MOD .)
 
 
-state 75
+state 77
 
     (87) MUL_OP -> DIV .
     AND             reduce using rule 87 (MUL_OP -> DIV .)
@@ -2398,7 +2332,7 @@ state 75
     .               reduce using rule 87 (MUL_OP -> DIV .)
 
 
-state 76
+state 78
 
     (88) MUL_OP -> STAR .
     AND             reduce using rule 88 (MUL_OP -> STAR .)
@@ -2433,7 +2367,7 @@ state 76
     .               reduce using rule 88 (MUL_OP -> STAR .)
 
 
-state 77
+state 79
 
     (79) ADD_OP -> XOR .
     AND             reduce using rule 79 (ADD_OP -> XOR .)
@@ -2468,7 +2402,7 @@ state 77
     .               reduce using rule 79 (ADD_OP -> XOR .)
 
 
-state 78
+state 80
 
     (80) ADD_OP -> OR .
     AND             reduce using rule 80 (ADD_OP -> OR .)
@@ -2503,7 +2437,7 @@ state 78
     .               reduce using rule 80 (ADD_OP -> OR .)
 
 
-state 79
+state 81
 
     (81) ADD_OP -> MINUS .
     AND             reduce using rule 81 (ADD_OP -> MINUS .)
@@ -2538,7 +2472,7 @@ state 79
     .               reduce using rule 81 (ADD_OP -> MINUS .)
 
 
-state 80
+state 82
 
     (82) ADD_OP -> PLUS .
     AND             reduce using rule 82 (ADD_OP -> PLUS .)
@@ -2573,7 +2507,7 @@ state 80
     .               reduce using rule 82 (ADD_OP -> PLUS .)
 
 
-state 81
+state 83
 
     (73) REL_OP -> GE .
     AND             reduce using rule 73 (REL_OP -> GE .)
@@ -2608,7 +2542,7 @@ state 81
     .               reduce using rule 73 (REL_OP -> GE .)
 
 
-state 82
+state 84
 
     (74) REL_OP -> GT .
     AND             reduce using rule 74 (REL_OP -> GT .)
@@ -2643,7 +2577,7 @@ state 82
     .               reduce using rule 74 (REL_OP -> GT .)
 
 
-state 83
+state 85
 
     (75) REL_OP -> LE .
     AND             reduce using rule 75 (REL_OP -> LE .)
@@ -2678,7 +2612,7 @@ state 83
     .               reduce using rule 75 (REL_OP -> LE .)
 
 
-state 84
+state 86
 
     (76) REL_OP -> LT .
     AND             reduce using rule 76 (REL_OP -> LT .)
@@ -2713,7 +2647,7 @@ state 84
     .               reduce using rule 76 (REL_OP -> LT .)
 
 
-state 85
+state 87
 
     (77) REL_OP -> NE .
     AND             reduce using rule 77 (REL_OP -> NE .)
@@ -2748,7 +2682,7 @@ state 85
     .               reduce using rule 77 (REL_OP -> NE .)
 
 
-state 86
+state 88
 
     (78) REL_OP -> EQ .
     AND             reduce using rule 78 (REL_OP -> EQ .)
@@ -2783,7 +2717,7 @@ state 86
     .               reduce using rule 78 (REL_OP -> EQ .)
 
 
-state 87
+state 89
 
     (22) unaryExpr -> UNARY_OP unaryExpr .
     LOGIC_AND       reduce using rule 22 (unaryExpr -> UNARY_OP unaryExpr .)
@@ -2810,7 +2744,7 @@ state 87
     ,               reduce using rule 22 (unaryExpr -> UNARY_OP unaryExpr .)
 
 
-state 88
+state 90
 
     (29) conversion -> type_ ( . expression )
     (20) expression -> . expression BINARY_OP unaryExpr
@@ -2860,52 +2794,52 @@ state 88
     (57) FLOAT_LIT -> . . DECIMAL_LIT
     (58) FLOAT_LIT -> . DECIMAL_LIT .
     (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
-    AND             shift and go to state 17
-    EXCLM           shift and go to state 18
-    MINUS           shift and go to state 19
-    (               shift and go to state 23
-    STRING          shift and go to state 28
-    BOOL            shift and go to state 29
-    RUNE            shift and go to state 30
-    DECIMAL_LIT     shift and go to state 33
-    FALSE           shift and go to state 34
-    TRUE            shift and go to state 35
-    RUNE_LIT        shift and go to state 36
-    STRING_LIT      shift and go to state 37
-    F32             shift and go to state 38
-    F64             shift and go to state 39
-    INT             shift and go to state 40
-    ISIZE           shift and go to state 41
-    I64             shift and go to state 42
-    I32             shift and go to state 43
-    I16             shift and go to state 44
-    I8              shift and go to state 45
-    UINT            shift and go to state 46
-    USIZE           shift and go to state 47
-    U64             shift and go to state 48
-    U32             shift and go to state 49
-    U16             shift and go to state 50
-    U8              shift and go to state 51
-    HEX_LIT         shift and go to state 52
-    OCTAL_LIT       shift and go to state 53
-    BINARY_LIT      shift and go to state 54
-    .               shift and go to state 55
+    AND             shift and go to state 20
+    EXCLM           shift and go to state 21
+    MINUS           shift and go to state 22
+    (               shift and go to state 26
+    STRING          shift and go to state 31
+    BOOL            shift and go to state 32
+    RUNE            shift and go to state 33
+    DECIMAL_LIT     shift and go to state 36
+    FALSE           shift and go to state 37
+    TRUE            shift and go to state 38
+    RUNE_LIT        shift and go to state 39
+    STRING_LIT      shift and go to state 40
+    F32             shift and go to state 41
+    F64             shift and go to state 42
+    INT             shift and go to state 43
+    ISIZE           shift and go to state 44
+    I64             shift and go to state 45
+    I32             shift and go to state 46
+    I16             shift and go to state 47
+    I8              shift and go to state 48
+    UINT            shift and go to state 49
+    USIZE           shift and go to state 50
+    U64             shift and go to state 51
+    U32             shift and go to state 52
+    U16             shift and go to state 53
+    U8              shift and go to state 54
+    HEX_LIT         shift and go to state 55
+    OCTAL_LIT       shift and go to state 56
+    BINARY_LIT      shift and go to state 57
+    .               shift and go to state 58
 
-    type_                          shift and go to state 22
-    expression                     shift and go to state 104
-    unaryExpr                      shift and go to state 14
-    UNARY_OP                       shift and go to state 15
-    primaryExpr                    shift and go to state 16
-    conversion                     shift and go to state 20
-    operand                        shift and go to state 21
-    literal                        shift and go to state 24
-    typeName                       shift and go to state 25
-    basicLit                       shift and go to state 26
-    numericType                    shift and go to state 27
-    INT_LIT                        shift and go to state 31
-    FLOAT_LIT                      shift and go to state 32
+    type_                          shift and go to state 25
+    expression                     shift and go to state 105
+    unaryExpr                      shift and go to state 17
+    UNARY_OP                       shift and go to state 18
+    primaryExpr                    shift and go to state 19
+    conversion                     shift and go to state 23
+    operand                        shift and go to state 24
+    literal                        shift and go to state 27
+    typeName                       shift and go to state 28
+    basicLit                       shift and go to state 29
+    numericType                    shift and go to state 30
+    INT_LIT                        shift and go to state 34
+    FLOAT_LIT                      shift and go to state 35
 
-state 89
+state 91
 
     (26) operand -> ( expression . )
     (20) expression -> expression . BINARY_OP unaryExpr
@@ -2930,32 +2864,32 @@ state 89
     (76) REL_OP -> . LT
     (77) REL_OP -> . NE
     (78) REL_OP -> . EQ
-    )               shift and go to state 105
-    LOGIC_AND       shift and go to state 69
-    LOGIC_OR        shift and go to state 70
-    SHR             shift and go to state 71
-    SHL             shift and go to state 72
-    AND             shift and go to state 73
-    MOD             shift and go to state 74
-    DIV             shift and go to state 75
-    STAR            shift and go to state 76
-    XOR             shift and go to state 77
-    OR              shift and go to state 78
-    MINUS           shift and go to state 79
-    PLUS            shift and go to state 80
-    GE              shift and go to state 81
-    GT              shift and go to state 82
-    LE              shift and go to state 83
-    LT              shift and go to state 84
-    NE              shift and go to state 85
-    EQ              shift and go to state 86
+    )               shift and go to state 106
+    LOGIC_AND       shift and go to state 71
+    LOGIC_OR        shift and go to state 72
+    SHR             shift and go to state 73
+    SHL             shift and go to state 74
+    AND             shift and go to state 75
+    MOD             shift and go to state 76
+    DIV             shift and go to state 77
+    STAR            shift and go to state 78
+    XOR             shift and go to state 79
+    OR              shift and go to state 80
+    MINUS           shift and go to state 81
+    PLUS            shift and go to state 82
+    GE              shift and go to state 83
+    GT              shift and go to state 84
+    LE              shift and go to state 85
+    LT              shift and go to state 86
+    NE              shift and go to state 87
+    EQ              shift and go to state 88
 
-    BINARY_OP                      shift and go to state 65
-    MUL_OP                         shift and go to state 66
-    ADD_OP                         shift and go to state 67
-    REL_OP                         shift and go to state 68
+    BINARY_OP                      shift and go to state 67
+    MUL_OP                         shift and go to state 68
+    ADD_OP                         shift and go to state 69
+    REL_OP                         shift and go to state 70
 
-state 90
+state 92
 
     (52) basicLit -> FLOAT_LIT EXPONENT .
     LOGIC_AND       reduce using rule 52 (basicLit -> FLOAT_LIT EXPONENT .)
@@ -2982,7 +2916,7 @@ state 90
     ,               reduce using rule 52 (basicLit -> FLOAT_LIT EXPONENT .)
 
 
-state 91
+state 93
 
     (51) basicLit -> DECIMAL_LIT EXPONENT .
     LOGIC_AND       reduce using rule 51 (basicLit -> DECIMAL_LIT EXPONENT .)
@@ -3009,7 +2943,7 @@ state 91
     ,               reduce using rule 51 (basicLit -> DECIMAL_LIT EXPONENT .)
 
 
-state 92
+state 94
 
     (58) FLOAT_LIT -> DECIMAL_LIT . .
     (59) FLOAT_LIT -> DECIMAL_LIT . . DECIMAL_LIT
@@ -3036,10 +2970,10 @@ state 92
     ;               reduce using rule 58 (FLOAT_LIT -> DECIMAL_LIT . .)
     )               reduce using rule 58 (FLOAT_LIT -> DECIMAL_LIT . .)
     ,               reduce using rule 58 (FLOAT_LIT -> DECIMAL_LIT . .)
-    DECIMAL_LIT     shift and go to state 106
+    DECIMAL_LIT     shift and go to state 107
 
 
-state 93
+state 95
 
     (57) FLOAT_LIT -> . DECIMAL_LIT .
     EXPONENT        reduce using rule 57 (FLOAT_LIT -> . DECIMAL_LIT .)
@@ -3067,12 +3001,11 @@ state 93
     ,               reduce using rule 57 (FLOAT_LIT -> . DECIMAL_LIT .)
 
 
-state 94
+state 96
 
     (64) eos -> eos NEWL .
     NEWL            reduce using rule 64 (eos -> eos NEWL .)
     ;               reduce using rule 64 (eos -> eos NEWL .)
-    $end            reduce using rule 64 (eos -> eos NEWL .)
     IDENTIFIER      reduce using rule 64 (eos -> eos NEWL .)
     AND             reduce using rule 64 (eos -> eos NEWL .)
     EXCLM           reduce using rule 64 (eos -> eos NEWL .)
@@ -3104,14 +3037,14 @@ state 94
     OCTAL_LIT       reduce using rule 64 (eos -> eos NEWL .)
     BINARY_LIT      reduce using rule 64 (eos -> eos NEWL .)
     .               reduce using rule 64 (eos -> eos NEWL .)
+    $end            reduce using rule 64 (eos -> eos NEWL .)
 
 
-state 95
+state 97
 
     (66) eos -> eos ; .
     NEWL            reduce using rule 66 (eos -> eos ; .)
     ;               reduce using rule 66 (eos -> eos ; .)
-    $end            reduce using rule 66 (eos -> eos ; .)
     IDENTIFIER      reduce using rule 66 (eos -> eos ; .)
     AND             reduce using rule 66 (eos -> eos ; .)
     EXCLM           reduce using rule 66 (eos -> eos ; .)
@@ -3143,76 +3076,19 @@ state 95
     OCTAL_LIT       reduce using rule 66 (eos -> eos ; .)
     BINARY_LIT      reduce using rule 66 (eos -> eos ; .)
     .               reduce using rule 66 (eos -> eos ; .)
-
-
-state 96
-
-    (3) topLevelDecls -> topLevelDecls topLevelDecl eos .
-    (64) eos -> eos . NEWL
-    (66) eos -> eos . ;
-  ! shift/reduce conflict for NEWL resolved as shift
-  ! shift/reduce conflict for ; resolved as shift
-    IDENTIFIER      reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    AND             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    EXCLM           reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    MINUS           reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    (               reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    STRING          reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    BOOL            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    RUNE            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    DECIMAL_LIT     reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    FALSE           reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    TRUE            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    RUNE_LIT        reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    STRING_LIT      reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    F32             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    F64             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    INT             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    ISIZE           reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    I64             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    I32             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    I16             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    I8              reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    UINT            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    USIZE           reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    U64             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    U32             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    U16             reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    U8              reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    HEX_LIT         reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    OCTAL_LIT       reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    BINARY_LIT      reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    .               reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    $end            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    NEWL            shift and go to state 94
-    ;               shift and go to state 95
-
-
-state 97
-
-    (13) statementList -> statementList eos statement .
-    NEWL            reduce using rule 13 (statementList -> statementList eos statement .)
-    ;               reduce using rule 13 (statementList -> statementList eos statement .)
+    $end            reduce using rule 66 (eos -> eos ; .)
 
 
 state 98
-
-    (19) assignment -> identifierList . ASSIGN expressionList
-    (9) identifierList -> identifierList . , IDENTIFIER
-    ASSIGN          shift and go to state 64
-    ,               shift and go to state 63
-
-
-state 99
 
     (8) varDecl -> identifierList DECL_ASGN expressionList .
     (11) expressionList -> expressionList . , expression
     NEWL            reduce using rule 8 (varDecl -> identifierList DECL_ASGN expressionList .)
     ;               reduce using rule 8 (varDecl -> identifierList DECL_ASGN expressionList .)
-    ,               shift and go to state 107
+    ,               shift and go to state 108
 
 
-state 100
+state 99
 
     (12) expressionList -> expression .
     (20) expression -> expression . BINARY_OP unaryExpr
@@ -3240,31 +3116,31 @@ state 100
     ,               reduce using rule 12 (expressionList -> expression .)
     NEWL            reduce using rule 12 (expressionList -> expression .)
     ;               reduce using rule 12 (expressionList -> expression .)
-    LOGIC_AND       shift and go to state 69
-    LOGIC_OR        shift and go to state 70
-    SHR             shift and go to state 71
-    SHL             shift and go to state 72
-    AND             shift and go to state 73
-    MOD             shift and go to state 74
-    DIV             shift and go to state 75
-    STAR            shift and go to state 76
-    XOR             shift and go to state 77
-    OR              shift and go to state 78
-    MINUS           shift and go to state 79
-    PLUS            shift and go to state 80
-    GE              shift and go to state 81
-    GT              shift and go to state 82
-    LE              shift and go to state 83
-    LT              shift and go to state 84
-    NE              shift and go to state 85
-    EQ              shift and go to state 86
+    LOGIC_AND       shift and go to state 71
+    LOGIC_OR        shift and go to state 72
+    SHR             shift and go to state 73
+    SHL             shift and go to state 74
+    AND             shift and go to state 75
+    MOD             shift and go to state 76
+    DIV             shift and go to state 77
+    STAR            shift and go to state 78
+    XOR             shift and go to state 79
+    OR              shift and go to state 80
+    MINUS           shift and go to state 81
+    PLUS            shift and go to state 82
+    GE              shift and go to state 83
+    GT              shift and go to state 84
+    LE              shift and go to state 85
+    LT              shift and go to state 86
+    NE              shift and go to state 87
+    EQ              shift and go to state 88
 
-    BINARY_OP                      shift and go to state 65
-    MUL_OP                         shift and go to state 66
-    ADD_OP                         shift and go to state 67
-    REL_OP                         shift and go to state 68
+    BINARY_OP                      shift and go to state 67
+    MUL_OP                         shift and go to state 68
+    ADD_OP                         shift and go to state 69
+    REL_OP                         shift and go to state 70
 
-state 101
+state 100
 
     (9) identifierList -> identifierList , IDENTIFIER .
     DECL_ASGN       reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
@@ -3272,16 +3148,31 @@ state 101
     ASSIGN          reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
 
 
+state 101
+
+    (13) statementList -> statementList eos statement .
+    NEWL            reduce using rule 13 (statementList -> statementList eos statement .)
+    ;               reduce using rule 13 (statementList -> statementList eos statement .)
+
+
 state 102
+
+    (19) assignment -> identifierList . ASSIGN expressionList
+    (9) identifierList -> identifierList . , IDENTIFIER
+    ASSIGN          shift and go to state 66
+    ,               shift and go to state 63
+
+
+state 103
 
     (19) assignment -> identifierList ASSIGN expressionList .
     (11) expressionList -> expressionList . , expression
     NEWL            reduce using rule 19 (assignment -> identifierList ASSIGN expressionList .)
     ;               reduce using rule 19 (assignment -> identifierList ASSIGN expressionList .)
-    ,               shift and go to state 107
+    ,               shift and go to state 108
 
 
-state 103
+state 104
 
     (20) expression -> expression BINARY_OP unaryExpr .
     LOGIC_AND       reduce using rule 20 (expression -> expression BINARY_OP unaryExpr .)
@@ -3308,7 +3199,7 @@ state 103
     ,               reduce using rule 20 (expression -> expression BINARY_OP unaryExpr .)
 
 
-state 104
+state 105
 
     (29) conversion -> type_ ( expression . )
     (20) expression -> expression . BINARY_OP unaryExpr
@@ -3333,32 +3224,32 @@ state 104
     (76) REL_OP -> . LT
     (77) REL_OP -> . NE
     (78) REL_OP -> . EQ
-    )               shift and go to state 108
-    LOGIC_AND       shift and go to state 69
-    LOGIC_OR        shift and go to state 70
-    SHR             shift and go to state 71
-    SHL             shift and go to state 72
-    AND             shift and go to state 73
-    MOD             shift and go to state 74
-    DIV             shift and go to state 75
-    STAR            shift and go to state 76
-    XOR             shift and go to state 77
-    OR              shift and go to state 78
-    MINUS           shift and go to state 79
-    PLUS            shift and go to state 80
-    GE              shift and go to state 81
-    GT              shift and go to state 82
-    LE              shift and go to state 83
-    LT              shift and go to state 84
-    NE              shift and go to state 85
-    EQ              shift and go to state 86
+    )               shift and go to state 109
+    LOGIC_AND       shift and go to state 71
+    LOGIC_OR        shift and go to state 72
+    SHR             shift and go to state 73
+    SHL             shift and go to state 74
+    AND             shift and go to state 75
+    MOD             shift and go to state 76
+    DIV             shift and go to state 77
+    STAR            shift and go to state 78
+    XOR             shift and go to state 79
+    OR              shift and go to state 80
+    MINUS           shift and go to state 81
+    PLUS            shift and go to state 82
+    GE              shift and go to state 83
+    GT              shift and go to state 84
+    LE              shift and go to state 85
+    LT              shift and go to state 86
+    NE              shift and go to state 87
+    EQ              shift and go to state 88
 
-    BINARY_OP                      shift and go to state 65
-    MUL_OP                         shift and go to state 66
-    ADD_OP                         shift and go to state 67
-    REL_OP                         shift and go to state 68
+    BINARY_OP                      shift and go to state 67
+    MUL_OP                         shift and go to state 68
+    ADD_OP                         shift and go to state 69
+    REL_OP                         shift and go to state 70
 
-state 105
+state 106
 
     (26) operand -> ( expression ) .
     LOGIC_AND       reduce using rule 26 (operand -> ( expression ) .)
@@ -3385,7 +3276,7 @@ state 105
     ,               reduce using rule 26 (operand -> ( expression ) .)
 
 
-state 106
+state 107
 
     (59) FLOAT_LIT -> DECIMAL_LIT . DECIMAL_LIT .
     EXPONENT        reduce using rule 59 (FLOAT_LIT -> DECIMAL_LIT . DECIMAL_LIT .)
@@ -3413,7 +3304,7 @@ state 106
     ,               reduce using rule 59 (FLOAT_LIT -> DECIMAL_LIT . DECIMAL_LIT .)
 
 
-state 107
+state 108
 
     (11) expressionList -> expressionList , . expression
     (20) expression -> . expression BINARY_OP unaryExpr
@@ -3463,52 +3354,52 @@ state 107
     (57) FLOAT_LIT -> . . DECIMAL_LIT
     (58) FLOAT_LIT -> . DECIMAL_LIT .
     (59) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
-    AND             shift and go to state 17
-    EXCLM           shift and go to state 18
-    MINUS           shift and go to state 19
-    (               shift and go to state 23
-    STRING          shift and go to state 28
-    BOOL            shift and go to state 29
-    RUNE            shift and go to state 30
-    DECIMAL_LIT     shift and go to state 33
-    FALSE           shift and go to state 34
-    TRUE            shift and go to state 35
-    RUNE_LIT        shift and go to state 36
-    STRING_LIT      shift and go to state 37
-    F32             shift and go to state 38
-    F64             shift and go to state 39
-    INT             shift and go to state 40
-    ISIZE           shift and go to state 41
-    I64             shift and go to state 42
-    I32             shift and go to state 43
-    I16             shift and go to state 44
-    I8              shift and go to state 45
-    UINT            shift and go to state 46
-    USIZE           shift and go to state 47
-    U64             shift and go to state 48
-    U32             shift and go to state 49
-    U16             shift and go to state 50
-    U8              shift and go to state 51
-    HEX_LIT         shift and go to state 52
-    OCTAL_LIT       shift and go to state 53
-    BINARY_LIT      shift and go to state 54
-    .               shift and go to state 55
+    AND             shift and go to state 20
+    EXCLM           shift and go to state 21
+    MINUS           shift and go to state 22
+    (               shift and go to state 26
+    STRING          shift and go to state 31
+    BOOL            shift and go to state 32
+    RUNE            shift and go to state 33
+    DECIMAL_LIT     shift and go to state 36
+    FALSE           shift and go to state 37
+    TRUE            shift and go to state 38
+    RUNE_LIT        shift and go to state 39
+    STRING_LIT      shift and go to state 40
+    F32             shift and go to state 41
+    F64             shift and go to state 42
+    INT             shift and go to state 43
+    ISIZE           shift and go to state 44
+    I64             shift and go to state 45
+    I32             shift and go to state 46
+    I16             shift and go to state 47
+    I8              shift and go to state 48
+    UINT            shift and go to state 49
+    USIZE           shift and go to state 50
+    U64             shift and go to state 51
+    U32             shift and go to state 52
+    U16             shift and go to state 53
+    U8              shift and go to state 54
+    HEX_LIT         shift and go to state 55
+    OCTAL_LIT       shift and go to state 56
+    BINARY_LIT      shift and go to state 57
+    .               shift and go to state 58
 
-    expression                     shift and go to state 109
-    unaryExpr                      shift and go to state 14
-    UNARY_OP                       shift and go to state 15
-    primaryExpr                    shift and go to state 16
-    conversion                     shift and go to state 20
-    operand                        shift and go to state 21
-    type_                          shift and go to state 22
-    literal                        shift and go to state 24
-    typeName                       shift and go to state 25
-    basicLit                       shift and go to state 26
-    numericType                    shift and go to state 27
-    INT_LIT                        shift and go to state 31
-    FLOAT_LIT                      shift and go to state 32
+    expression                     shift and go to state 110
+    unaryExpr                      shift and go to state 17
+    UNARY_OP                       shift and go to state 18
+    primaryExpr                    shift and go to state 19
+    conversion                     shift and go to state 23
+    operand                        shift and go to state 24
+    type_                          shift and go to state 25
+    literal                        shift and go to state 27
+    typeName                       shift and go to state 28
+    basicLit                       shift and go to state 29
+    numericType                    shift and go to state 30
+    INT_LIT                        shift and go to state 34
+    FLOAT_LIT                      shift and go to state 35
 
-state 108
+state 109
 
     (29) conversion -> type_ ( expression ) .
     LOGIC_AND       reduce using rule 29 (conversion -> type_ ( expression ) .)
@@ -3535,7 +3426,7 @@ state 108
     ,               reduce using rule 29 (conversion -> type_ ( expression ) .)
 
 
-state 109
+state 110
 
     (11) expressionList -> expressionList , expression .
     (20) expression -> expression . BINARY_OP unaryExpr
@@ -3563,35 +3454,26 @@ state 109
     ,               reduce using rule 11 (expressionList -> expressionList , expression .)
     NEWL            reduce using rule 11 (expressionList -> expressionList , expression .)
     ;               reduce using rule 11 (expressionList -> expressionList , expression .)
-    LOGIC_AND       shift and go to state 69
-    LOGIC_OR        shift and go to state 70
-    SHR             shift and go to state 71
-    SHL             shift and go to state 72
-    AND             shift and go to state 73
-    MOD             shift and go to state 74
-    DIV             shift and go to state 75
-    STAR            shift and go to state 76
-    XOR             shift and go to state 77
-    OR              shift and go to state 78
-    MINUS           shift and go to state 79
-    PLUS            shift and go to state 80
-    GE              shift and go to state 81
-    GT              shift and go to state 82
-    LE              shift and go to state 83
-    LT              shift and go to state 84
-    NE              shift and go to state 85
-    EQ              shift and go to state 86
+    LOGIC_AND       shift and go to state 71
+    LOGIC_OR        shift and go to state 72
+    SHR             shift and go to state 73
+    SHL             shift and go to state 74
+    AND             shift and go to state 75
+    MOD             shift and go to state 76
+    DIV             shift and go to state 77
+    STAR            shift and go to state 78
+    XOR             shift and go to state 79
+    OR              shift and go to state 80
+    MINUS           shift and go to state 81
+    PLUS            shift and go to state 82
+    GE              shift and go to state 83
+    GT              shift and go to state 84
+    LE              shift and go to state 85
+    LT              shift and go to state 86
+    NE              shift and go to state 87
+    EQ              shift and go to state 88
 
-    BINARY_OP                      shift and go to state 65
-    MUL_OP                         shift and go to state 66
-    ADD_OP                         shift and go to state 67
-    REL_OP                         shift and go to state 68
-
-Conflicts:
-
-shift/reduce conflict for NEWL in state 60 resolved as shift
-shift/reduce conflict for ; in state 60 resolved as shift
-shift/reduce conflict for NEWL in state 61 resolved as shift
-shift/reduce conflict for ; in state 61 resolved as shift
-shift/reduce conflict for NEWL in state 96 resolved as shift
-shift/reduce conflict for ; in state 96 resolved as shift
+    BINARY_OP                      shift and go to state 67
+    MUL_OP                         shift and go to state 68
+    ADD_OP                         shift and go to state 69
+    REL_OP                         shift and go to state 70
