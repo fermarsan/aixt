@@ -19,7 +19,7 @@ Rule 15    statement -> simpleStmt
 Rule 16    simpleStmt -> assignment
 Rule 17    simpleStmt -> expressionStmt
 Rule 18    expressionStmt -> expression
-Rule 19    assignment -> identifierList ASSIGN expressionList  [precedence=right, level=8]
+Rule 19    assignment -> identifierList assign_op expressionList
 Rule 20    expression -> expression BINARY_OP unaryExpr
 Rule 21    expression -> unaryExpr
 Rule 22    unaryExpr -> UNARY_OP unaryExpr  [precedence=right, level=7]
@@ -70,62 +70,63 @@ Rule 66    eos -> eos NEWL
 Rule 67    eos -> NEWL
 Rule 68    eos -> eos ;
 Rule 69    eos -> ;
-Rule 70    BINARY_OP -> MUL_OP
-Rule 71    BINARY_OP -> ADD_OP
-Rule 72    BINARY_OP -> REL_OP
-Rule 73    BINARY_OP -> LOGIC_AND  [precedence=left, level=2]
-Rule 74    BINARY_OP -> LOGIC_OR  [precedence=left, level=1]
-Rule 75    REL_OP -> GE  [precedence=left, level=3]
-Rule 76    REL_OP -> GT  [precedence=left, level=3]
-Rule 77    REL_OP -> LE  [precedence=left, level=3]
-Rule 78    REL_OP -> LT  [precedence=left, level=3]
-Rule 79    REL_OP -> NE  [precedence=left, level=3]
-Rule 80    REL_OP -> EQ  [precedence=left, level=3]
-Rule 81    ADD_OP -> XOR  [precedence=left, level=4]
-Rule 82    ADD_OP -> OR  [precedence=left, level=4]
-Rule 83    ADD_OP -> MINUS  [precedence=left, level=4]
-Rule 84    ADD_OP -> PLUS  [precedence=left, level=4]
-Rule 85    MUL_OP -> SHR  [precedence=left, level=5]
-Rule 86    MUL_OP -> SHL  [precedence=left, level=5]
-Rule 87    MUL_OP -> AND  [precedence=left, level=5]
-Rule 88    MUL_OP -> MOD  [precedence=left, level=5]
-Rule 89    MUL_OP -> DIV  [precedence=left, level=5]
-Rule 90    MUL_OP -> STAR  [precedence=left, level=5]
-Rule 91    UNARY_OP -> AND  [precedence=left, level=5]
-Rule 92    UNARY_OP -> EXCLM
-Rule 93    UNARY_OP -> MINUS  [precedence=left, level=4]
+Rule 70    assign_op -> SHR_ASGN  [precedence=right, level=8]
+Rule 71    assign_op -> SHL_ASGN  [precedence=right, level=8]
+Rule 72    assign_op -> MOD_ASGN  [precedence=right, level=8]
+Rule 73    assign_op -> DIV_ASGN  [precedence=right, level=8]
+Rule 74    assign_op -> OR_ASGN  [precedence=right, level=8]
+Rule 75    assign_op -> AND_ASGN  [precedence=right, level=8]
+Rule 76    assign_op -> STAR_ASGN  [precedence=right, level=8]
+Rule 77    assign_op -> XOR_ASGN  [precedence=right, level=8]
+Rule 78    assign_op -> MINUS_ASGN  [precedence=right, level=8]
+Rule 79    assign_op -> PLUS_ASGN  [precedence=right, level=8]
+Rule 80    assign_op -> ASSIGN  [precedence=right, level=8]
+Rule 81    BINARY_OP -> MUL_OP
+Rule 82    BINARY_OP -> ADD_OP
+Rule 83    BINARY_OP -> REL_OP
+Rule 84    BINARY_OP -> LOGIC_AND  [precedence=left, level=2]
+Rule 85    BINARY_OP -> LOGIC_OR  [precedence=left, level=1]
+Rule 86    REL_OP -> GE  [precedence=left, level=3]
+Rule 87    REL_OP -> GT  [precedence=left, level=3]
+Rule 88    REL_OP -> LE  [precedence=left, level=3]
+Rule 89    REL_OP -> LT  [precedence=left, level=3]
+Rule 90    REL_OP -> NE  [precedence=left, level=3]
+Rule 91    REL_OP -> EQ  [precedence=left, level=3]
+Rule 92    ADD_OP -> XOR  [precedence=left, level=4]
+Rule 93    ADD_OP -> OR  [precedence=left, level=4]
+Rule 94    ADD_OP -> MINUS  [precedence=left, level=4]
+Rule 95    ADD_OP -> PLUS  [precedence=left, level=4]
+Rule 96    MUL_OP -> SHR  [precedence=left, level=5]
+Rule 97    MUL_OP -> SHL  [precedence=left, level=5]
+Rule 98    MUL_OP -> AND  [precedence=left, level=5]
+Rule 99    MUL_OP -> MOD  [precedence=left, level=5]
+Rule 100   MUL_OP -> DIV  [precedence=left, level=5]
+Rule 101   MUL_OP -> STAR  [precedence=left, level=5]
+Rule 102   UNARY_OP -> AND  [precedence=left, level=5]
+Rule 103   UNARY_OP -> EXCLM
+Rule 104   UNARY_OP -> MINUS  [precedence=left, level=4]
 
 Unused terminals:
 
+    AS
+    STRUCT
+    IF
+    ELSE
+    CONST
+    IN
     STATIC
     MAP
-    FN
-    CONST
-    ELSE
-    BREAK
-    PLUS_PLUS
-    MATCH
-    MOD_ASGN
-    TYPE
-    STAR_ASGN
-    FOR
-    CONTINUE
-    MINUS_ASGN
-    STRUCT
-    RETURN
     ENUM
-    SHL_ASGN
-    XOR_ASGN
-    IMPORT
-    IN
-    IF
-    AND_ASGN
-    AS
-    PLUS_ASGN
-    DIV_ASGN
-    SHR_ASGN
+    FOR
+    RETURN
+    FN
     MINUS_MINUS
-    OR_ASGN
+    MATCH
+    IMPORT
+    PLUS_PLUS
+    BREAK
+    CONTINUE
+    TYPE
 
 Terminals, with rules where they appear:
 
@@ -134,10 +135,10 @@ Terminals, with rules where they appear:
 ,                    : 9 11
 .                    : 59 60 61
 ;                    : 68 69
-AND                  : 87 91
-AND_ASGN             : 
+AND                  : 98 102
+AND_ASGN             : 75
 AS                   : 
-ASSIGN               : 19
+ASSIGN               : 80
 BINARY_LIT           : 64
 BOOL                 : 35
 BREAK                : 
@@ -145,20 +146,20 @@ CONST                :
 CONTINUE             : 
 DECIMAL_LIT          : 53 59 60 61 61 65
 DECL_ASGN            : 8
-DIV                  : 89
-DIV_ASGN             : 
+DIV                  : 100
+DIV_ASGN             : 73
 ELSE                 : 
 ENUM                 : 
-EQ                   : 80
-EXCLM                : 92
+EQ                   : 91
+EXCLM                : 103
 EXPONENT             : 53 54
 F32                  : 37
 F64                  : 38
 FALSE                : 55
 FN                   : 
 FOR                  : 
-GE                   : 75
-GT                   : 76
+GE                   : 86
+GT                   : 87
 HEX_LIT              : 62
 I16                  : 43
 I32                  : 42
@@ -170,34 +171,34 @@ IMPORT               :
 IN                   : 
 INT                  : 39
 ISIZE                : 40
-LE                   : 77
-LOGIC_AND            : 73
-LOGIC_OR             : 74
-LT                   : 78
+LE                   : 88
+LOGIC_AND            : 84
+LOGIC_OR             : 85
+LT                   : 89
 MAP                  : 
 MATCH                : 
-MINUS                : 83 93
-MINUS_ASGN           : 
+MINUS                : 94 104
+MINUS_ASGN           : 78
 MINUS_MINUS          : 
-MOD                  : 88
-MOD_ASGN             : 
-NE                   : 79
+MOD                  : 99
+MOD_ASGN             : 72
+NE                   : 90
 NEWL                 : 66 67
 OCTAL_LIT            : 63
-OR                   : 82
-OR_ASGN              : 
-PLUS                 : 84
-PLUS_ASGN            : 
+OR                   : 93
+OR_ASGN              : 74
+PLUS                 : 95
+PLUS_ASGN            : 79
 PLUS_PLUS            : 
 RETURN               : 
 RUNE                 : 36
 RUNE_LIT             : 57
-SHL                  : 86
-SHL_ASGN             : 
-SHR                  : 85
-SHR_ASGN             : 
-STAR                 : 90
-STAR_ASGN            : 
+SHL                  : 97
+SHL_ASGN             : 71
+SHR                  : 96
+SHR_ASGN             : 70
+STAR                 : 101
+STAR_ASGN            : 76
 STATIC               : 
 STRING               : 34
 STRING_LIT           : 58
@@ -210,19 +211,20 @@ U64                  : 47
 U8                   : 50
 UINT                 : 45
 USIZE                : 46
-XOR                  : 81
-XOR_ASGN             : 
+XOR                  : 92
+XOR_ASGN             : 77
 error                : 
 
 Nonterminals, with rules where they appear:
 
-ADD_OP               : 71
+ADD_OP               : 82
 BINARY_OP            : 20
 FLOAT_LIT            : 52 54
 INT_LIT              : 51
-MUL_OP               : 70
-REL_OP               : 72
+MUL_OP               : 81
+REL_OP               : 83
 UNARY_OP             : 22
+assign_op            : 19
 assignment           : 16
 basicLit             : 30
 conversion           : 24
@@ -292,15 +294,15 @@ state 2
     (17) simpleStmt -> . expressionStmt
     (9) identifierList -> . identifierList , IDENTIFIER
     (10) identifierList -> . IDENTIFIER
-    (19) assignment -> . identifierList ASSIGN expressionList
+    (19) assignment -> . identifierList assign_op expressionList
     (18) expressionStmt -> . expression
     (20) expression -> . expression BINARY_OP unaryExpr
     (21) expression -> . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
     (23) unaryExpr -> . primaryExpr
-    (91) UNARY_OP -> . AND
-    (92) UNARY_OP -> . EXCLM
-    (93) UNARY_OP -> . MINUS
+    (102) UNARY_OP -> . AND
+    (103) UNARY_OP -> . EXCLM
+    (104) UNARY_OP -> . MINUS
     (24) primaryExpr -> . conversion
     (25) primaryExpr -> . operand
     (31) conversion -> . type_ ( expression )
@@ -491,11 +493,33 @@ state 13
 
     (8) varDecl -> identifierList . DECL_ASGN expressionList
     (9) identifierList -> identifierList . , IDENTIFIER
-    (19) assignment -> identifierList . ASSIGN expressionList
+    (19) assignment -> identifierList . assign_op expressionList
+    (70) assign_op -> . SHR_ASGN
+    (71) assign_op -> . SHL_ASGN
+    (72) assign_op -> . MOD_ASGN
+    (73) assign_op -> . DIV_ASGN
+    (74) assign_op -> . OR_ASGN
+    (75) assign_op -> . AND_ASGN
+    (76) assign_op -> . STAR_ASGN
+    (77) assign_op -> . XOR_ASGN
+    (78) assign_op -> . MINUS_ASGN
+    (79) assign_op -> . PLUS_ASGN
+    (80) assign_op -> . ASSIGN
     DECL_ASGN       shift and go to state 64
     ,               shift and go to state 65
-    ASSIGN          shift and go to state 68
+    SHR_ASGN        shift and go to state 69
+    SHL_ASGN        shift and go to state 70
+    MOD_ASGN        shift and go to state 71
+    DIV_ASGN        shift and go to state 72
+    OR_ASGN         shift and go to state 73
+    AND_ASGN        shift and go to state 74
+    STAR_ASGN       shift and go to state 75
+    XOR_ASGN        shift and go to state 76
+    MINUS_ASGN      shift and go to state 77
+    PLUS_ASGN       shift and go to state 78
+    ASSIGN          shift and go to state 79
 
+    assign_op                      shift and go to state 68
 
 state 14
 
@@ -517,6 +541,16 @@ state 16
     (29) operandName -> IDENTIFIER .
     DECL_ASGN       reduce using rule 10 (identifierList -> IDENTIFIER .)
     ,               reduce using rule 10 (identifierList -> IDENTIFIER .)
+    SHR_ASGN        reduce using rule 10 (identifierList -> IDENTIFIER .)
+    SHL_ASGN        reduce using rule 10 (identifierList -> IDENTIFIER .)
+    MOD_ASGN        reduce using rule 10 (identifierList -> IDENTIFIER .)
+    DIV_ASGN        reduce using rule 10 (identifierList -> IDENTIFIER .)
+    OR_ASGN         reduce using rule 10 (identifierList -> IDENTIFIER .)
+    AND_ASGN        reduce using rule 10 (identifierList -> IDENTIFIER .)
+    STAR_ASGN       reduce using rule 10 (identifierList -> IDENTIFIER .)
+    XOR_ASGN        reduce using rule 10 (identifierList -> IDENTIFIER .)
+    MINUS_ASGN      reduce using rule 10 (identifierList -> IDENTIFIER .)
+    PLUS_ASGN       reduce using rule 10 (identifierList -> IDENTIFIER .)
     ASSIGN          reduce using rule 10 (identifierList -> IDENTIFIER .)
     LOGIC_AND       reduce using rule 29 (operandName -> IDENTIFIER .)
     LOGIC_OR        reduce using rule 29 (operandName -> IDENTIFIER .)
@@ -544,52 +578,52 @@ state 17
 
     (18) expressionStmt -> expression .
     (20) expression -> expression . BINARY_OP unaryExpr
-    (70) BINARY_OP -> . MUL_OP
-    (71) BINARY_OP -> . ADD_OP
-    (72) BINARY_OP -> . REL_OP
-    (73) BINARY_OP -> . LOGIC_AND
-    (74) BINARY_OP -> . LOGIC_OR
-    (85) MUL_OP -> . SHR
-    (86) MUL_OP -> . SHL
-    (87) MUL_OP -> . AND
-    (88) MUL_OP -> . MOD
-    (89) MUL_OP -> . DIV
-    (90) MUL_OP -> . STAR
-    (81) ADD_OP -> . XOR
-    (82) ADD_OP -> . OR
-    (83) ADD_OP -> . MINUS
-    (84) ADD_OP -> . PLUS
-    (75) REL_OP -> . GE
-    (76) REL_OP -> . GT
-    (77) REL_OP -> . LE
-    (78) REL_OP -> . LT
-    (79) REL_OP -> . NE
-    (80) REL_OP -> . EQ
+    (81) BINARY_OP -> . MUL_OP
+    (82) BINARY_OP -> . ADD_OP
+    (83) BINARY_OP -> . REL_OP
+    (84) BINARY_OP -> . LOGIC_AND
+    (85) BINARY_OP -> . LOGIC_OR
+    (96) MUL_OP -> . SHR
+    (97) MUL_OP -> . SHL
+    (98) MUL_OP -> . AND
+    (99) MUL_OP -> . MOD
+    (100) MUL_OP -> . DIV
+    (101) MUL_OP -> . STAR
+    (92) ADD_OP -> . XOR
+    (93) ADD_OP -> . OR
+    (94) ADD_OP -> . MINUS
+    (95) ADD_OP -> . PLUS
+    (86) REL_OP -> . GE
+    (87) REL_OP -> . GT
+    (88) REL_OP -> . LE
+    (89) REL_OP -> . LT
+    (90) REL_OP -> . NE
+    (91) REL_OP -> . EQ
     NEWL            reduce using rule 18 (expressionStmt -> expression .)
     ;               reduce using rule 18 (expressionStmt -> expression .)
-    LOGIC_AND       shift and go to state 73
-    LOGIC_OR        shift and go to state 74
-    SHR             shift and go to state 75
-    SHL             shift and go to state 76
-    AND             shift and go to state 77
-    MOD             shift and go to state 78
-    DIV             shift and go to state 79
-    STAR            shift and go to state 80
-    XOR             shift and go to state 81
-    OR              shift and go to state 82
-    MINUS           shift and go to state 83
-    PLUS            shift and go to state 84
-    GE              shift and go to state 85
-    GT              shift and go to state 86
-    LE              shift and go to state 87
-    LT              shift and go to state 88
-    NE              shift and go to state 89
-    EQ              shift and go to state 90
+    LOGIC_AND       shift and go to state 84
+    LOGIC_OR        shift and go to state 85
+    SHR             shift and go to state 86
+    SHL             shift and go to state 87
+    AND             shift and go to state 88
+    MOD             shift and go to state 89
+    DIV             shift and go to state 90
+    STAR            shift and go to state 91
+    XOR             shift and go to state 92
+    OR              shift and go to state 93
+    MINUS           shift and go to state 94
+    PLUS            shift and go to state 95
+    GE              shift and go to state 96
+    GT              shift and go to state 97
+    LE              shift and go to state 98
+    LT              shift and go to state 99
+    NE              shift and go to state 100
+    EQ              shift and go to state 101
 
-    BINARY_OP                      shift and go to state 69
-    MUL_OP                         shift and go to state 70
-    ADD_OP                         shift and go to state 71
-    REL_OP                         shift and go to state 72
+    BINARY_OP                      shift and go to state 80
+    MUL_OP                         shift and go to state 81
+    ADD_OP                         shift and go to state 82
+    REL_OP                         shift and go to state 83
 
 state 18
 
@@ -623,9 +657,9 @@ state 19
     (22) unaryExpr -> UNARY_OP . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
     (23) unaryExpr -> . primaryExpr
-    (91) UNARY_OP -> . AND
-    (92) UNARY_OP -> . EXCLM
-    (93) UNARY_OP -> . MINUS
+    (102) UNARY_OP -> . AND
+    (103) UNARY_OP -> . EXCLM
+    (104) UNARY_OP -> . MINUS
     (24) primaryExpr -> . conversion
     (25) primaryExpr -> . operand
     (31) conversion -> . type_ ( expression )
@@ -672,7 +706,7 @@ state 19
     EXCLM           shift and go to state 22
     MINUS           shift and go to state 23
     (               shift and go to state 27
-    IDENTIFIER      shift and go to state 92
+    IDENTIFIER      shift and go to state 103
     STRING          shift and go to state 33
     BOOL            shift and go to state 34
     RUNE            shift and go to state 35
@@ -701,7 +735,7 @@ state 19
     .               shift and go to state 60
 
     UNARY_OP                       shift and go to state 19
-    unaryExpr                      shift and go to state 91
+    unaryExpr                      shift and go to state 102
     primaryExpr                    shift and go to state 20
     conversion                     shift and go to state 24
     operand                        shift and go to state 25
@@ -743,110 +777,110 @@ state 20
 
 state 21
 
-    (91) UNARY_OP -> AND .
-    AND             reduce using rule 91 (UNARY_OP -> AND .)
-    EXCLM           reduce using rule 91 (UNARY_OP -> AND .)
-    MINUS           reduce using rule 91 (UNARY_OP -> AND .)
-    (               reduce using rule 91 (UNARY_OP -> AND .)
-    IDENTIFIER      reduce using rule 91 (UNARY_OP -> AND .)
-    STRING          reduce using rule 91 (UNARY_OP -> AND .)
-    BOOL            reduce using rule 91 (UNARY_OP -> AND .)
-    RUNE            reduce using rule 91 (UNARY_OP -> AND .)
-    DECIMAL_LIT     reduce using rule 91 (UNARY_OP -> AND .)
-    FALSE           reduce using rule 91 (UNARY_OP -> AND .)
-    TRUE            reduce using rule 91 (UNARY_OP -> AND .)
-    RUNE_LIT        reduce using rule 91 (UNARY_OP -> AND .)
-    STRING_LIT      reduce using rule 91 (UNARY_OP -> AND .)
-    F32             reduce using rule 91 (UNARY_OP -> AND .)
-    F64             reduce using rule 91 (UNARY_OP -> AND .)
-    INT             reduce using rule 91 (UNARY_OP -> AND .)
-    ISIZE           reduce using rule 91 (UNARY_OP -> AND .)
-    I64             reduce using rule 91 (UNARY_OP -> AND .)
-    I32             reduce using rule 91 (UNARY_OP -> AND .)
-    I16             reduce using rule 91 (UNARY_OP -> AND .)
-    I8              reduce using rule 91 (UNARY_OP -> AND .)
-    UINT            reduce using rule 91 (UNARY_OP -> AND .)
-    USIZE           reduce using rule 91 (UNARY_OP -> AND .)
-    U64             reduce using rule 91 (UNARY_OP -> AND .)
-    U32             reduce using rule 91 (UNARY_OP -> AND .)
-    U16             reduce using rule 91 (UNARY_OP -> AND .)
-    U8              reduce using rule 91 (UNARY_OP -> AND .)
-    HEX_LIT         reduce using rule 91 (UNARY_OP -> AND .)
-    OCTAL_LIT       reduce using rule 91 (UNARY_OP -> AND .)
-    BINARY_LIT      reduce using rule 91 (UNARY_OP -> AND .)
-    .               reduce using rule 91 (UNARY_OP -> AND .)
+    (102) UNARY_OP -> AND .
+    AND             reduce using rule 102 (UNARY_OP -> AND .)
+    EXCLM           reduce using rule 102 (UNARY_OP -> AND .)
+    MINUS           reduce using rule 102 (UNARY_OP -> AND .)
+    (               reduce using rule 102 (UNARY_OP -> AND .)
+    IDENTIFIER      reduce using rule 102 (UNARY_OP -> AND .)
+    STRING          reduce using rule 102 (UNARY_OP -> AND .)
+    BOOL            reduce using rule 102 (UNARY_OP -> AND .)
+    RUNE            reduce using rule 102 (UNARY_OP -> AND .)
+    DECIMAL_LIT     reduce using rule 102 (UNARY_OP -> AND .)
+    FALSE           reduce using rule 102 (UNARY_OP -> AND .)
+    TRUE            reduce using rule 102 (UNARY_OP -> AND .)
+    RUNE_LIT        reduce using rule 102 (UNARY_OP -> AND .)
+    STRING_LIT      reduce using rule 102 (UNARY_OP -> AND .)
+    F32             reduce using rule 102 (UNARY_OP -> AND .)
+    F64             reduce using rule 102 (UNARY_OP -> AND .)
+    INT             reduce using rule 102 (UNARY_OP -> AND .)
+    ISIZE           reduce using rule 102 (UNARY_OP -> AND .)
+    I64             reduce using rule 102 (UNARY_OP -> AND .)
+    I32             reduce using rule 102 (UNARY_OP -> AND .)
+    I16             reduce using rule 102 (UNARY_OP -> AND .)
+    I8              reduce using rule 102 (UNARY_OP -> AND .)
+    UINT            reduce using rule 102 (UNARY_OP -> AND .)
+    USIZE           reduce using rule 102 (UNARY_OP -> AND .)
+    U64             reduce using rule 102 (UNARY_OP -> AND .)
+    U32             reduce using rule 102 (UNARY_OP -> AND .)
+    U16             reduce using rule 102 (UNARY_OP -> AND .)
+    U8              reduce using rule 102 (UNARY_OP -> AND .)
+    HEX_LIT         reduce using rule 102 (UNARY_OP -> AND .)
+    OCTAL_LIT       reduce using rule 102 (UNARY_OP -> AND .)
+    BINARY_LIT      reduce using rule 102 (UNARY_OP -> AND .)
+    .               reduce using rule 102 (UNARY_OP -> AND .)
 
 
 state 22
 
-    (92) UNARY_OP -> EXCLM .
-    AND             reduce using rule 92 (UNARY_OP -> EXCLM .)
-    EXCLM           reduce using rule 92 (UNARY_OP -> EXCLM .)
-    MINUS           reduce using rule 92 (UNARY_OP -> EXCLM .)
-    (               reduce using rule 92 (UNARY_OP -> EXCLM .)
-    IDENTIFIER      reduce using rule 92 (UNARY_OP -> EXCLM .)
-    STRING          reduce using rule 92 (UNARY_OP -> EXCLM .)
-    BOOL            reduce using rule 92 (UNARY_OP -> EXCLM .)
-    RUNE            reduce using rule 92 (UNARY_OP -> EXCLM .)
-    DECIMAL_LIT     reduce using rule 92 (UNARY_OP -> EXCLM .)
-    FALSE           reduce using rule 92 (UNARY_OP -> EXCLM .)
-    TRUE            reduce using rule 92 (UNARY_OP -> EXCLM .)
-    RUNE_LIT        reduce using rule 92 (UNARY_OP -> EXCLM .)
-    STRING_LIT      reduce using rule 92 (UNARY_OP -> EXCLM .)
-    F32             reduce using rule 92 (UNARY_OP -> EXCLM .)
-    F64             reduce using rule 92 (UNARY_OP -> EXCLM .)
-    INT             reduce using rule 92 (UNARY_OP -> EXCLM .)
-    ISIZE           reduce using rule 92 (UNARY_OP -> EXCLM .)
-    I64             reduce using rule 92 (UNARY_OP -> EXCLM .)
-    I32             reduce using rule 92 (UNARY_OP -> EXCLM .)
-    I16             reduce using rule 92 (UNARY_OP -> EXCLM .)
-    I8              reduce using rule 92 (UNARY_OP -> EXCLM .)
-    UINT            reduce using rule 92 (UNARY_OP -> EXCLM .)
-    USIZE           reduce using rule 92 (UNARY_OP -> EXCLM .)
-    U64             reduce using rule 92 (UNARY_OP -> EXCLM .)
-    U32             reduce using rule 92 (UNARY_OP -> EXCLM .)
-    U16             reduce using rule 92 (UNARY_OP -> EXCLM .)
-    U8              reduce using rule 92 (UNARY_OP -> EXCLM .)
-    HEX_LIT         reduce using rule 92 (UNARY_OP -> EXCLM .)
-    OCTAL_LIT       reduce using rule 92 (UNARY_OP -> EXCLM .)
-    BINARY_LIT      reduce using rule 92 (UNARY_OP -> EXCLM .)
-    .               reduce using rule 92 (UNARY_OP -> EXCLM .)
+    (103) UNARY_OP -> EXCLM .
+    AND             reduce using rule 103 (UNARY_OP -> EXCLM .)
+    EXCLM           reduce using rule 103 (UNARY_OP -> EXCLM .)
+    MINUS           reduce using rule 103 (UNARY_OP -> EXCLM .)
+    (               reduce using rule 103 (UNARY_OP -> EXCLM .)
+    IDENTIFIER      reduce using rule 103 (UNARY_OP -> EXCLM .)
+    STRING          reduce using rule 103 (UNARY_OP -> EXCLM .)
+    BOOL            reduce using rule 103 (UNARY_OP -> EXCLM .)
+    RUNE            reduce using rule 103 (UNARY_OP -> EXCLM .)
+    DECIMAL_LIT     reduce using rule 103 (UNARY_OP -> EXCLM .)
+    FALSE           reduce using rule 103 (UNARY_OP -> EXCLM .)
+    TRUE            reduce using rule 103 (UNARY_OP -> EXCLM .)
+    RUNE_LIT        reduce using rule 103 (UNARY_OP -> EXCLM .)
+    STRING_LIT      reduce using rule 103 (UNARY_OP -> EXCLM .)
+    F32             reduce using rule 103 (UNARY_OP -> EXCLM .)
+    F64             reduce using rule 103 (UNARY_OP -> EXCLM .)
+    INT             reduce using rule 103 (UNARY_OP -> EXCLM .)
+    ISIZE           reduce using rule 103 (UNARY_OP -> EXCLM .)
+    I64             reduce using rule 103 (UNARY_OP -> EXCLM .)
+    I32             reduce using rule 103 (UNARY_OP -> EXCLM .)
+    I16             reduce using rule 103 (UNARY_OP -> EXCLM .)
+    I8              reduce using rule 103 (UNARY_OP -> EXCLM .)
+    UINT            reduce using rule 103 (UNARY_OP -> EXCLM .)
+    USIZE           reduce using rule 103 (UNARY_OP -> EXCLM .)
+    U64             reduce using rule 103 (UNARY_OP -> EXCLM .)
+    U32             reduce using rule 103 (UNARY_OP -> EXCLM .)
+    U16             reduce using rule 103 (UNARY_OP -> EXCLM .)
+    U8              reduce using rule 103 (UNARY_OP -> EXCLM .)
+    HEX_LIT         reduce using rule 103 (UNARY_OP -> EXCLM .)
+    OCTAL_LIT       reduce using rule 103 (UNARY_OP -> EXCLM .)
+    BINARY_LIT      reduce using rule 103 (UNARY_OP -> EXCLM .)
+    .               reduce using rule 103 (UNARY_OP -> EXCLM .)
 
 
 state 23
 
-    (93) UNARY_OP -> MINUS .
-    AND             reduce using rule 93 (UNARY_OP -> MINUS .)
-    EXCLM           reduce using rule 93 (UNARY_OP -> MINUS .)
-    MINUS           reduce using rule 93 (UNARY_OP -> MINUS .)
-    (               reduce using rule 93 (UNARY_OP -> MINUS .)
-    IDENTIFIER      reduce using rule 93 (UNARY_OP -> MINUS .)
-    STRING          reduce using rule 93 (UNARY_OP -> MINUS .)
-    BOOL            reduce using rule 93 (UNARY_OP -> MINUS .)
-    RUNE            reduce using rule 93 (UNARY_OP -> MINUS .)
-    DECIMAL_LIT     reduce using rule 93 (UNARY_OP -> MINUS .)
-    FALSE           reduce using rule 93 (UNARY_OP -> MINUS .)
-    TRUE            reduce using rule 93 (UNARY_OP -> MINUS .)
-    RUNE_LIT        reduce using rule 93 (UNARY_OP -> MINUS .)
-    STRING_LIT      reduce using rule 93 (UNARY_OP -> MINUS .)
-    F32             reduce using rule 93 (UNARY_OP -> MINUS .)
-    F64             reduce using rule 93 (UNARY_OP -> MINUS .)
-    INT             reduce using rule 93 (UNARY_OP -> MINUS .)
-    ISIZE           reduce using rule 93 (UNARY_OP -> MINUS .)
-    I64             reduce using rule 93 (UNARY_OP -> MINUS .)
-    I32             reduce using rule 93 (UNARY_OP -> MINUS .)
-    I16             reduce using rule 93 (UNARY_OP -> MINUS .)
-    I8              reduce using rule 93 (UNARY_OP -> MINUS .)
-    UINT            reduce using rule 93 (UNARY_OP -> MINUS .)
-    USIZE           reduce using rule 93 (UNARY_OP -> MINUS .)
-    U64             reduce using rule 93 (UNARY_OP -> MINUS .)
-    U32             reduce using rule 93 (UNARY_OP -> MINUS .)
-    U16             reduce using rule 93 (UNARY_OP -> MINUS .)
-    U8              reduce using rule 93 (UNARY_OP -> MINUS .)
-    HEX_LIT         reduce using rule 93 (UNARY_OP -> MINUS .)
-    OCTAL_LIT       reduce using rule 93 (UNARY_OP -> MINUS .)
-    BINARY_LIT      reduce using rule 93 (UNARY_OP -> MINUS .)
-    .               reduce using rule 93 (UNARY_OP -> MINUS .)
+    (104) UNARY_OP -> MINUS .
+    AND             reduce using rule 104 (UNARY_OP -> MINUS .)
+    EXCLM           reduce using rule 104 (UNARY_OP -> MINUS .)
+    MINUS           reduce using rule 104 (UNARY_OP -> MINUS .)
+    (               reduce using rule 104 (UNARY_OP -> MINUS .)
+    IDENTIFIER      reduce using rule 104 (UNARY_OP -> MINUS .)
+    STRING          reduce using rule 104 (UNARY_OP -> MINUS .)
+    BOOL            reduce using rule 104 (UNARY_OP -> MINUS .)
+    RUNE            reduce using rule 104 (UNARY_OP -> MINUS .)
+    DECIMAL_LIT     reduce using rule 104 (UNARY_OP -> MINUS .)
+    FALSE           reduce using rule 104 (UNARY_OP -> MINUS .)
+    TRUE            reduce using rule 104 (UNARY_OP -> MINUS .)
+    RUNE_LIT        reduce using rule 104 (UNARY_OP -> MINUS .)
+    STRING_LIT      reduce using rule 104 (UNARY_OP -> MINUS .)
+    F32             reduce using rule 104 (UNARY_OP -> MINUS .)
+    F64             reduce using rule 104 (UNARY_OP -> MINUS .)
+    INT             reduce using rule 104 (UNARY_OP -> MINUS .)
+    ISIZE           reduce using rule 104 (UNARY_OP -> MINUS .)
+    I64             reduce using rule 104 (UNARY_OP -> MINUS .)
+    I32             reduce using rule 104 (UNARY_OP -> MINUS .)
+    I16             reduce using rule 104 (UNARY_OP -> MINUS .)
+    I8              reduce using rule 104 (UNARY_OP -> MINUS .)
+    UINT            reduce using rule 104 (UNARY_OP -> MINUS .)
+    USIZE           reduce using rule 104 (UNARY_OP -> MINUS .)
+    U64             reduce using rule 104 (UNARY_OP -> MINUS .)
+    U32             reduce using rule 104 (UNARY_OP -> MINUS .)
+    U16             reduce using rule 104 (UNARY_OP -> MINUS .)
+    U8              reduce using rule 104 (UNARY_OP -> MINUS .)
+    HEX_LIT         reduce using rule 104 (UNARY_OP -> MINUS .)
+    OCTAL_LIT       reduce using rule 104 (UNARY_OP -> MINUS .)
+    BINARY_LIT      reduce using rule 104 (UNARY_OP -> MINUS .)
+    .               reduce using rule 104 (UNARY_OP -> MINUS .)
 
 
 state 24
@@ -906,7 +940,7 @@ state 25
 state 26
 
     (31) conversion -> type_ . ( expression )
-    (               shift and go to state 93
+    (               shift and go to state 104
 
 
 state 27
@@ -916,9 +950,9 @@ state 27
     (21) expression -> . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
     (23) unaryExpr -> . primaryExpr
-    (91) UNARY_OP -> . AND
-    (92) UNARY_OP -> . EXCLM
-    (93) UNARY_OP -> . MINUS
+    (102) UNARY_OP -> . AND
+    (103) UNARY_OP -> . EXCLM
+    (104) UNARY_OP -> . MINUS
     (24) primaryExpr -> . conversion
     (25) primaryExpr -> . operand
     (31) conversion -> . type_ ( expression )
@@ -965,7 +999,7 @@ state 27
     EXCLM           shift and go to state 22
     MINUS           shift and go to state 23
     (               shift and go to state 27
-    IDENTIFIER      shift and go to state 92
+    IDENTIFIER      shift and go to state 103
     STRING          shift and go to state 33
     BOOL            shift and go to state 34
     RUNE            shift and go to state 35
@@ -993,7 +1027,7 @@ state 27
     BINARY_LIT      shift and go to state 59
     .               shift and go to state 60
 
-    expression                     shift and go to state 94
+    expression                     shift and go to state 105
     unaryExpr                      shift and go to state 18
     UNARY_OP                       shift and go to state 19
     primaryExpr                    shift and go to state 20
@@ -1172,7 +1206,7 @@ state 37
     ;               reduce using rule 52 (basicLit -> FLOAT_LIT .)
     )               reduce using rule 52 (basicLit -> FLOAT_LIT .)
     ,               reduce using rule 52 (basicLit -> FLOAT_LIT .)
-    EXPONENT        shift and go to state 95
+    EXPONENT        shift and go to state 106
 
 
 state 38
@@ -1181,7 +1215,7 @@ state 38
     (65) INT_LIT -> DECIMAL_LIT .
     (60) FLOAT_LIT -> DECIMAL_LIT . .
     (61) FLOAT_LIT -> DECIMAL_LIT . . DECIMAL_LIT
-    EXPONENT        shift and go to state 96
+    EXPONENT        shift and go to state 107
     LOGIC_AND       reduce using rule 65 (INT_LIT -> DECIMAL_LIT .)
     LOGIC_OR        reduce using rule 65 (INT_LIT -> DECIMAL_LIT .)
     SHR             reduce using rule 65 (INT_LIT -> DECIMAL_LIT .)
@@ -1204,7 +1238,7 @@ state 38
     ;               reduce using rule 65 (INT_LIT -> DECIMAL_LIT .)
     )               reduce using rule 65 (INT_LIT -> DECIMAL_LIT .)
     ,               reduce using rule 65 (INT_LIT -> DECIMAL_LIT .)
-    .               shift and go to state 97
+    .               shift and go to state 108
 
 
 state 39
@@ -1483,7 +1517,7 @@ state 59
 state 60
 
     (59) FLOAT_LIT -> . . DECIMAL_LIT
-    DECIMAL_LIT     shift and go to state 98
+    DECIMAL_LIT     shift and go to state 109
 
 
 state 61
@@ -1523,8 +1557,8 @@ state 61
     BINARY_LIT      reduce using rule 4 (topLevelDecls -> topLevelDecl eos .)
     .               reduce using rule 4 (topLevelDecls -> topLevelDecl eos .)
     $end            reduce using rule 4 (topLevelDecls -> topLevelDecl eos .)
-    NEWL            shift and go to state 99
-    ;               shift and go to state 100
+    NEWL            shift and go to state 110
+    ;               shift and go to state 111
 
 
 state 62
@@ -1614,9 +1648,9 @@ state 64
     (21) expression -> . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
     (23) unaryExpr -> . primaryExpr
-    (91) UNARY_OP -> . AND
-    (92) UNARY_OP -> . EXCLM
-    (93) UNARY_OP -> . MINUS
+    (102) UNARY_OP -> . AND
+    (103) UNARY_OP -> . EXCLM
+    (104) UNARY_OP -> . MINUS
     (24) primaryExpr -> . conversion
     (25) primaryExpr -> . operand
     (31) conversion -> . type_ ( expression )
@@ -1663,7 +1697,7 @@ state 64
     EXCLM           shift and go to state 22
     MINUS           shift and go to state 23
     (               shift and go to state 27
-    IDENTIFIER      shift and go to state 92
+    IDENTIFIER      shift and go to state 103
     STRING          shift and go to state 33
     BOOL            shift and go to state 34
     RUNE            shift and go to state 35
@@ -1691,8 +1725,8 @@ state 64
     BINARY_LIT      shift and go to state 59
     .               shift and go to state 60
 
-    expressionList                 shift and go to state 101
-    expression                     shift and go to state 102
+    expressionList                 shift and go to state 112
+    expression                     shift and go to state 113
     unaryExpr                      shift and go to state 18
     UNARY_OP                       shift and go to state 19
     primaryExpr                    shift and go to state 20
@@ -1710,7 +1744,7 @@ state 64
 state 65
 
     (9) identifierList -> identifierList , . IDENTIFIER
-    IDENTIFIER      shift and go to state 103
+    IDENTIFIER      shift and go to state 114
 
 
 state 66
@@ -1750,8 +1784,8 @@ state 66
     BINARY_LIT      reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
     .               reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
     $end            reduce using rule 3 (topLevelDecls -> topLevelDecls topLevelDecl eos .)
-    NEWL            shift and go to state 99
-    ;               shift and go to state 100
+    NEWL            shift and go to state 110
+    ;               shift and go to state 111
 
 
 state 67
@@ -1763,7 +1797,7 @@ state 67
     (15) statement -> . simpleStmt
     (16) simpleStmt -> . assignment
     (17) simpleStmt -> . expressionStmt
-    (19) assignment -> . identifierList ASSIGN expressionList
+    (19) assignment -> . identifierList assign_op expressionList
     (18) expressionStmt -> . expression
     (9) identifierList -> . identifierList , IDENTIFIER
     (10) identifierList -> . IDENTIFIER
@@ -1771,9 +1805,9 @@ state 67
     (21) expression -> . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
     (23) unaryExpr -> . primaryExpr
-    (91) UNARY_OP -> . AND
-    (92) UNARY_OP -> . EXCLM
-    (93) UNARY_OP -> . MINUS
+    (102) UNARY_OP -> . AND
+    (103) UNARY_OP -> . EXCLM
+    (104) UNARY_OP -> . MINUS
     (24) primaryExpr -> . conversion
     (25) primaryExpr -> . operand
     (31) conversion -> . type_ ( expression )
@@ -1817,8 +1851,8 @@ state 67
     (60) FLOAT_LIT -> . DECIMAL_LIT .
     (61) FLOAT_LIT -> . DECIMAL_LIT . DECIMAL_LIT
     $end            reduce using rule 5 (orphanStmtList -> statementList eos .)
-    NEWL            shift and go to state 99
-    ;               shift and go to state 100
+    NEWL            shift and go to state 110
+    ;               shift and go to state 111
     IDENTIFIER      shift and go to state 16
     AND             shift and go to state 21
     EXCLM           shift and go to state 22
@@ -1851,11 +1885,11 @@ state 67
     BINARY_LIT      shift and go to state 59
     .               shift and go to state 60
 
-    statement                      shift and go to state 104
+    statement                      shift and go to state 115
     simpleStmt                     shift and go to state 12
     assignment                     shift and go to state 14
     expressionStmt                 shift and go to state 15
-    identifierList                 shift and go to state 105
+    identifierList                 shift and go to state 116
     expression                     shift and go to state 17
     unaryExpr                      shift and go to state 18
     UNARY_OP                       shift and go to state 19
@@ -1873,16 +1907,16 @@ state 67
 
 state 68
 
-    (19) assignment -> identifierList ASSIGN . expressionList
+    (19) assignment -> identifierList assign_op . expressionList
     (11) expressionList -> . expressionList , expression
     (12) expressionList -> . expression
     (20) expression -> . expression BINARY_OP unaryExpr
     (21) expression -> . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
     (23) unaryExpr -> . primaryExpr
-    (91) UNARY_OP -> . AND
-    (92) UNARY_OP -> . EXCLM
-    (93) UNARY_OP -> . MINUS
+    (102) UNARY_OP -> . AND
+    (103) UNARY_OP -> . EXCLM
+    (104) UNARY_OP -> . MINUS
     (24) primaryExpr -> . conversion
     (25) primaryExpr -> . operand
     (31) conversion -> . type_ ( expression )
@@ -1929,7 +1963,7 @@ state 68
     EXCLM           shift and go to state 22
     MINUS           shift and go to state 23
     (               shift and go to state 27
-    IDENTIFIER      shift and go to state 92
+    IDENTIFIER      shift and go to state 103
     STRING          shift and go to state 33
     BOOL            shift and go to state 34
     RUNE            shift and go to state 35
@@ -1957,8 +1991,8 @@ state 68
     BINARY_LIT      shift and go to state 59
     .               shift and go to state 60
 
-    expressionList                 shift and go to state 106
-    expression                     shift and go to state 102
+    expressionList                 shift and go to state 117
+    expression                     shift and go to state 113
     unaryExpr                      shift and go to state 18
     UNARY_OP                       shift and go to state 19
     primaryExpr                    shift and go to state 20
@@ -1975,12 +2009,408 @@ state 68
 
 state 69
 
+    (70) assign_op -> SHR_ASGN .
+    AND             reduce using rule 70 (assign_op -> SHR_ASGN .)
+    EXCLM           reduce using rule 70 (assign_op -> SHR_ASGN .)
+    MINUS           reduce using rule 70 (assign_op -> SHR_ASGN .)
+    (               reduce using rule 70 (assign_op -> SHR_ASGN .)
+    IDENTIFIER      reduce using rule 70 (assign_op -> SHR_ASGN .)
+    STRING          reduce using rule 70 (assign_op -> SHR_ASGN .)
+    BOOL            reduce using rule 70 (assign_op -> SHR_ASGN .)
+    RUNE            reduce using rule 70 (assign_op -> SHR_ASGN .)
+    DECIMAL_LIT     reduce using rule 70 (assign_op -> SHR_ASGN .)
+    FALSE           reduce using rule 70 (assign_op -> SHR_ASGN .)
+    TRUE            reduce using rule 70 (assign_op -> SHR_ASGN .)
+    RUNE_LIT        reduce using rule 70 (assign_op -> SHR_ASGN .)
+    STRING_LIT      reduce using rule 70 (assign_op -> SHR_ASGN .)
+    F32             reduce using rule 70 (assign_op -> SHR_ASGN .)
+    F64             reduce using rule 70 (assign_op -> SHR_ASGN .)
+    INT             reduce using rule 70 (assign_op -> SHR_ASGN .)
+    ISIZE           reduce using rule 70 (assign_op -> SHR_ASGN .)
+    I64             reduce using rule 70 (assign_op -> SHR_ASGN .)
+    I32             reduce using rule 70 (assign_op -> SHR_ASGN .)
+    I16             reduce using rule 70 (assign_op -> SHR_ASGN .)
+    I8              reduce using rule 70 (assign_op -> SHR_ASGN .)
+    UINT            reduce using rule 70 (assign_op -> SHR_ASGN .)
+    USIZE           reduce using rule 70 (assign_op -> SHR_ASGN .)
+    U64             reduce using rule 70 (assign_op -> SHR_ASGN .)
+    U32             reduce using rule 70 (assign_op -> SHR_ASGN .)
+    U16             reduce using rule 70 (assign_op -> SHR_ASGN .)
+    U8              reduce using rule 70 (assign_op -> SHR_ASGN .)
+    HEX_LIT         reduce using rule 70 (assign_op -> SHR_ASGN .)
+    OCTAL_LIT       reduce using rule 70 (assign_op -> SHR_ASGN .)
+    BINARY_LIT      reduce using rule 70 (assign_op -> SHR_ASGN .)
+    .               reduce using rule 70 (assign_op -> SHR_ASGN .)
+
+
+state 70
+
+    (71) assign_op -> SHL_ASGN .
+    AND             reduce using rule 71 (assign_op -> SHL_ASGN .)
+    EXCLM           reduce using rule 71 (assign_op -> SHL_ASGN .)
+    MINUS           reduce using rule 71 (assign_op -> SHL_ASGN .)
+    (               reduce using rule 71 (assign_op -> SHL_ASGN .)
+    IDENTIFIER      reduce using rule 71 (assign_op -> SHL_ASGN .)
+    STRING          reduce using rule 71 (assign_op -> SHL_ASGN .)
+    BOOL            reduce using rule 71 (assign_op -> SHL_ASGN .)
+    RUNE            reduce using rule 71 (assign_op -> SHL_ASGN .)
+    DECIMAL_LIT     reduce using rule 71 (assign_op -> SHL_ASGN .)
+    FALSE           reduce using rule 71 (assign_op -> SHL_ASGN .)
+    TRUE            reduce using rule 71 (assign_op -> SHL_ASGN .)
+    RUNE_LIT        reduce using rule 71 (assign_op -> SHL_ASGN .)
+    STRING_LIT      reduce using rule 71 (assign_op -> SHL_ASGN .)
+    F32             reduce using rule 71 (assign_op -> SHL_ASGN .)
+    F64             reduce using rule 71 (assign_op -> SHL_ASGN .)
+    INT             reduce using rule 71 (assign_op -> SHL_ASGN .)
+    ISIZE           reduce using rule 71 (assign_op -> SHL_ASGN .)
+    I64             reduce using rule 71 (assign_op -> SHL_ASGN .)
+    I32             reduce using rule 71 (assign_op -> SHL_ASGN .)
+    I16             reduce using rule 71 (assign_op -> SHL_ASGN .)
+    I8              reduce using rule 71 (assign_op -> SHL_ASGN .)
+    UINT            reduce using rule 71 (assign_op -> SHL_ASGN .)
+    USIZE           reduce using rule 71 (assign_op -> SHL_ASGN .)
+    U64             reduce using rule 71 (assign_op -> SHL_ASGN .)
+    U32             reduce using rule 71 (assign_op -> SHL_ASGN .)
+    U16             reduce using rule 71 (assign_op -> SHL_ASGN .)
+    U8              reduce using rule 71 (assign_op -> SHL_ASGN .)
+    HEX_LIT         reduce using rule 71 (assign_op -> SHL_ASGN .)
+    OCTAL_LIT       reduce using rule 71 (assign_op -> SHL_ASGN .)
+    BINARY_LIT      reduce using rule 71 (assign_op -> SHL_ASGN .)
+    .               reduce using rule 71 (assign_op -> SHL_ASGN .)
+
+
+state 71
+
+    (72) assign_op -> MOD_ASGN .
+    AND             reduce using rule 72 (assign_op -> MOD_ASGN .)
+    EXCLM           reduce using rule 72 (assign_op -> MOD_ASGN .)
+    MINUS           reduce using rule 72 (assign_op -> MOD_ASGN .)
+    (               reduce using rule 72 (assign_op -> MOD_ASGN .)
+    IDENTIFIER      reduce using rule 72 (assign_op -> MOD_ASGN .)
+    STRING          reduce using rule 72 (assign_op -> MOD_ASGN .)
+    BOOL            reduce using rule 72 (assign_op -> MOD_ASGN .)
+    RUNE            reduce using rule 72 (assign_op -> MOD_ASGN .)
+    DECIMAL_LIT     reduce using rule 72 (assign_op -> MOD_ASGN .)
+    FALSE           reduce using rule 72 (assign_op -> MOD_ASGN .)
+    TRUE            reduce using rule 72 (assign_op -> MOD_ASGN .)
+    RUNE_LIT        reduce using rule 72 (assign_op -> MOD_ASGN .)
+    STRING_LIT      reduce using rule 72 (assign_op -> MOD_ASGN .)
+    F32             reduce using rule 72 (assign_op -> MOD_ASGN .)
+    F64             reduce using rule 72 (assign_op -> MOD_ASGN .)
+    INT             reduce using rule 72 (assign_op -> MOD_ASGN .)
+    ISIZE           reduce using rule 72 (assign_op -> MOD_ASGN .)
+    I64             reduce using rule 72 (assign_op -> MOD_ASGN .)
+    I32             reduce using rule 72 (assign_op -> MOD_ASGN .)
+    I16             reduce using rule 72 (assign_op -> MOD_ASGN .)
+    I8              reduce using rule 72 (assign_op -> MOD_ASGN .)
+    UINT            reduce using rule 72 (assign_op -> MOD_ASGN .)
+    USIZE           reduce using rule 72 (assign_op -> MOD_ASGN .)
+    U64             reduce using rule 72 (assign_op -> MOD_ASGN .)
+    U32             reduce using rule 72 (assign_op -> MOD_ASGN .)
+    U16             reduce using rule 72 (assign_op -> MOD_ASGN .)
+    U8              reduce using rule 72 (assign_op -> MOD_ASGN .)
+    HEX_LIT         reduce using rule 72 (assign_op -> MOD_ASGN .)
+    OCTAL_LIT       reduce using rule 72 (assign_op -> MOD_ASGN .)
+    BINARY_LIT      reduce using rule 72 (assign_op -> MOD_ASGN .)
+    .               reduce using rule 72 (assign_op -> MOD_ASGN .)
+
+
+state 72
+
+    (73) assign_op -> DIV_ASGN .
+    AND             reduce using rule 73 (assign_op -> DIV_ASGN .)
+    EXCLM           reduce using rule 73 (assign_op -> DIV_ASGN .)
+    MINUS           reduce using rule 73 (assign_op -> DIV_ASGN .)
+    (               reduce using rule 73 (assign_op -> DIV_ASGN .)
+    IDENTIFIER      reduce using rule 73 (assign_op -> DIV_ASGN .)
+    STRING          reduce using rule 73 (assign_op -> DIV_ASGN .)
+    BOOL            reduce using rule 73 (assign_op -> DIV_ASGN .)
+    RUNE            reduce using rule 73 (assign_op -> DIV_ASGN .)
+    DECIMAL_LIT     reduce using rule 73 (assign_op -> DIV_ASGN .)
+    FALSE           reduce using rule 73 (assign_op -> DIV_ASGN .)
+    TRUE            reduce using rule 73 (assign_op -> DIV_ASGN .)
+    RUNE_LIT        reduce using rule 73 (assign_op -> DIV_ASGN .)
+    STRING_LIT      reduce using rule 73 (assign_op -> DIV_ASGN .)
+    F32             reduce using rule 73 (assign_op -> DIV_ASGN .)
+    F64             reduce using rule 73 (assign_op -> DIV_ASGN .)
+    INT             reduce using rule 73 (assign_op -> DIV_ASGN .)
+    ISIZE           reduce using rule 73 (assign_op -> DIV_ASGN .)
+    I64             reduce using rule 73 (assign_op -> DIV_ASGN .)
+    I32             reduce using rule 73 (assign_op -> DIV_ASGN .)
+    I16             reduce using rule 73 (assign_op -> DIV_ASGN .)
+    I8              reduce using rule 73 (assign_op -> DIV_ASGN .)
+    UINT            reduce using rule 73 (assign_op -> DIV_ASGN .)
+    USIZE           reduce using rule 73 (assign_op -> DIV_ASGN .)
+    U64             reduce using rule 73 (assign_op -> DIV_ASGN .)
+    U32             reduce using rule 73 (assign_op -> DIV_ASGN .)
+    U16             reduce using rule 73 (assign_op -> DIV_ASGN .)
+    U8              reduce using rule 73 (assign_op -> DIV_ASGN .)
+    HEX_LIT         reduce using rule 73 (assign_op -> DIV_ASGN .)
+    OCTAL_LIT       reduce using rule 73 (assign_op -> DIV_ASGN .)
+    BINARY_LIT      reduce using rule 73 (assign_op -> DIV_ASGN .)
+    .               reduce using rule 73 (assign_op -> DIV_ASGN .)
+
+
+state 73
+
+    (74) assign_op -> OR_ASGN .
+    AND             reduce using rule 74 (assign_op -> OR_ASGN .)
+    EXCLM           reduce using rule 74 (assign_op -> OR_ASGN .)
+    MINUS           reduce using rule 74 (assign_op -> OR_ASGN .)
+    (               reduce using rule 74 (assign_op -> OR_ASGN .)
+    IDENTIFIER      reduce using rule 74 (assign_op -> OR_ASGN .)
+    STRING          reduce using rule 74 (assign_op -> OR_ASGN .)
+    BOOL            reduce using rule 74 (assign_op -> OR_ASGN .)
+    RUNE            reduce using rule 74 (assign_op -> OR_ASGN .)
+    DECIMAL_LIT     reduce using rule 74 (assign_op -> OR_ASGN .)
+    FALSE           reduce using rule 74 (assign_op -> OR_ASGN .)
+    TRUE            reduce using rule 74 (assign_op -> OR_ASGN .)
+    RUNE_LIT        reduce using rule 74 (assign_op -> OR_ASGN .)
+    STRING_LIT      reduce using rule 74 (assign_op -> OR_ASGN .)
+    F32             reduce using rule 74 (assign_op -> OR_ASGN .)
+    F64             reduce using rule 74 (assign_op -> OR_ASGN .)
+    INT             reduce using rule 74 (assign_op -> OR_ASGN .)
+    ISIZE           reduce using rule 74 (assign_op -> OR_ASGN .)
+    I64             reduce using rule 74 (assign_op -> OR_ASGN .)
+    I32             reduce using rule 74 (assign_op -> OR_ASGN .)
+    I16             reduce using rule 74 (assign_op -> OR_ASGN .)
+    I8              reduce using rule 74 (assign_op -> OR_ASGN .)
+    UINT            reduce using rule 74 (assign_op -> OR_ASGN .)
+    USIZE           reduce using rule 74 (assign_op -> OR_ASGN .)
+    U64             reduce using rule 74 (assign_op -> OR_ASGN .)
+    U32             reduce using rule 74 (assign_op -> OR_ASGN .)
+    U16             reduce using rule 74 (assign_op -> OR_ASGN .)
+    U8              reduce using rule 74 (assign_op -> OR_ASGN .)
+    HEX_LIT         reduce using rule 74 (assign_op -> OR_ASGN .)
+    OCTAL_LIT       reduce using rule 74 (assign_op -> OR_ASGN .)
+    BINARY_LIT      reduce using rule 74 (assign_op -> OR_ASGN .)
+    .               reduce using rule 74 (assign_op -> OR_ASGN .)
+
+
+state 74
+
+    (75) assign_op -> AND_ASGN .
+    AND             reduce using rule 75 (assign_op -> AND_ASGN .)
+    EXCLM           reduce using rule 75 (assign_op -> AND_ASGN .)
+    MINUS           reduce using rule 75 (assign_op -> AND_ASGN .)
+    (               reduce using rule 75 (assign_op -> AND_ASGN .)
+    IDENTIFIER      reduce using rule 75 (assign_op -> AND_ASGN .)
+    STRING          reduce using rule 75 (assign_op -> AND_ASGN .)
+    BOOL            reduce using rule 75 (assign_op -> AND_ASGN .)
+    RUNE            reduce using rule 75 (assign_op -> AND_ASGN .)
+    DECIMAL_LIT     reduce using rule 75 (assign_op -> AND_ASGN .)
+    FALSE           reduce using rule 75 (assign_op -> AND_ASGN .)
+    TRUE            reduce using rule 75 (assign_op -> AND_ASGN .)
+    RUNE_LIT        reduce using rule 75 (assign_op -> AND_ASGN .)
+    STRING_LIT      reduce using rule 75 (assign_op -> AND_ASGN .)
+    F32             reduce using rule 75 (assign_op -> AND_ASGN .)
+    F64             reduce using rule 75 (assign_op -> AND_ASGN .)
+    INT             reduce using rule 75 (assign_op -> AND_ASGN .)
+    ISIZE           reduce using rule 75 (assign_op -> AND_ASGN .)
+    I64             reduce using rule 75 (assign_op -> AND_ASGN .)
+    I32             reduce using rule 75 (assign_op -> AND_ASGN .)
+    I16             reduce using rule 75 (assign_op -> AND_ASGN .)
+    I8              reduce using rule 75 (assign_op -> AND_ASGN .)
+    UINT            reduce using rule 75 (assign_op -> AND_ASGN .)
+    USIZE           reduce using rule 75 (assign_op -> AND_ASGN .)
+    U64             reduce using rule 75 (assign_op -> AND_ASGN .)
+    U32             reduce using rule 75 (assign_op -> AND_ASGN .)
+    U16             reduce using rule 75 (assign_op -> AND_ASGN .)
+    U8              reduce using rule 75 (assign_op -> AND_ASGN .)
+    HEX_LIT         reduce using rule 75 (assign_op -> AND_ASGN .)
+    OCTAL_LIT       reduce using rule 75 (assign_op -> AND_ASGN .)
+    BINARY_LIT      reduce using rule 75 (assign_op -> AND_ASGN .)
+    .               reduce using rule 75 (assign_op -> AND_ASGN .)
+
+
+state 75
+
+    (76) assign_op -> STAR_ASGN .
+    AND             reduce using rule 76 (assign_op -> STAR_ASGN .)
+    EXCLM           reduce using rule 76 (assign_op -> STAR_ASGN .)
+    MINUS           reduce using rule 76 (assign_op -> STAR_ASGN .)
+    (               reduce using rule 76 (assign_op -> STAR_ASGN .)
+    IDENTIFIER      reduce using rule 76 (assign_op -> STAR_ASGN .)
+    STRING          reduce using rule 76 (assign_op -> STAR_ASGN .)
+    BOOL            reduce using rule 76 (assign_op -> STAR_ASGN .)
+    RUNE            reduce using rule 76 (assign_op -> STAR_ASGN .)
+    DECIMAL_LIT     reduce using rule 76 (assign_op -> STAR_ASGN .)
+    FALSE           reduce using rule 76 (assign_op -> STAR_ASGN .)
+    TRUE            reduce using rule 76 (assign_op -> STAR_ASGN .)
+    RUNE_LIT        reduce using rule 76 (assign_op -> STAR_ASGN .)
+    STRING_LIT      reduce using rule 76 (assign_op -> STAR_ASGN .)
+    F32             reduce using rule 76 (assign_op -> STAR_ASGN .)
+    F64             reduce using rule 76 (assign_op -> STAR_ASGN .)
+    INT             reduce using rule 76 (assign_op -> STAR_ASGN .)
+    ISIZE           reduce using rule 76 (assign_op -> STAR_ASGN .)
+    I64             reduce using rule 76 (assign_op -> STAR_ASGN .)
+    I32             reduce using rule 76 (assign_op -> STAR_ASGN .)
+    I16             reduce using rule 76 (assign_op -> STAR_ASGN .)
+    I8              reduce using rule 76 (assign_op -> STAR_ASGN .)
+    UINT            reduce using rule 76 (assign_op -> STAR_ASGN .)
+    USIZE           reduce using rule 76 (assign_op -> STAR_ASGN .)
+    U64             reduce using rule 76 (assign_op -> STAR_ASGN .)
+    U32             reduce using rule 76 (assign_op -> STAR_ASGN .)
+    U16             reduce using rule 76 (assign_op -> STAR_ASGN .)
+    U8              reduce using rule 76 (assign_op -> STAR_ASGN .)
+    HEX_LIT         reduce using rule 76 (assign_op -> STAR_ASGN .)
+    OCTAL_LIT       reduce using rule 76 (assign_op -> STAR_ASGN .)
+    BINARY_LIT      reduce using rule 76 (assign_op -> STAR_ASGN .)
+    .               reduce using rule 76 (assign_op -> STAR_ASGN .)
+
+
+state 76
+
+    (77) assign_op -> XOR_ASGN .
+    AND             reduce using rule 77 (assign_op -> XOR_ASGN .)
+    EXCLM           reduce using rule 77 (assign_op -> XOR_ASGN .)
+    MINUS           reduce using rule 77 (assign_op -> XOR_ASGN .)
+    (               reduce using rule 77 (assign_op -> XOR_ASGN .)
+    IDENTIFIER      reduce using rule 77 (assign_op -> XOR_ASGN .)
+    STRING          reduce using rule 77 (assign_op -> XOR_ASGN .)
+    BOOL            reduce using rule 77 (assign_op -> XOR_ASGN .)
+    RUNE            reduce using rule 77 (assign_op -> XOR_ASGN .)
+    DECIMAL_LIT     reduce using rule 77 (assign_op -> XOR_ASGN .)
+    FALSE           reduce using rule 77 (assign_op -> XOR_ASGN .)
+    TRUE            reduce using rule 77 (assign_op -> XOR_ASGN .)
+    RUNE_LIT        reduce using rule 77 (assign_op -> XOR_ASGN .)
+    STRING_LIT      reduce using rule 77 (assign_op -> XOR_ASGN .)
+    F32             reduce using rule 77 (assign_op -> XOR_ASGN .)
+    F64             reduce using rule 77 (assign_op -> XOR_ASGN .)
+    INT             reduce using rule 77 (assign_op -> XOR_ASGN .)
+    ISIZE           reduce using rule 77 (assign_op -> XOR_ASGN .)
+    I64             reduce using rule 77 (assign_op -> XOR_ASGN .)
+    I32             reduce using rule 77 (assign_op -> XOR_ASGN .)
+    I16             reduce using rule 77 (assign_op -> XOR_ASGN .)
+    I8              reduce using rule 77 (assign_op -> XOR_ASGN .)
+    UINT            reduce using rule 77 (assign_op -> XOR_ASGN .)
+    USIZE           reduce using rule 77 (assign_op -> XOR_ASGN .)
+    U64             reduce using rule 77 (assign_op -> XOR_ASGN .)
+    U32             reduce using rule 77 (assign_op -> XOR_ASGN .)
+    U16             reduce using rule 77 (assign_op -> XOR_ASGN .)
+    U8              reduce using rule 77 (assign_op -> XOR_ASGN .)
+    HEX_LIT         reduce using rule 77 (assign_op -> XOR_ASGN .)
+    OCTAL_LIT       reduce using rule 77 (assign_op -> XOR_ASGN .)
+    BINARY_LIT      reduce using rule 77 (assign_op -> XOR_ASGN .)
+    .               reduce using rule 77 (assign_op -> XOR_ASGN .)
+
+
+state 77
+
+    (78) assign_op -> MINUS_ASGN .
+    AND             reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    EXCLM           reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    MINUS           reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    (               reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    IDENTIFIER      reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    STRING          reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    BOOL            reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    RUNE            reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    DECIMAL_LIT     reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    FALSE           reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    TRUE            reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    RUNE_LIT        reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    STRING_LIT      reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    F32             reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    F64             reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    INT             reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    ISIZE           reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    I64             reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    I32             reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    I16             reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    I8              reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    UINT            reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    USIZE           reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    U64             reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    U32             reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    U16             reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    U8              reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    HEX_LIT         reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    OCTAL_LIT       reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    BINARY_LIT      reduce using rule 78 (assign_op -> MINUS_ASGN .)
+    .               reduce using rule 78 (assign_op -> MINUS_ASGN .)
+
+
+state 78
+
+    (79) assign_op -> PLUS_ASGN .
+    AND             reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    EXCLM           reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    MINUS           reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    (               reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    IDENTIFIER      reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    STRING          reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    BOOL            reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    RUNE            reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    DECIMAL_LIT     reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    FALSE           reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    TRUE            reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    RUNE_LIT        reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    STRING_LIT      reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    F32             reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    F64             reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    INT             reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    ISIZE           reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    I64             reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    I32             reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    I16             reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    I8              reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    UINT            reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    USIZE           reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    U64             reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    U32             reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    U16             reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    U8              reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    HEX_LIT         reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    OCTAL_LIT       reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    BINARY_LIT      reduce using rule 79 (assign_op -> PLUS_ASGN .)
+    .               reduce using rule 79 (assign_op -> PLUS_ASGN .)
+
+
+state 79
+
+    (80) assign_op -> ASSIGN .
+    AND             reduce using rule 80 (assign_op -> ASSIGN .)
+    EXCLM           reduce using rule 80 (assign_op -> ASSIGN .)
+    MINUS           reduce using rule 80 (assign_op -> ASSIGN .)
+    (               reduce using rule 80 (assign_op -> ASSIGN .)
+    IDENTIFIER      reduce using rule 80 (assign_op -> ASSIGN .)
+    STRING          reduce using rule 80 (assign_op -> ASSIGN .)
+    BOOL            reduce using rule 80 (assign_op -> ASSIGN .)
+    RUNE            reduce using rule 80 (assign_op -> ASSIGN .)
+    DECIMAL_LIT     reduce using rule 80 (assign_op -> ASSIGN .)
+    FALSE           reduce using rule 80 (assign_op -> ASSIGN .)
+    TRUE            reduce using rule 80 (assign_op -> ASSIGN .)
+    RUNE_LIT        reduce using rule 80 (assign_op -> ASSIGN .)
+    STRING_LIT      reduce using rule 80 (assign_op -> ASSIGN .)
+    F32             reduce using rule 80 (assign_op -> ASSIGN .)
+    F64             reduce using rule 80 (assign_op -> ASSIGN .)
+    INT             reduce using rule 80 (assign_op -> ASSIGN .)
+    ISIZE           reduce using rule 80 (assign_op -> ASSIGN .)
+    I64             reduce using rule 80 (assign_op -> ASSIGN .)
+    I32             reduce using rule 80 (assign_op -> ASSIGN .)
+    I16             reduce using rule 80 (assign_op -> ASSIGN .)
+    I8              reduce using rule 80 (assign_op -> ASSIGN .)
+    UINT            reduce using rule 80 (assign_op -> ASSIGN .)
+    USIZE           reduce using rule 80 (assign_op -> ASSIGN .)
+    U64             reduce using rule 80 (assign_op -> ASSIGN .)
+    U32             reduce using rule 80 (assign_op -> ASSIGN .)
+    U16             reduce using rule 80 (assign_op -> ASSIGN .)
+    U8              reduce using rule 80 (assign_op -> ASSIGN .)
+    HEX_LIT         reduce using rule 80 (assign_op -> ASSIGN .)
+    OCTAL_LIT       reduce using rule 80 (assign_op -> ASSIGN .)
+    BINARY_LIT      reduce using rule 80 (assign_op -> ASSIGN .)
+    .               reduce using rule 80 (assign_op -> ASSIGN .)
+
+
+state 80
+
     (20) expression -> expression BINARY_OP . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
     (23) unaryExpr -> . primaryExpr
-    (91) UNARY_OP -> . AND
-    (92) UNARY_OP -> . EXCLM
-    (93) UNARY_OP -> . MINUS
+    (102) UNARY_OP -> . AND
+    (103) UNARY_OP -> . EXCLM
+    (104) UNARY_OP -> . MINUS
     (24) primaryExpr -> . conversion
     (25) primaryExpr -> . operand
     (31) conversion -> . type_ ( expression )
@@ -2027,7 +2457,7 @@ state 69
     EXCLM           shift and go to state 22
     MINUS           shift and go to state 23
     (               shift and go to state 27
-    IDENTIFIER      shift and go to state 92
+    IDENTIFIER      shift and go to state 103
     STRING          shift and go to state 33
     BOOL            shift and go to state 34
     RUNE            shift and go to state 35
@@ -2055,7 +2485,7 @@ state 69
     BINARY_LIT      shift and go to state 59
     .               shift and go to state 60
 
-    unaryExpr                      shift and go to state 107
+    unaryExpr                      shift and go to state 118
     UNARY_OP                       shift and go to state 19
     primaryExpr                    shift and go to state 20
     conversion                     shift and go to state 24
@@ -2069,763 +2499,763 @@ state 69
     INT_LIT                        shift and go to state 36
     FLOAT_LIT                      shift and go to state 37
 
-state 70
-
-    (70) BINARY_OP -> MUL_OP .
-    AND             reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    EXCLM           reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    MINUS           reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    (               reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    IDENTIFIER      reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    STRING          reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    BOOL            reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    RUNE            reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    DECIMAL_LIT     reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    FALSE           reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    TRUE            reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    RUNE_LIT        reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    STRING_LIT      reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    F32             reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    F64             reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    INT             reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    ISIZE           reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    I64             reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    I32             reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    I16             reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    I8              reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    UINT            reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    USIZE           reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    U64             reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    U32             reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    U16             reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    U8              reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    HEX_LIT         reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    OCTAL_LIT       reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    BINARY_LIT      reduce using rule 70 (BINARY_OP -> MUL_OP .)
-    .               reduce using rule 70 (BINARY_OP -> MUL_OP .)
-
-
-state 71
-
-    (71) BINARY_OP -> ADD_OP .
-    AND             reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    EXCLM           reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    MINUS           reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    (               reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    IDENTIFIER      reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    STRING          reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    BOOL            reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    RUNE            reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    DECIMAL_LIT     reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    FALSE           reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    TRUE            reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    RUNE_LIT        reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    STRING_LIT      reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    F32             reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    F64             reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    INT             reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    ISIZE           reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    I64             reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    I32             reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    I16             reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    I8              reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    UINT            reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    USIZE           reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    U64             reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    U32             reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    U16             reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    U8              reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    HEX_LIT         reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    OCTAL_LIT       reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    BINARY_LIT      reduce using rule 71 (BINARY_OP -> ADD_OP .)
-    .               reduce using rule 71 (BINARY_OP -> ADD_OP .)
-
-
-state 72
-
-    (72) BINARY_OP -> REL_OP .
-    AND             reduce using rule 72 (BINARY_OP -> REL_OP .)
-    EXCLM           reduce using rule 72 (BINARY_OP -> REL_OP .)
-    MINUS           reduce using rule 72 (BINARY_OP -> REL_OP .)
-    (               reduce using rule 72 (BINARY_OP -> REL_OP .)
-    IDENTIFIER      reduce using rule 72 (BINARY_OP -> REL_OP .)
-    STRING          reduce using rule 72 (BINARY_OP -> REL_OP .)
-    BOOL            reduce using rule 72 (BINARY_OP -> REL_OP .)
-    RUNE            reduce using rule 72 (BINARY_OP -> REL_OP .)
-    DECIMAL_LIT     reduce using rule 72 (BINARY_OP -> REL_OP .)
-    FALSE           reduce using rule 72 (BINARY_OP -> REL_OP .)
-    TRUE            reduce using rule 72 (BINARY_OP -> REL_OP .)
-    RUNE_LIT        reduce using rule 72 (BINARY_OP -> REL_OP .)
-    STRING_LIT      reduce using rule 72 (BINARY_OP -> REL_OP .)
-    F32             reduce using rule 72 (BINARY_OP -> REL_OP .)
-    F64             reduce using rule 72 (BINARY_OP -> REL_OP .)
-    INT             reduce using rule 72 (BINARY_OP -> REL_OP .)
-    ISIZE           reduce using rule 72 (BINARY_OP -> REL_OP .)
-    I64             reduce using rule 72 (BINARY_OP -> REL_OP .)
-    I32             reduce using rule 72 (BINARY_OP -> REL_OP .)
-    I16             reduce using rule 72 (BINARY_OP -> REL_OP .)
-    I8              reduce using rule 72 (BINARY_OP -> REL_OP .)
-    UINT            reduce using rule 72 (BINARY_OP -> REL_OP .)
-    USIZE           reduce using rule 72 (BINARY_OP -> REL_OP .)
-    U64             reduce using rule 72 (BINARY_OP -> REL_OP .)
-    U32             reduce using rule 72 (BINARY_OP -> REL_OP .)
-    U16             reduce using rule 72 (BINARY_OP -> REL_OP .)
-    U8              reduce using rule 72 (BINARY_OP -> REL_OP .)
-    HEX_LIT         reduce using rule 72 (BINARY_OP -> REL_OP .)
-    OCTAL_LIT       reduce using rule 72 (BINARY_OP -> REL_OP .)
-    BINARY_LIT      reduce using rule 72 (BINARY_OP -> REL_OP .)
-    .               reduce using rule 72 (BINARY_OP -> REL_OP .)
-
-
-state 73
-
-    (73) BINARY_OP -> LOGIC_AND .
-    AND             reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    EXCLM           reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    MINUS           reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    (               reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    IDENTIFIER      reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    STRING          reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    BOOL            reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    RUNE            reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    DECIMAL_LIT     reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    FALSE           reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    TRUE            reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    RUNE_LIT        reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    STRING_LIT      reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    F32             reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    F64             reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    INT             reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    ISIZE           reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    I64             reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    I32             reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    I16             reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    I8              reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    UINT            reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    USIZE           reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    U64             reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    U32             reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    U16             reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    U8              reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    HEX_LIT         reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    OCTAL_LIT       reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    BINARY_LIT      reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-    .               reduce using rule 73 (BINARY_OP -> LOGIC_AND .)
-
-
-state 74
-
-    (74) BINARY_OP -> LOGIC_OR .
-    AND             reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    EXCLM           reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    MINUS           reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    (               reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    IDENTIFIER      reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    STRING          reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    BOOL            reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    RUNE            reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    DECIMAL_LIT     reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    FALSE           reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    TRUE            reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    RUNE_LIT        reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    STRING_LIT      reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    F32             reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    F64             reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    INT             reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    ISIZE           reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    I64             reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    I32             reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    I16             reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    I8              reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    UINT            reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    USIZE           reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    U64             reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    U32             reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    U16             reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    U8              reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    HEX_LIT         reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    OCTAL_LIT       reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    BINARY_LIT      reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-    .               reduce using rule 74 (BINARY_OP -> LOGIC_OR .)
-
-
-state 75
-
-    (85) MUL_OP -> SHR .
-    AND             reduce using rule 85 (MUL_OP -> SHR .)
-    EXCLM           reduce using rule 85 (MUL_OP -> SHR .)
-    MINUS           reduce using rule 85 (MUL_OP -> SHR .)
-    (               reduce using rule 85 (MUL_OP -> SHR .)
-    IDENTIFIER      reduce using rule 85 (MUL_OP -> SHR .)
-    STRING          reduce using rule 85 (MUL_OP -> SHR .)
-    BOOL            reduce using rule 85 (MUL_OP -> SHR .)
-    RUNE            reduce using rule 85 (MUL_OP -> SHR .)
-    DECIMAL_LIT     reduce using rule 85 (MUL_OP -> SHR .)
-    FALSE           reduce using rule 85 (MUL_OP -> SHR .)
-    TRUE            reduce using rule 85 (MUL_OP -> SHR .)
-    RUNE_LIT        reduce using rule 85 (MUL_OP -> SHR .)
-    STRING_LIT      reduce using rule 85 (MUL_OP -> SHR .)
-    F32             reduce using rule 85 (MUL_OP -> SHR .)
-    F64             reduce using rule 85 (MUL_OP -> SHR .)
-    INT             reduce using rule 85 (MUL_OP -> SHR .)
-    ISIZE           reduce using rule 85 (MUL_OP -> SHR .)
-    I64             reduce using rule 85 (MUL_OP -> SHR .)
-    I32             reduce using rule 85 (MUL_OP -> SHR .)
-    I16             reduce using rule 85 (MUL_OP -> SHR .)
-    I8              reduce using rule 85 (MUL_OP -> SHR .)
-    UINT            reduce using rule 85 (MUL_OP -> SHR .)
-    USIZE           reduce using rule 85 (MUL_OP -> SHR .)
-    U64             reduce using rule 85 (MUL_OP -> SHR .)
-    U32             reduce using rule 85 (MUL_OP -> SHR .)
-    U16             reduce using rule 85 (MUL_OP -> SHR .)
-    U8              reduce using rule 85 (MUL_OP -> SHR .)
-    HEX_LIT         reduce using rule 85 (MUL_OP -> SHR .)
-    OCTAL_LIT       reduce using rule 85 (MUL_OP -> SHR .)
-    BINARY_LIT      reduce using rule 85 (MUL_OP -> SHR .)
-    .               reduce using rule 85 (MUL_OP -> SHR .)
-
-
-state 76
-
-    (86) MUL_OP -> SHL .
-    AND             reduce using rule 86 (MUL_OP -> SHL .)
-    EXCLM           reduce using rule 86 (MUL_OP -> SHL .)
-    MINUS           reduce using rule 86 (MUL_OP -> SHL .)
-    (               reduce using rule 86 (MUL_OP -> SHL .)
-    IDENTIFIER      reduce using rule 86 (MUL_OP -> SHL .)
-    STRING          reduce using rule 86 (MUL_OP -> SHL .)
-    BOOL            reduce using rule 86 (MUL_OP -> SHL .)
-    RUNE            reduce using rule 86 (MUL_OP -> SHL .)
-    DECIMAL_LIT     reduce using rule 86 (MUL_OP -> SHL .)
-    FALSE           reduce using rule 86 (MUL_OP -> SHL .)
-    TRUE            reduce using rule 86 (MUL_OP -> SHL .)
-    RUNE_LIT        reduce using rule 86 (MUL_OP -> SHL .)
-    STRING_LIT      reduce using rule 86 (MUL_OP -> SHL .)
-    F32             reduce using rule 86 (MUL_OP -> SHL .)
-    F64             reduce using rule 86 (MUL_OP -> SHL .)
-    INT             reduce using rule 86 (MUL_OP -> SHL .)
-    ISIZE           reduce using rule 86 (MUL_OP -> SHL .)
-    I64             reduce using rule 86 (MUL_OP -> SHL .)
-    I32             reduce using rule 86 (MUL_OP -> SHL .)
-    I16             reduce using rule 86 (MUL_OP -> SHL .)
-    I8              reduce using rule 86 (MUL_OP -> SHL .)
-    UINT            reduce using rule 86 (MUL_OP -> SHL .)
-    USIZE           reduce using rule 86 (MUL_OP -> SHL .)
-    U64             reduce using rule 86 (MUL_OP -> SHL .)
-    U32             reduce using rule 86 (MUL_OP -> SHL .)
-    U16             reduce using rule 86 (MUL_OP -> SHL .)
-    U8              reduce using rule 86 (MUL_OP -> SHL .)
-    HEX_LIT         reduce using rule 86 (MUL_OP -> SHL .)
-    OCTAL_LIT       reduce using rule 86 (MUL_OP -> SHL .)
-    BINARY_LIT      reduce using rule 86 (MUL_OP -> SHL .)
-    .               reduce using rule 86 (MUL_OP -> SHL .)
-
-
-state 77
-
-    (87) MUL_OP -> AND .
-    AND             reduce using rule 87 (MUL_OP -> AND .)
-    EXCLM           reduce using rule 87 (MUL_OP -> AND .)
-    MINUS           reduce using rule 87 (MUL_OP -> AND .)
-    (               reduce using rule 87 (MUL_OP -> AND .)
-    IDENTIFIER      reduce using rule 87 (MUL_OP -> AND .)
-    STRING          reduce using rule 87 (MUL_OP -> AND .)
-    BOOL            reduce using rule 87 (MUL_OP -> AND .)
-    RUNE            reduce using rule 87 (MUL_OP -> AND .)
-    DECIMAL_LIT     reduce using rule 87 (MUL_OP -> AND .)
-    FALSE           reduce using rule 87 (MUL_OP -> AND .)
-    TRUE            reduce using rule 87 (MUL_OP -> AND .)
-    RUNE_LIT        reduce using rule 87 (MUL_OP -> AND .)
-    STRING_LIT      reduce using rule 87 (MUL_OP -> AND .)
-    F32             reduce using rule 87 (MUL_OP -> AND .)
-    F64             reduce using rule 87 (MUL_OP -> AND .)
-    INT             reduce using rule 87 (MUL_OP -> AND .)
-    ISIZE           reduce using rule 87 (MUL_OP -> AND .)
-    I64             reduce using rule 87 (MUL_OP -> AND .)
-    I32             reduce using rule 87 (MUL_OP -> AND .)
-    I16             reduce using rule 87 (MUL_OP -> AND .)
-    I8              reduce using rule 87 (MUL_OP -> AND .)
-    UINT            reduce using rule 87 (MUL_OP -> AND .)
-    USIZE           reduce using rule 87 (MUL_OP -> AND .)
-    U64             reduce using rule 87 (MUL_OP -> AND .)
-    U32             reduce using rule 87 (MUL_OP -> AND .)
-    U16             reduce using rule 87 (MUL_OP -> AND .)
-    U8              reduce using rule 87 (MUL_OP -> AND .)
-    HEX_LIT         reduce using rule 87 (MUL_OP -> AND .)
-    OCTAL_LIT       reduce using rule 87 (MUL_OP -> AND .)
-    BINARY_LIT      reduce using rule 87 (MUL_OP -> AND .)
-    .               reduce using rule 87 (MUL_OP -> AND .)
-
-
-state 78
-
-    (88) MUL_OP -> MOD .
-    AND             reduce using rule 88 (MUL_OP -> MOD .)
-    EXCLM           reduce using rule 88 (MUL_OP -> MOD .)
-    MINUS           reduce using rule 88 (MUL_OP -> MOD .)
-    (               reduce using rule 88 (MUL_OP -> MOD .)
-    IDENTIFIER      reduce using rule 88 (MUL_OP -> MOD .)
-    STRING          reduce using rule 88 (MUL_OP -> MOD .)
-    BOOL            reduce using rule 88 (MUL_OP -> MOD .)
-    RUNE            reduce using rule 88 (MUL_OP -> MOD .)
-    DECIMAL_LIT     reduce using rule 88 (MUL_OP -> MOD .)
-    FALSE           reduce using rule 88 (MUL_OP -> MOD .)
-    TRUE            reduce using rule 88 (MUL_OP -> MOD .)
-    RUNE_LIT        reduce using rule 88 (MUL_OP -> MOD .)
-    STRING_LIT      reduce using rule 88 (MUL_OP -> MOD .)
-    F32             reduce using rule 88 (MUL_OP -> MOD .)
-    F64             reduce using rule 88 (MUL_OP -> MOD .)
-    INT             reduce using rule 88 (MUL_OP -> MOD .)
-    ISIZE           reduce using rule 88 (MUL_OP -> MOD .)
-    I64             reduce using rule 88 (MUL_OP -> MOD .)
-    I32             reduce using rule 88 (MUL_OP -> MOD .)
-    I16             reduce using rule 88 (MUL_OP -> MOD .)
-    I8              reduce using rule 88 (MUL_OP -> MOD .)
-    UINT            reduce using rule 88 (MUL_OP -> MOD .)
-    USIZE           reduce using rule 88 (MUL_OP -> MOD .)
-    U64             reduce using rule 88 (MUL_OP -> MOD .)
-    U32             reduce using rule 88 (MUL_OP -> MOD .)
-    U16             reduce using rule 88 (MUL_OP -> MOD .)
-    U8              reduce using rule 88 (MUL_OP -> MOD .)
-    HEX_LIT         reduce using rule 88 (MUL_OP -> MOD .)
-    OCTAL_LIT       reduce using rule 88 (MUL_OP -> MOD .)
-    BINARY_LIT      reduce using rule 88 (MUL_OP -> MOD .)
-    .               reduce using rule 88 (MUL_OP -> MOD .)
-
-
-state 79
-
-    (89) MUL_OP -> DIV .
-    AND             reduce using rule 89 (MUL_OP -> DIV .)
-    EXCLM           reduce using rule 89 (MUL_OP -> DIV .)
-    MINUS           reduce using rule 89 (MUL_OP -> DIV .)
-    (               reduce using rule 89 (MUL_OP -> DIV .)
-    IDENTIFIER      reduce using rule 89 (MUL_OP -> DIV .)
-    STRING          reduce using rule 89 (MUL_OP -> DIV .)
-    BOOL            reduce using rule 89 (MUL_OP -> DIV .)
-    RUNE            reduce using rule 89 (MUL_OP -> DIV .)
-    DECIMAL_LIT     reduce using rule 89 (MUL_OP -> DIV .)
-    FALSE           reduce using rule 89 (MUL_OP -> DIV .)
-    TRUE            reduce using rule 89 (MUL_OP -> DIV .)
-    RUNE_LIT        reduce using rule 89 (MUL_OP -> DIV .)
-    STRING_LIT      reduce using rule 89 (MUL_OP -> DIV .)
-    F32             reduce using rule 89 (MUL_OP -> DIV .)
-    F64             reduce using rule 89 (MUL_OP -> DIV .)
-    INT             reduce using rule 89 (MUL_OP -> DIV .)
-    ISIZE           reduce using rule 89 (MUL_OP -> DIV .)
-    I64             reduce using rule 89 (MUL_OP -> DIV .)
-    I32             reduce using rule 89 (MUL_OP -> DIV .)
-    I16             reduce using rule 89 (MUL_OP -> DIV .)
-    I8              reduce using rule 89 (MUL_OP -> DIV .)
-    UINT            reduce using rule 89 (MUL_OP -> DIV .)
-    USIZE           reduce using rule 89 (MUL_OP -> DIV .)
-    U64             reduce using rule 89 (MUL_OP -> DIV .)
-    U32             reduce using rule 89 (MUL_OP -> DIV .)
-    U16             reduce using rule 89 (MUL_OP -> DIV .)
-    U8              reduce using rule 89 (MUL_OP -> DIV .)
-    HEX_LIT         reduce using rule 89 (MUL_OP -> DIV .)
-    OCTAL_LIT       reduce using rule 89 (MUL_OP -> DIV .)
-    BINARY_LIT      reduce using rule 89 (MUL_OP -> DIV .)
-    .               reduce using rule 89 (MUL_OP -> DIV .)
-
-
-state 80
-
-    (90) MUL_OP -> STAR .
-    AND             reduce using rule 90 (MUL_OP -> STAR .)
-    EXCLM           reduce using rule 90 (MUL_OP -> STAR .)
-    MINUS           reduce using rule 90 (MUL_OP -> STAR .)
-    (               reduce using rule 90 (MUL_OP -> STAR .)
-    IDENTIFIER      reduce using rule 90 (MUL_OP -> STAR .)
-    STRING          reduce using rule 90 (MUL_OP -> STAR .)
-    BOOL            reduce using rule 90 (MUL_OP -> STAR .)
-    RUNE            reduce using rule 90 (MUL_OP -> STAR .)
-    DECIMAL_LIT     reduce using rule 90 (MUL_OP -> STAR .)
-    FALSE           reduce using rule 90 (MUL_OP -> STAR .)
-    TRUE            reduce using rule 90 (MUL_OP -> STAR .)
-    RUNE_LIT        reduce using rule 90 (MUL_OP -> STAR .)
-    STRING_LIT      reduce using rule 90 (MUL_OP -> STAR .)
-    F32             reduce using rule 90 (MUL_OP -> STAR .)
-    F64             reduce using rule 90 (MUL_OP -> STAR .)
-    INT             reduce using rule 90 (MUL_OP -> STAR .)
-    ISIZE           reduce using rule 90 (MUL_OP -> STAR .)
-    I64             reduce using rule 90 (MUL_OP -> STAR .)
-    I32             reduce using rule 90 (MUL_OP -> STAR .)
-    I16             reduce using rule 90 (MUL_OP -> STAR .)
-    I8              reduce using rule 90 (MUL_OP -> STAR .)
-    UINT            reduce using rule 90 (MUL_OP -> STAR .)
-    USIZE           reduce using rule 90 (MUL_OP -> STAR .)
-    U64             reduce using rule 90 (MUL_OP -> STAR .)
-    U32             reduce using rule 90 (MUL_OP -> STAR .)
-    U16             reduce using rule 90 (MUL_OP -> STAR .)
-    U8              reduce using rule 90 (MUL_OP -> STAR .)
-    HEX_LIT         reduce using rule 90 (MUL_OP -> STAR .)
-    OCTAL_LIT       reduce using rule 90 (MUL_OP -> STAR .)
-    BINARY_LIT      reduce using rule 90 (MUL_OP -> STAR .)
-    .               reduce using rule 90 (MUL_OP -> STAR .)
-
-
 state 81
 
-    (81) ADD_OP -> XOR .
-    AND             reduce using rule 81 (ADD_OP -> XOR .)
-    EXCLM           reduce using rule 81 (ADD_OP -> XOR .)
-    MINUS           reduce using rule 81 (ADD_OP -> XOR .)
-    (               reduce using rule 81 (ADD_OP -> XOR .)
-    IDENTIFIER      reduce using rule 81 (ADD_OP -> XOR .)
-    STRING          reduce using rule 81 (ADD_OP -> XOR .)
-    BOOL            reduce using rule 81 (ADD_OP -> XOR .)
-    RUNE            reduce using rule 81 (ADD_OP -> XOR .)
-    DECIMAL_LIT     reduce using rule 81 (ADD_OP -> XOR .)
-    FALSE           reduce using rule 81 (ADD_OP -> XOR .)
-    TRUE            reduce using rule 81 (ADD_OP -> XOR .)
-    RUNE_LIT        reduce using rule 81 (ADD_OP -> XOR .)
-    STRING_LIT      reduce using rule 81 (ADD_OP -> XOR .)
-    F32             reduce using rule 81 (ADD_OP -> XOR .)
-    F64             reduce using rule 81 (ADD_OP -> XOR .)
-    INT             reduce using rule 81 (ADD_OP -> XOR .)
-    ISIZE           reduce using rule 81 (ADD_OP -> XOR .)
-    I64             reduce using rule 81 (ADD_OP -> XOR .)
-    I32             reduce using rule 81 (ADD_OP -> XOR .)
-    I16             reduce using rule 81 (ADD_OP -> XOR .)
-    I8              reduce using rule 81 (ADD_OP -> XOR .)
-    UINT            reduce using rule 81 (ADD_OP -> XOR .)
-    USIZE           reduce using rule 81 (ADD_OP -> XOR .)
-    U64             reduce using rule 81 (ADD_OP -> XOR .)
-    U32             reduce using rule 81 (ADD_OP -> XOR .)
-    U16             reduce using rule 81 (ADD_OP -> XOR .)
-    U8              reduce using rule 81 (ADD_OP -> XOR .)
-    HEX_LIT         reduce using rule 81 (ADD_OP -> XOR .)
-    OCTAL_LIT       reduce using rule 81 (ADD_OP -> XOR .)
-    BINARY_LIT      reduce using rule 81 (ADD_OP -> XOR .)
-    .               reduce using rule 81 (ADD_OP -> XOR .)
+    (81) BINARY_OP -> MUL_OP .
+    AND             reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    EXCLM           reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    MINUS           reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    (               reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    IDENTIFIER      reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    STRING          reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    BOOL            reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    RUNE            reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    DECIMAL_LIT     reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    FALSE           reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    TRUE            reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    RUNE_LIT        reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    STRING_LIT      reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    F32             reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    F64             reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    INT             reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    ISIZE           reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    I64             reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    I32             reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    I16             reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    I8              reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    UINT            reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    USIZE           reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    U64             reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    U32             reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    U16             reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    U8              reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    HEX_LIT         reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    OCTAL_LIT       reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    BINARY_LIT      reduce using rule 81 (BINARY_OP -> MUL_OP .)
+    .               reduce using rule 81 (BINARY_OP -> MUL_OP .)
 
 
 state 82
 
-    (82) ADD_OP -> OR .
-    AND             reduce using rule 82 (ADD_OP -> OR .)
-    EXCLM           reduce using rule 82 (ADD_OP -> OR .)
-    MINUS           reduce using rule 82 (ADD_OP -> OR .)
-    (               reduce using rule 82 (ADD_OP -> OR .)
-    IDENTIFIER      reduce using rule 82 (ADD_OP -> OR .)
-    STRING          reduce using rule 82 (ADD_OP -> OR .)
-    BOOL            reduce using rule 82 (ADD_OP -> OR .)
-    RUNE            reduce using rule 82 (ADD_OP -> OR .)
-    DECIMAL_LIT     reduce using rule 82 (ADD_OP -> OR .)
-    FALSE           reduce using rule 82 (ADD_OP -> OR .)
-    TRUE            reduce using rule 82 (ADD_OP -> OR .)
-    RUNE_LIT        reduce using rule 82 (ADD_OP -> OR .)
-    STRING_LIT      reduce using rule 82 (ADD_OP -> OR .)
-    F32             reduce using rule 82 (ADD_OP -> OR .)
-    F64             reduce using rule 82 (ADD_OP -> OR .)
-    INT             reduce using rule 82 (ADD_OP -> OR .)
-    ISIZE           reduce using rule 82 (ADD_OP -> OR .)
-    I64             reduce using rule 82 (ADD_OP -> OR .)
-    I32             reduce using rule 82 (ADD_OP -> OR .)
-    I16             reduce using rule 82 (ADD_OP -> OR .)
-    I8              reduce using rule 82 (ADD_OP -> OR .)
-    UINT            reduce using rule 82 (ADD_OP -> OR .)
-    USIZE           reduce using rule 82 (ADD_OP -> OR .)
-    U64             reduce using rule 82 (ADD_OP -> OR .)
-    U32             reduce using rule 82 (ADD_OP -> OR .)
-    U16             reduce using rule 82 (ADD_OP -> OR .)
-    U8              reduce using rule 82 (ADD_OP -> OR .)
-    HEX_LIT         reduce using rule 82 (ADD_OP -> OR .)
-    OCTAL_LIT       reduce using rule 82 (ADD_OP -> OR .)
-    BINARY_LIT      reduce using rule 82 (ADD_OP -> OR .)
-    .               reduce using rule 82 (ADD_OP -> OR .)
+    (82) BINARY_OP -> ADD_OP .
+    AND             reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    EXCLM           reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    MINUS           reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    (               reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    IDENTIFIER      reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    STRING          reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    BOOL            reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    RUNE            reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    DECIMAL_LIT     reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    FALSE           reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    TRUE            reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    RUNE_LIT        reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    STRING_LIT      reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    F32             reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    F64             reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    INT             reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    ISIZE           reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    I64             reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    I32             reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    I16             reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    I8              reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    UINT            reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    USIZE           reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    U64             reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    U32             reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    U16             reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    U8              reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    HEX_LIT         reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    OCTAL_LIT       reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    BINARY_LIT      reduce using rule 82 (BINARY_OP -> ADD_OP .)
+    .               reduce using rule 82 (BINARY_OP -> ADD_OP .)
 
 
 state 83
 
-    (83) ADD_OP -> MINUS .
-    AND             reduce using rule 83 (ADD_OP -> MINUS .)
-    EXCLM           reduce using rule 83 (ADD_OP -> MINUS .)
-    MINUS           reduce using rule 83 (ADD_OP -> MINUS .)
-    (               reduce using rule 83 (ADD_OP -> MINUS .)
-    IDENTIFIER      reduce using rule 83 (ADD_OP -> MINUS .)
-    STRING          reduce using rule 83 (ADD_OP -> MINUS .)
-    BOOL            reduce using rule 83 (ADD_OP -> MINUS .)
-    RUNE            reduce using rule 83 (ADD_OP -> MINUS .)
-    DECIMAL_LIT     reduce using rule 83 (ADD_OP -> MINUS .)
-    FALSE           reduce using rule 83 (ADD_OP -> MINUS .)
-    TRUE            reduce using rule 83 (ADD_OP -> MINUS .)
-    RUNE_LIT        reduce using rule 83 (ADD_OP -> MINUS .)
-    STRING_LIT      reduce using rule 83 (ADD_OP -> MINUS .)
-    F32             reduce using rule 83 (ADD_OP -> MINUS .)
-    F64             reduce using rule 83 (ADD_OP -> MINUS .)
-    INT             reduce using rule 83 (ADD_OP -> MINUS .)
-    ISIZE           reduce using rule 83 (ADD_OP -> MINUS .)
-    I64             reduce using rule 83 (ADD_OP -> MINUS .)
-    I32             reduce using rule 83 (ADD_OP -> MINUS .)
-    I16             reduce using rule 83 (ADD_OP -> MINUS .)
-    I8              reduce using rule 83 (ADD_OP -> MINUS .)
-    UINT            reduce using rule 83 (ADD_OP -> MINUS .)
-    USIZE           reduce using rule 83 (ADD_OP -> MINUS .)
-    U64             reduce using rule 83 (ADD_OP -> MINUS .)
-    U32             reduce using rule 83 (ADD_OP -> MINUS .)
-    U16             reduce using rule 83 (ADD_OP -> MINUS .)
-    U8              reduce using rule 83 (ADD_OP -> MINUS .)
-    HEX_LIT         reduce using rule 83 (ADD_OP -> MINUS .)
-    OCTAL_LIT       reduce using rule 83 (ADD_OP -> MINUS .)
-    BINARY_LIT      reduce using rule 83 (ADD_OP -> MINUS .)
-    .               reduce using rule 83 (ADD_OP -> MINUS .)
+    (83) BINARY_OP -> REL_OP .
+    AND             reduce using rule 83 (BINARY_OP -> REL_OP .)
+    EXCLM           reduce using rule 83 (BINARY_OP -> REL_OP .)
+    MINUS           reduce using rule 83 (BINARY_OP -> REL_OP .)
+    (               reduce using rule 83 (BINARY_OP -> REL_OP .)
+    IDENTIFIER      reduce using rule 83 (BINARY_OP -> REL_OP .)
+    STRING          reduce using rule 83 (BINARY_OP -> REL_OP .)
+    BOOL            reduce using rule 83 (BINARY_OP -> REL_OP .)
+    RUNE            reduce using rule 83 (BINARY_OP -> REL_OP .)
+    DECIMAL_LIT     reduce using rule 83 (BINARY_OP -> REL_OP .)
+    FALSE           reduce using rule 83 (BINARY_OP -> REL_OP .)
+    TRUE            reduce using rule 83 (BINARY_OP -> REL_OP .)
+    RUNE_LIT        reduce using rule 83 (BINARY_OP -> REL_OP .)
+    STRING_LIT      reduce using rule 83 (BINARY_OP -> REL_OP .)
+    F32             reduce using rule 83 (BINARY_OP -> REL_OP .)
+    F64             reduce using rule 83 (BINARY_OP -> REL_OP .)
+    INT             reduce using rule 83 (BINARY_OP -> REL_OP .)
+    ISIZE           reduce using rule 83 (BINARY_OP -> REL_OP .)
+    I64             reduce using rule 83 (BINARY_OP -> REL_OP .)
+    I32             reduce using rule 83 (BINARY_OP -> REL_OP .)
+    I16             reduce using rule 83 (BINARY_OP -> REL_OP .)
+    I8              reduce using rule 83 (BINARY_OP -> REL_OP .)
+    UINT            reduce using rule 83 (BINARY_OP -> REL_OP .)
+    USIZE           reduce using rule 83 (BINARY_OP -> REL_OP .)
+    U64             reduce using rule 83 (BINARY_OP -> REL_OP .)
+    U32             reduce using rule 83 (BINARY_OP -> REL_OP .)
+    U16             reduce using rule 83 (BINARY_OP -> REL_OP .)
+    U8              reduce using rule 83 (BINARY_OP -> REL_OP .)
+    HEX_LIT         reduce using rule 83 (BINARY_OP -> REL_OP .)
+    OCTAL_LIT       reduce using rule 83 (BINARY_OP -> REL_OP .)
+    BINARY_LIT      reduce using rule 83 (BINARY_OP -> REL_OP .)
+    .               reduce using rule 83 (BINARY_OP -> REL_OP .)
 
 
 state 84
 
-    (84) ADD_OP -> PLUS .
-    AND             reduce using rule 84 (ADD_OP -> PLUS .)
-    EXCLM           reduce using rule 84 (ADD_OP -> PLUS .)
-    MINUS           reduce using rule 84 (ADD_OP -> PLUS .)
-    (               reduce using rule 84 (ADD_OP -> PLUS .)
-    IDENTIFIER      reduce using rule 84 (ADD_OP -> PLUS .)
-    STRING          reduce using rule 84 (ADD_OP -> PLUS .)
-    BOOL            reduce using rule 84 (ADD_OP -> PLUS .)
-    RUNE            reduce using rule 84 (ADD_OP -> PLUS .)
-    DECIMAL_LIT     reduce using rule 84 (ADD_OP -> PLUS .)
-    FALSE           reduce using rule 84 (ADD_OP -> PLUS .)
-    TRUE            reduce using rule 84 (ADD_OP -> PLUS .)
-    RUNE_LIT        reduce using rule 84 (ADD_OP -> PLUS .)
-    STRING_LIT      reduce using rule 84 (ADD_OP -> PLUS .)
-    F32             reduce using rule 84 (ADD_OP -> PLUS .)
-    F64             reduce using rule 84 (ADD_OP -> PLUS .)
-    INT             reduce using rule 84 (ADD_OP -> PLUS .)
-    ISIZE           reduce using rule 84 (ADD_OP -> PLUS .)
-    I64             reduce using rule 84 (ADD_OP -> PLUS .)
-    I32             reduce using rule 84 (ADD_OP -> PLUS .)
-    I16             reduce using rule 84 (ADD_OP -> PLUS .)
-    I8              reduce using rule 84 (ADD_OP -> PLUS .)
-    UINT            reduce using rule 84 (ADD_OP -> PLUS .)
-    USIZE           reduce using rule 84 (ADD_OP -> PLUS .)
-    U64             reduce using rule 84 (ADD_OP -> PLUS .)
-    U32             reduce using rule 84 (ADD_OP -> PLUS .)
-    U16             reduce using rule 84 (ADD_OP -> PLUS .)
-    U8              reduce using rule 84 (ADD_OP -> PLUS .)
-    HEX_LIT         reduce using rule 84 (ADD_OP -> PLUS .)
-    OCTAL_LIT       reduce using rule 84 (ADD_OP -> PLUS .)
-    BINARY_LIT      reduce using rule 84 (ADD_OP -> PLUS .)
-    .               reduce using rule 84 (ADD_OP -> PLUS .)
+    (84) BINARY_OP -> LOGIC_AND .
+    AND             reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    EXCLM           reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    MINUS           reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    (               reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    IDENTIFIER      reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    STRING          reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    BOOL            reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    RUNE            reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    DECIMAL_LIT     reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    FALSE           reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    TRUE            reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    RUNE_LIT        reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    STRING_LIT      reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    F32             reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    F64             reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    INT             reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    ISIZE           reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    I64             reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    I32             reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    I16             reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    I8              reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    UINT            reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    USIZE           reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    U64             reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    U32             reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    U16             reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    U8              reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    HEX_LIT         reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    OCTAL_LIT       reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    BINARY_LIT      reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
+    .               reduce using rule 84 (BINARY_OP -> LOGIC_AND .)
 
 
 state 85
 
-    (75) REL_OP -> GE .
-    AND             reduce using rule 75 (REL_OP -> GE .)
-    EXCLM           reduce using rule 75 (REL_OP -> GE .)
-    MINUS           reduce using rule 75 (REL_OP -> GE .)
-    (               reduce using rule 75 (REL_OP -> GE .)
-    IDENTIFIER      reduce using rule 75 (REL_OP -> GE .)
-    STRING          reduce using rule 75 (REL_OP -> GE .)
-    BOOL            reduce using rule 75 (REL_OP -> GE .)
-    RUNE            reduce using rule 75 (REL_OP -> GE .)
-    DECIMAL_LIT     reduce using rule 75 (REL_OP -> GE .)
-    FALSE           reduce using rule 75 (REL_OP -> GE .)
-    TRUE            reduce using rule 75 (REL_OP -> GE .)
-    RUNE_LIT        reduce using rule 75 (REL_OP -> GE .)
-    STRING_LIT      reduce using rule 75 (REL_OP -> GE .)
-    F32             reduce using rule 75 (REL_OP -> GE .)
-    F64             reduce using rule 75 (REL_OP -> GE .)
-    INT             reduce using rule 75 (REL_OP -> GE .)
-    ISIZE           reduce using rule 75 (REL_OP -> GE .)
-    I64             reduce using rule 75 (REL_OP -> GE .)
-    I32             reduce using rule 75 (REL_OP -> GE .)
-    I16             reduce using rule 75 (REL_OP -> GE .)
-    I8              reduce using rule 75 (REL_OP -> GE .)
-    UINT            reduce using rule 75 (REL_OP -> GE .)
-    USIZE           reduce using rule 75 (REL_OP -> GE .)
-    U64             reduce using rule 75 (REL_OP -> GE .)
-    U32             reduce using rule 75 (REL_OP -> GE .)
-    U16             reduce using rule 75 (REL_OP -> GE .)
-    U8              reduce using rule 75 (REL_OP -> GE .)
-    HEX_LIT         reduce using rule 75 (REL_OP -> GE .)
-    OCTAL_LIT       reduce using rule 75 (REL_OP -> GE .)
-    BINARY_LIT      reduce using rule 75 (REL_OP -> GE .)
-    .               reduce using rule 75 (REL_OP -> GE .)
+    (85) BINARY_OP -> LOGIC_OR .
+    AND             reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    EXCLM           reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    MINUS           reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    (               reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    IDENTIFIER      reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    STRING          reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    BOOL            reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    RUNE            reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    DECIMAL_LIT     reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    FALSE           reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    TRUE            reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    RUNE_LIT        reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    STRING_LIT      reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    F32             reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    F64             reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    INT             reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    ISIZE           reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    I64             reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    I32             reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    I16             reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    I8              reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    UINT            reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    USIZE           reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    U64             reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    U32             reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    U16             reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    U8              reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    HEX_LIT         reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    OCTAL_LIT       reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    BINARY_LIT      reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
+    .               reduce using rule 85 (BINARY_OP -> LOGIC_OR .)
 
 
 state 86
 
-    (76) REL_OP -> GT .
-    AND             reduce using rule 76 (REL_OP -> GT .)
-    EXCLM           reduce using rule 76 (REL_OP -> GT .)
-    MINUS           reduce using rule 76 (REL_OP -> GT .)
-    (               reduce using rule 76 (REL_OP -> GT .)
-    IDENTIFIER      reduce using rule 76 (REL_OP -> GT .)
-    STRING          reduce using rule 76 (REL_OP -> GT .)
-    BOOL            reduce using rule 76 (REL_OP -> GT .)
-    RUNE            reduce using rule 76 (REL_OP -> GT .)
-    DECIMAL_LIT     reduce using rule 76 (REL_OP -> GT .)
-    FALSE           reduce using rule 76 (REL_OP -> GT .)
-    TRUE            reduce using rule 76 (REL_OP -> GT .)
-    RUNE_LIT        reduce using rule 76 (REL_OP -> GT .)
-    STRING_LIT      reduce using rule 76 (REL_OP -> GT .)
-    F32             reduce using rule 76 (REL_OP -> GT .)
-    F64             reduce using rule 76 (REL_OP -> GT .)
-    INT             reduce using rule 76 (REL_OP -> GT .)
-    ISIZE           reduce using rule 76 (REL_OP -> GT .)
-    I64             reduce using rule 76 (REL_OP -> GT .)
-    I32             reduce using rule 76 (REL_OP -> GT .)
-    I16             reduce using rule 76 (REL_OP -> GT .)
-    I8              reduce using rule 76 (REL_OP -> GT .)
-    UINT            reduce using rule 76 (REL_OP -> GT .)
-    USIZE           reduce using rule 76 (REL_OP -> GT .)
-    U64             reduce using rule 76 (REL_OP -> GT .)
-    U32             reduce using rule 76 (REL_OP -> GT .)
-    U16             reduce using rule 76 (REL_OP -> GT .)
-    U8              reduce using rule 76 (REL_OP -> GT .)
-    HEX_LIT         reduce using rule 76 (REL_OP -> GT .)
-    OCTAL_LIT       reduce using rule 76 (REL_OP -> GT .)
-    BINARY_LIT      reduce using rule 76 (REL_OP -> GT .)
-    .               reduce using rule 76 (REL_OP -> GT .)
+    (96) MUL_OP -> SHR .
+    AND             reduce using rule 96 (MUL_OP -> SHR .)
+    EXCLM           reduce using rule 96 (MUL_OP -> SHR .)
+    MINUS           reduce using rule 96 (MUL_OP -> SHR .)
+    (               reduce using rule 96 (MUL_OP -> SHR .)
+    IDENTIFIER      reduce using rule 96 (MUL_OP -> SHR .)
+    STRING          reduce using rule 96 (MUL_OP -> SHR .)
+    BOOL            reduce using rule 96 (MUL_OP -> SHR .)
+    RUNE            reduce using rule 96 (MUL_OP -> SHR .)
+    DECIMAL_LIT     reduce using rule 96 (MUL_OP -> SHR .)
+    FALSE           reduce using rule 96 (MUL_OP -> SHR .)
+    TRUE            reduce using rule 96 (MUL_OP -> SHR .)
+    RUNE_LIT        reduce using rule 96 (MUL_OP -> SHR .)
+    STRING_LIT      reduce using rule 96 (MUL_OP -> SHR .)
+    F32             reduce using rule 96 (MUL_OP -> SHR .)
+    F64             reduce using rule 96 (MUL_OP -> SHR .)
+    INT             reduce using rule 96 (MUL_OP -> SHR .)
+    ISIZE           reduce using rule 96 (MUL_OP -> SHR .)
+    I64             reduce using rule 96 (MUL_OP -> SHR .)
+    I32             reduce using rule 96 (MUL_OP -> SHR .)
+    I16             reduce using rule 96 (MUL_OP -> SHR .)
+    I8              reduce using rule 96 (MUL_OP -> SHR .)
+    UINT            reduce using rule 96 (MUL_OP -> SHR .)
+    USIZE           reduce using rule 96 (MUL_OP -> SHR .)
+    U64             reduce using rule 96 (MUL_OP -> SHR .)
+    U32             reduce using rule 96 (MUL_OP -> SHR .)
+    U16             reduce using rule 96 (MUL_OP -> SHR .)
+    U8              reduce using rule 96 (MUL_OP -> SHR .)
+    HEX_LIT         reduce using rule 96 (MUL_OP -> SHR .)
+    OCTAL_LIT       reduce using rule 96 (MUL_OP -> SHR .)
+    BINARY_LIT      reduce using rule 96 (MUL_OP -> SHR .)
+    .               reduce using rule 96 (MUL_OP -> SHR .)
 
 
 state 87
 
-    (77) REL_OP -> LE .
-    AND             reduce using rule 77 (REL_OP -> LE .)
-    EXCLM           reduce using rule 77 (REL_OP -> LE .)
-    MINUS           reduce using rule 77 (REL_OP -> LE .)
-    (               reduce using rule 77 (REL_OP -> LE .)
-    IDENTIFIER      reduce using rule 77 (REL_OP -> LE .)
-    STRING          reduce using rule 77 (REL_OP -> LE .)
-    BOOL            reduce using rule 77 (REL_OP -> LE .)
-    RUNE            reduce using rule 77 (REL_OP -> LE .)
-    DECIMAL_LIT     reduce using rule 77 (REL_OP -> LE .)
-    FALSE           reduce using rule 77 (REL_OP -> LE .)
-    TRUE            reduce using rule 77 (REL_OP -> LE .)
-    RUNE_LIT        reduce using rule 77 (REL_OP -> LE .)
-    STRING_LIT      reduce using rule 77 (REL_OP -> LE .)
-    F32             reduce using rule 77 (REL_OP -> LE .)
-    F64             reduce using rule 77 (REL_OP -> LE .)
-    INT             reduce using rule 77 (REL_OP -> LE .)
-    ISIZE           reduce using rule 77 (REL_OP -> LE .)
-    I64             reduce using rule 77 (REL_OP -> LE .)
-    I32             reduce using rule 77 (REL_OP -> LE .)
-    I16             reduce using rule 77 (REL_OP -> LE .)
-    I8              reduce using rule 77 (REL_OP -> LE .)
-    UINT            reduce using rule 77 (REL_OP -> LE .)
-    USIZE           reduce using rule 77 (REL_OP -> LE .)
-    U64             reduce using rule 77 (REL_OP -> LE .)
-    U32             reduce using rule 77 (REL_OP -> LE .)
-    U16             reduce using rule 77 (REL_OP -> LE .)
-    U8              reduce using rule 77 (REL_OP -> LE .)
-    HEX_LIT         reduce using rule 77 (REL_OP -> LE .)
-    OCTAL_LIT       reduce using rule 77 (REL_OP -> LE .)
-    BINARY_LIT      reduce using rule 77 (REL_OP -> LE .)
-    .               reduce using rule 77 (REL_OP -> LE .)
+    (97) MUL_OP -> SHL .
+    AND             reduce using rule 97 (MUL_OP -> SHL .)
+    EXCLM           reduce using rule 97 (MUL_OP -> SHL .)
+    MINUS           reduce using rule 97 (MUL_OP -> SHL .)
+    (               reduce using rule 97 (MUL_OP -> SHL .)
+    IDENTIFIER      reduce using rule 97 (MUL_OP -> SHL .)
+    STRING          reduce using rule 97 (MUL_OP -> SHL .)
+    BOOL            reduce using rule 97 (MUL_OP -> SHL .)
+    RUNE            reduce using rule 97 (MUL_OP -> SHL .)
+    DECIMAL_LIT     reduce using rule 97 (MUL_OP -> SHL .)
+    FALSE           reduce using rule 97 (MUL_OP -> SHL .)
+    TRUE            reduce using rule 97 (MUL_OP -> SHL .)
+    RUNE_LIT        reduce using rule 97 (MUL_OP -> SHL .)
+    STRING_LIT      reduce using rule 97 (MUL_OP -> SHL .)
+    F32             reduce using rule 97 (MUL_OP -> SHL .)
+    F64             reduce using rule 97 (MUL_OP -> SHL .)
+    INT             reduce using rule 97 (MUL_OP -> SHL .)
+    ISIZE           reduce using rule 97 (MUL_OP -> SHL .)
+    I64             reduce using rule 97 (MUL_OP -> SHL .)
+    I32             reduce using rule 97 (MUL_OP -> SHL .)
+    I16             reduce using rule 97 (MUL_OP -> SHL .)
+    I8              reduce using rule 97 (MUL_OP -> SHL .)
+    UINT            reduce using rule 97 (MUL_OP -> SHL .)
+    USIZE           reduce using rule 97 (MUL_OP -> SHL .)
+    U64             reduce using rule 97 (MUL_OP -> SHL .)
+    U32             reduce using rule 97 (MUL_OP -> SHL .)
+    U16             reduce using rule 97 (MUL_OP -> SHL .)
+    U8              reduce using rule 97 (MUL_OP -> SHL .)
+    HEX_LIT         reduce using rule 97 (MUL_OP -> SHL .)
+    OCTAL_LIT       reduce using rule 97 (MUL_OP -> SHL .)
+    BINARY_LIT      reduce using rule 97 (MUL_OP -> SHL .)
+    .               reduce using rule 97 (MUL_OP -> SHL .)
 
 
 state 88
 
-    (78) REL_OP -> LT .
-    AND             reduce using rule 78 (REL_OP -> LT .)
-    EXCLM           reduce using rule 78 (REL_OP -> LT .)
-    MINUS           reduce using rule 78 (REL_OP -> LT .)
-    (               reduce using rule 78 (REL_OP -> LT .)
-    IDENTIFIER      reduce using rule 78 (REL_OP -> LT .)
-    STRING          reduce using rule 78 (REL_OP -> LT .)
-    BOOL            reduce using rule 78 (REL_OP -> LT .)
-    RUNE            reduce using rule 78 (REL_OP -> LT .)
-    DECIMAL_LIT     reduce using rule 78 (REL_OP -> LT .)
-    FALSE           reduce using rule 78 (REL_OP -> LT .)
-    TRUE            reduce using rule 78 (REL_OP -> LT .)
-    RUNE_LIT        reduce using rule 78 (REL_OP -> LT .)
-    STRING_LIT      reduce using rule 78 (REL_OP -> LT .)
-    F32             reduce using rule 78 (REL_OP -> LT .)
-    F64             reduce using rule 78 (REL_OP -> LT .)
-    INT             reduce using rule 78 (REL_OP -> LT .)
-    ISIZE           reduce using rule 78 (REL_OP -> LT .)
-    I64             reduce using rule 78 (REL_OP -> LT .)
-    I32             reduce using rule 78 (REL_OP -> LT .)
-    I16             reduce using rule 78 (REL_OP -> LT .)
-    I8              reduce using rule 78 (REL_OP -> LT .)
-    UINT            reduce using rule 78 (REL_OP -> LT .)
-    USIZE           reduce using rule 78 (REL_OP -> LT .)
-    U64             reduce using rule 78 (REL_OP -> LT .)
-    U32             reduce using rule 78 (REL_OP -> LT .)
-    U16             reduce using rule 78 (REL_OP -> LT .)
-    U8              reduce using rule 78 (REL_OP -> LT .)
-    HEX_LIT         reduce using rule 78 (REL_OP -> LT .)
-    OCTAL_LIT       reduce using rule 78 (REL_OP -> LT .)
-    BINARY_LIT      reduce using rule 78 (REL_OP -> LT .)
-    .               reduce using rule 78 (REL_OP -> LT .)
+    (98) MUL_OP -> AND .
+    AND             reduce using rule 98 (MUL_OP -> AND .)
+    EXCLM           reduce using rule 98 (MUL_OP -> AND .)
+    MINUS           reduce using rule 98 (MUL_OP -> AND .)
+    (               reduce using rule 98 (MUL_OP -> AND .)
+    IDENTIFIER      reduce using rule 98 (MUL_OP -> AND .)
+    STRING          reduce using rule 98 (MUL_OP -> AND .)
+    BOOL            reduce using rule 98 (MUL_OP -> AND .)
+    RUNE            reduce using rule 98 (MUL_OP -> AND .)
+    DECIMAL_LIT     reduce using rule 98 (MUL_OP -> AND .)
+    FALSE           reduce using rule 98 (MUL_OP -> AND .)
+    TRUE            reduce using rule 98 (MUL_OP -> AND .)
+    RUNE_LIT        reduce using rule 98 (MUL_OP -> AND .)
+    STRING_LIT      reduce using rule 98 (MUL_OP -> AND .)
+    F32             reduce using rule 98 (MUL_OP -> AND .)
+    F64             reduce using rule 98 (MUL_OP -> AND .)
+    INT             reduce using rule 98 (MUL_OP -> AND .)
+    ISIZE           reduce using rule 98 (MUL_OP -> AND .)
+    I64             reduce using rule 98 (MUL_OP -> AND .)
+    I32             reduce using rule 98 (MUL_OP -> AND .)
+    I16             reduce using rule 98 (MUL_OP -> AND .)
+    I8              reduce using rule 98 (MUL_OP -> AND .)
+    UINT            reduce using rule 98 (MUL_OP -> AND .)
+    USIZE           reduce using rule 98 (MUL_OP -> AND .)
+    U64             reduce using rule 98 (MUL_OP -> AND .)
+    U32             reduce using rule 98 (MUL_OP -> AND .)
+    U16             reduce using rule 98 (MUL_OP -> AND .)
+    U8              reduce using rule 98 (MUL_OP -> AND .)
+    HEX_LIT         reduce using rule 98 (MUL_OP -> AND .)
+    OCTAL_LIT       reduce using rule 98 (MUL_OP -> AND .)
+    BINARY_LIT      reduce using rule 98 (MUL_OP -> AND .)
+    .               reduce using rule 98 (MUL_OP -> AND .)
 
 
 state 89
 
-    (79) REL_OP -> NE .
-    AND             reduce using rule 79 (REL_OP -> NE .)
-    EXCLM           reduce using rule 79 (REL_OP -> NE .)
-    MINUS           reduce using rule 79 (REL_OP -> NE .)
-    (               reduce using rule 79 (REL_OP -> NE .)
-    IDENTIFIER      reduce using rule 79 (REL_OP -> NE .)
-    STRING          reduce using rule 79 (REL_OP -> NE .)
-    BOOL            reduce using rule 79 (REL_OP -> NE .)
-    RUNE            reduce using rule 79 (REL_OP -> NE .)
-    DECIMAL_LIT     reduce using rule 79 (REL_OP -> NE .)
-    FALSE           reduce using rule 79 (REL_OP -> NE .)
-    TRUE            reduce using rule 79 (REL_OP -> NE .)
-    RUNE_LIT        reduce using rule 79 (REL_OP -> NE .)
-    STRING_LIT      reduce using rule 79 (REL_OP -> NE .)
-    F32             reduce using rule 79 (REL_OP -> NE .)
-    F64             reduce using rule 79 (REL_OP -> NE .)
-    INT             reduce using rule 79 (REL_OP -> NE .)
-    ISIZE           reduce using rule 79 (REL_OP -> NE .)
-    I64             reduce using rule 79 (REL_OP -> NE .)
-    I32             reduce using rule 79 (REL_OP -> NE .)
-    I16             reduce using rule 79 (REL_OP -> NE .)
-    I8              reduce using rule 79 (REL_OP -> NE .)
-    UINT            reduce using rule 79 (REL_OP -> NE .)
-    USIZE           reduce using rule 79 (REL_OP -> NE .)
-    U64             reduce using rule 79 (REL_OP -> NE .)
-    U32             reduce using rule 79 (REL_OP -> NE .)
-    U16             reduce using rule 79 (REL_OP -> NE .)
-    U8              reduce using rule 79 (REL_OP -> NE .)
-    HEX_LIT         reduce using rule 79 (REL_OP -> NE .)
-    OCTAL_LIT       reduce using rule 79 (REL_OP -> NE .)
-    BINARY_LIT      reduce using rule 79 (REL_OP -> NE .)
-    .               reduce using rule 79 (REL_OP -> NE .)
+    (99) MUL_OP -> MOD .
+    AND             reduce using rule 99 (MUL_OP -> MOD .)
+    EXCLM           reduce using rule 99 (MUL_OP -> MOD .)
+    MINUS           reduce using rule 99 (MUL_OP -> MOD .)
+    (               reduce using rule 99 (MUL_OP -> MOD .)
+    IDENTIFIER      reduce using rule 99 (MUL_OP -> MOD .)
+    STRING          reduce using rule 99 (MUL_OP -> MOD .)
+    BOOL            reduce using rule 99 (MUL_OP -> MOD .)
+    RUNE            reduce using rule 99 (MUL_OP -> MOD .)
+    DECIMAL_LIT     reduce using rule 99 (MUL_OP -> MOD .)
+    FALSE           reduce using rule 99 (MUL_OP -> MOD .)
+    TRUE            reduce using rule 99 (MUL_OP -> MOD .)
+    RUNE_LIT        reduce using rule 99 (MUL_OP -> MOD .)
+    STRING_LIT      reduce using rule 99 (MUL_OP -> MOD .)
+    F32             reduce using rule 99 (MUL_OP -> MOD .)
+    F64             reduce using rule 99 (MUL_OP -> MOD .)
+    INT             reduce using rule 99 (MUL_OP -> MOD .)
+    ISIZE           reduce using rule 99 (MUL_OP -> MOD .)
+    I64             reduce using rule 99 (MUL_OP -> MOD .)
+    I32             reduce using rule 99 (MUL_OP -> MOD .)
+    I16             reduce using rule 99 (MUL_OP -> MOD .)
+    I8              reduce using rule 99 (MUL_OP -> MOD .)
+    UINT            reduce using rule 99 (MUL_OP -> MOD .)
+    USIZE           reduce using rule 99 (MUL_OP -> MOD .)
+    U64             reduce using rule 99 (MUL_OP -> MOD .)
+    U32             reduce using rule 99 (MUL_OP -> MOD .)
+    U16             reduce using rule 99 (MUL_OP -> MOD .)
+    U8              reduce using rule 99 (MUL_OP -> MOD .)
+    HEX_LIT         reduce using rule 99 (MUL_OP -> MOD .)
+    OCTAL_LIT       reduce using rule 99 (MUL_OP -> MOD .)
+    BINARY_LIT      reduce using rule 99 (MUL_OP -> MOD .)
+    .               reduce using rule 99 (MUL_OP -> MOD .)
 
 
 state 90
 
-    (80) REL_OP -> EQ .
-    AND             reduce using rule 80 (REL_OP -> EQ .)
-    EXCLM           reduce using rule 80 (REL_OP -> EQ .)
-    MINUS           reduce using rule 80 (REL_OP -> EQ .)
-    (               reduce using rule 80 (REL_OP -> EQ .)
-    IDENTIFIER      reduce using rule 80 (REL_OP -> EQ .)
-    STRING          reduce using rule 80 (REL_OP -> EQ .)
-    BOOL            reduce using rule 80 (REL_OP -> EQ .)
-    RUNE            reduce using rule 80 (REL_OP -> EQ .)
-    DECIMAL_LIT     reduce using rule 80 (REL_OP -> EQ .)
-    FALSE           reduce using rule 80 (REL_OP -> EQ .)
-    TRUE            reduce using rule 80 (REL_OP -> EQ .)
-    RUNE_LIT        reduce using rule 80 (REL_OP -> EQ .)
-    STRING_LIT      reduce using rule 80 (REL_OP -> EQ .)
-    F32             reduce using rule 80 (REL_OP -> EQ .)
-    F64             reduce using rule 80 (REL_OP -> EQ .)
-    INT             reduce using rule 80 (REL_OP -> EQ .)
-    ISIZE           reduce using rule 80 (REL_OP -> EQ .)
-    I64             reduce using rule 80 (REL_OP -> EQ .)
-    I32             reduce using rule 80 (REL_OP -> EQ .)
-    I16             reduce using rule 80 (REL_OP -> EQ .)
-    I8              reduce using rule 80 (REL_OP -> EQ .)
-    UINT            reduce using rule 80 (REL_OP -> EQ .)
-    USIZE           reduce using rule 80 (REL_OP -> EQ .)
-    U64             reduce using rule 80 (REL_OP -> EQ .)
-    U32             reduce using rule 80 (REL_OP -> EQ .)
-    U16             reduce using rule 80 (REL_OP -> EQ .)
-    U8              reduce using rule 80 (REL_OP -> EQ .)
-    HEX_LIT         reduce using rule 80 (REL_OP -> EQ .)
-    OCTAL_LIT       reduce using rule 80 (REL_OP -> EQ .)
-    BINARY_LIT      reduce using rule 80 (REL_OP -> EQ .)
-    .               reduce using rule 80 (REL_OP -> EQ .)
+    (100) MUL_OP -> DIV .
+    AND             reduce using rule 100 (MUL_OP -> DIV .)
+    EXCLM           reduce using rule 100 (MUL_OP -> DIV .)
+    MINUS           reduce using rule 100 (MUL_OP -> DIV .)
+    (               reduce using rule 100 (MUL_OP -> DIV .)
+    IDENTIFIER      reduce using rule 100 (MUL_OP -> DIV .)
+    STRING          reduce using rule 100 (MUL_OP -> DIV .)
+    BOOL            reduce using rule 100 (MUL_OP -> DIV .)
+    RUNE            reduce using rule 100 (MUL_OP -> DIV .)
+    DECIMAL_LIT     reduce using rule 100 (MUL_OP -> DIV .)
+    FALSE           reduce using rule 100 (MUL_OP -> DIV .)
+    TRUE            reduce using rule 100 (MUL_OP -> DIV .)
+    RUNE_LIT        reduce using rule 100 (MUL_OP -> DIV .)
+    STRING_LIT      reduce using rule 100 (MUL_OP -> DIV .)
+    F32             reduce using rule 100 (MUL_OP -> DIV .)
+    F64             reduce using rule 100 (MUL_OP -> DIV .)
+    INT             reduce using rule 100 (MUL_OP -> DIV .)
+    ISIZE           reduce using rule 100 (MUL_OP -> DIV .)
+    I64             reduce using rule 100 (MUL_OP -> DIV .)
+    I32             reduce using rule 100 (MUL_OP -> DIV .)
+    I16             reduce using rule 100 (MUL_OP -> DIV .)
+    I8              reduce using rule 100 (MUL_OP -> DIV .)
+    UINT            reduce using rule 100 (MUL_OP -> DIV .)
+    USIZE           reduce using rule 100 (MUL_OP -> DIV .)
+    U64             reduce using rule 100 (MUL_OP -> DIV .)
+    U32             reduce using rule 100 (MUL_OP -> DIV .)
+    U16             reduce using rule 100 (MUL_OP -> DIV .)
+    U8              reduce using rule 100 (MUL_OP -> DIV .)
+    HEX_LIT         reduce using rule 100 (MUL_OP -> DIV .)
+    OCTAL_LIT       reduce using rule 100 (MUL_OP -> DIV .)
+    BINARY_LIT      reduce using rule 100 (MUL_OP -> DIV .)
+    .               reduce using rule 100 (MUL_OP -> DIV .)
 
 
 state 91
+
+    (101) MUL_OP -> STAR .
+    AND             reduce using rule 101 (MUL_OP -> STAR .)
+    EXCLM           reduce using rule 101 (MUL_OP -> STAR .)
+    MINUS           reduce using rule 101 (MUL_OP -> STAR .)
+    (               reduce using rule 101 (MUL_OP -> STAR .)
+    IDENTIFIER      reduce using rule 101 (MUL_OP -> STAR .)
+    STRING          reduce using rule 101 (MUL_OP -> STAR .)
+    BOOL            reduce using rule 101 (MUL_OP -> STAR .)
+    RUNE            reduce using rule 101 (MUL_OP -> STAR .)
+    DECIMAL_LIT     reduce using rule 101 (MUL_OP -> STAR .)
+    FALSE           reduce using rule 101 (MUL_OP -> STAR .)
+    TRUE            reduce using rule 101 (MUL_OP -> STAR .)
+    RUNE_LIT        reduce using rule 101 (MUL_OP -> STAR .)
+    STRING_LIT      reduce using rule 101 (MUL_OP -> STAR .)
+    F32             reduce using rule 101 (MUL_OP -> STAR .)
+    F64             reduce using rule 101 (MUL_OP -> STAR .)
+    INT             reduce using rule 101 (MUL_OP -> STAR .)
+    ISIZE           reduce using rule 101 (MUL_OP -> STAR .)
+    I64             reduce using rule 101 (MUL_OP -> STAR .)
+    I32             reduce using rule 101 (MUL_OP -> STAR .)
+    I16             reduce using rule 101 (MUL_OP -> STAR .)
+    I8              reduce using rule 101 (MUL_OP -> STAR .)
+    UINT            reduce using rule 101 (MUL_OP -> STAR .)
+    USIZE           reduce using rule 101 (MUL_OP -> STAR .)
+    U64             reduce using rule 101 (MUL_OP -> STAR .)
+    U32             reduce using rule 101 (MUL_OP -> STAR .)
+    U16             reduce using rule 101 (MUL_OP -> STAR .)
+    U8              reduce using rule 101 (MUL_OP -> STAR .)
+    HEX_LIT         reduce using rule 101 (MUL_OP -> STAR .)
+    OCTAL_LIT       reduce using rule 101 (MUL_OP -> STAR .)
+    BINARY_LIT      reduce using rule 101 (MUL_OP -> STAR .)
+    .               reduce using rule 101 (MUL_OP -> STAR .)
+
+
+state 92
+
+    (92) ADD_OP -> XOR .
+    AND             reduce using rule 92 (ADD_OP -> XOR .)
+    EXCLM           reduce using rule 92 (ADD_OP -> XOR .)
+    MINUS           reduce using rule 92 (ADD_OP -> XOR .)
+    (               reduce using rule 92 (ADD_OP -> XOR .)
+    IDENTIFIER      reduce using rule 92 (ADD_OP -> XOR .)
+    STRING          reduce using rule 92 (ADD_OP -> XOR .)
+    BOOL            reduce using rule 92 (ADD_OP -> XOR .)
+    RUNE            reduce using rule 92 (ADD_OP -> XOR .)
+    DECIMAL_LIT     reduce using rule 92 (ADD_OP -> XOR .)
+    FALSE           reduce using rule 92 (ADD_OP -> XOR .)
+    TRUE            reduce using rule 92 (ADD_OP -> XOR .)
+    RUNE_LIT        reduce using rule 92 (ADD_OP -> XOR .)
+    STRING_LIT      reduce using rule 92 (ADD_OP -> XOR .)
+    F32             reduce using rule 92 (ADD_OP -> XOR .)
+    F64             reduce using rule 92 (ADD_OP -> XOR .)
+    INT             reduce using rule 92 (ADD_OP -> XOR .)
+    ISIZE           reduce using rule 92 (ADD_OP -> XOR .)
+    I64             reduce using rule 92 (ADD_OP -> XOR .)
+    I32             reduce using rule 92 (ADD_OP -> XOR .)
+    I16             reduce using rule 92 (ADD_OP -> XOR .)
+    I8              reduce using rule 92 (ADD_OP -> XOR .)
+    UINT            reduce using rule 92 (ADD_OP -> XOR .)
+    USIZE           reduce using rule 92 (ADD_OP -> XOR .)
+    U64             reduce using rule 92 (ADD_OP -> XOR .)
+    U32             reduce using rule 92 (ADD_OP -> XOR .)
+    U16             reduce using rule 92 (ADD_OP -> XOR .)
+    U8              reduce using rule 92 (ADD_OP -> XOR .)
+    HEX_LIT         reduce using rule 92 (ADD_OP -> XOR .)
+    OCTAL_LIT       reduce using rule 92 (ADD_OP -> XOR .)
+    BINARY_LIT      reduce using rule 92 (ADD_OP -> XOR .)
+    .               reduce using rule 92 (ADD_OP -> XOR .)
+
+
+state 93
+
+    (93) ADD_OP -> OR .
+    AND             reduce using rule 93 (ADD_OP -> OR .)
+    EXCLM           reduce using rule 93 (ADD_OP -> OR .)
+    MINUS           reduce using rule 93 (ADD_OP -> OR .)
+    (               reduce using rule 93 (ADD_OP -> OR .)
+    IDENTIFIER      reduce using rule 93 (ADD_OP -> OR .)
+    STRING          reduce using rule 93 (ADD_OP -> OR .)
+    BOOL            reduce using rule 93 (ADD_OP -> OR .)
+    RUNE            reduce using rule 93 (ADD_OP -> OR .)
+    DECIMAL_LIT     reduce using rule 93 (ADD_OP -> OR .)
+    FALSE           reduce using rule 93 (ADD_OP -> OR .)
+    TRUE            reduce using rule 93 (ADD_OP -> OR .)
+    RUNE_LIT        reduce using rule 93 (ADD_OP -> OR .)
+    STRING_LIT      reduce using rule 93 (ADD_OP -> OR .)
+    F32             reduce using rule 93 (ADD_OP -> OR .)
+    F64             reduce using rule 93 (ADD_OP -> OR .)
+    INT             reduce using rule 93 (ADD_OP -> OR .)
+    ISIZE           reduce using rule 93 (ADD_OP -> OR .)
+    I64             reduce using rule 93 (ADD_OP -> OR .)
+    I32             reduce using rule 93 (ADD_OP -> OR .)
+    I16             reduce using rule 93 (ADD_OP -> OR .)
+    I8              reduce using rule 93 (ADD_OP -> OR .)
+    UINT            reduce using rule 93 (ADD_OP -> OR .)
+    USIZE           reduce using rule 93 (ADD_OP -> OR .)
+    U64             reduce using rule 93 (ADD_OP -> OR .)
+    U32             reduce using rule 93 (ADD_OP -> OR .)
+    U16             reduce using rule 93 (ADD_OP -> OR .)
+    U8              reduce using rule 93 (ADD_OP -> OR .)
+    HEX_LIT         reduce using rule 93 (ADD_OP -> OR .)
+    OCTAL_LIT       reduce using rule 93 (ADD_OP -> OR .)
+    BINARY_LIT      reduce using rule 93 (ADD_OP -> OR .)
+    .               reduce using rule 93 (ADD_OP -> OR .)
+
+
+state 94
+
+    (94) ADD_OP -> MINUS .
+    AND             reduce using rule 94 (ADD_OP -> MINUS .)
+    EXCLM           reduce using rule 94 (ADD_OP -> MINUS .)
+    MINUS           reduce using rule 94 (ADD_OP -> MINUS .)
+    (               reduce using rule 94 (ADD_OP -> MINUS .)
+    IDENTIFIER      reduce using rule 94 (ADD_OP -> MINUS .)
+    STRING          reduce using rule 94 (ADD_OP -> MINUS .)
+    BOOL            reduce using rule 94 (ADD_OP -> MINUS .)
+    RUNE            reduce using rule 94 (ADD_OP -> MINUS .)
+    DECIMAL_LIT     reduce using rule 94 (ADD_OP -> MINUS .)
+    FALSE           reduce using rule 94 (ADD_OP -> MINUS .)
+    TRUE            reduce using rule 94 (ADD_OP -> MINUS .)
+    RUNE_LIT        reduce using rule 94 (ADD_OP -> MINUS .)
+    STRING_LIT      reduce using rule 94 (ADD_OP -> MINUS .)
+    F32             reduce using rule 94 (ADD_OP -> MINUS .)
+    F64             reduce using rule 94 (ADD_OP -> MINUS .)
+    INT             reduce using rule 94 (ADD_OP -> MINUS .)
+    ISIZE           reduce using rule 94 (ADD_OP -> MINUS .)
+    I64             reduce using rule 94 (ADD_OP -> MINUS .)
+    I32             reduce using rule 94 (ADD_OP -> MINUS .)
+    I16             reduce using rule 94 (ADD_OP -> MINUS .)
+    I8              reduce using rule 94 (ADD_OP -> MINUS .)
+    UINT            reduce using rule 94 (ADD_OP -> MINUS .)
+    USIZE           reduce using rule 94 (ADD_OP -> MINUS .)
+    U64             reduce using rule 94 (ADD_OP -> MINUS .)
+    U32             reduce using rule 94 (ADD_OP -> MINUS .)
+    U16             reduce using rule 94 (ADD_OP -> MINUS .)
+    U8              reduce using rule 94 (ADD_OP -> MINUS .)
+    HEX_LIT         reduce using rule 94 (ADD_OP -> MINUS .)
+    OCTAL_LIT       reduce using rule 94 (ADD_OP -> MINUS .)
+    BINARY_LIT      reduce using rule 94 (ADD_OP -> MINUS .)
+    .               reduce using rule 94 (ADD_OP -> MINUS .)
+
+
+state 95
+
+    (95) ADD_OP -> PLUS .
+    AND             reduce using rule 95 (ADD_OP -> PLUS .)
+    EXCLM           reduce using rule 95 (ADD_OP -> PLUS .)
+    MINUS           reduce using rule 95 (ADD_OP -> PLUS .)
+    (               reduce using rule 95 (ADD_OP -> PLUS .)
+    IDENTIFIER      reduce using rule 95 (ADD_OP -> PLUS .)
+    STRING          reduce using rule 95 (ADD_OP -> PLUS .)
+    BOOL            reduce using rule 95 (ADD_OP -> PLUS .)
+    RUNE            reduce using rule 95 (ADD_OP -> PLUS .)
+    DECIMAL_LIT     reduce using rule 95 (ADD_OP -> PLUS .)
+    FALSE           reduce using rule 95 (ADD_OP -> PLUS .)
+    TRUE            reduce using rule 95 (ADD_OP -> PLUS .)
+    RUNE_LIT        reduce using rule 95 (ADD_OP -> PLUS .)
+    STRING_LIT      reduce using rule 95 (ADD_OP -> PLUS .)
+    F32             reduce using rule 95 (ADD_OP -> PLUS .)
+    F64             reduce using rule 95 (ADD_OP -> PLUS .)
+    INT             reduce using rule 95 (ADD_OP -> PLUS .)
+    ISIZE           reduce using rule 95 (ADD_OP -> PLUS .)
+    I64             reduce using rule 95 (ADD_OP -> PLUS .)
+    I32             reduce using rule 95 (ADD_OP -> PLUS .)
+    I16             reduce using rule 95 (ADD_OP -> PLUS .)
+    I8              reduce using rule 95 (ADD_OP -> PLUS .)
+    UINT            reduce using rule 95 (ADD_OP -> PLUS .)
+    USIZE           reduce using rule 95 (ADD_OP -> PLUS .)
+    U64             reduce using rule 95 (ADD_OP -> PLUS .)
+    U32             reduce using rule 95 (ADD_OP -> PLUS .)
+    U16             reduce using rule 95 (ADD_OP -> PLUS .)
+    U8              reduce using rule 95 (ADD_OP -> PLUS .)
+    HEX_LIT         reduce using rule 95 (ADD_OP -> PLUS .)
+    OCTAL_LIT       reduce using rule 95 (ADD_OP -> PLUS .)
+    BINARY_LIT      reduce using rule 95 (ADD_OP -> PLUS .)
+    .               reduce using rule 95 (ADD_OP -> PLUS .)
+
+
+state 96
+
+    (86) REL_OP -> GE .
+    AND             reduce using rule 86 (REL_OP -> GE .)
+    EXCLM           reduce using rule 86 (REL_OP -> GE .)
+    MINUS           reduce using rule 86 (REL_OP -> GE .)
+    (               reduce using rule 86 (REL_OP -> GE .)
+    IDENTIFIER      reduce using rule 86 (REL_OP -> GE .)
+    STRING          reduce using rule 86 (REL_OP -> GE .)
+    BOOL            reduce using rule 86 (REL_OP -> GE .)
+    RUNE            reduce using rule 86 (REL_OP -> GE .)
+    DECIMAL_LIT     reduce using rule 86 (REL_OP -> GE .)
+    FALSE           reduce using rule 86 (REL_OP -> GE .)
+    TRUE            reduce using rule 86 (REL_OP -> GE .)
+    RUNE_LIT        reduce using rule 86 (REL_OP -> GE .)
+    STRING_LIT      reduce using rule 86 (REL_OP -> GE .)
+    F32             reduce using rule 86 (REL_OP -> GE .)
+    F64             reduce using rule 86 (REL_OP -> GE .)
+    INT             reduce using rule 86 (REL_OP -> GE .)
+    ISIZE           reduce using rule 86 (REL_OP -> GE .)
+    I64             reduce using rule 86 (REL_OP -> GE .)
+    I32             reduce using rule 86 (REL_OP -> GE .)
+    I16             reduce using rule 86 (REL_OP -> GE .)
+    I8              reduce using rule 86 (REL_OP -> GE .)
+    UINT            reduce using rule 86 (REL_OP -> GE .)
+    USIZE           reduce using rule 86 (REL_OP -> GE .)
+    U64             reduce using rule 86 (REL_OP -> GE .)
+    U32             reduce using rule 86 (REL_OP -> GE .)
+    U16             reduce using rule 86 (REL_OP -> GE .)
+    U8              reduce using rule 86 (REL_OP -> GE .)
+    HEX_LIT         reduce using rule 86 (REL_OP -> GE .)
+    OCTAL_LIT       reduce using rule 86 (REL_OP -> GE .)
+    BINARY_LIT      reduce using rule 86 (REL_OP -> GE .)
+    .               reduce using rule 86 (REL_OP -> GE .)
+
+
+state 97
+
+    (87) REL_OP -> GT .
+    AND             reduce using rule 87 (REL_OP -> GT .)
+    EXCLM           reduce using rule 87 (REL_OP -> GT .)
+    MINUS           reduce using rule 87 (REL_OP -> GT .)
+    (               reduce using rule 87 (REL_OP -> GT .)
+    IDENTIFIER      reduce using rule 87 (REL_OP -> GT .)
+    STRING          reduce using rule 87 (REL_OP -> GT .)
+    BOOL            reduce using rule 87 (REL_OP -> GT .)
+    RUNE            reduce using rule 87 (REL_OP -> GT .)
+    DECIMAL_LIT     reduce using rule 87 (REL_OP -> GT .)
+    FALSE           reduce using rule 87 (REL_OP -> GT .)
+    TRUE            reduce using rule 87 (REL_OP -> GT .)
+    RUNE_LIT        reduce using rule 87 (REL_OP -> GT .)
+    STRING_LIT      reduce using rule 87 (REL_OP -> GT .)
+    F32             reduce using rule 87 (REL_OP -> GT .)
+    F64             reduce using rule 87 (REL_OP -> GT .)
+    INT             reduce using rule 87 (REL_OP -> GT .)
+    ISIZE           reduce using rule 87 (REL_OP -> GT .)
+    I64             reduce using rule 87 (REL_OP -> GT .)
+    I32             reduce using rule 87 (REL_OP -> GT .)
+    I16             reduce using rule 87 (REL_OP -> GT .)
+    I8              reduce using rule 87 (REL_OP -> GT .)
+    UINT            reduce using rule 87 (REL_OP -> GT .)
+    USIZE           reduce using rule 87 (REL_OP -> GT .)
+    U64             reduce using rule 87 (REL_OP -> GT .)
+    U32             reduce using rule 87 (REL_OP -> GT .)
+    U16             reduce using rule 87 (REL_OP -> GT .)
+    U8              reduce using rule 87 (REL_OP -> GT .)
+    HEX_LIT         reduce using rule 87 (REL_OP -> GT .)
+    OCTAL_LIT       reduce using rule 87 (REL_OP -> GT .)
+    BINARY_LIT      reduce using rule 87 (REL_OP -> GT .)
+    .               reduce using rule 87 (REL_OP -> GT .)
+
+
+state 98
+
+    (88) REL_OP -> LE .
+    AND             reduce using rule 88 (REL_OP -> LE .)
+    EXCLM           reduce using rule 88 (REL_OP -> LE .)
+    MINUS           reduce using rule 88 (REL_OP -> LE .)
+    (               reduce using rule 88 (REL_OP -> LE .)
+    IDENTIFIER      reduce using rule 88 (REL_OP -> LE .)
+    STRING          reduce using rule 88 (REL_OP -> LE .)
+    BOOL            reduce using rule 88 (REL_OP -> LE .)
+    RUNE            reduce using rule 88 (REL_OP -> LE .)
+    DECIMAL_LIT     reduce using rule 88 (REL_OP -> LE .)
+    FALSE           reduce using rule 88 (REL_OP -> LE .)
+    TRUE            reduce using rule 88 (REL_OP -> LE .)
+    RUNE_LIT        reduce using rule 88 (REL_OP -> LE .)
+    STRING_LIT      reduce using rule 88 (REL_OP -> LE .)
+    F32             reduce using rule 88 (REL_OP -> LE .)
+    F64             reduce using rule 88 (REL_OP -> LE .)
+    INT             reduce using rule 88 (REL_OP -> LE .)
+    ISIZE           reduce using rule 88 (REL_OP -> LE .)
+    I64             reduce using rule 88 (REL_OP -> LE .)
+    I32             reduce using rule 88 (REL_OP -> LE .)
+    I16             reduce using rule 88 (REL_OP -> LE .)
+    I8              reduce using rule 88 (REL_OP -> LE .)
+    UINT            reduce using rule 88 (REL_OP -> LE .)
+    USIZE           reduce using rule 88 (REL_OP -> LE .)
+    U64             reduce using rule 88 (REL_OP -> LE .)
+    U32             reduce using rule 88 (REL_OP -> LE .)
+    U16             reduce using rule 88 (REL_OP -> LE .)
+    U8              reduce using rule 88 (REL_OP -> LE .)
+    HEX_LIT         reduce using rule 88 (REL_OP -> LE .)
+    OCTAL_LIT       reduce using rule 88 (REL_OP -> LE .)
+    BINARY_LIT      reduce using rule 88 (REL_OP -> LE .)
+    .               reduce using rule 88 (REL_OP -> LE .)
+
+
+state 99
+
+    (89) REL_OP -> LT .
+    AND             reduce using rule 89 (REL_OP -> LT .)
+    EXCLM           reduce using rule 89 (REL_OP -> LT .)
+    MINUS           reduce using rule 89 (REL_OP -> LT .)
+    (               reduce using rule 89 (REL_OP -> LT .)
+    IDENTIFIER      reduce using rule 89 (REL_OP -> LT .)
+    STRING          reduce using rule 89 (REL_OP -> LT .)
+    BOOL            reduce using rule 89 (REL_OP -> LT .)
+    RUNE            reduce using rule 89 (REL_OP -> LT .)
+    DECIMAL_LIT     reduce using rule 89 (REL_OP -> LT .)
+    FALSE           reduce using rule 89 (REL_OP -> LT .)
+    TRUE            reduce using rule 89 (REL_OP -> LT .)
+    RUNE_LIT        reduce using rule 89 (REL_OP -> LT .)
+    STRING_LIT      reduce using rule 89 (REL_OP -> LT .)
+    F32             reduce using rule 89 (REL_OP -> LT .)
+    F64             reduce using rule 89 (REL_OP -> LT .)
+    INT             reduce using rule 89 (REL_OP -> LT .)
+    ISIZE           reduce using rule 89 (REL_OP -> LT .)
+    I64             reduce using rule 89 (REL_OP -> LT .)
+    I32             reduce using rule 89 (REL_OP -> LT .)
+    I16             reduce using rule 89 (REL_OP -> LT .)
+    I8              reduce using rule 89 (REL_OP -> LT .)
+    UINT            reduce using rule 89 (REL_OP -> LT .)
+    USIZE           reduce using rule 89 (REL_OP -> LT .)
+    U64             reduce using rule 89 (REL_OP -> LT .)
+    U32             reduce using rule 89 (REL_OP -> LT .)
+    U16             reduce using rule 89 (REL_OP -> LT .)
+    U8              reduce using rule 89 (REL_OP -> LT .)
+    HEX_LIT         reduce using rule 89 (REL_OP -> LT .)
+    OCTAL_LIT       reduce using rule 89 (REL_OP -> LT .)
+    BINARY_LIT      reduce using rule 89 (REL_OP -> LT .)
+    .               reduce using rule 89 (REL_OP -> LT .)
+
+
+state 100
+
+    (90) REL_OP -> NE .
+    AND             reduce using rule 90 (REL_OP -> NE .)
+    EXCLM           reduce using rule 90 (REL_OP -> NE .)
+    MINUS           reduce using rule 90 (REL_OP -> NE .)
+    (               reduce using rule 90 (REL_OP -> NE .)
+    IDENTIFIER      reduce using rule 90 (REL_OP -> NE .)
+    STRING          reduce using rule 90 (REL_OP -> NE .)
+    BOOL            reduce using rule 90 (REL_OP -> NE .)
+    RUNE            reduce using rule 90 (REL_OP -> NE .)
+    DECIMAL_LIT     reduce using rule 90 (REL_OP -> NE .)
+    FALSE           reduce using rule 90 (REL_OP -> NE .)
+    TRUE            reduce using rule 90 (REL_OP -> NE .)
+    RUNE_LIT        reduce using rule 90 (REL_OP -> NE .)
+    STRING_LIT      reduce using rule 90 (REL_OP -> NE .)
+    F32             reduce using rule 90 (REL_OP -> NE .)
+    F64             reduce using rule 90 (REL_OP -> NE .)
+    INT             reduce using rule 90 (REL_OP -> NE .)
+    ISIZE           reduce using rule 90 (REL_OP -> NE .)
+    I64             reduce using rule 90 (REL_OP -> NE .)
+    I32             reduce using rule 90 (REL_OP -> NE .)
+    I16             reduce using rule 90 (REL_OP -> NE .)
+    I8              reduce using rule 90 (REL_OP -> NE .)
+    UINT            reduce using rule 90 (REL_OP -> NE .)
+    USIZE           reduce using rule 90 (REL_OP -> NE .)
+    U64             reduce using rule 90 (REL_OP -> NE .)
+    U32             reduce using rule 90 (REL_OP -> NE .)
+    U16             reduce using rule 90 (REL_OP -> NE .)
+    U8              reduce using rule 90 (REL_OP -> NE .)
+    HEX_LIT         reduce using rule 90 (REL_OP -> NE .)
+    OCTAL_LIT       reduce using rule 90 (REL_OP -> NE .)
+    BINARY_LIT      reduce using rule 90 (REL_OP -> NE .)
+    .               reduce using rule 90 (REL_OP -> NE .)
+
+
+state 101
+
+    (91) REL_OP -> EQ .
+    AND             reduce using rule 91 (REL_OP -> EQ .)
+    EXCLM           reduce using rule 91 (REL_OP -> EQ .)
+    MINUS           reduce using rule 91 (REL_OP -> EQ .)
+    (               reduce using rule 91 (REL_OP -> EQ .)
+    IDENTIFIER      reduce using rule 91 (REL_OP -> EQ .)
+    STRING          reduce using rule 91 (REL_OP -> EQ .)
+    BOOL            reduce using rule 91 (REL_OP -> EQ .)
+    RUNE            reduce using rule 91 (REL_OP -> EQ .)
+    DECIMAL_LIT     reduce using rule 91 (REL_OP -> EQ .)
+    FALSE           reduce using rule 91 (REL_OP -> EQ .)
+    TRUE            reduce using rule 91 (REL_OP -> EQ .)
+    RUNE_LIT        reduce using rule 91 (REL_OP -> EQ .)
+    STRING_LIT      reduce using rule 91 (REL_OP -> EQ .)
+    F32             reduce using rule 91 (REL_OP -> EQ .)
+    F64             reduce using rule 91 (REL_OP -> EQ .)
+    INT             reduce using rule 91 (REL_OP -> EQ .)
+    ISIZE           reduce using rule 91 (REL_OP -> EQ .)
+    I64             reduce using rule 91 (REL_OP -> EQ .)
+    I32             reduce using rule 91 (REL_OP -> EQ .)
+    I16             reduce using rule 91 (REL_OP -> EQ .)
+    I8              reduce using rule 91 (REL_OP -> EQ .)
+    UINT            reduce using rule 91 (REL_OP -> EQ .)
+    USIZE           reduce using rule 91 (REL_OP -> EQ .)
+    U64             reduce using rule 91 (REL_OP -> EQ .)
+    U32             reduce using rule 91 (REL_OP -> EQ .)
+    U16             reduce using rule 91 (REL_OP -> EQ .)
+    U8              reduce using rule 91 (REL_OP -> EQ .)
+    HEX_LIT         reduce using rule 91 (REL_OP -> EQ .)
+    OCTAL_LIT       reduce using rule 91 (REL_OP -> EQ .)
+    BINARY_LIT      reduce using rule 91 (REL_OP -> EQ .)
+    .               reduce using rule 91 (REL_OP -> EQ .)
+
+
+state 102
 
     (22) unaryExpr -> UNARY_OP unaryExpr .
     LOGIC_AND       reduce using rule 22 (unaryExpr -> UNARY_OP unaryExpr .)
@@ -2852,7 +3282,7 @@ state 91
     ,               reduce using rule 22 (unaryExpr -> UNARY_OP unaryExpr .)
 
 
-state 92
+state 103
 
     (29) operandName -> IDENTIFIER .
     LOGIC_AND       reduce using rule 29 (operandName -> IDENTIFIER .)
@@ -2879,16 +3309,16 @@ state 92
     ,               reduce using rule 29 (operandName -> IDENTIFIER .)
 
 
-state 93
+state 104
 
     (31) conversion -> type_ ( . expression )
     (20) expression -> . expression BINARY_OP unaryExpr
     (21) expression -> . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
     (23) unaryExpr -> . primaryExpr
-    (91) UNARY_OP -> . AND
-    (92) UNARY_OP -> . EXCLM
-    (93) UNARY_OP -> . MINUS
+    (102) UNARY_OP -> . AND
+    (103) UNARY_OP -> . EXCLM
+    (104) UNARY_OP -> . MINUS
     (24) primaryExpr -> . conversion
     (25) primaryExpr -> . operand
     (31) conversion -> . type_ ( expression )
@@ -2935,7 +3365,7 @@ state 93
     EXCLM           shift and go to state 22
     MINUS           shift and go to state 23
     (               shift and go to state 27
-    IDENTIFIER      shift and go to state 92
+    IDENTIFIER      shift and go to state 103
     STRING          shift and go to state 33
     BOOL            shift and go to state 34
     RUNE            shift and go to state 35
@@ -2964,7 +3394,7 @@ state 93
     .               shift and go to state 60
 
     type_                          shift and go to state 26
-    expression                     shift and go to state 108
+    expression                     shift and go to state 119
     unaryExpr                      shift and go to state 18
     UNARY_OP                       shift and go to state 19
     primaryExpr                    shift and go to state 20
@@ -2978,57 +3408,57 @@ state 93
     INT_LIT                        shift and go to state 36
     FLOAT_LIT                      shift and go to state 37
 
-state 94
+state 105
 
     (26) operand -> ( expression . )
     (20) expression -> expression . BINARY_OP unaryExpr
-    (70) BINARY_OP -> . MUL_OP
-    (71) BINARY_OP -> . ADD_OP
-    (72) BINARY_OP -> . REL_OP
-    (73) BINARY_OP -> . LOGIC_AND
-    (74) BINARY_OP -> . LOGIC_OR
-    (85) MUL_OP -> . SHR
-    (86) MUL_OP -> . SHL
-    (87) MUL_OP -> . AND
-    (88) MUL_OP -> . MOD
-    (89) MUL_OP -> . DIV
-    (90) MUL_OP -> . STAR
-    (81) ADD_OP -> . XOR
-    (82) ADD_OP -> . OR
-    (83) ADD_OP -> . MINUS
-    (84) ADD_OP -> . PLUS
-    (75) REL_OP -> . GE
-    (76) REL_OP -> . GT
-    (77) REL_OP -> . LE
-    (78) REL_OP -> . LT
-    (79) REL_OP -> . NE
-    (80) REL_OP -> . EQ
-    )               shift and go to state 109
-    LOGIC_AND       shift and go to state 73
-    LOGIC_OR        shift and go to state 74
-    SHR             shift and go to state 75
-    SHL             shift and go to state 76
-    AND             shift and go to state 77
-    MOD             shift and go to state 78
-    DIV             shift and go to state 79
-    STAR            shift and go to state 80
-    XOR             shift and go to state 81
-    OR              shift and go to state 82
-    MINUS           shift and go to state 83
-    PLUS            shift and go to state 84
-    GE              shift and go to state 85
-    GT              shift and go to state 86
-    LE              shift and go to state 87
-    LT              shift and go to state 88
-    NE              shift and go to state 89
-    EQ              shift and go to state 90
+    (81) BINARY_OP -> . MUL_OP
+    (82) BINARY_OP -> . ADD_OP
+    (83) BINARY_OP -> . REL_OP
+    (84) BINARY_OP -> . LOGIC_AND
+    (85) BINARY_OP -> . LOGIC_OR
+    (96) MUL_OP -> . SHR
+    (97) MUL_OP -> . SHL
+    (98) MUL_OP -> . AND
+    (99) MUL_OP -> . MOD
+    (100) MUL_OP -> . DIV
+    (101) MUL_OP -> . STAR
+    (92) ADD_OP -> . XOR
+    (93) ADD_OP -> . OR
+    (94) ADD_OP -> . MINUS
+    (95) ADD_OP -> . PLUS
+    (86) REL_OP -> . GE
+    (87) REL_OP -> . GT
+    (88) REL_OP -> . LE
+    (89) REL_OP -> . LT
+    (90) REL_OP -> . NE
+    (91) REL_OP -> . EQ
+    )               shift and go to state 120
+    LOGIC_AND       shift and go to state 84
+    LOGIC_OR        shift and go to state 85
+    SHR             shift and go to state 86
+    SHL             shift and go to state 87
+    AND             shift and go to state 88
+    MOD             shift and go to state 89
+    DIV             shift and go to state 90
+    STAR            shift and go to state 91
+    XOR             shift and go to state 92
+    OR              shift and go to state 93
+    MINUS           shift and go to state 94
+    PLUS            shift and go to state 95
+    GE              shift and go to state 96
+    GT              shift and go to state 97
+    LE              shift and go to state 98
+    LT              shift and go to state 99
+    NE              shift and go to state 100
+    EQ              shift and go to state 101
 
-    BINARY_OP                      shift and go to state 69
-    MUL_OP                         shift and go to state 70
-    ADD_OP                         shift and go to state 71
-    REL_OP                         shift and go to state 72
+    BINARY_OP                      shift and go to state 80
+    MUL_OP                         shift and go to state 81
+    ADD_OP                         shift and go to state 82
+    REL_OP                         shift and go to state 83
 
-state 95
+state 106
 
     (54) basicLit -> FLOAT_LIT EXPONENT .
     LOGIC_AND       reduce using rule 54 (basicLit -> FLOAT_LIT EXPONENT .)
@@ -3055,7 +3485,7 @@ state 95
     ,               reduce using rule 54 (basicLit -> FLOAT_LIT EXPONENT .)
 
 
-state 96
+state 107
 
     (53) basicLit -> DECIMAL_LIT EXPONENT .
     LOGIC_AND       reduce using rule 53 (basicLit -> DECIMAL_LIT EXPONENT .)
@@ -3082,7 +3512,7 @@ state 96
     ,               reduce using rule 53 (basicLit -> DECIMAL_LIT EXPONENT .)
 
 
-state 97
+state 108
 
     (60) FLOAT_LIT -> DECIMAL_LIT . .
     (61) FLOAT_LIT -> DECIMAL_LIT . . DECIMAL_LIT
@@ -3109,10 +3539,10 @@ state 97
     ;               reduce using rule 60 (FLOAT_LIT -> DECIMAL_LIT . .)
     )               reduce using rule 60 (FLOAT_LIT -> DECIMAL_LIT . .)
     ,               reduce using rule 60 (FLOAT_LIT -> DECIMAL_LIT . .)
-    DECIMAL_LIT     shift and go to state 110
+    DECIMAL_LIT     shift and go to state 121
 
 
-state 98
+state 109
 
     (59) FLOAT_LIT -> . DECIMAL_LIT .
     EXPONENT        reduce using rule 59 (FLOAT_LIT -> . DECIMAL_LIT .)
@@ -3140,7 +3570,7 @@ state 98
     ,               reduce using rule 59 (FLOAT_LIT -> . DECIMAL_LIT .)
 
 
-state 99
+state 110
 
     (66) eos -> eos NEWL .
     NEWL            reduce using rule 66 (eos -> eos NEWL .)
@@ -3179,7 +3609,7 @@ state 99
     $end            reduce using rule 66 (eos -> eos NEWL .)
 
 
-state 100
+state 111
 
     (68) eos -> eos ; .
     NEWL            reduce using rule 68 (eos -> eos ; .)
@@ -3218,100 +3648,132 @@ state 100
     $end            reduce using rule 68 (eos -> eos ; .)
 
 
-state 101
+state 112
 
     (8) varDecl -> identifierList DECL_ASGN expressionList .
     (11) expressionList -> expressionList . , expression
     NEWL            reduce using rule 8 (varDecl -> identifierList DECL_ASGN expressionList .)
     ;               reduce using rule 8 (varDecl -> identifierList DECL_ASGN expressionList .)
-    ,               shift and go to state 111
+    ,               shift and go to state 122
 
 
-state 102
+state 113
 
     (12) expressionList -> expression .
     (20) expression -> expression . BINARY_OP unaryExpr
-    (70) BINARY_OP -> . MUL_OP
-    (71) BINARY_OP -> . ADD_OP
-    (72) BINARY_OP -> . REL_OP
-    (73) BINARY_OP -> . LOGIC_AND
-    (74) BINARY_OP -> . LOGIC_OR
-    (85) MUL_OP -> . SHR
-    (86) MUL_OP -> . SHL
-    (87) MUL_OP -> . AND
-    (88) MUL_OP -> . MOD
-    (89) MUL_OP -> . DIV
-    (90) MUL_OP -> . STAR
-    (81) ADD_OP -> . XOR
-    (82) ADD_OP -> . OR
-    (83) ADD_OP -> . MINUS
-    (84) ADD_OP -> . PLUS
-    (75) REL_OP -> . GE
-    (76) REL_OP -> . GT
-    (77) REL_OP -> . LE
-    (78) REL_OP -> . LT
-    (79) REL_OP -> . NE
-    (80) REL_OP -> . EQ
+    (81) BINARY_OP -> . MUL_OP
+    (82) BINARY_OP -> . ADD_OP
+    (83) BINARY_OP -> . REL_OP
+    (84) BINARY_OP -> . LOGIC_AND
+    (85) BINARY_OP -> . LOGIC_OR
+    (96) MUL_OP -> . SHR
+    (97) MUL_OP -> . SHL
+    (98) MUL_OP -> . AND
+    (99) MUL_OP -> . MOD
+    (100) MUL_OP -> . DIV
+    (101) MUL_OP -> . STAR
+    (92) ADD_OP -> . XOR
+    (93) ADD_OP -> . OR
+    (94) ADD_OP -> . MINUS
+    (95) ADD_OP -> . PLUS
+    (86) REL_OP -> . GE
+    (87) REL_OP -> . GT
+    (88) REL_OP -> . LE
+    (89) REL_OP -> . LT
+    (90) REL_OP -> . NE
+    (91) REL_OP -> . EQ
     ,               reduce using rule 12 (expressionList -> expression .)
     NEWL            reduce using rule 12 (expressionList -> expression .)
     ;               reduce using rule 12 (expressionList -> expression .)
-    LOGIC_AND       shift and go to state 73
-    LOGIC_OR        shift and go to state 74
-    SHR             shift and go to state 75
-    SHL             shift and go to state 76
-    AND             shift and go to state 77
-    MOD             shift and go to state 78
-    DIV             shift and go to state 79
-    STAR            shift and go to state 80
-    XOR             shift and go to state 81
-    OR              shift and go to state 82
-    MINUS           shift and go to state 83
-    PLUS            shift and go to state 84
-    GE              shift and go to state 85
-    GT              shift and go to state 86
-    LE              shift and go to state 87
-    LT              shift and go to state 88
-    NE              shift and go to state 89
-    EQ              shift and go to state 90
+    LOGIC_AND       shift and go to state 84
+    LOGIC_OR        shift and go to state 85
+    SHR             shift and go to state 86
+    SHL             shift and go to state 87
+    AND             shift and go to state 88
+    MOD             shift and go to state 89
+    DIV             shift and go to state 90
+    STAR            shift and go to state 91
+    XOR             shift and go to state 92
+    OR              shift and go to state 93
+    MINUS           shift and go to state 94
+    PLUS            shift and go to state 95
+    GE              shift and go to state 96
+    GT              shift and go to state 97
+    LE              shift and go to state 98
+    LT              shift and go to state 99
+    NE              shift and go to state 100
+    EQ              shift and go to state 101
 
-    BINARY_OP                      shift and go to state 69
-    MUL_OP                         shift and go to state 70
-    ADD_OP                         shift and go to state 71
-    REL_OP                         shift and go to state 72
+    BINARY_OP                      shift and go to state 80
+    MUL_OP                         shift and go to state 81
+    ADD_OP                         shift and go to state 82
+    REL_OP                         shift and go to state 83
 
-state 103
+state 114
 
     (9) identifierList -> identifierList , IDENTIFIER .
     DECL_ASGN       reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
     ,               reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
+    SHR_ASGN        reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
+    SHL_ASGN        reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
+    MOD_ASGN        reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
+    DIV_ASGN        reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
+    OR_ASGN         reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
+    AND_ASGN        reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
+    STAR_ASGN       reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
+    XOR_ASGN        reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
+    MINUS_ASGN      reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
+    PLUS_ASGN       reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
     ASSIGN          reduce using rule 9 (identifierList -> identifierList , IDENTIFIER .)
 
 
-state 104
+state 115
 
     (13) statementList -> statementList eos statement .
     NEWL            reduce using rule 13 (statementList -> statementList eos statement .)
     ;               reduce using rule 13 (statementList -> statementList eos statement .)
 
 
-state 105
+state 116
 
-    (19) assignment -> identifierList . ASSIGN expressionList
+    (19) assignment -> identifierList . assign_op expressionList
     (9) identifierList -> identifierList . , IDENTIFIER
-    ASSIGN          shift and go to state 68
+    (70) assign_op -> . SHR_ASGN
+    (71) assign_op -> . SHL_ASGN
+    (72) assign_op -> . MOD_ASGN
+    (73) assign_op -> . DIV_ASGN
+    (74) assign_op -> . OR_ASGN
+    (75) assign_op -> . AND_ASGN
+    (76) assign_op -> . STAR_ASGN
+    (77) assign_op -> . XOR_ASGN
+    (78) assign_op -> . MINUS_ASGN
+    (79) assign_op -> . PLUS_ASGN
+    (80) assign_op -> . ASSIGN
     ,               shift and go to state 65
+    SHR_ASGN        shift and go to state 69
+    SHL_ASGN        shift and go to state 70
+    MOD_ASGN        shift and go to state 71
+    DIV_ASGN        shift and go to state 72
+    OR_ASGN         shift and go to state 73
+    AND_ASGN        shift and go to state 74
+    STAR_ASGN       shift and go to state 75
+    XOR_ASGN        shift and go to state 76
+    MINUS_ASGN      shift and go to state 77
+    PLUS_ASGN       shift and go to state 78
+    ASSIGN          shift and go to state 79
 
+    assign_op                      shift and go to state 68
 
-state 106
+state 117
 
-    (19) assignment -> identifierList ASSIGN expressionList .
+    (19) assignment -> identifierList assign_op expressionList .
     (11) expressionList -> expressionList . , expression
-    NEWL            reduce using rule 19 (assignment -> identifierList ASSIGN expressionList .)
-    ;               reduce using rule 19 (assignment -> identifierList ASSIGN expressionList .)
-    ,               shift and go to state 111
+    NEWL            reduce using rule 19 (assignment -> identifierList assign_op expressionList .)
+    ;               reduce using rule 19 (assignment -> identifierList assign_op expressionList .)
+    ,               shift and go to state 122
 
 
-state 107
+state 118
 
     (20) expression -> expression BINARY_OP unaryExpr .
     LOGIC_AND       reduce using rule 20 (expression -> expression BINARY_OP unaryExpr .)
@@ -3338,57 +3800,57 @@ state 107
     ,               reduce using rule 20 (expression -> expression BINARY_OP unaryExpr .)
 
 
-state 108
+state 119
 
     (31) conversion -> type_ ( expression . )
     (20) expression -> expression . BINARY_OP unaryExpr
-    (70) BINARY_OP -> . MUL_OP
-    (71) BINARY_OP -> . ADD_OP
-    (72) BINARY_OP -> . REL_OP
-    (73) BINARY_OP -> . LOGIC_AND
-    (74) BINARY_OP -> . LOGIC_OR
-    (85) MUL_OP -> . SHR
-    (86) MUL_OP -> . SHL
-    (87) MUL_OP -> . AND
-    (88) MUL_OP -> . MOD
-    (89) MUL_OP -> . DIV
-    (90) MUL_OP -> . STAR
-    (81) ADD_OP -> . XOR
-    (82) ADD_OP -> . OR
-    (83) ADD_OP -> . MINUS
-    (84) ADD_OP -> . PLUS
-    (75) REL_OP -> . GE
-    (76) REL_OP -> . GT
-    (77) REL_OP -> . LE
-    (78) REL_OP -> . LT
-    (79) REL_OP -> . NE
-    (80) REL_OP -> . EQ
-    )               shift and go to state 112
-    LOGIC_AND       shift and go to state 73
-    LOGIC_OR        shift and go to state 74
-    SHR             shift and go to state 75
-    SHL             shift and go to state 76
-    AND             shift and go to state 77
-    MOD             shift and go to state 78
-    DIV             shift and go to state 79
-    STAR            shift and go to state 80
-    XOR             shift and go to state 81
-    OR              shift and go to state 82
-    MINUS           shift and go to state 83
-    PLUS            shift and go to state 84
-    GE              shift and go to state 85
-    GT              shift and go to state 86
-    LE              shift and go to state 87
-    LT              shift and go to state 88
-    NE              shift and go to state 89
-    EQ              shift and go to state 90
+    (81) BINARY_OP -> . MUL_OP
+    (82) BINARY_OP -> . ADD_OP
+    (83) BINARY_OP -> . REL_OP
+    (84) BINARY_OP -> . LOGIC_AND
+    (85) BINARY_OP -> . LOGIC_OR
+    (96) MUL_OP -> . SHR
+    (97) MUL_OP -> . SHL
+    (98) MUL_OP -> . AND
+    (99) MUL_OP -> . MOD
+    (100) MUL_OP -> . DIV
+    (101) MUL_OP -> . STAR
+    (92) ADD_OP -> . XOR
+    (93) ADD_OP -> . OR
+    (94) ADD_OP -> . MINUS
+    (95) ADD_OP -> . PLUS
+    (86) REL_OP -> . GE
+    (87) REL_OP -> . GT
+    (88) REL_OP -> . LE
+    (89) REL_OP -> . LT
+    (90) REL_OP -> . NE
+    (91) REL_OP -> . EQ
+    )               shift and go to state 123
+    LOGIC_AND       shift and go to state 84
+    LOGIC_OR        shift and go to state 85
+    SHR             shift and go to state 86
+    SHL             shift and go to state 87
+    AND             shift and go to state 88
+    MOD             shift and go to state 89
+    DIV             shift and go to state 90
+    STAR            shift and go to state 91
+    XOR             shift and go to state 92
+    OR              shift and go to state 93
+    MINUS           shift and go to state 94
+    PLUS            shift and go to state 95
+    GE              shift and go to state 96
+    GT              shift and go to state 97
+    LE              shift and go to state 98
+    LT              shift and go to state 99
+    NE              shift and go to state 100
+    EQ              shift and go to state 101
 
-    BINARY_OP                      shift and go to state 69
-    MUL_OP                         shift and go to state 70
-    ADD_OP                         shift and go to state 71
-    REL_OP                         shift and go to state 72
+    BINARY_OP                      shift and go to state 80
+    MUL_OP                         shift and go to state 81
+    ADD_OP                         shift and go to state 82
+    REL_OP                         shift and go to state 83
 
-state 109
+state 120
 
     (26) operand -> ( expression ) .
     LOGIC_AND       reduce using rule 26 (operand -> ( expression ) .)
@@ -3415,7 +3877,7 @@ state 109
     ,               reduce using rule 26 (operand -> ( expression ) .)
 
 
-state 110
+state 121
 
     (61) FLOAT_LIT -> DECIMAL_LIT . DECIMAL_LIT .
     EXPONENT        reduce using rule 61 (FLOAT_LIT -> DECIMAL_LIT . DECIMAL_LIT .)
@@ -3443,16 +3905,16 @@ state 110
     ,               reduce using rule 61 (FLOAT_LIT -> DECIMAL_LIT . DECIMAL_LIT .)
 
 
-state 111
+state 122
 
     (11) expressionList -> expressionList , . expression
     (20) expression -> . expression BINARY_OP unaryExpr
     (21) expression -> . unaryExpr
     (22) unaryExpr -> . UNARY_OP unaryExpr
     (23) unaryExpr -> . primaryExpr
-    (91) UNARY_OP -> . AND
-    (92) UNARY_OP -> . EXCLM
-    (93) UNARY_OP -> . MINUS
+    (102) UNARY_OP -> . AND
+    (103) UNARY_OP -> . EXCLM
+    (104) UNARY_OP -> . MINUS
     (24) primaryExpr -> . conversion
     (25) primaryExpr -> . operand
     (31) conversion -> . type_ ( expression )
@@ -3499,7 +3961,7 @@ state 111
     EXCLM           shift and go to state 22
     MINUS           shift and go to state 23
     (               shift and go to state 27
-    IDENTIFIER      shift and go to state 92
+    IDENTIFIER      shift and go to state 103
     STRING          shift and go to state 33
     BOOL            shift and go to state 34
     RUNE            shift and go to state 35
@@ -3527,7 +3989,7 @@ state 111
     BINARY_LIT      shift and go to state 59
     .               shift and go to state 60
 
-    expression                     shift and go to state 113
+    expression                     shift and go to state 124
     unaryExpr                      shift and go to state 18
     UNARY_OP                       shift and go to state 19
     primaryExpr                    shift and go to state 20
@@ -3542,7 +4004,7 @@ state 111
     INT_LIT                        shift and go to state 36
     FLOAT_LIT                      shift and go to state 37
 
-state 112
+state 123
 
     (31) conversion -> type_ ( expression ) .
     LOGIC_AND       reduce using rule 31 (conversion -> type_ ( expression ) .)
@@ -3569,54 +4031,54 @@ state 112
     ,               reduce using rule 31 (conversion -> type_ ( expression ) .)
 
 
-state 113
+state 124
 
     (11) expressionList -> expressionList , expression .
     (20) expression -> expression . BINARY_OP unaryExpr
-    (70) BINARY_OP -> . MUL_OP
-    (71) BINARY_OP -> . ADD_OP
-    (72) BINARY_OP -> . REL_OP
-    (73) BINARY_OP -> . LOGIC_AND
-    (74) BINARY_OP -> . LOGIC_OR
-    (85) MUL_OP -> . SHR
-    (86) MUL_OP -> . SHL
-    (87) MUL_OP -> . AND
-    (88) MUL_OP -> . MOD
-    (89) MUL_OP -> . DIV
-    (90) MUL_OP -> . STAR
-    (81) ADD_OP -> . XOR
-    (82) ADD_OP -> . OR
-    (83) ADD_OP -> . MINUS
-    (84) ADD_OP -> . PLUS
-    (75) REL_OP -> . GE
-    (76) REL_OP -> . GT
-    (77) REL_OP -> . LE
-    (78) REL_OP -> . LT
-    (79) REL_OP -> . NE
-    (80) REL_OP -> . EQ
+    (81) BINARY_OP -> . MUL_OP
+    (82) BINARY_OP -> . ADD_OP
+    (83) BINARY_OP -> . REL_OP
+    (84) BINARY_OP -> . LOGIC_AND
+    (85) BINARY_OP -> . LOGIC_OR
+    (96) MUL_OP -> . SHR
+    (97) MUL_OP -> . SHL
+    (98) MUL_OP -> . AND
+    (99) MUL_OP -> . MOD
+    (100) MUL_OP -> . DIV
+    (101) MUL_OP -> . STAR
+    (92) ADD_OP -> . XOR
+    (93) ADD_OP -> . OR
+    (94) ADD_OP -> . MINUS
+    (95) ADD_OP -> . PLUS
+    (86) REL_OP -> . GE
+    (87) REL_OP -> . GT
+    (88) REL_OP -> . LE
+    (89) REL_OP -> . LT
+    (90) REL_OP -> . NE
+    (91) REL_OP -> . EQ
     ,               reduce using rule 11 (expressionList -> expressionList , expression .)
     NEWL            reduce using rule 11 (expressionList -> expressionList , expression .)
     ;               reduce using rule 11 (expressionList -> expressionList , expression .)
-    LOGIC_AND       shift and go to state 73
-    LOGIC_OR        shift and go to state 74
-    SHR             shift and go to state 75
-    SHL             shift and go to state 76
-    AND             shift and go to state 77
-    MOD             shift and go to state 78
-    DIV             shift and go to state 79
-    STAR            shift and go to state 80
-    XOR             shift and go to state 81
-    OR              shift and go to state 82
-    MINUS           shift and go to state 83
-    PLUS            shift and go to state 84
-    GE              shift and go to state 85
-    GT              shift and go to state 86
-    LE              shift and go to state 87
-    LT              shift and go to state 88
-    NE              shift and go to state 89
-    EQ              shift and go to state 90
+    LOGIC_AND       shift and go to state 84
+    LOGIC_OR        shift and go to state 85
+    SHR             shift and go to state 86
+    SHL             shift and go to state 87
+    AND             shift and go to state 88
+    MOD             shift and go to state 89
+    DIV             shift and go to state 90
+    STAR            shift and go to state 91
+    XOR             shift and go to state 92
+    OR              shift and go to state 93
+    MINUS           shift and go to state 94
+    PLUS            shift and go to state 95
+    GE              shift and go to state 96
+    GT              shift and go to state 97
+    LE              shift and go to state 98
+    LT              shift and go to state 99
+    NE              shift and go to state 100
+    EQ              shift and go to state 101
 
-    BINARY_OP                      shift and go to state 69
-    MUL_OP                         shift and go to state 70
-    ADD_OP                         shift and go to state 71
-    REL_OP                         shift and go to state 72
+    BINARY_OP                      shift and go to state 80
+    MUL_OP                         shift and go to state 81
+    ADD_OP                         shift and go to state 82
+    REL_OP                         shift and go to state 83
