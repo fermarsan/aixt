@@ -120,24 +120,24 @@ Rule 116   UNARY_OP -> MINUS  [precedence=left, level=4]
 
 Unused terminals:
 
-    FOR
-    TYPE
-    AS
-    MINUS_MINUS
-    ELSE
+    BREAK
+    ENUM
     STRUCT
-    STATIC
     FN
     MATCH
-    IN
-    BREAK
-    RETURN
-    PLUS_PLUS
-    CONST
-    ENUM
     MAP
-    IF
+    RETURN
+    MINUS_MINUS
+    STATIC
+    IN
+    FOR
+    TYPE
+    PLUS_PLUS
     CONTINUE
+    CONST
+    IF
+    ELSE
+    AS
 
 Terminals, with rules where they appear:
 
