@@ -67,10 +67,16 @@ class aixt_parser(Parser):
             outSettings.write(out_text) 
 
         with open(name,'w') as outText:
-            out_text = '//Generated C file for:  Device = '
-            out_text += self.setup['device'] + '  Board = '
-            out_text += self.setup['board'] + '\n\n#include "settings.h"\n\n'
-            out_text += self.includes + '\n'    #user defined heades files
+            if self.setup['nxc']:
+                out_text = '//Generated NXC file for:  Device = '
+                out_text += self.setup['device'] + '  Board = '
+                out_text += self.setup['board']
+            else:
+                out_text = '//Generated C file for:  Device = '
+                out_text += self.setup['device'] + '  Board = '
+                out_text += self.setup['board'] + '\n\n#include "settings.h"\n\n'
+            out_text += '//User defined headers files\n'
+            out_text += self.includes + '\n'    #user defined headers files
             if not self.main:       #adds the main function structure if not exist
                 out_text += self.setup['main_ret_type'] + ' main('
                 out_text += self.setup['main_params'] + ') {\n' 

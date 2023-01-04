@@ -17,8 +17,8 @@ default_float:  float
 main_ret_type:  int
 main_params:    void    
 
-device:   PIC24FJ128GA010
-board:    "Explorer 16"
+device:   "Atmel AT91SAM7S256"
+board:    "LEGO Mindstorms NXC intelligent brick"
 
 headers:
   - <xc.h>
@@ -50,3 +50,5 @@ configuration:
 initialization:
 #  - ""
   - "//AD1PCFG = 0xFFFF; // set all I/O digital"
+
+nxc:    true
