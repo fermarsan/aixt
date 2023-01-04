@@ -8,8 +8,8 @@ on_fwd: OnFwd
 .
 .
 .
-out_A: OUT_A
-out_B: OUT_B
+out_A:  OUT_A
+out_B:  OUT_B
 .
 .
 .

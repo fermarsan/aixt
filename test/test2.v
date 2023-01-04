@@ -1,5 +1,5 @@
-/*declaracion
-multiple*/
+/*multiple
+declaration*/
 
 
 a,b,c := i16(345), f64(3), u8(34)

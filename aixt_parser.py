@@ -33,6 +33,7 @@ class aixt_parser(Parser):
         self.values = []
         self.types = []
         self.main = False
+        self.includes = ''
 
         #load de setup file
         with open(r'./setup.yaml','r') as setup_file:
@@ -67,6 +68,7 @@ class aixt_parser(Parser):
             out_text = '//Generated C file for:  Device = '
             out_text += self.setup['device'] + '  Board = '
             out_text += self.setup['board'] + '\n\n#include "settings.h"\n\n'
+            out_text += self.includes + '\n'    #user defined heades files
             if not self.main:       #adds the main function structure if not exist
                 out_text += self.setup['main_ret_type'] + ' main('
                 out_text += self.setup['main_params'] + ') {\n' 
@@ -104,32 +106,95 @@ class aixt_parser(Parser):
     #     self.output_s += p.Statements
 
     @_( #'moduleClause eos importDecl eos topLevelDecl eos',
-        'topLevelDecls', 
+        'orphanStmtList', 
+        'topLevelDecls orphanStmtList',
+        'importDecls topLevelDecls orphanStmtList'
         )    
-    def prog(self, p):
-        #self.output_s += p.moduleClause + '\n\n'
-        #self.output_s += p.importDecl + '\n\n'
+    def sourceFile(self, p):
         for i in self.setup['initialization']:
             self.output_s += i + '\n'
-        self.output_s += p.topLevelDecls + '\n\n'
-        for v, t in zip(self.values,self.types):
-            print(v, '\t', t)
+        if len(p) == 1:
+            self.output_s += p.orphanStmtList + '\n'
+            print('\nsourceFile:\n', self.output_s)
+        elif len(p) == 2 or len(p) == 3:
+            self.output_s += p.topLevelDecls + '\n'
+            self.output_s += p.orphanStmtList + '\n'
+            print('\nsourceFile:\n', self.output_s)
+        # elif len(p) == 3:
+        #     #self.output_s += p.moduleClause + '\n\n'
+        #     self.output_s += p.importDecls + '\n\n'
+        #     self.output_s += p.topLevelDecls + '\n'
+        #     self.output_s += p.orphanStmtList + '\n'
+        #     print('\nsourceFile:\n', self.output_s)
+
+    # @_( 'module IDENTIFIER',
+    #     )    
+    # def moduleClause(self, p):        
+    #     # print('moduleClause:\n', p[0] + ';\n')
+    #     return p[0] + ';\n'
+    
+    @_( 'importDecl eos',
+        'importDecls importDecl eos', 
+        )    
+    def importDecls(self, p):
+        if len(p) == 3:
+            # print('importDecls:\n', p[0] + p[1] + '\n')
+            self.includes = p[0] + p[1]
+            return p[0] + p[1]
+        elif len(p) == 2:
+            # print('importDecls:\n', p[0] + '\n')
+            self.includes = p[0]
+            return p[0]
+
+    @_( 'IMPORT importSpec',
+        )    
+    def importDecl(self, p):        
+        print('importDecl:\n', '#include "' + p[1] + '.h"\n')
+        return '#include "' + p[1] + '.h"\n'
+
+    @_( '"." importPath',
+        'IDENTIFIER importPath',
+        'importPath',
+        )    
+    def importSpec(self, p):  
+        if len(p) == 1:      
+            # print('importSpec:\n', p[0])
+            return p[0]
+        if len(p) == 2:      
+            # print('importSpec:\n', p[0] + p[1])
+            return p[0] + p[1]
+
+    @_( 'IDENTIFIER',
+        'STRING_LIT',
+        )    
+    def importPath(self, p):        
+        # print('importPath:\n', p[0])
+        return p[0]
 
     @_( 'topLevelDecl eos',
         'topLevelDecls topLevelDecl eos', 
         )    
     def topLevelDecls(self, p):
         if len(p) == 3:
-            return p[0] + p[1] + '\n'
+            # print('topLevelDecls:\n', p[0] + p[1] + '\n')
+            return p[0] + p[1]
         elif len(p) == 2:
-            return p[0] + '\n'
+            # print('topLevelDecls:\n', p[0] + '\n')
+            return p[0]
     
-    
+    @_( 'statementList eos',
+        )    
+    def orphanStmtList(self, p):        
+        # print('orphanStmtList:\n', p[0] + ';\n')
+        return p[0] + ';\n'
+
     #************************* Statements *************************   
     @_( 'declaration', 
-        #'functionDecl', 'methodDecl' 
+        #'functionDecl', 'methodDecl',
+        # 'statementList', 
         )
     def topLevelDecl(self, p):
+        # print('topLevelDecl:\n', p[0])
         return p[0]
 
     @_( #'constDecl',
@@ -144,13 +209,14 @@ class aixt_parser(Parser):
     def varDecl(self, p):
         ret_value = ''
         for i in range(len(self.values)):
+            # print('Multiple declaration', self.types[0], self.values[0], self.identifiers[0])
             if self.types[0] == 'char []':
                 ret_value += 'const char ' + self.identifiers.pop(0) + '[] = ' 
             else: 
                 ret_value += self.types[0] + ' ' + self.identifiers.pop(0) + ' = ' 
             ret_value += self.values.pop(0) + ';\n'
             self.types.pop(0)
-        print(ret_value)
+        # print('varDecl:\n', ret_value)
         return ret_value
 
     @_( 'IDENTIFIER',
@@ -158,6 +224,9 @@ class aixt_parser(Parser):
         )
     def identifierList(self, p):
         self.identifiers.append(p.IDENTIFIER)
+        # for i in self.identifiers:
+        #     print(i, end=' ')
+        # print('')
         if len(p) == 3:
             return p[0] + ' ' + p[1] + ' ' + p[2]
         elif len(p) == 1:
@@ -167,9 +236,14 @@ class aixt_parser(Parser):
         'expressionList "," expression', 
         )
     def expressionList(self, p):
+        # for t,v in zip(self.types, self.values):
+        #     print(t, v, end=' ')
+        # print('')
         if len(p) == 3:
+            # print(p[0] + ' ' + p[1] + ' ' + p[2])
             return p[0] + ' ' + p[1] + ' ' + p[2]
         elif len(p) == 1:
+            #print(p[0])
             return p[0]
 
     @_( 'statement',
@@ -177,8 +251,10 @@ class aixt_parser(Parser):
         )
     def statementList(self, p):
         if len(p) == 3:
+            # print('statementList:\n',p[0] + p[1] + p[2])
             return p[0] + p[1] + p[2]
         elif len(p) == 1:
+            # print('statementList:\n',p[0])
             return p[0]
 
     # @_( 'Statement', 'Statements Statement' )      
@@ -328,22 +404,23 @@ class aixt_parser(Parser):
     #     return p[0] + p[1]
 
 
-    @_( '"{" statementList "}"' )
-    def block(self, p):
-        return p[0]
+    # @_( '"{" statementList "}"' )
+    # def block(self, p):
+    #     return p[0]
 
     
-    @_( 'declaration',
+    @_( #'declaration',
         'simpleStmt',
         #'returnStmt',
         #'breakStmt',
         #'continueStmt',
-        'block',
+        #'block',
         #'ifStmt',
         #'switchStmt',
         #'forStmt',
     )
     def statement(self, p):
+        # print(p[0])
         return p[0]
 
 
@@ -352,15 +429,19 @@ class aixt_parser(Parser):
         'assignment',
         )
     def simpleStmt(self, p):
+        # print(p[0])
         return p[0]
 
     @_( 'expression' )
     def expressionStmt(self, p):
         return p[0]
 
-    @_( 'expressionList ASSIGN expressionList' )#@_( 'expressionList assign_op expressionList' ) 
+    @_( 'identifierList assign_op expressionList' ) #@_( 'expressionList assign_op expressionList' ) 
     def assignment(self, p):
-        print('\n\n' + p[0] + ' ' + p[1] + ' ' + p[2] + '\n\n')
+        # print('\n\n' + p[0] + ' ' + p[1] + ' ' + p[2] + '\n\n')
+        self.values.clear()
+        self.types.clear()
+        self.identifiers.clear()
         return p[0] + ' ' + p[1] + ' ' + p[2]
 
  
@@ -419,6 +500,7 @@ class aixt_parser(Parser):
         if len(p) == 3:
             return p[0] + ' ' + p[1] + ' ' + p[2]
         elif len(p) == 1:
+            #print(p[0])
             return p[0]
 
     @_( 'primaryExpr', 
@@ -426,8 +508,12 @@ class aixt_parser(Parser):
         )      
     def unaryExpr(self, p):
         if len(p) == 1:
+            #print(p[0])
             return p[0]
         else:
+            s = self.values[-1]
+            self.values[-1] = p[0] + s
+            #print(p[0] + p[1])
             return p[0] + p[1]
 
     @_( 'operand', 
@@ -448,9 +534,10 @@ class aixt_parser(Parser):
             return p[0]
 
     @_( 'IDENTIFIER',
-        # 'qualifiedIdent',
+        'qualifiedIdent',
         )
     def operandName(self, p):
+        # print('operandName:\n', p[0])
         self.identifiers.append(p[0])
         return p[0]
 
@@ -470,22 +557,22 @@ class aixt_parser(Parser):
 
     #************************* Types *************************
     @_( 'typeName', 
-        # 'qualifiedIdent',
+        'qualifiedIdent',
         )
     def type_(self, p):
         return p[0]
     
-    # @_( 'IDENTIFIER "." IDENTIFIER')
-    # def qualifiedIdent(self, p):
-    #     return p[0]
+    @_( 'IDENTIFIER "." IDENTIFIER')
+    def qualifiedIdent(self, p):
+        return p[0] + '.' + p[2]
 
     @_( 'RUNE', 'BOOL', 'STRING', 'numericType' )
     def typeName(self, p):
         return p[0]
     
     #--------------- Integer & floating point types ---------------
-    @_( 'U8', 'U16', 'U32', 'U64', 'USIZE',
-        'I8', 'I16', 'I32', 'I64', 'ISIZE',  
+    @_( 'U8', 'U16', 'U32', 'U64', 'USIZE', 'UINT',
+        'I8', 'I16', 'I32', 'I64', 'ISIZE', 'INT', 
         'F64', 'F32' )
     def numericType(self, p):
         return self.setup[p[0]]
@@ -509,9 +596,10 @@ class aixt_parser(Parser):
     def basicLit(self, p):
         self.types.append('bool')
         self.values.append(p[0])
+        print(p)
         return p[0]
 
-    @_( 'FLOAT_LIT EXPONENT',       #ENGINEERING ANNOTATION
+    @_( 'FLOAT_LIT EXPONENT',       #ENGINEERING NOTATION
         'DECIMAL_LIT EXPONENT' )                   
     def basicLit(self, p):
         s = (p[0]+p[1]).replace( '_', '' )  # remove underscore
@@ -561,11 +649,11 @@ class aixt_parser(Parser):
         return ';\n'   
 
     #--------------- Lexer operators ---------------
-    # @_( 'ASSIGN', 'PLUS_ASGN', 'MINUS_ASGN', 'XOR_ASGN', 'STAR_ASGN', 
-    #     'AND_ASGN', 'OR_ASGN', 'DIV_ASGN', 'MOD_ASGN', 'SHL_ASGN', 'SHR_ASGN' )      
-    # def assign_op(self, p):
-    #     print('\n\n' + p[0] + '\n\n')
-    #     return p[0]   
+    @_( 'ASSIGN', 'PLUS_ASGN', 'MINUS_ASGN', 'XOR_ASGN', 'STAR_ASGN', 
+        'AND_ASGN', 'OR_ASGN', 'DIV_ASGN', 'MOD_ASGN', 'SHL_ASGN', 'SHR_ASGN' )      
+    def assign_op(self, p):
+        # print('assign_op:\n',p[0])
+        return p[0]   
 
     @_( 'LOGIC_OR', 'LOGIC_AND', 'REL_OP', 'ADD_OP', 'MUL_OP' )
     def BINARY_OP(self, p):
@@ -577,7 +665,7 @@ class aixt_parser(Parser):
 
     @_( 'PLUS', 'MINUS', 'OR', 'XOR' )   
     def ADD_OP(self, p):
-        return P[0]
+        return p[0]
 
     @_( 'STAR', 'DIV', 'MOD', 'AND', 'SHL', 'SHR' )      
     def MUL_OP(self, p):

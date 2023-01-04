@@ -31,15 +31,15 @@ if len(sys.argv) > 1:
                     # print(equivalents[k])
                     program = re.sub(k,equivalents[k],program)  # replace the NXC equivalents
         else:
-            print('Bandera inválida.\n')
+            print('Invalid flag.\n')
     
     #analiza el archivo
-    for t in lexer.tokenize(program):   
-        print(t)
+    # for t in lexer.tokenize(program):   
+    #     print(t)
     parser.parse(lexer.tokenize(program))     #analiza y ejecuta el programa 
     
     #guarda los archivos de salida
     parser.saveOutput(name.replace('.v','.c'))
 
 else:
-    print('No se especificó un archivo de entrada.\n')
+    print('no input file.\n')
