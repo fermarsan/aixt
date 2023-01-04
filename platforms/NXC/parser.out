@@ -144,23 +144,23 @@ Rule 140   UNARY_OP -> MINUS  [precedence=left, level=4]
 
 Unused terminals:
 
-    CONST
-    RETURN
-    IN
-    ENUM
-    PLUS_PLUS
-    STATIC
-    MINUS_MINUS
-    MATCH
     STRUCT
-    IF
-    TYPE
-    ELSE
-    AS
-    FOR
-    MAP
     BREAK
+    CONST
+    MINUS_MINUS
+    STATIC
+    IF
+    PLUS_PLUS
+    MAP
+    AS
+    ENUM
+    ELSE
+    IN
+    RETURN
     CONTINUE
+    TYPE
+    MATCH
+    FOR
 
 Terminals, with rules where they appear:
 

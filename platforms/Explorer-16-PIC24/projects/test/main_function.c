@@ -2,12 +2,7 @@
 
 #include "settings.h"
 
-#include "time.h"
-
 int main(void) {
 
-	//AD1PCFG = 0xFFFF; // set all I/O digital
-	time();
-	
 	return 0;
 }

@@ -1,8 +1,6 @@
 import machine
 import time
 
-a := 0
-
-a += 10
 
 time(1000)
+pin(B0,out)

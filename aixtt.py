@@ -42,8 +42,8 @@ if len(sys.argv) > 1:
     if len(sys.argv) > 2:
         if sys.argv[2] == '-nxc':                       
             parser.saveOutput(name.replace('.v','.nxc'))
-        else:
-            parser.saveOutput(name.replace('.v','.c'))
+    else:
+        parser.saveOutput(name.replace('.v','.c'))
 
 else:
     print('no input file.\n')

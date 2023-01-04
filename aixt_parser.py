@@ -337,8 +337,8 @@ class aixt_parser(Parser):
         #     print(t, v, end=' ')
         # print('')
         if len(p) == 3:
-            # print(p[0] + ' ' + p[1] + ' ' + p[2])
-            return p[0] + ' ' + p[1] + ' ' + p[2]
+            # print(p[0] + ', ' + p[2])
+            return p[0] + ', ' + p[2]
         elif len(p) == 1:
             #print(p[0])
             return p[0]

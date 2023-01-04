@@ -2,16 +2,15 @@
 
 #include "settings.h"
 
+//User defined headers files
 #include "machine.h"
 #include "time.h"
 
 int main(void) {
 
 	//AD1PCFG = 0xFFFF; // set all I/O digital
-	int16_t a = 0;
-	
-	a += 10;
 	time(1000);
+	pin(B0, out);
 	
 	return 0;
 }

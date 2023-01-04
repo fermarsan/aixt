@@ -52,3 +52,5 @@ configuration:
 initialization:
 #  - ""
   - "//AD1PCFG = 0xFFFF; // set all I/O digital"
+
+nxc:  false
