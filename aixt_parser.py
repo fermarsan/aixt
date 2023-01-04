@@ -1,7 +1,7 @@
 from aixt_lexer import aixt_lexer
 from sly import Parser
 import yaml
-import re
+#import re
 
 #import sys, os
 
