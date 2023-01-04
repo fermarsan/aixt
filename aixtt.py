@@ -34,12 +34,16 @@ if len(sys.argv) > 1:
             print('Invalid flag.\n')
     
     #analiza el archivo
-    for t in lexer.tokenize(program):   
-        print(t)
+    # for t in lexer.tokenize(program):   
+    #     print(t)
     parser.parse(lexer.tokenize(program))     #analiza y ejecuta el programa 
     
     #guarda los archivos de salida
-    parser.saveOutput(name.replace('.v','.c'))
+    if len(sys.argv) > 2:
+        if sys.argv[2] == '-nxc':                       
+            parser.saveOutput(name.replace('.v','.nxc'))
+        else:
+            parser.saveOutput(name.replace('.v','.c'))
 
 else:
     print('no input file.\n')

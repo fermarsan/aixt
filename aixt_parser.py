@@ -582,13 +582,13 @@ class aixt_parser(Parser):
         )      
     def arguments(self, p):
         if len(p) == 2:
-            print('arguments:\n','()') 
+            # print('arguments:\n','()') 
             return '()'
         elif len(p) == 3 or len(p) == 4:
-            print('arguments:\n','(' + p[1] + ')') 
+            # print('arguments:\n','(' + p[1] + ')') 
             return '(' + p[1] + ')'
         elif len(p) == 5 or len(p) == 6:
-            print('arguments:\n','(' + p[1] + ',' + p[3] + ')') 
+            # print('arguments:\n','(' + p[1] + ',' + p[3] + ')') 
             return '(' + p[1] + ',' + p[3] + ')'
 
 
@@ -632,10 +632,10 @@ class aixt_parser(Parser):
         )
     def primaryExpr(self, p):
         if len(p) == 1:
-            print('primaryExpr:\n', p[0])
+            # print('primaryExpr:\n', p[0])
             return p[0]
         elif len(p) == 2:
-            print('primaryExpr:\n', p[0] + p[1])
+            # print('primaryExpr:\n', p[0] + p[1])
             return p[0] + p[1]
 
     @_( 'literal',
@@ -650,7 +650,7 @@ class aixt_parser(Parser):
             return p[0]
 
     @_( 'IDENTIFIER',
-        'qualifiedIdent',
+        # 'qualifiedIdent',
         )
     def operandName(self, p):
         # print('operandName:\n', p[0])
@@ -673,14 +673,14 @@ class aixt_parser(Parser):
 
     #************************* Types *************************
     @_( 'typeName', 
-        'qualifiedIdent',
+        # 'qualifiedIdent',
         )
     def type_(self, p):
         return p[0]
     
-    @_( 'IDENTIFIER "." IDENTIFIER')
-    def qualifiedIdent(self, p):
-        return p[0] + '.' + p[2]
+    # @_( 'IDENTIFIER "." IDENTIFIER')
+    # def qualifiedIdent(self, p):
+    #     return p[0] + '.' + p[2]
 
     @_( 'RUNE', 'BOOL', 'STRING', 'numericType' )
     def typeName(self, p):
