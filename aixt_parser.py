@@ -70,16 +70,23 @@ class aixt_parser(Parser):
             if self.setup['nxc']:
                 out_text = '//Generated NXC file for:  Device = '
                 out_text += self.setup['device'] + '  Board = '
-                out_text += self.setup['board']
+                out_text += self.setup['board'] + '\n\n'
             else:
                 out_text = '//Generated C file for:  Device = '
                 out_text += self.setup['device'] + '  Board = '
                 out_text += self.setup['board'] + '\n\n#include "settings.h"\n\n'
-            out_text += '//User defined headers files\n'
-            out_text += self.includes + '\n'    #user defined headers files
+            if self.includes != '':
+                out_text += '//User defined headers files\n'
+                out_text += self.includes + '\n'    #user defined headers files
             if not self.main:       #adds the main function structure if not exist
-                out_text += self.setup['main_ret_type'] + ' main('
-                out_text += self.setup['main_params'] + ') {\n' 
+                if self.setup['nxc']:
+                    out_text += 'task'
+                elif self.setup['main_ret_type'] != 'none':
+                    out_text += self.setup['main_ret_type']
+                out_text += ' main('
+                if self.setup['main_params'] != 'none':
+                    out_text += self.setup['main_params']
+                out_text += ') {\n' 
                 out_text += ('\n' + self.output_s).replace('\n','\n\t')
                 if self.setup['main_ret_type'] == 'int':
                     out_text += 'return 0;\n}' 

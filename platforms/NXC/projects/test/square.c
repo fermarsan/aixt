@@ -1,6 +1,6 @@
-//Generated NXC file for:  Device = Atmel AT91SAM7S256  Board = LEGO Mindstorms NXC intelligent brick//User defined headers files
+//Generated NXC file for:  Device = Atmel AT91SAM7S256  Board = LEGO Mindstorms NXT intelligent brick
 
-int main(void) {
+task main() {
 
 	//AD1PCFG = 0xFFFF; // set all I/O digital
 	OnFwd(OUT_AB);
@@ -20,5 +20,5 @@ int main(void) {
 	Off(OUT_A);
 	Wait(500);
 	
-	return 0;
+	
 }

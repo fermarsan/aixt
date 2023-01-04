@@ -14,11 +14,11 @@ f64:    "long double"
 default_int:    int16_t
 default_float:  float
 
-main_ret_type:  int
-main_params:    void    
+main_ret_type:  none
+main_params:    none    
 
 device:   "Atmel AT91SAM7S256"
-board:    "LEGO Mindstorms NXC intelligent brick"
+board:    "LEGO Mindstorms NXT intelligent brick"
 
 headers:
   - <xc.h>
