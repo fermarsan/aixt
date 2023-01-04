@@ -1,5 +1,8 @@
-A,B := 2,5
+#include "sqlite3.h"
 
-fn main(){
-	A += B +12
+
+
+fn main() {
+	a, b := 2, 5
+	println(a + b)
 }
