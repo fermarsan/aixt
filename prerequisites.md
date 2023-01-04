@@ -10,5 +10,12 @@ You have to add _Python_ to PATH.
 ```
 pip install sly
 ```
-
-# XC8 Compiler
+## Native C compilers
+- **XC8**: Microchip and Atmel 8-bit microcontrollers
+- **XC16**: Microchip 16-bit microcontrollers
+- **ImageCraft**: Cypress PSoC1
+- **nbc**: NXC compiler (LEGO Mindstorms NXT intelligent brick)
+  .
+  .
+  .
+  
