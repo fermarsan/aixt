@@ -201,7 +201,6 @@ class aixt_parser(Parser):
         # print('importDecl:\n', '#include "' + p[1] + '.h"\n')
         self.includes += '#include "' + p[1] + '.h"\n'
 
-
     @_( '"." importPath',
         'IDENTIFIER importPath',
         'importPath',
@@ -246,7 +245,7 @@ class aixt_parser(Parser):
         # print('topLevelDecl:\n', p[0])
         return p[0]
 
-    @_( #'constDecl',
+    @_( 'constDecl',
         'varDecl',
         #'structDecl',
         )
@@ -266,6 +265,36 @@ class aixt_parser(Parser):
             ret_value += self.values.pop(0)
             self.types.pop(0)
         # print('varDecl:\n', ret_value)
+        return ret_value
+
+    @_( 'CONST "(" constSpecs ")"' )    
+    def constDecl(self, p):        
+        # print('constDecl:\n', p[2] + '\n')
+        return p[2] + '\n'
+
+    @_( 'constSpec eos',
+        'constSpecs constSpec eos', 
+        )    
+    def constSpecs(self, p):
+        if len(p) == 3:
+            # print('constSpecs:\n', p[0] + p[1] + '\n')
+            return p[0] + p[1] + p[2]
+        elif len(p) == 2:
+            # print('constSpecs:\n', p[0] + '\n')
+            return p[0] + p[1]
+    
+    @_( 'IDENTIFIER ASSIGN expression',
+        )
+    def constSpec(self, p):
+        ret_value = ''
+        if self.types[0] == 'char []':
+            ret_value += 'const char ' + self.identifiers.pop(0) + '[] = ' 
+        else: 
+            ret_value += 'const' + self.types[0] + ' ' + self.identifiers.pop(0) + ' = ' 
+
+        ret_value += self.values.pop(0)
+        self.types.pop(0)
+        # print('constSpec:\n', ret_value)
         return ret_value
 
     @_( 'IDENTIFIER',
@@ -473,7 +502,7 @@ class aixt_parser(Parser):
     # def ExpressionWithBlock(self, p):
     #     return '\n' + p[0]
     
-    # @_( 'InfiniteLoopExpression', 'PredicateLoopExpression',)# 'IteratorLoopExpression' )
+    # @_( 'InfiniteLoopExpression', 'PredicateLoopExpression',)# 'IterexpressionatorLoopExpression' )
     # def LoopExpression(self, p):
     #     return p[0]
     
