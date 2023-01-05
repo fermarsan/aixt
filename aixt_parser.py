@@ -621,11 +621,6 @@ class aixt_parser(Parser):
     #     print(msg)
 
 
-
-
-    # : '(' ( (  | type_ ( ',' expressionList )? ) ','? )? ')'
-    # ;
-
     @_( '"(" ")"',
         '"(" expressionList ")"',
         '"(" expressionList "," ")"',
@@ -727,14 +722,14 @@ class aixt_parser(Parser):
 
     #************************* Types *************************
     @_( 'typeName', 
-        # 'qualifiedIdent',
+        'qualifiedIdent',
         )
     def type_(self, p):
         return p[0]
     
-    # @_( 'IDENTIFIER "." IDENTIFIER')
-    # def qualifiedIdent(self, p):
-    #     return p[0] + '.' + p[2]
+    @_( 'IDENTIFIER "." IDENTIFIER')
+    def qualifiedIdent(self, p):
+        return p[0] + '.' + p[2]
 
     @_( 'RUNE', 'BOOL', 'STRING', 'numericType' )
     def typeName(self, p):
