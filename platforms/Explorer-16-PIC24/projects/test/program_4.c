@@ -2,7 +2,8 @@
 
 #include "settings.h"
 
-//User defined headers files
+
+// 
 #include "time.h"
 
 const int16_t t = 400

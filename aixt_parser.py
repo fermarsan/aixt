@@ -75,18 +75,10 @@ class aixt_parser(Parser):
                 out_text += self.setup['device'] + '  Board = '
                 out_text += self.setup['board'] + '\n\n#include "settings.h"\n\n'
 
-            if self.preprocessor != '':
-                out_text += '//User defined C preprocessor commands\n'
-                out_text += self.preprocessor + '\n'    #user defined C preprocessor commands
-
-            if self.module_def != '':
-                out_text += '// ' + self.module_def + '\n'    #module definition
-
-            if self.includes != '':
-                out_text += '//User defined headers files\n'
-                out_text += self.includes + '\n'    #user defined headers files
-
-            out_text += self.top_level + '\n'       #top level declarations      
+            out_text += self.preprocessor + '\n'        #user defined C preprocessor commands
+            out_text += '// ' + self.module_def + '\n'  #module definition
+            out_text += self.includes + '\n'            #user defined headers files
+            out_text += self.top_level + '\n'           #top level declarations      
 
             if not self.main:       #adds the main function structure if not exist
                 if self.setup['nxc']:

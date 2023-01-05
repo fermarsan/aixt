@@ -179,22 +179,22 @@ Rule 175   UNARY_OP -> MINUS  [precedence=left, level=4]
 
 Unused terminals:
 
-    MATCH
-    BREAK
-    MINUS_MINUS
-    STATIC
-    ENUM
-    FOR
-    IF
-    AS
-    IN
-    CONTINUE
     ELSE
     MAP
-    STRUCT
-    TYPE
-    PLUS_PLUS
+    AS
     RETURN
+    BREAK
+    ENUM
+    STRUCT
+    MINUS_MINUS
+    IF
+    IN
+    CONTINUE
+    PLUS_PLUS
+    MATCH
+    TYPE
+    STATIC
+    FOR
 
 Terminals, with rules where they appear:
 
