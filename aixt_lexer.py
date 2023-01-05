@@ -25,7 +25,7 @@ class aixt_lexer(Lexer):
 
     #ignore_comment = r'(//.*)|(/\*(.|\n)*\*/)'    # Ignored pattern
     
-    C_PREPR         = r'#.*'
+    C_PREPR         = r'#.[a-z]*'
     C_STRING_LIT    = r'".*"'
     C_PATH_LIT      = r'<.*>'
 
