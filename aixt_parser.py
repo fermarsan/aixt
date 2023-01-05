@@ -42,11 +42,7 @@ class aixt_parser(Parser):
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
             # for s in self.setup:
             #     print(s)
-        
 
-        # self.output_header =    """include <stdint.h>
-        #                            int main(void){
-        #                         """
     
     #guarda los archivos de salida
     def saveOutput(self, name):
@@ -114,12 +110,6 @@ class aixt_parser(Parser):
                 out_text = self.output_s
 
             outText.write(out_text)  
-        
-        # outText = open(name + '.var', 'w' )
-        # for v in self.vars:
-        #     outText.write( v + '\t' )
-        # outText.close()
-        #pass
 
     def del_zeros(self, s):   # removes final zeros in a float string 
         l = list(s)
@@ -272,7 +262,7 @@ class aixt_parser(Parser):
                 ret_value += 'const char ' + self.identifiers.pop(0) + '[] = ' 
             else: 
                 ret_value += self.types[0] + ' ' + self.identifiers.pop(0) + ' = ' 
-            ret_value += self.values.pop(0) + ';\n'
+            ret_value += self.values.pop(0)
             self.types.pop(0)
         # print('varDecl:\n', ret_value)
         return ret_value

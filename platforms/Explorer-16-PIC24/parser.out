@@ -170,23 +170,23 @@ Rule 166   UNARY_OP -> MINUS  [precedence=left, level=4]
 
 Unused terminals:
 
+    MATCH
+    ENUM
     FOR
-    PLUS_PLUS
-    IF
-    STATIC
-    AS
-    IN
-    CONTINUE
     MAP
+    AS
+    PLUS_PLUS
+    RETURN
+    CONTINUE
+    ELSE
+    CONST
+    STRUCT
+    STATIC
+    TYPE
+    IF
+    IN
     BREAK
     MINUS_MINUS
-    ENUM
-    MATCH
-    STRUCT
-    ELSE
-    RETURN
-    CONST
-    TYPE
 
 Terminals, with rules where they appear:
 
