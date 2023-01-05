@@ -34,6 +34,8 @@ class aixt_parser(Parser):
         self.types = []
         self.main = False
         self.includes = ''
+        self.module_def = ''
+        self.preprocessor = ''
 
         #load de setup file
         with open(r'./setup.yaml','r') as setup_file:
@@ -75,6 +77,9 @@ class aixt_parser(Parser):
                 out_text = '//Generated C file for:  Device = '
                 out_text += self.setup['device'] + '  Board = '
                 out_text += self.setup['board'] + '\n\n#include "settings.h"\n\n'
+            if self.preprocessor != '':
+                out_text += '//User defined C preprocessor commands\n'
+                out_text += self.preprocessor + '\n'    #user defined headers files
             if self.includes != '':
                 out_text += '//User defined headers files\n'
                 out_text += self.includes + '\n'    #user defined headers files
@@ -117,60 +122,72 @@ class aixt_parser(Parser):
 
     #************************* Program *************************  
 
-    @_( #'moduleClause eos importDecl eos topLevelDecl eos',
-        'importDecls orphanStmtList',
-        'importDecls topLevelDecls orphanStmtList',
+    @_( 'cPreprocessors moduleClause importDecls orphanStmtList',
+        'cPreprocessors moduleClause importDecls topLevelDecls orphanStmtList',
         )    
     def sourceFile(self, p):
         for i in self.setup['initialization']:
             self.output_s += i + '\n'
-        if len(p) == 2:
+        if len(p) == 4:
             self.output_s += p.orphanStmtList + '\n'
             print('\nsourceFile:\n\n', self.output_s)       
-        elif len(p) == 3:
+        elif len(p) == 5:
             self.output_s += p.topLevelDecls + '\n'
             self.output_s += p.orphanStmtList + '\n'
             print('\nsourceFile:\n\n', self.output_s)
 
-    @_( #'moduleClause eos importDecl eos topLevelDecl eos',
-        'orphanStmtList', 
-        'topLevelDecls orphanStmtList',
+    @_( 'empty %prec UOP',
+        'MODULE IDENTIFIER eos',
         )    
-    def sourceFile(self, p):
-        for i in self.setup['initialization']:
-            self.output_s += i + '\n'
+    def moduleClause(self, p):      
         if len(p) == 1:
-            self.output_s += p.orphanStmtList + '\n'
-            print('\nsourceFile:\n\n', self.output_s)
-        elif len(p) == 2:
-            self.output_s += p.topLevelDecls + '\n'
-            self.output_s += p.orphanStmtList + '\n'
-            print('\nsourceFile:\n\n', self.output_s)       
-        # elif len(p) == 3:
-        #     #self.output_s += p.moduleClause + '\n\n'
-        #     self.output_s += p.importDecls + '\n\n'
-        #     self.output_s += p.topLevelDecls + '\n'
-        #     self.output_s += p.orphanStmtList + '\n'
-        #     print('\nsourceFile:\n', self.output_s)
+            pass  
+        elif len(p) == 3:
+            # print('moduleClause:\n', p[0] + ';\n')
+            return p[0] + ';\n'
 
-    # @_( 'module IDENTIFIER',
-    #     )    
-    # def moduleClause(self, p):        
-    #     # print('moduleClause:\n', p[0] + ';\n')
-    #     return p[0] + ';\n'
+    @_( 'empty %prec UOP',
+        'cPreprocessor eos',
+        'cPreprocessors cPreprocessor eos', 
+        )    
+    def cPreprocessors(self, p):
+        if len(p) == 1:
+            pass
+        elif len(p) == 2:
+            # print('importDecls:\n', p[0] + p[1] + '\n')
+            return p[0] 
+        elif len(p) == 3:
+            # print('importDecls:\n', p[0] + '\n')
+            return p[0] + p[1]
+
+    @_( 'C_PREPR IDENTIFIER expressionList',
+        'C_PREPR C_PATH_LIT',
+        'C_PREPR C_STRING_LIT',
+        )    
+    def cPreprocessor(self, p):    
+        if len(p) == 2:
+            # print('cPreprocessor:\n', p[0] + ' ' + p[1])
+            return p[0] + ' ' + p[1] + '\n'
+        elif len(p) == 3:
+            # print('cPreprocessor:\n', p[0] + ' ' + p[1] + ' ' + p[2])
+            return p[0] + ' ' + p[1] + ' ' + p[2] + '\n'
     
-    @_( 'importDecl eos',
+    @_( 'empty %prec UOP',
+        'importDecl eos',
         'importDecls importDecl eos', 
         )    
     def importDecls(self, p):
-        if len(p) == 3:
-            # print('importDecls:\n', p[0] + p[1] + '\n')
-            self.includes = p[0] + p[1]
-            return p[0] + p[1]
+        if len(p) == 1:
+            pass
         elif len(p) == 2:
             # print('importDecls:\n', p[0] + '\n')
             self.includes = p[0]
             return p[0]
+        elif len(p) == 3:
+            # print('importDecls:\n', p[0] + p[1] + '\n')
+            self.includes = p[0] + p[1]
+            return p[0] + p[1]
+
 
     @_( 'IMPORT importSpec',
         )    
@@ -215,8 +232,7 @@ class aixt_parser(Parser):
         return p[0] + ';\n'
 
     #************************* Statements *************************   
-    @_( 'declaration', 
-        'functionDecl', 
+    @_( 'functionDecl', 
         # 'methodDecl',
         )
     def topLevelDecl(self, p):
@@ -506,7 +522,7 @@ class aixt_parser(Parser):
         return p[0]
 
     
-    @_( #'declaration',
+    @_( 'declaration',
         'simpleStmt',
         #'returnStmt',
         #'breakStmt',
@@ -790,3 +806,7 @@ class aixt_parser(Parser):
     @_( 'MINUS', 'EXCLM', 'AND' )   #NO unary plus
     def UNARY_OP(self, p):
         return p[0]
+
+    @_('')
+    def empty(self, p):
+        pass

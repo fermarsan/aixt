@@ -12,7 +12,7 @@ class aixt_lexer(Lexer):
 
         AS, BREAK, CONST, CONTINUE, ELSE, ENUM, FN, FOR, IF, IMPORT, IN,        # Keywords and identifierS
         MAP, MATCH, RETURN, STATIC, STRING, STRUCT, TYPE, IDENTIFIER,   
-        # MODULE,
+        MODULE,
 
         LOGIC_OR, LOGIC_AND, EXCLM, AND, OR, XOR, EQ, NE, LT, LE, GT, GE,       # operators
         SHL, SHR, PLUS, MINUS, STAR, DIV, MOD, PLUS_PLUS, MINUS_MINUS, 
@@ -69,7 +69,7 @@ class aixt_lexer(Lexer):
     FN          = r'fn'   
     FOR         = r'for'
     IF          = r'if'
-    # MODULE      = r'module'
+    MODULE      = r'module'
     IMPORT      = r'import'
     IN          = r'in'
     MAP         = r'map' 
