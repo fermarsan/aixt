@@ -1,9 +1,7 @@
-// program without main function (orphan statements)
+// program only with a statement list
 
 a := 2
 b := 5
-c := 0
-
 
 a += b
 b = 0

@@ -5,11 +5,10 @@
 int main(void) {
 //AD1PCFG = 0xFFFF; // set all I/O digital
 
-	int16_t a = 2;
-	int16_t b = 5;
-	a += b;
-	b = 0;
-	b += 10;
+	const int16_t a = 35;
+	const int16_t b = 2;
+	const float c = 4.5;
+	
 	
 	return 0;
 }

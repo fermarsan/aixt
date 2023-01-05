@@ -129,7 +129,6 @@ class aixt_lexer(Lexer):
                  ';', ',', '.',
                }
 
-
     def __init__(self):
         self.error_s = ''       #error stream
 

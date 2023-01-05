@@ -34,8 +34,11 @@ if len(sys.argv) > 1:
             print('Invalid flag.\n')
     
     #analiza el archivo
-    # for t in lexer.tokenize(program):   
-    #     print(t)
+    print('')
+    for t in lexer.tokenize(program):   
+        print(t)
+    
+    print('')
     parser.parse(lexer.tokenize(program))     #analiza y ejecuta el programa 
     
     #guarda los archivos de salida

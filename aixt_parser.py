@@ -36,6 +36,7 @@ class aixt_parser(Parser):
         self.includes = ''
         self.module_def = ''
         self.preprocessor = ''
+        self.top_level = ''
 
         #load de setup file
         with open(r'./setup.yaml','r') as setup_file:
@@ -84,6 +85,8 @@ class aixt_parser(Parser):
             if self.includes != '':
                 out_text += '//User defined headers files\n'
                 out_text += self.includes + '\n'    #user defined headers files
+
+            out_text += self.top_level + '\n'       #top level declarations      
 
             if not self.main:       #adds the main function structure if not exist
                 if self.setup['nxc']:
@@ -134,11 +137,18 @@ class aixt_parser(Parser):
         'cPreprocessors topLevelDecls orphanStmtList',
         'moduleClause topLevelDecls orphanStmtList',
         'topLevelDecls orphanStmtList',
+        'cPreprocessors moduleClause importDecls orphanStmtList',
+        'moduleClause importDecls orphanStmtList',
+        'cPreprocessors importDecls orphanStmtList',
+        'cPreprocessors moduleClause orphanStmtList',
+        'importDecls orphanStmtList',
+        'cPreprocessors orphanStmtList',
+        'moduleClause orphanStmtList',
+        'orphanStmtList',
         )    
     def sourceFile(self, p):
-        self.output_s += p.topLevelDecls + '\n'
         self.output_s += p.orphanStmtList + '\n'
-        print('\nsourceFile:\n\n', self.output_s)
+        print('sourceFile:\n\n' + self.output_s)
 
     @_( 'cPreprocessors moduleClause importDecls topLevelDecls',
         'moduleClause importDecls topLevelDecls',
@@ -150,25 +160,11 @@ class aixt_parser(Parser):
         'topLevelDecls',
         )    
     def sourceFile(self, p):
-        self.output_s += p.topLevelDecls + '\n'
-        print('\nsourceFile:\n\n', self.output_s)
-
-    @_( 'cPreprocessors moduleClause importDecls orphanStmtList',
-        'moduleClause importDecls orphanStmtList',
-        'cPreprocessors importDecls orphanStmtList',
-        'cPreprocessors moduleClause orphanStmtList',
-        'importDecls orphanStmtList',
-        'cPreprocessors orphanStmtList',
-        'moduleClause orphanStmtList',
-        'orphanStmtList',
-        )    
-    def sourceFile(self, p):
-        self.output_s += p.orphanStmtList + '\n'
-        print('\nsourceFile:\n\n', self.output_s)
+        pass
 
     @_( 'MODULE IDENTIFIER eos' )    
     def moduleClause(self, p):      
-        # print('moduleClause:\n', p[0] + ';\n')
+        # print('moduleClause:\n' + p[0] + ';\n')
         self.module_def += p[0] + ';\n'
 
     @_( 'cPreprocessor eos',
@@ -183,10 +179,10 @@ class aixt_parser(Parser):
         )    
     def cPreprocessor(self, p):    
         if len(p) == 2:
-            # print('cPreprocessor:\n', p[0] + ' ' + p[1])
+            # print('cPreprocessor:\n' + p[0] + ' ' + p[1])
             self.preprocessor += p[0] + ' ' + p[1] + '\n'
         elif len(p) == 3:
-            # print('cPreprocessor:\n', p[0] + ' ' + p[1] + ' ' + p[2])
+            # print('cPreprocessor:\n' + p[0] + ' ' + p[1] + ' ' + p[2])
             self.preprocessor += p[0] + ' ' + p[1] + ' ' + p[2] + '\n'
     
     @_( 'importDecl eos',
@@ -198,7 +194,7 @@ class aixt_parser(Parser):
     @_( 'IMPORT importSpec',
         )    
     def importDecl(self, p):        
-        # print('importDecl:\n', '#include "' + p[1] + '.h"\n')
+        # print('importDecl:\n' + '#include "' + p[1] + '.h"\n')
         self.includes += '#include "' + p[1] + '.h"\n'
 
     @_( '"." importPath',
@@ -207,46 +203,41 @@ class aixt_parser(Parser):
         )    
     def importSpec(self, p):  
         if len(p) == 1:      
-            # print('importSpec:\n', p[0])
+            # print('importSpec:\n' + p[0])
             return p[0]
         if len(p) == 2:      
-            # print('importSpec:\n', p[0] + p[1])
+            # print('importSpec:\n' + p[0] + p[1])
             return p[0] + p[1]
 
     @_( 'IDENTIFIER',
         'STRING_LIT',
         )    
     def importPath(self, p):        
-        # print('importPath:\n', p[0])
+        # print('importPath:\n' + p[0])
         return p[0]
 
     @_( 'topLevelDecl eos',
         'topLevelDecls topLevelDecl eos', 
         )    
     def topLevelDecls(self, p):
-        if len(p) == 3:
-            # print('topLevelDecls:\n', p[0] + p[1] + '\n')
-            return p[0] + p[1]
-        elif len(p) == 2:
-            # print('topLevelDecls:\n', p[0] + '\n')
-            return p[0]
-    
+        pass
+
     @_( 'statementList eos',
         )    
     def orphanStmtList(self, p):        
-        # print('orphanStmtList:\n', p[0] + ';\n')
+        # print('orphanStmtList:\n' + p[0] + ';\n')
         return p[0] + ';\n'
 
     #************************* Statements *************************   
-    @_( 'functionDecl', 
+    @_( 'constDecl',
+        'functionDecl', 
         # 'methodDecl',
         )
     def topLevelDecl(self, p):
-        # print('topLevelDecl:\n', p[0])
-        return p[0]
+        print('topLevelDecl:\n\n' + p[0])
+        self.top_level += p[0]
 
-    @_( 'constDecl',
-        'varDecl',
+    @_( 'varDecl',
         #'structDecl',
         )
     def declaration(self, p):
@@ -264,37 +255,56 @@ class aixt_parser(Parser):
                 ret_value += self.types[0] + ' ' + self.identifiers.pop(0) + ' = ' 
             ret_value += self.values.pop(0)
             self.types.pop(0)
-        # print('varDecl:\n', ret_value)
+        # print('varDecl:\n' + ret_value)
         return ret_value
 
-    @_( 'CONST "(" constSpecs ")"' )    
-    def constDecl(self, p):        
-        # print('constDecl:\n', p[2] + '\n')
-        return p[2] + '\n'
+    @_( 'CONST constSpec',
+        'CONST "(" constSpecs ")"', 
+        'CONST "(" eos constSpecs ")"',
+        )    
+    def constDecl(self, p):    
+        if len(p) == 2:
+            # print('constDecl:\n' + p.constSpec + '\n'
+            return p.constSpec + '\n'
+        else:
+            # print('constDecl:\n' + p.constSpecs + '\n'
+            return p.constSpecs + '\n'
 
     @_( 'constSpec eos',
         'constSpecs constSpec eos', 
         )    
     def constSpecs(self, p):
-        if len(p) == 3:
-            # print('constSpecs:\n', p[0] + p[1] + '\n')
-            return p[0] + p[1] + p[2]
-        elif len(p) == 2:
-            # print('constSpecs:\n', p[0] + '\n')
-            return p[0] + p[1]
+        if len(p) == 2:
+            # print('constSpecs:\n' + p[0] + ';\n')
+            return p[0] + ';\n'
+        elif len(p) == 3:
+            # print('constSpecs:\n' + p[0] + p[1] + ';\n')
+            return p[0] + p[1] + ';\n'
     
+    @_( 'constSpec',
+        'constSpecs constSpec', 
+        )    
+    def constSpecs(self, p):
+        if len(p) == 1:
+            # print('constSpecs:\n' + p[0] + ';\n')
+            return p[0] + ';\n'
+        elif len(p) == 2:
+            # print('constSpecs:\n' + p[0] + p[1] + ';\n')
+            return p[0] + p[1] + ';\n'
+
     @_( 'IDENTIFIER ASSIGN expression',
         )
     def constSpec(self, p):
+        # print(self.identifiers, self.types, self.values)
         ret_value = ''
         if self.types[0] == 'char []':
-            ret_value += 'const char ' + self.identifiers.pop(0) + '[] = ' 
+            ret_value += 'const char ' + p.IDENTIFIER + '[] = ' 
         else: 
-            ret_value += 'const' + self.types[0] + ' ' + self.identifiers.pop(0) + ' = ' 
+            ret_value += 'const ' + self.types[0] + ' ' + p.IDENTIFIER + ' = ' 
 
         ret_value += self.values.pop(0)
         self.types.pop(0)
-        # print('constSpec:\n', ret_value)
+        # print('constSpec:\n' + ret_value)
         return ret_value
 
     @_( 'IDENTIFIER',
@@ -314,13 +324,13 @@ class aixt_parser(Parser):
         'FN IDENTIFIER signature',
         )    
     def functionDecl(self, p):        
-        # print('functionDecl:\n', p[1] + p[2])
+        # print('functionDecl:\n' + p[1] + p[2])
         return p[1] + p[2]
 
     @_( 'signature block',
         )    
     def function_(self, p):        
-        print('function_:\n', p[0] + p[1])
+        print('function_:\n' + p[0] + p[1])
         return p[0] + p[1]
 
     @_( 'parameters result', #{noTerminatorAfterParams(1)}? parameters result
@@ -328,17 +338,17 @@ class aixt_parser(Parser):
         )    
     def signature(self, p):  
         if len(p) == 1:      
-            # print('signature:\n', p[0])
+            # print('signature:\n' + p[0])
             return p[0]
         elif len(p) == 2:
-            # print('signature:\n', p[0] + p[1])
+            # print('signature:\n' + p[0] + p[1])
             return p[0] + p[1]
 
     @_( 'parameters',
         'type_'
         )    
     def result(self, p):        
-        # print('result:\n', p[0])
+        # print('result:\n' + p[0])
         return p[0]
 
     @_( '"(" ")"',
@@ -347,10 +357,10 @@ class aixt_parser(Parser):
         )    
     def parameters(self, p):        
         if len(p) == 2:      
-            # print('parameters:\n', '()')
+            # print('parameters:\n' + '()')
             return p[0]
         else:
-            # print('parameters:\n', '(' + p[1] + ')')
+            # print('parameters:\n' + '(' + p[1] + ')')
             return '(' + p[1] + ')'
 
     @_( 'parameterDecl',
@@ -358,10 +368,10 @@ class aixt_parser(Parser):
         )    
     def parameterList(self, p):
         if len(p) == 1:
-            # print('parameterList:\n', p[0])
+            # print('parameterList:\n' + p[0])
             return p[0]
         elif len(p) == 3:
-            # print('parameterList:\n', p[0] + ',' + p[2])
+            # print('parameterList:\n' + p[0] + ',' + p[2])
             return p[0] + ',' + p[2]
 
     @_( 'identifierList type_',
@@ -369,16 +379,16 @@ class aixt_parser(Parser):
         )    
     def parameterDecl(self, p):        
         if len(p) == 1:
-            # print('parameterDecl:\n', p[0])
+            # print('parameterDecl:\n' + p[0])
             return p[0]
         elif len(p) == 2:
-            # print('parameterDecl:\n', p[0] + ',' + p[2])
+            # print('parameterDecl:\n' + p[0] + ',' + p[2])
             return p[0] + p[1]
 
     @_( 'FN function_',
         )    
     def functionLit(self, p):        
-        # print('functionLit:\n', p[1])
+        # print('functionLit:\n' + p[1])
         return p[1]
 
     @_( 'expression',
@@ -684,10 +694,10 @@ class aixt_parser(Parser):
         )
     def primaryExpr(self, p):
         if len(p) == 1:
-            # print('primaryExpr:\n', p[0])
+            # print('primaryExpr:\n' + p[0])
             return p[0]
         elif len(p) == 2:
-            # print('primaryExpr:\n', p[0] + p[1])
+            # print('primaryExpr:\n' + p[0] + p[1])
             return p[0] + p[1]
 
     @_( 'literal',
@@ -705,7 +715,7 @@ class aixt_parser(Parser):
         # 'qualifiedIdent',
         )
     def operandName(self, p):
-        # print('operandName:\n', p[0])
+        # print('operandName:\n' + p[0])
         self.identifiers.append(p[0])
         return p[0]
 
