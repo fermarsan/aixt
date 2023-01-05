@@ -2,13 +2,14 @@
 
 #include "settings.h"
 
-//User defined headers files
-#include "time.h"
-
 int main(void) {
 //AD1PCFG = 0xFFFF; // set all I/O digital
 
-	sleep(delay);
+	int16_t a = 2;
+	;
+	int16_t b = 5;
+	;
+	a += b;
 	
 	return 0;
 }
