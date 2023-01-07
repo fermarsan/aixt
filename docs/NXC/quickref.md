@@ -1,6 +1,6 @@
 # Quick reference for NXC (Mindstorms NXT)
 
-This **Aixt** port works as a **NXC** language wrapper, keeping the same function names, but using _snake case_ instead of _Camel Case_. For instance this **Aixt** code:
+This **Aixt** port works as a **NXC** language wrapper, keeping the same function names, but using _snake\_case_ instead of _CamelCase_. For instance this **Aixt** code:
 
 ```go
 on_fwd(out_A, 75)
