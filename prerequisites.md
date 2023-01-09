@@ -9,7 +9,7 @@ _NOTE:_ In addition, you have to add _Python_ to PATH.
 
 
 ```
-pip install sly re yaml
+pip install sly re pyyaml
 ```
 ## Native C compilers
 - **XC8**: Microchip and Atmel 8-bit microcontrollers
