@@ -20,7 +20,7 @@ class aixt_lexer(Lexer):
         ASSIGN, DECL_ASGN, PLUS_ASGN, MINUS_ASGN, XOR_ASGN, STAR_ASGN,          # assign operators  
         AND_ASGN, OR_ASGN, DIV_ASGN, MOD_ASGN, SHL_ASGN, SHR_ASGN,  
 
-        NEWL, C_PREPR, C_STRING_LIT, C_PATH_LIT
+        NEWL, C_PREPR, C_STRING_LIT, C_PATH_LIT, ATTRIBUTE,
     }
 
     #ignore_comment = r'(//.*)|(/\*(.|\n)*\*/)'    # Ignored pattern
@@ -28,6 +28,7 @@ class aixt_lexer(Lexer):
     C_PREPR         = r'#.[a-z]*'
     C_STRING_LIT    = r'".*"'
     C_PATH_LIT      = r'<.*>'
+    ATTRIBUTE       = r'\[.*\]'
 
     EXPONENT    = r'(e|E)(\+|-)?[0-9_]+'
     RUNE_LIT    = r'`.`'
