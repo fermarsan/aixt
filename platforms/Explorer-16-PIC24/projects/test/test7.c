@@ -9,7 +9,7 @@
 int main(void) {
 //AD1PCFG = 0xFFFF; // set all I/O digital
 
-	int16_t a = ;
+	;
 	
 	return 0;
 }

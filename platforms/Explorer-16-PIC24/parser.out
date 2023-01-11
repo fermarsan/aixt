@@ -178,23 +178,23 @@ Rule 174   UNARY_OP -> MINUS  [precedence=left, level=4]
 
 Unused terminals:
 
-    MAP
-    MATCH
-    TYPE
-    STRUCT
-    CONTINUE
-    STATIC
-    IN
-    ATTRIBUTE
-    AS
-    IF
-    MINUS_MINUS
     BREAK
+    MATCH
     PLUS_PLUS
+    ATTRIBUTE
+    MAP
+    CONTINUE
     RETURN
+    STRUCT
     ELSE
     FOR
+    MINUS_MINUS
+    IF
+    STATIC
+    IN
     ENUM
+    AS
+    TYPE
 
 Terminals, with rules where they appear:
 
