@@ -20,20 +20,23 @@ class aixt_lexer(Lexer):
         ASSIGN, DECL_ASGN, PLUS_ASGN, MINUS_ASGN, XOR_ASGN, STAR_ASGN,          # assign operators  
         AND_ASGN, OR_ASGN, DIV_ASGN, MOD_ASGN, SHL_ASGN, SHR_ASGN,  
 
-        NEWL, C_PREPR, C_STRING_LIT, C_PATH_LIT, ATTRIBUTE,
+        NEWL, C_PREPROC, 
+        # C_STRING_LIT, C_PATH_LIT, 
+        ATTRIBUTE,
     }
 
     #ignore_comment = r'(//.*)|(/\*(.|\n)*\*/)'    # Ignored pattern
     
-    C_PREPR         = r'#.[a-z]*'
-    C_STRING_LIT    = r'".*"'
-    C_PATH_LIT      = r'<.*>'
+    C_PREPROC       = r'#.+\n'
+    # C_STRING_LIT    = r'".*"'
+    # C_PATH_LIT      = r'<.*>'
     ATTRIBUTE       = r'\[.*\]'
 
     EXPONENT    = r'(e|E)(\+|-)?[0-9_]+'
     RUNE_LIT    = r'`.`'
     STRING_LIT  = r'\'.*\''
     HEX_LIT     = r'0x[0-9A-Fa-f_]+'
+
     OCTAL_LIT   = r'0o[0-7_]+'
     BINARY_LIT  = r'0b[01_]+'
     DECIMAL_LIT = r'[0-9_]+'

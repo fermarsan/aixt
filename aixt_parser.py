@@ -159,23 +159,12 @@ class aixt_parser(Parser):
         # print('moduleClause:\n' + p[0] + ';\n')
         self.module_def += p[0] + ';\n'
 
-    @_( 'cPreprocessor eos',
-        'cPreprocessors cPreprocessor eos', 
+    @_( 'C_PREPROC',
+        'cPreprocessors C_PREPROC', 
         )    
-    def cPreprocessors(self, p):
-        pass
-
-    @_( 'C_PREPR IDENTIFIER expressionList',
-        'C_PREPR C_PATH_LIT',
-        'C_PREPR C_STRING_LIT',
-        )    
-    def cPreprocessor(self, p):    
-        if len(p) == 2:
-            # print('cPreprocessor:\n' + p[0] + ' ' + p[1])
-            self.preprocessor += p[0] + ' ' + p[1] + '\n'
-        elif len(p) == 3:
-            # print('cPreprocessor:\n' + p[0] + ' ' + p[1] + ' ' + p[2])
-            self.preprocessor += p[0] + ' ' + p[1] + ' ' + p[2] + '\n'
+    def cPreprocessors(self, p):    
+        # print('cPreprocessors:\n' + pp.C_PREPROC)
+        self.preprocessor += p.C_PREPROC
     
     @_( 'importDecl eos',
         'importDecls importDecl eos', 
@@ -316,7 +305,7 @@ class aixt_parser(Parser):
         'FN IDENTIFIER signature',
         )    
     def functionDecl(self, p):        
-        # print('functionDecl:\n' + p[1] + p[2])
+        print('functionDecl:\n' + p[1] + p[2])
         return p[1] + p[2]
 
     @_( 'signature block',
@@ -330,17 +319,17 @@ class aixt_parser(Parser):
         )    
     def signature(self, p):  
         if len(p) == 1:      
-            # print('signature:\n' + p[0])
+            print('signature:\n' + p[0])
             return p[0]
         elif len(p) == 2:
-            # print('signature:\n' + p[0] + p[1])
+            print('signature:\n' + p[0] + p[1])
             return p[0] + p[1]
 
     @_( 'parameters',
         'type_'
         )    
     def result(self, p):        
-        # print('result:\n' + p[0])
+        print('result:\n' + p[0])
         return p[0]
 
     @_( '"(" ")"',
@@ -349,15 +338,15 @@ class aixt_parser(Parser):
         )    
     def parameters(self, p):        
         if len(p) == 2:      
-            # print('parameters:\n' + '()')
-            return p[0]
+            print('parameters:\n' + '()')
+            return '()'
         else:
-            # print('parameters:\n' + '(' + p[1] + ')')
+            print('parameters:\n' + '(' + p[1] + ')')
             return '(' + p[1] + ')'
 
     @_( 'parameterDecl',
         'parameterList "," parameterDecl', 
-        )    
+        )     
     def parameterList(self, p):
         if len(p) == 1:
             # print('parameterList:\n' + p[0])
@@ -397,7 +386,8 @@ class aixt_parser(Parser):
             #print(p[0])
             return p[0]
 
-    @_( 'statement',
+    @_( #'eos',
+        'statement',
         'statementList eos statement', 
         )
     def statementList(self, p):
@@ -557,7 +547,8 @@ class aixt_parser(Parser):
 
     @_( '"{" statementList "}"' )
     def block(self, p):
-        return p[0]
+        print('{' + p[1] + '}')
+        return '{' + p[1] + '}'
 
     
     @_( 'declaration',
