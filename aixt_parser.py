@@ -545,10 +545,14 @@ class aixt_parser(Parser):
     #     return p[0] + p[1]
 
 
-    @_( '"{" statementList "}"' )
+    @_( '"{" statementList "}"',
+        '"{" eos statementList "}"',
+        '"{" statementList eos "}"',
+        '"{" eos statementList eos "}"',
+        )
     def block(self, p):
-        print('{' + p[1] + '}')
-        return '{' + p[1] + '}'
+        print('{' + p.statementList + '}')
+        return '{' + p.statementList + '}'
 
     
     @_( 'declaration',
@@ -560,7 +564,7 @@ class aixt_parser(Parser):
         #'ifStmt',
         #'switchStmt',
         #'forStmt',
-    )
+        )
     def statement(self, p):
         # print(p[0])
         return p[0]
