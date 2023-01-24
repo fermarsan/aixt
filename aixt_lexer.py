@@ -4,7 +4,7 @@ from sly import Lexer
 class aixt_lexer(Lexer):
 
     tokens = {  
-        I8, I16, I32, I64, ISIZE, INT, U8, U16, U32, U64, USIZE, UINT,          # Types
+        I8, I16, I32, I64, ISIZE, INT, U8, U16, U32, U64, USIZE, BYTE         # Types
         F32, F64, BOOL, RUNE, STRING,                               
 
         DECIMAL_LIT, BINARY_LIT, OCTAL_LIT, HEX_LIT, TRUE, FALSE,               # literals      
@@ -45,7 +45,6 @@ class aixt_lexer(Lexer):
     USIZE   = r'usize'
     ISIZE   = r'isize'
     INT     = r'int'
-    UINT    = r'uint'
     U8      = r'u8'
     U16     = r'u16'
     U32     = r'u32'
@@ -56,6 +55,7 @@ class aixt_lexer(Lexer):
     I64     = r'i64'
     F32     = r'f32'
     F64     = r'f64'
+    BYTE    = r'byte'
 
     TRUE    = r'true'   # Boolean literals  
     FALSE   = r'false'
