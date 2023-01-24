@@ -1,13 +1,13 @@
 i8:     char
 i16:    int
 i32:    long
-isize:  int
+isize:  long
 int:    long
 
 u8:     byte
 u16:    "unsigned int"
 u32:    "unsigned long"
-usize:  "unsigned int"
+usize:  "unsigned long"
 byte:   byte
 
 f32:    float
