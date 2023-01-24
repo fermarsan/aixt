@@ -1,17 +1,19 @@
-i8:     int8_t
-i16:    int16_t
-i32:    int32_t
-isize:  int16_t
+i8:     char
+i16:    int
+i32:    long
+isize:  int
+int:    long
 
-u8:     uint8_t
-u16:    uint16_t
-u32:    uint32_t
-usize:  uint16_t
+u8:     byte
+u16:    "unsigned int"
+u32:    "unsigned long"
+usize:  "unsigned int"
+byte:   byte
 
 f32:    float
-f64:    "long double"
+f64:    "NOT SUPPORTED"
 
-default_int:    int16_t
+default_int:    int
 default_float:  float
 
 main_ret_type:  none
@@ -20,35 +22,18 @@ main_params:    none
 device:   "Atmel AT91SAM7S256"
 board:    "LEGO Mindstorms NXT intelligent brick"
 
-headers:
-  - <xc.h>
-  - <stdint.h>
-  - <stdbool.h>
-  - <p24FJ128GA010.h>
-  - <libpic30.h>
+headers:  
+  - ""
 
 macros:
-  - "FCY 4000000UL"
+  - ""
 
-config_operator:  "#pragma config"
+config_operator:  ""
 
 configuration:
-  - "POSCMOD = XT"
-  - "OSCIOFNC = ON"
-  - "FCKSM = CSDCMD"
-  - "FNOSC = PRI"
-  - "IESO = ON"
-  - "WDTPS = PS32768"
-  - "FWPSA = PR128"
-  - "WINDIS = ON"
-  - "FWDTEN = OFF"
-  - "ICS = PGx2"
-  - "GWRP = OFF"
-  - "GCP = OFF"
-  - "JTAGEN = OFF"
+  - ""
 
 initialization:
-#  - ""
-  - "//AD1PCFG = 0xFFFF; // set all I/O digital"
+  - ""
 
 nxc:    true
