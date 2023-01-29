@@ -97,7 +97,7 @@ for {   //infinite loop
 
 ## Aixt Transpiler
 
-The transpiler is written in _Python_ using _SLY_ module as Lexer and Parser.
+The transpiler is written in _Python_ using _lark_ module as Lexer and Parser.
 
 ## Aixt API
 
