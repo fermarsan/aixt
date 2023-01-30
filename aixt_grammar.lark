@@ -12,9 +12,12 @@ expr:   NUMBER
 // UNARY_OP:   "-" | "!" | "&"     //| "+" | "^"
         
 %import common.CNAME        ->  IDENT      
-%import common (NUMBER, WS)
+%import common (NUMBER, CPP_COMMENT, C_COMMENT, WS)
 
-%ignore WS
+%ignore WS 
+%ignore CPP_COMMENT
+%ignore C_COMMENT
+
 
 // type Expr = AnonFn
 // 	| ArrayDecompose

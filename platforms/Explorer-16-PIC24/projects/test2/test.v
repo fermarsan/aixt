@@ -1,1 +1,4 @@
-var <<= 5
+/*	multiline
+	comment	*/
+
+var <<= 5	//simple assignment
