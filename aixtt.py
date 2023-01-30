@@ -1,52 +1,48 @@
-from aixt_lexer import aixt_lexer
-from aixt_parser import aixt_parser
-import re
-import yaml
-#from os import system
-import sys
+from lark import Lark, Transformer, v_args
 
-if len(sys.argv) > 1:
+@v_args(inline=True)
+class aixt_to_c(Transformer):
+    def __init__(self):
+        self.symbols = {}
 
-    lexer = aixt_lexer()        #carga el analizador Léxico
-    parser = aixt_parser()      #y el sintáctico
+    def stmt(self, s):
+        return '{}'.format(s)
     
-    #carga el archivo
-    name = sys.argv[1]
-    with open(name,'r') as inFile:  #abre el archivo de entrada
-        program = inFile.read()
-        program += '\n'
+    def assign_stmt(self, e1,op,e2):
+        return '{} {} {}'.format(e1,op,e2)
 
-        # preprocessing
-        program = re.sub("//.*\n","",program)           # remove the line comments
-        program = re.sub("/\*(.|\n)*\*/","",program)    # remove the multi-line comments
-        program = re.sub("\n+","\n",program)            # remove multiple new lines
-        program = program[1:] if program[0] == '\n' else program     # ignore the first new line
+    # def assign_op(self, op):
+    #     return '{}'.format(op)
 
-    if len(sys.argv) > 2:
-        if sys.argv[2] == '-nxc':                       #if -nxt flag
-            with open(r'api/equivalents.yaml','r') as eq_file:
-                equivalents = yaml.load(eq_file, Loader=yaml.FullLoader)
-                for k in equivalents.keys():
-                    # print(type(k))
-                    # print(equivalents[k])
-                    program = re.sub(k,equivalents[k],program)  # replace the NXC equivalents
-        else:
-            print('Invalid flag.\n')
-    
-    #analiza el archivo
-    print('')
-    for t in lexer.tokenize(program):   
-        print(t)
-    
-    print('')
-    parser.parse(lexer.tokenize(program))     #analiza y ejecuta el programa 
-    
-    #guarda los archivos de salida
-    if len(sys.argv) > 2:
-        if sys.argv[2] == '-nxc':                       
-            parser.saveOutput(name.replace('.v','.nxc'))
-    else:
-        parser.saveOutput(name.replace('.v','.c'))
+    # def assign_op(self, op1, op2):
+    #     return '{}'.format(op1, op2)
 
-else:
-    print('no input file.\n')
+    @v_args(inline=False)
+    def assign_op(self, op):
+        if len(op) == 1:
+            return '{}'.format(*op)
+        elif len(op) == 2:
+            return '{}{}'.format(*op)
+
+    def expr(self, a):
+        return '{}'.format(a)
+
+
+    # def unaryExpr(self, op, expr):
+    #     return '({}){}'.format(op, expr)
+
+parser = Lark.open('aixt_grammar.lark', start='stmt', rel_to=__file__, parser='lalr')
+
+
+# aixt_to_c())
+
+
+if __name__ == '__main__':
+    tree = parser.parse('a *= 45')
+    print('_'*60 + '\n')
+    print(tree)
+    print('_'*60 + '\n') 
+    print(tree.pretty())
+    print('_'*60 + '\n')
+    print(aixt_to_c().transform(tree))
+    print('_'*60 + '\n')

@@ -1,0 +1,98 @@
+stmt:   assign_stmt
+
+// assign_stmt: expressionList assign_op expressionList
+assign_stmt: IDENT assign_op expr    
+
+!assign_op:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
+    
+expr:   NUMBER
+    |   IDENT        
+
+// UNARY_OP CNAME    ->  unaryExpr
+// UNARY_OP:   "-" | "!" | "&"     //| "+" | "^"
+        
+%import common.CNAME        ->  IDENT      
+%import common (NUMBER, WS)
+
+%ignore WS
+
+// type Stmt = AsmStmt
+// 	| AssertStmt
+// 	| assign_stmt
+// 	| Block
+// 	| BranchStmt
+// 	| ComptimeFor
+// 	| ConstDecl
+// 	| DeferStmt
+// 	| EmptyStmt
+// 	| EnumDecl
+// 	| ExprStmt
+// 	| FnDecl
+// 	| ForCStmt
+// 	| ForInStmt
+// 	| ForStmt
+// 	| GlobalDecl
+// 	| GotoLabel
+// 	| GotoStmt
+// 	| HashStmt
+// 	| Import
+// 	| InterfaceDecl
+// 	| Module
+// 	| NodeError
+// 	| Return
+// 	| SqlStmt
+// 	| StructDecl
+// 	| TypeDecl
+
+// type Expr = AnonFn
+// 	| ArrayDecompose
+// 	| ArrayInit
+// 	| AsCast
+// 	| Assoc
+// 	| AtExpr
+// 	| BoolLiteral
+// 	| CTempVar
+// 	| CallExpr
+// 	| CastExpr
+// 	| ChanInit
+// 	| CharLiteral
+// 	| Comment
+// 	| ComptimeCall
+// 	| ComptimeSelector
+// 	| ComptimeType
+// 	| ConcatExpr
+// 	| DumpExpr
+// 	| EmptyExpr
+// 	| EnumVal
+// 	| FloatLiteral
+// 	| GoExpr
+// 	| IDENT
+// 	| IfExpr
+// 	| IfGuardExpr
+// 	| IndexExpr
+// 	| InfixExpr
+// 	| IntegerLiteral
+// 	| IsRefType
+// 	| Likely
+// 	| LockExpr
+// 	| MapInit
+// 	| MatchExpr
+// 	| Nil
+// 	| NodeError
+// 	| None
+// 	| OffsetOf
+// 	| OrExpr
+// 	| ParExpr
+// 	| PostfixExpr
+// 	| PrefixExpr
+// 	| RangeExpr
+// 	| SelectExpr
+// 	| SelectorExpr
+// 	| SizeOf
+// 	| SqlExpr
+// 	| StringInterLiteral
+// 	| StringLiteral
+// 	| StructInit
+// 	| TypeNode
+// 	| TypeOf
+// 	| UnsafeExpr
