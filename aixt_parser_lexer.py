@@ -5,11 +5,18 @@ class aixt_transformer(Transformer):
     def __init__(self):
         self.symbols = {}
 
-    def stmt(self, s):
-        return '{};'.format(s)
+    @v_args(inline=False)
+    def source_file(self, sf):
+        o = ''
+        for s in sf:
+            o += s
+        return o
+
+    def stmt(self, st):
+        return '{};'.format(st)
     
-    def assign_stmt(self, e1,op,e2):
-        return '{} {} {}'.format(e1,op,e2)
+    def assign_stmt(self, ex1,op,ex2):
+        return '{} {} {}'.format(ex1,op,ex2)
 
     @v_args(inline=False)
     def assign_op(self, op):
@@ -18,9 +25,13 @@ class aixt_transformer(Transformer):
         elif len(op) == 2:
             return '{}{}'.format(*op)   # "+=", "<<=", etc.
 
-    def expr(self, a):
-        return '{}'.format(a)
-
+    def expr(self, ex):
+        return '{}'.format(ex)
 
     # def unaryExpr(self, op, expr):
     #     return '({}){}'.format(op, expr)
+
+    @v_args(inline=False)
+    def eos(self, eo):
+        return '\n'   
+

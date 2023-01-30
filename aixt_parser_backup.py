@@ -810,7 +810,7 @@ class aixt_parser(Parser):
 
     #--------------- Lexer operators ---------------
     @_( 'ASSIGN', 'PLUS_ASGN', 'MINUS_ASGN', 'XOR_ASGN', 'STAR_ASGN', 
-        'AND_ASGN', 'OR_ASGN', 'DIV_ASGN', 'MOD_ASGN', 'SHL_ASGN', 'SHR_ASGN' )      
+        'AND_ASGN', 'OR_ASGN', 'DIV_ASGN', 'MOD_ASGN', 'SHL_ASGN', 'SHR_ASGN' )     #CHECKED      
     def assign_op(self, p):
         # print('assign_op:\n',p[0])
         return p[0]   

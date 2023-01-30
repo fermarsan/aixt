@@ -1,4 +1,4 @@
-/*	multiline
-	comment	*/
 
-var <<= 5	//simple assignment
+var <<= 5; a+=4
+x = 34
+

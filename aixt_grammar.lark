@@ -1,6 +1,10 @@
+// source_file: (cPreprocessors eos)* (moduleClause eos)? (importDecl eos)* (topLevelDecl eos)* (orphan_stmt_list eos)* EOF
+  
+source_file: eos* (stmt (eos+ stmt)*) eos*
+    
 stmt:   assign_stmt
 
-// assign_stmt: expressionList assign_op expressionList
+// assign_stmt: expression_list assign_op expression_list
 assign_stmt: IDENT assign_op expr    
 
 !assign_op:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
@@ -10,11 +14,18 @@ expr:   NUMBER
 
 // UNARY_OP CNAME    ->  unaryExpr
 // UNARY_OP:   "-" | "!" | "&"     //| "+" | "^"
-        
-%import common.CNAME        ->  IDENT      
-%import common (NUMBER, CPP_COMMENT, C_COMMENT, WS)
 
-%ignore WS 
+// basic_lit:  NUMBER
+//         |   RUNE_LIT
+//         |   STRING_LIT
+//    | IMAGINARY_LIT
+
+!eos:   ";"  |  NEWLINE             //end of statement
+             
+%import common.CNAME    ->  IDENT      
+%import common (NUMBER, DIGIT, CPP_COMMENT, C_COMMENT, WS_INLINE, NEWLINE)
+
+%ignore WS_INLINE 
 %ignore CPP_COMMENT
 %ignore C_COMMENT
 
@@ -72,30 +83,30 @@ expr:   NUMBER
 // 	| TypeOf
 // 	| UnsafeExpr
 
-// type Stmt = AsmStmt
-// 	| AssertStmt
+// type _stmt = Asm_stmt
+// 	| Assert_stmt
 // 	| assign_stmt
 // 	| Block
-// 	| BranchStmt
+// 	| Branch_stmt
 // 	| ComptimeFor
 // 	| ConstDecl
-// 	| DeferStmt
-// 	| EmptyStmt
+// 	| Defer_stmt
+// 	| Empty_stmt
 // 	| EnumDecl
-// 	| ExprStmt
+// 	| Expr_stmt
 // 	| FnDecl
-// 	| ForCStmt
-// 	| ForInStmt
-// 	| ForStmt
+// 	| ForC_stmt
+// 	| ForIn_stmt
+// 	| For_stmt
 // 	| GlobalDecl
 // 	| GotoLabel
-// 	| GotoStmt
-// 	| HashStmt
+// 	| Goto_stmt
+// 	| Hash_stmt
 // 	| Import
 // 	| InterfaceDecl
 // 	| Module
 // 	| NodeError
 // 	| Return
-// 	| SqlStmt
+// 	| Sql_stmt
 // 	| StructDecl
 // 	| TypeDecl

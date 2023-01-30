@@ -3,7 +3,10 @@ from aixt_parser_lexer import aixt_transformer
 import sys
 
 
-parser = Lark.open('aixt_grammar.lark', start='stmt', rel_to=__file__, parser='lalr')
+parser = Lark.open( 'aixt_grammar.lark', 
+                    start='source_file', 
+                    rel_to=__file__, 
+                    parser='lalr'   )
 
 if len(sys.argv) > 1:
     name = sys.argv[1]
