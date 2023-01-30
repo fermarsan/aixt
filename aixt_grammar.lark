@@ -16,34 +16,6 @@ expr:   NUMBER
 
 %ignore WS
 
-// type Stmt = AsmStmt
-// 	| AssertStmt
-// 	| assign_stmt
-// 	| Block
-// 	| BranchStmt
-// 	| ComptimeFor
-// 	| ConstDecl
-// 	| DeferStmt
-// 	| EmptyStmt
-// 	| EnumDecl
-// 	| ExprStmt
-// 	| FnDecl
-// 	| ForCStmt
-// 	| ForInStmt
-// 	| ForStmt
-// 	| GlobalDecl
-// 	| GotoLabel
-// 	| GotoStmt
-// 	| HashStmt
-// 	| Import
-// 	| InterfaceDecl
-// 	| Module
-// 	| NodeError
-// 	| Return
-// 	| SqlStmt
-// 	| StructDecl
-// 	| TypeDecl
-
 // type Expr = AnonFn
 // 	| ArrayDecompose
 // 	| ArrayInit
@@ -66,7 +38,7 @@ expr:   NUMBER
 // 	| EnumVal
 // 	| FloatLiteral
 // 	| GoExpr
-// 	| IDENT
+// 	                        | IDENT         
 // 	| IfExpr
 // 	| IfGuardExpr
 // 	| IndexExpr
@@ -96,3 +68,31 @@ expr:   NUMBER
 // 	| TypeNode
 // 	| TypeOf
 // 	| UnsafeExpr
+
+// type Stmt = AsmStmt
+// 	| AssertStmt
+// 	| assign_stmt
+// 	| Block
+// 	| BranchStmt
+// 	| ComptimeFor
+// 	| ConstDecl
+// 	| DeferStmt
+// 	| EmptyStmt
+// 	| EnumDecl
+// 	| ExprStmt
+// 	| FnDecl
+// 	| ForCStmt
+// 	| ForInStmt
+// 	| ForStmt
+// 	| GlobalDecl
+// 	| GotoLabel
+// 	| GotoStmt
+// 	| HashStmt
+// 	| Import
+// 	| InterfaceDecl
+// 	| Module
+// 	| NodeError
+// 	| Return
+// 	| SqlStmt
+// 	| StructDecl
+// 	| TypeDecl

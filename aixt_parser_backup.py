@@ -1,4 +1,4 @@
-from aixt_lexer import aixt_lexer
+from aixt_lexer_backup import aixt_lexer
 from sly import Parser
 import yaml
 #import re

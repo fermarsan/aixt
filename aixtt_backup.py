@@ -1,5 +1,5 @@
-from aixt_lexer import aixt_lexer
-from aixt_parser import aixt_parser
+from aixt_lexer_backup import aixt_lexer
+from aixt_parser_backup import aixt_parser
 import re
 import yaml
 #from os import system
