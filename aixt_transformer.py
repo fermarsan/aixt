@@ -1,3 +1,9 @@
+# This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+#
+# The MIT License (MIT)
+# 
+# Copyright (c) 2023 Fernando Martínez Santa
+
 from lark import Transformer, v_args
 import yaml
 
@@ -11,8 +17,7 @@ class aixt_transformer(Transformer):
         self.lineno = 1
         self.identifiers = []   #stacks
 
-        self.values = []
-        self.types = []
+        self.typeStack = []     #[type, value]
         
         self.main = False
         self.includes = ''
@@ -49,15 +54,21 @@ class aixt_transformer(Transformer):
         return '{}'.format(ex)
 
     def number(self, n):
-        return str(n).replace( '_', '' )    #remove "_"
+        return str(n).replace( '_', '' )    #remove 
 
-    def float_literal  (self, fl):
+    def bool_literal(self, bl):
+        return '{}'.format(bl)
+
+    def float_literal(self, fl):
+        # s = str(fl).replace( '_', '' )  # remove "_"
+        # s = str(eval())
+
         return '{}'.format(fl)
         
     def integer_literal(self, il):
-        self.types.append(self.setup['default_int'])
-        self.values.append(il)
-        return '{}'.format(il)
+        s = str(il).replace( '_', '' )  # remove "_"
+        self.typeStack.append([self.setup['default_int'], s])
+        return '{}'.format(s)
 
     @v_args(inline=False)
     def eos(self, eo):

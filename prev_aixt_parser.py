@@ -1,4 +1,4 @@
-from aixt_lexer_backup import aixt_lexer
+from prev_aixt_lexer import aixt_lexer
 from sly import Parser
 import yaml
 #import re
@@ -752,6 +752,7 @@ class aixt_parser(Parser):
         self.values.append(s)
         return s
 
+    #CHECKED 
     @_( 'TRUE', 'FALSE' )                   
     def basicLit(self, p):
         self.types.append('bool')
@@ -759,6 +760,7 @@ class aixt_parser(Parser):
         print(p)
         return p[0]
 
+    #CHECKED 
     @_( 'FLOAT_LIT EXPONENT',       #ENGINEERING NOTATION
         'DECIMAL_LIT EXPONENT' )                   
     def basicLit(self, p):
@@ -768,6 +770,7 @@ class aixt_parser(Parser):
         self.values.append(self.del_zeros(s))   # delete final zeros 
         return self.del_zeros(s)    # delete final zeros
 
+    #CHECKED 
     @_( 'FLOAT_LIT' )                   
     def basicLit(self, p):
         s = p[0].replace( '_', '' )  # remove underscore
@@ -775,6 +778,7 @@ class aixt_parser(Parser):
         self.values.append(s)
         return s
 
+    #CHECKED 
     @_( 'DECIMAL_LIT "." DECIMAL_LIT', 
         'DECIMAL_LIT "."',
         '"." DECIMAL_LIT' )                   
@@ -784,6 +788,7 @@ class aixt_parser(Parser):
         else:
             return str(eval('0' + p[0] + p[1] + '0'))  #complete the float ex: 02.0  0.20
 
+    #CHECKED 
     @_( 'INT_LIT' )                   
     def basicLit(self, p):
         s = p[0].replace( '_', '' )  # remove underscore
@@ -791,16 +796,19 @@ class aixt_parser(Parser):
         self.values.append(s)
         return s
 
+    #CHECKED 
     @_( 'DECIMAL_LIT', 'BINARY_LIT', 'OCTAL_LIT', 'HEX_LIT' )                   
     def INT_LIT(self, p):
         return p[0]
 
+    #CHECKED 
     @_( '";"',
         'eos ";"',
         )
     def eos(self, p):
         return ';\n'   
 
+    #CHECKED 
     @_( 'NEWL', 
         'eos NEWL', 
         )
@@ -809,8 +817,9 @@ class aixt_parser(Parser):
         return ';\n'   
 
     #--------------- Lexer operators ---------------
+    #CHECKED 
     @_( 'ASSIGN', 'PLUS_ASGN', 'MINUS_ASGN', 'XOR_ASGN', 'STAR_ASGN', 
-        'AND_ASGN', 'OR_ASGN', 'DIV_ASGN', 'MOD_ASGN', 'SHL_ASGN', 'SHR_ASGN' )     #CHECKED      
+        'AND_ASGN', 'OR_ASGN', 'DIV_ASGN', 'MOD_ASGN', 'SHL_ASGN', 'SHR_ASGN' )          
     def assign_op(self, p):
         # print('assign_op:\n',p[0])
         return p[0]   

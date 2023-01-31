@@ -4,10 +4,10 @@
 // 
 // Copyright (c) 2023 Fernando Martínez Santa
 //
-// Based on the V grammar taken from:
-//     https://modules.vlang.io/v.ast.html
-//     https://github.com/Itay2805/Vork/blob/master/v.lark
-//     https://github.com/antlr/grammars-v4/blob/master/v/V.g4
+// Based on the V grammar taken from several sources:
+//     Abstract Syntax Tree V's documentation:  https://modules.vlang.io/v.ast.html
+//     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
+//     V grammar definition in Antlr-v4:        https://github.com/antlr/grammars-v4/blob/master/v/V.g4
 
 // source_file: (cPreprocessors eos)* (moduleClause eos)? (importDecl eos)* (topLevelDecl eos)* (orphan_stmt_list eos)* EOF
   
@@ -23,7 +23,11 @@ assign_stmt: IDENT assign_op expr
 !expr:  IDENT 
     |   number
 
-!number:    integer_literal | float_literal
+!number:    integer_literal 
+        |   float_literal 
+        |   bool_literal 
+
+!bool_literal:  "true" | "false"
 
 !float_literal: INT _EXP | DECIMAL _EXP?
 
