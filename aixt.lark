@@ -29,19 +29,20 @@ assign_stmt: IDENT assign_op expr
 
 !bool_literal:  "true" | "false"
 
-!float_literal: INT _EXP | DECIMAL _EXP?
+!float_literal:     FLOAT
 
-!integer_literal:   SIGNED_INT | HEX | OCTAL | BIN     
+!integer_literal:   INT | HEX | OCTAL | BIN     
 
-!eos:   ";" | NEWLINE                           //end of statement
+!eos:   ";" | NEWLINE                           // end of statement
 
-_EXP:       ("e"|"E") SIGNED_INT
-DECIMAL.1:    INT "." INT? | "." INT
-SIGNED_INT: ["+"|"-"] INT
-INT:        /[0-9][0-9_]+/                      //all numeric literals with "_"  
-HEX.1:      /0x[0-9A-Fa-f][0-9A-Fa-f_]+/
-OCTAL.1:    /0o[0-7][0-7_]+/        
-BIN.1:      /0b[01][01_]+/                
+FLOAT:      INT EXP | DECIMAL EXP?
+DECIMAL:    INT "." INT? | "." INT
+
+EXP.1:      /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"
+INT:        /[0-9][0-9_]*/                        
+HEX.1:      /0x[0-9A-Fa-f][0-9A-Fa-f_]*/
+OCTAL.1:    /0o[0-7][0-7_]*/        
+BIN.1:      /0b[01][01_]*/                
 
 
 %import common.CNAME    ->  IDENT
