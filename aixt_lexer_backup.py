@@ -68,6 +68,7 @@ class aixt_lexer(Lexer):
     ENUM        = r'enum'
     FN          = r'fn'   
     FOR         = r'for'
+HEX.1:      /0x([a-zA-Z] | "_")+/
     IF          = r'if'
     MODULE      = r'module'
     IMPORT      = r'import'
