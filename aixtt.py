@@ -1,5 +1,11 @@
+# This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+#
+# The MIT License (MIT)
+# 
+# Copyright (c) 2023 Fernando Martínez Santa
+
 from lark import Lark
-from aixt_parser_lexer import aixt_transformer
+from aixt_transformer import aixt_transformer
 import sys
 
 
