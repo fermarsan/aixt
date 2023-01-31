@@ -753,7 +753,7 @@ class aixt_parser(Parser):
         return s
 
     #CHECKED 
-    @_( 'TRUE', 'FALSE' )                   
+    @_( 'TRUE', 'FALSE' )                   self.del_zeros(
     def basicLit(self, p):
         self.types.append('bool')
         self.values.append(p[0])
@@ -766,7 +766,7 @@ class aixt_parser(Parser):
     def basicLit(self, p):
         s = (p[0]+p[1]).replace( '_', '' )  # remove underscore
         self.types.append(self.setup['default_float'])
-        s = '{:.15f}'.format(eval(s))   # from engineering annotation to pure float
+        s = '{:.20f}'.format(eval(s))   # from engineering annotation to pure float
         self.values.append(self.del_zeros(s))   # delete final zeros 
         return self.del_zeros(s)    # delete final zeros
 
