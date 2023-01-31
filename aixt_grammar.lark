@@ -1,9 +1,13 @@
-// This file is part of the Aixt project, http://micropython.org/
-// 
+// This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+//
 // The MIT License (MIT)
 // 
 // Copyright (c) 2023 Fernando Martínez Santa
-
+//
+// Based on the V grammar taken from:
+//     https://modules.vlang.io/v.ast.html
+//     https://github.com/Itay2805/Vork/blob/master/v.lark
+//     https://github.com/antlr/grammars-v4/blob/master/v/V.g4
 
 // source_file: (cPreprocessors eos)* (moduleClause eos)? (importDecl eos)* (topLevelDecl eos)* (orphan_stmt_list eos)* EOF
   
