@@ -744,7 +744,8 @@ class aixt_parser(Parser):
         self.types.append('char []')
         self.values.append(s)
         return s
-    
+
+    #CHECKED  
     @_( 'RUNE_LIT' )                   
     def basicLit(self, p):
         s = p[0].replace('`',"'")

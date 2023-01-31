@@ -21,11 +21,13 @@ assign_stmt: IDENT assign_op expr
 !assign_op:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
     
 !expr:  IDENT 
-    |   number
+    |   literal
 
-!number:    integer_literal 
+!literal:   integer_literal 
         |   float_literal 
-        |   bool_literal 
+        |   bool_literal
+        |   CHAR            ->  char_literal 
+        |   STRING          ->  string_literal
 
 !bool_literal:  "true" | "false"
 
@@ -38,6 +40,8 @@ assign_stmt: IDENT assign_op expr
 FLOAT:      INT EXP | DECIMAL EXP?
 DECIMAL:    INT "." INT? | "." INT
 
+STRING:     /\'.*\'/
+CHAR:       /`.`/
 EXP.1:      /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"
 INT:        /[0-9][0-9_]*/                        
 HEX.1:      /0x[0-9A-Fa-f][0-9A-Fa-f_]*/
@@ -59,12 +63,12 @@ BIN.1:      /0b[01][01_]*/
 // 	| AsCast
 // 	| Assoc
 // 	| AtExpr
-// 	| BoolLiteral
+// 	                        | bool_literal
 // 	| CTempVar
 // 	| CallExpr
 // 	| CastExpr
 // 	| ChanInit
-// 	| CharLiteral
+// 	                        | char_literal
 // 	                        | Comment
 // 	| ComptimeCall
 // 	| ComptimeSelector
@@ -75,7 +79,7 @@ BIN.1:      /0b[01][01_]*/
 // 	| EnumVal
 // 	                        | float_literal
 // 	| GoExpr
-// 	                        | IDENT         
+// 	                        | IDENT      
 // 	| IfExpr
 // 	| IfGuardExpr
 // 	| IndexExpr
@@ -100,7 +104,7 @@ BIN.1:      /0b[01][01_]*/
 // 	| SizeOf
 // 	| SqlExpr
 // 	| StringInterLiteral
-// 	| StringLiteral
+// 	                        | string_literal
 // 	| StructInit
 // 	| TypeNode
 // 	| TypeOf

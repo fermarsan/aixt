@@ -53,8 +53,18 @@ class aixt_transformer(Transformer):
     def expr(self, ex):
         return '{}'.format(ex)
 
-    def number(self, n):
+    def literal(self, n):
         return '{}'.format(n)
+
+    def string_literal(self, sl):
+        s = sl.replace("'",'"')
+        self.typeStack.append(['char []', s])
+        return s
+
+    def char_literal(self, cl):
+        s = cl.replace('`',"'")
+        self.typeStack.append(['char', s])
+        return s
 
     def bool_literal(self, bl):
         return '{}'.format(bl)
@@ -62,7 +72,7 @@ class aixt_transformer(Transformer):
     def float_literal(self, fl):
         s = fl.replace('_', '') # remove "_"
         self.typeStack.append([self.setup['default_float'], s])
-        return '{}'.format(eval(s))    # eval adds missing zeros at both sides of "."
+        return '{}'.format(eval(s))     # eval adds missing zeros at both sides of "."
         
     def integer_literal(self, il):
         s = il.replace('_', '') # remove "_"
