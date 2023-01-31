@@ -20,16 +20,17 @@ assign_stmt: IDENT assign_op expr
 
 !eos:   ";" | NEWLINE                           //end of statement
 
-_EXP:       ("e" | "E") SIGNED_INT
+_EXP:       ("e"|"E") SIGNED_INT
 DECIMAL:    INT "." INT? | "." INT
-SIGNED_INT: ["+" | "-"] INT
-INT:        (DIGIT | "_")+                      //all numeric literals with "_"  
-HEX.1:      "0x" (HEXDIGIT | "_")+
-OCTAL.1:    "0o" ("0".."7" | "_")+
-BIN.1:      "0b" ("0" | "1" | "_")+        
+SIGNED_INT: ["+"|"-"] INT
+INT:        /[0-9][0-9_]+/                      //all numeric literals with "_"  
+HEX.1:      /0x[0-9A-Fa-f][0-9A-Fa-f_]+/
+OCTAL.1:    /0o[0-7][0-7_]+/        
+BIN.1:      /0b[01][01_]+/                
+
 
 %import common.CNAME    ->  IDENT
-%import common (DIGIT, HEXDIGIT, CPP_COMMENT, C_COMMENT, WS_INLINE, NEWLINE)
+%import common (CPP_COMMENT, C_COMMENT, WS_INLINE, NEWLINE)
 
 %ignore WS_INLINE 
 %ignore CPP_COMMENT
