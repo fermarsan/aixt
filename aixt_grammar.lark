@@ -9,21 +9,27 @@ assign_stmt: IDENT assign_op expr
 
 !assign_op:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
     
-expr:   NUMBER
-    |   IDENT        
+!expr:  IDENT 
+    |   number
 
-// UNARY_OP CNAME    ->  unaryExpr
-// UNARY_OP:   "-" | "!" | "&"     //| "+" | "^"
+!number:    integer_literal | float_literal
 
-// basic_lit:  NUMBER
-//         |   RUNE_LIT
-//         |   STRING_LIT
-//    | IMAGINARY_LIT
+!float_literal: INT _EXP | DECIMAL _EXP?
 
-!eos:   ";"  |  NEWLINE             //end of statement
-             
-%import common.CNAME    ->  IDENT      
-%import common (NUMBER, DIGIT, CPP_COMMENT, C_COMMENT, WS_INLINE, NEWLINE)
+!integer_literal:   SIGNED_INT | HEX | OCTAL | BIN     
+
+!eos:   ";" | NEWLINE                           //end of statement
+
+_EXP:       ("e" | "E") SIGNED_INT
+DECIMAL:    INT "." INT? | "." INT
+SIGNED_INT: ["+" | "-"] INT
+INT:        (DIGIT | "_")+                      //all numeric literals with "_"  
+HEX.1:      "0x" (HEXDIGIT | "_")+
+OCTAL.1:    "0o" ("0".."7" | "_")+
+BIN.1:      "0b" ("0" | "1" | "_")+        
+
+%import common.CNAME    ->  IDENT
+%import common (DIGIT, HEXDIGIT, CPP_COMMENT, C_COMMENT, WS_INLINE, NEWLINE)
 
 %ignore WS_INLINE 
 %ignore CPP_COMMENT
@@ -42,7 +48,7 @@ expr:   NUMBER
 // 	| CastExpr
 // 	| ChanInit
 // 	| CharLiteral
-// 	| Comment
+// 	                        | Comment
 // 	| ComptimeCall
 // 	| ComptimeSelector
 // 	| ComptimeType
@@ -50,14 +56,14 @@ expr:   NUMBER
 // 	| DumpExpr
 // 	| EmptyExpr
 // 	| EnumVal
-// 	| FloatLiteral
+// 	                        | float_literal
 // 	| GoExpr
 // 	                        | IDENT         
 // 	| IfExpr
 // 	| IfGuardExpr
 // 	| IndexExpr
 // 	| InfixExpr
-// 	| IntegerLiteral
+// 	                        | integer_literal
 // 	| IsRefType
 // 	| Likely
 // 	| LockExpr

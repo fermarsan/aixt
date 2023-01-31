@@ -11,12 +11,10 @@ parser = Lark.open( 'aixt_grammar.lark',
 if len(sys.argv) > 1:
     name = sys.argv[1]
     with open(name,'r') as inFile:  #abre el archivo de entrada
-        program = inFile.read()
-        # program += '\n'
-        tree = parser.parse(program)
+        tree = parser.parse( inFile.read() )
 
-        print(tree)
-        print('_'*60 + '\n') 
+        # print(tree)
+        # print('_'*60 + '\n') 
         
         print(tree.pretty())
         print('_'*60 + '\n')
