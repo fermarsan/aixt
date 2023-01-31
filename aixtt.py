@@ -9,7 +9,7 @@ from aixt_transformer import aixt_transformer
 import sys
 
 
-parser = Lark.open( 'aixt_grammar.lark', 
+parser = Lark.open( 'aixt.lark', 
                     start='source_file', 
                     rel_to=__file__, 
                     parser='lalr'   )
