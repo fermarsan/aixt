@@ -9,16 +9,16 @@
 //     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
 //     V grammar definition in Antlr-v4:        https://github.com/antlr/grammars-v4/blob/master/v/V.g4
 
-// source_file: (cPreprocessors eos)* (moduleClause eos)? (importDecl eos)* (topLevelDecl eos)* (orphan_stmt_list eos)* EOF
+// source_file: (cPreprocessors eos)* (moduleClause eos)? (import_decl eos)* (topLevel_decl eos)* (orphan_stmt_list eos)* EOF
   
 source_file: eos* (stmt (eos+ stmt)*) eos*
     
 stmt:   assign_stmt
 
 // assign_stmt: expression_list assign_op expression_list
-assign_stmt: IDENT assign_op expr    
+assign_stmt: IDENT ASSIGN_OP expr    
 
-!assign_op:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
+// !assign_op:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
     
 !expr:  IDENT 
     |   literal
@@ -50,6 +50,8 @@ assign_stmt: IDENT assign_op expr
 FLOAT:      INT EXP | DECIMAL EXP?
 DECIMAL:    INT "." INT? | "." INT
 
+ASSIGN_OP:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
+
 STRING:     /\'.*\'/
 CHAR:       /`.`/
 EXP.1:      /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"
@@ -67,83 +69,83 @@ BIN.1:      /0b[01][01_]*/
 %ignore C_COMMENT
 
 
-// type Expr = AnonFn
+// type _expr = AnonFn
 // 	| ArrayDecompose
-// 	| ArrayInit
+// 	| Array_init
 // 	| AsCast
 // 	| Assoc
-// 	| AtExpr
+// 	| At_expr
 // 	                        | bool_literal
 // 	| CTempVar
-// 	| CallExpr
-// 	| CastExpr
-// 	| ChanInit
+// 	| Call_expr
+// 	| Cast_expr
+// 	| Chan_init
 // 	                        | char_literal
 // 	                        | Comment
 // 	| ComptimeCall
 // 	| ComptimeSelector
 // 	| ComptimeType
-// 	| ConcatExpr
-// 	| DumpExpr
-// 	| EmptyExpr
+// 	| Concat_expr
+// 	| Dump_expr
+// 	| Empty_expr
 // 	| EnumVal
 // 	                        | float_literal
-// 	| GoExpr
+// 	| Go_expr
 // 	                        | IDENT      
-// 	| IfExpr
-// 	| IfGuardExpr
-// 	| IndexExpr
-// 	| InfixExpr
+// 	| If_expr
+// 	| IfGuard_expr
+// 	| Index_expr
+// 	| Infix_expr
 // 	                        | integer_literal
 // 	| IsRefType
 // 	| Likely
-// 	| LockExpr
-// 	| MapInit
-// 	| MatchExpr
+// 	| Lock_expr
+// 	| Map_init
+// 	| Match_expr
 // 	| Nil
 // 	| NodeError
 // 	| None
 // 	| OffsetOf
-// 	| OrExpr
-// 	| ParExpr
-// 	| PostfixExpr
-// 	| PrefixExpr
-// 	| RangeExpr
-// 	| SelectExpr
-// 	| SelectorExpr
+// 	| Or_expr
+// 	| Par_expr
+// 	| Postfix_expr
+// 	| Prefix_expr
+// 	| Range_expr
+// 	| Select_expr
+// 	| Selector_expr
 // 	| SizeOf
-// 	| SqlExpr
+// 	| Sql_expr
 // 	| StringInterLiteral
 // 	                        | string_literal
-// 	| StructInit
+// 	| Struct_init
 // 	| TypeNode
 // 	| TypeOf
-// 	| UnsafeExpr
+// 	| Unsafe_expr
 
 // type _stmt = Asm_stmt
 // 	| Assert_stmt
-// 	| assign_stmt
+// 	                        | assign_stmt
 // 	| Block
 // 	| Branch_stmt
 // 	| ComptimeFor
-// 	| ConstDecl
+// 	| Const_decl
 // 	| Defer_stmt
 // 	| Empty_stmt
-// 	| EnumDecl
-// 	| Expr_stmt
-// 	| FnDecl
+// 	| Enum_decl
+// 	| _expr_stmt
+// 	| Fn_decl
 // 	| ForC_stmt
 // 	| ForIn_stmt
 // 	| For_stmt
-// 	| GlobalDecl
+// 	| Global_decl
 // 	| GotoLabel
 // 	| Goto_stmt
 // 	| Hash_stmt
 // 	| Import
-// 	| InterfaceDecl
+// 	| Interface_decl
 // 	| Module
 // 	| NodeError
 // 	| Return
 // 	| Sql_stmt
-// 	| StructDecl
-// 	| TypeDecl
+// 	| Struct_decl
+// 	| Type_decl
