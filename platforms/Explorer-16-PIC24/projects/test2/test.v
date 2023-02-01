@@ -1,3 +1,3 @@
 
-s = 'Fernando'
+s = u8(34)
 

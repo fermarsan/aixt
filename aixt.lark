@@ -22,6 +22,16 @@ assign_stmt: IDENT assign_op expr
     
 !expr:  IDENT 
     |   literal
+    |   conversion
+
+!conversion:    type_name "(" expr ")"      
+
+!type_name: "rune" | "bool" | "string"
+        |   numeric_type
+
+!numeric_type:  "u8"  | "u16" | "u32" | "u64" | "usize" | "uint"
+            |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
+            |   "f64" | "f32"
 
 !literal:   integer_literal 
         |   float_literal 

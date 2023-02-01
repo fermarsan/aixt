@@ -53,6 +53,16 @@ class aixt_transformer(Transformer):
     def expr(self, ex):
         return '{}'.format(ex)
 
+    def conversion(self, tn,lp,ex,rp):
+        self.typeStack[-1][0] = tn      #changes the default type 
+        return '{}({})'.format(tn,ex)
+
+    def type_name(self, tn):
+        return '{}'.format(tn)
+
+    def numeric_type(self, nt):
+        return '{}'.format(nt)
+
     def literal(self, n):
         return '{}'.format(n)
 

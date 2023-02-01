@@ -726,11 +726,13 @@ class aixt_parser(Parser):
     def qualifiedIdent(self, p):
         return p[0] + '.' + p[2]
 
+#CHECKED 
     @_( 'RUNE', 'BOOL', 'STRING', 'numericType' )
     def typeName(self, p):
         return p[0]
     
     #--------------- Integer & floating point types ---------------
+#CHECKED  
     @_( 'U8', 'U16', 'U32', 'U64', 'USIZE', 'UINT',
         'I8', 'I16', 'I32', 'I64', 'ISIZE', 'INT', 
         'F64', 'F32' )
@@ -738,6 +740,7 @@ class aixt_parser(Parser):
         return self.setup[p[0]]
 
     #--------------- Literals ---------------
+#CHECKED  
     @_( 'STRING_LIT' )                   
     def basicLit(self, p):
         s = p[0].replace("'",'"')
@@ -745,7 +748,7 @@ class aixt_parser(Parser):
         self.values.append(s)
         return s
 
-    #CHECKED  
+#CHECKED  
     @_( 'RUNE_LIT' )                   
     def basicLit(self, p):
         s = p[0].replace('`',"'")
@@ -753,7 +756,7 @@ class aixt_parser(Parser):
         self.values.append(s)
         return s
 
-    #CHECKED 
+#CHECKED 
     @_( 'TRUE', 'FALSE' )                   self.del_zeros(
     def basicLit(self, p):
         self.types.append('bool')
@@ -761,7 +764,7 @@ class aixt_parser(Parser):
         print(p)
         return p[0]
 
-    #CHECKED 
+#CHECKED 
     @_( 'FLOAT_LIT EXPONENT',       #ENGINEERING NOTATION
         'DECIMAL_LIT EXPONENT' )                   
     def basicLit(self, p):
@@ -771,7 +774,7 @@ class aixt_parser(Parser):
         self.values.append(self.del_zeros(s))   # delete final zeros 
         return self.del_zeros(s)    # delete final zeros
 
-    #CHECKED 
+#CHECKED 
     @_( 'FLOAT_LIT' )                   
     def basicLit(self, p):
         s = p[0].replace( '_', '' )  # remove underscore
@@ -779,7 +782,7 @@ class aixt_parser(Parser):
         self.values.append(s)
         return s
 
-    #CHECKED 
+#CHECKED 
     @_( 'DECIMAL_LIT "." DECIMAL_LIT', 
         'DECIMAL_LIT "."',
         '"." DECIMAL_LIT' )                   
@@ -789,7 +792,7 @@ class aixt_parser(Parser):
         else:
             return str(eval('0' + p[0] + p[1] + '0'))  #complete the float ex: 02.0  0.20
 
-    #CHECKED 
+#CHECKED 
     @_( 'INT_LIT' )                   
     def basicLit(self, p):
         s = p[0].replace( '_', '' )  # remove underscore
@@ -797,19 +800,19 @@ class aixt_parser(Parser):
         self.values.append(s)
         return s
 
-    #CHECKED 
+#CHECKED 
     @_( 'DECIMAL_LIT', 'BINARY_LIT', 'OCTAL_LIT', 'HEX_LIT' )                   
     def INT_LIT(self, p):
         return p[0]
 
-    #CHECKED 
+#CHECKED 
     @_( '";"',
         'eos ";"',
         )
     def eos(self, p):
         return ';\n'   
 
-    #CHECKED 
+#CHECKED 
     @_( 'NEWL', 
         'eos NEWL', 
         )
@@ -818,7 +821,7 @@ class aixt_parser(Parser):
         return ';\n'   
 
     #--------------- Lexer operators ---------------
-    #CHECKED 
+#CHECKED 
     @_( 'ASSIGN', 'PLUS_ASGN', 'MINUS_ASGN', 'XOR_ASGN', 'STAR_ASGN', 
         'AND_ASGN', 'OR_ASGN', 'DIV_ASGN', 'MOD_ASGN', 'SHL_ASGN', 'SHR_ASGN' )          
     def assign_op(self, p):
