@@ -17,8 +17,6 @@ stmt:   assign_stmt
 
 // assign_stmt: expression_list assign_op expression_list
 assign_stmt: IDENT ASSIGN_OP expr    
-
-// !assign_op:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
     
 !expr:  IDENT 
     |   literal
@@ -26,20 +24,13 @@ assign_stmt: IDENT ASSIGN_OP expr
 
 !conversion:    type_name "(" expr ")"      
 
-!type_name: "rune" | "bool" | "string"
-        |   numeric_type
-
-!numeric_type:  "u8"  | "u16" | "u32" | "u64" | "usize" | "uint"
-            |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
-            |   "f64" | "f32"
+!type_name: "rune" | "bool" | "string" | NUMERIC_TYPE
 
 !literal:   integer_literal 
         |   float_literal 
-        |   bool_literal
+        |   BOOL //bool_literal
         |   CHAR            ->  char_literal 
         |   STRING          ->  string_literal
-
-!bool_literal:  "true" | "false"
 
 !float_literal:     FLOAT
 
@@ -47,11 +38,21 @@ assign_stmt: IDENT ASSIGN_OP expr
 
 !eos:   ";" | NEWLINE                           // end of statement
 
+NUMERIC_TYPE:   "u8"  | "u16" | "u32" | "u64" | "usize" | "uint"
+            |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
+            |   "f64" | "f32"
+
+ASSIGN_OP:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
+BINARY_OP:  "||" | "&&" | REL_OP | ADD_OP | MUL_OP
+REL_OP:     "==" | "!=" | "<" | "<=" | ">" | ">="
+ADD_OP.1:   "+" | "-" | "|" | "^"
+MUL_OP:     "*" | "/" | "%" | "<<" | ">>" | "&" | "&^"
+UNARY_OP:   "+" | "-" | "!" | "^" | "*" | "&" | "<-"
+
 FLOAT:      INT EXP | DECIMAL EXP?
 DECIMAL:    INT "." INT? | "." INT
 
-ASSIGN_OP:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
-
+BOOL:       "true" | "false"
 STRING:     /\'.*\'/
 CHAR:       /`.`/
 EXP.1:      /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"

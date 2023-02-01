@@ -43,13 +43,6 @@ class aixt_transformer(Transformer):
     def assign_stmt(self, ex1,op,ex2):
         return '{} {} {}'.format(ex1,op,ex2)
 
-    @v_args(inline=False)
-    def assign_op(self, op):
-        if len(op) == 1:
-            return '{}'.format(*op)     # "="
-        elif len(op) == 2:
-            return '{}{}'.format(*op)   # "+=", "<<=", etc.
-
     def expr(self, ex):
         return '{}'.format(ex)
 
@@ -59,9 +52,6 @@ class aixt_transformer(Transformer):
 
     def type_name(self, tn):
         return '{}'.format(tn)
-
-    def numeric_type(self, nt):
-        return '{}'.format(nt)
 
     def literal(self, n):
         return '{}'.format(n)
@@ -75,9 +65,6 @@ class aixt_transformer(Transformer):
         s = cl.replace('`',"'")
         self.typeStack.append(['char', s])
         return s
-
-    def bool_literal(self, bl):
-        return '{}'.format(bl)
 
     def float_literal(self, fl):
         s = fl.replace('_', '') # remove "_"
