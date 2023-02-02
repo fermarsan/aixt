@@ -9,83 +9,31 @@
 //     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
 //     V grammar definition in Antlr-v4:        https://github.com/antlr/grammars-v4/blob/master/v/V.g4
 
-// source_file: (cPreprocessors eos)* (moduleClause eos)? (import_decl eos)* (topLevel_decl eos)* (orphan_stmt_list eos)* EOF
-  
 source_file: eos* (stmt (eos+ stmt)*) eos*
     
 stmt:   assign_stmt
 
 // assign_stmt: expression_list assign_op expression_list
-assign_stmt: IDENT ASSIGN_OP expr    
+!assign_stmt: IDENT ASSIGN_OP expr    
     
-!expr:  unary_expr
-    |   expr BINARY_OP expr
-
-!unary_expr:    primaryExpr
-            |   UNARY_OP unaryExpr
-
-!conversion:    type_ "(" expr ")"      
-
-!type_: TYPE_NAME
-    |   qualified_ident
-
-
-
-!operand_name:  IDENT
-            |   qualified_ident
-
-!qualified_ident:    IDENT "." IDENT
-
-!primary_expr:  operand
-            |   conversion
-            |   primary_expr selector
-            |   primary_expr index
-	        |   primary_expr arguments
-
-!operand:   literal
-        |   operand_name
-        |   method_expr
-        |   "(" expr ")"
-
-!selector:  "." IDENT
-
-!index: "[" expr "]"
-
-!arguments: "(" ( ( expr_list | type_ ( "," expr_list )? ) ","? )? ")"
-
-!method_expr:   receiver_type "." IDENT
-
-!receiver_type: type_name
-            |   "(" receiver_type ")"
-
-!literal:   basic_literal
-        |   composite_literal
-        |   function_literal
-        |   array_literal
-
-!composite_literal: literal_type literal_value
-
-!literal_type:  array_type
-            |   map_type
-            |   type_name
-
-!literal_value: "{" ( elementList ","? )? "}"
-
-!basic_literal: integer_literal 
-            |   float_literal 
-            |   BOOL            //->  bool_literal
-            |   CHAR            ->  char_literal 
-            |   STRING          ->  string_literal
-
-!float_literal:     FLOAT
-
-!integer_literal:   INT | HEX | OCTAL | BIN     
+!expr:  IDENT
+    |   literal
+    |   "(" expr ")"            //->  par_expr
+    |   TYPE_NAME "(" expr ")"  //->  conversion
+    |   UNARY_OP expr           //->  unary_expr
+    |   expr BINARY_OP expr     //->  binary_expr   
+//
+!literal:   INTEGER_LITERAL     ->  integer_literal 
+        |   FLOAT_LITERAL       ->  float_literal
+        |   BOOL_LITERAL        ->  bool_literal
+        |   CHAR_LITERAL        ->  char_literal 
+        |   STRING_LITERAL      ->  string_literal     
 
 !eos:   ";" | NEWLINE                           // end of statement
 
 TYPE_NAME:  "rune" | "bool" | "string" | NUMERIC_TYPE
 
-NUMERIC_TYPE:   "u8"  | "u16" | "u32" | "u64" | "usize" | "uint"
+NUMERIC_TYPE:   "u8"  | "u16" | "u32" | "u64" | "usize" //| "uint"
             |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
             |   "f64" | "f32"
 
@@ -93,20 +41,21 @@ ASSIGN_OP:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
 BINARY_OP:  "||" | "&&" | REL_OP | ADD_OP | MUL_OP
 REL_OP:     "==" | "!=" | "<" | "<=" | ">" | ">="
 ADD_OP.1:   "+" | "-" | "|" | "^"
-MUL_OP:     "*" | "/" | "%" | "<<" | ">>" | "&" | "&^"
-UNARY_OP:   "+" | "-" | "!" | "^" | "*" | "&" | "<-"
+MUL_OP:     "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
+UNARY_OP:   "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
 
-FLOAT:      INT EXP | DECIMAL EXP?
-DECIMAL:    INT "." INT? | "." INT
+FLOAT_LITERAL:      INT EXP | DECIMAL EXP?
+INTEGER_LITERAL:    INT | HEX | OCTAL | BIN
+DECIMAL:            INT "." INT? | "." INT
 
-BOOL:       "true" | "false"
-STRING:     /\'.*\'/
-CHAR:       /`.`/
-EXP.1:      /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"
-INT:        /[0-9][0-9_]*/                        
-HEX.1:      /0x[0-9A-Fa-f][0-9A-Fa-f_]*/
-OCTAL.1:    /0o[0-7][0-7_]*/        
-BIN.1:      /0b[01][01_]*/                
+BOOL_LITERAL:   "true" | "false"
+STRING_LITERAL: /\'.*\'/
+CHAR_LITERAL:   /`.`/
+EXP.1:          /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"
+INT:            /[0-9][0-9_]*/                        
+HEX.1:          /0x[0-9A-Fa-f][0-9A-Fa-f_]*/
+OCTAL.1:        /0o[0-7][0-7_]*/        
+BIN.1:          /0b[01][01_]*/                
 
 
 %import common.CNAME    ->  IDENT
@@ -117,19 +66,19 @@ BIN.1:      /0b[01][01_]*/
 %ignore C_COMMENT
 
 
-// type _expr = AnonFn
+// type expr = AnonFn
 // 	| ArrayDecompose
 // 	| Array_init
 // 	| AsCast
 // 	| Assoc
 // 	| At_expr
-// 	                        | bool_literal (BOOL)
+// 	                        | BOOL_LITERAL
 // 	| CTempVar
 // 	| Call_expr
 // 	| Cast_expr
 // 	| Chan_init
-// 	                        | char_literal
-// 	                        | Comment
+// 	                        | CHAR_LITERAL
+// 	                        | Comment (CPP_COMMENT, C_COMMENT)
 // 	| ComptimeCall
 // 	| ComptimeSelector
 // 	| Comptime_type
@@ -137,14 +86,14 @@ BIN.1:      /0b[01][01_]*/
 // 	| Dump_expr
 // 	| Empty_expr
 // 	| EnumVal
-// 	                        | float_literal
+// 	                        | FLOAT_LITERAL
 // 	| Go_expr
 // 	                        | IDENT      
 // 	| If_expr
 // 	| IfGuard_expr
 // 	| Index_expr
 // 	| Infix_expr
-// 	                        | integer_literal
+// 	                        | INTEGER_LITERAL
 // 	| IsRef_type
 // 	| Likely
 // 	| Lock_expr
@@ -155,7 +104,7 @@ BIN.1:      /0b[01][01_]*/
 // 	| None
 // 	| OffsetOf
 // 	| Or_expr
-// 	| Par_expr
+// 	                        | par_expr
 // 	| Postfix_expr
 // 	| Prefix_expr
 // 	| Range_expr
@@ -163,8 +112,8 @@ BIN.1:      /0b[01][01_]*/
 // 	| Selector_expr
 // 	| SizeOf
 // 	| Sql_expr
-// 	| StringInter_literaleral
-// 	                        | string_literal
+// 	| STRING_LITERALInter_literaleral
+// 	                        | STRING_LITERAL
 // 	| Struct_init
 // 	| _typeNode
 // 	| _typeOf
