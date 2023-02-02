@@ -827,23 +827,23 @@ class aixt_parser(Parser):
     def assign_op(self, p):
         # print('assign_op:\n',p[0])
         return p[0]   
-
+#CHECKED 
     @_( 'LOGIC_OR', 'LOGIC_AND', 'REL_OP', 'ADD_OP', 'MUL_OP' )
     def BINARY_OP(self, p):
         return p[0]     
-
+#CHECKED 
     @_( 'EQ', 'NE', 'LT' , 'LE', 'GT' , 'GE' )
     def REL_OP(self, p):
         return p[0]
-
+#CHECKED 
     @_( 'PLUS', 'MINUS', 'OR', 'XOR' )   
     def ADD_OP(self, p):
         return p[0]
-
+#CHECKED 
     @_( 'STAR', 'DIV', 'MOD', 'AND', 'SHL', 'SHR' )      
     def MUL_OP(self, p):
         return p[0]
-
+#CHECKED 
     @_( 'MINUS', 'EXCLM', 'AND' )   #NO unary plus
     def UNARY_OP(self, p):
         return p[0]

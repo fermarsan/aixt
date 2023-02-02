@@ -48,7 +48,13 @@ class aixt_transformer(Transformer):
 
     def conversion(self, tn,lp,ex,rp):
         self.typeStack[-1][0] = tn      #changes the default type 
-        return '{}({})'.format(tn,ex)
+        return '{}{}{}{}'.format(tn,lp,ex,rp)
+
+    def type_(self, t):
+        return '{}'.format(t)
+
+    def qualified_ident(self, id1,dot,id2):
+        return '{}{}{}'.format(id1,dot,id2)
 
     def type_name(self, tn):
         return '{}'.format(tn)
