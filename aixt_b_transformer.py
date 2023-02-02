@@ -43,12 +43,24 @@ class aixt_transformer(Transformer):
     def assign_stmt(self, ex1,op,ex2):
         return '{} {} {}'.format(ex1,op,ex2)
 
-    @v_args(inline=False)
     def expr(self, ex):
-        s = ''
-        for e in ex:
-            s += e
-        return s
+        return '{}'.format(ex)
+
+    def conversion(self, tn,lp,ex,rp):
+        self.typeStack[-1][0] = tn      #changes the default type 
+        return '{}{}{}{}'.format(tn,lp,ex,rp)
+
+    def type_(self, t):
+        return '{}'.format(t)
+
+    def qualified_ident(self, id1,dot,id2):
+        return '{}{}{}'.format(id1,dot,id2)
+
+    def type_name(self, tn):
+        return '{}'.format(tn)
+
+    def literal(self, n):
+        return '{}'.format(n)
 
     def string_literal(self, sl):
         s = sl.replace("'",'"')
@@ -60,19 +72,15 @@ class aixt_transformer(Transformer):
         self.typeStack.append(['char', s])
         return s
 
-    def bool_literal(self, bl):
-        self.typeStack.append(['bool', bl])
-        return bl
-
     def float_literal(self, fl):
         s = fl.replace('_', '') # remove "_"
         self.typeStack.append([self.setup['default_float'], s])
-        return str(eval(s))     # eval adds missing zeros at both sides of "."
+        return '{}'.format(eval(s))     # eval adds missing zeros at both sides of "."
         
     def integer_literal(self, il):
         s = il.replace('_', '') # remove "_"
         self.typeStack.append([self.setup['default_int'], s])
-        return s
+        return '{}'.format(s)
 
     @v_args(inline=False)
     def eos(self, eo):

@@ -9,7 +9,7 @@
 //     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
 //     V grammar definition in Antlr-v4:        https://github.com/antlr/grammars-v4/blob/master/v/V.g4
 
-!source_file: (module_clause eos)? ( import_decl eos )* ( top_level_decl eos )* EOF
+!source_file: (module_clause eos)? ( import_decl eos )* ( top_level_decl eos )*
 
 !module_clause: "module" IDENT
 
@@ -18,7 +18,7 @@
 !import_spec:   ( "." | IDENT )? import_path
 
 !import_path:   IDENT
-            |   STRING_LIT
+            |   STRING_LITERAL
 
 !top_level_decl:    declaration
                 |   function_decl
@@ -27,10 +27,11 @@
 !declaration:   const_decl
             |   var_decl
             |   struct_decl
+        
 
-!const_decl: 'const' "(" ( const_spec eos )* ")"
+!const_decl: "const" "(" ( const_spec eos )* ")"
 
-!const_spec: IDENT  '=' expr
+!const_spec: IDENT  "=" expr
 
 !ident_list: IDENT ( "," IDENT )*
 
@@ -44,7 +45,9 @@
 
 !receiver: parameters
 
-!no_mut_decl: ident_list ( ':=' expr_list )var_decl: "mut"? ( no_mut_decl )
+!no_mut_decl: ident_list ( ":=" expr_list )
+
+!var_decl: "mut"? ( no_mut_decl )
 
 !block: "{" stmt_list "}"
 
@@ -62,21 +65,23 @@
 
 !simple_stmt:   expr_stmt
             |   inc_dec_stmt
-            |   assignment
+            |   assign_stmt
 
 !expr_stmt: expr
+
 !inc_dec_stmt:  expr ( "++" | "--" )
-!assignment:    expr_list ASSIGN_OP expr_list
+
+!assign_stmt:   expr_list ASSIGN_OP expr_list
 
 !return_stmt: "return" expr_list?
 
 !break_stmt:    "break" IDENT?             
 
-!continue_stmt: "continue" IDENT?:      
+!continue_stmt: "continue" IDENT?
 
 !goto_stmt: "goto" IDENT
 
-!if_stmt: "if" (simple_stmt ";")? expr block ( 'else' ( if_stmt | block ) )?
+!if_stmt: "if" (simple_stmt ";")? expr block ( "else" ( if_stmt | block ) )?
 
 !switch_stmt:   expr_switch_stmt
 
@@ -96,7 +101,7 @@
     |   type_literal
 
 !type_name: "&"? "mut"? IDENT           
-        |   qualified_ident                
+        // |   qualified_ident                
 
 !type_literal:  array_type
             |   function_type
@@ -137,56 +142,57 @@
         |   "(" expr ")"
 
 !literal:   basic_literal
-        |   composite_literal
+        // |   composite_literal
         |   function_literal
         |   array_literal
 
 !array_literal: "[" expr ("," expr)* "]"
 
-!basic_literal: integer_literal
-            |   FLOAT           ->  float_literal
-            |   CHAR            ->  char_literal 
-            |   STRING          ->  string_literal
-            |   "true" | "false"
+!basic_literal: INTEGER_LITERAL     ->integer_literal
+            |   FLOAT_LITERAL       ->  float_literal
+            |   CHAR_LITERAL        ->  char_literal 
+            |   STRING_LITERAL      ->  string_literal
+            |   "true" | "false"    // bool_literal
 
 !operand_name:  IDENT
-            |   qualified_ident
+            // |   qualified_ident
 
-!qualified_ident:   IDENT "." IDENT
+// !qualified_ident:   IDENT "." IDENT
 
-!composite_literal: literal_type literal_value
+// !composite_literal: literal_type literal_value
 
 !literal_type:  array_type
             |   map_type
             |   type_name
 
-!literal_value: "{" ( element_list ","? )? "}"
+// !literal_value: "{" ( element_list ","? )? "}"
 
-!element_list: keyed_element (keyed_element)*
+// !element_list: keyed_element (keyed_element)*
 
-!keyed_element: (key ":")? element
+// !keyed_element: (key ":")? element
 
-!key:   IDENT
-    |   expr
-    |   literal_value
+// !key:   IDENT
+//     |   expr
+//     |   literal_value
 
 !element:   expr
-        |   literal_value
+        // |   literal_value
 
 !struct_decl: "struct" IDENT "{" ( field_decl eos )* "}"
 
-!field_decl:    (ident_list type_ | anonymous_field) STRING_LIT?
+!field_decl:    (ident_list type_ | anonymous_field) STRING_LITERAL?
             |   ("pub" ("mut" "mut"?)? | "mut") ":"
 
 !anonymous_field:   type_name
 
-!function_literal: "fn" function_
+!function_literal:  "fn" function_
 
 !primary_expr:  operand
             |   conversion
             |   primary_expr selector
             |   primary_expr index
 	        |   primary_expr arguments
+                        
 
 !selector:  "." IDENT
 
@@ -207,8 +213,6 @@
 
 !conversion: type_ "(" expr ")"
 
-!integer_literal:   INT | HEX | OCTAL | BIN     
-
 !eos:   ";" | NEWLINE                           // end of stmt
 
 TYPE_NAME:  "rune" | "bool" | "string" | NUMERIC_TYPE
@@ -221,19 +225,20 @@ ASSIGN_OP:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
 BINARY_OP:  "||" | "&&" | REL_OP | ADD_OP | MUL_OP
 REL_OP:     "==" | "!=" | "<" | "<=" | ">" | ">="
 ADD_OP.1:   "+" | "-" | "|" | "^"
-MUL_OP:     "*" | "/" | "%" | "<<" | ">>" | "&" | "&^"
-UNARY_OP:   "+" | "-" | "!" | "^" | "*" | "&" | "<-"
+MUL_OP:     "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
+UNARY_OP:   "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
 
-FLOAT:      INT EXP | DECIMAL EXP?
-DECIMAL:    INT "." INT? | "." INT
+FLOAT_LITERAL:      INT EXP | DECIMAL EXP?
+INTEGER_LITERAL:    INT | HEX | OCTAL | BIN
+DECIMAL:            INT "." INT? | "." INT
 
-STRING:     /\'.*\'/
-CHAR:       /`.`/
-EXP.1:      /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"
-INT:        /[0-9][0-9_]*/                        
-HEX.1:      /0x[0-9A-Fa-f][0-9A-Fa-f_]*/
-OCTAL.1:    /0o[0-7][0-7_]*/        
-BIN.1:      /0b[01][01_]*/                
+STRING_LITERAL: /\'.*\'/
+CHAR_LITERAL:   /`.`/
+EXP.1:          /[eE][\+-]?[0-9][0-9_]*/        // all numeric literals with "_"
+INT:            /[0-9][0-9_]*/                        
+HEX.1:          /0x[0-9A-Fa-f][0-9A-Fa-f_]*/
+OCTAL.1:        /0o[0-7][0-7_]*/        
+BIN.1:          /0b[01][01_]*/                
 
 
 %import common.CNAME    ->  IDENT
@@ -244,83 +249,83 @@ BIN.1:      /0b[01][01_]*/
 %ignore C_COMMENT
 
 
-// type __expr = AnonFn
+// type _expr = AnonFn
 // 	| Array_decompose
 // 	| Array_init
 // 	| AsCast
 // 	| Assoc
-// 	| At__expr
-// 	                        | bool_literal (BOOL)
+// 	| At_expr
+// 	                        | BOOL_LITERAL
 // 	| CTempVar
-// 	| Call__expr
-// 	| Cast__expr
+// 	| Call_expr
+// 	| Cast_expr
 // 	| Chan_init
-// 	                        | char_literal
-// 	                        | Comment
+// 	                        | CHAR_LITERAL
+// 	                        | Comment (CPP_COMMENT, CPP_COMMENT)
 // 	| ComptimeCall
 // 	| ComptimeSelector
 // 	| Comptime_type
-// 	| Concat__expr
-// 	| Dump__expr
-// 	| Empty__expr
+// 	| Concat_expr
+// 	| Dump_expr
+// 	| Empty_expr
 // 	| EnumVal
-// 	                        | float_literal
-// 	| Go__expr
+// 	                        | FLOAT_LITERAL
+// 	| Go_expr
 // 	                        | IDENT      
-// 	| If__expr
-// 	| IfGuard__expr
-// 	| Index__expr
-// 	| Infix__expr
-// 	                        | integer_literal
+// 	| If_expr
+// 	| IfGuard_expr
+// 	| Index_expr
+// 	| Infix_expr
+// 	                        | INTEGER_LITERAL
 // 	| IsRef_type
 // 	| Likely
-// 	| Lock__expr
+// 	| Lock_expr
 // 	| Map_init
-// 	| Match__expr
+// 	| Match_expr
 // 	| Nil
 // 	| NodeError
 // 	| None
 // 	| OffsetOf
-// 	| Or__expr
-// 	| Par__expr
-// 	| Postfix__expr
-// 	| Prefix__expr
-// 	| Range__expr
-// 	| Select__expr
-// 	| Selector__expr
+// 	| Or_expr
+// 	| Par_expr
+// 	| Postfix_expr
+// 	| Prefix_expr
+// 	| Range_expr
+// 	| Select_expr
+// 	| Selector_expr
 // 	| SizeOf
-// 	| Sql__expr
+// 	| Sql_expr
 // 	| StringInter_literaleral
-// 	                        | string_literal
+// 	                        | STRING_LITERAL
 // 	| Struct_init
 // 	| _typeNode
 // 	| _typeOf
-// 	| Unsafe__expr
+// 	| Unsafe_expr
 
 // type _stmt = Asm_stmt
 // 	| Assert_stmt
 // 	                        | assign_stmt
-// 	| Block
+// 	                        | block
 // 	| Branch_stmt
 // 	| ComptimeFor
-// 	| Const_decl
+// 	                        | const_decl
 // 	| Defer_stmt
 // 	| Empty_stmt
 // 	| Enum_decl
-// 	| __expr_stmt
+// 	| _expr_stmt
 // 	| Fn_decl
-// 	| ForC_stmt
-// 	| ForIn_stmt
-// 	| For_stmt
+// 	                        | for_c_stmt    (for_clause)
+// 	                        | for_in_stmt   (in_clause)
+// 	                        | for_stmt
 // 	| Global_decl
 // 	| GotoLabel
 // 	| Goto_stmt
 // 	| Hash_stmt
-// 	| Import
+// 	                        | import_decl
 // 	| Interface_decl
-// 	| Module
+// 	                        | module_clause
 // 	| NodeError
-// 	| Return
+// 	                        | return_stmt
 // 	| Sql_stmt
-// 	| Struct_decl
+// 	                        | struct_decl
 // 	| _type_decl

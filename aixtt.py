@@ -12,7 +12,8 @@ import sys
 parser = Lark.open( 'aixt.lark', 
                     start='source_file', 
                     rel_to=__file__, 
-                    parser='lalr'   )
+                    parser='lalr'   
+                    )
 
 if len(sys.argv) > 1:
     name = sys.argv[1]
