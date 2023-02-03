@@ -545,6 +545,7 @@ class aixt_parser(Parser):
     #     return p[0] + p[1]
 
 
+# CHECKED
     @_( '"{" statementList "}"',
         '"{" eos statementList "}"',
         '"{" statementList eos "}"',

@@ -9,17 +9,37 @@
 //     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
 //     V grammar definition in Antlr-v4:        https://github.com/antlr/grammars-v4/blob/master/v/V.g4
 
-source_file: eos* (stmt (eos+ stmt)*) eos*
+!source_file: eos* (stmt (eos+ stmt)*) eos*
     
-stmt:   assign_stmt
+!stmt:  assign_stmt
+    |   block
+    |   fn_decl
 
-// assign_stmt: expression_list assign_op expression_list
-!assign_stmt: IDENT ASSIGN_OP expr    
-    
+!fn_decl: "fn" IDENT "(" param_list? ")" fn_return? block
+
+!fn_return: TYPE_NAME
+
+// !attrib:    "[" IDENT "]" NEWLINE?
+
+!assign_stmt:   ident_list ":=" expr_list           -> decl_assign_stmt          
+            |   ident_list ASSIGN_OP expr_list      -> simple_assign_stmt
+
+!block: "{" eos? stmt_list "}"
+
+!param_list:    (param)? ( "," param )*
+
+!param: expr TYPE_NAME
+
+!stmt_list:     ( stmt eos )*
+
+!expr_list:     expr ( "," expr )*
+
+!ident_list:    IDENT ( "," IDENT )*
+
 !expr:  IDENT
     |   literal
     |   "(" expr ")"            //->  par_expr
-    |   TYPE_NAME "(" expr ")"  //->  conversion
+    |   TYPE_NAME "(" expr ")"  ->  conversion
     |   UNARY_OP expr           //->  unary_expr
     |   expr BINARY_OP expr     //->  binary_expr   
 //
@@ -31,9 +51,11 @@ stmt:   assign_stmt
 
 !eos:   ";" | NEWLINE                           // end of statement
 
-TYPE_NAME:  "rune" | "bool" | "string" | NUMERIC_TYPE
 
-NUMERIC_TYPE:   "u8"  | "u16" | "u32" | "u64" | "usize" //| "uint"
+
+TYPE_NAME.1:    "rune" | "bool" | "string" | NUMERIC_TYPE
+
+NUMERIC_TYPE.1: "u8" | "u16" | "u32" | "u64" | "usize" //| "uint"
             |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
             |   "f64" | "f32"
 
@@ -48,7 +70,7 @@ FLOAT_LITERAL:      INT EXP | DECIMAL EXP?
 INTEGER_LITERAL:    INT | HEX | OCTAL | BIN
 DECIMAL:            INT "." INT? | "." INT
 
-BOOL_LITERAL:   "true" | "false"
+BOOL_LITERAL.1:   "true" | "false"
 STRING_LITERAL: /\'.*\'/
 CHAR_LITERAL:   /`.`/
 EXP.1:          /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"
@@ -66,7 +88,8 @@ BIN.1:          /0b[01][01_]*/
 %ignore C_COMMENT
 
 
-// type expr = AnonFn
+// type expr = 
+//    AnonFn
 // 	| ArrayDecompose
 // 	| Array_init
 // 	| AsCast
@@ -122,7 +145,7 @@ BIN.1:          /0b[01][01_]*/
 // type _stmt = Asm_stmt
 // 	| Assert_stmt
 // 	                        | assign_stmt
-// 	| Block
+// 	                        | block
 // 	| Branch_stmt
 // 	| ComptimeFor
 // 	| Const_decl
@@ -130,7 +153,7 @@ BIN.1:          /0b[01][01_]*/
 // 	| Empty_stmt
 // 	| Enum_decl
 // 	| _expr_stmt
-// 	| Fn_decl
+// 	                        | fn_decl
 // 	| ForC_stmt
 // 	| ForIn_stmt
 // 	| For_stmt

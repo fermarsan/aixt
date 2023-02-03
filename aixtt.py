@@ -5,14 +5,15 @@
 # Copyright (c) 2023 Fernando Martínez Santa
 
 from lark import Lark
-from aixt_transformer import aixt_transformer
+from aixt_transformer import aixtTransformer
 import sys
 
 
 parser = Lark.open( 'aixt.lark', 
                     start='source_file', 
                     rel_to=__file__, 
-                    parser='lalr'   
+                    parser='lalr',
+                    lexer='basic'   
                     )
 
 if len(sys.argv) > 1:
@@ -26,5 +27,5 @@ if len(sys.argv) > 1:
         print(tree.pretty())
         print('_'*60 + '\n')
 
-        print(aixt_transformer().transform(tree))
+        print(aixtTransformer().transform(tree))
         print('_'*60 + '\n')
