@@ -53,28 +53,21 @@ class aixtTransformer(Transformer):
     def fn_decl(self, fd):
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
         s = ''
-        # attribute = 'inline' if fd[0] == '[inline]' else ''
+        attr = 'inline ' if fd[0] == '[inline]' else ''
         n = len(fd)
-        for i in range(n):
+        for i in range(1,n):
             s += fd[i] if fd[i] != 'fn' else ''
-            # print('fd:',s)
             if fd[i] == ')':
                 break
         s = self.typeStack.pop(0) + ' ' + s if fd[-2] != ')' else ''    # return value
         s += fd[-1] # "block"
         # print(s)
-        return s
+        return attr + s
 
     def fn_return(self, fr):
         self.typeStack.append(fr)
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
         return ''
-
-    # @v_args(inline=False)
-    # def attrib(self, a):
-    #     print(a)
-    #     self.attrib = a  # IDENT
-    #     return ''
 
     def decl_assign_stmt(self, ex1,op,ex2):
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
