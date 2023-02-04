@@ -2,7 +2,7 @@
 //
 // The MIT License (MIT)
 // 
-// Copyright (c) 2023 Fernando Martínez Santa
+// Copyright (c) 2022 Fernando Martínez Santa
 
 #ifndef _SLEEP_US_H_
 #define _SLEEP_US_H_
