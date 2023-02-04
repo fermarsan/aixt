@@ -15,11 +15,9 @@ class aixtTransformer(Transformer):
         self.outStream = ''      #output stream
         # self.exType = ''
         # self.lineno = 1
-
         self.identStack = []   #stacks
         self.typeStack = []
         self.exprStack = []
-    
         self.main = False
         # self.includes = ''
         # self.moduleDef = ''
@@ -57,7 +55,6 @@ class aixtTransformer(Transformer):
             # s += '// ' + self.moduleDef + '\n'  #module definition
             # s += self.includes + '\n'            #user defined headers files
             # s += self.topLevel + '\n'           #top level declarations      
-
             if not self.main:       #adds the main function structure if not exist
                 s += 'task' if self.setup['nxc'] else ''
                 s += self.setup['main_ret_type'] if self.setup['main_ret_type'] != 'none' else ''

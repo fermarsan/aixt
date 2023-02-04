@@ -34,13 +34,14 @@
 
 !ident_list:    IDENT ( "," IDENT )*
 
-!expr:  IDENT
+!expr:  IDENT "(" expr ")"     ->  call_expr
+    |   TYPE_NAME "(" expr ")"      ->  conversion
+    |   "(" expr ")"                //->  par_expr
+    |   UNARY_OP expr               //->  unary_expr
+    |   expr BINARY_OP expr         //->  binary_expr   
+    |   IDENT
     |   literal
-    |   "(" expr ")"            //->  par_expr
-    |   TYPE_NAME "(" expr ")"  ->  conversion
-    |   UNARY_OP expr           //->  unary_expr
-    |   expr BINARY_OP expr     //->  binary_expr   
-//
+
 !literal:   INTEGER_LITERAL     ->  integer_literal 
         |   FLOAT_LITERAL       ->  float_literal
         |   BOOL_LITERAL        ->  bool_literal
@@ -96,7 +97,7 @@ BIN.1:          /0b[01][01_]*/
 // 	| At_expr
 // 	                        | BOOL_LITERAL
 // 	| CTempVar
-// 	| Call_expr
+// 	                        | call_expr
 // 	| Cast_expr
 // 	| Chan_init
 // 	                        | CHAR_LITERAL
