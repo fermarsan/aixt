@@ -10,38 +10,74 @@ import yaml
 @v_args(inline=True)
 class aixtTransformer(Transformer):
     def __init__(self):
-        self.symbols = {}
-        self.error_s = ''       #error stream
-        self.output_s = ''      #output stream
-        self.exType = ''
-        self.lineno = 1
+        # self.symbols = {}
+        self.errStream = ''       #error stream
+        self.outStream = ''      #output stream
+        # self.exType = ''
+        # self.lineno = 1
 
         self.identStack = []   #stacks
         self.typeStack = []
-        # self.valueStack = []
         self.exprStack = []
-
-        self.attrib = ''
-        self.paramList = ''
-        self.fnReturn = ''
     
         self.main = False
-        self.includes = ''
-        self.moduleDef = ''
-        self.preprocessor = ''
-        self.topLevel = ''
+        # self.includes = ''
+        # self.moduleDef = ''
+        # self.preprocessor = ''
+        # self.topLevel = ''
         
         with open(r'./setup.yaml','r') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
             # for s in self.setup:
             #     print(s)
 
+    def saveOutput(self, name):
+
+        if not self.setup['nxc']:
+            with open('./settings.h','w') as outSettings:   #settings file creation
+                s = '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n'
+                for h in self.setup['headers']:             #append the header files
+                    s += '#include ' + h + '\n'
+                s += '\n'
+                for m in self.setup['macros']:              #append the macros
+                    s += '#define ' + m + '\n'
+                s += '\n'
+                for c in self.setup['configuration']:       #append the configuration lines
+                    s += self.setup['config_operator'] + ' ' + c + '\n'    
+                s += '\n#endif  //_SETTINGS_H_'
+                outSettings.write(s) 
+
+        with open(name,'w') as outText:
+            s = '//Generated '
+            s += 'NXC' if self.setup['nxc'] else 'C'
+            s += ' file for:\n//Device = ' + self.setup['device'] 
+            s += '\n//Board = ' + self.setup['board'] + '\n\n'
+            s += '#include "settings.h"\n\n' if not self.setup['nxc'] else ''
+            # s += self.preprocessor + '\n'        #user defined C preprocessor commands
+            # s += '// ' + self.moduleDef + '\n'  #module definition
+            # s += self.includes + '\n'            #user defined headers files
+            # s += self.topLevel + '\n'           #top level declarations      
+
+            if not self.main:       #adds the main function structure if not exist
+                s += 'task' if self.setup['nxc'] else ''
+                s += self.setup['main_ret_type'] if self.setup['main_ret_type'] != 'none' else ''
+                s += ' main('
+                s += self.setup['main_params'] if self.setup['main_params'] != 'none' else ''
+                s += ') {' 
+                for i in self.setup['initialization']:
+                    s += i + '\n' if i != '' else ''
+                s += ('\n' + self.outStream).replace('\n','\n\t')
+                s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
+            else:
+                s += self.outStream
+            outText.write(s)  
+
     @v_args(inline=False)
     def source_file(self, sf):
-        output = ''
+        self.outStream = ''
         for line in sf:
-            output += line
-        return output
+            self.outStream += line
+        return self.outStream
 
     def stmt(self, st):
         if st[-1] == '}':
@@ -52,17 +88,23 @@ class aixtTransformer(Transformer):
     @v_args(inline=False)
     def fn_decl(self, fd):
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
+        if 'main' in fd[1] + fd[2] + fd[3]:
+            self.main = True
         s = ''
-        attr = 'inline ' if fd[0] == '[inline]' else ''
         n = len(fd)
-        for i in range(1,n):
+        for i in range(1,n):    # avoids the attribute
             s += fd[i] if fd[i] != 'fn' else ''
             if fd[i] == ')':
                 break
-        s = self.typeStack.pop(0) + ' ' + s if fd[-2] != ')' else ''    # return value
+        s = self.typeStack.pop(0) + ' ' + s if fd[-2] != ')' else s    # return value
         s += fd[-1] # "block"
-        # print(s)
-        return attr + s
+        s = s[1:] if s[0] == '\n' else s    # removes the initial "\n"
+        if fd[0] == '[inline]':
+            return 'inline ' + s
+        elif fd[0] == '[task]':
+            return 'task ' + s
+        else:
+            return s
 
     def fn_return(self, fr):
         self.typeStack.append(fr)
@@ -88,7 +130,7 @@ class aixtTransformer(Transformer):
         s = ''
         n = len(self.identStack)
         for i in range(n):
-            s += self.identStack.pop(0) + ' = ' + self.exprStack.pop(0)
+            s += self.identStack.pop(0) + ' ' + op + ' ' + self.exprStack.pop(0)
             s += ';\t' if i <= n-2 else ''  # intermediate semicolons
         # self.typeStack.clear();     
         return s
@@ -177,4 +219,3 @@ class aixtTransformer(Transformer):
 
     def eos(self, eo):
         return '\n'   
-

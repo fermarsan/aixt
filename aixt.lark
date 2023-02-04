@@ -15,11 +15,9 @@
     |   block
     |   fn_decl
 
-!fn_decl: ATTRIB? "fn" IDENT "(" param_list? ")" fn_return? block
+!fn_decl: ATTRIB? NEWLINE? "fn" IDENT "(" param_list? ")" fn_return? block
 
 !fn_return: TYPE_NAME
-
-ATTRIB:    "[" IDENT "]" NEWLINE?
 
 !assign_stmt:   ident_list ":=" expr_list           -> decl_assign_stmt          
             |   ident_list ASSIGN_OP expr_list      -> simple_assign_stmt
@@ -52,6 +50,7 @@ ATTRIB:    "[" IDENT "]" NEWLINE?
 !eos:   ";" | NEWLINE                           // end of statement
 
 
+ATTRIB: "[" IDENT "]"
 
 TYPE_NAME.1:    "rune" | "bool" | "string" | NUMERIC_TYPE
 
