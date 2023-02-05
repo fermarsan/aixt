@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
       {
-        "label": "Transpile",
+        "label": "Aixt: Transpile",
         "type": "shell",
         "windows": {
             "command": "python ..\\..\\..\\aixtt.py ${file} -nxc",
@@ -17,13 +17,13 @@
         }
       },
       {
-        "label": "Compile",
+        "label": "Aixt: Compile & Download",
         "type": "shell",
         "windows": {
-            "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc",
+            "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
         },
         "linux": {
-            "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc",
+            "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
@@ -32,10 +32,10 @@
         }
       },
       {
-        "label": "Build",
+        "label": "Aixt: Build",
         "group": "build",
         "dependsOrder": "sequence",
-        "dependsOn": ["Transpile", "Compile"]
+        "dependsOn": ["aixt: Transpile", "aixt: Compile & download"]
       }
     ]
   }

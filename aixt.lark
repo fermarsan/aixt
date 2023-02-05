@@ -14,9 +14,10 @@
 !top_decl:  fn_decl
         |   const_decl
 
-!stmt:  expr            //->  expr_stmt
+!stmt:  expr                //->  expr_stmt
     |   block
     |   assign_stmt
+    |   "return" expr       //->  return_stmt
 
 !fn_decl: ATTRIB? NEWLINE? "fn" IDENT "(" param_list? ")" fn_return? block
 
@@ -42,7 +43,7 @@
 
 !ident_list:    IDENT ( "," IDENT )*
 
-!expr:  IDENT "(" expr ")"          ->  call_expr
+!expr:  IDENT "(" expr_list ")"     ->  call_expr
     |   TYPE_NAME "(" expr ")"      ->  conversion
     |   "(" expr ")"                //->  par_expr
     |   UNARY_OP expr               //->  unary_expr
@@ -173,7 +174,7 @@ BIN.1:          /0b[01][01_]*/
 // 	| Interface_decl
 // 	| Module
 // 	| NodeError
-// 	| Return
+// 	                        | return
 // 	| Sql_stmt
 // 	| Struct_decl
 // 	| _type_decl

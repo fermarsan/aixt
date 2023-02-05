@@ -79,15 +79,23 @@ class aixtTransformer(Transformer):
         return self.outStream
 
     def top_decl(self, td):
-        self.topDecl += td + ';'
+        self.topDecl += td 
+        self.topDecl += ';\n\n' if self.topDecl[-1] != '}' else ''
         return ''
 
+    @v_args(inline=False)
     def stmt(self, st):
-        if st[-1] == '}':
-            return st
+        s = ''
+        for e in st:
+            s += e + ' '
+        if s[-1] == '}':
+            return s[:-1]
         else:
-            return st + ';'
+            return s[:-1] + ';'
     
+    # def return_stmt(self, rs):
+    #     return 
+
     @v_args(inline=False)
     def fn_decl(self, fd):
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
@@ -110,7 +118,7 @@ class aixtTransformer(Transformer):
             return s
 
     def fn_return(self, fr):
-        self.typeStack.append(fr)
+        self.typeStack.append(self.setup[fr])
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
         return ''
 
@@ -206,10 +214,10 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def call_expr(self, ce):
-        s = ''
-        for c in ce:
-            s += c
-        return s
+        s = ce[0] + "("  #IDENT
+        for i in range(len(self.exprStack)):
+            s += self.exprStack.pop(0) + ", "
+        return s[:-2] + ")"
 
     def conversion(self, tn,lp,ex,rp):
         self.typeStack[-1] = self.setup[tn]

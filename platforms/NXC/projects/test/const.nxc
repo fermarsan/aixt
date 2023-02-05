@@ -7,11 +7,11 @@ const int t_OFF = 500;
 
 task main() {
 
-	OnFwd(OUT_AB);
+	OnFwd(OUT_AB, 70);
 	Wait(t_ON);
 	Off(OUT_AB);
 	Wait(t_OFF);
-	OnFwd(OUT_AB);
+	OnFwd(OUT_AB, 70);
 	Wait(t_ON);
 	Off(OUT_AB);
 	
