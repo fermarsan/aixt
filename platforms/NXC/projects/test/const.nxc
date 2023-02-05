@@ -2,17 +2,17 @@
 //Device = Atmel AT91SAM7S256
 //Board = LEGO Mindstorms NXT intelligent brick
 
-const int t_on = 1000;
-const int t_Off = 500;
+const int t_ON = 1000;
+const int t_OFF = 500;
 
 task main() {
 
 	OnFwd(OUT_AB);
-	Wait(t_on);
+	Wait(t_ON);
 	Off(OUT_AB);
-	Wait(t_Off);
+	Wait(t_OFF);
 	OnFwd(OUT_AB);
-	Wait(t_on);
+	Wait(t_ON);
 	Off(OUT_AB);
 	
 }

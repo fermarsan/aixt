@@ -2,15 +2,13 @@
     "version": "2.0.0",
     "tasks": [
       {
-        "label": "Aixt to C",
+        "label": "Transpile",
         "type": "shell",
         "windows": {
-          "command": "python3 ..\\..\\..\\aixtt.py ${file}",
-          "args": []
+            "command": "python3 ..\\..\\..\\aixtt.py ${file} -nxc",
         },
         "linux": {
-          "command": "python3 ../../../aixtt.py ${file}",
-          "args": []
+          "command": "python3 ../../../aixtt.py ${file} -nxc",
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
@@ -19,21 +17,25 @@
         }
       },
       {
-        "label": "Aixt to NXC",
+        "label": "Compile",
         "type": "shell",
         "windows": {
-            "command": "python3 ..\\..\\..\\aixtt.py ${file} -nxc",
-            "args": []
+            "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc",
         },
         "linux": {
-          "command": "python3 ../../../aixtt.py ${file} -nxc",
-          "args": []
+          "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc",
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
         "presentation": {
           "showReuseMessage": false
         }
+      },
+      {
+        "label": "Build",
+        "group": "build",
+        "dependsOrder": "sequence",
+        "dependsOn": ["Transpile", "Compile"]
       }
     ]
   }
