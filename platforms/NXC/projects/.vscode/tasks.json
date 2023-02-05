@@ -8,7 +8,7 @@
             "command": "python3 ..\\..\\..\\aixtt.py ${file} -nxc",
         },
         "linux": {
-          "command": "python3 ../../../aixtt.py ${file} -nxc",
+            "command": "python3 ../../../aixtt.py ${file} -nxc",
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
@@ -23,7 +23,7 @@
             "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc",
         },
         "linux": {
-          "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc",
+            "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc",
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
