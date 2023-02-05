@@ -1,0 +1,19 @@
+//Generated NXC file for:
+//Device = Atmel AT91SAM7S256
+//Board = LEGO Mindstorms NXT intelligent brick
+
+task main() {
+	const t_on=1000;
+	const t_Off=500;
+	
+	
+	
+	OnFwd(out_ab);
+	Wait(t_on);
+	Off(out_ab);
+	Wait(t_Off);
+	OnFwd(out_ab);
+	Wait(t_on);
+	Off(out_ab);
+	
+}

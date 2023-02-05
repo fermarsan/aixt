@@ -4,16 +4,18 @@
 // 
 // Copyright (c) 2023 Fernando Martínez Santa
 //
-// Based on the V grammar taken from several sources:
+// Based on the V grammar taken from these sources (ordered by importance):
 //     Abstract Syntax Tree V's documentation:  https://modules.vlang.io/v.ast.html
-//     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
 //     V grammar definition in Antlr-v4:        https://github.com/antlr/grammars-v4/blob/master/v/V.g4
+//     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
 
 !source_file: eos* (stmt (eos+ stmt)*) eos*
     
-!stmt:  assign_stmt
+!stmt:  expr            //->  expr_stmt
     |   block
+    |   assign_stmt
     |   fn_decl
+    |   const_decl
 
 !fn_decl: ATTRIB? NEWLINE? "fn" IDENT "(" param_list? ")" fn_return? block
 
@@ -22,11 +24,16 @@
 !assign_stmt:   ident_list ":=" expr_list           -> decl_assign_stmt          
             |   ident_list ASSIGN_OP expr_list      -> simple_assign_stmt
 
-!block: "{" eos? stmt_list "}"
+!const_decl:    "const" "(" NEWLINE* const_spec ( eos const_spec )* NEWLINE* ")"
+            |   "const" const_spec
+   
+!const_spec:    IDENT "=" expr
+
+!block: "{" NEWLINE* stmt_list "}"
 
 !param_list:    (param)? ( "," param )*
 
-!param: expr TYPE_NAME
+!param: expr TYPE_NAME  
 
 !stmt_list:     ( stmt eos )*
 
@@ -34,7 +41,7 @@
 
 !ident_list:    IDENT ( "," IDENT )*
 
-!expr:  IDENT "(" expr ")"     ->  call_expr
+!expr:  IDENT "(" expr ")"          ->  call_expr
     |   TYPE_NAME "(" expr ")"      ->  conversion
     |   "(" expr ")"                //->  par_expr
     |   UNARY_OP expr               //->  unary_expr
@@ -148,11 +155,11 @@ BIN.1:          /0b[01][01_]*/
 // 	                        | block
 // 	| Branch_stmt
 // 	| ComptimeFor
-// 	| Const_decl
+// 	                        | const_decl
 // 	| Defer_stmt
 // 	| Empty_stmt
 // 	| Enum_decl
-// 	| _expr_stmt
+// 	                        | expr_stmt
 // 	                        | fn_decl
 // 	| ForC_stmt
 // 	| ForIn_stmt

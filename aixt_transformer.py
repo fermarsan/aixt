@@ -133,6 +133,22 @@ class aixtTransformer(Transformer):
         return s
 
     @v_args(inline=False)
+    def const_decl(self, cd):
+        s = ''
+        for c in cd:
+            if c != 'const' and c != '(' and c != '\n' and c != ';' and c != ')':
+                s += 'const ' + c + ';'
+                s += '\n' if cd[-1] == ')' else ''
+        return s[:-2]
+
+    @v_args(inline=False)
+    def const_spec(self, cs):
+        s = ''
+        for c in cs:
+            s += c
+        return s
+
+    @v_args(inline=False)
     def block(self, bl):
         s = ''
         for b in bl:
@@ -184,6 +200,13 @@ class aixtTransformer(Transformer):
         s = ''
         for e in ex:
             s += e
+        return s
+
+    @v_args(inline=False)
+    def call_expr(self, ce):
+        s = ''
+        for c in ce:
+            s += c
         return s
 
     def conversion(self, tn,lp,ex,rp):
