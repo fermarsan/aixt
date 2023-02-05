@@ -6,6 +6,7 @@
 
 from lark import Transformer, v_args
 import yaml
+import re
 
 @v_args(inline=True)
 class aixtTransformer(Transformer):
@@ -22,7 +23,7 @@ class aixtTransformer(Transformer):
         # self.includes = ''
         # self.moduleDef = ''
         # self.preprocessor = ''
-        # self.topLevel = ''
+        self.topDecl = ''
         
         with open(r'./setup.yaml','r') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
@@ -54,7 +55,7 @@ class aixtTransformer(Transformer):
             # s += self.preprocessor + '\n'        #user defined C preprocessor commands
             # s += '// ' + self.moduleDef + '\n'  #module definition
             # s += self.includes + '\n'            #user defined headers files
-            # s += self.topLevel + '\n'           #top level declarations      
+            s += self.topDecl + '\n\n'           #top level declarations      
             if not self.main:       #adds the main function structure if not exist
                 s += 'task' if self.setup['nxc'] else ''
                 s += self.setup['main_ret_type'] if self.setup['main_ret_type'] != 'none' else ''
@@ -67,6 +68,7 @@ class aixtTransformer(Transformer):
                 s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
             else:
                 s += self.outStream
+            s = re.sub("(\t)*\n(\t)*\n((\t)*\n)+","\n\n",s) # removes sequences of more than 3 '\n'
             outText.write(s)  
 
     @v_args(inline=False)
@@ -75,6 +77,10 @@ class aixtTransformer(Transformer):
         for line in sf:
             self.outStream += line
         return self.outStream
+
+    def top_decl(self, td):
+        self.topDecl += td + ';'
+        return ''
 
     def stmt(self, st):
         if st[-1] == '}':
@@ -137,16 +143,12 @@ class aixtTransformer(Transformer):
         s = ''
         for c in cd:
             if c != 'const' and c != '(' and c != '\n' and c != ';' and c != ')':
-                s += 'const ' + c + ';'
+                s += 'const ' + self.typeStack.pop(0) + ' ' + c + ';'
                 s += '\n' if cd[-1] == ')' else ''
         return s[:-2]
 
-    @v_args(inline=False)
-    def const_spec(self, cs):
-        s = ''
-        for c in cs:
-            s += c
-        return s
+    def const_spec(self, id,eq,ex):
+        return id + ' = ' + ex 
 
     @v_args(inline=False)
     def block(self, bl):

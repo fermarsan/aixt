@@ -9,13 +9,14 @@
 //     V grammar definition in Antlr-v4:        https://github.com/antlr/grammars-v4/blob/master/v/V.g4
 //     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
 
-!source_file: eos* (stmt (eos+ stmt)*) eos*
-    
+!source_file: eos* (top_decl (eos+ top_decl)*) eos* (stmt (eos+ stmt)*) eos*
+
+!top_decl:  fn_decl
+        |   const_decl
+
 !stmt:  expr            //->  expr_stmt
     |   block
     |   assign_stmt
-    |   fn_decl
-    |   const_decl
 
 !fn_decl: ATTRIB? NEWLINE? "fn" IDENT "(" param_list? ")" fn_return? block
 
