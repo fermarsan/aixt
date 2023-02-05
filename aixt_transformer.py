@@ -25,7 +25,7 @@ class aixtTransformer(Transformer):
         # self.preprocessor = ''
         self.topDecl = ''
         
-        with open(r'./setup.yaml','r') as setup_file:
+        with open(r'../setup.yaml','r') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
             # for s in self.setup:
             #     print(s)
@@ -33,7 +33,7 @@ class aixtTransformer(Transformer):
     def saveOutput(self, name):
 
         if not self.setup['nxc']:
-            with open('./settings.h','w') as outSettings:   #settings file creation
+            with open('../settings.h','w') as outSettings:   #settings file creation
                 s = '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n'
                 for h in self.setup['headers']:             #append the header files
                     s += '#include ' + h + '\n'

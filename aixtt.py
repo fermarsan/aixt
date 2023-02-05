@@ -25,7 +25,7 @@ if len(sys.argv) > 1:
         program = inFile.read()
     if len(sys.argv) > 2:
         if sys.argv[2] == '-nxc':                       #if -nxt flag
-            with open(r'api/equivalents.yaml','r') as eq_file:
+            with open(r'../api/equivalents.yaml','r') as eq_file:
                 equivalents = yaml.load(eq_file, Loader=yaml.FullLoader)
                 for k in equivalents.keys():
                     # print(type(k))

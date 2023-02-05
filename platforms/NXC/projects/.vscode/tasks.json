@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Aixt to C",
+        "type": "shell",
+        "windows": {
+          "command": "python3 ..\\..\\..\\aixtt.py ${file}",
+          "args": []
+        },
+        "linux": {
+          "command": "python3 ../../../aixtt.py ${file}",
+          "args": []
+        },
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }
+      },
+      {
+        "label": "Aixt to NXC",
+        "type": "shell",
+        "windows": {
+            "command": "python3 ..\\..\\..\\aixtt.py ${file} -nxc",
+            "args": []
+        },
+        "linux": {
+          "command": "python3 ../../../aixtt.py ${file} -nxc",
+          "args": []
+        },
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }
+      }
+    ]
+  }
