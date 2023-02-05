@@ -5,10 +5,10 @@
         "label": "Transpile",
         "type": "shell",
         "windows": {
-            "command": "python3 ..\\..\\..\\aixtt.py ${file} -nxc",
+            "command": "python ..\\..\\..\\aixtt.py ${file} -nxc",
         },
         "linux": {
-            "command": "python3 ../../../aixtt.py ${file} -nxc",
+            "command": "python3 ../../../aixtt.py ${file} -nxc", // change "python3" to "python" if necessary
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
