@@ -5,15 +5,15 @@
 const int t1 = 1000;
 const int t2 = 2000;
 
-int add(int x, int y){
-	int a = 10;
-	return x+y;
+inline int add(int x, int y){
+int a = 10;
+return x+y;
 }
 
 task main() {
 
-	OnFwd(OUT_AB, 50);
-	Wait(add(t1, t2));
-	Off(OUT_AB);
-	
+OnFwd(OUT_AB, 50);
+Wait(add(t1, t2));
+Off(OUT_AB);
+
 }

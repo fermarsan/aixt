@@ -17,16 +17,14 @@ class aixtTransformer(Transformer):
         # self.exType = ''
         # self.lineno = 1
         self.identStack = []   #stacks
-        self.typeStack  = []
-        self.exprStack  = []
-        self.stmtStack  = []
-        self.constStack = []
-        self.topDecl    = []
+        self.typeStack = []
+        self.exprStack = []
+        self.stmtStack = []
         self.main = False
         # self.includes = ''
         # self.moduleDef = ''
         # self.preprocessor = ''
-        
+        self.topDecl = ''
         
         with open(r'../setup.yaml','r') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
@@ -58,9 +56,7 @@ class aixtTransformer(Transformer):
             # s += self.preprocessor + '\n'        #user defined C preprocessor commands
             # s += '// ' + self.moduleDef + '\n'  #module definition
             # s += self.includes + '\n'            #user defined headers files
-            
-            s += ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''    #top level declarations      
-            s += '\n'
+            s += self.topDecl + '\n\n'           #top level declarations      
             if not self.main:       #adds the main function structure if not exist
                 s += 'task' if self.setup['nxc'] else ''
                 s += self.setup['main_ret_type'] if self.setup['main_ret_type'] != 'none' else ''
@@ -69,28 +65,39 @@ class aixtTransformer(Transformer):
                 s += ') {' 
                 for i in self.setup['initialization']:
                     s += i + '\n' if i != '' else ''
-                s += '\n\n'
-                s += ';\n'.join(self.stmtStack) + ';\n' if len(self.stmtStack) != 0 else ''
+                s += ('\n' + self.outStream).replace('\n','\n\t')
                 s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
             else:
-                s += ';\n'.join(self.stmtStack) + ';' if len(self.stmtStack) != 0 else ''
-            s = re.sub(";\n;",";\n",s)  #removes unnecessary semicolons
-            s = re.sub("};","}",s)
+                s += self.outStream
+            s = re.sub("(\t)*\n(\t)*\n((\t)*\n)+","\n\n",s) # removes sequences of more than 3 '\n'
             outText.write(s)  
 
     @v_args(inline=False)
     def source_file(self, sf):
-        s = ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''
-        s += ';\n'.join(self.stmtStack) + ';' if len(self.stmtStack) != 0 else ''
-        return s
-
-    @v_args(inline=False)
-    def top_decl_list(self, tdl):
-        return ''
+        # self.outStream = ''
+        # for line in sf:
+        #     self.outStream += line
+        # return self.outStream
+        self.outStream = ''
+        for i in range(len(self.stmtStack)):
+            self.outStream += self.stmtStack.pop(0)
+        return self.outStream
 
     def top_decl(self, td):
-        self.topDecl.append(td) 
+        self.topDecl += td 
+        self.topDecl += ';\n\n' if self.topDecl[-1] != '}' else ''
         return ''
+
+    @v_args(inline=False)
+    def stmt(self, st):
+        # print(st)
+        s = st[0]
+        for i in range(1,len(st)):
+            s += ' ' + st[i]
+        return ''
+    
+    # def return_stmt(self, rs):
+    #     return return s
 
     @v_args(inline=False)
     def fn_decl(self, fd):
@@ -118,36 +125,8 @@ class aixtTransformer(Transformer):
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
         return ''
 
-    @v_args(inline=False)
-    def const_decl(self, cd):
-        s = 'const {} {};\n'.format( self.typeStack.pop(0),
-                                     self.constStack.pop(0))
-        for i in range(len(self.constStack)):
-            s += 'const {} {};\n'.format( self.typeStack.pop(0),
-                                       self.constStack.pop(0))
-        return s
-
-    def const_item(self, idf,eq,ex):
-        self.constStack.append(idf + ' = ' + ex) 
-        return ''
-
-    @v_args(inline=False)
-    def stmt_list(self, sl):
-        for t in sl:
-            if t != ';':
-                self.stmtStack.append(t)
-        return ''
-
-    @v_args(inline=False)
-    def stmt(self, st):
-        # print(st)
-        s = st[0]
-        for i in range(1,len(st)):
-            s += ' ' + st[i]
-        return s
-
     def decl_assign_stmt(self, ex1,op,ex2):
-        # print(self.typeStack);print(self.identStack);print(self.exprStack)
+        print(self.typeStack);print(self.identStack);print(self.exprStack)
         s = ''
         n = len(self.exprStack)
         for i in range(n):
@@ -156,9 +135,9 @@ class aixtTransformer(Transformer):
             else: 
                 s += self.typeStack[0] + ' ' + self.identStack.pop(0) + ' = ' 
             s += self.exprStack.pop(0)#self.valueStack.pop(0)
-            # s += ';\t' if i <= n-2 else ''  # intermediate semicolons
+            s += ';\t' if i <= n-2 else ''  # intermediate semicolons
             self.typeStack.pop(0)
-        # print(s)
+        print(s)
         return s
 
     def simple_assign_stmt(self, ex1,op,ex2):
@@ -167,23 +146,29 @@ class aixtTransformer(Transformer):
         n = len(self.identStack)
         for i in range(n):
             s += self.identStack.pop(0) + ' ' + op + ' ' + self.exprStack.pop(0)
-            # s += ';\t' if i <= n-2 else ''  # intermediate semicolons
+            s += ';\t' if i <= n-2 else ''  # intermediate semicolons
         # self.typeStack.clear();     
         return s
 
     @v_args(inline=False)
-    def ident_list(self, il):
-        for i in il:
-            if i != ',':
-                self.identStack.append(i)
-        # print('ident_list: ', self.identStack)
-        return ''
+    def const_decl(self, cd):
+        s = ''
+        for c in cd:
+            if c != 'const' and c != '(' and c != '\n' and c != ';' and c != ')':
+                s += 'const ' + self.typeStack.pop(0) + ' ' + c + ';'
+                s += '\n' if cd[-1] == ')' else ''
+        return s[:-2]
 
-    def block(self, lb,bl,rb):
-        s = '{\n'
-        s += ';\n'.join(self.stmtStack) + ';'
-        self.stmtStack.clear()
-        return s + '\n}'
+    def const_item(self, id,eq,ex):
+        return id + ' = ' + ex 
+
+    @v_args(inline=False)
+    def block(self, bl):
+        s = ''
+        for b in bl:
+            s += b
+        s = s.replace('\n',';\n\t')
+        return s.replace('\t}','}')
 
     @v_args(inline=False)
     def param_list(self, pl):
@@ -202,11 +187,26 @@ class aixtTransformer(Transformer):
         return ''
 
     @v_args(inline=False)
+    def stmt_list(self, sl):
+        for t in sl:
+            if t != ',':
+                self.stmtStack.append(t)
+        return ''
+
+    @v_args(inline=False)
     def expr_list(self, el):
         for e in el:
-            if e != ',':    
+            if e != ',':
                 self.exprStack.append(e)
         # print('expr_list: ', self.exprStack)
+        return ''
+
+    @v_args(inline=False)
+    def ident_list(self, il):
+        for i in il:
+            if i != ',':
+                self.identStack.append(i)
+        # print('ident_list: ', self.identStack)
         return ''
 
     @v_args(inline=False)
@@ -214,6 +214,15 @@ class aixtTransformer(Transformer):
         s = ''
         for e in ex:
             s += e
+        return s
+
+    @v_args(inline=False)
+    def if_expr(self, ie):
+        s = 'if({}){}'.format(ie[1], ie[2]) # "if" + expr + block
+        n = len(ie)
+        if n > 3:
+            for i in range(3,n):
+                s += i
         return s
 
     @v_args(inline=False)
@@ -226,15 +235,6 @@ class aixtTransformer(Transformer):
     def conversion(self, tn,lp,ex,rp):
         self.typeStack[-1] = self.setup[tn]
         return ex
-
-    @v_args(inline=False)
-    def if_expr(self, ie):
-        s = 'if({}){}'.format(ie[1], ie[2]) # "if" + expr + block
-        n = len(ie)
-        if n > 3:
-            for i in range(3,n):
-                s += 'else ' if ie[i] == 'else' else ie[i]
-        return s
 
     def string_literal(self, sl):
         s = sl.replace("'",'"') #changes the quotation marks
@@ -258,4 +258,7 @@ class aixtTransformer(Transformer):
     def integer_literal(self, il):
         s = il.replace('_', '') # removes"_"
         self.typeStack.append(self.setup['default_int'])
-        return s 
+        return s
+
+    def eos(self, eo):
+        return '\n'   

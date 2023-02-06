@@ -9,49 +9,42 @@
 //     V grammar definition in Antlr-v4:        https://github.com/antlr/grammars-v4/blob/master/v/V.g4
 //     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
 
+// !source_file: NEWL? (top_decl_list eos)? (stmt_list eos)?
+!source_file: eos* [stmt_list] eos*
 
-!source_file: top_decl_list? stmt_list?
-
-
-!top_decl_list: top_decl (";"? top_decl)*
+!top_decl_list: top_decl (eos top_decl)*
 
 !top_decl:  fn_decl
         |   const_decl
-
-
-!fn_decl: ATTRIB? "fn" IDENT "(" param_list? ")" fn_return? block
-
-!fn_return: TYPE_NAME
-
-
-!const_decl:    "const" "(" const_item const_item* ")"
-            |   "const" const_item
-
-!const_item:    IDENT "=" expr
-
-
-!stmt_list:     (stmt (";"? stmt)*) ";"?
 
 !stmt:  expr                //->  expr_stmt
     |   block
     |   assign_stmt
     |   "return" expr       //->  return_stmt
 
+!fn_decl: ATTRIB? "fn" IDENT "(" param_list? ")" fn_return? block
+
+!fn_return: TYPE_NAME
 
 !assign_stmt:   ident_list ":=" expr_list           -> decl_assign_stmt          
             |   ident_list ASSIGN_OP expr_list      -> simple_assign_stmt
 
-!ident_list:    IDENT ( "," IDENT )*
+!const_decl:    "const" "(" NEWL? const_spec ( NEWL const_spec )* NEWL? ")"
+            |   "const" const_spec
+   
+!const_spec:    IDENT "=" expr
 
-
-!block: "{" stmt_list "}"
+!block: "{" NEWL? stmt_list NEWL? "}"
 
 !param_list:    param ( "," param )*
 
 !param:         expr TYPE_NAME 
-    
 
+!stmt_list:     (stmt (eos+ stmt)*) //stmt ( eos stmt )*
+    
 !expr_list:     expr ( "," expr )*
+
+!ident_list:    IDENT ( "," IDENT )*
 
 !expr:  IDENT "(" expr_list ")"     ->  call_expr
     |   TYPE_NAME "(" expr ")"      ->  conversion
@@ -62,15 +55,15 @@
     |   IDENT
     |   literal
 
-
 !if_expr:   "if" expr block ("else" (block | if_expr))?
-
 
 !literal:   INTEGER_LITERAL     ->  integer_literal 
         |   FLOAT_LITERAL       ->  float_literal
         |   BOOL_LITERAL        ->  bool_literal
         |   CHAR_LITERAL        ->  char_literal 
-        |   STRING_LITERAL      ->  string_literal    
+        |   STRING_LITERAL      ->  string_literal     
+
+!eos:   ";" | NEWL                           // end of statement
 
 
 ATTRIB: "[" IDENT "]"
@@ -103,12 +96,13 @@ BIN.1:          /0b[01][01_]*/
 
 
 %import common.CNAME    ->  IDENT
-%import common (CPP_COMMENT, C_COMMENT, WS_INLINE, NEWLINE)
+%import common.NEWLINE  ->  NEWL
+%import common (CPP_COMMENT, C_COMMENT, WS_INLINE)
 
 %ignore WS_INLINE 
 %ignore CPP_COMMENT
 %ignore C_COMMENT
-%ignore NEWLINE
+
 
 // type expr = 
 //    AnonFn
@@ -143,7 +137,9 @@ BIN.1:          /0b[01][01_]*/
 // 	| Likely
 // 	| Lock_expr
 // 	| Map_init
-// 	| Match_expr_expr
+// 	| Match_expr
+// 	| Nil
+// 	| NodeError
 // 	| None
 // 	| OffsetOf
 // 	| Or_expr
