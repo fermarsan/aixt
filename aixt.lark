@@ -36,9 +36,12 @@
     |   block
     |   assign_stmt
     |   "return" expr                                       ->  return_stmt                                       
-    |   "for" block                                         ->  bare_for_stmt
-    |   "for" expr block                                    ->  cond_for_stmt
-    |   "for" assign_stmt ";" expr ";" assign_stmt block    ->  c_for_stmt
+    |   "for" block                                         ->  for_bare_stmt
+    |   "for" expr block                                    ->  for_cond_stmt
+    |   "for" assign_stmt ";" expr ";" assign_stmt block    ->  for_c_stmt
+    // |   "for" IDENT "in" range block
+
+// !range:
 
 
 
@@ -153,7 +156,7 @@ BIN.1:          /0b[01][01_]*/
 // 	                        | par_expr
 // 	| Postfix_expr
 // 	| Prefix_expr
-// 	| Range_expr
+// 	                        | range_expr
 // 	| Select_expr
 // 	| Selector_expr
 // 	| SizeOf
@@ -178,7 +181,7 @@ BIN.1:          /0b[01][01_]*/
 // 	                        | expr_stmt
 // 	                        | fn_decl
 // 	                        | for_c_stmt
-// 	| for_in_stmt
+// 	                        | for_in_stmt
 // 	                        | for_stmt
 // 	| Global_decl
 // 	| GotoLabel
