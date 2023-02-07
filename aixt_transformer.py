@@ -175,7 +175,7 @@ class aixtTransformer(Transformer):
         return 'while(true)' + bl
 
     def for_c_stmt(self, fk,as1,sc1,ex,sc2,as2,bl):
-        return 'for({};{};{}){}'.format(as1,ex,as2,bl)
+        return 'for({}; {}; {}){}'.format(as1,ex,as2,bl)
            
     @v_args(inline=False)
     def ident_list(self, il):

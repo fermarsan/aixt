@@ -35,7 +35,8 @@
 !stmt:  expr                                                //->  expr_stmt
     |   block
     |   assign_stmt
-    |   "return" expr                                       ->  for_stmt
+    |   "return" expr                                       ->  return_stmt                                       
+    |   "for" block                                         ->  for_stmt
     |   "for" assign_stmt ";" expr ";" assign_stmt block    ->  for_c_stmt
 
 
@@ -175,7 +176,7 @@ BIN.1:          /0b[01][01_]*/
 // 	                        | expr_stmt
 // 	                        | fn_decl
 // 	                        | for_c_stmt
-// 	                        | for_in_stmt
+// 	| for_in_stmt
 // 	                        | for_stmt
 // 	| Global_decl
 // 	| GotoLabel
@@ -185,7 +186,7 @@ BIN.1:          /0b[01][01_]*/
 // 	| Interface_decl
 // 	| Module
 // 	| NodeError
-// 	                        | return
+// 	                        | return_stmt
 // 	| Sql_stmt
 // 	| Struct_decl
 // 	| _type_decl
