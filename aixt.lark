@@ -32,11 +32,11 @@
 
 !stmt_list:     (stmt (";"? stmt)*) ";"?
 
-!stmt:  expr                //->  expr_stmt
+!stmt:  expr                                                //->  expr_stmt
     |   block
     |   assign_stmt
-    |   "return" expr       //->  return_stmt
-    |   "for" block         ->  for_stmt
+    |   "return" expr                                       ->  for_stmt
+    |   "for" assign_stmt ";" expr ";" assign_stmt block    ->  for_c_stmt
 
 
 !assign_stmt:   ident_list ":=" expr_list           -> decl_assign_stmt          
