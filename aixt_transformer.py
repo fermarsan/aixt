@@ -171,10 +171,13 @@ class aixtTransformer(Transformer):
         # self.typeStack.clear();     
         return s
 
-    def for_stmt(self, fk,bl):
+    def bare_for_stmt(self, fk,bl):
         return 'while(true)' + bl
 
-    def for_c_stmt(self, fk,as1,sc1,ex,sc2,as2,bl):
+    def cond_for_stmt(self, fk,ex,bl):
+        return 'while({}) {}'.format(ex,bl)
+
+    def c_for_stmt(self, fk,as1,sc1,ex,sc2,as2,bl):
         return 'for({}; {}; {}){}'.format(as1,ex,as2,bl)
            
     @v_args(inline=False)

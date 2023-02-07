@@ -36,8 +36,10 @@
     |   block
     |   assign_stmt
     |   "return" expr                                       ->  return_stmt                                       
-    |   "for" block                                         ->  for_stmt
-    |   "for" assign_stmt ";" expr ";" assign_stmt block    ->  for_c_stmt
+    |   "for" block                                         ->  bare_for_stmt
+    |   "for" expr block                                    ->  cond_for_stmt
+    |   "for" assign_stmt ";" expr ";" assign_stmt block    ->  c_for_stmt
+
 
 
 !assign_stmt:   ident_list ":=" expr_list           -> decl_assign_stmt          

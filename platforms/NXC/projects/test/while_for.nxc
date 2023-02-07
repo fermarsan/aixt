@@ -5,9 +5,11 @@
 
 task main() {
 
-int x = 0;
-for(int i = 0; i<10; i += 1){
-x += i;
+int a = 10;
+int b = 23;
+while(a>0) {
+b += a;
+a -= 1;
 }
 
 }
