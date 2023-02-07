@@ -59,14 +59,14 @@
 
 !expr_list:     expr ( "," expr )*
 
-!expr:  IDENT "(" expr_list ")"     ->  call_expr
-    |   TYPE_NAME "(" expr ")"      ->  conversion
-    |   "(" expr ")"                //->  par_expr
+!expr:  IDENT
+    |   literal
     |   UNARY_OP expr               //->  unary_expr
     |   expr BINARY_OP expr         //->  binary_expr
+    |   "(" expr ")"                //->  par_expr
+    |   IDENT "(" expr_list ")"     ->  call_expr
+    |   TYPE_NAME "(" expr ")"      ->  conversion
     |   if_expr   
-    |   IDENT
-    |   literal
 
 
 !if_expr:   "if" expr block ("else" (block | if_expr))?
@@ -182,7 +182,7 @@ BIN.1:          /0b[01][01_]*/
 // 	                        | fn_decl
 // 	                        | for_c_stmt
 // 	                        | for_in_stmt
-// 	                        | for_stmt
+// 	                        | for_stmt (for_bare_stmt, for_cond_stmt)
 // 	| Global_decl
 // 	| GotoLabel
 // 	| Goto_stmt
