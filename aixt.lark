@@ -39,10 +39,7 @@
     |   "for" block                                         ->  for_bare_stmt
     |   "for" expr block                                    ->  for_cond_stmt
     |   "for" assign_stmt ";" expr ";" assign_stmt block    ->  for_c_stmt
-    // |   "for" IDENT "in" range block
-
-// !range:
-
+    |   "for" IDENT "in" range_expr block                   ->  for_in_stmt
 
 
 !assign_stmt:   ident_list ":=" expr_list           -> decl_assign_stmt          
@@ -66,8 +63,10 @@
     |   "(" expr ")"                //->  par_expr
     |   IDENT "(" expr_list ")"     ->  call_expr
     |   TYPE_NAME "(" expr ")"      ->  conversion
+    |   range_expr
     |   if_expr   
 
+!range_expr:    expr ".." expr
 
 !if_expr:   "if" expr block ("else" (block | if_expr))?
 

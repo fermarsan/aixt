@@ -26,6 +26,8 @@ class aixtTransformer(Transformer):
         # self.includes = ''
         # self.moduleDef = ''
         # self.preprocessor = ''
+        self.rangeStart = 0
+        self.rangeEnd = 0
         
         
         with open(r'../setup.yaml','r') as setup_file:
@@ -179,6 +181,11 @@ class aixtTransformer(Transformer):
 
     def for_c_stmt(self, fk,as1,sc1,ex,sc2,as2,bl):
         return 'for({}; {}; {}){}'.format(as1,ex,as2,bl)
+
+    def for_in_stmt(self, fk,idf,ik,re,bl):
+        return 'for(int {}={}; {}<{}; {}++){}'.format( idf, self.rangeStart, 
+                                                       idf, self.rangeEnd, 
+                                                       idf, bl )
            
     @v_args(inline=False)
     def ident_list(self, il):
@@ -235,6 +242,11 @@ class aixtTransformer(Transformer):
     def conversion(self, tn,lp,ex,rp):
         self.typeStack[-1] = self.setup[tn]
         return ex
+
+    def range_expr(self, ex1,dts,ex2):
+        self.rangeStart = ex1
+        self.rangeEnd = ex2
+        return ''
 
     @v_args(inline=False)
     def if_expr(self, ie):
