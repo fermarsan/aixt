@@ -171,6 +171,10 @@ class aixtTransformer(Transformer):
         # self.typeStack.clear();     
         return s
 
+    def for_stmt(self, fk,bl):
+        s = 'while(true)' + bl
+        return s
+        
     @v_args(inline=False)
     def ident_list(self, il):
         for i in il:

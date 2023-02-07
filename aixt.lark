@@ -36,15 +36,15 @@
     |   block
     |   assign_stmt
     |   "return" expr       //->  return_stmt
+    |   "for" block         ->  for_stmt
 
 
 !assign_stmt:   ident_list ":=" expr_list           -> decl_assign_stmt          
             |   ident_list ASSIGN_OP expr_list      -> simple_assign_stmt
 
-!ident_list:    IDENT ( "," IDENT )*
-
-
 !block: "{" stmt_list "}"
+
+!ident_list:    IDENT ( "," IDENT )*
 
 !param_list:    param ( "," param )*
 
@@ -174,9 +174,9 @@ BIN.1:          /0b[01][01_]*/
 // 	| Enum_decl
 // 	                        | expr_stmt
 // 	                        | fn_decl
-// 	| ForC_stmt
-// 	| ForIn_stmt
-// 	| For_stmt
+// 	                        | for_c_stmt
+// 	                        | for_in_stmt
+// 	                        | for_stmt
 // 	| Global_decl
 // 	| GotoLabel
 // 	| Goto_stmt
