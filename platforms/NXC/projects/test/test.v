@@ -8,5 +8,6 @@ fn forward(power int, time int) {
 [task] fn main() {
 	a := 3
 	a += 36
+	forward(75,1000)
 }
 
