@@ -1,4 +1,4 @@
- 
+<!-- changes to snake_case -->
 # Quick reference for the Explorer 16 board
 Development board for Microchip 16-bit microcontrollers. It includes the families:
 - _PIC24_: PIC24FJ128GA010
