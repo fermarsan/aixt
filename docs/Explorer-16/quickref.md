@@ -11,8 +11,8 @@ That pin definition is done in `aixt-project/api/Explorer-16-xxxxx/ports.h`.
 ### Pins names for PIC24FJ
 | port |0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |14 |15 |
 |:----:|--|--|--|--|--|--|--|--|--|--|---|---|---|---|---|---| 
-|**A** |A0|A1|A2|A3|A4|A5|A6|A7|- |A9|A10|-  |-  |-  |A14|A15|
-|**B** |B0|B1|B2|B3|B4|B5|B6|B7|B8|B9|B10|B11|B12|B13|B14|B15|
+|**A** |A0|A1|a2|A3|A4|A5|A6|A7|- |A9|A10|-  |-  |-  |A14|A15|
+|**B** |B0|B1|B2|B3|B4|b5|B6|B7|B8|B9|B10|B11|B12|B13|B14|B15|
 |**C** |C0|C1|C2|C3|C4|- |- |- |- |- |-  |-  |C12|C13|C14|C15|
 |**D** |D0|D1|D2|D3|D4|D5|D6|D7|D8|D9|D10|D11|D12|D13|D14|D15|
 |**E** |E0|E1|E2|E3|E4|E5|E6|E7|E8|E9|-  |-  |-  |-  |-  |-  |
@@ -22,8 +22,8 @@ That pin definition is done in `aixt-project/api/Explorer-16-xxxxx/ports.h`.
 ### Pins names for dsPIC33
 | port |0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |14 |15 |
 |:----:|--|--|--|--|--|--|--|--|--|--|---|---|---|---|---|---| 
-|**A** |A0|A1|A2|A3|A4|A5|A6|A7|- |A9|A10|-  |-  |-  |A14|A15|
-|**B** |B0|B1|B2|B3|B4|B5|B6|B7|B8|B9|B10|B11|B12|B13|B14|B15|
+|**A** |A0|A1|a2|A3|A4|A5|A6|A7|- |A9|A10|-  |-  |-  |A14|A15|
+|**B** |B0|B1|B2|B3|B4|b5|B6|B7|B8|B9|B10|B11|B12|B13|B14|B15|
 |**C** |C0|C1|C2|C3|C4|- |- |- |- |- |-  |-  |C12|C13|C14|C15|
 |**D** |D0|D1|D2|D3|D4|D5|D6|D7|D8|D9|D10|D11|D12|D13|D14|D15|
 |**E** |E0|E1|E2|E3|E4|E5|E6|E7|E8|E9|-  |-  |-  |-  |-  |-  |
@@ -47,14 +47,14 @@ sleep_ms(500)   // sleep for 500 milliseconds
 ```go
 import machine { pin }
 
-pin(B5, pin_out)
-pin(A2, pin_in)
+pin(b5, pin_out)
+pin(a2, pin_in)
 
-pin_high(B5)
-pin_low(B5)
-pin_toogle(B5)
+pin_high(b5)
+pin_low(b5)
+pin_toogle(b5)
 
-pin_value(A2)
+pin_value(a2)
 ```
 
 ## UART
