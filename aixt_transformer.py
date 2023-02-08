@@ -173,6 +173,9 @@ class aixtTransformer(Transformer):
         # self.typeStack.clear();     
         return s
 
+    def inc_dec_stmt(self, ex,op):
+        return ex + op
+
     def for_bare_stmt(self, fk,bl):
         return 'while(true)' + bl
 

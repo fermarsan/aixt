@@ -42,8 +42,9 @@
     |   "for" IDENT "in" range_expr block                   ->  for_in_stmt
 
 
-!assign_stmt:   ident_list ":=" expr_list           -> decl_assign_stmt          
-            |   ident_list ASSIGN_OP expr_list      -> simple_assign_stmt
+!assign_stmt:   ident_list ":=" expr_list       -> decl_assign_stmt          
+            |   ident_list ASSIGN_OP expr_list  -> simple_assign_stmt
+            |   expr INC_DEC_OP                 -> inc_dec_stmt
 
 !block: "{" stmt_list "}"
 
@@ -86,12 +87,13 @@ NUMERIC_TYPE.1: "u8" | "u16" | "u32" | "u64" | "usize" //| "uint"
             |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
             |   "f64" | "f32"
 
-ASSIGN_OP:  ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
-BINARY_OP:  "||" | "&&" | REL_OP | ADD_OP | MUL_OP
-REL_OP:     "==" | "!=" | "<" | "<=" | ">" | ">="
-ADD_OP.1:   "+" | "-" | "|" | "^"
-MUL_OP:     "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
-UNARY_OP:   "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
+ASSIGN_OP:      ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
+BINARY_OP:      "||" | "&&" | REL_OP | ADD_OP | MUL_OP
+REL_OP:         "==" | "!=" | "<" | "<=" | ">" | ">="
+ADD_OP.1:       "+" | "-" | "|" | "^"
+MUL_OP:         "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
+UNARY_OP:       "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
+INC_DEC_OP.2:   "++" | "--"
 
 FLOAT_LITERAL:      INT EXP | DECIMAL EXP?
 INTEGER_LITERAL:    INT | HEX | OCTAL | BIN
