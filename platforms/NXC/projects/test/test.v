@@ -5,8 +5,7 @@ fn forward(power int, time int) {
 }
 
 
-[task]
-fn main() {
+[task] fn main() {
 	a := 3
 	a += 36
 }
