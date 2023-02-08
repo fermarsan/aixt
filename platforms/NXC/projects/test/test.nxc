@@ -2,8 +2,13 @@
 //Device = Atmel AT91SAM7S256
 //Board = LEGO Mindstorms NXT intelligent brick
 
+inline forward(long power, long time){
+OnFwd(power);
+Wait(time);
+}
 task main(){
 int a = 3;
 a += 36;
+forward(75, 1000);
 }
 
