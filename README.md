@@ -72,8 +72,8 @@ import machine { pin }
 
 fn main() {
 
-    pin(B0,OUT)     
-    pin_high(B0)    //turn ON the PORTB0
+    pin(b0,out)     
+    pin_high(b0)    //turn ON the PORTB0
 }
 ```
 
@@ -88,9 +88,9 @@ import time { sleep_ms }
 pin(B0,OUT)
 
 for {   //infinite loop
-    pin_high(B0)
+    pin_high(b0)
     sleep_ms(500)
-    pin_low(B0)
+    pin_low(b0)
     sleep_ms(500)
 }
 ```
