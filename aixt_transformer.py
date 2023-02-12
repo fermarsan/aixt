@@ -156,8 +156,8 @@ class aixtTransformer(Transformer):
             if self.typeStack[0] == 'char []':
                 s += 'const char ' + self.identStack.pop(0) + '[] = ' 
             else: 
-                s += self.typeStack[0] + ' ' + self.identStack.pop(0) + ' = ' 
-            s += self.exprStack.pop(0)#self.valueStack.pop(0)
+                s += self.typeStack[0] + ' ' + self.identStack.pop(0) 
+            s += ' = ' + self.exprStack.pop(0) if self.typeStack[0] != 'mutex' else ''
             # s += ';\t' if i <= n-2 else ''  # intermediate semicolons
             self.typeStack.pop(0)
         # print(s)
