@@ -1,8 +1,8 @@
 for {
-	on_fwd(OUT_AB,75)
+	on_fwd(out_ab,75)
 	wait(1000)
-	on_rev(OUT_A,50)
+	on_rev(out_a,50)
 	wait(1000)
-	off(OUT_A)
+	off(out_a)
 	wait(500)
 }
