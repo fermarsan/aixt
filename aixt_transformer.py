@@ -155,9 +155,10 @@ class aixtTransformer(Transformer):
         for i in range(n):
             if self.typeStack[0] == 'char []':
                 s += 'const char ' + self.identStack.pop(0) + '[] = ' 
-            else: 
+            else:
+                # print('{}\n{}\n{}'.format('#'*30,self.typeStack[0],'#'*30)) 
                 s += self.typeStack[0] + ' ' + self.identStack.pop(0) 
-            s += ' = ' + self.exprStack.pop(0) if self.typeStack[0] != 'mutex' else ''
+            s += ' = ' + self.exprStack.pop(0) if self.typeStack[0] != 'mutex' else 'xxx'
             # s += ';\t' if i <= n-2 else ''  # intermediate semicolons
             self.typeStack.pop(0)
         # print(s)
@@ -244,6 +245,7 @@ class aixtTransformer(Transformer):
 
     def conversion(self, tn,lp,ex,rp):
         self.typeStack[-1] = self.setup[tn]
+        print('{}\n{}\n{}'.format('#'*30,self.typeStack,'#'*30))
         return ex
 
     def range_expr(self, ex1,dts,ex2):
