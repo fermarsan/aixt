@@ -35,7 +35,7 @@
         "label": "Aixt: Build",
         "group": "build",
         "dependsOrder": "sequence",
-        "dependsOn": ["aixt: Transpile", "aixt: Compile & download"]
+        "dependsOn": ["Aixt: Transpile", "Aixt: Compile & Download"]
       }
     ]
   }
