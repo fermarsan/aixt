@@ -85,7 +85,7 @@ working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 import machine { pin }
 import time { sleep_ms }
 
-pin(B0,OUT)
+pin(b0,out)
 
 for {   //infinite loop
     pin_high(b0)
