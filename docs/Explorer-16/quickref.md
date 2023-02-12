@@ -38,7 +38,7 @@ import time {
 	sleep_us,
 }
 
-sleep(2)	// sleep for 2 seconds
+sleep(2)	    // sleep for 2 seconds
 sleep_us(1)     // sleep for 1 microsecond
 sleep_ms(500)   // sleep for 500 milliseconds
 ```
@@ -47,8 +47,8 @@ sleep_ms(500)   // sleep for 500 milliseconds
 ```go
 import machine { pin }
 
-pin(b5, pin_out)
-pin(a2, pin_in)
+pin(b5, out)
+pin(a2, in)
 
 pin_high(b5)
 pin_low(b5)
