@@ -78,6 +78,7 @@ class aixtTransformer(Transformer):
                 s += ';\n'.join(self.stmtStack) + ';' if len(self.stmtStack) != 0 else ''
             s = re.sub(";\n;",";\n",s)  #removes unnecessary semicolons
             s = re.sub("};","}",s)
+            s = re.sub("\n;","\n",s)
             outText.write(s)  
 
     @v_args(inline=False)

@@ -28,7 +28,7 @@ Release(move_mutex);
 
 task main() {
 
-;
+
 Precedes(move_square, check_sensors);
 SetSensorTouch(IN_1);
 
