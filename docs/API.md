@@ -15,7 +15,15 @@ pin_low(pin_name)
 ## Analog to Digital
 
 ## Timming
-
+```go
+sleep(s)
+```
+```go
+sleep_ms(ms)
+```
+```go
+sleep_us(us)
+```
 ## PWM
 
 
