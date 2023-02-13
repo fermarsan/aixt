@@ -62,5 +62,4 @@
 - **_HLK-W801-KIT-V1.1_**: W801-C400 **_soon....._**
 
 ## LEGO Mindstorms NXT
-- **_NXT Intelligent Brick_**: AT91SAM7S256 (_NXC_ Language) **_soon....._**
-
+- **_NXT Intelligent Brick_**: AT91SAM7S256 (_NXC_ Language)
