@@ -94,3 +94,5 @@ task main()
     SetSensorTouch(IN_1);
 }
 ```
+
+NXC port of **Aixt** always uses the _script_ mode (without main function), and _mutex_ variables have to be "declared" after _tasks_ function definition, as shown in the previous example.
