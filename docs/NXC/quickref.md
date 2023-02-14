@@ -48,7 +48,7 @@ The **Aixt** port for **NXC** language suports _tasks_ by using attributes and s
     }
 }
 
-move_mutex := true //initialization value is necesary but will be ingnored
+move_mutex := mutex('') //initialization value is necesary but will be ingnored
 
 precedes(move_square, check_sensors)
 set_sensor_touch(in_1)
@@ -57,18 +57,18 @@ set_sensor_touch(in_1)
 will be transpiled to:
 
 ```c
-mutex moveMutex;
+mutex move_mutex;
 
 task move_square()
 {
     while (true)
     {
-        Acquire(moveMutex);
+        Acquire(move_mutex);
         OnFwd(OUT_AC, 75); 
         Wait(1000);
         OnRev(OUT_C, 75); 
         Wait(500);
-        Release(moveMutex);
+        Release(move_mutex);
     }
 }
 
@@ -78,12 +78,12 @@ task check_sensors()
     {
         if (SENSOR_1 == 1)
         {
-            Acquire(moveMutex);
+            Acquire(move_mutex);
             OnRev(OUT_AC, 75); 
             Wait(500);
             OnFwd(OUT_A, 75); 
             Wait(500);
-            Release(moveMutex);
+            Release(move_mutex);
         }
     }
 }
