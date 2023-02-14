@@ -25,7 +25,7 @@ task main()
 ```
 
 ## Multitasking
-The **Aixt** port for **NXC** language suport the _tasks_ by using attributes. In this case the attribute `[task]` for task functions and `[mutex]` for mutex variables. For instance, the follow code: 
+The **Aixt** port for **NXC** language suports _tasks_ by using attributes and special variable types. In this case the special type `mutex` is used for implementing mutex variables, and the attribute `[task]` for implementing task functions. For instance, the follow code: 
 
 ```go
 [mutex] move_mutex := true //initialization value is necesary but will be ingnored 
