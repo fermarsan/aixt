@@ -28,8 +28,6 @@ task main()
 The **Aixt** port for **NXC** language suports _tasks_ by using attributes and special variable types. In this case the special type `mutex` is used for implementing mutex variables, and the attribute `[task]` for implementing task functions. For instance, the follow code: 
 
 ```go
-[mutex] move_mutex := true //initialization value is necesary but will be ingnored 
-
 [task] fn move_square() {
     for {
         acquire(move_mutex)
@@ -49,6 +47,8 @@ The **Aixt** port for **NXC** language suports _tasks_ by using attributes and s
         }
     }
 }
+
+move_mutex := true //initialization value is necesary but will be ingnored
 
 precedes(move_square, check_sensors)
 set_sensor_touch(in_1)
