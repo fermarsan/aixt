@@ -5,11 +5,11 @@ _NOTE:_ In addition, you have to add _Python_ to PATH.
 
 ## Modules
 
-**Aixt** projects uses _sly_ Python's module for doing the lexer and syntactic analysis, _re_ for regular expresions analysis, and _yaml_ for the configuration files. You can install all the needed modules as follows: 
+**Aixt** projects uses _lark_ Python's module for doing the lexer and syntactic analysis, _re_ for regular expresions analysis, and _yaml_ for the configuration files. You can install all the needed modules as follows: 
 
 
 ```
-pip install sly re pyyaml
+pip install lark re pyyaml
 ```
 ## Native C compilers
 - **XC8**: Microchip and Atmel 8-bit microcontrollers
