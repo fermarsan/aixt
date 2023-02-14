@@ -1,7 +1,6 @@
 # Quick reference for NXC (Mindstorms NXT)
 
 This **Aixt** port works as a **NXC** language wrapper, keeping the same function names, but using _snake\_case_ instead of _CamelCase_. For instance this **Aixt** code:
-
 ```go
 on_fwd(out_a, 75)
 on_fwd(out_c, 75)
@@ -10,8 +9,8 @@ on_rev(out_ac, 75)
 wait(4000)
 off(out_ac)
 ```
-will be transpiled to:
 
+will be transpiled to:
 ```c
 task main()
 {
@@ -26,7 +25,6 @@ task main()
 
 ## Multitasking
 The **Aixt** port for **NXC** language suports _tasks_ by using attributes and special variable types. In this case the special type `mutex` is used for implementing mutex variables, and the attribute `[task]` for implementing task functions. For instance, the follow code: 
-
 ```go
 [task] fn move_square() {
     for {
@@ -55,7 +53,6 @@ set_sensor_touch(in_1)
 ```
 
 will be transpiled to:
-
 ```c
 mutex move_mutex;
 

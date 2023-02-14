@@ -8,7 +8,7 @@ Development board for Microchip 16-bit microcontrollers. It includes the familie
 The pin names are named with a capitalized letter indicating the port and a number indicating the pin. For example `B12` indicates de pin 12 of port B.
 That pin definition is done in `aixt-project/api/Explorer-16-xxxxx/ports.h`.
 
-### Pins names for PIC24FJ
+### Pin original names for PIC24FJ
 | port |0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |14 |15 |
 |:----:|--|--|--|--|--|--|--|--|--|--|---|---|---|---|---|---| 
 |**A** |A0|A1|a2|A3|A4|A5|A6|A7|- |A9|A10|-  |-  |-  |A14|A15|
@@ -19,7 +19,7 @@ That pin definition is done in `aixt-project/api/Explorer-16-xxxxx/ports.h`.
 |**F** |F0|F1|F2|F3|F4|F5|F6|F7|F8|- |-  |-  |F12|F13|-  |-  |
 |**G** |G0|G1|G2|G3|G4|G5|G6|G7|G8|G9|-  |-  |G12|G13|G14|G15|
 
-### Pins names for dsPIC33
+### Pins original names for dsPIC33
 | port |0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |14 |15 |
 |:----:|--|--|--|--|--|--|--|--|--|--|---|---|---|---|---|---| 
 |**A** |A0|A1|a2|A3|A4|A5|A6|A7|- |A9|A10|-  |-  |-  |A14|A15|
@@ -29,6 +29,9 @@ That pin definition is done in `aixt-project/api/Explorer-16-xxxxx/ports.h`.
 |**E** |E0|E1|E2|E3|E4|E5|E6|E7|E8|E9|-  |-  |-  |-  |-  |-  |
 |**F** |F0|F1|F2|F3|F4|F5|F6|F7|F8|- |-  |-  |F12|F13|-  |-  |
 |**G** |G0|G1|G2|G3|G4|G5|G6|G7|G8|G9|-  |-  |G12|G13|G14|G15|
+
+### Pin names in **Aixt**
+All the names in **Aixt** are written in lower-case, to follow the **V** variable naming rules.
 
 ## Delay and timing
 ```go
