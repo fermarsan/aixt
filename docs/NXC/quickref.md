@@ -2,8 +2,8 @@
 
 This **Aixt** port works as a **NXC** language wrapper, keeping the same function names, but using _snake\_case_ instead of _CamelCase_. For instance this **Aixt** code:
 ```go
-on_fwd(out_a, 75)
-on_fwd(out_c, 75)
+on_forward(out_a, 75)
+on_forward(out_c, 75)
 wait(4000)
 on_rev(out_ac, 75)
 wait(4000)
