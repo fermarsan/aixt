@@ -1,31 +1,63 @@
-# This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-#
-# The MIT License (MIT)
-# 
-# Copyright (c) 2023 Fernando Martínez Santa
+out_A:    OUT_A
+out_B:    OUT_B
+out_C:    OUT_C
+out_AB:   OUT_AB
+out_AC:   OUT_AC
+out_BC:   OUT_BC
+out_ABC:  OUT_ABC
 
-out_abc:    OUT_ABC
-out_ab:     OUT_AB
-out_ac:     OUT_AC
-out_bc:     OUT_BC
-out_a:      OUT_A
-out_b:      OUT_B
-out_c:      OUT_C
+in_1:             IN_1
+in_2:             IN_2
+in_3:             IN_3
+in_4:             IN_4
 
-in_1:       IN_1
-in_2:       IN_2
-in_3:       IN_3
-in_4:       IN_4
+on_rev:           OnRev
+on_fwd:           OnFwd
+on_fwd_reg:       OnFwdReg
+on_fwd_sync:      OnFwdSync
+on_rev_sync:      OnRevSync
+"off":            "Off"
 
-on_reverse: OnRev
-on_forward: OnFwd
-"off":      "Off"
+wait:             wait
+move_time:        move_time
+turn_time:        turn_time
+total_time:       total_time
+random:           Random
 
-wait:       Wait
-
-acquire:    Acquire
-release:    Release
-precedes:   Precedes
+set_sensor:       SetSensor
 set_sensor_touch: SetSensorTouch
-sensor_1:   SENSOR_1
+set_sensor_light: SetSensorLight
+set_sensor_sound: SetSensorSound
+set_sensor_lowspeed: SetSensorLowspeed
+set_sensor_type:  SetSensorType
+set_sensor_Mode:  SetSensorMode
+reset_rensor:     ResetSensor
+clear_sensor:     ClearSensor
+reset_motor:      ResetMotor
+sensor_us:        SensorUS
+
+sensor:           Sensor
+SENSOR_1:         SENSOR_1
+SENSOR_2:         SENSOR_2
+SENSOR_3:         SENSOR_3
+SENSOR_4:         SENSOR_4
+
+rotate_motor:     RotateMotor
+rotate_motor_ex:  RotateMotorEx
+rotate_motor_pid:  RotateMotorPID
+
+Acquire:          acquire
+Release:          release
+Precedes:         precedes
+float:            Float
+
+play_file_ex:     PlayFileEx
+play_tone_ex:     PlayToneEx
+play_tone:        PlayTone
+
+
+
+
+
+
 
