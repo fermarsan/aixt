@@ -1,31 +1,20 @@
-# This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-#
-# The MIT License (MIT)
-# 
-# Copyright (c) 2023 Fernando Martínez Santa
+out_A:    OUT_A
+out_B:    OUT_B
+out_C:    OUT_C
+out_AB:   OUT_AB
+out_AC:   OUT_AC
+out_BC:   OUT_BC
+out_ABC:  OUT_ABC
 
-out_abc:    OUT_ABC
-out_ab:     OUT_AB
-out_ac:     OUT_AC
-out_bc:     OUT_BC
-out_a:      OUT_A
-out_b:      OUT_B
-out_c:      OUT_C
+in_1:     IN_1
+in_2:     IN_2
+in_3:     IN_3
+in_4:     IN_4
 
-in_1:       IN_1
-in_2:       IN_2
-in_3:       IN_3
-in_4:       IN_4
+on_rev:   OnRev
+on_fwd:   OnFwd
+"off":    "Off"
 
-on_reverse: OnRev
-on_forward: OnFwd
-"off":      "Off"
+wait:     Wait
 
-wait:       Wait
-
-acquire:    Acquire
-release:    Release
-precedes:   Precedes
-set_sensor_touch: SetSensorTouch
-sensor_1:   SENSOR_1
 
