@@ -35,7 +35,7 @@ stateDiagram-v2
         others2: ...
         ESP32
         RP2040
-        NXT brick (ARM) 
+        NXT: NXT brick (ARM) 
     }
 
     C_Compiler: C Compiler
@@ -46,7 +46,7 @@ stateDiagram-v2
         ImageCraft
         GCC  
         others 
-        nbc(NXC) 
+        nbc: nbc (NXC) 
     }
     
     machine
@@ -54,10 +54,10 @@ stateDiagram-v2
         BF: Binary file
     }
     
-    Aixt     --> Aixt2C 
+    Aixt    --> Aixt2C 
     Aixt2C  --> Tr_Code
 
-    C     --> C_Compiler
+    C       --> C_Compiler
 
     C_Compiler  --> machine
 
