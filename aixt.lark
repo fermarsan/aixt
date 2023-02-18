@@ -15,14 +15,15 @@
 
 !top_decl_list: top_decl (";"? top_decl)*
 
-!top_decl:  fn_decl
+!top_decl:  import_stmt
+        |   fn_decl
         |   const_decl
 
+!import_stmt:   "import" IDENT ("{" IDENT ("," IDENT)* "}")?
 
 !fn_decl: ATTRIB? "fn" IDENT "(" param_list? ")" fn_return? block
 
 !fn_return: TYPE_NAME
-
 
 !const_decl:    "const" "(" const_item const_item* ")"
             |   "const" const_item
@@ -188,7 +189,7 @@ BIN.1:          /0b[01][01_]*/
 // 	| GotoLabel
 // 	| Goto_stmt
 // 	| Hash_stmt
-// 	| Import
+// 	                        | import_stmt
 // 	| Interface_decl
 // 	| Module
 // 	| NodeError
