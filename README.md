@@ -35,6 +35,7 @@ stateDiagram-v2
         others2: ...
         ESP32
         RP2040
+        NXT(ARM) 
     }
 
     C_Compiler: C Compiler
@@ -42,9 +43,10 @@ stateDiagram-v2
         others: ...
         XC8  
         XC16 
-        ImageCraft  
+        ImageCraft
+        GCC  
         others 
-        GCC 
+        nbc(NXC) 
     }
     
     machine
