@@ -35,7 +35,7 @@ stateDiagram-v2
         others2: ...
         ESP32
         RP2040
-        NXT: NXT brick (ARM) 
+        NXT: NXT brick (ARM7) 
     }
 
     C_Compiler: C Compiler
