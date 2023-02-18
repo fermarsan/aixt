@@ -99,11 +99,11 @@ for {   //infinite loop
 
 ## Aixt Transpiler
 
-The transpiler is written in _Python_ using _lark_ module as Lexer and Parser.
+The transpiler is written in _Python_ using the _lark_ module as Lexer and Parser.
 
 ## Aixt API
 
-The **Aixt API** is inspired on _Micropython_, _Arduino_ and _Tinygo_ projects.
+The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_ projects.
 
 
 #### Project's name
