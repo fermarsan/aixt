@@ -27,7 +27,7 @@ stateDiagram-v2
         API_C: API in C
     }
 
-    state Microcontrollers {
+    state Microcontroller {
         direction RL
         PICs: PICXX
         ATM: AT Mega
@@ -35,7 +35,7 @@ stateDiagram-v2
         others2: ...
         ESP32
         RP2040
-        NXT(ARM) 
+        NXT brick (ARM) 
     }
 
     C_Compiler: C Compiler
