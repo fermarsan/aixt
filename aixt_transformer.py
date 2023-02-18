@@ -159,7 +159,10 @@ class aixtTransformer(Transformer):
                 self.topDecl.insert(0, 'mutex ' + self.identStack.pop(0))
                 self.exprStack.pop()
             elif self.typeStack[0] == 'char []':
-                s += 'const char {} [] = {}; '.format(self.identStack.pop(0), self.exprStack.pop(0))          
+                if self.setup['nxc']:
+                    s += 'string {} = {}; '.format(self.identStack.pop(0), self.exprStack.pop(0))    
+                else:     
+                    s += 'const char {} [] = {}; '.format(self.identStack.pop(0), self.exprStack.pop(0))  
             else:
                 # print('{}\n{}\n{}'.format('#'*30,self.typeStack[0],'#'*30)) 
                 s += '{} {} = {}; '.format(self.typeStack[0], self.identStack.pop(0), self.exprStack.pop(0)) 
