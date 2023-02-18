@@ -61,7 +61,7 @@ stateDiagram-v2
 
     C_Compiler  --> machine
 
-    Microcontrollers --> API_C
+    Microcontroller --> API_C
 ```
 
 ## Aixt Language
