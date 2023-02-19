@@ -263,6 +263,17 @@ class aixtTransformer(Transformer):
         return s
 
     @v_args(inline=False)
+    def call_method_expr(self, cme):
+        if cme[0] in self.setup['api_modules']:
+            s = cme[2] + "("  #IDENT
+            for i in range(len(self.exprStack)):
+                s += self.exprStack.pop(0) + ", "
+            self.typeStack.clear()
+        else:
+            s = 'undefined method....'
+        return s[:-2] + ")"
+
+    @v_args(inline=False)
     def call_expr(self, ce):
         s = ce[0] + "("  #IDENT
         for i in range(len(self.exprStack)):

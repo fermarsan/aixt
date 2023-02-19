@@ -63,11 +63,12 @@
 
 !expr:  IDENT
     |   literal
-    |   UNARY_OP expr               //->  unary_expr
-    |   expr BINARY_OP expr         //->  binary_expr
-    |   "(" expr ")"                //->  par_expr
-    |   IDENT "(" expr_list ")"     ->  call_expr
-    |   TYPE_NAME "(" expr ")"      ->  conversion
+    |   UNARY_OP expr                       //->  unary_expr
+    |   expr BINARY_OP expr                 //->  binary_expr
+    |   "(" expr ")"                        //->  par_expr
+    |   IDENT "." IDENT "(" expr_list ")"   ->  call_method_expr
+    |   IDENT "(" expr_list ")"             ->  call_expr
+    |   TYPE_NAME "(" expr ")"              ->  conversion
     |   range_expr
     |   if_expr   
 
