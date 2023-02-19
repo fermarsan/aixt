@@ -80,6 +80,7 @@ class aixtTransformer(Transformer):
             s = re.sub("};","}",s)
             s = re.sub("\n;","\n",s)
             s = re.sub("; ;",";",s)
+            s = re.sub('";','"',s)
             outText.write(s)  
 
     @v_args(inline=False)
@@ -96,6 +97,19 @@ class aixtTransformer(Transformer):
         self.topDecl.append(td) 
         return ''
 
+    @v_args(inline=False)
+    def import_stmt(self, ist):
+        # print(ist)
+        if ist[1] in self.setup['api_modules']:
+            if len(ist) == 2:
+                s = '#include "./{}.h"'.format(ist[1])
+            else:
+                s = ''
+                for i in range(3,len(ist)):
+                    if ist[i] not in ['}', ',']:
+                        s += '#include "./{}/{}.h"\n'.format(ist[1], ist[i])
+        return s
+                        
     @v_args(inline=False)
     def fn_decl(self, fd):
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
@@ -137,9 +151,11 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def stmt_list(self, sl):
+        print(sl)
         for t in sl:
-            if t != ';':
-                self.stmtStack.append(t)
+            # if t != ';':
+            #     self.stmtStack.append(t)
+            self.stmtStack.append(t)
         return ''
 
     @v_args(inline=False)
@@ -183,6 +199,9 @@ class aixtTransformer(Transformer):
     def inc_dec_stmt(self, ex,op):
         return ex + op
 
+    def return_stmt(self, ret, ex):
+        return 'return ' + ex
+
     def for_bare_stmt(self, fk,bl):
         return 'while(true)' + bl
 
@@ -206,6 +225,7 @@ class aixtTransformer(Transformer):
         return ''
 
     def block(self, lb,bl,rb):
+        print(self.identStack)
         s = '{\n'
         s += ';\n'.join(self.stmtStack) + ';'
         self.stmtStack.clear()
