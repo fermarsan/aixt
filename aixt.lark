@@ -15,9 +15,12 @@
 
 !top_decl_list: top_decl (";"? top_decl)*
 
-!top_decl:  import_stmt
+!top_decl:  C_PREPROC
+        |   import_stmt
         |   fn_decl
         |   const_decl
+
+!c_prepr_stmt:  "#" IDENT 
 
 !import_stmt:   "import" IDENT ("{" IDENT ("," IDENT)* "}")? 
 
@@ -79,7 +82,6 @@
         |   CHAR_LITERAL        ->  char_literal 
         |   STRING_LITERAL      ->  string_literal    
 
-
 ATTRIB: "[" IDENT "]"
 
 TYPE_NAME.1:    "rune" | "bool" | "string" | NUMERIC_TYPE | "mutex"
@@ -107,7 +109,8 @@ EXP.1:          /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with
 INT:            /[0-9][0-9_]*/                        
 HEX.1:          /0x[0-9A-Fa-f][0-9A-Fa-f_]*/
 OCTAL.1:        /0o[0-7][0-7_]*/        
-BIN.1:          /0b[01][01_]*/                
+BIN.1:          /0b[01][01_]*/
+C_PREPROC.1:    /#.+\n/                
 
 
 %import common.CNAME    ->  IDENT

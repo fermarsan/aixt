@@ -4,9 +4,9 @@
 
 #include "settings.h"
 
-#include "./time.h"
-#include "./machine/pin.h"
-#include "./machine/adc.h"
+#define	T_ON	1000
+
+#define T_OFF	500
 
 
 int main(void) {//AD1PCFG = 0xFFFF; // set all I/O digital
