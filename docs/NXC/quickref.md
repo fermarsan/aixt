@@ -2,11 +2,11 @@
 
 This **Aixt** port works as a **NXC** language wrapper, keeping the same function names, but using _snake\_case_ instead of _CamelCase_. For instance this **Aixt** code:
 ```go
-on_forward(out_a, 75)   // alternatively: on_fwd()  
-on_forward(out_c, 75)
-sleep(4000)             // alternatively: wait()  
-on_reverse(out_ac, 75)  // alternatively: on_rev()  
-sleep(4000)
+on_fwd(out_a, 75)   // alternatively: on_forward()  
+on_fwd(out_c, 75)
+wait(4000)          // alternatively: sleep()  
+on_rev(out_ac, 75)  // alternatively: on_reverse()  
+wait(4000)
 off(out_ac)
 ```
 
@@ -92,4 +92,4 @@ task main()
 }
 ```
 
-NXC port of **Aixt** always uses the _script_ mode (without main function), and _mutex_ variables have to be "declared" after _tasks_ function definition, as shown in the previous example.
+The NXC port of **Aixt** can be used in _script_ mode (without main function). In that case the _mutex_ variables have to be "declared" after _task_ functions definition, as shown in the previous example.
