@@ -281,7 +281,7 @@ class aixtTransformer(Transformer):
         self.typeStack.clear()
         return s[:-2] + ")"
 
-    def conversion(self, tn,lp,ex,rp):
+    def cast_expr(self, tn,lp,ex,rp):
         self.typeStack[-1] = self.setup[tn]
         # print('{}\n{}\n{}'.format('#'*30,self.typeStack,'#'*30))
         return ex
