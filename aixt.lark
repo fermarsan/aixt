@@ -39,6 +39,7 @@
 !stmt:  expr                                                //->  expr_stmt
     |   block
     |   assign_stmt
+    |   "break"
     |   "return" expr                                       ->  return_stmt                                       
     |   "for" block                                         ->  for_bare_stmt
     |   "for" expr block                                    ->  for_cond_stmt
