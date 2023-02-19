@@ -68,7 +68,7 @@
     |   "(" expr ")"                        //->  par_expr
     |   IDENT "." IDENT "(" expr_list ")"   ->  call_method_expr 
     |   IDENT "(" expr_list ")"             ->  call_expr
-    |   TYPE_NAME "(" expr ")"              ->  conversion
+    |   TYPE_NAME "(" expr ")"              ->  cast_expr
     |   range_expr
     |   if_expr   
 
@@ -132,7 +132,7 @@ C_PREPROC.1:    /#.+\n/
 // 	                        | BOOL_LITERAL
 // 	| CTempVar
 // 	                        | call_expr
-// 	| Cast_expr
+// 	                        | Cast_expr
 // 	| Chan_init
 // 	                        | CHAR_LITERAL
 // 	                        | Comment (CPP_COMMENT, C_COMMENT)
