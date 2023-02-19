@@ -47,6 +47,7 @@
 
 !assign_stmt:   ident_list ":=" expr_list       -> decl_assign_stmt          
             |   ident_list ASSIGN_OP expr_list  -> simple_assign_stmt
+            |   IDENT ":=" "[" expr_list "]"    -> array_init
             |   expr INC_DEC_OP                 -> inc_dec_stmt
 
 !block: "{" stmt_list "}"
@@ -124,7 +125,7 @@ C_PREPROC.1:    /#.+\n/
 // type expr = 
 //    AnonFn
 // 	| ArrayDecompose
-// 	| Array_init
+// 	                        | array_init
 // 	| AsCast
 // 	| Assoc
 // 	| At_expr

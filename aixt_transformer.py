@@ -169,8 +169,7 @@ class aixtTransformer(Transformer):
     def decl_assign_stmt(self, ex1,op,ex2):
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
         s = ''
-        n = len(self.exprStack)
-        for i in range(n):
+        for i in range(len(self.exprStack)):
             if self.typeStack[0] == 'mutex':
                 self.topDecl.insert(0, 'mutex ' + self.identStack.pop(0))
                 self.exprStack.pop()
@@ -189,12 +188,18 @@ class aixtTransformer(Transformer):
     def simple_assign_stmt(self, ex1,op,ex2):
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
         s = ''
-        n = len(self.identStack)
-        for i in range(n):
+        for i in range(len(self.identStack)):
             s += self.identStack.pop(0) + ' ' + op + ' ' + self.exprStack.pop(0)
             # s += ';\t' if i <= n-2 else ''  # intermediate semicolons
         # self.typeStack.clear();     
         return s
+
+    def array_init(self, id,ap,lb,el,rb):
+        print('{}\n{}\n{}'.format('#'*40, self.exprStack, '#'*40))
+        s = '{} {}[] = {{'.format(self.typeStack[0], id) 
+        for i in range(len(self.exprStack)):
+            s += self.exprStack.pop(0) + ', '
+        return s[:-2] + '};'
 
     def inc_dec_stmt(self, ex,op):
         return ex + op
