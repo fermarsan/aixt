@@ -2,11 +2,11 @@
 
 This **Aixt** port works as a **NXC** language wrapper, keeping the same function names, but using _snake\_case_ instead of _CamelCase_. For instance this **Aixt** code:
 ```go
-on_forward(out_a, 75)
+on_forward(out_a, 75)   // alternatively: on_forward()  
 on_forward(out_c, 75)
-wait(4000)
-on_rev(out_ac, 75)
-wait(4000)
+sleep(4000)             // alternatively: sleep()  
+on_reverse(out_ac, 75)  // alternatively: on_reverse()  
+sleep(4000)
 off(out_ac)
 ```
 
@@ -29,8 +29,8 @@ The **Aixt** port for **NXC** language suports _tasks_ by using attributes and s
 [task] fn move_square() {
     for {
         acquire(move_mutex)
-        on_fwd(out_ac, 75); wait(1000)
-        on_rev(out_c, 75); wait(500)
+        on_forward(out_ac, 75); sleep(1000)
+        on_reverse(out_c, 75); sleep(500)
         release(move_mutex)
     }
 }
@@ -39,8 +39,8 @@ The **Aixt** port for **NXC** language suports _tasks_ by using attributes and s
     for {
         if sensor_1 == 1 {
             acquire(move_mutex)
-            on_rev(out_ac, 75); wait(500)
-            on_fwd(out_a, 75); wait(500)
+            on_reverse(out_ac, 75); sleep(500)
+            on_forward(out_a, 75); sleep(500)
             release(move_mutex)
         }
     }
