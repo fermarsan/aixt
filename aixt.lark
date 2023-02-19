@@ -20,8 +20,6 @@
         |   fn_decl
         |   const_decl
 
-!c_prepr_stmt:  "#" IDENT 
-
 !import_stmt:   "import" IDENT ("{" IDENT ("," IDENT)* "}")? 
 
 !fn_decl: ATTRIB? "fn" IDENT "(" param_list? ")" fn_return? block
