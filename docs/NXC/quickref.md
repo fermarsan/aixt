@@ -2,10 +2,10 @@
 
 This **Aixt** port works as a **NXC** language wrapper, keeping the same function names, but using _snake\_case_ instead of _CamelCase_. For instance this **Aixt** code:
 ```go
-on_forward(out_a, 75)   // alternatively: on_forward()  
+on_forward(out_a, 75)   // alternatively: on_fwd()  
 on_forward(out_c, 75)
-sleep(4000)             // alternatively: sleep()  
-on_reverse(out_ac, 75)  // alternatively: on_reverse()  
+sleep(4000)             // alternatively: wait()  
+on_reverse(out_ac, 75)  // alternatively: on_rev()  
 sleep(4000)
 off(out_ac)
 ```
