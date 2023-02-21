@@ -46,13 +46,11 @@
 
 
 !assign_stmt:   expr_list ASSIGN_OP expr_list       -> simple_assign_stmt
-            |   ident_list ":=" expr_list           -> decl_assign_stmt   
-            |   ident_list ":=" "[" expr_list "]"   -> array_init       
+            |   expr_list ":=" expr_list            -> decl_assign_stmt   
+            |   expr_list ":=" "[" expr_list "]"    -> array_init       
             |   expr INC_DEC_OP                     -> inc_dec_stmt
 
 !block: "{" stmt_list "}"
-
-!ident_list:    IDENT ( "," IDENT )*
 
 !param_list:    param ( "," param )*
 

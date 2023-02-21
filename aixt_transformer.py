@@ -113,7 +113,6 @@ class aixtTransformer(Transformer):
                         
     @v_args(inline=False)
     def fn_decl(self, fd):
-        # print(self.typeStack);print(self.identStack);print(self.exprStack)
         if 'main' in fd[1] + fd[2] + fd[3]:
             self.main = True
         s = ''
@@ -134,7 +133,6 @@ class aixtTransformer(Transformer):
 
     def fn_return(self, fr):
         self.typeStack.append(self.setup[fr])
-        # print(self.typeStack);print(self.identStack);print(self.exprStack)
         return ''
 
     @v_args(inline=False)
@@ -168,37 +166,33 @@ class aixtTransformer(Transformer):
         return s
 
     def decl_assign_stmt(self, ex1,op,ex2):
-        # print(self.typeStack);print(self.identStack);print(self.exprStack)
-        s = ''
-        for i in range(len(self.exprStack)):
+        half_len = len(self.exprStack) // 2
+        for i in range(half_len):
             if self.typeStack[0] == 'mutex':
-                self.topDecl.insert(0, 'mutex ' + self.identStack.pop(0))
-                self.exprStack.pop()
+                self.topDecl.insert(0, 'mutex ' + self.exprStack[i])
             elif self.typeStack[0] == 'char []':
                 if self.setup['nxc']:
-                    s += 'string {} = {}; '.format(self.identStack.pop(0), self.exprStack.pop(0))    
+                    s = 'string {} = {}; '  
                 else:     
-                    s += 'const char {} [] = {}; '.format(self.identStack.pop(0), self.exprStack.pop(0))  
+                    s = 'const char {} [] = {}; ' 
+                s = s.format(self.exprStack[i], self.exprStack[i+half_len])       
             else:
-                # print('{}\n{}\n{}'.format('#'*30,self.typeStack[0],'#'*30)) 
-                s += '{} {} = {}; '.format(self.typeStack[0], self.identStack.pop(0), self.exprStack.pop(0)) 
+                s = '{} {} = {}; '.format(self.typeStack[0], self.exprStack[i], self.exprStack[i+half_len]) 
             self.typeStack.pop(0)
-        # print(s)
+        self.exprStack.clear()
         return s
 
     def simple_assign_stmt(self, el1,op,el2):
-        # print(self.typeStack);print(self.identStack);print(self.exprStack)
         s = ''
         half_len = len(self.exprStack) // 2
         for i in range(half_len):
             s += '{} {} {}'.format(self.exprStack[i], op ,self.exprStack[i+half_len])
-            # s += ';\t' if i <= n-2 else ''  # intermediate semicolons
         self.exprStack.clear();     
         return s
 
     def array_init(self, il,ap,lb,el,rb):
         # print('{}\n{}\n{}'.format('#'*40, self.exprStack, '#'*40))
-        s = '{} {}[] = {{'.format(self.typeStack[0], self.identStack.pop(0)) 
+        s = '{} {}[] = {{'.format(self.typeStack[0], self.exprStack.pop(0)) 
         for i in range(len(self.exprStack)):
             s += self.exprStack.pop(0) + ', '
         self.typeStack.clear()
@@ -223,14 +217,6 @@ class aixtTransformer(Transformer):
         return 'for(int {}={}; {}<{}; {}++){}'.format( idf, self.rangeStart, 
                                                        idf, self.rangeEnd, 
                                                        idf, bl )
-           
-    @v_args(inline=False)
-    def ident_list(self, il):
-        for i in il:
-            if i != ',':
-                self.identStack.append(i)
-        # print('ident_list: ', self.identStack)
-        return ''
 
     def block(self, lb,bl,rb):
         s = '{\n'
@@ -240,7 +226,6 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def param_list(self, pl):
-        # print(self.typeStack);print(self.identStack);print(self.exprStack)
         s = ''
         n = len(self.exprStack)
         for i in range(n):
@@ -259,7 +244,7 @@ class aixtTransformer(Transformer):
         for e in el:
             if e != ',':    
                 self.exprStack.append(e)
-        print('expr_list: ', self.exprStack)
+        # print('expr_list: ', self.exprStack)
         return ''
 
     @v_args(inline=False)
