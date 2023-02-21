@@ -11,11 +11,8 @@ import re
 @v_args(inline=True)
 class aixtTransformer(Transformer):
     def __init__(self):
-        # self.symbols = {}
         self.errStream = ''       #error stream
         self.outStream = ''      #output stream
-        # self.exType = ''
-        # self.lineno = 1
         self.moduleStack = []   #stacks
         self.typeStack  = []
         self.exprStack  = []
@@ -23,9 +20,7 @@ class aixtTransformer(Transformer):
         self.constStack = []
         self.topDecl    = []
         self.main = False
-        # self.includes = ''
         # self.moduleDef = ''
-        # self.preprocessor = ''
         self.rangeStart = 0
         self.rangeEnd = 0
         
