@@ -2,7 +2,7 @@
 //Device = PIC24FJ128GA010
 //Board = Explorer 16
 
-#include "settings.h" 
+#include "settings.h"
 
 #include "./machine.h"
 #include "./time.h"
@@ -16,6 +16,7 @@ pin_high(b0);
 sleep_ms(1000);
 pin_low(b0);
 sleep_ms(1000);
+sleep_ms(500);
 }
 return 0;
 }

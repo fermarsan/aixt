@@ -18,6 +18,7 @@ pin_high(b0);
 sleep_ms(1000);
 pin_low(b0);
 sleep_ms(1000);
+sleep_ms(500);
 }
 return 0;
 }

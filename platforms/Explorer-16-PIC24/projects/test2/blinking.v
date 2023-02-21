@@ -8,4 +8,6 @@ for {
 	time.sleep_ms(1000) 
 	machine.pin_low(b0)
 	time.sleep_ms(1000)
+
+	time.sleep_ms(500)
 }

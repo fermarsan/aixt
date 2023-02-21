@@ -45,10 +45,10 @@
     |   "for" IDENT "in" range_expr block                   ->  for_in_stmt
 
 
-!assign_stmt:   ident_list ":=" expr_list       -> decl_assign_stmt          
-            |   ident_list ASSIGN_OP expr_list  -> simple_assign_stmt
-            |   IDENT ":=" "[" expr_list "]"    -> array_init
-            |   expr INC_DEC_OP                 -> inc_dec_stmt
+!assign_stmt:   expr_list ASSIGN_OP expr_list       -> simple_assign_stmt
+            |   ident_list ":=" expr_list           -> decl_assign_stmt   
+            |   ident_list ":=" "[" expr_list "]"   -> array_init       
+            |   expr INC_DEC_OP                     -> inc_dec_stmt
 
 !block: "{" stmt_list "}"
 
@@ -58,19 +58,19 @@
 
 !param:         expr TYPE_NAME 
     
-
 !expr_list:     expr ( "," expr )*
 
-!expr:  IDENT
-    |   literal
-    |   UNARY_OP expr                       //->  unary_expr
-    |   expr BINARY_OP expr                 //->  binary_expr
-    |   "(" expr ")"                        //->  par_expr
-    |   IDENT "." IDENT "(" expr_list ")"   ->  call_method_expr 
-    |   IDENT "(" expr_list ")"             ->  call_expr
-    |   TYPE_NAME "(" expr ")"              ->  cast_expr
+!expr:  UNARY_OP expr           //->  unary_expr
+    |   expr BINARY_OP expr     //->  binary_expr
+    |   "(" expr ")"            //->  par_expr
+    |   expr "[" literal "]"    ->  index_expr   
+    |   expr "(" expr_list ")"  ->  call_expr
+    |   TYPE_NAME "(" expr ")"  ->  cast_expr  
+    |   IDENT "." IDENT         //->  qualified_ident
     |   range_expr
-    |   if_expr   
+    |   if_expr
+    |   IDENT
+    |   literal   
 
 !range_expr:    expr ".." expr
 
@@ -148,7 +148,7 @@ C_PREPROC.1:    /#.+\n/
 // 	                        | IDENT      
 // 	                        | if_expr
 // 	| IfGuard_expr
-// 	| Index_expr
+// 	                        | index_expr
 // 	| Infix_expr
 // 	                        | INTEGER_LITERAL
 // 	| IsRef_type

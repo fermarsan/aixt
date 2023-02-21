@@ -16,7 +16,7 @@ class aixtTransformer(Transformer):
         self.outStream = ''      #output stream
         # self.exType = ''
         # self.lineno = 1
-        self.identStack = []   #stacks
+        self.moduleStack = []   #stacks
         self.typeStack  = []
         self.exprStack  = []
         self.stmtStack  = []
@@ -101,6 +101,7 @@ class aixtTransformer(Transformer):
     def import_stmt(self, ist): 
         # print(ist)
         if ist[1] in self.setup['api_modules']:
+            self.moduleStack.append(ist[1])
             if len(ist) == 2:
                 s = '#include "./{}.h"'.format(ist[1])
             else:
@@ -185,20 +186,22 @@ class aixtTransformer(Transformer):
         # print(s)
         return s
 
-    def simple_assign_stmt(self, ex1,op,ex2):
+    def simple_assign_stmt(self, el1,op,el2):
         # print(self.typeStack);print(self.identStack);print(self.exprStack)
         s = ''
-        for i in range(len(self.identStack)):
-            s += self.identStack.pop(0) + ' ' + op + ' ' + self.exprStack.pop(0)
+        half_len = len(self.exprStack) // 2
+        for i in range(half_len):
+            s += '{} {} {}'.format(self.exprStack[i], op ,self.exprStack[i+half_len])
             # s += ';\t' if i <= n-2 else ''  # intermediate semicolons
-        # self.typeStack.clear();     
+        self.exprStack.clear();     
         return s
 
-    def array_init(self, id,ap,lb,el,rb):
-        print('{}\n{}\n{}'.format('#'*40, self.exprStack, '#'*40))
-        s = '{} {}[] = {{'.format(self.typeStack[0], id) 
+    def array_init(self, il,ap,lb,el,rb):
+        # print('{}\n{}\n{}'.format('#'*40, self.exprStack, '#'*40))
+        s = '{} {}[] = {{'.format(self.typeStack[0], self.identStack.pop(0)) 
         for i in range(len(self.exprStack)):
             s += self.exprStack.pop(0) + ', '
+        self.typeStack.clear()
         return s[:-2] + '};'
 
     def inc_dec_stmt(self, ex,op):
@@ -230,7 +233,7 @@ class aixtTransformer(Transformer):
         return ''
 
     def block(self, lb,bl,rb):
-        print(self.identStack)
+        # print(self.identStack)
         s = '{\n'
         s += ';\n'.join(self.stmtStack) + ';'
         self.stmtStack.clear()
@@ -257,30 +260,27 @@ class aixtTransformer(Transformer):
         for e in el:
             if e != ',':    
                 self.exprStack.append(e)
-        # print('expr_list: ', self.exprStack)
+        print('expr_list: ', self.exprStack)
         return ''
 
     @v_args(inline=False)
     def expr(self, ex):
+        print(ex)
         s = ''
         for e in ex:
             s += e
         return s
 
-    @v_args(inline=False)
-    def call_method_expr(self, cme): 
-        if cme[0] in self.setup['api_modules']:
-            s = cme[2] + "("  #IDENT
-            for i in range(len(self.exprStack)):
-                s += self.exprStack.pop(0) + ", "
-            self.typeStack.clear()
-        else:
-            s = 'undefined method....'
-        return s[:-2] + ")"
+    def index_expr(self, id,lb,li,rb):
+        return '{}[{}]'.format(id,li)
 
-    @v_args(inline=False)
-    def call_expr(self, ce):
-        s = ce[0] + "("  #IDENT
+    def call_expr(self, idt,lb,el,rb):
+        if '.' in idt:  # module's method
+            module, method = str(idt).split('.')
+            if module in self.moduleStack:
+                s = method + "("
+        else:           # standalone function
+            s = idt + "("
         for i in range(len(self.exprStack)):
             s += self.exprStack.pop(0) + ", "
         self.typeStack.clear()
