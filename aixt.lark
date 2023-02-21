@@ -63,8 +63,8 @@
 !expr:  UNARY_OP expr           //->  unary_expr
     |   expr BINARY_OP expr     //->  binary_expr
     |   "(" expr ")"            //->  par_expr
-    |   expr "[" literal "]"    ->  index_expr   
-    |   expr "(" expr_list ")"  ->  call_expr
+    |   expr "[" literal "]"    ->  index_expr 
+    |   expr "(" expr_list ")"  ->  call_expr 
     |   TYPE_NAME "(" expr ")"  ->  cast_expr  
     |   IDENT "." IDENT         //->  qualified_ident
     |   range_expr

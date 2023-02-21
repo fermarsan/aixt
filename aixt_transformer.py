@@ -233,7 +233,6 @@ class aixtTransformer(Transformer):
         return ''
 
     def block(self, lb,bl,rb):
-        # print(self.identStack)
         s = '{\n'
         s += ';\n'.join(self.stmtStack) + ';'
         self.stmtStack.clear()
@@ -274,7 +273,7 @@ class aixtTransformer(Transformer):
     def index_expr(self, id,lb,li,rb):
         return '{}[{}]'.format(id,li)
 
-    def call_expr(self, idt,lb,el,rb):
+    def call_expr(self, idt,lb,el,rb): 
         if '.' in idt:  # module's method
             module, method = str(idt).split('.')
             if module in self.moduleStack:
