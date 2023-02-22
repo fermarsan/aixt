@@ -26,7 +26,7 @@
 - **PSoC 3**
     - **_CY8CKIT-001 + (009)_**: CY8C38866AXI-040 **_soon....._**
 - **PSoC 4**
-  - **_CY8CKIT-049-42xx_**: CY8C4245AXI-483 **_soon....._**
+  - **_CY8CKIT-049-42xx_**: CY8C4245AXI-483
 - **PSoC 5LP**
     - **_CY8CKIT-059_**: CY8C5888LTI-LP097 **_soon....._**
 
@@ -35,7 +35,7 @@
 - **_Arduino nano_**: ATmega328p
 
 ## LogicGreen 
-- **_LQFP32 MiniEVB_**: lgt8f328p **_soon....._**
+- **_LQFP32 MiniEVB_**: lgt8f328p
 
 ## Espressif
 - **ESP8266**
