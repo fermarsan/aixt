@@ -2,6 +2,53 @@
 **Aixt** is bases on _The V programming language_.
 
 # Diferences with V
+- All the variables un **Aixt** are mutables by default
+
+# Keywords
+as
+asm
+assert
+atomic
+break
+-const
+continue
+defer
+-else
+enum
+-false
+-fn
+-for
+go
+goto
+-if
+-import
+-in
+interface
+is
+isreftype
+lock
+match
+module
+mut
+none
+or
+pub
+-return
+rlock
+select
+shared
+sizeof
+spawn
+static
+struct
+-true
+type
+typeof
+union
+unsafe
+volatile
+-__global
+__offsetof
 
 
 
@@ -23,7 +70,7 @@
 - bitwise arithmetic and logical operations
 - parentheses in expressions
 - comparison operations
-<!-- - of compound operations '+=', etc. -->
+- compound operations '+=', etc.
 - block expressions '{ Code_block }' (a tab is added to the block in the output file)
-<!-- - function declarations and return values
-- if-else statements, infinity for , for as while -->
+- - function declarations and return values
+- if-else statements, infinity for , for as while
