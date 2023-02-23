@@ -1,3 +1,11 @@
+# Aixt language
+**Aixt** is bases on _The V programming language_.
+
+# Diferences with V
+
+
+
+
 # Supported Aixt language features
     
 - Inspired by the _V language_ grammar [https://vlang.io/](https://vlang.io/)
