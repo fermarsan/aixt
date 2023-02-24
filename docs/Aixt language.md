@@ -2,7 +2,11 @@
 **Aixt** is bases on _The V programming language_.
 
 # Diferences with V
-- All the variables un **Aixt** are mutables by default
+- 
+// Based on the V grammar taken from these sources (ordered by importance):
+//     Abstract Syntax Tree V's documentation:  https://modules.vlang.io/v.ast.html
+//     V grammar definition in Antlr-v4:        https://github.com/antlr/grammars-v4/blob/master/v/V.g4
+//     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
 
 # Keywords
 as
@@ -10,19 +14,19 @@ asm
 assert
 atomic
 break
--const
-continue
+- const
+
 defer
--else
+- else
 enum
--false
--fn
--for
+- false
+- fn
+- for
 go
 goto
--if
--import
--in
+- if
+- import
+- in
 interface
 is
 isreftype
@@ -33,7 +37,7 @@ mut
 none
 or
 pub
--return
+- return
 rlock
 select
 shared
@@ -41,13 +45,13 @@ sizeof
 spawn
 static
 struct
--true
+- true
 type
 typeof
 union
 unsafe
 volatile
--__global
+- __global
 __offsetof
 
 
