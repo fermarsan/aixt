@@ -4,7 +4,7 @@
 // 
 // Copyright (c) 2023 Fernando Martínez Santa
 //
-// Optimization level 0
+// Optimization level 0 (as functions)
 
 #ifndef _MACHINE__PIN_0_H_
 #define _MACHINE__PIN_0_H_
