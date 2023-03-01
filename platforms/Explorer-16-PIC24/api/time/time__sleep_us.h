@@ -2,10 +2,10 @@
 //
 // The MIT License (MIT)
 // 
-// Copyright (c) 2022 Fernando Martínez Santa
+// Copyright (c) 2022-2023 Fernando Martínez Santa
 
-#ifndef _SLEEP_US_H_
-#define _SLEEP_US_H_
+#ifndef _TIME__SLEEP_US_H_
+#define _TIME__SLEEP_US_H_
 
 #define sleep_us(TIME)    __delay_us(TIME)
 
