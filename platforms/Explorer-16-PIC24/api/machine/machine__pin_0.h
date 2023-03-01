@@ -2,15 +2,15 @@
 //
 // The MIT License (MIT)
 // 
-// Copyright (c) 2022 Fernando Martínez Santa
+// Copyright (c) 2023 Fernando Martínez Santa
 
-#ifndef _PIN_H_
-#define _PIN_H_
+#ifndef _MACHINE__PIN_0_H_
+#define _MACHINE__PIN_0_H_
 
 #include "../ports.h"
 
-#define IN      1
-#define OUT     0
+#define PIN_IN      1
+#define PIN_OUT     0
 
 int *addr; //PORT address pointer
 int port_bit;       //specific bit of PORT

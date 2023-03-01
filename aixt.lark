@@ -17,12 +17,15 @@
 
 !top_decl:  C_PREPROC
         |   import_stmt
+        |   global_decl
         |   fn_decl
         |   const_decl
 
 !import_stmt:   "import" IDENT ("{" IDENT ("," IDENT)* "}")? 
 
-!fn_decl: ATTRIB? "fn" IDENT "(" param_list? ")" fn_return? block
+!global_decl:   "__global" "(" stmt_list ")"
+
+!fn_decl: ATTRIB? "fn" IDENT "(" simple_decl_list? ")" fn_return? block
 
 !fn_return: TYPE_NAME
 
@@ -37,6 +40,7 @@
 !stmt:  expr                                                //->  expr_stmt
     |   block
     |   assign_stmt
+    |   simple_decl               
     |   "break"
     |   "return" expr                                       ->  return_stmt                                       
     |   "for" block                                         ->  for_bare_stmt
@@ -52,9 +56,9 @@
 
 !block: "{" stmt_list "}"
 
-!param_list:    param ( "," param )*
+!simple_decl_list:    simple_decl ( "," simple_decl )*
 
-!param:         expr TYPE_NAME 
+!simple_decl:         expr TYPE_NAME 
     
 !expr_list:     expr ( "," expr )*
 
@@ -187,7 +191,7 @@ C_PREPROC.1:    /#.+\n/
 // 	                        | for_c_stmt
 // 	                        | for_in_stmt
 // 	                        | for_stmt (for_bare_stmt, for_cond_stmt)
-// 	| Global_decl
+// 	                        | global_decl
 // 	| GotoLabel
 // 	| Goto_stmt
 // 	| Hash_stmt
