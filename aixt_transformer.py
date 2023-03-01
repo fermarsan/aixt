@@ -47,9 +47,8 @@ class aixtTransformer(Transformer):
                 outSettings.write(s) 
 
         with open(name,'w') as outText:
-            s = '//Generated '
-            s += 'NXC' if self.setup['nxc'] else 'C'
-            s += ' file for:\n//Device = ' + self.setup['device'] 
+            s = '//NXC' if self.setup['nxc'] else '//C'
+            s += ' code generated from Aixt for:\n//Device = ' + self.setup['device'] 
             s += '\n//Board = ' + self.setup['board'] + '\n\n'
             s += '#include "settings.h"\n\n' if not self.setup['nxc'] else ''
             # s += self.preprocessor + '\n'        #user defined C preprocessor commands
