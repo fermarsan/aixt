@@ -31,4 +31,4 @@ void pin_low(pins PIN);
 void pin_write(pins PIN, int VAL);
 void pin_read(pins PIN);
 
-#endif  //_PIN_H_ 
+#endif  //_MACHINE__PIN_0_H_ 

@@ -9,7 +9,7 @@
 #ifndef _MACHINE__PIN_1_H_
 #define _MACHINE__PIN_1_H_
 
-#include "../ports.h"
+#include "../ports_1.h"
 
 #define PIN_IN      1
 #define PIN_OUT     0
@@ -45,4 +45,4 @@ int port_bit;       //specific bit of PORT
 #define pin_read(PIN)    \
     ((*((int)(PIN/16)*3 + &PORTA) >> (PIN%16)) & 0x0001)
 
-#endif  //_PIN_H_ 
+#endif  //_MACHINE__PIN_1_H_ 

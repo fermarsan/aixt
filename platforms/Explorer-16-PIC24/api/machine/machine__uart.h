@@ -6,8 +6,8 @@
 //
 // Copyright (c) 2022 Santiago Orjuela R
 
-#ifndef _UART_H_
-#define _UART_H_
+#ifndef _MACHINE__UART_H_
+#define _MACHINE__UART_H_
 
 #define CTS1 	_RF12		        // Clear To Send
 #define RTS1    _RF13               // Request To Send
@@ -84,5 +84,5 @@ void uart2_read(int n, char *str){
     str[n] = '\0';  //NULL    
 }
 
-#endif  //_UART_H_ 
+#endif  //_MACHINE__UART_H_ 
 
