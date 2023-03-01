@@ -47,7 +47,7 @@
     |   "for" expr block                                    ->  for_cond_stmt
     |   "for" assign_stmt ";" expr ";" assign_stmt block    ->  for_c_stmt
     |   "for" IDENT "in" range_expr block                   ->  for_in_stmt
-
+    |   "for" IDENT "in" IDENT block                        ->  for_in_arr_stmt
 
 !assign_stmt:   expr_list ASSIGN_OP expr_list       -> simple_assign_stmt
             |   expr_list ":=" expr_list            -> decl_assign_stmt   
@@ -189,7 +189,7 @@ C_PREPROC.1:    /#.+\n/
 // 	                        | expr_stmt
 // 	                        | fn_decl
 // 	                        | for_c_stmt
-// 	                        | for_in_stmt
+// 	                        | for_in_stmt, for_in_arr_stmt
 // 	                        | for_stmt (for_bare_stmt, for_cond_stmt)
 // 	                        | global_decl
 // 	| GotoLabel

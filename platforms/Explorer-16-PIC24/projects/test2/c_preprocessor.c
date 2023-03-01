@@ -1,4 +1,4 @@
-//Generated C file for:
+//C code generated from the Aixt source
 //Device = PIC24FJ128GA010
 //Board = Explorer 16
 

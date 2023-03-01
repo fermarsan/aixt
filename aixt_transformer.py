@@ -48,8 +48,8 @@ class aixtTransformer(Transformer):
 
         with open(name,'w') as outText:
             s = '//NXC ' if self.setup['nxc'] else '//C '
-            s += 'code generated from the Aixt source\n'
-            s += '//Device = ' + self.setup['device'] 
+            s += 'code generated from the Aixt source'
+            s += '\n//Device = ' + self.setup['device'] 
             s += '\n//Board = ' + self.setup['board'] + '\n\n'
             s += '#include "settings.h"\n\n' if not self.setup['nxc'] else ''
             # s += self.preprocessor + '\n'        #user defined C preprocessor commands
@@ -219,6 +219,14 @@ class aixtTransformer(Transformer):
         return 'for(int {}={}; {}<{}; {}++){}'.format( idf, self.rangeStart, 
                                                        idf, self.rangeEnd, 
                                                        idf, bl )
+
+    def for_in_arr_stmt(self, fk,id1,ik,id2,bl):
+        self.topDecl.append('int __i__;')
+        s = 'for(__i__=0; __i__<{}; __i__++){}'.format( idf, self.rangeStart, 
+                                                        idf, self.rangeEnd, 
+                                                        idf, bl )  
+        s = s.replace('{\n', '{\n{} = {}[__i__]') 
+        return s                                
 
     def block(self, lb,bl,rb):
         s = '{\n'
