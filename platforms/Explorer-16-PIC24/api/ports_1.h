@@ -4,8 +4,8 @@
 // 
 // Copyright (c) 2022 Fernando Martínez Santa
 
-#ifndef _PORTS_H_
-#define _PORTS_H_
+#ifndef _PORTS_1_H_
+#define _PORTS_1_H_
 
 #define A0      0 
 #define A1      1 

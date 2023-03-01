@@ -9,13 +9,14 @@
 #ifndef _MACHINE__PIN_0_H_
 #define _MACHINE__PIN_0_H_
 
-#include "../ports.h"
+#include "../ports_0.h"
 
 #define PIN_IN      1
 #define PIN_OUT     0
 
-int *addr; //PORT address pointer
-int port_bit;       //specific bit of PORT
+pins port;  
+int *addr;      //PORT address pointer
+int port_bit;   //specific bit of PORT
 
 //The PORT address are computed as  "(int)(PIN / n)*s + init" 
 //and the individual bit is computed as  "PIN % n"
@@ -24,10 +25,10 @@ int port_bit;       //specific bit of PORT
 //and "init" is the PORTA address
 //the same applies to TRIS and LAT registers 
 
-void pin(int PIN, int TYPE);
-void pin_high(int PIN);
-void pin_low(int PIN);
-void pin_write(int PIN, int VAL);
-void pin_read(int PIN);
+void pin(pins PIN, int TYPE);
+void pin_high(pins PIN);
+void pin_low(pins PIN);
+void pin_write(pins PIN, int VAL);
+void pin_read(pins PIN);
 
 #endif  //_PIN_H_ 
