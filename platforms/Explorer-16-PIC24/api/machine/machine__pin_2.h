@@ -2,10 +2,12 @@
 //
 // The MIT License (MIT)
 // 
-// Copyright (c) 2022 Fernando Martínez Santa
+// Copyright (c) 2022-2023 Fernando Martínez Santa
+//
+// Optimization level 2 (functions as macros)
 
-#ifndef _MACHINE__PIN_3_H_
-#define _MACHINE__PIN_3_H_
+#ifndef _MACHINE__PIN_2_H_
+#define _MACHINE__PIN_2_H_
 
 #include "../ports.h"
 

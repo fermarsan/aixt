@@ -4,10 +4,10 @@
 // 
 // Copyright (c) 2023 Fernando Martínez Santa
 //
-// Optimization level 1 (addressing the ports indirectly)
+// Optimization level 0
 
-#ifndef _MACHINE__PIN_1_H_
-#define _MACHINE__PIN_1_H_
+#ifndef _MACHINE__PIN_0_H_
+#define _MACHINE__PIN_0_H_
 
 #include "../ports.h"
 
