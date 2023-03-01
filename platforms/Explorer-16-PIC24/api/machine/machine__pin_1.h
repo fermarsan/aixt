@@ -2,10 +2,10 @@
 //
 // The MIT License (MIT)
 // 
-// Copyright (c) 2022 Fernando Martínez Santa
+// Copyright (c) 2023 Fernando Martínez Santa
 
-#ifndef _MACHINE__PIN_H_
-#define _MACHINE__PIN_H_
+#ifndef _MACHINE__PIN_0_H_
+#define _MACHINE__PIN_0_H_
 
 #include "../ports.h"
 
@@ -22,25 +22,10 @@ int port_bit;       //specific bit of PORT
 //and "init" is the PORTA address
 //the same applies to TRIS and LAT registers 
 
-#define pin(PIN,TYPE)   \
-    addr = (int)(PIN/16)*3 + &TRISA; \
-    port_bit = PIN%16; \
-    if(TYPE==IN) *addr |=   0x0001<<port_bit; \
-    else         *addr &= ~(0x0001<<port_bit)
-
-#define pin_high(PIN)    \
-    *((int)(PIN/16)*3 + &LATA)  |=   0x0001<<(PIN%16)
-
-#define pin_low(PIN)     \
-    *((int)(PIN/16)*3 + &LATA)  &= ~(0x0001<<(PIN%16))
-
-#define pin_write(PIN,VAL)   \
-    addr = (int)(PIN/16)*3 + &LATA; \
-    port_bit = PIN%16; \
-    *addr &= (~((0x0001)<<port_bit)); \
-    *addr |= (VAL<<port_bit)  
-
-#define pin_read(PIN)    \
-    ((*((int)(PIN/16)*3 + &PORTA) >> (PIN%16)) & 0x0001)
+void pin(int PIN, int TYPE);
+void pin_high(int PIN);
+void pin_low(int PIN);
+void pin_write(int PIN, int VAL);
+void pin_read(int PIN);
 
 #endif  //_PIN_H_ 
