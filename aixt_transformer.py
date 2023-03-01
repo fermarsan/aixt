@@ -103,7 +103,7 @@ class aixtTransformer(Transformer):
                 s = ''
                 for i in range(3,len(ist)):
                     if ist[i] not in ['}', ',']:
-                        s += '#include "./{}/{}.h"\n'.format(ist[1], ist[i])
+                        s += '#include "./{}/{}__{}.h"\n'.format(ist[1], ist[1], ist[i])
         return s
 
     def global_decl(self, gl, lp, sl, rp):

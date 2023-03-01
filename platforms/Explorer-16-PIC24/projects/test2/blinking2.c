@@ -4,9 +4,9 @@
 
 #include "settings.h"
 
-#include "./machine/pin.h"
+#include "./machine/machine__pin.h"
 
-#include "./time/sleep_ms.h"
+#include "./time/time__sleep_ms.h"
 
 
 int main(void) {//AD1PCFG = 0xFFFF; // set all I/O digital
