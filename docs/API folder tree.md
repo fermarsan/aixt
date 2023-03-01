@@ -46,12 +46,21 @@ The porpose of implementing this file-folder scheme is optimizing the amount of 
 ```go
 import time { sleep_ms }
 ``` 
-Then the tranpiled C code will be:
+Then the transpiled C code will be:
 ```c
 #include time/time__sleep_ms.h
 ``` 
+In this case the C compiler only will compile and include in binary output file, the `time__sleep_ms.h` file.
 
-
+On the other hand, the user can import all the functions in `time` module like this:
+```go
+import time
+``` 
+Then the transpiled C code will be:
+```c
+#include time.h
+``` 
+this will include the `time.h` file, which will include all the header files inside `time/`, in this case `time_sleep_ms.h` and `time_sleep_us.h`. 
 
 ## File names
 All the module files have to be named with a prefix which indicates the module's name. For instance the file which contains the `pin` functions, belongs to the `machine` module, then it is named:
