@@ -30,7 +30,7 @@ The _Aixt_ API is composed by several modules with certain microcontroller fucti
 In order to follow the _V language_ syntactic rules, all the folder and file names inside the api folder must be lowercased.
 
 ## Modules
-Each module in the API have to be implemented by means of a C's header file and a folder. For example, the `time` module is implemented as `time.h` and `time/`: 
+Each module in the API have to be implemented by means of a _C_'s header file and a folder. For example, the `time` module is implemented as `time.h` and `time/`: 
 ```
 api
  ├── ...
@@ -46,17 +46,17 @@ The porpose of implementing this file-folder scheme is optimizing the amount of 
 ```go
 import time { sleep_ms }
 ``` 
-Then the transpiled C code will be:
+Then the transpiled _C_ code will be:
 ```c
 #include time/time__sleep_ms.h
 ``` 
-In this case the C compiler only will compile and include in binary output file, the `time__sleep_ms.h` file.
+In this case the _C_ compiler only will compile and include in binary output file, the `time__sleep_ms.h` file.
 
 On the other hand, the user can import all the functions in `time` module like this:
 ```go
 import time
 ``` 
-Then the transpiled C code will be:
+Then the transpiled _C_ code will be:
 ```c
 #include time.h
 ``` 
@@ -68,3 +68,12 @@ All the module files have to be named with a prefix which indicates the module's
 machine__pin.h
 ```
 The prefix is the module's name plus a double underscore character.
+
+## Optimization levels
+_Aixt_ projects uses _C_ code optimization levels according to the way of describing each API fucntion on _C_ language. The optimization level is specified with the ending `_n`, where `n` is the optimization level starting from `0`. 
+
+For example the regular version of the `pin` file will be:
+```
+machine__pin_0.h
+```  
+
