@@ -68,7 +68,7 @@ stateDiagram-v2
 **Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all of the variables in **Aixt** are mutable by default.
 
 ### Example with `main` function
-```rust
+```go
 import machine { pin }
 
 fn main() {
@@ -79,7 +79,7 @@ fn main() {
 ```
 
 ### Example without `main` function (Script mode)
-```rust
+```go
 /*blinking led example (XC16 compiler)
 working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 
