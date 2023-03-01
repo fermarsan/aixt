@@ -31,10 +31,9 @@ stateDiagram-v2
         direction RL
         PICs: PICXX
         ATM: AT Mega
-        ATT: AT Tiny
-        others2: ...
         ESP32
         RP2040
+        others2: ...
         NXT: NXT brick (ARM7) 
     }
 
