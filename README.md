@@ -28,7 +28,6 @@ stateDiagram-v2
     }
 
     state Microcontroller {
-        direction RL
         PICs: PICXX
         ATM: AT Mega
         ESP32
