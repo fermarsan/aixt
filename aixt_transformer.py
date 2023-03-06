@@ -47,9 +47,9 @@ class aixtTransformer(Transformer):
                 outSettings.write(s) 
 
         with open(name,'w') as outText:
-            s = '//Generated '
-            s += 'NXC' if self.setup['nxc'] else 'C'
-            s += ' file for:\n//Device = ' + self.setup['device'] 
+            s = '//NXC ' if self.setup['nxc'] else '//C '
+            s += 'code generated from the Aixt source'
+            s += '\n//Device = ' + self.setup['device'] 
             s += '\n//Board = ' + self.setup['board'] + '\n\n'
             s += '#include "settings.h"\n\n' if not self.setup['nxc'] else ''
             # s += self.preprocessor + '\n'        #user defined C preprocessor commands
@@ -103,9 +103,15 @@ class aixtTransformer(Transformer):
                 s = ''
                 for i in range(3,len(ist)):
                     if ist[i] not in ['}', ',']:
-                        s += '#include "./{}/{}.h"\n'.format(ist[1], ist[i])
+                        s += '#include "./{}/{}__{}.h"\n'.format(ist[1], ist[1], ist[i])
         return s
-                        
+
+    def global_decl(self, gl, lp, sl, rp):
+        s = '{n'
+        s += ';\n'.join(self.stmtStack) + ';'
+        self.stmtStack.clear()
+        return s + '\n'
+        
     @v_args(inline=False)
     def fn_decl(self, fd):
         if 'main' in fd[1] + fd[2] + fd[3]:
@@ -145,7 +151,7 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def stmt_list(self, sl):
-        print(sl)
+        # print(sl)
         for t in sl:
             # if t != ';':
             #     self.stmtStack.append(t)
@@ -163,9 +169,9 @@ class aixtTransformer(Transformer):
     def decl_assign_stmt(self, ex1,op,ex2):
         half_len = len(self.exprStack) // 2
         for i in range(half_len):
-            if self.typeStack[0] == 'mutex':
-                self.topDecl.insert(0, 'mutex ' + self.exprStack[i])
-            elif self.typeStack[0] == 'char []':
+            # if self.typeStack[i] == 'mutex':
+            #     self.topDecl.insert(0, 'mutex ' + self.exprStack[i])
+            if self.typeStack[i] == 'char []':
                 if self.setup['nxc']:
                     s = 'string {} = {}; '  
                 else:     
@@ -173,15 +179,16 @@ class aixtTransformer(Transformer):
                 s = s.format(self.exprStack[i], self.exprStack[i+half_len])       
             else:
                 s = '{} {} = {}; '.format(self.typeStack[0], self.exprStack[i], self.exprStack[i+half_len]) 
-            self.typeStack.pop(0)
+            # self.typeStack.pop(0)
         self.exprStack.clear()
+        self.typeStack.clear()
         return s
 
     def simple_assign_stmt(self, el1,op,el2):
         s = ''
         half_len = len(self.exprStack) // 2
         for i in range(half_len):
-            s += '{} {} {}'.format(self.exprStack[i], op ,self.exprStack[i+half_len])
+            s += '{} {} {}; '.format(self.exprStack[i], op ,self.exprStack[i+half_len])
         self.exprStack.clear();     
         return s
 
@@ -213,6 +220,14 @@ class aixtTransformer(Transformer):
                                                        idf, self.rangeEnd, 
                                                        idf, bl )
 
+    def for_in_arr_stmt(self, fk,id1,ik,id2,bl):
+        self.topDecl.append('int __i__;')
+        s = 'for(__i__=0; __i__<{}; __i__++){}'.format( idf, self.rangeStart, 
+                                                        idf, self.rangeEnd, 
+                                                        idf, bl )  
+        s = s.replace('{\n', '{\n{} = {}[__i__]') 
+        return s                                
+
     def block(self, lb,bl,rb):
         s = '{\n'
         s += ';\n'.join(self.stmtStack) + ';'
@@ -220,16 +235,16 @@ class aixtTransformer(Transformer):
         return s + '\n}'
 
     @v_args(inline=False)
-    def param_list(self, pl):
+    def simple_decl_list(self, pl):
         s = ''
         n = len(self.exprStack)
         for i in range(n):
             s += self.typeStack.pop(0) + ' ' + self.exprStack.pop(0)
             s += ', ' if i <= n-2 else ''   # intermediate commas
-        # print('param_list: ', s)
+        # print('simple_decl_list: ', s)
         return s
 
-    def param(self, ex,tn):
+    def simple_decl(self, ex,tn):
         self.typeStack.append(self.setup[tn])
         self.exprStack.append(ex)
         return ''

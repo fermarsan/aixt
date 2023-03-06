@@ -2,15 +2,17 @@
 //
 // The MIT License (MIT)
 // 
-// Copyright (c) 2022 Fernando Martínez Santa
+// Copyright (c) 2022-2023 Fernando Martínez Santa
+//
+// Optimization level 1 (functions as macros)
 
-#ifndef _PIN_H_
-#define _PIN_H_
+#ifndef _MACHINE__PIN_1_H_
+#define _MACHINE__PIN_1_H_
 
-#include "../ports.h"
+#include "../ports_1.h"
 
-#define IN      1
-#define OUT     0
+#define PIN_IN      1
+#define PIN_OUT     0
 
 int *addr; //PORT address pointer
 int port_bit;       //specific bit of PORT
@@ -25,7 +27,7 @@ int port_bit;       //specific bit of PORT
 #define pin(PIN,TYPE)   \
     addr = (int)(PIN/16)*3 + &TRISA; \
     port_bit = PIN%16; \
-    if(TYPE==IN) *addr |=   0x0001<<port_bit; \
+    if(TYPE==PIN_IN) *addr |=   0x0001<<port_bit; \
     else         *addr &= ~(0x0001<<port_bit)
 
 #define pin_high(PIN)    \
@@ -43,4 +45,4 @@ int port_bit;       //specific bit of PORT
 #define pin_read(PIN)    \
     ((*((int)(PIN/16)*3 + &PORTA) >> (PIN%16)) & 0x0001)
 
-#endif  //_PIN_H_ 
+#endif  //_MACHINE__PIN_1_H_ 
