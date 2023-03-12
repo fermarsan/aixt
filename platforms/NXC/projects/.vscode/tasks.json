@@ -20,7 +20,7 @@
         "label": "Aixt: Compile & Download",
         "type": "shell",
         "windows": {
-            "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
+            "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc -T=NXT -S=usb -EF -d",
         },
         "linux": {
             "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc -T=NXT -S=usb -EF -d",
