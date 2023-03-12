@@ -1,2 +1,2 @@
-on_forward(out_a, 50)
+on_forward(out_ab, 50)
 sleep(3000)	
