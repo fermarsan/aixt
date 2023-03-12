@@ -93,3 +93,16 @@ task main()
 ```
 
 The NXC port of **Aixt** can be used in _script_ mode (without main function). In that case the _mutex_ variables have to be "declared" after _task_ functions definition, as shown in the previous example.
+
+# Installation
+`Aixt` project includes the `nbc` compiler for both _Windows_ and _Linux_, but you have to install manually the USB drivers.
+
+## for Windows
+Download the _NXT_ software from (https://education.lego.com/en-us/downloads/retiredproducts/nxt/software)[https://education.lego.com/en-us/downloads/retiredproducts/nxt/software], and install only the drivers.
+
+
+## for Linux
+Install the last version of `libusb-dev` package acording to your distribution. For instance in _Ubuntu_ you can type in a terminal:
+```
+apt-get install libusb-1.0-0-dev
+```
