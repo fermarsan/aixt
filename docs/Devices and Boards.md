@@ -18,11 +18,11 @@
 - **PSoC 1**
     - CY8C27443-24PXI
     - CY8C29466-24PXI
-    - **_CY3209-ExpressEVK_**: CY8C21434-24LFX  **_soon....._**
-    - **_CY3209-ExpressEVK_**: CY8C27643-24LFXI **_soon....._**
-    - **_CY3209-ExpressEVK_**: CY8C24894-24LFXI **_soon....._**
-    - **_CY3209-ExpressEVK_**: CY8C29666-24LFXI **_soon....._**
-    - **_CY8CKIT-001 + (008)_**: CY8C29000-24AXI **_soon....._**
+    - **_CY3209-ExpressEVK_**: CY8C21434-24LFX  
+    - **_CY3209-ExpressEVK_**: CY8C27643-24LFXI 
+    - **_CY3209-ExpressEVK_**: CY8C24894-24LFXI 
+    - **_CY3209-ExpressEVK_**: CY8C29666-24LFXI 
+    - **_CY8CKIT-001 + (008)_**: CY8C29000-24AXI
 - **PSoC 3**
     - **_CY8CKIT-001 + (009)_**: CY8C38866AXI-040 **_soon....._**
 - **PSoC 4**
@@ -41,7 +41,7 @@
 - **ESP8266**
     - **_NodeMCU V3 Lua_**: ESP8266 **_soon....._**
 - **ESP32**
-    - **_ESP32 DEVKITV1_**: ESP32 **_soon....._**
+    - **_ESP32 DEVKITV1_**: ESP32
     - **_D1 R32_**: ESP32 **_soon....._**
     - **_CORE-ESP32_**: ESP32-C3 **_soon....._**
 
@@ -52,11 +52,11 @@
 - **_CORE-Air32F103CBT6_**: air32f103 **_soon....._**
 
 ## Raspberry Pi
-- **_Raspberry Pi Pico_**: RP2040 **_soon....._**
+- **_Raspberry Pi Pico_**: RP2040 
 - **_Raspberry Pi Pico W_**: RP2040 **_soon....._**
 
 ## WCH
-- **_CH552 Core Board_**: CH552 **_soon....._**
+- **_CH552 Core Board_**: CH552 
 
 ## WinnerMicro
 - **_HLK-W801-KIT-V1.1_**: W801-C400 **_soon....._**
