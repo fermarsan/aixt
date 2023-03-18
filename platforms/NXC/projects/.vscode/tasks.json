@@ -20,10 +20,10 @@
         "label": "Aixt: Compile & Download",
         "type": "shell",
         "windows": {
-            "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc -T=NXT -S=usb -EF -d",
+            "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
         },
         "linux": {
-            "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc -T=NXT -S=usb -EF -d",
+            "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
