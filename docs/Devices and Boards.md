@@ -13,6 +13,11 @@
 - **16-bit**
     - **_Explorer 16_**: PIC24FJ128GA010
     - **_Explorer 16_**: dsPIC33FJ256GP710A **_soon....._**
+  
+## Atmel (Microchip)
+- **_MH-Tiny_**: ATtiny88 **_soon....._** 
+- **_Arduino nano_**: ATmega328p
+- **_Seeed Studio XIAO SAMD21_**: ATSAMD21G18 **_soon....._**
 
 ## Cypress
 - **PSoC 1**
@@ -29,10 +34,6 @@
   - **_CY8CKIT-049-42xx_**: CY8C4245AXI-483
 - **PSoC 5LP**
     - **_CY8CKIT-059_**: CY8C5888LTI-LP097 **_soon....._**
-
-## AVR
-- **_MH-Tiny_**: ATtiny88 **_soon....._** 
-- **_Arduino nano_**: ATmega328p
 
 ## LogicGreen 
 - **_LQFP32 MiniEVB_**: lgt8f328p
