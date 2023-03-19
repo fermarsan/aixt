@@ -65,5 +65,8 @@
 ## WinnerMicro
 - **_HLK-W801-KIT-V1.1_**: W801-C400 **_soon....._**
 
+## Sipeed
+- **_Sipeed M0sense_**: BL702 **_soon....._**
+
 ## LEGO Mindstorms NXT
 - **_NXT Intelligent Brick_**: AT91SAM7S256 (Transpiled to _NXC_ Language)
