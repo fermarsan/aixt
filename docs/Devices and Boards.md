@@ -57,6 +57,9 @@
 
 ## WCH
 - **_CH552 Core Board_**: CH552 
+- **_CH32V003 Development Board_**: CH32V003F4U6 **_soon....._**
+- **_CH32V203 Development Board_**: CH32V203C8T6 **_soon....._** 
+- **_CH32V305 Development Board_**: CH32V305RBT6 **_soon....._** 
 
 ## WinnerMicro
 - **_HLK-W801-KIT-V1.1_**: W801-C400 **_soon....._**
