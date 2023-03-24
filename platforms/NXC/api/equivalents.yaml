@@ -41,13 +41,13 @@ turn_time:        turn_time
 total_time:       total_time
 random:           Random
 
-set_sensor:           SetSensor
 set_sensor_touch:     SetSensorTouch
 set_sensor_light:     SetSensorLight
 set_sensor_sound:     SetSensorSound
 set_sensor_lowspeed:  SetSensorLowspeed
 set_sensor_type:      SetSensorType
 set_sensor_mode:      SetSensorMode
+set_sensor:           SetSensor
 reset_rensor:         ResetSensor
 clear_sensor:         ClearSensor
 reset_motor:          ResetMotor
