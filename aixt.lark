@@ -93,13 +93,15 @@ NUMERIC_TYPE.1: "u8" | "u16" | "u32" | "u64" | "usize" //| "uint"
             |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
             |   "f64" | "f32"
 
-ASSIGN_OP:      ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
+
 BINARY_OP:      "||" | "&&" | REL_OP | ADD_OP | MUL_OP
 REL_OP:         "==" | "!=" | "<" | "<=" | ">" | ">="
 ADD_OP.1:       "+" | "-" | "|" | "^"
 MUL_OP:         "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
 UNARY_OP:       "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
 INC_DEC_OP.2:   "++" | "--"
+ASSIGN_OP:      ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
+
 
 FLOAT_LITERAL:      INT EXP | DECIMAL EXP?
 INTEGER_LITERAL:    INT | HEX | OCTAL | BIN
