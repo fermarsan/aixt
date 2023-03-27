@@ -5,9 +5,10 @@
 
 task main() {
 
-int a = 0;
-for(int i=0; i<10; i++){
-a += i;
-}
+OnFwd(OUT_AC, 75);
+Wait(800);
+OnRev(OUT_C, 75);
+Wait(360);
+Off(OUT_AC);
 
 }
