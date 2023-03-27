@@ -95,7 +95,7 @@ NUMERIC_TYPE.1: "u8" | "u16" | "u32" | "u64" | "usize" //| "uint"
 
 ASSIGN_OP:      ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
 BINARY_OP:      "||" | "&&" | REL_OP | ADD_OP | MUL_OP
-REL_OP.1:         "==" | "!=" | "<" | "<=" | ">" | ">="
+REL_OP.1:       "==" | "!=" | "<" | "<=" | ">" | ">="
 ADD_OP.1:       "+" | "-" | "|" | "^"
 MUL_OP:         "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
 UNARY_OP:       "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
@@ -114,7 +114,6 @@ HEX.1:          /0x[0-9A-Fa-f][0-9A-Fa-f_]*/
 OCTAL.1:        /0o[0-7][0-7_]*/        
 BIN.1:          /0b[01][01_]*/
 C_PREPROC.1:    /#.+\n/                
-
 
 %import common.CNAME    ->  IDENT
 %import common (CPP_COMMENT, C_COMMENT, WS_INLINE, NEWLINE)

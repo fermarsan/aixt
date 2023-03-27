@@ -3,8 +3,6 @@ const (
 	turn_time = 500
 )
 
-
-
 for n in 1 .. 4 {
 	on_fwd(out_ac, 75)
 	wait(move_time)
