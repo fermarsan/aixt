@@ -8,12 +8,6 @@ from lark import Transformer, v_args
 from lark.lexer import Token
 import yaml
 import re
-# from language_production import lang_production
-
-class Token2(Token):
-    def __init__(self, Token, var_type):
-        self.var_type = var_type
-        super().__init__()
 
 @v_args(inline=True)
 class aixtTransformer(Transformer):
