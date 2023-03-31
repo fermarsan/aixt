@@ -335,19 +335,16 @@ class aixtTransformer(Transformer):
         return s
 
     def bool_literal(self, bl):
-        self.typeStack.append('bool')
-        return bl
+        return Token(type="('{}','{}')".format(bl.type, 'bool'), value=str(bl))
 
     def float_literal(self, fl):
         s = str(eval(fl.replace('_', ''))) # removes "_". "eval" adds missing zeros at both sides of "."
-        # print('float_literal:', s)
         return Token(type="('{}','{}')".format(fl.type, 
                                                self.setup['default_float']),
                      value=s)     
         
     def integer_literal(self, il):
         s = il.replace('_', '') # removes"_"
-        # print('integer_literal:', s)
         return Token(type="('{}','{}')".format(il.type, 
                                                self.setup['default_int']),
                      value=s)
