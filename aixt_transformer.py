@@ -81,8 +81,8 @@ class aixtTransformer(Transformer):
             s = re.sub(";\n;",";\n",s)  #removes unnecessary semicolons
             s = re.sub("};","}",s)
             s = re.sub("\n;","\n",s)
-            s = re.sub("; ;",";",s)
             s = re.sub('";','"',s)
+            s = re.sub("; ;",";",s)
             outText.write(s)  
 
     @v_args(inline=False)
@@ -337,12 +337,10 @@ class aixtTransformer(Transformer):
 
     def float_literal(self, fl):
         s = str(eval(fl.replace('_', ''))) # removes "_". "eval" adds missing zeros at both sides of "."
-        return Token(type="('{}','{}')".format(fl.type, 
-                                               self.setup['default_float']),
+        return Token(type="('{}','{}')".format(fl.type, self.setup['default_float']),
                      value=s)     
         
     def integer_literal(self, il):
         s = il.replace('_', '') # removes"_"
-        return Token(type="('{}','{}')".format(il.type, 
-                                               self.setup['default_int']),
+        return Token(type="('{}','{}')".format(il.type, self.setup['default_int']),
                      value=s)
