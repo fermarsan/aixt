@@ -44,7 +44,7 @@
     |   assign_stmt
     |   simple_decl               
     |   "break"
-    |   "return" expr                                        ->  return_stmt                                       
+    |   "return" expr                                       ->  return_stmt                                       
     |   "for" block                                         ->  for_bare_stmt
     |   "for" expr block                                    ->  for_cond_stmt
     |   "for" assign_stmt ";" expr ";" assign_stmt block    ->  for_c_stmt

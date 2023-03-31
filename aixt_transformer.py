@@ -164,50 +164,27 @@ class aixtTransformer(Transformer):
         return ''
 
     @v_args(inline=False)
-    def stmt(self, st):
-        # print(st)
-        s = st[0]
-        for i in range(1,len(st)):
-            s += ' ' + st[i]
+    def stmt(self, stm):
+        s = ''
+        for st in stm:
+            s += st
         return s
 
     def decl_assign_stmt(self, el1,op,el2):
-        # half_len = len(self.exprStack) // 2
-        # for i in range(half_len):
-        #     # if self.typeStack[i] == 'mutex':
-        #     #     self.topDecl.insert(0, 'mutex ' + self.exprStack[i])
-        #     if self.typeStack[i] == 'char []':
-        #         if self.setup['nxc']:
-        #             s = 'string {} = {}; '  
-        #         else:     
-        #             s = 'const char {} [] = {}; ' 
-        #         s = s.format(self.exprStack[i], self.exprStack[i+half_len])       
-        #     else:
-        #         s = '{} {} = {}; '.format(self.typeStack[0], self.exprStack[i], self.exprStack[i+half_len]) 
-        #     # self.typeStack.pop(0)
-        # self.exprStack.clear()
-        # self.typeStack.clear()
-
         s = ''
         for e1,e2 in zip(el1,el2):
-            # if eval(e2.type)[1] == 'mutex':
-            #     self.topDecl.insert(0, 'mutex ' + e2.value)
+            if eval(e2.type)[1] == 'mutex':
+                self.topDecl.insert(0, 'mutex ' + e2)
             if eval(e2.type)[1] == 'char []':
-                if self.setup['nxc']:
-                    s += 'string {} = {}; '  
-                else:     
-                    s += 'const char {} [] = {}; '
-                s = s.format(e1.value, e2.value)       
+                s += 'string {}' if self.setup['nxc'] else 'const char {} []'
+                s += '= {};'
+                s = s.format(e1, e2)       
             else:
-                s += '{} {} = {}; '.format(eval(e2.type)[1], e1.value, e2.value) 
+                s += '{} {} = {}; '.format(eval(e2.type)[1], e1, e2) 
         return s
 
     def simple_assign_stmt(self, el1,op,el2):
-        s = ''
-        # half_len = len(self.exprStack) // 2
-        # for i in range(half_len):
-        #     s += '{} {} {}; '.format(self.exprStack[i], op ,self.exprStack[i+half_len])
-        # self.exprStack.clear();    
+        s = ''   
         for e1,e2 in zip(el1,el2):
             s += '{} {} {}; '.format(e1, op ,e2)
         return s
@@ -220,13 +197,13 @@ class aixtTransformer(Transformer):
         return s[:-2] + '};'
 
     def inc_dec_stmt(self, ex,op):
-        return ex + op
+        return '{}{}'.format(ex, op)
 
     def return_stmt(self, ret, ex): 
         return 'return ' + ex
 
     def for_bare_stmt(self, fk,bl):
-        return 'while(true)' + bl
+        return 'while(true) {}'.format(bl)
 
     def for_cond_stmt(self, fk,ex,bl):
         return 'while({}) {}'.format(ex,bl)
