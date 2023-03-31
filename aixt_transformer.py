@@ -238,8 +238,9 @@ class aixtTransformer(Transformer):
         return 'for({}; {}; {}){}'.format(as1,ex,as2,bl)
 
     def for_in_stmt(self, fk,idf,ik,re,bl):
-        return 'for(int {}={}; {}<{}; {}++){}'.format( idf, self.rangeStart, 
-                                                       idf, self.rangeEnd, 
+        print('for_in_stmt:', re)
+        return 'for(int {}={}; {}<{}; {}++){}'.format( idf, re[0], 
+                                                       idf, re[1], 
                                                        idf, bl )
 
     def for_in_arr_stmt(self, fk,id1,ik,id2,bl):
@@ -311,9 +312,7 @@ class aixtTransformer(Transformer):
         return ex
 
     def range_expr(self, ex1,dts,ex2):
-        self.rangeStart = ex1
-        self.rangeEnd = ex2
-        return ''
+        return (ex1, ex2)
 
     @v_args(inline=False)
     def if_expr(self, ie):
