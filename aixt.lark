@@ -54,6 +54,7 @@
             |   expr_list ":=" "[" expr_list "]"    -> array_init       
             |   expr INC_DEC_OP                     -> inc_dec_stmt
 
+
 !block: "{" stmt_list "}"
 
 !simple_decl_list:    simple_decl ( "," simple_decl )*

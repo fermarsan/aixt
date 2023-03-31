@@ -311,10 +311,11 @@ class aixtTransformer(Transformer):
         return s[:-2] + ")"
 
     def cast_expr(self, tn,lp,ex,rp):
-        self.typeStack[-1] = self.setup[tn]
-        # print('{}\n{}\n{}'.format('#'*30,self.typeStack,'#'*30))
-        return ex
-
+        new_type = eval(ex.type) 
+        new_type[1] = self.setup[tn]
+        print('cast_expr:', str(new_type))
+        return Token(type=str(new_type), value=str(ex))
+    
     def range_expr(self, ex1,dts,ex2):
         return (ex1, ex2)
 
@@ -329,21 +330,21 @@ class aixtTransformer(Transformer):
 
     def string_literal(self, sl):
         s = sl.replace("'",'"') #changes the quotation marks
-        return Token(type="('{}','{}')".format(sl.type, 'char []'), value=s)
+        return Token(type="['{}','{}']".format(sl.type, 'char []'), value=s)
 
     def char_literal(self, cl):
         s = cl.replace('`',"'") #changes the quotation marks
-        return Token(type="('{}','{}')".format(cl.type, 'char'), value=s)
+        return Token(type="['{}','{}']".format(cl.type, 'char'), value=s)
 
     def bool_literal(self, bl):
-        return Token(type="('{}','{}')".format(bl.type, 'bool'), value=str(bl))
+        return Token(type="['{}','{}']".format(bl.type, 'bool'), value=str(bl))
 
     def float_literal(self, fl):
         s = str(eval(fl.replace('_', ''))) # removes "_". "eval" adds missing zeros at both sides of "."
-        return Token(type="('{}','{}')".format(fl.type, self.setup['default_float']),
+        return Token(type="['{}','{}']".format(fl.type, self.setup['default_float']),
                      value=s)     
         
     def integer_literal(self, il):
         s = il.replace('_', '') # removes"_"
-        return Token(type="('{}','{}')".format(il.type, self.setup['default_int']),
+        return Token(type="['{}','{}']".format(il.type, self.setup['default_int']),
                      value=s)
