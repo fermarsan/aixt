@@ -30,6 +30,7 @@ class aixtTransformer(Transformer):
         # self.moduleDef = ''
         self.rangeStart = 0
         self.rangeEnd = 0
+        self.temp_vars = []
         
         
         with open(r'../setup.yaml','r') as setup_file:
@@ -83,6 +84,7 @@ class aixtTransformer(Transformer):
             s = re.sub("\n;","\n",s)
             s = re.sub('";','"',s)
             s = re.sub("; ;",";",s)
+            s = re.sub(";;",";",s)
             outText.write(s)  
 
     @v_args(inline=False)
@@ -214,12 +216,11 @@ class aixtTransformer(Transformer):
             s += '{} {} {}; '.format(e1, op ,e2)
         return s
 
-    def array_init(self, il,ap,lb,el,rb):
+    def array_init(self, el1,ap,lb,el2,rb):
         # print('{}\n{}\n{}'.format('#'*40, self.exprStack, '#'*40))
-        s = '{} {}[] = {{'.format(self.typeStack[0], self.exprStack.pop(0)) 
-        for i in range(len(self.exprStack)):
-            s += self.exprStack.pop(0) + ', '
-        self.typeStack.clear()
+        s = '{} {}[] = {{'.format(eval(el2[0].type)[1], el1[0]) 
+        for e in el2:
+            s += e + ', '
         return s[:-2] + '};'
 
     def inc_dec_stmt(self, ex,op):
@@ -244,11 +245,14 @@ class aixtTransformer(Transformer):
                                                        idf, bl )
 
     def for_in_arr_stmt(self, fk,id1,ik,id2,bl):
-        self.topDecl.append('int __i__;')
-        s = 'for(__i__=0; __i__<{}; __i__++){}'.format( idf, self.rangeStart, 
-                                                        idf, self.rangeEnd, 
-                                                        idf, bl )  
-        s = s.replace('{\n', '{\n{} = {}[__i__]') 
+        if '__i__' not in self.temp_vars:
+            self.temp_vars.append('__i__')
+            self.topDecl.append('int __i__;')
+        block = bl.replace(id1, '{}[__i__]'.format(id2)) 
+        len_func = 'ArrayLen' if self.setup['nxc'] else 'sizeof'
+        s = 'for(__i__ = 0; __i__ < {}({}); __i__++){}'.format(len_func, 
+                                                               id2, 
+                                                               block)  
         return s                                
 
     def block(self, lb,bl,rb):
