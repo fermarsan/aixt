@@ -327,12 +327,11 @@ class aixtTransformer(Transformer):
     def string_literal(self, sl):
         s = sl.replace("'",'"') #changes the quotation marks
         self.typeStack.append('char []')
-        return s
+        return Token(type="('{}','{}')".format(cl.type, 'char'), value=s)
 
     def char_literal(self, cl):
         s = cl.replace('`',"'") #changes the quotation marks
-        self.typeStack.append('char')
-        return s
+        return Token(type="('{}','{}')".format(cl.type, 'char'), value=s)
 
     def bool_literal(self, bl):
         return Token(type="('{}','{}')".format(bl.type, 'bool'), value=str(bl))
