@@ -123,27 +123,29 @@ class aixtTransformer(Transformer):
         
     @v_args(inline=False)
     def fn_decl(self, fd):
-        if 'main' in fd[1] + fd[2] + fd[3]:
+        print('fn_decl:', fd)
+        attribute = ''
+        if fd[0].type == 'ATTRIB':
+            attribute = fd.pop(0)
+        fd.pop(0)   # ignores the FN keyword
+        if fd[0] == 'main':
             self.main = True
         s = ''
-        n = len(fd)
-        for i in range(1,n):    # avoids the attribute
-            s += fd[i] if fd[i] != 'fn' else ''
-            if fd[i] == ')':
+        while True:
+            s += fd.pop(0)
+            if ')' in s:
                 break
-        s = self.typeStack.pop(0) + ' ' + s if fd[-2] != ')' else s    # return value
-        s += fd[-1] # "block"
-        s = s[1:] if s[0] == '\n' else s    # removes the initial "\n"
-        if fd[0] == '[inline]':
-            return 'inline ' + s
-        elif fd[0] == '[task]':
-            return 'task ' + s
-        else:
-            return s
+        print('fn_decl:', fd)    
+        ret_val = fd[0] if '{' not in fd[0] else 'void'
+        s += ' ' + fd[-1]   # "block"
+        s = '{} {} {}'.format(attribute, ret_val, s)
+        return s if s[0] != ' ' else s[1:]
 
-    def fn_return(self, fr):
-        self.typeStack.append(self.setup[fr])
-        return ''
+    def attrib(self, lb,idf,rb):
+        return Token(type='ATTRIB', value=str(idf))
+
+    def fn_return(self, tn):
+        return self.setup[tn]
 
     @v_args(inline=False)
     def const_decl(self, cd):
@@ -262,19 +264,15 @@ class aixtTransformer(Transformer):
         return s + '\n}'
 
     @v_args(inline=False)
-    def simple_decl_list(self, pl):
+    def simple_decl_list(self, sds):
         s = ''
-        n = len(self.exprStack)
-        for i in range(n):
-            s += self.typeStack.pop(0) + ' ' + self.exprStack.pop(0)
-            s += ', ' if i <= n-2 else ''   # intermediate commas
-        # print('simple_decl_list: ', s)
+        for sd in sds:
+            s += ', ' if sd == ',' else '{} {}'.format(eval(sd.type)[1], sd)
         return s
 
     def simple_decl(self, ex,tn):
-        self.typeStack.append(self.setup[tn])
-        self.exprStack.append(ex)
-        return ''
+        return Token(type="['{}','{}']".format(ex.type, self.setup[tn]), 
+                     value=str(ex))
 
     @v_args(inline=False)
     def expr_list(self, el):
@@ -295,9 +293,8 @@ class aixtTransformer(Transformer):
         return Token(type=e.type, value=s)
 
     def index_expr(self, ex1,lb,ex2,rb):
-        print('index_expr:', '{}[{}]'.format(ex1, ex2))
-        return Token(type=ex1.type,
-                     value='{}[{}]'.format(ex1, ex2) )
+        # print('index_expr:', '{}[{}]'.format(ex1, ex2))
+        return Token(type=ex1.type, value='{}[{}]'.format(ex1, ex2) )
 
     def call_expr(self, idt,lb,el,rb): 
         if '.' in idt:  # module's method
