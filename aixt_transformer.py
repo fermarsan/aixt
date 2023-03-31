@@ -173,22 +173,35 @@ class aixtTransformer(Transformer):
             s += ' ' + st[i]
         return s
 
-    def decl_assign_stmt(self, ex1,op,ex2):
-        half_len = len(self.exprStack) // 2
-        for i in range(half_len):
-            # if self.typeStack[i] == 'mutex':
-            #     self.topDecl.insert(0, 'mutex ' + self.exprStack[i])
-            if self.typeStack[i] == 'char []':
+    def decl_assign_stmt(self, el1,op,el2):
+        # half_len = len(self.exprStack) // 2
+        # for i in range(half_len):
+        #     # if self.typeStack[i] == 'mutex':
+        #     #     self.topDecl.insert(0, 'mutex ' + self.exprStack[i])
+        #     if self.typeStack[i] == 'char []':
+        #         if self.setup['nxc']:
+        #             s = 'string {} = {}; '  
+        #         else:     
+        #             s = 'const char {} [] = {}; ' 
+        #         s = s.format(self.exprStack[i], self.exprStack[i+half_len])       
+        #     else:
+        #         s = '{} {} = {}; '.format(self.typeStack[0], self.exprStack[i], self.exprStack[i+half_len]) 
+        #     # self.typeStack.pop(0)
+        # self.exprStack.clear()
+        # self.typeStack.clear()
+
+        s = ''
+        for e1,e2 in zip(el1,el2):
+            # if eval(e2.type)[1] == 'mutex':
+            #     self.topDecl.insert(0, 'mutex ' + e2.value)
+            if eval(e2.type)[1] == 'char []':
                 if self.setup['nxc']:
-                    s = 'string {} = {}; '  
+                    s += 'string {} = {}; '  
                 else:     
-                    s = 'const char {} [] = {}; ' 
-                s = s.format(self.exprStack[i], self.exprStack[i+half_len])       
+                    s += 'const char {} [] = {}; '
+                s = s.format(e1.value, e2.value)       
             else:
-                s = '{} {} = {}; '.format(self.typeStack[0], self.exprStack[i], self.exprStack[i+half_len]) 
-            # self.typeStack.pop(0)
-        self.exprStack.clear()
-        self.typeStack.clear()
+                s += '{} {} = {}; '.format(eval(e2.type)[1], e1.value, e2.value) 
         return s
 
     def simple_assign_stmt(self, el1,op,el2):
@@ -268,13 +281,13 @@ class aixtTransformer(Transformer):
         print('expr_list: ', a)
         return a
 
-    # @v_args(inline=False)
+    @v_args(inline=False)
     def expr(self, ex):
-        print('expr:', ex.type, ex.value)
+        print('expr:', ex)
         s = ''
         for e in ex:
             s += e
-        return s
+        return Token(type=e.type, value=s)
 
     def index_expr(self, idt,lb,li,rb):
         return '{}[{}]'.format(idt,li)
@@ -327,16 +340,14 @@ class aixtTransformer(Transformer):
 
     def float_literal(self, fl):
         s = str(eval(fl.replace('_', ''))) # removes "_". "eval" adds missing zeros at both sides of "."
-        self.typeStack.append(self.setup['default_float'])
-        return s     
+        # print('float_literal:', s)
+        return Token(type="('{}','{}')".format(fl.type, 
+                                               self.setup['default_float']),
+                     value=s)     
         
     def integer_literal(self, il):
         s = il.replace('_', '') # removes"_"
-        # print('integer_literal:', Token(type=il.type, value=s))
-        # self.typeStack.append(self.setup['default_int'])
-        # return lang_production(kind='literal', 
-        #                        value=s, 
-        #                        var_type=self.setup['default_int'])
+        # print('integer_literal:', s)
         return Token(type="('{}','{}')".format(il.type, 
                                                self.setup['default_int']),
                      value=s)
