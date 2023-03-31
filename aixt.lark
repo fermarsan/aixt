@@ -25,7 +25,9 @@
 
 !global_decl:   "__global" "(" stmt_list ")"
 
-!fn_decl: ATTRIB? "fn" IDENT "(" simple_decl_list? ")" fn_return? block
+!fn_decl: attrib? "fn" IDENT "(" simple_decl_list? ")" fn_return? block
+
+!attrib: "[" IDENT "]"
 
 !fn_return: TYPE_NAME
 
@@ -66,14 +68,16 @@
 !expr:  UNARY_OP expr           //->  unary_expr
     |   expr BINARY_OP expr     //->  binary_expr
     |   "(" expr ")"            //->  par_expr
-    |   expr "[" literal "]"    ->  index_expr 
     |   expr "(" expr_list ")"  ->  call_expr 
     |   TYPE_NAME "(" expr ")"  ->  cast_expr  
     |   IDENT "." IDENT         //->  qualified_ident
+    |   index_expr
     |   range_expr
     |   if_expr
     |   IDENT
     |   literal
+
+!index_expr:    expr "[" expr "]"
 
 !range_expr:    expr ".." expr
 
@@ -85,8 +89,6 @@
         |   BOOL_LITERAL        ->  bool_literal
         |   CHAR_LITERAL        ->  char_literal 
         |   STRING_LITERAL      ->  string_literal    
-
-ATTRIB: "[" IDENT "]"
 
 TYPE_NAME.1:    "rune" | "bool" | "string" | NUMERIC_TYPE | "mutex"
 

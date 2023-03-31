@@ -294,8 +294,10 @@ class aixtTransformer(Transformer):
             s += e
         return Token(type=e.type, value=s)
 
-    def index_expr(self, idt,lb,li,rb):
-        return '{}[{}]'.format(idt,li)
+    def index_expr(self, ex1,lb,ex2,rb):
+        print('index_expr:', '{}[{}]'.format(ex1, ex2))
+        return Token(type=ex1.type,
+                     value='{}[{}]'.format(ex1, ex2) )
 
     def call_expr(self, idt,lb,el,rb): 
         if '.' in idt:  # module's method
@@ -310,7 +312,7 @@ class aixtTransformer(Transformer):
         return s[:-2] + ")"
 
     def cast_expr(self, tn,lp,ex,rp):
-        new_type = eval(ex.type) 
+        new_type = eval(ex.type)
         new_type[1] = self.setup[tn]
         print('cast_expr:', str(new_type))
         return Token(type=str(new_type), value=str(ex))
