@@ -326,8 +326,7 @@ class aixtTransformer(Transformer):
 
     def string_literal(self, sl):
         s = sl.replace("'",'"') #changes the quotation marks
-        self.typeStack.append('char []')
-        return Token(type="('{}','{}')".format(cl.type, 'char'), value=s)
+        return Token(type="('{}','{}')".format(sl.type, 'char []'), value=s)
 
     def char_literal(self, cl):
         s = cl.replace('`',"'") #changes the quotation marks
