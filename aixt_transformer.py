@@ -304,10 +304,9 @@ class aixtTransformer(Transformer):
                 s = method + "("
         else:           # standalone function
             s = idt + "("
-        for i in range(len(self.exprStack)):
-            s += self.exprStack.pop(0) + ", "
-        # self.typeStack.clear()
-        print('call_expr: ' + s[:-2] + ")")
+        for e in el:
+            s += e + ", "
+        # print('call_expr: ' + s[:-2] + ")")
         return s[:-2] + ")"
 
     def cast_expr(self, tn,lp,ex,rp):
