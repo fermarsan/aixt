@@ -5,8 +5,15 @@
 # Copyright (c) 2023 Fernando Martínez Santa
 
 from lark import Transformer, v_args
+from lark.lexer import Token
 import yaml
 import re
+# from language_production import lang_production
+
+class Token2(Token):
+    def __init__(self, Token, var_type):
+        self.var_type = var_type
+        super().__init__()
 
 @v_args(inline=True)
 class aixtTransformer(Transformer):
@@ -186,10 +193,12 @@ class aixtTransformer(Transformer):
 
     def simple_assign_stmt(self, el1,op,el2):
         s = ''
-        half_len = len(self.exprStack) // 2
-        for i in range(half_len):
-            s += '{} {} {}; '.format(self.exprStack[i], op ,self.exprStack[i+half_len])
-        self.exprStack.clear();     
+        # half_len = len(self.exprStack) // 2
+        # for i in range(half_len):
+        #     s += '{} {} {}; '.format(self.exprStack[i], op ,self.exprStack[i+half_len])
+        # self.exprStack.clear();    
+        for e1,e2 in zip(el1,el2):
+            s += '{} {} {}; '.format(e1, op ,e2)
         return s
 
     def array_init(self, il,ap,lb,el,rb):
@@ -251,22 +260,24 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def expr_list(self, el):
+        a = []
         for e in el:
             if e != ',':    
-                self.exprStack.append(e)
-        # print('expr_list: ', self.exprStack)
-        return ''
+                # self.exprStack.append(e)
+                a.append(e)
+        print('expr_list: ', a)
+        return a
 
-    @v_args(inline=False)
+    # @v_args(inline=False)
     def expr(self, ex):
-        print(ex)
+        print('expr:', ex.type, ex.value)
         s = ''
         for e in ex:
             s += e
         return s
 
-    def index_expr(self, id,lb,li,rb):
-        return '{}[{}]'.format(id,li)
+    def index_expr(self, idt,lb,li,rb):
+        return '{}[{}]'.format(idt,li)
 
     def call_expr(self, idt,lb,el,rb): 
         if '.' in idt:  # module's method
@@ -277,7 +288,8 @@ class aixtTransformer(Transformer):
             s = idt + "("
         for i in range(len(self.exprStack)):
             s += self.exprStack.pop(0) + ", "
-        self.typeStack.clear()
+        # self.typeStack.clear()
+        print('call_expr: ' + s[:-2] + ")")
         return s[:-2] + ")"
 
     def cast_expr(self, tn,lp,ex,rp):
@@ -320,5 +332,11 @@ class aixtTransformer(Transformer):
         
     def integer_literal(self, il):
         s = il.replace('_', '') # removes"_"
-        self.typeStack.append(self.setup['default_int'])
-        return s 
+        # print('integer_literal:', Token(type=il.type, value=s))
+        # self.typeStack.append(self.setup['default_int'])
+        # return lang_production(kind='literal', 
+        #                        value=s, 
+        #                        var_type=self.setup['default_int'])
+        return Token(type="('{}','{}')".format(il.type, 
+                                               self.setup['default_int']),
+                     value=s)

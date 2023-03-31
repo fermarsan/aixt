@@ -1,0 +1,14 @@
+//NXC code generated from the Aixt source
+//Device = Atmel AT91SAM7S256
+//Board = LEGO Mindstorms NXT intelligent brick
+
+
+task main() {
+
+SetSensorTouch(IN_1);
+int a = 0;
+while(true){
+
+}
+
+}

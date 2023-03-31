@@ -72,7 +72,7 @@
     |   range_expr
     |   if_expr
     |   IDENT
-    |   literal   
+    |   literal
 
 !range_expr:    expr ".." expr
 
