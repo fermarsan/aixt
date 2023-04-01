@@ -25,6 +25,7 @@ class aixtTransformer(Transformer):
         self.rangeStart = 0
         self.rangeEnd = 0
         self.temp_vars = []
+        transpiled = ''
         
         
         with open(r'../setup.yaml','r') as setup_file:
@@ -69,7 +70,8 @@ class aixtTransformer(Transformer):
                 for i in self.setup['initialization']:
                     s += i + '\n' if i != '' else ''
                 s += '\n\n'
-                s += ';\n'.join(self.stmtStack) + ';\n' if len(self.stmtStack) != 0 else ''
+                # s += ';\n'.join(self.stmtStack) + ';\n' if len(self.stmtStack) != 0 else ''
+                s += self.transpiled
                 s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
             else:
                 s += ';\n'.join(self.stmtStack) + ';' if len(self.stmtStack) != 0 else ''
@@ -83,9 +85,11 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def source_file(self, sf):
-        s = ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''
-        s += ';\n'.join(self.stmtStack) + ';' if len(self.stmtStack) != 0 else ''
-        return s
+        # print('source_file:', sf)
+        self.transpiled = ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''
+        for st in sf:
+            if st.type == 'stmt_list':
+                self.transpiled += ';\n'.join(st.value) + ';'        
 
     @v_args(inline=False)
     def top_decl_list(self, tdl):
@@ -156,12 +160,11 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def stmt_list(self, sl):
-        # print(sl)
+        a = []
         for t in sl:
-            # if t != ';':
-            #     self.stmtStack.append(t)
-            self.stmtStack.append(t)
-        return ''
+            a.append(t)
+        print('stmt_list:', a)
+        return Token(type='stmt_list', value=a)
 
     @v_args(inline=False)
     def stmt(self, stm):
@@ -228,10 +231,11 @@ class aixtTransformer(Transformer):
                                                                block)  
         return s                                
 
-    def block(self, lb,bl,rb):
+    def block(self, lb,sl,rb):
+        print('block:', sl)
         s = '{\n'
-        s += ';\n'.join(self.stmtStack) + ';'
-        self.stmtStack.clear()
+        s += ';\n'.join(sl.value) + ';'
+        print('block:', s)
         return s + '\n}'
 
     @v_args(inline=False)
