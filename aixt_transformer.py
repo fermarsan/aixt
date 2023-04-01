@@ -12,25 +12,16 @@ import re
 @v_args(inline=True)
 class aixtTransformer(Transformer):
     def __init__(self):
-        self.errStream = ''       #error stream
-        self.outStream = ''      #output stream
         self.moduleStack = []   #stacks
-        self.typeStack  = []
-        self.exprStack  = []
         self.stmtStack  = []
-        self.constStack = []
         self.topDecl    = []
+        self.temp_vars = []
         self.main = False
         # self.moduleDef = ''
-        self.rangeStart = 0
-        self.rangeEnd = 0
-        self.temp_vars = []
-        transpiled = ''
+        self.transpiled = ''
         
         with open(r'../setup.yaml','r') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
-            # for s in self.setup:
-            #     print(s)
 
     def saveOutput(self, name):
 
@@ -54,7 +45,6 @@ class aixtTransformer(Transformer):
             s += '\n//Device = ' + self.setup['device'] 
             s += '\n//Board = ' + self.setup['board'] + '\n\n'
             s += '#include "settings.h"\n\n' if not self.setup['nxc'] else ''
-            # s += self.preprocessor + '\n'        #user defined C preprocessor commands
             # s += '// ' + self.moduleDef + '\n'  #module definition
             # s += self.includes + '\n'            #user defined headers files
             
@@ -69,7 +59,6 @@ class aixtTransformer(Transformer):
                 for i in self.setup['initialization']:
                     s += i + '\n' if i != '' else ''
                 s += '\n\n'
-                # s += ';\n'.join(self.stmtStack) + ';\n' if len(self.stmtStack) != 0 else ''
                 s += self.transpiled
                 s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
             else:
@@ -98,7 +87,6 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def import_stmt(self, ist): 
-        # print(ist)
         if ist[1] in self.setup['api_modules']:
             self.moduleStack.append(ist[1])
             if len(ist) == 2:
@@ -106,14 +94,13 @@ class aixtTransformer(Transformer):
             else:
                 s = ''
                 for i in range(3,len(ist)):
-                    if ist[i] not in ['}', ',']:
+                    if ist[i] not in ('}', ','):
                         s += '#include "./{}/{}__{}.h"\n'.format(ist[1], ist[1], ist[i])
         return s
 
     def global_decl(self, gl, lp, sl, rp):
-        s = '{n'
-        s += ';\n'.join(self.stmtStack) + ';'
-        self.stmtStack.clear()
+        s = '\n'
+        s += ';\n'.join(sl) + ';'
         return s + '\n'
         
     @v_args(inline=False)
@@ -148,7 +135,7 @@ class aixtTransformer(Transformer):
         s = ''
         for c in cd:
             print('const_decl:', c.type)
-            if c.type != 'LPAR' and c.type != 'RPAR':
+            if c.type not in ('LPAR', 'RPAR'):
                 s += 'const {} {};\n'.format(eval(c.type)[1], c.value)  
         return s
 
@@ -191,7 +178,6 @@ class aixtTransformer(Transformer):
         return s
 
     def array_init(self, el1,ap,lb,el2,rb):
-        # print('{}\n{}\n{}'.format('#'*40, self.exprStack, '#'*40))
         s = '{} {}[] = {{'.format(eval(el2[0].type)[1], el1[0]) 
         for e in el2:
             s += e + ', '
@@ -232,7 +218,7 @@ class aixtTransformer(Transformer):
     def block(self, lb,sl,rb):
         print('block:', sl)
         s = '{\n'
-        s += ';\n'.join(sl.value) + ';'
+        s += ';\n'.join(sl) + ';'
         print('block:', s)
         return s + '\n}'
 
@@ -252,7 +238,6 @@ class aixtTransformer(Transformer):
         a = []
         for e in el:
             if e != ',':    
-                # self.exprStack.append(e)
                 a.append(e)
         print('expr_list: ', a)
         return a
