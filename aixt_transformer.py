@@ -27,7 +27,6 @@ class aixtTransformer(Transformer):
         self.temp_vars = []
         transpiled = ''
         
-        
         with open(r'../setup.yaml','r') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
             # for s in self.setup:
@@ -85,11 +84,9 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def source_file(self, sf):
-        # print('source_file:', sf)
-        self.transpiled = ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''
-        for st in sf:
-            if st.type == 'stmt_list':
-                self.transpiled += ';\n'.join(st.value) + ';'        
+        print('source_file:', sf)
+        # self.transpiled = ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''
+        self.transpiled = ';\n'.join(sf[1]) + ';'        
 
     @v_args(inline=False)
     def top_decl_list(self, tdl):
@@ -147,16 +144,17 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def const_decl(self, cd):
-        s = 'const {} {};\n'.format( self.typeStack.pop(0),
-                                     self.constStack.pop(0))
-        for i in range(len(self.constStack)):
-            s += 'const {} {};\n'.format( self.typeStack.pop(0),
-                                       self.constStack.pop(0))
+        cd.pop(0)   # CONST keyword
+        s = ''
+        for c in cd:
+            print('const_decl:', c.type)
+            if c.type != 'LPAR' and c.type != 'RPAR':
+                s += 'const {} {};\n'.format(eval(c.type)[1], c.value)  
         return s
 
     def const_item(self, idf,eq,ex):
-        self.constStack.append(idf + ' = ' + ex) 
-        return ''
+        print('const_item:', idf, ex)
+        return Token(type=ex.type, value='{} = {}'.format(idf, ex))
 
     @v_args(inline=False)
     def stmt_list(self, sl):
@@ -164,7 +162,7 @@ class aixtTransformer(Transformer):
         for t in sl:
             a.append(t)
         print('stmt_list:', a)
-        return Token(type='stmt_list', value=a)
+        return a
 
     @v_args(inline=False)
     def stmt(self, stm):
@@ -265,7 +263,7 @@ class aixtTransformer(Transformer):
         s = ''
         for e in ex:
             s += e
-        return Token(type=e.type, value=s)
+        return Token(type=ex[0].type, value=s)
 
     def index_expr(self, ex1,lb,ex2,rb):
         # print('index_expr:', '{}[{}]'.format(ex1, ex2))
