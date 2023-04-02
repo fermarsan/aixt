@@ -1,11 +1,11 @@
 # Aixt language
-**Aixt** is bases on [_The V programming language_](https://vlang.io/).
+**Aixt** is bases on [The V programming language](https://vlang.io/).
 
 # Diferences with V
 Based on the _V_ grammar taken from these sources (ordered by importance):
-- Abstract Syntax Tree V's documentation: [](https://modules.vlang.io/v.ast.html)
-- _V_ grammar definition in Antlr-v4:     [](https://github.com/antlr/grammars-v4/blob/master/v/V.g4)
-- _V_ grammar definition in lark:         [](https://github.com/Itay2805/Vork/blob/master/v.lark)
+- Abstract Syntax Tree V's documentation: [https://modules.vlang.io/v.ast.html](https://modules.vlang.io/v.ast.html)
+- _V_ grammar definition in Antlr-v4:     [https://github.com/antlr/grammars-v4/blob/master/v/V.g4](https://github.com/antlr/grammars-v4/blob/master/v/V.g4)
+- _V_ grammar definition in lark:         [(https://github.com/Itay2805/Vork/blob/master/v.lark](https://github.com/Itay2805/Vork/blob/master/v.lark)
 
 # Supported Keywords
 - as
@@ -72,5 +72,5 @@ Inspired by the _V language_ grammar [https://vlang.io/](https://vlang.io/)
 - comparison operations
 - compound operations '+=', etc.
 - block expressions '{ Code_block }' (a tab is added to the block in the output file)
-- - function declarations and return values
+- function declarations and return values
 - if-else statements, infinity for , for as while
