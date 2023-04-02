@@ -9,52 +9,49 @@
 //     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
 
 # Keywords
-as
-asm
-assert
-atomic
-break
-- const
-
-defer
-- else
-enum
-- false
-- fn
-- for
-go
-goto
-- if
-- import
-- in
-interface
-is
-isreftype
-lock
-match
-module
-mut
-none
-or
-pub
-- return
-rlock
-select
-shared
-sizeof
-spawn
-static
-struct
-- true
-type
-typeof
-union
-unsafe
-volatile
-- __global
-__offsetof
-
-
+- as
+- asm
+- assert
+- atomic
+- break
+- **const**
+- defer
+- **else**
+- enum
+- **false**
+- **fn**
+- **for**
+- go
+- goto
+- **if**
+- **import**
+- **in**
+- interface
+- is
+- isreftype
+- lock
+- match
+- module
+- mut
+- none
+- or
+- pub
+- **return**
+- rlock
+- select
+- shared
+- sizeof
+- spawn
+- static
+- struct
+- **true**
+- type
+- typeof
+- union
+- unsafe
+- volatile
+- **__global**
+- __offsetof
 
 
 # Supported Aixt language features
