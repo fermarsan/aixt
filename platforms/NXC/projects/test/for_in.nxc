@@ -1,13 +1,10 @@
-//NXC code generated from the Aixt source
-//Device = Atmel AT91SAM7S256
-//Board = LEGO Mindstorms NXT intelligent brick
-
+// NXC code generated from the Aixt source
+// Device = Atmel AT91SAM7S256
+// Board = LEGO Mindstorms NXT intelligent brick
 
 task main() {
-
-int a = 0;
-for(int i=0; i<10; i++){
-a += i;
-}
-
+	int a = 0;
+	for(int i=0; i<10; i++){
+		a += i;
+	}
 }

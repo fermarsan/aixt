@@ -2,11 +2,11 @@
 // Device = Atmel AT91SAM7S256
 // Board = LEGO Mindstorms NXT intelligent brick
 
-int __i__;
+int __i;
 
 task main() {
 	int I[] = {2, 4};
-	for(__i__ = 0; __i__ < ArrayLen(I); __i__++){
-		I[__i__]++;
+	for(__i = 0; __i < ArrayLen(I); __i++){
+		I[__i]++;
 	}
 }

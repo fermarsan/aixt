@@ -122,7 +122,7 @@ class aixtTransformer(Transformer):
         return s if s[0] != ' ' else s[1:]
 
     def attrib(self, lb,idf,rb):
-        return Token(type='ATTRIB', value=str(idf))
+        return Token(type='ATTRIB', value=idf)
 
     def fn_return(self, tn):
         return self.setup[tn]
@@ -228,7 +228,7 @@ class aixtTransformer(Transformer):
 
     def simple_decl(self, ex,tn):
         return Token(type="['{}','{}']".format(ex.type, self.setup[tn]), 
-                     value=str(ex))
+                     value=ex)
 
     @v_args(inline=False)
     def expr_list(self, el):
@@ -267,7 +267,7 @@ class aixtTransformer(Transformer):
         new_type = eval(ex.type)
         new_type[1] = self.setup[tn]
         # print('cast_expr:', str(new_type))
-        return Token(type=str(new_type), value=str(ex))
+        return Token(type=str(new_type), value=ex)
     
     def range_expr(self, ex1,dts,ex2):
         return (ex1, ex2)
@@ -279,7 +279,7 @@ class aixtTransformer(Transformer):
         if n > 3:
             for i in range(3,n):
                 s += 'else ' if ie[i] == 'else' else ie[i]
-        return s
+        return Token(type=ie[0].type, value=s)
 
     def string_literal(self, sl):
         s = sl.replace("'",'"') #changes the quotation marks
@@ -290,7 +290,7 @@ class aixtTransformer(Transformer):
         return Token(type="['{}','{}']".format(cl.type, 'char'), value=s)
 
     def bool_literal(self, bl):
-        return Token(type="['{}','{}']".format(bl.type, 'bool'), value=str(bl))
+        return Token(type="['{}','{}']".format(bl.type, 'bool'), value=bl)
 
     def float_literal(self, fl):
         s = str(eval(fl.replace('_', ''))) # removes "_". "eval" adds missing zeros at both sides of "."
