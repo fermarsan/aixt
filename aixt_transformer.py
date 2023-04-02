@@ -57,13 +57,13 @@ class aixtTransformer(Transformer):
                 s += ') {' 
                 for i in self.setup['initialization']:
                     s += i + '\n' if i != '' else ''
-                s += '\n\n'
+                s += '\n\t'
                 s += self.transpiled.replace('\n','\n\t')
                 s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
             else:
                 s += self.transpiled
-            s_in    = (";\n;", "};", "\n;", '";', "; ;", ";;", "\n\n\n")
-            s_out   = (";\n",  "}",  "\n",  '"',  ";",   ";",  "\n\n",   )
+            s_in    = (";\n;", "};", "\n;", '";', "; ;", ";;", "\n\n\n",)
+            s_out   = (";\n",  "}",  "\n",  '"',  ";",   ";",  "\n\n",  )
             for i,o in zip(s_in,s_out):
                 s = re.sub(i, o, s)
             outText.write(s)  
@@ -202,12 +202,12 @@ class aixtTransformer(Transformer):
                                                        re[1], idf, bl )
 
     def for_in_arr_stmt(self, fk,id1,ik,id2,bl):
-        if '__i__' not in self.temp_vars:
-            self.temp_vars.append('__i__')
-            self.topDecl.append('int __i__;')
-        block = bl.replace(id1, '{}[__i__]'.format(id2)) 
+        if '__i' not in self.temp_vars:
+            self.temp_vars.append('__i')
+            self.topDecl.append('int __i;')
+        block = bl.replace(id1, '{}[__i]'.format(id2)) 
         len_func = 'ArrayLen' if self.setup['nxc'] else 'sizeof'
-        s = 'for(__i__ = 0; __i__ < {}({}); __i__++){}'.format(len_func, 
+        s = 'for(__i = 0; __i < {}({}); __i++){}'.format(len_func, 
                                                                id2, 
                                                                block)  
         return s                                
@@ -217,7 +217,7 @@ class aixtTransformer(Transformer):
         s = '{\n\t'
         s += ';\n\t'.join(sl) + ';'
         # print('block:', s)
-        return s + '\n\t}'
+        return s + '\n}'
                                                                                   
     @v_args(inline=False)
     def simple_decl_list(self, sds):

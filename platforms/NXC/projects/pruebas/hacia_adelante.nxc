@@ -3,7 +3,6 @@
 // Board = LEGO Mindstorms NXT intelligent brick
 
 task main() {
-
-OnFwd(OUT_AB, 50);
-Wait(10000);
+	OnFwd(OUT_AB, 50);
+	Wait(10000);
 }
