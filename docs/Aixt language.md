@@ -1,14 +1,13 @@
 # Aixt language
-**Aixt** is bases on _The V programming language_.
+**Aixt** is bases on [_The V programming language_](https://vlang.io/).
 
 # Diferences with V
-- 
-// Based on the V grammar taken from these sources (ordered by importance):
-//     Abstract Syntax Tree V's documentation:  https://modules.vlang.io/v.ast.html
-//     V grammar definition in Antlr-v4:        https://github.com/antlr/grammars-v4/blob/master/v/V.g4
-//     V grammar definition in lark:            https://github.com/Itay2805/Vork/blob/master/v.lark
+Based on the _V_ grammar taken from these sources (ordered by importance):
+- Abstract Syntax Tree V's documentation: [](https://modules.vlang.io/v.ast.html)
+- _V_ grammar definition in Antlr-v4:     [](https://github.com/antlr/grammars-v4/blob/master/v/V.g4)
+- _V_ grammar definition in lark:         [](https://github.com/Itay2805/Vork/blob/master/v.lark)
 
-# Keywords
+# Supported Keywords
 - as
 - asm
 - assert
@@ -56,7 +55,7 @@
 
 # Supported Aixt language features
     
-- Inspired by the _V language_ grammar [https://vlang.io/](https://vlang.io/)
+Inspired by the _V language_ grammar [https://vlang.io/](https://vlang.io/)
     - _Golang_ grammar was taken as reference [https://github.com/antlr/grammars-v4/tree/master/golang](https://github.com/antlr/grammars-v4/tree/master/golang)
     - as well as _Rust_ grammar [https://doc.rust-lang.org/stable/reference/](https://doc.rust-lang.org/stable/reference/)
 - Integer literals in binary, octal, hexadecimal and decimal notation
