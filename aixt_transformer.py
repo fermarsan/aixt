@@ -40,14 +40,13 @@ class aixtTransformer(Transformer):
                 outSettings.write(s) 
 
         with open(name,'w') as outText:
-            s = '//NXC ' if self.setup['nxc'] else '//C '
+            s = '// NXC ' if self.setup['nxc'] else '//C '
             s += 'code generated from the Aixt source'
-            s += '\n//Device = ' + self.setup['device'] 
-            s += '\n//Board = ' + self.setup['board'] + '\n\n'
+            s += '\n// Device = ' + self.setup['device'] 
+            s += '\n// Board = ' + self.setup['board'] + '\n\n'
             s += '#include "settings.h"\n\n' if not self.setup['nxc'] else ''
             # s += '// ' + self.moduleDef + '\n'  #module definition
             # s += self.includes + '\n'            #user defined headers files
-            
             s += ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''    #top level declarations      
             s += '\n'
             if not self.main:       #adds the main function structure if not exist
@@ -63,19 +62,17 @@ class aixtTransformer(Transformer):
                 s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
             else:
                 s += ';\n'.join(self.stmtStack) + ';' if len(self.stmtStack) != 0 else ''
-            s = re.sub(";\n;",";\n",s)  #removes unnecessary semicolons
-            s = re.sub("};","}",s)
-            s = re.sub("\n;","\n",s)
-            s = re.sub('";','"',s)
-            s = re.sub("; ;",";",s)
-            s = re.sub(";;",";",s)
+            s_in    = (";\n;", "};", "\n;", '";', "; ;", ";;", "\n\n\n")
+            s_out   = (";\n",  "}",  "\n",  '"',  ";",   ";",  "\n\n",   )
+            for i,o in zip(s_in,s_out):
+                s = re.sub(i, o, s)
             outText.write(s)  
 
     @v_args(inline=False)
     def source_file(self, sf):
         print('source_file:', sf)
         # self.transpiled = ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''
-        self.transpiled = ';\n'.join(sf[1]) + ';'        
+        self.transpiled = ';\n'.join(sf[0]) + ';'   
 
     @v_args(inline=False)
     def top_decl_list(self, tdl):
@@ -86,7 +83,8 @@ class aixtTransformer(Transformer):
         return ''
 
     @v_args(inline=False)
-    def import_stmt(self, ist): 
+    def import_stmt(self, ist):
+        s = ''
         if ist[1] in self.setup['api_modules']:
             self.moduleStack.append(ist[1])
             if len(ist) == 2:
@@ -200,9 +198,8 @@ class aixtTransformer(Transformer):
 
     def for_in_stmt(self, fk,idf,ik,re,bl):
         print('for_in_stmt:', re)
-        return 'for(int {}={}; {}<{}; {}++){}'.format( idf, re[0], 
-                                                       idf, re[1], 
-                                                       idf, bl )
+        return 'for(int {}={}; {}<{}; {}++){}'.format( idf, re[0], idf, 
+                                                       re[1], idf, bl )
 
     def for_in_arr_stmt(self, fk,id1,ik,id2,bl):
         if '__i__' not in self.temp_vars:
