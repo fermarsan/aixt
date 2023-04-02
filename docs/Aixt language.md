@@ -7,7 +7,7 @@ Based on the _V_ grammar taken from these sources (ordered by importance):
 - _V_ grammar definition in Antlr-v4:     [https://github.com/antlr/grammars-v4/blob/master/v/V.g4](https://github.com/antlr/grammars-v4/blob/master/v/V.g4)
 - _V_ grammar definition in lark:         [(https://github.com/Itay2805/Vork/blob/master/v.lark](https://github.com/Itay2805/Vork/blob/master/v.lark)
 
-# Supported Keywords
+# V's supported keywords
 - as
 - asm
 - assert
