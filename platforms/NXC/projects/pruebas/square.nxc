@@ -2,11 +2,10 @@
 // Device = Atmel AT91SAM7S256
 // Board = LEGO Mindstorms NXT intelligent brick
 
+#define	t_fwd	1000
+
+#define	t_turn	500
+
 task main() {
 
-SetSensorTouch(IN_1);
-int a = 0;
-while(true) {
-a = Sensor(S1);
-}
 }

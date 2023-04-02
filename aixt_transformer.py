@@ -40,7 +40,7 @@ class aixtTransformer(Transformer):
                 outSettings.write(s) 
 
         with open(name,'w') as outText:
-            s = '// NXC ' if self.setup['nxc'] else '//C '
+            s = '// NXC ' if self.setup['nxc'] else '// C '
             s += 'code generated from the Aixt source'
             s += '\n// Device = ' + self.setup['device'] 
             s += '\n// Board = ' + self.setup['board'] + '\n\n'
@@ -70,7 +70,7 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def source_file(self, sf):
-        print('source_file:', sf)
+        # print('source_file:', sf)
         # self.transpiled = ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''
         self.transpiled = ';\n'.join(sf[0]) + ';'   
 
@@ -103,7 +103,7 @@ class aixtTransformer(Transformer):
         
     @v_args(inline=False)
     def fn_decl(self, fd):
-        print('fn_decl:', fd)
+        # print('fn_decl:', fd)
         attribute = ''
         if fd[0].type == 'ATTRIB':
             attribute = fd.pop(0)
@@ -115,7 +115,7 @@ class aixtTransformer(Transformer):
             s += fd.pop(0)
             if ')' in s:
                 break
-        print('fn_decl:', fd)    
+        # print('fn_decl:', fd)    
         ret_val = fd[0] if '{' not in fd[0] else 'void'
         s += ' ' + fd[-1]   # "block"
         s = '{} {} {}'.format(attribute, ret_val, s)
@@ -138,7 +138,7 @@ class aixtTransformer(Transformer):
         return s
 
     def const_item(self, idf,eq,ex):
-        print('const_item:', idf, ex)
+        # print('const_item:', idf, ex)
         return Token(type=ex.type, value='{} = {}'.format(idf, ex))
 
     @v_args(inline=False)
@@ -146,7 +146,7 @@ class aixtTransformer(Transformer):
         a = []
         for t in sl:
             a.append(t)
-        print('stmt_list:', a)
+        # print('stmt_list:', a)
         return a
 
     @v_args(inline=False)
@@ -197,7 +197,7 @@ class aixtTransformer(Transformer):
         return 'for({}; {}; {}){}'.format(as1,ex,as2,bl)
 
     def for_in_stmt(self, fk,idf,ik,re,bl):
-        print('for_in_stmt:', re)
+        # print('for_in_stmt:', re)
         return 'for(int {}={}; {}<{}; {}++){}'.format( idf, re[0], idf, 
                                                        re[1], idf, bl )
 
@@ -213,10 +213,10 @@ class aixtTransformer(Transformer):
         return s                                
 
     def block(self, lb,sl,rb):
-        print('block:', sl)
+        # print('block:', sl)
         s = '{\n'
         s += ';\n'.join(sl) + ';'
-        print('block:', s)
+        # print('block:', s)
         return s + '\n}'
 
     @v_args(inline=False)
@@ -236,7 +236,7 @@ class aixtTransformer(Transformer):
         for e in el:
             if e != ',':    
                 a.append(e)
-        print('expr_list: ', a)
+        # print('expr_list: ', a)
         return a
 
     @v_args(inline=False)
@@ -266,7 +266,7 @@ class aixtTransformer(Transformer):
     def cast_expr(self, tn,lp,ex,rp):
         new_type = eval(ex.type)
         new_type[1] = self.setup[tn]
-        print('cast_expr:', str(new_type))
+        # print('cast_expr:', str(new_type))
         return Token(type=str(new_type), value=str(ex))
     
     def range_expr(self, ex1,dts,ex2):
