@@ -58,10 +58,10 @@ class aixtTransformer(Transformer):
                 for i in self.setup['initialization']:
                     s += i + '\n' if i != '' else ''
                 s += '\n\n'
-                s += self.transpiled
+                s += self.transpiled.replace('\n','\n\t')
                 s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
             else:
-                s += ';\n'.join(self.stmtStack) + ';' if len(self.stmtStack) != 0 else ''
+                s += self.transpiled
             s_in    = (";\n;", "};", "\n;", '";', "; ;", ";;", "\n\n\n")
             s_out   = (";\n",  "}",  "\n",  '"',  ";",   ";",  "\n\n",   )
             for i,o in zip(s_in,s_out):
@@ -214,11 +214,11 @@ class aixtTransformer(Transformer):
 
     def block(self, lb,sl,rb):
         # print('block:', sl)
-        s = '{\n'
-        s += ';\n'.join(sl) + ';'
+        s = '{\n\t'
+        s += ';\n\t'.join(sl) + ';'
         # print('block:', s)
-        return s + '\n}'
-
+        return s + '\n\t}'
+                                                                                  
     @v_args(inline=False)
     def simple_decl_list(self, sds):
         s = ''

@@ -5,8 +5,11 @@
 task main() {
 
 SetSensorTouch(IN_1);
-int a = 0;
-while(true) {
-a = Sensor(S1);
-}
+	int a = 0;
+	while(true) {
+		a = Sensor(S1);
+		while(true) {
+		a = 10;
+		}
+		}
 }

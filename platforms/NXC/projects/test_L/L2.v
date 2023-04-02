@@ -4,4 +4,7 @@ a := 0
 
 for {
 	a = sensor(s1)
+	for {
+		a = 10
+	}
 }
