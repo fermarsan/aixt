@@ -12,13 +12,14 @@ import re
 @v_args(inline=True)
 class aixtTransformer(Transformer):
     def __init__(self):
-        self.moduleStack = []   #stacks
-        self.stmtStack  = []
-        self.topDecl    = []
-        self.temp_vars = []
+        self.moduleStack = []
+        self.stmtStack = []
+        self.topDecl = []
+        self.tempVars = []
         self.main = False
         # self.moduleDef = ''
         self.transpiled = ''
+        self.identLevel = 0
         
         with open(r'../setup.yaml','r') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
@@ -43,7 +44,7 @@ class aixtTransformer(Transformer):
             s = '// NXC ' if self.setup['nxc'] else '// C '
             s += 'code generated from the Aixt source'
             s += '\n// Device = ' + self.setup['device'] 
-            s += '\n// Board = ' + self.setup['board'] + '\n\n'
+            s += '\n// Board = ' + self.setup['board'] + '\n'
             s += '#include "settings.h"\n\n' if not self.setup['nxc'] else ''
             # s += '// ' + self.moduleDef + '\n'  #module definition
             # s += self.includes + '\n'            #user defined headers files
@@ -62,8 +63,8 @@ class aixtTransformer(Transformer):
                 s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
             else:
                 s += self.transpiled
-            s_in    = (";\n;", "};", "\n;", '";', "; ;", ";;", "\n\n\n",)
-            s_out   = (";\n",  "}",  "\n",  '"',  ";",   ";",  "\n\n",  )
+            s_in    = (";\n;", "};", "\n;", '";', "; ;", ";;",)
+            s_out   = (";\n",  "}",  "\n",  '"',  ";",   ";", )
             for i,o in zip(s_in,s_out):
                 s = re.sub(i, o, s)
             outText.write(s)  
@@ -71,9 +72,14 @@ class aixtTransformer(Transformer):
     @v_args(inline=False)
     def source_file(self, sf):
         # print('source_file:', sf)
-        # self.transpiled = ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''
-        self.transpiled = ';\n'.join(sf[0]) + ';'   
-
+        s = ''
+        for st in sf:
+            s += ';\n'.join(st) + ';'
+        for i in range(self.identLevel+1):    # indents each code block
+            j = self.identLevel - i
+            s = s.replace('__il{}:'.format(i+1), '{}'.format('\t'*j))
+        self.transpiled = s 
+        
     @v_args(inline=False)
     def top_decl_list(self, tdl):
         return ''
@@ -119,6 +125,7 @@ class aixtTransformer(Transformer):
         ret_val = fd[0] if '{' not in fd[0] else 'void'
         s += ' ' + fd[-1]   # "block"
         s = '{} {} {}'.format(attribute, ret_val, s)
+        self.identLevel -= 1
         return s if s[0] != ' ' else s[1:]
 
     def attrib(self, lb,idf,rb):
@@ -202,8 +209,8 @@ class aixtTransformer(Transformer):
                                                        re[1], idf, bl )
 
     def for_in_arr_stmt(self, fk,id1,ik,id2,bl):
-        if '__i' not in self.temp_vars:
-            self.temp_vars.append('__i')
+        if '__i' not in self.tempVars:
+            self.tempVars.append('__i')
             self.topDecl.append('int __i;')
         block = bl.replace(id1, '{}[__i]'.format(id2)) 
         len_func = 'ArrayLen' if self.setup['nxc'] else 'sizeof'
@@ -213,12 +220,11 @@ class aixtTransformer(Transformer):
         return s                                
 
     def block(self, lb,sl,rb):
-        # print('block:', sl)
-        s = '{\n\t'
-        s += ';\n\t'.join(sl) + ';'
-        # print('block:', s)
-        return s + '\n}'
-                                                                                  
+        self.identLevel += 1
+        s = '{{\n__il{}:'.format(self.identLevel)
+        s += ';\n__il{}:'.format(self.identLevel).join(sl) + ';'
+        return '{}\n__il{}:}}'.format(s, self.identLevel+1) # inverted order
+                           
     @v_args(inline=False)
     def simple_decl_list(self, sds):
         s = ''
