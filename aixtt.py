@@ -15,7 +15,7 @@ parser = Lark.open( 'aixt.lark',
                     start='source_file', 
                     rel_to=__file__, 
                     parser='lalr',
-                    # lexer='basic'   
+                    lexer='contextual'   
                     )
 transpiler = aixtTransformer()
 

@@ -1,8 +1,0 @@
-// NXC code generated from the Aixt source
-// Device = Atmel AT91SAM7S256
-// Board = LEGO Mindstorms NXT intelligent brick
-
-task main() {
-	OnFwd(OUT_AB, 50);
-	Wait(3000);
-}

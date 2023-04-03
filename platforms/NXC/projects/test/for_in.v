@@ -1,5 +1,5 @@
 a := 0
 
-for i in 0 .. 10 {
+for i in 10..20 {
 	a += i
 }

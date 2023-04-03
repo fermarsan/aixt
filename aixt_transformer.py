@@ -45,11 +45,11 @@ class aixtTransformer(Transformer):
             s += 'code generated from the Aixt source'
             s += '\n// Device = ' + self.setup['device'] 
             s += '\n// Board = ' + self.setup['board'] + '\n'
-            s += '#include "settings.h"\n\n' if not self.setup['nxc'] else ''
+            s += '#include "settings.h"\n\n' if not self.setup['nxc'] else '\n'
             # s += '// ' + self.moduleDef + '\n'  #module definition
             # s += self.includes + '\n'            #user defined headers files
             s += ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''    #top level declarations      
-            s += '\n'
+            # s += '\n'
             if not self.main:       #adds the main function structure if not exist
                 s += 'task' if self.setup['nxc'] else ''
                 s += self.setup['main_ret_type'] if self.setup['main_ret_type'] != 'none' else ''
