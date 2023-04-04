@@ -3,6 +3,8 @@ set_sensor_touch(in_1)
 a := 0
 a = 10
 a += 1
+a--
+a++
 for {
 	on_forward(out_ab, 30)
 	a = sensor(s1)

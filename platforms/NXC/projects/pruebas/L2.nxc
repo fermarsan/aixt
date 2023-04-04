@@ -6,6 +6,9 @@ task main() {
 	SetSensorTouch(IN_1);
 	int a = 0;
 	a = 10;
+	a += 1;
+	a--;
+	a++;
 	while(true) {
 		OnFwd(OUT_AB, 30);
 		a = Sensor(S1);
