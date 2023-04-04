@@ -173,8 +173,8 @@ class aixtTransformer(Transformer):
                 s += '= {}'
                 s = s.format(e1, e2)       
             else:
-                s += '{} {} = {}'.format(eval(e2.type)[1], e1, e2) 
-        return s
+                s += '{} {} = {}; '.format(eval(e2.type)[1], e1, e2) 
+        return s[:-2]
 
     def simple_assign_stmt(self, el1,op,el2):
         s = ''   
@@ -299,9 +299,11 @@ class aixtTransformer(Transformer):
     def bool_literal(self, bl):
         return Token(type="['{}','{}']".format(bl.type, 'bool'), value=bl)
 
+    @v_args(inline=False)
     def float_literal(self, fl):
-        s = str(eval(fl.replace('_', ''))) # removes "_". "eval" adds missing zeros at both sides of "."
-        return Token(type="['{}','{}']".format(fl.type, self.setup['default_float']),
+        s = ''.join(fl)
+        s = str(eval(s.replace('_', ''))) # removes "_". "eval" adds missing zeros at both sides of "."
+        return Token(type="['{}','{}']".format('float_literal', self.setup['default_float']),
                      value=s)     
         
     def integer_literal(self, il):
@@ -317,3 +319,10 @@ class aixtTransformer(Transformer):
     
     def rel_op(self, ro):
         return ro
+    
+    def dots(self, dt):
+        return dt
+    
+    @v_args(inline=False)
+    def decimal(self, de):
+        return ''.join(de)

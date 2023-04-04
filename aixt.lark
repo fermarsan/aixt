@@ -83,37 +83,31 @@
 !if_expr:   "if" expr block ("else" (block | if_expr))?
 
 
-!literal:   INTEGER_LITERAL     ->  integer_literal 
-        |   FLOAT_LITERAL       ->  float_literal
+!literal:   (INT | HEX | OCTAL | BIN)   ->  integer_literal 
+        |   (INT EXP | decimal EXP?)    ->  float_literal
         |   BOOL_LITERAL        ->  bool_literal
         |   CHAR_LITERAL        ->  char_literal 
         |   STRING_LITERAL      ->  string_literal    
 
-TYPE_NAME.1:    "rune" | "bool" | "string" | NUMERIC_TYPE | "mutex"
-
-NUMERIC_TYPE.1: "u8" | "u16" | "u32" | "u64" | "usize" //| "uint"
-            |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
-            |   "f64" | "f32"
-
 !assign_op:     "="  | "+=" | "-=" | "|=" | "^=" | "*=" | "/=" | "%=" | "<<=" | ">>=" | "&="
 !binary_op:     "||" | "&&" | rel_op | ADD_OP | MUL_OP
 !rel_op:        "==" | "!=" | "<" | "<=" | ">" | ">="
+!decimal:       INT "." INT? | "." INT
 
+TYPE_NAME.2:    "rune" | "bool" | "string" | NUMERIC_TYPE | "mutex"
 
+NUMERIC_TYPE.2: "u8" | "u16" | "u32" | "u64" | "usize" //| "uint"
+            |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
+            |   "f64" | "f32"
 
-// ASSIGN_OP:      ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
-// BINARY_OP:      "||" | "&&" | REL_OP | ADD_OP | MUL_OP
-// REL_OP.2:       "==" | "!=" | "<" | "<=" | ">" | ">="
 ADD_OP:         "+" | "-" | "|" | "^"
 MUL_OP:         "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
 UNARY_OP:       "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
 INC_DEC_OP.2:   "++" | "--"
 
-// DOTS:
-
-FLOAT_LITERAL:      INT EXP | DECIMAL EXP?
-INTEGER_LITERAL:    INT | HEX | OCTAL | BIN
-DECIMAL:            INT "." INT? | "." INT
+// FLOAT_LITERAL:      INT EXP | DECIMAL EXP?
+// INTEGER_LITERAL:    INT | HEX | OCTAL | BIN
+// DECIMAL:            INT "." INT? | "." INT
 
 BOOL_LITERAL.2:   "true" | "false"
 
