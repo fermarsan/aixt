@@ -67,8 +67,8 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def source_file(self, sf):
-        print('source_file:', sf)
-        print('source_file:', self.topDecl)
+        # print('source_file:', sf)
+        # print('source_file:', self.topDecl)
         s = ''
         for ds in sf:
             for st in ds:
@@ -139,7 +139,7 @@ class aixtTransformer(Transformer):
         cd.pop(0)   # CONST keyword
         s = ''
         for c in cd:
-            print('const_decl:', c.type)
+            # print('const_decl:', c.type)
             if c.type not in ('LPAR', 'RPAR'):
                 s += 'const {} {};\n'.format(eval(c.type)[1], c.value)  
         return s
@@ -291,7 +291,7 @@ class aixtTransformer(Transformer):
 
     def string_literal(self, sl):
         s = sl.replace("'",'"') #changes the quotation marks
-        print('string_literal:', s)
+        # print('string_literal:', s)
         return Token(type="['{}','{}']".format(sl.type, 'char []'), value=s)
 
     def char_literal(self, cl):

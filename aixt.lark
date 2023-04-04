@@ -78,7 +78,7 @@
 
 !index_expr:    expr "[" expr "]"
 
-!range_expr:    expr ".." expr
+!range_expr:    expr dots expr
 
 !if_expr:   "if" expr block ("else" (block | if_expr))?
 
@@ -92,6 +92,7 @@
 !assign_op:     "="  | "+=" | "-=" | "|=" | "^=" | "*=" | "/=" | "%=" | "<<=" | ">>=" | "&="
 !binary_op:     "||" | "&&" | rel_op | ADD_OP | MUL_OP
 !rel_op:        "==" | "!=" | "<" | "<=" | ">" | ">="
+!dots:          ".."
 !decimal:       INT "." INT? | "." INT
 
 TYPE_NAME.2:    "rune" | "bool" | "string" | "mutex"

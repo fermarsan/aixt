@@ -3,15 +3,5 @@
 // Board = LEGO Mindstorms NXT intelligent brick
 
 task main() {
-	while(true) {
-		a = 3;
-		while(true) {
-			b = 4;
-			while(true) {
-				c = 6;
-				d = 10;
-				e = 23;
-			}
-		}
-	}
+	a = 32;
 }
