@@ -48,8 +48,9 @@ class aixtTransformer(Transformer):
             s += '#include "settings.h"\n\n' if not self.setup['nxc'] else '\n'
             # s += '// ' + self.moduleDef + '\n'  #module definition
             # s += self.includes + '\n'            #user defined headers files
-            s += ';\n'.join(self.topDecl) + ';\n' if len(self.topDecl) != 0 else ''    #top level declarations      
-            # s += '\n'
+            for td in self.topDecl:
+                s += '{};\n'.format(td) #top level declarations      
+            s += '\n'
             if not self.main:       #adds the main function structure if not exist
                 s += 'task' if self.setup['nxc'] else ''
                 s += self.setup['main_ret_type'] if self.setup['main_ret_type'] != 'none' else ''
@@ -59,26 +60,24 @@ class aixtTransformer(Transformer):
                 for i in self.setup['initialization']:
                     s += i + '\n' if i != '' else ''
                 s += '\n\t'
-                s += self.transpiled.replace('\n','\n\t')
-                s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
+                s += self.transpiled.replace('\n','\n\t')[:-1]
+                s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '}' 
             else:
                 s += self.transpiled
-            # s_in    = (";\n;", "};", "\n;", '";', "; ;", ";;",)
-            # s_out   = (";\n",  "}",  "\n",  '"',  ";",   ";", )
-            # for i,o in zip(s_in,s_out):
-            #     s = re.sub(i, o, s)
+            s = s.replace('};','}')
             outText.write(s)  
 
     @v_args(inline=False)
     def source_file(self, sf):
         print('source_file:', sf)
         s = ''
-        for st in sf:
-            s += ';\n'.join(st) + ';'
+        for ds in sf:
+            for st in ds:
+                s += '{};\n'.format(st)
         for i in range(self.identLevel+1):    # indents each code block
             j = self.identLevel - i
             s = s.replace('__il{}:'.format(i+1), '{}'.format('\t'*j))
-        print('source_file:', s)
+        # print('source_file:', s)
         self.transpiled = s 
         
     @v_args(inline=False)
@@ -105,7 +104,8 @@ class aixtTransformer(Transformer):
 
     def global_decl(self, gl, lp, sl, rp):
         s = '\n'
-        s += ';\n'.join(sl) + ';'
+        for st in sl:
+            s += '{};\n'.format(st)
         return s + '\n'
         
     @v_args(inline=False)
@@ -171,16 +171,16 @@ class aixtTransformer(Transformer):
                 self.topDecl.insert(0, 'mutex ' + e2)
             if eval(e2.type)[1] == 'char []':
                 s += 'string {}' if self.setup['nxc'] else 'const char {} []'
-                s += '= {};'
+                s += '= {}'
                 s = s.format(e1, e2)       
             else:
-                s += '{} {} = {}; '.format(eval(e2.type)[1], e1, e2) 
+                s += '{} {} = {}'.format(eval(e2.type)[1], e1, e2) 
         return s
 
     def simple_assign_stmt(self, el1,op,el2):
         s = ''   
         for e1,e2 in zip(el1,el2):
-            s += '{} {} {}; '.format(e1, op ,e2)
+            s += '{} {} {}'.format(e1, op ,e2)
         return s
 
     def array_init(self, el1,ap,lb,el2,rb):
@@ -216,16 +216,16 @@ class aixtTransformer(Transformer):
         block = bl.replace(id1, '{}[__i]'.format(id2)) 
         len_func = 'ArrayLen' if self.setup['nxc'] else 'sizeof'
         s = 'for(__i = 0; __i < {}({}); __i++){}'.format(len_func, 
-                                                               id2, 
-                                                               block)  
-        return s                                
+                                                         id2, 
+                                                         block)
+        return s
 
     def block(self, lb,sl,rb):
         self.identLevel += 1
         s = '{\n'
         for st in sl:
             s += '__il{}:{};\n'.format(self.identLevel, st)
-        return '{}\n__il{}:}}'.format(s, self.identLevel+1) # inverted order 
+        return '{}__il{}:}}'.format(s, self.identLevel+1) # inverted order 
                     
     @v_args(inline=False)
     def simple_decl_list(self, sds):
