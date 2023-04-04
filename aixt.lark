@@ -50,7 +50,7 @@
     |   "for" IDENT "in" range_expr block                   ->  for_in_stmt
     |   "for" IDENT "in" IDENT block                        ->  for_in_arr_stmt
 
-!assign_stmt:   expr_list ASSIGN_OP expr_list       -> simple_assign_stmt
+!assign_stmt.1: expr_list assign_op expr_list       -> simple_assign_stmt
             |   expr_list ":=" expr_list            -> decl_assign_stmt   
             |   expr_list ":=" "[" expr_list "]"    -> array_init       
             |   expr INC_DEC_OP                     -> inc_dec_stmt
@@ -64,17 +64,17 @@
     
 !expr_list:     expr ( "," expr )*
 
-!expr:  UNARY_OP expr           //->  unary_expr
-    |   expr BINARY_OP expr     //->  binary_expr
-    |   "(" expr ")"            //->  par_expr
-    |   expr "(" expr_list ")"  ->  call_expr 
-    |   TYPE_NAME "(" expr ")"  ->  cast_expr  
-    |   IDENT "." IDENT         //->  qualified_ident
-    |   index_expr
-    |   range_expr
-    |   if_expr
-    |   IDENT
-    |   literal
+!expr.2:    UNARY_OP expr           //->  unary_expr
+        |   expr binary_op expr     //->  binary_expr
+        |   "(" expr ")"            //->  par_expr
+        |   expr "(" expr_list ")"  ->  call_expr 
+        |   TYPE_NAME "(" expr ")"  ->  cast_expr  
+        |   IDENT "." IDENT         //->  qualified_ident
+        |   index_expr
+        |   range_expr
+        |   if_expr
+        |   IDENT
+        |   literal
 
 !index_expr:    expr "[" expr "]"
 
@@ -95,27 +95,36 @@ NUMERIC_TYPE.1: "u8" | "u16" | "u32" | "u64" | "usize" //| "uint"
             |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
             |   "f64" | "f32"
 
-ASSIGN_OP.3:      ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
-BINARY_OP:      "||" | "&&" | REL_OP | ADD_OP | MUL_OP
-REL_OP.2:         "==" | "!=" | "<" | "<=" | ">" | ">="
-ADD_OP.1:       "+" | "-" | "|" | "^"
+!assign_op:     ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
+!binary_op:     "||" | "&&" | rel_op | ADD_OP | MUL_OP
+!rel_op:        "==" | "!=" | "<" | "<=" | ">" | ">="
+
+
+
+// ASSIGN_OP:      ("+" | "-" | "|" | "^" | "*" | "/" | "%" | "<<" | ">>" | "&" )? "="
+// BINARY_OP:      "||" | "&&" | REL_OP | ADD_OP | MUL_OP
+// REL_OP.2:       "==" | "!=" | "<" | "<=" | ">" | ">="
+ADD_OP:         "+" | "-" | "|" | "^"
 MUL_OP:         "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
 UNARY_OP:       "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
 INC_DEC_OP.2:   "++" | "--"
+
+// DOTS:
 
 FLOAT_LITERAL:      INT EXP | DECIMAL EXP?
 INTEGER_LITERAL:    INT | HEX | OCTAL | BIN
 DECIMAL:            INT "." INT? | "." INT
 
-BOOL_LITERAL.1:   "true" | "false"
+BOOL_LITERAL.2:   "true" | "false"
+
 STRING_LITERAL: /\'.*\'/
 CHAR_LITERAL:   /`.`/
-EXP.1:          /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"
+EXP.2:          /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"
 INT:            /[0-9][0-9_]*/                        
-HEX.1:          /0x[0-9A-Fa-f][0-9A-Fa-f_]*/
-OCTAL.1:        /0o[0-7][0-7_]*/        
-BIN.1:          /0b[01][01_]*/
-C_PREPROC.1:    /#.+\n/                
+HEX.2:          /0x[0-9A-Fa-f][0-9A-Fa-f_]*/
+OCTAL.2:        /0o[0-7][0-7_]*/        
+BIN.2:          /0b[01][01_]*/
+C_PREPROC.2:    /#.+\n/                
 
 %import common.CNAME    ->  IDENT
 %import common (CPP_COMMENT, C_COMMENT, WS_INLINE, NEWLINE)

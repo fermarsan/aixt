@@ -308,3 +308,12 @@ class aixtTransformer(Transformer):
         s = il.replace('_', '') # removes"_"
         return Token(type="['{}','{}']".format(il.type, self.setup['default_int']),
                      value=s)
+    
+    def assign_op(self, ao):
+        return ao
+    
+    def binary_op(self, bo):
+        return bo
+    
+    def rel_op(self, ro):
+        return ro
