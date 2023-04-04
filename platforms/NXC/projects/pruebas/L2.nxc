@@ -9,7 +9,7 @@ task main() {
 	while(true) {
 		OnFwd(OUT_AB, 30);
 		a = Sensor(S1);
-		if(a<=0){
+		if(a<=0) {
 			Off(OUT_AB);
 		}
 	}

@@ -4,7 +4,6 @@
 
 const int move_time = 1000;
 const int turn_time = 500;
-;
 
 task main() {
 	for(int n=1; n<4; n++){
@@ -12,8 +11,6 @@ task main() {
 		Wait(move_time);
 		OnRev(OUT_C, 75);
 		Wait(turn_time);
-	
-	};
+	}
 	Off(OUT_AC);
-	
 }
