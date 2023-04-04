@@ -85,18 +85,17 @@
 
 !literal:   (INT | HEX | OCTAL | BIN)   ->  integer_literal 
         |   (INT EXP | decimal EXP?)    ->  float_literal
-        |   BOOL_LITERAL        ->  bool_literal
-        |   CHAR_LITERAL        ->  char_literal 
-        |   STRING_LITERAL      ->  string_literal    
+        |   ("true" | "false")          ->  bool_literal
+        |   (/`.`/)                     ->  char_literal 
+        |   (/\'.*\'/)                  ->  string_literal    
 
 !assign_op:     "="  | "+=" | "-=" | "|=" | "^=" | "*=" | "/=" | "%=" | "<<=" | ">>=" | "&="
 !binary_op:     "||" | "&&" | rel_op | ADD_OP | MUL_OP
 !rel_op:        "==" | "!=" | "<" | "<=" | ">" | ">="
 !decimal:       INT "." INT? | "." INT
 
-TYPE_NAME.2:    "rune" | "bool" | "string" | NUMERIC_TYPE | "mutex"
-
-NUMERIC_TYPE.2: "u8" | "u16" | "u32" | "u64" | "usize" //| "uint"
+TYPE_NAME.2:    "rune" | "bool" | "string" | "mutex"
+            |   "u8"  | "u16" | "u32" | "u64" | "usize" //| "uint"
             |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
             |   "f64" | "f32"
 
@@ -105,14 +104,6 @@ MUL_OP:         "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
 UNARY_OP:       "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
 INC_DEC_OP.2:   "++" | "--"
 
-// FLOAT_LITERAL:      INT EXP | DECIMAL EXP?
-// INTEGER_LITERAL:    INT | HEX | OCTAL | BIN
-// DECIMAL:            INT "." INT? | "." INT
-
-BOOL_LITERAL.2:   "true" | "false"
-
-STRING_LITERAL: /\'.*\'/
-CHAR_LITERAL:   /`.`/
 EXP.2:          /[eE][\+-]?[0-9][0-9_]*/            // all numeric literals with "_"
 INT:            /[0-9][0-9_]*/                        
 HEX.2:          /0x[0-9A-Fa-f][0-9A-Fa-f_]*/

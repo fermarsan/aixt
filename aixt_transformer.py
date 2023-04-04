@@ -169,9 +169,10 @@ class aixtTransformer(Transformer):
             if eval(e2.type)[1] == 'mutex':
                 self.topDecl.insert(0, 'mutex ' + e2)
             if eval(e2.type)[1] == 'char []':
-                s += 'string {}' if self.setup['nxc'] else 'const char {} []'
-                s += '= {}'
-                s = s.format(e1, e2)       
+                s += 'string {}' if self.setup['nxc'] else 'const char {}[]'
+                s += ' = {}; '
+                s = s.format(e1, e2)  
+                # print('decl_assign_stmt:', e1,e2)     
             else:
                 s += '{} {} = {}; '.format(eval(e2.type)[1], e1, e2) 
         return s[:-2]
@@ -290,6 +291,7 @@ class aixtTransformer(Transformer):
 
     def string_literal(self, sl):
         s = sl.replace("'",'"') #changes the quotation marks
+        print('string_literal:', s)
         return Token(type="['{}','{}']".format(sl.type, 'char []'), value=s)
 
     def char_literal(self, cl):
@@ -303,12 +305,14 @@ class aixtTransformer(Transformer):
     def float_literal(self, fl):
         s = ''.join(fl)
         s = str(eval(s.replace('_', ''))) # removes "_". "eval" adds missing zeros at both sides of "."
-        return Token(type="['{}','{}']".format('float_literal', self.setup['default_float']),
+        return Token(type="['{}','{}']".format('float_literal',
+                                               self.setup['default_float']),
                      value=s)     
         
     def integer_literal(self, il):
         s = il.replace('_', '') # removes"_"
-        return Token(type="['{}','{}']".format(il.type, self.setup['default_int']),
+        return Token(type="['{}','{}']".format(il.type, 
+                                               self.setup['default_int']),
                      value=s)
     
     def assign_op(self, ao):
