@@ -63,21 +63,22 @@ class aixtTransformer(Transformer):
                 s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '\n}' 
             else:
                 s += self.transpiled
-            s_in    = (";\n;", "};", "\n;", '";', "; ;", ";;",)
-            s_out   = (";\n",  "}",  "\n",  '"',  ";",   ";", )
-            for i,o in zip(s_in,s_out):
-                s = re.sub(i, o, s)
+            # s_in    = (";\n;", "};", "\n;", '";', "; ;", ";;",)
+            # s_out   = (";\n",  "}",  "\n",  '"',  ";",   ";", )
+            # for i,o in zip(s_in,s_out):
+            #     s = re.sub(i, o, s)
             outText.write(s)  
 
     @v_args(inline=False)
     def source_file(self, sf):
-        # print('source_file:', sf)
+        print('source_file:', sf)
         s = ''
         for st in sf:
             s += ';\n'.join(st) + ';'
         for i in range(self.identLevel+1):    # indents each code block
             j = self.identLevel - i
             s = s.replace('__il{}:'.format(i+1), '{}'.format('\t'*j))
+        print('source_file:', s)
         self.transpiled = s 
         
     @v_args(inline=False)
@@ -221,10 +222,11 @@ class aixtTransformer(Transformer):
 
     def block(self, lb,sl,rb):
         self.identLevel += 1
-        s = '{{\n__il{}:'.format(self.identLevel)
-        s += ';\n__il{}:'.format(self.identLevel).join(sl) + ';'
-        return '{}\n__il{}:}}'.format(s, self.identLevel+1) # inverted order
-                           
+        s = '{\n'
+        for st in sl:
+            s += '__il{}:{};\n'.format(self.identLevel, st)
+        return '{}\n__il{}:}}'.format(s, self.identLevel+1) # inverted order 
+                    
     @v_args(inline=False)
     def simple_decl_list(self, sds):
         s = ''
