@@ -105,22 +105,29 @@ class aixtTransformer(Transformer):
     @v_args(inline=False)
     def fn_decl(self, fd):
         # print('fn_decl:', fd)
-        attribute = ''
-        if fd[0].type == 'ATTRIB':
-            attribute = fd.pop(0)
+        s = ''
+        attribute = fd.pop(0) if fd[0].type == 'ATTRIB' else ''
         fd.pop(0)   # ignores the FN keyword
         if fd[0] == 'main':
             self.main = True
-        s = ''
-        while True:
-            s += fd.pop(0)
-            if ')' in s:
-                break
-        # print('fn_decl:', fd) 
-        if self.main and self.setup['nxc']:
-            ret_val = 'task'   
+            while True:
+                s += fd.pop(0)
+                if ')' in s:
+                    break
+            if self.setup['nxc']:
+                attribute = 'task'   
+                ret_val = ''   
+            else:
+                ret_val = fd[0] if '{' not in fd[0] else 'void'
         else:
-            ret_val = fd[0] if '{' not in fd[0] else 'void'
+            while True:
+                s += fd.pop(0)
+                if ')' in s:
+                    break
+            if self.setup['nxc'] and attribute == 'task': 
+                ret_val = ''   
+            else:
+                ret_val = fd[0] if '{' not in fd[0] else 'void'
         s += ' ' + fd[-1]   # "block"
         s = '{} {} {}'.format(attribute, ret_val, s)
         return s if s[0] != ' ' else s[1:]  #---REVISAR---

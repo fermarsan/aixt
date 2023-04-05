@@ -3,7 +3,7 @@
 // Board = LEGO Mindstorms NXT intelligent brick
 
 mutex move_mutex;
-task void move_square() {
+task  move_square() {
 	while(true) {
 		Acquire(move_mutex);
 		OnFwd(OUT_AC, 75);
@@ -13,7 +13,7 @@ task void move_square() {
 		Release(move_mutex);
 	}
 }
-task void check_Sensors() {
+task  check_Sensors() {
 	while(true) {
 		if(SENSOR_1==1) {
 			Acquire(move_mutex);
