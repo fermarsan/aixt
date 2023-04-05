@@ -67,16 +67,11 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def source_file(self, sf):
-        # print('source_file:', sf)
-        # print('source_file:', self.topDecl)
+        # print('source_file:', sf) # print('source_file:', self.topDecl)
         s = ''
         for ds in sf:
             for st in ds:
                 s += '{};\n'.format(st)
-        # for i in range(self.identLevel+1):    # indents each code block
-        #     j = self.identLevel - i
-        #     s = s.replace('__il{}:'.format(i+1), '{}'.format('\t'*j))
-        # print('source_file:', s)
         self.transpiled = s 
         
     @v_args(inline=False)
@@ -125,7 +120,6 @@ class aixtTransformer(Transformer):
         ret_val = fd[0] if '{' not in fd[0] else 'void'
         s += ' ' + fd[-1]   # "block"
         s = '{} {} {}'.format(attribute, ret_val, s)
-        self.identLevel -= 1
         return s if s[0] != ' ' else s[1:]
 
     def attrib(self, lb,idf,rb):
@@ -196,7 +190,6 @@ class aixtTransformer(Transformer):
         return 'return ' + ex
 
     def for_bare_stmt(self, fk,bl):
-        # self.identLevel = 0
         return 'while(true) {}'.format(bl)
 
     def for_cond_stmt(self, fk,ex,bl):
@@ -222,12 +215,6 @@ class aixtTransformer(Transformer):
         return s
 
     def block(self, lb,sl,rb):
-        # print('block:',lb.type)
-        # self.identLevel += 1
-        # s = '{\n'
-        # for st in sl:
-        #     s += '__il{}:{};\n'.format(self.identLevel, st)
-        # return '{}__il{}:}}'.format(s, self.identLevel+1) # inverted order 
         s = '{\n'
         for st in sl:
             s += '{}{};\n'.format('\t'*self.identLevel, st)
@@ -301,7 +288,6 @@ class aixtTransformer(Transformer):
         if n > 3:
             for i in range(3,n):
                 s += 'else ' if ie[i] == 'else' else ie[i]
-        # self.identLevel = 0
         return Token(type=ie[0].type, value=s)
 
     def string_literal(self, sl):
