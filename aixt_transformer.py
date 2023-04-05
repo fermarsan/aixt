@@ -149,7 +149,8 @@ class aixtTransformer(Transformer):
     def stmt_list(self, sl):
         a = []
         for t in sl:
-            a.append(t)
+            if t != ';':
+                a.append(t)
         # print('stmt_list:', a)
         return a
 
