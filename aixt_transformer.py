@@ -116,11 +116,14 @@ class aixtTransformer(Transformer):
             s += fd.pop(0)
             if ')' in s:
                 break
-        # print('fn_decl:', fd)    
-        ret_val = fd[0] if '{' not in fd[0] else 'void'
+        # print('fn_decl:', fd) 
+        if self.setup['nxc']:
+            ret_val = 'task'   
+        else:
+            ret_val = fd[0] if '{' not in fd[0] else 'void'
         s += ' ' + fd[-1]   # "block"
         s = '{} {} {}'.format(attribute, ret_val, s)
-        return s if s[0] != ' ' else s[1:]
+        return s if s[0] != ' ' else s[1:]  #---REVISAR---
 
     def attrib(self, lb,idf,rb):
         return Token(type='ATTRIB', value=idf)
