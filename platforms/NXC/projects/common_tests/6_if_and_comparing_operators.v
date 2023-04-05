@@ -1,4 +1,4 @@
-// all the comparing operators
+// all the comparing operators along with "if" statement
 
 a, b := 10, 20
 
