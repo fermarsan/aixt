@@ -1,4 +1,4 @@
-// all assign operators
+// all the assign operators
 
 a := 10
 
