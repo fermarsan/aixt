@@ -63,13 +63,13 @@
     
 !expr_list:     expr ( "," expr )*
 
-!expr:  expr binary_op expr     //->  binary_expr
+!expr:  UNARY_OP expr           ->  unary_expr   
+    |   expr binary_op expr     //->  binary_expr
     |   "(" expr ")"            ->  par_expr
     |   expr "(" expr_list ")"  ->  call_expr 
     |   TYPE_NAME "(" expr ")"  ->  cast_expr  
     |   IDENT "." IDENT         //->  qualified_ident
     |   expr "[" expr "]"       ->  index_expr
-    |   UNARY_OP expr           ->  unary_expr   
     |   range_expr
     |   if_expr
     |   IDENT
@@ -87,9 +87,10 @@
         |   (/\'.*\'/)                  ->  string_literal    
 
 !assign_op:     "="  | "+=" | "-=" | "|=" | "^=" | "*=" | "/=" | "%=" | "<<=" | ">>=" | "&="
-!binary_op:     "||" | "&&" | rel_op | ADD_OP | mul_op
+!binary_op:     "||" | "&&" | rel_op | add_op | mul_op
 !rel_op:        "==" | "!=" | "<" | "<=" | ">" | ">="
 !mul_op:        "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
+!add_op:         "+" | "-" | "|" | "^"
 !dots:          ".."
 !decimal:       INT "." INT? | "." INT
 !lbrace:        "{"
@@ -101,7 +102,6 @@ TYPE_NAME.2:    "rune" | "bool" | "string" | "mutex"
             |   "i8"  | "i16" | "i32" | "i64" | "isize" | "int"
             |   "f64" | "f32"
 
-ADD_OP:         "+" | "-" | "|" | "^"
 UNARY_OP:       "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
 INC_DEC_OP.2:   "++" | "--"
 

@@ -331,6 +331,9 @@ class aixtTransformer(Transformer):
     def mul_op(self, mo):
         return mo
     
+    def add_op(self, ao):
+        return ao
+    
     def dots(self, dt):
         return dt
     
