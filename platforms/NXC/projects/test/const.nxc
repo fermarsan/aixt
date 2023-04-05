@@ -1,0 +1,16 @@
+// Aixt project (NXC generated code)
+// Device = Atmel AT91SAM7S256
+// Board = LEGO Mindstorms NXT intelligent brick
+
+const int t_ON = 1000;
+const int t_OFF = 500;
+
+task main() {
+	OnFwd(OUT_AB, 70);
+	Wait(t_ON);
+	Off(OUT_AB);
+	Wait(t_OFF);
+	OnFwd(OUT_AB, 70);
+	Wait(t_ON);
+	Off(OUT_AB);
+}
