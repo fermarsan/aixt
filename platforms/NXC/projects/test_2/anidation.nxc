@@ -3,13 +3,17 @@
 // Board = LEGO Mindstorms NXT intelligent brick
 
 task main() {
-	SetSensorTouch(IN_1);
-	int a = 0;
 	while(true) {
-		OnFwd(OUT_AB, 30);
-		a = Sensor(S1);
-		if(a==0) {
-			Off(OUT_AB);
+		a = 3;
+		while(true) {
+			b = 4;
+			while(true) {
+				c = 6;
+				while(true) {
+					d = 10;
+					e = 23;
+				}
+			}
 		}
 	}
 }

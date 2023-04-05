@@ -20,7 +20,7 @@
         |   fn_decl
         |   const_decl
 
-!import_stmt:   "import" IDENT ("{" IDENT ("," IDENT)* "}")? 
+!import_stmt:   "import" IDENT (lbrace IDENT ("," IDENT)* rbrace)? 
 
 !global_decl:   "__global" "(" stmt_list ")"
 
@@ -55,8 +55,7 @@
             |   expr_list ":=" "[" expr_list "]"    -> array_init       
             |   expr INC_DEC_OP                     -> inc_dec_stmt
 
-
-!block: "{" stmt_list "}"
+!block: lbrace stmt_list rbrace
 
 !simple_decl_list:    simple_decl ( "," simple_decl )*
 
@@ -93,6 +92,8 @@
 !mul_op:        "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
 !dots:          ".."
 !decimal:       INT "." INT? | "." INT
+!lbrace:        "{"
+!rbrace:        "}"
 
 
 TYPE_NAME.2:    "rune" | "bool" | "string" | "mutex"
@@ -101,7 +102,6 @@ TYPE_NAME.2:    "rune" | "bool" | "string" | "mutex"
             |   "f64" | "f32"
 
 ADD_OP:         "+" | "-" | "|" | "^"
-// MUL_OP:         "*" | "/" | "%" | "<<" | ">>" | "&" //| "&^"
 UNARY_OP:       "+" | "-" | "!" | "^" | "*" | "&" //| "<-"
 INC_DEC_OP.2:   "++" | "--"
 

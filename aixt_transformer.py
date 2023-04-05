@@ -18,7 +18,7 @@ class aixtTransformer(Transformer):
         self.main = False
         # self.moduleDef = ''
         self.transpiled = ''
-        self.identLevel = 0
+        self.identLevel = 1
         
         with open(r'../setup.yaml','r') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
@@ -73,9 +73,9 @@ class aixtTransformer(Transformer):
         for ds in sf:
             for st in ds:
                 s += '{};\n'.format(st)
-        for i in range(self.identLevel+1):    # indents each code block
-            j = self.identLevel - i
-            s = s.replace('__il{}:'.format(i+1), '{}'.format('\t'*j))
+        # for i in range(self.identLevel+1):    # indents each code block
+        #     j = self.identLevel - i
+        #     s = s.replace('__il{}:'.format(i+1), '{}'.format('\t'*j))
         # print('source_file:', s)
         self.transpiled = s 
         
@@ -196,6 +196,7 @@ class aixtTransformer(Transformer):
         return 'return ' + ex
 
     def for_bare_stmt(self, fk,bl):
+        # self.identLevel = 0
         return 'while(true) {}'.format(bl)
 
     def for_cond_stmt(self, fk,ex,bl):
@@ -221,12 +222,17 @@ class aixtTransformer(Transformer):
         return s
 
     def block(self, lb,sl,rb):
-        self.identLevel += 1
+        # print('block:',lb.type)
+        # self.identLevel += 1
+        # s = '{\n'
+        # for st in sl:
+        #     s += '__il{}:{};\n'.format(self.identLevel, st)
+        # return '{}__il{}:}}'.format(s, self.identLevel+1) # inverted order 
         s = '{\n'
         for st in sl:
-            s += '__il{}:{};\n'.format(self.identLevel, st)
-        return '{}__il{}:}}'.format(s, self.identLevel+1) # inverted order 
-                    
+            s += '{}{};\n'.format('\t'*self.identLevel, st)
+        return '{}{}}}'.format(s, '\t'*(self.identLevel-1))   
+              
     @v_args(inline=False)
     def simple_decl_list(self, sds):
         s = ''
@@ -295,6 +301,7 @@ class aixtTransformer(Transformer):
         if n > 3:
             for i in range(3,n):
                 s += 'else ' if ie[i] == 'else' else ie[i]
+        # self.identLevel = 0
         return Token(type=ie[0].type, value=s)
 
     def string_literal(self, sl):
@@ -341,3 +348,11 @@ class aixtTransformer(Transformer):
     @v_args(inline=False)
     def decimal(self, de):
         return ''.join(de)
+
+    def lbrace(self, lb):
+        self.identLevel += 1
+        return lb
+    
+    def rbrace(self, rb):
+        self.identLevel -= 1
+        return rb
