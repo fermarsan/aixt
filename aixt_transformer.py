@@ -272,6 +272,7 @@ class aixtTransformer(Transformer):
         return s[:-2] + ")"
 
     def cast_expr(self, tn,lp,ex,rp):
+        print('cast_expr:', ex.type)
         new_type = eval(ex.type)
         new_type[1] = self.setup[tn]
         print('cast_expr:', str(new_type))
