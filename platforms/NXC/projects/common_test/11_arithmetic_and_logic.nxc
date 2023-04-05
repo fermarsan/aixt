@@ -2,7 +2,7 @@
 // Device = Atmel AT91SAM7S256
 // Board = LEGO Mindstorms NXT intelligent brick
 
-task main() {
+task  main() {
 	int counter = 0;
 	int delta = 1;
 	counter = 10;

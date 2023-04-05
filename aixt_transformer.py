@@ -231,7 +231,7 @@ class aixtTransformer(Transformer):
         # print('block:', sl)
         s = '{\n'
         for st in sl:
-            s += '{}{};\n'.format('\t'*self.identLevel, st) if sl != '' else ''
+            s += '{}{};\n'.format('\t'*self.identLevel, st) if st != '' else ''
         return '{}{}}}'.format(s, '\t'*(self.identLevel-1))   
               
     @v_args(inline=False)
