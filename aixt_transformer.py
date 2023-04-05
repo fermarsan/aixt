@@ -274,7 +274,7 @@ class aixtTransformer(Transformer):
     def cast_expr(self, tn,lp,ex,rp):
         new_type = eval(ex.type)
         new_type[1] = self.setup[tn]
-        # print('cast_expr:', str(new_type))
+        print('cast_expr:', str(new_type))
         return Token(type=str(new_type), value=ex)
     
     def range_expr(self, ex1,dts,ex2):
