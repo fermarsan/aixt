@@ -67,11 +67,11 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def source_file(self, sf):
-        # print('source_file:', sf) # print('source_file:', self.topDecl)
+        print('source_file:', sf) # print('source_file:', self.topDecl)
         s = ''
         for ds in sf:
             for st in ds:
-                s += '{};\n'.format(st)
+                s += '{};\n'.format(st) if st != '' else ''
         self.transpiled = s 
         
     @v_args(inline=False)
@@ -162,17 +162,19 @@ class aixtTransformer(Transformer):
 
     def decl_assign_stmt(self, el1,op,el2):
         s = ''
+        mutex = False
         for e1,e2 in zip(el1,el2):
             if eval(e2.type)[1] == 'mutex':
-                self.topDecl.insert(0, 'mutex ' + e2)
-            if eval(e2.type)[1] == 'char []':
+                mutex = True
+                self.topDecl.insert(0, 'mutex {};'.format(e1))
+            elif eval(e2.type)[1] == 'char []':
                 s += 'string {}' if self.setup['nxc'] else 'const char {}[]'
                 s += ' = {}; '
                 s = s.format(e1, e2)  
                 # print('decl_assign_stmt:', e1,e2)     
             else:
                 s += '{} {} = {}; '.format(eval(e2.type)[1], e1, e2) 
-        return s[:-2]
+        return '' if mutex else s[:-2]
 
     def simple_assign_stmt(self, el1,op,el2):
         s = ''   
@@ -218,9 +220,10 @@ class aixtTransformer(Transformer):
         return s
 
     def block(self, lb,sl,rb):
+        # print('block:', sl)
         s = '{\n'
         for st in sl:
-            s += '{}{};\n'.format('\t'*self.identLevel, st)
+            s += '{}{};\n'.format('\t'*self.identLevel, st) if sl != '' else ''
         return '{}{}}}'.format(s, '\t'*(self.identLevel-1))   
               
     @v_args(inline=False)

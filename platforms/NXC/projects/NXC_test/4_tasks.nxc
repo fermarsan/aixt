@@ -2,7 +2,7 @@
 // Device = Atmel AT91SAM7S256
 // Board = LEGO Mindstorms NXT intelligent brick
 
-mutex ""
+mutex move_mutex;
 task void move_square() {
 	while(true) {
 		Acquire(move_mutex);
@@ -30,7 +30,6 @@ task void check_Sensors() {
 	}
 }
 task main() {
-	mutex move_mutex = "";
 	Precedes(move_square, check_Sensors);
 	SetSensorTouch(IN_1);
 }
