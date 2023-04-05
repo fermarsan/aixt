@@ -10,7 +10,7 @@ The _V_ grammar was taken from these sources (ordered by importance):
 - By default all variables in **Aixt** are mutable, so `mut` keyword is not supported
 - **Aixt** supports the semicolon `;` by separating statements in the same line
 - As _V_, **Aixt** support function attributes like `[inline]`, but these attributes include others like `[task]` which gives support to multitasking in the transpiling to _NXC_ language
-- mutex variables for giving support to multitasking in _NXC_ transcompilation
+- `mutex` variables for giving support to multitasking in _NXC_ transcompiling
 
 # V's supported keywords
 The V's supported keywors are in bold.
@@ -76,4 +76,15 @@ The V's supported keywors are in bold.
     fn <name>(<params>) {
         <statements>
     }```
-- Loops with "for" through arrays and integer ranges
+- Loops with `for` through arrays and integer ranges:
+    ```go
+    arr := [3,5,7,9]
+    for a in arr {
+        a = 0
+    }
+    ```   
+    ```go
+    for i in 1..11 {
+        x += i
+    }
+    ```
