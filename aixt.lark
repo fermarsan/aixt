@@ -50,7 +50,7 @@
     |   "for" IDENT "in" range_expr block                   ->  for_in_stmt
     |   "for" IDENT "in" IDENT block                        ->  for_in_arr_stmt
 
-!assign_stmt.1: expr_list assign_op expr_list       -> simple_assign_stmt
+!assign_stmt:   expr_list assign_op expr_list       -> simple_assign_stmt
             |   expr_list ":=" expr_list            -> decl_assign_stmt   
             |   expr_list ":=" "[" expr_list "]"    -> array_init       
             |   expr INC_DEC_OP                     -> inc_dec_stmt
@@ -64,17 +64,17 @@
     
 !expr_list:     expr ( "," expr )*
 
-!expr.2:    expr binary_op expr     //->  binary_expr
-        |   "(" expr ")"            ->  par_expr
-        |   expr "(" expr_list ")"  ->  call_expr 
-        |   TYPE_NAME "(" expr ")"  ->  cast_expr  
-        |   IDENT "." IDENT         //->  qualified_ident
-        |   expr "[" expr "]"       ->  index_expr
-        |   UNARY_OP expr           ->  unary_expr   
-        |   range_expr
-        |   if_expr
-        |   IDENT
-        |   literal
+!expr:  expr binary_op expr     //->  binary_expr
+    |   "(" expr ")"            ->  par_expr
+    |   expr "(" expr_list ")"  ->  call_expr 
+    |   TYPE_NAME "(" expr ")"  ->  cast_expr  
+    |   IDENT "." IDENT         //->  qualified_ident
+    |   expr "[" expr "]"       ->  index_expr
+    |   UNARY_OP expr           ->  unary_expr   
+    |   range_expr
+    |   if_expr
+    |   IDENT
+    |   literal
 
 !range_expr:    expr dots expr
 

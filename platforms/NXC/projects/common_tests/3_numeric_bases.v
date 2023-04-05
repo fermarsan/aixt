@@ -1,4 +1,4 @@
-// numeric bases
+// numeric bases for integers
 
 a := 10			// decimal
 b := 0x34		// hexadecimal
