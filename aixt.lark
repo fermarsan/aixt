@@ -79,7 +79,6 @@
 
 !if_expr:   "if" expr block ("else" (block | if_expr))?
 
-
 !literal:   (INT | HEX | OCTAL | BIN)   ->  integer_literal 
         |   (INT EXP | decimal EXP?)    ->  float_literal
         |   ("true" | "false")          ->  bool_literal
