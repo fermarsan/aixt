@@ -64,13 +64,13 @@
     
 !expr_list:     expr ( "," expr )*
 
-!expr.2:    UNARY_OP expr           ->  unary_expr
-        |   expr binary_op expr     //->  binary_expr
-        |   "(" expr ")"            //->  par_expr
+!expr.2:    expr binary_op expr     //->  binary_expr
+        |   "(" expr ")"            ->  par_expr
         |   expr "(" expr_list ")"  ->  call_expr 
         |   TYPE_NAME "(" expr ")"  ->  cast_expr  
         |   IDENT "." IDENT         //->  qualified_ident
         |   expr "[" expr "]"       ->  index_expr
+        |   UNARY_OP expr           ->  unary_expr   
         |   range_expr
         |   if_expr
         |   IDENT

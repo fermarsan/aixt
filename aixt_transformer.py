@@ -278,6 +278,12 @@ class aixtTransformer(Transformer):
         print('cast_expr:', str(new_type))
         return Token(type=str(new_type), value=ex)
     
+    def par_expr(self, lp,ex,rp):
+        return Token(type=ex.type, value=lp+ex+rp)
+    
+    def unary_expr(self, uo,ex):
+        return Token(type=ex.type, value=uo+ex)
+    
     def range_expr(self, ex1,dts,ex2):
         return (ex1, ex2)
 
