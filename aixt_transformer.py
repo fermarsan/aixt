@@ -284,7 +284,7 @@ class aixtTransformer(Transformer):
     def unary_expr(self, uo,ex):
         return Token(type=ex.type, value=uo+ex)
     
-    
+
     def range_expr(self, ex1,dts,ex2):
         return (ex1, ex2)
 
@@ -331,6 +331,9 @@ class aixtTransformer(Transformer):
     
     def rel_op(self, ro):
         return ro
+    
+    def mul_op(self, mo):
+        return mo
     
     def dots(self, dt):
         return dt
