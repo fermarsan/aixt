@@ -117,7 +117,7 @@ class aixtTransformer(Transformer):
             if ')' in s:
                 break
         # print('fn_decl:', fd) 
-        if self.setup['nxc']:
+        if self.main and self.setup['nxc']:
             ret_val = 'task'   
         else:
             ret_val = fd[0] if '{' not in fd[0] else 'void'

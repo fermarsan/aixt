@@ -3,23 +3,16 @@
 // Board = LEGO Mindstorms NXT intelligent brick
 
 task main() {
-	int a = 10; int b = 20;
-	if(a==b) {
-		b = 1;
-	}
-	if(a!=b) {
-		b = 2;
-	}
+	int a = 10; int b = 1;
+	bool l = true;
 	if(a<=b) {
-		b = 3;
-	}
-	if(a>=b) {
-		b = 4;
-	}
-	if(a<b) {
-		b = 5;
+		l = true;
+		a += 1;
 	}
 	if(a>b) {
-		b = 6;
+		a = 0;
+		b = 0;
+	}else {
+		a = -1;
 	}
 }
