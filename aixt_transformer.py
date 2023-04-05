@@ -177,8 +177,8 @@ class aixtTransformer(Transformer):
     def simple_assign_stmt(self, el1,op,el2):
         s = ''   
         for e1,e2 in zip(el1,el2):
-            s += '{} {} {}'.format(e1, op ,e2)
-        return s
+            s += '{} {} {}; '.format(e1, op ,e2)
+        return s[:-2]
 
     def array_init(self, el1,ap,lb,el2,rb):
         s = '{} {}[] = {{'.format(eval(el2[0].type)[1], el1[0]) 
