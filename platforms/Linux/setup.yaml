@@ -4,29 +4,29 @@
 # 
 # Copyright (c) 2023 Fernando Martínez Santa 
 
-device:   "x86 or x64"
+device:   "x64"
 board:    "Linux based OS"
 
-i8:     char
-i16:    int
+i8:     "signed char"
+i16:    short
 i32:    long
-i64:    "NOT SUPPORTED"
-isize:  long
+i64:    "long long"
+isize:  "long long"
 int:    long
 
-u8:     byte
-u16:    "unsigned int"
+u8:     "unsigned char"
+u16:    "unsigned short"
 u32:    "unsigned long"
-u64:    "NOT SUPPORTED"
-usize:  "unsigned long"
+u64:    "unsigned long long"
+usize:  "unsigned long long"
 
 f32:    float
-f64:    "NOT SUPPORTED"
+f64:    double
 
 default_int:    int
 default_float:  float
 
-mutex:  mutex
+mutex:  "NOT SUPPORTED"
 main_ret_type:  none
 main_params:    none    
 
@@ -34,7 +34,7 @@ api_modules:
   - ""
   
 headers:  
-  - ""
+  - "<stdio.h>"
 
 macros:
   - ""
@@ -47,4 +47,4 @@ configuration:
 initialization:
   - ""
 
-nxc:    true
+nxc:    false
