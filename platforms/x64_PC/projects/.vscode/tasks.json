@@ -8,7 +8,9 @@
             "command": "python ..\\..\\..\\aixtt.py ${file}",
         },
         "linux": {
-            "command": "python3 ../../../aixtt.py ${file}", // change "python3" to "python" if necessary
+            "command": ["python3",
+                        "../../../aixtt.py",
+                        "${file}"], // change "python3" to "python" if necessary
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
@@ -23,7 +25,9 @@
             "command": "${config:CC_windows} ${fileDirname}\\${fileBasenameNoExtension}.c -T=NXT -S=usb -d",
         },
         "linux": {
-            "command": "${config:CC_linux} ${fileDirname}/${fileBasenameNoExtension}.c -o ${fileDirname}/${fileBasenameNoExtension}",
+            "command": ["${config:CC_linux}",
+                        "${fileDirname}/${fileBasenameNoExtension}.c", 
+                        "-o ${fileDirname}/${fileBasenameNoExtension};"],
         },
         "problemMatcher": ["$tsc"],
         "group": "build",

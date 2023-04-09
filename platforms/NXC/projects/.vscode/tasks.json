@@ -5,10 +5,12 @@
         "label": "Aixt: Transpile",
         "type": "shell",
         "windows": {
-            "command": "python ..\\..\\..\\aixtt.py ${file} -nxc",
+            "command": [ "python ..\\..\\..\\aixtt.py", 
+                         "${file} -nxc" ],
         },
         "linux": {
-            "command": "python3 ../../../aixtt.py ${file} -nxc", // change "python3" to "python" if necessary
+            "command": [ "python3 ../../../aixtt.py", 
+                         "${file} -nxc" ], // change "python3" to "python" if necessary
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
@@ -20,10 +22,14 @@
         "label": "Aixt: Compile & Download",
         "type": "shell",
         "windows": {
-            "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
+            "command": [ "${config:nbc_windows}", 
+                         "${fileDirname}\\${fileBasenameNoExtension}.nxc", 
+                         "-T=NXT -S=usb -d" ],
         },
         "linux": {
-            "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
+            "command": [ "${config:nbc_linux}", 
+                         "${fileDirname}/${fileBasenameNoExtension}.nxc", 
+                         "-T=NXT -S=usb -d" ],
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
