@@ -5,10 +5,10 @@
         "label": "Aixt: Transpile",
         "type": "shell",
         "windows": {
-            "command": "python ..\\..\\..\\aixtt.py ${file} -nxc",
+            "command": "python ..\\..\\..\\aixtt.py ${file}",
         },
         "linux": {
-            "command": "python3 ../../../aixtt.py ${file} -nxc", // change "python3" to "python" if necessary
+            "command": "python3 ../../../aixtt.py ${file}", // change "python3" to "python" if necessary
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
@@ -17,13 +17,13 @@
         }
       },
       {
-        "label": "Aixt: Compile & Download",
+        "label": "Aixt: Compile",
         "type": "shell",
         "windows": {
-            "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
+            "command": "${config:CC_windows} ${fileDirname}\\${fileBasenameNoExtension}.c -T=NXT -S=usb -d",
         },
         "linux": {
-            "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
+            "command": "${config:CC_linux} ${fileDirname}/${fileBasenameNoExtension}.c -o ${fileDirname}/${fileBasenameNoExtension}",
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
@@ -35,7 +35,7 @@
         "label": "Aixt: Build",
         "group": "build",
         "dependsOrder": "sequence",
-        "dependsOn": ["Aixt: Transpile", "Aixt: Compile & Download"]
+        "dependsOn": ["Aixt: Transpile", "Aixt: Compile"]
       }
     ]
   }
