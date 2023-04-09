@@ -9,8 +9,8 @@
                          "${file} -nxc" ],
         },
         "linux": {
-            "command": [ "python3 ../../../aixtt.py", 
-                         "${file} -nxc" ], // change "python3" to "python" if necessary
+            "command": [ "python3 ../../../aixtt.py",   // change "python3" to "python" if necessary
+                         "${file} -nxc" ], 
         },
         "problemMatcher": ["$tsc"],
         "group": "build",
