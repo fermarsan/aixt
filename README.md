@@ -64,7 +64,7 @@ stateDiagram-v2
 
 ## Aixt Language
 
-**Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all of the variables in **Aixt** are mutable by default.
+**Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all variables in **Aixt** are mutable by default.
 
 ### Example with `main` function
 ```go
@@ -97,7 +97,7 @@ for {   //infinite loop
 
 ## Aixt Transpiler
 
-The transpiler is written in _Python_ using the _lark_ module as Lexer and Parser.
+The transpiler is written in _Python_ using the _lark_ module as Lexer and Parser. This is implemented just in two `.py` and one `.lark` files.
 
 ## Aixt API
 
