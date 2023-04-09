@@ -1,0 +1,50 @@
+# This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+#
+# The MIT License (MIT)
+# 
+# Copyright (c) 2023 Fernando Martínez Santa 
+
+device:   "x86 or x64"
+board:    "Linux based OS"
+
+i8:     char
+i16:    int
+i32:    long
+i64:    "NOT SUPPORTED"
+isize:  long
+int:    long
+
+u8:     byte
+u16:    "unsigned int"
+u32:    "unsigned long"
+u64:    "NOT SUPPORTED"
+usize:  "unsigned long"
+
+f32:    float
+f64:    "NOT SUPPORTED"
+
+default_int:    int
+default_float:  float
+
+mutex:  mutex
+main_ret_type:  none
+main_params:    none    
+
+api_modules:
+  - ""
+  
+headers:  
+  - ""
+
+macros:
+  - ""
+
+config_operator:  ""
+
+configuration:
+  - ""
+
+initialization:
+  - ""
+
+nxc:    true
