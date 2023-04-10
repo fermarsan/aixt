@@ -1,0 +1,1 @@
+#define RES = input(STR)    printf(STR); gets(RES)
