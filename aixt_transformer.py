@@ -44,7 +44,7 @@ class aixtTransformer(Transformer):
             s += 'NXC ' if self.setup['nxc'] else 'C '
             s += 'generated code)\n// Device = {}\n// Board = {}\n\n' 
             s = s.format(self.setup['device'], self.setup['board'])
-            s += '#include "settings.h"\n\n' if not self.setup['nxc'] else ''
+            s += '#include "../../settings.h"\n\n' if not self.setup['nxc'] else ''
             # s += '// ' + self.moduleDef + '\n'  #module definition
             # s += self.includes + '\n'            #user defined headers files
             for td in self.topDecl:
