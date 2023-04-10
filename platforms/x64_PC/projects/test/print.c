@@ -7,6 +7,7 @@
 #include "../../api/builtin.h"
 
 int main() {
-	println("Printing test program... ");
+	print("Printing ");
+	println("test program... ");
 return 0;
 }

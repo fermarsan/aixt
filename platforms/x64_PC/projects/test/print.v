@@ -1,3 +1,4 @@
 #include "../../api/builtin.h"
 
-println('Printing test program... ')
+print('Printing ')
+println('test program... ')
