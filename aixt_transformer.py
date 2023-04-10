@@ -27,7 +27,7 @@ class aixtTransformer(Transformer):
 
         if not self.setup['nxc']:
             with open('../settings.h','w') as outSettings:   #settings file creation
-                s = '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_xxx\n\n'
+                s = '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n#include "api/builtin.h"\n'
                 for h in self.setup['headers']:             #append the header files
                     s += '#include {}\n'.format(h) if h != '' else ''
                 s += '\n'
