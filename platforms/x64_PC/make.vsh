@@ -9,8 +9,10 @@ import json
 
 
 struct Settings {
-    cc		string 	[json: CC]
-    python	string	[json: PYTHON] 
+    cc_linux		string
+	cc_windows		string
+    python_linux	string
+    python_windows	string
 }
 
 // read the settings file

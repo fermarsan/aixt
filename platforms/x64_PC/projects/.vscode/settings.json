@@ -1,8 +1,8 @@
 {
-    "CC_windows":     "..\\nbc-windows.exe",
-    "CC_linux":       "gcc",
-    "PYTHON_linux":   "python3",
-    "PYTHON_windows": "python",
+    "cc_linux":       "gcc",
+    "cc_windows":     "..\\nbc-windows.exe",
+    "python_linux":   "python3",
+    "python_windows": "python",
     "files.associations": {
         "*.nxc": "cpp",
         "*.aix": "v",
