@@ -19,13 +19,17 @@ struct Settings {
 set_file := read_file('projects/.vscode/settings.json')?
 settings := json.decode(Settings, set_file)?
 
-println(settings)
+// println(settings)
 
-// for arg in os.args {
-//     println("arg: ${arg}")
-// }
-
-// if os.args[1] == 'Transpile' {
-// 	result := execute('python3 ../../')
-
-// }
+$if windows {
+	println('Windows')
+}
+$else {
+	// println('Linux')
+	if os.args[1] == 'Transpile' {
+		println('${settings.python_linux} ../../aixtt.py ${os.args[2]}')
+		
+		result := execute('${settings.python_linux} ../../aixtt.py ${os.args[2]}')
+		println(result.output)
+	}
+}
