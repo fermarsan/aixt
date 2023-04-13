@@ -56,4 +56,3 @@ match option {
 		println('invalid option.')
 	}
 }
-

@@ -22,47 +22,30 @@ mut base_name := input_name.replace('.v', '')	// input file base name
 base_name = base_name.replace('.aixt', '')
 base_name = base_name.replace('.aix', '')
 
-$if windows {
-	// println('Windows')
-	match option {
-		'transpile' {		
-			result := execute('${settings.python_windows} ..\\..\\..\\aixtt.py ${input_name} -nxc')
-			println(result.output)
-		}
-		'compile' {		
-			result := execute('${settings.cc_windows} ${base_name}.nxc -T=NXT -S=usb -d')
-			println(result.output)
-		}
-		'build' {		
-			mut result := execute('${settings.python_windows} ..\\..\\..\\aixtt.py ${input_name} -nxc')
-			println(result.output)
-			result = execute('${settings.cc_windows} ${base_name}.nxc -T=NXT -S=usb -d')
-			println(result.output)
-		}
-		else {
-			println('invalid option.')
-		}
+cc := $if windows { settings.cc_windows } $else { settings.cc_linux }	// select tools according the OS
+python := $if windows { settings.python_windows } $else { settings.python_linux }  
+aixtt := $if windows { '..\\..\\..\\aixtt.py' } $else { '../../../aixtt.py' }
+
+match option {
+	'transpile' {
+		result := execute('${python} ${aixtt} ${input_name} -nxc')
+		println(result.output)
 	}
-}
-$else {
-	// println('Linux')
-	match option {
-		'transpile' {		
-			result := execute('${settings.python_linux} ../../../aixtt.py ${input_name} -nxc')
-			println(result.output)
-		}
-		'compile' {		
-			result := execute('${settings.cc_linux} ${base_name}.nxc -T=NXT -S=usb -d')
-			println(result.output)
-		}
-		'build' {		
-			mut result := execute('${settings.python_linux} ../../../aixtt.py ${input_name} -nxc')
-			println(result.output)
-			result = execute('${settings.cc_linux} ${base_name}.nxc -T=NXT -S=usb -d')
-			println(result.output)
-		}
-		else {
-			println('invalid option.')
-		}
+	'compile' {	
+		result := execute('${cc} ${base_name}.nxc -T=NXT -S=usb -d')
+		println(result.output)
+	}
+	'build' {		
+		mut result := execute('${python} ${aixtt} ${input_name} -nxc')
+		println(result.output)
+		result = execute('${cc} ${base_name}.nxc -T=NXT -S=usb -d')
+		println(result.output)
+	}
+	'clean' {
+		rm('${base_name}.nxc') or {}
+		println('Files cleaned.')
+	}
+	else {
+		println('invalid option.')
 	}
 }
