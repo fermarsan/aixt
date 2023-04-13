@@ -53,6 +53,14 @@ match option {
 		rm('${base_name}.c') or {}
 		println('Files cleaned.')
 	}
+	'clean_all' {
+		result := execute('find . -name "*.c" -type f -delete') 
+		println(result.output)
+		result := execute('find . -name "*.exe" -type f -delete') 
+		println(result.output)
+		// result := execute('find . -name "*.c" -type f -delete') 
+		// println(result.output)
+	}
 	else {
 		println('invalid option.')
 	}

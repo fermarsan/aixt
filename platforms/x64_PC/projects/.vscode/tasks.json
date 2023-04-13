@@ -60,6 +60,18 @@
         "presentation": {
           "showReuseMessage": false
         }  
+      },
+      {
+        "label": "Aixt: Clean all",
+        "type": "shell",
+        "command": [ "v run make.vsh",
+                     "clean_all",
+                     "${relativeFileDirname}" ],
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }  
       }
     ]
   }
