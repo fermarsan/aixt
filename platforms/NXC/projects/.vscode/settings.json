@@ -1,7 +1,11 @@
 {
-    "nbc_windows":  "..\\nbc-windows.exe",
     "nbc_linux": "../nbc-linux",
+    "nbc_windows":  "..\\nbc-windows.exe",
+    "python_linux":   "python3",
+    "python_windows": "python",
     "files.associations": {
-        "*.nxc": "cpp"
-    },
+        "*.nxc": "cpp",
+        "*.aix": "v",
+        "*.aixt": "v"
+    }
 }

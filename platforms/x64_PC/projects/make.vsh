@@ -18,6 +18,10 @@ settings := json.decode(Settings, set_file)?
 
 option, input_name := os.args[1], os.args[2]	// capture arguments
 
+mut base_name := input_name.replace('.v', '')	// input file base name	
+base_name = base_name.replace('.aixt', '')
+base_name = base_name.replace('.aix', '')
+
 $if windows {
 	// println('Windows')
 	match option {
@@ -26,15 +30,13 @@ $if windows {
 			println(result.output)
 		}
 		'compile' {		
-			basic_name := input_name.replace('.v', '')
-			result := execute('${settings.cc_windows} ${basic_name}.c -o ${basic_name}')
+			result := execute('${settings.cc_windows} ${base_name}.c -o ${base_name}')
 			println(result.output)
 		}
 		'build' {		
 			mut result := execute('${settings.python_windows} ..\\..\\..\\aixtt.py ${input_name}')
 			println(result.output)
-			basic_name := input_name.replace('.v', '')
-			result = execute('${settings.cc_windows} ${basic_name}.c -o ${basic_name}')
+			result = execute('${settings.cc_windows} ${base_name}.c -o ${base_name}')
 			println(result.output)
 		}
 		else {
@@ -50,17 +52,13 @@ $else {
 			println(result.output)
 		}
 		'compile' {		
-			mut basic_name := input_name.replace('.v', '')
-			basic_name = basic_name.replace('.aixt', '')
-			basic_name = basic_name.replace('.aix', '')
-			result := execute('${settings.cc_linux} ${basic_name}.c -o ${basic_name}')
+			result := execute('${settings.cc_linux} ${base_name}.c -o ${base_name}')
 			println(result.output)
 		}
 		'build' {		
 			mut result := execute('${settings.python_linux} ../../../aixtt.py ${input_name}')
 			println(result.output)
-			basic_name := input_name.replace('.v', '')
-			result = execute('${settings.cc_linux} ${basic_name}.c -o ${basic_name}')
+			result = execute('${settings.cc_linux} ${base_name}.c -o ${base_name}')
 			println(result.output)
 		}
 		else {
