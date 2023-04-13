@@ -1,3 +1,11 @@
-#include	"../../api/builtin.h"
+// Aixt project (C generated code)
+// Device = x64
+// Board = PC
 
-println('Printing test program... ')
+#include "../../settings.h"
+
+int main() {
+	print("Printing ");
+	println("test program... ");
+return 0;
+}
