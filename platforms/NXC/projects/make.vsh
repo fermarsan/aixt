@@ -43,7 +43,11 @@ match option {
 	}
 	'clean' {
 		rm('${base_name}.nxc') or {}
-		println('Files cleaned.')
+		println('Output file cleaned.')
+	}
+	'clean_all' {
+		result := execute('find . -name "*.ncx" -type f -delete') 
+		println(result.output)
 	}
 	else {
 		println('invalid option.')
