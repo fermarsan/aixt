@@ -4,7 +4,7 @@
       {
         "label": "Aixt: Transpile",
         "type": "shell",
-        "command": [ "v run ../make.vsh",
+        "command": [ "v run make.vsh",
                      "transpile",
                      "${file}" ],
         "problemMatcher": ["$tsc"],
@@ -16,7 +16,7 @@
       {
         "label": "Aixt: Compile & Download",
         "type": "shell",
-        "command": [ "v run ../make.vsh",
+        "command": [ "v run make.vsh",
                      "compile",
                      "${file}" ],
         "problemMatcher": ["$tsc"],
@@ -28,7 +28,7 @@
       {
         "label": "Aixt: Build",
         "type": "shell",
-        "command": [ "v run ../make.vsh",
+        "command": [ "v run make.vsh",
                      "build",
                      "${file}" ],
         "problemMatcher": ["$tsc"],

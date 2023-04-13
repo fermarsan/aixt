@@ -4,14 +4,9 @@
       {
         "label": "Aixt: Transpile",
         "type": "shell",
-        "windows": {
-            "command": "python ..\\..\\..\\aixtt.py ${file}",
-        },
-        "linux": {
-            "command": ["python3",
-                        "../../../aixtt.py",
-                        "${file}"], // change "python3" to "python" if necessary
-        },
+        "command": [ "v run ../make.vsh",
+                     "transpile",
+                     "${file}" ],
         "problemMatcher": ["$tsc"],
         "group": "build",
         "presentation": {
@@ -21,16 +16,9 @@
       {
         "label": "Aixt: Compile",
         "type": "shell",
-        "windows": {
-            "command": [ "${config:CC_windows}",
-                         "${fileDirname}\\${fileBasenameNoExtension}.c", 
-                         "-o ${fileDirname}\\${fileBasenameNoExtension};" ],
-        },
-        "linux": {
-            "command": [ "${config:CC_linux}",
-                         "${fileDirname}/${fileBasenameNoExtension}.c", 
-                         "-o ${fileDirname}/${fileBasenameNoExtension}" ],
-        },
+        "command": [ "v run ../make.vsh",
+                     "compile",
+                     "${file}" ],
         "problemMatcher": ["$tsc"],
         "group": "build",
         "presentation": {
@@ -39,9 +27,15 @@
       },
       {
         "label": "Aixt: Build",
+        "type": "shell",
+        "command": [ "v run ../make.vsh",
+                     "build",
+                     "${file}" ],
+        "problemMatcher": ["$tsc"],
         "group": "build",
-        "dependsOrder": "sequence",
-        "dependsOn": ["Aixt: Transpile", "Aixt: Compile"]
+        "presentation": {
+          "showReuseMessage": false
+        }  
       }
     ]
   }
