@@ -6,7 +6,7 @@
         "type": "shell",
         "command": [ "v run make.vsh",
                      "transpile",
-                     "${relativeFileDirname}" ],
+                     "${file}" ],
         "problemMatcher": ["$tsc"],
         "group": "build",
         "presentation": {
