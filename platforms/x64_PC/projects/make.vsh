@@ -49,8 +49,7 @@ match option {
 	}
 	'clean' {
 		rm(base_name) or {}
-		rm(base_name +'.c') or {}
-		rm(base_name + '.nxc') or {}
+		rm('${base_name}.c') or {}
 		println('Project cleaned.')
 	}
 	else {
