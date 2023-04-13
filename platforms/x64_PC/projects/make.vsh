@@ -33,10 +33,16 @@ $if windows {
 			result := execute('${settings.cc_windows} ${base_name}.c -o ${base_name}')
 			println(result.output)
 		}
+		'run' {
+			result := execute('${base_name}.exe')
+			println(result.output)
+		}
 		'build' {		
 			mut result := execute('${settings.python_windows} ..\\..\\..\\aixtt.py ${input_name}')
 			println(result.output)
 			result = execute('${settings.cc_windows} ${base_name}.c -o ${base_name}')
+			println(result.output)
+			result = execute('${base_name}.exe')
 			println(result.output)
 		}
 		else {
@@ -55,10 +61,16 @@ $else {
 			result := execute('${settings.cc_linux} ${base_name}.c -o ${base_name}')
 			println(result.output)
 		}
+		'run' {
+			result := execute('${base_name}')
+			println(result.output)
+		}
 		'build' {		
 			mut result := execute('${settings.python_linux} ../../../aixtt.py ${input_name}')
 			println(result.output)
 			result = execute('${settings.cc_linux} ${base_name}.c -o ${base_name}')
+			println(result.output)
+			result = execute('${base_name}')
 			println(result.output)
 		}
 		else {

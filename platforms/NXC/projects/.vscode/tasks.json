@@ -26,7 +26,7 @@
         }
       },
       {
-        "label": "Aixt: Build",
+        "label": "Aixt: Build & Download",
         "type": "shell",
         "command": [ "v run make.vsh",
                      "build",

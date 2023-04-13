@@ -26,7 +26,19 @@
         }
       },
       {
-        "label": "Aixt: Build",
+        "label": "Aixt: Run",
+        "type": "shell",
+        "command": [ "v run make.vsh",
+                     "run",
+                     "${file}" ],
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }  
+      },
+      {
+        "label": "Aixt: Build & Run",
         "type": "shell",
         "command": [ "v run make.vsh",
                      "build",
