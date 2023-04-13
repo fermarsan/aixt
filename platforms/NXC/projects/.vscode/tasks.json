@@ -54,7 +54,7 @@
         "type": "shell",
         "command": [ "v run make.vsh",
                      "clean_all",
-                     "${file}" ],
+                     "${relativeFileDirname}" ],
         "problemMatcher": ["$tsc"],
         "group": "build",
         "presentation": {

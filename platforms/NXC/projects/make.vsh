@@ -46,7 +46,7 @@ match option {
 		println('Output file cleaned.')
 	}
 	'clean_all' {
-		result := execute('find . -name "*.ncx" -type f -delete') 
+		result := execute('find . -name "*.nxc" -type f -delete') 
 		println(result.output)
 	}
 	else {
