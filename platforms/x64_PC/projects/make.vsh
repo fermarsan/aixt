@@ -49,8 +49,9 @@ match option {
 	}
 	'clean' {
 		rm(base_name) or {}
+		rm('${base_name}.exe') or {}
 		rm('${base_name}.c') or {}
-		println('Project cleaned.')
+		println('Files cleaned.')
 	}
 	else {
 		println('invalid option.')
