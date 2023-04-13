@@ -4,14 +4,9 @@
       {
         "label": "Aixt: Transpile",
         "type": "shell",
-        "windows": {
-            "command": [ "python ..\\..\\..\\aixtt.py", 
-                         "${file} -nxc" ],
-        },
-        "linux": {
-            "command": [ "python3 ../../../aixtt.py",   // change "python3" to "python" if necessary
-                         "${file} -nxc" ], 
-        },
+        "command": [ "v run ../make.vsh",
+                     "transpile",
+                     "${file}" ],
         "problemMatcher": ["$tsc"],
         "group": "build",
         "presentation": {
@@ -21,16 +16,9 @@
       {
         "label": "Aixt: Compile & Download",
         "type": "shell",
-        "windows": {
-            "command": [ "${config:nbc_windows}", 
-                         "${fileDirname}\\${fileBasenameNoExtension}.nxc", 
-                         "-T=NXT -S=usb -d" ],
-        },
-        "linux": {
-            "command": [ "${config:nbc_linux}", 
-                         "${fileDirname}/${fileBasenameNoExtension}.nxc", 
-                         "-T=NXT -S=usb -d" ],
-        },
+        "command": [ "v run ../make.vsh",
+                     "compile",
+                     "${file}" ],
         "problemMatcher": ["$tsc"],
         "group": "build",
         "presentation": {
@@ -39,9 +27,14 @@
       },
       {
         "label": "Aixt: Build",
+        "type": "shell",
+        "command": [ "v run ../make.vsh",
+                     "build",
+                     "${file}" ],
+        "problemMatcher": ["$tsc"],
         "group": "build",
-        "dependsOrder": "sequence",
-        "dependsOn": ["Aixt: Transpile", "Aixt: Compile & Download"]
+        "presentation": {
+          "showReuseMessage": false
       }
     ]
   }
