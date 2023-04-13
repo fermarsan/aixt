@@ -1,6 +1,6 @@
 // Aixt project (C generated code)
 // Device = x64
-// Board = Linux based OS
+// Board = PC
 
 #include "../../settings.h"
 

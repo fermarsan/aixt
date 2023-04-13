@@ -14,23 +14,36 @@ struct Settings {
     python_linux	string
     python_windows	string
 }
-
-// read the settings file
-set_file := read_file('.vscode/settings.json')?
+set_file := read_file('.vscode/settings.json')?	// read the settings file
 settings := json.decode(Settings, set_file)?
 
-// println(settings)
-print(os.args)
+option, input_name := os.args[1], os.args[2]	// capture arguments
+mut result := ''								// result for the commands
 
-// $if windows {
-// 	println('Windows')
-// }
-// $else {
-// 	// println('Linux')
-// 	if os.args[1] == 'transpile' {
-// 		println('${settings.python_linux} ../../../aixtt.py ${os.args[2]}')
-		
-// 		result := execute('${settings.python_linux} ../../../aixtt.py ${os.args[2]}')
-// 		println(result.output)
-// 	}
-// }
+$if windows {
+	println('Windows')
+}
+$else {
+	// println('Linux')
+	match option {
+		'transpile' {		
+			result = execute('${settings.python_linux} ../../../aixtt.py ${input_name}')
+			println(result.output)
+		}
+		'compile' {		
+			basic_name := input_name.replace('.v', '')
+			result = execute('${settings.cc_linux} ${basic_name}.c -o ${basic_name}')
+			println(result.output)
+		}
+		'build' {		
+			result = execute('${settings.python_linux} ../../../aixtt.py ${input_name}')
+			println(result.output)
+			basic_name := input_name.replace('.v', '')
+			result = execute('${settings.cc_linux} ${basic_name}.c -o ${basic_name}')
+			println(result.output)
+		}
+		else {
+			println('invalid option.')
+		}
+	}
+}
