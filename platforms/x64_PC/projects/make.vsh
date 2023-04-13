@@ -45,6 +45,10 @@ $if windows {
 			result = execute('${base_name}.exe')
 			println(result.output)
 		}
+		'clean' {
+			result := execute('${base_name}.exe')
+			println(result.output)
+		}
 		else {
 			println('invalid option.')
 		}
