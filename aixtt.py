@@ -10,7 +10,6 @@ import sys
 import yaml
 import re
 
-
 parser = Lark.open( 'aixt.lark', 
                     start='source_file', 
                     rel_to=__file__, 
@@ -46,17 +45,12 @@ if len(sys.argv) > 1:
     print(print_out)
     print('_'*60 + '\n')    
 
-    if len(sys.argv) > 2:   # saves the output file
-        if sys.argv[2] == '-nxc':
-            output_name = name.replace('.v','.nxc')
-            output_name = output_name.replace('.aixt','.nxc')
-            output_name = output_name.replace('.aix','.nxc')                      
-            transpiler.saveOutput(output_name)
-    else:
-        output_name = name.replace('.v','.c')
-        output_name = output_name.replace('.aixt','.c')
-        output_name = output_name.replace('.aix','.c')  
-        transpiler.saveOutput(output_name)
+    # saves the output file
+    output_ext = '.nxc' if len(sys.argv) > 2 and sys.argv[2] == '-nxc' else '.c'
+    output_name = name.replace('.v', output_ext)
+    output_name = output_name.replace('.aixt', output_ext)
+    output_name = output_name.replace('.aix', output_ext)       
+    transpiler.saveOutput(output_name)
 
 else:
     print('no input file.\n')

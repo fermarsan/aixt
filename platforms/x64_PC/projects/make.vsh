@@ -25,11 +25,11 @@ base_name = base_name.replace('.aix', '')
 $if windows {
 	// println('Windows')
 	match option {
-		'transpile' {		
+		'transpile' {	
 			result := execute('${settings.python_windows} ..\\..\\..\\aixtt.py ${input_name}')
 			println(result.output)
 		}
-		'compile' {		
+		'compile' {	
 			result := execute('${settings.cc_windows} ${base_name}.c -o ${base_name}')
 			println(result.output)
 		}
@@ -46,8 +46,10 @@ $if windows {
 			println(result.output)
 		}
 		'clean' {
-			result := execute('${base_name}.exe')
-			println(result.output)
+			rm(base_name) or {}
+			rm(base_name +'.c') or {}
+			rm(base_name + '.nxc') or {}
+			println('Project cleaned.')
 		}
 		else {
 			println('invalid option.')
@@ -76,6 +78,12 @@ $else {
 			println(result.output)
 			result = execute('${base_name}')
 			println(result.output)
+		}
+		'clean' {
+			rm(base_name) or {}
+			rm(base_name +'.c') or {}
+			rm(base_name + '.nxc') or {}
+			println('Project cleaned.')
 		}
 		else {
 			println('invalid option.')

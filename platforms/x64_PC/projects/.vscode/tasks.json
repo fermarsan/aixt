@@ -6,7 +6,7 @@
         "type": "shell",
         "command": [ "v run make.vsh",
                      "transpile",
-                     "${file}" ],
+                     "${relativeFileDirname}" ],
         "problemMatcher": ["$tsc"],
         "group": "build",
         "presentation": {
@@ -42,6 +42,18 @@
         "type": "shell",
         "command": [ "v run make.vsh",
                      "build",
+                     "${file}" ],
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }  
+      },
+      {
+        "label": "Aixt: Clean",
+        "type": "shell",
+        "command": [ "v run make.vsh",
+                     "clean",
                      "${file}" ],
         "problemMatcher": ["$tsc"],
         "group": "build",
