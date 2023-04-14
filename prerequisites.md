@@ -14,13 +14,14 @@ pip install lark re pyyaml
 ```
 git clone https://github.com/vlang/v
 cd v
-make
+make 
+v Symlink
 ```
 
 # Native C compilers
 - **XC8**: Microchip and Atmel 8-bit microcontrollers
 - **XC16**: Microchip 16-bit microcontrollers
 - **ImageCraft**: Cypress PSoC1
-- **nbc**: NXC compiler (LEGO Mindstorms NXT intelligent brick)
-  
-etc.
+- **tcc*, **clang** or **gcc**: x64_PC
+
+_NOTE:_ **nbc**, the NXC compiler for LEGO Mindstorms NXT intelligent brick, is already delivered along with the **Aixt project** source code.
