@@ -54,9 +54,9 @@ match option {
 		println('Files cleaned.')
 	}
 	'clean_all' {
-		result := execute('find . -name "*.c" -type f -delete') 
+		mut result := execute('find . -name "*.c" -type f -delete') 
 		println(result.output)
-		result := execute('find . -name "*.exe" -type f -delete') 
+		result = execute('find . -name "*.exe" -type f -delete') 
 		println(result.output)
 		// result := execute('find . -name "*.c" -type f -delete') 
 		// println(result.output)
