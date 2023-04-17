@@ -10,12 +10,12 @@ pip install lark re pyyaml
 ```
 
 # V language
-**Aixt** project not only is based on _The V programming language_ but use it for formating the Aixt source code and also as cross-platform system scripting language for implementing the project's Makefiles. You can install _V_ using _git_ as follows:
+**Aixt** project not only is based on _The V programming language_ but use it for formating the Aixt source code and also as cross-platform system scripting language for implementing the project's Makefiles. You can install [_V_](https://github.com/vlang/v) using [_git_](https://git-scm.com/) as follows:
 ```
 git clone https://github.com/vlang/v
 cd v
 make 
-v Symlink
+v symlink
 ```
 
 # Native C compilers
