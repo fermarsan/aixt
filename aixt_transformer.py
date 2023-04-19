@@ -276,7 +276,7 @@ class aixtTransformer(Transformer):
         for e in el:
             s += e + ", "
         # print('call_expr: ' + s[:-2] + ")")
-        return s[:-2] + ")"
+        return Token(type=el[0].type, value=s[:-2] + ")")
 
     def cast_expr(self, tn,lp,ex,rp):
         print('cast_expr:', ex.type)
