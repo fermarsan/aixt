@@ -25,3 +25,6 @@ v symlink
 - **tcc*, **clang** or **gcc**: x64_PC
 
 _NOTE:_ **nbc**, the NXC compiler for LEGO Mindstorms NXT intelligent brick, is already delivered along with the **Aixt project** source code.
+
+# Visual Studio Code (optional)
+For ease of using, **Aixt** project comes with configuration [_vscode_](https://code.visualstudio.com/) for building projects directly from that editor.
