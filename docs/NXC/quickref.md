@@ -94,7 +94,7 @@ task main()
 
 The NXC port of **Aixt** can be used in _script_ mode (without main function). In that case the _mutex_ variables have to be "declared" after _task_ functions definition, as shown in the previous example.
 
-# Installation
+# Installing
 `Aixt` project includes the `nbc` compiler for both _Windows_ and _Linux_, but you have to install manually the USB drivers.
 
 ## for Windows
