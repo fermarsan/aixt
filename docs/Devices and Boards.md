@@ -12,7 +12,7 @@
     - PIC18F2550
 - **16-bit**
     - **_Explorer 16_**: PIC24FJ128GA010
-    - **_Explorer 16_**: dsPIC33FJ256GP710A **_soon....._**
+    - **_Explorer 16_**: dsPIC33FJ256GP710A
   
 ## Atmel (Microchip)
 - **_MH-Tiny_**: ATtiny88 **_soon....._** 
@@ -47,7 +47,7 @@
     - **_CORE-ESP32_**: ESP32-C3 **_soon....._**
 
 ## ST
-- **_Blue Pill_**: STM32F103C6 **_soon....._**
+- **_Blue Pill_**: STM32F103C6
 
 ## LuatOS
 - **_CORE-Air32F103CBT6_**: air32f103 **_soon....._**
