@@ -1,0 +1,65 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Aixt: Transpile",
+        "type": "shell",
+        "command": [ "v run make.vsh",
+                     "transpile",
+                     "${file}" ],
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }
+      },
+      {
+        "label": "Aixt: Compile & Download",
+        "type": "shell",
+        "command": [ "v run make.vsh",
+                     "compile",
+                     "${file}" ],
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }
+      },
+      {
+        "label": "Aixt: Build & Download",
+        "type": "shell",
+        "command": [ "v run make.vsh",
+                     "build",
+                     "${file}" ],
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }  
+      },
+      {
+        "label": "Aixt: Clean",
+        "type": "shell",
+        "command": [ "v run make.vsh",
+                     "clean",
+                     "${file}" ],
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }  
+      },
+      {
+        "label": "Aixt: Clean all",
+        "type": "shell",
+        "command": [ "v run make.vsh",
+                     "clean_all",
+                     "${relativeFileDirname}" ],
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }  
+      }
+    ]
+  }

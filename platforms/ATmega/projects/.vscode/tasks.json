@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Aixt: Transpile",
+        "type": "shell",
+        "windows": {
+            "command": "python ..\\..\\..\\aixtt.py ${file}",
+        },
+        "linux": {
+            "command": "python3 ../../../aixtt.py ${file}", // change "python3" to "python" if necessary
+        },
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }
+      },
+      {
+        "label": "Aixt: Compile & Download",
+        "type": "shell",
+        "windows": {
+            "command": "${config:nbc_windows} ${fileDirname}\\${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
+        },
+        "linux": {
+            "command": "${config:nbc_linux} ${fileDirname}/${fileBasenameNoExtension}.nxc -T=NXT -S=usb -d",
+        },
+        "problemMatcher": ["$tsc"],
+        "group": "build",
+        "presentation": {
+          "showReuseMessage": false
+        }
+      },
+      {
+        "label": "Aixt: Build",
+        "group": "build",
+        "dependsOrder": "sequence",
+        "dependsOn": ["Aixt: Transpile", "Aixt: Compile & Download"]
+      }
+    ]
+  }
