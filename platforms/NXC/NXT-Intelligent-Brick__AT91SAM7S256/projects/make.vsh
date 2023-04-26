@@ -8,6 +8,8 @@ import os
 import json
 
 struct Settings {
+    aixt_linux		string
+	aixt_windows	string
     cc_linux		string
 	cc_windows		string
     python_linux	string
@@ -24,7 +26,7 @@ base_name = base_name.replace('.aix', '')
 
 cc := $if windows { settings.cc_windows } $else { settings.cc_linux }	// select tools according the OS
 python := $if windows { settings.python_windows } $else { settings.python_linux }  
-aixtt := $if windows { '..\\..\\..\\aixtt.py' } $else { '../../../aixtt.py' }
+aixtt := $if windows { settings.aixt_windows } $else { settings.aixt_linux } 
 
 match option {
 	'transpile' {
