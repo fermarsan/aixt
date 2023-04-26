@@ -1,11 +1,13 @@
 {
-    "cc_linux":     "../nbc-linux",
-    "cc_windows":   "..\\nbc-windows.exe",
+    "aixt_linux":     "../../../../aixtt.py",
+    "aixt_windows":   "..\\..\\..\\..\\aixtt.py",
+    "cc_linux":       "../nbc-linux",
+    "cc_windows":     "..\\nbc-windows.exe",
     "python_linux":   "python3",
     "python_windows": "python",
     "files.associations": {
-        "*.nxc": "cpp",
-        "*.aix": "v",
+        "*.nxc":  "cpp",
+        "*.aix":  "v",
         "*.aixt": "v"
     }
-}
+}d
