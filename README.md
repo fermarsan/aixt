@@ -71,7 +71,6 @@ stateDiagram-v2
 import machine { pin }
 
 fn main() {
-
     pin(b0, out)     
     pin_high(b0)    //turn ON the PORTB0
 }
