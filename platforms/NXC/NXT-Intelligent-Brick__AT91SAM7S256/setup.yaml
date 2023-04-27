@@ -23,6 +23,9 @@ usize:  "unsigned long"
 f32:    float
 f64:    "NOT SUPPORTED"
 
+rune:   char
+bool:   bool
+
 default_int:    int
 default_float:  float
 

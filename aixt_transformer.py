@@ -19,6 +19,10 @@ class aixtTransformer(Transformer):
         # self.moduleDef = ''
         self.transpiled = ''
         self.identLevel = 1
+        self.initials = {'bool':'false', 'rune':"''", 
+                         'i8':'0', 'i16':'0', 'i32':'0', 'i64':'0', 'isize':'0', 
+                         'u8':'0', 'u16':'0', 'u32':'0', 'u64':'0', 'usize':'0',
+                         'int':'0', 'f32':'0.0', 'f64':'0.0' }
         
         with open(r'../setup.yaml','r') as setup_file:
             self.setup = yaml.load(setup_file, Loader=yaml.FullLoader)
@@ -62,7 +66,7 @@ class aixtTransformer(Transformer):
                 s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '}' 
             else:
                 s += self.transpiled
-            s = s.replace('};','}')
+            # s = s.replace('};','}')
             outText.write(s)  
 
     @v_args(inline=False)
@@ -180,6 +184,10 @@ class aixtTransformer(Transformer):
                 s += ' = {}; '
                 s = s.format(e1, e2)  
                 # print('decl_assign_stmt:', e1,e2)     
+            elif eval(e2.type)[0] == 'array':
+                s += '{} {}[{}] = {{'.format(eval(e2.type)[1], e1, e2.count(',')+1)
+                s += '{}}}; '.format(e2)  
+                print('decl_assign_stmt:', s)   
             else:
                 s += '{} {} = {}; '.format(eval(e2.type)[1], e1, e2) 
         return '' if mutex else s[:-2]
@@ -190,12 +198,21 @@ class aixtTransformer(Transformer):
             s += '{} {} {}; '.format(e1, op ,e2)
         return s[:-2]
 
-    def array_init(self, el1,ap,lb,el2,rb):
-        s = '{} {}[] = {{'.format(eval(el2[0].type)[1], el1[0]) 
-        for e in el2:
-            s += e + ', '
-        return s[:-2] + '};'
-
+    @v_args(inline=False)
+    def array_init(self, ai):
+        print('array_init:', ai[1])
+        if len(ai) == 3:    #listed array
+            return Token(type="['array','{}']".format(eval(ai[1][0].type)[1]), 
+                         value=','.join(ai[1]))   # expr_list
+        elif len(ai) == 4 or len(ai) == 6:  # empty array
+            v = self.initials[ai[3]] + ','
+            return Token(type="['array','{}']".format(self.setup[ai[3]]), 
+                         value=(v*int(ai[1]))[:-1])
+        elif len(ai) == 8:  # array with an unique initial value
+            v = ai[6] + ','
+            return Token(type="['array','{}']".format(self.setup[ai[3]]), 
+                         value=(v*int(ai[1]))[:-1])
+        
     def inc_dec_stmt(self, ex,op):
         return '{}{}'.format(ex, op)
 

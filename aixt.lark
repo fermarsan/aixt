@@ -51,8 +51,7 @@
     |   "for" IDENT "in" IDENT block                        ->  for_in_arr_stmt
 
 !assign_stmt:   expr_list assign_op expr_list       -> simple_assign_stmt
-            |   expr_list ":=" expr_list            -> decl_assign_stmt   
-            |   expr_list ":=" "[" expr_list "]"    -> array_init       
+            |   expr_list ":=" expr_list            -> decl_assign_stmt
             |   expr INC_DEC_OP                     -> inc_dec_stmt
 
 !block: lbrace stmt_list rbrace
@@ -70,10 +69,16 @@
     |   TYPE_NAME "(" expr ")"  ->  cast_expr  
     |   IDENT "." IDENT         //->  qualified_ident
     |   expr "[" expr "]"       ->  index_expr
+    |   array_init
     |   range_expr
     |   if_expr
     |   IDENT
     |   literal
+
+!array_init:    "[" expr_list "]"
+            |   "[" literal "]" TYPE_NAME                             
+            |   "[" literal "]" TYPE_NAME "{" "}"                     
+            |   "[" literal "]" TYPE_NAME "{" "init:" literal "}" 
 
 !range_expr:    expr dots expr
 
@@ -93,8 +98,7 @@
 !dots:          ".."
 !decimal:       INT "." INT? | "." INT
 !lbrace:        "{"
-!rbrace:        "}"
-
+!rbrace:        "}"    
 
 TYPE_NAME.2:    "rune" | "bool" | "string" | "mutex"
             |   "u8"  | "u16" | "u32" | "u64" | "usize" //| "uint"
@@ -152,7 +156,7 @@ C_PREPROC.2:    /#.+\n/
 // 	| Likely
 // 	| Lock_expr
 // 	| Map_init
-// 	| Match_expr_expr
+// 	| Match_expr
 // 	| None
 // 	| OffsetOf
 // 	| Or_expr
@@ -164,7 +168,7 @@ C_PREPROC.2:    /#.+\n/
 // 	| Selector_expr
 // 	| SizeOf
 // 	| Sql_expr
-// 	| STRING_LITERALInter_literaleral
+// 	| Inter_literaleral
 // 	                        | STRING_LITERAL
 // 	| Struct_init
 // 	| _typeNode
