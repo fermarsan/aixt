@@ -33,7 +33,10 @@ base_name = base_name.replace('.aix', '')
 aixtt 		:= $if windows { settings.aixt_windows } $else { settings.aixt_linux }	// select tools according the OS
 cc 			:= $if windows { settings.cc_windows } $else { settings.cc_linux }	
 python 		:= $if windows { settings.python_windows } $else { settings.python_linux }  
-// api_path 	:= $if windows { settings.api_windows } $else { settings.api_linux } 
+api_path 	:= $if windows { settings.api_windows } $else { settings.api_linux } 
+
+println( ls(getwd())? )
+println( ls(dir(api_path))? )
 
 match option {
 	'transpile' {
@@ -49,7 +52,7 @@ match option {
 	'build' {		
 		println( execute('${python} ${aixtt} ${input_name}').output )							// transpile
 		println( execute('${cc} ${base_name}.c -o ${base_name}').output )						// compile
-		result = $if windows { execute('${base_name}.exe') } $else { execute('${base_name}') }	// run
+		result := $if windows { execute('${base_name}.exe') } $else { execute('${base_name}') }	// run
 		println(result.output)
 	}
 	'clean' {
