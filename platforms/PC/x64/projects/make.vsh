@@ -30,7 +30,7 @@ base_name = base_name.replace('.aix', '')
 aixtt 		:= $if windows { settings.aixt_windows } $else { settings.aixt_linux }	// select tools according the OS
 cc 			:= $if windows { settings.cc_windows } $else { settings.cc_linux }	
 python 		:= $if windows { settings.python_windows } $else { settings.python_linux }  
-api_path 	:= $if windows { settings.api_windows } $else { settings.api_linux } 
+// api_path 	:= $if windows { settings.api_windows } $else { settings.api_linux } 
 
 match option {
 	'transpile' {

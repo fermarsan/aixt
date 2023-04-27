@@ -187,7 +187,7 @@ class aixtTransformer(Transformer):
             elif eval(e2.type)[0] == 'array':
                 s += '{} {}[{}] = {{'.format(eval(e2.type)[1], e1, e2.count(',')+1)
                 s += '{}}}; '.format(e2)  
-                print('decl_assign_stmt:', s)   
+                # print('decl_assign_stmt:', s)   
             else:
                 s += '{} {} = {}; '.format(eval(e2.type)[1], e1, e2) 
         return '' if mutex else s[:-2]
@@ -200,7 +200,7 @@ class aixtTransformer(Transformer):
 
     @v_args(inline=False)
     def array_init(self, ai):
-        print('array_init:', ai[1])
+        # print('array_init:', ai[1])
         if len(ai) == 3:    #listed array
             return Token(type="['array','{}']".format(eval(ai[1][0].type)[1]), 
                          value=','.join(ai[1]))   # expr_list
