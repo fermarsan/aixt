@@ -18,6 +18,9 @@ struct Settings {
 	api_windows   	string
 }
 
+println( ls(getwd())? )
+println( ls(getwd())? )
+
 set_file := read_file('.vscode/settings.json')?	// read the settings file
 settings := json.decode(Settings, set_file)?
 
@@ -37,7 +40,6 @@ match option {
 		println( execute('${python} ${aixtt} ${input_name}').output )
 	}
 	'compile' {	
-
 		println( execute('${cc} ${base_name}.c -o ${base_name}').output )
 	}
 	'run' {
@@ -45,18 +47,16 @@ match option {
 		println(result.output)
 	}
 	'build' {		
-		mut result := execute('${python} ${aixtt} ${input_name}')
-		println(result.output)
-		result = execute('${cc} ${base_name}.c -o ${base_name}')
-		println(result.output)
-		result = $if windows { execute('${base_name}.exe') } $else { execute('${base_name}') }
+		println( execute('${python} ${aixtt} ${input_name}').output )							// transpile
+		println( execute('${cc} ${base_name}.c -o ${base_name}').output )						// compile
+		result = $if windows { execute('${base_name}.exe') } $else { execute('${base_name}') }	// run
 		println(result.output)
 	}
 	'clean' {
 		rm(base_name) or {}
 		rm('${base_name}.exe') or {}
 		rm('${base_name}.c') or {}
-		println('Files cleaned.')
+		println('Output files cleaned.')
 	}
 	'clean_all' {
 		mut result := execute('find . -name "*.c" -type f -delete') 
@@ -67,6 +67,6 @@ match option {
 		// println(result.output)
 	}
 	else {
-		println('invalid make option.')
+		println('Invalid make option.')
 	}
 }
