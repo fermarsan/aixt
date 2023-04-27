@@ -37,8 +37,8 @@ match option {
 		println( execute('${python} ${aixtt} ${input_name}').output )
 	}
 	'compile' {	
-		result := execute('${cc} ${base_name}.c -o ${base_name}')
-		println(result.output)
+
+		println( execute('${cc} ${base_name}.c -o ${base_name}').output )
 	}
 	'run' {
 		result := $if windows { execute('${base_name}.exe') } $else { execute('${base_name}') }
@@ -67,6 +67,6 @@ match option {
 		// println(result.output)
 	}
 	else {
-		println('invalid option.')
+		println('invalid make option.')
 	}
 }
