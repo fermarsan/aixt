@@ -18,8 +18,16 @@ struct Settings {
 	api_windows   	string
 }
 
-println( ls(getwd())? )
-println( ls(getwd())? )
+fn compile_dependencies(path string) {
+	// println( ls(getwd())? )
+	list := ls(path) or { [] }		// read all the directory content
+	for elem in list {
+		file_dir := path + elem
+		if is_dir(file_dir ) { print('dir: ') } else if is_file(file_dir ) { print('file: ') }
+		println(file_dir )
+	}
+
+}
 
 set_file := read_file('.vscode/settings.json')?	// read the settings file
 settings := json.decode(Settings, set_file)?
@@ -35,12 +43,10 @@ cc 			:= $if windows { settings.cc_windows } $else { settings.cc_linux }
 python 		:= $if windows { settings.python_windows } $else { settings.python_linux }  
 api_path 	:= $if windows { settings.api_windows } $else { settings.api_linux } 
 
-println( ls(getwd())? )
-println( ls(dir(api_path))? )
-
 match option {
 	'transpile' {
 		println( execute('${python} ${aixtt} ${input_name}').output )
+		compile_dependencies(api_path)
 	}
 	'compile' {	
 		println( execute('${cc} ${base_name}.c -o ${base_name}').output )
@@ -73,3 +79,4 @@ match option {
 		println('Invalid make option.')
 	}
 }
+
