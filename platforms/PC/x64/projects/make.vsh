@@ -18,16 +18,23 @@ struct Settings {
 	api_windows   	string
 }
 
-fn compile_dependencies(path string) {
-	// println( ls(getwd())? )
+fn compile_dependencies(path string, cc_path string) {
 	list := ls(path) or { [] }		// read all the directory content
 	for elem in list {
 		file_dir := path + elem
-		if is_dir(file_dir ) { print('dir: ') } else if is_file(file_dir ) { print('file: ') }
-		println(file_dir )
+		if file_ext(file_dir) == '.c' { println( execute('${cc_path} ${file_dir} -c').output ) }
+		else if is_dir(file_dir) { compile_dependencies(file_dir, cc_path) }	// calls itseft if directory
 	}
-
 }
+
+// fn link_and_compile(main string, path string, cc_path string) {
+// 	list := ls(path) or { [] }		// read all the directory content
+// 	for elem in list {
+// 		file_dir := path + elem
+// 		if file_ext(file_dir) == '.c' { println( execute('${cc_path} ${file_dir} -c').output ) }
+// 		else if is_dir(file_dir) { compile_dependencies(file_dir, cc_path) }	// calls itseft if directory
+// 	}
+// }	
 
 set_file := read_file('.vscode/settings.json')?	// read the settings file
 settings := json.decode(Settings, set_file)?
@@ -46,9 +53,9 @@ api_path 	:= $if windows { settings.api_windows } $else { settings.api_linux }
 match option {
 	'transpile' {
 		println( execute('${python} ${aixtt} ${input_name}').output )
-		compile_dependencies(api_path)
 	}
 	'compile' {	
+		compile_dependencies(api_path, cc)
 		println( execute('${cc} ${base_name}.c -o ${base_name}').output )
 	}
 	'run' {
@@ -57,7 +64,8 @@ match option {
 	}
 	'build' {		
 		println( execute('${python} ${aixtt} ${input_name}').output )							// transpile
-		println( execute('${cc} ${base_name}.c -o ${base_name}').output )						// compile
+		compile_dependencies(api_path, cc)
+		println( execute('${cc} ${base_name}.c -o ${base_name}').output )					// compile
 		result := $if windows { execute('${base_name}.exe') } $else { execute('${base_name}') }	// run
 		println(result.output)
 	}

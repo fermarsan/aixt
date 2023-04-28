@@ -1,3 +1,8 @@
-#define RES = input(STR)    printf(STR); gets(RES)
+#ifndef _OS__INPUT_H_
+#define _OS__INPUT_H_
 
-char __input_string[30]; 
+char in_str[30];
+
+char *os__input(char *msg);
+
+#endif  // _OS__INPUT_H_
