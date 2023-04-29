@@ -4,7 +4,9 @@
     "cc_linux":       "../nbc-linux",
     "cc_windows":     "..\\nbc-windows.exe",
     "python_linux":   "python3",
-    "python_windows": "python",
+    "python_windows": "python
+    "api_linux":      "../api/",
+    "api_windows":    "..\\api\\",
     "files.associations": {
         "*.nxc":  "cpp",
         "*.aixt": "v"
