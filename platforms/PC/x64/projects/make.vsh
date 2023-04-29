@@ -18,49 +18,12 @@ struct Settings {
 	api_windows   	string
 }
 
-// fn file_list(path string, ext string) []string{
-// 	mut list := []string
-// 	list << ls(path) or { [] }		// read all the directory content
-// 	for elem in list {
-// 		file_dir := path + elem
-// }
-
-fn compile_directory(path string, cc_path string) {
-	list := ls(path) or { [] }		// read all the directory content
-	for elem in list {
-		file_dir := path + elem
-		if file_ext(file_dir) == '.c' { println( execute('${cc_path} ${file_dir} -c').output ) }
-		else if is_dir(file_dir) { compile_directory(file_dir, cc_path) }	// calls itseft if directory
-	}
-}
-
-// fn link_build_directory(path string, file string, cc_path string) {
-// 	static mut ob_list := []string
-// 	list := ls(path) or { [] }		// read all the directory content
-// 	for elem in list {
-// 		file_dir := path + elem
-// 		if file_ext(file_dir) == '.c' { println( execute('${cc_path} ${file_dir} -c').output ) }
-// 		else if is_dir(file_dir) { compile_directory(file_dir, cc_path) }	// calls itseft if directory
-// 	}
-// }
-
-// fn link_and_compile(main string, path string, cc_path string) {
-// 	list := ls(path) or { [] }		// read all the directory content
-// 	for elem in list {
-// 		file_dir := path + elem
-// 		if file_ext(file_dir) == '.c' { println( execute('${cc_path} ${file_dir} -c').output ) }
-// 		else if is_dir(file_dir) { compile_directory(file_dir, cc_path) }	// calls itseft if directory
-// 	}
-// }	
-
 set_file := read_file('.vscode/settings.json')?	// read the settings file
 settings := json.decode(Settings, set_file)?
 
 option, input_name := os.args[1], os.args[2]	// capture arguments
-
-mut base_name := input_name.replace('.v', '')	// input file base name	
-base_name = base_name.replace('.aixt', '')
-base_name = base_name.replace('.aix', '')
+	
+base_name	:= input_name.replace('.aixt', '')		// input file base name
 
 aixtt 		:= $if windows { settings.aixt_windows } $else { settings.aixt_linux }	// select tools according the OS
 cc 			:= $if windows { settings.cc_windows } $else { settings.cc_linux }	
@@ -69,12 +32,13 @@ api_path 	:= $if windows { settings.api_windows } $else { settings.api_linux }
 
 match option {
 	'transpile' {		
-		mut file_list := walk_ext(api_path, '.v').join(' ')
-		file_list +=  ' ' + walk_ext(api_path, '.aixt').join(' ')
-		file_list +=  ' ' + walk_ext(api_path, '.aix').join(' ')
-		println(file_list)
-		// for file in file_list { println(execute('${python} ${aixtt} ${input_name}').output) }
-		println(execute('${python} ${aixtt} ${input_name}').output)
+		file_list := walk_ext(dir(input_name), '.aixt')		// transpile secondary files
+		for file in file_list { 
+			if file != input_name {
+				println(execute('${python} ${aixtt} ${file}').output) 
+			}
+		}
+		println(execute('${python} ${aixtt} ${input_name}').output)	// transpile the main file
 	}
 	'compile' {	
 		path_list := walk_ext(api_path, '.h').join(' ')
@@ -87,7 +51,7 @@ match option {
 	}
 	'build' {		
 		println( execute('${python} ${aixtt} ${input_name}').output )							// transpile
-		compile_directory(api_path, cc)
+		// compile_directory(api_path, cc)
 		println( execute('${cc} ${base_name}.c -o ${base_name}').output )					// compile
 		result := $if windows { execute('${base_name}.exe') } $else { execute('${base_name}') }	// run
 		println(result.output)
