@@ -18,21 +18,38 @@ struct Settings {
 	api_windows   	string
 }
 
-fn compile_dependencies(path string, cc_path string) {
+// fn file_list(path string, ext string) []string{
+// 	mut list := []string
+// 	list << ls(path) or { [] }		// read all the directory content
+// 	for elem in list {
+// 		file_dir := path + elem
+// }
+
+fn compile_directory(path string, cc_path string) {
 	list := ls(path) or { [] }		// read all the directory content
 	for elem in list {
 		file_dir := path + elem
 		if file_ext(file_dir) == '.c' { println( execute('${cc_path} ${file_dir} -c').output ) }
-		else if is_dir(file_dir) { compile_dependencies(file_dir, cc_path) }	// calls itseft if directory
+		else if is_dir(file_dir) { compile_directory(file_dir, cc_path) }	// calls itseft if directory
 	}
 }
+
+// fn link_build_directory(path string, file string, cc_path string) {
+// 	static mut ob_list := []string
+// 	list := ls(path) or { [] }		// read all the directory content
+// 	for elem in list {
+// 		file_dir := path + elem
+// 		if file_ext(file_dir) == '.c' { println( execute('${cc_path} ${file_dir} -c').output ) }
+// 		else if is_dir(file_dir) { compile_directory(file_dir, cc_path) }	// calls itseft if directory
+// 	}
+// }
 
 // fn link_and_compile(main string, path string, cc_path string) {
 // 	list := ls(path) or { [] }		// read all the directory content
 // 	for elem in list {
 // 		file_dir := path + elem
 // 		if file_ext(file_dir) == '.c' { println( execute('${cc_path} ${file_dir} -c').output ) }
-// 		else if is_dir(file_dir) { compile_dependencies(file_dir, cc_path) }	// calls itseft if directory
+// 		else if is_dir(file_dir) { compile_directory(file_dir, cc_path) }	// calls itseft if directory
 // 	}
 // }	
 
@@ -51,12 +68,18 @@ python 		:= $if windows { settings.python_windows } $else { settings.python_linu
 api_path 	:= $if windows { settings.api_windows } $else { settings.api_linux } 
 
 match option {
-	'transpile' {
-		println( execute('${python} ${aixtt} ${input_name}').output )
+	'transpile' {		
+		mut file_list := walk_ext(api_path, '.v').join(' ')
+		file_list +=  ' ' + walk_ext(api_path, '.aixt').join(' ')
+		file_list +=  ' ' + walk_ext(api_path, '.aix').join(' ')
+		println(file_list)
+		// for file in file_list { println(execute('${python} ${aixtt} ${input_name}').output) }
+		println(execute('${python} ${aixtt} ${input_name}').output)
 	}
 	'compile' {	
-		compile_dependencies(api_path, cc)
-		println( execute('${cc} ${base_name}.c -o ${base_name}').output )
+		path_list := walk_ext(api_path, '.h').join(' ')
+		println(path_list)
+		println(execute('${cc} ${base_name}.c -o ${base_name}').output)
 	}
 	'run' {
 		result := $if windows { execute('${base_name}.exe') } $else { execute('${base_name}') }
@@ -64,7 +87,7 @@ match option {
 	}
 	'build' {		
 		println( execute('${python} ${aixtt} ${input_name}').output )							// transpile
-		compile_dependencies(api_path, cc)
+		compile_directory(api_path, cc)
 		println( execute('${cc} ${base_name}.c -o ${base_name}').output )					// compile
 		result := $if windows { execute('${base_name}.exe') } $else { execute('${base_name}') }	// run
 		println(result.output)
