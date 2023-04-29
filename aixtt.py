@@ -38,7 +38,7 @@ if len(sys.argv) > 1:
     # print(tree)
     # print('_'*60 + '\n') 
 
-    print(tree.pretty())
+    # print(tree.pretty())
     print('_'*60 + '\n')    
     print_out = transpiler.transform(tree)
 
