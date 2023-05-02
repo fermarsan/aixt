@@ -96,7 +96,7 @@ for {   //infinite loop
 
 ## Aixt Transpiler
 
-The transpiler is written in _Python_ using the _lark_ module as Lexer and Parser. This is implemented in just two `.py` and one `.lark` files.
+The transpiler is written in _V_ using the _V's_ native self-compiler (a transpiler from _V_ to _C_). This is implemented in just two `.v` files.
 
 ## Aixt API
 
