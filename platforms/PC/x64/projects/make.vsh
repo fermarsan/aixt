@@ -23,12 +23,12 @@ settings := json.decode(Settings, set_file)?
 
 option, input_name := os.args[1], os.args[2]	// capture arguments
 	
-base_name	:= input_name.replace('.aixt', '')		// input file base name
+base_name	:= input_name.replace('.aixt', '')	// input file base name
 
 aixtt 		:= $if windows { settings.aixt_windows } $else { settings.aixt_linux }	// select tools according the OS
 cc 			:= $if windows { settings.cc_windows } $else { settings.cc_linux }	
 python 		:= $if windows { settings.python_windows } $else { settings.python_linux }  
-api_path 	:= $if windows { settings.api_windows } $else { settings.api_linux } 
+// api_path 	:= $if windows { settings.api_windows } $else { settings.api_linux } 
 
 match option {
 	'transpile' {		
@@ -41,8 +41,11 @@ match option {
 		println(execute('${python} ${aixtt} ${input_name}').output)	// transpile the main file
 	}
 	'compile' {	
-		path_list := walk_ext(api_path, '.h').join(' ')
-		println(path_list)
+		// mut file_str_list := walk_ext(api_path, '.c').join(' ')
+		// println('file_str_list: ${file_str_list}')
+		// file_str_list += ' ' + walk_ext(dir(input_name), '.c').join(' ')
+		// println('file_str_list: ${file_str_list}')
+		// println(execute('${cc} ${file_str_list} -o ${base_name}').output)
 		println(execute('${cc} ${base_name}.c -o ${base_name}').output)
 	}
 	'run' {

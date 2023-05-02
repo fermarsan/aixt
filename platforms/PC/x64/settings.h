@@ -2,7 +2,6 @@
 #define _SETTINGS_H_
 
 #include "api/builtin.h"
-#include <stdio.h>
 
 
  

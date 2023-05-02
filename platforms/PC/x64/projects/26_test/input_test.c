@@ -4,8 +4,8 @@
 
 #include "../../settings.h"
 
+
 int main() {
-	const char msg[] = "Hello world!";
-	println(msg);
+	println("os.input function test\n");
 return 0;
 }
