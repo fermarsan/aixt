@@ -44,17 +44,10 @@ if os.args.len > 1 {
 	println(trans_code)
 	println(strings.repeat_string('_', 60) + '\n')
 
+    // saves the output file
+    output_ext := if os.args.len > 2 && os.args[2] == '-nxc' { '.nxc' } else { '.c' }
+    output_path := path.replace('.v', output_ext)   
+    os.write_file(output_path, trans_code)?
+} else {
+    println('no input file path.\n')
 }
-
-
-//     // saves the output file
-//     output_ext = '.nxc' if len(os.args) > 2 and os.args[2] == '-nxc' else '.c'
-//     output_name = name.replace('.v', output_ext)
-//     output_name = output_name.replace('.aixt', output_ext)
-//     output_name = output_name.replace('.aix', output_ext)       
-//     transpiler.saveOutput(output_name)
-// } else {
-//     println('no input file.\n')
-// }
-
-
