@@ -4,8 +4,9 @@
 # 
 # Copyright (c) 2023 Fernando Martínez Santa 
 
-device:   "Atmel AT91SAM7S256"
-board:    "LEGO Mindstorms NXT intelligent brick"
+device:     "Atmel AT91SAM7S256"
+board:      "LEGO Mindstorms NXT intelligent brick"
+aixt_path:  ../../
 
 i8:     char
 i16:    int
