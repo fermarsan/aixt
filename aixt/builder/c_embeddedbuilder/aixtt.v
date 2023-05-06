@@ -27,7 +27,9 @@ if os.args.len > 1 {
     tree := parser.parse_file(path, table, .skip_comments, vpref)
 	mut checker_ := checker.new_checker(table, vpref)
 	checker_.check(tree)
-	println(tree)
+	// println(tree)
+	// println(strings.repeat_string('_', 60) + '\n')
+	// println(table)
 	println(strings.repeat_string('_', 60) + '\n')
 
     mut trans_code := c_embedded.gen(tree)

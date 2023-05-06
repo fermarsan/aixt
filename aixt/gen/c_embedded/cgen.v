@@ -17,7 +17,9 @@ __global (
 )
 
 pub fn gen(file &ast.File) string {
-	walker.inspect(file, unsafe { nil }, fn (node &ast.Node, data voidptr) bool {
+	walker.inspect(file, 
+			       unsafe { nil }, 
+				   unsafe { fn (node &ast.Node, data voidptr) bool {
 		match node {
 			ast.Stmt {
 				match node {
@@ -41,7 +43,7 @@ pub fn gen(file &ast.File) string {
 		}	
 		// println(node)		
 		return true
-	})
+	}})
 
 	mut output := '${attr} ${ret_type} main(${params}) {\n${stmt_list.join('\n')}\n}'
 	output = if output[0] == ` ` { output[1..] } else { output } 
