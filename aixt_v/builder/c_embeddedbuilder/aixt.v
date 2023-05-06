@@ -11,7 +11,7 @@ import v.checker
 import v.pref
 import v.parser
 import strings
-import c_embedded
+// import gen.c_embedded
 
 
 // println(os.args)
@@ -32,7 +32,10 @@ if os.args.len > 1 {
 	// println(table)
 	println(strings.repeat_string('_', 60) + '\n')
 
-    mut trans_code := c_embedded.gen(tree)
+	println(vpref.path)
+
+    // mut trans_code := c_embedded.gen(tree)
+	mut trans_code := ''
 	if os.args.len > 2 {
         if os.args[2] == '-nxc' {	// if -nxt flag
             equivalents := toml.parse_file('../api/equivalents.toml') or { panic('file does not exist. ') }
