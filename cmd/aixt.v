@@ -6,17 +6,10 @@
 
 import os
 import json
+import toml
 
-struct Settings {
-	aixt_linux   	string
-	aixt_windows  	string
-	cc_linux      	string
-	cc_windows    	string
-	python_linux  	string
-	python_windows	string
-	api_linux     	string
-	api_windows   	string
-}
+
+equivalents := toml.parse_file('../api/equivalents.toml') or { panic('file does not exist. ') }
 
 set_file := read_file('.vscode/settings.json')?	// read the settings file
 settings := json.decode(Settings, set_file)?
