@@ -1,4 +1,4 @@
-/ This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 //
 // The MIT License (MIT)
 // 
@@ -24,18 +24,21 @@ pub enum Backend {
 }
 
 pub fn backend_from_string(s string) !Backend {
-	// TODO: unify the "different js backend" options into a single `-b js`
-	// + a separate option, to choose the wanted JS output.
 	match s {
-		'c' { return .c }
-		'go' { return .golang }
-		'interpret' { return .interpret }
-		'js' { return .js_node }
-		'js_node' { return .js_node }
-		'js_browser' { return .js_browser }
-		'js_freestanding' { return .js_freestanding }
-		'native' { return .native }
-		'wasm' { return .wasm }
+		'pc'		{ return .pc }	
+		'atmega'	{ return .atmega }	
+		'psoc1'		{ return .psoc1 }
+		'psoc4'		{ return .psoc4 }
+		'esp32'		{ return .esp32 }
+		'lqfp32'	{ return .lqfp32 }	
+		'pic16'		{ return .pic16 }
+		'pic18'		{ return .pic18 }
+		'pic24'		{ return .pic24 }
+		'dspic33'	{ return .dspic33 }	
+		'nxc'		{ return .nxc }	
+		'rppico'	{ return .rppico }	
+		'st'		{ return .st }	
+		'ch552'		{ return .ch552	 }
 		else { return error('Unknown backend type ${s}') }
 	}
 }
