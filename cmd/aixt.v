@@ -18,13 +18,10 @@ setup := toml.parse_file('../setup.toml') or { panic(err) }
 
 option, input_name := os.args[1], os.args[2]	// capture arguments
 	
-base_name	:= input_name.replace('.aixt', '')	// input file base name
-
+// base_name	:= input_name.replace('.aixt', '')	// input file base name
 
 cc			:= 	$if windows { setup.value('cc_windows').string() } 
 				$else { setup.value('cc_linux').string() }	
-python 		:= 	$if windows { setup.value('python_windows').string() } 
-				$else { setup.value('python_linux').string() }  
 api_path 	:= 	$if windows { setup.value('api_windows').string() } 
 				$else { setup.value('api_linux').string() } 
 
