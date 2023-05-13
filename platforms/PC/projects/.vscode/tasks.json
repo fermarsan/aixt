@@ -4,9 +4,16 @@
       {
         "label": "Aixt: Transpile",
         "type": "shell",
-        "command": [ "v run ${config:aixt_path}",
-                     "transpile",
-                     "${file}" ],
+        "windows": {
+            "command": [ "v run ${config:aixt_windows}",
+                         "transpile",
+                         "${file}" ],
+        },
+        "linux": {
+            "command": [ "v run ${config:aixt_linux}",
+                         "transpile",
+                         "${file}" ],
+        },
         "problemMatcher": ["$tsc"],
         "group": "build",
         "presentation": {
