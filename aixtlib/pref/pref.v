@@ -20,7 +20,7 @@ pub enum Backend {
 	nxc		// NXC compiler for LEGO Mindstorms NXC backend
 	rppico	// for raspberry pi pico backend
 	st		// st compiler backend
-	ch552	// for ch522 backend
+	ch552	// ch522 backend
 }
 
 pub fn backend_from_string(s string) !Backend {
@@ -38,7 +38,7 @@ pub fn backend_from_string(s string) !Backend {
 		'nxc'		{ return .nxc }	
 		'rppico'	{ return .rppico }	
 		'st'		{ return .st }	
-		'ch552'		{ return .ch552	 }
+		'ch552'		{ return .ch552	}
 		else { return error('Unknown backend type ${s}') }
 	}
 }
