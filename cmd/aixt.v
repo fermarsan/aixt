@@ -5,11 +5,11 @@
 // Copyright (c) 2023 Fernando Martínez Santa
 
 import os
-import json
+// import json
 import toml
 
 
-equivalents := toml.parse_file('../api/equivalents.toml') or { panic('file does not exist. ') }
+// equivalents := toml.parse_file('../api/equivalents.toml') or { panic('file does not exist. ') }
 
 set_file := read_file('.vscode/settings.json')!	// read the settings file
 settings := json.decode(Settings, set_file)!
