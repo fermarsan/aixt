@@ -28,12 +28,12 @@ stateDiagram-v2
     }
 
     state Microcontroller {
-        PICs: PICXX
-        ATM: AT Mega
-        ESP32
+        PICs: PIC
+        ATM: AT
+        ESP
         RP2040
         others2: ...
-        NXT: NXT brick (ARM7) 
+        NXT: NXT brick
     }
 
     C_Compiler: C Compiler
