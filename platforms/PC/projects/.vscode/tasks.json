@@ -4,7 +4,7 @@
       {
         "label": "Aixt: Transpile",
         "type": "shell",
-        "command": [ "v run make.vsh",
+        "command": [ "v run ${config:aixt_path}",
                      "transpile",
                      "${file}" ],
         "problemMatcher": ["$tsc"],
