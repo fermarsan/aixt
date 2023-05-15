@@ -16,6 +16,8 @@ import toml
 // settings := json.decode(Settings, set_file)!
 setup := toml.parse_file('../setup.toml') or { panic(err) }
 
+axit_path := os.dir(os.dir(os.args[0]))	// aixt base path
+
 option_1, args := os.args[1], os.args[2..]	// capture arguments
 	
 // base_name	:= input_name.replace('.aixt', '')	// input file base name
@@ -39,15 +41,8 @@ match option_1 {
 		// 	}
 		// 	println(os.execute('v run ${aixt_builder} ${args}').output)	// transpile the main file
 		// }
-		println(os.getegid())
-		println(os.geteuid())
-		println(os.getgid())
-		println(os.getpid())
-		println(os.getppid())
-		println(os.getuid())
-		println(os.getwd())
-		// println(os.get())
-		// println(os.get())
+
+
 		// println(os.get())
 		// println(os.get())
 	}
