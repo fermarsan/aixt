@@ -33,10 +33,10 @@ match option {
 		file_list := os.walk_ext(os.dir(input_name), '.aixt')		// transpile secondary files
 		for file in file_list { 
 			if file != input_name {
-				println(os.execute('v run ${aixt_builder} ${base_name}').output) 
+				println(os.execute('v run ${aixt_builder} ${file}').output) 
 			}
 		}
-		println(execute('${python} ${aixtt} ${input_name}').output)	// transpile the main file
+		println(execute('v run ${aixt_builder} ${input_name}').output)	// transpile the main file
 	}
 	// 'compile' {	
 	// 	// mut file_str_list := walk_ext(api_path, '.c').join(' ')
