@@ -18,7 +18,7 @@ setup := toml.parse_file('../setup.toml') or { panic(err) }
 
 option, input_name := os.args[1], os.args[2]	// capture arguments
 	
-// base_name	:= input_name.replace('.aixt', '')	// input file base name
+base_name	:= input_name.replace('.aixt', '')	// input file base name
 
 cc := $if windows { setup.value('cc_windows').string() } $else { setup.value('cc_linux').string() }	
 
@@ -33,7 +33,7 @@ match option {
 		file_list := os.walk_ext(os.dir(input_name), '.aixt')		// transpile secondary files
 		for file in file_list { 
 			if file != input_name {
-				println(os.execute('v run ${aixtt} ${file}').output) 
+				println(os.execute('v run ${aixt_builder} ${base_name}').output) 
 			}
 		}
 		println(execute('${python} ${aixtt} ${input_name}').output)	// transpile the main file
