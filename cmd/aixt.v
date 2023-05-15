@@ -16,7 +16,7 @@ import toml
 // settings := json.decode(Settings, set_file)!
 setup := toml.parse_file('../setup.toml') or { panic(err) }
 
-option1, args := os.args[1], os.args[2..]	// capture arguments
+option_1, args := os.args[1], os.args[2..]	// capture arguments
 	
 // base_name	:= input_name.replace('.aixt', '')	// input file base name
 
@@ -28,17 +28,28 @@ $if windows { aixt_path = aixt_api.replace('/', '\\') }
 aixt_builder := setup.value('aixt_builder').string()
 $if windows { aixt_builder = aixt_builder.replace('/', '\\') }
 
-match option {
-	'-transpile' || '-t' {		
-		if args[0] == '-nxc' {
-			file_list := os.walk_ext(os.dir(input_name), '.aixt')		// transpile secondary files
-			for file in file_list { 
-				if file != input_name {
-					println(os.execute('v run ${aixt_builder} ${file}').output) 
-				}
-			}
-			println(os.execute('v run ${aixt_builder} ${args}').output)	// transpile the main file
-		}
+match option_1 {
+	'-transpile' {		
+		// if args[0] == '-nxc' {
+		// 	file_list := os.walk_ext(os.dir(input_name), '.aixt')		// transpile secondary files
+		// 	for file in file_list { 
+		// 		if file != input_name {
+		// 			println(os.execute('v run ${aixt_builder} ${file}').output) 
+		// 		}
+		// 	}
+		// 	println(os.execute('v run ${aixt_builder} ${args}').output)	// transpile the main file
+		// }
+		println(os.getegid())
+		println(os.geteuid())
+		println(os.getgid())
+		println(os.getpid())
+		println(os.getppid())
+		println(os.getuid())
+		println(os.getwd())
+		// println(os.get())
+		// println(os.get())
+		// println(os.get())
+		// println(os.get())
 	}
 	// 'compile' {	
 	// 	// mut file_str_list := walk_ext(api_path, '.c').join(' ')
