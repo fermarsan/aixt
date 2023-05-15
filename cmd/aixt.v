@@ -36,7 +36,7 @@ match option {
 				println(os.execute('v run ${aixt_builder} ${file}').output) 
 			}
 		}
-		println(execute('v run ${aixt_builder} ${input_name}').output)	// transpile the main file
+		println(os.execute('v run ${aixt_builder} ${input_name}').output)	// transpile the main file
 	}
 	// 'compile' {	
 	// 	// mut file_str_list := walk_ext(api_path, '.c').join(' ')
