@@ -5,12 +5,12 @@
         "label": "Aixt: Transpile",
         "type": "shell",
         "windows": {
-            "command": [ "v run ${config:aixt_windows}",
+            "command": [ "v run ${config:aixt_windows}\\cmd\\aixt.v",
                          "-transpile",
                          "${file}" ],
         },
         "linux": {
-            "command": [ "v run ${config:aixt_linux}",
+            "command": [ "v run ${config:aixt_linux}/cmd/aixt.v",
                          "-transpile",
                          "${file}" ],
         },
