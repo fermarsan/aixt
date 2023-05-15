@@ -9,8 +9,7 @@ board =   "PC"
 
 cc_linux =      "gcc"
 cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
-api_linux =     "./api/" 
-api_windows =   ".\\api\\"
+aixt_api =      "./api/" 
 aixt_builder =  "../../../aixtlib/builder/cembuilder/builder.v"
 
 i8 =    "signed char"
