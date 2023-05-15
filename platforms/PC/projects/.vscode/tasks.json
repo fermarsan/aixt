@@ -5,13 +5,15 @@
         "label": "Aixt: Transpile",
         "type": "shell",
         "windows": {
-            "command": [ "v run ${config:aixt_windows}\\cmd\\aixt.v",
+            "command": [ "v run ${config:aixt_windows}",
                          "-transpile",
+                         "${config:backend}",
                          "${file}" ],
         },
         "linux": {
-            "command": [ "v run ${config:aixt_linux}/cmd/aixt.v",
+            "command": [ "v run ${config:aixt_linux}",
                          "-transpile",
+                         "${config:backend}",
                          "${file}" ],
         },
         "problemMatcher": ["$tsc"],
