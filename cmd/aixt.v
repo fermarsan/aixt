@@ -16,27 +16,29 @@ import toml
 // settings := json.decode(Settings, set_file)!
 setup := toml.parse_file('../setup.toml') or { panic(err) }
 
-option, input_name := os.args[1], os.args[2]	// capture arguments
+option1, args := os.args[1], os.args[2..]	// capture arguments
 	
-base_name	:= input_name.replace('.aixt', '')	// input file base name
+// base_name	:= input_name.replace('.aixt', '')	// input file base name
 
 cc := $if windows { setup.value('cc_windows').string() } $else { setup.value('cc_linux').string() }	
 
-aixt_api := setup.value('aixt_api').string()
-$if windows { aixt_api = aixt_api.replace('/', '\\') }
+aixt_path := setup.value('aixt_path').string()
+$if windows { aixt_path = aixt_api.replace('/', '\\') }
 
 aixt_builder := setup.value('aixt_builder').string()
 $if windows { aixt_builder = aixt_builder.replace('/', '\\') }
 
 match option {
-	'transpile' {		
-		file_list := os.walk_ext(os.dir(input_name), '.aixt')		// transpile secondary files
-		for file in file_list { 
-			if file != input_name {
-				println(os.execute('v run ${aixt_builder} ${file}').output) 
+	'-transpile' || '-t' {		
+		if args[0] == '-nxc' {
+			file_list := os.walk_ext(os.dir(input_name), '.aixt')		// transpile secondary files
+			for file in file_list { 
+				if file != input_name {
+					println(os.execute('v run ${aixt_builder} ${file}').output) 
+				}
 			}
+			println(os.execute('v run ${aixt_builder} ${args}').output)	// transpile the main file
 		}
-		println(os.execute('v run ${aixt_builder} ${input_name}').output)	// transpile the main file
 	}
 	// 'compile' {	
 	// 	// mut file_str_list := walk_ext(api_path, '.c').join(' ')

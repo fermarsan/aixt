@@ -7,10 +7,11 @@
 device =  "x64"
 board =   "PC"
 
+aixt_linux =    "/home/fercho/Proyectos_Software/Transcompilador/aixt-project/"
+aixt_windows =  "C:\\aixt-project\\"
 cc_linux =      "gcc"
 cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
-aixt_api =      "./api/" 
-aixt_builder =  "../../../aixtlib/builder/cembuilder/cembuilder.v"
+backend =       "pc"
 
 i8 =    "signed char"
 i16 =   "short"

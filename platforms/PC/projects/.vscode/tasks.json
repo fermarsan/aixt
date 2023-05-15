@@ -6,12 +6,12 @@
         "type": "shell",
         "windows": {
             "command": [ "v run ${config:aixt_windows}",
-                         "transpile",
+                         "-transpile",
                          "${file}" ],
         },
         "linux": {
             "command": [ "v run ${config:aixt_linux}",
-                         "transpile",
+                         "-transpile",
                          "${file}" ],
         },
         "problemMatcher": ["$tsc"],
