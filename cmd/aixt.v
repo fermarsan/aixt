@@ -20,18 +20,17 @@ for setup_file in os.walk_ext('${aixt_path}/platforms/', 'toml') {	// find the d
 		break
 	}
 }
-
 setup := toml.parse_file(dev_setup_file) or { return }	// load the device's setup file
 
 
 // base_name	:= input_name.replace('.aixt', '')	// input file base name
 
+//c compiler depending on the OS
 cc := $if windows { setup.value('cc_windows').string() } $else { setup.value('cc_linux').string() }	
 
-// aixt_path := setup.value('aixt_path').string()
-// $if windows { aixt_path = aixt_api.replace('/', '\\') }
-
-// aixt_builder := os.norm_path(setup.value('aixt_builder').string())
+// appropiate builder
+aixt_builder := if device != 'nxc' { os.norm_path('${aixt_path}/aixtlib/builder/cembuilder/cembuilder.v') }
+				else { os.norm_path('${aixt_path}/aixtlib/builder/nxcbuilder/nxcbuilder.v') }
 
 // match command {
 // 	'transpile' {		
@@ -81,4 +80,4 @@ cc := $if windows { setup.value('cc_windows').string() } $else { setup.value('cc
 // 	}
 // }
 
-println(cc)
+println(aixt_builder)
