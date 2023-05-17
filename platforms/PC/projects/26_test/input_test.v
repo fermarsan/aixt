@@ -1,3 +1,6 @@
+a, b := 3, 4.5
+
+
 // import os 
 
 // in_str := [20]rune
@@ -8,4 +11,4 @@
 // println(in_str)
 
 
-a, b := 3, 4.5
+

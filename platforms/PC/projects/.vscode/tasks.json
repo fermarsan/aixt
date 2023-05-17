@@ -6,14 +6,14 @@
         "type": "shell",
         "windows": {
             "command": [ "v run ${config:aixt_windows}",
-                         "-transpile",
-                         "${config:backend}",
+                         "transpile",
+                         "${config:device}",
                          "${file}" ],
         },
         "linux": {
             "command": [ "v run ${config:aixt_linux}",
-                         "-transpile",
-                         "${config:backend}",
+                         "transpile",
+                         "${config:device}",
                          "${file}" ],
         },
         "problemMatcher": ["$tsc"],
