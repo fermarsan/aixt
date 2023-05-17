@@ -4,7 +4,7 @@
 // 
 // Copyright (c) 2023 Fernando Martínez Santa
 
-module cemgen
+module cemb_gen
 
 import v.ast
 import v.ast.walker
