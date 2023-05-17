@@ -7,10 +7,10 @@
 import os
 import toml
 import builder.cembuilder
-// import gen.cembedded
+// import gen.cemgen
 
 
-aixt_path := os.dir(os.dir(os.args[0]))	// aixt base path
+// aixt_path := os.dir(os.dir(os.args[0]))	// aixt base path
 // os.chdir(aixt_path)?
 
 command, device, input_name := os.args[1], os.args[2], os.args[3]	// capture arguments
