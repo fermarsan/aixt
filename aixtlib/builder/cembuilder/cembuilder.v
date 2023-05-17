@@ -4,6 +4,9 @@
 // 
 // Copyright (c) 2023 Fernando Martínez Santa
 
+module cembuilder
+
+
 import os
 import toml
 import v.ast
@@ -11,13 +14,14 @@ import v.checker
 import v.pref
 import v.parser
 import strings
-// import gen.c_embedded
+import gen.cembedded
 
 
 // println(os.args)
 // println(os.args.len)
 
 if os.args.len > 1 {
+	device := os.args[2]
     path := os.args[1]
 	table := ast.new_table()	
 	mut vpref := &pref.Preferences{}
