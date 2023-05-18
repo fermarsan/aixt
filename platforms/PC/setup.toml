@@ -9,6 +9,7 @@ board =   "PC"
 
 cc_linux =      "gcc"
 cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
+# cc_flags = ["-0" ]
 
 i8 =    "signed char"
 i16 =   "short"
