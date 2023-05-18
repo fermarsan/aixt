@@ -6,7 +6,7 @@
 
 import os
 import toml
-// import aixtlib.builder
+import aixtlib.builder
 // import aixtlib.gen.cemb_gen
 // import aixtlib.gen.nxc_gen
 
@@ -29,10 +29,6 @@ fn main() {
 
 	// C compiler depending on the OS
 	cc := $if windows { setup.value('cc_windows').string() } $else { setup.value('cc_linux').string() }	
-
-	// appropiate builder
-	aixt_builder := if device != 'nxc' { os.norm_path('${aixt_path}/aixtlib/builder/cembuilder/cembuilder.v') }
-					else { os.norm_path('${aixt_path}/aixtlib/builder/nxcbuilder/nxcbuilder.v') }
 
 	match command {
 		'transpile' {		
