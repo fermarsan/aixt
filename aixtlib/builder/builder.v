@@ -14,7 +14,7 @@ import v.checker
 import v.pref
 import v.parser
 import strings
-import aixtlib.gen.cemb_gen
+// import aixtlib.gen.cemb_gen
 
 pub fn build(path string) {
 	println('Building........')
@@ -26,7 +26,7 @@ fn cemb_build(path string) {
 
 	if os.args.len > 1 {
 		device := os.args[2]
-		path := os.args[1]
+		// path := os.args[1]
 		table := ast.new_table()	
 		mut vpref := &pref.Preferences{}
 		vpref.is_script = true
@@ -66,6 +66,11 @@ fn cemb_build(path string) {
 	}
 }
 
-fn build_api(path string) bool{
-	return true
+pub fn build_api(path string) {
+	file_list := os.walk_ext(path, '.aixt')		// transpile secondary files
+	for file in file_list { 
+		// if file != input_name {
+			println('Building API........')// os.execute('v run ${aixt_builder} ${device} ${file}').output) 
+		// }
+	}
 }

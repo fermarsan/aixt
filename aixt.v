@@ -6,9 +6,10 @@
 
 import os
 import toml
-import aixtlib.builder
-// import aixtlib.gen.cemb_gen
-// import aixtlib.gen.nxc_gen
+import v.parser
+import aixtlib.gen
+// import aixtlib.builder
+// import v.builder // CHECK
 
 fn main() {
 	aixt_path := os.dir(os.args[0])	// aixt base path
@@ -24,7 +25,6 @@ fn main() {
 	}
 	setup := toml.parse_file(dev_setup_file) or { return }	// load the device's setup file
 
-
 	// base_name	:= input_name.replace('.aixt', '')	// input file base name
 
 	// C compiler depending on the OS
@@ -32,13 +32,8 @@ fn main() {
 
 	match command {
 		'transpile' {		
-			file_list := os.walk_ext(os.dir(input_name), '.aixt')		// transpile secondary files
-			for file in file_list { 
-				if file != input_name {
-					println(os.execute('v run ${aixt_builder} ${device} ${file}').output) 
-				}
-			}
-			println(os.execute('v run ${aixt_builder} ${device} ${input_name}').output)	// transpile the main file
+			// builder.build_api(aixt_path)
+			// builder.build(input_name)	// transpile the main file
 		}
 		// 'compile' {	
 		// 	// mut file_str_list := walk_ext(api_path, '.c').join(' ')
@@ -80,3 +75,4 @@ fn main() {
 
 	println(setup)
 }
+
