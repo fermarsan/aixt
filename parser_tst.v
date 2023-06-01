@@ -74,7 +74,7 @@ fn (mut gen AixtGen) gen(node &ast.Node, data voidptr) bool {
 					for i in 0 .. node.left.len {
 						if node.op == token.Kind.decl_assign {	// in case of declaration 
 							var_type := ast.new_table().type_symbols[ node.right_types[i].idx() ] 
-							assign += '${var_type} ${node.left[i]} ${node.op} ${node.right[i]};\n'
+							assign += '${var_type} ${node.left[i]} = ${node.right[i]};\n'
 						} else {	// for the rest of assignments
 							assign += '${node.left[i]} ${node.op} ${node.right[i]};\n'
 						}
