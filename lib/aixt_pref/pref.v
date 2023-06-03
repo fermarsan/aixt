@@ -29,7 +29,7 @@ pub map device_path := {
 	'ESP32-DEVKITV1':		'Espressif/ESP32-DEVKITV1'
 	'LQFP32-MiniEVB':		'LogicGreen/LQFP32-MiniEVB/'
 	'Explorer16-dsPIC33':	'Microchip/Explorer16/dsPIC33/'
-	'Explorer16-PIC24':		'Microchip/Explorer16/PIC24F/'
+	'Explorer16-PIC24':		'Microchip/Explorer16/PIC24/'
 	'PIC16F84A':			'Microchip/PIC16F84A/'
 	'PIC16F628A':			'Microchip/PIC16F628A/'
 	'PIC16F676':			'Microchip/PIC16F676/'
