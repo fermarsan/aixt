@@ -6,10 +6,21 @@
 
 import os
 import toml
+import v.ast
 import v.parser
+import v.pref
 import aixtlib.gen
 // import aixtlib.builder
 // import v.builder // CHECK
+
+path := './tst.v'
+mut vpref := &pref.Preferences{}
+vpref.is_script = true	// enable script mode
+table := ast.new_table()	
+// ---------- Parsing ----------
+mut tree := parser.parse_file(path, table, .skip_comments, vpref)
+mut checker_ := checker.new_checker(table, vpref)
+checker_.check(tree)
 
 fn main() {
 	aixt_path := os.dir(os.args[0])	// aixt base path

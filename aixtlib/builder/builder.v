@@ -4,8 +4,7 @@
 // 
 // Copyright (c) 2023 Fernando Martínez Santa
 
-module builder
-
+module aixt_builder
 
 import os
 import toml
@@ -13,8 +12,9 @@ import v.ast
 import v.checker
 import v.pref
 import v.parser
-import strings
 // import aixtlib.gen.cemb_gen
+
+
 
 pub fn build(path string) {
 	println('Building........')

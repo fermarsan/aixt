@@ -4,14 +4,12 @@ import v.pref
 import v.parser
 import v.checker
 import v.ast.walker
-import v.transformer
+// import v.transformer
 
 
 struct AixtGen {
 mut:
 	output		string
-	curr_id		int
-	id_count	int
 }
 
 fn main() {
@@ -26,13 +24,11 @@ fn main() {
 	mut tree := parser.parse_file(path, table, .skip_comments, vpref)
 	mut checker_ := checker.new_checker(table, vpref)
 	checker_.check(tree)
-	mut t := transformer.new_transformer(vpref)
-	t.transform(mut tree)
+	// mut t := transformer.new_transformer(vpref)
+	// t.transform(mut tree)
 
 	mut aixt_gen := AixtGen{
 		output:		''
-		curr_id:	1
-		id_count: 	1
 	}
 
 	walker.inspect(tree, unsafe { nil }, unsafe{ aixt_gen.gen } )
