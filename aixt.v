@@ -9,8 +9,9 @@ import toml
 import v.ast
 import v.parser
 import v.pref
-import aixtlib.gen
-// import aixtlib.builder
+import lib.aixt_gen
+import lib.aixt_pref
+// import lib.builder
 // import v.builder // CHECK
 
 path := './tst.v'
