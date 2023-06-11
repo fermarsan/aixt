@@ -3,7 +3,7 @@
 Aixt is a programming framework for microcontrollers which uses a modern language syntax and is focused on low-resource devices. This project is composed by 3 main components:
 
 - The **Aixt** programing language based on the [_V language_](https://vlang.io/) syntax.
-- The **Aixt to C Transpiler**, which translate de **Aixt** source code to _C_, for the expecific native _C_ compiler of each microcontroller.
+- The **Aixt to C Transpiler**, which translate de **Aixt** source code to _C_, for a expecific _C_ compiler of each microcontroller.
 - The **Aixt API**, which makes the programming easy by standardizing the setup and I/O functions.  
 
 ```mermaid
@@ -54,11 +54,8 @@ stateDiagram-v2
     
     Aixt    --> Aixt2C 
     Aixt2C  --> Tr_Code
-
     C       --> C_Compiler
-
     C_Compiler  --> machine
-
     Microcontroller --> API_C
 ```
 
