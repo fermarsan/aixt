@@ -2,7 +2,7 @@
 // Governed by an MIT license (MIT)
 // Copyright (c) 2023 Fernando Martínez Santa
 
-module cgen
+module aixt_cgen
 
 import v.ast
 import v.token

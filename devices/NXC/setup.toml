@@ -7,14 +7,10 @@
 device =    "Atmel AT91SAM7S256"
 board =     "LEGO Mindstorms NXT intelligent brick"
 
-aixt_linux =     "../../../cmd/aixtt.py"
-aixt_windows =   "..\\..\\..\\cmd\\aixtt.py"
+backend =   "nxc"
+
 cc_linux =       "./nbc-linux"
 cc_windows =     ".\\nbc-windows.exe"
-python_linux =   "python3"
-python_windows = "python"
-api_linux =      "./api/"
-api_windows =    ".\\api\\"
 
 i8 =    "char"
 i16 =   "int"
@@ -53,5 +49,3 @@ config_operator = ""
 configuration = []
 
 initialization =    []
-
-nxc =   "true"

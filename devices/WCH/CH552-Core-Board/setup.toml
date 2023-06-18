@@ -1,16 +1,14 @@
 # This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-#
-# The MIT License (MIT)
-# 
+# It is geverned by a MIT License (MIT)
 # Copyright (c) 2023 Fernando Martínez Santa 
 
-device =  "x64"
-board =   "PC"
+device =  "CH552"
+board =   "CH552 Core Board"
 
-backend = "native"
+backend = "arduino"
 
-cc_linux =      "gcc"
-cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
+cc_linux =      "ardu"
+cc_windows =    "c:\\v\\thirdparty\\ardu.exe"
 # cc_flags = ["-0" ]
 
 i8 =    "signed char"

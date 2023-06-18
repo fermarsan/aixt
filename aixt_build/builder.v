@@ -2,7 +2,7 @@
 // Governed by an MIT license (MIT)
 // Copyright (c) 2023 Fernando Martínez Santa
 
-module builder
+module aixt_build
 
 import os
 import toml
