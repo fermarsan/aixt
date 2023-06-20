@@ -1,5 +1,5 @@
 // This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// Governed by an MIT license (MIT)
+// It is governed by an MIT license (MIT)
 // Copyright (c) 2023 Fernando Martínez Santa
 
 module aixt_build
@@ -12,10 +12,10 @@ import v.pref
 import v.parser
 // import aixtlib.gen.cemb_gen
 
-
-
-pub fn build(path string) {
-	println('Building........')
+struct Builder {
+mut:
+	out			string
+	file_name	string
 }
 
 fn cemb_build(path string) {
