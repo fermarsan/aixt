@@ -1,7 +1,6 @@
-// This file is part of the Aixt project https://gitlab.com/fermarsan/aixt-project.git,
+// This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // it is governed by an MIT license (MIT)
 // Copyright (c) 2023 Fernando Martínez Santa
-
 module aixt_build
 
 import os
@@ -10,7 +9,7 @@ import v.ast
 import v.checker
 import v.pref
 import v.parser
-import aixtlib.gen.cemb_gen
+import aix_cgen
 
 struct Builder {
 	pref 		&pref.Preferences = unsafe { nil }
