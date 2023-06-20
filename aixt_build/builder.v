@@ -1,5 +1,5 @@
-// This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// It is governed by an MIT license (MIT)
+// This file is part of the Aixt project https://gitlab.com/fermarsan/aixt-project.git,
+// it is governed by an MIT license (MIT)
 // Copyright (c) 2023 Fernando Martínez Santa
 
 module aixt_build
@@ -10,19 +10,16 @@ import v.ast
 import v.checker
 import v.pref
 import v.parser
-// import aixtlib.gen.cemb_gen
+import aixtlib.gen.cemb_gen
 
 struct Builder {
-	pref 		&pref.Preferences
-	table		ast.Table
+	pref 		&pref.Preferences = unsafe { nil }
+	table		ast.Table = unsafe { nil }
 mut:
 	out			string
 	file_name	string
 }
 
-fn init() {
-		
-}
 fn cemb_build(path string) {
 	// println(os.args)
 	// println(os.args.len)
