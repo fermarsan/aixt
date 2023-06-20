@@ -11,7 +11,7 @@ import v.parser
 import v.checker
 import v.ast.walker
 
-struct AixtGen {
+struct Gen {
 	pref        &pref.Preferences = unsafe { nil }
 	table       &ast.Table = unsafe { nil }
 mut:
