@@ -13,11 +13,16 @@ import v.parser
 // import aixtlib.gen.cemb_gen
 
 struct Builder {
+	pref 		&pref.Preferences
+	table		ast.Table
 mut:
 	out			string
 	file_name	string
 }
 
+fn init() {
+		
+}
 fn cemb_build(path string) {
 	// println(os.args)
 	// println(os.args.len)
