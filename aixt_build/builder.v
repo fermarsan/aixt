@@ -3,25 +3,22 @@
 // Copyright (c) 2023 Fernando Martínez Santa
 module aixt_build
 
-import os
 import toml
 import v.ast
-import v.checker
 import v.pref
-import v.parser
-import aix_cgen
+import aixt_cgen
 
-pub fn build_file(path string, setup &toml.Doc{}) {
-	mut c_gen := aixt_cgen.Gen
-	{
+pub fn build_file(path string, setup_file toml.Doc) {
+	mut c_gen := aixt_cgen.Gen{
 		file:	&ast.File{}
-		pref:	&pref.Preferences{}
 		table:	ast.new_table()
-		// setup:	&toml.Doc{}
 		out:	''
+		pref:	&pref.Preferences{}
+		setup:	toml.Doc{}
 	}
 	
 	c_gen.pref.is_script = true
+	c_gen.setup = setup_file
 
 	println(c_gen.gen(path))
 	// // mut trans_code := c_embedded.gen(tree)
@@ -50,11 +47,11 @@ pub fn build_file(path string, setup &toml.Doc{}) {
 	// }
 }
 
-pub fn build_api(path string) {
-	file_list := os.walk_ext(path, '.aixt') // transpile secondary files
-	for file in file_list {
-		// if file != input_name {
-		println('Building API........') // os.execute('v run ${aixt_builder} ${device} ${file}').output)
-		// }
-	}
-}
+// pub fn build_api(path string) {
+// 	file_list := os.walk_ext(path, '.aixt') // transpile secondary files
+// 	for file in file_list {
+// 		// if file != input_name {
+// 		println('Building API........') // os.execute('v run ${aixt_builder} ${device} ${file}').output)
+// 		// }
+// 	}
+// }

@@ -18,11 +18,12 @@ mut:
 	out   string
 pub mut:
 	pref  &pref.Preferences = unsafe { nil }
-	// setup &toml.Doc = unsafe { nil }
+	setup toml.Doc //= unsafe { nil }
 }
 
 pub fn (mut gen Gen) gen(source_path string) string {
 	// gen.pref.is_script = true
+	println(gen.setup.value('backend').string())
 	gen.file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(gen.file)

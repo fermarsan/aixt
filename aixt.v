@@ -3,12 +3,8 @@
 // Copyright (c) 2023 Fernando Martínez Santa
 import os
 import toml
-import v.ast
-import v.parser
-import v.pref
-import aixt_cgen
 import aixt_pref
-// import aixt_build
+import aixt_build
 // import v.builder // CHECK
 
 fn main() {
@@ -19,18 +15,18 @@ fn main() {
 		println(help_message())
 	} else {
 		device, input_name := os.args[2], os.args[3] // the other parameters
-		base_name := input_name.replace('.aixt', '') // input file base name
+		// base_name := input_name.replace('.aixt', '') // input file base name
 
-		dev_setup_file := '${aixt_path}/devices/${aixt_pref.device_path(device)}setup.toml'
-		setup := toml.parse_file(dev_setup_file) or { return } // load the device's setup file
+		dev_setup_path := '${aixt_path}/devices/${aixt_pref.device_path(device)}setup.toml'
+		setup := toml.parse_file(dev_setup_path) or { return } // load the device's setup file
+		println(setup.value('backend').string())
+		// backend := aixt_pref.backend_from_string(setup.value('backend').string()) or { return }	// backend
 
-		backend := aixt_pref.backend_from_string(setup.value('backend').string()) or { return }	// backend
-
-		cc := $if windows { // C compiler depending on the OS
-			setup.value('cc_windows').string()
-		} $else {
-			setup.value('cc_linux').string()
-		}
+		// cc := $if windows { // C compiler depending on the OS
+		// 	setup.value('cc_windows').string()
+		// } $else {
+		// 	setup.value('cc_linux').string()
+		// }
 
 		// mut vpref := &pref.Preferences{}
 		// vpref.is_script = true // enable script mode
@@ -42,7 +38,7 @@ fn main() {
 
 		match command {
 			'transpile', '-t' {
-				// builder.build_api(aixt_path)
+				aixt_build.build_file(input_name, setup)
 				transpiled := 'XXXXXXXXXXXXXX' // aixt_gen.cgen(parsed, table, vpref)	// transpile the main file
 				println('\n\n${transpiled}\n\n')
 			}
