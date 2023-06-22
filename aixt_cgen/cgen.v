@@ -9,14 +9,16 @@ import v.pref
 import v.parser
 import v.checker
 import v.ast.walker
+import toml
 
 pub struct Gen {
 mut:
-	file &ast.File = unsafe { nil }
+	file  &ast.File  = unsafe { nil }
+	table &ast.Table = unsafe { nil }
+	out   string
 pub mut:
 	pref  &pref.Preferences = unsafe { nil }
-	table &ast.Table        = unsafe { nil }
-	out   string
+	// setup &toml.Doc = unsafe { nil }
 }
 
 pub fn (mut gen Gen) gen(source_path string) string {
