@@ -3,6 +3,7 @@
 // Copyright (c) 2023 Fernando Martínez Santa
 module aixt_build
 
+import os
 import toml
 import v.ast
 import v.pref
@@ -20,7 +21,13 @@ pub fn build_file(path string, setup_file toml.Doc) {
 	c_gen.pref.is_script = true
 	c_gen.setup = setup_file
 
-	println(c_gen.gen(path))
+	transpiled := c_gen.gen(path)
+
+	// saves the output file
+	output_ext := if c_gen.setup.value('backend').string() == 'nxc' { '.nxc' } else { '.c' }
+	output_path := path.replace('.v', output_ext)
+	os.write_file(output_path, transpiled) or {}
+
 	// // mut trans_code := c_embedded.gen(tree)
 	// mut trans_code := ''
 	// if os.args.len > 2 {

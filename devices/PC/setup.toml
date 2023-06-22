@@ -7,7 +7,7 @@
 device =  "x64"
 board =   "PC"
 
-backend = "native"
+backend = "pc"
 
 cc_linux =      "gcc"
 cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
