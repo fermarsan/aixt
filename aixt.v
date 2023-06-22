@@ -5,7 +5,6 @@ import os
 import toml
 import aixt_pref
 import aixt_build
-// import v.builder // CHECK
 
 fn main() {
 	aixt_path := os.dir(os.args[0]) // aixt base path
@@ -19,7 +18,6 @@ fn main() {
 
 		dev_setup_path := '${aixt_path}/devices/${aixt_pref.device_path(device)}setup.toml'
 		setup := toml.parse_file(dev_setup_path) or { return } // load the device's setup file
-		println(setup.value('backend').string())
 		// backend := aixt_pref.backend_from_string(setup.value('backend').string()) or { return }	// backend
 
 		// cc := $if windows { // C compiler depending on the OS
@@ -39,8 +37,7 @@ fn main() {
 		match command {
 			'transpile', '-t' {
 				aixt_build.build_file(input_name, setup)
-				transpiled := 'XXXXXXXXXXXXXX' // aixt_gen.cgen(parsed, table, vpref)	// transpile the main file
-				println('\n\n${transpiled}\n\n')
+				println('\n${input_name} was successfully transpiled to C.\n')
 			}
 			// 'compile', '-c' {
 			// 	// mut file_str_list := walk_ext(api_path, '.c').join(' ')
@@ -132,5 +129,4 @@ aixt supports the following commands:
                                executable.
   help, --help, -h             Compile and run a V program without deleting the
                                executable.'
-							   
 }

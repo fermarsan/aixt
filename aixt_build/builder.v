@@ -11,17 +11,17 @@ import aixt_cgen
 
 pub fn build_file(path string, setup_file toml.Doc) {
 	mut c_gen := aixt_cgen.Gen{
-		file:	&ast.File{}
-		table:	ast.new_table()
-		out:	''
-		pref:	&pref.Preferences{}
-		setup:	toml.Doc{}
+		file: &ast.File{}
+		table: ast.new_table()
+		out: ''
+		pref: &pref.Preferences{}
+		setup: toml.Doc{}
 	}
-	
+
 	c_gen.pref.is_script = true
 	c_gen.setup = setup_file
 
-	transpiled := c_gen.gen(path)	// transpile Aixt (V) to C
+	transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
 	// saves the output file
 	output_ext := if c_gen.setup.value('backend').string() == 'nxc' { '.nxc' } else { '.c' }
@@ -44,7 +44,6 @@ pub fn build_file(path string, setup_file toml.Doc) {
 	// }
 	// println(trans_code)
 	// println('_'.repeat(60) + '\n')
-
 }
 
 // pub fn build_api(path string) {
