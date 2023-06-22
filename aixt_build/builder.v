@@ -21,7 +21,7 @@ pub fn build_file(path string, setup_file toml.Doc) {
 	c_gen.pref.is_script = true
 	c_gen.setup = setup_file
 
-	transpiled := c_gen.gen(path)
+	transpiled := c_gen.gen(path)	// transpile Aixt (V) to C
 
 	// saves the output file
 	output_ext := if c_gen.setup.value('backend').string() == 'nxc' { '.nxc' } else { '.c' }
@@ -45,13 +45,6 @@ pub fn build_file(path string, setup_file toml.Doc) {
 	// println(trans_code)
 	// println('_'.repeat(60) + '\n')
 
-	// saves the output file
-	// 	output_ext := if os.args.len > 2 && os.args[2] == '-nxc' { '.nxc' } else { '.c' }
-	// 	output_path := path.replace('.v', output_ext)
-	// 	// os.write_file(output_path, trans_code)!
-	// } else {
-	// 	println('no input file path.\n')
-	// }
 }
 
 // pub fn build_api(path string) {
