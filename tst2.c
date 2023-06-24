@@ -1,6 +1,6 @@
 void main(void) {
-&int literal a = 3;
-&float literal b = 4.6;
+&int literal a = 5;
+&float literal b = 2e-4;
 if(a > b){
 b /= 2;
 }

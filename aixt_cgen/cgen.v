@@ -1,5 +1,5 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: aixt.v
+// File Name: cgen.v
 // Author: Fernando Martínez Santa
 // Date: 2023
 // License: MIT
@@ -73,7 +73,8 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					mut assign := ''
 					for i in 0 .. node.left.len {
 						if node.op == token.Kind.decl_assign { // in case of declaration
-							var_type := ast.new_table().type_symbols[node.right_types[i].idx()]
+							var_type := ast.new_table().type_symbols[node.right_types[i]]
+							println(var_type.str())
 							assign += '${var_type} ${node.left[i]} = ${node.right[i]};\n'
 						} else { // for the rest of assignments
 							assign += '${node.left[i]} ${node.op} ${node.right[i]};\n'

@@ -13,10 +13,10 @@ cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
 
 i8 =    "signed char"
 i16 =   "short"
-i32 =   "long"
+int =   "long"
 i64 =   "long long"
 isize = "long long"
-int =   "long"
+"int literal" =   "long"
 
 u8 =    "unsigned char"
 u16 =   "unsigned short"
@@ -26,9 +26,7 @@ usize = "unsigned long long"
 
 f32 =   "float"
 f64 =   "double"
-
-default_int =   "int"
-default_float = "float"
+"float literal" =   "float"
 
 mutex = "NOT SUPPORTED"
 main_ret_type = "int"
