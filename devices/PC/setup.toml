@@ -9,7 +9,7 @@ backend = "pc"
 
 cc_linux =      "gcc"
 cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
-# cc_flags = ["-0" ]
+cc_flags =      "-o" 
 
 i8 =    "signed char"
 i16 =   "short"

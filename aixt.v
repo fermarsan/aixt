@@ -21,17 +21,12 @@ fn main() {
 		println(help_message())
 	} else {
 		device, input_name := os.args[2], os.args[3] // the other parameters
-		// base_name := input_name.replace('.aixt', '') // input file base name
+		base_name := input_name.replace('.aixt', '') // input file base name
+		base_name = base_name.replace('.v', '')
 
 		dev_setup_path := '${aixt_path}/devices/${aixt_pref.device_path(device)}setup.toml'
 		setup := toml.parse_file(dev_setup_path) or { return } // load the device's setup file
 		// backend := aixt_pref.backend_from_string(setup.value('backend').string()) or { return }	// backend
-
-		// cc := $if windows { // C compiler depending on the OS
-		// 	setup.value('cc_windows').string()
-		// } $else {
-		// 	setup.value('cc_linux').string()
-		// }
 
 		// mut vpref := &pref.Preferences{}
 		// vpref.is_script = true // enable script mode
@@ -46,14 +41,15 @@ fn main() {
 				aixt_build.transpile_file(input_name, setup)
 				println('\n${input_name} was successfully transpiled to C.\n')
 			}
-			// 'compile', '-c' {
-			// 	// mut file_str_list := walk_ext(api_path, '.c').join(' ')
-			// 	// println('file_str_list: ${file_str_list}')
-			// 	// file_str_list += ' ' + walk_ext(dir(input_name), '.c').join(' ')
-			// 	// println('file_str_list: ${file_str_list}')
-			// 	// println(execute('${cc} ${file_str_list} -o ${base_name}').output)
-			// 	println(execute('${cc} ${base_name}.c -o ${base_name}').output)
-			// }
+			'compile', '-c' {
+				aixt_build.compile_file(base_name, setup)
+				println('\n${base_name}.c [.nxc] was successfully compiled.\n')
+				// mut file_str_list := walk_ext(api_path, '.c').join(' ')
+				// println('file_str_list: ${file_str_list}')
+				// file_str_list += ' ' + walk_ext(dir(input_name), '.c').join(' ')
+				// println('file_str_list: ${file_str_list}')
+				// println(execute('${cc} ${file_str_list} -o ${base_name}').output)
+			}
 			// 'run', '-r' {
 			// 	result := $if windows {
 			// 		execute('${base_name}.exe')
