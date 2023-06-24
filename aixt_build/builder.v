@@ -1,6 +1,11 @@
-// This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// it is governed by an MIT license (MIT)
-// Copyright (c) 2023 Fernando Martínez Santa
+// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// File Name: builder.v
+// Author: Fernando Martínez Santa
+// Date: 2023
+// License: MIT
+//
+// Description: This file contains the functions to make a source code project in Aixt.
+
 module aixt_build
 
 import os

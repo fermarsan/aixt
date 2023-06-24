@@ -1,6 +1,13 @@
-// This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// It is governed by an MIT license (MIT)
-// Copyright (c) 2023 Fernando Martínez Santa
+// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// File Name: aixt.v
+// Author: Fernando Martínez Santa
+// Date: 2023
+// License: MIT
+//
+// Description: This is the main file of the Aixt project. It works as a make file too.
+//
+// Usage:
+// 1. Run the program using `v run aixt.v command device input_file_name`
 import os
 import toml
 import aixt_pref
