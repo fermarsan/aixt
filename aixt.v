@@ -43,7 +43,7 @@ fn main() {
 
 		match command {
 			'transpile', '-t' {
-				aixt_build.build_file(input_name, setup)
+				aixt_build.transpile_file(input_name, setup)
 				println('\n${input_name} was successfully transpiled to C.\n')
 			}
 			// 'compile', '-c' {

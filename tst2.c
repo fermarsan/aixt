@@ -1,6 +1,6 @@
 void main(void) {
-signed char a = i8(3);
-float b = 2e-4;
+long a = 0b00001100;
+float b = 4.6;
 if(a > b){
 b /= 2;
 }

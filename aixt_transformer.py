@@ -365,14 +365,14 @@ class aixtTransformer(Transformer):
     def dots(self, dt):
         return dt
     
-    @v_args(inline=False)
-    def decimal(self, de):
-        return ''.join(de)
+    # @v_args(inline=False)
+    # def decimal(self, de):
+    #     return ''.join(de)
 
-    def lbrace(self, lb):
-        self.identLevel += 1
-        return lb
+    # def lbrace(self, lb):
+    #     self.identLevel += 1
+    #     return lb
     
-    def rbrace(self, rb):
-        self.identLevel -= 1
-        return rb
+    # def rbrace(self, rb):
+    #     self.identLevel -= 1
+    #     return rb
