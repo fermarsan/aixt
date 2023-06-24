@@ -1,6 +1,6 @@
 void main(void) {
-&int literal a = 5;
-&float literal b = 2e-4;
+signed char a = i8(3);
+float b = 2e-4;
 if(a > b){
 b /= 2;
 }
