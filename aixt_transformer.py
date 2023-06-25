@@ -213,8 +213,8 @@ class aixtTransformer(Transformer):
             return Token(type="['array','{}']".format(self.setup[ai[3]]), 
                          value=(v*int(ai[1]))[:-1])
         
-    def inc_dec_stmt(self, ex,op):
-        return '{}{}'.format(ex, op)
+    # def inc_dec_stmt(self, ex,op):
+    #     return '{}{}'.format(ex, op)
 
     def return_stmt(self, ret, ex): 
         return 'return ' + ex
