@@ -105,21 +105,21 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					mut assign := ''
 					for i in 0 .. node.left.len {
 						// println(node.right[i])
-						right := if node.right[i].type_name() == 'v.ast.Ident' {
-							(node.right[i] as ast.Ident).name
-						} else {
-							'__${node.right[i].type_name()}__'
-						}
+						// right := if node.right[i].type_name() == 'v.ast.Ident' {
+						// 	(node.right[i] as ast.Ident).name
+						// } else {
+						// 	'__${node.right[i].type_name()}__'
+						// }
 						if node.op == token.Kind.decl_assign { // in case of declaration
-							println(ast.new_table().type_symbols[node.right_types[i]].str())
+							// println(ast.new_table().type_symbols[node.right_types[i]].str())
 							var_type := gen.setup.value(ast.new_table().type_symbols[node.right_types[i]].str())
 							assign += if var_type.string() == 'char []' {
-								'char ${node.left[i]}[] = ${right};\n'
+								'char __${node.left[i].type_name()}__[] = __${node.right[i].type_name()}__;\n'//${right};\n'
 							} else {
-								'${var_type.string()} ${node.left[i]} = ${right};\n'
+								'${var_type.string()} __${node.left[i].type_name()}__ = __${node.right[i].type_name()}__;\n'//${right};\n'
 							}
 						} else { // for the rest of assignments
-							assign += '${node.left[i]} ${node.op} ${right};\n'
+							assign += '__${node.left[i].type_name()}__ ${node.op} __${node.right[i].type_name()}__;\n'//${right};\n'
 						}
 					}
 					gen.out = gen.out.replace_once('__stmt__\n', assign)
