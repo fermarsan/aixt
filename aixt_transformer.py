@@ -295,12 +295,12 @@ class aixtTransformer(Transformer):
         # print('call_expr: ' + s[:-2] + ")")
         return Token(type=el[0].type, value=s[:-2] + ")")
 
-    def cast_expr(self, tn,lp,ex,rp):
-        print('cast_expr:', ex.type)
-        new_type = eval(ex.type)
-        new_type[1] = self.setup[tn]
-        print('cast_expr:', str(new_type))
-        return Token(type=str(new_type), value=ex)
+    # def cast_expr(self, tn,lp,ex,rp):
+    #     print('cast_expr:', ex.type)
+    #     new_type = eval(ex.type)
+    #     new_type[1] = self.setup[tn]
+    #     print('cast_expr:', str(new_type))
+    #     return Token(type=str(new_type), value=ex)
     
     def par_expr(self, lp,ex,rp):
         return Token(type=ex.type, value=lp+ex+rp)
