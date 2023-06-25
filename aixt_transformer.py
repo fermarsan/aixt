@@ -333,37 +333,37 @@ class aixtTransformer(Transformer):
     def bool_literal(self, bl):
         return Token(type="['{}','{}']".format(bl.type, 'bool'), value=bl)
 
-    @v_args(inline=False)
-    def float_literal(self, fl):
-        s = ''.join(fl)
-        s = str(eval(s.replace('_', ''))) # removes "_". "eval" adds missing zeros at both sides of "."
-        return Token(type="['{}','{}']".format('float_literal',
-                                               self.setup['default_float']),
-                     value=s)     
+    # @v_args(inline=False)
+    # def float_literal(self, fl):
+    #     s = ''.join(fl)
+    #     s = str(eval(s.replace('_', ''))) # removes "_". "eval" adds missing zeros at both sides of "."
+    #     return Token(type="['{}','{}']".format('float_literal',
+    #                                            self.setup['default_float']),
+    #                  value=s)     
         
-    def integer_literal(self, il):
-        s = il.replace('_', '') # removes"_"
-        return Token(type="['{}','{}']".format(il.type, 
-                                               self.setup['default_int']),
-                     value=s)
+    # def integer_literal(self, il):
+    #     s = il.replace('_', '') # removes"_"
+    #     return Token(type="['{}','{}']".format(il.type, 
+    #                                            self.setup['default_int']),
+    #                  value=s)
     
-    def assign_op(self, ao):
-        return ao
+    # def assign_op(self, ao):
+    #     return ao
     
-    def binary_op(self, bo):
-        return bo
+    # def binary_op(self, bo):
+    #     return bo
     
-    def rel_op(self, ro):
-        return ro
+    # def rel_op(self, ro):
+    #     return ro
     
-    def mul_op(self, mo):
-        return mo
+    # def mul_op(self, mo):
+    #     return mo
     
-    def add_op(self, ao):
-        return ao
+    # def add_op(self, ao):
+    #     return ao
     
-    def dots(self, dt):
-        return dt
+    # def dots(self, dt):
+    #     return dt
     
     # @v_args(inline=False)
     # def decimal(self, de):

@@ -68,8 +68,8 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 		println(os.execute('${cc} ${path}.c ${flags} ${path}').output)
 	}
 	
-	output_path := path.replace('.v', output_ext)
-	os.write_file(output_path, transpiled) or {}
+	// output_path := path.replace('.v', output_ext)
+	// os.write_file(output_path, transpiled) or {}
 
 	// // mut trans_code := c_embedded.gen(tree)
 	// mut trans_code := ''

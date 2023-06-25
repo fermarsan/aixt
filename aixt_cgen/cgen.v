@@ -72,11 +72,15 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				ast.AssignStmt {
 					mut assign := ''
 					for i in 0 .. node.left.len {
+						right := match node.right[i] {
+							ast.IntegerLiteral { node.right[i].str().int().str() } 
+							else { node.right[i].str() }
+						}
 						if node.op == token.Kind.decl_assign { // in case of declaration
 							var_type := gen.setup.value(ast.new_table().type_symbols[node.right_types[i]].str())
-							assign += '${var_type.string()} ${node.left[i]} = ${node.right[i]};\n'
+							assign += '${var_type.string()} ${node.left[i]} = ${right};\n'
 						} else { // for the rest of assignments
-							assign += '${node.left[i]} ${node.op} ${node.right[i]};\n'
+							assign += '${node.left[i]} ${node.op} ${right};\n'
 						}
 					}
 					gen.out = gen.out.replace_once('__stmt__\n', assign)

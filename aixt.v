@@ -21,7 +21,7 @@ fn main() {
 		println(help_message())
 	} else {
 		device, input_name := os.args[2], os.args[3] // the other parameters
-		base_name := input_name.replace('.aixt', '') // input file base name
+		mut base_name := input_name.replace('.aixt', '') // input file base name
 		base_name = base_name.replace('.v', '')
 
 		dev_setup_path := '${aixt_path}/devices/${aixt_pref.device_path(device)}setup.toml'
