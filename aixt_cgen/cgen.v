@@ -4,7 +4,7 @@
 // Date: 2023
 // License: MIT
 //
-// Description: This file contains the C code generation fucntions of the Aixt project. 
+// Description: This file contains the C code generation fucntions of the Aixt project.
 
 module aixt_cgen
 
@@ -45,6 +45,28 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					out += if node.has_else { 'else{\n__stmt__\n}\n' } else { '' }
 					gen.out = gen.out.replace_once('__stmt__\n', out)
 				}
+				ast.InfixExpr {
+					gen.out = gen.out.replace_once('__v.ast.InfixExpr__', 
+												   '__${node.left.type_name()}__ ${node.op} __${node.right.type_name()}__')
+				}
+				ast.Ident {
+					gen.out = gen.out.replace_once('__v.ast.Ident__', node.name)
+				}
+				ast.StringLiteral {
+					gen.out = gen.out.replace_once('__v.ast.StringLiteral__', '"${node.val}"')
+				}
+				ast.FloatLiteral {
+					gen.out = gen.out.replace_once('__v.ast.FloatLiteral__', node.val)
+				}
+				ast.IntegerLiteral {
+					out := if node.str().contains('0o') {	// if it is an octal literal
+						node.val.int().str() 				// turn it into decimal
+					} else {
+						node.val
+					}
+					gen.out = gen.out.replace_once('__v.ast.IntegerLiteral__', out)
+					
+				}
 				else {}
 			}
 		}
@@ -72,17 +94,20 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				ast.AssignStmt {
 					mut assign := ''
 					for i in 0 .. node.left.len {
-						// println(typeof(node.right[i]))
-						right := match node.right[i] {
-							ast.IntegerLiteral { node.right[i].str().int().str() } 
-							ast.StringLiteral { node.right[i].str().replace("'", '"') }
-							else { node.right[i].str() }
+						// println(node.right[i])
+						right := if node.right[i].type_name() == 'v.ast.Ident' {
+							(node.right[i] as ast.Ident).name
+						} else {
+							'__${node.right[i].type_name()}__'
 						}
 						if node.op == token.Kind.decl_assign { // in case of declaration
 							// println(ast.new_table().type_symbols[node.right_types[i]].str())
 							var_type := gen.setup.value(ast.new_table().type_symbols[node.right_types[i]].str())
-							assign += if var_type.string() == 'char []' { 'char ${node.left[i]}[] = ${right};\n' }
-									  else { '${var_type.string()} ${node.left[i]} = ${right};\n' }
+							assign += if var_type.string() == 'char []' {
+								'char ${node.left[i]}[] = ${right};\n'
+							} else {
+								'${var_type.string()} ${node.left[i]} = ${right};\n'
+							}
 						} else { // for the rest of assignments
 							assign += '${node.left[i]} ${node.op} ${right};\n'
 						}
@@ -101,3 +126,4 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 	// println(gen.out + '\n' + '_'.repeat(60))	
 	return true
 }
+
