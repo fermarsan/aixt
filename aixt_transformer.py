@@ -179,11 +179,11 @@ class aixtTransformer(Transformer):
             if eval(e2.type)[1] == 'mutex':
                 mutex = True
                 self.topDecl.insert(0, 'mutex {};'.format(e1))
-            elif eval(e2.type)[1] == 'char []':
-                s += 'string {}' if self.setup['nxc'] else 'const char {}[]'
-                s += ' = {}; '
-                s = s.format(e1, e2)  
-                # print('decl_assign_stmt:', e1,e2)     
+            # elif eval(e2.type)[1] == 'char []':
+            #     s += 'string {}' if self.setup['nxc'] else 'const char {}[]'
+            #     s += ' = {}; '
+            #     s = s.format(e1, e2)  
+            #     # print('decl_assign_stmt:', e1,e2)     
             elif eval(e2.type)[0] == 'array':
                 s += '{} {}[{}] = {{'.format(eval(e2.type)[1], e1, e2.count(',')+1)
                 s += '{}}}; '.format(e2)  
@@ -321,10 +321,10 @@ class aixtTransformer(Transformer):
                 s += 'else ' if ie[i] == 'else' else ie[i]
         return Token(type=ie[0].type, value=s)
 
-    def string_literal(self, sl):
-        s = sl.replace("'",'"') #changes the quotation marks
-        # print('string_literal:', s)
-        return Token(type="['{}','{}']".format(sl.type, 'char []'), value=s)
+    # def string_literal(self, sl):
+    #     s = sl.replace("'",'"') #changes the quotation marks
+    #     # print('string_literal:', s)
+    #     return Token(type="['{}','{}']".format(sl.type, 'char []'), value=s)
 
     def char_literal(self, cl):
         s = cl.replace('`',"'") #changes the quotation marks

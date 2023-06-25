@@ -72,13 +72,17 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				ast.AssignStmt {
 					mut assign := ''
 					for i in 0 .. node.left.len {
+						// println(typeof(node.right[i]))
 						right := match node.right[i] {
 							ast.IntegerLiteral { node.right[i].str().int().str() } 
+							ast.StringLiteral { node.right[i].str().replace("'", '"') }
 							else { node.right[i].str() }
 						}
 						if node.op == token.Kind.decl_assign { // in case of declaration
+							// println(ast.new_table().type_symbols[node.right_types[i]].str())
 							var_type := gen.setup.value(ast.new_table().type_symbols[node.right_types[i]].str())
-							assign += '${var_type.string()} ${node.left[i]} = ${right};\n'
+							assign += if var_type.string() == 'char []' { 'char ${node.left[i]}[] = ${right};\n' }
+									  else { '${var_type.string()} ${node.left[i]} = ${right};\n' }
 						} else { // for the rest of assignments
 							assign += '${node.left[i]} ${node.op} ${right};\n'
 						}

@@ -43,7 +43,8 @@ fn main() {
 			}
 			'compile', '-c' {
 				aixt_build.compile_file(base_name, setup)
-				println('\n${base_name}.c [.nxc] was successfully compiled.\n')
+				ext := if setup.value('backend').string() == 'nxc' { 'nxc' } else { 'c' }
+				println('\n${base_name}.${ext} was successfully compiled.\n')
 				// mut file_str_list := walk_ext(api_path, '.c').join(' ')
 				// println('file_str_list: ${file_str_list}')
 				// file_str_list += ' ' + walk_ext(dir(input_name), '.c').join(' ')
