@@ -36,9 +36,10 @@ pub fn (mut gen Gen) gen(source_path string) string {
 }
 
 fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
-	// println('\nHere..............\n')
+	// println(node.type_name())
 	match node {
 		ast.Expr {
+		println(node.type_name())
 			match node {
 				ast.IfExpr { // basic shape of an "if" expression
 					mut out := 'if(__cond__){\n__stmt__\n}\n'
@@ -48,6 +49,9 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				ast.InfixExpr {
 					gen.out = gen.out.replace_once('__v.ast.InfixExpr__', 
 												   '__${node.left.type_name()}__ ${node.op} __${node.right.type_name()}__')
+				}
+				ast.PostfixExpr {
+					gen.out = gen.out.replace_once('__v.ast.PostfixExpr__', '${node.expr}${node.op};')
 				}
 				ast.Ident {
 					gen.out = gen.out.replace_once('__v.ast.Ident__', node.name)
@@ -76,6 +80,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 			}
 		}
 		ast.Stmt {
+			print('${node.type_name()} - ')
 			match node {
 				ast.FnDecl {
 					if node.is_main {
@@ -118,6 +123,9 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 						}
 					}
 					gen.out = gen.out.replace_once('__stmt__\n', assign)
+				}
+				ast.ExprStmt {
+					gen.out = gen.out.replace_once('__stmt__\n', '__${node.expr.type_name()}__\n')
 				}
 				else {}
 			}

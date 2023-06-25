@@ -1,3 +1,4 @@
 void main(void) {
-char a = 'r';
+long a = 34;
+float b = 6.8;
 }
