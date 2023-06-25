@@ -55,6 +55,9 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				ast.StringLiteral {
 					gen.out = gen.out.replace_once('__v.ast.StringLiteral__', '"${node.val}"')
 				}
+				ast.CharLiteral {
+					gen.out = gen.out.replace_once('__v.ast.CharLiteral__', "'${node.val}'")
+				}
 				ast.FloatLiteral {
 					gen.out = gen.out.replace_once('__v.ast.FloatLiteral__', node.val)
 				}
@@ -103,7 +106,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 							'__${node.right[i].type_name()}__'
 						}
 						if node.op == token.Kind.decl_assign { // in case of declaration
-							// println(ast.new_table().type_symbols[node.right_types[i]].str())
+							println(ast.new_table().type_symbols[node.right_types[i]].str())
 							var_type := gen.setup.value(ast.new_table().type_symbols[node.right_types[i]].str())
 							assign += if var_type.string() == 'char []' {
 								'char ${node.left[i]}[] = ${right};\n'

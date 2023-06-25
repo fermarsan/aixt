@@ -312,26 +312,26 @@ class aixtTransformer(Transformer):
     def range_expr(self, ex1,dts,ex2):
         return (ex1, ex2)
 
-    @v_args(inline=False)
-    def if_expr(self, ie):
-        s = 'if({}) {}'.format(ie[1], ie[2]) # "if" + expr + block
-        n = len(ie)
-        if n > 3:
-            for i in range(3,n):
-                s += 'else ' if ie[i] == 'else' else ie[i]
-        return Token(type=ie[0].type, value=s)
+    # @v_args(inline=False)
+    # def if_expr(self, ie):
+    #     s = 'if({}) {}'.format(ie[1], ie[2]) # "if" + expr + block
+    #     n = len(ie)
+    #     if n > 3:
+    #         for i in range(3,n):
+    #             s += 'else ' if ie[i] == 'else' else ie[i]
+    #     return Token(type=ie[0].type, value=s)
 
     # def string_literal(self, sl):
     #     s = sl.replace("'",'"') #changes the quotation marks
     #     # print('string_literal:', s)
     #     return Token(type="['{}','{}']".format(sl.type, 'char []'), value=s)
 
-    def char_literal(self, cl):
-        s = cl.replace('`',"'") #changes the quotation marks
-        return Token(type="['{}','{}']".format(cl.type, 'char'), value=s)
+    # def char_literal(self, cl):
+    #     s = cl.replace('`',"'") #changes the quotation marks
+    #     return Token(type="['{}','{}']".format(cl.type, 'char'), value=s)
 
-    def bool_literal(self, bl):
-        return Token(type="['{}','{}']".format(bl.type, 'bool'), value=bl)
+    # def bool_literal(self, bl):
+    #     return Token(type="['{}','{}']".format(bl.type, 'bool'), value=bl)
 
     # @v_args(inline=False)
     # def float_literal(self, fl):

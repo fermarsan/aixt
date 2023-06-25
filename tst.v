@@ -7,5 +7,6 @@
 // a := 'Hello world!....'
 // b := 45
 // a := 23 + 56.8 - 0o45
-a := true
-b := false
+// a := true
+// b := false
+a := `r`
