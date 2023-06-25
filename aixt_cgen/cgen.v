@@ -65,7 +65,9 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 						node.val
 					}
 					gen.out = gen.out.replace_once('__v.ast.IntegerLiteral__', out)
-					
+				}
+				ast.BoolLiteral {
+					gen.out = gen.out.replace_once('__v.ast.BoolLiteral__', node.val.str())
 				}
 				else {}
 			}
