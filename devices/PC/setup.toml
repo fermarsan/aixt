@@ -39,7 +39,9 @@ main_params =   "none"
 
 api_modules =   []
   
-headers =   []
+headers =   [ 
+    "stdbool.h"
+]
 
 macros =    []
 

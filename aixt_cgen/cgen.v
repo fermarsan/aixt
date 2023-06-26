@@ -8,6 +8,7 @@
 
 module aixt_cgen
 
+import os
 import v.ast
 import v.token
 import v.pref
@@ -38,6 +39,57 @@ pub fn (mut gen Gen) gen(source_path string) string {
 fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 	println(node.type_name())
 	match node {
+		ast.File {
+			mut out_settings := os.create('../settings.h') or {	// creates the settings.h file
+        		println('Failed to create file')			// from setup.toml
+        		return false
+    		}
+			defer { out_settings.close() }
+
+            mut s := '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n#include "api/builtin.h"\n'
+			// println(gen.setup.value('headers').array())
+            for h in gen.setup.value('headers').array() {			// append the header files
+                s +=  if h.string() != '' { '#include ${h.string()}\n' } else { '' }
+			}
+            s += '\n'
+            for m in gen.setup.value('macros').array() { 			// append the macros
+                s += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
+			}
+            s += '\n'
+            for c in gen.setup.value('configuration').array() {		// append the configuration lines
+                s += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
+			}
+            s += '\n#endif  //_SETTINGS_H_'
+            out_settings.write_string(s) or {
+        		println('Failed to write file')
+        		return false
+    		}
+
+            gen.out = '// Aixt project ('
+            gen.out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
+            gen.out += 'generated code)\n// Device = ${gen.setup.value('device')}'
+			gen.out += '\n// Board = ${gen.setup.value('board')}\n\n' 
+            gen.out += if gen.setup.value('backend').string() != 'nxc' { '#include "../../settings.h"\n\n' } else {''}
+            // s += '// ' + self.moduleDef + '\n'  // module definition
+            // s += self.includes + '\n'           // user defined headers files
+            // for td in self.topDecl:
+            //     s += '{}\n'.format(td) #top level declarations      
+            // if not self.main:       #adds the main function structure if not exist
+            //     s += 'task' if gen.setup.value('nxc'] else ''
+            //     s += gen.setup.value('main_ret_type'] if gen.setup.value('main_ret_type'] != 'none' else ''
+            //     s += ' main('
+            //     s += gen.setup.value('main_params'] if gen.setup.value('main_params'] != 'none' else ''
+            //     s += ') {' 
+            //     for i in gen.setup.value('initialization']:
+            //         s += i + '\n' if i != '' else ''
+            //     s += '\n\t'
+            //     s += self.transpiled.replace('\n','\n\t')[:-1]
+            //     s += 'return 0;\n}' if gen.setup.value('main_ret_type'] == 'int' else '}' 
+            // else:
+            //     s += self.transpiled
+            // # s = s.replace('};','}')
+            // outText.write(s) 
+		}
 		ast.Expr {
 		println(node.type_name())
 			match node {

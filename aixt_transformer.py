@@ -29,45 +29,45 @@ class aixtTransformer(Transformer):
 
     def saveOutput(self, name):
 
-        if not self.setup['nxc']:
-            with open('../settings.h','w') as outSettings:   #settings file creation
-                s = '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n#include "api/builtin.h"\n'
-                for h in self.setup['headers']:             #append the header files
-                    s += '#include {}\n'.format(h) if h != '' else ''
-                s += '\n'
-                for m in self.setup['macros']:              #append the macros
-                    s += '#define {}\n'.format(m) if m != '' else ''
-                s += '\n'
-                for c in self.setup['configuration']:       #append the configuration lines
-                    s += self.setup['config_operator'] + ' ' + c + '\n'    
-                s += '\n#endif  //_SETTINGS_H_'
-                outSettings.write(s) 
+        # if not self.setup['nxc']:
+        #     with open('../settings.h','w') as outSettings:   #settings file creation
+        #         s = '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n#include "api/builtin.h"\n'
+        #         for h in self.setup['headers']:             #append the header files
+        #             s += '#include {}\n'.format(h) if h != '' else ''
+        #         s += '\n'
+        #         for m in self.setup['macros']:              #append the macros
+        #             s += '#define {}\n'.format(m) if m != '' else ''
+        #         s += '\n'
+        #         for c in self.setup['configuration']:       #append the configuration lines
+        #             s += self.setup['config_operator'] + ' ' + c + '\n'    
+        #         s += '\n#endif  //_SETTINGS_H_'
+        #         outSettings.write(s) 
 
-        with open(name,'w') as outText:
-            s = '// Aixt project ('
-            s += 'NXC ' if self.setup['nxc'] else 'C '
-            s += 'generated code)\n// Device = {}\n// Board = {}\n\n' 
-            s = s.format(self.setup['device'], self.setup['board'])
-            s += '#include "../../settings.h"\n\n' if not self.setup['nxc'] else ''
-            # s += '// ' + self.moduleDef + '\n'  #module definition
-            # s += self.includes + '\n'            #user defined headers files
-            for td in self.topDecl:
-                s += '{}\n'.format(td) #top level declarations      
-            if not self.main:       #adds the main function structure if not exist
-                s += 'task' if self.setup['nxc'] else ''
-                s += self.setup['main_ret_type'] if self.setup['main_ret_type'] != 'none' else ''
-                s += ' main('
-                s += self.setup['main_params'] if self.setup['main_params'] != 'none' else ''
-                s += ') {' 
-                for i in self.setup['initialization']:
-                    s += i + '\n' if i != '' else ''
-                s += '\n\t'
-                s += self.transpiled.replace('\n','\n\t')[:-1]
-                s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '}' 
-            else:
-                s += self.transpiled
-            # s = s.replace('};','}')
-            outText.write(s)  
+        # with open(name,'w') as outText:
+        #     s = '// Aixt project ('
+        #     s += 'NXC ' if self.setup['nxc'] else 'C '
+        #     s += 'generated code)\n// Device = {}\n// Board = {}\n\n' 
+        #     s = s.format(self.setup['device'], self.setup['board'])
+        #     s += '#include "../../settings.h"\n\n' if not self.setup['nxc'] else ''
+        #     # s += '// ' + self.moduleDef + '\n'  #module definition
+        #     # s += self.includes + '\n'            #user defined headers files
+        #     for td in self.topDecl:
+        #         s += '{}\n'.format(td) #top level declarations      
+        #     if not self.main:       #adds the main function structure if not exist
+        #         s += 'task' if self.setup['nxc'] else ''
+        #         s += self.setup['main_ret_type'] if self.setup['main_ret_type'] != 'none' else ''
+        #         s += ' main('
+        #         s += self.setup['main_params'] if self.setup['main_params'] != 'none' else ''
+        #         s += ') {' 
+        #         for i in self.setup['initialization']:
+        #             s += i + '\n' if i != '' else ''
+        #         s += '\n\t'
+        #         s += self.transpiled.replace('\n','\n\t')[:-1]
+        #         s += 'return 0;\n}' if self.setup['main_ret_type'] == 'int' else '}' 
+        #     else:
+        #         s += self.transpiled
+        #     # s = s.replace('};','}')
+        #     outText.write(s)  
 
     @v_args(inline=False)
     def source_file(self, sf):
