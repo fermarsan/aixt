@@ -67,8 +67,8 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 
             gen.out = '// Aixt project ('
             gen.out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
-            gen.out += 'generated code)\n// Device = ${gen.setup.value('device')}'
-			gen.out += '\n// Board = ${gen.setup.value('board')}\n\n' 
+            gen.out += 'generated code)\n// Device = ${gen.setup.value('device').string()}'
+			gen.out += '\n// Board = ${gen.setup.value('board').string()}\n\n' 
             gen.out += if gen.setup.value('backend').string() != 'nxc' { '#include "../../settings.h"\n\n' } else {''}
             // s += '// ' + self.moduleDef + '\n'  // module definition
             // s += self.includes + '\n'           // user defined headers files

@@ -1,6 +1,6 @@
 // Aixt project (C generated code)
-// Device = toml.Any('x64')
-// Board = toml.Any('PC')
+// Device = x64
+// Board = PC
 
 #include "../../settings.h"
 
