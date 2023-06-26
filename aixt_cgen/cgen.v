@@ -36,7 +36,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 }
 
 fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
-	// println(node.type_name())
+	println(node.type_name())
 	match node {
 		ast.Expr {
 		println(node.type_name())
@@ -105,6 +105,9 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 						// gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
 					}
 				}
+				// ast.ConstDecl {
+				// 	gen.out += 'const ${} ${};'
+				// }
 				ast.AssignStmt {
 					mut assign := ''
 					for i in 0 .. node.left.len {
@@ -136,6 +139,10 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				}
 				else {}
 			}
+		}
+		ast.ConstField {
+			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
+			gen.out += 'const ${var_type.string()} ${node.name.after('.')} = __${node.expr.type_name()}__;\n'
 		}
 		ast.IfBranch { // statements block of "if" and "else" expressions
 			gen.out = gen.out.replace_once('__cond__', '${node.cond}')
