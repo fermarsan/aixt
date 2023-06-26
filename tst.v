@@ -3,4 +3,7 @@ const (
 	b = 5
 	c = 6
 )
+
 const d = 'string'
+
+x := a

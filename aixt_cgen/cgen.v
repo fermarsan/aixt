@@ -98,16 +98,9 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 						gen.out += '${attrs} ${ret_type} main(${params}) {\n${'__stmt__\n'.repeat(node.stmts.len)}}'
 						gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
 					} else {
-						// attrs	 := ''
-						// ret_type := if node.return_type == ast.void_type_idx { 'void' } else { 'int' }
-						// params 	 := if node.params == [] { 'void' } else { 'int' }
-						// gen.out += '${attrs} ${ret_type} main(${params}) {\n${gen.temp_block_stmts(node.stmts.len)}}'
-						// gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
+
 					}
 				}
-				// ast.ConstDecl {
-				// 	gen.out += 'const ${} ${};'
-				// }
 				ast.AssignStmt {
 					mut assign := ''
 					for i in 0 .. node.left.len {
@@ -141,8 +134,22 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 			}
 		}
 		ast.ConstField {
-			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
-			gen.out += 'const ${var_type.string()} ${node.name.after('.')} = __${node.expr.type_name()}__;\n'
+			mut assign := ''
+			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())			
+			if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
+				assign += if var_type.string() == 'char []' {
+					'const char ${node.name.after('.')}[] = ${(node.expr as ast.CastExpr).expr};\n'
+				} else {
+					'const ${var_type.string()} ${node.name.after('.')} = ${(node.expr as ast.CastExpr).expr};\n'
+				}								
+			} else {
+				assign += if var_type.string() == 'char []' {
+					'const char ${node.name.after('.')}[] = __${node.expr.type_name()}__;;\n'
+				} else {
+					'const ${var_type.string()} ${node.name.after('.')} = __${node.expr.type_name()}__;\n'
+				}
+			}
+			gen.out += assign
 		}
 		ast.IfBranch { // statements block of "if" and "else" expressions
 			gen.out = gen.out.replace_once('__cond__', '${node.cond}')
