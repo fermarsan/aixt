@@ -164,20 +164,26 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 			match node {
 				ast.FnDecl {
 					if node.is_main {
-						attrs := ''
-						ret_type := if node.return_type == ast.void_type_idx {
-							'void'
-						} else {
-							'int'
-						}
-						params := if node.params == [] { 'void' } else { 'int' }
-						gen.out += if attrs != '' { '${attrs} ' } else { '' }
-						gen.out += '${ret_type} main(${params}) {\n${'__stmt__\n'.repeat(node.stmts.len)}}'
+						attrs := if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
+						ret_type := gen.setup.value('main_ret_type').string()
+						params := gen.setup.value('main_params').string()
+						gen.out += '${attrs}${ret_type} main(${params}) {\n${'__stmt__\n'.repeat(node.stmts.len)}'
+						gen.out += if gen.setup.value('main_ret_type').string() == 'int' { 'return 0;\n}' } else { '}' }
 						gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
 					} else {
-
+						for a in node.attrs {
+							gen.out += '${a.name} '
+						}
+						gen.out += gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()	// return type
+						gen.out += ' ${node.name.after('.')}(${'__param__, '.repeat(node.params.len)}'
+						// for p in node.params {
+						// 	gen.out += '${gen.setup.value(ast.new_table().type_symbols[p.typ].str())}, '
+						// }
+						gen.out = '${gen.out#[..-2]}) {\n${'__stmt__\n'.repeat(node.stmts.len)}}\n'
+						println(node.stmts[0].type_name())
+						gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
 					}
-					println(gen.out)
+					// println(gen.out)
 				}
 				ast.AssignStmt {
 					mut assign := ''
@@ -208,6 +214,10 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				ast.ExprStmt {
 					gen.out = gen.out.replace_once('__stmt__\n', '__${node.expr.type_name()}__\n')
 				}
+				ast.Return {
+					// Be Careful....... multiple values return
+					gen.out = gen.out.replace_once('__stmt__\n', 'return __${node.exprs[0].type_name()}__;\n')
+				}
 				else {}
 			}
 		}
@@ -232,6 +242,10 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 		ast.IfBranch { // statements block of "if" and "else" expressions
 			gen.out = gen.out.replace_once('__cond__', '${node.cond}')
 			gen.out = gen.out.replace_once('__stmt__\n', '${'__stmt__\n'.repeat(node.stmts.len)}')
+		}
+		ast.Param {
+			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())		
+			gen.out = gen.out.replace_once('__param__', '${var_type.string()} ${node.name}')
 		}
 		else {}
 	}
