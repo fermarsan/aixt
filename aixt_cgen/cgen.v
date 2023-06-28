@@ -119,6 +119,9 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					gen.out = gen.out.replace_once('__v.ast.InfixExpr__', 
 												   '__${node.left.type_name()}__ ${node.op} __${node.right.type_name()}__')
 				}
+				ast.PrefixExpr {
+					gen.out = gen.out.replace_once('__v.ast.PrefixExpr__', '${node.op}${node.right}')
+				}
 				ast.PostfixExpr {
 					gen.out = gen.out.replace_once('__v.ast.PostfixExpr__', '${node.expr}${node.op};')
 				}
