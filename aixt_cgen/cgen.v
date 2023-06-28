@@ -115,15 +115,19 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					out += if node.has_else { 'else{\n__stmt__\n}\n' } else { '' }
 					gen.out = gen.out.replace_once('__stmt__\n', out)
 				}
+				ast.ParExpr {
+					gen.out = gen.out.replace_once('__v.ast.ParExpr__', '(__${node.expr.type_name()}__)')
+					// println(node.expr)
+				}
 				ast.InfixExpr {
 					gen.out = gen.out.replace_once('__v.ast.InfixExpr__', 
 												   '__${node.left.type_name()}__ ${node.op} __${node.right.type_name()}__')
 				}
 				ast.PrefixExpr {
-					gen.out = gen.out.replace_once('__v.ast.PrefixExpr__', '${node.op}${node.right}')
+					gen.out = gen.out.replace_once('__v.ast.PrefixExpr__', '${node.op}__${node.right.type_name()}__')
 				}
 				ast.PostfixExpr {
-					gen.out = gen.out.replace_once('__v.ast.PostfixExpr__', '${node.expr}${node.op};')
+					gen.out = gen.out.replace_once('__v.ast.PostfixExpr__', '__${node.expr.type_name()}__${node.op};')
 				}
 				ast.CastExpr {
 					var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
@@ -233,4 +237,3 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 	// println(gen.out + '\n' + '_'.repeat(60))	
 	return true
 }
-
