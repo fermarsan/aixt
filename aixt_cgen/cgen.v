@@ -113,7 +113,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				ast.IfExpr { // basic shape of an "if" expression
 					mut out := 'if(__cond__){\n__stmt__\n}\n'
 					out += if node.has_else { 'else{\n__stmt__\n}\n' } else { '' }
-					gen.out = gen.out.replace_once('__stmt__\n', out)
+					gen.out = gen.out.replace_once('__v.ast.IfExpr__\n', out)
 				}
 				ast.ParExpr {
 					gen.out = gen.out.replace_once('__v.ast.ParExpr__', '(__${node.expr.type_name()}__)')
@@ -177,6 +177,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					} else {
 
 					}
+					println(gen.out)
 				}
 				ast.AssignStmt {
 					mut assign := ''
