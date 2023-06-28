@@ -1,7 +1,7 @@
 // type casting
 
 // signed integers
-a, b, c := i8(-50), i16(300), i32(-80000)
+a, b, c := i8(-50), i16(300), int(-80000)
 // d := i64(10)
 e, f := int(300), isize(-400)
 
@@ -12,4 +12,4 @@ k := usize(400)
 
 // floating point
 l := f32(1.5e-4)
-// m := f64(4e-12)
+m := f64(4e-12)

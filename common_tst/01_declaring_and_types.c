@@ -2,13 +2,14 @@
 // Device = x64
 // Board = PC
 
-#include "../../settings.h"
+#include <stdbool.h>
 
- void main(void) {
+
+void main(void) {
 long a = 245;
 float x = 3.5;
 float y = .46;
-float z = 10.0;
+float z = 10.;
 float k = 15e-4;
 float l = 1.2e-3;
 float m = 1e6;

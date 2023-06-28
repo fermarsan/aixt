@@ -8,7 +8,7 @@
 
 module aixt_cgen
 
-import os
+// import os 
 import v.ast
 import v.token
 import v.pref
@@ -38,38 +38,55 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 	println(node.type_name())
+	// println(gen.file.path)
 	match node {
 		ast.File {
-			mut out_settings := os.create('../settings.h') or {	// creates the settings.h file
-        		println('Failed to create file')			// from setup.toml
-        		return false
-    		}
-			defer { out_settings.close() }
+			// base_path := os.dir(gen.file.path)
+			// // println(base_path)
+			// mut out_settings := os.create('${base_path}/settings.h') or {	// creates the settings.h file
+        	// 	println('Failed to create file')			// from setup.toml
+        	// 	return false
+    		// }
+			// defer { out_settings.close() }
 
-            mut s := '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n#include "api/builtin.h"\n'
-			// println(gen.setup.value('headers').array())
-            for h in gen.setup.value('headers').array() {			// append the header files
-                s +=  if h.string() != '' { '#include ${h.string()}\n' } else { '' }
-			}
-            s += '\n'
-            for m in gen.setup.value('macros').array() { 			// append the macros
-                s += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
-			}
-            s += '\n'
-            for c in gen.setup.value('configuration').array() {		// append the configuration lines
-                s += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
-			}
-            s += '\n#endif  //_SETTINGS_H_'
-            out_settings.write_string(s) or {
-        		println('Failed to write file')
-        		return false
-    		}
+            // mut s := '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n#include "api/builtin.h"\n'
+			// // println(gen.setup.value('headers').array())
+            // for h in gen.setup.value('headers').array() {			// append the header files
+            //     s +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
+			// }
+            // s += '\n'
+            // for m in gen.setup.value('macros').array() { 			// append the macros
+            //     s += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
+			// }
+            // s += '\n'
+            // for c in gen.setup.value('configuration').array() {		// append the configuration lines
+            //     s += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
+			// }
+            // s += '\n#endif  //_SETTINGS_H_'
+            // out_settings.write_string(s) or {
+        	// 	println('Failed to write file')
+        	// 	return false
+    		// }
 
             gen.out = '// Aixt project ('
             gen.out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
             gen.out += 'generated code)\n// Device = ${gen.setup.value('device').string()}'
 			gen.out += '\n// Board = ${gen.setup.value('board').string()}\n\n' 
-            gen.out += if gen.setup.value('backend').string() != 'nxc' { '#include "../../settings.h"\n\n' } else {''}
+
+            for h in gen.setup.value('headers').array() {			// append the header files
+                gen.out +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
+			}
+            gen.out += '\n'
+            // gen.out += '#include "api/builtin.h"\n'
+            for m in gen.setup.value('macros').array() { 			// append the macros
+                gen.out += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
+			}
+            gen.out += '\n'
+            for c in gen.setup.value('configuration').array() {		// append the configuration lines
+                gen.out += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
+			}
+
+            // gen.out += if gen.setup.value('backend').string() != 'nxc' { '#include "../../settings.h"\n\n' } else {''}
             // s += '// ' + self.moduleDef + '\n'  // module definition
             // s += self.includes + '\n'           // user defined headers files
             // for td in self.topDecl:
@@ -147,7 +164,8 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 							'int'
 						}
 						params := if node.params == [] { 'void' } else { 'int' }
-						gen.out += '${attrs} ${ret_type} main(${params}) {\n${'__stmt__\n'.repeat(node.stmts.len)}}'
+						gen.out += if attrs != '' { '${attrs} ' } else { '' }
+						gen.out += '${ret_type} main(${params}) {\n${'__stmt__\n'.repeat(node.stmts.len)}}'
 						gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
 					} else {
 
