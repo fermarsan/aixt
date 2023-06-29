@@ -5,6 +5,9 @@
 device =    "Atmel AT91SAM7S256"
 board =     "LEGO Mindstorms NXT intelligent brick"
 
+void =  ""
+
+
 backend =   "nxc"
 
 cc_linux =       "./nbc-linux"
@@ -33,8 +36,8 @@ default_int =   "int"
 default_float = "float"
 
 mutex = "mutex"
-main_ret_type = "none"
-main_params =   "none"    
+main_ret_type = ""
+main_params =   ""    
 
 api_modules =   []
 

@@ -73,6 +73,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 						for a in node.attrs {
 							gen.out += '${a.name} '
 						}
+						println('__${ast.new_table().type_symbols[node.return_type].str()}__')
 						gen.out += gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()	// return type
 						gen.out += ' ${node.name.after('.')}(${'__v.ast.Param__, '.repeat(node.params.len)}'
 						gen.out = '${gen.out#[..-2]}) {\n${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}}\n'

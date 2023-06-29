@@ -31,6 +31,7 @@ pub fn transpile_file(path string, setup_file toml.Doc) {
 	// saves the output file
 	output_ext := if c_gen.setup.value('backend').string() == 'nxc' { '.nxc' } else { '.c' }
 	output_path := path.replace('.v', output_ext)
+	// println('\n${output_path}\n')
 	os.write_file(output_path, transpiled) or {}
 
 	// // mut trans_code := c_embedded.gen(tree)

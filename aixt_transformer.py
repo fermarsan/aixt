@@ -69,22 +69,22 @@ class aixtTransformer(Transformer):
         #     # s = s.replace('};','}')
         #     outText.write(s)  
 
-    @v_args(inline=False)
-    def source_file(self, sf):
-        print('source_file:', sf) # print('source_file:', self.topDecl)
-        s = ''
-        for ds in sf:
-            for st in ds:
-                s += '{};\n'.format(st) if st != '' else ''
-        self.transpiled = s 
+    # @v_args(inline=False)
+    # def source_file(self, sf):
+    #     print('source_file:', sf) # print('source_file:', self.topDecl)
+    #     s = ''
+    #     for ds in sf:
+    #         for st in ds:
+    #             s += '{};\n'.format(st) if st != '' else ''
+    #     self.transpiled = s 
         
-    @v_args(inline=False)
-    def top_decl_list(self, tdl):
-        return ''
+    # @v_args(inline=False)
+    # def top_decl_list(self, tdl):
+    #     return ''
 
-    def top_decl(self, td):
-        self.topDecl.append(td) 
-        return ''
+    # def top_decl(self, td):
+    #     self.topDecl.append(td) 
+    #     return ''
 
     @v_args(inline=False)
     def import_stmt(self, ist):

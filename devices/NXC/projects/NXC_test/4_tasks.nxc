@@ -1,0 +1,17 @@
+// Aixt project (NXC generated code)
+// Device = Atmel AT91SAM7S256
+// Board = LEGO Mindstorms NXT intelligent brick
+
+
+
+task  move_squar) {
+sleep(500)
+}
+task  check_sensor) {
+sleep(500)
+}
+task  main() {
+ move_mutex = mutex();
+precedes(move_square, check_sensors)
+set_sensor_touch(in_1)
+}
