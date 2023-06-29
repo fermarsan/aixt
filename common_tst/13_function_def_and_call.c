@@ -12,6 +12,6 @@ int main() {
 signed char a = 4;
 signed char b = 7;
 signed char c = 0;
-c = __v.ast.CallExpr__;
+c = average_8b(a, a + b);
 return 0;
 }

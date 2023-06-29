@@ -115,6 +115,15 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					out += if node.has_else { 'else{\n__stmt__\n}\n' } else { '' }
 					gen.out = gen.out.replace_once('__v.ast.IfExpr__\n', out)
 				}
+				ast.CallExpr {
+					mut call_expr := '${node.name.after('.')}('
+					call_expr += if node.args.len != 0 { 
+						'__v.ast.CallArg__, '.repeat(node.args.len)#[..-2] + ')' 
+					} else {
+						')'
+					}
+					gen.out = gen.out.replace_once('__v.ast.CallExpr__', call_expr)
+				}
 				ast.ParExpr {
 					gen.out = gen.out.replace_once('__v.ast.ParExpr__', '(__${node.expr.type_name()}__)')
 					// println(node.expr)
@@ -242,6 +251,11 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 		ast.IfBranch { // statements block of "if" and "else" expressions
 			gen.out = gen.out.replace_once('__cond__', '${node.cond}')
 			gen.out = gen.out.replace_once('__stmt__\n', '${'__stmt__\n'.repeat(node.stmts.len)}')
+		}
+		ast.CallArg {
+			// println('--${node}--')
+			// var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())		
+			gen.out = gen.out.replace_once('__v.ast.CallArg__', '__${node.expr.type_name()}__')
 		}
 		ast.Param {
 			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())		
