@@ -5,13 +5,13 @@
 
 
 task  move_square() {
-sleep(500)
+sleep(500);
 }
 task  check_sensors() {
-sleep(500)
+sleep(500);
 }
 task  main() {
  move_mutex = mutex();
-precedes(move_square, check_sensors)
-set_sensor_touch(in_1)
+precedes(move_square, check_sensors);
+set_sensor_touch(in_1);
 }

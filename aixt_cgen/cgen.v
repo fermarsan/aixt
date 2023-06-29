@@ -112,7 +112,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					gen.out = gen.out.replace_once('__v.ast.Stmt__\n', assign)
 				}
 				ast.ExprStmt {
-					gen.out = gen.out.replace_once('__v.ast.Stmt__\n', '__${node.expr.type_name()}__\n')
+					gen.out = gen.out.replace_once('__v.ast.Stmt__\n', '__${node.expr.type_name()}__;\n')
 				}
 				ast.Return {
 					// Be Careful....... multiple values return
@@ -150,7 +150,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					gen.out = gen.out.replace_once('__v.ast.PrefixExpr__', '${node.op}__${node.right.type_name()}__')
 				}
 				ast.PostfixExpr {
-					gen.out = gen.out.replace_once('__v.ast.PostfixExpr__', '__${node.expr.type_name()}__${node.op};')
+					gen.out = gen.out.replace_once('__v.ast.PostfixExpr__', '__${node.expr.type_name()}__${node.op}')
 				}
 				ast.CastExpr {
 					var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
@@ -193,7 +193,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				}								
 			} else {
 				assign += if var_type.string() == 'char []' {
-					'const char ${node.name.after('.')}[] = __${node.expr.type_name()}__;;\n'
+					'const char ${node.name.after('.')}[] = __${node.expr.type_name()}__;\n'
 				} else {
 					'const ${var_type.string()} ${node.name.after('.')} = __${node.expr.type_name()}__;\n'
 				}
