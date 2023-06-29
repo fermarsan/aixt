@@ -4,10 +4,10 @@
 
 
 
-task  move_squar) {
+task  move_square() {
 sleep(500)
 }
-task  check_sensor) {
+task  check_sensors() {
 sleep(500)
 }
 task  main() {
