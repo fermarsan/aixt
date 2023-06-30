@@ -63,29 +63,26 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 			match node {
 				ast.FnDecl {
 					if node.is_main {
-						attrs := if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
-						ret_type := gen.setup.value('main_ret_type').string()
-						params := gen.setup.value('main_params').string()
-						gen.out += '${attrs}${ret_type} main(${params}) {\n${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}'
+						gen.out += if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
+						gen.out += '${gen.setup.value('main_ret_type').string()} '
+						gen.out += 'main(${gen.setup.value('main_params').string()}) {\n'
+						gen.out += '${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}'
 						gen.out += if gen.setup.value('main_ret_type').string() == 'int' { 'return 0;\n}' } else { '}' }
 						gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
 					} else {
 						for a in node.attrs {
 							gen.out += '${a.name} '
 						}
-						// println('__${ast.new_table().type_symbols[node.return_type].str()}__')
-						gen.out += gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()	// return type
-						gen.out += ' ${node.name.after('.')}('
+						gen.out += '${gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()} '	// return type
+						gen.out += '${node.name.after('.')}('
 						gen.out += if node.params.len != 0 { 
-							'${'__v.ast.Param__, '.repeat(node.params.len)}'#[..-2] + ')' 
+							'${'__v.ast.Param__, '.repeat(node.params.len)}'#[..-2] + ') {\n' 
 						} else {
-							')'
+							') {\n'
 						}
-						gen.out += ' {\n${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}}\n'
-						// println(node.stmts[0].type_name())
+						gen.out += '${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}}\n'
 						gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
 					}
-					// println(gen.out)
 				}
 				ast.AssignStmt {
 					mut assign := ''
@@ -187,9 +184,9 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())			
 			if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
 				assign += if var_type.string() == 'char []' {
-					'const char ${node.name.after('.')}[] = ${(node.expr as ast.CastExpr).expr};\n'
+					'const char ${node.name.after('.')}[] = __${(node.expr as ast.CastExpr).expr.type_neme()}__;\n'
 				} else {
-					'const ${var_type.string()} ${node.name.after('.')} = ${(node.expr as ast.CastExpr).expr};\n'
+					'const ${var_type.string()} ${node.name.after('.')} = __${(node.expr as ast.CastExpr).expr.type_neme()}__;\n'
 				}								
 			} else {
 				assign += if var_type.string() == 'char []' {
