@@ -136,25 +136,25 @@ class aixtTransformer(Transformer):
     #     s = '{} {} {}'.format(attribute, ret_val, s)
     #     return s if s[0] != ' ' else s[1:]  #---REVISAR---
 
-    def attrib(self, lb,idf,rb):
-        return Token(type='ATTRIB', value=idf)
+    # def attrib(self, lb,idf,rb):
+    #     return Token(type='ATTRIB', value=idf)
 
-    def fn_return(self, tn):
-        return self.setup[tn]
+    # def fn_return(self, tn):
+    #     return self.setup[tn]
 
-    @v_args(inline=False)
-    def const_decl(self, cd):
-        cd.pop(0)   # CONST keyword
-        s = ''
-        for c in cd:
-            # print('const_decl:', c.type)
-            if c.type not in ('LPAR', 'RPAR'):
-                s += 'const {} {};\n'.format(eval(c.type)[1], c.value)  
-        return s
+    # @v_args(inline=False)
+    # def const_decl(self, cd):
+    #     cd.pop(0)   # CONST keyword
+    #     s = ''
+    #     for c in cd:
+    #         # print('const_decl:', c.type)
+    #         if c.type not in ('LPAR', 'RPAR'):
+    #             s += 'const {} {};\n'.format(eval(c.type)[1], c.value)  
+    #     return s
 
-    def const_item(self, idf,eq,ex):
-        # print('const_item:', idf, ex)
-        return Token(type=ex.type, value='{} = {}'.format(idf, ex))
+    # def const_item(self, idf,eq,ex):
+    #     # print('const_item:', idf, ex)
+    #     return Token(type=ex.type, value='{} = {}'.format(idf, ex))
 
     @v_args(inline=False)
     def stmt_list(self, sl):
@@ -172,31 +172,31 @@ class aixtTransformer(Transformer):
             s += st
         return s
 
-    def decl_assign_stmt(self, el1,op,el2):
-        s = ''
-        mutex = False
-        for e1,e2 in zip(el1,el2):
-            if eval(e2.type)[1] == 'mutex':
-                mutex = True
-                self.topDecl.insert(0, 'mutex {};'.format(e1))
-            # elif eval(e2.type)[1] == 'char []':
-            #     s += 'string {}' if self.setup['nxc'] else 'const char {}[]'
-            #     s += ' = {}; '
-            #     s = s.format(e1, e2)  
-            #     # print('decl_assign_stmt:', e1,e2)     
-            elif eval(e2.type)[0] == 'array':
-                s += '{} {}[{}] = {{'.format(eval(e2.type)[1], e1, e2.count(',')+1)
-                s += '{}}}; '.format(e2)  
-                # print('decl_assign_stmt:', s)   
-            else:
-                s += '{} {} = {}; '.format(eval(e2.type)[1], e1, e2) 
-        return '' if mutex else s[:-2]
+    # def decl_assign_stmt(self, el1,op,el2):
+    #     s = ''
+    #     mutex = False
+    #     for e1,e2 in zip(el1,el2):
+    #         if eval(e2.type)[1] == 'mutex':
+    #             mutex = True
+    #             self.topDecl.insert(0, 'mutex {};'.format(e1))
+    #         # elif eval(e2.type)[1] == 'char []':
+    #         #     s += 'string {}' if self.setup['nxc'] else 'const char {}[]'
+    #         #     s += ' = {}; '
+    #         #     s = s.format(e1, e2)  
+    #         #     # print('decl_assign_stmt:', e1,e2)     
+    #         elif eval(e2.type)[0] == 'array':
+    #             s += '{} {}[{}] = {{'.format(eval(e2.type)[1], e1, e2.count(',')+1)
+    #             s += '{}}}; '.format(e2)  
+    #             # print('decl_assign_stmt:', s)   
+    #         else:
+    #             s += '{} {} = {}; '.format(eval(e2.type)[1], e1, e2) 
+    #     return '' if mutex else s[:-2]
 
-    def simple_assign_stmt(self, el1,op,el2):
-        s = ''   
-        for e1,e2 in zip(el1,el2):
-            s += '{} {} {}; '.format(e1, op ,e2)
-        return s[:-2]
+    # def simple_assign_stmt(self, el1,op,el2):
+    #     s = ''   
+    #     for e1,e2 in zip(el1,el2):
+    #         s += '{} {} {}; '.format(e1, op ,e2)
+    #     return s[:-2]
 
     @v_args(inline=False)
     def array_init(self, ai):
@@ -219,8 +219,8 @@ class aixtTransformer(Transformer):
     def return_stmt(self, ret, ex): 
         return 'return ' + ex
 
-    def for_bare_stmt(self, fk,bl):
-        return 'while(true) {}'.format(bl)
+    # def for_bare_stmt(self, fk,bl):
+    #     return 'while(true) {}'.format(bl)
 
     def for_cond_stmt(self, fk,ex,bl):
         return 'while({}) {}'.format(ex,bl)

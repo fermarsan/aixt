@@ -106,14 +106,21 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 							assign += '__${node.left[i].type_name()}__ ${node.op} __${node.right[i].type_name()}__;\n'
 						}
 					}
-					gen.out = gen.out.replace_once('__v.ast.Stmt__\n', assign)
+					gen.out = gen.out.replace_once('__v.ast.Stmt__', assign)
 				}
 				ast.ExprStmt {
-					gen.out = gen.out.replace_once('__v.ast.Stmt__\n', '__${node.expr.type_name()}__;\n')
+					println('__${node.expr.type_name()}__')
+					gen.out = gen.out.replace_once('__v.ast.Stmt__', '__${node.expr.type_name()}__;\n')
 				}
 				ast.Return {
 					// Be Careful....... multiple values return
-					gen.out = gen.out.replace_once('__v.ast.Stmt__\n', 'return __${node.exprs[0].type_name()}__;\n')
+					gen.out = gen.out.replace_once('__v.ast.Stmt__', 'return __${node.exprs[0].type_name()}__;\n')
+				}
+				ast.ForStmt {
+					mut out := 'while('
+					out += if node.is_inf { 'true) {\n' } else { '__${node.cond.type_name()}__) {\n' }
+					out += '${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}}\n'
+					gen.out = gen.out.replace_once('__v.ast.Stmt__', out)
 				}
 				else {}
 			}
@@ -124,7 +131,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				ast.IfExpr { // basic shape of an "if" expression
 					mut out := 'if(__v.ast.Expr__){\n__v.ast.Stmt__\n}\n'
 					out += if node.has_else { 'else{\n__v.ast.Stmt__\n}\n' } else { '' }
-					gen.out = gen.out.replace_once('__v.ast.IfExpr__\n', out)
+					gen.out = gen.out.replace_once('__v.ast.IfExpr__', out)
 				}
 				ast.CallExpr {
 					mut call_expr := '${node.name.after('.')}('
@@ -184,9 +191,9 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())			
 			if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
 				assign += if var_type.string() == 'char []' {
-					'const char ${node.name.after('.')}[] = __${(node.expr as ast.CastExpr).expr.type_neme()}__;\n'
+					'const char ${node.name.after('.')}[] = __${(node.expr as ast.CastExpr).expr.type_name()}__;\n'
 				} else {
-					'const ${var_type.string()} ${node.name.after('.')} = __${(node.expr as ast.CastExpr).expr.type_neme()}__;\n'
+					'const ${var_type.string()} ${node.name.after('.')} = __${(node.expr as ast.CastExpr).expr.type_name()}__;\n'
 				}								
 			} else {
 				assign += if var_type.string() == 'char []' {
@@ -199,7 +206,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 		}
 		ast.IfBranch { // statements block of "if" and "else" expressions
 			gen.out = gen.out.replace_once('__v.ast.Expr__', '${node.cond}')
-			gen.out = gen.out.replace_once('__v.ast.Stmt__\n', '${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}')
+			gen.out = gen.out.replace_once('__v.ast.Stmt__', '${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}')
 		}
 		ast.CallArg {	
 			gen.out = gen.out.replace_once('__v.ast.CallArg__', '__${node.expr.type_name()}__')
