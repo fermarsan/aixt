@@ -66,7 +66,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 						gen.out += if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
 						gen.out += '${gen.setup.value('main_ret_type').string()} '
 						gen.out += 'main(${gen.setup.value('main_params').string()}) {\n'
-						gen.out += '${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}'
+						gen.out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}'
 						gen.out += if gen.setup.value('main_ret_type').string() == 'int' { 'return 0;\n}' } else { '}' }
 						gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
 					} else {
@@ -80,7 +80,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 						} else {
 							') {\n'
 						}
-						gen.out += '${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}}\n'
+						gen.out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}}\n'
 						gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
 					}
 				}
@@ -109,7 +109,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					gen.out = gen.out.replace_once('__v.ast.Stmt__', assign)
 				}
 				ast.ExprStmt {
-					println('__${node.expr.type_name()}__')
+					// println('__${node.expr.type_name()}__')
 					gen.out = gen.out.replace_once('__v.ast.Stmt__', '__${node.expr.type_name()}__;\n')
 				}
 				ast.Return {
@@ -119,7 +119,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 				ast.ForStmt {
 					mut out := 'while('
 					out += if node.is_inf { 'true) {\n' } else { '__${node.cond.type_name()}__) {\n' }
-					out += '${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}}\n'
+					out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}}\n'
 					gen.out = gen.out.replace_once('__v.ast.Stmt__', out)
 				}
 				else {}
@@ -129,8 +129,8 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 		println('${node.type_name().after('v.ast.')}:\t\t${node}')
 			match node {
 				ast.IfExpr { // basic shape of an "if" expression
-					mut out := 'if(__v.ast.Expr__){\n__v.ast.Stmt__\n}\n'
-					out += if node.has_else { 'else{\n__v.ast.Stmt__\n}\n' } else { '' }
+					mut out := 'if(__v.ast.Expr__){\n__v.ast.Stmt__}\n'
+					out += if node.has_else { 'else{\n__v.ast.Stmt__}\n' } else { '' }
 					gen.out = gen.out.replace_once('__v.ast.IfExpr__', out)
 				}
 				ast.CallExpr {
@@ -206,7 +206,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 		}
 		ast.IfBranch { // statements block of "if" and "else" expressions
 			gen.out = gen.out.replace_once('__v.ast.Expr__', '${node.cond}')
-			gen.out = gen.out.replace_once('__v.ast.Stmt__', '${'__v.ast.Stmt__\n'.repeat(node.stmts.len)}')
+			gen.out = gen.out.replace_once('__v.ast.Stmt__', '${'__v.ast.Stmt__'.repeat(node.stmts.len)}')
 		}
 		ast.CallArg {	
 			gen.out = gen.out.replace_once('__v.ast.CallArg__', '__${node.expr.type_name()}__')

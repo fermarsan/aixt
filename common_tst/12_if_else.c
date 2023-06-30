@@ -8,33 +8,20 @@
 int main() {
 long a = 10;
 long b = 1;
-
 bool l = true;
-
 if(a <= b){
 l = true;
-
 a += 1;
-
-
 }
 ;
-
 if(a > b){
 a = 0;
-
 b = 0;
-
-
 }
 else{
 a = -1;
-
 b--;
-
-
 }
 ;
-
 return 0;
 }
