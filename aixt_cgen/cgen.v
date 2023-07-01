@@ -33,6 +33,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(gen.file)
 	walker.inspect(gen.file, unsafe { nil }, unsafe { gen.visit_gen })
+	gen.out_format()
 	return gen.out
 }
 
@@ -225,6 +226,31 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 	return true
 }
 
+fn (mut gen Gen) out_format() {
+	gen.out = gen.out.replace('}\n;', '}')
+	mut temp := ''
+	mut ind_count := 0
+	for c in gen.out {
+		match rune(c) {
+			`\n` {
+				temp += '\n' + '\t'.repeat(ind_count)
+			}
+			`{` {
+				ind_count++
+				temp += rune(c).str()
+			}
+			`}` {
+				ind_count--
+				temp += rune(c).str()
+			}
+			else {
+				temp += rune(c).str()
+			}
+		}
+	}
+	temp = temp.replace('\t}', '}')
+	gen.out = temp
+}
 // creating settings.h
 		// ast.File {
 			// base_path := os.dir(gen.file.path)

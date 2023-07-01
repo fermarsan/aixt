@@ -6,12 +6,9 @@
 
 
 int main() {
-	long x = 0;
-	while(true) {
-		x++;
-		if(x == 100){
-			break;
-		}
-	}
-	return 0;
+short cont = 0;
+while(__v.ast.InfixExpr__) {
+cont += 5;
+}
+return 0;
 }
