@@ -4,5 +4,5 @@ x := 0
 
 for {
 	x++
-	if x == 100 { break }
+	if x == 100 { continue }
 }

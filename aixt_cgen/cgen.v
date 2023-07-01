@@ -116,12 +116,16 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 					// Be Careful....... multiple values return
 					gen.out = gen.out.replace_once('__v.ast.Stmt__', 'return __${node.exprs[0].type_name()}__;\n')
 				}
+				ast.BranchStmt {
+					gen.out = gen.out.replace_once('__v.ast.Stmt__', '${node.str()};\n')
+				}
 				ast.ForStmt {
 					mut out := 'while('
 					out += if node.is_inf { 'true) {\n' } else { '__${node.cond.type_name()}__) {\n' }
 					out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}}\n'
 					gen.out = gen.out.replace_once('__v.ast.Stmt__', out)
 				}
+
 				else {}
 			}
 		}

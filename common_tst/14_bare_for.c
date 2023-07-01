@@ -9,7 +9,10 @@ int main() {
 long x = 0;
 while(true) {
 x++;
-__v.ast.IfExpr__;
+if(x == 100){
+continue;
+}
+;
 }
 return 0;
 }
