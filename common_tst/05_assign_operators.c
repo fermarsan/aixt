@@ -6,8 +6,17 @@
 
 
 int main() {
-	long value = 1256780;
-	long bin = 0b00111011;
-	long x = 0xA6F7;
+	long a = 10;
+	a = 2;
+	a += 1;
+	a -= 1;
+	a *= 1;
+	a /= 1;
+	a &= 1;
+	a |= 1;
+	a ^= 1;
+	a %= 1;
+	a <<= 1;
+	a >>= 1;
 	return 0;
 }
