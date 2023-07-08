@@ -61,26 +61,15 @@ fn (mut gen Gen) par_expr(node ast.ParExpr) string {
 }
 
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
-	mut out := ''
-	gen.out = gen.out.replace_once('__v.ast.InfixExpr__', 
-								   '__${node.left.type_name()}__ ${node.op} __${node.right.type_name()}__')
-	gen.ast_node(node.left)
-	gen.ast_node(node.right)
-	return out
+	return '${gen.ast_node(node.left)} ${node.op} ${gen.ast_node(node.right)}'
 }
 
 fn (mut gen Gen) prefix_expr(node ast.PrefixExpr) string {
-	mut out := ''
-	gen.out = gen.out.replace_once('__v.ast.PrefixExpr__', '${node.op}__${node.right.type_name()}__')
-	gen.ast_node(node.right)
-	return out
+	return '${node.op}${gen.ast_node(node.right)}'
 }
 
 fn (mut gen Gen) postfix_expr(node ast.PostfixExpr) string {
-	mut out := ''
-	gen.out = gen.out.replace_once('__v.ast.PostfixExpr__', '__${node.expr.type_name()}__${node.op}')
-	gen.ast_node(node.expr)
-	return out
+	return '${gen.ast_node(node.expr)}${node.op}'
 }
 
 fn (mut gen Gen) cast_expr(node ast.CastExpr) string {
