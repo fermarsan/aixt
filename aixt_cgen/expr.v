@@ -28,6 +28,7 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) {
 fn (mut gen Gen) par_expr(node ast.ParExpr) {
 	gen.out = gen.out.replace_once('__v.ast.ParExpr__', '(__${node.expr.type_name()}__)')
 	// println(node.expr)
+	gen.ast_node(node.expr)
 }
 
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) {
@@ -44,11 +45,13 @@ fn (mut gen Gen) prefix_expr(node ast.PrefixExpr) {
 
 fn (mut gen Gen) postfix_expr(node ast.PostfixExpr) {
 	gen.out = gen.out.replace_once('__v.ast.PostfixExpr__', '__${node.expr.type_name()}__${node.op}')
+	gen.ast_node(node.expr)
 }
 
 fn (mut gen Gen) cast_expr(node ast.CastExpr) {
 	var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
-	gen.out = gen.out.replace_once('__v.ast.CastExpr__', '(${var_type.string()})(${node.expr})')
+	gen.out = gen.out.replace_once('__v.ast.CastExpr__', '(${var_type.string()})(__${node.expr.type_name()}__)')
+	gen.ast_node(node.expr)
 }
 
 fn (mut gen Gen) ident(node ast.Ident) {

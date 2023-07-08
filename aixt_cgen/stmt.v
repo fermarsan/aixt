@@ -67,16 +67,17 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) {
 
 fn (mut gen Gen) expr_stmt(node ast.ExprStmt) {
 	// println('__${node.expr.type_name()}__')
-	gen.out = gen.out.replace_once('__v.ast.Stmt__', '__${node.expr.type_name()}__;\n')
+	gen.out += '__${node.expr.type_name()}__;\n'
+	gen.ast_node(node.expr)
 }
 
 fn (mut gen Gen) return_stmt(node ast.Return) {
 	// Be Careful....... multiple values return
-	gen.out = gen.out.replace_once('__v.ast.Stmt__', 'return __${node.exprs[0].type_name()}__;\n')
+	gen.out += 'return __${node.exprs[0].type_name()}__;\n'
 }
 
 fn (mut gen Gen) branch_stmt(node ast.BranchStmt) {
-	gen.out = gen.out.replace_once('__v.ast.Stmt__', '${node.str()};\n')
+	gen.out += '${node.str()};\n'
 }
 
 fn (mut gen Gen) for_stmt(node ast.ForStmt) {
