@@ -114,13 +114,16 @@ fn (mut gen Gen) float_literal(node ast.FloatLiteral) string {
 }
 
 fn (mut gen Gen) integer_literal(node ast.IntegerLiteral) string {
-	out := if node.str().contains('0o') {	// if it is an octal literal
+	// out := if node.str().contains('0o') {	// if it is an octal literal
+	// 	node.val.int().str() 				// turn it into decimal
+	// } else {
+	// 	node.val
+	// }
+	return if node.str().contains('0o') {	// if it is an octal literal
 		node.val.int().str() 				// turn it into decimal
 	} else {
 		node.val
 	}
-	println(out)
-	return out
 }
 
 fn (mut gen Gen) bool_literal(node ast.BoolLiteral) string {
