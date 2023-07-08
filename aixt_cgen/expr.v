@@ -33,6 +33,8 @@ fn (mut gen Gen) par_expr(node ast.ParExpr) {
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) {
 	gen.out = gen.out.replace_once('__v.ast.InfixExpr__', 
 								   '__${node.left.type_name()}__ ${node.op} __${node.right.type_name()}__')
+	gen.ast_node(node.left)
+	gen.ast_node(node.right)
 }
 
 fn (mut gen Gen) prefix_expr(node ast.PrefixExpr) {

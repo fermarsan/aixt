@@ -6,15 +6,15 @@
 
 
 int main() {
-	signed char a = 300 + -80000;
+	signed char a = -50 + 37;
 	short b = 300;
-	long c = -400;
-	long e = 50;
-	long long f = 300;
-	unsigned char g = 80000;
-	unsigned short h = 400;
-	unsigned long i = __v.ast.IntegerLiteral__;
-	unsigned long long k = __v.ast.IntegerLiteral__;
+	long c = -80000;
+	long e = 300;
+	long long f = -400;
+	unsigned char g = 50;
+	unsigned short h = 300;
+	unsigned long i = 80000;
+	unsigned long long k = 400;
 	float l = 1.5e-4;
 	double m = 4e-12;
 	return 0;
