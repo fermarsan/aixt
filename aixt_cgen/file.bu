@@ -1,0 +1,29 @@
+// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// File Name: file.v
+// Author: Fernando Martínez Santa
+// Date: 2023
+// License: MIT
+//
+// Description: ast.File generation.
+module aixt_cgen
+
+import v.ast
+
+fn (mut gen Gen) ast_file(node ast.File) {
+    gen.out = '// Aixt project ('
+    gen.out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
+    gen.out += 'generated code)\n// Device = ${gen.setup.value('device').string()}'
+	gen.out += '\n// Board = ${gen.setup.value('board').string()}\n\n' 
+    for h in gen.setup.value('headers').array() {			// append the header files
+        gen.out +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
+	}
+    gen.out += '\n'
+    // gen.out += '#include "api/builtin.h"\n'
+    for m in gen.setup.value('macros').array() { 			// append the macros
+        gen.out += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
+	}
+    gen.out += '\n'
+    for c in gen.setup.value('configuration').array() {		// append the configuration lines
+        gen.out += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
+	}
+}

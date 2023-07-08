@@ -6,9 +6,5 @@
 
 
 int main() {
-short cont = 0;
-while(__v.ast.InfixExpr__) {
-cont += 5;
-}
-return 0;
+	return 0;
 }

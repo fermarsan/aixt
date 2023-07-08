@@ -10,11 +10,10 @@ module aixt_cgen
 
 // import os 
 import v.ast
-import v.token
+// import v.token
 import v.pref
 import v.parser
 import v.checker
-import v.ast.walker
 import toml
 
 pub struct Gen {
@@ -30,11 +29,129 @@ pub mut:
 pub fn (mut gen Gen) gen(source_path string) string {
 	// gen.pref.is_script = true
 	gen.file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
+	// println('${'='.repeat(50)}\n${gen.file}${'='.repeat(50)}\n')
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
-	checker_.check(gen.file)
-	walker.inspect(gen.file, unsafe { nil }, unsafe { gen.visit_gen })
+	checker_.check(mut gen.file)
+	gen.ast_file(gen.file)
 	gen.out_format()
 	return gen.out
+}
+
+fn (mut gen Gen) ast_file(node ast.File) {
+    gen.out = '// Aixt project ('
+    gen.out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
+    gen.out += 'generated code)\n// Device = ${gen.setup.value('device').string()}'
+	gen.out += '\n// Board = ${gen.setup.value('board').string()}\n\n' 
+    for h in gen.setup.value('headers').array() {			// append the header files
+        gen.out +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
+	}
+    gen.out += '\n'
+    // gen.out += '#include "api/builtin.h"\n'
+    for m in gen.setup.value('macros').array() { 			// append the macros
+        gen.out += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
+	}
+    gen.out += '\n'
+    for c in gen.setup.value('configuration').array() {		// append the configuration lines
+        gen.out += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
+	}
+	for st in node.stmts {
+		gen.ast_node(st)
+	}
+}
+
+fn (mut gen Gen) ast_node(node ast.Node) {
+	print('${node.type_name().after('v.ast.')} -> ')
+	match node {
+		ast.File {
+			gen.ast_file(node)
+		}
+		ast.Stmt {
+			gen.stmt(node)
+		}
+		ast.Expr {
+			gen.expr(node)
+		}
+		ast.ConstField {
+		}
+		ast.IfBranch { // statements block of "if" and "else" expressions
+		}
+		ast.CallArg {	
+		}
+		ast.Param {
+		}
+		else {}
+	}
+}
+
+fn (mut gen Gen) stmt(node ast.Stmt) {
+	println('${node.type_name().after('v.ast.')}:\t\t${node}')
+	match node {
+		ast.FnDecl {
+			gen.fn_decl(node)
+		}
+		ast.AssignStmt {
+			gen.assign_stmt(node)
+		}
+		ast.ExprStmt {
+			gen.expr_stmt(node)
+		}
+		ast.Return {
+			gen.return_stmt(node)
+		}
+		ast.BranchStmt {
+			gen.branch_stmt(node)
+		}
+		ast.ForStmt {
+			gen.for_stmt(node)
+		}
+		else {}
+	}
+}
+
+fn (mut gen Gen) expr(node ast.Expr) {
+	println('${node.type_name().after('v.ast.')}:\t\t${node}')
+	match node {
+		ast.IfExpr { // basic shape of an "if" expression
+			gen.if_expr(node)
+		}
+		ast.CallExpr {
+			gen.call_expr(node)
+		}
+		ast.ParExpr {
+			gen.par_expr(node)
+		}
+		ast.InfixExpr {
+			gen.infix_expr(node)
+		}
+		ast.PrefixExpr {
+			gen.prefix_expr(node)
+		}
+		ast.PostfixExpr {
+			gen.postfix_expr(node)
+		}
+		ast.CastExpr {
+			gen.cast_expr(node)
+		}
+		ast.Ident {
+			gen.ident(node)
+		}
+		ast.StringLiteral {
+			gen.string_literal(node)
+		}
+		ast.CharLiteral {
+			gen.char_literal(node)
+		}
+		ast.FloatLiteral {
+			gen.float_literal(node)
+		}
+		ast.IntegerLiteral {
+			gen.integer_literal(node)
+		}
+		ast.BoolLiteral {
+			gen.bool_literal(node)
+		}
+		else {}
+	}		
 }
 
 fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
@@ -42,155 +159,164 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 	// println(gen.file.path)
 	match node {
 		ast.File {
-            gen.out = '// Aixt project ('
-            gen.out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
-            gen.out += 'generated code)\n// Device = ${gen.setup.value('device').string()}'
-			gen.out += '\n// Board = ${gen.setup.value('board').string()}\n\n' 
-            for h in gen.setup.value('headers').array() {			// append the header files
-                gen.out +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
-			}
-            gen.out += '\n'
-            // gen.out += '#include "api/builtin.h"\n'
-            for m in gen.setup.value('macros').array() { 			// append the macros
-                gen.out += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
-			}
-            gen.out += '\n'
-            for c in gen.setup.value('configuration').array() {		// append the configuration lines
-                gen.out += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
-			}
+            // gen.out = '// Aixt project ('
+            // gen.out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
+            // gen.out += 'generated code)\n// Device = ${gen.setup.value('device').string()}'
+			// gen.out += '\n// Board = ${gen.setup.value('board').string()}\n\n' 
+            // for h in gen.setup.value('headers').array() {			// append the header files
+            //     gen.out +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
+			// }
+            // gen.out += '\n'
+            // // gen.out += '#include "api/builtin.h"\n'
+            // for m in gen.setup.value('macros').array() { 			// append the macros
+            //     gen.out += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
+			// }
+            // gen.out += '\n'
+            // for c in gen.setup.value('configuration').array() {		// append the configuration lines
+            //     gen.out += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
+			// }
 		}
-		ast.Stmt {
-			println('${node.type_name().after('v.ast.')}:\t\t${node}')
-			match node {
-				ast.FnDecl {
-					if node.is_main {
-						gen.out += if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
-						gen.out += '${gen.setup.value('main_ret_type').string()} '
-						gen.out += 'main(${gen.setup.value('main_params').string()}) {\n'
-						gen.out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}'
-						gen.out += if gen.setup.value('main_ret_type').string() == 'int' { 'return 0;\n}' } else { '}' }
-						gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
-					} else {
-						for a in node.attrs {
-							gen.out += '${a.name} '
-						}
-						gen.out += '${gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()} '	// return type
-						gen.out += '${node.name.after('.')}('
-						gen.out += if node.params.len != 0 { 
-							'${'__v.ast.Param__, '.repeat(node.params.len)}'#[..-2] + ') {\n' 
-						} else {
-							') {\n'
-						}
-						gen.out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}}\n'
-						gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
-					}
-				}
-				ast.AssignStmt {
-					mut assign := ''
-					for i in 0 .. node.left.len {
-						var_type := gen.setup.value(ast.new_table().type_symbols[node.right_types[i]].str())
-						if node.op == token.Kind.decl_assign { // in case of declaration
-							if node.right[i].type_name() == 'v.ast.CastExpr' {	// in case of casting expression
-								assign += if var_type.string() == 'char []' {
-									'char __${node.left[i].type_name()}__[] = __${(node.right[i] as ast.CastExpr).expr.type_name()}__;\n'
-								} else {
-									'${var_type.string()} __${node.left[i].type_name()}__ = __${(node.right[i] as ast.CastExpr).expr.type_name()}__;\n'
-								}								
-							} else {
-								assign += if var_type.string() == 'char []' {
-									'char __${node.left[i].type_name()}__[] = __${node.right[i].type_name()}__;\n'
-								} else {
-									'${var_type.string()} __${node.left[i].type_name()}__ = __${node.right[i].type_name()}__;\n'
-								}
-							}
-						} else { // for the rest of assignments
-							assign += '__${node.left[i].type_name()}__ ${node.op} __${node.right[i].type_name()}__;\n'
-						}
-					}
-					gen.out = gen.out.replace_once('__v.ast.Stmt__', assign)
-				}
-				ast.ExprStmt {
-					// println('__${node.expr.type_name()}__')
-					gen.out = gen.out.replace_once('__v.ast.Stmt__', '__${node.expr.type_name()}__;\n')
-				}
-				ast.Return {
-					// Be Careful....... multiple values return
-					gen.out = gen.out.replace_once('__v.ast.Stmt__', 'return __${node.exprs[0].type_name()}__;\n')
-				}
-				ast.BranchStmt {
-					gen.out = gen.out.replace_once('__v.ast.Stmt__', '${node.str()};\n')
-				}
-				ast.ForStmt {
-					mut out := 'while('
-					out += if node.is_inf { 'true) {\n' } else { '__${node.cond.type_name()}__) {\n' }
-					out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}}\n'
-					gen.out = gen.out.replace_once('__v.ast.Stmt__', out)
-				}
-
-				else {}
-			}
-		}
-		ast.Expr {
-		println('${node.type_name().after('v.ast.')}:\t\t${node}')
-			match node {
-				ast.IfExpr { // basic shape of an "if" expression
-					mut out := 'if(__v.ast.Expr__){\n__v.ast.Stmt__}\n'
-					out += if node.has_else { 'else{\n__v.ast.Stmt__}\n' } else { '' }
-					gen.out = gen.out.replace_once('__v.ast.IfExpr__', out)
-				}
-				ast.CallExpr {
-					mut call_expr := '${node.name.after('.')}('
-					call_expr += if node.args.len != 0 { 
-						'__v.ast.CallArg__, '.repeat(node.args.len)#[..-2] + ')' 
-					} else {
-						')'
-					}
-					gen.out = gen.out.replace_once('__v.ast.CallExpr__', call_expr)
-				}
-				ast.ParExpr {
-					gen.out = gen.out.replace_once('__v.ast.ParExpr__', '(__${node.expr.type_name()}__)')
-					// println(node.expr)
-				}
-				ast.InfixExpr {
-					gen.out = gen.out.replace_once('__v.ast.InfixExpr__', 
-												   '__${node.left.type_name()}__ ${node.op} __${node.right.type_name()}__')
-				}
-				ast.PrefixExpr {
-					gen.out = gen.out.replace_once('__v.ast.PrefixExpr__', '${node.op}__${node.right.type_name()}__')
-				}
-				ast.PostfixExpr {
-					gen.out = gen.out.replace_once('__v.ast.PostfixExpr__', '__${node.expr.type_name()}__${node.op}')
-				}
-				ast.CastExpr {
-					var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
-					gen.out = gen.out.replace_once('__v.ast.CastExpr__', '(${var_type.string()})(${node.expr})')
-				}
-				ast.Ident {
-					gen.out = gen.out.replace_once('__v.ast.Ident__', node.name)
-				}
-				ast.StringLiteral {
-					gen.out = gen.out.replace_once('__v.ast.StringLiteral__', '"${node.val}"')
-				}
-				ast.CharLiteral {
-					gen.out = gen.out.replace_once('__v.ast.CharLiteral__', "'${node.val}'")
-				}
-				ast.FloatLiteral {
-					gen.out = gen.out.replace_once('__v.ast.FloatLiteral__', node.val)
-				}
-				ast.IntegerLiteral {
-					out := if node.str().contains('0o') {	// if it is an octal literal
-						node.val.int().str() 				// turn it into decimal
-					} else {
-						node.val
-					}
-					gen.out = gen.out.replace_once('__v.ast.IntegerLiteral__', out)
-				}
-				ast.BoolLiteral {
-					gen.out = gen.out.replace_once('__v.ast.BoolLiteral__', node.val.str())
-				}
-				else {}
-			}
-		}
+		// ast.Stmt {
+		// 	println('${node.type_name().after('v.ast.')}:\t\t${node}')
+		// 	match node {
+		// 		ast.FnDecl {
+		// 			if node.is_main {
+		// 				gen.out += if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
+		// 				gen.out += '${gen.setup.value('main_ret_type').string()} '
+		// 				gen.out += 'main(${gen.setup.value('main_params').string()}) {\n'
+		// 				gen.out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}'
+		// 				gen.out += if gen.setup.value('main_ret_type').string() == 'int' { 'return 0;\n}' } else { '}' }
+		// 				gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
+		// 			} else {
+		// 				for a in node.attrs {
+		// 					gen.out += '${a.name} '
+		// 				}
+		// 				gen.out += '${gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()} '	// return type
+		// 				gen.out += '${node.name.after('.')}('
+		// 				gen.out += if node.params.len != 0 { 
+		// 					'${'__v.ast.Param__, '.repeat(node.params.len)}'#[..-2] + ') {\n' 
+		// 				} else {
+		// 					') {\n'
+		// 				}
+		// 				gen.out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}}\n'
+		// 				gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
+		// 			}
+		// 		}
+		// 		ast.AssignStmt {
+		// 			mut assign := ''
+		// 			for i in 0 .. node.left.len {
+		// 				var_type := gen.setup.value(ast.new_table().type_symbols[node.right_types[i]].str())
+		// 				if node.op == token.Kind.decl_assign { // in case of declaration
+		// 					if node.right[i].type_name() == 'v.ast.CastExpr' {	// in case of casting expression
+		// 						assign += if var_type.string() == 'char []' {
+		// 							'char __${node.left[i].type_name()}__[] = __${(node.right[i] as ast.CastExpr).expr.type_name()}__;\n'
+		// 						} else {
+		// 							'${var_type.string()} __${node.left[i].type_name()}__ = __${(node.right[i] as ast.CastExpr).expr.type_name()}__;\n'
+		// 						}								
+		// 					} else {
+		// 						assign += if var_type.string() == 'char []' {
+		// 							'char __${node.left[i].type_name()}__[] = __${node.right[i].type_name()}__;\n'
+		// 						} else {
+		// 							'${var_type.string()} __${node.left[i].type_name()}__ = __${node.right[i].type_name()}__;\n'
+		// 						}
+		// 					}
+		// 				} else { // for the rest of assignments
+		// 					assign += '__${node.left[i].type_name()}__ ${node.op} __${node.right[i].type_name()}__;\n'
+		// 				}
+		// 			}
+		// 			gen.out = gen.out.replace_once('__v.ast.Stmt__', assign)
+		// 		}
+		// 		ast.ExprStmt {
+		// 			// println('__${node.expr.type_name()}__')
+		// 			gen.out = gen.out.replace_once('__v.ast.Stmt__', '__${node.expr.type_name()}__;\n')
+		// 		}
+		// 		ast.Return {
+		// 			// Be Careful....... multiple values return
+		// 			gen.out = gen.out.replace_once('__v.ast.Stmt__', 'return __${node.exprs[0].type_name()}__;\n')
+		// 		}
+		// 		ast.BranchStmt {
+		// 			gen.out = gen.out.replace_once('__v.ast.Stmt__', '${node.str()};\n')
+		// 		}
+		// 		ast.ForStmt {
+		// 			// println('===${node}===')
+		// 			// println('===${node.children()}===')
+		// 			println('${node.cond.type_name()}')
+		// 			mut out := 'while('
+		// 			out += if node.is_inf { 'true) {\n' } else { '__${node.cond.type_name()}__) {\n' }
+		// 			out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}}\n'
+		// 			gen.out = gen.out.replace_once('__v.ast.Stmt__', out)
+		// 			if !node.is_inf {
+		// 				println('--for condition--')
+		// 				os.write_file('temp.v', node.cond.str()) or {}
+		// 				// temp_file := parser.parse_file('temp.v', gen.table, .skip_comments, gen.pref)
+		// 				// walker.inspect(temp_file, unsafe { nil }, unsafe { gen.visit_gen })
+		// 				// println('$temp_file')
+		// 			}
+		// 		}
+		// 		else {}
+		// 	}
+		// }
+		// ast.Expr {
+		// println('${node.type_name().after('v.ast.')}:\t\t${node}')
+		// 	match node {
+		// 		ast.IfExpr { // basic shape of an "if" expression
+		// 			mut out := 'if(__v.ast.Expr__){\n__v.ast.Stmt__}\n'
+		// 			out += if node.has_else { 'else{\n__v.ast.Stmt__}\n' } else { '' }
+		// 			gen.out = gen.out.replace_once('__v.ast.IfExpr__', out)
+		// 		}
+		// 		ast.CallExpr {
+		// 			mut call_expr := '${node.name.after('.')}('
+		// 			call_expr += if node.args.len != 0 { 
+		// 				'__v.ast.CallArg__, '.repeat(node.args.len)#[..-2] + ')' 
+		// 			} else {
+		// 				')'
+		// 			}
+		// 			gen.out = gen.out.replace_once('__v.ast.CallExpr__', call_expr)
+		// 		}
+		// 		ast.ParExpr {
+		// 			gen.out = gen.out.replace_once('__v.ast.ParExpr__', '(__${node.expr.type_name()}__)')
+		// 			// println(node.expr)
+		// 		}
+		// 		ast.InfixExpr {
+		// 			gen.out = gen.out.replace_once('__v.ast.InfixExpr__', 
+		// 										   '__${node.left.type_name()}__ ${node.op} __${node.right.type_name()}__')
+		// 		}
+		// 		ast.PrefixExpr {
+		// 			gen.out = gen.out.replace_once('__v.ast.PrefixExpr__', '${node.op}__${node.right.type_name()}__')
+		// 		}
+		// 		ast.PostfixExpr {
+		// 			gen.out = gen.out.replace_once('__v.ast.PostfixExpr__', '__${node.expr.type_name()}__${node.op}')
+		// 		}
+		// 		ast.CastExpr {
+		// 			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
+		// 			gen.out = gen.out.replace_once('__v.ast.CastExpr__', '(${var_type.string()})(${node.expr})')
+		// 		}
+		// 		ast.Ident {
+		// 			gen.out = gen.out.replace_once('__v.ast.Ident__', node.name)
+		// 		}
+		// 		ast.StringLiteral {
+		// 			gen.out = gen.out.replace_once('__v.ast.StringLiteral__', '"${node.val}"')
+		// 		}
+		// 		ast.CharLiteral {
+		// 			gen.out = gen.out.replace_once('__v.ast.CharLiteral__', "'${node.val}'")
+		// 		}
+		// 		ast.FloatLiteral {
+		// 			gen.out = gen.out.replace_once('__v.ast.FloatLiteral__', node.val)
+		// 		}
+		// 		ast.IntegerLiteral {
+		// 			out := if node.str().contains('0o') {	// if it is an octal literal
+		// 				node.val.int().str() 				// turn it into decimal
+		// 			} else {
+		// 				node.val
+		// 			}
+		// 			gen.out = gen.out.replace_once('__v.ast.IntegerLiteral__', out)
+		// 		}
+		// 		ast.BoolLiteral {
+		// 			gen.out = gen.out.replace_once('__v.ast.BoolLiteral__', node.val.str())
+		// 		}
+		// 		else {}
+		// 	}
+		// }
 		ast.ConstField {
 			mut assign := ''
 			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())			

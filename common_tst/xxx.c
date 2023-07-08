@@ -6,12 +6,13 @@
 
 
 int main() {
-	long a = 10;
-	long b = 1;
-	bool l = true;
-	if(a <= b){
-		l = true;
-		a += 1;
+	long a = 2;
+	long b = 4;
+	long c = 5;
+	while(__v.ast.InfixExpr__) {
+		a++;
+		b--;
+		c += 2;
 	}
 	return 0;
 }
