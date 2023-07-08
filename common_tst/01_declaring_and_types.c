@@ -7,15 +7,15 @@
 
 int main() {
 	long a = 245;
-	float x = ;
-	float y = ;
-	float z = ;
-	float k = ;
-	float l = ;
-	float m = ;
-	bool flag_1 = ;
-	bool flag_2 = ;
-	char str_1[] = ;
-	char c_1 = ;
+	float x = 3.5;
+	float y = .46;
+	float z = 10.;
+	float k = 15e-4;
+	float l = 1.2e-3;
+	float m = 1e6;
+	bool flag_1 = true;
+	bool flag_2 = false;
+	char str_1[] = "char string";
+	char c_1 = 'X';
 	return 0;
 }

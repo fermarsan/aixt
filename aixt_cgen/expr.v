@@ -84,11 +84,8 @@ fn (mut gen Gen) postfix_expr(node ast.PostfixExpr) string {
 }
 
 fn (mut gen Gen) cast_expr(node ast.CastExpr) string {
-	mut out := ''
 	var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
-	gen.out = gen.out.replace_once('__v.ast.CastExpr__', '(${var_type.string()})(__${node.expr.type_name()}__)')
-	gen.ast_node(node.expr)
-	return out
+	return '(${var_type.string()})(${gen.ast_node(node.expr)})'
 }
 
 fn (mut gen Gen) ident(node ast.Ident) string {
@@ -96,29 +93,18 @@ fn (mut gen Gen) ident(node ast.Ident) string {
 }
 
 fn (mut gen Gen) string_literal(node ast.StringLiteral) string {
-	mut out := ''
-	gen.out = gen.out.replace_once('__v.ast.StringLiteral__', '"${node.val}"')
-	return out
+	return '"${node.val}"'
 }
 
 fn (mut gen Gen) char_literal(node ast.CharLiteral) string {
-	mut out := ''
-	gen.out = gen.out.replace_once('__v.ast.CharLiteral__', "'${node.val}'")
-	return out
+	return "'${node.val}'"
 }
 
 fn (mut gen Gen) float_literal(node ast.FloatLiteral) string {
-	mut out := ''
-	gen.out = gen.out.replace_once('__v.ast.FloatLiteral__', node.val)
-	return out
+	return node.val
 }
 
 fn (mut gen Gen) integer_literal(node ast.IntegerLiteral) string {
-	// out := if node.str().contains('0o') {	// if it is an octal literal
-	// 	node.val.int().str() 				// turn it into decimal
-	// } else {
-	// 	node.val
-	// }
 	return if node.str().contains('0o') {	// if it is an octal literal
 		node.val.int().str() 				// turn it into decimal
 	} else {
@@ -127,7 +113,5 @@ fn (mut gen Gen) integer_literal(node ast.IntegerLiteral) string {
 }
 
 fn (mut gen Gen) bool_literal(node ast.BoolLiteral) string {
-	mut out := ''
-	gen.out = gen.out.replace_once('__v.ast.BoolLiteral__', node.val.str())
-	return out
+	return node.val.str()
 }
