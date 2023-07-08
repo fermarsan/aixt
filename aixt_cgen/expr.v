@@ -39,6 +39,7 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) {
 
 fn (mut gen Gen) prefix_expr(node ast.PrefixExpr) {
 	gen.out = gen.out.replace_once('__v.ast.PrefixExpr__', '${node.op}__${node.right.type_name()}__')
+	gen.ast_node(node.right)
 }
 
 fn (mut gen Gen) postfix_expr(node ast.PostfixExpr) {
