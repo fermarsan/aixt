@@ -8,7 +8,7 @@
 
 module aixt_cgen
 
-// import os 
+// import os
 import v.ast
 // import v.token
 import v.pref
@@ -32,126 +32,39 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// println('${'='.repeat(50)}\n${gen.file}${'='.repeat(50)}\n')
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut gen.file)
-	gen.ast_file(gen.file)
+	gen.out = gen.ast_node(gen.file) // starts from the main node (file)
 	gen.out_format()
 	return gen.out
 }
 
-fn (mut gen Gen) ast_file(node ast.File) {
-    gen.out = '// Aixt project ('
-    gen.out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
-    gen.out += 'generated code)\n// Device = ${gen.setup.value('device').string()}'
-	gen.out += '\n// Board = ${gen.setup.value('board').string()}\n\n' 
-    for h in gen.setup.value('headers').array() {			// append the header files
-        gen.out +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
-	}
-    gen.out += '\n'
-    // gen.out += '#include "api/builtin.h"\n'
-    for m in gen.setup.value('macros').array() { 			// append the macros
-        gen.out += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
-	}
-    gen.out += '\n'
-    for c in gen.setup.value('configuration').array() {		// append the configuration lines
-        gen.out += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
-	}
-	for st in node.stmts {
-		gen.ast_node(st)
-	}
-}
-
-fn (mut gen Gen) ast_node(node ast.Node) {
+fn (mut gen Gen) ast_node(node ast.Node) string {
 	print('${node.type_name().after('v.ast.')} -> ')
 	match node {
 		ast.File {
-			gen.ast_file(node)
+			return gen.ast_file(node)
 		}
 		ast.Stmt {
-			gen.stmt(node)
+			return gen.stmt(node)
 		}
 		ast.Expr {
-			gen.expr(node)
+			return gen.expr(node)
 		}
 		ast.ConstField {
+			return gen.const_field(node)
 		}
 		ast.IfBranch { // statements block of "if" and "else" expressions
+			return gen.if_branch(node)
 		}
-		ast.CallArg {	
+		ast.CallArg {
+			return gen.call_arg(node)
 		}
 		ast.Param {
+			return gen.param(node)
 		}
-		else {}
+		else {
+			return ''
+		} //'Error: Not defined node.\n' }
 	}
-}
-
-fn (mut gen Gen) stmt(node ast.Stmt) {
-	println('${node.type_name().after('v.ast.')}:\t\t${node}')
-	match node {
-		ast.FnDecl {
-			gen.fn_decl(node)
-		}
-		ast.AssignStmt {
-			gen.assign_stmt(node)
-		}
-		ast.ExprStmt {
-			gen.expr_stmt(node)
-		}
-		ast.Return {
-			gen.return_stmt(node)
-		}
-		ast.BranchStmt {
-			gen.branch_stmt(node)
-		}
-		ast.ForStmt {
-			gen.for_stmt(node)
-		}
-		else {}
-	}
-}
-
-fn (mut gen Gen) expr(node ast.Expr) {
-	println('${node.type_name().after('v.ast.')}:\t\t${node}')
-	match node {
-		ast.IfExpr { // basic shape of an "if" expression
-			gen.if_expr(node)
-		}
-		ast.CallExpr {
-			gen.call_expr(node)
-		}
-		ast.ParExpr {
-			gen.par_expr(node)
-		}
-		ast.InfixExpr {
-			gen.infix_expr(node)
-		}
-		ast.PrefixExpr {
-			gen.prefix_expr(node)
-		}
-		ast.PostfixExpr {
-			gen.postfix_expr(node)
-		}
-		ast.CastExpr {
-			gen.cast_expr(node)
-		}
-		ast.Ident {
-			gen.ident(node)
-		}
-		ast.StringLiteral {
-			gen.string_literal(node)
-		}
-		ast.CharLiteral {
-			gen.char_literal(node)
-		}
-		ast.FloatLiteral {
-			gen.float_literal(node)
-		}
-		ast.IntegerLiteral {
-			gen.integer_literal(node)
-		}
-		ast.BoolLiteral {
-			gen.bool_literal(node)
-		}
-		else {}
-	}		
 }
 
 fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
@@ -159,21 +72,21 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 	// println(gen.file.path)
 	match node {
 		ast.File {
-            // gen.out = '// Aixt project ('
-            // gen.out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
-            // gen.out += 'generated code)\n// Device = ${gen.setup.value('device').string()}'
-			// gen.out += '\n// Board = ${gen.setup.value('board').string()}\n\n' 
-            // for h in gen.setup.value('headers').array() {			// append the header files
-            //     gen.out +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
+			// gen.out = '// Aixt project ('
+			// gen.out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
+			// gen.out += 'generated code)\n// Device = ${gen.setup.value('device').string()}'
+			// gen.out += '\n// Board = ${gen.setup.value('board').string()}\n\n'
+			// for h in gen.setup.value('headers').array() {			// append the header files
+			//     gen.out +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
 			// }
-            // gen.out += '\n'
-            // // gen.out += '#include "api/builtin.h"\n'
-            // for m in gen.setup.value('macros').array() { 			// append the macros
-            //     gen.out += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
+			// gen.out += '\n'
+			// // gen.out += '#include "api/builtin.h"\n'
+			// for m in gen.setup.value('macros').array() { 			// append the macros
+			//     gen.out += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
 			// }
-            // gen.out += '\n'
-            // for c in gen.setup.value('configuration').array() {		// append the configuration lines
-            //     gen.out += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
+			// gen.out += '\n'
+			// for c in gen.setup.value('configuration').array() {		// append the configuration lines
+			//     gen.out += '${gen.setup.value('config_operator').string()} ${c.string()}\n'
 			// }
 		}
 		// ast.Stmt {
@@ -193,8 +106,8 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 		// 				}
 		// 				gen.out += '${gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()} '	// return type
 		// 				gen.out += '${node.name.after('.')}('
-		// 				gen.out += if node.params.len != 0 { 
-		// 					'${'__v.ast.Param__, '.repeat(node.params.len)}'#[..-2] + ') {\n' 
+		// 				gen.out += if node.params.len != 0 {
+		// 					'${'__v.ast.Param__, '.repeat(node.params.len)}'#[..-2] + ') {\n'
 		// 				} else {
 		// 					') {\n'
 		// 				}
@@ -266,8 +179,8 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 		// 		}
 		// 		ast.CallExpr {
 		// 			mut call_expr := '${node.name.after('.')}('
-		// 			call_expr += if node.args.len != 0 { 
-		// 				'__v.ast.CallArg__, '.repeat(node.args.len)#[..-2] + ')' 
+		// 			call_expr += if node.args.len != 0 {
+		// 				'__v.ast.CallArg__, '.repeat(node.args.len)#[..-2] + ')'
 		// 			} else {
 		// 				')'
 		// 			}
@@ -278,7 +191,7 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 		// 			// println(node.expr)
 		// 		}
 		// 		ast.InfixExpr {
-		// 			gen.out = gen.out.replace_once('__v.ast.InfixExpr__', 
+		// 			gen.out = gen.out.replace_once('__v.ast.InfixExpr__',
 		// 										   '__${node.left.type_name()}__ ${node.op} __${node.right.type_name()}__')
 		// 		}
 		// 		ast.PrefixExpr {
@@ -319,13 +232,13 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 		// }
 		ast.ConstField {
 			mut assign := ''
-			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())			
-			if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
+			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
+			if node.expr.type_name() == 'v.ast.CastExpr' { // in case of casting expression
 				assign += if var_type.string() == 'char []' {
 					'const char ${node.name.after('.')}[] = __${(node.expr as ast.CastExpr).expr.type_name()}__;\n'
 				} else {
 					'const ${var_type.string()} ${node.name.after('.')} = __${(node.expr as ast.CastExpr).expr.type_name()}__;\n'
-				}								
+				}
 			} else {
 				assign += if var_type.string() == 'char []' {
 					'const char ${node.name.after('.')}[] = __${node.expr.type_name()}__;\n'
@@ -339,11 +252,11 @@ fn (mut gen Gen) visit_gen(node &ast.Node, data voidptr) bool {
 			gen.out = gen.out.replace_once('__v.ast.Expr__', '${node.cond}')
 			gen.out = gen.out.replace_once('__v.ast.Stmt__', '${'__v.ast.Stmt__'.repeat(node.stmts.len)}')
 		}
-		ast.CallArg {	
+		ast.CallArg {
 			gen.out = gen.out.replace_once('__v.ast.CallArg__', '__${node.expr.type_name()}__')
 		}
 		ast.Param {
-			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())		
+			var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
 			gen.out = gen.out.replace_once('__v.ast.Param__', '${var_type.string()} ${node.name}')
 		}
 		else {}
@@ -377,52 +290,53 @@ fn (mut gen Gen) out_format() {
 	temp = temp.replace('\t}', '}')
 	gen.out = temp
 }
+
 // creating settings.h
-		// ast.File {
-			// base_path := os.dir(gen.file.path)
-			// // println(base_path)
-			// mut out_settings := os.create('${base_path}/settings.h') or {	// creates the settings.h file
-        	// 	println('Failed to create file')			// from setup.toml
-        	// 	return false
-    		// }
-			// defer { out_settings.close() }
+// ast.File {
+// base_path := os.dir(gen.file.path)
+// // println(base_path)
+// mut out_settings := os.create('${base_path}/settings.h') or {	// creates the settings.h file
+// 	println('Failed to create file')			// from setup.toml
+// 	return false
+// }
+// defer { out_settings.close() }
 
-            // mut s := '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n#include "api/builtin.h"\n'
-			// // println(gen.setup.value('headers').array())
-            // for h in gen.setup.value('headers').array() {			// append the header files
-            //     s +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
-			// }
-            // s += '\n'
-            // for m in gen.setup.value('macros').array() { 			// append the macros
-            //     s += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
-			// }
-            // s += '\n'
-            // for c in gen.setup.value('configuration').array() {		// append the configuration lines
-            //     s += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
-			// }
-            // s += '\n#endif  //_SETTINGS_H_'
-            // out_settings.write_string(s) or {
-        	// 	println('Failed to write file')
-        	// 	return false
-    		// }
+// mut s := '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n#include "api/builtin.h"\n'
+// // println(gen.setup.value('headers').array())
+// for h in gen.setup.value('headers').array() {			// append the header files
+//     s +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
+// }
+// s += '\n'
+// for m in gen.setup.value('macros').array() { 			// append the macros
+//     s += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
+// }
+// s += '\n'
+// for c in gen.setup.value('configuration').array() {		// append the configuration lines
+//     s += '${gen.setup.value('config_operator').string()} ${c.string()}\n'
+// }
+// s += '\n#endif  //_SETTINGS_H_'
+// out_settings.write_string(s) or {
+// 	println('Failed to write file')
+// 	return false
+// }
 
-			// gen.out += if gen.setup.value('backend').string() != 'nxc' { '#include "../../settings.h"\n\n' } else {''}
-            // s += '// ' + self.moduleDef + '\n'  // module definition
-            // s += self.includes + '\n'           // user defined headers files
-            // for td in self.topDecl:
-            //     s += '{}\n'.format(td) #top level declarations      
-            // if not self.main:       #adds the main function structure if not exist
-            //     s += 'task' if gen.setup.value('nxc'] else ''
-            //     s += gen.setup.value('main_ret_type'] if gen.setup.value('main_ret_type'] != 'none' else ''
-            //     s += ' main('
-            //     s += gen.setup.value('main_params'] if gen.setup.value('main_params'] != 'none' else ''
-            //     s += ') {' 
-            //     for i in gen.setup.value('initialization']:
-            //         s += i + '\n' if i != '' else ''
-            //     s += '\n\t'
-            //     s += self.transpiled.replace('\n','\n\t')[:-1]
-            //     s += 'return 0;\n}' if gen.setup.value('main_ret_type'] == 'int' else '}' 
-            // else:
-            //     s += self.transpiled
-            // # s = s.replace('};','}')
-            // outText.write(s) 
+// gen.out += if gen.setup.value('backend').string() != 'nxc' { '#include "../../settings.h"\n\n' } else {''}
+// s += '// ' + self.moduleDef + '\n'  // module definition
+// s += self.includes + '\n'           // user defined headers files
+// for td in self.topDecl:
+//     s += '{}\n'.format(td) #top level declarations
+// if not self.main:       #adds the main function structure if not exist
+//     s += 'task' if gen.setup.value('nxc'] else ''
+//     s += gen.setup.value('main_ret_type'] if gen.setup.value('main_ret_type'] != 'none' else ''
+//     s += ' main('
+//     s += gen.setup.value('main_params'] if gen.setup.value('main_params'] != 'none' else ''
+//     s += ') {'
+//     for i in gen.setup.value('initialization']:
+//         s += i + '\n' if i != '' else ''
+//     s += '\n\t'
+//     s += self.transpiled.replace('\n','\n\t')[:-1]
+//     s += 'return 0;\n}' if gen.setup.value('main_ret_type'] == 'int' else '}'
+// else:
+//     s += self.transpiled
+// # s = s.replace('};','}')
+// outText.write(s)

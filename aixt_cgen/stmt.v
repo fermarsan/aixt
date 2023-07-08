@@ -10,77 +10,84 @@ module aixt_cgen
 import v.ast
 import v.token
 
-fn (mut gen Gen) fn_decl(node ast.FnDecl) {
+fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
+	mut out := ''
 	if node.is_main {
-		gen.out += if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
-		gen.out += '${gen.setup.value('main_ret_type').string()} '
-		gen.out += 'main(${gen.setup.value('main_params').string()}) {\n'
+		out += if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
+		out += '${gen.setup.value('main_ret_type').string()} '
+		out += 'main(${gen.setup.value('main_params').string()}) {\n'
+		// println('fn stmts:\t${node.stmts}')
 		for st in node.stmts {
-			gen.ast_node(st)
+			out += gen.ast_node(st)
+			// println('fn stmt:\t${st}')
 		}
-		gen.out += if gen.setup.value('main_ret_type').string() == 'int' { 'return 0;\n}' } else { '}' }
-		gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
+		out += if gen.setup.value('main_ret_type').string() == 'int' { 'return 0;\n}' } else { '}' }
+		out = if out[0] == ` ` { out[1..] } else { out }
 	} else {
 		for a in node.attrs {
-			gen.out += '${a.name} '
+			out += '${a.name} '
 		}
-		gen.out += '${gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()} '	// return type
-		gen.out += '${node.name.after('.')}('
-		gen.out += if node.params.len != 0 { 
+		out += '${gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()} '	// return type
+		out += '${node.name.after('.')}('
+		out += if node.params.len != 0 { 
 			'${'__v.ast.Param__, '.repeat(node.params.len)}'#[..-2] + ') {\n' 
 		} else {
 			') {\n'
 		}
-		gen.out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}}\n'
-		gen.out = if gen.out[0] == ` ` { gen.out[1..] } else { gen.out }
+		out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}}\n'
+		out = if out[0] == ` ` { out[1..] } else { out }
 	}
+	return out
 }
 
-fn (mut gen Gen) assign_stmt(node ast.AssignStmt) {
+fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
+	mut out := ''
 	for i in 0 .. node.left.len {
 		var_type := gen.setup.value(ast.new_table().type_symbols[node.right_types[i]].str())
 		if node.op == token.Kind.decl_assign { // in case of declaration
 			if node.right[i].type_name() == 'v.ast.CastExpr' {	// in case of casting expression
-				gen.out += if var_type.string() == 'char []' {
-					'char __${node.left[i].type_name()}__[] = __${(node.right[i] as ast.CastExpr).expr.type_name()}__;\n'
+				out += if var_type.string() == 'char []' {
+					'char ${gen.ast_node(node.left[i])}[] = ${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
 				} else {
-					'${var_type.string()} __${node.left[i].type_name()}__ = __${(node.right[i] as ast.CastExpr).expr.type_name()}__;\n'
-				}
-				gen.ast_node(node.left[i])	
-				gen.ast_node((node.right[i] as ast.CastExpr).expr)							
+					'${var_type.string()} ${gen.ast_node(node.left[i])} = ${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
+				}	
+				println(out)				
 			} else {
-				gen.out += if var_type.string() == 'char []' {
-					'char __${node.left[i].type_name()}__[] = __${node.right[i].type_name()}__;\n'
+				out += if var_type.string() == 'char []' {
+					'char ${gen.ast_node(node.left[i])}[] = ${gen.ast_node(node.right[i])};\n'
 				} else {
-					'${var_type.string()} __${node.left[i].type_name()}__ = __${node.right[i].type_name()}__;\n'
+					'${var_type.string()} ${gen.ast_node(node.left[i])} = ${gen.ast_node(node.right[i])};\n'
 				}
-				gen.ast_node(node.left[i])
-				gen.ast_node(node.right[i])
 			}
 		} else { // for the rest of assignments
-			gen.out += '__${node.left[i].type_name()}__ ${node.op} __${node.right[i].type_name()}__;\n'
-			gen.ast_node(node.left[i])
-			gen.ast_node(node.right[i])
+			out += '${gen.ast_node(node.left[i])} ${node.op} ${gen.ast_node(node.right[i])};\n'
 		}
 	}
+	return out
 }
 
-fn (mut gen Gen) expr_stmt(node ast.ExprStmt) {
+fn (mut gen Gen) expr_stmt(node ast.ExprStmt) string {
+	mut out := ''
 	// println('__${node.expr.type_name()}__')
-	gen.out += '__${node.expr.type_name()}__;\n'
+	gen.out = gen.out.replace_once('__v.ast.Stmt__', '__${node.expr.type_name()}__;\n')
 	gen.ast_node(node.expr)
+	return out
 }
 
-fn (mut gen Gen) return_stmt(node ast.Return) {
+fn (mut gen Gen) return_stmt(node ast.Return) string {
+	mut out := ''
 	// Be Careful....... multiple values return
-	gen.out += 'return __${node.exprs[0].type_name()}__;\n'
+	gen.out = gen.out.replace_once('__v.ast.Stmt__', 'return __${node.exprs[0].type_name()}__;\n')
+	return out
 }
 
-fn (mut gen Gen) branch_stmt(node ast.BranchStmt) {
-	gen.out += '${node.str()};\n'
+fn (mut gen Gen) branch_stmt(node ast.BranchStmt) string {
+	mut out := ''
+	gen.out = gen.out.replace_once('__v.ast.Stmt__', '${node.str()};\n')
+	return out
 }
 
-fn (mut gen Gen) for_stmt(node ast.ForStmt) {
+fn (mut gen Gen) for_stmt(node ast.ForStmt) string {
 	// println('===${node}===')
 	// println('===${node.children()}===')
 	println('${node.cond.type_name()}')
@@ -95,4 +102,9 @@ fn (mut gen Gen) for_stmt(node ast.ForStmt) {
 	// 	// walker.inspect(temp_file, unsafe { nil }, unsafe { gen.visit_gen })
 	// 	// println('$temp_file')
 	// }
+	return out
 }
+
+// fn (mut gen Gen) block_stmts(stmts []Stmt) {
+// 	gen.out += '${node.str()};\n'
+// }
