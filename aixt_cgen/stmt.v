@@ -50,8 +50,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					'char ${gen.ast_node(node.left[i])}[] = ${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
 				} else {
 					'${var_type.string()} ${gen.ast_node(node.left[i])} = ${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
-				}	
-				println(out)				
+				}			
 			} else {
 				out += if var_type.string() == 'char []' {
 					'char ${gen.ast_node(node.left[i])}[] = ${gen.ast_node(node.right[i])};\n'

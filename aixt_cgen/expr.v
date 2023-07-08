@@ -41,23 +41,20 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) string { // basic shape of an "if" exp
 }
 
 fn (mut gen Gen) call_expr(node ast.CallExpr) string {
-	mut out := ''
-	mut call_expr := '${node.name.after('.')}('
-	call_expr += if node.args.len != 0 { 
-		'__v.ast.CallArg__, '.repeat(node.args.len)#[..-2] + ')' 
+	mut out := '${node.name.after('.')}('
+	if node.args.len != 0 {
+		for ar in node.args {
+			out += '${gen.ast_node(ar)}, '
+		}
+		out = out#[..-2] + ')' 
 	} else {
-		')'
+		out += ')'
 	}
-	gen.out = gen.out.replace_once('__v.ast.CallExpr__', call_expr)
 	return out
 }
 
 fn (mut gen Gen) par_expr(node ast.ParExpr) string {
-	mut out := ''
-	gen.out = gen.out.replace_once('__v.ast.ParExpr__', '(__${node.expr.type_name()}__)')
-	// println(node.expr)
-	return out
-	
+	return '(${gen.ast_node(node.expr)})'
 }
 
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
