@@ -6,6 +6,6 @@
 
 
 int main() {
-	long a = 10;
+	long a = 5;
 	return 0;
 }
