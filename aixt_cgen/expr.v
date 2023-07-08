@@ -13,6 +13,9 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) { // basic shape of an "if" expression
 	mut out := 'if(__v.ast.Expr__){\n__v.ast.Stmt__}\n'
 	out += if node.has_else { 'else{\n__v.ast.Stmt__}\n' } else { '' }
 	gen.out = gen.out.replace_once('__v.ast.IfExpr__', out)
+	for br in node.branches {
+		gen.ast_node(br)
+	}
 }
 
 fn (mut gen Gen) call_expr(node ast.CallExpr) {
@@ -28,7 +31,7 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) {
 fn (mut gen Gen) par_expr(node ast.ParExpr) {
 	gen.out = gen.out.replace_once('__v.ast.ParExpr__', '(__${node.expr.type_name()}__)')
 	// println(node.expr)
-	gen.ast_node(node.expr)
+	
 }
 
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) {

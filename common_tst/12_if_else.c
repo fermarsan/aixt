@@ -9,9 +9,7 @@ int main() {
 	long a = 10;
 	long b = 1;
 	bool l = true;
-	if(a <= b){
-		l = true;
-		a += 1;
-	}
+	if(__v.ast.Expr__){
+		__v.ast.Stmt__}
 	return 0;
 }
