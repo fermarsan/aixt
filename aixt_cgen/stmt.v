@@ -45,19 +45,21 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) {
 					'char __${node.left[i].type_name()}__[] = __${(node.right[i] as ast.CastExpr).expr.type_name()}__;\n'
 				} else {
 					'${var_type.string()} __${node.left[i].type_name()}__ = __${(node.right[i] as ast.CastExpr).expr.type_name()}__;\n'
-				}								
+				}
+				gen.ast_node((node.right[i] as ast.CastExpr).expr)							
 			} else {
 				gen.out += if var_type.string() == 'char []' {
 					'char __${node.left[i].type_name()}__[] = __${node.right[i].type_name()}__;\n'
 				} else {
 					'${var_type.string()} __${node.left[i].type_name()}__ = __${node.right[i].type_name()}__;\n'
 				}
+				gen.ast_node(node.right[i])
 			}
 		} else { // for the rest of assignments
 			gen.out += '__${node.left[i].type_name()}__ ${node.op} __${node.right[i].type_name()}__;\n'
+			gen.ast_node(node.right[i])
 		}
 		gen.ast_node(node.left[i])
-		gen.ast_node(node.right[i])
 	}
 }
 
