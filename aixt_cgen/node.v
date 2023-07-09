@@ -131,14 +131,10 @@ fn (mut gen Gen) if_branch(node ast.IfBranch) string { // statements block of "i
 }
 
 fn (mut gen Gen) call_arg(node ast.CallArg) string {	
-	mut out := ''
-	gen.out = gen.out.replace_once('__v.ast.CallArg__', '__${node.expr.type_name()}__')
-	return out
+	return '${gen.ast_node(node.expr)}'
 }
 
 fn (mut gen Gen) param(node ast.Param) string {
-	mut out := ''
 	var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())		
-	gen.out = gen.out.replace_once('__v.ast.Param__', '${var_type.string()} ${node.name}')
-	return out
+	return '${var_type.string()} ${node.name}'
 }

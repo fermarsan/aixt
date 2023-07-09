@@ -29,12 +29,19 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		}
 		out += '${gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()} '	// return type
 		out += '${node.name.after('.')}('
-		out += if node.params.len != 0 { 
-			'${'__v.ast.Param__, '.repeat(node.params.len)}'#[..-2] + ') {\n' 
+		if node.params.len != 0 { 
+			for pr in node.params {
+				println(pr.name)
+				out += '${gen.ast_node(pr)}, '
+			}
+			out = out#[..-2] + ') {\n' 
 		} else {
 			') {\n'
 		}
-		out += '${'__v.ast.Stmt__'.repeat(node.stmts.len)}}\n'
+		for st in node.stmts {
+			out += gen.ast_node(st)  
+		}
+		out += '}\n'
 		out = if out[0] == ` ` { out[1..] } else { out }
 	}
 	return out

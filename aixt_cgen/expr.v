@@ -14,21 +14,13 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) string { // basic shape of an "if" exp
 	for i, br in node.branches {
 		if i >= 1 {
 			out += 'else '
-			if node.branches[i].cond.type_name().str() == 'unknown v.ast.Expr' {	//only 'else'
-				out += '{\n${gen.ast_node(node.branches[i])}}\n'
-			}
-			else {
-				out += 'if(${gen.ast_node(node.branches[i].cond)}) {\n${gen.ast_node(node.branches[i])}}\n'	//'else if'
+			if br.cond.type_name().str() == 'unknown v.ast.Expr' {	//only 'else'
+				out += '{\n${gen.ast_node(br)}}\n'
+			} else {
+				out += 'if(${gen.ast_node(br.cond)}) {\n${gen.ast_node(br)}}\n'	//'else if'
 			}
 		} 
-
-	// 	'{\n${gen.ast_node(node.branches[0])}}\n'
-	// out += if node.has_else {  } else { '' }
-	// gen.out = gen.out.replace_once('__v.ast.IfExpr__', out)
-	// for br in node.branches {
-	// 	gen.ast_node(br)
 	}
-	// 
 	return out
 }
 
