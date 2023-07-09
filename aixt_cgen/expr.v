@@ -11,32 +11,24 @@ import v.ast
 
 fn (mut gen Gen) if_expr(node ast.IfExpr) string { // basic shape of an "if" expression
 	mut out := 'if(${gen.ast_node(node.branches[0].cond)}) {\n${gen.ast_node(node.branches[0])}}\n'
-	// for i, br in node.branches {
-	// 	if i >= 1 {
-	// 		if node.branches.len == 2 {
-	// 			out += 'else{\n${gen.ast_node(node.branches[1])}}\n'
-	// 		}
-	// 		else {
-	// 			out += 'else if(${gen.ast_node(node.branches[1].cond)}) {\n${gen.ast_node(node.branches[1])}}\n'
-	// 		}
-	// 	} 
-	// 	match i {
-	// 		0 {
-	// 			out += '
-	// 		}	
-	// 		node.branches.len {		// final 'else'
+	for i, br in node.branches {
+		if i >= 1 {
+			out += 'else '
+			if node.branches[i].cond.type_name().str() == 'unknown v.ast.Expr' {	//only 'else'
+				out += '{\n${gen.ast_node(node.branches[i])}}\n'
+			}
+			else {
+				out += 'if(${gen.ast_node(node.branches[i].cond)}) {\n${gen.ast_node(node.branches[i])}}\n'	//'else if'
+			}
+		} 
 
-	// 		}
-	// 		else {
-
-	// 		}
-	// 	}
 	// 	'{\n${gen.ast_node(node.branches[0])}}\n'
 	// out += if node.has_else {  } else { '' }
 	// gen.out = gen.out.replace_once('__v.ast.IfExpr__', out)
 	// for br in node.branches {
 	// 	gen.ast_node(br)
-	// }
+	}
+	// 
 	return out
 }
 

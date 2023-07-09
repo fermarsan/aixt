@@ -124,10 +124,8 @@ fn (mut gen Gen) const_field(node ast.ConstField) string {
 
 fn (mut gen Gen) if_branch(node ast.IfBranch) string { // statements block of "if" and "else" expressions
 	mut out := ''
-	// out = gen.out.replace_once('__v.ast.Expr__', '${node.cond}')
-	out = gen.out.replace_once('__v.ast.Block__', '${'__v.ast.Stmt__'.repeat(node.stmts.len)}')
 	for st in node.stmts {
-		gen.ast_node(st)
+		out += gen.ast_node(st)
 	}
 	return out
 }

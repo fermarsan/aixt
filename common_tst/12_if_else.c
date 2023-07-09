@@ -5,4 +5,36 @@
 #include <stdbool.h>
 
 
-Error: Not defined statement.
+int main() {
+	long a = 10;
+	long b = 1;
+	bool l = true;
+	if(a <= b) {
+		l = true;
+		a += 1;
+	}
+	if(a > b) {
+		a = 0;
+		b = 0;
+	}
+	else {
+		a = -1;
+		b--;
+	}
+	if(a < b) {
+		a++;
+	}
+	else if(a > b) {
+		a--;
+	}
+	else {
+		b++;
+	}
+	if(a < b) {
+		a++;
+	}
+	else if(a > b) {
+		a--;
+	}
+	return 0;
+}
