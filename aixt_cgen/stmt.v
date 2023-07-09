@@ -70,16 +70,12 @@ fn (mut gen Gen) expr_stmt(node ast.ExprStmt) string {
 }
 
 fn (mut gen Gen) return_stmt(node ast.Return) string {
-	mut out := ''
 	// Be Careful....... multiple values return
-	gen.out = gen.out.replace_once('__v.ast.Stmt__', 'return __${node.exprs[0].type_name()}__;\n')
-	return out
+	return 'return ${gen.ast_node(node.exprs[0])};\n'
 }
 
 fn (mut gen Gen) branch_stmt(node ast.BranchStmt) string {
-	mut out := ''
-	gen.out = gen.out.replace_once('__v.ast.Stmt__', '${node.str()};\n')
-	return out
+	return '${node.str()};\n'
 }
 
 fn (mut gen Gen) for_stmt(node ast.ForStmt) string {
