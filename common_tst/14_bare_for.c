@@ -9,7 +9,7 @@ int main() {
 	long x = 0;
 	while(true) {
 		x++;
-		if(x == 100){
+		if(x == 100) {
 			break;
 		}
 	}
