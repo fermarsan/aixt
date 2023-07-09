@@ -66,11 +66,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 }
 
 fn (mut gen Gen) expr_stmt(node ast.ExprStmt) string {
-	mut out := ''
-	// println('__${node.expr.type_name()}__')
-	gen.out = gen.out.replace_once('__v.ast.Stmt__', '__${node.expr.type_name()}__;\n')
-	gen.ast_node(node.expr)
-	return out
+	return '${gen.ast_node(node.expr)};\n'
 }
 
 fn (mut gen Gen) return_stmt(node ast.Return) string {
@@ -103,7 +99,3 @@ fn (mut gen Gen) for_stmt(node ast.ForStmt) string {
 	// }
 	return out
 }
-
-// fn (mut gen Gen) block_stmts(stmts []Stmt) {
-// 	gen.out += '${node.str()};\n'
-// }
