@@ -6,5 +6,9 @@
 
 
 int main() {
+	short cont = 0;
+	while(cont > 200) {
+		cont += 5;
+	}
 	return 0;
 }

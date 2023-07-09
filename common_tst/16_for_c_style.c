@@ -7,6 +7,8 @@
 
 int main() {
 	long x = 0;
-	x += i;
+	for(long i = 1; i <= 10; i++) {
+		x += i;
+	}
 	return 0;
 }

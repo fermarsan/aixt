@@ -53,6 +53,9 @@ fn (mut gen Gen) stmt(node ast.Stmt) string {
 		ast.ForStmt {
 			return gen.for_stmt(node)
 		}
+		ast.ForCStmt {
+			return gen.for_c_stmt(node)
+		}
 		else { return '' }//'Error: Not defined statement.\n' }
 	}
 }
