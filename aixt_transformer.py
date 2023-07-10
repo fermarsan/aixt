@@ -156,14 +156,14 @@ class aixtTransformer(Transformer):
     #     # print('const_item:', idf, ex)
     #     return Token(type=ex.type, value='{} = {}'.format(idf, ex))
 
-    @v_args(inline=False)
-    def stmt_list(self, sl):
-        a = []
-        for t in sl:
-            if t != ';':
-                a.append(t)
-        # print('stmt_list:', a)
-        return a
+    # @v_args(inline=False)
+    # def stmt_list(self, sl):
+    #     a = []
+    #     for t in sl:
+    #         if t != ';':
+    #             a.append(t)
+    #     # print('stmt_list:', a)
+    #     return a
 
     # @v_args(inline=False)
     # def stmt(self, stm):
@@ -216,8 +216,8 @@ class aixtTransformer(Transformer):
     # def inc_dec_stmt(self, ex,op):
     #     return '{}{}'.format(ex, op)
 
-    def return_stmt(self, ret, ex): 
-        return 'return ' + ex
+    # def return_stmt(self, ret, ex): 
+    #     return 'return ' + ex
 
     # def for_bare_stmt(self, fk,bl):
     #     return 'while(true) {}'.format(bl)
@@ -228,10 +228,10 @@ class aixtTransformer(Transformer):
     # def for_c_stmt(self, fk,as1,sc1,ex,sc2,as2,bl):
     #     return 'for({}; {}; {}){}'.format(as1,ex,as2,bl)
 
-    def for_in_stmt(self, fk,idf,ik,re,bl):
-        # print('for_in_stmt:', re)
-        return 'for(int {}={}; {}<{}; {}++){}'.format( idf, re[0], idf, 
-                                                       re[1], idf, bl )
+    # def for_in_stmt(self, fk,idf,ik,re,bl):
+    #     # print('for_in_stmt:', re)
+    #     return 'for(int {}={}; {}<{}; {}++){}'.format( idf, re[0], idf, 
+    #                                                    re[1], idf, bl )
 
     def for_in_arr_stmt(self, fk,id1,ik,id2,bl):
         if '__i' not in self.tempVars:
@@ -244,56 +244,56 @@ class aixtTransformer(Transformer):
                                                          block)
         return s
 
-    def block(self, lb,sl,rb):
-        # print('block:', sl)
-        s = '{\n'
-        for st in sl:
-            s += '{}{};\n'.format('\t'*self.identLevel, st) if st != '' else ''
-        return '{}{}}}'.format(s, '\t'*(self.identLevel-1))   
+    # def block(self, lb,sl,rb):
+    #     # print('block:', sl)
+    #     s = '{\n'
+    #     for st in sl:
+    #         s += '{}{};\n'.format('\t'*self.identLevel, st) if st != '' else ''
+    #     return '{}{}}}'.format(s, '\t'*(self.identLevel-1))   
               
-    @v_args(inline=False)
-    def simple_decl_list(self, sds):
-        s = ''
-        for sd in sds:
-            s += ', ' if sd == ',' else '{} {}'.format(eval(sd.type)[1], sd)
-        return s
+    # @v_args(inline=False)
+    # def simple_decl_list(self, sds):
+    #     s = ''
+    #     for sd in sds:
+    #         s += ', ' if sd == ',' else '{} {}'.format(eval(sd.type)[1], sd)
+    #     return s
 
-    def simple_decl(self, ex,tn):
-        return Token(type="['{}','{}']".format(ex.type, self.setup[tn]), 
-                     value=ex)
+    # def simple_decl(self, ex,tn):
+    #     return Token(type="['{}','{}']".format(ex.type, self.setup[tn]), 
+    #                  value=ex)
 
-    @v_args(inline=False)
-    def expr_list(self, el):
-        a = []
-        for e in el:
-            if e != ',':    
-                a.append(e)
-        # print('expr_list: ', a)
-        return a
+    # @v_args(inline=False)
+    # def expr_list(self, el):
+    #     a = []
+    #     for e in el:
+    #         if e != ',':    
+    #             a.append(e)
+    #     # print('expr_list: ', a)
+    #     return a
 
-    @v_args(inline=False)
-    def expr(self, ex):
-        print('expr:', ex)
-        s = ''
-        for e in ex:
-            s += e
-        return Token(type=ex[0].type, value=s)
+    # @v_args(inline=False)
+    # def expr(self, ex):
+    #     print('expr:', ex)
+    #     s = ''
+    #     for e in ex:
+    #         s += e
+    #     return Token(type=ex[0].type, value=s)
 
     def index_expr(self, ex1,lb,ex2,rb):
         # print('index_expr:', '{}[{}]'.format(ex1, ex2))
         return Token(type=ex1.type, value='{}[{}]'.format(ex1, ex2) )
 
-    def call_expr(self, idt,lb,el,rb): 
-        if '.' in idt:  # module's method
-            module, method = str(idt).split('.')
-            if module in self.moduleStack:
-                s = method + "("
-        else:           # standalone function
-            s = idt + "("
-        for e in el:
-            s += e + ", "
-        # print('call_expr: ' + s[:-2] + ")")
-        return Token(type=el[0].type, value=s[:-2] + ")")
+    # def call_expr(self, idt,lb,el,rb): 
+    #     if '.' in idt:  # module's method
+    #         module, method = str(idt).split('.')
+    #         if module in self.moduleStack:
+    #             s = method + "("
+    #     else:           # standalone function
+    #         s = idt + "("
+    #     for e in el:
+    #         s += e + ", "
+    #     # print('call_expr: ' + s[:-2] + ")")
+    #     return Token(type=el[0].type, value=s[:-2] + ")")
 
     # def cast_expr(self, tn,lp,ex,rp):
     #     print('cast_expr:', ex.type)
@@ -302,8 +302,8 @@ class aixtTransformer(Transformer):
     #     print('cast_expr:', str(new_type))
     #     return Token(type=str(new_type), value=ex)
     
-    def par_expr(self, lp,ex,rp):
-        return Token(type=ex.type, value=lp+ex+rp)
+    # def par_expr(self, lp,ex,rp):
+    #     return Token(type=ex.type, value=lp+ex+rp)
     
     # def unary_expr(self, uo,ex):
     #     return Token(type=ex.type, value=uo+ex)
