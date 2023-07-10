@@ -102,3 +102,17 @@ fn (mut gen Gen) for_c_stmt(node ast.ForCStmt) string {
 	println('${out}')
 	return out + '}\n'
 }
+
+fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) string {
+	mut out := ''
+	if node.high.str() == '' {	// in array
+	} else {	// in a range
+		out += 'for(int ${node.val_var}=${gen.ast_node(node.cond)}; '
+		out += '${node.val_var}<${gen.ast_node(node.high)}; ${node.val_var}++) {\n'
+
+	}
+	for st in node.stmts {
+		out += gen.ast_node(st)
+	}
+	return out + '}\n'
+}

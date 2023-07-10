@@ -165,12 +165,12 @@ class aixtTransformer(Transformer):
         # print('stmt_list:', a)
         return a
 
-    @v_args(inline=False)
-    def stmt(self, stm):
-        s = ''
-        for st in stm:
-            s += st
-        return s
+    # @v_args(inline=False)
+    # def stmt(self, stm):
+    #     s = ''
+    #     for st in stm:
+    #         s += st
+    #     return s
 
     # def decl_assign_stmt(self, el1,op,el2):
     #     s = ''
@@ -222,11 +222,11 @@ class aixtTransformer(Transformer):
     # def for_bare_stmt(self, fk,bl):
     #     return 'while(true) {}'.format(bl)
 
-    def for_cond_stmt(self, fk,ex,bl):
-        return 'while({}) {}'.format(ex,bl)
+    # def for_cond_stmt(self, fk,ex,bl):
+    #     return 'while({}) {}'.format(ex,bl)
 
-    def for_c_stmt(self, fk,as1,sc1,ex,sc2,as2,bl):
-        return 'for({}; {}; {}){}'.format(as1,ex,as2,bl)
+    # def for_c_stmt(self, fk,as1,sc1,ex,sc2,as2,bl):
+    #     return 'for({}; {}; {}){}'.format(as1,ex,as2,bl)
 
     def for_in_stmt(self, fk,idf,ik,re,bl):
         # print('for_in_stmt:', re)
