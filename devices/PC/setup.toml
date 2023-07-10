@@ -24,7 +24,7 @@ i16 =   "short"
 int =   "long"
 i64 =   "long long"
 isize = "long long"
-"int literal" = "long"
+"int_literal" = "long"
 
 u8 =    "unsigned char"
 u16 =   "unsigned short"
@@ -34,7 +34,7 @@ usize = "unsigned long long"
 
 f32 =   "float"
 f64 =   "double"
-"float literal" =   "float"
+"float_literal" =   "float"
 
 rune =  "char"
 string = "char []"

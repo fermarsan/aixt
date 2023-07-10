@@ -198,20 +198,20 @@ class aixtTransformer(Transformer):
     #         s += '{} {} {}; '.format(e1, op ,e2)
     #     return s[:-2]
 
-    @v_args(inline=False)
-    def array_init(self, ai):
-        # print('array_init:', ai[1])
-        if len(ai) == 3:    #listed array
-            return Token(type="['array','{}']".format(eval(ai[1][0].type)[1]), 
-                         value=','.join(ai[1]))   # expr_list
-        elif len(ai) == 4 or len(ai) == 6:  # empty array
-            v = self.initials[ai[3]] + ','
-            return Token(type="['array','{}']".format(self.setup[ai[3]]), 
-                         value=(v*int(ai[1]))[:-1])
-        elif len(ai) == 8:  # array with an unique initial value
-            v = ai[6] + ','
-            return Token(type="['array','{}']".format(self.setup[ai[3]]), 
-                         value=(v*int(ai[1]))[:-1])
+    # @v_args(inline=False)
+    # def array_init(self, ai):
+    #     # print('array_init:', ai[1])
+    #     if len(ai) == 3:    #listed array
+    #         return Token(type="['array','{}']".format(eval(ai[1][0].type)[1]), 
+    #                      value=','.join(ai[1]))   # expr_list
+    #     elif len(ai) == 4 or len(ai) == 6:  # empty array
+    #         v = self.initials[ai[3]] + ','
+    #         return Token(type="['array','{}']".format(self.setup[ai[3]]), 
+    #                      value=(v*int(ai[1]))[:-1])
+    #     elif len(ai) == 8:  # array with an unique initial value
+    #         v = ai[6] + ','
+    #         return Token(type="['array','{}']".format(self.setup[ai[3]]), 
+    #                      value=(v*int(ai[1]))[:-1])
         
     # def inc_dec_stmt(self, ex,op):
     #     return '{}{}'.format(ex, op)
@@ -279,9 +279,9 @@ class aixtTransformer(Transformer):
     #         s += e
     #     return Token(type=ex[0].type, value=s)
 
-    def index_expr(self, ex1,lb,ex2,rb):
-        # print('index_expr:', '{}[{}]'.format(ex1, ex2))
-        return Token(type=ex1.type, value='{}[{}]'.format(ex1, ex2) )
+    # def index_expr(self, ex1,lb,ex2,rb):
+    #     # print('index_expr:', '{}[{}]'.format(ex1, ex2))
+    #     return Token(type=ex1.type, value='{}[{}]'.format(ex1, ex2) )
 
     # def call_expr(self, idt,lb,el,rb): 
     #     if '.' in idt:  # module's method
@@ -309,8 +309,8 @@ class aixtTransformer(Transformer):
     #     return Token(type=ex.type, value=uo+ex)
     
 
-    def range_expr(self, ex1,dts,ex2):
-        return (ex1, ex2)
+    # def range_expr(self, ex1,dts,ex2):
+    #     return (ex1, ex2)
 
     # @v_args(inline=False)
     # def if_expr(self, ie):

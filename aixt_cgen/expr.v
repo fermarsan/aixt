@@ -30,11 +30,9 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) string {
 		for ar in node.args {
 			out += '${gen.ast_node(ar)}, '
 		}
-		out = out#[..-2] + ')' 
-	} else {
-		out += ')'
+		out = out#[..-2]
 	}
-	return out
+	return out + ')'
 }
 
 fn (mut gen Gen) par_expr(node ast.ParExpr) string {
@@ -53,9 +51,23 @@ fn (mut gen Gen) postfix_expr(node ast.PostfixExpr) string {
 	return '${gen.ast_node(node.expr)}${node.op}'
 }
 
+fn (mut gen Gen) index_expr(node ast.IndexExpr) string {
+	// Be careful, multiple indexing missing
+	return '${gen.ast_node(node.left)}[${gen.ast_node(node.index)}]'
+}
+
 fn (mut gen Gen) cast_expr(node ast.CastExpr) string {
 	var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
 	return '(${var_type.string()})(${gen.ast_node(node.expr)})'
+}
+
+fn (mut gen Gen) array_init(node ast.ArrayInit) string {
+	mut out := '{'
+	for ex in node.exprs {
+		out += '${gen.ast_node(ex)}, '
+	}
+	out = out#[..-2]
+	return out + '}'
 }
 
 fn (mut gen Gen) ident(node ast.Ident) string {

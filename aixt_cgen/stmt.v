@@ -48,21 +48,35 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 }
 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
+	// println('${gen.table.type_kind(node.right_types[0]).str()}')
 	mut out := ''
 	for i in 0 .. node.left.len {
-		var_type := gen.setup.value(ast.new_table().type_symbols[node.right_types[i]].str())
-		if node.op == token.Kind.decl_assign { // in case of declaration
-			if node.right[i].type_name() == 'v.ast.CastExpr' { // in case of casting expression
-				out += if var_type.string() == 'char []' {
-					'char ${gen.ast_node(node.left[i])}[] = ${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
-				} else {
-					'${var_type.string()} ${gen.ast_node(node.left[i])} = ${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
+		mut var_type := gen.table.type_kind(node.right_types[i]).str()
+		// println('${var_type}')
+		if node.op == token.Kind.decl_assign { // declaration
+			match var_type {
+				'array' {
+					var_type = gen.table.type_kind((node.right[i] as ast.ArrayInit).elem_type).str()
+					// println('${var_type}')
+					out += '${gen.setup.value(var_type).string()} '	// array's element type
+					out += '${gen.ast_node(node.left[i])}[${(node.right[i] as ast.ArrayInit).exprs.len}] = '
+					out += '${gen.ast_node(node.right[i])};\n'
 				}
-			} else {
-				out += if var_type.string() == 'char []' {
-					'char ${gen.ast_node(node.left[i])}[] = ${gen.ast_node(node.right[i])};\n'
-				} else {
-					'${var_type.string()} ${gen.ast_node(node.left[i])} = ${gen.ast_node(node.right[i])};\n'
+				'string' {
+					out += 'char ${gen.ast_node(node.left[i])}[] = '
+					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
+						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
+					} else {
+						'${gen.ast_node(node.right[i])};\n'
+					}
+				}
+				else {
+					out += '${gen.setup.value(var_type).string()} ${gen.ast_node(node.left[i])} = '
+					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
+						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
+					} else {
+						'${gen.ast_node(node.right[i])};\n'
+					}
 				}
 			}
 		} else { // for the rest of assignments
@@ -105,11 +119,10 @@ fn (mut gen Gen) for_c_stmt(node ast.ForCStmt) string {
 
 fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) string {
 	mut out := ''
-	if node.high.str() == '' {	// in array
-	} else {	// in a range
+	if node.high.str() == '' { // in array
+	} else { // in a range
 		out += 'for(int ${node.val_var}=${gen.ast_node(node.cond)}; '
 		out += '${node.val_var}<${gen.ast_node(node.high)}; ${node.val_var}++) {\n'
-
 	}
 	for st in node.stmts {
 		out += gen.ast_node(st)

@@ -1,8 +1,8 @@
 // all the assign operators
 
-a := 10
+a, b := 10, 2.5
 
-a = 2
+a, b = 2, 6.7
 a += 1
 a -= 1
 a *= 1

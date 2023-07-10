@@ -13,3 +13,5 @@ k := usize(400)
 // floating point
 l := f32(1.5e-4)
 m := f64(4e-12)
+
+n := string(0xA0A0)

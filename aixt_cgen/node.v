@@ -84,8 +84,14 @@ fn (mut gen Gen) expr(node ast.Expr) string {
 		ast.PostfixExpr {
 			return gen.postfix_expr(node)
 		}
+		ast.IndexExpr {
+			return gen.index_expr(node)
+		}
 		ast.CastExpr {
 			return gen.cast_expr(node)
+		}
+		ast.ArrayInit {
+			return gen.array_init(node)
 		}
 		ast.Ident {
 			return gen.ident(node)
@@ -111,7 +117,7 @@ fn (mut gen Gen) expr(node ast.Expr) string {
 
 fn (mut gen Gen) const_field(node ast.ConstField) string {
 	mut out := ''
-	var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())			
+	var_type := gen.setup.value(gen.table.type_kind(node.typ).str())			
 	if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
 		out += if var_type.string() == 'char []' {
 			'const char ${node.name.after('.')}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
