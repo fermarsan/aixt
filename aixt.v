@@ -70,12 +70,15 @@ fn main() {
 			// 	} // run
 			// 	println(result.output)
 			// }
-			// 'clean', 'cl' {
-			// 	rm(base_name) or {}
-			// 	rm('${base_name}.exe') or {}
-			// 	rm('${base_name}.c') or {}
-			// 	println('Output files cleaned.')
-			// }
+			'clean', '-cl' {
+				os.rm('${base_name}.c') or {}
+				$if windows {
+					os.rm('${base_name}.exe') or {}
+				} $else {
+					os.rm('${base_name}') or {}
+				}
+				println('Output files cleaned.')
+			}
 			// 'clean_all', 'ca' {
 			// 	mut result := execute('find . -name "*.c" -type f -delete')
 			// 	println(result.output)

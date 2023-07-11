@@ -57,8 +57,8 @@ fn (mut gen Gen) index_expr(node ast.IndexExpr) string {
 }
 
 fn (mut gen Gen) cast_expr(node ast.CastExpr) string {
-	var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())
-	return '(${var_type.string()})(${gen.ast_node(node.expr)})'
+	var_type := gen.table.type_kind(node.typ).str()
+	return '(${gen.setup.value(var_type).string()})(${gen.ast_node(node.expr)})'
 }
 
 fn (mut gen Gen) array_init(node ast.ArrayInit) string {
