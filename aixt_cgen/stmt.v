@@ -77,6 +77,11 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					} else {
 						'${gen.ast_node(node.right[i])};\n'
 					}
+					gen.idents[gen.ast_node(node.left[i])] = struct {
+						kind: ast.IdentKind.variable
+						typ: node.right_types[i]
+					}
+					println(gen.idents)
 				}
 			}
 		} else { // for the rest of assignments
@@ -119,7 +124,18 @@ fn (mut gen Gen) for_c_stmt(node ast.ForCStmt) string {
 
 fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) string {
 	mut out := ''
-	if node.high.str() == '' { // in array
+	if node.high.type_name() == 'v.ast.EmptyExpr' { // in array
+
+		// println('${node.high}')
+		//         if '__i' not in self.tempVars:
+        //     self.tempVars.append('__i')
+        //     self.topDecl.append('int __i;')
+        // block = bl.replace(id1, '{}[__i]'.format(id2)) 
+        // len_func = 'ArrayLen' if self.setup['nxc'] else 'sizeof'
+        // s = 'for(__i = 0; __i < {}({}); __i++){}'.format(len_func, 
+        //                                                  id2, 
+        //                                                  block)
+        // return s
 	} else { // in a range
 		out += 'for(int ${node.val_var}=${gen.ast_node(node.cond)}; '
 		out += '${node.val_var}<${gen.ast_node(node.high)}; ${node.val_var}++) {\n'

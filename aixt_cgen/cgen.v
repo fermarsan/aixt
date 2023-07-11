@@ -8,7 +8,6 @@
 
 module aixt_cgen
 
-// import os
 import v.ast
 // import v.token
 import v.pref
@@ -18,13 +17,28 @@ import toml
 
 pub struct Gen {
 mut:
-	file  &ast.File  = unsafe { nil }
-	table &ast.Table = unsafe { nil }
-	out   string
+	file  	&ast.File  = unsafe { nil }
+	table 	&ast.Table = unsafe { nil }
+	out   	string
+	idents	map[string] struct {
+		kind    ast.IdentKind	
+		typ		ast.Type
+		len		int
+		is_free	bool
+	}
+	conts	int
 pub mut:
-	pref  &pref.Preferences = unsafe { nil }
-	setup toml.Doc //= unsafe { nil }
+	pref  	&pref.Preferences = unsafe { nil }
+	setup 	toml.Doc //= unsafe { nil }
 }
+
+// struct Ident {
+// 	ast.Ident
+// mut:
+// 	typ			ast.Type
+// 	len			int
+// 	is_free		bool
+// }
 
 pub fn (mut gen Gen) gen(source_path string) string {
 	// gen.pref.is_script = true
@@ -32,6 +46,10 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// println('${'='.repeat(50)}\n${gen.file}${'='.repeat(50)}\n')
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut gen.file)
+	// println('${gen.table}')
+	// gen.table.cur_fn.scope.children[0].objets['_i'] = 0
+	// println('${gen.table.cur_fn.scope.children[0]}')
+	// println('a' in gen.table.cur_fn.scope.children[0].objects)
 	gen.out = gen.ast_node(gen.file) // starts from the main node (file)
 	gen.out_format()
 	return gen.out
