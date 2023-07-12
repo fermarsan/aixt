@@ -237,7 +237,13 @@ class aixtTransformer(Transformer):
         if '__i' not in self.tempVars:
             self.tempVars.append('__i')
             self.topDecl.append('int __i;')
-        block = bl.replace(id1, '{}[__i]'.format(id2)) 
+        block = bl.replace(id1, '{}[__i]'.format(id2)) fn main() {
+    areas := ['game', 'web', 'tools', 'science', 'systems',
+              'embedded', 'drivers', 'GUI', 'mobile']
+    for area in areas {
+        println('Hello, ${area} developers!')
+    }
+}
         len_func = 'ArrayLen' if self.setup['nxc'] else 'sizeof'
         s = 'for(__i = 0; __i < {}({}); __i++){}'.format(len_func, 
                                                          id2, 
@@ -302,8 +308,8 @@ class aixtTransformer(Transformer):
     #     print('cast_expr:', str(new_type))
     #     return Token(type=str(new_type), value=ex)
     
-    # def par_expr(self, lp,ex,rp):
-    #     return Token(type=ex.type, value=lp+ex+rp)
+    def par_expr(self, lp,ex,rp):
+        return Token(type=ex.type, value=lp+ex+rp)
     
     # def unary_expr(self, uo,ex):
     #     return Token(type=ex.type, value=uo+ex)
