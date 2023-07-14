@@ -15,8 +15,9 @@ cc_linux =      "gcc"
 cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
 cc_flags =      "-o" 
 
-void =  ""
+dynamic_arrays = "false"
 
+void =  ""
 bool =  "bool"
 
 i8 =    "signed char"
