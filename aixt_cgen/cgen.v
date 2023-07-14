@@ -16,17 +16,19 @@ import v.checker
 import toml
 
 pub struct Gen {
-mut:
-	file  	&ast.File  = unsafe { nil }
-	table 	&ast.Table = unsafe { nil }
-	out   	string
-	idents	map[string] struct {
-		kind    ast.IdentKind	
-		typ		ast.Type
-		len		int
-		is_free	bool
+mut:	
+	file  		&ast.File  = unsafe { nil }
+	table 		&ast.Table = unsafe { nil }
+	out   		string
+	idents		map[string] struct {
+	mut:
+		kind    	ast.IdentKind	
+		typ			ast.Type
+		is_busy		bool
+		elem_type	ast.Type
+		len			int
 	}
-	conts	int
+	temps_cont	int
 pub mut:
 	pref  	&pref.Preferences = unsafe { nil }
 	setup 	toml.Doc //= unsafe { nil }
@@ -50,7 +52,9 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// gen.table.cur_fn.scope.children[0].objets['_i'] = 0
 	// println('${gen.table.cur_fn.scope.children[0]}')
 	// println('a' in gen.table.cur_fn.scope.children[0].objects)
+	println('\n===== Top-down node analysis =====')
 	gen.out = gen.ast_node(gen.file) // starts from the main node (file)
+	println('\n===== Symbol table =====\n${gen.symbol_table()}')
 	gen.out_format()
 	return gen.out
 }
@@ -83,6 +87,18 @@ fn (mut gen Gen) ast_node(node ast.Node) string {
 			return ''
 		} //'Error: Not defined node.\n' }
 	}
+}
+
+fn (mut gen Gen) symbol_table() string {
+	mut msg := ''
+	for key, val in gen.idents {
+		msg += '${val.kind} - ${key} - ${gen.table.type_kind(val.typ)}' + if val.len != 0 { 
+			'[${val.len}]\n' 
+		} else {
+			'\n'
+		}
+	}
+	return msg
 }
 
 fn (mut gen Gen) out_format() {
