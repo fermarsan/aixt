@@ -51,7 +51,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	// println('${gen.table.type_kind(node.right_types[0]).str()}')
 	mut out := ''
 	for i in 0 .. node.left.len {
-		gen.idents[gen.ast_node(node.left[i])] = struct {	// add the new symbol
+		gen.idents[gen.ast_node(node.left[i])] = struct { // add the new symbol
 			kind: ast.IdentKind.variable
 			typ: node.right_types[i]
 		}
@@ -60,15 +60,15 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 		if node.op == token.Kind.decl_assign { // declaration
 			match var_type {
 				'array' {
-					gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.ArrayInit).exprs.len	// array len
+					gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.ArrayInit).exprs.len // array len
 					var_type = gen.table.type_kind((node.right[i] as ast.ArrayInit).elem_type).str()
 					// println('${var_type}')
-					out += '${gen.setup.value(var_type).string()} '	// array's element type
+					out += '${gen.setup.value(var_type).string()} ' // array's element type
 					out += '${gen.ast_node(node.left[i])}[${(node.right[i] as ast.ArrayInit).exprs.len}] = '
 					out += '${gen.ast_node(node.right[i])};\n'
 				}
 				'string' {
-					gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.StringLiteral).val.len	// atring len
+					gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.StringLiteral).val.len // atring len
 					out += 'char ${gen.ast_node(node.left[i])}[] = '
 					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
 						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
@@ -129,19 +129,19 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) string {
 		gen.level_cont++
 		temp_name := '_t${gen.level_cont}'
 		if temp_name !in gen.idents {
-			gen.idents[temp_name] = struct {	// add the temporal var
-				kind: 		ast.IdentKind.variable
-				typ:		ast.Type(ast.Kind.int) 
+			gen.idents[temp_name] = struct { // add the temporal var
+				kind: ast.IdentKind.variable
+				typ: ast.Type(ast.Kind.int)
 			}
 			gen.definitions += 'int _t${gen.level_cont};\n'
 		}
 		out += 'for(int _t${gen.level_cont} = 0;'
 		out += ' _t${gen.level_cont} < ${gen.idents[gen.ast_node(node.cond)].len};'
-		out += ' _t${gen.level_cont}++) {\n'		
+		out += ' _t${gen.level_cont}++) {\n'
 		for st in node.stmts {
 			out += gen.ast_node(st)
 		}
-		out = out.replace(node.val_var, '${gen.ast_node(node.cond)}[_t${gen.level_cont}]') 
+		out = out.replace(node.val_var, '${gen.ast_node(node.cond)}[_t${gen.level_cont}]')
 	} else { // in a range
 		out += 'for(int ${node.val_var}=${gen.ast_node(node.cond)}; '
 		out += '${node.val_var}<${gen.ast_node(node.high)}; ${node.val_var}++) {\n'
