@@ -20,29 +20,28 @@ mut:
 	file  		&ast.File  = unsafe { nil }
 	table 		&ast.Table = unsafe { nil }
 	out   		string
+	includes	string
+	definitions	string
 	idents		map[string] struct {
 	mut:
 		kind    	ast.IdentKind	
 		typ			ast.Type
-		is_busy		bool
+		// is_busy		bool
 		elem_type	ast.Type
 		len			int
 	}
-	temps_cont	int
+	// temps_cont	int
+	level_cont	int
 pub mut:
 	pref  	&pref.Preferences = unsafe { nil }
-	setup 	toml.Doc //= unsafe { nil }
+	setup 	toml.Doc
 }
 
-// struct Ident {
-// 	ast.Ident
-// mut:
-// 	typ			ast.Type
-// 	len			int
-// 	is_free		bool
-// }
-
 pub fn (mut gen Gen) gen(source_path string) string {
+	// gen.temps_cont = 0
+	gen.level_cont = 0
+	gen.definitions = ''
+	gen.includes = ''
 	// gen.pref.is_script = true
 	gen.file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
 	// println('${'='.repeat(50)}\n${gen.file}${'='.repeat(50)}\n')
