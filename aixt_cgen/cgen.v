@@ -92,7 +92,7 @@ fn (mut gen Gen) symbol_table() string {
 	mut msg := ''
 	for key, val in gen.idents {
 		msg += '${val.kind} - ${key} - ${gen.table.type_kind(val.typ)}' + if val.len != 0 { 
-			'[${val.len}]\n' 
+			'[${val.len}] - ${gen.table.type_kind(val.elem_type)}\n' 
 		} else {
 			'\n'
 		}

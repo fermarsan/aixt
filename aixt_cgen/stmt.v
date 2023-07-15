@@ -60,7 +60,8 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 		if node.op == token.Kind.decl_assign { // declaration
 			match var_type {
 				'array' {
-					gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.ArrayInit).exprs.len // array len
+					gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.ArrayInit).exprs.len	// array len
+					gen.idents[gen.ast_node(node.left[i])].elem_type = (node.right[i] as ast.ArrayInit).elem_type	// element type
 					var_type = gen.table.type_kind((node.right[i] as ast.ArrayInit).elem_type).str()
 					// println('${var_type}')
 					out += '${gen.setup.value(var_type).string()} ' // array's element type
