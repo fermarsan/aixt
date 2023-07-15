@@ -141,7 +141,7 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) string {
 		for st in node.stmts {
 			out += gen.ast_node(st)
 		}
-		out = out.replace(gen.ast_node(node.cond), '{gen.ast_node(node.cond)}[_t${gen.level_cont}]') 
+		out = out.replace(node.val_var, '${gen.ast_node(node.cond)}[_t${gen.level_cont}]') 
 	} else { // in a range
 		out += 'for(int ${node.val_var}=${gen.ast_node(node.cond)}; '
 		out += '${node.val_var}<${gen.ast_node(node.high)}; ${node.val_var}++) {\n'
