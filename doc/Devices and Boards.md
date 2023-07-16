@@ -13,21 +13,13 @@
 - **16-bit**
     - **_Explorer 16_**: PIC24FJ128GA010
     - **_Explorer 16_**: dsPIC33FJ256GP710A
-  
+
 ## Atmel (Microchip)
 - **_MH-Tiny_**: ATtiny88 **_soon....._** 
 - **_Arduino nano_**: ATmega328p
 - **_Seeed Studio XIAO SAMD21_**: ATSAMD21G18 **_soon....._**
 
 ## Cypress
-- **PSoC 1**
-    - CY8C27443-24PXI
-    - CY8C29466-24PXI
-    - **_CY3209-ExpressEVK_**: CY8C21434-24LFX  
-    - **_CY3209-ExpressEVK_**: CY8C27643-24LFXI 
-    - **_CY3209-ExpressEVK_**: CY8C24894-24LFXI 
-    - **_CY3209-ExpressEVK_**: CY8C29666-24LFXI 
-    - **_CY8CKIT-001 + (008)_**: CY8C29000-24AXI
 - **PSoC 3**
     - **_CY8CKIT-001 + (009)_**: CY8C38866AXI-040 **_soon....._**
 - **PSoC 4**
@@ -50,7 +42,7 @@
 - **_Blue Pill_**: STM32F103C6
 
 ## LuatOS
-- **_CORE-Air32F103CBT6_**: air32f103 **_soon....._**
+- **_CORE-Air32F103CBT6_**: air32f103
 
 ## Raspberry Pi
 - **_Raspberry Pi Pico_**: RP2040 
