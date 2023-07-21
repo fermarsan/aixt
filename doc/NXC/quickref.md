@@ -104,5 +104,5 @@ Download the _NXT_ software from (https://education.lego.com/en-us/downloads/ret
 ## for Linux
 Install the last version of `libusb-dev` package acording to your distribution. For instance in _Ubuntu_ you can type in a terminal:
 ```
-apt-get install libusb-1.0-0-dev
+apt-get install libusb-dev
 ```
