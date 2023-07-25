@@ -32,7 +32,7 @@ fn main() {
 		dev_setup_path += '/setup.toml'
 
 		setup := toml.parse_file(dev_setup_path) or { return } // load the device's setup file
-		println('${dev_setup_path}')
+		// println('${dev_setup_path}')
 
 		match command {
 			'transpile', '-t' {

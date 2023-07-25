@@ -10,11 +10,10 @@ module aixt_cgen
 import v.ast
 
 fn (mut gen Gen) ast_file(node ast.File) string {
-	println(gen.setup.value('backend').string())
     mut out := '// Aixt project ('
     out += if gen.setup.value('backend').string() == 'nxc' { 'NXC ' }  else { 'C ' }
-    out += 'generated code)\n// Device = ${gen.setup.value('device').string()}'
-	out += '\n// Board = ${gen.setup.value('board').string()}\n\n' 
+    out += 'generated code)\n// Device = ${gen.setup.value('device').string()}\n'
+	out += '// Board = ${gen.setup.value('board').string()}\n// Backend = ${gen.setup.value('backend').string()}\n\n' 
     for h in gen.setup.value('headers').array() {			// append the header files
         out +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
 	}
