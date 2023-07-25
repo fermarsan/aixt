@@ -19,6 +19,9 @@ pub fn transpile_file(path string, setup_file toml.Doc) {
 		file: &ast.File{}
 		table: ast.new_table()
 		out: ''
+		includes: ''
+		definitions: ''
+		level_cont: 0
 		pref: &pref.Preferences{}
 		setup: toml.Doc{}
 	}
