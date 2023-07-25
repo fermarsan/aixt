@@ -14,12 +14,12 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) string { // basic shape of an "if" exp
 	for i, br in node.branches {
 		if i >= 1 {
 			out += 'else '
-			if br.cond.type_name().str() == 'unknown v.ast.Expr' {	//only 'else'
+			if br.cond.type_name().str() == 'unknown v.ast.Expr' { // only 'else'
 				out += '{\n${gen.ast_node(br)}}\n'
 			} else {
-				out += 'if(${gen.ast_node(br.cond)}) {\n${gen.ast_node(br)}}\n'	//'else if'
+				out += 'if(${gen.ast_node(br.cond)}) {\n${gen.ast_node(br)}}\n' //'else if'
 			}
-		} 
+		}
 	}
 	return out
 }
@@ -87,8 +87,8 @@ fn (mut gen Gen) float_literal(node ast.FloatLiteral) string {
 }
 
 fn (mut gen Gen) integer_literal(node ast.IntegerLiteral) string {
-	return if node.str().contains('0o') {	// if it is an octal literal
-		node.val.int().str() 				// turn it into decimal
+	return if node.str().contains('0o') { // if it is an octal literal
+		node.val.int().str() // turn it into decimal
 	} else {
 		node.val
 	}

@@ -15,7 +15,7 @@ cc_linux =      "gcc"
 cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
 cc_flags =      "-o" 
 
-fixed_size_arrays =  true
+fixed_size_arrays =  "true"
 # fixed_size_strings = true
 
 void =  ""

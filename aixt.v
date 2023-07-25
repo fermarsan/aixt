@@ -24,17 +24,15 @@ fn main() {
 		mut base_name := input_name.replace('.aixt', '') // input file base name
 		base_name = base_name.replace('.v', '')
 
-		dev_setup_path := '${aixt_path}/devices/${aixt_pref.device_path(device)}setup.toml'
+		mut dev_setup_path := '${aixt_path}/devices/'
+		dev_setup_path += aixt_pref.device_path(device) or {
+			println(err)
+			return
+		}
+		dev_setup_path += '/setup.toml'
+
 		setup := toml.parse_file(dev_setup_path) or { return } // load the device's setup file
-		// backend := aixt_pref.backend_from_string(setup.value('backend').string()) or { return }	// backend
-
-		// mut vpref := &pref.Preferences{}
-		// vpref.is_script = true // enable script mode
-		// table := ast.new_table()
-
-		// mut parsed := parser.parse_file(path, table, .skip_comments, vpref)
-		// mut checker_ := checker.new_checker(table, vpref)
-		// checker_.check(parsed)
+		println('${dev_setup_path}')
 
 		match command {
 			'transpile', '-t' {
