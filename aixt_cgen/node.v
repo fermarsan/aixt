@@ -92,33 +92,6 @@ fn (mut gen Gen) expr(node ast.Expr) string {
 	}		
 }
 
-fn (mut gen Gen) const_field(node ast.ConstField) string {
-	mut out := ''
-	var_type := gen.setup.value(gen.table.type_kind(node.typ).str())			
-	if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
-		out += if var_type.string() == 'char []' {
-			'const char ${node.name.after('.')}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
-		} else {
-			'const ${var_type.string()} ${node.name.after('.')} = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
-		}								
-	} else {
-		out += if var_type.string() == 'char []' {
-			'const char ${node.name.after('.')}[] = ${gen.ast_node(node.expr)};\n'
-		} else {
-			'const ${var_type.string()} ${node.name.after('.')} = ${gen.ast_node(node.expr)};\n'
-		}
-	}
-	return out
-}
-
-fn (mut gen Gen) if_branch(node ast.IfBranch) string { // statements block of "if" and "else" expressions
-	mut out := ''
-	for st in node.stmts {
-		out += gen.ast_node(st)
-	}
-	return out
-}
-
 fn (mut gen Gen) call_arg(node ast.CallArg) string {	
 	return '${gen.ast_node(node.expr)}'
 }
