@@ -29,7 +29,7 @@ fn (mut gen Gen) for_c_stmt(node ast.ForCStmt) string {
 
 fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) string {
 	mut out := ''
-	if node.high.type_name() == 'v.ast.EmptyExpr' { // in array
+	if node.high.type_name() == 'v.ast.EmptyExpr' { // in an array
 		gen.level_cont++
 		temp_name := '_t${gen.level_cont}'
 		if temp_name !in gen.idents {
