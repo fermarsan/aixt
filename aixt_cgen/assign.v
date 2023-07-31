@@ -34,8 +34,9 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					}
 				}
 				'string' {
+					println(node.right[i])
 					// if gen.setup.value('fixed_size_strings').bool() {
-					gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.StringLiteral).val.len // atring len
+					gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.StringLiteral).val.len // string len
 					out += 'char ${gen.ast_node(node.left[i])}[] = '
 					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
 						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'

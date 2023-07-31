@@ -7,7 +7,7 @@
 // 
 // Copyright (c) 2023 Fernando Martínez Santa
 
-#ifndef#ifndef _OS_H_
+#ifndef _OS_H_
 #define _OS_H_
 
 #include "os/os__input.h"
