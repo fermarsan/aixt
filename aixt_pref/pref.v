@@ -24,7 +24,7 @@ pub fn backend_from_string(s string) !Backend {
 	}
 }
 
-pub fn device_path(device string) string {
+pub fn device_path(device string) !string {
 	paths := {
 		'CH552-Core':			'WCH/CH552-Core-Board/'
 		'Arduino-Nano':			'Atmel/Arduino-nano/'
@@ -47,5 +47,10 @@ pub fn device_path(device string) string {
 		'NXC':					'NXC/'
 		'PC':					'PC/'
 	}
-	return paths[device]
+	if device in paths {
+		return paths[device]
+	} else {
+		return error("Invalid device or board.")
+	}
+	
 }
