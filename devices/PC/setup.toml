@@ -56,4 +56,7 @@ config_operator =   []
 
 configuration = []
 
-initialization =    []
+initialization =    [
+    "CyGlobalInitEnable;",
+    "ADC_1_Start();"
+]
