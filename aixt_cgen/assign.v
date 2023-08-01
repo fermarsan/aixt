@@ -34,6 +34,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					}
 				}
 				'string' {
+					println('===String===')
 					println(node.right[i])
 					// if gen.setup.value('fixed_size_strings').bool() {
 					gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.StringLiteral).val.len // string len
@@ -48,10 +49,12 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					//  }
 				}
 				else {
+					println('===Not String or Array===')
 					out += '${gen.setup.value(var_type).string()} ${gen.ast_node(node.left[i])} = '
 					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
 						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
 					} else {
+						println('${gen.ast_node(node.right[i])}')
 						'${gen.ast_node(node.right[i])};\n'
 					}
 				}
