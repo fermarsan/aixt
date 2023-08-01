@@ -7,20 +7,21 @@
 - **_NXT Intelligent Brick_**: AT91SAM7S256 (ARM7TDMI) "Transpiled to _NXC_ Language"
   
 ## Microchip
-- **8-bit 16F family**
+- **(8-bit 16F family)**
     - PIC16F84A     **_soon....._**
     - PIC16F628A    **_soon....._**
     - PIC16F676     **_soon....._**
     - PIC16F873A    **_soon....._**
     - PIC16F886     **_soon....._**
-- **8-bit 18F family**
+- **(8-bit 18F family)**
     - PIC18F452     **_soon....._**
     - PIC18F2550    **_soon....._** 
-    - **_Explorer 16_**: PIC24FJ128GA010    **_soon....._**
-    - **_Explorer 16_**: dsPIC33FJ256GP710A **_soon....._**
+- **_Explorer 16_**: PIC24FJ128GA010    **_soon....._**
+- **_Explorer 16_**: dsPIC33FJ256GP710A **_soon....._**
 
 ## Atmel (Microchip)
-- **_MH-Tiny_**: ATtiny88 **_soon....._** 
+- **_Digispark Kickstarter_**: ATtiny85 **_soon....._** 
+- **_MH-Tiny_**: ATtiny88 **_soon....._**
 - **_Arduino nano_**: ATmega328p    **_soon....._** 
 - **_Seeed Studio XIAO SAMD21_**: ATSAMD21G18 (Cortex-M0+)  **_soon....._**
 
@@ -60,7 +61,10 @@
 
 ## WCH
 - **_CH552 Core Board_**: CH552 (E8051) **_soon....._**
-- **_CH582F BLE5.3 Core Board_**: CH582F (RV32) **_soon....._**
+- **_CH552 Core Board (WeAct Studio)_**: CH552 (E8051) **_soon....._**
+- **_CH573F Core Board_**: CH573F (RV32) **_soon....._**
+- **_CH582F Core Board_**: CH582F (RV32) **_soon....._**
+- **_CH32V103R8T6-EVT-R1 Evaluation Board_**: CH32V103R8T6 (RV32) **_soon....._**
 - **_CH32V003 Development Board_**: CH32V003F4U6 (RV32) **_soon....._**
 - **_CH32V203 Development Board_**: CH32V203C8T6 (RV32) **_soon....._** 
 - **_CH32V305 Development Board_**: CH32V305RBT6 (RV32) **_soon....._** 
