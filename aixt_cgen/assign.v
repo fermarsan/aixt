@@ -11,10 +11,8 @@ import v.ast
 import v.token
 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
-	// println('${gen.table.type_kind(node.right_types[0]).str()}')
 	mut out := ''
 	for i in 0 .. node.left.len {
-		// println('${node.left[i]} ${node.op} ${node.right[i]}')
 		gen.idents[node.left[i].str()] = struct { // add the new symbol
 			kind: ast.IdentKind.variable
 			typ: node.right_types[i]
@@ -35,11 +33,9 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					}
 				}
 				'string' {
-					println('===String===')
-					// println(node.right[i])
 					// if gen.setup.value('fixed_size_strings').bool() {
-					println('${node.left[i].str()}')
 					gen.idents[node.left[i].str()].len = (node.right[i] as ast.StringLiteral).val.len // string len
+					gen.idents[node.left[i].str()].elem_type = ast.rune_type_idx // element type
 					out += 'char ${gen.ast_node(node.left[i])}[] = '
 					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
 						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
@@ -51,12 +47,10 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					//  }
 				}
 				else {
-					// println('===Not String or Array===')
 					out += '${gen.setup.value(var_type).string()} ${gen.ast_node(node.left[i])} = '
 					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
 						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
 					} else {
-						// println('${gen.ast_node(node.right[i])}')
 						'${gen.ast_node(node.right[i])};\n'
 					}
 				}
@@ -64,6 +58,6 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 		} else { // for the rest of assignments
 			out += '${gen.ast_node(node.left[i])} ${node.op} ${gen.ast_node(node.right[i])};\n'
 		}
-	}
+	} 
 	return out
 }

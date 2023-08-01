@@ -47,7 +47,6 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// println('${'='.repeat(50)}\n${gen.file}${'='.repeat(50)}\n')
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut gen.file)
-	// println('${gen.table}')
 	// gen.table.cur_fn.scope.children[0].objets['_i'] = 0
 	// println('${gen.table.cur_fn.scope.children[0]}')
 	// println('a' in gen.table.cur_fn.scope.children[0].objects)

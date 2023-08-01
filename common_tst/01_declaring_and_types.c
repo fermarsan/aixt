@@ -16,5 +16,7 @@ int main() {
 	float m = 1e6;
 	bool flag_1 = true;
 	bool flag_2 = false;
+	char str_1[] = "char string";
+	char c_1 = 'X';
 	return 0;
 }
