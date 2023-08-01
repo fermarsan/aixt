@@ -4,7 +4,7 @@
 - **_x64-based PCs_**: x64
 
 ## LEGO Mindstorms NXT
-- **_NXT Intelligent Brick_**: AT91SAM7S256 (Transpiled to _NXC_ Language)
+- **_NXT Intelligent Brick_**: AT91SAM7S256 (ARM7TDMI) "Transpiled to _NXC_ Language"
   
 ## Microchip
 - **8-bit 16F family**
@@ -22,7 +22,7 @@
 ## Atmel (Microchip)
 - **_MH-Tiny_**: ATtiny88 **_soon....._** 
 - **_Arduino nano_**: ATmega328p    **_soon....._** 
-- **_Seeed Studio XIAO SAMD21_**: ATSAMD21G18 **_soon....._**
+- **_Seeed Studio XIAO SAMD21_**: ATSAMD21G18 (Cortex-M0+)  **_soon....._**
 
 ## Cypress
 - **PSoC 3**
@@ -37,16 +37,16 @@
 
 ## Espressif
 - **ESP8266**
-    - **_NodeMCU V3 Lua_**: ESP8266 **_soon....._**
+    - **_NodeMCU V3 Lua_**: ESP8266 (LX106) **_soon....._**
 - **ESP32**
-    - **_ESP32 DEVKITV1_**: ESP32   **_soon....._**
-    - **_D1 R32_**: ESP32   **_soon....._**
-    - **_CORE-ESP32_**: ESP32-C3 **_soon....._**
-    - **_ESP32-C3FH4 Core Board_**: ESP32-C3 **_soon....._**
+    - **_ESP32 DEVKITV1_**: ESP32 (LX6) **_soon....._**
+    - **_D1 R32_**: ESP32 (LX6) **_soon....._**
+    - **_CORE-ESP32_**: ESP32-C3 (RV32) **_soon....._**
+    - **_ESP32-C3FH4 Core Board_**: ESP32-C3 (RV32) **_soon....._**
 
 ## ST
-- **_Blue Pill_**: STM32F103C6  **_soon....._**
-- **_STM32G431CBU6 Core Board_**: STM32G431CBU6  **_soon....._**
+- **_Blue Pill_**: STM32F103C6 (Cortex-M3) **_soon....._**
+- **_STM32G431CBU6 Core Board_**: STM32G431CBU6 (Cortex-M4F) **_soon....._**
 
 ## LuatOS
 - **_CORE-Air32F103CBT6_**: air32f103   **_soon....._**
@@ -59,15 +59,15 @@
 - **_Raspberry Pi Pico W_**: RP2040 **_soon....._**
 
 ## WCH
-- **_CH552 Core Board_**: CH552 **_soon....._**
-- **_CH582F BLE5.3 Core Board_**: CH582F **_soon....._**
-- **_CH32V003 Development Board_**: CH32V003F4U6 **_soon....._**
-- **_CH32V203 Development Board_**: CH32V203C8T6 **_soon....._** 
-- **_CH32V305 Development Board_**: CH32V305RBT6 **_soon....._** 
+- **_CH552 Core Board_**: CH552 (E8051) **_soon....._**
+- **_CH582F BLE5.3 Core Board_**: CH582F (RV32) **_soon....._**
+- **_CH32V003 Development Board_**: CH32V003F4U6 (RV32) **_soon....._**
+- **_CH32V203 Development Board_**: CH32V203C8T6 (RV32) **_soon....._** 
+- **_CH32V305 Development Board_**: CH32V305RBT6 (RV32) **_soon....._** 
 
 ## WinnerMicro
 - **_HLK-W801-KIT-V1.1_**: W801-C400 **_soon....._**
 
 ## Sipeed
-- **_Sipeed M0sense_**: BL702 **_soon....._**
+- **_Sipeed M0sense_**: BL702 (RV32) **_soon....._**
   
