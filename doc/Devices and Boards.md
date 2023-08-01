@@ -50,14 +50,14 @@
 - **_STM32G431CBU6 Core Board_**: STM32G431CBU6 (Cortex-M4F) **_soon....._**
 
 ## LuatOS
-- **_CORE-Air32F103CBT6_**: air32f103   **_soon....._**
+- **_CORE-Air32F103CBT6_**: air32f103  (Cortex-M3) **_soon....._**
 
 ## Artery
-- **_Black Pill_**: AT32F403ACGU7  **_soon....._**
+- **_Black Pill_**: AT32F403ACGU7 (Cortex-M4) **_soon....._**
 
 ## Raspberry Pi
-- **_Raspberry Pi Pico_**: RP2040   **_soon....._**
-- **_Raspberry Pi Pico W_**: RP2040 **_soon....._**
+- **_Raspberry Pi Pico_**: RP2040 (Dual Cortex-M0+) **_soon....._**
+- **_Raspberry Pi Pico W_**: RP2040 (Dual Cortex-M0+) **_soon....._**
 
 ## WCH
 - **_CH552 Core Board_**: CH552 (E8051) **_soon....._**
