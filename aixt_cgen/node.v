@@ -71,6 +71,7 @@ fn (mut gen Gen) expr(node ast.Expr) string {
 			return gen.array_init(node)
 		}
 		ast.Ident {
+			// println('---1---')
 			return gen.ident(node)
 		}
 		ast.StringLiteral {

@@ -14,7 +14,8 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	// println('${gen.table.type_kind(node.right_types[0]).str()}')
 	mut out := ''
 	for i in 0 .. node.left.len {
-		gen.idents[gen.ast_node(node.left[i])] = struct { // add the new symbol
+		// println('${node.left[i]} ${node.op} ${node.right[i]}')
+		gen.idents[node.left[i].str()] = struct { // add the new symbol
 			kind: ast.IdentKind.variable
 			typ: node.right_types[i]
 		}
@@ -23,8 +24,8 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 			match var_type {
 				'array' {
 					if gen.setup.value('fixed_size_arrays').bool() {
-						gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.ArrayInit).exprs.len // array len
-						gen.idents[gen.ast_node(node.left[i])].elem_type = (node.right[i] as ast.ArrayInit).elem_type // element type
+						gen.idents[node.left[i].str()].len = (node.right[i] as ast.ArrayInit).exprs.len // array len
+						gen.idents[node.left[i].str()].elem_type = (node.right[i] as ast.ArrayInit).elem_type // element type
 						var_type = gen.table.type_kind((node.right[i] as ast.ArrayInit).elem_type).str()
 						out += '${gen.setup.value(var_type).string()} ' // array's element type
 						out += '${gen.ast_node(node.left[i])}[${(node.right[i] as ast.ArrayInit).exprs.len}] = '
@@ -35,9 +36,10 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 				}
 				'string' {
 					println('===String===')
-					println(node.right[i])
+					// println(node.right[i])
 					// if gen.setup.value('fixed_size_strings').bool() {
-					gen.idents[gen.ast_node(node.left[i])].len = (node.right[i] as ast.StringLiteral).val.len // string len
+					println('${node.left[i].str()}')
+					gen.idents[node.left[i].str()].len = (node.right[i] as ast.StringLiteral).val.len // string len
 					out += 'char ${gen.ast_node(node.left[i])}[] = '
 					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
 						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
@@ -49,12 +51,12 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					//  }
 				}
 				else {
-					println('===Not String or Array===')
+					// println('===Not String or Array===')
 					out += '${gen.setup.value(var_type).string()} ${gen.ast_node(node.left[i])} = '
 					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
 						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
 					} else {
-						println('${gen.ast_node(node.right[i])}')
+						// println('${gen.ast_node(node.right[i])}')
 						'${gen.ast_node(node.right[i])};\n'
 					}
 				}
