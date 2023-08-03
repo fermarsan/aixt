@@ -12,12 +12,20 @@ import v.token
 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut out := ''
+	// mut left := ''
+	// mut right := ''
 	for i in 0 .. node.left.len {
 		gen.idents[node.left[i].str()] = struct { // add the new symbol
 			kind: ast.IdentKind.variable
-			typ: node.right_types[i]
+			// typ: node.right_types[i]
 		}
-		mut var_type := gen.table.type_kind(node.right_types[i]).str()
+		gen.idents[node.left[i].str()].typ = match node.right_types[i] {
+			ast.int_literal_type_idx { ast.int_type_idx }
+			ast.float_literal_type_idx { ast.f32_type_idx }
+			else { node.right_types[i] }	
+		}
+		mut var_type := gen.table.type_kind(gen.idents[node.left[i].str()].typ).str()
+		println(var_type)
 		if node.op == token.Kind.decl_assign { // declaration
 			match var_type {
 				'array' {
@@ -39,7 +47,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					out += 'char ${gen.ast_node(node.left[i])}[] = '
 					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
 						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
-					} else {
+					} else { 
 						'${gen.ast_node(node.right[i])};\n'
 					}
 					//  } else {
