@@ -25,7 +25,6 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 			else { node.right_types[i] }	
 		}
 		mut var_type := gen.table.type_kind(gen.idents[node.left[i].str()].typ).str()
-		println(var_type)
 		if node.op == token.Kind.decl_assign { // declaration
 			match var_type {
 				'array' {

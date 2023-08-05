@@ -1,7 +1,8 @@
 // arithmetic and logical operations
 
 fn main() {
-	counter := i16(0)
+	a := 5
+	counter := i16(1)
 	delta := i16(1)
 
 	counter = 10
