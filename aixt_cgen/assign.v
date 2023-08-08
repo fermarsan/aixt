@@ -11,10 +11,9 @@ import v.ast
 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut out := ''
-	mut var_name := ''
 	mut var_type := ''
 	for i in 0 .. node.left.len {
-		var_name = '${gen.current_fn}.${node.left[i].str()}'
+		var_name := '${gen.current_fn}.${node.left[i].str()}'
 		if node.op.str() == ':=' { // declaration-assignment
 			gen.idents[var_name] = struct { // add the new symbol
 				kind: ast.IdentKind.variable

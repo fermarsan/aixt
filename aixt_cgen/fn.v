@@ -35,6 +35,11 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 			for pr in node.params {
 				out += '${gen.ast_node(pr)}, '
 				println(pr.name)
+				var_name := '${gen.current_fn}.${pr.name}'
+				gen.idents[var_name] = struct { // add the new symbol
+					kind: ast.IdentKind.variable
+					typ:  pr.typ	
+				}
 			}
 			out = out#[..-2] + ') {\n'
 		} else {
