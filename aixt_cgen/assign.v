@@ -13,7 +13,6 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut out := ''
 	mut var_type := ''
 	for i in 0 .. node.left.len {
-		// println('${var_type}')
 		if node.op.str() == ':=' { // declaration-assignment
 			gen.idents[node.left[i].str()] = struct { // add the new symbol
 				kind: ast.IdentKind.variable
@@ -53,28 +52,36 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 				}
 			}
 		} else { // for the rest of assignments
-			if node.left[i].str() in gen.idents {	// if previously defined
-				var_type = gen.table.type_kind(gen.idents[node.left[i].str()].typ).str()
-				match var_type {
-					'array' {
-						if gen.setup.value('fixed_size_arrays').bool() {
-							println('\n***** Transpiler error: *****\n\tfor now dynamic-size arrays are not allowed.')
-							out += '\n***** Transpiler error *****\n'
-						}
-					}
-					'string' {
-						if gen.setup.value('fixed_size_strings').bool() {
-							println('\n***** Transpiler error: *****\n\tfor now dynamic-size strings are not allowed.')
-							out += '\n***** Transpiler error *****\n'
-						}
-					}
-					else {
-						out += '${gen.ast_node(node.left[i])} ${node.op} ${gen.ast_node(node.right[i])};\n'
+			match node.left[i] {
+				ast.Ident {	// if it is a simple variable
+					if node.left[i].str() in gen.idents {	// if previously defined
+						var_type = gen.table.type_kind(gen.idents[node.left[i].str()].typ).str()
+						println('${var_type}')
+						match var_type {
+							'array' {
+								if gen.setup.value('fixed_size_arrays').bool() {
+									println('\n***** Transpiler error *****:\nfor now dynamic-size arrays are not allowed.')
+									out += '\n***** Transpiler error *****\n\n'
+								}
+							}
+							'string' {
+								if gen.setup.value('fixed_size_strings').bool() {
+									println('\n***** Transpiler error *****:\nfor now dynamic-size strings are not allowed.')
+									out += '\n***** Transpiler error *****\n\n'
+								}
+							}
+							else {
+								out += '${gen.ast_node(node.left[i])} ${node.op} ${gen.ast_node(node.right[i])};\n'
+							}
+						} 
+					} else {
+						println('\n***** Transpiler error *****:\nundefined variable ${node.left}')
+						out += '\n***** Transpiler error *****\n\n'
 					}
 				} 
-			} else {
-				println('Transpiler error: undefined variable ${node.left}')
-				out += 'ERROR\n'
+				else {
+					out += '${gen.ast_node(node.left[i])} ${node.op} ${gen.ast_node(node.right[i])};\n'
+				}
 			}
 		}
 	} 
