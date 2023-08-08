@@ -15,17 +15,18 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	// mut left := ''
 	// mut right := ''
 	for i in 0 .. node.left.len {
-		gen.idents[node.left[i].str()] = struct { // add the new symbol
-			kind: ast.IdentKind.variable
-			// typ: node.right_types[i]
-		}
-		gen.idents[node.left[i].str()].typ = match node.right_types[i] {
-			ast.int_literal_type_idx { ast.int_type_idx }
-			ast.float_literal_type_idx { ast.f32_type_idx }
-			else { node.right_types[i] }	
-		}
-		mut var_type := gen.table.type_kind(gen.idents[node.left[i].str()].typ).str()
 		if node.op == token.Kind.decl_assign { // declaration
+			gen.idents[node.left[i].str()] = struct { // add the new symbol
+				kind: ast.IdentKind.variable
+				// typ: node.right_types[i]
+			}
+			gen.idents[node.left[i].str()].typ = match node.right_types[i] {
+				ast.int_literal_type_idx { ast.int_type_idx }
+				ast.float_literal_type_idx { ast.f32_type_idx }
+				else { node.right_types[i] }	
+			}
+			mut var_type := gen.table.type_kind(gen.idents[node.left[i].str()].typ).str()
+			// println('${var_tpe}')
 			match var_type {
 				'array' {
 					if gen.setup.value('fixed_size_arrays').bool() {
