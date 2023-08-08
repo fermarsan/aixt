@@ -21,3 +21,11 @@ fn (mut gen Gen) return_stmt(node ast.Return) string {
 fn (mut gen Gen) branch_stmt(node ast.BranchStmt) string {
 	return '${node.str()};\n'
 }
+
+fn (mut gen Gen) const_decl(node ast.ConstDecl) string {
+	mut out := ''
+	for f in node.fields {
+		out += '${gen.ast_node(f)};\n'
+	}
+	return out
+}

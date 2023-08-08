@@ -22,6 +22,7 @@ mut:
 	out   		string
 	includes	string
 	definitions	string
+	current_fn	string
 	idents		map[string] struct {
 	mut:
 		kind    	ast.IdentKind	

@@ -12,6 +12,12 @@ import v.ast
 fn (mut gen Gen) stmt(node ast.Stmt) string {
 	println('${node.type_name().after('v.ast.')}:\t\t${node}')
 	match node {
+		ast.Module {
+			return ''
+		}
+		ast.ConstDecl {
+			return gen.const_decl(node)
+		}
 		ast.FnDecl {
 			return gen.fn_decl(node)
 		}

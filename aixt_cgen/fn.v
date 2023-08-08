@@ -13,6 +13,7 @@ import v.ast
 fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 	mut out := ''
 	if node.is_main {
+		gen.current_fn = 'main'
 		out += if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
 		out += '${gen.setup.value('main_ret_type').string()} '
 		out += 'main(${gen.setup.value('main_params').string()}) {\n'
@@ -24,6 +25,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		out += if gen.setup.value('main_ret_type').string() == 'int' { 'return 0;\n}' } else { '}' }
 		out = if out[0] == ` ` { out[1..] } else { out }
 	} else {
+		gen.current_fn = node.name
 		for a in node.attrs {
 			out += '${a.name} '
 		}
@@ -31,8 +33,8 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		out += '${node.name.after('.')}('
 		if node.params.len != 0 {
 			for pr in node.params {
-				println(pr.name)
 				out += '${gen.ast_node(pr)}, '
+				println(pr.name)
 			}
 			out = out#[..-2] + ') {\n'
 		} else {
