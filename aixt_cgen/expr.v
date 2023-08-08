@@ -57,7 +57,7 @@ fn (mut gen Gen) array_init(node ast.ArrayInit) string {
 
 fn (mut gen Gen) ident(node ast.Ident) string {
 	// println('${node.name}-${node.scope.parent}')
-	return node.name
+	return node.name.after('.')
 }
 
 fn (mut gen Gen) string_literal(node ast.StringLiteral) string {

@@ -16,7 +16,7 @@ fn (mut gen Gen) const_field(node ast.ConstField) string {
 		typ: node.typ
 	}
 	mut var_type := gen.table.type_kind(gen.idents[node.name].typ).str()
-	println(var_type)
+	// println(var_type)
 	if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
 		out += if gen.setup.value(var_type).string() == 'char []' {
 			'const char ${node.name.after('.')}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'

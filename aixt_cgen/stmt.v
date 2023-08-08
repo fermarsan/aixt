@@ -25,7 +25,7 @@ fn (mut gen Gen) branch_stmt(node ast.BranchStmt) string {
 fn (mut gen Gen) const_decl(node ast.ConstDecl) string {
 	mut out := ''
 	for f in node.fields {
-		out += '${gen.ast_node(f)};\n'
+		out += '${gen.ast_node(f)}'
 	}
 	return out
 }
