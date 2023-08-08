@@ -4,10 +4,11 @@
 
 __global (
 	x = int(3)
-	y = int(4)
+	y  int
 )
 
 mut a := 1
+y = 5
 
 a = x + y + a
 

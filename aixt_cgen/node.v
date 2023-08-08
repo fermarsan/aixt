@@ -98,6 +98,9 @@ fn (mut gen Gen) expr(node ast.Expr) string {
 		ast.BoolLiteral {
 			return gen.bool_literal(node)
 		}
+		ast.EmptyExpr {
+			return ''
+		}
 		else { panic('\n\n***** Transpiler error *****:\nUndefined expression.\n') }
 	}		
 }
