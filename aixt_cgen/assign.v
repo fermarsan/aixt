@@ -60,14 +60,12 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 						match var_type {
 							'array' {
 								if gen.setup.value('fixed_size_arrays').bool() {
-									println('\n***** Transpiler error *****:\nfor now dynamic-size arrays are not allowed.')
-									out += '\n***** Transpiler error *****\n\n'
+									panic('\n\n***** Transpiler error *****:\nfor now dynamic-size arrays are not allowed.\n')
 								}
 							}
 							'string' {
 								if gen.setup.value('fixed_size_strings').bool() {
-									println('\n***** Transpiler error *****:\nfor now dynamic-size strings are not allowed.')
-									out += '\n***** Transpiler error *****\n\n'
+									panic('\n\n***** Transpiler error *****:\nfor now dynamic-size strings are not allowed.\n')
 								}
 							}
 							else {
@@ -75,8 +73,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 							}
 						} 
 					} else {
-						println('\n***** Transpiler error *****:\nundefined variable ${node.left}')
-						out += '\n***** Transpiler error *****\n\n'
+						panic('\n\n***** Transpiler error *****:\nundefined variable "${node.left[i]}".\n')
 					}
 				} 
 				else {
