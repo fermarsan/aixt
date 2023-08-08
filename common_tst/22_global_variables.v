@@ -3,10 +3,11 @@
    using the reserved word "__global" */
 
 __global (
-	x, y := 12, 45
+	x = int(3)
+	y = int(4)
 )
 
-a := 0
+mut a := 1
 
-a = x + y
+a = x + y + a
 

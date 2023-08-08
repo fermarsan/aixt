@@ -29,3 +29,11 @@ fn (mut gen Gen) const_decl(node ast.ConstDecl) string {
 	}
 	return out
 }
+
+fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
+	mut out := ''
+	for f in node.fields {
+		out += '${gen.ast_node(f)}'
+	}
+	return out
+}

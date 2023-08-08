@@ -27,6 +27,7 @@ pub fn transpile_file(path string, setup_file toml.Doc) {
 	}
 
 	c_gen.pref.is_script = true
+	c_gen.pref.enable_globals = true
 	c_gen.setup = setup_file
 
 	transpiled := c_gen.gen(path) // transpile Aixt (V) to C

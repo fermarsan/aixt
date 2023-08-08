@@ -11,7 +11,7 @@ module aixt_cgen
 import v.ast
 
 fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
-	mut out := ''
+	mut out := '\n'
 	if node.is_main {
 		gen.current_fn = 'main'
 		out += if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }

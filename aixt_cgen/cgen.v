@@ -22,7 +22,7 @@ mut:
 	out   		string
 	includes	string
 	definitions	string
-	current_fn	string
+	current_fn	string = 'global'
 	idents		map[string] struct {
 	mut:
 		kind    	ast.IdentKind	
@@ -73,7 +73,10 @@ fn (mut gen Gen) ast_node(node ast.Node) string {
 		ast.ConstField {
 			return gen.const_field(node)
 		}
-		ast.IfBranch { // statements block of "if" and "else" expressions
+		ast.GlobalField {
+			return gen.global_field(node)
+		}
+		ast.IfBranch { // statement block of "if" and "else" expressions
 			return gen.if_branch(node)
 		}
 		ast.CallArg {
