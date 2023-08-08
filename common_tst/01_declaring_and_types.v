@@ -10,3 +10,4 @@ flag_1, flag_2 := true, false		// boolean literals
 str_1, c_1 := 'char string', `X`	// strings and chars(runes)
 
 // str_1 = 'another string'
+// b = 23
