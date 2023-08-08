@@ -50,7 +50,7 @@ pub fn device_path(device string) !string {
 	if device in paths {
 		return paths[device]
 	} else {
-		return error("Invalid device or board.")
+		return error("Invalid device or board ${device}.")
 	}
 	
 }
