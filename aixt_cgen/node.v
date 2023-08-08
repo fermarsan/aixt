@@ -36,7 +36,7 @@ fn (mut gen Gen) stmt(node ast.Stmt) string {
 		ast.ForInStmt {
 			return gen.for_in_stmt(node)
 		}
-		else { return '' }//'Error: Not defined statement.\n' }
+		else { panic('\n\n***** Transpiler error *****:\nUndefined statement.\n') }
 	}
 }
 
@@ -89,7 +89,7 @@ fn (mut gen Gen) expr(node ast.Expr) string {
 		ast.BoolLiteral {
 			return gen.bool_literal(node)
 		}
-		else { return '' }//'Error: Not defined expression.\n' }
+		else { panic('\n\n***** Transpiler error *****:\nUndefined expression.\n') }
 	}		
 }
 

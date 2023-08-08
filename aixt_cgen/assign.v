@@ -56,16 +56,15 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 				ast.Ident {	// if it is a simple variable
 					if node.left[i].str() in gen.idents {	// if previously defined
 						var_type = gen.table.type_kind(gen.idents[node.left[i].str()].typ).str()
-						println('${var_type}')
 						match var_type {
 							'array' {
 								if gen.setup.value('fixed_size_arrays').bool() {
-									panic('\n\n***** Transpiler error *****:\nfor now dynamic-size arrays are not allowed.\n')
+									panic('\n\n***** Transpiler error *****:\nFor now dynamic-size arrays are not allowed.\n')
 								}
 							}
 							'string' {
 								if gen.setup.value('fixed_size_strings').bool() {
-									panic('\n\n***** Transpiler error *****:\nfor now dynamic-size strings are not allowed.\n')
+									panic('\n\n***** Transpiler error *****:\nFor now dynamic-size strings are not allowed.\n')
 								}
 							}
 							else {
@@ -73,7 +72,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 							}
 						} 
 					} else {
-						panic('\n\n***** Transpiler error *****:\nundefined variable "${node.left[i]}".\n')
+						panic('\n\n***** Transpiler error *****:\nUndefined variable "${node.left[i]}".\n')
 					}
 				} 
 				else {
