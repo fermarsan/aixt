@@ -1,5 +1,5 @@
 /***************************************************************************//**
-* \file UART_UART_BOOT.c
+* \file uart_UART_BOOT.c
 * \version 4.0
 *
 * \brief
@@ -16,54 +16,54 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "UART_BOOT.h"
-#include "UART_SPI_UART.h"
+#include "uart_BOOT.h"
+#include "uart_SPI_UART.h"
 
-#if defined(CYDEV_BOOTLOADER_IO_COMP) && (UART_UART_BTLDR_COMM_ENABLED)
+#if defined(CYDEV_BOOTLOADER_IO_COMP) && (uart_UART_BTLDR_COMM_ENABLED)
 
 /*******************************************************************************
-* Function Name: UART_UartCyBtldrCommStart
+* Function Name: uart_UartCyBtldrCommStart
 ****************************************************************************//**
 *
 *  Starts the UART component.
 *
 *******************************************************************************/
-void UART_UartCyBtldrCommStart(void)
+void uart_UartCyBtldrCommStart(void)
 {
-    UART_Start();
+    uart_Start();
 }
 
 
 /*******************************************************************************
-* Function Name: UART_UartCyBtldrCommStop
+* Function Name: uart_UartCyBtldrCommStop
 ****************************************************************************//**
 *
 *  Disables the UART component.
 *
 *******************************************************************************/
-void UART_UartCyBtldrCommStop(void)
+void uart_UartCyBtldrCommStop(void)
 {
-    UART_Stop();
+    uart_Stop();
 }
 
 
 /*******************************************************************************
-* Function Name: UART_UartCyBtldrCommReset
+* Function Name: uart_UartCyBtldrCommReset
 ****************************************************************************//**
 *
 *  Resets the receive and transmit communication buffers.
 *
 *******************************************************************************/
-void UART_UartCyBtldrCommReset(void)
+void uart_UartCyBtldrCommReset(void)
 {
     /* Clear RX and TX buffers */
-    UART_SpiUartClearRxBuffer();
-    UART_SpiUartClearTxBuffer();
+    uart_SpiUartClearRxBuffer();
+    uart_SpiUartClearTxBuffer();
 }
 
 
 /*******************************************************************************
-* Function Name: UART_UartCyBtldrCommRead
+* Function Name: uart_UartCyBtldrCommRead
 ****************************************************************************//**
 *
 *  Allows the caller to read data from the bootloader host (the host writes the
@@ -84,7 +84,7 @@ void UART_UartCyBtldrCommReset(void)
 *   "Return Codes" section of the System Reference Guide.
 *
 *******************************************************************************/
-cystatus UART_UartCyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, uint8 timeOut)
+cystatus uart_UartCyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, uint8 timeOut)
 {
     cystatus status;
     uint32 byteCount;
@@ -103,24 +103,24 @@ cystatus UART_UartCyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, ui
         do
         {
             /* Check packet start */
-            if (0u != UART_SpiUartGetRxBufferSize())
+            if (0u != uart_SpiUartGetRxBufferSize())
             {
                 /* Wait for end of packet */
                 do
                 {
-                    byteCount = UART_SpiUartGetRxBufferSize();
-                    CyDelayUs(UART_UART_BYTE_TO_BYTE);
+                    byteCount = uart_SpiUartGetRxBufferSize();
+                    CyDelayUs(uart_UART_BYTE_TO_BYTE);
                 }
-                while (byteCount != UART_SpiUartGetRxBufferSize());
+                while (byteCount != uart_SpiUartGetRxBufferSize());
 
-                byteCount = UART_BYTES_TO_COPY(byteCount, size);
+                byteCount = uart_BYTES_TO_COPY(byteCount, size);
                 *count = (uint16) byteCount;
                 status = CYRET_SUCCESS;
 
                 break;
             }
 
-            CyDelay(UART_WAIT_1_MS);
+            CyDelay(uart_WAIT_1_MS);
             --timeoutMs;
         }
         while (0u != timeoutMs);
@@ -128,7 +128,7 @@ cystatus UART_UartCyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, ui
         /* Get data from RX buffer into bootloader buffer */
         for (i = 0u; i < byteCount; ++i)
         {
-            pData[i] = (uint8) UART_SpiUartReadRxData();
+            pData[i] = (uint8) uart_SpiUartReadRxData();
         }
     }
 
@@ -137,7 +137,7 @@ cystatus UART_UartCyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, ui
 
 
 /*******************************************************************************
-* Function Name: UART_UartCyBtldrCommWrite
+* Function Name: uart_UartCyBtldrCommWrite
 ****************************************************************************//**
 *
 *  Allows the caller to write data to the bootloader host (the host reads the
@@ -160,7 +160,7 @@ cystatus UART_UartCyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, ui
 *   "Return Codes" section of the System Reference Guide.
 *
 *******************************************************************************/
-cystatus UART_UartCyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 * count, uint8 timeOut)
+cystatus uart_UartCyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 * count, uint8 timeOut)
 {
     cystatus status;
 
@@ -169,7 +169,7 @@ cystatus UART_UartCyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 * co
     if ((NULL != pData) && (size > 0u))
     {
         /* Transmit data. This function does not wait until data is sent. */
-        UART_SpiUartPutArray(pData, (uint32) size);
+        uart_SpiUartPutArray(pData, (uint32) size);
 
         *count = size;
         status = CYRET_SUCCESS;
@@ -183,7 +183,7 @@ cystatus UART_UartCyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 * co
     return (status);
 }
 
-#endif /* defined(CYDEV_BOOTLOADER_IO_COMP) && (UART_UART_BTLDR_COMM_ENABLED) */
+#endif /* defined(CYDEV_BOOTLOADER_IO_COMP) && (uart_UART_BTLDR_COMM_ENABLED) */
 
 
 /* [] END OF FILE */

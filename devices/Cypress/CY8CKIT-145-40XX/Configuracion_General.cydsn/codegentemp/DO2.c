@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: DO2.c  
+* File Name: do2.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "DO2.h"
+#include "do2.h"
 
 
-#if defined(DO2__PC)
-    #define DO2_SetP4PinDriveMode(shift, mode)  \
+#if defined(do2__PC)
+    #define do2_SetP4PinDriveMode(shift, mode)  \
     do { \
-        DO2_PC =   (DO2_PC & \
-                                (uint32)(~(uint32)(DO2_DRIVE_MODE_IND_MASK << \
-                                (DO2_DRIVE_MODE_BITS * (shift))))) | \
+        do2_PC =   (do2_PC & \
+                                (uint32)(~(uint32)(do2_DRIVE_MODE_IND_MASK << \
+                                (do2_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (DO2_DRIVE_MODE_BITS * (shift))); \
+                                (do2_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define DO2_SetP4PinDriveMode(shift, mode)  \
+        #define do2_SetP4PinDriveMode(shift, mode)  \
         do { \
-            DO2_USBIO_CTRL_REG = (DO2_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(DO2_DRIVE_MODE_IND_MASK << \
-                                    (DO2_DRIVE_MODE_BITS * (shift))))) | \
+            do2_USBIO_CTRL_REG = (do2_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(do2_DRIVE_MODE_IND_MASK << \
+                                    (do2_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (DO2_DRIVE_MODE_BITS * (shift))); \
+                                    (do2_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(DO2__PC) || (CY_PSOC4_4200L) 
+#if defined(do2__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: DO2_SetDriveMode
+    * Function Name: do2_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet DO2_SUT.c usage_DO2_SetDriveMode
+    *  \snippet do2_SUT.c usage_do2_SetDriveMode
     *******************************************************************************/
-    void DO2_SetDriveMode(uint8 mode)
+    void do2_SetDriveMode(uint8 mode)
     {
-		DO2_SetP4PinDriveMode(DO2__0__SHIFT, mode);
+		do2_SetP4PinDriveMode(do2__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: DO2_Write
+* Function Name: do2_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet DO2_SUT.c usage_DO2_Write
+*  \snippet do2_SUT.c usage_do2_Write
 *******************************************************************************/
-void DO2_Write(uint8 value)
+void do2_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(DO2_DR & (uint8)(~DO2_MASK));
-    drVal = (drVal | ((uint8)(value << DO2_SHIFT) & DO2_MASK));
-    DO2_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(do2_DR & (uint8)(~do2_MASK));
+    drVal = (drVal | ((uint8)(value << do2_SHIFT) & do2_MASK));
+    do2_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: DO2_Read
+* Function Name: do2_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void DO2_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet DO2_SUT.c usage_DO2_Read  
+*  \snippet do2_SUT.c usage_do2_Read  
 *******************************************************************************/
-uint8 DO2_Read(void)
+uint8 do2_Read(void)
 {
-    return (uint8)((DO2_PS & DO2_MASK) >> DO2_SHIFT);
+    return (uint8)((do2_PS & do2_MASK) >> do2_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: DO2_ReadDataReg
+* Function Name: do2_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 DO2_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred DO2_Read() API because the 
-* DO2_ReadDataReg() reads the data register instead of the status 
+* preferred do2_Read() API because the 
+* do2_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 DO2_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet DO2_SUT.c usage_DO2_ReadDataReg 
+*  \snippet do2_SUT.c usage_do2_ReadDataReg 
 *******************************************************************************/
-uint8 DO2_ReadDataReg(void)
+uint8 do2_ReadDataReg(void)
 {
-    return (uint8)((DO2_DR & DO2_MASK) >> DO2_SHIFT);
+    return (uint8)((do2_DR & do2_MASK) >> do2_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: DO2_SetInterruptMode
+* Function Name: do2_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 DO2_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use DO2_INTR_ALL to configure the
+*  component. Or you may use do2_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - DO2_0_INTR       (First pin in the list)
-*  - DO2_1_INTR       (Second pin in the list)
+*  - do2_0_INTR       (First pin in the list)
+*  - do2_1_INTR       (Second pin in the list)
 *  - ...
-*  - DO2_INTR_ALL     (All pins in Pins component)
+*  - do2_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 DO2_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet DO2_SUT.c usage_DO2_SetInterruptMode
+*  \snippet do2_SUT.c usage_do2_SetInterruptMode
 *******************************************************************************/
-void DO2_SetInterruptMode(uint16 position, uint16 mode)
+void do2_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  DO2_INTCFG & (uint32)(~(uint32)position);
-    DO2_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  do2_INTCFG & (uint32)(~(uint32)position);
+    do2_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: DO2_ClearInterrupt
+* Function Name: do2_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void DO2_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet DO2_SUT.c usage_DO2_ClearInterrupt
+*  \snippet do2_SUT.c usage_do2_ClearInterrupt
 *******************************************************************************/
-uint8 DO2_ClearInterrupt(void)
+uint8 do2_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(DO2_INTSTAT & DO2_MASK);
-	DO2_INTSTAT = maskedStatus;
-    return maskedStatus >> DO2_SHIFT;
+	uint8 maskedStatus = (uint8)(do2_INTSTAT & do2_MASK);
+	do2_INTSTAT = maskedStatus;
+    return maskedStatus >> do2_SHIFT;
 }
 
 

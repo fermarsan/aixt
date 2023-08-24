@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: DI1.c  
+* File Name: di1.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "DI1.h"
+#include "di1.h"
 
 
-#if defined(DI1__PC)
-    #define DI1_SetP4PinDriveMode(shift, mode)  \
+#if defined(di1__PC)
+    #define di1_SetP4PinDriveMode(shift, mode)  \
     do { \
-        DI1_PC =   (DI1_PC & \
-                                (uint32)(~(uint32)(DI1_DRIVE_MODE_IND_MASK << \
-                                (DI1_DRIVE_MODE_BITS * (shift))))) | \
+        di1_PC =   (di1_PC & \
+                                (uint32)(~(uint32)(di1_DRIVE_MODE_IND_MASK << \
+                                (di1_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (DI1_DRIVE_MODE_BITS * (shift))); \
+                                (di1_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define DI1_SetP4PinDriveMode(shift, mode)  \
+        #define di1_SetP4PinDriveMode(shift, mode)  \
         do { \
-            DI1_USBIO_CTRL_REG = (DI1_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(DI1_DRIVE_MODE_IND_MASK << \
-                                    (DI1_DRIVE_MODE_BITS * (shift))))) | \
+            di1_USBIO_CTRL_REG = (di1_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(di1_DRIVE_MODE_IND_MASK << \
+                                    (di1_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (DI1_DRIVE_MODE_BITS * (shift))); \
+                                    (di1_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(DI1__PC) || (CY_PSOC4_4200L) 
+#if defined(di1__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: DI1_SetDriveMode
+    * Function Name: di1_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet DI1_SUT.c usage_DI1_SetDriveMode
+    *  \snippet di1_SUT.c usage_di1_SetDriveMode
     *******************************************************************************/
-    void DI1_SetDriveMode(uint8 mode)
+    void di1_SetDriveMode(uint8 mode)
     {
-		DI1_SetP4PinDriveMode(DI1__0__SHIFT, mode);
+		di1_SetP4PinDriveMode(di1__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: DI1_Write
+* Function Name: di1_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet DI1_SUT.c usage_DI1_Write
+*  \snippet di1_SUT.c usage_di1_Write
 *******************************************************************************/
-void DI1_Write(uint8 value)
+void di1_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(DI1_DR & (uint8)(~DI1_MASK));
-    drVal = (drVal | ((uint8)(value << DI1_SHIFT) & DI1_MASK));
-    DI1_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(di1_DR & (uint8)(~di1_MASK));
+    drVal = (drVal | ((uint8)(value << di1_SHIFT) & di1_MASK));
+    di1_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: DI1_Read
+* Function Name: di1_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void DI1_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet DI1_SUT.c usage_DI1_Read  
+*  \snippet di1_SUT.c usage_di1_Read  
 *******************************************************************************/
-uint8 DI1_Read(void)
+uint8 di1_Read(void)
 {
-    return (uint8)((DI1_PS & DI1_MASK) >> DI1_SHIFT);
+    return (uint8)((di1_PS & di1_MASK) >> di1_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: DI1_ReadDataReg
+* Function Name: di1_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 DI1_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred DI1_Read() API because the 
-* DI1_ReadDataReg() reads the data register instead of the status 
+* preferred di1_Read() API because the 
+* di1_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 DI1_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet DI1_SUT.c usage_DI1_ReadDataReg 
+*  \snippet di1_SUT.c usage_di1_ReadDataReg 
 *******************************************************************************/
-uint8 DI1_ReadDataReg(void)
+uint8 di1_ReadDataReg(void)
 {
-    return (uint8)((DI1_DR & DI1_MASK) >> DI1_SHIFT);
+    return (uint8)((di1_DR & di1_MASK) >> di1_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: DI1_SetInterruptMode
+* Function Name: di1_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 DI1_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use DI1_INTR_ALL to configure the
+*  component. Or you may use di1_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - DI1_0_INTR       (First pin in the list)
-*  - DI1_1_INTR       (Second pin in the list)
+*  - di1_0_INTR       (First pin in the list)
+*  - di1_1_INTR       (Second pin in the list)
 *  - ...
-*  - DI1_INTR_ALL     (All pins in Pins component)
+*  - di1_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 DI1_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet DI1_SUT.c usage_DI1_SetInterruptMode
+*  \snippet di1_SUT.c usage_di1_SetInterruptMode
 *******************************************************************************/
-void DI1_SetInterruptMode(uint16 position, uint16 mode)
+void di1_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  DI1_INTCFG & (uint32)(~(uint32)position);
-    DI1_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  di1_INTCFG & (uint32)(~(uint32)position);
+    di1_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: DI1_ClearInterrupt
+* Function Name: di1_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void DI1_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet DI1_SUT.c usage_DI1_ClearInterrupt
+*  \snippet di1_SUT.c usage_di1_ClearInterrupt
 *******************************************************************************/
-uint8 DI1_ClearInterrupt(void)
+uint8 di1_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(DI1_INTSTAT & DI1_MASK);
-	DI1_INTSTAT = maskedStatus;
-    return maskedStatus >> DI1_SHIFT;
+	uint8 maskedStatus = (uint8)(di1_INTSTAT & di1_MASK);
+	di1_INTSTAT = maskedStatus;
+    return maskedStatus >> di1_SHIFT;
 }
 
 

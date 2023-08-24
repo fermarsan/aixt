@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED4.h  
+* File Name: led4.h  
 * Version 2.20
 *
 * Description:
@@ -12,12 +12,12 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_LED4_H) /* Pins LED4_H */
-#define CY_PINS_LED4_H
+#if !defined(CY_PINS_led4_H) /* Pins led4_H */
+#define CY_PINS_led4_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
-#include "LED4_aliases.h"
+#include "led4_aliases.h"
 
 
 /***************************************
@@ -35,7 +35,7 @@ typedef struct
     uint32 pcState; /**< State of the port control register */
     uint32 sioState; /**< State of the SIO configuration */
     uint32 usbState; /**< State of the USBIO regulator */
-} LED4_BACKUP_STRUCT;
+} led4_BACKUP_STRUCT;
 
 /** @} structures */
 
@@ -47,89 +47,89 @@ typedef struct
 * \addtogroup group_general
 * @{
 */
-uint8   LED4_Read(void);
-void    LED4_Write(uint8 value);
-uint8   LED4_ReadDataReg(void);
-#if defined(LED4__PC) || (CY_PSOC4_4200L) 
-    void    LED4_SetDriveMode(uint8 mode);
+uint8   led4_Read(void);
+void    led4_Write(uint8 value);
+uint8   led4_ReadDataReg(void);
+#if defined(led4__PC) || (CY_PSOC4_4200L) 
+    void    led4_SetDriveMode(uint8 mode);
 #endif
-void    LED4_SetInterruptMode(uint16 position, uint16 mode);
-uint8   LED4_ClearInterrupt(void);
+void    led4_SetInterruptMode(uint16 position, uint16 mode);
+uint8   led4_ClearInterrupt(void);
 /** @} general */
 
 /**
 * \addtogroup group_power
 * @{
 */
-void LED4_Sleep(void); 
-void LED4_Wakeup(void);
+void led4_Sleep(void); 
+void led4_Wakeup(void);
 /** @} power */
 
 
 /***************************************
 *           API Constants        
 ***************************************/
-#if defined(LED4__PC) || (CY_PSOC4_4200L) 
+#if defined(led4__PC) || (CY_PSOC4_4200L) 
     /* Drive Modes */
-    #define LED4_DRIVE_MODE_BITS        (3)
-    #define LED4_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - LED4_DRIVE_MODE_BITS))
+    #define led4_DRIVE_MODE_BITS        (3)
+    #define led4_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - led4_DRIVE_MODE_BITS))
 
     /**
     * \addtogroup group_constants
     * @{
     */
         /** \addtogroup driveMode Drive mode constants
-         * \brief Constants to be passed as "mode" parameter in the LED4_SetDriveMode() function.
+         * \brief Constants to be passed as "mode" parameter in the led4_SetDriveMode() function.
          *  @{
          */
-        #define LED4_DM_ALG_HIZ         (0x00u) /**< \brief High Impedance Analog   */
-        #define LED4_DM_DIG_HIZ         (0x01u) /**< \brief High Impedance Digital  */
-        #define LED4_DM_RES_UP          (0x02u) /**< \brief Resistive Pull Up       */
-        #define LED4_DM_RES_DWN         (0x03u) /**< \brief Resistive Pull Down     */
-        #define LED4_DM_OD_LO           (0x04u) /**< \brief Open Drain, Drives Low  */
-        #define LED4_DM_OD_HI           (0x05u) /**< \brief Open Drain, Drives High */
-        #define LED4_DM_STRONG          (0x06u) /**< \brief Strong Drive            */
-        #define LED4_DM_RES_UPDWN       (0x07u) /**< \brief Resistive Pull Up/Down  */
+        #define led4_DM_ALG_HIZ         (0x00u) /**< \brief High Impedance Analog   */
+        #define led4_DM_DIG_HIZ         (0x01u) /**< \brief High Impedance Digital  */
+        #define led4_DM_RES_UP          (0x02u) /**< \brief Resistive Pull Up       */
+        #define led4_DM_RES_DWN         (0x03u) /**< \brief Resistive Pull Down     */
+        #define led4_DM_OD_LO           (0x04u) /**< \brief Open Drain, Drives Low  */
+        #define led4_DM_OD_HI           (0x05u) /**< \brief Open Drain, Drives High */
+        #define led4_DM_STRONG          (0x06u) /**< \brief Strong Drive            */
+        #define led4_DM_RES_UPDWN       (0x07u) /**< \brief Resistive Pull Up/Down  */
         /** @} driveMode */
     /** @} group_constants */
 #endif
 
 /* Digital Port Constants */
-#define LED4_MASK               LED4__MASK
-#define LED4_SHIFT              LED4__SHIFT
-#define LED4_WIDTH              1u
+#define led4_MASK               led4__MASK
+#define led4_SHIFT              led4__SHIFT
+#define led4_WIDTH              1u
 
 /**
 * \addtogroup group_constants
 * @{
 */
     /** \addtogroup intrMode Interrupt constants
-     * \brief Constants to be passed as "mode" parameter in LED4_SetInterruptMode() function.
+     * \brief Constants to be passed as "mode" parameter in led4_SetInterruptMode() function.
      *  @{
      */
-        #define LED4_INTR_NONE      ((uint16)(0x0000u)) /**< \brief Disabled             */
-        #define LED4_INTR_RISING    ((uint16)(0x5555u)) /**< \brief Rising edge trigger  */
-        #define LED4_INTR_FALLING   ((uint16)(0xaaaau)) /**< \brief Falling edge trigger */
-        #define LED4_INTR_BOTH      ((uint16)(0xffffu)) /**< \brief Both edge trigger    */
+        #define led4_INTR_NONE      ((uint16)(0x0000u)) /**< \brief Disabled             */
+        #define led4_INTR_RISING    ((uint16)(0x5555u)) /**< \brief Rising edge trigger  */
+        #define led4_INTR_FALLING   ((uint16)(0xaaaau)) /**< \brief Falling edge trigger */
+        #define led4_INTR_BOTH      ((uint16)(0xffffu)) /**< \brief Both edge trigger    */
     /** @} intrMode */
 /** @} group_constants */
 
 /* SIO LPM definition */
-#if defined(LED4__SIO)
-    #define LED4_SIO_LPM_MASK       (0x03u)
+#if defined(led4__SIO)
+    #define led4_SIO_LPM_MASK       (0x03u)
 #endif
 
 /* USBIO definitions */
-#if !defined(LED4__PC) && (CY_PSOC4_4200L)
-    #define LED4_USBIO_ENABLE               ((uint32)0x80000000u)
-    #define LED4_USBIO_DISABLE              ((uint32)(~LED4_USBIO_ENABLE))
-    #define LED4_USBIO_SUSPEND_SHIFT        CYFLD_USBDEVv2_USB_SUSPEND__OFFSET
-    #define LED4_USBIO_SUSPEND_DEL_SHIFT    CYFLD_USBDEVv2_USB_SUSPEND_DEL__OFFSET
-    #define LED4_USBIO_ENTER_SLEEP          ((uint32)((1u << LED4_USBIO_SUSPEND_SHIFT) \
-                                                        | (1u << LED4_USBIO_SUSPEND_DEL_SHIFT)))
-    #define LED4_USBIO_EXIT_SLEEP_PH1       ((uint32)~((uint32)(1u << LED4_USBIO_SUSPEND_SHIFT)))
-    #define LED4_USBIO_EXIT_SLEEP_PH2       ((uint32)~((uint32)(1u << LED4_USBIO_SUSPEND_DEL_SHIFT)))
-    #define LED4_USBIO_CR1_OFF              ((uint32)0xfffffffeu)
+#if !defined(led4__PC) && (CY_PSOC4_4200L)
+    #define led4_USBIO_ENABLE               ((uint32)0x80000000u)
+    #define led4_USBIO_DISABLE              ((uint32)(~led4_USBIO_ENABLE))
+    #define led4_USBIO_SUSPEND_SHIFT        CYFLD_USBDEVv2_USB_SUSPEND__OFFSET
+    #define led4_USBIO_SUSPEND_DEL_SHIFT    CYFLD_USBDEVv2_USB_SUSPEND_DEL__OFFSET
+    #define led4_USBIO_ENTER_SLEEP          ((uint32)((1u << led4_USBIO_SUSPEND_SHIFT) \
+                                                        | (1u << led4_USBIO_SUSPEND_DEL_SHIFT)))
+    #define led4_USBIO_EXIT_SLEEP_PH1       ((uint32)~((uint32)(1u << led4_USBIO_SUSPEND_SHIFT)))
+    #define led4_USBIO_EXIT_SLEEP_PH2       ((uint32)~((uint32)(1u << led4_USBIO_SUSPEND_DEL_SHIFT)))
+    #define led4_USBIO_CR1_OFF              ((uint32)0xfffffffeu)
 #endif
 
 
@@ -137,36 +137,36 @@ void LED4_Wakeup(void);
 *             Registers        
 ***************************************/
 /* Main Port Registers */
-#if defined(LED4__PC)
+#if defined(led4__PC)
     /* Port Configuration */
-    #define LED4_PC                 (* (reg32 *) LED4__PC)
+    #define led4_PC                 (* (reg32 *) led4__PC)
 #endif
 /* Pin State */
-#define LED4_PS                     (* (reg32 *) LED4__PS)
+#define led4_PS                     (* (reg32 *) led4__PS)
 /* Data Register */
-#define LED4_DR                     (* (reg32 *) LED4__DR)
+#define led4_DR                     (* (reg32 *) led4__DR)
 /* Input Buffer Disable Override */
-#define LED4_INP_DIS                (* (reg32 *) LED4__PC2)
+#define led4_INP_DIS                (* (reg32 *) led4__PC2)
 
 /* Interrupt configuration Registers */
-#define LED4_INTCFG                 (* (reg32 *) LED4__INTCFG)
-#define LED4_INTSTAT                (* (reg32 *) LED4__INTSTAT)
+#define led4_INTCFG                 (* (reg32 *) led4__INTCFG)
+#define led4_INTSTAT                (* (reg32 *) led4__INTSTAT)
 
 /* "Interrupt cause" register for Combined Port Interrupt (AllPortInt) in GSRef component */
 #if defined (CYREG_GPIO_INTR_CAUSE)
-    #define LED4_INTR_CAUSE         (* (reg32 *) CYREG_GPIO_INTR_CAUSE)
+    #define led4_INTR_CAUSE         (* (reg32 *) CYREG_GPIO_INTR_CAUSE)
 #endif
 
 /* SIO register */
-#if defined(LED4__SIO)
-    #define LED4_SIO_REG            (* (reg32 *) LED4__SIO)
-#endif /* (LED4__SIO_CFG) */
+#if defined(led4__SIO)
+    #define led4_SIO_REG            (* (reg32 *) led4__SIO)
+#endif /* (led4__SIO_CFG) */
 
 /* USBIO registers */
-#if !defined(LED4__PC) && (CY_PSOC4_4200L)
-    #define LED4_USB_POWER_REG       (* (reg32 *) CYREG_USBDEVv2_USB_POWER_CTRL)
-    #define LED4_CR1_REG             (* (reg32 *) CYREG_USBDEVv2_CR1)
-    #define LED4_USBIO_CTRL_REG      (* (reg32 *) CYREG_USBDEVv2_USB_USBIO_CTRL)
+#if !defined(led4__PC) && (CY_PSOC4_4200L)
+    #define led4_USB_POWER_REG       (* (reg32 *) CYREG_USBDEVv2_USB_POWER_CTRL)
+    #define led4_CR1_REG             (* (reg32 *) CYREG_USBDEVv2_CR1)
+    #define led4_USBIO_CTRL_REG      (* (reg32 *) CYREG_USBDEVv2_USB_USBIO_CTRL)
 #endif    
     
     
@@ -178,11 +178,11 @@ void LED4_Wakeup(void);
 * \addtogroup group_deprecated
 * @{
 */
-#define LED4_DRIVE_MODE_SHIFT       (0x00u)
-#define LED4_DRIVE_MODE_MASK        (0x07u << LED4_DRIVE_MODE_SHIFT)
+#define led4_DRIVE_MODE_SHIFT       (0x00u)
+#define led4_DRIVE_MODE_MASK        (0x07u << led4_DRIVE_MODE_SHIFT)
 /** @} deprecated */
 
-#endif /* End Pins LED4_H */
+#endif /* End Pins led4_H */
 
 
 /* [] END OF FILE */

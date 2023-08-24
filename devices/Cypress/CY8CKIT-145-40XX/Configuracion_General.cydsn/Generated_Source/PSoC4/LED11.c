@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED11.c  
+* File Name: led11.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "LED11.h"
+#include "led11.h"
 
 
-#if defined(LED11__PC)
-    #define LED11_SetP4PinDriveMode(shift, mode)  \
+#if defined(led11__PC)
+    #define led11_SetP4PinDriveMode(shift, mode)  \
     do { \
-        LED11_PC =   (LED11_PC & \
-                                (uint32)(~(uint32)(LED11_DRIVE_MODE_IND_MASK << \
-                                (LED11_DRIVE_MODE_BITS * (shift))))) | \
+        led11_PC =   (led11_PC & \
+                                (uint32)(~(uint32)(led11_DRIVE_MODE_IND_MASK << \
+                                (led11_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (LED11_DRIVE_MODE_BITS * (shift))); \
+                                (led11_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define LED11_SetP4PinDriveMode(shift, mode)  \
+        #define led11_SetP4PinDriveMode(shift, mode)  \
         do { \
-            LED11_USBIO_CTRL_REG = (LED11_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(LED11_DRIVE_MODE_IND_MASK << \
-                                    (LED11_DRIVE_MODE_BITS * (shift))))) | \
+            led11_USBIO_CTRL_REG = (led11_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(led11_DRIVE_MODE_IND_MASK << \
+                                    (led11_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (LED11_DRIVE_MODE_BITS * (shift))); \
+                                    (led11_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(LED11__PC) || (CY_PSOC4_4200L) 
+#if defined(led11__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: LED11_SetDriveMode
+    * Function Name: led11_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet LED11_SUT.c usage_LED11_SetDriveMode
+    *  \snippet led11_SUT.c usage_led11_SetDriveMode
     *******************************************************************************/
-    void LED11_SetDriveMode(uint8 mode)
+    void led11_SetDriveMode(uint8 mode)
     {
-		LED11_SetP4PinDriveMode(LED11__0__SHIFT, mode);
+		led11_SetP4PinDriveMode(led11__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: LED11_Write
+* Function Name: led11_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet LED11_SUT.c usage_LED11_Write
+*  \snippet led11_SUT.c usage_led11_Write
 *******************************************************************************/
-void LED11_Write(uint8 value)
+void led11_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(LED11_DR & (uint8)(~LED11_MASK));
-    drVal = (drVal | ((uint8)(value << LED11_SHIFT) & LED11_MASK));
-    LED11_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(led11_DR & (uint8)(~led11_MASK));
+    drVal = (drVal | ((uint8)(value << led11_SHIFT) & led11_MASK));
+    led11_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: LED11_Read
+* Function Name: led11_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void LED11_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet LED11_SUT.c usage_LED11_Read  
+*  \snippet led11_SUT.c usage_led11_Read  
 *******************************************************************************/
-uint8 LED11_Read(void)
+uint8 led11_Read(void)
 {
-    return (uint8)((LED11_PS & LED11_MASK) >> LED11_SHIFT);
+    return (uint8)((led11_PS & led11_MASK) >> led11_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED11_ReadDataReg
+* Function Name: led11_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 LED11_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred LED11_Read() API because the 
-* LED11_ReadDataReg() reads the data register instead of the status 
+* preferred led11_Read() API because the 
+* led11_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 LED11_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet LED11_SUT.c usage_LED11_ReadDataReg 
+*  \snippet led11_SUT.c usage_led11_ReadDataReg 
 *******************************************************************************/
-uint8 LED11_ReadDataReg(void)
+uint8 led11_ReadDataReg(void)
 {
-    return (uint8)((LED11_DR & LED11_MASK) >> LED11_SHIFT);
+    return (uint8)((led11_DR & led11_MASK) >> led11_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED11_SetInterruptMode
+* Function Name: led11_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 LED11_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use LED11_INTR_ALL to configure the
+*  component. Or you may use led11_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - LED11_0_INTR       (First pin in the list)
-*  - LED11_1_INTR       (Second pin in the list)
+*  - led11_0_INTR       (First pin in the list)
+*  - led11_1_INTR       (Second pin in the list)
 *  - ...
-*  - LED11_INTR_ALL     (All pins in Pins component)
+*  - led11_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 LED11_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet LED11_SUT.c usage_LED11_SetInterruptMode
+*  \snippet led11_SUT.c usage_led11_SetInterruptMode
 *******************************************************************************/
-void LED11_SetInterruptMode(uint16 position, uint16 mode)
+void led11_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  LED11_INTCFG & (uint32)(~(uint32)position);
-    LED11_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  led11_INTCFG & (uint32)(~(uint32)position);
+    led11_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: LED11_ClearInterrupt
+* Function Name: led11_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void LED11_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet LED11_SUT.c usage_LED11_ClearInterrupt
+*  \snippet led11_SUT.c usage_led11_ClearInterrupt
 *******************************************************************************/
-uint8 LED11_ClearInterrupt(void)
+uint8 led11_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(LED11_INTSTAT & LED11_MASK);
-	LED11_INTSTAT = maskedStatus;
-    return maskedStatus >> LED11_SHIFT;
+	uint8 maskedStatus = (uint8)(led11_INTSTAT & led11_MASK);
+	led11_INTSTAT = maskedStatus;
+    return maskedStatus >> led11_SHIFT;
 }
 
 

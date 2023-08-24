@@ -1,5 +1,5 @@
 /***************************************************************************//**
-* \file UART_PM.c
+* \file uart_PM.c
 * \version 4.0
 *
 * \brief
@@ -16,33 +16,33 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "UART.h"
-#include "UART_PVT.h"
+#include "uart.h"
+#include "uart_PVT.h"
 
-#if(UART_SCB_MODE_I2C_INC)
-    #include "UART_I2C_PVT.h"
-#endif /* (UART_SCB_MODE_I2C_INC) */
+#if(uart_SCB_MODE_I2C_INC)
+    #include "uart_I2C_PVT.h"
+#endif /* (uart_SCB_MODE_I2C_INC) */
 
-#if(UART_SCB_MODE_EZI2C_INC)
-    #include "UART_EZI2C_PVT.h"
-#endif /* (UART_SCB_MODE_EZI2C_INC) */
+#if(uart_SCB_MODE_EZI2C_INC)
+    #include "uart_EZI2C_PVT.h"
+#endif /* (uart_SCB_MODE_EZI2C_INC) */
 
-#if(UART_SCB_MODE_SPI_INC || UART_SCB_MODE_UART_INC)
-    #include "UART_SPI_UART_PVT.h"
-#endif /* (UART_SCB_MODE_SPI_INC || UART_SCB_MODE_UART_INC) */
+#if(uart_SCB_MODE_SPI_INC || uart_SCB_MODE_UART_INC)
+    #include "uart_SPI_UART_PVT.h"
+#endif /* (uart_SCB_MODE_SPI_INC || uart_SCB_MODE_UART_INC) */
 
 
 /***************************************
 *   Backup Structure declaration
 ***************************************/
 
-#if(UART_SCB_MODE_UNCONFIG_CONST_CFG || \
-   (UART_SCB_MODE_I2C_CONST_CFG   && (!UART_I2C_WAKE_ENABLE_CONST))   || \
-   (UART_SCB_MODE_EZI2C_CONST_CFG && (!UART_EZI2C_WAKE_ENABLE_CONST)) || \
-   (UART_SCB_MODE_SPI_CONST_CFG   && (!UART_SPI_WAKE_ENABLE_CONST))   || \
-   (UART_SCB_MODE_UART_CONST_CFG  && (!UART_UART_WAKE_ENABLE_CONST)))
+#if(uart_SCB_MODE_UNCONFIG_CONST_CFG || \
+   (uart_SCB_MODE_I2C_CONST_CFG   && (!uart_I2C_WAKE_ENABLE_CONST))   || \
+   (uart_SCB_MODE_EZI2C_CONST_CFG && (!uart_EZI2C_WAKE_ENABLE_CONST)) || \
+   (uart_SCB_MODE_SPI_CONST_CFG   && (!uart_SPI_WAKE_ENABLE_CONST))   || \
+   (uart_SCB_MODE_UART_CONST_CFG  && (!uart_UART_WAKE_ENABLE_CONST)))
 
-    UART_BACKUP_STRUCT UART_backup =
+    uart_BACKUP_STRUCT uart_backup =
     {
         0u, /* enableState */
     };
@@ -50,10 +50,10 @@
 
 
 /*******************************************************************************
-* Function Name: UART_Sleep
+* Function Name: uart_Sleep
 ****************************************************************************//**
 *
-*  Prepares the UART component to enter Deep Sleep.
+*  Prepares the uart component to enter Deep Sleep.
 *  The “Enable wakeup from Deep Sleep Mode” selection has an influence on this 
 *  function implementation:
 *  - Checked: configures the component to be wakeup source from Deep Sleep.
@@ -61,7 +61,7 @@
 *    disables the component. See SCB_Stop() function for details about component 
 *    disabling.
 *
-*  Call the UART_Sleep() function before calling the 
+*  Call the uart_Sleep() function before calling the 
 *  CyPmSysDeepSleep() function. 
 *  Refer to the PSoC Creator System Reference Guide for more information about 
 *  power management functions and Low power section of this document for the 
@@ -70,30 +70,30 @@
 *  This function should not be called before entering Sleep.
 *
 *******************************************************************************/
-void UART_Sleep(void)
+void uart_Sleep(void)
 {
-#if(UART_SCB_MODE_UNCONFIG_CONST_CFG)
+#if(uart_SCB_MODE_UNCONFIG_CONST_CFG)
 
-    if(UART_SCB_WAKE_ENABLE_CHECK)
+    if(uart_SCB_WAKE_ENABLE_CHECK)
     {
-        if(UART_SCB_MODE_I2C_RUNTM_CFG)
+        if(uart_SCB_MODE_I2C_RUNTM_CFG)
         {
-            UART_I2CSaveConfig();
+            uart_I2CSaveConfig();
         }
-        else if(UART_SCB_MODE_EZI2C_RUNTM_CFG)
+        else if(uart_SCB_MODE_EZI2C_RUNTM_CFG)
         {
-            UART_EzI2CSaveConfig();
+            uart_EzI2CSaveConfig();
         }
-    #if(!UART_CY_SCBIP_V1)
-        else if(UART_SCB_MODE_SPI_RUNTM_CFG)
+    #if(!uart_CY_SCBIP_V1)
+        else if(uart_SCB_MODE_SPI_RUNTM_CFG)
         {
-            UART_SpiSaveConfig();
+            uart_SpiSaveConfig();
         }
-        else if(UART_SCB_MODE_UART_RUNTM_CFG)
+        else if(uart_SCB_MODE_UART_RUNTM_CFG)
         {
-            UART_UartSaveConfig();
+            uart_UartSaveConfig();
         }
-    #endif /* (!UART_CY_SCBIP_V1) */
+    #endif /* (!uart_CY_SCBIP_V1) */
         else
         {
             /* Unknown mode */
@@ -101,48 +101,48 @@ void UART_Sleep(void)
     }
     else
     {
-        UART_backup.enableState = (uint8) UART_GET_CTRL_ENABLED;
+        uart_backup.enableState = (uint8) uart_GET_CTRL_ENABLED;
 
-        if(0u != UART_backup.enableState)
+        if(0u != uart_backup.enableState)
         {
-            UART_Stop();
+            uart_Stop();
         }
     }
 
 #else
 
-    #if (UART_SCB_MODE_I2C_CONST_CFG && UART_I2C_WAKE_ENABLE_CONST)
-        UART_I2CSaveConfig();
+    #if (uart_SCB_MODE_I2C_CONST_CFG && uart_I2C_WAKE_ENABLE_CONST)
+        uart_I2CSaveConfig();
 
-    #elif (UART_SCB_MODE_EZI2C_CONST_CFG && UART_EZI2C_WAKE_ENABLE_CONST)
-        UART_EzI2CSaveConfig();
+    #elif (uart_SCB_MODE_EZI2C_CONST_CFG && uart_EZI2C_WAKE_ENABLE_CONST)
+        uart_EzI2CSaveConfig();
 
-    #elif (UART_SCB_MODE_SPI_CONST_CFG && UART_SPI_WAKE_ENABLE_CONST)
-        UART_SpiSaveConfig();
+    #elif (uart_SCB_MODE_SPI_CONST_CFG && uart_SPI_WAKE_ENABLE_CONST)
+        uart_SpiSaveConfig();
 
-    #elif (UART_SCB_MODE_UART_CONST_CFG && UART_UART_WAKE_ENABLE_CONST)
-        UART_UartSaveConfig();
+    #elif (uart_SCB_MODE_UART_CONST_CFG && uart_UART_WAKE_ENABLE_CONST)
+        uart_UartSaveConfig();
 
     #else
 
-        UART_backup.enableState = (uint8) UART_GET_CTRL_ENABLED;
+        uart_backup.enableState = (uint8) uart_GET_CTRL_ENABLED;
 
-        if(0u != UART_backup.enableState)
+        if(0u != uart_backup.enableState)
         {
-            UART_Stop();
+            uart_Stop();
         }
 
-    #endif /* defined (UART_SCB_MODE_I2C_CONST_CFG) && (UART_I2C_WAKE_ENABLE_CONST) */
+    #endif /* defined (uart_SCB_MODE_I2C_CONST_CFG) && (uart_I2C_WAKE_ENABLE_CONST) */
 
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 }
 
 
 /*******************************************************************************
-* Function Name: UART_Wakeup
+* Function Name: uart_Wakeup
 ****************************************************************************//**
 *
-*  Prepares the UART component for Active mode operation after 
+*  Prepares the uart component for Active mode operation after 
 *  Deep Sleep.
 *  The “Enable wakeup from Deep Sleep Mode” selection has influence on this 
 *  function implementation:
@@ -152,34 +152,34 @@ void UART_Sleep(void)
 *  This function should not be called after exiting Sleep.
 *
 *  \sideeffect
-*   Calling the UART_Wakeup() function without first calling the 
-*   UART_Sleep() function may produce unexpected behavior.
+*   Calling the uart_Wakeup() function without first calling the 
+*   uart_Sleep() function may produce unexpected behavior.
 *
 *******************************************************************************/
-void UART_Wakeup(void)
+void uart_Wakeup(void)
 {
-#if(UART_SCB_MODE_UNCONFIG_CONST_CFG)
+#if(uart_SCB_MODE_UNCONFIG_CONST_CFG)
 
-    if(UART_SCB_WAKE_ENABLE_CHECK)
+    if(uart_SCB_WAKE_ENABLE_CHECK)
     {
-        if(UART_SCB_MODE_I2C_RUNTM_CFG)
+        if(uart_SCB_MODE_I2C_RUNTM_CFG)
         {
-            UART_I2CRestoreConfig();
+            uart_I2CRestoreConfig();
         }
-        else if(UART_SCB_MODE_EZI2C_RUNTM_CFG)
+        else if(uart_SCB_MODE_EZI2C_RUNTM_CFG)
         {
-            UART_EzI2CRestoreConfig();
+            uart_EzI2CRestoreConfig();
         }
-    #if(!UART_CY_SCBIP_V1)
-        else if(UART_SCB_MODE_SPI_RUNTM_CFG)
+    #if(!uart_CY_SCBIP_V1)
+        else if(uart_SCB_MODE_SPI_RUNTM_CFG)
         {
-            UART_SpiRestoreConfig();
+            uart_SpiRestoreConfig();
         }
-        else if(UART_SCB_MODE_UART_RUNTM_CFG)
+        else if(uart_SCB_MODE_UART_RUNTM_CFG)
         {
-            UART_UartRestoreConfig();
+            uart_UartRestoreConfig();
         }
-    #endif /* (!UART_CY_SCBIP_V1) */
+    #endif /* (!uart_CY_SCBIP_V1) */
         else
         {
             /* Unknown mode */
@@ -187,36 +187,36 @@ void UART_Wakeup(void)
     }
     else
     {
-        if(0u != UART_backup.enableState)
+        if(0u != uart_backup.enableState)
         {
-            UART_Enable();
+            uart_Enable();
         }
     }
 
 #else
 
-    #if (UART_SCB_MODE_I2C_CONST_CFG  && UART_I2C_WAKE_ENABLE_CONST)
-        UART_I2CRestoreConfig();
+    #if (uart_SCB_MODE_I2C_CONST_CFG  && uart_I2C_WAKE_ENABLE_CONST)
+        uart_I2CRestoreConfig();
 
-    #elif (UART_SCB_MODE_EZI2C_CONST_CFG && UART_EZI2C_WAKE_ENABLE_CONST)
-        UART_EzI2CRestoreConfig();
+    #elif (uart_SCB_MODE_EZI2C_CONST_CFG && uart_EZI2C_WAKE_ENABLE_CONST)
+        uart_EzI2CRestoreConfig();
 
-    #elif (UART_SCB_MODE_SPI_CONST_CFG && UART_SPI_WAKE_ENABLE_CONST)
-        UART_SpiRestoreConfig();
+    #elif (uart_SCB_MODE_SPI_CONST_CFG && uart_SPI_WAKE_ENABLE_CONST)
+        uart_SpiRestoreConfig();
 
-    #elif (UART_SCB_MODE_UART_CONST_CFG && UART_UART_WAKE_ENABLE_CONST)
-        UART_UartRestoreConfig();
+    #elif (uart_SCB_MODE_UART_CONST_CFG && uart_UART_WAKE_ENABLE_CONST)
+        uart_UartRestoreConfig();
 
     #else
 
-        if(0u != UART_backup.enableState)
+        if(0u != uart_backup.enableState)
         {
-            UART_Enable();
+            uart_Enable();
         }
 
-    #endif /* (UART_I2C_WAKE_ENABLE_CONST) */
+    #endif /* (uart_I2C_WAKE_ENABLE_CONST) */
 
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 }
 
 

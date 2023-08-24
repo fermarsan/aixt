@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Out_PWM1.c  
+* File Name: out_pwm1.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Out_PWM1.h"
+#include "out_pwm1.h"
 
 
-#if defined(Out_PWM1__PC)
-    #define Out_PWM1_SetP4PinDriveMode(shift, mode)  \
+#if defined(out_pwm1__PC)
+    #define out_pwm1_SetP4PinDriveMode(shift, mode)  \
     do { \
-        Out_PWM1_PC =   (Out_PWM1_PC & \
-                                (uint32)(~(uint32)(Out_PWM1_DRIVE_MODE_IND_MASK << \
-                                (Out_PWM1_DRIVE_MODE_BITS * (shift))))) | \
+        out_pwm1_PC =   (out_pwm1_PC & \
+                                (uint32)(~(uint32)(out_pwm1_DRIVE_MODE_IND_MASK << \
+                                (out_pwm1_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (Out_PWM1_DRIVE_MODE_BITS * (shift))); \
+                                (out_pwm1_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define Out_PWM1_SetP4PinDriveMode(shift, mode)  \
+        #define out_pwm1_SetP4PinDriveMode(shift, mode)  \
         do { \
-            Out_PWM1_USBIO_CTRL_REG = (Out_PWM1_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(Out_PWM1_DRIVE_MODE_IND_MASK << \
-                                    (Out_PWM1_DRIVE_MODE_BITS * (shift))))) | \
+            out_pwm1_USBIO_CTRL_REG = (out_pwm1_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(out_pwm1_DRIVE_MODE_IND_MASK << \
+                                    (out_pwm1_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (Out_PWM1_DRIVE_MODE_BITS * (shift))); \
+                                    (out_pwm1_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(Out_PWM1__PC) || (CY_PSOC4_4200L) 
+#if defined(out_pwm1__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: Out_PWM1_SetDriveMode
+    * Function Name: out_pwm1_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet Out_PWM1_SUT.c usage_Out_PWM1_SetDriveMode
+    *  \snippet out_pwm1_SUT.c usage_out_pwm1_SetDriveMode
     *******************************************************************************/
-    void Out_PWM1_SetDriveMode(uint8 mode)
+    void out_pwm1_SetDriveMode(uint8 mode)
     {
-		Out_PWM1_SetP4PinDriveMode(Out_PWM1__0__SHIFT, mode);
+		out_pwm1_SetP4PinDriveMode(out_pwm1__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: Out_PWM1_Write
+* Function Name: out_pwm1_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Out_PWM1_SUT.c usage_Out_PWM1_Write
+*  \snippet out_pwm1_SUT.c usage_out_pwm1_Write
 *******************************************************************************/
-void Out_PWM1_Write(uint8 value)
+void out_pwm1_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(Out_PWM1_DR & (uint8)(~Out_PWM1_MASK));
-    drVal = (drVal | ((uint8)(value << Out_PWM1_SHIFT) & Out_PWM1_MASK));
-    Out_PWM1_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(out_pwm1_DR & (uint8)(~out_pwm1_MASK));
+    drVal = (drVal | ((uint8)(value << out_pwm1_SHIFT) & out_pwm1_MASK));
+    out_pwm1_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Out_PWM1_Read
+* Function Name: out_pwm1_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void Out_PWM1_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Out_PWM1_SUT.c usage_Out_PWM1_Read  
+*  \snippet out_pwm1_SUT.c usage_out_pwm1_Read  
 *******************************************************************************/
-uint8 Out_PWM1_Read(void)
+uint8 out_pwm1_Read(void)
 {
-    return (uint8)((Out_PWM1_PS & Out_PWM1_MASK) >> Out_PWM1_SHIFT);
+    return (uint8)((out_pwm1_PS & out_pwm1_MASK) >> out_pwm1_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Out_PWM1_ReadDataReg
+* Function Name: out_pwm1_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 Out_PWM1_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Out_PWM1_Read() API because the 
-* Out_PWM1_ReadDataReg() reads the data register instead of the status 
+* preferred out_pwm1_Read() API because the 
+* out_pwm1_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 Out_PWM1_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Out_PWM1_SUT.c usage_Out_PWM1_ReadDataReg 
+*  \snippet out_pwm1_SUT.c usage_out_pwm1_ReadDataReg 
 *******************************************************************************/
-uint8 Out_PWM1_ReadDataReg(void)
+uint8 out_pwm1_ReadDataReg(void)
 {
-    return (uint8)((Out_PWM1_DR & Out_PWM1_MASK) >> Out_PWM1_SHIFT);
+    return (uint8)((out_pwm1_DR & out_pwm1_MASK) >> out_pwm1_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Out_PWM1_SetInterruptMode
+* Function Name: out_pwm1_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 Out_PWM1_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use Out_PWM1_INTR_ALL to configure the
+*  component. Or you may use out_pwm1_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - Out_PWM1_0_INTR       (First pin in the list)
-*  - Out_PWM1_1_INTR       (Second pin in the list)
+*  - out_pwm1_0_INTR       (First pin in the list)
+*  - out_pwm1_1_INTR       (Second pin in the list)
 *  - ...
-*  - Out_PWM1_INTR_ALL     (All pins in Pins component)
+*  - out_pwm1_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 Out_PWM1_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet Out_PWM1_SUT.c usage_Out_PWM1_SetInterruptMode
+*  \snippet out_pwm1_SUT.c usage_out_pwm1_SetInterruptMode
 *******************************************************************************/
-void Out_PWM1_SetInterruptMode(uint16 position, uint16 mode)
+void out_pwm1_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  Out_PWM1_INTCFG & (uint32)(~(uint32)position);
-    Out_PWM1_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  out_pwm1_INTCFG & (uint32)(~(uint32)position);
+    out_pwm1_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Out_PWM1_ClearInterrupt
+* Function Name: out_pwm1_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void Out_PWM1_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet Out_PWM1_SUT.c usage_Out_PWM1_ClearInterrupt
+*  \snippet out_pwm1_SUT.c usage_out_pwm1_ClearInterrupt
 *******************************************************************************/
-uint8 Out_PWM1_ClearInterrupt(void)
+uint8 out_pwm1_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(Out_PWM1_INTSTAT & Out_PWM1_MASK);
-	Out_PWM1_INTSTAT = maskedStatus;
-    return maskedStatus >> Out_PWM1_SHIFT;
+	uint8 maskedStatus = (uint8)(out_pwm1_INTSTAT & out_pwm1_MASK);
+	out_pwm1_INTSTAT = maskedStatus;
+    return maskedStatus >> out_pwm1_SHIFT;
 }
 
 

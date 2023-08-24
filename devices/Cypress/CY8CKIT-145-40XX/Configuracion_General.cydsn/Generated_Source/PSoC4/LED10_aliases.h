@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED10.h  
+* File Name: led10.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_LED10_ALIASES_H) /* Pins LED10_ALIASES_H */
-#define CY_PINS_LED10_ALIASES_H
+#if !defined(CY_PINS_led10_ALIASES_H) /* Pins led10_ALIASES_H */
+#define CY_PINS_led10_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define LED10_0			(LED10__0__PC)
-#define LED10_0_PS		(LED10__0__PS)
-#define LED10_0_PC		(LED10__0__PC)
-#define LED10_0_DR		(LED10__0__DR)
-#define LED10_0_SHIFT	(LED10__0__SHIFT)
-#define LED10_0_INTR	((uint16)((uint16)0x0003u << (LED10__0__SHIFT*2u)))
+#define led10_0			(led10__0__PC)
+#define led10_0_PS		(led10__0__PS)
+#define led10_0_PC		(led10__0__PC)
+#define led10_0_DR		(led10__0__DR)
+#define led10_0_SHIFT	(led10__0__SHIFT)
+#define led10_0_INTR	((uint16)((uint16)0x0003u << (led10__0__SHIFT*2u)))
 
-#define LED10_INTR_ALL	 ((uint16)(LED10_0_INTR))
+#define led10_INTR_ALL	 ((uint16)(led10_0_INTR))
 
 
-#endif /* End Pins LED10_ALIASES_H */
+#endif /* End Pins led10_ALIASES_H */
 
 
 /* [] END OF FILE */

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED7.c  
+* File Name: led7.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "LED7.h"
+#include "led7.h"
 
 
-#if defined(LED7__PC)
-    #define LED7_SetP4PinDriveMode(shift, mode)  \
+#if defined(led7__PC)
+    #define led7_SetP4PinDriveMode(shift, mode)  \
     do { \
-        LED7_PC =   (LED7_PC & \
-                                (uint32)(~(uint32)(LED7_DRIVE_MODE_IND_MASK << \
-                                (LED7_DRIVE_MODE_BITS * (shift))))) | \
+        led7_PC =   (led7_PC & \
+                                (uint32)(~(uint32)(led7_DRIVE_MODE_IND_MASK << \
+                                (led7_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (LED7_DRIVE_MODE_BITS * (shift))); \
+                                (led7_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define LED7_SetP4PinDriveMode(shift, mode)  \
+        #define led7_SetP4PinDriveMode(shift, mode)  \
         do { \
-            LED7_USBIO_CTRL_REG = (LED7_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(LED7_DRIVE_MODE_IND_MASK << \
-                                    (LED7_DRIVE_MODE_BITS * (shift))))) | \
+            led7_USBIO_CTRL_REG = (led7_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(led7_DRIVE_MODE_IND_MASK << \
+                                    (led7_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (LED7_DRIVE_MODE_BITS * (shift))); \
+                                    (led7_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(LED7__PC) || (CY_PSOC4_4200L) 
+#if defined(led7__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: LED7_SetDriveMode
+    * Function Name: led7_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet LED7_SUT.c usage_LED7_SetDriveMode
+    *  \snippet led7_SUT.c usage_led7_SetDriveMode
     *******************************************************************************/
-    void LED7_SetDriveMode(uint8 mode)
+    void led7_SetDriveMode(uint8 mode)
     {
-		LED7_SetP4PinDriveMode(LED7__0__SHIFT, mode);
+		led7_SetP4PinDriveMode(led7__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: LED7_Write
+* Function Name: led7_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet LED7_SUT.c usage_LED7_Write
+*  \snippet led7_SUT.c usage_led7_Write
 *******************************************************************************/
-void LED7_Write(uint8 value)
+void led7_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(LED7_DR & (uint8)(~LED7_MASK));
-    drVal = (drVal | ((uint8)(value << LED7_SHIFT) & LED7_MASK));
-    LED7_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(led7_DR & (uint8)(~led7_MASK));
+    drVal = (drVal | ((uint8)(value << led7_SHIFT) & led7_MASK));
+    led7_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: LED7_Read
+* Function Name: led7_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void LED7_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet LED7_SUT.c usage_LED7_Read  
+*  \snippet led7_SUT.c usage_led7_Read  
 *******************************************************************************/
-uint8 LED7_Read(void)
+uint8 led7_Read(void)
 {
-    return (uint8)((LED7_PS & LED7_MASK) >> LED7_SHIFT);
+    return (uint8)((led7_PS & led7_MASK) >> led7_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED7_ReadDataReg
+* Function Name: led7_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 LED7_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred LED7_Read() API because the 
-* LED7_ReadDataReg() reads the data register instead of the status 
+* preferred led7_Read() API because the 
+* led7_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 LED7_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet LED7_SUT.c usage_LED7_ReadDataReg 
+*  \snippet led7_SUT.c usage_led7_ReadDataReg 
 *******************************************************************************/
-uint8 LED7_ReadDataReg(void)
+uint8 led7_ReadDataReg(void)
 {
-    return (uint8)((LED7_DR & LED7_MASK) >> LED7_SHIFT);
+    return (uint8)((led7_DR & led7_MASK) >> led7_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED7_SetInterruptMode
+* Function Name: led7_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 LED7_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use LED7_INTR_ALL to configure the
+*  component. Or you may use led7_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - LED7_0_INTR       (First pin in the list)
-*  - LED7_1_INTR       (Second pin in the list)
+*  - led7_0_INTR       (First pin in the list)
+*  - led7_1_INTR       (Second pin in the list)
 *  - ...
-*  - LED7_INTR_ALL     (All pins in Pins component)
+*  - led7_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 LED7_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet LED7_SUT.c usage_LED7_SetInterruptMode
+*  \snippet led7_SUT.c usage_led7_SetInterruptMode
 *******************************************************************************/
-void LED7_SetInterruptMode(uint16 position, uint16 mode)
+void led7_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  LED7_INTCFG & (uint32)(~(uint32)position);
-    LED7_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  led7_INTCFG & (uint32)(~(uint32)position);
+    led7_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: LED7_ClearInterrupt
+* Function Name: led7_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void LED7_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet LED7_SUT.c usage_LED7_ClearInterrupt
+*  \snippet led7_SUT.c usage_led7_ClearInterrupt
 *******************************************************************************/
-uint8 LED7_ClearInterrupt(void)
+uint8 led7_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(LED7_INTSTAT & LED7_MASK);
-	LED7_INTSTAT = maskedStatus;
-    return maskedStatus >> LED7_SHIFT;
+	uint8 maskedStatus = (uint8)(led7_INTSTAT & led7_MASK);
+	led7_INTSTAT = maskedStatus;
+    return maskedStatus >> led7_SHIFT;
 }
 
 

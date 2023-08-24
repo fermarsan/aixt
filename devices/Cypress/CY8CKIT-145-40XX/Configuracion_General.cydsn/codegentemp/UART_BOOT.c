@@ -1,5 +1,5 @@
 /***************************************************************************//**
-* \file UART_BOOT.c
+* \file uart_BOOT.c
 * \version 4.0
 *
 * \brief
@@ -16,39 +16,39 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "UART_BOOT.h"
+#include "uart_BOOT.h"
 
-#if defined(CYDEV_BOOTLOADER_IO_COMP) && (UART_BTLDR_COMM_ENABLED) && \
-                                (UART_SCB_MODE_UNCONFIG_CONST_CFG)
+#if defined(CYDEV_BOOTLOADER_IO_COMP) && (uart_BTLDR_COMM_ENABLED) && \
+                                (uart_SCB_MODE_UNCONFIG_CONST_CFG)
 
 /*******************************************************************************
-* Function Name: UART_CyBtldrCommStart
+* Function Name: uart_CyBtldrCommStart
 ****************************************************************************//**
 *
-*  Starts UART component. After this function call the component is 
+*  Starts uart component. After this function call the component is 
 *  ready for communication.
 *
 *******************************************************************************/
-void UART_CyBtldrCommStart(void)
+void uart_CyBtldrCommStart(void)
 {
-    if (UART_SCB_MODE_I2C_RUNTM_CFG)
+    if (uart_SCB_MODE_I2C_RUNTM_CFG)
     {
-        UART_I2CCyBtldrCommStart();
+        uart_I2CCyBtldrCommStart();
     }
-    else if (UART_SCB_MODE_EZI2C_RUNTM_CFG)
+    else if (uart_SCB_MODE_EZI2C_RUNTM_CFG)
     {
-        UART_EzI2CCyBtldrCommStart();
+        uart_EzI2CCyBtldrCommStart();
     }
-#if (!UART_CY_SCBIP_V1)
-    else if (UART_SCB_MODE_SPI_RUNTM_CFG)
+#if (!uart_CY_SCBIP_V1)
+    else if (uart_SCB_MODE_SPI_RUNTM_CFG)
     {
-        UART_SpiCyBtldrCommStart();
+        uart_SpiCyBtldrCommStart();
     }
-    else if (UART_SCB_MODE_UART_RUNTM_CFG)
+    else if (uart_SCB_MODE_UART_RUNTM_CFG)
     {
-        UART_UartCyBtldrCommStart();
+        uart_UartCyBtldrCommStart();
     }
-#endif /* (!UART_CY_SCBIP_V1) */
+#endif /* (!uart_CY_SCBIP_V1) */
     else
     {
         /* Unknown mode: do nothing */
@@ -57,32 +57,32 @@ void UART_CyBtldrCommStart(void)
 
 
 /*******************************************************************************
-* Function Name: UART_CyBtldrCommStop
+* Function Name: uart_CyBtldrCommStop
 ****************************************************************************//**
 *
-*  Stops UART component.
+*  Stops uart component.
 *
 *******************************************************************************/
-void UART_CyBtldrCommStop(void)
+void uart_CyBtldrCommStop(void)
 {
-    if (UART_SCB_MODE_I2C_RUNTM_CFG)
+    if (uart_SCB_MODE_I2C_RUNTM_CFG)
     {
-        UART_I2CCyBtldrCommStop();
+        uart_I2CCyBtldrCommStop();
     }
-    else if (UART_SCB_MODE_EZI2C_RUNTM_CFG)
+    else if (uart_SCB_MODE_EZI2C_RUNTM_CFG)
     {
-        UART_EzI2CCyBtldrCommStop();
+        uart_EzI2CCyBtldrCommStop();
     }
-#if (!UART_CY_SCBIP_V1)
-    else if (UART_SCB_MODE_SPI_RUNTM_CFG)
+#if (!uart_CY_SCBIP_V1)
+    else if (uart_SCB_MODE_SPI_RUNTM_CFG)
     {
-        UART_SpiCyBtldrCommStop();
+        uart_SpiCyBtldrCommStop();
     }
-    else if (UART_SCB_MODE_UART_RUNTM_CFG)
+    else if (uart_SCB_MODE_UART_RUNTM_CFG)
     {
-        UART_UartCyBtldrCommStop();
+        uart_UartCyBtldrCommStop();
     }
-#endif /* (!UART_CY_SCBIP_V1) */
+#endif /* (!uart_CY_SCBIP_V1) */
     else
     {
         /* Unknown mode: do nothing */
@@ -91,32 +91,32 @@ void UART_CyBtldrCommStop(void)
 
 
 /*******************************************************************************
-* Function Name: UART_CyBtldrCommReset
+* Function Name: uart_CyBtldrCommReset
 ****************************************************************************//**
 *
-*  Clears UART component buffers.
+*  Clears uart component buffers.
 *
 *******************************************************************************/
-void UART_CyBtldrCommReset(void)
+void uart_CyBtldrCommReset(void)
 {
-    if(UART_SCB_MODE_I2C_RUNTM_CFG)
+    if(uart_SCB_MODE_I2C_RUNTM_CFG)
     {
-        UART_I2CCyBtldrCommReset();
+        uart_I2CCyBtldrCommReset();
     }
-    else if(UART_SCB_MODE_EZI2C_RUNTM_CFG)
+    else if(uart_SCB_MODE_EZI2C_RUNTM_CFG)
     {
-        UART_EzI2CCyBtldrCommReset();
+        uart_EzI2CCyBtldrCommReset();
     }
-#if (!UART_CY_SCBIP_V1)
-    else if(UART_SCB_MODE_SPI_RUNTM_CFG)
+#if (!uart_CY_SCBIP_V1)
+    else if(uart_SCB_MODE_SPI_RUNTM_CFG)
     {
-        UART_SpiCyBtldrCommReset();
+        uart_SpiCyBtldrCommReset();
     }
-    else if(UART_SCB_MODE_UART_RUNTM_CFG)
+    else if(uart_SCB_MODE_UART_RUNTM_CFG)
     {
-        UART_UartCyBtldrCommReset();
+        uart_UartCyBtldrCommReset();
     }
-#endif /* (!UART_CY_SCBIP_V1) */
+#endif /* (!uart_CY_SCBIP_V1) */
     else
     {
         /* Unknown mode: do nothing */
@@ -125,7 +125,7 @@ void UART_CyBtldrCommReset(void)
 
 
 /*******************************************************************************
-* Function Name: UART_CyBtldrCommRead
+* Function Name: uart_CyBtldrCommRead
 ****************************************************************************//**
 *
 *  Allows the caller to read data from the bootloader host (the host writes the 
@@ -147,28 +147,28 @@ void UART_CyBtldrCommReset(void)
 *  the “Return Codes” section of the System Reference Guide.
 *
 *******************************************************************************/
-cystatus UART_CyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, uint8 timeOut)
+cystatus uart_CyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, uint8 timeOut)
 {
     cystatus status;
 
-    if(UART_SCB_MODE_I2C_RUNTM_CFG)
+    if(uart_SCB_MODE_I2C_RUNTM_CFG)
     {
-        status = UART_I2CCyBtldrCommRead(pData, size, count, timeOut);
+        status = uart_I2CCyBtldrCommRead(pData, size, count, timeOut);
     }
-    else if(UART_SCB_MODE_EZI2C_RUNTM_CFG)
+    else if(uart_SCB_MODE_EZI2C_RUNTM_CFG)
     {
-        status = UART_EzI2CCyBtldrCommRead(pData, size, count, timeOut);
+        status = uart_EzI2CCyBtldrCommRead(pData, size, count, timeOut);
     }
-#if (!UART_CY_SCBIP_V1)
-    else if(UART_SCB_MODE_SPI_RUNTM_CFG)
+#if (!uart_CY_SCBIP_V1)
+    else if(uart_SCB_MODE_SPI_RUNTM_CFG)
     {
-        status = UART_SpiCyBtldrCommRead(pData, size, count, timeOut);
+        status = uart_SpiCyBtldrCommRead(pData, size, count, timeOut);
     }
-    else if(UART_SCB_MODE_UART_RUNTM_CFG)
+    else if(uart_SCB_MODE_UART_RUNTM_CFG)
     {
-        status = UART_UartCyBtldrCommRead(pData, size, count, timeOut);
+        status = uart_UartCyBtldrCommRead(pData, size, count, timeOut);
     }
-#endif /* (!UART_CY_SCBIP_V1) */
+#endif /* (!uart_CY_SCBIP_V1) */
     else
     {
         status = CYRET_INVALID_STATE; /* Unknown mode: return invalid status */
@@ -179,7 +179,7 @@ cystatus UART_CyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, uint8 
 
 
 /*******************************************************************************
-* Function Name: UART_CyBtldrCommWrite
+* Function Name: uart_CyBtldrCommWrite
 ****************************************************************************//**
 *
 *  Allows the caller to write data to the bootloader host (the host reads the 
@@ -200,28 +200,28 @@ cystatus UART_CyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, uint8 
 *  the “Return Codes” section of the System Reference Guide.
 *
 *******************************************************************************/
-cystatus UART_CyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 * count, uint8 timeOut)
+cystatus uart_CyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 * count, uint8 timeOut)
 {
     cystatus status;
 
-    if(UART_SCB_MODE_I2C_RUNTM_CFG)
+    if(uart_SCB_MODE_I2C_RUNTM_CFG)
     {
-        status = UART_I2CCyBtldrCommWrite(pData, size, count, timeOut);
+        status = uart_I2CCyBtldrCommWrite(pData, size, count, timeOut);
     }
-    else if(UART_SCB_MODE_EZI2C_RUNTM_CFG)
+    else if(uart_SCB_MODE_EZI2C_RUNTM_CFG)
     {
-        status = UART_EzI2CCyBtldrCommWrite(pData, size, count, timeOut);
+        status = uart_EzI2CCyBtldrCommWrite(pData, size, count, timeOut);
     }
-#if (!UART_CY_SCBIP_V1)
-    else if(UART_SCB_MODE_SPI_RUNTM_CFG)
+#if (!uart_CY_SCBIP_V1)
+    else if(uart_SCB_MODE_SPI_RUNTM_CFG)
     {
-        status = UART_SpiCyBtldrCommWrite(pData, size, count, timeOut);
+        status = uart_SpiCyBtldrCommWrite(pData, size, count, timeOut);
     }
-    else if(UART_SCB_MODE_UART_RUNTM_CFG)
+    else if(uart_SCB_MODE_UART_RUNTM_CFG)
     {
-        status = UART_UartCyBtldrCommWrite(pData, size, count, timeOut);
+        status = uart_UartCyBtldrCommWrite(pData, size, count, timeOut);
     }
-#endif /* (!UART_CY_SCBIP_V1) */
+#endif /* (!uart_CY_SCBIP_V1) */
     else
     {
         status = CYRET_INVALID_STATE; /* Unknown mode: return invalid status */
@@ -230,7 +230,7 @@ cystatus UART_CyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 * count,
     return(status);
 }
 
-#endif /* defined(CYDEV_BOOTLOADER_IO_COMP) && (UART_BTLDR_COMM_MODE_ENABLED) */
+#endif /* defined(CYDEV_BOOTLOADER_IO_COMP) && (uart_BTLDR_COMM_MODE_ENABLED) */
 
 
 /* [] END OF FILE */

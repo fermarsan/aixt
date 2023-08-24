@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED9.c  
+* File Name: led9.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "LED9.h"
+#include "led9.h"
 
-static LED9_BACKUP_STRUCT  LED9_backup = {0u, 0u, 0u};
+static led9_BACKUP_STRUCT  led9_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: LED9_Sleep
+* Function Name: led9_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static LED9_BACKUP_STRUCT  LED9_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet LED9_SUT.c usage_LED9_Sleep_Wakeup
+*  \snippet led9_SUT.c usage_led9_Sleep_Wakeup
 *******************************************************************************/
-void LED9_Sleep(void)
+void led9_Sleep(void)
 {
-    #if defined(LED9__PC)
-        LED9_backup.pcState = LED9_PC;
+    #if defined(led9__PC)
+        led9_backup.pcState = led9_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            LED9_backup.usbState = LED9_CR1_REG;
-            LED9_USB_POWER_REG |= LED9_USBIO_ENTER_SLEEP;
-            LED9_CR1_REG &= LED9_USBIO_CR1_OFF;
+            led9_backup.usbState = led9_CR1_REG;
+            led9_USB_POWER_REG |= led9_USBIO_ENTER_SLEEP;
+            led9_CR1_REG &= led9_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(LED9__SIO)
-        LED9_backup.sioState = LED9_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(led9__SIO)
+        led9_backup.sioState = led9_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        LED9_SIO_REG &= (uint32)(~LED9_SIO_LPM_MASK);
+        led9_SIO_REG &= (uint32)(~led9_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: LED9_Wakeup
+* Function Name: led9_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void LED9_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to LED9_Sleep() for an example usage.
+*  Refer to led9_Sleep() for an example usage.
 *******************************************************************************/
-void LED9_Wakeup(void)
+void led9_Wakeup(void)
 {
-    #if defined(LED9__PC)
-        LED9_PC = LED9_backup.pcState;
+    #if defined(led9__PC)
+        led9_PC = led9_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            LED9_USB_POWER_REG &= LED9_USBIO_EXIT_SLEEP_PH1;
-            LED9_CR1_REG = LED9_backup.usbState;
-            LED9_USB_POWER_REG &= LED9_USBIO_EXIT_SLEEP_PH2;
+            led9_USB_POWER_REG &= led9_USBIO_EXIT_SLEEP_PH1;
+            led9_CR1_REG = led9_backup.usbState;
+            led9_USB_POWER_REG &= led9_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(LED9__SIO)
-        LED9_SIO_REG = LED9_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(led9__SIO)
+        led9_SIO_REG = led9_backup.sioState;
     #endif
 }
 

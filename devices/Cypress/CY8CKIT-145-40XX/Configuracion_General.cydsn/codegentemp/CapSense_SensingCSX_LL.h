@@ -1,11 +1,11 @@
 /***************************************************************************//**
-* \file CapSense_SensingCSX_LL.h
+* \file capsense_SensingCSX_LL.h
 * \version 7.10
 *
 * \brief
 *   This file provides the headers of APIs specific to CSX sensing implementation.
 *
-* \see CapSense v7.10 Datasheet
+* \see capsense v7.10 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2019), Cypress Semiconductor Corporation.
@@ -36,15 +36,15 @@
 * limited by and subject to the applicable Cypress software license agreement.
 *******************************************************************************/
 
-#if !defined(CapSense_SENSING_CSX_LL_H)
-#define CapSense_SENSING_CSX_LL_H
+#if !defined(capsense_SENSING_CSX_LL_H)
+#define capsense_SENSING_CSX_LL_H
 
 #include "cytypes.h"
 #include <cypins.h>
-#include "CapSense_Structure.h"
-#include "CapSense_Configuration.h"
+#include "capsense_Structure.h"
+#include "capsense_Configuration.h"
 
-#if (CapSense_CSX_EN == 1u)
+#if (capsense_CSX_EN == 1u)
 
 /*******************************************************************************
 * Function Prototypes
@@ -55,19 +55,19 @@
 * \{
 */
 
-void CapSense_CSXSetupWidget(uint32 widgetId);
-void CapSense_CSXSetupWidgetExt(uint32 widgetId, uint32 sensorId);
-void CapSense_CSXScan(void);
-void CapSense_CSXScanExt(void);
+void capsense_CSXSetupWidget(uint32 widgetId);
+void capsense_CSXSetupWidgetExt(uint32 widgetId, uint32 sensorId);
+void capsense_CSXScan(void);
+void capsense_CSXScanExt(void);
 
-#if (CapSense_CSX_IDAC_AUTOCAL_EN == CapSense_ENABLE)
-    cystatus CapSense_CSXCalibrateWidget(uint32 widgetId, uint16 target);
-#endif /* (CapSense_CSX_IDAC_AUTOCAL_EN == CapSense_ENABLE) */
+#if (capsense_CSX_IDAC_AUTOCAL_EN == capsense_ENABLE)
+    cystatus capsense_CSXCalibrateWidget(uint32 widgetId, uint16 target);
+#endif /* (capsense_CSX_IDAC_AUTOCAL_EN == capsense_ENABLE) */
 
-void CapSense_CSXConnectTx(CapSense_FLASH_IO_STRUCT const *txPtr);
-void CapSense_CSXConnectRx(CapSense_FLASH_IO_STRUCT const *rxPtr);
-void CapSense_CSXDisconnectTx(CapSense_FLASH_IO_STRUCT const *txPtr);
-void CapSense_CSXDisconnectRx(CapSense_FLASH_IO_STRUCT const *rxPtr);
+void capsense_CSXConnectTx(capsense_FLASH_IO_STRUCT const *txPtr);
+void capsense_CSXConnectRx(capsense_FLASH_IO_STRUCT const *rxPtr);
+void capsense_CSXDisconnectTx(capsense_FLASH_IO_STRUCT const *txPtr);
+void capsense_CSXDisconnectRx(capsense_FLASH_IO_STRUCT const *rxPtr);
 
 /** \}
 * \endcond */
@@ -81,57 +81,57 @@ void CapSense_CSXDisconnectRx(CapSense_FLASH_IO_STRUCT const *rxPtr);
 * \{
 */
 
-void CapSense_CSXInitialize(void);
-void CapSense_CSXElectrodeCheck(void);
-uint32 CapSense_SsCSXGetTxClkDivider(uint32 widgetId);
+void capsense_CSXInitialize(void);
+void capsense_CSXElectrodeCheck(void);
+uint32 capsense_SsCSXGetTxClkDivider(uint32 widgetId);
 
 /** \}
 * \endcond */
 
 /* The interrupt handler of the CSX sensing module */
-CY_ISR_PROTO(CapSense_CSXScanISR);
+CY_ISR_PROTO(capsense_CSXScanISR);
 
 /*******************************************************************************
 * Global variables exposed by the module
 *******************************************************************************/
 
 /* The local variable used to store a scan period */
-extern volatile uint16 CapSense_csxScanPeriod;
+extern volatile uint16 capsense_csxScanPeriod;
 
 /* The local variable used to return raw count from post scan ISR */
-extern volatile uint16 CapSense_csxRawCount;
+extern volatile uint16 capsense_csxRawCount;
 
 /* The pointer to the function used to register a callback in ISR */
-extern void (* CapSense_CSXPostScanApiPtr)(void);
+extern void (* capsense_CSXPostScanApiPtr)(void);
 
-#if(CapSense_DISABLE == CapSense_CSDV2)
+#if(capsense_DISABLE == capsense_CSDV2)
     /* The local variable used by the ASM function for the raw count correction */
-    extern volatile uint32 CapSense_csxRawGarbage;
+    extern volatile uint32 capsense_csxRawGarbage;
 
     /* The ASM function called from C, CSX ISR proto */
-    extern void CapSense_SsCSXStartSampleExt(void);
-#endif /* (CapSense_DISABLE == CapSense_CSDV2) */
+    extern void capsense_SsCSXStartSampleExt(void);
+#endif /* (capsense_DISABLE == capsense_CSDV2) */
 
 
 /***************************************
 * API Constants
 ***************************************/
-#define CapSense_CSX_DEADBAND_CYCLES_NUMBER             (2u)
-#define CapSense_CSX_AVG_CYCLES_PER_LOOP                (5u)
+#define capsense_CSX_DEADBAND_CYCLES_NUMBER             (2u)
+#define capsense_CSX_AVG_CYCLES_PER_LOOP                (5u)
 
-#define CapSense_CSX_MAX_CHARGE_TIME_US                 (50u)
-#define CapSense_CSX_PRECHARGE_WATCHDOG_CYCLES_NUM      (((CYDEV_BCLK__SYSCLK__MHZ) * \
-                                                                 (CapSense_CSX_MAX_CHARGE_TIME_US)) / \
-                                                                 (CapSense_CSX_AVG_CYCLES_PER_LOOP))
+#define capsense_CSX_MAX_CHARGE_TIME_US                 (50u)
+#define capsense_CSX_PRECHARGE_WATCHDOG_CYCLES_NUM      (((CYDEV_BCLK__SYSCLK__MHZ) * \
+                                                                 (capsense_CSX_MAX_CHARGE_TIME_US)) / \
+                                                                 (capsense_CSX_AVG_CYCLES_PER_LOOP))
 
-#define CapSense_CSX_MEASURE_MAX_TIME_US                (200000uL)
-#define CapSense_CSX_MEASURE_WATCHDOG_CYCLES_NUM        (((CYDEV_BCLK__SYSCLK__MHZ) * \
-                                                                 (CapSense_CSX_MEASURE_MAX_TIME_US)) / \
-                                                                 (CapSense_CSX_AVG_CYCLES_PER_LOOP))
+#define capsense_CSX_MEASURE_MAX_TIME_US                (200000uL)
+#define capsense_CSX_MEASURE_WATCHDOG_CYCLES_NUM        (((CYDEV_BCLK__SYSCLK__MHZ) * \
+                                                                 (capsense_CSX_MEASURE_MAX_TIME_US)) / \
+                                                                 (capsense_CSX_AVG_CYCLES_PER_LOOP))
 
 
 
-#if(CapSense_ENABLE == CapSense_CSDV2)
+#if(capsense_ENABLE == capsense_CSDV2)
 /*******************************************************************************
 * Register Configuration
 *******************************************************************************/
@@ -155,13 +155,13 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  30    | LP_MODE       | 0x00(High power mode)                      | 0x00(High power mode)                     |
  * |  31    | ENABLE        | 0x00(Analog part is OFF)                   | 0x01(Analog part is ON)                   |
  * +--------+---------------+--------------------------------------------+-------------------------------------------+*/
-#if(CapSense_DISABLE != CapSense_BLOCK_OFF_AFTER_SCAN_EN)
-    #define CapSense_CONFIG_DEFAULT_EN_CFG              (0x00000020uL)
+#if(capsense_DISABLE != capsense_BLOCK_OFF_AFTER_SCAN_EN)
+    #define capsense_CONFIG_DEFAULT_EN_CFG              (0x00000020uL)
 #else
-    #define CapSense_CONFIG_DEFAULT_EN_CFG              (0x80041020uL)
-#endif /* (CapSense_DISABLE != CapSense_BLOCK_OFF_AFTER_SCAN_EN) */
+    #define capsense_CONFIG_DEFAULT_EN_CFG              (0x80041020uL)
+#endif /* (capsense_DISABLE != capsense_BLOCK_OFF_AFTER_SCAN_EN) */
 
-#define CapSense_DEFAULT_CSD_CONFIG_CFG        (CapSense_CONFIG_DEFAULT_EN_CFG)
+#define capsense_DEFAULT_CSD_CONFIG_CFG        (capsense_CONFIG_DEFAULT_EN_CFG)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -170,7 +170,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 2      | INIT          | 0x01(Clear CSD End Of Coarse Init interrupt)                                           |
  * | 8      | ADC_RES       | 0x01(Clear ADC End Of Scan interrupt)                                                  |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_INTR_CFG                   (0x00000106uL)
+#define capsense_DEFAULT_CSD_INTR_CFG                   (0x00000106uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -179,7 +179,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 2      | INIT          | 0x00(CSD End Of Coarse Init interrupt is cleared)                                      |
  * | 8      | ADC_RES       | 0x00(ADC End Of Scan interrupt is cleared)                                             |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_INTR_SET_CFG               (0x00000000uL)
+#define capsense_DEFAULT_CSD_INTR_SET_CFG               (0x00000000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -188,7 +188,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 2      | INIT          | 0x00(CSD End Of Coarse Init interrupt is masked)                                       |
  * | 8      | ADC_RES       | 0x00(ADC End Of Scan interrupt is masked)                                              |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_INTR_MASK_CFG              (0x00000002uL)
+#define capsense_DEFAULT_CSD_INTR_MASK_CFG              (0x00000002uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -197,7 +197,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  4     |  HSCMP_INVERT | 0x00(High Speed comparator output is not inverted)                                     |
  * |  31    |  AZ_EN        | 0x00(Auto-Zero is disabled)                                                            |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_HSCMP_CFG                  (0x00000000uL)
+#define capsense_DEFAULT_CSD_HSCMP_CFG                  (0x00000000uL)
 
 /* +--------+---------------+------------------------------------------+---------------------------------------------+
  * |        |               |           VDDA >= 2V                     |          VDDA <2V                           |
@@ -206,10 +206,10 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |--------|---------------|------------------------------------------|---------------------------------------------|
  * |  1:0   | PWR_MODE      | 0x00(Amux buffer is disabled)            | 0x01(Amux buffer is at normal power level)  |
  * +--------+---------------+------------------------------------------+---------------------------------------------+*/
-#if (CapSense_CYDEV_VDDA_MV >= 2000u)
-    #define CapSense_DEFAULT_CSD_AMBUF_CFG              (0x00000000uL)
+#if (capsense_CYDEV_VDDA_MV >= 2000u)
+    #define capsense_DEFAULT_CSD_AMBUF_CFG              (0x00000000uL)
 #else
-    #define CapSense_DEFAULT_CSD_AMBUF_CFG              (0x00000001uL)
+    #define capsense_DEFAULT_CSD_AMBUF_CFG              (0x00000001uL)
 #endif /* (CYDEV_VDDA_MV >= 2000u) */
 
 /* +--------+---------------+------------------------------------------+---------------------------------------------+
@@ -225,10 +225,10 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  20:16 | VREFLO_SEL    | 0x00(Open all VREFLO switches)           | 0x01(Close 1 lower VREFLO switch in the tap)|
  * |  23    | VREFHI_SEL    | 0x00(Open VREF_LO_INT switch)            | 0x00(Open VREF_LO_INT switch)               |
  * +--------+---------------+------------------------------------------+---------------------------------------------+*/
-#if (CapSense_CYDEV_VDDA_MV >= 2000u)
-    #define CapSense_DEFAULT_CSD_REFGEN_CFG             (0x00001F41uL)
+#if (capsense_CYDEV_VDDA_MV >= 2000u)
+    #define capsense_DEFAULT_CSD_REFGEN_CFG             (0x00001F41uL)
 #else
-    #define CapSense_DEFAULT_CSD_REFGEN_CFG             (0x00800011uL)
+    #define capsense_DEFAULT_CSD_REFGEN_CFG             (0x00800011uL)
 #endif /* (CYDEV_VDDA_MV >= 2000u) */
 
 /* +--------+---------------+------------------------------------------+---------------------------------------------+
@@ -243,11 +243,11 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  29    | FEEDBACK_MODE | 0x00(Feedback from sampling flip-flop)   | 0x00(Feedback from sampling flip-flop)      |
  * |  31    | AZ_EN         | 0x01(Auto-Zero functionality is enabled) | 0x00(Auto-Zero functionality is disabled)   |
  * +--------+---------------+------------------------------------------+---------------------------------------------+*/
-#if(0u != CapSense_CSX_AUTO_ZERO_EN)
-    #define CapSense_DEFAULT_CSD_CSDCMP_CFG             (0x80000300uL)
+#if(0u != capsense_CSX_AUTO_ZERO_EN)
+    #define capsense_DEFAULT_CSD_CSDCMP_CFG             (0x80000300uL)
 #else
-    #define CapSense_DEFAULT_CSD_CSDCMP_CFG             (0x00000300uL)
-#endif /* (0u != CapSense_CSX_AUTO_ZERO_EN) */
+    #define capsense_DEFAULT_CSD_CSDCMP_CFG             (0x00000300uL)
+#endif /* (0u != capsense_CSX_AUTO_ZERO_EN) */
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -263,7 +263,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 24     | LEG1_EN       | 0x01(Output for LEG1 is enabled)                                                       |
  * | 25     | LEG2_EN       | 0x00(Output for LEG2 is disabled)                                                      |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_IDACA_CFG                  (0x014F0E80uL)
+#define capsense_DEFAULT_CSD_IDACA_CFG                  (0x014F0E80uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -279,7 +279,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 24     | LEG1_EN       | 0x00(Output for LEG2 is disabled)                                                      |
  * | 25     | LEG2_EN       | 0x00(Output for LEG2 is disabled)                                                      |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_IDACB_CFG                  (0x00000000uL)
+#define capsense_DEFAULT_CSD_IDACB_CFG                  (0x00000000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -291,12 +291,12 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 17:16  | RES_F1PM      | 0x00(Configure F1PM switch to LOW resistance)                                          |
  * | 19:18  | RES_F2PT      | 0x00(Configure 2PT switch to LOW resistance)                                           |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SW_RES_CFG                 ((CapSense_CSX_INIT_SHIELD_SWITCH_RES << CYFLD_CSD_RES_HCAV__OFFSET) |\
-                                                                 (CapSense_CSX_INIT_SHIELD_SWITCH_RES << CYFLD_CSD_RES_HCAG__OFFSET) |\
-                                                                 (CapSense_CSX_INIT_SHIELD_SWITCH_RES << CYFLD_CSD_RES_HCBV__OFFSET) |\
-                                                                 (CapSense_CSX_INIT_SHIELD_SWITCH_RES << CYFLD_CSD_RES_HCBG__OFFSET) |\
-                                                                 (CapSense_CSX_INIT_SWITCH_RES << CYFLD_CSD_RES_F1PM__OFFSET) |\
-                                                                 (CapSense_CSX_INIT_SWITCH_RES << CYFLD_CSD_RES_F2PT__OFFSET))
+#define capsense_DEFAULT_CSD_SW_RES_CFG                 ((capsense_CSX_INIT_SHIELD_SWITCH_RES << CYFLD_CSD_RES_HCAV__OFFSET) |\
+                                                                 (capsense_CSX_INIT_SHIELD_SWITCH_RES << CYFLD_CSD_RES_HCAG__OFFSET) |\
+                                                                 (capsense_CSX_INIT_SHIELD_SWITCH_RES << CYFLD_CSD_RES_HCBV__OFFSET) |\
+                                                                 (capsense_CSX_INIT_SHIELD_SWITCH_RES << CYFLD_CSD_RES_HCBG__OFFSET) |\
+                                                                 (capsense_CSX_INIT_SWITCH_RES << CYFLD_CSD_RES_F1PM__OFFSET) |\
+                                                                 (capsense_CSX_INIT_SWITCH_RES << CYFLD_CSD_RES_F2PT__OFFSET))
 
 /* +--------+---------------+--------------------------------------------+-------------------------------------------+
  * |        |               |      TX_CLK_SOURCE=PRSAUTO                 |     TX_CLK_SOURCE!=PRSAUTO                |
@@ -309,12 +309,12 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  24    | LFSR_CLEAR    | 0x00(Will be reconfigured in Run Time)     | 0x00(Will be reconfigured in Run Time)    |
  * |  25    | SEL_LFSR_MSB  | 0x00(Not used for CSX scanning method)     | 0x00(Not used for CSX scanning method)    |
  * +--------+---------------+-----------------------------+----------------------------------------------------------+*/
-#if(CapSense_CSX_TX_CLK_SOURCE != CapSense_CLK_SOURCE_PRSAUTO)
-    #define CapSense_DEFAULT_CSD_SENSE_PERIOD_CFG       (((uint32)CapSense_CSX_TX_CLK_SOURCE << CapSense_SENSE_PERIOD_LFSR_SIZE_SHIFT) |\
-                                                                 (CapSense_CSX_TX_CLK_DIVIDER & CapSense_SENSE_PERIOD_SENSE_DIV_MASK))
+#if(capsense_CSX_TX_CLK_SOURCE != capsense_CLK_SOURCE_PRSAUTO)
+    #define capsense_DEFAULT_CSD_SENSE_PERIOD_CFG       (((uint32)capsense_CSX_TX_CLK_SOURCE << capsense_SENSE_PERIOD_LFSR_SIZE_SHIFT) |\
+                                                                 (capsense_CSX_TX_CLK_DIVIDER & capsense_SENSE_PERIOD_SENSE_DIV_MASK))
 #else
-    #define CapSense_DEFAULT_CSD_SENSE_PERIOD_CFG       (CapSense_CSX_TX_CLK_DIVIDER & CapSense_SENSE_PERIOD_SENSE_DIV_MASK)
-#endif /* (CapSense_CSX_TX_CLK_SOURCE != CapSense_CLK_SOURCE_PRSAUTO) */
+    #define capsense_DEFAULT_CSD_SENSE_PERIOD_CFG       (capsense_CSX_TX_CLK_DIVIDER & capsense_SENSE_PERIOD_SENSE_DIV_MASK)
+#endif /* (capsense_CSX_TX_CLK_SOURCE != capsense_CLK_SOURCE_PRSAUTO) */
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -324,7 +324,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 18     | OVERLAP_PHI1  | 0x00(Non overlap for Phi1)                                                             |
  * | 19     | OVERLAP_PHI2  | 0x00(Non overlap for Phi2)                                                             |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SENSE_DUTY_CFG             (0x00000000uL)
+#define capsense_DEFAULT_CSD_SENSE_DUTY_CFG             (0x00000000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -338,7 +338,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 24     | SW_HMCB       | 0x00(HMCB switch is statically open)                                                   |
  * | 28     | SW_HMRH       | 0x00(HMRH switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SW_HS_P_SEL_CFG            (0x00000000uL)
+#define capsense_DEFAULT_CSD_SW_HS_P_SEL_CFG            (0x00000000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -348,7 +348,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 26:24  | SW_HCRH       | 0x00(HCRH switch is statically open)                                                   |
  * | 30:28  | SW_HCRL       | 0x00(HCRL switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SW_HS_N_SEL_CFG            (0x00000000uL)
+#define capsense_DEFAULT_CSD_SW_HS_N_SEL_CFG            (0x00000000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -360,7 +360,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 16     | SW_HCCV       | 0x00(HCCV switch is statically open)                                                   |
  * | 20     | SW_HCCG       | 0x00(HCCG switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SW_SHIELD_SEL_CFG          (0x00000000uL)
+#define capsense_DEFAULT_CSD_SW_SHIELD_SEL_CFG          (0x00000000uL)
 
 /* +--------+---------------+--------------------------------------------+-------------------------------------------+
  * |        |               |           VDDA >= 2V                       |          VDDA < 2V                        |
@@ -375,10 +375,10 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  24    | SW_IRH        | 0x00(IRH  switch is statically open)       | 0x01(IRH  switch is statically closed)    |
  * |  28    | SW_IRL        | 0x00(IRL  switch is statically open)       | 0x00(IRL  switch is statically open)      |
  * +--------+---------------+--------------------------------------------+-------------------------------------------+*/
-#if (CapSense_CYDEV_VDDA_MV >= 2000u)
-    #define CapSense_DEFAULT_CSD_SW_AMUXBUF_SEL_CFG     (0x00000000uL)
+#if (capsense_CYDEV_VDDA_MV >= 2000u)
+    #define capsense_DEFAULT_CSD_SW_AMUXBUF_SEL_CFG     (0x00000000uL)
 #else
-    #define CapSense_DEFAULT_CSD_SW_AMUXBUF_SEL_CFG     (0x01000100uL)
+    #define capsense_DEFAULT_CSD_SW_AMUXBUF_SEL_CFG     (0x01000100uL)
 #endif /* (CYDEV_VDDA_MV >= 2000u) */
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
@@ -388,7 +388,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 16     | SW_BYB        | 0x00(BYB switch is statically open)                                                    |
  * | 20     | SW_CBCC       | 0x00(CBCC switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SW_BYP_SEL_CFG             (0x00001000uL)
+#define capsense_DEFAULT_CSD_SW_BYP_SEL_CFG             (0x00001000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -401,7 +401,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 20     | SW_SFCA       | 0x00(SFCA switch is statically open)                                                   |
  * | 24     | SW_SFCB       | 0x00(SFCB switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SW_CMP_P_SEL_CFG           (0x00000032uL)
+#define capsense_DEFAULT_CSD_SW_CMP_P_SEL_CFG           (0x00000032uL)
 
 /* +--------+---------------+--------------------------------------------+-------------------------------------------+
  * |        |               |           VDDA >= 2V                       |          VDDA <2V                         |
@@ -411,10 +411,10 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  26:24 | SW_SCRH       |  0x01(SFPS switch is statically closed)    | 0x00(SFPS switch is statically open)      |
  * |  30:28 | SW_SCRL       |  0x00(SFPS switch is statically open)      | 0x01(SFPS switch is statically closed)    |
  * +--------+---------------+--------------------------------------------+-------------------------------------------+*/
-#if (CapSense_CYDEV_VDDA_MV >= 2000u)
-    #define CapSense_DEFAULT_CSD_SW_CMP_N_SEL_CFG       (0x01000000uL)
+#if (capsense_CYDEV_VDDA_MV >= 2000u)
+    #define capsense_DEFAULT_CSD_SW_CMP_N_SEL_CFG       (0x01000000uL)
 #else
-    #define CapSense_DEFAULT_CSD_SW_CMP_N_SEL_CFG       (0x10000000uL)
+    #define capsense_DEFAULT_CSD_SW_CMP_N_SEL_CFG       (0x10000000uL)
 #endif /* (CYDEV_VDDA_MV >= 2000u) */
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
@@ -426,7 +426,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 24     | SW_SGRE       | 0x00(SGRE switch is statically open)                                                   |
  * | 28     | SW_SGR        | 0x01(SGR switch is statically closed)                                                  |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SW_REFGEN_SEL_CFG          (0x10000000uL)
+#define capsense_DEFAULT_CSD_SW_REFGEN_SEL_CFG          (0x10000000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -438,7 +438,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 24     | SW_C1CD       | 0x00(C1CD switch is statically open)                                                   |
  * | 28     | SW_C1F1       | 0x00(C1F1 switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SW_FW_MOD_SEL_CFG          (0x00000000uL)
+#define capsense_DEFAULT_CSD_SW_FW_MOD_SEL_CFG          (0x00000000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -451,7 +451,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 24     | SW_C2CD       | 0x00(C2CD switch is statically open)                                                   |
  * | 28     | SW_C2F2       | 0x00(C2F2 switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SW_FW_TANK_SEL_CFG         (0x00000000uL)
+#define capsense_DEFAULT_CSD_SW_FW_TANK_SEL_CFG         (0x00000000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -459,29 +459,29 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 2:0    | DSI_CSH_TANK  | 0x03(DSI_CSH_TANK switch is controlled by Phi2 of SenseClk signal)                     |
  * | 6:4    | DSI_CMOD      | 0x02(DSI_CMOD switch is controlled by Phi1 of SenseClk signal)                         |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SW_DSI_SEL_CFG             (0x00000023uL)
+#define capsense_DEFAULT_CSD_SW_DSI_SEL_CFG             (0x00000023uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
  * |--------|---------------|----------------------------------------------------------------------------------------|
  * | 7:0    | AZ_TIME       | Set to AUTO_ZERO_TIME value                                                            |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SEQ_TIME_CFG               (CapSense_CSX_AUTO_ZERO_TIME & \
-                                                                 CapSense_SEQ_INIT_CNT_CONV_CNT_MASK)
+#define capsense_DEFAULT_CSD_SEQ_TIME_CFG               (capsense_CSX_AUTO_ZERO_TIME & \
+                                                                 capsense_SEQ_INIT_CNT_CONV_CNT_MASK)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
  * |--------|---------------|----------------------------------------------------------------------------------------|
  * | 15:0   | CONV_CNT      | 0x0014(Set coarse initialization time to 20 SenseClk periods)                          |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SEQ_INIT_CNT_CFG           (CapSense_CSX_FINE_INIT_TIME)
+#define capsense_DEFAULT_CSD_SEQ_INIT_CNT_CFG           (capsense_CSX_FINE_INIT_TIME)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
  * |--------|---------------|----------------------------------------------------------------------------------------|
  * | 15:0   | CONV_CNT      | 0x0000(Sets the number of conversions per sample to "0")                               |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_SEQ_NORM_CNT_CFG           (0x00000000uL)
+#define capsense_DEFAULT_CSD_SEQ_NORM_CNT_CFG           (0x00000000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -489,7 +489,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 7:0    | ADC_TIME      | 0x00(Set to "0" since ADC is not used)                                                 |
  * | 17:16  | ADC_MODE      | 0b00(Set to "0" since ADC is not used)                                                 |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_DEFAULT_CSD_ADC_CTL_CFG                (0x00000000uL)
+#define capsense_DEFAULT_CSD_ADC_CTL_CFG                (0x00000000uL)
 
 /* +--------+---------------+--------------------------------------------+-------------------------------------------+
  * |        |               |      AUTO_ZERO_EN=TRUE                     |     AUTO_ZERO_EN=TRUE                     |
@@ -503,11 +503,11 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  8     | AZ0_SKIP      | 0x00(Do not skip AZ0 state)                | 0x01(Skip AZ0 state)                      |
  * |  9     | AZ1_SKIP      | 0x00(Do not skip AZ1 state)                | 0x01(Skip AZ1 state)                      |
  * +--------+---------------+--------------------------------------------+-------------------------------------------+*/
-#if(CapSense_ENABLE == CapSense_CSX_AUTO_ZERO_EN)
-    #define CapSense_DEFAULT_CSD_SEQ_START_CFG          (0x00000008uL)
+#if(capsense_ENABLE == capsense_CSX_AUTO_ZERO_EN)
+    #define capsense_DEFAULT_CSD_SEQ_START_CFG          (0x00000008uL)
 #else
-    #define CapSense_DEFAULT_CSD_SEQ_START_CFG          (0x00000308uL)
-#endif /* (0u != CapSense_CSX_AUTO_ZERO_EN) */
+    #define capsense_DEFAULT_CSD_SEQ_START_CFG          (0x00000308uL)
+#endif /* (0u != capsense_CSX_AUTO_ZERO_EN) */
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -525,7 +525,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  30    | LP_MODE       | 0x00(High power mode)                                                                  |
  * |  31    | ENABLE        | 0x01(Analog part is ON)                                                                |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_PRESCAN_CSD_CONFIG_CFG                 (0x800C1000uL)
+#define capsense_PRESCAN_CSD_CONFIG_CFG                 (0x800C1000uL)
 
 /* +--------+---------------+--------------------------------------------+-------------------------------------------+
  * |        |               |    AUTO_ZERO_EN=TRUE                       |    AUTO_ZERO_EN=FALSE                     |
@@ -539,11 +539,11 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  29    | FEEDBACK_MODE | 0x00(Feedback from sampling flip-flop)     | 0x00(Feedback from sampling flip-flop)    |
  * |  31    | AZ_EN         | 0x01(Auto-Zero functionality is enabled)   | 0x00(Auto-Zero functionality is disabled) |
  * +--------+---------------+--------------------------------------------+-------------------------------------------+*/
-#if(CapSense_ENABLE == CapSense_CSX_AUTO_ZERO_EN)
-    #define CapSense_PRESCAN_CSD_CSDCMP_CFG             (0x80000301uL)
+#if(capsense_ENABLE == capsense_CSX_AUTO_ZERO_EN)
+    #define capsense_PRESCAN_CSD_CSDCMP_CFG             (0x80000301uL)
 #else
-    #define CapSense_PRESCAN_CSD_CSDCMP_CFG             (0x00000301uL)
-#endif /* (0u != CapSense_CSX_AUTO_ZERO_EN) */
+    #define capsense_PRESCAN_CSD_CSDCMP_CFG             (0x00000301uL)
+#endif /* (0u != capsense_CSX_AUTO_ZERO_EN) */
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -552,7 +552,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  4     |  HSCMP_INVERT | 0x00(High Speed comparator output is not inverted)                                     |
  * |  31    |  AZ_EN        | 0x00(Auto-Zero is Disabled)                                                            |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_PRECHARGE_CSD_HSCMP_CFG                (0x00000001uL)
+#define capsense_PRECHARGE_CSD_HSCMP_CFG                (0x00000001uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -566,7 +566,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 24     | SW_HMCB       | 0x00(HMCB switch is statically open)                                                   |
  * | 28     | SW_HMRH       | 0x00(HMRH switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_PRECHARGE_CSD_SW_HS_P_SEL_CFG          (0x00000011uL)
+#define capsense_PRECHARGE_CSD_SW_HS_P_SEL_CFG          (0x00000011uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -576,7 +576,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 26:24  | SW_HCRH       | 0x01(HCRH switch is statically closed)                                                 |
  * | 30:28  | SW_HCRL       | 0x00(HCRL switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_PRECHARGE_CSD_SW_HS_N_SEL_CFG          (0x01000000uL)
+#define capsense_PRECHARGE_CSD_SW_HS_N_SEL_CFG          (0x01000000uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -584,7 +584,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 2:0    | DSI_CSH_TANK  | 0x01(DSI_CSH_TANK switch is statically closed)                                         |
  * | 6:4    | DSI_CMOD      | 0x01(DSI_CMOD     switch is statically closed)                                         |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_PRECHARGE_CSD_SW_DSI_SEL_CFG           (0x00000011uL)
+#define capsense_PRECHARGE_CSD_SW_DSI_SEL_CFG           (0x00000011uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -596,7 +596,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 16     | SW_HCCV       | 0x00(HCCV switch is statically open)                                                   |
  * | 20     | SW_HCCG       | 0x00(HCCG switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_PRECHARGE_CSD_SW_SHIELD_SEL_CFG        (0x00000006uL)
+#define capsense_PRECHARGE_CSD_SW_SHIELD_SEL_CFG        (0x00000006uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -608,7 +608,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 24     | SW_C1CD       | 0x00(C1CD switch is statically open)                                                   |
  * | 28     | SW_C1F1       | 0x00(C1F1 switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_PRECHARGE_CSD_SW_FW_MOD_SEL_CFG        (0x00010101uL)
+#define capsense_PRECHARGE_CSD_SW_FW_MOD_SEL_CFG        (0x00010101uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -621,7 +621,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 24     | SW_C2CD       | 0x00(C2CD switch is statically open)                                                   |
  * | 28     | SW_C2F2       | 0x00(C2F2 switch is statically open)                                                   |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_PRECHARGE_CSD_SW_FW_TANK_SEL_CFG       (0x00001010uL)
+#define capsense_PRECHARGE_CSD_SW_FW_TANK_SEL_CFG       (0x00001010uL)
 
 /* +--------+---------------+----------------------------------------------------------------------------------------+
  * |  BITS  |   FIELD       |              MODE                                                                      |
@@ -633,7 +633,7 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * | 8      | AZ0_SKIP      | 0x00(DO_NOT_SKIP_AZ0)                                                                  |
  * | 9      | AZ1_SKIP      | 0x00(DO_BOT_SKIP_AZ1)                                                                  |
  * +--------+---------------+----------------------------------------------------------------------------------------+*/
-#define CapSense_PRECHARGE_CSD_SEQ_START_CFG            (0x00000303uL)
+#define capsense_PRECHARGE_CSD_SEQ_START_CFG            (0x00000303uL)
 
 /* +--------+---------------+--------------------------------------------+-------------------------------------------+
  * |        |               |      AUTO_ZERO_EN=TRUE                     |     AUTO_ZERO_EN=TRUE                     |
@@ -647,15 +647,15 @@ extern void (* CapSense_CSXPostScanApiPtr)(void);
  * |  8     | AZ0_SKIP      | 0x00(Do not skip AZ0 state)                | 0x01(Skip AZ0 state)                      |
  * |  9     | AZ1_SKIP      | 0x00(Do not skip AZ1 state)                | 0x01(Skip AZ1 state)                      |
  * +--------+---------------+--------------------------------------------+-------------------------------------------+*/
-#if(0u != CapSense_CSX_AUTO_ZERO_EN)
-    #define CapSense_SCAN_CSD_SEQ_START_CFG             (0x00000001uL)
+#if(0u != capsense_CSX_AUTO_ZERO_EN)
+    #define capsense_SCAN_CSD_SEQ_START_CFG             (0x00000001uL)
 #else
-    #define CapSense_SCAN_CSD_SEQ_START_CFG             (0x00000301uL)
-#endif /* (0u != CapSense_CSX_AUTO_ZERO_EN) */
+    #define capsense_SCAN_CSD_SEQ_START_CFG             (0x00000301uL)
+#endif /* (0u != capsense_CSX_AUTO_ZERO_EN) */
 
-#endif  /* (CapSense_ENABLE == CapSense_CSDV2) */
-#endif  /* End of CapSense_CSX_EN */
-#endif  /* End of CapSense_SENSING_CSD_LL_H */
+#endif  /* (capsense_ENABLE == capsense_CSDV2) */
+#endif  /* End of capsense_CSX_EN */
+#endif  /* End of capsense_SENSING_CSD_LL_H */
 
 
 /* [] END OF FILE */

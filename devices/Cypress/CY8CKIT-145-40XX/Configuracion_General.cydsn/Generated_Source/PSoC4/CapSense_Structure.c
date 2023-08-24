@@ -1,12 +1,12 @@
 /***************************************************************************//**
-* \file CapSense_Structure.c
+* \file capsense_Structure.c
 * \version 7.10
 *
 * \brief
 *   This file defines the data structure global variables and provides implementation
 *   for the high-level and low-level APIs of the Data Structure module.
 *
-* \see CapSense v7.10 Datasheet
+* \see capsense v7.10 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2019), Cypress Semiconductor Corporation.
@@ -39,24 +39,24 @@
 
 #include <cytypes.h>
 #include "CyLib.h"
-#include "CapSense_Structure.h"
-#include "CapSense_Configuration.h"
+#include "capsense_Structure.h"
+#include "capsense_Configuration.h"
 
-#if (0u != CapSense_ADC_EN)
-    #include "CapSense_Adc.h"
-#endif /* (0u != CapSense_ADC_EN) */
+#if (0u != capsense_ADC_EN)
+    #include "capsense_Adc.h"
+#endif /* (0u != capsense_ADC_EN) */
 
-#if (CapSense_ENABLE == CapSense_SELF_TEST_EN)
-    #include "CapSense_SelfTest.h"
+#if (capsense_ENABLE == capsense_SELF_TEST_EN)
+    #include "capsense_SelfTest.h"
 #endif
 
-#if (CapSense_ENABLE == CapSense_CENTROID_5X5_CSD_EN)
-    #include "CapSense_AdvancedCentroid_LL.h"
+#if (capsense_ENABLE == capsense_CENTROID_5X5_CSD_EN)
+    #include "capsense_AdvancedCentroid_LL.h"
 #endif
 
-#if (CapSense_ENABLE == CapSense_GES_GLOBAL_EN)
-    #include "CapSense_Gesture.h"
-#endif /* (CapSense_ENABLE == CapSense_GES_GLOBAL_EN) */
+#if (capsense_ENABLE == capsense_GES_GLOBAL_EN)
+    #include "capsense_Gesture.h"
+#endif /* (capsense_ENABLE == capsense_GES_GLOBAL_EN) */
 
 /*******************************************************************************
 * Defines the RAM Data Structure variables and their init data in flash
@@ -68,20 +68,20 @@
 */
 
 /**
-* The variable that contains the CapSense configuration, settings and
-* scanning results. CapSense_dsRam represents RAM Data Structure.
+* The variable that contains the capsense configuration, settings and
+* scanning results. capsense_dsRam represents RAM Data Structure.
 */
-CapSense_RAM_STRUCT CapSense_dsRam;
+capsense_RAM_STRUCT capsense_dsRam;
 /** \}
 * \endcond */
 
 /*******************************************************************************
 * Declares Widget's De-bounce Counters
 *******************************************************************************/
-static uint8 CapSense_debounceBTN0[CapSense_BTN0_NUM_SENSORS];
-static uint8 CapSense_debounceBTN1[CapSense_BTN1_NUM_SENSORS];
-static uint8 CapSense_debounceBTN2[CapSense_BTN2_NUM_SENSORS];
-static uint8 CapSense_debounceLinearSlider[1u];
+static uint8 capsense_debounceBTN0[capsense_BTN0_NUM_SENSORS];
+static uint8 capsense_debounceBTN1[capsense_BTN1_NUM_SENSORS];
+static uint8 capsense_debounceBTN2[capsense_BTN2_NUM_SENSORS];
+static uint8 capsense_debounceLinearSlider[1u];
 
 
 /*******************************************************************************
@@ -98,73 +98,73 @@ static uint8 CapSense_debounceLinearSlider[1u];
 /**
 * Constant for the FLASH Data Structure
 */
-const CapSense_FLASH_STRUCT CapSense_dsFlash =
+const capsense_FLASH_STRUCT capsense_dsFlash =
 {
     /* Flash Widget Initialization Data */
     {
         { /* BTN0 */
-            &CapSense_ioList[0u],
-            (void *)&CapSense_dsRam.wdgtList.btn0,
-            CapSense_dsRam.snsList.btn0,
+            &capsense_ioList[0u],
+            (void *)&capsense_dsRam.wdgtList.btn0,
+            capsense_dsRam.snsList.btn0,
             (void *)0u,
-            CapSense_debounceBTN0,
-            CapSense_BTN0_STATIC_CONFIG,
-            CapSense_BTN0_NUM_SENSORS,
-            (uint8)CapSense_WD_BUTTON_E,
-            (uint8)CapSense_SENSE_METHOD_CSX_E,
-            CapSense_BTN0_NUM_SENSORS,
+            capsense_debounceBTN0,
+            capsense_BTN0_STATIC_CONFIG,
+            capsense_BTN0_NUM_SENSORS,
+            (uint8)capsense_WD_BUTTON_E,
+            (uint8)capsense_SENSE_METHOD_CSX_E,
+            capsense_BTN0_NUM_SENSORS,
             1u,
             0u,
             0u,
             0u,
         },
         { /* BTN1 */
-            &CapSense_ioList[2u],
-            (void *)&CapSense_dsRam.wdgtList.btn1,
-            CapSense_dsRam.snsList.btn1,
+            &capsense_ioList[2u],
+            (void *)&capsense_dsRam.wdgtList.btn1,
+            capsense_dsRam.snsList.btn1,
             (void *)0u,
-            CapSense_debounceBTN1,
-            CapSense_BTN1_STATIC_CONFIG,
-            CapSense_BTN1_NUM_SENSORS,
-            (uint8)CapSense_WD_BUTTON_E,
-            (uint8)CapSense_SENSE_METHOD_CSX_E,
-            CapSense_BTN1_NUM_SENSORS,
+            capsense_debounceBTN1,
+            capsense_BTN1_STATIC_CONFIG,
+            capsense_BTN1_NUM_SENSORS,
+            (uint8)capsense_WD_BUTTON_E,
+            (uint8)capsense_SENSE_METHOD_CSX_E,
+            capsense_BTN1_NUM_SENSORS,
             1u,
             0u,
             0u,
             0u,
         },
         { /* BTN2 */
-            &CapSense_ioList[4u],
-            (void *)&CapSense_dsRam.wdgtList.btn2,
-            CapSense_dsRam.snsList.btn2,
+            &capsense_ioList[4u],
+            (void *)&capsense_dsRam.wdgtList.btn2,
+            capsense_dsRam.snsList.btn2,
             (void *)0u,
-            CapSense_debounceBTN2,
-            CapSense_BTN2_STATIC_CONFIG,
-            CapSense_BTN2_NUM_SENSORS,
-            (uint8)CapSense_WD_BUTTON_E,
-            (uint8)CapSense_SENSE_METHOD_CSX_E,
-            CapSense_BTN2_NUM_SENSORS,
+            capsense_debounceBTN2,
+            capsense_BTN2_STATIC_CONFIG,
+            capsense_BTN2_NUM_SENSORS,
+            (uint8)capsense_WD_BUTTON_E,
+            (uint8)capsense_SENSE_METHOD_CSX_E,
+            capsense_BTN2_NUM_SENSORS,
             1u,
             0u,
             0u,
             0u,
         },
         { /* LinearSlider */
-            &CapSense_ioList[6u],
-            (void *)&CapSense_dsRam.wdgtList.linearslider,
-            CapSense_dsRam.snsList.linearslider,
+            &capsense_ioList[6u],
+            (void *)&capsense_dsRam.wdgtList.linearslider,
+            capsense_dsRam.snsList.linearslider,
             (void *)0u,
-            CapSense_debounceLinearSlider,
-            CapSense_LINEARSLIDER_STATIC_CONFIG,
-            CapSense_LINEARSLIDER_NUM_SENSORS,
-            (uint8)CapSense_WD_LINEAR_SLIDER_E,
-            (uint8)CapSense_SENSE_METHOD_CSD_E,
-            CapSense_LINEARSLIDER_NUM_SENSORS,
+            capsense_debounceLinearSlider,
+            capsense_LINEARSLIDER_STATIC_CONFIG,
+            capsense_LINEARSLIDER_NUM_SENSORS,
+            (uint8)capsense_WD_LINEAR_SLIDER_E,
+            (uint8)capsense_SENSE_METHOD_CSD_E,
+            capsense_LINEARSLIDER_NUM_SENSORS,
             0u,
-            CapSense_LINEARSLIDER_X_RESOLUTION,
-            CapSense_LINEARSLIDER_X_CENT_MULT,
-            CapSense_LINEARSLIDER_IIR_FILTER_COEFF,
+            capsense_LINEARSLIDER_X_RESOLUTION,
+            capsense_LINEARSLIDER_X_CENT_MULT,
+            capsense_LINEARSLIDER_IIR_FILTER_COEFF,
         },
     },
 };
@@ -172,128 +172,128 @@ const CapSense_FLASH_STRUCT CapSense_dsFlash =
 /**
 * The array of the pointers to the electrode specific register.
 */
-const CapSense_FLASH_IO_STRUCT CapSense_ioList[CapSense_TOTAL_ELECTRODES] =
+const capsense_FLASH_IO_STRUCT capsense_ioList[capsense_TOTAL_ELECTRODES] =
 {
     { /* 0: BTN0_Rx0 */
-        (reg32 *)CapSense_Rx__0__HSIOM,
-        (reg32 *)CapSense_Rx__0__PC,
-        (reg32 *)CapSense_Rx__0__DR,
-        (reg32 *)CapSense_Rx__0__PS,
-        CapSense_Rx__0__HSIOM_MASK,
-        CapSense_Rx__0__MASK,
-        CapSense_Rx__0__HSIOM_SHIFT,
-        (uint8)CapSense_Rx__0__SHIFT,
-        (uint8)CapSense_Rx__0__SHIFT * 3u,
+        (reg32 *)capsense_Rx__0__HSIOM,
+        (reg32 *)capsense_Rx__0__PC,
+        (reg32 *)capsense_Rx__0__DR,
+        (reg32 *)capsense_Rx__0__PS,
+        capsense_Rx__0__HSIOM_MASK,
+        capsense_Rx__0__MASK,
+        capsense_Rx__0__HSIOM_SHIFT,
+        (uint8)capsense_Rx__0__SHIFT,
+        (uint8)capsense_Rx__0__SHIFT * 3u,
     },
     { /* 1: BTN0_Tx */
-        (reg32 *)CapSense_Tx__0__HSIOM,
-        (reg32 *)CapSense_Tx__0__PC,
-        (reg32 *)CapSense_Tx__0__DR,
-        (reg32 *)CapSense_Tx__0__PS,
-        CapSense_Tx__0__HSIOM_MASK,
-        CapSense_Tx__0__MASK,
-        CapSense_Tx__0__HSIOM_SHIFT,
-        (uint8)CapSense_Tx__0__SHIFT,
-        (uint8)CapSense_Tx__0__SHIFT * 3u,
+        (reg32 *)capsense_Tx__0__HSIOM,
+        (reg32 *)capsense_Tx__0__PC,
+        (reg32 *)capsense_Tx__0__DR,
+        (reg32 *)capsense_Tx__0__PS,
+        capsense_Tx__0__HSIOM_MASK,
+        capsense_Tx__0__MASK,
+        capsense_Tx__0__HSIOM_SHIFT,
+        (uint8)capsense_Tx__0__SHIFT,
+        (uint8)capsense_Tx__0__SHIFT * 3u,
     },
     { /* 2: BTN1_Rx0 */
-        (reg32 *)CapSense_Rx__1__HSIOM,
-        (reg32 *)CapSense_Rx__1__PC,
-        (reg32 *)CapSense_Rx__1__DR,
-        (reg32 *)CapSense_Rx__1__PS,
-        CapSense_Rx__1__HSIOM_MASK,
-        CapSense_Rx__1__MASK,
-        CapSense_Rx__1__HSIOM_SHIFT,
-        (uint8)CapSense_Rx__1__SHIFT,
-        (uint8)CapSense_Rx__1__SHIFT * 3u,
+        (reg32 *)capsense_Rx__1__HSIOM,
+        (reg32 *)capsense_Rx__1__PC,
+        (reg32 *)capsense_Rx__1__DR,
+        (reg32 *)capsense_Rx__1__PS,
+        capsense_Rx__1__HSIOM_MASK,
+        capsense_Rx__1__MASK,
+        capsense_Rx__1__HSIOM_SHIFT,
+        (uint8)capsense_Rx__1__SHIFT,
+        (uint8)capsense_Rx__1__SHIFT * 3u,
     },
     { /* 3: BTN0_Tx ganged to BTN1_Tx */
-        (reg32 *)CapSense_Tx__0__HSIOM,
-        (reg32 *)CapSense_Tx__0__PC,
-        (reg32 *)CapSense_Tx__0__DR,
-        (reg32 *)CapSense_Tx__0__PS,
-        CapSense_Tx__0__HSIOM_MASK,
-        CapSense_Tx__0__MASK,
-        CapSense_Tx__0__HSIOM_SHIFT,
-        (uint8)CapSense_Tx__0__SHIFT,
-        (uint8)CapSense_Tx__0__SHIFT * 3u,
+        (reg32 *)capsense_Tx__0__HSIOM,
+        (reg32 *)capsense_Tx__0__PC,
+        (reg32 *)capsense_Tx__0__DR,
+        (reg32 *)capsense_Tx__0__PS,
+        capsense_Tx__0__HSIOM_MASK,
+        capsense_Tx__0__MASK,
+        capsense_Tx__0__HSIOM_SHIFT,
+        (uint8)capsense_Tx__0__SHIFT,
+        (uint8)capsense_Tx__0__SHIFT * 3u,
     },
     { /* 4: BTN2_Rx0 */
-        (reg32 *)CapSense_Rx__2__HSIOM,
-        (reg32 *)CapSense_Rx__2__PC,
-        (reg32 *)CapSense_Rx__2__DR,
-        (reg32 *)CapSense_Rx__2__PS,
-        CapSense_Rx__2__HSIOM_MASK,
-        CapSense_Rx__2__MASK,
-        CapSense_Rx__2__HSIOM_SHIFT,
-        (uint8)CapSense_Rx__2__SHIFT,
-        (uint8)CapSense_Rx__2__SHIFT * 3u,
+        (reg32 *)capsense_Rx__2__HSIOM,
+        (reg32 *)capsense_Rx__2__PC,
+        (reg32 *)capsense_Rx__2__DR,
+        (reg32 *)capsense_Rx__2__PS,
+        capsense_Rx__2__HSIOM_MASK,
+        capsense_Rx__2__MASK,
+        capsense_Rx__2__HSIOM_SHIFT,
+        (uint8)capsense_Rx__2__SHIFT,
+        (uint8)capsense_Rx__2__SHIFT * 3u,
     },
     { /* 5: BTN0_Tx ganged to BTN2_Tx */
-        (reg32 *)CapSense_Tx__0__HSIOM,
-        (reg32 *)CapSense_Tx__0__PC,
-        (reg32 *)CapSense_Tx__0__DR,
-        (reg32 *)CapSense_Tx__0__PS,
-        CapSense_Tx__0__HSIOM_MASK,
-        CapSense_Tx__0__MASK,
-        CapSense_Tx__0__HSIOM_SHIFT,
-        (uint8)CapSense_Tx__0__SHIFT,
-        (uint8)CapSense_Tx__0__SHIFT * 3u,
+        (reg32 *)capsense_Tx__0__HSIOM,
+        (reg32 *)capsense_Tx__0__PC,
+        (reg32 *)capsense_Tx__0__DR,
+        (reg32 *)capsense_Tx__0__PS,
+        capsense_Tx__0__HSIOM_MASK,
+        capsense_Tx__0__MASK,
+        capsense_Tx__0__HSIOM_SHIFT,
+        (uint8)capsense_Tx__0__SHIFT,
+        (uint8)capsense_Tx__0__SHIFT * 3u,
     },
     { /* 6: LinearSlider_Sns0 */
-        (reg32 *)CapSense_Sns__0__HSIOM,
-        (reg32 *)CapSense_Sns__0__PC,
-        (reg32 *)CapSense_Sns__0__DR,
-        (reg32 *)CapSense_Sns__0__PS,
-        CapSense_Sns__0__HSIOM_MASK,
-        CapSense_Sns__0__MASK,
-        CapSense_Sns__0__HSIOM_SHIFT,
-        (uint8)CapSense_Sns__0__SHIFT,
-        (uint8)CapSense_Sns__0__SHIFT * 3u,
+        (reg32 *)capsense_Sns__0__HSIOM,
+        (reg32 *)capsense_Sns__0__PC,
+        (reg32 *)capsense_Sns__0__DR,
+        (reg32 *)capsense_Sns__0__PS,
+        capsense_Sns__0__HSIOM_MASK,
+        capsense_Sns__0__MASK,
+        capsense_Sns__0__HSIOM_SHIFT,
+        (uint8)capsense_Sns__0__SHIFT,
+        (uint8)capsense_Sns__0__SHIFT * 3u,
     },
     { /* 7: LinearSlider_Sns1 */
-        (reg32 *)CapSense_Sns__1__HSIOM,
-        (reg32 *)CapSense_Sns__1__PC,
-        (reg32 *)CapSense_Sns__1__DR,
-        (reg32 *)CapSense_Sns__1__PS,
-        CapSense_Sns__1__HSIOM_MASK,
-        CapSense_Sns__1__MASK,
-        CapSense_Sns__1__HSIOM_SHIFT,
-        (uint8)CapSense_Sns__1__SHIFT,
-        (uint8)CapSense_Sns__1__SHIFT * 3u,
+        (reg32 *)capsense_Sns__1__HSIOM,
+        (reg32 *)capsense_Sns__1__PC,
+        (reg32 *)capsense_Sns__1__DR,
+        (reg32 *)capsense_Sns__1__PS,
+        capsense_Sns__1__HSIOM_MASK,
+        capsense_Sns__1__MASK,
+        capsense_Sns__1__HSIOM_SHIFT,
+        (uint8)capsense_Sns__1__SHIFT,
+        (uint8)capsense_Sns__1__SHIFT * 3u,
     },
     { /* 8: LinearSlider_Sns2 */
-        (reg32 *)CapSense_Sns__2__HSIOM,
-        (reg32 *)CapSense_Sns__2__PC,
-        (reg32 *)CapSense_Sns__2__DR,
-        (reg32 *)CapSense_Sns__2__PS,
-        CapSense_Sns__2__HSIOM_MASK,
-        CapSense_Sns__2__MASK,
-        CapSense_Sns__2__HSIOM_SHIFT,
-        (uint8)CapSense_Sns__2__SHIFT,
-        (uint8)CapSense_Sns__2__SHIFT * 3u,
+        (reg32 *)capsense_Sns__2__HSIOM,
+        (reg32 *)capsense_Sns__2__PC,
+        (reg32 *)capsense_Sns__2__DR,
+        (reg32 *)capsense_Sns__2__PS,
+        capsense_Sns__2__HSIOM_MASK,
+        capsense_Sns__2__MASK,
+        capsense_Sns__2__HSIOM_SHIFT,
+        (uint8)capsense_Sns__2__SHIFT,
+        (uint8)capsense_Sns__2__SHIFT * 3u,
     },
     { /* 9: LinearSlider_Sns3 */
-        (reg32 *)CapSense_Sns__3__HSIOM,
-        (reg32 *)CapSense_Sns__3__PC,
-        (reg32 *)CapSense_Sns__3__DR,
-        (reg32 *)CapSense_Sns__3__PS,
-        CapSense_Sns__3__HSIOM_MASK,
-        CapSense_Sns__3__MASK,
-        CapSense_Sns__3__HSIOM_SHIFT,
-        (uint8)CapSense_Sns__3__SHIFT,
-        (uint8)CapSense_Sns__3__SHIFT * 3u,
+        (reg32 *)capsense_Sns__3__HSIOM,
+        (reg32 *)capsense_Sns__3__PC,
+        (reg32 *)capsense_Sns__3__DR,
+        (reg32 *)capsense_Sns__3__PS,
+        capsense_Sns__3__HSIOM_MASK,
+        capsense_Sns__3__MASK,
+        capsense_Sns__3__HSIOM_SHIFT,
+        (uint8)capsense_Sns__3__SHIFT,
+        (uint8)capsense_Sns__3__SHIFT * 3u,
     },
     { /* 10: LinearSlider_Sns4 */
-        (reg32 *)CapSense_Sns__4__HSIOM,
-        (reg32 *)CapSense_Sns__4__PC,
-        (reg32 *)CapSense_Sns__4__DR,
-        (reg32 *)CapSense_Sns__4__PS,
-        CapSense_Sns__4__HSIOM_MASK,
-        CapSense_Sns__4__MASK,
-        CapSense_Sns__4__HSIOM_SHIFT,
-        (uint8)CapSense_Sns__4__SHIFT,
-        (uint8)CapSense_Sns__4__SHIFT * 3u,
+        (reg32 *)capsense_Sns__4__HSIOM,
+        (reg32 *)capsense_Sns__4__PC,
+        (reg32 *)capsense_Sns__4__DR,
+        (reg32 *)capsense_Sns__4__PS,
+        capsense_Sns__4__HSIOM_MASK,
+        capsense_Sns__4__MASK,
+        capsense_Sns__4__HSIOM_SHIFT,
+        (uint8)capsense_Sns__4__SHIFT,
+        (uint8)capsense_Sns__4__SHIFT * 3u,
     },
 };
 
@@ -303,92 +303,92 @@ const CapSense_FLASH_IO_STRUCT CapSense_ioList[CapSense_TOTAL_ELECTRODES] =
 * \endcond */
 
 /* Initialization data for RAM widget list */
-const CapSense_RAM_WD_LIST_STRUCT CapSense_ramWidgetInit =
+const capsense_RAM_WD_LIST_STRUCT capsense_ramWidgetInit =
 {
     { /* BTN0 */
-        CapSense_BTN0_RESOLUTION,
-        CapSense_BTN0_FINGER_TH,
-        CapSense_BTN0_NOISE_TH,
-        CapSense_BTN0_NNOISE_TH,
-        CapSense_BTN0_HYSTERESIS,
-        CapSense_BTN0_ON_DEBOUNCE,
-        CapSense_BTN0_LOW_BSLN_RST,
+        capsense_BTN0_RESOLUTION,
+        capsense_BTN0_FINGER_TH,
+        capsense_BTN0_NOISE_TH,
+        capsense_BTN0_NNOISE_TH,
+        capsense_BTN0_HYSTERESIS,
+        capsense_BTN0_ON_DEBOUNCE,
+        capsense_BTN0_LOW_BSLN_RST,
         {
-            CapSense_BTN0_IDAC_MOD0,
+            capsense_BTN0_IDAC_MOD0,
         },
-        CapSense_BTN0_IDAC_GAIN_INDEX,
-        CapSense_BTN0_SNS_CLK,
-        CapSense_BTN0_SNS_CLK_SOURCE,
+        capsense_BTN0_IDAC_GAIN_INDEX,
+        capsense_BTN0_SNS_CLK,
+        capsense_BTN0_SNS_CLK_SOURCE,
     },
     { /* BTN1 */
-        CapSense_BTN1_RESOLUTION,
-        CapSense_BTN1_FINGER_TH,
-        CapSense_BTN1_NOISE_TH,
-        CapSense_BTN1_NNOISE_TH,
-        CapSense_BTN1_HYSTERESIS,
-        CapSense_BTN1_ON_DEBOUNCE,
-        CapSense_BTN1_LOW_BSLN_RST,
+        capsense_BTN1_RESOLUTION,
+        capsense_BTN1_FINGER_TH,
+        capsense_BTN1_NOISE_TH,
+        capsense_BTN1_NNOISE_TH,
+        capsense_BTN1_HYSTERESIS,
+        capsense_BTN1_ON_DEBOUNCE,
+        capsense_BTN1_LOW_BSLN_RST,
         {
-            CapSense_BTN1_IDAC_MOD0,
+            capsense_BTN1_IDAC_MOD0,
         },
-        CapSense_BTN1_IDAC_GAIN_INDEX,
-        CapSense_BTN1_SNS_CLK,
-        CapSense_BTN1_SNS_CLK_SOURCE,
+        capsense_BTN1_IDAC_GAIN_INDEX,
+        capsense_BTN1_SNS_CLK,
+        capsense_BTN1_SNS_CLK_SOURCE,
     },
     { /* BTN2 */
-        CapSense_BTN2_RESOLUTION,
-        CapSense_BTN2_FINGER_TH,
-        CapSense_BTN2_NOISE_TH,
-        CapSense_BTN2_NNOISE_TH,
-        CapSense_BTN2_HYSTERESIS,
-        CapSense_BTN2_ON_DEBOUNCE,
-        CapSense_BTN2_LOW_BSLN_RST,
+        capsense_BTN2_RESOLUTION,
+        capsense_BTN2_FINGER_TH,
+        capsense_BTN2_NOISE_TH,
+        capsense_BTN2_NNOISE_TH,
+        capsense_BTN2_HYSTERESIS,
+        capsense_BTN2_ON_DEBOUNCE,
+        capsense_BTN2_LOW_BSLN_RST,
         {
-            CapSense_BTN2_IDAC_MOD0,
+            capsense_BTN2_IDAC_MOD0,
         },
-        CapSense_BTN2_IDAC_GAIN_INDEX,
-        CapSense_BTN2_SNS_CLK,
-        CapSense_BTN2_SNS_CLK_SOURCE,
+        capsense_BTN2_IDAC_GAIN_INDEX,
+        capsense_BTN2_SNS_CLK,
+        capsense_BTN2_SNS_CLK_SOURCE,
     },
     { /* LinearSlider */
-        CapSense_LINEARSLIDER_RESOLUTION,
-        CapSense_LINEARSLIDER_FINGER_TH,
-        CapSense_LINEARSLIDER_NOISE_TH,
-        CapSense_LINEARSLIDER_NNOISE_TH,
-        CapSense_LINEARSLIDER_HYSTERESIS,
-        CapSense_LINEARSLIDER_ON_DEBOUNCE,
-        CapSense_LINEARSLIDER_LOW_BSLN_RST,
+        capsense_LINEARSLIDER_RESOLUTION,
+        capsense_LINEARSLIDER_FINGER_TH,
+        capsense_LINEARSLIDER_NOISE_TH,
+        capsense_LINEARSLIDER_NNOISE_TH,
+        capsense_LINEARSLIDER_HYSTERESIS,
+        capsense_LINEARSLIDER_ON_DEBOUNCE,
+        capsense_LINEARSLIDER_LOW_BSLN_RST,
         {
-            CapSense_LINEARSLIDER_IDAC_MOD0,
+            capsense_LINEARSLIDER_IDAC_MOD0,
         },
-        CapSense_LINEARSLIDER_IDAC_GAIN_INDEX,
-        CapSense_LINEARSLIDER_SNS_CLK,
-        CapSense_LINEARSLIDER_SNS_CLK_SOURCE,
+        capsense_LINEARSLIDER_IDAC_GAIN_INDEX,
+        capsense_LINEARSLIDER_SNS_CLK,
+        capsense_LINEARSLIDER_SNS_CLK_SOURCE,
         {
-            CapSense_LINEARSLIDER_POSITION,
+            capsense_LINEARSLIDER_POSITION,
         },
     },
 };
 
 
 /* IDAC Initialization Data */
-const uint8 CapSense_ramIdacInit[CapSense_TOTAL_SENSORS] =
+const uint8 capsense_ramIdacInit[capsense_TOTAL_SENSORS] =
 {
     /* BTN0 */
-    CapSense_BTN0_RX0_IDAC_COMP0,
+    capsense_BTN0_RX0_IDAC_COMP0,
 
     /* BTN1 */
-    CapSense_BTN1_RX0_IDAC_COMP0,
+    capsense_BTN1_RX0_IDAC_COMP0,
 
     /* BTN2 */
-    CapSense_BTN2_RX0_IDAC_COMP0,
+    capsense_BTN2_RX0_IDAC_COMP0,
 
     /* LinearSlider */
-    CapSense_LINEARSLIDER_SNS0_IDAC_COMP0,
-    CapSense_LINEARSLIDER_SNS1_IDAC_COMP0,
-    CapSense_LINEARSLIDER_SNS2_IDAC_COMP0,
-    CapSense_LINEARSLIDER_SNS3_IDAC_COMP0,
-    CapSense_LINEARSLIDER_SNS4_IDAC_COMP0,
+    capsense_LINEARSLIDER_SNS0_IDAC_COMP0,
+    capsense_LINEARSLIDER_SNS1_IDAC_COMP0,
+    capsense_LINEARSLIDER_SNS2_IDAC_COMP0,
+    capsense_LINEARSLIDER_SNS3_IDAC_COMP0,
+    capsense_LINEARSLIDER_SNS4_IDAC_COMP0,
 };
 
 
@@ -452,7 +452,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData);
 
 
 /*******************************************************************************
-* Function Name: CapSense_DsInitialize
+* Function Name: capsense_DsInitialize
 ****************************************************************************//**
 *
 * \brief
@@ -463,170 +463,170 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData);
 *   from the Flash storage into the RAM Data Structure.
 *
 *******************************************************************************/
-void CapSense_DsInitialize(void)
+void capsense_DsInitialize(void)
 {
-    #if ((CapSense_ENABLE == CapSense_CSX_EN) || \
-         (CapSense_ENABLE == CapSense_CSD_IDAC_COMP_EN) || \
-        ((CapSense_ENABLE == CapSense_CSX_EN) && \
-         (CapSense_ENABLE == CapSense_CSX_SKIP_OVSMPL_SPECIFIC_NODES)))
+    #if ((capsense_ENABLE == capsense_CSX_EN) || \
+         (capsense_ENABLE == capsense_CSD_IDAC_COMP_EN) || \
+        ((capsense_ENABLE == capsense_CSX_EN) && \
+         (capsense_ENABLE == capsense_CSX_SKIP_OVSMPL_SPECIFIC_NODES)))
         uint32 snsId;
         uint32 wdgtId;
-        CapSense_RAM_SNS_STRUCT * ptrSnsTmp;
-        CapSense_FLASH_WD_STRUCT const * ptrFlashWdgt;
+        capsense_RAM_SNS_STRUCT * ptrSnsTmp;
+        capsense_FLASH_WD_STRUCT const * ptrFlashWdgt;
     #endif
 
-    #if ((CapSense_ENABLE == CapSense_CSX_EN) && \
-         (CapSense_ENABLE == CapSense_CSX_SKIP_OVSMPL_SPECIFIC_NODES))
+    #if ((capsense_ENABLE == capsense_CSX_EN) && \
+         (capsense_ENABLE == capsense_CSX_SKIP_OVSMPL_SPECIFIC_NODES))
         uint16 subConvNumber;
     #endif
 
-    #if ((0u != CapSense_CSX_EN) || (0 != CapSense_CSD_IDAC_COMP_EN))
-        uint8 const * ptrIdacInit = CapSense_ramIdacInit;
+    #if ((0u != capsense_CSX_EN) || (0 != capsense_CSD_IDAC_COMP_EN))
+        uint8 const * ptrIdacInit = capsense_ramIdacInit;
     #endif
 
     /* Reset RAM data structure content */
-    (void)memset(&CapSense_dsRam, 0, sizeof(CapSense_dsRam));
+    (void)memset(&capsense_dsRam, 0, sizeof(capsense_dsRam));
 
     /* Initialize configId, deviceId and hwClock registers */
-    CapSense_dsRam.configId = CapSense_CONFIG_ID;
-    CapSense_dsRam.deviceId = CapSense_DEVICE_ID;
-    CapSense_dsRam.hwClock = CapSense_HW_CLOCK;
+    capsense_dsRam.configId = capsense_CONFIG_ID;
+    capsense_dsRam.deviceId = capsense_DEVICE_ID;
+    capsense_dsRam.hwClock = capsense_HW_CLOCK;
 
     /* Initialize global RAM data */
-    CapSense_dsRam.csd0Config = CapSense_CSD0_CONFIG;
+    capsense_dsRam.csd0Config = capsense_CSD0_CONFIG;
 
-    CapSense_dsRam.scanCurrentISC = CapSense_SNS_CONNECTION_UNDEFINED;
-    #if (0u != CapSense_TOTAL_CSD_WIDGETS)
-        CapSense_dsRam.modCsdClk = CapSense_CSD_SCANSPEED_DIVIDER;
-        CapSense_dsRam.scanCsdISC = CapSense_CSD_INACTIVE_SNS_CONNECTION;
+    capsense_dsRam.scanCurrentISC = capsense_SNS_CONNECTION_UNDEFINED;
+    #if (0u != capsense_TOTAL_CSD_WIDGETS)
+        capsense_dsRam.modCsdClk = capsense_CSD_SCANSPEED_DIVIDER;
+        capsense_dsRam.scanCsdISC = capsense_CSD_INACTIVE_SNS_CONNECTION;
 
-        #if (0u != CapSense_CSD_COMMON_SNS_CLK_EN)
-            CapSense_dsRam.snsCsdClk = CapSense_CSD_SNS_CLK_DIVIDER;
-        #endif /* #if (0u != CapSense_CSD_COMMON_SNS_CLK_EN) */
-    #endif /* #if (0u != CapSense_TOTAL_CSD_WIDGETS) */
+        #if (0u != capsense_CSD_COMMON_SNS_CLK_EN)
+            capsense_dsRam.snsCsdClk = capsense_CSD_SNS_CLK_DIVIDER;
+        #endif /* #if (0u != capsense_CSD_COMMON_SNS_CLK_EN) */
+    #endif /* #if (0u != capsense_TOTAL_CSD_WIDGETS) */
 
-    #if (CapSense_ENABLE == CapSense_CSX_EN)
-        CapSense_dsRam.modCsxClk = CapSense_CSX_SCANSPEED_DIVIDER;
-        CapSense_dsRam.scanCsxISC = CapSense_CSX_INACTIVE_SNS_CONNECTION;
+    #if (capsense_ENABLE == capsense_CSX_EN)
+        capsense_dsRam.modCsxClk = capsense_CSX_SCANSPEED_DIVIDER;
+        capsense_dsRam.scanCsxISC = capsense_CSX_INACTIVE_SNS_CONNECTION;
 
-        #if (0u != CapSense_CSX_COMMON_TX_CLK_EN)
-            CapSense_dsRam.snsCsxClk = CapSense_CSX_TX_CLK_DIVIDER;
-        #endif /* #if (0u != CapSense_CSX_COMMON_TX_CLK_EN) */
-    #endif /* #if (CapSense_ENABLE == CapSense_CSX_EN) */
+        #if (0u != capsense_CSX_COMMON_TX_CLK_EN)
+            capsense_dsRam.snsCsxClk = capsense_CSX_TX_CLK_DIVIDER;
+        #endif /* #if (0u != capsense_CSX_COMMON_TX_CLK_EN) */
+    #endif /* #if (capsense_ENABLE == capsense_CSX_EN) */
 
-    #if (CapSense_ENABLE == CapSense_ISX_EN)
-        CapSense_dsRam.modIsxClk = CapSense_ISX_SCANSPEED_DIVIDER;
-    #endif /* #if (0u != CapSense_ISX_EN) */
+    #if (capsense_ENABLE == capsense_ISX_EN)
+        capsense_dsRam.modIsxClk = capsense_ISX_SCANSPEED_DIVIDER;
+    #endif /* #if (0u != capsense_ISX_EN) */
 
-    #if (0u != CapSense_SELF_TEST_EN)
+    #if (0u != capsense_SELF_TEST_EN)
 
-        CapSense_dsRam.glbCrc = CapSense_GLB_CRC;
-        CapSense_dsRam.selfTestConfig.fineInitTime = (uint8)CapSense_TST_FINE_INIT_TIME;
-        CapSense_dsRam.selfTestConfig.startupDelay = CapSense_TST_ANALOG_STARTUP_DELAY_US;
+        capsense_dsRam.glbCrc = capsense_GLB_CRC;
+        capsense_dsRam.selfTestConfig.fineInitTime = (uint8)capsense_TST_FINE_INIT_TIME;
+        capsense_dsRam.selfTestConfig.startupDelay = capsense_TST_ANALOG_STARTUP_DELAY_US;
 
-        #if (0u != CapSense_TST_SNS_SHORT_EN)
-            CapSense_dsRam.selfTestConfig.snsShortTimeUs = CapSense_TST_SNS_SHORT_TIME;
+        #if (0u != capsense_TST_SNS_SHORT_EN)
+            capsense_dsRam.selfTestConfig.snsShortTimeUs = capsense_TST_SNS_SHORT_TIME;
         #endif
 
-        #if ((0u != CapSense_TST_SNS_CAP_EN) ||\
-             (0u != CapSense_TST_SH_CAP_EN))
-            CapSense_dsRam.selfTestConfig.snsCapSnsClkDivider = CapSense_TST_SNS_CAP_SNS_CLK_DIVIDER;
-            CapSense_dsRam.selfTestConfig.snsCapSnsClkHz = CapSense_TST_SNS_CAP_SNS_CLK_HZ;
-            CapSense_dsRam.selfTestConfig.snsCapResolution = CapSense_TST_SNS_CAP_RESOLUTION;
-            CapSense_dsRam.selfTestConfig.snsCapVrefGain = CapSense_TST_SNS_CAP_VREF_GAIN ;
-            CapSense_dsRam.selfTestConfig.snsCapVrefVoltage = CapSense_TST_SNS_CAP_VREF_MV;
-            CapSense_dsRam.selfTestConfig.snsCapModClkDivider = CapSense_TST_MOD_CLK_DIVIDER ;
-            CapSense_dsRam.selfTestConfig.snsCapModClkKHz = CapSense_TST_MOD_CLK_KHZ ;
-        #endif /* ((0u != CapSense_TST_SNS_CAP_EN) ||
-                   (0u != CapSense_TST_SH_CAP_EN)) */
+        #if ((0u != capsense_TST_SNS_CAP_EN) ||\
+             (0u != capsense_TST_SH_CAP_EN))
+            capsense_dsRam.selfTestConfig.snsCapSnsClkDivider = capsense_TST_SNS_CAP_SNS_CLK_DIVIDER;
+            capsense_dsRam.selfTestConfig.snsCapSnsClkHz = capsense_TST_SNS_CAP_SNS_CLK_HZ;
+            capsense_dsRam.selfTestConfig.snsCapResolution = capsense_TST_SNS_CAP_RESOLUTION;
+            capsense_dsRam.selfTestConfig.snsCapVrefGain = capsense_TST_SNS_CAP_VREF_GAIN ;
+            capsense_dsRam.selfTestConfig.snsCapVrefVoltage = capsense_TST_SNS_CAP_VREF_MV;
+            capsense_dsRam.selfTestConfig.snsCapModClkDivider = capsense_TST_MOD_CLK_DIVIDER ;
+            capsense_dsRam.selfTestConfig.snsCapModClkKHz = capsense_TST_MOD_CLK_KHZ ;
+        #endif /* ((0u != capsense_TST_SNS_CAP_EN) ||
+                   (0u != capsense_TST_SH_CAP_EN)) */
 
-        #if (0u != CapSense_TST_SNS_CAP_EN)
-            #if (0u != CapSense_CSD_EN)
-                CapSense_dsRam.selfTestConfig.bistCsdSnsCapISC = CapSense_SNS_CAP_CSD_INACTIVE_CONNECTION;
-            #endif /* (0u != CapSense_CSD_EN) */
-            #if (0u != CapSense_CSX_EN)
-                CapSense_dsRam.selfTestConfig.bistCsxSnsCapISC = CapSense_SNS_CAP_CSX_INACTIVE_CONNECTION;
-            #endif /* (0u != CapSense_CSX_EN) */
-        #endif /* (0u != CapSense_TST_SNS_CAP_EN) */
+        #if (0u != capsense_TST_SNS_CAP_EN)
+            #if (0u != capsense_CSD_EN)
+                capsense_dsRam.selfTestConfig.bistCsdSnsCapISC = capsense_SNS_CAP_CSD_INACTIVE_CONNECTION;
+            #endif /* (0u != capsense_CSD_EN) */
+            #if (0u != capsense_CSX_EN)
+                capsense_dsRam.selfTestConfig.bistCsxSnsCapISC = capsense_SNS_CAP_CSX_INACTIVE_CONNECTION;
+            #endif /* (0u != capsense_CSX_EN) */
+        #endif /* (0u != capsense_TST_SNS_CAP_EN) */
 
-        #if (0u != CapSense_TST_SH_CAP_EN)
-            #if ((0u != CapSense_CSD_EN) && (0u != CapSense_CSD_SHIELD_EN))
-                CapSense_dsRam.selfTestConfig.bistCsdShCapISC = CapSense_SHIELD_CAP_INACTIVE_CONNECTION;
-            #endif /* ((0u != CapSense_CSD_EN) && (0u != CapSense_CSD_SHIELD_EN)) */
-        #endif /* (0u != CapSense_TST_SH_CAP_EN) */
+        #if (0u != capsense_TST_SH_CAP_EN)
+            #if ((0u != capsense_CSD_EN) && (0u != capsense_CSD_SHIELD_EN))
+                capsense_dsRam.selfTestConfig.bistCsdShCapISC = capsense_SHIELD_CAP_INACTIVE_CONNECTION;
+            #endif /* ((0u != capsense_CSD_EN) && (0u != capsense_CSD_SHIELD_EN)) */
+        #endif /* (0u != capsense_TST_SH_CAP_EN) */
 
-        #if (0u != CapSense_TST_EXTERNAL_CAP_EN)
-            CapSense_dsRam.selfTestConfig.extCapVrefGain = CapSense_TST_EXT_CAP_VREF_GAIN;
-            CapSense_dsRam.selfTestConfig.extCapVrefVoltage = CapSense_TST_EXT_CAP_VREF_MV;
-        #endif /* #if (0u != CapSense_TST_EXTERNAL_CAP_EN) */
+        #if (0u != capsense_TST_EXTERNAL_CAP_EN)
+            capsense_dsRam.selfTestConfig.extCapVrefGain = capsense_TST_EXT_CAP_VREF_GAIN;
+            capsense_dsRam.selfTestConfig.extCapVrefVoltage = capsense_TST_EXT_CAP_VREF_MV;
+        #endif /* #if (0u != capsense_TST_EXTERNAL_CAP_EN) */
 
-        #if (0u != CapSense_TST_VDDA_EN)
-            CapSense_dsRam.selfTestConfig.vddaResolution = CapSense_TST_VDDA_RESOLUTION;
-            CapSense_dsRam.selfTestConfig.vddaModClkDivider = CapSense_TST_VDDA_MOD_CLK_DIVIDER;
+        #if (0u != capsense_TST_VDDA_EN)
+            capsense_dsRam.selfTestConfig.vddaResolution = capsense_TST_VDDA_RESOLUTION;
+            capsense_dsRam.selfTestConfig.vddaModClkDivider = capsense_TST_VDDA_MOD_CLK_DIVIDER;
 
-            CapSense_dsRam.selfTestConfig.vddaVrefGain = CapSense_TST_VDDA_VREF_GAIN;
-            CapSense_dsRam.selfTestConfig.vddaVrefVoltage = CapSense_TST_VDDA_VREF_MV;
-        #endif /* #if (0u != CapSense_TST_VDDA_EN) */
+            capsense_dsRam.selfTestConfig.vddaVrefGain = capsense_TST_VDDA_VREF_GAIN;
+            capsense_dsRam.selfTestConfig.vddaVrefVoltage = capsense_TST_VDDA_VREF_MV;
+        #endif /* #if (0u != capsense_TST_VDDA_EN) */
 
-    #endif /* #if (0u != CapSense_SELF_TEST_EN) */
+    #endif /* #if (0u != capsense_SELF_TEST_EN) */
 
     /* Initialize RAM widget data */
-    CapSense_dsRam.wdgtList = CapSense_ramWidgetInit;
+    capsense_dsRam.wdgtList = capsense_ramWidgetInit;
 
     /* Initialize Gesture configuration structure */
-    #if ((0u != CapSense_GES_GLOBAL_EN) || (0u != CapSense_BALLISTIC_MULTIPLIER_EN))
-        CapSense_dsRam.timestampInterval = CapSense_TIMESTAMP_INTERVAL;
-    #endif /* ((0u != CapSense_GES_GLOBAL_EN) || (0u != CapSense_BALLISTIC_MULTIPLIER_EN)) */
+    #if ((0u != capsense_GES_GLOBAL_EN) || (0u != capsense_BALLISTIC_MULTIPLIER_EN))
+        capsense_dsRam.timestampInterval = capsense_TIMESTAMP_INTERVAL;
+    #endif /* ((0u != capsense_GES_GLOBAL_EN) || (0u != capsense_BALLISTIC_MULTIPLIER_EN)) */
 
-    #if (0u != CapSense_GES_GLOBAL_EN)
-        CapSense_dsRam.gestures = CapSense_ramGesturesInit;
-    #endif /* (0u != CapSense_GES_GLOBAL_EN) */
+    #if (0u != capsense_GES_GLOBAL_EN)
+        capsense_dsRam.gestures = capsense_ramGesturesInit;
+    #endif /* (0u != capsense_GES_GLOBAL_EN) */
 
-    #if (0u != CapSense_BALLISTIC_MULTIPLIER_EN)
-        CapSense_dsRam.ballisticConfig = CapSense_ramBallisticInit;
-    #endif /* (0u != CapSense_BALLISTIC_MULTIPLIER_EN) */
+    #if (0u != capsense_BALLISTIC_MULTIPLIER_EN)
+        capsense_dsRam.ballisticConfig = capsense_ramBallisticInit;
+    #endif /* (0u != capsense_BALLISTIC_MULTIPLIER_EN) */
 
-    #if (0u != CapSense_CSX_EN) || (0 != CapSense_CSD_IDAC_COMP_EN)
+    #if (0u != capsense_CSX_EN) || (0 != capsense_CSD_IDAC_COMP_EN)
         /* Initialize IDAC data */
-        ptrFlashWdgt = CapSense_dsFlash.wdgtArray;
+        ptrFlashWdgt = capsense_dsFlash.wdgtArray;
 
-        for (wdgtId = CapSense_TOTAL_WIDGETS; wdgtId-- > 0u; )
+        for (wdgtId = capsense_TOTAL_WIDGETS; wdgtId-- > 0u; )
         {
             ptrSnsTmp = ptrFlashWdgt->ptr2SnsRam;
 
-            for (snsId = CapSense_GET_SNS_CNT_BY_PTR(ptrFlashWdgt); snsId-- > 0u;)
+            for (snsId = capsense_GET_SNS_CNT_BY_PTR(ptrFlashWdgt); snsId-- > 0u;)
             {
                 ptrSnsTmp->idacComp[0u] = *ptrIdacInit;
                 ptrIdacInit++;
 
-                #if (0u != CapSense_MULTI_FREQ_SCAN_EN)
+                #if (0u != capsense_MULTI_FREQ_SCAN_EN)
                     ptrSnsTmp->idacComp[1u] = *ptrIdacInit;
                     ptrIdacInit++;
 
                     ptrSnsTmp->idacComp[2u] = *ptrIdacInit;
                     ptrIdacInit++;
-                #endif /* #if (0u != CapSense_MULTI_FREQ_SCAN_EN) */
+                #endif /* #if (0u != capsense_MULTI_FREQ_SCAN_EN) */
 
                 ptrSnsTmp++;
             }
 
             ptrFlashWdgt++; /* Move to next widget */
         }
-    #endif /*(0u != CapSense_CSX_EN) || (0 != CapSense_CSD_IDAC_COMP_EN)*/
+    #endif /*(0u != capsense_CSX_EN) || (0 != capsense_CSD_IDAC_COMP_EN)*/
 
-    #if ((CapSense_ENABLE == CapSense_CSX_EN) && \
-         (CapSense_ENABLE == CapSense_CSX_SKIP_OVSMPL_SPECIFIC_NODES))
+    #if ((capsense_ENABLE == capsense_CSX_EN) && \
+         (capsense_ENABLE == capsense_CSX_SKIP_OVSMPL_SPECIFIC_NODES))
         /* Initialize Sub-Conversion Number for each node of each CSX widget */
-        ptrFlashWdgt = CapSense_dsFlash.wdgtArray;
-        for (wdgtId = CapSense_TOTAL_WIDGETS; wdgtId-- > 0u;)
+        ptrFlashWdgt = capsense_dsFlash.wdgtArray;
+        for (wdgtId = capsense_TOTAL_WIDGETS; wdgtId-- > 0u;)
         {
             /* Check for widget sense method */
-            if (CapSense_SENSE_METHOD_CSX_E == CapSense_GET_SENSE_METHOD(ptrFlashWdgt))
+            if (capsense_SENSE_METHOD_CSX_E == capsense_GET_SENSE_METHOD(ptrFlashWdgt))
             {
                 /* Take the sub-convesion number of a CSX widget and initialize each node of this widget */
-                subConvNumber = ((CapSense_RAM_WD_BASE_STRUCT *)(ptrFlashWdgt->ptr2WdgtRam))->resolution;
+                subConvNumber = ((capsense_RAM_WD_BASE_STRUCT *)(ptrFlashWdgt->ptr2WdgtRam))->resolution;
                 ptrSnsTmp = ptrFlashWdgt->ptr2SnsRam;
-                for (snsId = CapSense_GET_SNS_CNT_BY_PTR(ptrFlashWdgt); snsId-- > 0u;)
+                for (snsId = capsense_GET_SNS_CNT_BY_PTR(ptrFlashWdgt); snsId-- > 0u;)
                 {
                     ptrSnsTmp->subConvNum = subConvNumber;
                     ptrSnsTmp++;
@@ -635,31 +635,31 @@ void CapSense_DsInitialize(void)
             /* Move to the next widget */
             ptrFlashWdgt++;
         }
-    #endif /* ((CapSense_ENABLE == CapSense_CSX_EN) && \
-               (CapSense_ENABLE == CapSense_CSX_SKIP_OVSMPL_SPECIFIC_NODES)) */
+    #endif /* ((capsense_ENABLE == capsense_CSX_EN) && \
+               (capsense_ENABLE == capsense_CSX_SKIP_OVSMPL_SPECIFIC_NODES)) */
 
-    #if (0u != CapSense_ADC_EN)
-        CapSense_AdcDsInitialize();
-    #endif /* (0u != CapSense_ADC_EN) */
+    #if (0u != capsense_ADC_EN)
+        capsense_AdcDsInitialize();
+    #endif /* (0u != capsense_ADC_EN) */
 }
 
 
-#if (0u != CapSense_ADC_EN)
+#if (0u != capsense_ADC_EN)
     /*******************************************************************************
-    * Function Name: CapSense_AdcDsInitialize
+    * Function Name: capsense_AdcDsInitialize
     ****************************************************************************//**
     *
     * \brief
     *   Configures the initial Adc datastructure members.
     *
     *******************************************************************************/
-    void CapSense_AdcDsInitialize(void)
+    void capsense_AdcDsInitialize(void)
     {
-        CapSense_dsRam.adcResolution = CapSense_ADC_RESOLUTION;
-        CapSense_dsRam.adcIdac = (uint8)(CapSense_ADC_IDAC_DEFAULT);
-        CapSense_dsRam.adcActiveCh = CapSense_AdcNO_CHANNEL;
+        capsense_dsRam.adcResolution = capsense_ADC_RESOLUTION;
+        capsense_dsRam.adcIdac = (uint8)(capsense_ADC_IDAC_DEFAULT);
+        capsense_dsRam.adcActiveCh = capsense_AdcNO_CHANNEL;
     }
-#endif /* (0u != CapSense_ADC_EN) */
+#endif /* (0u != capsense_ADC_EN) */
 
 
 /*******************************************************************************
@@ -684,7 +684,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
 {
     cystatus result = CYRET_SUCCESS;
 
-    #if (0u != CapSense_SELF_TEST_EN)
+    #if (0u != capsense_SELF_TEST_EN)
         const uint8 crcTable[] =
         {
             0x00u, 0x09u, 0x0Bu, 0x02u, 0x0Fu, 0x06u, 0x04u, 0x0Du,
@@ -694,7 +694,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
         uint32 i;
         uint32 actualCrc = 0u;
         uint32 crcIndex;
-    #endif /* #if (0u != CapSense_SELF_TEST_EN) */
+    #endif /* #if (0u != capsense_SELF_TEST_EN) */
 
     /* Extract parameter data */
     pData->offset     = LO16(paramId);
@@ -706,7 +706,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
     pData->crc        = LO8((paramId & PARAM_CRC_MASK)   >> PARAM_CRC_OFFSET);
 
     /* Check parameter CRC if self-test is enabled */
-    #if (0u != CapSense_SELF_TEST_EN)
+    #if (0u != capsense_SELF_TEST_EN)
 
         /* Calculate CRC for bits 0..24.
          * The CRC is calculated using nibbles (4-bits).
@@ -733,7 +733,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
         }
 
         if ((CYRET_SUCCESS == result) &&
-            (0u != pData->affectsCrc) && (pData->widgetId >= CapSense_TOTAL_WIDGETS ))
+            (0u != pData->affectsCrc) && (pData->widgetId >= capsense_TOTAL_WIDGETS ))
         {
             /* Wrong widgetId for protected parameter */
             result = CYRET_BAD_PARAM;
@@ -745,7 +745,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
             if (0u == pData->flash)
             {
                 /* Check offset for RAM Data Structure range */
-                if (pData->offset >= sizeof(CapSense_dsRam))
+                if (pData->offset >= sizeof(capsense_dsRam))
                 {
                     result = CYRET_BAD_PARAM;
                 }
@@ -753,7 +753,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
             else
             {
                 /* Check offset for Flash Data Structure range */
-                if (pData->offset >= sizeof(CapSense_dsFlash))
+                if (pData->offset >= sizeof(capsense_dsFlash))
                 {
                     result = CYRET_BAD_PARAM;
                 }
@@ -765,12 +765,12 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
                 }
             }
         }
-    #else /* #if (0u != CapSense_SELF_TEST_EN) */
+    #else /* #if (0u != capsense_SELF_TEST_EN) */
         /* Check offset value range */
         if (0u == pData->flash)
         {
             /* Check offset for RAM Data Structure range */
-            if (pData->offset >= sizeof(CapSense_dsRam))
+            if (pData->offset >= sizeof(capsense_dsRam))
             {
                 result = CYRET_BAD_PARAM;
             }
@@ -778,7 +778,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
         else
         {
             /* Check offset for Flash Data Structure range */
-            if (pData->offset >= sizeof(CapSense_dsFlash))
+            if (pData->offset >= sizeof(capsense_dsFlash))
             {
                 result = CYRET_BAD_PARAM;
             }
@@ -789,7 +789,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
                 result = CYRET_BAD_PARAM;
             }
         }
-    #endif /* #if (0u != CapSense_SELF_TEST_EN) */
+    #endif /* #if (0u != capsense_SELF_TEST_EN) */
 
     if (CYRET_SUCCESS == result)
     {
@@ -823,7 +823,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
 }
 
 /*******************************************************************************
-* Function Name: CapSense_GetParam
+* Function Name: capsense_GetParam
 ****************************************************************************//**
 *
 * \brief
@@ -832,8 +832,8 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
 * \details
 *  This function gets the value of the specified parameter by the paramId
 *  argument. The paramId for each register is available in the
-*  CapSense RegisterMap header file as
-*  CapSense_<ParameterName>_PARAM_ID. The paramId is a special
+*  capsense RegisterMap header file as
+*  capsense_<ParameterName>_PARAM_ID. The paramId is a special
 *  enumerated value generated by the customizer. The format of paramId is as
 *  follows:
 *    1. [ byte 3 byte 2 byte 1 byte 0 ]
@@ -858,8 +858,8 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
 *
 * \param paramId
 *  Specifies the ID of parameter to get its value.
-*  A macro for the parameter ID can be found in the CapSense RegisterMap header
-*  file defined as CapSense_<ParameterName>_PARAM_ID.
+*  A macro for the parameter ID can be found in the capsense RegisterMap header
+*  file defined as capsense_<ParameterName>_PARAM_ID.
 *
 * \param value
 *  The pointer to a variable to be updated with the obtained value.
@@ -870,7 +870,7 @@ static cystatus DsParseParamId(uint32 paramId, PARAM_ID_STRUCT *pData)
 *    - CYRET_BAD_PARAM - The input parameter is invalid.
 *
 *******************************************************************************/
-cystatus CapSense_GetParam(uint32 paramId, uint32 *value)
+cystatus capsense_GetParam(uint32 paramId, uint32 *value)
 {
     PARAM_ID_STRUCT pData;
     cystatus result;
@@ -891,11 +891,11 @@ cystatus CapSense_GetParam(uint32 paramId, uint32 *value)
         /* Get base address of parameter */
         if (0u == pData.flash)
         {
-            ptrData.ptr = &CapSense_dsRam;
+            ptrData.ptr = &capsense_dsRam;
         }
         else
         {
-            ptrData.ptr = &CapSense_dsFlash;
+            ptrData.ptr = &capsense_dsFlash;
         }
 
         /* Add offset to base address */
@@ -926,7 +926,7 @@ cystatus CapSense_GetParam(uint32 paramId, uint32 *value)
 
 
 /*******************************************************************************
-* Function Name: CapSense_SetParam
+* Function Name: capsense_SetParam
 ****************************************************************************//**
 *
 * \brief
@@ -935,8 +935,8 @@ cystatus CapSense_GetParam(uint32 paramId, uint32 *value)
 * \details
 *  This function sets the value of the specified parameter by the paramId
 *  argument. The paramId for each register is available in the
-*  CapSense RegisterMap header file as
-*  CapSense_<ParameterName>_PARAM_ID. The paramId is a special
+*  capsense RegisterMap header file as
+*  capsense_<ParameterName>_PARAM_ID. The paramId is a special
 *  enumerated value generated by the customizer. The format of paramId is as
 *  follows:
 *    1. [ byte 3 byte 2 byte 1 byte 0 ]
@@ -962,12 +962,12 @@ cystatus CapSense_GetParam(uint32 paramId, uint32 *value)
 *  This function writes specified value into the desired register without
 *  other registers update. It is application layer responsibility to keep all
 *  the data structure registers aligned. Repeated call of
-*  CapSense_Start() function helps aligning dependent register values.
+*  capsense_Start() function helps aligning dependent register values.
 *
 * \param paramId
 *  Specifies the ID of parameter to set its value.
-*  A macro for the parameter ID can be found in the CapSense RegisterMap header
-*  file defined as CapSense_<ParameterName>_PARAM_ID.
+*  A macro for the parameter ID can be found in the capsense RegisterMap header
+*  file defined as capsense_<ParameterName>_PARAM_ID.
 
 * \param value
 *  Specifies the new parameter's value.
@@ -978,7 +978,7 @@ cystatus CapSense_GetParam(uint32 paramId, uint32 *value)
 *    - CYRET_BAD_PARAM - The input parameter is invalid.
 *
 *******************************************************************************/
-cystatus CapSense_SetParam(uint32 paramId, uint32 value)
+cystatus capsense_SetParam(uint32 paramId, uint32 value)
 {
     cystatus result;
     PARAM_ID_STRUCT pData;
@@ -1006,7 +1006,7 @@ cystatus CapSense_SetParam(uint32 paramId, uint32 value)
     if (CYRET_SUCCESS == result)
     {
         /* Get base address of parameter */
-        ptrData.ptr = &CapSense_dsRam;
+        ptrData.ptr = &capsense_dsRam;
 
         /* Add offset to base address */
         ptrData.ptrUint8 += pData.offset;
@@ -1030,34 +1030,34 @@ cystatus CapSense_SetParam(uint32 paramId, uint32 value)
             CYASSERT(0u);
         }
 
-        #if (CapSense_ENABLE == (CapSense_TST_WDGT_CRC_EN || CapSense_TST_GLOBAL_CRC_EN))
+        #if (capsense_ENABLE == (capsense_TST_WDGT_CRC_EN || capsense_TST_GLOBAL_CRC_EN))
             /* Update widget or global CRC if self-test is enabled and parameter affects it */
             if (0u != pData.affectsCrc)
             {
-                if ((ptrData.ptrUint16 >= &CapSense_dsRam.csd0Config) &&
-                    (ptrData.ptrUint16 <  &CapSense_dsRam.glbCrc))
+                if ((ptrData.ptrUint16 >= &capsense_dsRam.csd0Config) &&
+                    (ptrData.ptrUint16 <  &capsense_dsRam.glbCrc))
                 {
 
-                    #if (CapSense_ENABLE == CapSense_TST_GLOBAL_CRC_EN)
-                        CapSense_DsUpdateGlobalCrc();
-                    #endif /* (CapSense_ENABLE == CapSense_TST_GLOBAL_CRC_EN) */
+                    #if (capsense_ENABLE == capsense_TST_GLOBAL_CRC_EN)
+                        capsense_DsUpdateGlobalCrc();
+                    #endif /* (capsense_ENABLE == capsense_TST_GLOBAL_CRC_EN) */
 
                 }
                 else
                 {
-                    #if (CapSense_ENABLE == CapSense_TST_WDGT_CRC_EN)
-                        CapSense_DsUpdateWidgetCrc((uint32)pData.widgetId);
-                    #endif /* (CapSense_ENABLE == CapSense_TST_WDGT_CRC_EN) */
+                    #if (capsense_ENABLE == capsense_TST_WDGT_CRC_EN)
+                        capsense_DsUpdateWidgetCrc((uint32)pData.widgetId);
+                    #endif /* (capsense_ENABLE == capsense_TST_WDGT_CRC_EN) */
                 }
             }
-        #endif /* (CapSense_ENABLE == (CapSense_TST_WDGT_CRC_EN || CapSense_TST_GLOBAL_CRC_EN)) */
+        #endif /* (capsense_ENABLE == (capsense_TST_WDGT_CRC_EN || capsense_TST_GLOBAL_CRC_EN)) */
     }
 
     return result;
 }
 
 /*******************************************************************************
-* Function Name: CapSense_IsAnyWidgetActive
+* Function Name: capsense_IsAnyWidgetActive
 ****************************************************************************//**
 *
 * \brief
@@ -1066,7 +1066,7 @@ cystatus CapSense_SetParam(uint32 paramId, uint32 value)
 * \details
 *  This function reports if any widget has detected a touch or not by extracting
 *  information from the wdgtStatus registers
-*  (CapSense_WDGT_STATUS<X>_VALUE). This function does not process a
+*  (capsense_WDGT_STATUS<X>_VALUE). This function does not process a
 *  widget but extracts processed results from the \ref group_structures.
 *
 * \return
@@ -1075,14 +1075,14 @@ cystatus CapSense_SetParam(uint32 paramId, uint32 value)
 *     - Non-zero - At least one widget or sensor detected a touch.
 *
 *******************************************************************************/
-uint32 CapSense_IsAnyWidgetActive(void)
+uint32 capsense_IsAnyWidgetActive(void)
 {
     uint32 result = 0Lu;
     uint32 wdWord;
 
-    for (wdWord = CapSense_WDGT_STATUS_WORDS; wdWord-- > 0u;)
+    for (wdWord = capsense_WDGT_STATUS_WORDS; wdWord-- > 0u;)
     {
-        result |= CapSense_dsRam.wdgtStatus[wdWord];
+        result |= capsense_dsRam.wdgtStatus[wdWord];
     }
 
     return result;
@@ -1090,7 +1090,7 @@ uint32 CapSense_IsAnyWidgetActive(void)
 
 
 /*******************************************************************************
-* Function Name: CapSense_IsWidgetActive
+* Function Name: capsense_IsWidgetActive
 ****************************************************************************//**
 *
 * \brief
@@ -1099,13 +1099,13 @@ uint32 CapSense_IsAnyWidgetActive(void)
 * \details
 *  This function reports if the specified widget has detected a touch or not by
 *  extracting information from the wdgtStatus registers
-*  (CapSense_WDGT_STATUS<X>_VALUE). This function does not process the
+*  (capsense_WDGT_STATUS<X>_VALUE). This function does not process the
 *  widget but extracts processed results from the \ref group_structures.
 *
 * \param widgetId
 *  Specifies the ID number of the widget to get its status.
-*  A macro for the widget ID can be found in the CapSense Configuration header
-*  file defined as CapSense_<WidgetName>_WDGT_ID.
+*  A macro for the widget ID can be found in the capsense Configuration header
+*  file defined as capsense_<WidgetName>_WDGT_ID.
 *
 * \return
 *  Returns the touch detection status of the specified widgets:
@@ -1115,20 +1115,20 @@ uint32 CapSense_IsAnyWidgetActive(void)
 *      a touch is detected.
 *
 *******************************************************************************/
-uint32 CapSense_IsWidgetActive(uint32 widgetId)
+uint32 capsense_IsWidgetActive(uint32 widgetId)
 {
     uint32 result = 0Lu;
 
-    if (widgetId < CapSense_TOTAL_WIDGETS)
+    if (widgetId < capsense_TOTAL_WIDGETS)
     {
-        result = CapSense_GET_WIDGET_ACTIVE_STATUS(widgetId);
+        result = capsense_GET_WIDGET_ACTIVE_STATUS(widgetId);
     }
     return result;
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_IsSensorActive
+* Function Name: capsense_IsSensorActive
 ****************************************************************************//**
 *
 * \brief
@@ -1137,24 +1137,24 @@ uint32 CapSense_IsWidgetActive(uint32 widgetId)
 * \details
 *  This function reports if the specified sensor in the widget has detected a
 *  touch or not by extracting information from the wdgtStatus registers
-*  (CapSense_WDGT_STATUS<X>_VALUE). This function does not process the
+*  (capsense_WDGT_STATUS<X>_VALUE). This function does not process the
 *  widget or sensor but extracts processed results from the \ref group_structures.
 *
 *  For proximity sensors, this function returns the proximity detection status. To
 *  get the finger touch status of proximity sensors, use the
-*  CapSense_IsProximitySensorActive() function.
+*  capsense_IsProximitySensorActive() function.
 *
 * \param widgetId
 *  Specifies the ID number of the widget.
-*  A macro for the widget ID can be found in the CapSense Configuration header
-*  file defined as CapSense_<WidgetName>_WDGT_ID.
+*  A macro for the widget ID can be found in the capsense Configuration header
+*  file defined as capsense_<WidgetName>_WDGT_ID.
 
 * \param sensorId
 *  Specifies the ID number of the sensor within the widget to get its touch
 *  detection status.
 *  A macro for the sensor ID within the specified widget can be found in the
-*  CapSense Configuration header file defined as
-*  CapSense_<WidgetName>_SNS<SensorNumber>_ID.
+*  capsense Configuration header file defined as
+*  capsense_<WidgetName>_SNS<SensorNumber>_ID.
 *
 * \return
 *  Returns the touch detection status of the specified sensor / widget:
@@ -1165,29 +1165,29 @@ uint32 CapSense_IsWidgetActive(uint32 widgetId)
 *      status is returned.
 *
 *******************************************************************************/
-uint32 CapSense_IsSensorActive(uint32 widgetId, uint32 sensorId)
+uint32 capsense_IsSensorActive(uint32 widgetId, uint32 sensorId)
 {
     uint32 result = 0Lu;
 
-    if ((widgetId < CapSense_TOTAL_WIDGETS) &&
-        (sensorId < CapSense_GET_SENSOR_COUNT(widgetId)))
+    if ((widgetId < capsense_TOTAL_WIDGETS) &&
+        (sensorId < capsense_GET_SENSOR_COUNT(widgetId)))
     {
-        #if (CapSense_ENABLE == CapSense_PROXIMITY_WIDGET_EN)
-            if (CapSense_WD_PROXIMITY_E ==
-                (CapSense_WD_TYPE_ENUM)CapSense_dsFlash.wdgtArray[widgetId].wdgtType)
+        #if (capsense_ENABLE == capsense_PROXIMITY_WIDGET_EN)
+            if (capsense_WD_PROXIMITY_E ==
+                (capsense_WD_TYPE_ENUM)capsense_dsFlash.wdgtArray[widgetId].wdgtType)
             {
-                sensorId = CapSense_PROX_STS_OFFSET(sensorId);
+                sensorId = capsense_PROX_STS_OFFSET(sensorId);
             }
-        #endif /* (CapSense_ENABLE != CapSense_PROXIMITY_WIDGET_EN) */
-        result = CapSense_dsRam.snsStatus[widgetId] & (1Lu << sensorId);
+        #endif /* (capsense_ENABLE != capsense_PROXIMITY_WIDGET_EN) */
+        result = capsense_dsRam.snsStatus[widgetId] & (1Lu << sensorId);
     }
 
     return result;
 }
 
-#if (0u != CapSense_MATRIX_WIDGET_EN)
+#if (0u != capsense_MATRIX_WIDGET_EN)
 /*******************************************************************************
-* Function Name: CapSense_IsMatrixButtonsActive
+* Function Name: capsense_IsMatrixButtonsActive
 ****************************************************************************//**
 *
 * \brief
@@ -1196,8 +1196,8 @@ uint32 CapSense_IsSensorActive(uint32 widgetId, uint32 sensorId)
 * \details
 *  This function reports if the specified matrix widget has detected a touch or
 *  not by extracting information from the wdgtStatus registers
-*  (CapSense_WDGT_STATUS<X>_VALUE for the CSD widgets and
-*  CapSense_SNS_STATUS<WidgetId>_VALUE for CSX widget). In addition, the
+*  (capsense_WDGT_STATUS<X>_VALUE for the CSD widgets and
+*  capsense_SNS_STATUS<WidgetId>_VALUE for CSX widget). In addition, the
 *  function provides details of the active sensor including active rows/columns
 *  for the CSD widgets. This function is used only with the matrix button
 *  widgets. This function does not process the widget but extracts
@@ -1206,8 +1206,8 @@ uint32 CapSense_IsSensorActive(uint32 widgetId, uint32 sensorId)
 * \param widgetId
 *  Specifies the ID number of the matrix button widget to check the status of its
 *  sensors.
-*  A macro for the widget ID can be found in the CapSense Configuration header file
-*  defined as CapSense_<WidgetName>_WDGT_ID
+*  A macro for the widget ID can be found in the capsense Configuration header file
+*  defined as capsense_<WidgetName>_WDGT_ID
 *
 * \return
 *  Returns the touch detection status of the sensors in the specified matrix
@@ -1227,29 +1227,29 @@ uint32 CapSense_IsSensorActive(uint32 widgetId, uint32 sensorId)
 *      corresponds to the TX/RX intersection.
 *
 *******************************************************************************/
-uint32 CapSense_IsMatrixButtonsActive(uint32 widgetId)
+uint32 capsense_IsMatrixButtonsActive(uint32 widgetId)
 {
     uint32 result = 0Lu;
     cystatus state = CYRET_SUCCESS;
-    CapSense_FLASH_WD_STRUCT const *ptrFlashWdgt = 0u;
+    capsense_FLASH_WD_STRUCT const *ptrFlashWdgt = 0u;
 
-    #if (0u != CapSense_CSD_MATRIX_WIDGET_EN)
-        CapSense_RAM_WD_CSD_MATRIX_STRUCT *wdCsdMatrix;
+    #if (0u != capsense_CSD_MATRIX_WIDGET_EN)
+        capsense_RAM_WD_CSD_MATRIX_STRUCT *wdCsdMatrix;
     #endif
 
-    if (widgetId >= CapSense_TOTAL_WIDGETS)
+    if (widgetId >= capsense_TOTAL_WIDGETS)
     {
         state = CYRET_BAD_PARAM;
     }
     else
     {
-        ptrFlashWdgt = &CapSense_dsFlash.wdgtArray[widgetId];
+        ptrFlashWdgt = &capsense_dsFlash.wdgtArray[widgetId];
 
-        if ((CapSense_WD_TYPE_ENUM)ptrFlashWdgt->wdgtType != CapSense_WD_MATRIX_BUTTON_E)
+        if ((capsense_WD_TYPE_ENUM)ptrFlashWdgt->wdgtType != capsense_WD_MATRIX_BUTTON_E)
         {
             state = CYRET_BAD_PARAM;
         }
-        else if (0u == CapSense_GET_WIDGET_ACTIVE_STATUS(widgetId))
+        else if (0u == capsense_GET_WIDGET_ACTIVE_STATUS(widgetId))
         {
             state = CYRET_BAD_PARAM;
         }
@@ -1261,24 +1261,24 @@ uint32 CapSense_IsMatrixButtonsActive(uint32 widgetId)
 
     if (CYRET_SUCCESS == state)
     {
-        switch(CapSense_GET_SENSE_METHOD(ptrFlashWdgt))
+        switch(capsense_GET_SENSE_METHOD(ptrFlashWdgt))
         {
-        #if (0u != CapSense_CSD_MATRIX_WIDGET_EN)
-            case CapSense_SENSE_METHOD_CSD_E:
+        #if (0u != capsense_CSD_MATRIX_WIDGET_EN)
+            case capsense_SENSE_METHOD_CSD_E:
                 wdCsdMatrix = ptrFlashWdgt->ptr2WdgtRam;
 
-                result = CapSense_MATRIX_BUTTONS_TOUCHED |
+                result = capsense_MATRIX_BUTTONS_TOUCHED |
                          ((uint32)wdCsdMatrix->posSnsId << 16u)  |
                          ((uint32)wdCsdMatrix->posRow   << 8u)   |
                          (uint32)wdCsdMatrix->posCol;
                 break;
-        #endif /* #if (0u != CapSense_CSD_MATRIX_WIDGET_EN) */
+        #endif /* #if (0u != capsense_CSD_MATRIX_WIDGET_EN) */
 
-        #if (0u != CapSense_CSX_MATRIX_WIDGET_EN)
-            case CapSense_SENSE_METHOD_CSX_E:
-                result = CapSense_dsRam.snsStatus[widgetId];
+        #if (0u != capsense_CSX_MATRIX_WIDGET_EN)
+            case capsense_SENSE_METHOD_CSX_E:
+                result = capsense_dsRam.snsStatus[widgetId];
                 break;
-        #endif /* #if (0u != CapSense_CSX_MATRIX_WIDGET_EN) */
+        #endif /* #if (0u != capsense_CSX_MATRIX_WIDGET_EN) */
 
         default:
             CYASSERT(0u);
@@ -1288,11 +1288,11 @@ uint32 CapSense_IsMatrixButtonsActive(uint32 widgetId)
 
     return result;
 }
-#endif /* #if (0u != CapSense_MATRIX_WIDGET_EN) */
+#endif /* #if (0u != capsense_MATRIX_WIDGET_EN) */
 
-#if (0u != CapSense_PROXIMITY_WIDGET_EN)
+#if (0u != capsense_PROXIMITY_WIDGET_EN)
 /*******************************************************************************
-* Function Name: CapSense_IsProximitySensorActive
+* Function Name: capsense_IsProximitySensorActive
 ****************************************************************************//**
 *
 * \brief
@@ -1301,21 +1301,21 @@ uint32 CapSense_IsMatrixButtonsActive(uint32 widgetId)
 * \details
 *  This function reports if the specified proximity sensor has detected a touch
 *  or not by extracting information from the wdgtStatus registers
-*  (CapSense_SNS_STATUS<WidgetId>_VALUE). This function is used
+*  (capsense_SNS_STATUS<WidgetId>_VALUE). This function is used
 *  only with proximity sensor widgets. This function does not process the
 *  widget but extracts processed results from the \ref group_structures.
 *
 * \param widgetId
 *  Specifies the ID number of the proximity widget.
-*  A macro for the widget ID can be found in the CapSense Configuration header
-*  file defined as CapSense_<WidgetName>_WDGT_ID
+*  A macro for the widget ID can be found in the capsense Configuration header
+*  file defined as capsense_<WidgetName>_WDGT_ID
 *
 * \param proxId
 *  Specifies the ID number of the proximity sensor within the proximity widget to
 *  get its touch detection status.
 *  A macro for the proximity ID within a specified widget can be found in the
-*  CapSense Configuration header file defined as
-*  CapSense_<WidgetName>_SNS<SensorNumber>_ID
+*  capsense Configuration header file defined as
+*  capsense_<WidgetName>_SNS<SensorNumber>_ID
 *
 * \return
 *  Returns the status of the specified sensor of the proximity widget. Zero
@@ -1326,27 +1326,27 @@ uint32 CapSense_IsMatrixButtonsActive(uint32 widgetId)
 *    - Bit [0] indicates that a proximity is detected.
 *
 *******************************************************************************/
-uint32 CapSense_IsProximitySensorActive(uint32 widgetId, uint32 proxId)
+uint32 capsense_IsProximitySensorActive(uint32 widgetId, uint32 proxId)
 {
     uint32 result = 0Lu;
 
-    if ((widgetId < CapSense_TOTAL_WIDGETS) && (proxId < CapSense_GET_SENSOR_COUNT(widgetId)) &&
-        (CapSense_WD_PROXIMITY_E ==
-            (CapSense_WD_TYPE_ENUM)CapSense_dsFlash.wdgtArray[widgetId].wdgtType))
+    if ((widgetId < capsense_TOTAL_WIDGETS) && (proxId < capsense_GET_SENSOR_COUNT(widgetId)) &&
+        (capsense_WD_PROXIMITY_E ==
+            (capsense_WD_TYPE_ENUM)capsense_dsFlash.wdgtArray[widgetId].wdgtType))
     {
-        result = CapSense_dsRam.snsStatus[widgetId];
-        result >>= CapSense_PROX_STS_OFFSET(proxId);
-        result &=  CapSense_PROX_STS_MASK;
+        result = capsense_dsRam.snsStatus[widgetId];
+        result >>= capsense_PROX_STS_OFFSET(proxId);
+        result &=  capsense_PROX_STS_MASK;
     }
 
     return result;
 }
-#endif /* #if (0u != CapSense_PROXIMITY_WIDGET_EN) */
+#endif /* #if (0u != capsense_PROXIMITY_WIDGET_EN) */
 
 
-#if (0u != CapSense_SLIDER_WIDGET_EN)
+#if (0u != capsense_SLIDER_WIDGET_EN)
 /*******************************************************************************
-* Function Name: CapSense_GetCentroidPos
+* Function Name: capsense_GetCentroidPos
 ****************************************************************************//**
 *
 * \brief
@@ -1355,7 +1355,7 @@ uint32 CapSense_IsProximitySensorActive(uint32 widgetId, uint32 proxId)
 * \details
 *  This function reports the centroid value of a specified radial or linear
 *  slider widget by extracting information from the wdgtStatus registers
-*  (CapSense_<WidgetName>_POSITION<X>_VALUE). This function is
+*  (capsense_<WidgetName>_POSITION<X>_VALUE). This function is
 *  used only with radial or linear slider widgets. This function does not
 *  process the widget but extracts processed results from the \ref group_structures.
 *
@@ -1363,39 +1363,39 @@ uint32 CapSense_IsProximitySensorActive(uint32 widgetId, uint32 proxId)
 *  Specifies the ID number of a slider widget to get the centroid of the
 *  detected touch.
 *  A macro for the widget ID can be found in the
-*  CapSense Configuration header file defined as
-*  CapSense_<WidgetName>_WDGT_ID
+*  capsense Configuration header file defined as
+*  capsense_<WidgetName>_WDGT_ID
 *
 * \return
 *  Returns the centroid position of a specified slider widget:
 *    - The centroid position if a touch is detected.
-*    - CapSense_SLIDER_NO_TOUCH - No touch is detected or a wrong
+*    - capsense_SLIDER_NO_TOUCH - No touch is detected or a wrong
 *      widgetId is specified.
 *
 *******************************************************************************/
-uint32 CapSense_GetCentroidPos(uint32 widgetId)
+uint32 capsense_GetCentroidPos(uint32 widgetId)
 {
-    uint32 result = CapSense_SLIDER_NO_TOUCH;
-    CapSense_RAM_WD_SLIDER_STRUCT *wdSlider;
+    uint32 result = capsense_SLIDER_NO_TOUCH;
+    capsense_RAM_WD_SLIDER_STRUCT *wdSlider;
 
-    if ((widgetId < CapSense_TOTAL_WIDGETS) &&
-        ((CapSense_WD_LINEAR_SLIDER_E ==
-            (CapSense_WD_TYPE_ENUM)CapSense_dsFlash.wdgtArray[widgetId].wdgtType) ||
-         (CapSense_WD_RADIAL_SLIDER_E ==
-            (CapSense_WD_TYPE_ENUM)CapSense_dsFlash.wdgtArray[widgetId].wdgtType)))
+    if ((widgetId < capsense_TOTAL_WIDGETS) &&
+        ((capsense_WD_LINEAR_SLIDER_E ==
+            (capsense_WD_TYPE_ENUM)capsense_dsFlash.wdgtArray[widgetId].wdgtType) ||
+         (capsense_WD_RADIAL_SLIDER_E ==
+            (capsense_WD_TYPE_ENUM)capsense_dsFlash.wdgtArray[widgetId].wdgtType)))
     {
-        wdSlider = CapSense_dsFlash.wdgtArray[widgetId].ptr2WdgtRam;
+        wdSlider = capsense_dsFlash.wdgtArray[widgetId].ptr2WdgtRam;
         result = (uint32)wdSlider->position[0u];
     }
 
     return result;
 }
-#endif /* #if (0u != CapSense_SLIDER_WIDGET_EN) */
+#endif /* #if (0u != capsense_SLIDER_WIDGET_EN) */
 
 
-#if (0u != CapSense_TOUCHPAD_WIDGET_EN)
+#if (0u != capsense_TOUCHPAD_WIDGET_EN)
 /*******************************************************************************
-* Function Name: CapSense_GetXYCoordinates
+* Function Name: capsense_GetXYCoordinates
 ****************************************************************************//**
 *
 * \brief
@@ -1404,7 +1404,7 @@ uint32 CapSense_GetCentroidPos(uint32 widgetId)
 * \details
 *  This function reports a touch position (X and Y coordinates) value of a
 *  specified touchpad widget by extracting information from the wdgtStatus
-*  registers (CapSense_<WidgetName>_POS_Y_VALUE). This function should
+*  registers (capsense_<WidgetName>_POS_Y_VALUE). This function should
 *  be used only with the touchpad widgets. This function does not process the
 *  widget but extracts processed results from the \ref group_structures.
 *
@@ -1412,8 +1412,8 @@ uint32 CapSense_GetCentroidPos(uint32 widgetId)
 *  Specifies the ID number of a touchpad widget to get the X/Y position of a
 *  detected touch.
 *  A macro for the widget ID can be found in the
-*  CapSense Configuration header file defined as
-*  CapSense_<WidgetName>_WDGT_ID.
+*  capsense Configuration header file defined as
+*  capsense_<WidgetName>_WDGT_ID.
 *
 * \return
 *  Returns the touch position of a specified touchpad widget:
@@ -1421,33 +1421,33 @@ uint32 CapSense_GetCentroidPos(uint32 widgetId)
 *      - Bits [31..16] indicate the Y coordinate.
 *      - Bits [15..0] indicate the X coordinate.
 *    2. If no touch is detected or a wrong widgetId is specified:
-*      - CapSense_TOUCHPAD_NO_TOUCH.
+*      - capsense_TOUCHPAD_NO_TOUCH.
 *
 *******************************************************************************/
-uint32 CapSense_GetXYCoordinates(uint32 widgetId)
+uint32 capsense_GetXYCoordinates(uint32 widgetId)
 {
-    CapSense_FLASH_WD_STRUCT const *ptrFlashWdgt = NULL;
+    capsense_FLASH_WD_STRUCT const *ptrFlashWdgt = NULL;
 
-    #if (0u != CapSense_CSD_TOUCHPAD_WIDGET_EN)
-        CapSense_RAM_WD_CSD_TOUCHPAD_STRUCT *wdCsdTouchpad;
-    #endif /* #if (0u != CapSense_CSD_TOUCHPAD_WIDGET_EN) */
+    #if (0u != capsense_CSD_TOUCHPAD_WIDGET_EN)
+        capsense_RAM_WD_CSD_TOUCHPAD_STRUCT *wdCsdTouchpad;
+    #endif /* #if (0u != capsense_CSD_TOUCHPAD_WIDGET_EN) */
 
-    #if (0u != CapSense_CSX_TOUCHPAD_WIDGET_EN)
-        CapSense_RAM_WD_CSX_TOUCHPAD_STRUCT *wdCsxTouchpad;
-    #endif /* #if (0u != CapSense_CSX_TOUCHPAD_WIDGET_EN) */
+    #if (0u != capsense_CSX_TOUCHPAD_WIDGET_EN)
+        capsense_RAM_WD_CSX_TOUCHPAD_STRUCT *wdCsxTouchpad;
+    #endif /* #if (0u != capsense_CSX_TOUCHPAD_WIDGET_EN) */
 
     cystatus state = CYRET_SUCCESS;
-    uint32 result = CapSense_TOUCHPAD_NO_TOUCH;
+    uint32 result = capsense_TOUCHPAD_NO_TOUCH;
 
-    if (widgetId >= CapSense_TOTAL_WIDGETS)
+    if (widgetId >= capsense_TOTAL_WIDGETS)
     {
         state = CYRET_BAD_PARAM;
     }
     else
     {
-        ptrFlashWdgt = &CapSense_dsFlash.wdgtArray[widgetId];
+        ptrFlashWdgt = &capsense_dsFlash.wdgtArray[widgetId];
 
-        if ((CapSense_WD_TYPE_ENUM)ptrFlashWdgt->wdgtType != CapSense_WD_TOUCHPAD_E)
+        if ((capsense_WD_TYPE_ENUM)ptrFlashWdgt->wdgtType != capsense_WD_TOUCHPAD_E)
         {
             state = CYRET_BAD_PARAM;
         }
@@ -1455,46 +1455,46 @@ uint32 CapSense_GetXYCoordinates(uint32 widgetId)
 
     if (CYRET_SUCCESS == state)
     {
-        switch(CapSense_GET_SENSE_METHOD(ptrFlashWdgt))
+        switch(capsense_GET_SENSE_METHOD(ptrFlashWdgt))
         {
-        #if (0u != CapSense_CSD_TOUCHPAD_WIDGET_EN)
-            case CapSense_SENSE_METHOD_CSD_E:
+        #if (0u != capsense_CSD_TOUCHPAD_WIDGET_EN)
+            case capsense_SENSE_METHOD_CSD_E:
                 wdCsdTouchpad = ptrFlashWdgt->ptr2WdgtRam;
-                #if (CapSense_ENABLE == CapSense_CENTROID_5X5_CSD_EN)
-                    #if (CapSense_ENABLE == CapSense_CENTROID_3X3_CSD_EN)
-                        if (0 != (ptrFlashWdgt->staticConfig & CapSense_CENTROID_5X5_MASK))
+                #if (capsense_ENABLE == capsense_CENTROID_5X5_CSD_EN)
+                    #if (capsense_ENABLE == capsense_CENTROID_3X3_CSD_EN)
+                        if (0 != (ptrFlashWdgt->staticConfig & capsense_CENTROID_5X5_MASK))
                         {
                     #endif
                         result = ((uint32)wdCsdTouchpad->position.pos[0u].x) |
                                  ((uint32)wdCsdTouchpad->position.pos[0u].y << 16u);
-                    #if (CapSense_ENABLE == CapSense_CENTROID_3X3_CSD_EN)
+                    #if (capsense_ENABLE == capsense_CENTROID_3X3_CSD_EN)
                         }
                     #endif
                 #endif
 
-                #if (CapSense_ENABLE == CapSense_CENTROID_3X3_CSD_EN)
-                    #if (CapSense_ENABLE == CapSense_CENTROID_5X5_CSD_EN)
-                        if (0 != (ptrFlashWdgt->staticConfig & CapSense_CENTROID_3X3_MASK))
+                #if (capsense_ENABLE == capsense_CENTROID_3X3_CSD_EN)
+                    #if (capsense_ENABLE == capsense_CENTROID_5X5_CSD_EN)
+                        if (0 != (ptrFlashWdgt->staticConfig & capsense_CENTROID_3X3_MASK))
                         {
                     #endif
                         result = ((uint32)wdCsdTouchpad->posX) |
                                  ((uint32)wdCsdTouchpad->posY << 16u);
-                    #if (CapSense_ENABLE == CapSense_CENTROID_5X5_CSD_EN)
+                    #if (capsense_ENABLE == capsense_CENTROID_5X5_CSD_EN)
                         }
                     #endif
                 #endif
 
                 break;
-        #endif /* #if (0u != CapSense_CSD_TOUCHPAD_WIDGET_EN) */
+        #endif /* #if (0u != capsense_CSD_TOUCHPAD_WIDGET_EN) */
 
-        #if (0u != CapSense_CSX_TOUCHPAD_WIDGET_EN)
-            case CapSense_SENSE_METHOD_CSX_E:
+        #if (0u != capsense_CSX_TOUCHPAD_WIDGET_EN)
+            case capsense_SENSE_METHOD_CSX_E:
                 wdCsxTouchpad = ptrFlashWdgt->ptr2WdgtRam;
 
                 result = ((uint32)wdCsxTouchpad->touch[0u].x) |
                          ((uint32)wdCsxTouchpad->touch[0u].y << 16u);
                 break;
-        #endif /* #if (0u != CapSense_CSX_TOUCHPAD_WIDGET_EN) */
+        #endif /* #if (0u != capsense_CSX_TOUCHPAD_WIDGET_EN) */
 
         default:
             CYASSERT(0u);
@@ -1504,7 +1504,7 @@ uint32 CapSense_GetXYCoordinates(uint32 widgetId)
 
     return result;
 }
-#endif /* #if (0u != CapSense_TOUCHPAD_WIDGET_EN) */
+#endif /* #if (0u != capsense_TOUCHPAD_WIDGET_EN) */
 
 
 /* [] END OF FILE */

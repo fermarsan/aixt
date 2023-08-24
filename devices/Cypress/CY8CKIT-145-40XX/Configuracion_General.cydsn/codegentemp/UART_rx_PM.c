@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: UART_rx.c  
+* File Name: uart_rx.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "UART_rx.h"
+#include "uart_rx.h"
 
-static UART_rx_BACKUP_STRUCT  UART_rx_backup = {0u, 0u, 0u};
+static uart_rx_BACKUP_STRUCT  uart_rx_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: UART_rx_Sleep
+* Function Name: uart_rx_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static UART_rx_BACKUP_STRUCT  UART_rx_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet UART_rx_SUT.c usage_UART_rx_Sleep_Wakeup
+*  \snippet uart_rx_SUT.c usage_uart_rx_Sleep_Wakeup
 *******************************************************************************/
-void UART_rx_Sleep(void)
+void uart_rx_Sleep(void)
 {
-    #if defined(UART_rx__PC)
-        UART_rx_backup.pcState = UART_rx_PC;
+    #if defined(uart_rx__PC)
+        uart_rx_backup.pcState = uart_rx_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            UART_rx_backup.usbState = UART_rx_CR1_REG;
-            UART_rx_USB_POWER_REG |= UART_rx_USBIO_ENTER_SLEEP;
-            UART_rx_CR1_REG &= UART_rx_USBIO_CR1_OFF;
+            uart_rx_backup.usbState = uart_rx_CR1_REG;
+            uart_rx_USB_POWER_REG |= uart_rx_USBIO_ENTER_SLEEP;
+            uart_rx_CR1_REG &= uart_rx_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(UART_rx__SIO)
-        UART_rx_backup.sioState = UART_rx_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(uart_rx__SIO)
+        uart_rx_backup.sioState = uart_rx_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        UART_rx_SIO_REG &= (uint32)(~UART_rx_SIO_LPM_MASK);
+        uart_rx_SIO_REG &= (uint32)(~uart_rx_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: UART_rx_Wakeup
+* Function Name: uart_rx_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void UART_rx_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to UART_rx_Sleep() for an example usage.
+*  Refer to uart_rx_Sleep() for an example usage.
 *******************************************************************************/
-void UART_rx_Wakeup(void)
+void uart_rx_Wakeup(void)
 {
-    #if defined(UART_rx__PC)
-        UART_rx_PC = UART_rx_backup.pcState;
+    #if defined(uart_rx__PC)
+        uart_rx_PC = uart_rx_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            UART_rx_USB_POWER_REG &= UART_rx_USBIO_EXIT_SLEEP_PH1;
-            UART_rx_CR1_REG = UART_rx_backup.usbState;
-            UART_rx_USB_POWER_REG &= UART_rx_USBIO_EXIT_SLEEP_PH2;
+            uart_rx_USB_POWER_REG &= uart_rx_USBIO_EXIT_SLEEP_PH1;
+            uart_rx_CR1_REG = uart_rx_backup.usbState;
+            uart_rx_USB_POWER_REG &= uart_rx_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(UART_rx__SIO)
-        UART_rx_SIO_REG = UART_rx_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(uart_rx__SIO)
+        uart_rx_SIO_REG = uart_rx_backup.sioState;
     #endif
 }
 

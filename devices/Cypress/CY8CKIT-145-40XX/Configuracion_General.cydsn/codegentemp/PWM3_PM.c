@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: PWM3_PM.c
+* File Name: pwm3_PM.c
 * Version 2.10
 *
 * Description:
@@ -16,13 +16,13 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "PWM3.h"
+#include "pwm3.h"
 
-static PWM3_BACKUP_STRUCT PWM3_backup;
+static pwm3_BACKUP_STRUCT pwm3_backup;
 
 
 /*******************************************************************************
-* Function Name: PWM3_SaveConfig
+* Function Name: pwm3_SaveConfig
 ********************************************************************************
 *
 * Summary:
@@ -35,14 +35,14 @@ static PWM3_BACKUP_STRUCT PWM3_backup;
 *  None
 *
 *******************************************************************************/
-void PWM3_SaveConfig(void)
+void pwm3_SaveConfig(void)
 {
 
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_Sleep
+* Function Name: pwm3_Sleep
 ********************************************************************************
 *
 * Summary:
@@ -55,24 +55,24 @@ void PWM3_SaveConfig(void)
 *  None
 *
 *******************************************************************************/
-void PWM3_Sleep(void)
+void pwm3_Sleep(void)
 {
-    if(0u != (PWM3_BLOCK_CONTROL_REG & PWM3_MASK))
+    if(0u != (pwm3_BLOCK_CONTROL_REG & pwm3_MASK))
     {
-        PWM3_backup.enableState = 1u;
+        pwm3_backup.enableState = 1u;
     }
     else
     {
-        PWM3_backup.enableState = 0u;
+        pwm3_backup.enableState = 0u;
     }
 
-    PWM3_Stop();
-    PWM3_SaveConfig();
+    pwm3_Stop();
+    pwm3_SaveConfig();
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_RestoreConfig
+* Function Name: pwm3_RestoreConfig
 ********************************************************************************
 *
 * Summary:
@@ -85,14 +85,14 @@ void PWM3_Sleep(void)
 *  None
 *
 *******************************************************************************/
-void PWM3_RestoreConfig(void)
+void pwm3_RestoreConfig(void)
 {
 
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_Wakeup
+* Function Name: pwm3_Wakeup
 ********************************************************************************
 *
 * Summary:
@@ -105,13 +105,13 @@ void PWM3_RestoreConfig(void)
 *  None
 *
 *******************************************************************************/
-void PWM3_Wakeup(void)
+void pwm3_Wakeup(void)
 {
-    PWM3_RestoreConfig();
+    pwm3_RestoreConfig();
 
-    if(0u != PWM3_backup.enableState)
+    if(0u != pwm3_backup.enableState)
     {
-        PWM3_Enable();
+        pwm3_Enable();
     }
 }
 

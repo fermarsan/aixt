@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 1
 
 
    1              		.syntax unified
@@ -15,100 +15,100 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
   14              		.syntax unified
-  15              		.file	"PWM2_PM.c"
+  15              		.file	"pwm2_PM.c"
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.PWM2_SaveConfig,"ax",%progbits
+  19              		.section	.text.pwm2_SaveConfig,"ax",%progbits
   20              		.align	2
-  21              		.global	PWM2_SaveConfig
+  21              		.global	pwm2_SaveConfig
   22              		.code	16
   23              		.thumb_func
-  24              		.type	PWM2_SaveConfig, %function
-  25              	PWM2_SaveConfig:
+  24              		.type	pwm2_SaveConfig, %function
+  25              	pwm2_SaveConfig:
   26              	.LFB1:
-  27              		.file 1 "Generated_Source\\PSoC4\\PWM2_PM.c"
-   1:Generated_Source\PSoC4/PWM2_PM.c **** /*******************************************************************************
-   2:Generated_Source\PSoC4/PWM2_PM.c **** * File Name: PWM2_PM.c
-   3:Generated_Source\PSoC4/PWM2_PM.c **** * Version 2.10
-   4:Generated_Source\PSoC4/PWM2_PM.c **** *
-   5:Generated_Source\PSoC4/PWM2_PM.c **** * Description:
-   6:Generated_Source\PSoC4/PWM2_PM.c **** *  This file contains the setup, control, and status commands to support
-   7:Generated_Source\PSoC4/PWM2_PM.c **** *  the component operations in the low power mode.
-   8:Generated_Source\PSoC4/PWM2_PM.c **** *
-   9:Generated_Source\PSoC4/PWM2_PM.c **** * Note:
-  10:Generated_Source\PSoC4/PWM2_PM.c **** *  None
-  11:Generated_Source\PSoC4/PWM2_PM.c **** *
-  12:Generated_Source\PSoC4/PWM2_PM.c **** ********************************************************************************
-  13:Generated_Source\PSoC4/PWM2_PM.c **** * Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
-  14:Generated_Source\PSoC4/PWM2_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
-  15:Generated_Source\PSoC4/PWM2_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
-  16:Generated_Source\PSoC4/PWM2_PM.c **** * the software package with which this file was provided.
-  17:Generated_Source\PSoC4/PWM2_PM.c **** *******************************************************************************/
-  18:Generated_Source\PSoC4/PWM2_PM.c **** 
-  19:Generated_Source\PSoC4/PWM2_PM.c **** #include "PWM2.h"
-  20:Generated_Source\PSoC4/PWM2_PM.c **** 
-  21:Generated_Source\PSoC4/PWM2_PM.c **** static PWM2_BACKUP_STRUCT PWM2_backup;
-  22:Generated_Source\PSoC4/PWM2_PM.c **** 
-  23:Generated_Source\PSoC4/PWM2_PM.c **** 
-  24:Generated_Source\PSoC4/PWM2_PM.c **** /*******************************************************************************
-  25:Generated_Source\PSoC4/PWM2_PM.c **** * Function Name: PWM2_SaveConfig
-  26:Generated_Source\PSoC4/PWM2_PM.c **** ********************************************************************************
-  27:Generated_Source\PSoC4/PWM2_PM.c **** *
-  28:Generated_Source\PSoC4/PWM2_PM.c **** * Summary:
-  29:Generated_Source\PSoC4/PWM2_PM.c **** *  All configuration registers are retention. Nothing to save here.
-  30:Generated_Source\PSoC4/PWM2_PM.c **** *
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 2
+  27              		.file 1 "Generated_Source\\PSoC4\\pwm2_PM.c"
+   1:Generated_Source\PSoC4/pwm2_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/pwm2_PM.c **** * File Name: pwm2_PM.c
+   3:Generated_Source\PSoC4/pwm2_PM.c **** * Version 2.10
+   4:Generated_Source\PSoC4/pwm2_PM.c **** *
+   5:Generated_Source\PSoC4/pwm2_PM.c **** * Description:
+   6:Generated_Source\PSoC4/pwm2_PM.c **** *  This file contains the setup, control, and status commands to support
+   7:Generated_Source\PSoC4/pwm2_PM.c **** *  the component operations in the low power mode.
+   8:Generated_Source\PSoC4/pwm2_PM.c **** *
+   9:Generated_Source\PSoC4/pwm2_PM.c **** * Note:
+  10:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  11:Generated_Source\PSoC4/pwm2_PM.c **** *
+  12:Generated_Source\PSoC4/pwm2_PM.c **** ********************************************************************************
+  13:Generated_Source\PSoC4/pwm2_PM.c **** * Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/pwm2_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC4/pwm2_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC4/pwm2_PM.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/pwm2_PM.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/pwm2_PM.c **** 
+  19:Generated_Source\PSoC4/pwm2_PM.c **** #include "pwm2.h"
+  20:Generated_Source\PSoC4/pwm2_PM.c **** 
+  21:Generated_Source\PSoC4/pwm2_PM.c **** static pwm2_BACKUP_STRUCT pwm2_backup;
+  22:Generated_Source\PSoC4/pwm2_PM.c **** 
+  23:Generated_Source\PSoC4/pwm2_PM.c **** 
+  24:Generated_Source\PSoC4/pwm2_PM.c **** /*******************************************************************************
+  25:Generated_Source\PSoC4/pwm2_PM.c **** * Function Name: pwm2_SaveConfig
+  26:Generated_Source\PSoC4/pwm2_PM.c **** ********************************************************************************
+  27:Generated_Source\PSoC4/pwm2_PM.c **** *
+  28:Generated_Source\PSoC4/pwm2_PM.c **** * Summary:
+  29:Generated_Source\PSoC4/pwm2_PM.c **** *  All configuration registers are retention. Nothing to save here.
+  30:Generated_Source\PSoC4/pwm2_PM.c **** *
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 2
 
 
-  31:Generated_Source\PSoC4/PWM2_PM.c **** * Parameters:
-  32:Generated_Source\PSoC4/PWM2_PM.c **** *  None
-  33:Generated_Source\PSoC4/PWM2_PM.c **** *
-  34:Generated_Source\PSoC4/PWM2_PM.c **** * Return:
-  35:Generated_Source\PSoC4/PWM2_PM.c **** *  None
-  36:Generated_Source\PSoC4/PWM2_PM.c **** *
-  37:Generated_Source\PSoC4/PWM2_PM.c **** *******************************************************************************/
-  38:Generated_Source\PSoC4/PWM2_PM.c **** void PWM2_SaveConfig(void)
-  39:Generated_Source\PSoC4/PWM2_PM.c **** {
+  31:Generated_Source\PSoC4/pwm2_PM.c **** * Parameters:
+  32:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  33:Generated_Source\PSoC4/pwm2_PM.c **** *
+  34:Generated_Source\PSoC4/pwm2_PM.c **** * Return:
+  35:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  36:Generated_Source\PSoC4/pwm2_PM.c **** *
+  37:Generated_Source\PSoC4/pwm2_PM.c **** *******************************************************************************/
+  38:Generated_Source\PSoC4/pwm2_PM.c **** void pwm2_SaveConfig(void)
+  39:Generated_Source\PSoC4/pwm2_PM.c **** {
   28              		.loc 1 39 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-  40:Generated_Source\PSoC4/PWM2_PM.c **** 
-  41:Generated_Source\PSoC4/PWM2_PM.c **** }
+  40:Generated_Source\PSoC4/pwm2_PM.c **** 
+  41:Generated_Source\PSoC4/pwm2_PM.c **** }
   33              		.loc 1 41 0
   34              		@ sp needed
   35 0000 7047     		bx	lr
   36              		.cfi_endproc
   37              	.LFE1:
-  38              		.size	PWM2_SaveConfig, .-PWM2_SaveConfig
-  39 0002 C046     		.section	.text.PWM2_Sleep,"ax",%progbits
+  38              		.size	pwm2_SaveConfig, .-pwm2_SaveConfig
+  39 0002 C046     		.section	.text.pwm2_Sleep,"ax",%progbits
   40              		.align	2
-  41              		.global	PWM2_Sleep
+  41              		.global	pwm2_Sleep
   42              		.code	16
   43              		.thumb_func
-  44              		.type	PWM2_Sleep, %function
-  45              	PWM2_Sleep:
+  44              		.type	pwm2_Sleep, %function
+  45              	pwm2_Sleep:
   46              	.LFB2:
-  42:Generated_Source\PSoC4/PWM2_PM.c **** 
-  43:Generated_Source\PSoC4/PWM2_PM.c **** 
-  44:Generated_Source\PSoC4/PWM2_PM.c **** /*******************************************************************************
-  45:Generated_Source\PSoC4/PWM2_PM.c **** * Function Name: PWM2_Sleep
-  46:Generated_Source\PSoC4/PWM2_PM.c **** ********************************************************************************
-  47:Generated_Source\PSoC4/PWM2_PM.c **** *
-  48:Generated_Source\PSoC4/PWM2_PM.c **** * Summary:
-  49:Generated_Source\PSoC4/PWM2_PM.c **** *  Stops the component operation and saves the user configuration.
-  50:Generated_Source\PSoC4/PWM2_PM.c **** *
-  51:Generated_Source\PSoC4/PWM2_PM.c **** * Parameters:
-  52:Generated_Source\PSoC4/PWM2_PM.c **** *  None
-  53:Generated_Source\PSoC4/PWM2_PM.c **** *
-  54:Generated_Source\PSoC4/PWM2_PM.c **** * Return:
-  55:Generated_Source\PSoC4/PWM2_PM.c **** *  None
-  56:Generated_Source\PSoC4/PWM2_PM.c **** *
-  57:Generated_Source\PSoC4/PWM2_PM.c **** *******************************************************************************/
-  58:Generated_Source\PSoC4/PWM2_PM.c **** void PWM2_Sleep(void)
-  59:Generated_Source\PSoC4/PWM2_PM.c **** {
+  42:Generated_Source\PSoC4/pwm2_PM.c **** 
+  43:Generated_Source\PSoC4/pwm2_PM.c **** 
+  44:Generated_Source\PSoC4/pwm2_PM.c **** /*******************************************************************************
+  45:Generated_Source\PSoC4/pwm2_PM.c **** * Function Name: pwm2_Sleep
+  46:Generated_Source\PSoC4/pwm2_PM.c **** ********************************************************************************
+  47:Generated_Source\PSoC4/pwm2_PM.c **** *
+  48:Generated_Source\PSoC4/pwm2_PM.c **** * Summary:
+  49:Generated_Source\PSoC4/pwm2_PM.c **** *  Stops the component operation and saves the user configuration.
+  50:Generated_Source\PSoC4/pwm2_PM.c **** *
+  51:Generated_Source\PSoC4/pwm2_PM.c **** * Parameters:
+  52:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  53:Generated_Source\PSoC4/pwm2_PM.c **** *
+  54:Generated_Source\PSoC4/pwm2_PM.c **** * Return:
+  55:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  56:Generated_Source\PSoC4/pwm2_PM.c **** *
+  57:Generated_Source\PSoC4/pwm2_PM.c **** *******************************************************************************/
+  58:Generated_Source\PSoC4/pwm2_PM.c **** void pwm2_Sleep(void)
+  59:Generated_Source\PSoC4/pwm2_PM.c **** {
   47              		.loc 1 59 0
   48              		.cfi_startproc
   49              		@ args = 0, pretend = 0, frame = 0
@@ -117,8 +117,8 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
   52              		.cfi_def_cfa_offset 8
   53              		.cfi_offset 4, -8
   54              		.cfi_offset 14, -4
-  60:Generated_Source\PSoC4/PWM2_PM.c ****     if(0u != (PWM2_BLOCK_CONTROL_REG & PWM2_MASK))
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 3
+  60:Generated_Source\PSoC4/pwm2_PM.c ****     if(0u != (pwm2_BLOCK_CONTROL_REG & pwm2_MASK))
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 3
 
 
   55              		.loc 1 60 0
@@ -126,31 +126,31 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
   57 0004 1B68     		ldr	r3, [r3]
   58 0006 9B07     		lsls	r3, r3, #30
   59 0008 03D5     		bpl	.L3
-  61:Generated_Source\PSoC4/PWM2_PM.c ****     {
-  62:Generated_Source\PSoC4/PWM2_PM.c ****         PWM2_backup.enableState = 1u;
+  61:Generated_Source\PSoC4/pwm2_PM.c ****     {
+  62:Generated_Source\PSoC4/pwm2_PM.c ****         pwm2_backup.enableState = 1u;
   60              		.loc 1 62 0
   61 000a 0122     		movs	r2, #1
   62 000c 054B     		ldr	r3, .L5+4
   63 000e 1A70     		strb	r2, [r3]
   64 0010 02E0     		b	.L4
   65              	.L3:
-  63:Generated_Source\PSoC4/PWM2_PM.c ****     }
-  64:Generated_Source\PSoC4/PWM2_PM.c ****     else
-  65:Generated_Source\PSoC4/PWM2_PM.c ****     {
-  66:Generated_Source\PSoC4/PWM2_PM.c ****         PWM2_backup.enableState = 0u;
+  63:Generated_Source\PSoC4/pwm2_PM.c ****     }
+  64:Generated_Source\PSoC4/pwm2_PM.c ****     else
+  65:Generated_Source\PSoC4/pwm2_PM.c ****     {
+  66:Generated_Source\PSoC4/pwm2_PM.c ****         pwm2_backup.enableState = 0u;
   66              		.loc 1 66 0
   67 0012 0022     		movs	r2, #0
   68 0014 034B     		ldr	r3, .L5+4
   69 0016 1A70     		strb	r2, [r3]
   70              	.L4:
-  67:Generated_Source\PSoC4/PWM2_PM.c ****     }
-  68:Generated_Source\PSoC4/PWM2_PM.c **** 
-  69:Generated_Source\PSoC4/PWM2_PM.c ****     PWM2_Stop();
+  67:Generated_Source\PSoC4/pwm2_PM.c ****     }
+  68:Generated_Source\PSoC4/pwm2_PM.c **** 
+  69:Generated_Source\PSoC4/pwm2_PM.c ****     pwm2_Stop();
   71              		.loc 1 69 0
-  72 0018 FFF7FEFF 		bl	PWM2_Stop
+  72 0018 FFF7FEFF 		bl	pwm2_Stop
   73              	.LVL0:
-  70:Generated_Source\PSoC4/PWM2_PM.c ****     PWM2_SaveConfig();
-  71:Generated_Source\PSoC4/PWM2_PM.c **** }
+  70:Generated_Source\PSoC4/pwm2_PM.c ****     pwm2_SaveConfig();
+  71:Generated_Source\PSoC4/pwm2_PM.c **** }
   74              		.loc 1 71 0
   75              		@ sp needed
   76 001c 10BD     		pop	{r4, pc}
@@ -161,75 +161,75 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
   81 0024 00000000 		.word	.LANCHOR0
   82              		.cfi_endproc
   83              	.LFE2:
-  84              		.size	PWM2_Sleep, .-PWM2_Sleep
-  85              		.section	.text.PWM2_RestoreConfig,"ax",%progbits
+  84              		.size	pwm2_Sleep, .-pwm2_Sleep
+  85              		.section	.text.pwm2_RestoreConfig,"ax",%progbits
   86              		.align	2
-  87              		.global	PWM2_RestoreConfig
+  87              		.global	pwm2_RestoreConfig
   88              		.code	16
   89              		.thumb_func
-  90              		.type	PWM2_RestoreConfig, %function
-  91              	PWM2_RestoreConfig:
+  90              		.type	pwm2_RestoreConfig, %function
+  91              	pwm2_RestoreConfig:
   92              	.LFB3:
-  72:Generated_Source\PSoC4/PWM2_PM.c **** 
-  73:Generated_Source\PSoC4/PWM2_PM.c **** 
-  74:Generated_Source\PSoC4/PWM2_PM.c **** /*******************************************************************************
-  75:Generated_Source\PSoC4/PWM2_PM.c **** * Function Name: PWM2_RestoreConfig
-  76:Generated_Source\PSoC4/PWM2_PM.c **** ********************************************************************************
-  77:Generated_Source\PSoC4/PWM2_PM.c **** *
-  78:Generated_Source\PSoC4/PWM2_PM.c **** * Summary:
-  79:Generated_Source\PSoC4/PWM2_PM.c **** *  All configuration registers are retention. Nothing to restore here.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 4
+  72:Generated_Source\PSoC4/pwm2_PM.c **** 
+  73:Generated_Source\PSoC4/pwm2_PM.c **** 
+  74:Generated_Source\PSoC4/pwm2_PM.c **** /*******************************************************************************
+  75:Generated_Source\PSoC4/pwm2_PM.c **** * Function Name: pwm2_RestoreConfig
+  76:Generated_Source\PSoC4/pwm2_PM.c **** ********************************************************************************
+  77:Generated_Source\PSoC4/pwm2_PM.c **** *
+  78:Generated_Source\PSoC4/pwm2_PM.c **** * Summary:
+  79:Generated_Source\PSoC4/pwm2_PM.c **** *  All configuration registers are retention. Nothing to restore here.
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 4
 
 
-  80:Generated_Source\PSoC4/PWM2_PM.c **** *
-  81:Generated_Source\PSoC4/PWM2_PM.c **** * Parameters:
-  82:Generated_Source\PSoC4/PWM2_PM.c **** *  None
-  83:Generated_Source\PSoC4/PWM2_PM.c **** *
-  84:Generated_Source\PSoC4/PWM2_PM.c **** * Return:
-  85:Generated_Source\PSoC4/PWM2_PM.c **** *  None
-  86:Generated_Source\PSoC4/PWM2_PM.c **** *
-  87:Generated_Source\PSoC4/PWM2_PM.c **** *******************************************************************************/
-  88:Generated_Source\PSoC4/PWM2_PM.c **** void PWM2_RestoreConfig(void)
-  89:Generated_Source\PSoC4/PWM2_PM.c **** {
+  80:Generated_Source\PSoC4/pwm2_PM.c **** *
+  81:Generated_Source\PSoC4/pwm2_PM.c **** * Parameters:
+  82:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  83:Generated_Source\PSoC4/pwm2_PM.c **** *
+  84:Generated_Source\PSoC4/pwm2_PM.c **** * Return:
+  85:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  86:Generated_Source\PSoC4/pwm2_PM.c **** *
+  87:Generated_Source\PSoC4/pwm2_PM.c **** *******************************************************************************/
+  88:Generated_Source\PSoC4/pwm2_PM.c **** void pwm2_RestoreConfig(void)
+  89:Generated_Source\PSoC4/pwm2_PM.c **** {
   93              		.loc 1 89 0
   94              		.cfi_startproc
   95              		@ args = 0, pretend = 0, frame = 0
   96              		@ frame_needed = 0, uses_anonymous_args = 0
   97              		@ link register save eliminated.
-  90:Generated_Source\PSoC4/PWM2_PM.c **** 
-  91:Generated_Source\PSoC4/PWM2_PM.c **** }
+  90:Generated_Source\PSoC4/pwm2_PM.c **** 
+  91:Generated_Source\PSoC4/pwm2_PM.c **** }
   98              		.loc 1 91 0
   99              		@ sp needed
  100 0000 7047     		bx	lr
  101              		.cfi_endproc
  102              	.LFE3:
- 103              		.size	PWM2_RestoreConfig, .-PWM2_RestoreConfig
- 104 0002 C046     		.section	.text.PWM2_Wakeup,"ax",%progbits
+ 103              		.size	pwm2_RestoreConfig, .-pwm2_RestoreConfig
+ 104 0002 C046     		.section	.text.pwm2_Wakeup,"ax",%progbits
  105              		.align	2
- 106              		.global	PWM2_Wakeup
+ 106              		.global	pwm2_Wakeup
  107              		.code	16
  108              		.thumb_func
- 109              		.type	PWM2_Wakeup, %function
- 110              	PWM2_Wakeup:
+ 109              		.type	pwm2_Wakeup, %function
+ 110              	pwm2_Wakeup:
  111              	.LFB4:
-  92:Generated_Source\PSoC4/PWM2_PM.c **** 
-  93:Generated_Source\PSoC4/PWM2_PM.c **** 
-  94:Generated_Source\PSoC4/PWM2_PM.c **** /*******************************************************************************
-  95:Generated_Source\PSoC4/PWM2_PM.c **** * Function Name: PWM2_Wakeup
-  96:Generated_Source\PSoC4/PWM2_PM.c **** ********************************************************************************
-  97:Generated_Source\PSoC4/PWM2_PM.c **** *
-  98:Generated_Source\PSoC4/PWM2_PM.c **** * Summary:
-  99:Generated_Source\PSoC4/PWM2_PM.c **** *  Restores the user configuration and restores the enable state.
- 100:Generated_Source\PSoC4/PWM2_PM.c **** *
- 101:Generated_Source\PSoC4/PWM2_PM.c **** * Parameters:
- 102:Generated_Source\PSoC4/PWM2_PM.c **** *  None
- 103:Generated_Source\PSoC4/PWM2_PM.c **** *
- 104:Generated_Source\PSoC4/PWM2_PM.c **** * Return:
- 105:Generated_Source\PSoC4/PWM2_PM.c **** *  None
- 106:Generated_Source\PSoC4/PWM2_PM.c **** *
- 107:Generated_Source\PSoC4/PWM2_PM.c **** *******************************************************************************/
- 108:Generated_Source\PSoC4/PWM2_PM.c **** void PWM2_Wakeup(void)
- 109:Generated_Source\PSoC4/PWM2_PM.c **** {
+  92:Generated_Source\PSoC4/pwm2_PM.c **** 
+  93:Generated_Source\PSoC4/pwm2_PM.c **** 
+  94:Generated_Source\PSoC4/pwm2_PM.c **** /*******************************************************************************
+  95:Generated_Source\PSoC4/pwm2_PM.c **** * Function Name: pwm2_Wakeup
+  96:Generated_Source\PSoC4/pwm2_PM.c **** ********************************************************************************
+  97:Generated_Source\PSoC4/pwm2_PM.c **** *
+  98:Generated_Source\PSoC4/pwm2_PM.c **** * Summary:
+  99:Generated_Source\PSoC4/pwm2_PM.c **** *  Restores the user configuration and restores the enable state.
+ 100:Generated_Source\PSoC4/pwm2_PM.c **** *
+ 101:Generated_Source\PSoC4/pwm2_PM.c **** * Parameters:
+ 102:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+ 103:Generated_Source\PSoC4/pwm2_PM.c **** *
+ 104:Generated_Source\PSoC4/pwm2_PM.c **** * Return:
+ 105:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+ 106:Generated_Source\PSoC4/pwm2_PM.c **** *
+ 107:Generated_Source\PSoC4/pwm2_PM.c **** *******************************************************************************/
+ 108:Generated_Source\PSoC4/pwm2_PM.c **** void pwm2_Wakeup(void)
+ 109:Generated_Source\PSoC4/pwm2_PM.c **** {
  112              		.loc 1 109 0
  113              		.cfi_startproc
  114              		@ args = 0, pretend = 0, frame = 0
@@ -238,25 +238,25 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  117              		.cfi_def_cfa_offset 8
  118              		.cfi_offset 4, -8
  119              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 5
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 5
 
 
- 110:Generated_Source\PSoC4/PWM2_PM.c ****     PWM2_RestoreConfig();
- 111:Generated_Source\PSoC4/PWM2_PM.c **** 
- 112:Generated_Source\PSoC4/PWM2_PM.c ****     if(0u != PWM2_backup.enableState)
+ 110:Generated_Source\PSoC4/pwm2_PM.c ****     pwm2_RestoreConfig();
+ 111:Generated_Source\PSoC4/pwm2_PM.c **** 
+ 112:Generated_Source\PSoC4/pwm2_PM.c ****     if(0u != pwm2_backup.enableState)
  120              		.loc 1 112 0
  121 0002 034B     		ldr	r3, .L10
  122 0004 1B78     		ldrb	r3, [r3]
  123 0006 002B     		cmp	r3, #0
  124 0008 01D0     		beq	.L8
- 113:Generated_Source\PSoC4/PWM2_PM.c ****     {
- 114:Generated_Source\PSoC4/PWM2_PM.c ****         PWM2_Enable();
+ 113:Generated_Source\PSoC4/pwm2_PM.c ****     {
+ 114:Generated_Source\PSoC4/pwm2_PM.c ****         pwm2_Enable();
  125              		.loc 1 114 0
- 126 000a FFF7FEFF 		bl	PWM2_Enable
+ 126 000a FFF7FEFF 		bl	pwm2_Enable
  127              	.LVL1:
  128              	.L8:
- 115:Generated_Source\PSoC4/PWM2_PM.c ****     }
- 116:Generated_Source\PSoC4/PWM2_PM.c **** }
+ 115:Generated_Source\PSoC4/pwm2_PM.c ****     }
+ 116:Generated_Source\PSoC4/pwm2_PM.c **** }
  129              		.loc 1 116 0
  130              		@ sp needed
  131 000e 10BD     		pop	{r4, pc}
@@ -266,18 +266,18 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  135 0010 00000000 		.word	.LANCHOR0
  136              		.cfi_endproc
  137              	.LFE4:
- 138              		.size	PWM2_Wakeup, .-PWM2_Wakeup
+ 138              		.size	pwm2_Wakeup, .-pwm2_Wakeup
  139              		.bss
  140              		.align	2
  141              		.set	.LANCHOR0,. + 0
- 142              		.type	PWM2_backup, %object
- 143              		.size	PWM2_backup, 1
- 144              	PWM2_backup:
+ 142              		.type	pwm2_backup, %object
+ 143              		.size	pwm2_backup, 1
+ 144              	pwm2_backup:
  145 0000 00       		.space	1
  146              		.text
  147              	.Letext0:
  148              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
- 149              		.file 3 "Generated_Source\\PSoC4\\PWM2.h"
+ 149              		.file 3 "Generated_Source\\PSoC4\\pwm2.h"
  150              		.section	.debug_info,"",%progbits
  151              	.Ldebug_info0:
  152 0000 5D010000 		.4byte	0x15d
@@ -285,40 +285,40 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  154 0006 00000000 		.4byte	.Ldebug_abbrev0
  155 000a 04       		.byte	0x4
  156 000b 01       		.uleb128 0x1
- 157 000c C0010000 		.4byte	.LASF24
+ 157 000c B6010000 		.4byte	.LASF24
  158 0010 0C       		.byte	0xc
- 159 0011 75000000 		.4byte	.LASF25
- 160 0015 26010000 		.4byte	.LASF26
+ 159 0011 2E000000 		.4byte	.LASF25
+ 160 0015 3B010000 		.4byte	.LASF26
  161 0019 00000000 		.4byte	.Ldebug_ranges0+0
  162 001d 00000000 		.4byte	0
  163 0021 00000000 		.4byte	.Ldebug_line0
  164 0025 02       		.uleb128 0x2
  165 0026 01       		.byte	0x1
  166 0027 06       		.byte	0x6
- 167 0028 1A010000 		.4byte	.LASF0
+ 167 0028 17010000 		.4byte	.LASF0
  168 002c 02       		.uleb128 0x2
  169 002d 01       		.byte	0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 6
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 6
 
 
  170 002e 08       		.byte	0x8
- 171 002f 2E000000 		.4byte	.LASF1
+ 171 002f 4F000000 		.4byte	.LASF1
  172 0033 02       		.uleb128 0x2
  173 0034 02       		.byte	0x2
  174 0035 05       		.byte	0x5
- 175 0036 54000000 		.4byte	.LASF2
+ 175 0036 ED000000 		.4byte	.LASF2
  176 003a 02       		.uleb128 0x2
  177 003b 02       		.byte	0x2
  178 003c 07       		.byte	0x7
- 179 003d 07010000 		.4byte	.LASF3
+ 179 003d 04010000 		.4byte	.LASF3
  180 0041 02       		.uleb128 0x2
  181 0042 04       		.byte	0x4
  182 0043 05       		.byte	0x5
- 183 0044 F8000000 		.4byte	.LASF4
+ 183 0044 E4000000 		.4byte	.LASF4
  184 0048 02       		.uleb128 0x2
  185 0049 04       		.byte	0x4
  186 004a 07       		.byte	0x7
- 187 004b 42000000 		.4byte	.LASF5
+ 187 004b 79000000 		.4byte	.LASF5
  188 004f 02       		.uleb128 0x2
  189 0050 08       		.byte	0x8
  190 0051 05       		.byte	0x5
@@ -326,7 +326,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  192 0056 02       		.uleb128 0x2
  193 0057 08       		.byte	0x8
  194 0058 07       		.byte	0x7
- 195 0059 5E000000 		.4byte	.LASF7
+ 195 0059 9E000000 		.4byte	.LASF7
  196 005d 03       		.uleb128 0x3
  197 005e 04       		.byte	0x4
  198 005f 05       		.byte	0x5
@@ -336,7 +336,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  202 0066 07       		.byte	0x7
  203 0067 21000000 		.4byte	.LASF8
  204 006b 04       		.uleb128 0x4
- 205 006c 3C000000 		.4byte	.LASF9
+ 205 006c 73000000 		.4byte	.LASF9
  206 0070 02       		.byte	0x2
  207 0071 FC01     		.2byte	0x1fc
  208 0073 2C000000 		.4byte	0x2c
@@ -348,20 +348,20 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  214 0083 02       		.uleb128 0x2
  215 0084 04       		.byte	0x4
  216 0085 04       		.byte	0x4
- 217 0086 96000000 		.4byte	.LASF11
+ 217 0086 B0010000 		.4byte	.LASF11
  218 008a 02       		.uleb128 0x2
  219 008b 08       		.byte	0x8
  220 008c 04       		.byte	0x4
- 221 008d E5000000 		.4byte	.LASF12
+ 221 008d F7000000 		.4byte	.LASF12
  222 0091 02       		.uleb128 0x2
  223 0092 01       		.byte	0x1
  224 0093 08       		.byte	0x8
- 225 0094 9C000000 		.4byte	.LASF13
+ 225 0094 DF000000 		.4byte	.LASF13
  226 0098 04       		.uleb128 0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 7
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 7
 
 
- 227 0099 01010000 		.4byte	.LASF14
+ 227 0099 FE000000 		.4byte	.LASF14
  228 009d 02       		.byte	0x2
  229 009e A802     		.2byte	0x2a8
  230 00a0 A4000000 		.4byte	0xa4
@@ -370,11 +370,11 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  233 00a9 02       		.uleb128 0x2
  234 00aa 08       		.byte	0x8
  235 00ab 04       		.byte	0x4
- 236 00ac A1010000 		.4byte	.LASF15
+ 236 00ac 2F010000 		.4byte	.LASF15
  237 00b0 02       		.uleb128 0x2
  238 00b1 04       		.byte	0x4
  239 00b2 07       		.byte	0x7
- 240 00b3 52020000 		.4byte	.LASF16
+ 240 00b3 58020000 		.4byte	.LASF16
  241 00b7 06       		.uleb128 0x6
  242 00b8 01       		.byte	0x1
  243 00b9 03       		.byte	0x3
@@ -388,12 +388,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  251 00ca 00       		.byte	0
  252 00cb 00       		.byte	0
  253 00cc 08       		.uleb128 0x8
- 254 00cd D2000000 		.4byte	.LASF17
+ 254 00cd C0000000 		.4byte	.LASF17
  255 00d1 03       		.byte	0x3
  256 00d2 24       		.byte	0x24
  257 00d3 B7000000 		.4byte	0xb7
  258 00d7 09       		.uleb128 0x9
- 259 00d8 B7000000 		.4byte	.LASF18
+ 259 00d8 48020000 		.4byte	.LASF18
  260 00dc 01       		.byte	0x1
  261 00dd 26       		.byte	0x26
  262 00de 00000000 		.4byte	.LFB1
@@ -401,7 +401,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  264 00e6 01       		.uleb128 0x1
  265 00e7 9C       		.byte	0x9c
  266 00e8 0A       		.uleb128 0xa
- 267 00e9 C7000000 		.4byte	.LASF20
+ 267 00e9 B5000000 		.4byte	.LASF20
  268 00ed 01       		.byte	0x1
  269 00ee 3A       		.byte	0x3a
  270 00ef 00000000 		.4byte	.LFB2
@@ -414,18 +414,18 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  277 0102 48010000 		.4byte	0x148
  278 0106 00       		.byte	0
  279 0107 09       		.uleb128 0x9
- 280 0108 AD010000 		.4byte	.LASF19
+ 280 0108 8B000000 		.4byte	.LASF19
  281 010c 01       		.byte	0x1
  282 010d 58       		.byte	0x58
  283 010e 00000000 		.4byte	.LFB3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 8
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 8
 
 
  284 0112 02000000 		.4byte	.LFE3-.LFB3
  285 0116 01       		.uleb128 0x1
  286 0117 9C       		.byte	0x9c
  287 0118 0A       		.uleb128 0xa
- 288 0119 5B020000 		.4byte	.LASF21
+ 288 0119 D3000000 		.4byte	.LASF21
  289 011d 01       		.byte	0x1
  290 011e 6C       		.byte	0x6c
  291 011f 00000000 		.4byte	.LFB4
@@ -438,21 +438,21 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  298 0132 54010000 		.4byte	0x154
  299 0136 00       		.byte	0
  300 0137 0C       		.uleb128 0xc
- 301 0138 EC000000 		.4byte	.LASF28
+ 301 0138 23010000 		.4byte	.LASF28
  302 013c 01       		.byte	0x1
  303 013d 15       		.byte	0x15
  304 013e CC000000 		.4byte	0xcc
  305 0142 05       		.uleb128 0x5
  306 0143 03       		.byte	0x3
- 307 0144 00000000 		.4byte	PWM2_backup
+ 307 0144 00000000 		.4byte	pwm2_backup
  308 0148 0D       		.uleb128 0xd
- 309 0149 A1000000 		.4byte	.LASF22
- 310 014d A1000000 		.4byte	.LASF22
+ 309 0149 69000000 		.4byte	.LASF22
+ 310 014d 69000000 		.4byte	.LASF22
  311 0151 03       		.byte	0x3
  312 0152 3301     		.2byte	0x133
  313 0154 0D       		.uleb128 0xd
- 314 0155 AB000000 		.4byte	.LASF23
- 315 0159 AB000000 		.4byte	.LASF23
+ 314 0155 5D000000 		.4byte	.LASF23
+ 315 0159 5D000000 		.4byte	.LASF23
  316 015d 03       		.byte	0x3
  317 015e 3101     		.2byte	0x131
  318 0160 00       		.byte	0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  338 0011 00       		.byte	0
  339 0012 00       		.byte	0
  340 0013 02       		.uleb128 0x2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 9
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 9
 
 
  341 0014 24       		.uleb128 0x24
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  395 004a 07       		.uleb128 0x7
  396 004b 0D       		.uleb128 0xd
  397 004c 00       		.byte	0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 10
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 10
 
 
  398 004d 03       		.uleb128 0x3
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  452 0084 0E       		.uleb128 0xe
  453 0085 3A       		.uleb128 0x3a
  454 0086 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 11
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 11
 
 
  455 0087 3B       		.uleb128 0x3b
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  509 00c0 05       		.uleb128 0x5
  510 00c1 00       		.byte	0
  511 00c2 00       		.byte	0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 12
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 12
 
 
  512 00c3 00       		.byte	0
@@ -716,146 +716,146 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 1
  553      676E6564 
  553      20696E74 
  553      00
- 554              	.LASF1:
- 555 002e 756E7369 		.ascii	"unsigned char\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 13
+ 554              	.LASF25:
+ 555 002e 47656E65 		.ascii	"Generated_Source\\PSoC4\\pwm2_PM.c\000"
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 13
 
 
- 555      676E6564 
- 555      20636861 
- 555      7200
- 556              	.LASF9:
- 557 003c 75696E74 		.ascii	"uint8\000"
- 557      3800
- 558              	.LASF5:
- 559 0042 6C6F6E67 		.ascii	"long unsigned int\000"
- 559      20756E73 
- 559      69676E65 
- 559      6420696E 
- 559      7400
- 560              	.LASF2:
- 561 0054 73686F72 		.ascii	"short int\000"
- 561      7420696E 
- 561      7400
- 562              	.LASF7:
- 563 005e 6C6F6E67 		.ascii	"long long unsigned int\000"
- 563      206C6F6E 
- 563      6720756E 
- 563      7369676E 
- 563      65642069 
- 564              	.LASF25:
- 565 0075 47656E65 		.ascii	"Generated_Source\\PSoC4\\PWM2_PM.c\000"
- 565      72617465 
- 565      645F536F 
- 565      75726365 
- 565      5C50536F 
- 566              	.LASF11:
- 567 0096 666C6F61 		.ascii	"float\000"
- 567      7400
- 568              	.LASF13:
- 569 009c 63686172 		.ascii	"char\000"
- 569      00
- 570              	.LASF22:
- 571 00a1 50574D32 		.ascii	"PWM2_Stop\000"
- 571      5F53746F 
- 571      7000
- 572              	.LASF23:
- 573 00ab 50574D32 		.ascii	"PWM2_Enable\000"
- 573      5F456E61 
- 573      626C6500 
- 574              	.LASF18:
- 575 00b7 50574D32 		.ascii	"PWM2_SaveConfig\000"
- 575      5F536176 
- 575      65436F6E 
- 575      66696700 
- 576              	.LASF20:
- 577 00c7 50574D32 		.ascii	"PWM2_Sleep\000"
- 577      5F536C65 
- 577      657000
- 578              	.LASF17:
- 579 00d2 50574D32 		.ascii	"PWM2_BACKUP_STRUCT\000"
- 579      5F424143 
- 579      4B55505F 
- 579      53545255 
- 579      435400
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 14
+ 555      72617465 
+ 555      645F536F 
+ 555      75726365 
+ 555      5C50536F 
+ 556              	.LASF1:
+ 557 004f 756E7369 		.ascii	"unsigned char\000"
+ 557      676E6564 
+ 557      20636861 
+ 557      7200
+ 558              	.LASF23:
+ 559 005d 70776D32 		.ascii	"pwm2_Enable\000"
+ 559      5F456E61 
+ 559      626C6500 
+ 560              	.LASF22:
+ 561 0069 70776D32 		.ascii	"pwm2_Stop\000"
+ 561      5F53746F 
+ 561      7000
+ 562              	.LASF9:
+ 563 0073 75696E74 		.ascii	"uint8\000"
+ 563      3800
+ 564              	.LASF5:
+ 565 0079 6C6F6E67 		.ascii	"long unsigned int\000"
+ 565      20756E73 
+ 565      69676E65 
+ 565      6420696E 
+ 565      7400
+ 566              	.LASF19:
+ 567 008b 70776D32 		.ascii	"pwm2_RestoreConfig\000"
+ 567      5F526573 
+ 567      746F7265 
+ 567      436F6E66 
+ 567      696700
+ 568              	.LASF7:
+ 569 009e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 569      206C6F6E 
+ 569      6720756E 
+ 569      7369676E 
+ 569      65642069 
+ 570              	.LASF20:
+ 571 00b5 70776D32 		.ascii	"pwm2_Sleep\000"
+ 571      5F536C65 
+ 571      657000
+ 572              	.LASF17:
+ 573 00c0 70776D32 		.ascii	"pwm2_BACKUP_STRUCT\000"
+ 573      5F424143 
+ 573      4B55505F 
+ 573      53545255 
+ 573      435400
+ 574              	.LASF21:
+ 575 00d3 70776D32 		.ascii	"pwm2_Wakeup\000"
+ 575      5F57616B 
+ 575      65757000 
+ 576              	.LASF13:
+ 577 00df 63686172 		.ascii	"char\000"
+ 577      00
+ 578              	.LASF4:
+ 579 00e4 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 14
 
 
- 580              	.LASF12:
- 581 00e5 646F7562 		.ascii	"double\000"
- 581      6C6500
- 582              	.LASF28:
- 583 00ec 50574D32 		.ascii	"PWM2_backup\000"
- 583      5F626163 
- 583      6B757000 
- 584              	.LASF4:
- 585 00f8 6C6F6E67 		.ascii	"long int\000"
- 585      20696E74 
- 585      00
- 586              	.LASF14:
- 587 0101 72656733 		.ascii	"reg32\000"
- 587      3200
- 588              	.LASF3:
- 589 0107 73686F72 		.ascii	"short unsigned int\000"
- 589      7420756E 
- 589      7369676E 
- 589      65642069 
- 589      6E7400
- 590              	.LASF0:
- 591 011a 7369676E 		.ascii	"signed char\000"
- 591      65642063 
- 591      68617200 
- 592              	.LASF26:
- 593 0126 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\Ejem"
- 593      6F63756D 
- 593      656E746F 
- 593      735C5544 
- 593      5C323032 
- 594 0154 706C6F73 		.ascii	"plos\\Configuracion General\\Configuracion_General\\"
- 594      5C436F6E 
- 594      66696775 
- 594      72616369 
- 594      6F6E2047 
- 595 0185 436F6E66 		.ascii	"Configuracion_General.cydsn\000"
- 595      69677572 
- 595      6163696F 
- 595      6E5F4765 
- 595      6E657261 
- 596              	.LASF15:
- 597 01a1 6C6F6E67 		.ascii	"long double\000"
- 597      20646F75 
- 597      626C6500 
- 598              	.LASF19:
- 599 01ad 50574D32 		.ascii	"PWM2_RestoreConfig\000"
- 599      5F526573 
- 599      746F7265 
- 599      436F6E66 
- 599      696700
+ 579      20696E74 
+ 579      00
+ 580              	.LASF2:
+ 581 00ed 73686F72 		.ascii	"short int\000"
+ 581      7420696E 
+ 581      7400
+ 582              	.LASF12:
+ 583 00f7 646F7562 		.ascii	"double\000"
+ 583      6C6500
+ 584              	.LASF14:
+ 585 00fe 72656733 		.ascii	"reg32\000"
+ 585      3200
+ 586              	.LASF3:
+ 587 0104 73686F72 		.ascii	"short unsigned int\000"
+ 587      7420756E 
+ 587      7369676E 
+ 587      65642069 
+ 587      6E7400
+ 588              	.LASF0:
+ 589 0117 7369676E 		.ascii	"signed char\000"
+ 589      65642063 
+ 589      68617200 
+ 590              	.LASF28:
+ 591 0123 70776D32 		.ascii	"pwm2_backup\000"
+ 591      5F626163 
+ 591      6B757000 
+ 592              	.LASF15:
+ 593 012f 6C6F6E67 		.ascii	"long double\000"
+ 593      20646F75 
+ 593      626C6500 
+ 594              	.LASF26:
+ 595 013b 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\aixt"
+ 595      6F63756D 
+ 595      656E746F 
+ 595      735C5544 
+ 595      5C323032 
+ 596 0169 2D702D73 		.ascii	"-p-so-c-4\\devices\\Cypress\\CY8CKIT-145-40XX\\Conf"
+ 596      6F2D632D 
+ 596      345C6465 
+ 596      76696365 
+ 596      735C4379 
+ 597 0198 69677572 		.ascii	"iguracion_General.cydsn\000"
+ 597      6163696F 
+ 597      6E5F4765 
+ 597      6E657261 
+ 597      6C2E6379 
+ 598              	.LASF11:
+ 599 01b0 666C6F61 		.ascii	"float\000"
+ 599      7400
  600              	.LASF24:
- 601 01c0 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 601 01b6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  601      43313120 
  601      352E342E 
  601      31203230 
  601      31363036 
- 602 01f3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccE9yhBA.s 			page 15
-
-
+ 602 01e9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
  602      20726576 
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccEtO3C0.s 			page 15
+
+
  602      6973696F 
  602      6E203233 
  602      37373135 
- 603 0226 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 603 021c 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
  603      67202D66 
  603      66756E63 
  603      74696F6E 
  603      2D736563 
- 604              	.LASF16:
- 605 0252 73697A65 		.ascii	"sizetype\000"
- 605      74797065 
- 605      00
- 606              	.LASF21:
- 607 025b 50574D32 		.ascii	"PWM2_Wakeup\000"
- 607      5F57616B 
- 607      65757000 
+ 604              	.LASF18:
+ 605 0248 70776D32 		.ascii	"pwm2_SaveConfig\000"
+ 605      5F536176 
+ 605      65436F6E 
+ 605      66696700 
+ 606              	.LASF16:
+ 607 0258 73697A65 		.ascii	"sizetype\000"
+ 607      74797065 
+ 607      00
  608              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

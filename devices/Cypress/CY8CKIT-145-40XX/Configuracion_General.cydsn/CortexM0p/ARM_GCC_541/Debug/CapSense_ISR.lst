@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 1
 
 
    1              		.syntax unified
@@ -15,261 +15,261 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
   14              		.syntax unified
-  15              		.file	"CapSense_ISR.c"
+  15              		.file	"capsense_ISR.c"
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.CapSense_ISR_Interrupt,"ax",%progbits
+  19              		.section	.text.capsense_ISR_Interrupt,"ax",%progbits
   20              		.align	2
-  21              		.global	CapSense_ISR_Interrupt
+  21              		.global	capsense_ISR_Interrupt
   22              		.code	16
   23              		.thumb_func
-  24              		.type	CapSense_ISR_Interrupt, %function
-  25              	CapSense_ISR_Interrupt:
+  24              		.type	capsense_ISR_Interrupt, %function
+  25              	capsense_ISR_Interrupt:
   26              	.LFB4:
-  27              		.file 1 "Generated_Source\\PSoC4\\CapSense_ISR.c"
-   1:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
-   2:Generated_Source\PSoC4/CapSense_ISR.c **** * File Name: CapSense_ISR.c  
-   3:Generated_Source\PSoC4/CapSense_ISR.c **** * Version 1.70
-   4:Generated_Source\PSoC4/CapSense_ISR.c **** *
-   5:Generated_Source\PSoC4/CapSense_ISR.c **** *  Description:
-   6:Generated_Source\PSoC4/CapSense_ISR.c **** *   API for controlling the state of an interrupt.
-   7:Generated_Source\PSoC4/CapSense_ISR.c **** *
-   8:Generated_Source\PSoC4/CapSense_ISR.c **** *
-   9:Generated_Source\PSoC4/CapSense_ISR.c **** *  Note:
-  10:Generated_Source\PSoC4/CapSense_ISR.c **** *
-  11:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
-  12:Generated_Source\PSoC4/CapSense_ISR.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
-  13:Generated_Source\PSoC4/CapSense_ISR.c **** * You may use this file only in accordance with the license, terms, conditions, 
-  14:Generated_Source\PSoC4/CapSense_ISR.c **** * disclaimers, and limitations in the end user license agreement accompanying 
-  15:Generated_Source\PSoC4/CapSense_ISR.c **** * the software package with which this file was provided.
-  16:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
-  17:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  18:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  19:Generated_Source\PSoC4/CapSense_ISR.c **** #include <cydevice_trm.h>
-  20:Generated_Source\PSoC4/CapSense_ISR.c **** #include <CyLib.h>
-  21:Generated_Source\PSoC4/CapSense_ISR.c **** #include <CapSense_ISR.h>
-  22:Generated_Source\PSoC4/CapSense_ISR.c **** #include "cyapicallbacks.h"
-  23:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  24:Generated_Source\PSoC4/CapSense_ISR.c **** #if !defined(CapSense_ISR__REMOVED) /* Check for removal by optimization */
-  25:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  26:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
-  27:Generated_Source\PSoC4/CapSense_ISR.c **** *  Place your includes, defines and code here 
-  28:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************/
-  29:Generated_Source\PSoC4/CapSense_ISR.c **** /* `#START CapSense_ISR_intc` */
-  30:Generated_Source\PSoC4/CapSense_ISR.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 2
+  27              		.file 1 "Generated_Source\\PSoC4\\capsense_ISR.c"
+   1:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/capsense_ISR.c **** * File Name: capsense_ISR.c  
+   3:Generated_Source\PSoC4/capsense_ISR.c **** * Version 1.70
+   4:Generated_Source\PSoC4/capsense_ISR.c **** *
+   5:Generated_Source\PSoC4/capsense_ISR.c **** *  Description:
+   6:Generated_Source\PSoC4/capsense_ISR.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC4/capsense_ISR.c **** *
+   8:Generated_Source\PSoC4/capsense_ISR.c **** *
+   9:Generated_Source\PSoC4/capsense_ISR.c **** *  Note:
+  10:Generated_Source\PSoC4/capsense_ISR.c **** *
+  11:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+  12:Generated_Source\PSoC4/capsense_ISR.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/capsense_ISR.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC4/capsense_ISR.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC4/capsense_ISR.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/capsense_ISR.c **** 
+  18:Generated_Source\PSoC4/capsense_ISR.c **** 
+  19:Generated_Source\PSoC4/capsense_ISR.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC4/capsense_ISR.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC4/capsense_ISR.c **** #include <capsense_ISR.h>
+  22:Generated_Source\PSoC4/capsense_ISR.c **** #include "cyapicallbacks.h"
+  23:Generated_Source\PSoC4/capsense_ISR.c **** 
+  24:Generated_Source\PSoC4/capsense_ISR.c **** #if !defined(capsense_ISR__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC4/capsense_ISR.c **** 
+  26:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+  27:Generated_Source\PSoC4/capsense_ISR.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************/
+  29:Generated_Source\PSoC4/capsense_ISR.c **** /* `#START capsense_ISR_intc` */
+  30:Generated_Source\PSoC4/capsense_ISR.c **** 
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 2
 
 
-  31:Generated_Source\PSoC4/CapSense_ISR.c **** /* `#END` */
-  32:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  33:Generated_Source\PSoC4/CapSense_ISR.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
-  34:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  35:Generated_Source\PSoC4/CapSense_ISR.c **** /* Declared in startup, used to set unused interrupts to. */
-  36:Generated_Source\PSoC4/CapSense_ISR.c **** CY_ISR_PROTO(IntDefaultHandler);
-  37:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  38:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  39:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
-  40:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_Start
-  41:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
-  42:Generated_Source\PSoC4/CapSense_ISR.c **** *
-  43:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
-  44:Generated_Source\PSoC4/CapSense_ISR.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
-  45:Generated_Source\PSoC4/CapSense_ISR.c **** *  sets the default interrupt vector, sets the priority from the value in the
-  46:Generated_Source\PSoC4/CapSense_ISR.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
-  47:Generated_Source\PSoC4/CapSense_ISR.c **** *  interrupt controller.
-  48:Generated_Source\PSoC4/CapSense_ISR.c **** *
-  49:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:  
-  50:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
-  51:Generated_Source\PSoC4/CapSense_ISR.c **** *
-  52:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
-  53:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
-  54:Generated_Source\PSoC4/CapSense_ISR.c **** *
-  55:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
-  56:Generated_Source\PSoC4/CapSense_ISR.c **** void CapSense_ISR_Start(void)
-  57:Generated_Source\PSoC4/CapSense_ISR.c **** {
-  58:Generated_Source\PSoC4/CapSense_ISR.c ****     /* For all we know the interrupt is active. */
-  59:Generated_Source\PSoC4/CapSense_ISR.c ****     CapSense_ISR_Disable();
-  60:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  61:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Set the ISR to point to the CapSense_ISR Interrupt. */
-  62:Generated_Source\PSoC4/CapSense_ISR.c ****     CapSense_ISR_SetVector(&CapSense_ISR_Interrupt);
-  63:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  64:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Set the priority. */
-  65:Generated_Source\PSoC4/CapSense_ISR.c ****     CapSense_ISR_SetPriority((uint8)CapSense_ISR_INTC_PRIOR_NUMBER);
-  66:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  67:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Enable it. */
-  68:Generated_Source\PSoC4/CapSense_ISR.c ****     CapSense_ISR_Enable();
-  69:Generated_Source\PSoC4/CapSense_ISR.c **** }
-  70:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  71:Generated_Source\PSoC4/CapSense_ISR.c **** 
-  72:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
-  73:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_StartEx
-  74:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
-  75:Generated_Source\PSoC4/CapSense_ISR.c **** *
-  76:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
-  77:Generated_Source\PSoC4/CapSense_ISR.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
-  78:Generated_Source\PSoC4/CapSense_ISR.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
-  79:Generated_Source\PSoC4/CapSense_ISR.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
-  80:Generated_Source\PSoC4/CapSense_ISR.c **** *  the interrupt to the interrupt controller.
-  81:Generated_Source\PSoC4/CapSense_ISR.c **** *  
-  82:Generated_Source\PSoC4/CapSense_ISR.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
-  83:Generated_Source\PSoC4/CapSense_ISR.c **** *  used to provide consistent definition across compilers:
-  84:Generated_Source\PSoC4/CapSense_ISR.c **** *  
-  85:Generated_Source\PSoC4/CapSense_ISR.c **** *  Function definition example:
-  86:Generated_Source\PSoC4/CapSense_ISR.c **** *   CY_ISR(MyISR)
-  87:Generated_Source\PSoC4/CapSense_ISR.c **** *   {
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 3
+  31:Generated_Source\PSoC4/capsense_ISR.c **** /* `#END` */
+  32:Generated_Source\PSoC4/capsense_ISR.c **** 
+  33:Generated_Source\PSoC4/capsense_ISR.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
+  34:Generated_Source\PSoC4/capsense_ISR.c **** 
+  35:Generated_Source\PSoC4/capsense_ISR.c **** /* Declared in startup, used to set unused interrupts to. */
+  36:Generated_Source\PSoC4/capsense_ISR.c **** CY_ISR_PROTO(IntDefaultHandler);
+  37:Generated_Source\PSoC4/capsense_ISR.c **** 
+  38:Generated_Source\PSoC4/capsense_ISR.c **** 
+  39:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+  40:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_Start
+  41:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+  42:Generated_Source\PSoC4/capsense_ISR.c **** *
+  43:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+  44:Generated_Source\PSoC4/capsense_ISR.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  45:Generated_Source\PSoC4/capsense_ISR.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  46:Generated_Source\PSoC4/capsense_ISR.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  47:Generated_Source\PSoC4/capsense_ISR.c **** *  interrupt controller.
+  48:Generated_Source\PSoC4/capsense_ISR.c **** *
+  49:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:  
+  50:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+  51:Generated_Source\PSoC4/capsense_ISR.c **** *
+  52:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+  53:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+  54:Generated_Source\PSoC4/capsense_ISR.c **** *
+  55:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+  56:Generated_Source\PSoC4/capsense_ISR.c **** void capsense_ISR_Start(void)
+  57:Generated_Source\PSoC4/capsense_ISR.c **** {
+  58:Generated_Source\PSoC4/capsense_ISR.c ****     /* For all we know the interrupt is active. */
+  59:Generated_Source\PSoC4/capsense_ISR.c ****     capsense_ISR_Disable();
+  60:Generated_Source\PSoC4/capsense_ISR.c **** 
+  61:Generated_Source\PSoC4/capsense_ISR.c ****     /* Set the ISR to point to the capsense_ISR Interrupt. */
+  62:Generated_Source\PSoC4/capsense_ISR.c ****     capsense_ISR_SetVector(&capsense_ISR_Interrupt);
+  63:Generated_Source\PSoC4/capsense_ISR.c **** 
+  64:Generated_Source\PSoC4/capsense_ISR.c ****     /* Set the priority. */
+  65:Generated_Source\PSoC4/capsense_ISR.c ****     capsense_ISR_SetPriority((uint8)capsense_ISR_INTC_PRIOR_NUMBER);
+  66:Generated_Source\PSoC4/capsense_ISR.c **** 
+  67:Generated_Source\PSoC4/capsense_ISR.c ****     /* Enable it. */
+  68:Generated_Source\PSoC4/capsense_ISR.c ****     capsense_ISR_Enable();
+  69:Generated_Source\PSoC4/capsense_ISR.c **** }
+  70:Generated_Source\PSoC4/capsense_ISR.c **** 
+  71:Generated_Source\PSoC4/capsense_ISR.c **** 
+  72:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+  73:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_StartEx
+  74:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+  75:Generated_Source\PSoC4/capsense_ISR.c **** *
+  76:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+  77:Generated_Source\PSoC4/capsense_ISR.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  78:Generated_Source\PSoC4/capsense_ISR.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  79:Generated_Source\PSoC4/capsense_ISR.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  80:Generated_Source\PSoC4/capsense_ISR.c **** *  the interrupt to the interrupt controller.
+  81:Generated_Source\PSoC4/capsense_ISR.c **** *  
+  82:Generated_Source\PSoC4/capsense_ISR.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  83:Generated_Source\PSoC4/capsense_ISR.c **** *  used to provide consistent definition across compilers:
+  84:Generated_Source\PSoC4/capsense_ISR.c **** *  
+  85:Generated_Source\PSoC4/capsense_ISR.c **** *  Function definition example:
+  86:Generated_Source\PSoC4/capsense_ISR.c **** *   CY_ISR(MyISR)
+  87:Generated_Source\PSoC4/capsense_ISR.c **** *   {
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 3
 
 
-  88:Generated_Source\PSoC4/CapSense_ISR.c **** *   }
-  89:Generated_Source\PSoC4/CapSense_ISR.c **** *   Function prototype example:
-  90:Generated_Source\PSoC4/CapSense_ISR.c **** *   CY_ISR_PROTO(MyISR);
-  91:Generated_Source\PSoC4/CapSense_ISR.c **** *
-  92:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:  
-  93:Generated_Source\PSoC4/CapSense_ISR.c **** *   address: Address of the ISR to set in the interrupt vector table.
-  94:Generated_Source\PSoC4/CapSense_ISR.c **** *
-  95:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
-  96:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
-  97:Generated_Source\PSoC4/CapSense_ISR.c **** *
-  98:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
-  99:Generated_Source\PSoC4/CapSense_ISR.c **** void CapSense_ISR_StartEx(cyisraddress address)
- 100:Generated_Source\PSoC4/CapSense_ISR.c **** {
- 101:Generated_Source\PSoC4/CapSense_ISR.c ****     /* For all we know the interrupt is active. */
- 102:Generated_Source\PSoC4/CapSense_ISR.c ****     CapSense_ISR_Disable();
- 103:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 104:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Set the ISR to point to the CapSense_ISR Interrupt. */
- 105:Generated_Source\PSoC4/CapSense_ISR.c ****     CapSense_ISR_SetVector(address);
- 106:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 107:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Set the priority. */
- 108:Generated_Source\PSoC4/CapSense_ISR.c ****     CapSense_ISR_SetPriority((uint8)CapSense_ISR_INTC_PRIOR_NUMBER);
- 109:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 110:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Enable it. */
- 111:Generated_Source\PSoC4/CapSense_ISR.c ****     CapSense_ISR_Enable();
- 112:Generated_Source\PSoC4/CapSense_ISR.c **** }
- 113:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 114:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 115:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 116:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_Stop
- 117:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 118:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 119:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 120:Generated_Source\PSoC4/CapSense_ISR.c **** *   Disables and removes the interrupt.
- 121:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 122:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:  
- 123:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 124:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 125:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 126:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 127:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 128:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 129:Generated_Source\PSoC4/CapSense_ISR.c **** void CapSense_ISR_Stop(void)
- 130:Generated_Source\PSoC4/CapSense_ISR.c **** {
- 131:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Disable this interrupt. */
- 132:Generated_Source\PSoC4/CapSense_ISR.c ****     CapSense_ISR_Disable();
- 133:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 134:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Set the ISR to point to the passive one. */
- 135:Generated_Source\PSoC4/CapSense_ISR.c ****     CapSense_ISR_SetVector(&IntDefaultHandler);
- 136:Generated_Source\PSoC4/CapSense_ISR.c **** }
- 137:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 138:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 139:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 140:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_Interrupt
- 141:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 142:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 143:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 144:Generated_Source\PSoC4/CapSense_ISR.c **** *   The default Interrupt Service Routine for CapSense_ISR.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 4
+  88:Generated_Source\PSoC4/capsense_ISR.c **** *   }
+  89:Generated_Source\PSoC4/capsense_ISR.c **** *   Function prototype example:
+  90:Generated_Source\PSoC4/capsense_ISR.c **** *   CY_ISR_PROTO(MyISR);
+  91:Generated_Source\PSoC4/capsense_ISR.c **** *
+  92:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:  
+  93:Generated_Source\PSoC4/capsense_ISR.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  94:Generated_Source\PSoC4/capsense_ISR.c **** *
+  95:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+  96:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+  97:Generated_Source\PSoC4/capsense_ISR.c **** *
+  98:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+  99:Generated_Source\PSoC4/capsense_ISR.c **** void capsense_ISR_StartEx(cyisraddress address)
+ 100:Generated_Source\PSoC4/capsense_ISR.c **** {
+ 101:Generated_Source\PSoC4/capsense_ISR.c ****     /* For all we know the interrupt is active. */
+ 102:Generated_Source\PSoC4/capsense_ISR.c ****     capsense_ISR_Disable();
+ 103:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 104:Generated_Source\PSoC4/capsense_ISR.c ****     /* Set the ISR to point to the capsense_ISR Interrupt. */
+ 105:Generated_Source\PSoC4/capsense_ISR.c ****     capsense_ISR_SetVector(address);
+ 106:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 107:Generated_Source\PSoC4/capsense_ISR.c ****     /* Set the priority. */
+ 108:Generated_Source\PSoC4/capsense_ISR.c ****     capsense_ISR_SetPriority((uint8)capsense_ISR_INTC_PRIOR_NUMBER);
+ 109:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 110:Generated_Source\PSoC4/capsense_ISR.c ****     /* Enable it. */
+ 111:Generated_Source\PSoC4/capsense_ISR.c ****     capsense_ISR_Enable();
+ 112:Generated_Source\PSoC4/capsense_ISR.c **** }
+ 113:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 114:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 115:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 116:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_Stop
+ 117:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 118:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 119:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 120:Generated_Source\PSoC4/capsense_ISR.c **** *   Disables and removes the interrupt.
+ 121:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 122:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:  
+ 123:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 124:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 125:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 126:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 127:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 128:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 129:Generated_Source\PSoC4/capsense_ISR.c **** void capsense_ISR_Stop(void)
+ 130:Generated_Source\PSoC4/capsense_ISR.c **** {
+ 131:Generated_Source\PSoC4/capsense_ISR.c ****     /* Disable this interrupt. */
+ 132:Generated_Source\PSoC4/capsense_ISR.c ****     capsense_ISR_Disable();
+ 133:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 134:Generated_Source\PSoC4/capsense_ISR.c ****     /* Set the ISR to point to the passive one. */
+ 135:Generated_Source\PSoC4/capsense_ISR.c ****     capsense_ISR_SetVector(&IntDefaultHandler);
+ 136:Generated_Source\PSoC4/capsense_ISR.c **** }
+ 137:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 138:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 139:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 140:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_Interrupt
+ 141:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 142:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 143:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 144:Generated_Source\PSoC4/capsense_ISR.c **** *   The default Interrupt Service Routine for capsense_ISR.
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 4
 
 
- 145:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 146:Generated_Source\PSoC4/CapSense_ISR.c **** *   Add custom code between the START and END comments to keep the next version
- 147:Generated_Source\PSoC4/CapSense_ISR.c **** *   of this file from over-writing your code.
- 148:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 149:Generated_Source\PSoC4/CapSense_ISR.c **** *   Note You may use either the default ISR by using this API, or you may define
- 150:Generated_Source\PSoC4/CapSense_ISR.c **** *   your own separate ISR through ISR_StartEx().
- 151:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 152:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:  
- 153:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 154:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 155:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 156:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 157:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 158:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 159:Generated_Source\PSoC4/CapSense_ISR.c **** CY_ISR(CapSense_ISR_Interrupt)
- 160:Generated_Source\PSoC4/CapSense_ISR.c **** {
+ 145:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 146:Generated_Source\PSoC4/capsense_ISR.c **** *   Add custom code between the START and END comments to keep the next version
+ 147:Generated_Source\PSoC4/capsense_ISR.c **** *   of this file from over-writing your code.
+ 148:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 149:Generated_Source\PSoC4/capsense_ISR.c **** *   Note You may use either the default ISR by using this API, or you may define
+ 150:Generated_Source\PSoC4/capsense_ISR.c **** *   your own separate ISR through ISR_StartEx().
+ 151:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 152:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:  
+ 153:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 154:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 155:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 156:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 157:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 158:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 159:Generated_Source\PSoC4/capsense_ISR.c **** CY_ISR(capsense_ISR_Interrupt)
+ 160:Generated_Source\PSoC4/capsense_ISR.c **** {
   28              		.loc 1 160 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
- 161:Generated_Source\PSoC4/CapSense_ISR.c ****     #ifdef CapSense_ISR_INTERRUPT_INTERRUPT_CALLBACK
- 162:Generated_Source\PSoC4/CapSense_ISR.c ****         CapSense_ISR_Interrupt_InterruptCallback();
- 163:Generated_Source\PSoC4/CapSense_ISR.c ****     #endif /* CapSense_ISR_INTERRUPT_INTERRUPT_CALLBACK */ 
- 164:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 165:Generated_Source\PSoC4/CapSense_ISR.c ****     /*  Place your Interrupt code here. */
- 166:Generated_Source\PSoC4/CapSense_ISR.c ****     /* `#START CapSense_ISR_Interrupt` */
- 167:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 168:Generated_Source\PSoC4/CapSense_ISR.c ****     /* `#END` */
- 169:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 161:Generated_Source\PSoC4/capsense_ISR.c ****     #ifdef capsense_ISR_INTERRUPT_INTERRUPT_CALLBACK
+ 162:Generated_Source\PSoC4/capsense_ISR.c ****         capsense_ISR_Interrupt_InterruptCallback();
+ 163:Generated_Source\PSoC4/capsense_ISR.c ****     #endif /* capsense_ISR_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 164:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 165:Generated_Source\PSoC4/capsense_ISR.c ****     /*  Place your Interrupt code here. */
+ 166:Generated_Source\PSoC4/capsense_ISR.c ****     /* `#START capsense_ISR_Interrupt` */
+ 167:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 168:Generated_Source\PSoC4/capsense_ISR.c ****     /* `#END` */
+ 169:Generated_Source\PSoC4/capsense_ISR.c **** }
   33              		.loc 1 169 0
   34              		@ sp needed
   35 0000 7047     		bx	lr
   36              		.cfi_endproc
   37              	.LFE4:
-  38              		.size	CapSense_ISR_Interrupt, .-CapSense_ISR_Interrupt
-  39 0002 C046     		.section	.text.CapSense_ISR_SetVector,"ax",%progbits
+  38              		.size	capsense_ISR_Interrupt, .-capsense_ISR_Interrupt
+  39 0002 C046     		.section	.text.capsense_ISR_SetVector,"ax",%progbits
   40              		.align	2
-  41              		.global	CapSense_ISR_SetVector
+  41              		.global	capsense_ISR_SetVector
   42              		.code	16
   43              		.thumb_func
-  44              		.type	CapSense_ISR_SetVector, %function
-  45              	CapSense_ISR_SetVector:
+  44              		.type	capsense_ISR_SetVector, %function
+  45              	capsense_ISR_SetVector:
   46              	.LFB5:
- 170:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 171:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 172:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 173:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_SetVector
- 174:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 175:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 176:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 177:Generated_Source\PSoC4/CapSense_ISR.c **** *   Change the ISR vector for the Interrupt. Note calling CapSense_ISR_Start
- 178:Generated_Source\PSoC4/CapSense_ISR.c **** *   will override any effect this method would have had. To set the vector 
- 179:Generated_Source\PSoC4/CapSense_ISR.c **** *   before the component has been started use CapSense_ISR_StartEx instead.
- 180:Generated_Source\PSoC4/CapSense_ISR.c **** * 
- 181:Generated_Source\PSoC4/CapSense_ISR.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
- 182:Generated_Source\PSoC4/CapSense_ISR.c **** *   used to provide consistent definition across compilers:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 5
+ 170:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 171:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 172:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 173:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_SetVector
+ 174:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 175:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 176:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 177:Generated_Source\PSoC4/capsense_ISR.c **** *   Change the ISR vector for the Interrupt. Note calling capsense_ISR_Start
+ 178:Generated_Source\PSoC4/capsense_ISR.c **** *   will override any effect this method would have had. To set the vector 
+ 179:Generated_Source\PSoC4/capsense_ISR.c **** *   before the component has been started use capsense_ISR_StartEx instead.
+ 180:Generated_Source\PSoC4/capsense_ISR.c **** * 
+ 181:Generated_Source\PSoC4/capsense_ISR.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 182:Generated_Source\PSoC4/capsense_ISR.c **** *   used to provide consistent definition across compilers:
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 5
 
 
- 183:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 184:Generated_Source\PSoC4/CapSense_ISR.c **** *   Function definition example:
- 185:Generated_Source\PSoC4/CapSense_ISR.c **** *   CY_ISR(MyISR)
- 186:Generated_Source\PSoC4/CapSense_ISR.c **** *   {
- 187:Generated_Source\PSoC4/CapSense_ISR.c **** *   }
- 188:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 189:Generated_Source\PSoC4/CapSense_ISR.c **** *   Function prototype example:
- 190:Generated_Source\PSoC4/CapSense_ISR.c **** *     CY_ISR_PROTO(MyISR);
- 191:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 192:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:
- 193:Generated_Source\PSoC4/CapSense_ISR.c **** *   address: Address of the ISR to set in the interrupt vector table.
- 194:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 195:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 196:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 197:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 198:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 199:Generated_Source\PSoC4/CapSense_ISR.c **** void CapSense_ISR_SetVector(cyisraddress address)
- 200:Generated_Source\PSoC4/CapSense_ISR.c **** {
+ 183:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 184:Generated_Source\PSoC4/capsense_ISR.c **** *   Function definition example:
+ 185:Generated_Source\PSoC4/capsense_ISR.c **** *   CY_ISR(MyISR)
+ 186:Generated_Source\PSoC4/capsense_ISR.c **** *   {
+ 187:Generated_Source\PSoC4/capsense_ISR.c **** *   }
+ 188:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 189:Generated_Source\PSoC4/capsense_ISR.c **** *   Function prototype example:
+ 190:Generated_Source\PSoC4/capsense_ISR.c **** *     CY_ISR_PROTO(MyISR);
+ 191:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 192:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:
+ 193:Generated_Source\PSoC4/capsense_ISR.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 194:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 195:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 196:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 197:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 198:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 199:Generated_Source\PSoC4/capsense_ISR.c **** void capsense_ISR_SetVector(cyisraddress address)
+ 200:Generated_Source\PSoC4/capsense_ISR.c **** {
   47              		.loc 1 200 0
   48              		.cfi_startproc
   49              		@ args = 0, pretend = 0, frame = 0
   50              		@ frame_needed = 0, uses_anonymous_args = 0
   51              		@ link register save eliminated.
   52              	.LVL0:
- 201:Generated_Source\PSoC4/CapSense_ISR.c ****     CyRamVectors[CYINT_IRQ_BASE + CapSense_ISR__INTC_NUMBER] = address;
+ 201:Generated_Source\PSoC4/capsense_ISR.c ****     CyRamVectors[CYINT_IRQ_BASE + capsense_ISR__INTC_NUMBER] = address;
   53              		.loc 1 201 0
   54 0000 014B     		ldr	r3, .L3
   55 0002 9866     		str	r0, [r3, #104]
- 202:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 202:Generated_Source\PSoC4/capsense_ISR.c **** }
   56              		.loc 1 202 0
   57              		@ sp needed
   58 0004 7047     		bx	lr
@@ -279,46 +279,46 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
   62 0008 00000000 		.word	CyRamVectors
   63              		.cfi_endproc
   64              	.LFE5:
-  65              		.size	CapSense_ISR_SetVector, .-CapSense_ISR_SetVector
-  66              		.section	.text.CapSense_ISR_GetVector,"ax",%progbits
+  65              		.size	capsense_ISR_SetVector, .-capsense_ISR_SetVector
+  66              		.section	.text.capsense_ISR_GetVector,"ax",%progbits
   67              		.align	2
-  68              		.global	CapSense_ISR_GetVector
+  68              		.global	capsense_ISR_GetVector
   69              		.code	16
   70              		.thumb_func
-  71              		.type	CapSense_ISR_GetVector, %function
-  72              	CapSense_ISR_GetVector:
+  71              		.type	capsense_ISR_GetVector, %function
+  72              	capsense_ISR_GetVector:
   73              	.LFB6:
- 203:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 204:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 205:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 206:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_GetVector
- 207:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 208:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 209:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 210:Generated_Source\PSoC4/CapSense_ISR.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
- 211:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 212:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 6
+ 203:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 204:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 205:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 206:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_GetVector
+ 207:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 208:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 209:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 210:Generated_Source\PSoC4/capsense_ISR.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 211:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 212:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 6
 
 
- 213:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 214:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 215:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 216:Generated_Source\PSoC4/CapSense_ISR.c **** *   Address of the ISR in the interrupt vector table.
- 217:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 218:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 219:Generated_Source\PSoC4/CapSense_ISR.c **** cyisraddress CapSense_ISR_GetVector(void)
- 220:Generated_Source\PSoC4/CapSense_ISR.c **** {
+ 213:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 214:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 215:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 216:Generated_Source\PSoC4/capsense_ISR.c **** *   Address of the ISR in the interrupt vector table.
+ 217:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 218:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 219:Generated_Source\PSoC4/capsense_ISR.c **** cyisraddress capsense_ISR_GetVector(void)
+ 220:Generated_Source\PSoC4/capsense_ISR.c **** {
   74              		.loc 1 220 0
   75              		.cfi_startproc
   76              		@ args = 0, pretend = 0, frame = 0
   77              		@ frame_needed = 0, uses_anonymous_args = 0
   78              		@ link register save eliminated.
- 221:Generated_Source\PSoC4/CapSense_ISR.c ****     return CyRamVectors[CYINT_IRQ_BASE + CapSense_ISR__INTC_NUMBER];
+ 221:Generated_Source\PSoC4/capsense_ISR.c ****     return CyRamVectors[CYINT_IRQ_BASE + capsense_ISR__INTC_NUMBER];
   79              		.loc 1 221 0
   80 0000 014B     		ldr	r3, .L6
   81 0002 986E     		ldr	r0, [r3, #104]
- 222:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 222:Generated_Source\PSoC4/capsense_ISR.c **** }
   82              		.loc 1 222 0
   83              		@ sp needed
   84 0004 7047     		bx	lr
@@ -328,46 +328,46 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
   88 0008 00000000 		.word	CyRamVectors
   89              		.cfi_endproc
   90              	.LFE6:
-  91              		.size	CapSense_ISR_GetVector, .-CapSense_ISR_GetVector
-  92              		.section	.text.CapSense_ISR_SetPriority,"ax",%progbits
+  91              		.size	capsense_ISR_GetVector, .-capsense_ISR_GetVector
+  92              		.section	.text.capsense_ISR_SetPriority,"ax",%progbits
   93              		.align	2
-  94              		.global	CapSense_ISR_SetPriority
+  94              		.global	capsense_ISR_SetPriority
   95              		.code	16
   96              		.thumb_func
-  97              		.type	CapSense_ISR_SetPriority, %function
-  98              	CapSense_ISR_SetPriority:
+  97              		.type	capsense_ISR_SetPriority, %function
+  98              	capsense_ISR_SetPriority:
   99              	.LFB7:
- 223:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 224:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 225:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 226:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_SetPriority
- 227:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 228:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 229:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 230:Generated_Source\PSoC4/CapSense_ISR.c **** *   Sets the Priority of the Interrupt. 
- 231:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 232:Generated_Source\PSoC4/CapSense_ISR.c **** *   Note calling CapSense_ISR_Start or CapSense_ISR_StartEx will 
- 233:Generated_Source\PSoC4/CapSense_ISR.c **** *   override any effect this API would have had. This API should only be called
- 234:Generated_Source\PSoC4/CapSense_ISR.c **** *   after CapSense_ISR_Start or CapSense_ISR_StartEx has been called. 
- 235:Generated_Source\PSoC4/CapSense_ISR.c **** *   To set the initial priority for the component, use the Design-Wide Resources
- 236:Generated_Source\PSoC4/CapSense_ISR.c **** *   Interrupt Editor.
- 237:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 238:Generated_Source\PSoC4/CapSense_ISR.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
- 239:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 240:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:
- 241:Generated_Source\PSoC4/CapSense_ISR.c **** *   priority: Priority of the interrupt, 0 being the highest priority
- 242:Generated_Source\PSoC4/CapSense_ISR.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
- 243:Generated_Source\PSoC4/CapSense_ISR.c **** *             PSoC 4: Priority is from 0 to 3.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 7
+ 223:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 224:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 225:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 226:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_SetPriority
+ 227:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 228:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 229:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 230:Generated_Source\PSoC4/capsense_ISR.c **** *   Sets the Priority of the Interrupt. 
+ 231:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 232:Generated_Source\PSoC4/capsense_ISR.c **** *   Note calling capsense_ISR_Start or capsense_ISR_StartEx will 
+ 233:Generated_Source\PSoC4/capsense_ISR.c **** *   override any effect this API would have had. This API should only be called
+ 234:Generated_Source\PSoC4/capsense_ISR.c **** *   after capsense_ISR_Start or capsense_ISR_StartEx has been called. 
+ 235:Generated_Source\PSoC4/capsense_ISR.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 236:Generated_Source\PSoC4/capsense_ISR.c **** *   Interrupt Editor.
+ 237:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 238:Generated_Source\PSoC4/capsense_ISR.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 239:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 240:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:
+ 241:Generated_Source\PSoC4/capsense_ISR.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 242:Generated_Source\PSoC4/capsense_ISR.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 243:Generated_Source\PSoC4/capsense_ISR.c **** *             PSoC 4: Priority is from 0 to 3.
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 7
 
 
- 244:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 245:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 246:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 247:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 248:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 249:Generated_Source\PSoC4/CapSense_ISR.c **** void CapSense_ISR_SetPriority(uint8 priority)
- 250:Generated_Source\PSoC4/CapSense_ISR.c **** {
+ 244:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 245:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 246:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 247:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 248:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 249:Generated_Source\PSoC4/capsense_ISR.c **** void capsense_ISR_SetPriority(uint8 priority)
+ 250:Generated_Source\PSoC4/capsense_ISR.c **** {
  100              		.loc 1 250 0
  101              		.cfi_startproc
  102              		@ args = 0, pretend = 0, frame = 0
@@ -379,31 +379,31 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  108              		.cfi_offset 14, -4
  109 0002 0400     		movs	r4, r0
  110              	.LVL2:
- 251:Generated_Source\PSoC4/CapSense_ISR.c **** 	uint8 interruptState;
- 252:Generated_Source\PSoC4/CapSense_ISR.c ****     uint32 priorityOffset = ((CapSense_ISR__INTC_NUMBER % 4u) * 8u) + 6u;
- 253:Generated_Source\PSoC4/CapSense_ISR.c ****     
- 254:Generated_Source\PSoC4/CapSense_ISR.c **** 	interruptState = CyEnterCriticalSection();
+ 251:Generated_Source\PSoC4/capsense_ISR.c **** 	uint8 interruptState;
+ 252:Generated_Source\PSoC4/capsense_ISR.c ****     uint32 priorityOffset = ((capsense_ISR__INTC_NUMBER % 4u) * 8u) + 6u;
+ 253:Generated_Source\PSoC4/capsense_ISR.c ****     
+ 254:Generated_Source\PSoC4/capsense_ISR.c **** 	interruptState = CyEnterCriticalSection();
  111              		.loc 1 254 0
  112 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  113              	.LVL3:
- 255:Generated_Source\PSoC4/CapSense_ISR.c ****     *CapSense_ISR_INTC_PRIOR = (*CapSense_ISR_INTC_PRIOR & (uint32)(~CapSense_ISR__INTC_PRIOR_MASK)
+ 255:Generated_Source\PSoC4/capsense_ISR.c ****     *capsense_ISR_INTC_PRIOR = (*capsense_ISR_INTC_PRIOR & (uint32)(~capsense_ISR__INTC_PRIOR_MASK)
  114              		.loc 1 255 0
  115 0008 044A     		ldr	r2, .L9
  116 000a 1168     		ldr	r1, [r2]
  117 000c 044B     		ldr	r3, .L9+4
  118 000e 0B40     		ands	r3, r1
- 256:Generated_Source\PSoC4/CapSense_ISR.c ****                                     ((uint32)priority << priorityOffset);
+ 256:Generated_Source\PSoC4/capsense_ISR.c ****                                     ((uint32)priority << priorityOffset);
  119              		.loc 1 256 0
  120 0010 A405     		lsls	r4, r4, #22
- 255:Generated_Source\PSoC4/CapSense_ISR.c ****     *CapSense_ISR_INTC_PRIOR = (*CapSense_ISR_INTC_PRIOR & (uint32)(~CapSense_ISR__INTC_PRIOR_MASK)
+ 255:Generated_Source\PSoC4/capsense_ISR.c ****     *capsense_ISR_INTC_PRIOR = (*capsense_ISR_INTC_PRIOR & (uint32)(~capsense_ISR__INTC_PRIOR_MASK)
  121              		.loc 1 255 0
  122 0012 1C43     		orrs	r4, r3
  123 0014 1460     		str	r4, [r2]
- 257:Generated_Source\PSoC4/CapSense_ISR.c **** 	CyExitCriticalSection(interruptState);
+ 257:Generated_Source\PSoC4/capsense_ISR.c **** 	CyExitCriticalSection(interruptState);
  124              		.loc 1 257 0
  125 0016 FFF7FEFF 		bl	CyExitCriticalSection
  126              	.LVL4:
- 258:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 258:Generated_Source\PSoC4/capsense_ISR.c **** }
  127              		.loc 1 258 0
  128              		@ sp needed
  129 001a 10BD     		pop	{r4, pc}
@@ -414,60 +414,60 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  134 0020 FFFF3FFF 		.word	-12582913
  135              		.cfi_endproc
  136              	.LFE7:
- 137              		.size	CapSense_ISR_SetPriority, .-CapSense_ISR_SetPriority
- 138              		.section	.text.CapSense_ISR_GetPriority,"ax",%progbits
+ 137              		.size	capsense_ISR_SetPriority, .-capsense_ISR_SetPriority
+ 138              		.section	.text.capsense_ISR_GetPriority,"ax",%progbits
  139              		.align	2
- 140              		.global	CapSense_ISR_GetPriority
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 8
+ 140              		.global	capsense_ISR_GetPriority
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 8
 
 
  141              		.code	16
  142              		.thumb_func
- 143              		.type	CapSense_ISR_GetPriority, %function
- 144              	CapSense_ISR_GetPriority:
+ 143              		.type	capsense_ISR_GetPriority, %function
+ 144              	capsense_ISR_GetPriority:
  145              	.LFB8:
- 259:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 260:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 261:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 262:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_GetPriority
- 263:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 264:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 265:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 266:Generated_Source\PSoC4/CapSense_ISR.c **** *   Gets the Priority of the Interrupt.
- 267:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 268:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:
- 269:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 270:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 271:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 272:Generated_Source\PSoC4/CapSense_ISR.c **** *   Priority of the interrupt, 0 being the highest priority
- 273:Generated_Source\PSoC4/CapSense_ISR.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
- 274:Generated_Source\PSoC4/CapSense_ISR.c **** *    PSoC 4: Priority is from 0 to 3.
- 275:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 276:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 277:Generated_Source\PSoC4/CapSense_ISR.c **** uint8 CapSense_ISR_GetPriority(void)
- 278:Generated_Source\PSoC4/CapSense_ISR.c **** {
+ 259:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 260:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 261:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 262:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_GetPriority
+ 263:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 264:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 265:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 266:Generated_Source\PSoC4/capsense_ISR.c **** *   Gets the Priority of the Interrupt.
+ 267:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 268:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:
+ 269:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 270:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 271:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 272:Generated_Source\PSoC4/capsense_ISR.c **** *   Priority of the interrupt, 0 being the highest priority
+ 273:Generated_Source\PSoC4/capsense_ISR.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 274:Generated_Source\PSoC4/capsense_ISR.c **** *    PSoC 4: Priority is from 0 to 3.
+ 275:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 276:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 277:Generated_Source\PSoC4/capsense_ISR.c **** uint8 capsense_ISR_GetPriority(void)
+ 278:Generated_Source\PSoC4/capsense_ISR.c **** {
  146              		.loc 1 278 0
  147              		.cfi_startproc
  148              		@ args = 0, pretend = 0, frame = 0
  149              		@ frame_needed = 0, uses_anonymous_args = 0
  150              		@ link register save eliminated.
  151              	.LVL5:
- 279:Generated_Source\PSoC4/CapSense_ISR.c ****     uint32 priority;
- 280:Generated_Source\PSoC4/CapSense_ISR.c **** 	uint32 priorityOffset = ((CapSense_ISR__INTC_NUMBER % 4u) * 8u) + 6u;
- 281:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 282:Generated_Source\PSoC4/CapSense_ISR.c ****     priority = (*CapSense_ISR_INTC_PRIOR & CapSense_ISR__INTC_PRIOR_MASK) >> priorityOffset;
+ 279:Generated_Source\PSoC4/capsense_ISR.c ****     uint32 priority;
+ 280:Generated_Source\PSoC4/capsense_ISR.c **** 	uint32 priorityOffset = ((capsense_ISR__INTC_NUMBER % 4u) * 8u) + 6u;
+ 281:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 282:Generated_Source\PSoC4/capsense_ISR.c ****     priority = (*capsense_ISR_INTC_PRIOR & capsense_ISR__INTC_PRIOR_MASK) >> priorityOffset;
  152              		.loc 1 282 0
  153 0000 024B     		ldr	r3, .L12
  154 0002 1868     		ldr	r0, [r3]
  155 0004 800D     		lsrs	r0, r0, #22
  156              	.LVL6:
- 283:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 284:Generated_Source\PSoC4/CapSense_ISR.c ****     return (uint8)priority;
+ 283:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 284:Generated_Source\PSoC4/capsense_ISR.c ****     return (uint8)priority;
  157              		.loc 1 284 0
  158 0006 0323     		movs	r3, #3
  159 0008 1840     		ands	r0, r3
  160              	.LVL7:
- 285:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 285:Generated_Source\PSoC4/capsense_ISR.c **** }
  161              		.loc 1 285 0
  162              		@ sp needed
  163 000a 7047     		bx	lr
@@ -477,51 +477,51 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  167 000c 08E400E0 		.word	-536812536
  168              		.cfi_endproc
  169              	.LFE8:
- 170              		.size	CapSense_ISR_GetPriority, .-CapSense_ISR_GetPriority
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 9
+ 170              		.size	capsense_ISR_GetPriority, .-capsense_ISR_GetPriority
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 9
 
 
- 171              		.section	.text.CapSense_ISR_Enable,"ax",%progbits
+ 171              		.section	.text.capsense_ISR_Enable,"ax",%progbits
  172              		.align	2
- 173              		.global	CapSense_ISR_Enable
+ 173              		.global	capsense_ISR_Enable
  174              		.code	16
  175              		.thumb_func
- 176              		.type	CapSense_ISR_Enable, %function
- 177              	CapSense_ISR_Enable:
+ 176              		.type	capsense_ISR_Enable, %function
+ 177              	capsense_ISR_Enable:
  178              	.LFB9:
- 286:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 287:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 288:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 289:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_Enable
- 290:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 291:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 292:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 293:Generated_Source\PSoC4/CapSense_ISR.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
- 294:Generated_Source\PSoC4/CapSense_ISR.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
- 295:Generated_Source\PSoC4/CapSense_ISR.c **** *   function, which sets the vector and the priority, has been called.
- 296:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 297:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:
- 298:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 299:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 300:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 301:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 302:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 303:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 304:Generated_Source\PSoC4/CapSense_ISR.c **** void CapSense_ISR_Enable(void)
- 305:Generated_Source\PSoC4/CapSense_ISR.c **** {
+ 286:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 287:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 288:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 289:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_Enable
+ 290:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 291:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 292:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 293:Generated_Source\PSoC4/capsense_ISR.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 294:Generated_Source\PSoC4/capsense_ISR.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 295:Generated_Source\PSoC4/capsense_ISR.c **** *   function, which sets the vector and the priority, has been called.
+ 296:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 297:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:
+ 298:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 299:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 300:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 301:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 302:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 303:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC4/capsense_ISR.c **** void capsense_ISR_Enable(void)
+ 305:Generated_Source\PSoC4/capsense_ISR.c **** {
  179              		.loc 1 305 0
  180              		.cfi_startproc
  181              		@ args = 0, pretend = 0, frame = 0
  182              		@ frame_needed = 0, uses_anonymous_args = 0
  183              		@ link register save eliminated.
- 306:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Enable the general interrupt. */
- 307:Generated_Source\PSoC4/CapSense_ISR.c ****     *CapSense_ISR_INTC_SET_EN = CapSense_ISR__INTC_MASK;
+ 306:Generated_Source\PSoC4/capsense_ISR.c ****     /* Enable the general interrupt. */
+ 307:Generated_Source\PSoC4/capsense_ISR.c ****     *capsense_ISR_INTC_SET_EN = capsense_ISR__INTC_MASK;
  184              		.loc 1 307 0
  185 0000 8022     		movs	r2, #128
  186 0002 D200     		lsls	r2, r2, #3
  187 0004 014B     		ldr	r3, .L15
  188 0006 1A60     		str	r2, [r3]
- 308:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 308:Generated_Source\PSoC4/capsense_ISR.c **** }
  189              		.loc 1 308 0
  190              		@ sp needed
  191 0008 7047     		bx	lr
@@ -531,43 +531,43 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  195 000c 00E100E0 		.word	-536813312
  196              		.cfi_endproc
  197              	.LFE9:
- 198              		.size	CapSense_ISR_Enable, .-CapSense_ISR_Enable
- 199              		.section	.text.CapSense_ISR_GetState,"ax",%progbits
+ 198              		.size	capsense_ISR_Enable, .-capsense_ISR_Enable
+ 199              		.section	.text.capsense_ISR_GetState,"ax",%progbits
  200              		.align	2
- 201              		.global	CapSense_ISR_GetState
+ 201              		.global	capsense_ISR_GetState
  202              		.code	16
  203              		.thumb_func
- 204              		.type	CapSense_ISR_GetState, %function
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 10
+ 204              		.type	capsense_ISR_GetState, %function
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 10
 
 
- 205              	CapSense_ISR_GetState:
+ 205              	capsense_ISR_GetState:
  206              	.LFB10:
- 309:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 310:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 311:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 312:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_GetState
- 313:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 314:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 315:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 316:Generated_Source\PSoC4/CapSense_ISR.c **** *   Gets the state (enabled, disabled) of the Interrupt.
- 317:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 318:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:
- 319:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 320:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 321:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 322:Generated_Source\PSoC4/CapSense_ISR.c **** *   1 if enabled, 0 if disabled.
- 323:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 324:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 325:Generated_Source\PSoC4/CapSense_ISR.c **** uint8 CapSense_ISR_GetState(void)
- 326:Generated_Source\PSoC4/CapSense_ISR.c **** {
+ 309:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 310:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 311:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 312:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_GetState
+ 313:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 314:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 315:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 316:Generated_Source\PSoC4/capsense_ISR.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 317:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 318:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:
+ 319:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 320:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 321:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 322:Generated_Source\PSoC4/capsense_ISR.c **** *   1 if enabled, 0 if disabled.
+ 323:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 324:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 325:Generated_Source\PSoC4/capsense_ISR.c **** uint8 capsense_ISR_GetState(void)
+ 326:Generated_Source\PSoC4/capsense_ISR.c **** {
  207              		.loc 1 326 0
  208              		.cfi_startproc
  209              		@ args = 0, pretend = 0, frame = 0
  210              		@ frame_needed = 0, uses_anonymous_args = 0
  211              		@ link register save eliminated.
- 327:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Get the state of the general interrupt. */
- 328:Generated_Source\PSoC4/CapSense_ISR.c ****     return ((*CapSense_ISR_INTC_SET_EN & (uint32)CapSense_ISR__INTC_MASK) != 0u) ? 1u:0u;
+ 327:Generated_Source\PSoC4/capsense_ISR.c ****     /* Get the state of the general interrupt. */
+ 328:Generated_Source\PSoC4/capsense_ISR.c ****     return ((*capsense_ISR_INTC_SET_EN & (uint32)capsense_ISR__INTC_MASK) != 0u) ? 1u:0u;
  212              		.loc 1 328 0
  213 0000 034B     		ldr	r3, .L20
  214 0002 1B68     		ldr	r3, [r3]
@@ -578,7 +578,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  219              	.L19:
  220 000c 0020     		movs	r0, #0
  221              	.L18:
- 329:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 329:Generated_Source\PSoC4/capsense_ISR.c **** }
  222              		.loc 1 329 0 discriminator 4
  223              		@ sp needed
  224 000e 7047     		bx	lr
@@ -588,49 +588,49 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  228 0010 00E100E0 		.word	-536813312
  229              		.cfi_endproc
  230              	.LFE10:
- 231              		.size	CapSense_ISR_GetState, .-CapSense_ISR_GetState
- 232              		.section	.text.CapSense_ISR_Disable,"ax",%progbits
+ 231              		.size	capsense_ISR_GetState, .-capsense_ISR_GetState
+ 232              		.section	.text.capsense_ISR_Disable,"ax",%progbits
  233              		.align	2
- 234              		.global	CapSense_ISR_Disable
+ 234              		.global	capsense_ISR_Disable
  235              		.code	16
  236              		.thumb_func
- 237              		.type	CapSense_ISR_Disable, %function
- 238              	CapSense_ISR_Disable:
+ 237              		.type	capsense_ISR_Disable, %function
+ 238              	capsense_ISR_Disable:
  239              	.LFB11:
- 330:Generated_Source\PSoC4/CapSense_ISR.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 11
+ 330:Generated_Source\PSoC4/capsense_ISR.c **** 
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 11
 
 
- 331:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 332:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 333:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_Disable
- 334:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 335:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 336:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 337:Generated_Source\PSoC4/CapSense_ISR.c **** *   Disables the Interrupt in the interrupt controller.
- 338:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 339:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:
- 340:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 341:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 342:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 343:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 344:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 345:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 346:Generated_Source\PSoC4/CapSense_ISR.c **** void CapSense_ISR_Disable(void)
- 347:Generated_Source\PSoC4/CapSense_ISR.c **** {
+ 331:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 332:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 333:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_Disable
+ 334:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 335:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 336:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 337:Generated_Source\PSoC4/capsense_ISR.c **** *   Disables the Interrupt in the interrupt controller.
+ 338:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 339:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:
+ 340:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 341:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 342:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 343:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 344:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 345:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 346:Generated_Source\PSoC4/capsense_ISR.c **** void capsense_ISR_Disable(void)
+ 347:Generated_Source\PSoC4/capsense_ISR.c **** {
  240              		.loc 1 347 0
  241              		.cfi_startproc
  242              		@ args = 0, pretend = 0, frame = 0
  243              		@ frame_needed = 0, uses_anonymous_args = 0
  244              		@ link register save eliminated.
- 348:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Disable the general interrupt. */
- 349:Generated_Source\PSoC4/CapSense_ISR.c ****     *CapSense_ISR_INTC_CLR_EN = CapSense_ISR__INTC_MASK;
+ 348:Generated_Source\PSoC4/capsense_ISR.c ****     /* Disable the general interrupt. */
+ 349:Generated_Source\PSoC4/capsense_ISR.c ****     *capsense_ISR_INTC_CLR_EN = capsense_ISR__INTC_MASK;
  245              		.loc 1 349 0
  246 0000 8022     		movs	r2, #128
  247 0002 D200     		lsls	r2, r2, #3
  248 0004 014B     		ldr	r3, .L23
  249 0006 1A60     		str	r2, [r3]
- 350:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 350:Generated_Source\PSoC4/capsense_ISR.c **** }
  250              		.loc 1 350 0
  251              		@ sp needed
  252 0008 7047     		bx	lr
@@ -640,16 +640,16 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  256 000c 80E100E0 		.word	-536813184
  257              		.cfi_endproc
  258              	.LFE11:
- 259              		.size	CapSense_ISR_Disable, .-CapSense_ISR_Disable
- 260              		.section	.text.CapSense_ISR_Start,"ax",%progbits
+ 259              		.size	capsense_ISR_Disable, .-capsense_ISR_Disable
+ 260              		.section	.text.capsense_ISR_Start,"ax",%progbits
  261              		.align	2
- 262              		.global	CapSense_ISR_Start
+ 262              		.global	capsense_ISR_Start
  263              		.code	16
  264              		.thumb_func
- 265              		.type	CapSense_ISR_Start, %function
- 266              	CapSense_ISR_Start:
+ 265              		.type	capsense_ISR_Start, %function
+ 266              	capsense_ISR_Start:
  267              	.LFB1:
-  57:Generated_Source\PSoC4/CapSense_ISR.c ****     /* For all we know the interrupt is active. */
+  57:Generated_Source\PSoC4/capsense_ISR.c ****     /* For all we know the interrupt is active. */
  268              		.loc 1 57 0
  269              		.cfi_startproc
  270              		@ args = 0, pretend = 0, frame = 0
@@ -658,47 +658,47 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  273              		.cfi_def_cfa_offset 8
  274              		.cfi_offset 4, -8
  275              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 12
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 12
 
 
-  59:Generated_Source\PSoC4/CapSense_ISR.c **** 
+  59:Generated_Source\PSoC4/capsense_ISR.c **** 
  276              		.loc 1 59 0
- 277 0002 FFF7FEFF 		bl	CapSense_ISR_Disable
+ 277 0002 FFF7FEFF 		bl	capsense_ISR_Disable
  278              	.LVL8:
-  62:Generated_Source\PSoC4/CapSense_ISR.c **** 
+  62:Generated_Source\PSoC4/capsense_ISR.c **** 
  279              		.loc 1 62 0
  280 0006 0448     		ldr	r0, .L26
- 281 0008 FFF7FEFF 		bl	CapSense_ISR_SetVector
+ 281 0008 FFF7FEFF 		bl	capsense_ISR_SetVector
  282              	.LVL9:
-  65:Generated_Source\PSoC4/CapSense_ISR.c **** 
+  65:Generated_Source\PSoC4/capsense_ISR.c **** 
  283              		.loc 1 65 0
  284 000c 0320     		movs	r0, #3
- 285 000e FFF7FEFF 		bl	CapSense_ISR_SetPriority
+ 285 000e FFF7FEFF 		bl	capsense_ISR_SetPriority
  286              	.LVL10:
-  68:Generated_Source\PSoC4/CapSense_ISR.c **** }
+  68:Generated_Source\PSoC4/capsense_ISR.c **** }
  287              		.loc 1 68 0
- 288 0012 FFF7FEFF 		bl	CapSense_ISR_Enable
+ 288 0012 FFF7FEFF 		bl	capsense_ISR_Enable
  289              	.LVL11:
-  69:Generated_Source\PSoC4/CapSense_ISR.c **** 
+  69:Generated_Source\PSoC4/capsense_ISR.c **** 
  290              		.loc 1 69 0
  291              		@ sp needed
  292 0016 10BD     		pop	{r4, pc}
  293              	.L27:
  294              		.align	2
  295              	.L26:
- 296 0018 00000000 		.word	CapSense_ISR_Interrupt
+ 296 0018 00000000 		.word	capsense_ISR_Interrupt
  297              		.cfi_endproc
  298              	.LFE1:
- 299              		.size	CapSense_ISR_Start, .-CapSense_ISR_Start
- 300              		.section	.text.CapSense_ISR_StartEx,"ax",%progbits
+ 299              		.size	capsense_ISR_Start, .-capsense_ISR_Start
+ 300              		.section	.text.capsense_ISR_StartEx,"ax",%progbits
  301              		.align	2
- 302              		.global	CapSense_ISR_StartEx
+ 302              		.global	capsense_ISR_StartEx
  303              		.code	16
  304              		.thumb_func
- 305              		.type	CapSense_ISR_StartEx, %function
- 306              	CapSense_ISR_StartEx:
+ 305              		.type	capsense_ISR_StartEx, %function
+ 306              	capsense_ISR_StartEx:
  307              	.LFB2:
- 100:Generated_Source\PSoC4/CapSense_ISR.c ****     /* For all we know the interrupt is active. */
+ 100:Generated_Source\PSoC4/capsense_ISR.c ****     /* For all we know the interrupt is active. */
  308              		.loc 1 100 0
  309              		.cfi_startproc
  310              		@ args = 0, pretend = 0, frame = 0
@@ -709,44 +709,44 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  315              		.cfi_offset 4, -8
  316              		.cfi_offset 14, -4
  317 0002 0400     		movs	r4, r0
- 102:Generated_Source\PSoC4/CapSense_ISR.c **** 
+ 102:Generated_Source\PSoC4/capsense_ISR.c **** 
  318              		.loc 1 102 0
- 319 0004 FFF7FEFF 		bl	CapSense_ISR_Disable
+ 319 0004 FFF7FEFF 		bl	capsense_ISR_Disable
  320              	.LVL13:
- 105:Generated_Source\PSoC4/CapSense_ISR.c **** 
+ 105:Generated_Source\PSoC4/capsense_ISR.c **** 
  321              		.loc 1 105 0
  322 0008 2000     		movs	r0, r4
- 323 000a FFF7FEFF 		bl	CapSense_ISR_SetVector
+ 323 000a FFF7FEFF 		bl	capsense_ISR_SetVector
  324              	.LVL14:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 13
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 13
 
 
- 108:Generated_Source\PSoC4/CapSense_ISR.c **** 
+ 108:Generated_Source\PSoC4/capsense_ISR.c **** 
  325              		.loc 1 108 0
  326 000e 0320     		movs	r0, #3
- 327 0010 FFF7FEFF 		bl	CapSense_ISR_SetPriority
+ 327 0010 FFF7FEFF 		bl	capsense_ISR_SetPriority
  328              	.LVL15:
- 111:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 111:Generated_Source\PSoC4/capsense_ISR.c **** }
  329              		.loc 1 111 0
- 330 0014 FFF7FEFF 		bl	CapSense_ISR_Enable
+ 330 0014 FFF7FEFF 		bl	capsense_ISR_Enable
  331              	.LVL16:
- 112:Generated_Source\PSoC4/CapSense_ISR.c **** 
+ 112:Generated_Source\PSoC4/capsense_ISR.c **** 
  332              		.loc 1 112 0
  333              		@ sp needed
  334              	.LVL17:
  335 0018 10BD     		pop	{r4, pc}
  336              		.cfi_endproc
  337              	.LFE2:
- 338              		.size	CapSense_ISR_StartEx, .-CapSense_ISR_StartEx
- 339 001a C046     		.section	.text.CapSense_ISR_Stop,"ax",%progbits
+ 338              		.size	capsense_ISR_StartEx, .-capsense_ISR_StartEx
+ 339 001a C046     		.section	.text.capsense_ISR_Stop,"ax",%progbits
  340              		.align	2
- 341              		.global	CapSense_ISR_Stop
+ 341              		.global	capsense_ISR_Stop
  342              		.code	16
  343              		.thumb_func
- 344              		.type	CapSense_ISR_Stop, %function
- 345              	CapSense_ISR_Stop:
+ 344              		.type	capsense_ISR_Stop, %function
+ 345              	capsense_ISR_Stop:
  346              	.LFB3:
- 130:Generated_Source\PSoC4/CapSense_ISR.c ****     /* Disable this interrupt. */
+ 130:Generated_Source\PSoC4/capsense_ISR.c ****     /* Disable this interrupt. */
  347              		.loc 1 130 0
  348              		.cfi_startproc
  349              		@ args = 0, pretend = 0, frame = 0
@@ -755,16 +755,16 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  352              		.cfi_def_cfa_offset 8
  353              		.cfi_offset 4, -8
  354              		.cfi_offset 14, -4
- 132:Generated_Source\PSoC4/CapSense_ISR.c **** 
+ 132:Generated_Source\PSoC4/capsense_ISR.c **** 
  355              		.loc 1 132 0
- 356 0002 FFF7FEFF 		bl	CapSense_ISR_Disable
+ 356 0002 FFF7FEFF 		bl	capsense_ISR_Disable
  357              	.LVL18:
- 135:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 135:Generated_Source\PSoC4/capsense_ISR.c **** }
  358              		.loc 1 135 0
  359 0006 0248     		ldr	r0, .L30
- 360 0008 FFF7FEFF 		bl	CapSense_ISR_SetVector
+ 360 0008 FFF7FEFF 		bl	capsense_ISR_SetVector
  361              	.LVL19:
- 136:Generated_Source\PSoC4/CapSense_ISR.c **** 
+ 136:Generated_Source\PSoC4/capsense_ISR.c **** 
  362              		.loc 1 136 0
  363              		@ sp needed
  364 000c 10BD     		pop	{r4, pc}
@@ -774,54 +774,54 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  368 0010 00000000 		.word	IntDefaultHandler
  369              		.cfi_endproc
  370              	.LFE3:
- 371              		.size	CapSense_ISR_Stop, .-CapSense_ISR_Stop
- 372              		.section	.text.CapSense_ISR_SetPending,"ax",%progbits
+ 371              		.size	capsense_ISR_Stop, .-capsense_ISR_Stop
+ 372              		.section	.text.capsense_ISR_SetPending,"ax",%progbits
  373              		.align	2
- 374              		.global	CapSense_ISR_SetPending
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 14
+ 374              		.global	capsense_ISR_SetPending
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 14
 
 
  375              		.code	16
  376              		.thumb_func
- 377              		.type	CapSense_ISR_SetPending, %function
- 378              	CapSense_ISR_SetPending:
+ 377              		.type	capsense_ISR_SetPending, %function
+ 378              	capsense_ISR_SetPending:
  379              	.LFB12:
- 351:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 352:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 353:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 354:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_SetPending
- 355:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 356:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 357:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 358:Generated_Source\PSoC4/CapSense_ISR.c **** *   Causes the Interrupt to enter the pending state, a software method of
- 359:Generated_Source\PSoC4/CapSense_ISR.c **** *   generating the interrupt.
- 360:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 361:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:
- 362:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 363:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 364:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 365:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 366:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 367:Generated_Source\PSoC4/CapSense_ISR.c **** * Side Effects:
- 368:Generated_Source\PSoC4/CapSense_ISR.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
- 369:Generated_Source\PSoC4/CapSense_ISR.c **** *   entered (depending on the priority of this interrupt and other pending 
- 370:Generated_Source\PSoC4/CapSense_ISR.c **** *   interrupts).
- 371:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 372:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 373:Generated_Source\PSoC4/CapSense_ISR.c **** void CapSense_ISR_SetPending(void)
- 374:Generated_Source\PSoC4/CapSense_ISR.c **** {
+ 351:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 352:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 353:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 354:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_SetPending
+ 355:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 356:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 357:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 358:Generated_Source\PSoC4/capsense_ISR.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 359:Generated_Source\PSoC4/capsense_ISR.c **** *   generating the interrupt.
+ 360:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 361:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:
+ 362:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 363:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 364:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 365:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 366:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 367:Generated_Source\PSoC4/capsense_ISR.c **** * Side Effects:
+ 368:Generated_Source\PSoC4/capsense_ISR.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 369:Generated_Source\PSoC4/capsense_ISR.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 370:Generated_Source\PSoC4/capsense_ISR.c **** *   interrupts).
+ 371:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 372:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 373:Generated_Source\PSoC4/capsense_ISR.c **** void capsense_ISR_SetPending(void)
+ 374:Generated_Source\PSoC4/capsense_ISR.c **** {
  380              		.loc 1 374 0
  381              		.cfi_startproc
  382              		@ args = 0, pretend = 0, frame = 0
  383              		@ frame_needed = 0, uses_anonymous_args = 0
  384              		@ link register save eliminated.
- 375:Generated_Source\PSoC4/CapSense_ISR.c ****     *CapSense_ISR_INTC_SET_PD = CapSense_ISR__INTC_MASK;
+ 375:Generated_Source\PSoC4/capsense_ISR.c ****     *capsense_ISR_INTC_SET_PD = capsense_ISR__INTC_MASK;
  385              		.loc 1 375 0
  386 0000 8022     		movs	r2, #128
  387 0002 D200     		lsls	r2, r2, #3
  388 0004 014B     		ldr	r3, .L33
  389 0006 1A60     		str	r2, [r3]
- 376:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 376:Generated_Source\PSoC4/capsense_ISR.c **** }
  390              		.loc 1 376 0
  391              		@ sp needed
  392 0008 7047     		bx	lr
@@ -831,53 +831,53 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  396 000c 00E200E0 		.word	-536813056
  397              		.cfi_endproc
  398              	.LFE12:
- 399              		.size	CapSense_ISR_SetPending, .-CapSense_ISR_SetPending
- 400              		.section	.text.CapSense_ISR_ClearPending,"ax",%progbits
+ 399              		.size	capsense_ISR_SetPending, .-capsense_ISR_SetPending
+ 400              		.section	.text.capsense_ISR_ClearPending,"ax",%progbits
  401              		.align	2
- 402              		.global	CapSense_ISR_ClearPending
+ 402              		.global	capsense_ISR_ClearPending
  403              		.code	16
  404              		.thumb_func
- 405              		.type	CapSense_ISR_ClearPending, %function
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 15
+ 405              		.type	capsense_ISR_ClearPending, %function
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 15
 
 
- 406              	CapSense_ISR_ClearPending:
+ 406              	capsense_ISR_ClearPending:
  407              	.LFB13:
- 377:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 378:Generated_Source\PSoC4/CapSense_ISR.c **** 
- 379:Generated_Source\PSoC4/CapSense_ISR.c **** /*******************************************************************************
- 380:Generated_Source\PSoC4/CapSense_ISR.c **** * Function Name: CapSense_ISR_ClearPending
- 381:Generated_Source\PSoC4/CapSense_ISR.c **** ********************************************************************************
- 382:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 383:Generated_Source\PSoC4/CapSense_ISR.c **** * Summary:
- 384:Generated_Source\PSoC4/CapSense_ISR.c **** *   Clears a pending interrupt in the interrupt controller.
- 385:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 386:Generated_Source\PSoC4/CapSense_ISR.c **** *   Note Some interrupt sources are clear-on-read and require the block 
- 387:Generated_Source\PSoC4/CapSense_ISR.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
- 388:Generated_Source\PSoC4/CapSense_ISR.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
- 389:Generated_Source\PSoC4/CapSense_ISR.c **** *   pending state even though the interrupt itself is cleared using this API.
- 390:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 391:Generated_Source\PSoC4/CapSense_ISR.c **** * Parameters:
- 392:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 393:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 394:Generated_Source\PSoC4/CapSense_ISR.c **** * Return:
- 395:Generated_Source\PSoC4/CapSense_ISR.c **** *   None
- 396:Generated_Source\PSoC4/CapSense_ISR.c **** *
- 397:Generated_Source\PSoC4/CapSense_ISR.c **** *******************************************************************************/
- 398:Generated_Source\PSoC4/CapSense_ISR.c **** void CapSense_ISR_ClearPending(void)
- 399:Generated_Source\PSoC4/CapSense_ISR.c **** {
+ 377:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 378:Generated_Source\PSoC4/capsense_ISR.c **** 
+ 379:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
+ 380:Generated_Source\PSoC4/capsense_ISR.c **** * Function Name: capsense_ISR_ClearPending
+ 381:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************
+ 382:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 383:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
+ 384:Generated_Source\PSoC4/capsense_ISR.c **** *   Clears a pending interrupt in the interrupt controller.
+ 385:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 386:Generated_Source\PSoC4/capsense_ISR.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 387:Generated_Source\PSoC4/capsense_ISR.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 388:Generated_Source\PSoC4/capsense_ISR.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 389:Generated_Source\PSoC4/capsense_ISR.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 390:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 391:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:
+ 392:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 393:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 394:Generated_Source\PSoC4/capsense_ISR.c **** * Return:
+ 395:Generated_Source\PSoC4/capsense_ISR.c **** *   None
+ 396:Generated_Source\PSoC4/capsense_ISR.c **** *
+ 397:Generated_Source\PSoC4/capsense_ISR.c **** *******************************************************************************/
+ 398:Generated_Source\PSoC4/capsense_ISR.c **** void capsense_ISR_ClearPending(void)
+ 399:Generated_Source\PSoC4/capsense_ISR.c **** {
  408              		.loc 1 399 0
  409              		.cfi_startproc
  410              		@ args = 0, pretend = 0, frame = 0
  411              		@ frame_needed = 0, uses_anonymous_args = 0
  412              		@ link register save eliminated.
- 400:Generated_Source\PSoC4/CapSense_ISR.c ****     *CapSense_ISR_INTC_CLR_PD = CapSense_ISR__INTC_MASK;
+ 400:Generated_Source\PSoC4/capsense_ISR.c ****     *capsense_ISR_INTC_CLR_PD = capsense_ISR__INTC_MASK;
  413              		.loc 1 400 0
  414 0000 8022     		movs	r2, #128
  415 0002 D200     		lsls	r2, r2, #3
  416 0004 014B     		ldr	r3, .L36
  417 0006 1A60     		str	r2, [r3]
- 401:Generated_Source\PSoC4/CapSense_ISR.c **** }
+ 401:Generated_Source\PSoC4/capsense_ISR.c **** }
  418              		.loc 1 401 0
  419              		@ sp needed
  420 0008 7047     		bx	lr
@@ -887,7 +887,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  424 000c 80E200E0 		.word	-536812928
  425              		.cfi_endproc
  426              	.LFE13:
- 427              		.size	CapSense_ISR_ClearPending, .-CapSense_ISR_ClearPending
+ 427              		.size	capsense_ISR_ClearPending, .-capsense_ISR_ClearPending
  428              		.text
  429              	.Letext0:
  430              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
@@ -898,49 +898,49 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  435 0004 0400     		.2byte	0x4
  436 0006 00000000 		.4byte	.Ldebug_abbrev0
  437 000a 04       		.byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 16
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 16
 
 
  438 000b 01       		.uleb128 0x1
- 439 000c D7020000 		.4byte	.LASF36
+ 439 000c 79020000 		.4byte	.LASF36
  440 0010 0C       		.byte	0xc
- 441 0011 88020000 		.4byte	.LASF37
- 442 0015 6D000000 		.4byte	.LASF38
+ 441 0011 26000000 		.4byte	.LASF37
+ 442 0015 0E010000 		.4byte	.LASF38
  443 0019 00000000 		.4byte	.Ldebug_ranges0+0
  444 001d 00000000 		.4byte	0
  445 0021 00000000 		.4byte	.Ldebug_line0
  446 0025 02       		.uleb128 0x2
  447 0026 01       		.byte	0x1
  448 0027 06       		.byte	0x6
- 449 0028 69030000 		.4byte	.LASF0
+ 449 0028 60030000 		.4byte	.LASF0
  450 002c 02       		.uleb128 0x2
  451 002d 01       		.byte	0x1
  452 002e 08       		.byte	0x8
- 453 002f 1D010000 		.4byte	.LASF1
+ 453 002f D9000000 		.4byte	.LASF1
  454 0033 02       		.uleb128 0x2
  455 0034 02       		.byte	0x2
  456 0035 05       		.byte	0x5
- 457 0036 7E020000 		.4byte	.LASF2
+ 457 0036 0B030000 		.4byte	.LASF2
  458 003a 02       		.uleb128 0x2
  459 003b 02       		.byte	0x2
  460 003c 07       		.byte	0x7
- 461 003d 13000000 		.4byte	.LASF3
+ 461 003d 6A000000 		.4byte	.LASF3
  462 0041 02       		.uleb128 0x2
  463 0042 04       		.byte	0x4
  464 0043 05       		.byte	0x5
- 465 0044 BD020000 		.4byte	.LASF4
+ 465 0044 61000000 		.4byte	.LASF4
  466 0048 02       		.uleb128 0x2
  467 0049 04       		.byte	0x4
  468 004a 07       		.byte	0x7
- 469 004b 50010000 		.4byte	.LASF5
+ 469 004b F6000000 		.4byte	.LASF5
  470 004f 02       		.uleb128 0x2
  471 0050 08       		.byte	0x8
  472 0051 05       		.byte	0x5
- 473 0052 5E020000 		.4byte	.LASF6
+ 473 0052 39020000 		.4byte	.LASF6
  474 0056 02       		.uleb128 0x2
  475 0057 08       		.byte	0x8
  476 0058 07       		.byte	0x7
- 477 0059 EE000000 		.4byte	.LASF7
+ 477 0059 C2000000 		.4byte	.LASF7
  478 005d 03       		.uleb128 0x3
  479 005e 04       		.byte	0x4
  480 005f 05       		.byte	0x5
@@ -948,41 +948,41 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  482 0064 02       		.uleb128 0x2
  483 0065 04       		.byte	0x4
  484 0066 07       		.byte	0x7
- 485 0067 C1010000 		.4byte	.LASF8
+ 485 0067 C8010000 		.4byte	.LASF8
  486 006b 04       		.uleb128 0x4
- 487 006c 62010000 		.4byte	.LASF9
+ 487 006c 08010000 		.4byte	.LASF9
  488 0070 02       		.byte	0x2
  489 0071 FC01     		.2byte	0x1fc
  490 0073 2C000000 		.4byte	0x2c
  491 0077 04       		.uleb128 0x4
- 492 0078 8B010000 		.4byte	.LASF10
+ 492 0078 AA010000 		.4byte	.LASF10
  493 007c 02       		.byte	0x2
  494 007d FE01     		.2byte	0x1fe
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 17
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 17
 
 
  495 007f 48000000 		.4byte	0x48
  496 0083 02       		.uleb128 0x2
  497 0084 04       		.byte	0x4
  498 0085 04       		.byte	0x4
- 499 0086 E8000000 		.4byte	.LASF11
+ 499 0086 BC000000 		.4byte	.LASF11
  500 008a 02       		.uleb128 0x2
  501 008b 08       		.byte	0x8
  502 008c 04       		.byte	0x4
- 503 008d 84010000 		.4byte	.LASF12
+ 503 008d 83010000 		.4byte	.LASF12
  504 0091 02       		.uleb128 0x2
  505 0092 01       		.byte	0x1
  506 0093 08       		.byte	0x8
- 507 0094 C6020000 		.4byte	.LASF13
+ 507 0094 5C020000 		.4byte	.LASF13
  508 0098 04       		.uleb128 0x4
- 509 0099 00000000 		.4byte	.LASF14
+ 509 0099 13000000 		.4byte	.LASF14
  510 009d 02       		.byte	0x2
  511 009e A802     		.2byte	0x2a8
  512 00a0 A4000000 		.4byte	0xa4
  513 00a4 05       		.uleb128 0x5
  514 00a5 77000000 		.4byte	0x77
  515 00a9 04       		.uleb128 0x4
- 516 00aa 33020000 		.4byte	.LASF15
+ 516 00aa 09020000 		.4byte	.LASF15
  517 00ae 02       		.byte	0x2
  518 00af B802     		.2byte	0x2b8
  519 00b1 B5000000 		.4byte	0xb5
@@ -993,13 +993,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  524 00bc 02       		.uleb128 0x2
  525 00bd 08       		.byte	0x8
  526 00be 04       		.byte	0x4
- 527 00bf CB020000 		.4byte	.LASF16
+ 527 00bf 3D030000 		.4byte	.LASF16
  528 00c3 02       		.uleb128 0x2
  529 00c4 04       		.byte	0x4
  530 00c5 07       		.byte	0x7
- 531 00c6 40020000 		.4byte	.LASF17
+ 531 00c6 30020000 		.4byte	.LASF17
  532 00ca 08       		.uleb128 0x8
- 533 00cb 05020000 		.4byte	.LASF24
+ 533 00cb 6C030000 		.4byte	.LASF24
  534 00cf 01       		.byte	0x1
  535 00d0 9F       		.byte	0x9f
  536 00d1 00000000 		.4byte	.LFB4
@@ -1007,7 +1007,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  538 00d9 01       		.uleb128 0x1
  539 00da 9C       		.byte	0x9c
  540 00db 09       		.uleb128 0x9
- 541 00dc 56000000 		.4byte	.LASF18
+ 541 00dc 93010000 		.4byte	.LASF18
  542 00e0 01       		.byte	0x1
  543 00e1 C7       		.byte	0xc7
  544 00e2 00000000 		.4byte	.LFB5
@@ -1016,9 +1016,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  547 00eb 9C       		.byte	0x9c
  548 00ec FE000000 		.4byte	0xfe
  549 00f0 0A       		.uleb128 0xa
- 550 00f1 CE010000 		.4byte	.LASF20
+ 550 00f1 D5010000 		.4byte	.LASF20
  551 00f5 01       		.byte	0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 18
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 18
 
 
  552 00f6 C7       		.byte	0xc7
@@ -1027,7 +1027,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  555 00fc 50       		.byte	0x50
  556 00fd 00       		.byte	0
  557 00fe 0B       		.uleb128 0xb
- 558 00ff 26000000 		.4byte	.LASF26
+ 558 00ff 49030000 		.4byte	.LASF26
  559 0103 01       		.byte	0x1
  560 0104 DB       		.byte	0xdb
  561 0105 A9000000 		.4byte	0xa9
@@ -1036,7 +1036,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  564 0111 01       		.uleb128 0x1
  565 0112 9C       		.byte	0x9c
  566 0113 09       		.uleb128 0x9
- 567 0114 EC010000 		.4byte	.LASF19
+ 567 0114 7D000000 		.4byte	.LASF19
  568 0118 01       		.byte	0x1
  569 0119 F9       		.byte	0xf9
  570 011a 00000000 		.4byte	.LFB7
@@ -1045,19 +1045,19 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  573 0123 9C       		.byte	0x9c
  574 0124 65010000 		.4byte	0x165
  575 0128 0C       		.uleb128 0xc
- 576 0129 68010000 		.4byte	.LASF21
+ 576 0129 8A010000 		.4byte	.LASF21
  577 012d 01       		.byte	0x1
  578 012e F9       		.byte	0xf9
  579 012f 6B000000 		.4byte	0x6b
  580 0133 00000000 		.4byte	.LLST0
  581 0137 0D       		.uleb128 0xd
- 582 0138 41010000 		.4byte	.LASF22
+ 582 0138 E7000000 		.4byte	.LASF22
  583 013c 01       		.byte	0x1
  584 013d FB       		.byte	0xfb
  585 013e 6B000000 		.4byte	0x6b
  586 0142 21000000 		.4byte	.LLST1
  587 0146 0E       		.uleb128 0xe
- 588 0147 AE020000 		.4byte	.LASF23
+ 588 0147 15030000 		.4byte	.LASF23
  589 014b 01       		.byte	0x1
  590 014c FC       		.byte	0xfc
  591 014d 77000000 		.4byte	0x77
@@ -1070,7 +1070,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  598 0160 F9020000 		.4byte	0x2f9
  599 0164 00       		.byte	0
  600 0165 10       		.uleb128 0x10
- 601 0166 3D000000 		.4byte	.LASF39
+ 601 0166 24030000 		.4byte	.LASF39
  602 016a 01       		.byte	0x1
  603 016b 1501     		.2byte	0x115
  604 016d 6B000000 		.4byte	0x6b
@@ -1078,25 +1078,25 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  606 0175 10000000 		.4byte	.LFE8-.LFB8
  607 0179 01       		.uleb128 0x1
  608 017a 9C       		.byte	0x9c
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 19
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 19
 
 
  609 017b 9D010000 		.4byte	0x19d
  610 017f 11       		.uleb128 0x11
- 611 0180 68010000 		.4byte	.LASF21
+ 611 0180 8A010000 		.4byte	.LASF21
  612 0184 01       		.byte	0x1
  613 0185 1701     		.2byte	0x117
  614 0187 77000000 		.4byte	0x77
  615 018b 34000000 		.4byte	.LLST2
  616 018f 12       		.uleb128 0x12
- 617 0190 AE020000 		.4byte	.LASF23
+ 617 0190 15030000 		.4byte	.LASF23
  618 0194 01       		.byte	0x1
  619 0195 1801     		.2byte	0x118
  620 0197 77000000 		.4byte	0x77
  621 019b 16       		.byte	0x16
  622 019c 00       		.byte	0
  623 019d 13       		.uleb128 0x13
- 624 019e 75030000 		.4byte	.LASF25
+ 624 019e A8000000 		.4byte	.LASF25
  625 01a2 01       		.byte	0x1
  626 01a3 3001     		.2byte	0x130
  627 01a5 00000000 		.4byte	.LFB9
@@ -1104,7 +1104,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  629 01ad 01       		.uleb128 0x1
  630 01ae 9C       		.byte	0x9c
  631 01af 14       		.uleb128 0x14
- 632 01b0 2B010000 		.4byte	.LASF27
+ 632 01b0 F3010000 		.4byte	.LASF27
  633 01b4 01       		.byte	0x1
  634 01b5 4501     		.2byte	0x145
  635 01b7 6B000000 		.4byte	0x6b
@@ -1113,7 +1113,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  638 01c3 01       		.uleb128 0x1
  639 01c4 9C       		.byte	0x9c
  640 01c5 13       		.uleb128 0x13
- 641 01c6 49020000 		.4byte	.LASF28
+ 641 01c6 47020000 		.4byte	.LASF28
  642 01ca 01       		.byte	0x1
  643 01cb 5A01     		.2byte	0x15a
  644 01cd 00000000 		.4byte	.LFB11
@@ -1121,7 +1121,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  646 01d5 01       		.uleb128 0x1
  647 01d6 9C       		.byte	0x9c
  648 01d7 09       		.uleb128 0x9
- 649 01d8 71010000 		.4byte	.LASF29
+ 649 01d8 00000000 		.4byte	.LASF29
  650 01dc 01       		.byte	0x1
  651 01dd 38       		.byte	0x38
  652 01de 00000000 		.4byte	.LFB1
@@ -1138,13 +1138,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  663 01fe 0C020000 		.4byte	0x20c
  664 0202 16       		.uleb128 0x16
  665 0203 01       		.uleb128 0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 20
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 20
 
 
  666 0204 50       		.byte	0x50
  667 0205 05       		.uleb128 0x5
  668 0206 03       		.byte	0x3
- 669 0207 00000000 		.4byte	CapSense_ISR_Interrupt
+ 669 0207 00000000 		.4byte	capsense_ISR_Interrupt
  670 020b 00       		.byte	0
  671 020c 15       		.uleb128 0x15
  672 020d 12000000 		.4byte	.LVL10
@@ -1161,7 +1161,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  683 0224 9D010000 		.4byte	0x19d
  684 0228 00       		.byte	0
  685 0229 09       		.uleb128 0x9
- 686 022a 92010000 		.4byte	.LASF30
+ 686 022a 4C000000 		.4byte	.LASF30
  687 022e 01       		.byte	0x1
  688 022f 63       		.byte	0x63
  689 0230 00000000 		.4byte	.LFB2
@@ -1170,7 +1170,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  692 0239 9C       		.byte	0x9c
  693 023a 87020000 		.4byte	0x287
  694 023e 0C       		.uleb128 0xc
- 695 023f CE010000 		.4byte	.LASF20
+ 695 023f D5010000 		.4byte	.LASF20
  696 0243 01       		.byte	0x1
  697 0244 63       		.byte	0x63
  698 0245 A9000000 		.4byte	0xa9
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  720 0279 50       		.byte	0x50
  721 027a 01       		.uleb128 0x1
  722 027b 33       		.byte	0x33
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 21
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 21
 
 
  723 027c 00       		.byte	0
@@ -1207,7 +1207,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  726 0282 9D010000 		.4byte	0x19d
  727 0286 00       		.byte	0
  728 0287 09       		.uleb128 0x9
- 729 0288 6C020000 		.4byte	.LASF31
+ 729 0288 96000000 		.4byte	.LASF31
  730 028c 01       		.byte	0x1
  731 028d 81       		.byte	0x81
  732 028e 00000000 		.4byte	.LFB3
@@ -1223,7 +1223,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  742 02aa DB000000 		.4byte	0xdb
  743 02ae 00       		.byte	0
  744 02af 13       		.uleb128 0x13
- 745 02b0 05010000 		.4byte	.LASF32
+ 745 02b0 61020000 		.4byte	.LASF32
  746 02b4 01       		.byte	0x1
  747 02b5 7501     		.2byte	0x175
  748 02b7 00000000 		.4byte	.LFB12
@@ -1231,7 +1231,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  750 02bf 01       		.uleb128 0x1
  751 02c0 9C       		.byte	0x9c
  752 02c1 13       		.uleb128 0x13
- 753 02c2 A7010000 		.4byte	.LASF33
+ 753 02c2 16020000 		.4byte	.LASF33
  754 02c6 01       		.byte	0x1
  755 02c7 8E01     		.2byte	0x18e
  756 02c9 00000000 		.4byte	.LFB13
@@ -1246,19 +1246,19 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  765 02e1 1F       		.byte	0x1f
  766 02e2 00       		.byte	0
  767 02e3 19       		.uleb128 0x19
- 768 02e4 06000000 		.4byte	.LASF40
+ 768 02e4 19000000 		.4byte	.LASF40
  769 02e8 01       		.byte	0x1
  770 02e9 21       		.byte	0x21
  771 02ea D3020000 		.4byte	0x2d3
  772 02ee 1A       		.uleb128 0x1a
- 773 02ef 1C020000 		.4byte	.LASF34
- 774 02f3 1C020000 		.4byte	.LASF34
+ 773 02ef B1010000 		.4byte	.LASF34
+ 774 02f3 B1010000 		.4byte	.LASF34
  775 02f7 03       		.byte	0x3
  776 02f8 F8       		.byte	0xf8
  777 02f9 1A       		.uleb128 0x1a
- 778 02fa D6010000 		.4byte	.LASF35
- 779 02fe D6010000 		.4byte	.LASF35
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 22
+ 778 02fa DD010000 		.4byte	.LASF35
+ 779 02fe DD010000 		.4byte	.LASF35
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 22
 
 
  780 0302 03       		.byte	0x3
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  834 0031 05       		.uleb128 0x5
  835 0032 49       		.uleb128 0x49
  836 0033 13       		.uleb128 0x13
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 23
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 23
 
 
  837 0034 00       		.byte	0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  891 006b 0E       		.uleb128 0xe
  892 006c 3A       		.uleb128 0x3a
  893 006d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 24
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 24
 
 
  894 006e 3B       		.uleb128 0x3b
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  948 00a6 00       		.byte	0
  949 00a7 00       		.byte	0
  950 00a8 0C       		.uleb128 0xc
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 25
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 25
 
 
  951 00a9 05       		.uleb128 0x5
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  1005 00e1 2E       		.uleb128 0x2e
  1006 00e2 01       		.byte	0x1
  1007 00e3 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 26
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 26
 
 
  1008 00e4 19       		.uleb128 0x19
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  1062 011b 2E       		.uleb128 0x2e
  1063 011c 00       		.byte	0
  1064 011d 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 27
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 27
 
 
  1065 011e 19       		.uleb128 0x19
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  1119 0158 00       		.byte	0
  1120 0159 16       		.uleb128 0x16
  1121 015a 8A8201   		.uleb128 0x410a
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 28
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 28
 
 
  1122 015d 00       		.byte	0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  1176 0194 0B       		.uleb128 0xb
  1177 0195 3B       		.uleb128 0x3b
  1178 0196 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 29
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 29
 
 
  1179 0197 00       		.byte	0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  1233 0077 01       		.uleb128 0x1
  1234 0078 50       		.byte	0x50
  1235 0079 9F       		.byte	0x9f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 30
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 30
 
 
  1236 007a 00000000 		.4byte	0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  1290 0038 00000000 		.4byte	.LFB11
  1291 003c 10000000 		.4byte	.LFE11
  1292 0040 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 31
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 31
 
 
  1293 0044 1C000000 		.4byte	.LFE1
@@ -1819,242 +1819,242 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 1
  1306      00000201 
  1306      FB0E0D00 
  1306      01010101 
- 1307              	.LASF14:
- 1308 0000 72656733 		.ascii	"reg32\000"
- 1308      3200
- 1309              	.LASF40:
- 1310 0006 43795261 		.ascii	"CyRamVectors\000"
- 1310      6D566563 
- 1310      746F7273 
- 1310      00
- 1311              	.LASF3:
- 1312 0013 73686F72 		.ascii	"short unsigned int\000"
- 1312      7420756E 
- 1312      7369676E 
- 1312      65642069 
- 1312      6E7400
- 1313              	.LASF26:
- 1314 0026 43617053 		.ascii	"CapSense_ISR_GetVector\000"
- 1314      656E7365 
- 1314      5F495352 
- 1314      5F476574 
- 1314      56656374 
- 1315              	.LASF39:
- 1316 003d 43617053 		.ascii	"CapSense_ISR_GetPriority\000"
+ 1307              	.LASF29:
+ 1308 0000 63617073 		.ascii	"capsense_ISR_Start\000"
+ 1308      656E7365 
+ 1308      5F495352 
+ 1308      5F537461 
+ 1308      727400
+ 1309              	.LASF14:
+ 1310 0013 72656733 		.ascii	"reg32\000"
+ 1310      3200
+ 1311              	.LASF40:
+ 1312 0019 43795261 		.ascii	"CyRamVectors\000"
+ 1312      6D566563 
+ 1312      746F7273 
+ 1312      00
+ 1313              	.LASF37:
+ 1314 0026 47656E65 		.ascii	"Generated_Source\\PSoC4\\capsense_ISR.c\000"
+ 1314      72617465 
+ 1314      645F536F 
+ 1314      75726365 
+ 1314      5C50536F 
+ 1315              	.LASF30:
+ 1316 004c 63617073 		.ascii	"capsense_ISR_StartEx\000"
  1316      656E7365 
  1316      5F495352 
- 1316      5F476574 
- 1316      5072696F 
- 1317              	.LASF18:
- 1318 0056 43617053 		.ascii	"CapSense_ISR_SetVector\000"
- 1318      656E7365 
- 1318      5F495352 
- 1318      5F536574 
- 1318      56656374 
- 1319              	.LASF38:
- 1320 006d 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\Ejem"
- 1320      6F63756D 
- 1320      656E746F 
- 1320      735C5544 
- 1320      5C323032 
- 1321 009b 706C6F73 		.ascii	"plos\\Configuracion General\\Configuracion_General\\"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 32
+ 1316      5F537461 
+ 1316      72744578 
+ 1317              	.LASF4:
+ 1318 0061 6C6F6E67 		.ascii	"long int\000"
+ 1318      20696E74 
+ 1318      00
+ 1319              	.LASF3:
+ 1320 006a 73686F72 		.ascii	"short unsigned int\000"
+ 1320      7420756E 
+ 1320      7369676E 
+ 1320      65642069 
+ 1320      6E7400
+ 1321              	.LASF19:
+ 1322 007d 63617073 		.ascii	"capsense_ISR_SetPriority\000"
+ 1322      656E7365 
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 32
 
 
- 1321      5C436F6E 
- 1321      66696775 
- 1321      72616369 
- 1321      6F6E2047 
- 1322 00cc 436F6E66 		.ascii	"Configuracion_General.cydsn\000"
- 1322      69677572 
- 1322      6163696F 
- 1322      6E5F4765 
- 1322      6E657261 
- 1323              	.LASF11:
- 1324 00e8 666C6F61 		.ascii	"float\000"
- 1324      7400
- 1325              	.LASF7:
- 1326 00ee 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1326      206C6F6E 
- 1326      6720756E 
- 1326      7369676E 
- 1326      65642069 
- 1327              	.LASF32:
- 1328 0105 43617053 		.ascii	"CapSense_ISR_SetPending\000"
- 1328      656E7365 
- 1328      5F495352 
- 1328      5F536574 
- 1328      50656E64 
- 1329              	.LASF1:
- 1330 011d 756E7369 		.ascii	"unsigned char\000"
- 1330      676E6564 
- 1330      20636861 
- 1330      7200
- 1331              	.LASF27:
- 1332 012b 43617053 		.ascii	"CapSense_ISR_GetState\000"
- 1332      656E7365 
- 1332      5F495352 
- 1332      5F476574 
- 1332      53746174 
+ 1322      5F495352 
+ 1322      5F536574 
+ 1322      5072696F 
+ 1323              	.LASF31:
+ 1324 0096 63617073 		.ascii	"capsense_ISR_Stop\000"
+ 1324      656E7365 
+ 1324      5F495352 
+ 1324      5F53746F 
+ 1324      7000
+ 1325              	.LASF25:
+ 1326 00a8 63617073 		.ascii	"capsense_ISR_Enable\000"
+ 1326      656E7365 
+ 1326      5F495352 
+ 1326      5F456E61 
+ 1326      626C6500 
+ 1327              	.LASF11:
+ 1328 00bc 666C6F61 		.ascii	"float\000"
+ 1328      7400
+ 1329              	.LASF7:
+ 1330 00c2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1330      206C6F6E 
+ 1330      6720756E 
+ 1330      7369676E 
+ 1330      65642069 
+ 1331              	.LASF1:
+ 1332 00d9 756E7369 		.ascii	"unsigned char\000"
+ 1332      676E6564 
+ 1332      20636861 
+ 1332      7200
  1333              	.LASF22:
- 1334 0141 696E7465 		.ascii	"interruptState\000"
+ 1334 00e7 696E7465 		.ascii	"interruptState\000"
  1334      72727570 
  1334      74537461 
  1334      746500
  1335              	.LASF5:
- 1336 0150 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1336 00f6 6C6F6E67 		.ascii	"long unsigned int\000"
  1336      20756E73 
  1336      69676E65 
  1336      6420696E 
  1336      7400
  1337              	.LASF9:
- 1338 0162 75696E74 		.ascii	"uint8\000"
+ 1338 0108 75696E74 		.ascii	"uint8\000"
  1338      3800
- 1339              	.LASF21:
- 1340 0168 7072696F 		.ascii	"priority\000"
- 1340      72697479 
- 1340      00
- 1341              	.LASF29:
- 1342 0171 43617053 		.ascii	"CapSense_ISR_Start\000"
- 1342      656E7365 
- 1342      5F495352 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 33
+ 1339              	.LASF38:
+ 1340 010e 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\aixt"
+ 1340      6F63756D 
+ 1340      656E746F 
+ 1340      735C5544 
+ 1340      5C323032 
+ 1341 013c 2D702D73 		.ascii	"-p-so-c-4\\devices\\Cypress\\CY8CKIT-145-40XX\\Conf"
+ 1341      6F2D632D 
+ 1341      345C6465 
+ 1341      76696365 
+ 1341      735C4379 
+ 1342 016b 69677572 		.ascii	"iguracion_General.cydsn\000"
+ 1342      6163696F 
+ 1342      6E5F4765 
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 33
 
 
- 1342      5F537461 
- 1342      727400
+ 1342      6E657261 
+ 1342      6C2E6379 
  1343              	.LASF12:
- 1344 0184 646F7562 		.ascii	"double\000"
+ 1344 0183 646F7562 		.ascii	"double\000"
  1344      6C6500
- 1345              	.LASF10:
- 1346 018b 75696E74 		.ascii	"uint32\000"
- 1346      333200
- 1347              	.LASF30:
- 1348 0192 43617053 		.ascii	"CapSense_ISR_StartEx\000"
+ 1345              	.LASF21:
+ 1346 018a 7072696F 		.ascii	"priority\000"
+ 1346      72697479 
+ 1346      00
+ 1347              	.LASF18:
+ 1348 0193 63617073 		.ascii	"capsense_ISR_SetVector\000"
  1348      656E7365 
  1348      5F495352 
- 1348      5F537461 
- 1348      72744578 
- 1349              	.LASF33:
- 1350 01a7 43617053 		.ascii	"CapSense_ISR_ClearPending\000"
- 1350      656E7365 
- 1350      5F495352 
- 1350      5F436C65 
- 1350      61725065 
- 1351              	.LASF8:
- 1352 01c1 756E7369 		.ascii	"unsigned int\000"
- 1352      676E6564 
- 1352      20696E74 
- 1352      00
- 1353              	.LASF20:
- 1354 01ce 61646472 		.ascii	"address\000"
- 1354      65737300 
- 1355              	.LASF35:
- 1356 01d6 43794578 		.ascii	"CyExitCriticalSection\000"
- 1356      69744372 
- 1356      69746963 
- 1356      616C5365 
- 1356      6374696F 
- 1357              	.LASF19:
- 1358 01ec 43617053 		.ascii	"CapSense_ISR_SetPriority\000"
- 1358      656E7365 
- 1358      5F495352 
- 1358      5F536574 
- 1358      5072696F 
- 1359              	.LASF24:
- 1360 0205 43617053 		.ascii	"CapSense_ISR_Interrupt\000"
+ 1348      5F536574 
+ 1348      56656374 
+ 1349              	.LASF10:
+ 1350 01aa 75696E74 		.ascii	"uint32\000"
+ 1350      333200
+ 1351              	.LASF34:
+ 1352 01b1 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1352      74657243 
+ 1352      72697469 
+ 1352      63616C53 
+ 1352      65637469 
+ 1353              	.LASF8:
+ 1354 01c8 756E7369 		.ascii	"unsigned int\000"
+ 1354      676E6564 
+ 1354      20696E74 
+ 1354      00
+ 1355              	.LASF20:
+ 1356 01d5 61646472 		.ascii	"address\000"
+ 1356      65737300 
+ 1357              	.LASF35:
+ 1358 01dd 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1358      69744372 
+ 1358      69746963 
+ 1358      616C5365 
+ 1358      6374696F 
+ 1359              	.LASF27:
+ 1360 01f3 63617073 		.ascii	"capsense_ISR_GetState\000"
  1360      656E7365 
  1360      5F495352 
- 1360      5F496E74 
- 1360      65727275 
- 1361              	.LASF34:
- 1362 021c 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1362      74657243 
- 1362      72697469 
- 1362      63616C53 
- 1362      65637469 
- 1363              	.LASF15:
- 1364 0233 63796973 		.ascii	"cyisraddress\000"
- 1364      72616464 
- 1364      72657373 
- 1364      00
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 34
-
-
+ 1360      5F476574 
+ 1360      53746174 
+ 1361              	.LASF15:
+ 1362 0209 63796973 		.ascii	"cyisraddress\000"
+ 1362      72616464 
+ 1362      72657373 
+ 1362      00
+ 1363              	.LASF33:
+ 1364 0216 63617073 		.ascii	"capsense_ISR_ClearPending\000"
+ 1364      656E7365 
+ 1364      5F495352 
+ 1364      5F436C65 
+ 1364      61725065 
  1365              	.LASF17:
- 1366 0240 73697A65 		.ascii	"sizetype\000"
+ 1366 0230 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 34
+
+
  1366      74797065 
  1366      00
- 1367              	.LASF28:
- 1368 0249 43617053 		.ascii	"CapSense_ISR_Disable\000"
- 1368      656E7365 
- 1368      5F495352 
- 1368      5F446973 
- 1368      61626C65 
- 1369              	.LASF6:
- 1370 025e 6C6F6E67 		.ascii	"long long int\000"
- 1370      206C6F6E 
- 1370      6720696E 
- 1370      7400
- 1371              	.LASF31:
- 1372 026c 43617053 		.ascii	"CapSense_ISR_Stop\000"
- 1372      656E7365 
- 1372      5F495352 
- 1372      5F53746F 
- 1372      7000
- 1373              	.LASF2:
- 1374 027e 73686F72 		.ascii	"short int\000"
- 1374      7420696E 
- 1374      7400
- 1375              	.LASF37:
- 1376 0288 47656E65 		.ascii	"Generated_Source\\PSoC4\\CapSense_ISR.c\000"
- 1376      72617465 
- 1376      645F536F 
- 1376      75726365 
- 1376      5C50536F 
- 1377              	.LASF23:
- 1378 02ae 7072696F 		.ascii	"priorityOffset\000"
- 1378      72697479 
- 1378      4F666673 
- 1378      657400
- 1379              	.LASF4:
- 1380 02bd 6C6F6E67 		.ascii	"long int\000"
- 1380      20696E74 
- 1380      00
- 1381              	.LASF13:
- 1382 02c6 63686172 		.ascii	"char\000"
- 1382      00
- 1383              	.LASF16:
- 1384 02cb 6C6F6E67 		.ascii	"long double\000"
- 1384      20646F75 
- 1384      626C6500 
- 1385              	.LASF36:
- 1386 02d7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1386      43313120 
- 1386      352E342E 
- 1386      31203230 
- 1386      31363036 
- 1387 030a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
- 1387      20726576 
- 1387      6973696F 
- 1387      6E203233 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccPSBdDt.s 			page 35
+ 1367              	.LASF6:
+ 1368 0239 6C6F6E67 		.ascii	"long long int\000"
+ 1368      206C6F6E 
+ 1368      6720696E 
+ 1368      7400
+ 1369              	.LASF28:
+ 1370 0247 63617073 		.ascii	"capsense_ISR_Disable\000"
+ 1370      656E7365 
+ 1370      5F495352 
+ 1370      5F446973 
+ 1370      61626C65 
+ 1371              	.LASF13:
+ 1372 025c 63686172 		.ascii	"char\000"
+ 1372      00
+ 1373              	.LASF32:
+ 1374 0261 63617073 		.ascii	"capsense_ISR_SetPending\000"
+ 1374      656E7365 
+ 1374      5F495352 
+ 1374      5F536574 
+ 1374      50656E64 
+ 1375              	.LASF36:
+ 1376 0279 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1376      43313120 
+ 1376      352E342E 
+ 1376      31203230 
+ 1376      31363036 
+ 1377 02ac 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1377      20726576 
+ 1377      6973696F 
+ 1377      6E203233 
+ 1377      37373135 
+ 1378 02df 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1378      67202D66 
+ 1378      66756E63 
+ 1378      74696F6E 
+ 1378      2D736563 
+ 1379              	.LASF2:
+ 1380 030b 73686F72 		.ascii	"short int\000"
+ 1380      7420696E 
+ 1380      7400
+ 1381              	.LASF23:
+ 1382 0315 7072696F 		.ascii	"priorityOffset\000"
+ 1382      72697479 
+ 1382      4F666673 
+ 1382      657400
+ 1383              	.LASF39:
+ 1384 0324 63617073 		.ascii	"capsense_ISR_GetPriority\000"
+ 1384      656E7365 
+ 1384      5F495352 
+ 1384      5F476574 
+ 1384      5072696F 
+ 1385              	.LASF16:
+ 1386 033d 6C6F6E67 		.ascii	"long double\000"
+ 1386      20646F75 
+ 1386      626C6500 
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsfcQEa.s 			page 35
 
 
- 1387      37373135 
- 1388 033d 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
- 1388      67202D66 
- 1388      66756E63 
- 1388      74696F6E 
- 1388      2D736563 
+ 1387              	.LASF26:
+ 1388 0349 63617073 		.ascii	"capsense_ISR_GetVector\000"
+ 1388      656E7365 
+ 1388      5F495352 
+ 1388      5F476574 
+ 1388      56656374 
  1389              	.LASF0:
- 1390 0369 7369676E 		.ascii	"signed char\000"
+ 1390 0360 7369676E 		.ascii	"signed char\000"
  1390      65642063 
  1390      68617200 
- 1391              	.LASF25:
- 1392 0375 43617053 		.ascii	"CapSense_ISR_Enable\000"
+ 1391              	.LASF24:
+ 1392 036c 63617073 		.ascii	"capsense_ISR_Interrupt\000"
  1392      656E7365 
  1392      5F495352 
- 1392      5F456E61 
- 1392      626C6500 
+ 1392      5F496E74 
+ 1392      65727275 
  1393              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

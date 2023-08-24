@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED8.h  
+* File Name: led8.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_LED8_ALIASES_H) /* Pins LED8_ALIASES_H */
-#define CY_PINS_LED8_ALIASES_H
+#if !defined(CY_PINS_led8_ALIASES_H) /* Pins led8_ALIASES_H */
+#define CY_PINS_led8_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define LED8_0			(LED8__0__PC)
-#define LED8_0_PS		(LED8__0__PS)
-#define LED8_0_PC		(LED8__0__PC)
-#define LED8_0_DR		(LED8__0__DR)
-#define LED8_0_SHIFT	(LED8__0__SHIFT)
-#define LED8_0_INTR	((uint16)((uint16)0x0003u << (LED8__0__SHIFT*2u)))
+#define led8_0			(led8__0__PC)
+#define led8_0_PS		(led8__0__PS)
+#define led8_0_PC		(led8__0__PC)
+#define led8_0_DR		(led8__0__DR)
+#define led8_0_SHIFT	(led8__0__SHIFT)
+#define led8_0_INTR	((uint16)((uint16)0x0003u << (led8__0__SHIFT*2u)))
 
-#define LED8_INTR_ALL	 ((uint16)(LED8_0_INTR))
+#define led8_INTR_ALL	 ((uint16)(led8_0_INTR))
 
 
-#endif /* End Pins LED8_ALIASES_H */
+#endif /* End Pins led8_ALIASES_H */
 
 
 /* [] END OF FILE */

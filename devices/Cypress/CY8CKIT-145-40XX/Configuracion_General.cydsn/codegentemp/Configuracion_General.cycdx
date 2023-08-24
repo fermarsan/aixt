@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
-  <block name="SW2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="LED1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="DI1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="LED11" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="LED8" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="LED9" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="LED10" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="DO1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="sw2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="led1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="di1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="led11" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="led8" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="led9" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="led10" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="do1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="cy_lfclk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="DO3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="DI2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="DO2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="DI3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="PWM2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+  <block name="do0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="di2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="do2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="di0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="pwm2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VMux_count" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_reload" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_start" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -29,10 +29,10 @@
     <register name="PERIOD" address="0x40060154" bitWidth="32" desc="Period value" hidden="false" />
     <register name="PERIOD_BUF" address="0x40060158" bitWidth="32" desc="Period buffer value" hidden="false" />
   </block>
-  <block name="Clock2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Out_PWM2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Out_PWM1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="UART" BASE="0x0" SIZE="0x0" desc="Serial Communication Block" visible="true" hidden="false">
+  <block name="clock2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="out_pwm2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="out_pwm1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="uart" BASE="0x0" SIZE="0x0" desc="Serial Communication Block" visible="true" hidden="false">
     <block name="clock_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="sclk_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="mosi_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -377,7 +377,7 @@
       <field name="BREAK_DETECT" from="11" to="11" access="RW" resetVal="" desc="Logical and of corresponding request and mask bits" hidden="false" />
     </register>
   </block>
-  <block name="PWM1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+  <block name="pwm1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VMux_count" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_reload" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_start" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -391,9 +391,9 @@
     <register name="PERIOD" address="0x400601D4" bitWidth="32" desc="Period value" hidden="false" />
     <register name="PERIOD_BUF" address="0x400601D8" bitWidth="32" desc="Period buffer value" hidden="false" />
   </block>
-  <block name="Clock1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Clock3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="CapSense" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+  <block name="clock1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="clock3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="capsense" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="IDACComp" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="IDACMod" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -764,10 +764,10 @@
       <field name="AZ1_SKIP" from="9" to="9" access="RW" resetVal="" desc="When set the AutoZero_1 state will be skipped" hidden="false" />
     </register>
   </block>
-  <block name="LED6" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="LED7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="LED4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="PWM3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+  <block name="led6" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="led7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="led4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="pwm3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VMux_count" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_reload" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_start" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -781,6 +781,6 @@
     <register name="PERIOD" address="0x40060194" bitWidth="32" desc="Period value" hidden="false" />
     <register name="PERIOD_BUF" address="0x40060198" bitWidth="32" desc="Period buffer value" hidden="false" />
   </block>
-  <block name="Out_PWM3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="LED5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="out_pwm3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="led5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>

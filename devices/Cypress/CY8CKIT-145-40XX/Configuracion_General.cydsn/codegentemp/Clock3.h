@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Clock3.h
+* File Name: clock3.h
 * Version 2.20
 *
 *  Description:
@@ -14,8 +14,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_CLOCK_Clock3_H)
-#define CY_CLOCK_Clock3_H
+#if !defined(CY_CLOCK_clock3_H)
+#define CY_CLOCK_clock3_H
 
 #include <cytypes.h>
 #include <cyfitter.h>
@@ -26,29 +26,29 @@
 ***************************************/
 #if defined CYREG_PERI_DIV_CMD
 
-void Clock3_StartEx(uint32 alignClkDiv);
-#define Clock3_Start() \
-    Clock3_StartEx(Clock3__PA_DIV_ID)
+void clock3_StartEx(uint32 alignClkDiv);
+#define clock3_Start() \
+    clock3_StartEx(clock3__PA_DIV_ID)
 
 #else
 
-void Clock3_Start(void);
+void clock3_Start(void);
 
 #endif/* CYREG_PERI_DIV_CMD */
 
-void Clock3_Stop(void);
+void clock3_Stop(void);
 
-void Clock3_SetFractionalDividerRegister(uint16 clkDivider, uint8 clkFractional);
+void clock3_SetFractionalDividerRegister(uint16 clkDivider, uint8 clkFractional);
 
-uint16 Clock3_GetDividerRegister(void);
-uint8  Clock3_GetFractionalDividerRegister(void);
+uint16 clock3_GetDividerRegister(void);
+uint8  clock3_GetFractionalDividerRegister(void);
 
-#define Clock3_Enable()                         Clock3_Start()
-#define Clock3_Disable()                        Clock3_Stop()
-#define Clock3_SetDividerRegister(clkDivider, reset)  \
-    Clock3_SetFractionalDividerRegister((clkDivider), 0u)
-#define Clock3_SetDivider(clkDivider)           Clock3_SetDividerRegister((clkDivider), 1u)
-#define Clock3_SetDividerValue(clkDivider)      Clock3_SetDividerRegister((clkDivider) - 1u, 1u)
+#define clock3_Enable()                         clock3_Start()
+#define clock3_Disable()                        clock3_Stop()
+#define clock3_SetDividerRegister(clkDivider, reset)  \
+    clock3_SetFractionalDividerRegister((clkDivider), 0u)
+#define clock3_SetDivider(clkDivider)           clock3_SetDividerRegister((clkDivider), 1u)
+#define clock3_SetDividerValue(clkDivider)      clock3_SetDividerRegister((clkDivider) - 1u, 1u)
 
 
 /***************************************
@@ -56,36 +56,36 @@ uint8  Clock3_GetFractionalDividerRegister(void);
 ***************************************/
 #if defined CYREG_PERI_DIV_CMD
 
-#define Clock3_DIV_ID     Clock3__DIV_ID
+#define clock3_DIV_ID     clock3__DIV_ID
 
-#define Clock3_CMD_REG    (*(reg32 *)CYREG_PERI_DIV_CMD)
-#define Clock3_CTRL_REG   (*(reg32 *)Clock3__CTRL_REGISTER)
-#define Clock3_DIV_REG    (*(reg32 *)Clock3__DIV_REGISTER)
+#define clock3_CMD_REG    (*(reg32 *)CYREG_PERI_DIV_CMD)
+#define clock3_CTRL_REG   (*(reg32 *)clock3__CTRL_REGISTER)
+#define clock3_DIV_REG    (*(reg32 *)clock3__DIV_REGISTER)
 
-#define Clock3_CMD_DIV_SHIFT          (0u)
-#define Clock3_CMD_PA_DIV_SHIFT       (8u)
-#define Clock3_CMD_DISABLE_SHIFT      (30u)
-#define Clock3_CMD_ENABLE_SHIFT       (31u)
+#define clock3_CMD_DIV_SHIFT          (0u)
+#define clock3_CMD_PA_DIV_SHIFT       (8u)
+#define clock3_CMD_DISABLE_SHIFT      (30u)
+#define clock3_CMD_ENABLE_SHIFT       (31u)
 
-#define Clock3_CMD_DISABLE_MASK       ((uint32)((uint32)1u << Clock3_CMD_DISABLE_SHIFT))
-#define Clock3_CMD_ENABLE_MASK        ((uint32)((uint32)1u << Clock3_CMD_ENABLE_SHIFT))
+#define clock3_CMD_DISABLE_MASK       ((uint32)((uint32)1u << clock3_CMD_DISABLE_SHIFT))
+#define clock3_CMD_ENABLE_MASK        ((uint32)((uint32)1u << clock3_CMD_ENABLE_SHIFT))
 
-#define Clock3_DIV_FRAC_MASK  (0x000000F8u)
-#define Clock3_DIV_FRAC_SHIFT (3u)
-#define Clock3_DIV_INT_MASK   (0xFFFFFF00u)
-#define Clock3_DIV_INT_SHIFT  (8u)
+#define clock3_DIV_FRAC_MASK  (0x000000F8u)
+#define clock3_DIV_FRAC_SHIFT (3u)
+#define clock3_DIV_INT_MASK   (0xFFFFFF00u)
+#define clock3_DIV_INT_SHIFT  (8u)
 
 #else 
 
-#define Clock3_DIV_REG        (*(reg32 *)Clock3__REGISTER)
-#define Clock3_ENABLE_REG     Clock3_DIV_REG
-#define Clock3_DIV_FRAC_MASK  Clock3__FRAC_MASK
-#define Clock3_DIV_FRAC_SHIFT (16u)
-#define Clock3_DIV_INT_MASK   Clock3__DIVIDER_MASK
-#define Clock3_DIV_INT_SHIFT  (0u)
+#define clock3_DIV_REG        (*(reg32 *)clock3__REGISTER)
+#define clock3_ENABLE_REG     clock3_DIV_REG
+#define clock3_DIV_FRAC_MASK  clock3__FRAC_MASK
+#define clock3_DIV_FRAC_SHIFT (16u)
+#define clock3_DIV_INT_MASK   clock3__DIVIDER_MASK
+#define clock3_DIV_INT_SHIFT  (0u)
 
 #endif/* CYREG_PERI_DIV_CMD */
 
-#endif /* !defined(CY_CLOCK_Clock3_H) */
+#endif /* !defined(CY_CLOCK_clock3_H) */
 
 /* [] END OF FILE */

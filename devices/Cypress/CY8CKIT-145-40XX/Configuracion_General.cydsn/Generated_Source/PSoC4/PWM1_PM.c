@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: PWM1_PM.c
+* File Name: pwm1_PM.c
 * Version 2.10
 *
 * Description:
@@ -16,13 +16,13 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "PWM1.h"
+#include "pwm1.h"
 
-static PWM1_BACKUP_STRUCT PWM1_backup;
+static pwm1_BACKUP_STRUCT pwm1_backup;
 
 
 /*******************************************************************************
-* Function Name: PWM1_SaveConfig
+* Function Name: pwm1_SaveConfig
 ********************************************************************************
 *
 * Summary:
@@ -35,14 +35,14 @@ static PWM1_BACKUP_STRUCT PWM1_backup;
 *  None
 *
 *******************************************************************************/
-void PWM1_SaveConfig(void)
+void pwm1_SaveConfig(void)
 {
 
 }
 
 
 /*******************************************************************************
-* Function Name: PWM1_Sleep
+* Function Name: pwm1_Sleep
 ********************************************************************************
 *
 * Summary:
@@ -55,24 +55,24 @@ void PWM1_SaveConfig(void)
 *  None
 *
 *******************************************************************************/
-void PWM1_Sleep(void)
+void pwm1_Sleep(void)
 {
-    if(0u != (PWM1_BLOCK_CONTROL_REG & PWM1_MASK))
+    if(0u != (pwm1_BLOCK_CONTROL_REG & pwm1_MASK))
     {
-        PWM1_backup.enableState = 1u;
+        pwm1_backup.enableState = 1u;
     }
     else
     {
-        PWM1_backup.enableState = 0u;
+        pwm1_backup.enableState = 0u;
     }
 
-    PWM1_Stop();
-    PWM1_SaveConfig();
+    pwm1_Stop();
+    pwm1_SaveConfig();
 }
 
 
 /*******************************************************************************
-* Function Name: PWM1_RestoreConfig
+* Function Name: pwm1_RestoreConfig
 ********************************************************************************
 *
 * Summary:
@@ -85,14 +85,14 @@ void PWM1_Sleep(void)
 *  None
 *
 *******************************************************************************/
-void PWM1_RestoreConfig(void)
+void pwm1_RestoreConfig(void)
 {
 
 }
 
 
 /*******************************************************************************
-* Function Name: PWM1_Wakeup
+* Function Name: pwm1_Wakeup
 ********************************************************************************
 *
 * Summary:
@@ -105,13 +105,13 @@ void PWM1_RestoreConfig(void)
 *  None
 *
 *******************************************************************************/
-void PWM1_Wakeup(void)
+void pwm1_Wakeup(void)
 {
-    PWM1_RestoreConfig();
+    pwm1_RestoreConfig();
 
-    if(0u != PWM1_backup.enableState)
+    if(0u != pwm1_backup.enableState)
     {
-        PWM1_Enable();
+        pwm1_Enable();
     }
 }
 

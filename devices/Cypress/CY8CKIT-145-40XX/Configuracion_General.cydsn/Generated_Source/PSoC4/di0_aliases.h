@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: DI3.h  
+* File Name: di0.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_DI3_ALIASES_H) /* Pins DI3_ALIASES_H */
-#define CY_PINS_DI3_ALIASES_H
+#if !defined(CY_PINS_di0_ALIASES_H) /* Pins di0_ALIASES_H */
+#define CY_PINS_di0_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define DI3_0			(DI3__0__PC)
-#define DI3_0_PS		(DI3__0__PS)
-#define DI3_0_PC		(DI3__0__PC)
-#define DI3_0_DR		(DI3__0__DR)
-#define DI3_0_SHIFT	(DI3__0__SHIFT)
-#define DI3_0_INTR	((uint16)((uint16)0x0003u << (DI3__0__SHIFT*2u)))
+#define di0_0			(di0__0__PC)
+#define di0_0_PS		(di0__0__PS)
+#define di0_0_PC		(di0__0__PC)
+#define di0_0_DR		(di0__0__DR)
+#define di0_0_SHIFT	(di0__0__SHIFT)
+#define di0_0_INTR	((uint16)((uint16)0x0003u << (di0__0__SHIFT*2u)))
 
-#define DI3_INTR_ALL	 ((uint16)(DI3_0_INTR))
+#define di0_INTR_ALL	 ((uint16)(di0_0_INTR))
 
 
-#endif /* End Pins DI3_ALIASES_H */
+#endif /* End Pins di0_ALIASES_H */
 
 
 /* [] END OF FILE */
