@@ -17,5 +17,6 @@ int main() {
     pin_low(A);
     usleep(1500000);
     pin_write(B, 0);
+    printf("z = %i\n", pin_read(z));
     return 0;
 }
