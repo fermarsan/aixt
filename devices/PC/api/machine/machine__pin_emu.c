@@ -67,6 +67,7 @@ void pin_write(int pin, int val) {
 }
 
 int pin_read(int pin) {
+    system("clear");
     printf(" Aixt virtual pins     Input %s : ", pin_name(pin));
     scanf("%d", &input);
     pin_write(pin, input);
