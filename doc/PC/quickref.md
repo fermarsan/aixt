@@ -1,7 +1,6 @@
 # Quick reference for PC
 
 ## Delay
-
 Use the `time` module:
 ```go
 import time
@@ -18,17 +17,20 @@ sleep_ms(200)       // sleep for 200 milliseconds
 ```
 
 ## Emulated pins
+Use the `machine` module and the `{ pin }` submodule.
+```go
+import machine { pin }
 
+pin_high(A)         // turn ON the A pin 
+pin_low(y)          // turn OFF the y pin 
+pin_write(D, 1)     // write 1 on D pin
+pin_read(x)         // read x pin
+```
 
+### `pin` names
+Functions to emulate input/output pins on the console. There are 8 emulated pins named: `A`, `B`, `C`, `D`, `w`, `x`, `y` and `z`, which are show in the console after any change, as follows:
 
-
-## `machine` module
-Machine module is created in order to emulate the pin an other microcontroller peipherals.
-
-### `pin` functions
-Functions to emulate input/output pins on the console. This emulation has 8 pins named: `A`, `B`, `C`, `D`, `w`, `x`, `y` and `z`, which are show in the console after any change, as follows:
-
-_**Writing function**_
+_**After calling a writing function**_
 ```
  Aixt virtual pins     [#] = ON   [ ] = OFF
  _____ _____ _____ _____ _____ _____ _____ _____
@@ -36,31 +38,31 @@ _**Writing function**_
 | [#] | [ ] | [ ] | [ ] | [ ] | [#] | [ ] | [ ] |
 '-----'-----'-----'-----'-----'-----'-----'-----'
 ```
-_**Reading function**_
+_**After calling a reading function**_
 ```
  Aixt virtual pins     Input z : 1
 ```
 
-Usage: 
-```go
-import machine { pin }
-```
-#### Functions
+#### Supported functions
 name                    | description
 ------------------------|---------------------
-`pin_high(pin)`         | Set `pin`
-`pin_low(pin)`          | Reset `pin`
+`pin_high(pin)`         | Turn ON `pin`
+`pin_low(pin)`          | Turn OFF `pin`
 `pin_write(pin, val)`   | Write `val` in `pin`
 `pin_read(pin)`         | Read `pin`
 
-_Note:_ when using `pin_read()` the user has to write the value in the console manually.  
-
-## `os` module
-
-### `input()` function
-The input strings to be captured by the `input()` function having a fixed size of 30 characters.
+_Note: when using `pin_read()` the user has to write the value in the console manually._
 
 ## PWM
+Use the `machine` module and the `{ pwm }` submodule.
+```go
+import machine { pwm }
+
+pwm1_duty(40)       // set the duty cycle for PWM 1
+pwm2_duty(60)       // set the duty cycle for PWM 2
+```
+
+Console output:
 ```
  Aixt virtual PWM outputs
                                     PWM 1 :  40 %
@@ -68,3 +70,32 @@ The input strings to be captured by the `input()` function having a fixed size o
                                     PWM 2 :  60 %
 ||||||||||||||||||||||||||||||____________________
 ```
+
+## ADC
+Use the `machine` module and the `{ adc }` submodule.
+```go
+import machine { adc }
+
+val1, val2 := 0, 0
+val1 = adc1_read()       // read de ADC 1
+val2 = adc2_read()       // read de ADC 2
+```
+
+Console output:
+```
+Aixt virtual ADC input     ADC 1 : 23
+```
+```
+Aixt virtual ADC input     ADC 2 : 56
+```
+_**NOTE:** you can use the whole set of functions if you import all the machine module, like this._
+```go
+import machine
+```
+
+  
+
+## `os` module
+
+### `input()` function
+The input strings to be captured by the `input()` function having a fixed size of 30 characters.
