@@ -27,8 +27,8 @@ void pin_update(void) {
     printf(" Aixt virtual pins     [#] = ON   [ ] = OFF\n");
     printf(" _____ _____ _____ _____ _____ _____ _____ _____\n");
     printf("|  A  |  B  |  C  |  D  |  w  |  x  |  y  |  z  |\n");
-    for(int i=0; i<=7; i++) {
-        if(__pins[i] == 0) {
+    for(int __i=0; __i<=7; __i++) {
+        if(__pins[__i] == 0) {
             printf("| [ ] ");
         } else {
             printf("| [#] ");

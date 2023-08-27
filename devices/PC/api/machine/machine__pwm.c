@@ -8,19 +8,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int __duty1 = 10;
-int __duty2 = 100;
+int __duty1 = 0;
+int __duty2 = 0;
 
 void pwm_print(int duty) {
-    // printf("[ ");
-    for(int i=1; i<=50; i++) {
-        if(i <= (duty/2)) {
+    for(int __i=1; __i<=50; __i++) {
+        if(__i <= (duty/2)) {
             printf("|");
         } else {
             printf("_");
         }
     }
-    printf("\n");// ]\n");
+    printf("\n");
 }
 
 void pwm_update(void) {
