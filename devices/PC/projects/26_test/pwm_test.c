@@ -9,5 +9,10 @@
 #include "../../api/machine/machine__pwm.c"
 
 int main() {
-    pwm_update();
+    pwm2_duty(100);
+    for(int i=0; i<=40; i+=5) {
+        sleep(1);
+        pwm1_duty(i);
+        pwm2_duty(100-i);
+    }
 }

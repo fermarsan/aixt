@@ -33,12 +33,12 @@ _**Writing function**_
  Aixt virtual pins     [#] = ON   [ ] = OFF
  _____ _____ _____ _____ _____ _____ _____ _____
 |  A  |  B  |  C  |  D  |  w  |  x  |  y  |  z  |
-| [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| [#] | [ ] | [ ] | [ ] | [ ] | [#] | [ ] | [ ] |
 '-----'-----'-----'-----'-----'-----'-----'-----'
 ```
 _**Reading function**_
 ```
- Aixt virtual pins     Input z : _
+ Aixt virtual pins     Input z : 1
 ```
 
 Usage: 
@@ -60,4 +60,11 @@ _Note:_ when using `pin_read()` the user has to write the value in the console m
 ### `input()` function
 The input strings to be captured by the `input()` function having a fixed size of 30 characters.
 
-## 
+## PWM
+```
+ Aixt virtual PWM outputs
+                                    PWM 1 :  40 %
+||||||||||||||||||||______________________________
+                                    PWM 2 :  60 %
+||||||||||||||||||||||||||||||____________________
+```

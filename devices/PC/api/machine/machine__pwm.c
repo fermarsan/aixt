@@ -31,6 +31,12 @@ void pwm_update(void) {
     pwm_print(__duty2);
 }
 
-// void pwm1_duty(int duty) {
+void pwm1_duty(int duty) {
+    __duty1 = duty; 
+    pwm_update();
+}
 
-// }
+void pwm2_duty(int duty) {
+    __duty2 = duty; 
+    pwm_update();
+}
