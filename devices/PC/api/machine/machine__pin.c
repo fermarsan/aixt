@@ -19,8 +19,8 @@ enum pin_names {    // enumerated type for the pin names
     z
 };
 
-int pins[8] = {0, 0, 0, 0, 0, 0, 0, 0};    // virtual pin array
-int input;
+int __pins[8] = {0, 0, 0, 0, 0, 0, 0, 0};    // virtual pin array
+int __input;
 
 void pin_update(void) {
     system("clear");
@@ -28,7 +28,7 @@ void pin_update(void) {
     printf(" _____ _____ _____ _____ _____ _____ _____ _____\n");
     printf("|  A  |  B  |  C  |  D  |  w  |  x  |  y  |  z  |\n");
     for(int i=0; i<=7; i++) {
-        if(pins[i] == 0) {
+        if(__pins[i] == 0) {
             printf("| [ ] ");
         } else {
             printf("| [#] ");
@@ -52,24 +52,24 @@ char *pin_name(int pin) {
 } 
 
 void pin_high(int pin) {   
-    pins[pin] = 1;
+    __pins[pin] = 1;
     pin_update();
 }
 
 void pin_low(int pin) {   
-    pins[pin] = 0;
+    __pins[pin] = 0;
     pin_update();
 }
 
 void pin_write(int pin, int val) {  
-    pins[pin] = val;
+    __pins[pin] = val;
     pin_update();
 }
 
 int pin_read(int pin) {
     system("clear");
     printf(" Aixt virtual pins     Input %s : ", pin_name(pin));
-    scanf("%d", &input);
-    pin_write(pin, input);
-    return input;
+    scanf("%d", &__input);
+    pin_write(pin, __input);
+    return __input;
 }
