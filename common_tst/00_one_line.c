@@ -8,6 +8,6 @@
 
 
 int main() {
-	long a = 10;
+	float a = 10.5;
 	return 0;
 }
