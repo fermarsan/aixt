@@ -1,5 +1,5 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: machine__pin_emu.c
+// File Name: machine__pin.c
 // Author: Fernando Martínez Santa
 // Date: 2023
 // License: MIT
@@ -27,7 +27,7 @@ void pin_update(void) {
     printf(" Aixt virtual pins     [#] = ON   [ ] = OFF\n");
     printf(" _____ _____ _____ _____ _____ _____ _____ _____\n");
     printf("|  A  |  B  |  C  |  D  |  w  |  x  |  y  |  z  |\n");
-    for(int i=0;i<=7;i++) {
+    for(int i=0; i<=7; i++) {
         if(pins[i] == 0) {
             printf("| [ ] ");
         } else {

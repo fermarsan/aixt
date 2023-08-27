@@ -6,7 +6,7 @@
 //
 // Description: Pin emulation testing.
 #include "../../api/time.c"
-#include "../../api/machine/machine__pin_emu.c"
+#include "../../api/machine/machine__pin.c"
 
 int main() {
     pin_update();
