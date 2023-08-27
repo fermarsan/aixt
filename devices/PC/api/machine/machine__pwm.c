@@ -8,10 +8,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int duty1 = 10;
-int duty2 = 80;
+int __duty1 = 10;
+int __duty2 = 100;
 
 void pwm_print(int duty) {
+    // printf("[ ");
     for(int i=1; i<=50; i++) {
         if(i <= (duty/2)) {
             printf("|");
@@ -19,16 +20,16 @@ void pwm_print(int duty) {
             printf("_");
         }
     }
+    printf("\n");// ]\n");
 }
 
 void pwm_update(void) {
     system("clear");
     printf(" Aixt virtual PWM outputs\n");
-    printf("PWM 1 : %d%%\n", duty1);
-    pwm_print(duty1);
-    printf("\nPWM 2 : %d%%\n", duty2);
-    pwm_print(duty2);
-    printf("\n");
+    printf("\t\t\t\t    PWM 1 :  %d %%\n", __duty1);
+    pwm_print(__duty1);
+    printf("\t\t\t\t    PWM 2 :  %d %%\n", __duty2);
+    pwm_print(__duty2);
 }
 
 // void pwm1_duty(int duty) {
