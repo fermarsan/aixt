@@ -6,6 +6,6 @@ import machine
 a := 0
 
 for {
-	sleep(1000)
+	sleep(1)
 	a++
 }

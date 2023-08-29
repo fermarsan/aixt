@@ -37,3 +37,14 @@ fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
 	}
 	return out
 }
+
+fn (mut gen Gen) import(node ast.Import) string {
+	mut out := ''
+	// for f in node.fields {
+	// 	out += '${gen.ast_node(f)}'
+	// }
+	println(node.mod)
+	println(node.alias)
+	println(node.syms)	
+	return out
+}
