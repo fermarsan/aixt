@@ -3,7 +3,7 @@ Esta implementación de Aixt para PSoC 4 da soporte a las tarjetas:
 - CY8CKIT-049-42XX
 - CY8CKIT-145-40XX
 
-## Delay
+## Retardos
 Use the `time` module:
 ```go
 import time
