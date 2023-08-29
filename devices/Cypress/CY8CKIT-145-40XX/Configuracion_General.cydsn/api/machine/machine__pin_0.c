@@ -4,7 +4,7 @@
 // 
 // Copyright (c) 2023 Javier León, Camilo Lucas & Fernando Martínez Santa
 
-enum PIN_NAMES {
+enum pin_names {
     led1 = 0,    
     led4,
     led5,
@@ -22,19 +22,22 @@ enum PIN_NAMES {
     di2,        
 };
 
-// void pin_high(pins PIN) {   
+// void pin_high(int pin) {   
 //     *((int)(PIN/16)*3 + &LATA)  |=   0x0001<<(PIN%16);
 // }
 
-// void pin_low(pins PIN) {    
+// void pin_low(int pin) {    
 //     *((int)(PIN/16)*3 + &LATA)  &= ~(0x0001<<(PIN%16));
 // }
 
-void pin_write(pin_name PIN_NAMES, int VAL) {  
-    addr = (int)(PIN/16)*3 + &LATA;
-    port_bit = PIN % 16;
-    *addr &= (~((0x0001)<<port_bit));
-    *addr |= (VAL<<port_bit);  
+void pin_write(int pin, int val) {  
+    switch(pin){
+        led1: led1_Write(!val);
+        led4: led4_Write(!val);
+        ZERO: printf("zero"); return 2;
+        POS_INF: printf("pos inf"); return 3;
+        default: printf("not special"); break;
+    }
 }
 
 // void pin_read(pins PIN) {   
