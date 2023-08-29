@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum pin_names {    // enumerated type for the pin names
+enum __pin_names {    // enumerated type for the pin names
     A = 0,    
     B,
     C,
