@@ -1,14 +1,15 @@
-/* as in V, all variables in Aixt are local.
-   However,is it possible to make an exception
-   using the reserved word "__global" */
-
+// as in V, all variables in Aixt are local.
+// However,is it possible to make an exception
+// using the reserved word "__global"
 __global (
-	x = int(3)
-	y  int
+	x	int
+	y = 10
+	z = i16(50)
 )
 
-mut a := 1
+a := 1
+x = 9
 y = 5
 
-a = x + y + a
+a = x + y - z + a
 

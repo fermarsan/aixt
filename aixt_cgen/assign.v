@@ -13,7 +13,10 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut out := ''
 	mut var_type := ''
 	for i in 0 .. node.left.len {
-		var_name := '${gen.current_fn}.${node.left[i].str()}'
+		var_global_name := '${node.left[i].str()}'
+		var_name := '${gen.current_fn}.${var_global_name}'
+		
+		// println(var_name)
 		if node.op.str() == ':=' { // declaration-assignment
 			gen.idents[var_name] = struct { // add the new symbol
 				kind: ast.IdentKind.variable
@@ -55,8 +58,15 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 		} else { // for the rest of assignments
 			match node.left[i] {
 				ast.Ident {	// if it is a simple variable
-					if var_name in gen.idents {	// if previously defined
-						var_type = gen.table.type_kind(gen.idents[var_name].typ).str()
+					// println(gen.idents)
+					if var_name in gen.idents || var_global_name in gen.idents {	// if previously defined
+						var_type = if var_name in gen.idents {
+							gen.table.type_kind(gen.idents[var_name].typ).str()
+						} else if var_global_name in gen.idents {
+							gen.table.type_kind(gen.idents[var_global_name].typ).str()
+						} else {
+							panic('\n\n***** Transpiler error *****:\nUndefined variable "${node.left[i]}".\n')
+						}
 						match var_type {
 							'array' {
 								if gen.setup.value('fixed_size_arrays').bool() {

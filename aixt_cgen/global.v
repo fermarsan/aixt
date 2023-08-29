@@ -17,18 +17,33 @@ fn (mut gen Gen) global_field(node ast.GlobalField) string {
 	}
 	mut var_type := gen.table.type_kind(gen.idents[node.name].typ).str()
 	// println(var_type)
-	if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
-		out += if gen.setup.value(var_type).string() == 'char []' {
-			'char ${node.name.after('.')}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
-		} else {
-			'${gen.setup.value(var_type).string()} ${node.name.after('.')} = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
-		}								
-	} else {
-		out += if gen.setup.value(var_type).string() == 'char []' {
-			'char ${node.name.after('.')}[] = ${gen.ast_node(node.expr)};\n'
-		} else {
-			'${gen.setup.value(var_type).string()} ${node.name.after('.')} = ${gen.ast_node(node.expr)};\n'
+	// print('===${node.expr}=== ')
+	// if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
+	match node.expr {
+		ast.EmptyExpr {
+			// print('===${node.expr}=== ')
+			out += if gen.setup.value(var_type).string() == 'char []' {
+				'char ${node.name.after('.')}[];\n'
+			} else {
+				'${gen.setup.value(var_type).string()} ${node.name.after('.')};\n'
+			}
 		}
-	}
+		ast.CastExpr {
+			out += if gen.setup.value(var_type).string() == 'char []' {
+				'char ${node.name.after('.')}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
+			} else {
+				'${gen.setup.value(var_type).string()} ${node.name.after('.')} = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
+			}								
+		} 
+		else {
+			out += if gen.setup.value(var_type).string() == 'char []' {
+				'char ${node.name.after('.')}[] = ${gen.ast_node(node.expr)};\n'
+			} else {
+				'${gen.setup.value(var_type).string()} ${node.name.after('.')} = ${gen.ast_node(node.expr)};\n'
+			}
+		}
+	}	
+	// println(out)
+	// println(gen.symbol_table())
 	return out
 }

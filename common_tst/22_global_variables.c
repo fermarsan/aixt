@@ -6,8 +6,14 @@
 #include <stdbool.h>
 
 
+long x;
+long y = 10;
+short z = 50;
 
 int main() {
-	float a = 10.5;
+	long a = 1;
+	x = 9;
+	y = 5;
+	a = x + y - z + a;
 	return 0;
 }
