@@ -11,5 +11,6 @@
 int main() {
 	char var[80];
 	char str[] = "constant";
+	__string_assign(var, str);
 	return 0;
 }

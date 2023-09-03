@@ -39,7 +39,10 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 				'string' {
 					gen.idents[var_name].len = (node.right[i] as ast.StringLiteral).val.len // string len
 					gen.idents[var_name].elem_type = ast.rune_type_idx // element type
-					if gen.idents[var_name].len != 0 {	// Contants strings
+					if gen.idents[var_name].len != 0 {	// Constant strings
+						if gen.setup.value('fixed_size_strings').bool() {
+							gen.idents[var_name].kind = ast.IdentKind.constant
+						}
 						out += 'char ${gen.ast_node(node.left[i])}[] = '
 						out += if node.right[i].type_name() == 'v.ast.CastExpr' {
 							'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
@@ -80,8 +83,15 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 								}
 							}
 							'string' {
-								if gen.setup.value('fixed_size_strings').bool() {
-									panic('\n\n***** Transpiler error *****:\nFor now dynamic-size strings are not allowed.\n')
+								// if gen.setup.value('fixed_size_strings').bool() {
+								// 	panic('\n\n***** Transpiler error *****:\nFor now dynamic-size strings are not allowed.\n')
+								// }
+								if gen.idents[var_name].kind == ast.IdentKind.variable {
+									if node.op.str() == '=' {
+										out += '__string_assign(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+									}
+								} else {
+									panic('\n\n***** Transpiler error *****:\n${var_name} is a constant string.\n')
 								}
 							}
 							else {
