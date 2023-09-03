@@ -1,5 +1,5 @@
 /***************************************************************************//**
-* \file UART_SPI_UART_PVT.h
+* \file uart_SPI_UART_PVT.h
 * \version 4.0
 *
 * \brief
@@ -17,19 +17,19 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_SCB_SPI_UART_PVT_UART_H)
-#define CY_SCB_SPI_UART_PVT_UART_H
+#if !defined(CY_SCB_SPI_UART_PVT_uart_H)
+#define CY_SCB_SPI_UART_PVT_uart_H
 
-#include "UART_SPI_UART.h"
+#include "uart_SPI_UART.h"
 
 
 /***************************************
 *     Internal Global Vars
 ***************************************/
 
-#if (UART_INTERNAL_RX_SW_BUFFER_CONST)
-    extern volatile uint32  UART_rxBufferHead;
-    extern volatile uint32  UART_rxBufferTail;
+#if (uart_INTERNAL_RX_SW_BUFFER_CONST)
+    extern volatile uint32  uart_rxBufferHead;
+    extern volatile uint32  uart_rxBufferTail;
     
     /**
     * \addtogroup group_globals
@@ -39,64 +39,64 @@
     /** Sets when internal software receive buffer overflow
      *  was occurred.
     */  
-    extern volatile uint8   UART_rxBufferOverflow;
+    extern volatile uint8   uart_rxBufferOverflow;
     /** @} globals */
-#endif /* (UART_INTERNAL_RX_SW_BUFFER_CONST) */
+#endif /* (uart_INTERNAL_RX_SW_BUFFER_CONST) */
 
-#if (UART_INTERNAL_TX_SW_BUFFER_CONST)
-    extern volatile uint32  UART_txBufferHead;
-    extern volatile uint32  UART_txBufferTail;
-#endif /* (UART_INTERNAL_TX_SW_BUFFER_CONST) */
+#if (uart_INTERNAL_TX_SW_BUFFER_CONST)
+    extern volatile uint32  uart_txBufferHead;
+    extern volatile uint32  uart_txBufferTail;
+#endif /* (uart_INTERNAL_TX_SW_BUFFER_CONST) */
 
-#if (UART_INTERNAL_RX_SW_BUFFER)
-    extern volatile uint8 UART_rxBufferInternal[UART_INTERNAL_RX_BUFFER_SIZE];
-#endif /* (UART_INTERNAL_RX_SW_BUFFER) */
+#if (uart_INTERNAL_RX_SW_BUFFER)
+    extern volatile uint8 uart_rxBufferInternal[uart_INTERNAL_RX_BUFFER_SIZE];
+#endif /* (uart_INTERNAL_RX_SW_BUFFER) */
 
-#if (UART_INTERNAL_TX_SW_BUFFER)
-    extern volatile uint8 UART_txBufferInternal[UART_TX_BUFFER_SIZE];
-#endif /* (UART_INTERNAL_TX_SW_BUFFER) */
+#if (uart_INTERNAL_TX_SW_BUFFER)
+    extern volatile uint8 uart_txBufferInternal[uart_TX_BUFFER_SIZE];
+#endif /* (uart_INTERNAL_TX_SW_BUFFER) */
 
 
 /***************************************
 *     Private Function Prototypes
 ***************************************/
 
-void UART_SpiPostEnable(void);
-void UART_SpiStop(void);
+void uart_SpiPostEnable(void);
+void uart_SpiStop(void);
 
-#if (UART_SCB_MODE_SPI_CONST_CFG)
-    void UART_SpiInit(void);
-#endif /* (UART_SCB_MODE_SPI_CONST_CFG) */
+#if (uart_SCB_MODE_SPI_CONST_CFG)
+    void uart_SpiInit(void);
+#endif /* (uart_SCB_MODE_SPI_CONST_CFG) */
 
-#if (UART_SPI_WAKE_ENABLE_CONST)
-    void UART_SpiSaveConfig(void);
-    void UART_SpiRestoreConfig(void);
-#endif /* (UART_SPI_WAKE_ENABLE_CONST) */
+#if (uart_SPI_WAKE_ENABLE_CONST)
+    void uart_SpiSaveConfig(void);
+    void uart_SpiRestoreConfig(void);
+#endif /* (uart_SPI_WAKE_ENABLE_CONST) */
 
-void UART_UartPostEnable(void);
-void UART_UartStop(void);
+void uart_UartPostEnable(void);
+void uart_UartStop(void);
 
-#if (UART_SCB_MODE_UART_CONST_CFG)
-    void UART_UartInit(void);
-#endif /* (UART_SCB_MODE_UART_CONST_CFG) */
+#if (uart_SCB_MODE_UART_CONST_CFG)
+    void uart_UartInit(void);
+#endif /* (uart_SCB_MODE_UART_CONST_CFG) */
 
-#if (UART_UART_WAKE_ENABLE_CONST)
-    void UART_UartSaveConfig(void);
-    void UART_UartRestoreConfig(void);
-#endif /* (UART_UART_WAKE_ENABLE_CONST) */
+#if (uart_UART_WAKE_ENABLE_CONST)
+    void uart_UartSaveConfig(void);
+    void uart_UartRestoreConfig(void);
+#endif /* (uart_UART_WAKE_ENABLE_CONST) */
 
 
 /***************************************
 *         UART API Constants
 ***************************************/
 
-/* UART RX and TX position to be used in UART_SetPins() */
-#define UART_UART_RX_PIN_ENABLE    (UART_UART_RX)
-#define UART_UART_TX_PIN_ENABLE    (UART_UART_TX)
+/* UART RX and TX position to be used in uart_SetPins() */
+#define uart_UART_RX_PIN_ENABLE    (uart_UART_RX)
+#define uart_UART_TX_PIN_ENABLE    (uart_UART_TX)
 
-/* UART RTS and CTS position to be used in  UART_SetPins() */
-#define UART_UART_RTS_PIN_ENABLE    (0x10u)
-#define UART_UART_CTS_PIN_ENABLE    (0x20u)
+/* UART RTS and CTS position to be used in  uart_SetPins() */
+#define uart_UART_RTS_PIN_ENABLE    (0x10u)
+#define uart_UART_CTS_PIN_ENABLE    (0x20u)
 
 
 /***************************************
@@ -105,13 +105,13 @@ void UART_UartStop(void);
 ***************************************/
 
 /* Interrupt processing */
-#define UART_SpiUartEnableIntRx(intSourceMask)  UART_SetRxInterruptMode(intSourceMask)
-#define UART_SpiUartEnableIntTx(intSourceMask)  UART_SetTxInterruptMode(intSourceMask)
-uint32  UART_SpiUartDisableIntRx(void);
-uint32  UART_SpiUartDisableIntTx(void);
+#define uart_SpiUartEnableIntRx(intSourceMask)  uart_SetRxInterruptMode(intSourceMask)
+#define uart_SpiUartEnableIntTx(intSourceMask)  uart_SetTxInterruptMode(intSourceMask)
+uint32  uart_SpiUartDisableIntRx(void);
+uint32  uart_SpiUartDisableIntTx(void);
 
 
-#endif /* (CY_SCB_SPI_UART_PVT_UART_H) */
+#endif /* (CY_SCB_SPI_UART_PVT_uart_H) */
 
 
 /* [] END OF FILE */

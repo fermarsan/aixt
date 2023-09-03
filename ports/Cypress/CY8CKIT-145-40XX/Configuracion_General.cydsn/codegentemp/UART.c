@@ -1,5 +1,5 @@
 /***************************************************************************//**
-* \file UART.c
+* \file uart.c
 * \version 4.0
 *
 * \brief
@@ -15,19 +15,19 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "UART_PVT.h"
+#include "uart_PVT.h"
 
-#if (UART_SCB_MODE_I2C_INC)
-    #include "UART_I2C_PVT.h"
-#endif /* (UART_SCB_MODE_I2C_INC) */
+#if (uart_SCB_MODE_I2C_INC)
+    #include "uart_I2C_PVT.h"
+#endif /* (uart_SCB_MODE_I2C_INC) */
 
-#if (UART_SCB_MODE_EZI2C_INC)
-    #include "UART_EZI2C_PVT.h"
-#endif /* (UART_SCB_MODE_EZI2C_INC) */
+#if (uart_SCB_MODE_EZI2C_INC)
+    #include "uart_EZI2C_PVT.h"
+#endif /* (uart_SCB_MODE_EZI2C_INC) */
 
-#if (UART_SCB_MODE_SPI_INC || UART_SCB_MODE_UART_INC)
-    #include "UART_SPI_UART_PVT.h"
-#endif /* (UART_SCB_MODE_SPI_INC || UART_SCB_MODE_UART_INC) */
+#if (uart_SCB_MODE_SPI_INC || uart_SCB_MODE_UART_INC)
+    #include "uart_SPI_UART_PVT.h"
+#endif /* (uart_SCB_MODE_SPI_INC || uart_SCB_MODE_UART_INC) */
 
 
 /***************************************
@@ -35,29 +35,29 @@
 ***************************************/
 
 /* Stores internal component configuration for Unconfigured mode */
-#if (UART_SCB_MODE_UNCONFIG_CONST_CFG)
+#if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
     /* Common configuration variables */
-    uint8 UART_scbMode = UART_SCB_MODE_UNCONFIG;
-    uint8 UART_scbEnableWake;
-    uint8 UART_scbEnableIntr;
+    uint8 uart_scbMode = uart_SCB_MODE_UNCONFIG;
+    uint8 uart_scbEnableWake;
+    uint8 uart_scbEnableIntr;
 
     /* I2C configuration variables */
-    uint8 UART_mode;
-    uint8 UART_acceptAddr;
+    uint8 uart_mode;
+    uint8 uart_acceptAddr;
 
     /* SPI/UART configuration variables */
-    volatile uint8 * UART_rxBuffer;
-    uint8  UART_rxDataBits;
-    uint32 UART_rxBufferSize;
+    volatile uint8 * uart_rxBuffer;
+    uint8  uart_rxDataBits;
+    uint32 uart_rxBufferSize;
 
-    volatile uint8 * UART_txBuffer;
-    uint8  UART_txDataBits;
-    uint32 UART_txBufferSize;
+    volatile uint8 * uart_txBuffer;
+    uint8  uart_txDataBits;
+    uint32 uart_txBufferSize;
 
     /* EZI2C configuration variables */
-    uint8 UART_numberOfAddr;
-    uint8 UART_subAddrSize;
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+    uint8 uart_numberOfAddr;
+    uint8 uart_subAddrSize;
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 
 
 /***************************************
@@ -68,166 +68,166 @@
 * \{
 */
 
-/** UART_initVar indicates whether the UART 
+/** uart_initVar indicates whether the uart 
 *  component has been initialized. The variable is initialized to 0 
 *  and set to 1 the first time SCB_Start() is called. This allows 
 *  the component to restart without reinitialization after the first 
-*  call to the UART_Start() routine.
+*  call to the uart_Start() routine.
 *
 *  If re-initialization of the component is required, then the 
-*  UART_Init() function can be called before the 
-*  UART_Start() or UART_Enable() function.
+*  uart_Init() function can be called before the 
+*  uart_Start() or uart_Enable() function.
 */
-uint8 UART_initVar = 0u;
+uint8 uart_initVar = 0u;
 
 
-#if (! (UART_SCB_MODE_I2C_CONST_CFG || \
-        UART_SCB_MODE_EZI2C_CONST_CFG))
+#if (! (uart_SCB_MODE_I2C_CONST_CFG || \
+        uart_SCB_MODE_EZI2C_CONST_CFG))
     /** This global variable stores TX interrupt sources after 
-    * UART_Stop() is called. Only these TX interrupt sources 
-    * will be restored on a subsequent UART_Enable() call.
+    * uart_Stop() is called. Only these TX interrupt sources 
+    * will be restored on a subsequent uart_Enable() call.
     */
-    uint16 UART_IntrTxMask = 0u;
-#endif /* (! (UART_SCB_MODE_I2C_CONST_CFG || \
-              UART_SCB_MODE_EZI2C_CONST_CFG)) */
+    uint16 uart_IntrTxMask = 0u;
+#endif /* (! (uart_SCB_MODE_I2C_CONST_CFG || \
+              uart_SCB_MODE_EZI2C_CONST_CFG)) */
 /** \} globals */
 
-#if (UART_SCB_IRQ_INTERNAL)
-#if !defined (CY_REMOVE_UART_CUSTOM_INTR_HANDLER)
-    void (*UART_customIntrHandler)(void) = NULL;
-#endif /* !defined (CY_REMOVE_UART_CUSTOM_INTR_HANDLER) */
-#endif /* (UART_SCB_IRQ_INTERNAL) */
+#if (uart_SCB_IRQ_INTERNAL)
+#if !defined (CY_REMOVE_uart_CUSTOM_INTR_HANDLER)
+    void (*uart_customIntrHandler)(void) = NULL;
+#endif /* !defined (CY_REMOVE_uart_CUSTOM_INTR_HANDLER) */
+#endif /* (uart_SCB_IRQ_INTERNAL) */
 
 
 /***************************************
 *    Private Function Prototypes
 ***************************************/
 
-static void UART_ScbEnableIntr(void);
-static void UART_ScbModeStop(void);
-static void UART_ScbModePostEnable(void);
+static void uart_ScbEnableIntr(void);
+static void uart_ScbModeStop(void);
+static void uart_ScbModePostEnable(void);
 
 
 /*******************************************************************************
-* Function Name: UART_Init
+* Function Name: uart_Init
 ****************************************************************************//**
 *
-*  Initializes the UART component to operate in one of the selected
+*  Initializes the uart component to operate in one of the selected
 *  configurations: I2C, SPI, UART or EZI2C.
 *  When the configuration is set to "Unconfigured SCB", this function does
 *  not do any initialization. Use mode-specific initialization APIs instead:
-*  UART_I2CInit, UART_SpiInit, 
-*  UART_UartInit or UART_EzI2CInit.
+*  uart_I2CInit, uart_SpiInit, 
+*  uart_UartInit or uart_EzI2CInit.
 *
 *******************************************************************************/
-void UART_Init(void)
+void uart_Init(void)
 {
-#if (UART_SCB_MODE_UNCONFIG_CONST_CFG)
-    if (UART_SCB_MODE_UNCONFIG_RUNTM_CFG)
+#if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+    if (uart_SCB_MODE_UNCONFIG_RUNTM_CFG)
     {
-        UART_initVar = 0u;
+        uart_initVar = 0u;
     }
     else
     {
         /* Initialization was done before this function call */
     }
 
-#elif (UART_SCB_MODE_I2C_CONST_CFG)
-    UART_I2CInit();
+#elif (uart_SCB_MODE_I2C_CONST_CFG)
+    uart_I2CInit();
 
-#elif (UART_SCB_MODE_SPI_CONST_CFG)
-    UART_SpiInit();
+#elif (uart_SCB_MODE_SPI_CONST_CFG)
+    uart_SpiInit();
 
-#elif (UART_SCB_MODE_UART_CONST_CFG)
-    UART_UartInit();
+#elif (uart_SCB_MODE_UART_CONST_CFG)
+    uart_UartInit();
 
-#elif (UART_SCB_MODE_EZI2C_CONST_CFG)
-    UART_EzI2CInit();
+#elif (uart_SCB_MODE_EZI2C_CONST_CFG)
+    uart_EzI2CInit();
 
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 }
 
 
 /*******************************************************************************
-* Function Name: UART_Enable
+* Function Name: uart_Enable
 ****************************************************************************//**
 *
-*  Enables UART component operation: activates the hardware and 
+*  Enables uart component operation: activates the hardware and 
 *  internal interrupt. It also restores TX interrupt sources disabled after the 
-*  UART_Stop() function was called (note that level-triggered TX 
+*  uart_Stop() function was called (note that level-triggered TX 
 *  interrupt sources remain disabled to not cause code lock-up).
 *  For I2C and EZI2C modes the interrupt is internal and mandatory for 
 *  operation. For SPI and UART modes the interrupt can be configured as none, 
 *  internal or external.
-*  The UART configuration should be not changed when the component
+*  The uart configuration should be not changed when the component
 *  is enabled. Any configuration changes should be made after disabling the 
 *  component.
-*  When configuration is set to “Unconfigured UART”, the component 
+*  When configuration is set to “Unconfigured uart”, the component 
 *  must first be initialized to operate in one of the following configurations: 
 *  I2C, SPI, UART or EZ I2C, using the mode-specific initialization API. 
 *  Otherwise this function does not enable the component.
 *
 *******************************************************************************/
-void UART_Enable(void)
+void uart_Enable(void)
 {
-#if (UART_SCB_MODE_UNCONFIG_CONST_CFG)
+#if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
     /* Enable SCB block, only if it is already configured */
-    if (!UART_SCB_MODE_UNCONFIG_RUNTM_CFG)
+    if (!uart_SCB_MODE_UNCONFIG_RUNTM_CFG)
     {
-        UART_CTRL_REG |= UART_CTRL_ENABLED;
+        uart_CTRL_REG |= uart_CTRL_ENABLED;
 
-        UART_ScbEnableIntr();
+        uart_ScbEnableIntr();
 
         /* Call PostEnable function specific to current operation mode */
-        UART_ScbModePostEnable();
+        uart_ScbModePostEnable();
     }
 #else
-    UART_CTRL_REG |= UART_CTRL_ENABLED;
+    uart_CTRL_REG |= uart_CTRL_ENABLED;
 
-    UART_ScbEnableIntr();
+    uart_ScbEnableIntr();
 
     /* Call PostEnable function specific to current operation mode */
-    UART_ScbModePostEnable();
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+    uart_ScbModePostEnable();
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 }
 
 
 /*******************************************************************************
-* Function Name: UART_Start
+* Function Name: uart_Start
 ****************************************************************************//**
 *
-*  Invokes UART_Init() and UART_Enable().
+*  Invokes uart_Init() and uart_Enable().
 *  After this function call, the component is enabled and ready for operation.
 *  When configuration is set to "Unconfigured SCB", the component must first be
 *  initialized to operate in one of the following configurations: I2C, SPI, UART
 *  or EZI2C. Otherwise this function does not enable the component.
 *
 * \globalvars
-*  UART_initVar - used to check initial configuration, modified
+*  uart_initVar - used to check initial configuration, modified
 *  on first function call.
 *
 *******************************************************************************/
-void UART_Start(void)
+void uart_Start(void)
 {
-    if (0u == UART_initVar)
+    if (0u == uart_initVar)
     {
-        UART_Init();
-        UART_initVar = 1u; /* Component was initialized */
+        uart_Init();
+        uart_initVar = 1u; /* Component was initialized */
     }
 
-    UART_Enable();
+    uart_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: UART_Stop
+* Function Name: uart_Stop
 ****************************************************************************//**
 *
-*  Disables the UART component: disable the hardware and internal 
+*  Disables the uart component: disable the hardware and internal 
 *  interrupt. It also disables all TX interrupt sources so as not to cause an 
 *  unexpected interrupt trigger because after the component is enabled, the 
 *  TX FIFO is empty.
-*  Refer to the function UART_Enable() for the interrupt 
+*  Refer to the function uart_Enable() for the interrupt 
 *  configuration details.
 *  This function disables the SCB component without checking to see if 
 *  communication is in progress. Before calling this function it may be 
@@ -236,17 +236,17 @@ void UART_Start(void)
 *  byte and corrupted data could result.
 *
 *******************************************************************************/
-void UART_Stop(void)
+void uart_Stop(void)
 {
-#if (UART_SCB_IRQ_INTERNAL)
-    UART_DisableInt();
-#endif /* (UART_SCB_IRQ_INTERNAL) */
+#if (uart_SCB_IRQ_INTERNAL)
+    uart_DisableInt();
+#endif /* (uart_SCB_IRQ_INTERNAL) */
 
     /* Call Stop function specific to current operation mode */
-    UART_ScbModeStop();
+    uart_ScbModeStop();
 
     /* Disable SCB IP */
-    UART_CTRL_REG &= (uint32) ~UART_CTRL_ENABLED;
+    uart_CTRL_REG &= (uint32) ~uart_CTRL_ENABLED;
 
     /* Disable all TX interrupt sources so as not to cause an unexpected
     * interrupt trigger after the component will be enabled because the 
@@ -256,16 +256,16 @@ void UART_Stop(void)
     * interrupt handler because TX FIFO cannot be loaded after the block
     * is disabled.
     */
-    UART_SetTxInterruptMode(UART_NO_INTR_SOURCES);
+    uart_SetTxInterruptMode(uart_NO_INTR_SOURCES);
 
-#if (UART_SCB_IRQ_INTERNAL)
-    UART_ClearPendingInt();
-#endif /* (UART_SCB_IRQ_INTERNAL) */
+#if (uart_SCB_IRQ_INTERNAL)
+    uart_ClearPendingInt();
+#endif /* (uart_SCB_IRQ_INTERNAL) */
 }
 
 
 /*******************************************************************************
-* Function Name: UART_SetRxFifoLevel
+* Function Name: uart_SetRxFifoLevel
 ****************************************************************************//**
 *
 *  Sets level in the RX FIFO to generate a RX level interrupt.
@@ -276,21 +276,21 @@ void UART_Stop(void)
 *   The range of valid level values is between 0 and RX FIFO depth - 1.
 *
 *******************************************************************************/
-void UART_SetRxFifoLevel(uint32 level)
+void uart_SetRxFifoLevel(uint32 level)
 {
     uint32 rxFifoCtrl;
 
-    rxFifoCtrl = UART_RX_FIFO_CTRL_REG;
+    rxFifoCtrl = uart_RX_FIFO_CTRL_REG;
 
-    rxFifoCtrl &= ((uint32) ~UART_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK); /* Clear level mask bits */
-    rxFifoCtrl |= ((uint32) (UART_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
+    rxFifoCtrl &= ((uint32) ~uart_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK); /* Clear level mask bits */
+    rxFifoCtrl |= ((uint32) (uart_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
 
-    UART_RX_FIFO_CTRL_REG = rxFifoCtrl;
+    uart_RX_FIFO_CTRL_REG = rxFifoCtrl;
 }
 
 
 /*******************************************************************************
-* Function Name: UART_SetTxFifoLevel
+* Function Name: uart_SetTxFifoLevel
 ****************************************************************************//**
 *
 *  Sets level in the TX FIFO to generate a TX level interrupt.
@@ -301,22 +301,22 @@ void UART_SetRxFifoLevel(uint32 level)
 *   The range of valid level values is between 0 and TX FIFO depth - 1.
 *
 *******************************************************************************/
-void UART_SetTxFifoLevel(uint32 level)
+void uart_SetTxFifoLevel(uint32 level)
 {
     uint32 txFifoCtrl;
 
-    txFifoCtrl = UART_TX_FIFO_CTRL_REG;
+    txFifoCtrl = uart_TX_FIFO_CTRL_REG;
 
-    txFifoCtrl &= ((uint32) ~UART_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK); /* Clear level mask bits */
-    txFifoCtrl |= ((uint32) (UART_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
+    txFifoCtrl &= ((uint32) ~uart_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK); /* Clear level mask bits */
+    txFifoCtrl |= ((uint32) (uart_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
 
-    UART_TX_FIFO_CTRL_REG = txFifoCtrl;
+    uart_TX_FIFO_CTRL_REG = txFifoCtrl;
 }
 
 
-#if (UART_SCB_IRQ_INTERNAL)
+#if (uart_SCB_IRQ_INTERNAL)
     /*******************************************************************************
-    * Function Name: UART_SetCustomInterruptHandler
+    * Function Name: uart_SetCustomInterruptHandler
     ****************************************************************************//**
     *
     *  Registers a function to be called by the internal interrupt handler.
@@ -332,135 +332,135 @@ void UART_SetTxFifoLevel(uint32 level)
     *        handler.
     *
     *******************************************************************************/
-    void UART_SetCustomInterruptHandler(void (*func)(void))
+    void uart_SetCustomInterruptHandler(void (*func)(void))
     {
-    #if !defined (CY_REMOVE_UART_CUSTOM_INTR_HANDLER)
-        UART_customIntrHandler = func; /* Register interrupt handler */
+    #if !defined (CY_REMOVE_uart_CUSTOM_INTR_HANDLER)
+        uart_customIntrHandler = func; /* Register interrupt handler */
     #else
         if (NULL != func)
         {
             /* Suppress compiler warning */
         }
-    #endif /* !defined (CY_REMOVE_UART_CUSTOM_INTR_HANDLER) */
+    #endif /* !defined (CY_REMOVE_uart_CUSTOM_INTR_HANDLER) */
     }
-#endif /* (UART_SCB_IRQ_INTERNAL) */
+#endif /* (uart_SCB_IRQ_INTERNAL) */
 
 
 /*******************************************************************************
-* Function Name: UART_ScbModeEnableIntr
+* Function Name: uart_ScbModeEnableIntr
 ****************************************************************************//**
 *
 *  Enables an interrupt for a specific mode.
 *
 *******************************************************************************/
-static void UART_ScbEnableIntr(void)
+static void uart_ScbEnableIntr(void)
 {
-#if (UART_SCB_IRQ_INTERNAL)
+#if (uart_SCB_IRQ_INTERNAL)
     /* Enable interrupt in NVIC */
-    #if (UART_SCB_MODE_UNCONFIG_CONST_CFG)
-        if (0u != UART_scbEnableIntr)
+    #if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+        if (0u != uart_scbEnableIntr)
         {
-            UART_EnableInt();
+            uart_EnableInt();
         }
 
     #else
-        UART_EnableInt();
+        uart_EnableInt();
 
-    #endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
-#endif /* (UART_SCB_IRQ_INTERNAL) */
+    #endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
+#endif /* (uart_SCB_IRQ_INTERNAL) */
 }
 
 
 /*******************************************************************************
-* Function Name: UART_ScbModePostEnable
+* Function Name: uart_ScbModePostEnable
 ****************************************************************************//**
 *
 *  Calls the PostEnable function for a specific operation mode.
 *
 *******************************************************************************/
-static void UART_ScbModePostEnable(void)
+static void uart_ScbModePostEnable(void)
 {
-#if (UART_SCB_MODE_UNCONFIG_CONST_CFG)
-#if (!UART_CY_SCBIP_V1)
-    if (UART_SCB_MODE_SPI_RUNTM_CFG)
+#if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+#if (!uart_CY_SCBIP_V1)
+    if (uart_SCB_MODE_SPI_RUNTM_CFG)
     {
-        UART_SpiPostEnable();
+        uart_SpiPostEnable();
     }
-    else if (UART_SCB_MODE_UART_RUNTM_CFG)
+    else if (uart_SCB_MODE_UART_RUNTM_CFG)
     {
-        UART_UartPostEnable();
+        uart_UartPostEnable();
     }
     else
     {
         /* Unknown mode: do nothing */
     }
-#endif /* (!UART_CY_SCBIP_V1) */
+#endif /* (!uart_CY_SCBIP_V1) */
 
-#elif (UART_SCB_MODE_SPI_CONST_CFG)
-    UART_SpiPostEnable();
+#elif (uart_SCB_MODE_SPI_CONST_CFG)
+    uart_SpiPostEnable();
 
-#elif (UART_SCB_MODE_UART_CONST_CFG)
-    UART_UartPostEnable();
+#elif (uart_SCB_MODE_UART_CONST_CFG)
+    uart_UartPostEnable();
 
 #else
     /* Unknown mode: do nothing */
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 }
 
 
 /*******************************************************************************
-* Function Name: UART_ScbModeStop
+* Function Name: uart_ScbModeStop
 ****************************************************************************//**
 *
 *  Calls the Stop function for a specific operation mode.
 *
 *******************************************************************************/
-static void UART_ScbModeStop(void)
+static void uart_ScbModeStop(void)
 {
-#if (UART_SCB_MODE_UNCONFIG_CONST_CFG)
-    if (UART_SCB_MODE_I2C_RUNTM_CFG)
+#if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+    if (uart_SCB_MODE_I2C_RUNTM_CFG)
     {
-        UART_I2CStop();
+        uart_I2CStop();
     }
-    else if (UART_SCB_MODE_EZI2C_RUNTM_CFG)
+    else if (uart_SCB_MODE_EZI2C_RUNTM_CFG)
     {
-        UART_EzI2CStop();
+        uart_EzI2CStop();
     }
-#if (!UART_CY_SCBIP_V1)
-    else if (UART_SCB_MODE_SPI_RUNTM_CFG)
+#if (!uart_CY_SCBIP_V1)
+    else if (uart_SCB_MODE_SPI_RUNTM_CFG)
     {
-        UART_SpiStop();
+        uart_SpiStop();
     }
-    else if (UART_SCB_MODE_UART_RUNTM_CFG)
+    else if (uart_SCB_MODE_UART_RUNTM_CFG)
     {
-        UART_UartStop();
+        uart_UartStop();
     }
-#endif /* (!UART_CY_SCBIP_V1) */
+#endif /* (!uart_CY_SCBIP_V1) */
     else
     {
         /* Unknown mode: do nothing */
     }
-#elif (UART_SCB_MODE_I2C_CONST_CFG)
-    UART_I2CStop();
+#elif (uart_SCB_MODE_I2C_CONST_CFG)
+    uart_I2CStop();
 
-#elif (UART_SCB_MODE_EZI2C_CONST_CFG)
-    UART_EzI2CStop();
+#elif (uart_SCB_MODE_EZI2C_CONST_CFG)
+    uart_EzI2CStop();
 
-#elif (UART_SCB_MODE_SPI_CONST_CFG)
-    UART_SpiStop();
+#elif (uart_SCB_MODE_SPI_CONST_CFG)
+    uart_SpiStop();
 
-#elif (UART_SCB_MODE_UART_CONST_CFG)
-    UART_UartStop();
+#elif (uart_SCB_MODE_UART_CONST_CFG)
+    uart_UartStop();
 
 #else
     /* Unknown mode: do nothing */
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 }
 
 
-#if (UART_SCB_MODE_UNCONFIG_CONST_CFG)
+#if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
     /*******************************************************************************
-    * Function Name: UART_SetPins
+    * Function Name: uart_SetPins
     ****************************************************************************//**
     *
     *  Sets the pins settings accordingly to the selected operation mode.
@@ -475,19 +475,19 @@ static void UART_ScbModeStop(void)
     *  \param uartEnableMask: enables TX or RX direction and RTS and CTS signals.
     *
     *******************************************************************************/
-    void UART_SetPins(uint32 mode, uint32 subMode, uint32 uartEnableMask)
+    void uart_SetPins(uint32 mode, uint32 subMode, uint32 uartEnableMask)
     {
-        uint32 pinsDm[UART_SCB_PINS_NUMBER];
+        uint32 pinsDm[uart_SCB_PINS_NUMBER];
         uint32 i;
         
-    #if (!UART_CY_SCBIP_V1)
+    #if (!uart_CY_SCBIP_V1)
         uint32 pinsInBuf = 0u;
-    #endif /* (!UART_CY_SCBIP_V1) */
+    #endif /* (!uart_CY_SCBIP_V1) */
         
-        uint32 hsiomSel[UART_SCB_PINS_NUMBER] = 
+        uint32 hsiomSel[uart_SCB_PINS_NUMBER] = 
         {
-            UART_RX_SCL_MOSI_HSIOM_SEL_GPIO,
-            UART_TX_SDA_MISO_HSIOM_SEL_GPIO,
+            uart_RX_SCL_MOSI_HSIOM_SEL_GPIO,
+            uart_TX_SDA_MISO_HSIOM_SEL_GPIO,
             0u,
             0u,
             0u,
@@ -495,324 +495,324 @@ static void UART_ScbModeStop(void)
             0u,
         };
 
-    #if (UART_CY_SCBIP_V1)
+    #if (uart_CY_SCBIP_V1)
         /* Supress compiler warning. */
         if ((0u == subMode) || (0u == uartEnableMask))
         {
         }
-    #endif /* (UART_CY_SCBIP_V1) */
+    #endif /* (uart_CY_SCBIP_V1) */
 
         /* Set default HSIOM to GPIO and Drive Mode to Analog Hi-Z */
-        for (i = 0u; i < UART_SCB_PINS_NUMBER; i++)
+        for (i = 0u; i < uart_SCB_PINS_NUMBER; i++)
         {
-            pinsDm[i] = UART_PIN_DM_ALG_HIZ;
+            pinsDm[i] = uart_PIN_DM_ALG_HIZ;
         }
 
-        if ((UART_SCB_MODE_I2C   == mode) ||
-            (UART_SCB_MODE_EZI2C == mode))
+        if ((uart_SCB_MODE_I2C   == mode) ||
+            (uart_SCB_MODE_EZI2C == mode))
         {
-        #if (UART_RX_SCL_MOSI_PIN)
-            hsiomSel[UART_RX_SCL_MOSI_PIN_INDEX] = UART_RX_SCL_MOSI_HSIOM_SEL_I2C;
-            pinsDm  [UART_RX_SCL_MOSI_PIN_INDEX] = UART_PIN_DM_OD_LO;
-        #elif (UART_RX_WAKE_SCL_MOSI_PIN)
-            hsiomSel[UART_RX_WAKE_SCL_MOSI_PIN_INDEX] = UART_RX_WAKE_SCL_MOSI_HSIOM_SEL_I2C;
-            pinsDm  [UART_RX_WAKE_SCL_MOSI_PIN_INDEX] = UART_PIN_DM_OD_LO;
+        #if (uart_RX_SCL_MOSI_PIN)
+            hsiomSel[uart_RX_SCL_MOSI_PIN_INDEX] = uart_RX_SCL_MOSI_HSIOM_SEL_I2C;
+            pinsDm  [uart_RX_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_OD_LO;
+        #elif (uart_RX_WAKE_SCL_MOSI_PIN)
+            hsiomSel[uart_RX_WAKE_SCL_MOSI_PIN_INDEX] = uart_RX_WAKE_SCL_MOSI_HSIOM_SEL_I2C;
+            pinsDm  [uart_RX_WAKE_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_OD_LO;
         #else
-        #endif /* (UART_RX_SCL_MOSI_PIN) */
+        #endif /* (uart_RX_SCL_MOSI_PIN) */
         
-        #if (UART_TX_SDA_MISO_PIN)
-            hsiomSel[UART_TX_SDA_MISO_PIN_INDEX] = UART_TX_SDA_MISO_HSIOM_SEL_I2C;
-            pinsDm  [UART_TX_SDA_MISO_PIN_INDEX] = UART_PIN_DM_OD_LO;
-        #endif /* (UART_TX_SDA_MISO_PIN) */
+        #if (uart_TX_SDA_MISO_PIN)
+            hsiomSel[uart_TX_SDA_MISO_PIN_INDEX] = uart_TX_SDA_MISO_HSIOM_SEL_I2C;
+            pinsDm  [uart_TX_SDA_MISO_PIN_INDEX] = uart_PIN_DM_OD_LO;
+        #endif /* (uart_TX_SDA_MISO_PIN) */
         }
-    #if (!UART_CY_SCBIP_V1)
-        else if (UART_SCB_MODE_SPI == mode)
+    #if (!uart_CY_SCBIP_V1)
+        else if (uart_SCB_MODE_SPI == mode)
         {
-        #if (UART_RX_SCL_MOSI_PIN)
-            hsiomSel[UART_RX_SCL_MOSI_PIN_INDEX] = UART_RX_SCL_MOSI_HSIOM_SEL_SPI;
-        #elif (UART_RX_WAKE_SCL_MOSI_PIN)
-            hsiomSel[UART_RX_WAKE_SCL_MOSI_PIN_INDEX] = UART_RX_WAKE_SCL_MOSI_HSIOM_SEL_SPI;
+        #if (uart_RX_SCL_MOSI_PIN)
+            hsiomSel[uart_RX_SCL_MOSI_PIN_INDEX] = uart_RX_SCL_MOSI_HSIOM_SEL_SPI;
+        #elif (uart_RX_WAKE_SCL_MOSI_PIN)
+            hsiomSel[uart_RX_WAKE_SCL_MOSI_PIN_INDEX] = uart_RX_WAKE_SCL_MOSI_HSIOM_SEL_SPI;
         #else
-        #endif /* (UART_RX_SCL_MOSI_PIN) */
+        #endif /* (uart_RX_SCL_MOSI_PIN) */
         
-        #if (UART_TX_SDA_MISO_PIN)
-            hsiomSel[UART_TX_SDA_MISO_PIN_INDEX] = UART_TX_SDA_MISO_HSIOM_SEL_SPI;
-        #endif /* (UART_TX_SDA_MISO_PIN) */
+        #if (uart_TX_SDA_MISO_PIN)
+            hsiomSel[uart_TX_SDA_MISO_PIN_INDEX] = uart_TX_SDA_MISO_HSIOM_SEL_SPI;
+        #endif /* (uart_TX_SDA_MISO_PIN) */
         
-        #if (UART_CTS_SCLK_PIN)
-            hsiomSel[UART_CTS_SCLK_PIN_INDEX] = UART_CTS_SCLK_HSIOM_SEL_SPI;
-        #endif /* (UART_CTS_SCLK_PIN) */
+        #if (uart_CTS_SCLK_PIN)
+            hsiomSel[uart_CTS_SCLK_PIN_INDEX] = uart_CTS_SCLK_HSIOM_SEL_SPI;
+        #endif /* (uart_CTS_SCLK_PIN) */
 
-            if (UART_SPI_SLAVE == subMode)
+            if (uart_SPI_SLAVE == subMode)
             {
                 /* Slave */
-                pinsDm[UART_RX_SCL_MOSI_PIN_INDEX] = UART_PIN_DM_DIG_HIZ;
-                pinsDm[UART_TX_SDA_MISO_PIN_INDEX] = UART_PIN_DM_STRONG;
-                pinsDm[UART_CTS_SCLK_PIN_INDEX] = UART_PIN_DM_DIG_HIZ;
+                pinsDm[uart_RX_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+                pinsDm[uart_TX_SDA_MISO_PIN_INDEX] = uart_PIN_DM_STRONG;
+                pinsDm[uart_CTS_SCLK_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
 
-            #if (UART_RTS_SS0_PIN)
+            #if (uart_RTS_SS0_PIN)
                 /* Only SS0 is valid choice for Slave */
-                hsiomSel[UART_RTS_SS0_PIN_INDEX] = UART_RTS_SS0_HSIOM_SEL_SPI;
-                pinsDm  [UART_RTS_SS0_PIN_INDEX] = UART_PIN_DM_DIG_HIZ;
-            #endif /* (UART_RTS_SS0_PIN) */
+                hsiomSel[uart_RTS_SS0_PIN_INDEX] = uart_RTS_SS0_HSIOM_SEL_SPI;
+                pinsDm  [uart_RTS_SS0_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+            #endif /* (uart_RTS_SS0_PIN) */
 
-            #if (UART_TX_SDA_MISO_PIN)
+            #if (uart_TX_SDA_MISO_PIN)
                 /* Disable input buffer */
-                 pinsInBuf |= UART_TX_SDA_MISO_PIN_MASK;
-            #endif /* (UART_TX_SDA_MISO_PIN) */
+                 pinsInBuf |= uart_TX_SDA_MISO_PIN_MASK;
+            #endif /* (uart_TX_SDA_MISO_PIN) */
             }
             else 
             {
                 /* (Master) */
-                pinsDm[UART_RX_SCL_MOSI_PIN_INDEX] = UART_PIN_DM_STRONG;
-                pinsDm[UART_TX_SDA_MISO_PIN_INDEX] = UART_PIN_DM_DIG_HIZ;
-                pinsDm[UART_CTS_SCLK_PIN_INDEX] = UART_PIN_DM_STRONG;
+                pinsDm[uart_RX_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_STRONG;
+                pinsDm[uart_TX_SDA_MISO_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+                pinsDm[uart_CTS_SCLK_PIN_INDEX] = uart_PIN_DM_STRONG;
 
-            #if (UART_RTS_SS0_PIN)
-                hsiomSel [UART_RTS_SS0_PIN_INDEX] = UART_RTS_SS0_HSIOM_SEL_SPI;
-                pinsDm   [UART_RTS_SS0_PIN_INDEX] = UART_PIN_DM_STRONG;
-                pinsInBuf |= UART_RTS_SS0_PIN_MASK;
-            #endif /* (UART_RTS_SS0_PIN) */
+            #if (uart_RTS_SS0_PIN)
+                hsiomSel [uart_RTS_SS0_PIN_INDEX] = uart_RTS_SS0_HSIOM_SEL_SPI;
+                pinsDm   [uart_RTS_SS0_PIN_INDEX] = uart_PIN_DM_STRONG;
+                pinsInBuf |= uart_RTS_SS0_PIN_MASK;
+            #endif /* (uart_RTS_SS0_PIN) */
 
-            #if (UART_SS1_PIN)
-                hsiomSel [UART_SS1_PIN_INDEX] = UART_SS1_HSIOM_SEL_SPI;
-                pinsDm   [UART_SS1_PIN_INDEX] = UART_PIN_DM_STRONG;
-                pinsInBuf |= UART_SS1_PIN_MASK;
-            #endif /* (UART_SS1_PIN) */
+            #if (uart_SS1_PIN)
+                hsiomSel [uart_SS1_PIN_INDEX] = uart_SS1_HSIOM_SEL_SPI;
+                pinsDm   [uart_SS1_PIN_INDEX] = uart_PIN_DM_STRONG;
+                pinsInBuf |= uart_SS1_PIN_MASK;
+            #endif /* (uart_SS1_PIN) */
 
-            #if (UART_SS2_PIN)
-                hsiomSel [UART_SS2_PIN_INDEX] = UART_SS2_HSIOM_SEL_SPI;
-                pinsDm   [UART_SS2_PIN_INDEX] = UART_PIN_DM_STRONG;
-                pinsInBuf |= UART_SS2_PIN_MASK;
-            #endif /* (UART_SS2_PIN) */
+            #if (uart_SS2_PIN)
+                hsiomSel [uart_SS2_PIN_INDEX] = uart_SS2_HSIOM_SEL_SPI;
+                pinsDm   [uart_SS2_PIN_INDEX] = uart_PIN_DM_STRONG;
+                pinsInBuf |= uart_SS2_PIN_MASK;
+            #endif /* (uart_SS2_PIN) */
 
-            #if (UART_SS3_PIN)
-                hsiomSel [UART_SS3_PIN_INDEX] = UART_SS3_HSIOM_SEL_SPI;
-                pinsDm   [UART_SS3_PIN_INDEX] = UART_PIN_DM_STRONG;
-                pinsInBuf |= UART_SS3_PIN_MASK;
-            #endif /* (UART_SS3_PIN) */
+            #if (uart_SS3_PIN)
+                hsiomSel [uart_SS3_PIN_INDEX] = uart_SS3_HSIOM_SEL_SPI;
+                pinsDm   [uart_SS3_PIN_INDEX] = uart_PIN_DM_STRONG;
+                pinsInBuf |= uart_SS3_PIN_MASK;
+            #endif /* (uart_SS3_PIN) */
 
                 /* Disable input buffers */
-            #if (UART_RX_SCL_MOSI_PIN)
-                pinsInBuf |= UART_RX_SCL_MOSI_PIN_MASK;
-            #elif (UART_RX_WAKE_SCL_MOSI_PIN)
-                pinsInBuf |= UART_RX_WAKE_SCL_MOSI_PIN_MASK;
+            #if (uart_RX_SCL_MOSI_PIN)
+                pinsInBuf |= uart_RX_SCL_MOSI_PIN_MASK;
+            #elif (uart_RX_WAKE_SCL_MOSI_PIN)
+                pinsInBuf |= uart_RX_WAKE_SCL_MOSI_PIN_MASK;
             #else
-            #endif /* (UART_RX_SCL_MOSI_PIN) */
+            #endif /* (uart_RX_SCL_MOSI_PIN) */
 
-            #if (UART_CTS_SCLK_PIN)
-                pinsInBuf |= UART_CTS_SCLK_PIN_MASK;
-            #endif /* (UART_CTS_SCLK_PIN) */
+            #if (uart_CTS_SCLK_PIN)
+                pinsInBuf |= uart_CTS_SCLK_PIN_MASK;
+            #endif /* (uart_CTS_SCLK_PIN) */
             }
         }
         else /* UART */
         {
-            if (UART_UART_MODE_SMARTCARD == subMode)
+            if (uart_UART_MODE_SMARTCARD == subMode)
             {
                 /* SmartCard */
-            #if (UART_TX_SDA_MISO_PIN)
-                hsiomSel[UART_TX_SDA_MISO_PIN_INDEX] = UART_TX_SDA_MISO_HSIOM_SEL_UART;
-                pinsDm  [UART_TX_SDA_MISO_PIN_INDEX] = UART_PIN_DM_OD_LO;
-            #endif /* (UART_TX_SDA_MISO_PIN) */
+            #if (uart_TX_SDA_MISO_PIN)
+                hsiomSel[uart_TX_SDA_MISO_PIN_INDEX] = uart_TX_SDA_MISO_HSIOM_SEL_UART;
+                pinsDm  [uart_TX_SDA_MISO_PIN_INDEX] = uart_PIN_DM_OD_LO;
+            #endif /* (uart_TX_SDA_MISO_PIN) */
             }
             else /* Standard or IrDA */
             {
-                if (0u != (UART_UART_RX_PIN_ENABLE & uartEnableMask))
+                if (0u != (uart_UART_RX_PIN_ENABLE & uartEnableMask))
                 {
-                #if (UART_RX_SCL_MOSI_PIN)
-                    hsiomSel[UART_RX_SCL_MOSI_PIN_INDEX] = UART_RX_SCL_MOSI_HSIOM_SEL_UART;
-                    pinsDm  [UART_RX_SCL_MOSI_PIN_INDEX] = UART_PIN_DM_DIG_HIZ;
-                #elif (UART_RX_WAKE_SCL_MOSI_PIN)
-                    hsiomSel[UART_RX_WAKE_SCL_MOSI_PIN_INDEX] = UART_RX_WAKE_SCL_MOSI_HSIOM_SEL_UART;
-                    pinsDm  [UART_RX_WAKE_SCL_MOSI_PIN_INDEX] = UART_PIN_DM_DIG_HIZ;
+                #if (uart_RX_SCL_MOSI_PIN)
+                    hsiomSel[uart_RX_SCL_MOSI_PIN_INDEX] = uart_RX_SCL_MOSI_HSIOM_SEL_UART;
+                    pinsDm  [uart_RX_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+                #elif (uart_RX_WAKE_SCL_MOSI_PIN)
+                    hsiomSel[uart_RX_WAKE_SCL_MOSI_PIN_INDEX] = uart_RX_WAKE_SCL_MOSI_HSIOM_SEL_UART;
+                    pinsDm  [uart_RX_WAKE_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
                 #else
-                #endif /* (UART_RX_SCL_MOSI_PIN) */
+                #endif /* (uart_RX_SCL_MOSI_PIN) */
                 }
 
-                if (0u != (UART_UART_TX_PIN_ENABLE & uartEnableMask))
+                if (0u != (uart_UART_TX_PIN_ENABLE & uartEnableMask))
                 {
-                #if (UART_TX_SDA_MISO_PIN)
-                    hsiomSel[UART_TX_SDA_MISO_PIN_INDEX] = UART_TX_SDA_MISO_HSIOM_SEL_UART;
-                    pinsDm  [UART_TX_SDA_MISO_PIN_INDEX] = UART_PIN_DM_STRONG;
+                #if (uart_TX_SDA_MISO_PIN)
+                    hsiomSel[uart_TX_SDA_MISO_PIN_INDEX] = uart_TX_SDA_MISO_HSIOM_SEL_UART;
+                    pinsDm  [uart_TX_SDA_MISO_PIN_INDEX] = uart_PIN_DM_STRONG;
                     
                     /* Disable input buffer */
-                    pinsInBuf |= UART_TX_SDA_MISO_PIN_MASK;
-                #endif /* (UART_TX_SDA_MISO_PIN) */
+                    pinsInBuf |= uart_TX_SDA_MISO_PIN_MASK;
+                #endif /* (uart_TX_SDA_MISO_PIN) */
                 }
 
-            #if !(UART_CY_SCBIP_V0 || UART_CY_SCBIP_V1)
-                if (UART_UART_MODE_STD == subMode)
+            #if !(uart_CY_SCBIP_V0 || uart_CY_SCBIP_V1)
+                if (uart_UART_MODE_STD == subMode)
                 {
-                    if (0u != (UART_UART_CTS_PIN_ENABLE & uartEnableMask))
+                    if (0u != (uart_UART_CTS_PIN_ENABLE & uartEnableMask))
                     {
                         /* CTS input is multiplexed with SCLK */
-                    #if (UART_CTS_SCLK_PIN)
-                        hsiomSel[UART_CTS_SCLK_PIN_INDEX] = UART_CTS_SCLK_HSIOM_SEL_UART;
-                        pinsDm  [UART_CTS_SCLK_PIN_INDEX] = UART_PIN_DM_DIG_HIZ;
-                    #endif /* (UART_CTS_SCLK_PIN) */
+                    #if (uart_CTS_SCLK_PIN)
+                        hsiomSel[uart_CTS_SCLK_PIN_INDEX] = uart_CTS_SCLK_HSIOM_SEL_UART;
+                        pinsDm  [uart_CTS_SCLK_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+                    #endif /* (uart_CTS_SCLK_PIN) */
                     }
 
-                    if (0u != (UART_UART_RTS_PIN_ENABLE & uartEnableMask))
+                    if (0u != (uart_UART_RTS_PIN_ENABLE & uartEnableMask))
                     {
                         /* RTS output is multiplexed with SS0 */
-                    #if (UART_RTS_SS0_PIN)
-                        hsiomSel[UART_RTS_SS0_PIN_INDEX] = UART_RTS_SS0_HSIOM_SEL_UART;
-                        pinsDm  [UART_RTS_SS0_PIN_INDEX] = UART_PIN_DM_STRONG;
+                    #if (uart_RTS_SS0_PIN)
+                        hsiomSel[uart_RTS_SS0_PIN_INDEX] = uart_RTS_SS0_HSIOM_SEL_UART;
+                        pinsDm  [uart_RTS_SS0_PIN_INDEX] = uart_PIN_DM_STRONG;
                         
                         /* Disable input buffer */
-                        pinsInBuf |= UART_RTS_SS0_PIN_MASK;
-                    #endif /* (UART_RTS_SS0_PIN) */
+                        pinsInBuf |= uart_RTS_SS0_PIN_MASK;
+                    #endif /* (uart_RTS_SS0_PIN) */
                     }
                 }
-            #endif /* !(UART_CY_SCBIP_V0 || UART_CY_SCBIP_V1) */
+            #endif /* !(uart_CY_SCBIP_V0 || uart_CY_SCBIP_V1) */
             }
         }
-    #endif /* (!UART_CY_SCBIP_V1) */
+    #endif /* (!uart_CY_SCBIP_V1) */
 
     /* Configure pins: set HSIOM, DM and InputBufEnable */
     /* Note: the DR register settings do not effect the pin output if HSIOM is other than GPIO */
 
-    #if (UART_RX_SCL_MOSI_PIN)
-        UART_SET_HSIOM_SEL(UART_RX_SCL_MOSI_HSIOM_REG,
-                                       UART_RX_SCL_MOSI_HSIOM_MASK,
-                                       UART_RX_SCL_MOSI_HSIOM_POS,
-                                        hsiomSel[UART_RX_SCL_MOSI_PIN_INDEX]);
+    #if (uart_RX_SCL_MOSI_PIN)
+        uart_SET_HSIOM_SEL(uart_RX_SCL_MOSI_HSIOM_REG,
+                                       uart_RX_SCL_MOSI_HSIOM_MASK,
+                                       uart_RX_SCL_MOSI_HSIOM_POS,
+                                        hsiomSel[uart_RX_SCL_MOSI_PIN_INDEX]);
 
-        UART_uart_rx_i2c_scl_spi_mosi_SetDriveMode((uint8) pinsDm[UART_RX_SCL_MOSI_PIN_INDEX]);
+        uart_uart_rx_i2c_scl_spi_mosi_SetDriveMode((uint8) pinsDm[uart_RX_SCL_MOSI_PIN_INDEX]);
 
-        #if (!UART_CY_SCBIP_V1)
-            UART_SET_INP_DIS(UART_uart_rx_i2c_scl_spi_mosi_INP_DIS,
-                                         UART_uart_rx_i2c_scl_spi_mosi_MASK,
-                                         (0u != (pinsInBuf & UART_RX_SCL_MOSI_PIN_MASK)));
-        #endif /* (!UART_CY_SCBIP_V1) */
+        #if (!uart_CY_SCBIP_V1)
+            uart_SET_INP_DIS(uart_uart_rx_i2c_scl_spi_mosi_INP_DIS,
+                                         uart_uart_rx_i2c_scl_spi_mosi_MASK,
+                                         (0u != (pinsInBuf & uart_RX_SCL_MOSI_PIN_MASK)));
+        #endif /* (!uart_CY_SCBIP_V1) */
     
-    #elif (UART_RX_WAKE_SCL_MOSI_PIN)
-        UART_SET_HSIOM_SEL(UART_RX_WAKE_SCL_MOSI_HSIOM_REG,
-                                       UART_RX_WAKE_SCL_MOSI_HSIOM_MASK,
-                                       UART_RX_WAKE_SCL_MOSI_HSIOM_POS,
-                                       hsiomSel[UART_RX_WAKE_SCL_MOSI_PIN_INDEX]);
+    #elif (uart_RX_WAKE_SCL_MOSI_PIN)
+        uart_SET_HSIOM_SEL(uart_RX_WAKE_SCL_MOSI_HSIOM_REG,
+                                       uart_RX_WAKE_SCL_MOSI_HSIOM_MASK,
+                                       uart_RX_WAKE_SCL_MOSI_HSIOM_POS,
+                                       hsiomSel[uart_RX_WAKE_SCL_MOSI_PIN_INDEX]);
 
-        UART_uart_rx_wake_i2c_scl_spi_mosi_SetDriveMode((uint8)
-                                                               pinsDm[UART_RX_WAKE_SCL_MOSI_PIN_INDEX]);
+        uart_uart_rx_wake_i2c_scl_spi_mosi_SetDriveMode((uint8)
+                                                               pinsDm[uart_RX_WAKE_SCL_MOSI_PIN_INDEX]);
 
-        UART_SET_INP_DIS(UART_uart_rx_wake_i2c_scl_spi_mosi_INP_DIS,
-                                     UART_uart_rx_wake_i2c_scl_spi_mosi_MASK,
-                                     (0u != (pinsInBuf & UART_RX_WAKE_SCL_MOSI_PIN_MASK)));
+        uart_SET_INP_DIS(uart_uart_rx_wake_i2c_scl_spi_mosi_INP_DIS,
+                                     uart_uart_rx_wake_i2c_scl_spi_mosi_MASK,
+                                     (0u != (pinsInBuf & uart_RX_WAKE_SCL_MOSI_PIN_MASK)));
 
          /* Set interrupt on falling edge */
-        UART_SET_INCFG_TYPE(UART_RX_WAKE_SCL_MOSI_INTCFG_REG,
-                                        UART_RX_WAKE_SCL_MOSI_INTCFG_TYPE_MASK,
-                                        UART_RX_WAKE_SCL_MOSI_INTCFG_TYPE_POS,
-                                        UART_INTCFG_TYPE_FALLING_EDGE);
+        uart_SET_INCFG_TYPE(uart_RX_WAKE_SCL_MOSI_INTCFG_REG,
+                                        uart_RX_WAKE_SCL_MOSI_INTCFG_TYPE_MASK,
+                                        uart_RX_WAKE_SCL_MOSI_INTCFG_TYPE_POS,
+                                        uart_INTCFG_TYPE_FALLING_EDGE);
     #else
-    #endif /* (UART_RX_WAKE_SCL_MOSI_PIN) */
+    #endif /* (uart_RX_WAKE_SCL_MOSI_PIN) */
 
-    #if (UART_TX_SDA_MISO_PIN)
-        UART_SET_HSIOM_SEL(UART_TX_SDA_MISO_HSIOM_REG,
-                                       UART_TX_SDA_MISO_HSIOM_MASK,
-                                       UART_TX_SDA_MISO_HSIOM_POS,
-                                        hsiomSel[UART_TX_SDA_MISO_PIN_INDEX]);
+    #if (uart_TX_SDA_MISO_PIN)
+        uart_SET_HSIOM_SEL(uart_TX_SDA_MISO_HSIOM_REG,
+                                       uart_TX_SDA_MISO_HSIOM_MASK,
+                                       uart_TX_SDA_MISO_HSIOM_POS,
+                                        hsiomSel[uart_TX_SDA_MISO_PIN_INDEX]);
 
-        UART_uart_tx_i2c_sda_spi_miso_SetDriveMode((uint8) pinsDm[UART_TX_SDA_MISO_PIN_INDEX]);
+        uart_uart_tx_i2c_sda_spi_miso_SetDriveMode((uint8) pinsDm[uart_TX_SDA_MISO_PIN_INDEX]);
 
-    #if (!UART_CY_SCBIP_V1)
-        UART_SET_INP_DIS(UART_uart_tx_i2c_sda_spi_miso_INP_DIS,
-                                     UART_uart_tx_i2c_sda_spi_miso_MASK,
-                                    (0u != (pinsInBuf & UART_TX_SDA_MISO_PIN_MASK)));
-    #endif /* (!UART_CY_SCBIP_V1) */
-    #endif /* (UART_RX_SCL_MOSI_PIN) */
+    #if (!uart_CY_SCBIP_V1)
+        uart_SET_INP_DIS(uart_uart_tx_i2c_sda_spi_miso_INP_DIS,
+                                     uart_uart_tx_i2c_sda_spi_miso_MASK,
+                                    (0u != (pinsInBuf & uart_TX_SDA_MISO_PIN_MASK)));
+    #endif /* (!uart_CY_SCBIP_V1) */
+    #endif /* (uart_RX_SCL_MOSI_PIN) */
 
-    #if (UART_CTS_SCLK_PIN)
-        UART_SET_HSIOM_SEL(UART_CTS_SCLK_HSIOM_REG,
-                                       UART_CTS_SCLK_HSIOM_MASK,
-                                       UART_CTS_SCLK_HSIOM_POS,
-                                       hsiomSel[UART_CTS_SCLK_PIN_INDEX]);
+    #if (uart_CTS_SCLK_PIN)
+        uart_SET_HSIOM_SEL(uart_CTS_SCLK_HSIOM_REG,
+                                       uart_CTS_SCLK_HSIOM_MASK,
+                                       uart_CTS_SCLK_HSIOM_POS,
+                                       hsiomSel[uart_CTS_SCLK_PIN_INDEX]);
 
-        UART_uart_cts_spi_sclk_SetDriveMode((uint8) pinsDm[UART_CTS_SCLK_PIN_INDEX]);
+        uart_uart_cts_spi_sclk_SetDriveMode((uint8) pinsDm[uart_CTS_SCLK_PIN_INDEX]);
 
-        UART_SET_INP_DIS(UART_uart_cts_spi_sclk_INP_DIS,
-                                     UART_uart_cts_spi_sclk_MASK,
-                                     (0u != (pinsInBuf & UART_CTS_SCLK_PIN_MASK)));
-    #endif /* (UART_CTS_SCLK_PIN) */
+        uart_SET_INP_DIS(uart_uart_cts_spi_sclk_INP_DIS,
+                                     uart_uart_cts_spi_sclk_MASK,
+                                     (0u != (pinsInBuf & uart_CTS_SCLK_PIN_MASK)));
+    #endif /* (uart_CTS_SCLK_PIN) */
 
-    #if (UART_RTS_SS0_PIN)
-        UART_SET_HSIOM_SEL(UART_RTS_SS0_HSIOM_REG,
-                                       UART_RTS_SS0_HSIOM_MASK,
-                                       UART_RTS_SS0_HSIOM_POS,
-                                       hsiomSel[UART_RTS_SS0_PIN_INDEX]);
+    #if (uart_RTS_SS0_PIN)
+        uart_SET_HSIOM_SEL(uart_RTS_SS0_HSIOM_REG,
+                                       uart_RTS_SS0_HSIOM_MASK,
+                                       uart_RTS_SS0_HSIOM_POS,
+                                       hsiomSel[uart_RTS_SS0_PIN_INDEX]);
 
-        UART_uart_rts_spi_ss0_SetDriveMode((uint8) pinsDm[UART_RTS_SS0_PIN_INDEX]);
+        uart_uart_rts_spi_ss0_SetDriveMode((uint8) pinsDm[uart_RTS_SS0_PIN_INDEX]);
 
-        UART_SET_INP_DIS(UART_uart_rts_spi_ss0_INP_DIS,
-                                     UART_uart_rts_spi_ss0_MASK,
-                                     (0u != (pinsInBuf & UART_RTS_SS0_PIN_MASK)));
-    #endif /* (UART_RTS_SS0_PIN) */
+        uart_SET_INP_DIS(uart_uart_rts_spi_ss0_INP_DIS,
+                                     uart_uart_rts_spi_ss0_MASK,
+                                     (0u != (pinsInBuf & uart_RTS_SS0_PIN_MASK)));
+    #endif /* (uart_RTS_SS0_PIN) */
 
-    #if (UART_SS1_PIN)
-        UART_SET_HSIOM_SEL(UART_SS1_HSIOM_REG,
-                                       UART_SS1_HSIOM_MASK,
-                                       UART_SS1_HSIOM_POS,
-                                       hsiomSel[UART_SS1_PIN_INDEX]);
+    #if (uart_SS1_PIN)
+        uart_SET_HSIOM_SEL(uart_SS1_HSIOM_REG,
+                                       uart_SS1_HSIOM_MASK,
+                                       uart_SS1_HSIOM_POS,
+                                       hsiomSel[uart_SS1_PIN_INDEX]);
 
-        UART_spi_ss1_SetDriveMode((uint8) pinsDm[UART_SS1_PIN_INDEX]);
+        uart_spi_ss1_SetDriveMode((uint8) pinsDm[uart_SS1_PIN_INDEX]);
 
-        UART_SET_INP_DIS(UART_spi_ss1_INP_DIS,
-                                     UART_spi_ss1_MASK,
-                                     (0u != (pinsInBuf & UART_SS1_PIN_MASK)));
-    #endif /* (UART_SS1_PIN) */
+        uart_SET_INP_DIS(uart_spi_ss1_INP_DIS,
+                                     uart_spi_ss1_MASK,
+                                     (0u != (pinsInBuf & uart_SS1_PIN_MASK)));
+    #endif /* (uart_SS1_PIN) */
 
-    #if (UART_SS2_PIN)
-        UART_SET_HSIOM_SEL(UART_SS2_HSIOM_REG,
-                                       UART_SS2_HSIOM_MASK,
-                                       UART_SS2_HSIOM_POS,
-                                       hsiomSel[UART_SS2_PIN_INDEX]);
+    #if (uart_SS2_PIN)
+        uart_SET_HSIOM_SEL(uart_SS2_HSIOM_REG,
+                                       uart_SS2_HSIOM_MASK,
+                                       uart_SS2_HSIOM_POS,
+                                       hsiomSel[uart_SS2_PIN_INDEX]);
 
-        UART_spi_ss2_SetDriveMode((uint8) pinsDm[UART_SS2_PIN_INDEX]);
+        uart_spi_ss2_SetDriveMode((uint8) pinsDm[uart_SS2_PIN_INDEX]);
 
-        UART_SET_INP_DIS(UART_spi_ss2_INP_DIS,
-                                     UART_spi_ss2_MASK,
-                                     (0u != (pinsInBuf & UART_SS2_PIN_MASK)));
-    #endif /* (UART_SS2_PIN) */
+        uart_SET_INP_DIS(uart_spi_ss2_INP_DIS,
+                                     uart_spi_ss2_MASK,
+                                     (0u != (pinsInBuf & uart_SS2_PIN_MASK)));
+    #endif /* (uart_SS2_PIN) */
 
-    #if (UART_SS3_PIN)
-        UART_SET_HSIOM_SEL(UART_SS3_HSIOM_REG,
-                                       UART_SS3_HSIOM_MASK,
-                                       UART_SS3_HSIOM_POS,
-                                       hsiomSel[UART_SS3_PIN_INDEX]);
+    #if (uart_SS3_PIN)
+        uart_SET_HSIOM_SEL(uart_SS3_HSIOM_REG,
+                                       uart_SS3_HSIOM_MASK,
+                                       uart_SS3_HSIOM_POS,
+                                       hsiomSel[uart_SS3_PIN_INDEX]);
 
-        UART_spi_ss3_SetDriveMode((uint8) pinsDm[UART_SS3_PIN_INDEX]);
+        uart_spi_ss3_SetDriveMode((uint8) pinsDm[uart_SS3_PIN_INDEX]);
 
-        UART_SET_INP_DIS(UART_spi_ss3_INP_DIS,
-                                     UART_spi_ss3_MASK,
-                                     (0u != (pinsInBuf & UART_SS3_PIN_MASK)));
-    #endif /* (UART_SS3_PIN) */
+        uart_SET_INP_DIS(uart_spi_ss3_INP_DIS,
+                                     uart_spi_ss3_MASK,
+                                     (0u != (pinsInBuf & uart_SS3_PIN_MASK)));
+    #endif /* (uart_SS3_PIN) */
     }
 
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 
 
-#if (UART_CY_SCBIP_V0 || UART_CY_SCBIP_V1)
+#if (uart_CY_SCBIP_V0 || uart_CY_SCBIP_V1)
     /*******************************************************************************
-    * Function Name: UART_I2CSlaveNackGeneration
+    * Function Name: uart_I2CSlaveNackGeneration
     ****************************************************************************//**
     *
     *  Sets command to generate NACK to the address or data.
     *
     *******************************************************************************/
-    void UART_I2CSlaveNackGeneration(void)
+    void uart_I2CSlaveNackGeneration(void)
     {
         /* Check for EC_AM toggle condition: EC_AM and clock stretching for address are enabled */
-        if ((0u != (UART_CTRL_REG & UART_CTRL_EC_AM_MODE)) &&
-            (0u == (UART_I2C_CTRL_REG & UART_I2C_CTRL_S_NOT_READY_ADDR_NACK)))
+        if ((0u != (uart_CTRL_REG & uart_CTRL_EC_AM_MODE)) &&
+            (0u == (uart_I2C_CTRL_REG & uart_I2C_CTRL_S_NOT_READY_ADDR_NACK)))
         {
             /* Toggle EC_AM before NACK generation */
-            UART_CTRL_REG &= ~UART_CTRL_EC_AM_MODE;
-            UART_CTRL_REG |=  UART_CTRL_EC_AM_MODE;
+            uart_CTRL_REG &= ~uart_CTRL_EC_AM_MODE;
+            uart_CTRL_REG |=  uart_CTRL_EC_AM_MODE;
         }
 
-        UART_I2C_SLAVE_CMD_REG = UART_I2C_SLAVE_CMD_S_NACK;
+        uart_I2C_SLAVE_CMD_REG = uart_I2C_SLAVE_CMD_S_NACK;
     }
-#endif /* (UART_CY_SCBIP_V0 || UART_CY_SCBIP_V1) */
+#endif /* (uart_CY_SCBIP_V0 || uart_CY_SCBIP_V1) */
 
 
 /* [] END OF FILE */

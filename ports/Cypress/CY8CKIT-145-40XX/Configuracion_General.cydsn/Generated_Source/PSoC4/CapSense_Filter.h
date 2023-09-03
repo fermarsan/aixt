@@ -1,12 +1,12 @@
 /***************************************************************************//**
-* \file CapSense_Filter.h
+* \file capsense_Filter.h
 * \version 7.10
 *
 * \brief
 *   This file contains the definitions for all firmware filters
 *   implementation.
 *
-* \see CapSense v7.10 Datasheet
+* \see capsense v7.10 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2019), Cypress Semiconductor Corporation.
@@ -37,15 +37,15 @@
 * limited by and subject to the applicable Cypress software license agreement.
 *******************************************************************************/
 
-#if !defined(CY_SENSE_CapSense_FILTER_H)
-#define CY_SENSE_CapSense_FILTER_H
+#if !defined(CY_SENSE_capsense_FILTER_H)
+#define CY_SENSE_capsense_FILTER_H
 
 #include "cytypes.h"
 #include "CyLib.h"
 #include "cyfitter.h"
 
-#include "CapSense_Structure.h"
-#include "CapSense_Configuration.h"
+#include "capsense_Structure.h"
+#include "capsense_Configuration.h"
 
 /***************************************
 * Function Prototypes
@@ -60,20 +60,20 @@
 * \{
 */
 
-cystatus CapSense_UpdateAllBaselines(void);
-cystatus CapSense_UpdateWidgetBaseline(uint32 widgetId);
-cystatus CapSense_UpdateSensorBaseline(uint32 widgetId, uint32 sensorId);
+cystatus capsense_UpdateAllBaselines(void);
+cystatus capsense_UpdateWidgetBaseline(uint32 widgetId);
+cystatus capsense_UpdateSensorBaseline(uint32 widgetId, uint32 sensorId);
 
-void CapSense_InitializeAllBaselines(void);
-void CapSense_InitializeWidgetBaseline(uint32 widgetId);
-void CapSense_InitializeSensorBaseline(uint32 widgetId, uint32 sensorId);
+void capsense_InitializeAllBaselines(void);
+void capsense_InitializeWidgetBaseline(uint32 widgetId);
+void capsense_InitializeSensorBaseline(uint32 widgetId, uint32 sensorId);
 
-#if ((CapSense_ENABLE == CapSense_RC_FILTER_EN) || \
-     (0u != (CapSense_CSD_AUTOTUNE & CapSense_CSD_SS_TH_EN)))
-    void CapSense_InitializeAllFilters(void);
-    void CapSense_InitializeWidgetFilter(uint32 widgetId);
-#endif /* ((CapSense_ENABLE == CapSense_RC_FILTER_EN) || \
-           (0u != (CapSense_CSD_AUTOTUNE & CapSense_CSD_SS_TH_EN))) */
+#if ((capsense_ENABLE == capsense_RC_FILTER_EN) || \
+     (0u != (capsense_CSD_AUTOTUNE & capsense_CSD_SS_TH_EN)))
+    void capsense_InitializeAllFilters(void);
+    void capsense_InitializeWidgetFilter(uint32 widgetId);
+#endif /* ((capsense_ENABLE == capsense_RC_FILTER_EN) || \
+           (0u != (capsense_CSD_AUTOTUNE & capsense_CSD_SS_TH_EN))) */
 
 /** \}
 * \endcond */
@@ -88,89 +88,89 @@ void CapSense_InitializeSensorBaseline(uint32 widgetId, uint32 sensorId);
 * \{
 */
 
-void CapSense_FtInitialize(void);
+void capsense_FtInitialize(void);
 
-#if (0u != (CapSense_CSD_AUTOTUNE & CapSense_CSD_SS_TH_EN))
-    void CapSense_RunNoiseEnvelope(uint32 widgetId, uint32 sensorId);
-    void CapSense_InitializeNoiseEnvelope(uint32 widgetId, uint32 sensorId);
-#endif /* (0u != (CapSense_CSD_AUTOTUNE & CapSense_CSD_SS_TH_EN)) */
+#if (0u != (capsense_CSD_AUTOTUNE & capsense_CSD_SS_TH_EN))
+    void capsense_RunNoiseEnvelope(uint32 widgetId, uint32 sensorId);
+    void capsense_InitializeNoiseEnvelope(uint32 widgetId, uint32 sensorId);
+#endif /* (0u != (capsense_CSD_AUTOTUNE & capsense_CSD_SS_TH_EN)) */
 
-#if (CapSense_REGULAR_RC_IIR_FILTER_EN || CapSense_PROX_RC_IIR_FILTER_EN)
-    void CapSense_InitializeIIR(uint32 widgetId, uint32 sensorId);
-    void CapSense_RunIIR(uint32 widgetId, uint32 sensorId);
-#endif /* (CapSense_REGULAR_RC_IIR_FILTER_EN || CapSense_PROX_RC_IIR_FILTER_EN) */
+#if (capsense_REGULAR_RC_IIR_FILTER_EN || capsense_PROX_RC_IIR_FILTER_EN)
+    void capsense_InitializeIIR(uint32 widgetId, uint32 sensorId);
+    void capsense_RunIIR(uint32 widgetId, uint32 sensorId);
+#endif /* (capsense_REGULAR_RC_IIR_FILTER_EN || capsense_PROX_RC_IIR_FILTER_EN) */
 
-#if (CapSense_REGULAR_RC_MEDIAN_FILTER_EN || CapSense_PROX_RC_MEDIAN_FILTER_EN)
-    void CapSense_InitializeMedian(uint32 widgetId, uint32 sensorId);
-    void CapSense_RunMedian(uint32 widgetId, uint32 sensorId);
-#endif /* (CapSense_REGULAR_RC_MEDIAN_FILTER_EN || CapSense_PROX_RC_MEDIAN_FILTER_EN) */
+#if (capsense_REGULAR_RC_MEDIAN_FILTER_EN || capsense_PROX_RC_MEDIAN_FILTER_EN)
+    void capsense_InitializeMedian(uint32 widgetId, uint32 sensorId);
+    void capsense_RunMedian(uint32 widgetId, uint32 sensorId);
+#endif /* (capsense_REGULAR_RC_MEDIAN_FILTER_EN || capsense_PROX_RC_MEDIAN_FILTER_EN) */
 
-#if (CapSense_REGULAR_RC_AVERAGE_FILTER_EN || CapSense_PROX_RC_AVERAGE_FILTER_EN)
-    void CapSense_InitializeAverage(uint32 widgetId, uint32 sensorId);
-    void CapSense_RunAverage(uint32 widgetId, uint32 sensorId);
-#endif /* (CapSense_REGULAR_RC_AVERAGE_FILTER_EN || CapSense_PROX_RC_AVERAGE_FILTER_EN) */
+#if (capsense_REGULAR_RC_AVERAGE_FILTER_EN || capsense_PROX_RC_AVERAGE_FILTER_EN)
+    void capsense_InitializeAverage(uint32 widgetId, uint32 sensorId);
+    void capsense_RunAverage(uint32 widgetId, uint32 sensorId);
+#endif /* (capsense_REGULAR_RC_AVERAGE_FILTER_EN || capsense_PROX_RC_AVERAGE_FILTER_EN) */
 
-void CapSense_FtInitializeBaseline(CapSense_RAM_SNS_STRUCT *ptrSensor, uint32 wdType);
-uint32 CapSense_FtUpdateBaseline(
-                            CapSense_RAM_WD_BASE_STRUCT *ptrWidgetRam,
-                            CapSense_RAM_SNS_STRUCT *ptrSensor,
+void capsense_FtInitializeBaseline(capsense_RAM_SNS_STRUCT *ptrSensor, uint32 wdType);
+uint32 capsense_FtUpdateBaseline(
+                            capsense_RAM_WD_BASE_STRUCT *ptrWidgetRam,
+                            capsense_RAM_SNS_STRUCT *ptrSensor,
                             uint32 wdType);
 
-#if (CapSense_POS_MEDIAN_FILTER_EN || CapSense_REGULAR_RC_MEDIAN_FILTER_EN || CapSense_PROX_RC_MEDIAN_FILTER_EN)
-uint32 CapSense_FtMedian(uint32 x1, uint32 x2, uint32 x3);
-#endif /*CapSense_POS_MEDIAN_FILTER_EN || CapSense_REGULAR_RC_MEDIAN_FILTER_EN || CapSense_PROX_RC_MEDIAN_FILTER_EN*/
+#if (capsense_POS_MEDIAN_FILTER_EN || capsense_REGULAR_RC_MEDIAN_FILTER_EN || capsense_PROX_RC_MEDIAN_FILTER_EN)
+uint32 capsense_FtMedian(uint32 x1, uint32 x2, uint32 x3);
+#endif /*capsense_POS_MEDIAN_FILTER_EN || capsense_REGULAR_RC_MEDIAN_FILTER_EN || capsense_PROX_RC_MEDIAN_FILTER_EN*/
 
-uint32 CapSense_FtIIR1stOrder(uint32 input, uint32 prevOutput, uint32 n, uint32 shift);
+uint32 capsense_FtIIR1stOrder(uint32 input, uint32 prevOutput, uint32 n, uint32 shift);
 
-#if (CapSense_POS_JITTER_FILTER_EN)
-    uint32 CapSense_FtJitter(uint32 input, uint32 prevOutput);
-#endif /* CapSense_POS_JITTER_FILTER_EN */
+#if (capsense_POS_JITTER_FILTER_EN)
+    uint32 capsense_FtJitter(uint32 input, uint32 prevOutput);
+#endif /* capsense_POS_JITTER_FILTER_EN */
 
-void CapSense_FtInitializeBaselineChannel(CapSense_RAM_SNS_STRUCT *ptrSensor, uint32 wdType, uint32 channel);
+void capsense_FtInitializeBaselineChannel(capsense_RAM_SNS_STRUCT *ptrSensor, uint32 wdType, uint32 channel);
 
-#if (CapSense_ENABLE == CapSense_RC_FILTER_EN)
-    void CapSense_FtRunEnabledFilters(uint32 widgetId, uint32 sensorId);
-    void CapSense_FtRunEnabledFiltersInternal(CapSense_PTR_FILTER_VARIANT ptrFilterHistObj,
-                                                      CapSense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
-#endif /* (CapSense_ENABLE == CapSense_RC_FILTER_EN) */
+#if (capsense_ENABLE == capsense_RC_FILTER_EN)
+    void capsense_FtRunEnabledFilters(uint32 widgetId, uint32 sensorId);
+    void capsense_FtRunEnabledFiltersInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
+                                                      capsense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
+#endif /* (capsense_ENABLE == capsense_RC_FILTER_EN) */
 
 
-#if (CapSense_REGULAR_RC_IIR_FILTER_EN || CapSense_PROX_RC_IIR_FILTER_EN)
-    void CapSense_InitializeIIRInternal(CapSense_PTR_FILTER_VARIANT ptrFilterHistObj,
-                                                  CapSense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
-    void CapSense_RunIIRInternal(CapSense_PTR_FILTER_VARIANT ptrFilterHistObj,
-                                           CapSense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
-#endif /* (CapSense_REGULAR_RC_IIR_FILTER_EN || CapSense_PROX_RC_IIR_FILTER_EN) */
+#if (capsense_REGULAR_RC_IIR_FILTER_EN || capsense_PROX_RC_IIR_FILTER_EN)
+    void capsense_InitializeIIRInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
+                                                  capsense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
+    void capsense_RunIIRInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
+                                           capsense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
+#endif /* (capsense_REGULAR_RC_IIR_FILTER_EN || capsense_PROX_RC_IIR_FILTER_EN) */
 
-#if (CapSense_REGULAR_RC_MEDIAN_FILTER_EN || CapSense_PROX_RC_MEDIAN_FILTER_EN)
-    void CapSense_InitializeMedianInternal(CapSense_PTR_FILTER_VARIANT ptrFilterHistObj,
-                                                     CapSense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
-    void CapSense_RunMedianInternal(CapSense_PTR_FILTER_VARIANT ptrFilterHistObj,
-                                              CapSense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
-#endif /* (CapSense_REGULAR_RC_MEDIAN_FILTER_EN || CapSense_PROX_RC_MEDIAN_FILTER_EN) */
+#if (capsense_REGULAR_RC_MEDIAN_FILTER_EN || capsense_PROX_RC_MEDIAN_FILTER_EN)
+    void capsense_InitializeMedianInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
+                                                     capsense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
+    void capsense_RunMedianInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
+                                              capsense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
+#endif /* (capsense_REGULAR_RC_MEDIAN_FILTER_EN || capsense_PROX_RC_MEDIAN_FILTER_EN) */
 
-#if (CapSense_REGULAR_RC_AVERAGE_FILTER_EN || CapSense_PROX_RC_AVERAGE_FILTER_EN)
-    void CapSense_InitializeAverageInternal(CapSense_PTR_FILTER_VARIANT ptrFilterHistObj,
-                                                      CapSense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
-    void CapSense_RunAverageInternal(CapSense_PTR_FILTER_VARIANT ptrFilterHistObj,
-                                               CapSense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
-#endif /* (CapSense_REGULAR_RC_AVERAGE_FILTER_EN || CapSense_PROX_RC_AVERAGE_FILTER_EN) */
+#if (capsense_REGULAR_RC_AVERAGE_FILTER_EN || capsense_PROX_RC_AVERAGE_FILTER_EN)
+    void capsense_InitializeAverageInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
+                                                      capsense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
+    void capsense_RunAverageInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
+                                               capsense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType);
+#endif /* (capsense_REGULAR_RC_AVERAGE_FILTER_EN || capsense_PROX_RC_AVERAGE_FILTER_EN) */
 
-#if (CapSense_ENABLE == CapSense_ALP_FILTER_EN)
-    void CapSense_InitializeALP(uint32 widgetId, uint32 sensorId);
-    void CapSense_RunALP(uint32 widgetId, uint32 sensorId);
-    void CapSense_InitializeALPInternal(CapSense_PTR_FILTER_VARIANT ptrFilterHistObj,
-                                                CapSense_RAM_SNS_STRUCT *ptrSensorObj,
+#if (capsense_ENABLE == capsense_ALP_FILTER_EN)
+    void capsense_InitializeALP(uint32 widgetId, uint32 sensorId);
+    void capsense_RunALP(uint32 widgetId, uint32 sensorId);
+    void capsense_InitializeALPInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
+                                                capsense_RAM_SNS_STRUCT *ptrSensorObj,
                                                 uint32 wdType);
-    void CapSense_ConfigRunALPInternal(CapSense_PTR_FILTER_VARIANT ptrFilterHistObj,
-                                        CapSense_RAM_WD_BASE_STRUCT *ptrRamWdgt,
-                                        CapSense_RAM_SNS_STRUCT *ptrSensorObj,
+    void capsense_ConfigRunALPInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
+                                        capsense_RAM_WD_BASE_STRUCT *ptrRamWdgt,
+                                        capsense_RAM_SNS_STRUCT *ptrSensorObj,
                                         uint32 wdType);
-    void CapSense_RunALPInternal(CapSense_PTR_FILTER_VARIANT ptrFilterHistObj,
+    void capsense_RunALPInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
                                         ALP_FLTR_CONFIG_STRUCT *ptrAlpFilterConfig,
-                                        CapSense_RAM_SNS_STRUCT *ptrSensorObj,
+                                        capsense_RAM_SNS_STRUCT *ptrSensorObj,
                                         uint32 wdType);
-#endif /* (CapSense_ENABLE == CapSense_ALP_FILTER_EN) */
+#endif /* (capsense_ENABLE == capsense_ALP_FILTER_EN) */
 
 /** \}
 * \endcond */
@@ -185,7 +185,7 @@ void CapSense_FtInitializeBaselineChannel(CapSense_RAM_SNS_STRUCT *ptrSensor, ui
 #define NOISE_ENVELOPE_RESET_COUNTER                (0x0Au)
 #define NOISE_ENVELOPE_4_TIMES                      (0x02u)
 
-#endif /* End CY_SENSE_CapSense_FILTER_H */
+#endif /* End CY_SENSE_capsense_FILTER_H */
 
 
 /* [] END OF FILE */

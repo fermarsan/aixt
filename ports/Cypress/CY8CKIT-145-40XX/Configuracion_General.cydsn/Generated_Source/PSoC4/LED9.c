@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED9.c  
+* File Name: led9.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "LED9.h"
+#include "led9.h"
 
 
-#if defined(LED9__PC)
-    #define LED9_SetP4PinDriveMode(shift, mode)  \
+#if defined(led9__PC)
+    #define led9_SetP4PinDriveMode(shift, mode)  \
     do { \
-        LED9_PC =   (LED9_PC & \
-                                (uint32)(~(uint32)(LED9_DRIVE_MODE_IND_MASK << \
-                                (LED9_DRIVE_MODE_BITS * (shift))))) | \
+        led9_PC =   (led9_PC & \
+                                (uint32)(~(uint32)(led9_DRIVE_MODE_IND_MASK << \
+                                (led9_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (LED9_DRIVE_MODE_BITS * (shift))); \
+                                (led9_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define LED9_SetP4PinDriveMode(shift, mode)  \
+        #define led9_SetP4PinDriveMode(shift, mode)  \
         do { \
-            LED9_USBIO_CTRL_REG = (LED9_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(LED9_DRIVE_MODE_IND_MASK << \
-                                    (LED9_DRIVE_MODE_BITS * (shift))))) | \
+            led9_USBIO_CTRL_REG = (led9_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(led9_DRIVE_MODE_IND_MASK << \
+                                    (led9_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (LED9_DRIVE_MODE_BITS * (shift))); \
+                                    (led9_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(LED9__PC) || (CY_PSOC4_4200L) 
+#if defined(led9__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: LED9_SetDriveMode
+    * Function Name: led9_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet LED9_SUT.c usage_LED9_SetDriveMode
+    *  \snippet led9_SUT.c usage_led9_SetDriveMode
     *******************************************************************************/
-    void LED9_SetDriveMode(uint8 mode)
+    void led9_SetDriveMode(uint8 mode)
     {
-		LED9_SetP4PinDriveMode(LED9__0__SHIFT, mode);
+		led9_SetP4PinDriveMode(led9__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: LED9_Write
+* Function Name: led9_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet LED9_SUT.c usage_LED9_Write
+*  \snippet led9_SUT.c usage_led9_Write
 *******************************************************************************/
-void LED9_Write(uint8 value)
+void led9_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(LED9_DR & (uint8)(~LED9_MASK));
-    drVal = (drVal | ((uint8)(value << LED9_SHIFT) & LED9_MASK));
-    LED9_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(led9_DR & (uint8)(~led9_MASK));
+    drVal = (drVal | ((uint8)(value << led9_SHIFT) & led9_MASK));
+    led9_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: LED9_Read
+* Function Name: led9_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void LED9_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet LED9_SUT.c usage_LED9_Read  
+*  \snippet led9_SUT.c usage_led9_Read  
 *******************************************************************************/
-uint8 LED9_Read(void)
+uint8 led9_Read(void)
 {
-    return (uint8)((LED9_PS & LED9_MASK) >> LED9_SHIFT);
+    return (uint8)((led9_PS & led9_MASK) >> led9_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED9_ReadDataReg
+* Function Name: led9_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 LED9_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred LED9_Read() API because the 
-* LED9_ReadDataReg() reads the data register instead of the status 
+* preferred led9_Read() API because the 
+* led9_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 LED9_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet LED9_SUT.c usage_LED9_ReadDataReg 
+*  \snippet led9_SUT.c usage_led9_ReadDataReg 
 *******************************************************************************/
-uint8 LED9_ReadDataReg(void)
+uint8 led9_ReadDataReg(void)
 {
-    return (uint8)((LED9_DR & LED9_MASK) >> LED9_SHIFT);
+    return (uint8)((led9_DR & led9_MASK) >> led9_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED9_SetInterruptMode
+* Function Name: led9_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 LED9_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use LED9_INTR_ALL to configure the
+*  component. Or you may use led9_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - LED9_0_INTR       (First pin in the list)
-*  - LED9_1_INTR       (Second pin in the list)
+*  - led9_0_INTR       (First pin in the list)
+*  - led9_1_INTR       (Second pin in the list)
 *  - ...
-*  - LED9_INTR_ALL     (All pins in Pins component)
+*  - led9_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 LED9_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet LED9_SUT.c usage_LED9_SetInterruptMode
+*  \snippet led9_SUT.c usage_led9_SetInterruptMode
 *******************************************************************************/
-void LED9_SetInterruptMode(uint16 position, uint16 mode)
+void led9_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  LED9_INTCFG & (uint32)(~(uint32)position);
-    LED9_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  led9_INTCFG & (uint32)(~(uint32)position);
+    led9_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: LED9_ClearInterrupt
+* Function Name: led9_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void LED9_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet LED9_SUT.c usage_LED9_ClearInterrupt
+*  \snippet led9_SUT.c usage_led9_ClearInterrupt
 *******************************************************************************/
-uint8 LED9_ClearInterrupt(void)
+uint8 led9_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(LED9_INTSTAT & LED9_MASK);
-	LED9_INTSTAT = maskedStatus;
-    return maskedStatus >> LED9_SHIFT;
+	uint8 maskedStatus = (uint8)(led9_INTSTAT & led9_MASK);
+	led9_INTSTAT = maskedStatus;
+    return maskedStatus >> led9_SHIFT;
 }
 
 

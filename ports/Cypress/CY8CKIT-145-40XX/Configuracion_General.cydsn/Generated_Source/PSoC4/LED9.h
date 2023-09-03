@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED9.h  
+* File Name: led9.h  
 * Version 2.20
 *
 * Description:
@@ -12,12 +12,12 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_LED9_H) /* Pins LED9_H */
-#define CY_PINS_LED9_H
+#if !defined(CY_PINS_led9_H) /* Pins led9_H */
+#define CY_PINS_led9_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
-#include "LED9_aliases.h"
+#include "led9_aliases.h"
 
 
 /***************************************
@@ -35,7 +35,7 @@ typedef struct
     uint32 pcState; /**< State of the port control register */
     uint32 sioState; /**< State of the SIO configuration */
     uint32 usbState; /**< State of the USBIO regulator */
-} LED9_BACKUP_STRUCT;
+} led9_BACKUP_STRUCT;
 
 /** @} structures */
 
@@ -47,89 +47,89 @@ typedef struct
 * \addtogroup group_general
 * @{
 */
-uint8   LED9_Read(void);
-void    LED9_Write(uint8 value);
-uint8   LED9_ReadDataReg(void);
-#if defined(LED9__PC) || (CY_PSOC4_4200L) 
-    void    LED9_SetDriveMode(uint8 mode);
+uint8   led9_Read(void);
+void    led9_Write(uint8 value);
+uint8   led9_ReadDataReg(void);
+#if defined(led9__PC) || (CY_PSOC4_4200L) 
+    void    led9_SetDriveMode(uint8 mode);
 #endif
-void    LED9_SetInterruptMode(uint16 position, uint16 mode);
-uint8   LED9_ClearInterrupt(void);
+void    led9_SetInterruptMode(uint16 position, uint16 mode);
+uint8   led9_ClearInterrupt(void);
 /** @} general */
 
 /**
 * \addtogroup group_power
 * @{
 */
-void LED9_Sleep(void); 
-void LED9_Wakeup(void);
+void led9_Sleep(void); 
+void led9_Wakeup(void);
 /** @} power */
 
 
 /***************************************
 *           API Constants        
 ***************************************/
-#if defined(LED9__PC) || (CY_PSOC4_4200L) 
+#if defined(led9__PC) || (CY_PSOC4_4200L) 
     /* Drive Modes */
-    #define LED9_DRIVE_MODE_BITS        (3)
-    #define LED9_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - LED9_DRIVE_MODE_BITS))
+    #define led9_DRIVE_MODE_BITS        (3)
+    #define led9_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - led9_DRIVE_MODE_BITS))
 
     /**
     * \addtogroup group_constants
     * @{
     */
         /** \addtogroup driveMode Drive mode constants
-         * \brief Constants to be passed as "mode" parameter in the LED9_SetDriveMode() function.
+         * \brief Constants to be passed as "mode" parameter in the led9_SetDriveMode() function.
          *  @{
          */
-        #define LED9_DM_ALG_HIZ         (0x00u) /**< \brief High Impedance Analog   */
-        #define LED9_DM_DIG_HIZ         (0x01u) /**< \brief High Impedance Digital  */
-        #define LED9_DM_RES_UP          (0x02u) /**< \brief Resistive Pull Up       */
-        #define LED9_DM_RES_DWN         (0x03u) /**< \brief Resistive Pull Down     */
-        #define LED9_DM_OD_LO           (0x04u) /**< \brief Open Drain, Drives Low  */
-        #define LED9_DM_OD_HI           (0x05u) /**< \brief Open Drain, Drives High */
-        #define LED9_DM_STRONG          (0x06u) /**< \brief Strong Drive            */
-        #define LED9_DM_RES_UPDWN       (0x07u) /**< \brief Resistive Pull Up/Down  */
+        #define led9_DM_ALG_HIZ         (0x00u) /**< \brief High Impedance Analog   */
+        #define led9_DM_DIG_HIZ         (0x01u) /**< \brief High Impedance Digital  */
+        #define led9_DM_RES_UP          (0x02u) /**< \brief Resistive Pull Up       */
+        #define led9_DM_RES_DWN         (0x03u) /**< \brief Resistive Pull Down     */
+        #define led9_DM_OD_LO           (0x04u) /**< \brief Open Drain, Drives Low  */
+        #define led9_DM_OD_HI           (0x05u) /**< \brief Open Drain, Drives High */
+        #define led9_DM_STRONG          (0x06u) /**< \brief Strong Drive            */
+        #define led9_DM_RES_UPDWN       (0x07u) /**< \brief Resistive Pull Up/Down  */
         /** @} driveMode */
     /** @} group_constants */
 #endif
 
 /* Digital Port Constants */
-#define LED9_MASK               LED9__MASK
-#define LED9_SHIFT              LED9__SHIFT
-#define LED9_WIDTH              1u
+#define led9_MASK               led9__MASK
+#define led9_SHIFT              led9__SHIFT
+#define led9_WIDTH              1u
 
 /**
 * \addtogroup group_constants
 * @{
 */
     /** \addtogroup intrMode Interrupt constants
-     * \brief Constants to be passed as "mode" parameter in LED9_SetInterruptMode() function.
+     * \brief Constants to be passed as "mode" parameter in led9_SetInterruptMode() function.
      *  @{
      */
-        #define LED9_INTR_NONE      ((uint16)(0x0000u)) /**< \brief Disabled             */
-        #define LED9_INTR_RISING    ((uint16)(0x5555u)) /**< \brief Rising edge trigger  */
-        #define LED9_INTR_FALLING   ((uint16)(0xaaaau)) /**< \brief Falling edge trigger */
-        #define LED9_INTR_BOTH      ((uint16)(0xffffu)) /**< \brief Both edge trigger    */
+        #define led9_INTR_NONE      ((uint16)(0x0000u)) /**< \brief Disabled             */
+        #define led9_INTR_RISING    ((uint16)(0x5555u)) /**< \brief Rising edge trigger  */
+        #define led9_INTR_FALLING   ((uint16)(0xaaaau)) /**< \brief Falling edge trigger */
+        #define led9_INTR_BOTH      ((uint16)(0xffffu)) /**< \brief Both edge trigger    */
     /** @} intrMode */
 /** @} group_constants */
 
 /* SIO LPM definition */
-#if defined(LED9__SIO)
-    #define LED9_SIO_LPM_MASK       (0x03u)
+#if defined(led9__SIO)
+    #define led9_SIO_LPM_MASK       (0x03u)
 #endif
 
 /* USBIO definitions */
-#if !defined(LED9__PC) && (CY_PSOC4_4200L)
-    #define LED9_USBIO_ENABLE               ((uint32)0x80000000u)
-    #define LED9_USBIO_DISABLE              ((uint32)(~LED9_USBIO_ENABLE))
-    #define LED9_USBIO_SUSPEND_SHIFT        CYFLD_USBDEVv2_USB_SUSPEND__OFFSET
-    #define LED9_USBIO_SUSPEND_DEL_SHIFT    CYFLD_USBDEVv2_USB_SUSPEND_DEL__OFFSET
-    #define LED9_USBIO_ENTER_SLEEP          ((uint32)((1u << LED9_USBIO_SUSPEND_SHIFT) \
-                                                        | (1u << LED9_USBIO_SUSPEND_DEL_SHIFT)))
-    #define LED9_USBIO_EXIT_SLEEP_PH1       ((uint32)~((uint32)(1u << LED9_USBIO_SUSPEND_SHIFT)))
-    #define LED9_USBIO_EXIT_SLEEP_PH2       ((uint32)~((uint32)(1u << LED9_USBIO_SUSPEND_DEL_SHIFT)))
-    #define LED9_USBIO_CR1_OFF              ((uint32)0xfffffffeu)
+#if !defined(led9__PC) && (CY_PSOC4_4200L)
+    #define led9_USBIO_ENABLE               ((uint32)0x80000000u)
+    #define led9_USBIO_DISABLE              ((uint32)(~led9_USBIO_ENABLE))
+    #define led9_USBIO_SUSPEND_SHIFT        CYFLD_USBDEVv2_USB_SUSPEND__OFFSET
+    #define led9_USBIO_SUSPEND_DEL_SHIFT    CYFLD_USBDEVv2_USB_SUSPEND_DEL__OFFSET
+    #define led9_USBIO_ENTER_SLEEP          ((uint32)((1u << led9_USBIO_SUSPEND_SHIFT) \
+                                                        | (1u << led9_USBIO_SUSPEND_DEL_SHIFT)))
+    #define led9_USBIO_EXIT_SLEEP_PH1       ((uint32)~((uint32)(1u << led9_USBIO_SUSPEND_SHIFT)))
+    #define led9_USBIO_EXIT_SLEEP_PH2       ((uint32)~((uint32)(1u << led9_USBIO_SUSPEND_DEL_SHIFT)))
+    #define led9_USBIO_CR1_OFF              ((uint32)0xfffffffeu)
 #endif
 
 
@@ -137,36 +137,36 @@ void LED9_Wakeup(void);
 *             Registers        
 ***************************************/
 /* Main Port Registers */
-#if defined(LED9__PC)
+#if defined(led9__PC)
     /* Port Configuration */
-    #define LED9_PC                 (* (reg32 *) LED9__PC)
+    #define led9_PC                 (* (reg32 *) led9__PC)
 #endif
 /* Pin State */
-#define LED9_PS                     (* (reg32 *) LED9__PS)
+#define led9_PS                     (* (reg32 *) led9__PS)
 /* Data Register */
-#define LED9_DR                     (* (reg32 *) LED9__DR)
+#define led9_DR                     (* (reg32 *) led9__DR)
 /* Input Buffer Disable Override */
-#define LED9_INP_DIS                (* (reg32 *) LED9__PC2)
+#define led9_INP_DIS                (* (reg32 *) led9__PC2)
 
 /* Interrupt configuration Registers */
-#define LED9_INTCFG                 (* (reg32 *) LED9__INTCFG)
-#define LED9_INTSTAT                (* (reg32 *) LED9__INTSTAT)
+#define led9_INTCFG                 (* (reg32 *) led9__INTCFG)
+#define led9_INTSTAT                (* (reg32 *) led9__INTSTAT)
 
 /* "Interrupt cause" register for Combined Port Interrupt (AllPortInt) in GSRef component */
 #if defined (CYREG_GPIO_INTR_CAUSE)
-    #define LED9_INTR_CAUSE         (* (reg32 *) CYREG_GPIO_INTR_CAUSE)
+    #define led9_INTR_CAUSE         (* (reg32 *) CYREG_GPIO_INTR_CAUSE)
 #endif
 
 /* SIO register */
-#if defined(LED9__SIO)
-    #define LED9_SIO_REG            (* (reg32 *) LED9__SIO)
-#endif /* (LED9__SIO_CFG) */
+#if defined(led9__SIO)
+    #define led9_SIO_REG            (* (reg32 *) led9__SIO)
+#endif /* (led9__SIO_CFG) */
 
 /* USBIO registers */
-#if !defined(LED9__PC) && (CY_PSOC4_4200L)
-    #define LED9_USB_POWER_REG       (* (reg32 *) CYREG_USBDEVv2_USB_POWER_CTRL)
-    #define LED9_CR1_REG             (* (reg32 *) CYREG_USBDEVv2_CR1)
-    #define LED9_USBIO_CTRL_REG      (* (reg32 *) CYREG_USBDEVv2_USB_USBIO_CTRL)
+#if !defined(led9__PC) && (CY_PSOC4_4200L)
+    #define led9_USB_POWER_REG       (* (reg32 *) CYREG_USBDEVv2_USB_POWER_CTRL)
+    #define led9_CR1_REG             (* (reg32 *) CYREG_USBDEVv2_CR1)
+    #define led9_USBIO_CTRL_REG      (* (reg32 *) CYREG_USBDEVv2_USB_USBIO_CTRL)
 #endif    
     
     
@@ -178,11 +178,11 @@ void LED9_Wakeup(void);
 * \addtogroup group_deprecated
 * @{
 */
-#define LED9_DRIVE_MODE_SHIFT       (0x00u)
-#define LED9_DRIVE_MODE_MASK        (0x07u << LED9_DRIVE_MODE_SHIFT)
+#define led9_DRIVE_MODE_SHIFT       (0x00u)
+#define led9_DRIVE_MODE_MASK        (0x07u << led9_DRIVE_MODE_SHIFT)
 /** @} deprecated */
 
-#endif /* End Pins LED9_H */
+#endif /* End Pins led9_H */
 
 
 /* [] END OF FILE */

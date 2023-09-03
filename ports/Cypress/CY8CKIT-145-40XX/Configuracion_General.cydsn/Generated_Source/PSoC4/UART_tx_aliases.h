@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: UART_tx.h  
+* File Name: uart_tx.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_UART_tx_ALIASES_H) /* Pins UART_tx_ALIASES_H */
-#define CY_PINS_UART_tx_ALIASES_H
+#if !defined(CY_PINS_uart_tx_ALIASES_H) /* Pins uart_tx_ALIASES_H */
+#define CY_PINS_uart_tx_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define UART_tx_0			(UART_tx__0__PC)
-#define UART_tx_0_PS		(UART_tx__0__PS)
-#define UART_tx_0_PC		(UART_tx__0__PC)
-#define UART_tx_0_DR		(UART_tx__0__DR)
-#define UART_tx_0_SHIFT	(UART_tx__0__SHIFT)
-#define UART_tx_0_INTR	((uint16)((uint16)0x0003u << (UART_tx__0__SHIFT*2u)))
+#define uart_tx_0			(uart_tx__0__PC)
+#define uart_tx_0_PS		(uart_tx__0__PS)
+#define uart_tx_0_PC		(uart_tx__0__PC)
+#define uart_tx_0_DR		(uart_tx__0__DR)
+#define uart_tx_0_SHIFT	(uart_tx__0__SHIFT)
+#define uart_tx_0_INTR	((uint16)((uint16)0x0003u << (uart_tx__0__SHIFT*2u)))
 
-#define UART_tx_INTR_ALL	 ((uint16)(UART_tx_0_INTR))
+#define uart_tx_INTR_ALL	 ((uint16)(uart_tx_0_INTR))
 
 
-#endif /* End Pins UART_tx_ALIASES_H */
+#endif /* End Pins uart_tx_ALIASES_H */
 
 
 /* [] END OF FILE */

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: DO1.c  
+* File Name: do1.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "DO1.h"
+#include "do1.h"
 
-static DO1_BACKUP_STRUCT  DO1_backup = {0u, 0u, 0u};
+static do1_BACKUP_STRUCT  do1_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: DO1_Sleep
+* Function Name: do1_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static DO1_BACKUP_STRUCT  DO1_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet DO1_SUT.c usage_DO1_Sleep_Wakeup
+*  \snippet do1_SUT.c usage_do1_Sleep_Wakeup
 *******************************************************************************/
-void DO1_Sleep(void)
+void do1_Sleep(void)
 {
-    #if defined(DO1__PC)
-        DO1_backup.pcState = DO1_PC;
+    #if defined(do1__PC)
+        do1_backup.pcState = do1_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            DO1_backup.usbState = DO1_CR1_REG;
-            DO1_USB_POWER_REG |= DO1_USBIO_ENTER_SLEEP;
-            DO1_CR1_REG &= DO1_USBIO_CR1_OFF;
+            do1_backup.usbState = do1_CR1_REG;
+            do1_USB_POWER_REG |= do1_USBIO_ENTER_SLEEP;
+            do1_CR1_REG &= do1_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(DO1__SIO)
-        DO1_backup.sioState = DO1_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(do1__SIO)
+        do1_backup.sioState = do1_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        DO1_SIO_REG &= (uint32)(~DO1_SIO_LPM_MASK);
+        do1_SIO_REG &= (uint32)(~do1_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: DO1_Wakeup
+* Function Name: do1_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void DO1_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to DO1_Sleep() for an example usage.
+*  Refer to do1_Sleep() for an example usage.
 *******************************************************************************/
-void DO1_Wakeup(void)
+void do1_Wakeup(void)
 {
-    #if defined(DO1__PC)
-        DO1_PC = DO1_backup.pcState;
+    #if defined(do1__PC)
+        do1_PC = do1_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            DO1_USB_POWER_REG &= DO1_USBIO_EXIT_SLEEP_PH1;
-            DO1_CR1_REG = DO1_backup.usbState;
-            DO1_USB_POWER_REG &= DO1_USBIO_EXIT_SLEEP_PH2;
+            do1_USB_POWER_REG &= do1_USBIO_EXIT_SLEEP_PH1;
+            do1_CR1_REG = do1_backup.usbState;
+            do1_USB_POWER_REG &= do1_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(DO1__SIO)
-        DO1_SIO_REG = DO1_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(do1__SIO)
+        do1_SIO_REG = do1_backup.sioState;
     #endif
 }
 

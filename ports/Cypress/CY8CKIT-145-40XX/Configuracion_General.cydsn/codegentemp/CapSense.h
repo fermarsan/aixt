@@ -1,11 +1,11 @@
 /***************************************************************************//**
-* \file CapSense.h
+* \file capsense.h
 * \version 7.10
 *
 * \brief
-*   This file includes all header files of the CapSense Component modules.
+*   This file includes all header files of the capsense Component modules.
 *
-* \see CapSense v7.10 Datasheet
+* \see capsense v7.10 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2019), Cypress Semiconductor Corporation.
@@ -36,28 +36,28 @@
 * limited by and subject to the applicable Cypress software license agreement.
 *******************************************************************************/
 
-#if !defined(CY_SENSE_CapSense_H)
+#if !defined(CY_SENSE_capsense_H)
 
-#define CY_SENSE_CapSense_H
+#define CY_SENSE_capsense_H
 
-#include "CapSense_Configuration.h"
-#include "CapSense_Control.h"
-#include "CapSense_Filter.h"
-#include "CapSense_Processing.h"
-#include "CapSense_Sensing.h"
-#if (CapSense_ENABLE == CapSense_CSD_EN)
-    #include "CapSense_SensingCSD_LL.h"
-#endif /* (CapSense_ENABLE == CapSense_CSD_EN) */
-#if (CapSense_ENABLE == CapSense_CSX_EN)
-    #include "CapSense_SensingCSX_LL.h"
-#endif /* (CapSense_ENABLE == CapSense_CSX_EN) */
-#if (CapSense_ENABLE == CapSense_ISX_EN)
-    #include "CapSense_SensingISX_LL.h"
-#endif /* (CapSense_ENABLE == CapSense_ISX_EN) */
-#include "CapSense_Structure.h"
-#include "CapSense_Tuner.h"
+#include "capsense_Configuration.h"
+#include "capsense_Control.h"
+#include "capsense_Filter.h"
+#include "capsense_Processing.h"
+#include "capsense_Sensing.h"
+#if (capsense_ENABLE == capsense_CSD_EN)
+    #include "capsense_SensingCSD_LL.h"
+#endif /* (capsense_ENABLE == capsense_CSD_EN) */
+#if (capsense_ENABLE == capsense_CSX_EN)
+    #include "capsense_SensingCSX_LL.h"
+#endif /* (capsense_ENABLE == capsense_CSX_EN) */
+#if (capsense_ENABLE == capsense_ISX_EN)
+    #include "capsense_SensingISX_LL.h"
+#endif /* (capsense_ENABLE == capsense_ISX_EN) */
+#include "capsense_Structure.h"
+#include "capsense_Tuner.h"
 
-#endif /* End CY_SENSE_CapSense_H */
+#endif /* End CY_SENSE_capsense_H */
 
 
 /* [] END OF FILE */

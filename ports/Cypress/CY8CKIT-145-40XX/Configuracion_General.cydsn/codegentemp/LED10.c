@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED10.c  
+* File Name: led10.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "LED10.h"
+#include "led10.h"
 
 
-#if defined(LED10__PC)
-    #define LED10_SetP4PinDriveMode(shift, mode)  \
+#if defined(led10__PC)
+    #define led10_SetP4PinDriveMode(shift, mode)  \
     do { \
-        LED10_PC =   (LED10_PC & \
-                                (uint32)(~(uint32)(LED10_DRIVE_MODE_IND_MASK << \
-                                (LED10_DRIVE_MODE_BITS * (shift))))) | \
+        led10_PC =   (led10_PC & \
+                                (uint32)(~(uint32)(led10_DRIVE_MODE_IND_MASK << \
+                                (led10_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (LED10_DRIVE_MODE_BITS * (shift))); \
+                                (led10_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define LED10_SetP4PinDriveMode(shift, mode)  \
+        #define led10_SetP4PinDriveMode(shift, mode)  \
         do { \
-            LED10_USBIO_CTRL_REG = (LED10_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(LED10_DRIVE_MODE_IND_MASK << \
-                                    (LED10_DRIVE_MODE_BITS * (shift))))) | \
+            led10_USBIO_CTRL_REG = (led10_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(led10_DRIVE_MODE_IND_MASK << \
+                                    (led10_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (LED10_DRIVE_MODE_BITS * (shift))); \
+                                    (led10_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(LED10__PC) || (CY_PSOC4_4200L) 
+#if defined(led10__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: LED10_SetDriveMode
+    * Function Name: led10_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet LED10_SUT.c usage_LED10_SetDriveMode
+    *  \snippet led10_SUT.c usage_led10_SetDriveMode
     *******************************************************************************/
-    void LED10_SetDriveMode(uint8 mode)
+    void led10_SetDriveMode(uint8 mode)
     {
-		LED10_SetP4PinDriveMode(LED10__0__SHIFT, mode);
+		led10_SetP4PinDriveMode(led10__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: LED10_Write
+* Function Name: led10_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet LED10_SUT.c usage_LED10_Write
+*  \snippet led10_SUT.c usage_led10_Write
 *******************************************************************************/
-void LED10_Write(uint8 value)
+void led10_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(LED10_DR & (uint8)(~LED10_MASK));
-    drVal = (drVal | ((uint8)(value << LED10_SHIFT) & LED10_MASK));
-    LED10_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(led10_DR & (uint8)(~led10_MASK));
+    drVal = (drVal | ((uint8)(value << led10_SHIFT) & led10_MASK));
+    led10_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: LED10_Read
+* Function Name: led10_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void LED10_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet LED10_SUT.c usage_LED10_Read  
+*  \snippet led10_SUT.c usage_led10_Read  
 *******************************************************************************/
-uint8 LED10_Read(void)
+uint8 led10_Read(void)
 {
-    return (uint8)((LED10_PS & LED10_MASK) >> LED10_SHIFT);
+    return (uint8)((led10_PS & led10_MASK) >> led10_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED10_ReadDataReg
+* Function Name: led10_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 LED10_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred LED10_Read() API because the 
-* LED10_ReadDataReg() reads the data register instead of the status 
+* preferred led10_Read() API because the 
+* led10_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 LED10_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet LED10_SUT.c usage_LED10_ReadDataReg 
+*  \snippet led10_SUT.c usage_led10_ReadDataReg 
 *******************************************************************************/
-uint8 LED10_ReadDataReg(void)
+uint8 led10_ReadDataReg(void)
 {
-    return (uint8)((LED10_DR & LED10_MASK) >> LED10_SHIFT);
+    return (uint8)((led10_DR & led10_MASK) >> led10_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED10_SetInterruptMode
+* Function Name: led10_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 LED10_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use LED10_INTR_ALL to configure the
+*  component. Or you may use led10_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - LED10_0_INTR       (First pin in the list)
-*  - LED10_1_INTR       (Second pin in the list)
+*  - led10_0_INTR       (First pin in the list)
+*  - led10_1_INTR       (Second pin in the list)
 *  - ...
-*  - LED10_INTR_ALL     (All pins in Pins component)
+*  - led10_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 LED10_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet LED10_SUT.c usage_LED10_SetInterruptMode
+*  \snippet led10_SUT.c usage_led10_SetInterruptMode
 *******************************************************************************/
-void LED10_SetInterruptMode(uint16 position, uint16 mode)
+void led10_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  LED10_INTCFG & (uint32)(~(uint32)position);
-    LED10_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  led10_INTCFG & (uint32)(~(uint32)position);
+    led10_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: LED10_ClearInterrupt
+* Function Name: led10_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void LED10_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet LED10_SUT.c usage_LED10_ClearInterrupt
+*  \snippet led10_SUT.c usage_led10_ClearInterrupt
 *******************************************************************************/
-uint8 LED10_ClearInterrupt(void)
+uint8 led10_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(LED10_INTSTAT & LED10_MASK);
-	LED10_INTSTAT = maskedStatus;
-    return maskedStatus >> LED10_SHIFT;
+	uint8 maskedStatus = (uint8)(led10_INTSTAT & led10_MASK);
+	led10_INTSTAT = maskedStatus;
+    return maskedStatus >> led10_SHIFT;
 }
 
 

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: CapSense_ISR.h
+* File Name: capsense_ISR.h
 * Version 1.70
 *
 *  Description:
@@ -12,60 +12,60 @@
 * disclaimers, and limitations in the end user license agreement accompanying 
 * the software package with which this file was provided.
 *******************************************************************************/
-#if !defined(CY_ISR_CapSense_ISR_H)
-#define CY_ISR_CapSense_ISR_H
+#if !defined(CY_ISR_capsense_ISR_H)
+#define CY_ISR_capsense_ISR_H
 
 
 #include <cytypes.h>
 #include <cyfitter.h>
 
 /* Interrupt Controller API. */
-void CapSense_ISR_Start(void);
-void CapSense_ISR_StartEx(cyisraddress address);
-void CapSense_ISR_Stop(void);
+void capsense_ISR_Start(void);
+void capsense_ISR_StartEx(cyisraddress address);
+void capsense_ISR_Stop(void);
 
-CY_ISR_PROTO(CapSense_ISR_Interrupt);
+CY_ISR_PROTO(capsense_ISR_Interrupt);
 
-void CapSense_ISR_SetVector(cyisraddress address);
-cyisraddress CapSense_ISR_GetVector(void);
+void capsense_ISR_SetVector(cyisraddress address);
+cyisraddress capsense_ISR_GetVector(void);
 
-void CapSense_ISR_SetPriority(uint8 priority);
-uint8 CapSense_ISR_GetPriority(void);
+void capsense_ISR_SetPriority(uint8 priority);
+uint8 capsense_ISR_GetPriority(void);
 
-void CapSense_ISR_Enable(void);
-uint8 CapSense_ISR_GetState(void);
-void CapSense_ISR_Disable(void);
+void capsense_ISR_Enable(void);
+uint8 capsense_ISR_GetState(void);
+void capsense_ISR_Disable(void);
 
-void CapSense_ISR_SetPending(void);
-void CapSense_ISR_ClearPending(void);
+void capsense_ISR_SetPending(void);
+void capsense_ISR_ClearPending(void);
 
 
 /* Interrupt Controller Constants */
 
-/* Address of the INTC.VECT[x] register that contains the Address of the CapSense_ISR ISR. */
-#define CapSense_ISR_INTC_VECTOR            ((reg32 *) CapSense_ISR__INTC_VECT)
+/* Address of the INTC.VECT[x] register that contains the Address of the capsense_ISR ISR. */
+#define capsense_ISR_INTC_VECTOR            ((reg32 *) capsense_ISR__INTC_VECT)
 
-/* Address of the CapSense_ISR ISR priority. */
-#define CapSense_ISR_INTC_PRIOR             ((reg32 *) CapSense_ISR__INTC_PRIOR_REG)
+/* Address of the capsense_ISR ISR priority. */
+#define capsense_ISR_INTC_PRIOR             ((reg32 *) capsense_ISR__INTC_PRIOR_REG)
 
-/* Priority of the CapSense_ISR interrupt. */
-#define CapSense_ISR_INTC_PRIOR_NUMBER      CapSense_ISR__INTC_PRIOR_NUM
+/* Priority of the capsense_ISR interrupt. */
+#define capsense_ISR_INTC_PRIOR_NUMBER      capsense_ISR__INTC_PRIOR_NUM
 
-/* Address of the INTC.SET_EN[x] byte to bit enable CapSense_ISR interrupt. */
-#define CapSense_ISR_INTC_SET_EN            ((reg32 *) CapSense_ISR__INTC_SET_EN_REG)
+/* Address of the INTC.SET_EN[x] byte to bit enable capsense_ISR interrupt. */
+#define capsense_ISR_INTC_SET_EN            ((reg32 *) capsense_ISR__INTC_SET_EN_REG)
 
-/* Address of the INTC.CLR_EN[x] register to bit clear the CapSense_ISR interrupt. */
-#define CapSense_ISR_INTC_CLR_EN            ((reg32 *) CapSense_ISR__INTC_CLR_EN_REG)
+/* Address of the INTC.CLR_EN[x] register to bit clear the capsense_ISR interrupt. */
+#define capsense_ISR_INTC_CLR_EN            ((reg32 *) capsense_ISR__INTC_CLR_EN_REG)
 
-/* Address of the INTC.SET_PD[x] register to set the CapSense_ISR interrupt state to pending. */
-#define CapSense_ISR_INTC_SET_PD            ((reg32 *) CapSense_ISR__INTC_SET_PD_REG)
+/* Address of the INTC.SET_PD[x] register to set the capsense_ISR interrupt state to pending. */
+#define capsense_ISR_INTC_SET_PD            ((reg32 *) capsense_ISR__INTC_SET_PD_REG)
 
-/* Address of the INTC.CLR_PD[x] register to clear the CapSense_ISR interrupt. */
-#define CapSense_ISR_INTC_CLR_PD            ((reg32 *) CapSense_ISR__INTC_CLR_PD_REG)
+/* Address of the INTC.CLR_PD[x] register to clear the capsense_ISR interrupt. */
+#define capsense_ISR_INTC_CLR_PD            ((reg32 *) capsense_ISR__INTC_CLR_PD_REG)
 
 
 
-#endif /* CY_ISR_CapSense_ISR_H */
+#endif /* CY_ISR_capsense_ISR_H */
 
 
 /* [] END OF FILE */

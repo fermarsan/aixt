@@ -10,25 +10,28 @@
  * ========================================
 */
 #include "project.h"
-#include "CapSense.h"
+#include "capsense.h"
 
 int main(void)
 {   
     CyGlobalIntEnable; /* Enable global interrupts. */
-    UART_Start();    /* Configuracion General*/
-    PWM1_Start();
-    Clock1_Start();
-    PWM2_Start();
-    Clock2_Start();
-    PWM3_Start();
-    Clock3_Start();
-    CapSense_Start();
-    CapSense_InitializeAllBaselines();
-    CapSense_ScanAllWidgets();
+    uart_Start();    /* Configuracion General*/
+    pwm0_Start();
+    clock0_Start();
+    pwm1_Start();
+    clock1_Start();
+    pwm2_Start();
+    clock2_Start();
+    capsense_Start();
+    capsense_InitializeAllBaselines();
+    capsense_ScanAllWidgets();
     
     for(;;)
     {
-          
+        led1_Write(0);
+        CyDelay(300);
+        led1_Write(1);
+        CyDelay(300);    
     }
 }
 

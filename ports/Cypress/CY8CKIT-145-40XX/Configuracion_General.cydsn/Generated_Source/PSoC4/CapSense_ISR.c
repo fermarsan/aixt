@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: CapSense_ISR.c  
+* File Name: capsense_ISR.c  
 * Version 1.70
 *
 *  Description:
@@ -18,15 +18,15 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <CapSense_ISR.h>
+#include <capsense_ISR.h>
 #include "cyapicallbacks.h"
 
-#if !defined(CapSense_ISR__REMOVED) /* Check for removal by optimization */
+#if !defined(capsense_ISR__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START CapSense_ISR_intc` */
+/* `#START capsense_ISR_intc` */
 
 /* `#END` */
 
@@ -37,7 +37,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_Start
+* Function Name: capsense_ISR_Start
 ********************************************************************************
 *
 * Summary:
@@ -53,24 +53,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void CapSense_ISR_Start(void)
+void capsense_ISR_Start(void)
 {
     /* For all we know the interrupt is active. */
-    CapSense_ISR_Disable();
+    capsense_ISR_Disable();
 
-    /* Set the ISR to point to the CapSense_ISR Interrupt. */
-    CapSense_ISR_SetVector(&CapSense_ISR_Interrupt);
+    /* Set the ISR to point to the capsense_ISR Interrupt. */
+    capsense_ISR_SetVector(&capsense_ISR_Interrupt);
 
     /* Set the priority. */
-    CapSense_ISR_SetPriority((uint8)CapSense_ISR_INTC_PRIOR_NUMBER);
+    capsense_ISR_SetPriority((uint8)capsense_ISR_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    CapSense_ISR_Enable();
+    capsense_ISR_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_StartEx
+* Function Name: capsense_ISR_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -96,24 +96,24 @@ void CapSense_ISR_Start(void)
 *   None
 *
 *******************************************************************************/
-void CapSense_ISR_StartEx(cyisraddress address)
+void capsense_ISR_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    CapSense_ISR_Disable();
+    capsense_ISR_Disable();
 
-    /* Set the ISR to point to the CapSense_ISR Interrupt. */
-    CapSense_ISR_SetVector(address);
+    /* Set the ISR to point to the capsense_ISR Interrupt. */
+    capsense_ISR_SetVector(address);
 
     /* Set the priority. */
-    CapSense_ISR_SetPriority((uint8)CapSense_ISR_INTC_PRIOR_NUMBER);
+    capsense_ISR_SetPriority((uint8)capsense_ISR_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    CapSense_ISR_Enable();
+    capsense_ISR_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_Stop
+* Function Name: capsense_ISR_Stop
 ********************************************************************************
 *
 * Summary:
@@ -126,22 +126,22 @@ void CapSense_ISR_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void CapSense_ISR_Stop(void)
+void capsense_ISR_Stop(void)
 {
     /* Disable this interrupt. */
-    CapSense_ISR_Disable();
+    capsense_ISR_Disable();
 
     /* Set the ISR to point to the passive one. */
-    CapSense_ISR_SetVector(&IntDefaultHandler);
+    capsense_ISR_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_Interrupt
+* Function Name: capsense_ISR_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for CapSense_ISR.
+*   The default Interrupt Service Routine for capsense_ISR.
 *
 *   Add custom code between the START and END comments to keep the next version
 *   of this file from over-writing your code.
@@ -156,27 +156,27 @@ void CapSense_ISR_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(CapSense_ISR_Interrupt)
+CY_ISR(capsense_ISR_Interrupt)
 {
-    #ifdef CapSense_ISR_INTERRUPT_INTERRUPT_CALLBACK
-        CapSense_ISR_Interrupt_InterruptCallback();
-    #endif /* CapSense_ISR_INTERRUPT_INTERRUPT_CALLBACK */ 
+    #ifdef capsense_ISR_INTERRUPT_INTERRUPT_CALLBACK
+        capsense_ISR_Interrupt_InterruptCallback();
+    #endif /* capsense_ISR_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START CapSense_ISR_Interrupt` */
+    /* `#START capsense_ISR_Interrupt` */
 
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_SetVector
+* Function Name: capsense_ISR_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling CapSense_ISR_Start
+*   Change the ISR vector for the Interrupt. Note calling capsense_ISR_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use CapSense_ISR_StartEx instead.
+*   before the component has been started use capsense_ISR_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -196,14 +196,14 @@ CY_ISR(CapSense_ISR_Interrupt)
 *   None
 *
 *******************************************************************************/
-void CapSense_ISR_SetVector(cyisraddress address)
+void capsense_ISR_SetVector(cyisraddress address)
 {
-    CyRamVectors[CYINT_IRQ_BASE + CapSense_ISR__INTC_NUMBER] = address;
+    CyRamVectors[CYINT_IRQ_BASE + capsense_ISR__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_GetVector
+* Function Name: capsense_ISR_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -216,22 +216,22 @@ void CapSense_ISR_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress CapSense_ISR_GetVector(void)
+cyisraddress capsense_ISR_GetVector(void)
 {
-    return CyRamVectors[CYINT_IRQ_BASE + CapSense_ISR__INTC_NUMBER];
+    return CyRamVectors[CYINT_IRQ_BASE + capsense_ISR__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_SetPriority
+* Function Name: capsense_ISR_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling CapSense_ISR_Start or CapSense_ISR_StartEx will 
+*   Note calling capsense_ISR_Start or capsense_ISR_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after CapSense_ISR_Start or CapSense_ISR_StartEx has been called. 
+*   after capsense_ISR_Start or capsense_ISR_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -246,20 +246,20 @@ cyisraddress CapSense_ISR_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void CapSense_ISR_SetPriority(uint8 priority)
+void capsense_ISR_SetPriority(uint8 priority)
 {
 	uint8 interruptState;
-    uint32 priorityOffset = ((CapSense_ISR__INTC_NUMBER % 4u) * 8u) + 6u;
+    uint32 priorityOffset = ((capsense_ISR__INTC_NUMBER % 4u) * 8u) + 6u;
     
 	interruptState = CyEnterCriticalSection();
-    *CapSense_ISR_INTC_PRIOR = (*CapSense_ISR_INTC_PRIOR & (uint32)(~CapSense_ISR__INTC_PRIOR_MASK)) |
+    *capsense_ISR_INTC_PRIOR = (*capsense_ISR_INTC_PRIOR & (uint32)(~capsense_ISR__INTC_PRIOR_MASK)) |
                                     ((uint32)priority << priorityOffset);
 	CyExitCriticalSection(interruptState);
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_GetPriority
+* Function Name: capsense_ISR_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -274,19 +274,19 @@ void CapSense_ISR_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 CapSense_ISR_GetPriority(void)
+uint8 capsense_ISR_GetPriority(void)
 {
     uint32 priority;
-	uint32 priorityOffset = ((CapSense_ISR__INTC_NUMBER % 4u) * 8u) + 6u;
+	uint32 priorityOffset = ((capsense_ISR__INTC_NUMBER % 4u) * 8u) + 6u;
 
-    priority = (*CapSense_ISR_INTC_PRIOR & CapSense_ISR__INTC_PRIOR_MASK) >> priorityOffset;
+    priority = (*capsense_ISR_INTC_PRIOR & capsense_ISR__INTC_PRIOR_MASK) >> priorityOffset;
 
     return (uint8)priority;
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_Enable
+* Function Name: capsense_ISR_Enable
 ********************************************************************************
 *
 * Summary:
@@ -301,15 +301,15 @@ uint8 CapSense_ISR_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void CapSense_ISR_Enable(void)
+void capsense_ISR_Enable(void)
 {
     /* Enable the general interrupt. */
-    *CapSense_ISR_INTC_SET_EN = CapSense_ISR__INTC_MASK;
+    *capsense_ISR_INTC_SET_EN = capsense_ISR__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_GetState
+* Function Name: capsense_ISR_GetState
 ********************************************************************************
 *
 * Summary:
@@ -322,15 +322,15 @@ void CapSense_ISR_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 CapSense_ISR_GetState(void)
+uint8 capsense_ISR_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*CapSense_ISR_INTC_SET_EN & (uint32)CapSense_ISR__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*capsense_ISR_INTC_SET_EN & (uint32)capsense_ISR__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_Disable
+* Function Name: capsense_ISR_Disable
 ********************************************************************************
 *
 * Summary:
@@ -343,15 +343,15 @@ uint8 CapSense_ISR_GetState(void)
 *   None
 *
 *******************************************************************************/
-void CapSense_ISR_Disable(void)
+void capsense_ISR_Disable(void)
 {
     /* Disable the general interrupt. */
-    *CapSense_ISR_INTC_CLR_EN = CapSense_ISR__INTC_MASK;
+    *capsense_ISR_INTC_CLR_EN = capsense_ISR__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_SetPending
+* Function Name: capsense_ISR_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -370,14 +370,14 @@ void CapSense_ISR_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void CapSense_ISR_SetPending(void)
+void capsense_ISR_SetPending(void)
 {
-    *CapSense_ISR_INTC_SET_PD = CapSense_ISR__INTC_MASK;
+    *capsense_ISR_INTC_SET_PD = capsense_ISR__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: CapSense_ISR_ClearPending
+* Function Name: capsense_ISR_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -395,9 +395,9 @@ void CapSense_ISR_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void CapSense_ISR_ClearPending(void)
+void capsense_ISR_ClearPending(void)
 {
-    *CapSense_ISR_INTC_CLR_PD = CapSense_ISR__INTC_MASK;
+    *capsense_ISR_INTC_CLR_PD = capsense_ISR__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */

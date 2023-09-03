@@ -25,7 +25,7 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="Configuracion_General" Path="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" Version="6.10" Type="Normal">
+  <Project Name="Configuracion_General" Path="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" Version="6.10" Type="Normal">
     <CMSIS_SVD_File>Configuracion_General.svd</CMSIS_SVD_File>
     <Datasheet>Configuracion_General_datasheet.pdf</Datasheet>
     <LinkerFiles>
@@ -34,14 +34,14 @@
       <LinkerFile Toolchain="ARM IAR Generic">.\Generated_Source\PSoC4\Cm0plusIar.icf</LinkerFile>
     </LinkerFiles>
     <Folders>
-      <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn">
+      <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn">
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn\Generated_Source\PSoC4">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn">
+      <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\Generated_Source\PSoC4">
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn">
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cyfitter_cfg.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cyfitter_cfg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cymetadata.c</File>
@@ -54,29 +54,29 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cyfitteriar.inc</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cyfitter.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cydisabledsheets.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SPI_UART.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SPI_UART.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SPI_UART_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_UART.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_BOOT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_UART_BOOT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_PINS.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SPI_UART_PVT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_PVT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_BOOT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SCBCLK.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SCBCLK.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_tx.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_tx.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_tx_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_tx_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_rx.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_rx.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_rx_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_rx_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_SPI_UART.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_SPI_UART.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_SPI_UART_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_UART.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_BOOT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_UART_BOOT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_PINS.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_SPI_UART_PVT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_PVT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_BOOT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_SCBCLK.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_SCBCLK.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_tx.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_tx.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_tx_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_tx_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_rx.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_rx.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_rx_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_rx_PM.c</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">Generated_Source\PSoC4\cm0plusgcc.ld</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">Generated_Source\PSoC4\Cm0plusRealView.scat</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Cm0plusStart.c</File>
@@ -108,167 +108,167 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cycodeshareimport.scat</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PWM1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PWM1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PWM1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Clock1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Clock1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PWM2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PWM2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PWM2_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Clock2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Clock2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM2_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Clock3.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Clock3.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PWM3.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PWM3.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PWM3_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM3.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM3.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM3_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Out_PWM3_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Control.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Processing.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Structure.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Tuner.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Filter.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Sensing.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Control.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Filter.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Processing.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Sensing.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Structure.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Tuner.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Configuration.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_SensingCSD_LL.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_SensingCSD_LL.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_SensingCSX_LL.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_SensingCSX_LL.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_RegisterMap.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Centroid_LL.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_Centroid_LL.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_ISR.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSense_ISR.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED5.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED5.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED5_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED5_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED4.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED4.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED4_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED4_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED6.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED6.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED6_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED6_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED7.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED7.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED7_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED7_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED8.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED8.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED8_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED8_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED9.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED9.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED9_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED9_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED10.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED10.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED10_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED10_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED11.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED11.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED11_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED11_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\SW2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\SW2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\SW2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\SW2_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI2_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO2_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI3.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI3.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI3_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DI3_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO3.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO3.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO3_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DO3_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\clock1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\clock1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm2_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\clock2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\clock2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm2_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm2_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Control.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Processing.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Structure.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Tuner.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Filter.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Sensing.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Control.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Filter.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Processing.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Sensing.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Structure.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Tuner.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Configuration.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_SensingCSD_LL.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_SensingCSD_LL.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_SensingCSX_LL.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_SensingCSX_LL.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_RegisterMap.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Centroid_LL.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Centroid_LL.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_ISR.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_ISR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led5.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led5.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led5_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led5_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led4.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led4.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led4_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led4_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led6.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led6.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led6_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led6_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led7.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led7.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led7_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led7_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led8.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led8.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led8_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led8_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led9.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led9.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led9_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led9_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led10.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led10.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led10_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led10_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led11.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led11.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led11_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led11_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\sw2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\sw2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\sw2_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\sw2_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\led1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di2_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di2_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do2_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do2_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di0.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di0.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di0_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\di0_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do0.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do0.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do0_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do0_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm0.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm0.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm0_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\clock0.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\clock0.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm0.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm0.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm0_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm0_PM.c</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn\Export\ARM_GCC_Generic\CapSense_P4_v7_10">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn">
+      <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\Export\ARM_GCC_Generic\CapSense_P4_v7_10">
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn">
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\CapSense_P4_v7_10\Capsense_P4Library_GCCp.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn\Export\ARM_MDK_Generic\CapSense_P4_v7_10">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn">
+      <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\Export\ARM_MDK_Generic\CapSense_P4_v7_10">
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn">
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\CapSense_P4_v7_10\Capsense_P4Library_MDKp.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn\Export\ARM_IAR_Generic\CapSense_P4_v7_10">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn">
+      <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\Export\ARM_IAR_Generic\CapSense_P4_v7_10">
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn">
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\CapSense_P4_v7_10\Capsense_P4Library_IARp.a</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" />
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_441">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" />
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_473">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" />
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051_Keil_952">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" />
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" />
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" />
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0p">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" />
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM3">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" />
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM4">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" />
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM7">
-        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn" />
+        <Files Root="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn" />
       </Folder>
     </Folders>
   </Project>

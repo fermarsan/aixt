@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Configuracion_General\Configuracion_General\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>Configuracion_General</v>
 <v>Configuracion_General\Configuracion_General</v>
@@ -53,16 +53,16 @@
 <v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4</v>
 <v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\CapSense</v>
 <v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\CapSense_ISR</v>
+<v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\clock0</v>
 <v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\Clock1</v>
 <v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\Clock2</v>
-<v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\Clock3</v>
 <v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\cy_boot</v>
 <v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\di0</v>
 <v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\DI1</v>
 <v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\DI2</v>
-<v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\DI3</v>
+<v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\do0</v>
 <v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\DO1</v>
-<v>Configuracion_General\Configuracion_General\Generated_Source\PSoC4\DO2</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Configuracion_General">
@@ -87,20 +87,7 @@
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Centroid_LL.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Control.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Filter.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_ISR.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Processing.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Sensing.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSD_LL.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSX_LL.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Structure.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Tuner.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Clock1.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Clock2.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Clock3.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\clock0.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Cm0plusStart.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
@@ -111,63 +98,15 @@
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DI1.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DI1_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DI2.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DI2_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DI3.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DI3_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DO1.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DO1_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DO2.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DO2_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DO3.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\DO3_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED1.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED1_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED10.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED10_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED11.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED11_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED4.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED4_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED5.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED5_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED6.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED6_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED7.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED7_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED8.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED8_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED9.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED9_PM.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\di0.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\di0_PM.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\do0.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\do0_PM.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Out_PWM1.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Out_PWM1_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Out_PWM2.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Out_PWM2_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Out_PWM3.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Out_PWM3_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\PWM1.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\PWM1_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\PWM2.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\PWM2_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\PWM3.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\PWM3_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\SW2.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\SW2_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_rx.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_rx_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_SCBCLK.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_tx.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_tx_PM.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_UART.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_UART_BOOT.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\out_pwm0.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\out_pwm0_PM.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm0.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm0_PM.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.elf</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.hex</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.map</v>
@@ -182,20 +121,7 @@
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Centroid_LL.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Control.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Filter.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_ISR.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Processing.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Sensing.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSD_LL.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSX_LL.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Structure.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Tuner.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Clock1.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Clock2.lst</v>
-<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Clock3.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\clock0.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Cm0plusStart.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
@@ -205,6 +131,19 @@
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
 <v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\di0.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\di0_PM.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\do0.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\do0_PM.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\out_pwm0.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\out_pwm0_PM.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm0.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm0_PM.lst</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.elf</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.hex</v>
+<v>Configuracion_General\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.map</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -257,9 +196,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Configuracion_General.cydsn\Configuracion_General.cydwr" />
-<name v=".\Configuracion_General.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Configuracion_General.cydsn\main.c" />
+<name v=".\Configuracion_General.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Configuracion_General.cydsn\Configuracion_General.cydwr" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -267,7 +206,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="778, 420" SelectedTabbedMdiWindow="915953ca-8d27-41be-8b07-edfb00133000"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="93b92e40-921f-4c80-b81e-81528cab2f9e" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn\Configuracion_General.cydwr" Guid="97c009c7-9711-4acc-8a0a-e2a7e2c18a8e" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn\TopDesign\TopDesign.cysch" Guid="915953ca-8d27-41be-8b07-edfb00133000" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\Ejemplos\Configuracion General\Configuracion_General\Configuracion_General.cydsn\main.c" Guid="cabf139f-638b-4138-81e9-251c651c7bb2" /></TabbedMdiContainer><TabbedMdiContainer Size="778, 156" SelectedTabbedMdiWindow="1c19c30b-8eca-414b-bea5-bcb3ef020fdf"><ToolWindow Key="Output Window Plugin:7305390e-eabe-4963-b21f-3a0f11b4b1d5:Output Window" Guid="1c19c30b-8eca-414b-bea5-bcb3ef020fdf" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="995, 538" SelectedTabbedMdiWindow="31556eab-e8ae-45bd-a00e-6ca6e02fda0a"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="93b92e40-921f-4c80-b81e-81528cab2f9e" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\main.c" Guid="af19a701-fd24-4702-905e-346ff27216e1" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\TopDesign\TopDesign.cysch" Guid="3ae87f01-1cae-4f73-b894-07d2c64c3ecd" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\Configuracion_General.cydwr" Guid="31556eab-e8ae-45bd-a00e-6ca6e02fda0a" /></TabbedMdiContainer><TabbedMdiContainer Size="995, 38" SelectedTabbedMdiWindow="1c19c30b-8eca-414b-bea5-bcb3ef020fdf"><ToolWindow Key="Output Window Plugin:7305390e-eabe-4963-b21f-3a0f11b4b1d5:Output Window" Guid="1c19c30b-8eca-414b-bea5-bcb3ef020fdf" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

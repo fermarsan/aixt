@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED6.h  
+* File Name: led6.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_LED6_ALIASES_H) /* Pins LED6_ALIASES_H */
-#define CY_PINS_LED6_ALIASES_H
+#if !defined(CY_PINS_led6_ALIASES_H) /* Pins led6_ALIASES_H */
+#define CY_PINS_led6_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define LED6_0			(LED6__0__PC)
-#define LED6_0_PS		(LED6__0__PS)
-#define LED6_0_PC		(LED6__0__PC)
-#define LED6_0_DR		(LED6__0__DR)
-#define LED6_0_SHIFT	(LED6__0__SHIFT)
-#define LED6_0_INTR	((uint16)((uint16)0x0003u << (LED6__0__SHIFT*2u)))
+#define led6_0			(led6__0__PC)
+#define led6_0_PS		(led6__0__PS)
+#define led6_0_PC		(led6__0__PC)
+#define led6_0_DR		(led6__0__DR)
+#define led6_0_SHIFT	(led6__0__SHIFT)
+#define led6_0_INTR	((uint16)((uint16)0x0003u << (led6__0__SHIFT*2u)))
 
-#define LED6_INTR_ALL	 ((uint16)(LED6_0_INTR))
+#define led6_INTR_ALL	 ((uint16)(led6_0_INTR))
 
 
-#endif /* End Pins LED6_ALIASES_H */
+#endif /* End Pins led6_ALIASES_H */
 
 
 /* [] END OF FILE */

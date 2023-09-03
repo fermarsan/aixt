@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Out_PWM1.c  
+* File Name: out_pwm1.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Out_PWM1.h"
+#include "out_pwm1.h"
 
-static Out_PWM1_BACKUP_STRUCT  Out_PWM1_backup = {0u, 0u, 0u};
+static out_pwm1_BACKUP_STRUCT  out_pwm1_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: Out_PWM1_Sleep
+* Function Name: out_pwm1_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static Out_PWM1_BACKUP_STRUCT  Out_PWM1_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet Out_PWM1_SUT.c usage_Out_PWM1_Sleep_Wakeup
+*  \snippet out_pwm1_SUT.c usage_out_pwm1_Sleep_Wakeup
 *******************************************************************************/
-void Out_PWM1_Sleep(void)
+void out_pwm1_Sleep(void)
 {
-    #if defined(Out_PWM1__PC)
-        Out_PWM1_backup.pcState = Out_PWM1_PC;
+    #if defined(out_pwm1__PC)
+        out_pwm1_backup.pcState = out_pwm1_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            Out_PWM1_backup.usbState = Out_PWM1_CR1_REG;
-            Out_PWM1_USB_POWER_REG |= Out_PWM1_USBIO_ENTER_SLEEP;
-            Out_PWM1_CR1_REG &= Out_PWM1_USBIO_CR1_OFF;
+            out_pwm1_backup.usbState = out_pwm1_CR1_REG;
+            out_pwm1_USB_POWER_REG |= out_pwm1_USBIO_ENTER_SLEEP;
+            out_pwm1_CR1_REG &= out_pwm1_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Out_PWM1__SIO)
-        Out_PWM1_backup.sioState = Out_PWM1_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(out_pwm1__SIO)
+        out_pwm1_backup.sioState = out_pwm1_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        Out_PWM1_SIO_REG &= (uint32)(~Out_PWM1_SIO_LPM_MASK);
+        out_pwm1_SIO_REG &= (uint32)(~out_pwm1_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: Out_PWM1_Wakeup
+* Function Name: out_pwm1_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void Out_PWM1_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to Out_PWM1_Sleep() for an example usage.
+*  Refer to out_pwm1_Sleep() for an example usage.
 *******************************************************************************/
-void Out_PWM1_Wakeup(void)
+void out_pwm1_Wakeup(void)
 {
-    #if defined(Out_PWM1__PC)
-        Out_PWM1_PC = Out_PWM1_backup.pcState;
+    #if defined(out_pwm1__PC)
+        out_pwm1_PC = out_pwm1_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            Out_PWM1_USB_POWER_REG &= Out_PWM1_USBIO_EXIT_SLEEP_PH1;
-            Out_PWM1_CR1_REG = Out_PWM1_backup.usbState;
-            Out_PWM1_USB_POWER_REG &= Out_PWM1_USBIO_EXIT_SLEEP_PH2;
+            out_pwm1_USB_POWER_REG &= out_pwm1_USBIO_EXIT_SLEEP_PH1;
+            out_pwm1_CR1_REG = out_pwm1_backup.usbState;
+            out_pwm1_USB_POWER_REG &= out_pwm1_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Out_PWM1__SIO)
-        Out_PWM1_SIO_REG = Out_PWM1_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(out_pwm1__SIO)
+        out_pwm1_SIO_REG = out_pwm1_backup.sioState;
     #endif
 }
 
