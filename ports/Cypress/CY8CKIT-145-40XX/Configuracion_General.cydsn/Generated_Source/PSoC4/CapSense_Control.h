@@ -1,11 +1,11 @@
 /***************************************************************************//**
-* \file CapSense_Control.h
+* \file capsense_Control.h
 * \version 7.10
 *
 * \brief
 *   This file provides the function prototypes of the Control Block.
 *
-* \see CapSense v7.10 Datasheet
+* \see capsense v7.10 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2019), Cypress Semiconductor Corporation.
@@ -36,10 +36,10 @@
 * limited by and subject to the applicable Cypress software license agreement.
 *******************************************************************************/
 
-#if !defined(CY_SENSE_CapSense_CONTROL_H)
-#define CY_SENSE_CapSense_CONTROL_H
+#if !defined(CY_SENSE_capsense_CONTROL_H)
+#define CY_SENSE_capsense_CONTROL_H
 
-#include "CapSense_Configuration.h"
+#include "capsense_Configuration.h"
 
 /*******************************************************************************
 * Function Prototypes
@@ -56,15 +56,15 @@
 * \{
 */
 
-cystatus CapSense_Start(void);
-cystatus CapSense_Stop(void);
-cystatus CapSense_Resume(void);
+cystatus capsense_Start(void);
+cystatus capsense_Stop(void);
+cystatus capsense_Resume(void);
 
-cystatus CapSense_ProcessAllWidgets(void);
-cystatus CapSense_ProcessWidget(uint32 widgetId);
+cystatus capsense_ProcessAllWidgets(void);
+cystatus capsense_ProcessWidget(uint32 widgetId);
 
-void CapSense_Sleep(void);
-void CapSense_Wakeup(void);
+void capsense_Sleep(void);
+void capsense_Wakeup(void);
 
 /** \}
 * \endcond */
@@ -75,8 +75,8 @@ void CapSense_Wakeup(void);
 * \{
 */
 
-cystatus CapSense_ProcessWidgetExt(uint32 widgetId, uint32 mode);
-cystatus CapSense_ProcessSensorExt(uint32 widgetId, uint32 sensorId, uint32 mode);
+cystatus capsense_ProcessWidgetExt(uint32 widgetId, uint32 mode);
+cystatus capsense_ProcessSensorExt(uint32 widgetId, uint32 sensorId, uint32 mode);
 
 /** \}
 * \endcond */
@@ -90,12 +90,12 @@ cystatus CapSense_ProcessSensorExt(uint32 widgetId, uint32 sensorId, uint32 mode
 * \addtogroup group_c_internal
 * \{
 */
-cystatus CapSense_Initialize(void);
+cystatus capsense_Initialize(void);
 
 /** \}
 * \endcond */
 
-#endif /* End CY_SENSE_CapSense_CONTROL_H */
+#endif /* End CY_SENSE_capsense_CONTROL_H */
 
 
 /* [] END OF FILE */

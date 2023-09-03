@@ -1,9 +1,9 @@
 /*******************************************************************************
-* File Name: PWM3.c
+* File Name: pwm2.c
 * Version 2.10
 *
 * Description:
-*  This file provides the source code to the API for the PWM3
+*  This file provides the source code to the API for the pwm2
 *  component
 *
 * Note:
@@ -16,17 +16,17 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "PWM3.h"
+#include "pwm2.h"
 
-uint8 PWM3_initVar = 0u;
+uint8 pwm2_initVar = 0u;
 
 
 /*******************************************************************************
-* Function Name: PWM3_Init
+* Function Name: pwm2_Init
 ********************************************************************************
 *
 * Summary:
-*  Initialize/Restore default PWM3 configuration.
+*  Initialize/Restore default pwm2 configuration.
 *
 * Parameters:
 *  None
@@ -35,137 +35,137 @@ uint8 PWM3_initVar = 0u;
 *  None
 *
 *******************************************************************************/
-void PWM3_Init(void)
+void pwm2_Init(void)
 {
 
     /* Set values from customizer to CTRL */
-    #if (PWM3__QUAD == PWM3_CONFIG)
-        PWM3_CONTROL_REG = PWM3_CTRL_QUAD_BASE_CONFIG;
+    #if (pwm2__QUAD == pwm2_CONFIG)
+        pwm2_CONTROL_REG = pwm2_CTRL_QUAD_BASE_CONFIG;
         
         /* Set values from customizer to CTRL1 */
-        PWM3_TRIG_CONTROL1_REG  = PWM3_QUAD_SIGNALS_MODES;
+        pwm2_TRIG_CONTROL1_REG  = pwm2_QUAD_SIGNALS_MODES;
 
         /* Set values from customizer to INTR */
-        PWM3_SetInterruptMode(PWM3_QUAD_INTERRUPT_MASK);
+        pwm2_SetInterruptMode(pwm2_QUAD_INTERRUPT_MASK);
         
          /* Set other values */
-        PWM3_SetCounterMode(PWM3_COUNT_DOWN);
-        PWM3_WritePeriod(PWM3_QUAD_PERIOD_INIT_VALUE);
-        PWM3_WriteCounter(PWM3_QUAD_PERIOD_INIT_VALUE);
-    #endif  /* (PWM3__QUAD == PWM3_CONFIG) */
+        pwm2_SetCounterMode(pwm2_COUNT_DOWN);
+        pwm2_WritePeriod(pwm2_QUAD_PERIOD_INIT_VALUE);
+        pwm2_WriteCounter(pwm2_QUAD_PERIOD_INIT_VALUE);
+    #endif  /* (pwm2__QUAD == pwm2_CONFIG) */
 
-    #if (PWM3__TIMER == PWM3_CONFIG)
-        PWM3_CONTROL_REG = PWM3_CTRL_TIMER_BASE_CONFIG;
+    #if (pwm2__TIMER == pwm2_CONFIG)
+        pwm2_CONTROL_REG = pwm2_CTRL_TIMER_BASE_CONFIG;
         
         /* Set values from customizer to CTRL1 */
-        PWM3_TRIG_CONTROL1_REG  = PWM3_TIMER_SIGNALS_MODES;
+        pwm2_TRIG_CONTROL1_REG  = pwm2_TIMER_SIGNALS_MODES;
     
         /* Set values from customizer to INTR */
-        PWM3_SetInterruptMode(PWM3_TC_INTERRUPT_MASK);
+        pwm2_SetInterruptMode(pwm2_TC_INTERRUPT_MASK);
         
         /* Set other values from customizer */
-        PWM3_WritePeriod(PWM3_TC_PERIOD_VALUE );
+        pwm2_WritePeriod(pwm2_TC_PERIOD_VALUE );
 
-        #if (PWM3__COMPARE == PWM3_TC_COMP_CAP_MODE)
-            PWM3_WriteCompare(PWM3_TC_COMPARE_VALUE);
+        #if (pwm2__COMPARE == pwm2_TC_COMP_CAP_MODE)
+            pwm2_WriteCompare(pwm2_TC_COMPARE_VALUE);
 
-            #if (1u == PWM3_TC_COMPARE_SWAP)
-                PWM3_SetCompareSwap(1u);
-                PWM3_WriteCompareBuf(PWM3_TC_COMPARE_BUF_VALUE);
-            #endif  /* (1u == PWM3_TC_COMPARE_SWAP) */
-        #endif  /* (PWM3__COMPARE == PWM3_TC_COMP_CAP_MODE) */
+            #if (1u == pwm2_TC_COMPARE_SWAP)
+                pwm2_SetCompareSwap(1u);
+                pwm2_WriteCompareBuf(pwm2_TC_COMPARE_BUF_VALUE);
+            #endif  /* (1u == pwm2_TC_COMPARE_SWAP) */
+        #endif  /* (pwm2__COMPARE == pwm2_TC_COMP_CAP_MODE) */
 
         /* Initialize counter value */
-        #if (PWM3_CY_TCPWM_V2 && PWM3_TIMER_UPDOWN_CNT_USED && !PWM3_CY_TCPWM_4000)
-            PWM3_WriteCounter(1u);
-        #elif(PWM3__COUNT_DOWN == PWM3_TC_COUNTER_MODE)
-            PWM3_WriteCounter(PWM3_TC_PERIOD_VALUE);
+        #if (pwm2_CY_TCPWM_V2 && pwm2_TIMER_UPDOWN_CNT_USED && !pwm2_CY_TCPWM_4000)
+            pwm2_WriteCounter(1u);
+        #elif(pwm2__COUNT_DOWN == pwm2_TC_COUNTER_MODE)
+            pwm2_WriteCounter(pwm2_TC_PERIOD_VALUE);
         #else
-            PWM3_WriteCounter(0u);
-        #endif /* (PWM3_CY_TCPWM_V2 && PWM3_TIMER_UPDOWN_CNT_USED && !PWM3_CY_TCPWM_4000) */
-    #endif  /* (PWM3__TIMER == PWM3_CONFIG) */
+            pwm2_WriteCounter(0u);
+        #endif /* (pwm2_CY_TCPWM_V2 && pwm2_TIMER_UPDOWN_CNT_USED && !pwm2_CY_TCPWM_4000) */
+    #endif  /* (pwm2__TIMER == pwm2_CONFIG) */
 
-    #if (PWM3__PWM_SEL == PWM3_CONFIG)
-        PWM3_CONTROL_REG = PWM3_CTRL_PWM_BASE_CONFIG;
+    #if (pwm2__PWM_SEL == pwm2_CONFIG)
+        pwm2_CONTROL_REG = pwm2_CTRL_PWM_BASE_CONFIG;
 
-        #if (PWM3__PWM_PR == PWM3_PWM_MODE)
-            PWM3_CONTROL_REG |= PWM3_CTRL_PWM_RUN_MODE;
-            PWM3_WriteCounter(PWM3_PWM_PR_INIT_VALUE);
+        #if (pwm2__PWM_PR == pwm2_PWM_MODE)
+            pwm2_CONTROL_REG |= pwm2_CTRL_PWM_RUN_MODE;
+            pwm2_WriteCounter(pwm2_PWM_PR_INIT_VALUE);
         #else
-            PWM3_CONTROL_REG |= PWM3_CTRL_PWM_ALIGN | PWM3_CTRL_PWM_KILL_EVENT;
+            pwm2_CONTROL_REG |= pwm2_CTRL_PWM_ALIGN | pwm2_CTRL_PWM_KILL_EVENT;
             
             /* Initialize counter value */
-            #if (PWM3_CY_TCPWM_V2 && PWM3_PWM_UPDOWN_CNT_USED && !PWM3_CY_TCPWM_4000)
-                PWM3_WriteCounter(1u);
-            #elif (PWM3__RIGHT == PWM3_PWM_ALIGN)
-                PWM3_WriteCounter(PWM3_PWM_PERIOD_VALUE);
+            #if (pwm2_CY_TCPWM_V2 && pwm2_PWM_UPDOWN_CNT_USED && !pwm2_CY_TCPWM_4000)
+                pwm2_WriteCounter(1u);
+            #elif (pwm2__RIGHT == pwm2_PWM_ALIGN)
+                pwm2_WriteCounter(pwm2_PWM_PERIOD_VALUE);
             #else 
-                PWM3_WriteCounter(0u);
-            #endif  /* (PWM3_CY_TCPWM_V2 && PWM3_PWM_UPDOWN_CNT_USED && !PWM3_CY_TCPWM_4000) */
-        #endif  /* (PWM3__PWM_PR == PWM3_PWM_MODE) */
+                pwm2_WriteCounter(0u);
+            #endif  /* (pwm2_CY_TCPWM_V2 && pwm2_PWM_UPDOWN_CNT_USED && !pwm2_CY_TCPWM_4000) */
+        #endif  /* (pwm2__PWM_PR == pwm2_PWM_MODE) */
 
-        #if (PWM3__PWM_DT == PWM3_PWM_MODE)
-            PWM3_CONTROL_REG |= PWM3_CTRL_PWM_DEAD_TIME_CYCLE;
-        #endif  /* (PWM3__PWM_DT == PWM3_PWM_MODE) */
+        #if (pwm2__PWM_DT == pwm2_PWM_MODE)
+            pwm2_CONTROL_REG |= pwm2_CTRL_PWM_DEAD_TIME_CYCLE;
+        #endif  /* (pwm2__PWM_DT == pwm2_PWM_MODE) */
 
-        #if (PWM3__PWM == PWM3_PWM_MODE)
-            PWM3_CONTROL_REG |= PWM3_CTRL_PWM_PRESCALER;
-        #endif  /* (PWM3__PWM == PWM3_PWM_MODE) */
+        #if (pwm2__PWM == pwm2_PWM_MODE)
+            pwm2_CONTROL_REG |= pwm2_CTRL_PWM_PRESCALER;
+        #endif  /* (pwm2__PWM == pwm2_PWM_MODE) */
 
         /* Set values from customizer to CTRL1 */
-        PWM3_TRIG_CONTROL1_REG  = PWM3_PWM_SIGNALS_MODES;
+        pwm2_TRIG_CONTROL1_REG  = pwm2_PWM_SIGNALS_MODES;
     
         /* Set values from customizer to INTR */
-        PWM3_SetInterruptMode(PWM3_PWM_INTERRUPT_MASK);
+        pwm2_SetInterruptMode(pwm2_PWM_INTERRUPT_MASK);
 
         /* Set values from customizer to CTRL2 */
-        #if (PWM3__PWM_PR == PWM3_PWM_MODE)
-            PWM3_TRIG_CONTROL2_REG =
-                    (PWM3_CC_MATCH_NO_CHANGE    |
-                    PWM3_OVERLOW_NO_CHANGE      |
-                    PWM3_UNDERFLOW_NO_CHANGE);
+        #if (pwm2__PWM_PR == pwm2_PWM_MODE)
+            pwm2_TRIG_CONTROL2_REG =
+                    (pwm2_CC_MATCH_NO_CHANGE    |
+                    pwm2_OVERLOW_NO_CHANGE      |
+                    pwm2_UNDERFLOW_NO_CHANGE);
         #else
-            #if (PWM3__LEFT == PWM3_PWM_ALIGN)
-                PWM3_TRIG_CONTROL2_REG = PWM3_PWM_MODE_LEFT;
-            #endif  /* ( PWM3_PWM_LEFT == PWM3_PWM_ALIGN) */
+            #if (pwm2__LEFT == pwm2_PWM_ALIGN)
+                pwm2_TRIG_CONTROL2_REG = pwm2_PWM_MODE_LEFT;
+            #endif  /* ( pwm2_PWM_LEFT == pwm2_PWM_ALIGN) */
 
-            #if (PWM3__RIGHT == PWM3_PWM_ALIGN)
-                PWM3_TRIG_CONTROL2_REG = PWM3_PWM_MODE_RIGHT;
-            #endif  /* ( PWM3_PWM_RIGHT == PWM3_PWM_ALIGN) */
+            #if (pwm2__RIGHT == pwm2_PWM_ALIGN)
+                pwm2_TRIG_CONTROL2_REG = pwm2_PWM_MODE_RIGHT;
+            #endif  /* ( pwm2_PWM_RIGHT == pwm2_PWM_ALIGN) */
 
-            #if (PWM3__CENTER == PWM3_PWM_ALIGN)
-                PWM3_TRIG_CONTROL2_REG = PWM3_PWM_MODE_CENTER;
-            #endif  /* ( PWM3_PWM_CENTER == PWM3_PWM_ALIGN) */
+            #if (pwm2__CENTER == pwm2_PWM_ALIGN)
+                pwm2_TRIG_CONTROL2_REG = pwm2_PWM_MODE_CENTER;
+            #endif  /* ( pwm2_PWM_CENTER == pwm2_PWM_ALIGN) */
 
-            #if (PWM3__ASYMMETRIC == PWM3_PWM_ALIGN)
-                PWM3_TRIG_CONTROL2_REG = PWM3_PWM_MODE_ASYM;
-            #endif  /* (PWM3__ASYMMETRIC == PWM3_PWM_ALIGN) */
-        #endif  /* (PWM3__PWM_PR == PWM3_PWM_MODE) */
+            #if (pwm2__ASYMMETRIC == pwm2_PWM_ALIGN)
+                pwm2_TRIG_CONTROL2_REG = pwm2_PWM_MODE_ASYM;
+            #endif  /* (pwm2__ASYMMETRIC == pwm2_PWM_ALIGN) */
+        #endif  /* (pwm2__PWM_PR == pwm2_PWM_MODE) */
 
         /* Set other values from customizer */
-        PWM3_WritePeriod(PWM3_PWM_PERIOD_VALUE );
-        PWM3_WriteCompare(PWM3_PWM_COMPARE_VALUE);
+        pwm2_WritePeriod(pwm2_PWM_PERIOD_VALUE );
+        pwm2_WriteCompare(pwm2_PWM_COMPARE_VALUE);
 
-        #if (1u == PWM3_PWM_COMPARE_SWAP)
-            PWM3_SetCompareSwap(1u);
-            PWM3_WriteCompareBuf(PWM3_PWM_COMPARE_BUF_VALUE);
-        #endif  /* (1u == PWM3_PWM_COMPARE_SWAP) */
+        #if (1u == pwm2_PWM_COMPARE_SWAP)
+            pwm2_SetCompareSwap(1u);
+            pwm2_WriteCompareBuf(pwm2_PWM_COMPARE_BUF_VALUE);
+        #endif  /* (1u == pwm2_PWM_COMPARE_SWAP) */
 
-        #if (1u == PWM3_PWM_PERIOD_SWAP)
-            PWM3_SetPeriodSwap(1u);
-            PWM3_WritePeriodBuf(PWM3_PWM_PERIOD_BUF_VALUE);
-        #endif  /* (1u == PWM3_PWM_PERIOD_SWAP) */
-    #endif  /* (PWM3__PWM_SEL == PWM3_CONFIG) */
+        #if (1u == pwm2_PWM_PERIOD_SWAP)
+            pwm2_SetPeriodSwap(1u);
+            pwm2_WritePeriodBuf(pwm2_PWM_PERIOD_BUF_VALUE);
+        #endif  /* (1u == pwm2_PWM_PERIOD_SWAP) */
+    #endif  /* (pwm2__PWM_SEL == pwm2_CONFIG) */
     
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_Enable
+* Function Name: pwm2_Enable
 ********************************************************************************
 *
 * Summary:
-*  Enables the PWM3.
+*  Enables the pwm2.
 *
 * Parameters:
 *  None
@@ -174,42 +174,42 @@ void PWM3_Init(void)
 *  None
 *
 *******************************************************************************/
-void PWM3_Enable(void)
+void pwm2_Enable(void)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
-    PWM3_BLOCK_CONTROL_REG |= PWM3_MASK;
+    pwm2_BLOCK_CONTROL_REG |= pwm2_MASK;
     CyExitCriticalSection(enableInterrupts);
 
     /* Start Timer or PWM if start input is absent */
-    #if (PWM3__PWM_SEL == PWM3_CONFIG)
-        #if (0u == PWM3_PWM_START_SIGNAL_PRESENT)
-            PWM3_TriggerCommand(PWM3_MASK, PWM3_CMD_START);
-        #endif /* (0u == PWM3_PWM_START_SIGNAL_PRESENT) */
-    #endif /* (PWM3__PWM_SEL == PWM3_CONFIG) */
+    #if (pwm2__PWM_SEL == pwm2_CONFIG)
+        #if (0u == pwm2_PWM_START_SIGNAL_PRESENT)
+            pwm2_TriggerCommand(pwm2_MASK, pwm2_CMD_START);
+        #endif /* (0u == pwm2_PWM_START_SIGNAL_PRESENT) */
+    #endif /* (pwm2__PWM_SEL == pwm2_CONFIG) */
 
-    #if (PWM3__TIMER == PWM3_CONFIG)
-        #if (0u == PWM3_TC_START_SIGNAL_PRESENT)
-            PWM3_TriggerCommand(PWM3_MASK, PWM3_CMD_START);
-        #endif /* (0u == PWM3_TC_START_SIGNAL_PRESENT) */
-    #endif /* (PWM3__TIMER == PWM3_CONFIG) */
+    #if (pwm2__TIMER == pwm2_CONFIG)
+        #if (0u == pwm2_TC_START_SIGNAL_PRESENT)
+            pwm2_TriggerCommand(pwm2_MASK, pwm2_CMD_START);
+        #endif /* (0u == pwm2_TC_START_SIGNAL_PRESENT) */
+    #endif /* (pwm2__TIMER == pwm2_CONFIG) */
     
-    #if (PWM3__QUAD == PWM3_CONFIG)
-        #if (0u != PWM3_QUAD_AUTO_START)
-            PWM3_TriggerCommand(PWM3_MASK, PWM3_CMD_RELOAD);
-        #endif /* (0u != PWM3_QUAD_AUTO_START) */
-    #endif  /* (PWM3__QUAD == PWM3_CONFIG) */
+    #if (pwm2__QUAD == pwm2_CONFIG)
+        #if (0u != pwm2_QUAD_AUTO_START)
+            pwm2_TriggerCommand(pwm2_MASK, pwm2_CMD_RELOAD);
+        #endif /* (0u != pwm2_QUAD_AUTO_START) */
+    #endif  /* (pwm2__QUAD == pwm2_CONFIG) */
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_Start
+* Function Name: pwm2_Start
 ********************************************************************************
 *
 * Summary:
-*  Initializes the PWM3 with default customizer
-*  values when called the first time and enables the PWM3.
+*  Initializes the pwm2 with default customizer
+*  values when called the first time and enables the pwm2.
 *  For subsequent calls the configuration is left unchanged and the component is
 *  just enabled.
 *
@@ -220,31 +220,31 @@ void PWM3_Enable(void)
 *  None
 *
 * Global variables:
-*  PWM3_initVar: global variable is used to indicate initial
+*  pwm2_initVar: global variable is used to indicate initial
 *  configuration of this component.  The variable is initialized to zero and set
-*  to 1 the first time PWM3_Start() is called. This allows
+*  to 1 the first time pwm2_Start() is called. This allows
 *  enabling/disabling a component without re-initialization in all subsequent
-*  calls to the PWM3_Start() routine.
+*  calls to the pwm2_Start() routine.
 *
 *******************************************************************************/
-void PWM3_Start(void)
+void pwm2_Start(void)
 {
-    if (0u == PWM3_initVar)
+    if (0u == pwm2_initVar)
     {
-        PWM3_Init();
-        PWM3_initVar = 1u;
+        pwm2_Init();
+        pwm2_initVar = 1u;
     }
 
-    PWM3_Enable();
+    pwm2_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_Stop
+* Function Name: pwm2_Stop
 ********************************************************************************
 *
 * Summary:
-*  Disables the PWM3.
+*  Disables the pwm2.
 *
 * Parameters:
 *  None
@@ -253,58 +253,58 @@ void PWM3_Start(void)
 *  None
 *
 *******************************************************************************/
-void PWM3_Stop(void)
+void pwm2_Stop(void)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_BLOCK_CONTROL_REG &= (uint32)~PWM3_MASK;
+    pwm2_BLOCK_CONTROL_REG &= (uint32)~pwm2_MASK;
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetMode
+* Function Name: pwm2_SetMode
 ********************************************************************************
 *
 * Summary:
-*  Sets the operation mode of the PWM3. This function is used when
-*  configured as a generic PWM3 and the actual mode of operation is
+*  Sets the operation mode of the pwm2. This function is used when
+*  configured as a generic pwm2 and the actual mode of operation is
 *  set at runtime. The mode must be set while the component is disabled.
 *
 * Parameters:
-*  mode: Mode for the PWM3 to operate in
+*  mode: Mode for the pwm2 to operate in
 *   Values:
-*   - PWM3_MODE_TIMER_COMPARE - Timer / Counter with
+*   - pwm2_MODE_TIMER_COMPARE - Timer / Counter with
 *                                                 compare capability
-*         - PWM3_MODE_TIMER_CAPTURE - Timer / Counter with
+*         - pwm2_MODE_TIMER_CAPTURE - Timer / Counter with
 *                                                 capture capability
-*         - PWM3_MODE_QUAD - Quadrature decoder
-*         - PWM3_MODE_PWM - PWM
-*         - PWM3_MODE_PWM_DT - PWM with dead time
-*         - PWM3_MODE_PWM_PR - PWM with pseudo random capability
+*         - pwm2_MODE_QUAD - Quadrature decoder
+*         - pwm2_MODE_PWM - PWM
+*         - pwm2_MODE_PWM_DT - PWM with dead time
+*         - pwm2_MODE_PWM_PR - PWM with pseudo random capability
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetMode(uint32 mode)
+void pwm2_SetMode(uint32 mode)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_MODE_MASK;
-    PWM3_CONTROL_REG |= mode;
+    pwm2_CONTROL_REG &= (uint32)~pwm2_MODE_MASK;
+    pwm2_CONTROL_REG |= mode;
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetQDMode
+* Function Name: pwm2_SetQDMode
 ********************************************************************************
 *
 * Summary:
@@ -314,30 +314,30 @@ void PWM3_SetMode(uint32 mode)
 * Parameters:
 *  qdMode: Quadrature Decoder mode
 *   Values:
-*         - PWM3_MODE_X1 - Counts on phi 1 rising
-*         - PWM3_MODE_X2 - Counts on both edges of phi1 (2x faster)
-*         - PWM3_MODE_X4 - Counts on both edges of phi1 and phi2
+*         - pwm2_MODE_X1 - Counts on phi 1 rising
+*         - pwm2_MODE_X2 - Counts on both edges of phi1 (2x faster)
+*         - pwm2_MODE_X4 - Counts on both edges of phi1 and phi2
 *                                        (4x faster)
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetQDMode(uint32 qdMode)
+void pwm2_SetQDMode(uint32 qdMode)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_QUAD_MODE_MASK;
-    PWM3_CONTROL_REG |= qdMode;
+    pwm2_CONTROL_REG &= (uint32)~pwm2_QUAD_MODE_MASK;
+    pwm2_CONTROL_REG |= qdMode;
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetPrescaler
+* Function Name: pwm2_SetPrescaler
 ********************************************************************************
 *
 * Summary:
@@ -347,40 +347,40 @@ void PWM3_SetQDMode(uint32 qdMode)
 * Parameters:
 *  prescaler: Prescaler divider value
 *   Values:
-*         - PWM3_PRESCALE_DIVBY1    - Divide by 1 (no prescaling)
-*         - PWM3_PRESCALE_DIVBY2    - Divide by 2
-*         - PWM3_PRESCALE_DIVBY4    - Divide by 4
-*         - PWM3_PRESCALE_DIVBY8    - Divide by 8
-*         - PWM3_PRESCALE_DIVBY16   - Divide by 16
-*         - PWM3_PRESCALE_DIVBY32   - Divide by 32
-*         - PWM3_PRESCALE_DIVBY64   - Divide by 64
-*         - PWM3_PRESCALE_DIVBY128  - Divide by 128
+*         - pwm2_PRESCALE_DIVBY1    - Divide by 1 (no prescaling)
+*         - pwm2_PRESCALE_DIVBY2    - Divide by 2
+*         - pwm2_PRESCALE_DIVBY4    - Divide by 4
+*         - pwm2_PRESCALE_DIVBY8    - Divide by 8
+*         - pwm2_PRESCALE_DIVBY16   - Divide by 16
+*         - pwm2_PRESCALE_DIVBY32   - Divide by 32
+*         - pwm2_PRESCALE_DIVBY64   - Divide by 64
+*         - pwm2_PRESCALE_DIVBY128  - Divide by 128
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetPrescaler(uint32 prescaler)
+void pwm2_SetPrescaler(uint32 prescaler)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_PRESCALER_MASK;
-    PWM3_CONTROL_REG |= prescaler;
+    pwm2_CONTROL_REG &= (uint32)~pwm2_PRESCALER_MASK;
+    pwm2_CONTROL_REG |= prescaler;
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetOneShot
+* Function Name: pwm2_SetOneShot
 ********************************************************************************
 *
 * Summary:
-*  Writes the register that controls whether the PWM3 runs
+*  Writes the register that controls whether the pwm2 runs
 *  continuously or stops when terminal count is reached.  By default the
-*  PWM3 operates in the continuous mode.
+*  pwm2 operates in the continuous mode.
 *
 * Parameters:
 *  oneShotEnable
@@ -392,22 +392,22 @@ void PWM3_SetPrescaler(uint32 prescaler)
 *  None
 *
 *******************************************************************************/
-void PWM3_SetOneShot(uint32 oneShotEnable)
+void pwm2_SetOneShot(uint32 oneShotEnable)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_ONESHOT_MASK;
-    PWM3_CONTROL_REG |= ((uint32)((oneShotEnable & PWM3_1BIT_MASK) <<
-                                                               PWM3_ONESHOT_SHIFT));
+    pwm2_CONTROL_REG &= (uint32)~pwm2_ONESHOT_MASK;
+    pwm2_CONTROL_REG |= ((uint32)((oneShotEnable & pwm2_1BIT_MASK) <<
+                                                               pwm2_ONESHOT_SHIFT));
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetPWMMode
+* Function Name: pwm2_SetPWMMode
 ********************************************************************************
 *
 * Summary:
@@ -446,15 +446,15 @@ void PWM3_SetOneShot(uint32 oneShotEnable)
 *  None
 *
 *******************************************************************************/
-void PWM3_SetPWMMode(uint32 modeMask)
+void pwm2_SetPWMMode(uint32 modeMask)
 {
-    PWM3_TRIG_CONTROL2_REG = (modeMask & PWM3_6BIT_MASK);
+    pwm2_TRIG_CONTROL2_REG = (modeMask & pwm2_6BIT_MASK);
 }
 
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetPWMSyncKill
+* Function Name: pwm2_SetPWMSyncKill
 ********************************************************************************
 *
 * Summary:
@@ -482,22 +482,22 @@ void PWM3_SetPWMMode(uint32 modeMask)
 *  None
 *
 *******************************************************************************/
-void PWM3_SetPWMSyncKill(uint32 syncKillEnable)
+void pwm2_SetPWMSyncKill(uint32 syncKillEnable)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_PWM_SYNC_KILL_MASK;
-    PWM3_CONTROL_REG |= ((uint32)((syncKillEnable & PWM3_1BIT_MASK)  <<
-                                               PWM3_PWM_SYNC_KILL_SHIFT));
+    pwm2_CONTROL_REG &= (uint32)~pwm2_PWM_SYNC_KILL_MASK;
+    pwm2_CONTROL_REG |= ((uint32)((syncKillEnable & pwm2_1BIT_MASK)  <<
+                                               pwm2_PWM_SYNC_KILL_SHIFT));
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetPWMStopOnKill
+* Function Name: pwm2_SetPWMStopOnKill
 ********************************************************************************
 *
 * Summary:
@@ -516,22 +516,22 @@ void PWM3_SetPWMSyncKill(uint32 syncKillEnable)
 *  None
 *
 *******************************************************************************/
-void PWM3_SetPWMStopOnKill(uint32 stopOnKillEnable)
+void pwm2_SetPWMStopOnKill(uint32 stopOnKillEnable)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_PWM_STOP_KILL_MASK;
-    PWM3_CONTROL_REG |= ((uint32)((stopOnKillEnable & PWM3_1BIT_MASK)  <<
-                                                         PWM3_PWM_STOP_KILL_SHIFT));
+    pwm2_CONTROL_REG &= (uint32)~pwm2_PWM_STOP_KILL_MASK;
+    pwm2_CONTROL_REG |= ((uint32)((stopOnKillEnable & pwm2_1BIT_MASK)  <<
+                                                         pwm2_PWM_STOP_KILL_SHIFT));
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetPWMDeadTime
+* Function Name: pwm2_SetPWMDeadTime
 ********************************************************************************
 *
 * Summary:
@@ -549,22 +549,22 @@ void PWM3_SetPWMStopOnKill(uint32 stopOnKillEnable)
 *  None
 *
 *******************************************************************************/
-void PWM3_SetPWMDeadTime(uint32 deadTime)
+void pwm2_SetPWMDeadTime(uint32 deadTime)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_PRESCALER_MASK;
-    PWM3_CONTROL_REG |= ((uint32)((deadTime & PWM3_8BIT_MASK) <<
-                                                          PWM3_PRESCALER_SHIFT));
+    pwm2_CONTROL_REG &= (uint32)~pwm2_PRESCALER_MASK;
+    pwm2_CONTROL_REG |= ((uint32)((deadTime & pwm2_8BIT_MASK) <<
+                                                          pwm2_PRESCALER_SHIFT));
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetPWMInvert
+* Function Name: pwm2_SetPWMInvert
 ********************************************************************************
 *
 * Summary:
@@ -575,21 +575,21 @@ void PWM3_SetPWMDeadTime(uint32 deadTime)
 * Parameters:
 *  mask: Mask of outputs to invert.
 *   Values:
-*         - PWM3_INVERT_LINE   - Inverts the line output
-*         - PWM3_INVERT_LINE_N - Inverts the line_n output
+*         - pwm2_INVERT_LINE   - Inverts the line output
+*         - pwm2_INVERT_LINE_N - Inverts the line_n output
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetPWMInvert(uint32 mask)
+void pwm2_SetPWMInvert(uint32 mask)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_INV_OUT_MASK;
-    PWM3_CONTROL_REG |= mask;
+    pwm2_CONTROL_REG &= (uint32)~pwm2_INV_OUT_MASK;
+    pwm2_CONTROL_REG |= mask;
 
     CyExitCriticalSection(enableInterrupts);
 }
@@ -597,7 +597,7 @@ void PWM3_SetPWMInvert(uint32 mask)
 
 
 /*******************************************************************************
-* Function Name: PWM3_WriteCounter
+* Function Name: pwm2_WriteCounter
 ********************************************************************************
 *
 * Summary:
@@ -612,14 +612,14 @@ void PWM3_SetPWMInvert(uint32 mask)
 *  None
 *
 *******************************************************************************/
-void PWM3_WriteCounter(uint32 count)
+void pwm2_WriteCounter(uint32 count)
 {
-    PWM3_COUNTER_REG = (count & PWM3_16BIT_MASK);
+    pwm2_COUNTER_REG = (count & pwm2_16BIT_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_ReadCounter
+* Function Name: pwm2_ReadCounter
 ********************************************************************************
 *
 * Summary:
@@ -632,14 +632,14 @@ void PWM3_WriteCounter(uint32 count)
 *  Current counter value
 *
 *******************************************************************************/
-uint32 PWM3_ReadCounter(void)
+uint32 pwm2_ReadCounter(void)
 {
-    return (PWM3_COUNTER_REG & PWM3_16BIT_MASK);
+    return (pwm2_COUNTER_REG & pwm2_16BIT_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetCounterMode
+* Function Name: pwm2_SetCounterMode
 ********************************************************************************
 *
 * Summary:
@@ -649,11 +649,11 @@ uint32 PWM3_ReadCounter(void)
 * Parameters:
 *  counterMode: Enumerated counter type values
 *   Values:
-*     - PWM3_COUNT_UP       - Counts up
-*     - PWM3_COUNT_DOWN     - Counts down
-*     - PWM3_COUNT_UPDOWN0  - Counts up and down. Terminal count
+*     - pwm2_COUNT_UP       - Counts up
+*     - pwm2_COUNT_DOWN     - Counts down
+*     - pwm2_COUNT_UPDOWN0  - Counts up and down. Terminal count
 *                                         generated when counter reaches 0
-*     - PWM3_COUNT_UPDOWN1  - Counts up and down. Terminal count
+*     - pwm2_COUNT_UPDOWN1  - Counts up and down. Terminal count
 *                                         generated both when counter reaches 0
 *                                         and period
 *
@@ -661,21 +661,21 @@ uint32 PWM3_ReadCounter(void)
 *  None
 *
 *******************************************************************************/
-void PWM3_SetCounterMode(uint32 counterMode)
+void pwm2_SetCounterMode(uint32 counterMode)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_UPDOWN_MASK;
-    PWM3_CONTROL_REG |= counterMode;
+    pwm2_CONTROL_REG &= (uint32)~pwm2_UPDOWN_MASK;
+    pwm2_CONTROL_REG |= counterMode;
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_WritePeriod
+* Function Name: pwm2_WritePeriod
 ********************************************************************************
 *
 * Summary:
@@ -690,14 +690,14 @@ void PWM3_SetCounterMode(uint32 counterMode)
 *  None
 *
 *******************************************************************************/
-void PWM3_WritePeriod(uint32 period)
+void pwm2_WritePeriod(uint32 period)
 {
-    PWM3_PERIOD_REG = (period & PWM3_16BIT_MASK);
+    pwm2_PERIOD_REG = (period & pwm2_16BIT_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_ReadPeriod
+* Function Name: pwm2_ReadPeriod
 ********************************************************************************
 *
 * Summary:
@@ -710,14 +710,14 @@ void PWM3_WritePeriod(uint32 period)
 *  Period value
 *
 *******************************************************************************/
-uint32 PWM3_ReadPeriod(void)
+uint32 pwm2_ReadPeriod(void)
 {
-    return (PWM3_PERIOD_REG & PWM3_16BIT_MASK);
+    return (pwm2_PERIOD_REG & pwm2_16BIT_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetCompareSwap
+* Function Name: pwm2_SetCompareSwap
 ********************************************************************************
 *
 * Summary:
@@ -736,21 +736,21 @@ uint32 PWM3_ReadPeriod(void)
 *  None
 *
 *******************************************************************************/
-void PWM3_SetCompareSwap(uint32 swapEnable)
+void pwm2_SetCompareSwap(uint32 swapEnable)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_RELOAD_CC_MASK;
-    PWM3_CONTROL_REG |= (swapEnable & PWM3_1BIT_MASK);
+    pwm2_CONTROL_REG &= (uint32)~pwm2_RELOAD_CC_MASK;
+    pwm2_CONTROL_REG |= (swapEnable & pwm2_1BIT_MASK);
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_WritePeriodBuf
+* Function Name: pwm2_WritePeriodBuf
 ********************************************************************************
 *
 * Summary:
@@ -763,14 +763,14 @@ void PWM3_SetCompareSwap(uint32 swapEnable)
 *  None
 *
 *******************************************************************************/
-void PWM3_WritePeriodBuf(uint32 periodBuf)
+void pwm2_WritePeriodBuf(uint32 periodBuf)
 {
-    PWM3_PERIOD_BUF_REG = (periodBuf & PWM3_16BIT_MASK);
+    pwm2_PERIOD_BUF_REG = (periodBuf & pwm2_16BIT_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_ReadPeriodBuf
+* Function Name: pwm2_ReadPeriodBuf
 ********************************************************************************
 *
 * Summary:
@@ -783,14 +783,14 @@ void PWM3_WritePeriodBuf(uint32 periodBuf)
 *  Period value
 *
 *******************************************************************************/
-uint32 PWM3_ReadPeriodBuf(void)
+uint32 pwm2_ReadPeriodBuf(void)
 {
-    return (PWM3_PERIOD_BUF_REG & PWM3_16BIT_MASK);
+    return (pwm2_PERIOD_BUF_REG & pwm2_16BIT_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetPeriodSwap
+* Function Name: pwm2_SetPeriodSwap
 ********************************************************************************
 *
 * Summary:
@@ -809,22 +809,22 @@ uint32 PWM3_ReadPeriodBuf(void)
 *  None
 *
 *******************************************************************************/
-void PWM3_SetPeriodSwap(uint32 swapEnable)
+void pwm2_SetPeriodSwap(uint32 swapEnable)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_CONTROL_REG &= (uint32)~PWM3_RELOAD_PERIOD_MASK;
-    PWM3_CONTROL_REG |= ((uint32)((swapEnable & PWM3_1BIT_MASK) <<
-                                                            PWM3_RELOAD_PERIOD_SHIFT));
+    pwm2_CONTROL_REG &= (uint32)~pwm2_RELOAD_PERIOD_MASK;
+    pwm2_CONTROL_REG |= ((uint32)((swapEnable & pwm2_1BIT_MASK) <<
+                                                            pwm2_RELOAD_PERIOD_SHIFT));
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_WriteCompare
+* Function Name: pwm2_WriteCompare
 ********************************************************************************
 *
 * Summary:
@@ -846,20 +846,20 @@ void PWM3_SetPeriodSwap(uint32 swapEnable)
 *  compare value in the Down counting mode (except 0xFFFFu).
 *
 *******************************************************************************/
-void PWM3_WriteCompare(uint32 compare)
+void pwm2_WriteCompare(uint32 compare)
 {
-    #if (PWM3_CY_TCPWM_4000)
+    #if (pwm2_CY_TCPWM_4000)
         uint32 currentMode;
-    #endif /* (PWM3_CY_TCPWM_4000) */
+    #endif /* (pwm2_CY_TCPWM_4000) */
 
-    #if (PWM3_CY_TCPWM_4000)
-        currentMode = ((PWM3_CONTROL_REG & PWM3_UPDOWN_MASK) >> PWM3_UPDOWN_SHIFT);
+    #if (pwm2_CY_TCPWM_4000)
+        currentMode = ((pwm2_CONTROL_REG & pwm2_UPDOWN_MASK) >> pwm2_UPDOWN_SHIFT);
 
-        if (((uint32)PWM3__COUNT_DOWN == currentMode) && (0xFFFFu != compare))
+        if (((uint32)pwm2__COUNT_DOWN == currentMode) && (0xFFFFu != compare))
         {
             compare++;
         }
-        else if (((uint32)PWM3__COUNT_UP == currentMode) && (0u != compare))
+        else if (((uint32)pwm2__COUNT_UP == currentMode) && (0u != compare))
         {
             compare--;
         }
@@ -868,14 +868,14 @@ void PWM3_WriteCompare(uint32 compare)
         }
         
     
-    #endif /* (PWM3_CY_TCPWM_4000) */
+    #endif /* (pwm2_CY_TCPWM_4000) */
     
-    PWM3_COMP_CAP_REG = (compare & PWM3_16BIT_MASK);
+    pwm2_COMP_CAP_REG = (compare & pwm2_16BIT_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_ReadCompare
+* Function Name: pwm2_ReadCompare
 ********************************************************************************
 *
 * Summary:
@@ -897,23 +897,23 @@ void PWM3_WriteCompare(uint32 compare)
 *  Down counting mode (except 0x0u).
 *
 *******************************************************************************/
-uint32 PWM3_ReadCompare(void)
+uint32 pwm2_ReadCompare(void)
 {
-    #if (PWM3_CY_TCPWM_4000)
+    #if (pwm2_CY_TCPWM_4000)
         uint32 currentMode;
         uint32 regVal;
-    #endif /* (PWM3_CY_TCPWM_4000) */
+    #endif /* (pwm2_CY_TCPWM_4000) */
 
-    #if (PWM3_CY_TCPWM_4000)
-        currentMode = ((PWM3_CONTROL_REG & PWM3_UPDOWN_MASK) >> PWM3_UPDOWN_SHIFT);
+    #if (pwm2_CY_TCPWM_4000)
+        currentMode = ((pwm2_CONTROL_REG & pwm2_UPDOWN_MASK) >> pwm2_UPDOWN_SHIFT);
         
-        regVal = PWM3_COMP_CAP_REG;
+        regVal = pwm2_COMP_CAP_REG;
         
-        if (((uint32)PWM3__COUNT_DOWN == currentMode) && (0u != regVal))
+        if (((uint32)pwm2__COUNT_DOWN == currentMode) && (0u != regVal))
         {
             regVal--;
         }
-        else if (((uint32)PWM3__COUNT_UP == currentMode) && (0xFFFFu != regVal))
+        else if (((uint32)pwm2__COUNT_UP == currentMode) && (0xFFFFu != regVal))
         {
             regVal++;
         }
@@ -921,15 +921,15 @@ uint32 PWM3_ReadCompare(void)
         {
         }
 
-        return (regVal & PWM3_16BIT_MASK);
+        return (regVal & pwm2_16BIT_MASK);
     #else
-        return (PWM3_COMP_CAP_REG & PWM3_16BIT_MASK);
-    #endif /* (PWM3_CY_TCPWM_4000) */
+        return (pwm2_COMP_CAP_REG & pwm2_16BIT_MASK);
+    #endif /* (pwm2_CY_TCPWM_4000) */
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_WriteCompareBuf
+* Function Name: pwm2_WriteCompareBuf
 ********************************************************************************
 *
 * Summary:
@@ -951,34 +951,34 @@ uint32 PWM3_ReadCompare(void)
 *  compare value in the Down counting mode (except 0xFFFFu).
 *
 *******************************************************************************/
-void PWM3_WriteCompareBuf(uint32 compareBuf)
+void pwm2_WriteCompareBuf(uint32 compareBuf)
 {
-    #if (PWM3_CY_TCPWM_4000)
+    #if (pwm2_CY_TCPWM_4000)
         uint32 currentMode;
-    #endif /* (PWM3_CY_TCPWM_4000) */
+    #endif /* (pwm2_CY_TCPWM_4000) */
 
-    #if (PWM3_CY_TCPWM_4000)
-        currentMode = ((PWM3_CONTROL_REG & PWM3_UPDOWN_MASK) >> PWM3_UPDOWN_SHIFT);
+    #if (pwm2_CY_TCPWM_4000)
+        currentMode = ((pwm2_CONTROL_REG & pwm2_UPDOWN_MASK) >> pwm2_UPDOWN_SHIFT);
 
-        if (((uint32)PWM3__COUNT_DOWN == currentMode) && (0xFFFFu != compareBuf))
+        if (((uint32)pwm2__COUNT_DOWN == currentMode) && (0xFFFFu != compareBuf))
         {
             compareBuf++;
         }
-        else if (((uint32)PWM3__COUNT_UP == currentMode) && (0u != compareBuf))
+        else if (((uint32)pwm2__COUNT_UP == currentMode) && (0u != compareBuf))
         {
             compareBuf --;
         }
         else
         {
         }
-    #endif /* (PWM3_CY_TCPWM_4000) */
+    #endif /* (pwm2_CY_TCPWM_4000) */
     
-    PWM3_COMP_CAP_BUF_REG = (compareBuf & PWM3_16BIT_MASK);
+    pwm2_COMP_CAP_BUF_REG = (compareBuf & pwm2_16BIT_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_ReadCompareBuf
+* Function Name: pwm2_ReadCompareBuf
 ********************************************************************************
 *
 * Summary:
@@ -997,23 +997,23 @@ void PWM3_WriteCompareBuf(uint32 compareBuf)
 *  Down counting mode (except 0x0u).
 *
 *******************************************************************************/
-uint32 PWM3_ReadCompareBuf(void)
+uint32 pwm2_ReadCompareBuf(void)
 {
-    #if (PWM3_CY_TCPWM_4000)
+    #if (pwm2_CY_TCPWM_4000)
         uint32 currentMode;
         uint32 regVal;
-    #endif /* (PWM3_CY_TCPWM_4000) */
+    #endif /* (pwm2_CY_TCPWM_4000) */
 
-    #if (PWM3_CY_TCPWM_4000)
-        currentMode = ((PWM3_CONTROL_REG & PWM3_UPDOWN_MASK) >> PWM3_UPDOWN_SHIFT);
+    #if (pwm2_CY_TCPWM_4000)
+        currentMode = ((pwm2_CONTROL_REG & pwm2_UPDOWN_MASK) >> pwm2_UPDOWN_SHIFT);
 
-        regVal = PWM3_COMP_CAP_BUF_REG;
+        regVal = pwm2_COMP_CAP_BUF_REG;
         
-        if (((uint32)PWM3__COUNT_DOWN == currentMode) && (0u != regVal))
+        if (((uint32)pwm2__COUNT_DOWN == currentMode) && (0u != regVal))
         {
             regVal--;
         }
-        else if (((uint32)PWM3__COUNT_UP == currentMode) && (0xFFFFu != regVal))
+        else if (((uint32)pwm2__COUNT_UP == currentMode) && (0xFFFFu != regVal))
         {
             regVal++;
         }
@@ -1021,15 +1021,15 @@ uint32 PWM3_ReadCompareBuf(void)
         {
         }
 
-        return (regVal & PWM3_16BIT_MASK);
+        return (regVal & pwm2_16BIT_MASK);
     #else
-        return (PWM3_COMP_CAP_BUF_REG & PWM3_16BIT_MASK);
-    #endif /* (PWM3_CY_TCPWM_4000) */
+        return (pwm2_COMP_CAP_BUF_REG & pwm2_16BIT_MASK);
+    #endif /* (pwm2_CY_TCPWM_4000) */
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_ReadCapture
+* Function Name: pwm2_ReadCapture
 ********************************************************************************
 *
 * Summary:
@@ -1043,14 +1043,14 @@ uint32 PWM3_ReadCompareBuf(void)
 *  Capture value
 *
 *******************************************************************************/
-uint32 PWM3_ReadCapture(void)
+uint32 pwm2_ReadCapture(void)
 {
-    return (PWM3_COMP_CAP_REG & PWM3_16BIT_MASK);
+    return (pwm2_COMP_CAP_REG & pwm2_16BIT_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_ReadCaptureBuf
+* Function Name: pwm2_ReadCaptureBuf
 ********************************************************************************
 *
 * Summary:
@@ -1064,14 +1064,14 @@ uint32 PWM3_ReadCapture(void)
 *  Capture buffer value
 *
 *******************************************************************************/
-uint32 PWM3_ReadCaptureBuf(void)
+uint32 pwm2_ReadCaptureBuf(void)
 {
-    return (PWM3_COMP_CAP_BUF_REG & PWM3_16BIT_MASK);
+    return (pwm2_COMP_CAP_BUF_REG & pwm2_16BIT_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetCaptureMode
+* Function Name: pwm2_SetCaptureMode
 ********************************************************************************
 *
 * Summary:
@@ -1082,30 +1082,30 @@ uint32 PWM3_ReadCaptureBuf(void)
 * Parameters:
 *  triggerMode: Enumerated trigger mode value
 *   Values:
-*     - PWM3_TRIG_LEVEL     - Level
-*     - PWM3_TRIG_RISING    - Rising edge
-*     - PWM3_TRIG_FALLING   - Falling edge
-*     - PWM3_TRIG_BOTH      - Both rising and falling edge
+*     - pwm2_TRIG_LEVEL     - Level
+*     - pwm2_TRIG_RISING    - Rising edge
+*     - pwm2_TRIG_FALLING   - Falling edge
+*     - pwm2_TRIG_BOTH      - Both rising and falling edge
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetCaptureMode(uint32 triggerMode)
+void pwm2_SetCaptureMode(uint32 triggerMode)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_TRIG_CONTROL1_REG &= (uint32)~PWM3_CAPTURE_MASK;
-    PWM3_TRIG_CONTROL1_REG |= triggerMode;
+    pwm2_TRIG_CONTROL1_REG &= (uint32)~pwm2_CAPTURE_MASK;
+    pwm2_TRIG_CONTROL1_REG |= triggerMode;
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetReloadMode
+* Function Name: pwm2_SetReloadMode
 ********************************************************************************
 *
 * Summary:
@@ -1115,30 +1115,30 @@ void PWM3_SetCaptureMode(uint32 triggerMode)
 * Parameters:
 *  triggerMode: Enumerated trigger mode value
 *   Values:
-*     - PWM3_TRIG_LEVEL     - Level
-*     - PWM3_TRIG_RISING    - Rising edge
-*     - PWM3_TRIG_FALLING   - Falling edge
-*     - PWM3_TRIG_BOTH      - Both rising and falling edge
+*     - pwm2_TRIG_LEVEL     - Level
+*     - pwm2_TRIG_RISING    - Rising edge
+*     - pwm2_TRIG_FALLING   - Falling edge
+*     - pwm2_TRIG_BOTH      - Both rising and falling edge
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetReloadMode(uint32 triggerMode)
+void pwm2_SetReloadMode(uint32 triggerMode)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_TRIG_CONTROL1_REG &= (uint32)~PWM3_RELOAD_MASK;
-    PWM3_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << PWM3_RELOAD_SHIFT));
+    pwm2_TRIG_CONTROL1_REG &= (uint32)~pwm2_RELOAD_MASK;
+    pwm2_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << pwm2_RELOAD_SHIFT));
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetStartMode
+* Function Name: pwm2_SetStartMode
 ********************************************************************************
 *
 * Summary:
@@ -1148,30 +1148,30 @@ void PWM3_SetReloadMode(uint32 triggerMode)
 * Parameters:
 *  triggerMode: Enumerated trigger mode value
 *   Values:
-*     - PWM3_TRIG_LEVEL     - Level
-*     - PWM3_TRIG_RISING    - Rising edge
-*     - PWM3_TRIG_FALLING   - Falling edge
-*     - PWM3_TRIG_BOTH      - Both rising and falling edge
+*     - pwm2_TRIG_LEVEL     - Level
+*     - pwm2_TRIG_RISING    - Rising edge
+*     - pwm2_TRIG_FALLING   - Falling edge
+*     - pwm2_TRIG_BOTH      - Both rising and falling edge
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetStartMode(uint32 triggerMode)
+void pwm2_SetStartMode(uint32 triggerMode)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_TRIG_CONTROL1_REG &= (uint32)~PWM3_START_MASK;
-    PWM3_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << PWM3_START_SHIFT));
+    pwm2_TRIG_CONTROL1_REG &= (uint32)~pwm2_START_MASK;
+    pwm2_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << pwm2_START_SHIFT));
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetStopMode
+* Function Name: pwm2_SetStopMode
 ********************************************************************************
 *
 * Summary:
@@ -1180,30 +1180,30 @@ void PWM3_SetStartMode(uint32 triggerMode)
 * Parameters:
 *  triggerMode: Enumerated trigger mode value
 *   Values:
-*     - PWM3_TRIG_LEVEL     - Level
-*     - PWM3_TRIG_RISING    - Rising edge
-*     - PWM3_TRIG_FALLING   - Falling edge
-*     - PWM3_TRIG_BOTH      - Both rising and falling edge
+*     - pwm2_TRIG_LEVEL     - Level
+*     - pwm2_TRIG_RISING    - Rising edge
+*     - pwm2_TRIG_FALLING   - Falling edge
+*     - pwm2_TRIG_BOTH      - Both rising and falling edge
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetStopMode(uint32 triggerMode)
+void pwm2_SetStopMode(uint32 triggerMode)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_TRIG_CONTROL1_REG &= (uint32)~PWM3_STOP_MASK;
-    PWM3_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << PWM3_STOP_SHIFT));
+    pwm2_TRIG_CONTROL1_REG &= (uint32)~pwm2_STOP_MASK;
+    pwm2_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << pwm2_STOP_SHIFT));
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetCountMode
+* Function Name: pwm2_SetCountMode
 ********************************************************************************
 *
 * Summary:
@@ -1213,30 +1213,30 @@ void PWM3_SetStopMode(uint32 triggerMode)
 * Parameters:
 *  triggerMode: Enumerated trigger mode value
 *   Values:
-*     - PWM3_TRIG_LEVEL     - Level
-*     - PWM3_TRIG_RISING    - Rising edge
-*     - PWM3_TRIG_FALLING   - Falling edge
-*     - PWM3_TRIG_BOTH      - Both rising and falling edge
+*     - pwm2_TRIG_LEVEL     - Level
+*     - pwm2_TRIG_RISING    - Rising edge
+*     - pwm2_TRIG_FALLING   - Falling edge
+*     - pwm2_TRIG_BOTH      - Both rising and falling edge
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetCountMode(uint32 triggerMode)
+void pwm2_SetCountMode(uint32 triggerMode)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_TRIG_CONTROL1_REG &= (uint32)~PWM3_COUNT_MASK;
-    PWM3_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << PWM3_COUNT_SHIFT));
+    pwm2_TRIG_CONTROL1_REG &= (uint32)~pwm2_COUNT_MASK;
+    pwm2_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << pwm2_COUNT_SHIFT));
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_TriggerCommand
+* Function Name: pwm2_TriggerCommand
 ********************************************************************************
 *
 * Summary:
@@ -1253,33 +1253,33 @@ void PWM3_SetCountMode(uint32 triggerMode)
 *  command: Enumerated command values. Capture command only applicable for
 *           Timer/Counter with Capture and PWM modes.
 *   Values:
-*     - PWM3_CMD_CAPTURE    - Trigger Capture/Switch command
-*     - PWM3_CMD_RELOAD     - Trigger Reload/Index command
-*     - PWM3_CMD_STOP       - Trigger Stop/Kill command
-*     - PWM3_CMD_START      - Trigger Start/phiB command
+*     - pwm2_CMD_CAPTURE    - Trigger Capture/Switch command
+*     - pwm2_CMD_RELOAD     - Trigger Reload/Index command
+*     - pwm2_CMD_STOP       - Trigger Stop/Kill command
+*     - pwm2_CMD_START      - Trigger Start/phiB command
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_TriggerCommand(uint32 mask, uint32 command)
+void pwm2_TriggerCommand(uint32 mask, uint32 command)
 {
     uint8 enableInterrupts;
 
     enableInterrupts = CyEnterCriticalSection();
 
-    PWM3_COMMAND_REG = ((uint32)(mask << command));
+    pwm2_COMMAND_REG = ((uint32)(mask << command));
 
     CyExitCriticalSection(enableInterrupts);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_ReadStatus
+* Function Name: pwm2_ReadStatus
 ********************************************************************************
 *
 * Summary:
-*  Reads the status of the PWM3.
+*  Reads the status of the pwm2.
 *
 * Parameters:
 *  None
@@ -1287,19 +1287,19 @@ void PWM3_TriggerCommand(uint32 mask, uint32 command)
 * Return:
 *  Status
 *   Values:
-*     - PWM3_STATUS_DOWN    - Set if counting down
-*     - PWM3_STATUS_RUNNING - Set if counter is running
+*     - pwm2_STATUS_DOWN    - Set if counting down
+*     - pwm2_STATUS_RUNNING - Set if counter is running
 *
 *******************************************************************************/
-uint32 PWM3_ReadStatus(void)
+uint32 pwm2_ReadStatus(void)
 {
-    return ((PWM3_STATUS_REG >> PWM3_RUNNING_STATUS_SHIFT) |
-            (PWM3_STATUS_REG & PWM3_STATUS_DOWN));
+    return ((pwm2_STATUS_REG >> pwm2_RUNNING_STATUS_SHIFT) |
+            (pwm2_STATUS_REG & pwm2_STATUS_DOWN));
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetInterruptMode
+* Function Name: pwm2_SetInterruptMode
 ********************************************************************************
 *
 * Summary:
@@ -1309,21 +1309,21 @@ uint32 PWM3_ReadStatus(void)
 * Parameters:
 *   interruptMask: Mask of bits to be enabled
 *   Values:
-*     - PWM3_INTR_MASK_TC       - Terminal count mask
-*     - PWM3_INTR_MASK_CC_MATCH - Compare count / capture mask
+*     - pwm2_INTR_MASK_TC       - Terminal count mask
+*     - pwm2_INTR_MASK_CC_MATCH - Compare count / capture mask
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetInterruptMode(uint32 interruptMask)
+void pwm2_SetInterruptMode(uint32 interruptMask)
 {
-    PWM3_INTERRUPT_MASK_REG =  interruptMask;
+    pwm2_INTERRUPT_MASK_REG =  interruptMask;
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_GetInterruptSourceMasked
+* Function Name: pwm2_GetInterruptSourceMasked
 ********************************************************************************
 *
 * Summary:
@@ -1335,18 +1335,18 @@ void PWM3_SetInterruptMode(uint32 interruptMask)
 * Return:
 *  Masked interrupt source
 *   Values:
-*     - PWM3_INTR_MASK_TC       - Terminal count mask
-*     - PWM3_INTR_MASK_CC_MATCH - Compare count / capture mask
+*     - pwm2_INTR_MASK_TC       - Terminal count mask
+*     - pwm2_INTR_MASK_CC_MATCH - Compare count / capture mask
 *
 *******************************************************************************/
-uint32 PWM3_GetInterruptSourceMasked(void)
+uint32 pwm2_GetInterruptSourceMasked(void)
 {
-    return (PWM3_INTERRUPT_MASKED_REG);
+    return (pwm2_INTERRUPT_MASKED_REG);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_GetInterruptSource
+* Function Name: pwm2_GetInterruptSource
 ********************************************************************************
 *
 * Summary:
@@ -1358,18 +1358,18 @@ uint32 PWM3_GetInterruptSourceMasked(void)
 * Return:
 *  Interrupt request value
 *   Values:
-*     - PWM3_INTR_MASK_TC       - Terminal count mask
-*     - PWM3_INTR_MASK_CC_MATCH - Compare count / capture mask
+*     - pwm2_INTR_MASK_TC       - Terminal count mask
+*     - pwm2_INTR_MASK_CC_MATCH - Compare count / capture mask
 *
 *******************************************************************************/
-uint32 PWM3_GetInterruptSource(void)
+uint32 pwm2_GetInterruptSource(void)
 {
-    return (PWM3_INTERRUPT_REQ_REG);
+    return (pwm2_INTERRUPT_REQ_REG);
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_ClearInterrupt
+* Function Name: pwm2_ClearInterrupt
 ********************************************************************************
 *
 * Summary:
@@ -1378,21 +1378,21 @@ uint32 PWM3_GetInterruptSource(void)
 * Parameters:
 *   interruptMask: Mask of interrupts to clear
 *   Values:
-*     - PWM3_INTR_MASK_TC       - Terminal count mask
-*     - PWM3_INTR_MASK_CC_MATCH - Compare count / capture mask
+*     - pwm2_INTR_MASK_TC       - Terminal count mask
+*     - pwm2_INTR_MASK_CC_MATCH - Compare count / capture mask
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_ClearInterrupt(uint32 interruptMask)
+void pwm2_ClearInterrupt(uint32 interruptMask)
 {
-    PWM3_INTERRUPT_REQ_REG = interruptMask;
+    pwm2_INTERRUPT_REQ_REG = interruptMask;
 }
 
 
 /*******************************************************************************
-* Function Name: PWM3_SetInterrupt
+* Function Name: pwm2_SetInterrupt
 ********************************************************************************
 *
 * Summary:
@@ -1401,16 +1401,16 @@ void PWM3_ClearInterrupt(uint32 interruptMask)
 * Parameters:
 *   interruptMask: Mask of interrupts to set
 *   Values:
-*     - PWM3_INTR_MASK_TC       - Terminal count mask
-*     - PWM3_INTR_MASK_CC_MATCH - Compare count / capture mask
+*     - pwm2_INTR_MASK_TC       - Terminal count mask
+*     - pwm2_INTR_MASK_CC_MATCH - Compare count / capture mask
 *
 * Return:
 *  None
 *
 *******************************************************************************/
-void PWM3_SetInterrupt(uint32 interruptMask)
+void pwm2_SetInterrupt(uint32 interruptMask)
 {
-    PWM3_INTERRUPT_SET_REG = interruptMask;
+    pwm2_INTERRUPT_SET_REG = interruptMask;
 }
 
 

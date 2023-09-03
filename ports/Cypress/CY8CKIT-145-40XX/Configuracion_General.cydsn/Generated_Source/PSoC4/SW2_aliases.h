@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: SW2.h  
+* File Name: sw2.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_SW2_ALIASES_H) /* Pins SW2_ALIASES_H */
-#define CY_PINS_SW2_ALIASES_H
+#if !defined(CY_PINS_sw2_ALIASES_H) /* Pins sw2_ALIASES_H */
+#define CY_PINS_sw2_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define SW2_0			(SW2__0__PC)
-#define SW2_0_PS		(SW2__0__PS)
-#define SW2_0_PC		(SW2__0__PC)
-#define SW2_0_DR		(SW2__0__DR)
-#define SW2_0_SHIFT	(SW2__0__SHIFT)
-#define SW2_0_INTR	((uint16)((uint16)0x0003u << (SW2__0__SHIFT*2u)))
+#define sw2_0			(sw2__0__PC)
+#define sw2_0_PS		(sw2__0__PS)
+#define sw2_0_PC		(sw2__0__PC)
+#define sw2_0_DR		(sw2__0__DR)
+#define sw2_0_SHIFT	(sw2__0__SHIFT)
+#define sw2_0_INTR	((uint16)((uint16)0x0003u << (sw2__0__SHIFT*2u)))
 
-#define SW2_INTR_ALL	 ((uint16)(SW2_0_INTR))
+#define sw2_INTR_ALL	 ((uint16)(sw2_0_INTR))
 
 
-#endif /* End Pins SW2_ALIASES_H */
+#endif /* End Pins sw2_ALIASES_H */
 
 
 /* [] END OF FILE */

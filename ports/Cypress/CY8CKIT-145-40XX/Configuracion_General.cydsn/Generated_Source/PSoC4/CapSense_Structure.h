@@ -1,12 +1,12 @@
 /***************************************************************************//**
-* \file CapSense_Structure.h
+* \file capsense_Structure.h
 * \version 7.10
 *
 * \brief
 *   This file provides the top level declarations of the Component data structure.
 *   Also, the file declares the high-level and low-level APIs for data access.
 *
-* \see CapSense v7.10 Datasheet
+* \see capsense v7.10 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2019), Cypress Semiconductor Corporation.
@@ -37,31 +37,31 @@
 * limited by and subject to the applicable Cypress software license agreement.
 *******************************************************************************/
 
-#if !defined(CY_SENSE_CapSense_STRUCTURE_H)
-#define CY_SENSE_CapSense_STRUCTURE_H
+#if !defined(CY_SENSE_capsense_STRUCTURE_H)
+#define CY_SENSE_capsense_STRUCTURE_H
 
 #include <cytypes.h>
 #include "cyfitter.h"
-#include "CapSense_Configuration.h"
-#if (CapSense_CSD_SS_DIS != CapSense_CSD_AUTOTUNE)
-    #include "CapSense_SmartSense_LL.h"
+#include "capsense_Configuration.h"
+#if (capsense_CSD_SS_DIS != capsense_CSD_AUTOTUNE)
+    #include "capsense_SmartSense_LL.h"
 #endif
 
-#if (CapSense_ENABLE == CapSense_ALP_FILTER_EN)
-    #include "CapSense_AlpFilter_LL.h"
+#if (capsense_ENABLE == capsense_ALP_FILTER_EN)
+    #include "capsense_AlpFilter_LL.h"
 #endif
 
-#if ((CapSense_ENABLE == CapSense_GES_GLOBAL_EN) ||\
-     (CapSense_ENABLE == CapSense_BALLISTIC_MULTIPLIER_EN))
-    #include "CapSense_TMG.h"
+#if ((capsense_ENABLE == capsense_GES_GLOBAL_EN) ||\
+     (capsense_ENABLE == capsense_BALLISTIC_MULTIPLIER_EN))
+    #include "capsense_TMG.h"
 #endif
 
-#if (CapSense_ENABLE == CapSense_CENTROID_5X5_CSD_EN)
-    #include "CapSense_AdvancedCentroid_LL.h"
+#if (capsense_ENABLE == capsense_CENTROID_5X5_CSD_EN)
+    #include "capsense_AdvancedCentroid_LL.h"
 #endif
 
-#if (CapSense_ENABLE == CapSense_POS_ADAPTIVE_IIR_FILTER_EN)
-    #include "CapSense_AdaptiveFilter_LL.h"
+#if (capsense_ENABLE == capsense_POS_ADAPTIVE_IIR_FILTER_EN)
+    #include "capsense_AdaptiveFilter_LL.h"
 #endif
 
 /*******************************************************************************
@@ -69,22 +69,22 @@
 *******************************************************************************/
 
 /* Defines size of Sensor Status Register in Data Structure */
-#define CapSense_SNS_STS_TYPE               uint8
+#define capsense_SNS_STS_TYPE               uint8
 
 /* No touch condition for slider position report */
-#define CapSense_SLIDER_NO_TOUCH            (0xFFFFu)
-#define CapSense_TOUCHPAD_NO_TOUCH          (0xFFFFFFFFLu)
+#define capsense_SLIDER_NO_TOUCH            (0xFFFFu)
+#define capsense_TOUCHPAD_NO_TOUCH          (0xFFFFFFFFLu)
 
-#define CapSense_SLIDER_POS_NONE            (0xFFFFu)
-#define CapSense_TOUCHPAD_POS_NONE          (0xFFFFu)
+#define capsense_SLIDER_POS_NONE            (0xFFFFu)
+#define capsense_TOUCHPAD_POS_NONE          (0xFFFFu)
 
-#define CapSense_MATRIX_POS_NONE            (0xFFu)
-#define CapSense_MATRIX_POS_MULTI           (0xFEu)
+#define capsense_MATRIX_POS_NONE            (0xFFu)
+#define capsense_MATRIX_POS_MULTI           (0xFEu)
 
-#define CapSense_PROX_STS_MASK              (3Lu)
-#define CapSense_PROX_STS_OFFSET(proxId)    ((proxId) << 1u)
+#define capsense_PROX_STS_MASK              (3Lu)
+#define capsense_PROX_STS_OFFSET(proxId)    ((proxId) << 1u)
 
-#define CapSense_MATRIX_BUTTONS_TOUCHED     (0x80000000Lu)
+#define capsense_MATRIX_BUTTONS_TOUCHED     (0x80000000Lu)
 
 /*******************************************************************************
 * Enumeration types definition
@@ -95,14 +95,14 @@
 *******************************************************************************/
 typedef enum
 {
-    CapSense_WD_BUTTON_E        = 0x01u,
-    CapSense_WD_LINEAR_SLIDER_E = 0x02u,
-    CapSense_WD_RADIAL_SLIDER_E = 0x03u,
-    CapSense_WD_MATRIX_BUTTON_E = 0x04u,
-    CapSense_WD_TOUCHPAD_E      = 0x05u,
-    CapSense_WD_PROXIMITY_E     = 0x06u,
-    CapSense_WD_ENCODERDIAL_E   = 0x07u
-} CapSense_WD_TYPE_ENUM;
+    capsense_WD_BUTTON_E        = 0x01u,
+    capsense_WD_LINEAR_SLIDER_E = 0x02u,
+    capsense_WD_RADIAL_SLIDER_E = 0x03u,
+    capsense_WD_MATRIX_BUTTON_E = 0x04u,
+    capsense_WD_TOUCHPAD_E      = 0x05u,
+    capsense_WD_PROXIMITY_E     = 0x06u,
+    capsense_WD_ENCODERDIAL_E   = 0x07u
+} capsense_WD_TYPE_ENUM;
 
 
 /***************************************************************************//**
@@ -110,22 +110,22 @@ typedef enum
 *******************************************************************************/
 typedef enum
 {
-    CapSense_UNDEFINED_E            = 0x00u,
-    CapSense_SENSE_METHOD_CSD_E     = 0x01u,
-    CapSense_SENSE_METHOD_CSX_E     = 0x02u,
-    CapSense_SENSE_METHOD_BIST_E    = 0x03u,
-    CapSense_SENSE_METHOD_ISX_E     = 0x04u,
-} CapSense_SENSE_METHOD_ENUM;
+    capsense_UNDEFINED_E            = 0x00u,
+    capsense_SENSE_METHOD_CSD_E     = 0x01u,
+    capsense_SENSE_METHOD_CSX_E     = 0x02u,
+    capsense_SENSE_METHOD_BIST_E    = 0x03u,
+    capsense_SENSE_METHOD_ISX_E     = 0x04u,
+} capsense_SENSE_METHOD_ENUM;
 
 /***************************************************************************//**
 * \brief Defines electrode types
 *******************************************************************************/
 typedef enum
 {
-    CapSense_ELTD_TYPE_SELF_E   = 0x01u,
-    CapSense_ELTD_TYPE_MUT_TX_E = 0x02u,
-    CapSense_ELTD_TYPE_MUT_RX_E = 0x03u
-} CapSense_ELTD_TYPE_ENUM;
+    capsense_ELTD_TYPE_SELF_E   = 0x01u,
+    capsense_ELTD_TYPE_MUT_TX_E = 0x02u,
+    capsense_ELTD_TYPE_MUT_RX_E = 0x03u
+} capsense_ELTD_TYPE_ENUM;
 
 
 /***************************************************************************//**
@@ -133,29 +133,29 @@ typedef enum
 *******************************************************************************/
 typedef enum
 {
-  CapSense_TST_MEASUREMENT_SUCCESS = 0x00uL,
+  capsense_TST_MEASUREMENT_SUCCESS = 0x00uL,
 /* function complete successfully, a measurement result is valid */
-  CapSense_TST_MEASUREMENT_BAD_PARAM = 0x01uL,
+  capsense_TST_MEASUREMENT_BAD_PARAM = 0x01uL,
 /* any of input parameters (widgetID, electrodeId, shieldId, integrationCapId) is invalid or any of pointers
    are null, function incomplete, a measurement result is invalid */
-  CapSense_TST_MEASUREMENT_BAD_DATA = 0x02uL,
+  capsense_TST_MEASUREMENT_BAD_DATA = 0x02uL,
 /* a measurement result is invalid */
-  CapSense_TST_MEASUREMENT_ERROR = 0x03uL,
+  capsense_TST_MEASUREMENT_ERROR = 0x03uL,
 /* some fault occurred during the measurement, for instance a sensor short, a measurement result is invalid */
-  CapSense_TST_MEASUREMENT_LOW_LIMIT = 0x04uL,
+  capsense_TST_MEASUREMENT_LOW_LIMIT = 0x04uL,
 /* Raw count is equal to a minimum value (FilterDelay * NumberOfConversions). A measurement result is invalid.
    A sensor or Cmod should be shorted to VDD */
-  CapSense_TST_MEASUREMENT_HIGH_LIMIT = 0x05uL,
+  capsense_TST_MEASUREMENT_HIGH_LIMIT = 0x05uL,
 /* Raw count is above 45% of the maximum value (2^Resolution – 1). A measurement result is invalid.
    A possible root cause: sensor or Cmod are shorted to GND */
-  CapSense_TST_MEASUREMENT_OVERFLOW = 0x06uL,
+  capsense_TST_MEASUREMENT_OVERFLOW = 0x06uL,
 /* Raw count is above the maximum value (2^Resolution – 1). A measurement result is invalid.
    A possible root cause: a sensor or Cmod are shorted to GND */
-  CapSense_TST_MEASUREMENT_TIMEOUT = 0x07uL,
+  capsense_TST_MEASUREMENT_TIMEOUT = 0x07uL,
 /* Any of measurement scan is not complete. A measurement result is invalid.
    A possible root cause: BIST measurement is not configured properly (CSD HW block is not configured properly: PeriClk, SnsClk, Vref,
    IDAC Gain/Code are not valid. ISR is not configured properly */
-}CapSense_TST_MEASUREMENT_STATUS_ENUM;
+}capsense_TST_MEASUREMENT_STATUS_ENUM;
 
 
 /**
@@ -180,7 +180,7 @@ typedef struct
     /**
      *  Widget Finger Threshold.
      */
-    CapSense_THRESHOLD_TYPE fingerTh;
+    capsense_THRESHOLD_TYPE fingerTh;
 
     /**
      *  Widget Noise Threshold.
@@ -209,14 +209,14 @@ typedef struct
      *  samples the sensor has to be below the Negative Noise 
      *  Threshold to trigger a baseline reset.
      */
-    CapSense_LOW_BSLN_RST_TYPE lowBslnRst;
+    capsense_LOW_BSLN_RST_TYPE lowBslnRst;
 
     /**
      *  Sets the current of the modulation IDAC for the widgets. 
      *  For the CSD Touchpad and Matrix Button widgets, sets 
      *  the current of the modulation IDAC for the column sensors.
      */
-    uint8  idacMod [CapSense_NUM_SCAN_FREQS];
+    uint8  idacMod [capsense_NUM_SCAN_FREQS];
 
     /**
      *  The index of the IDAC gain in the IDAC gain table structure for the widgets.
@@ -235,7 +235,7 @@ typedef struct
      *  Register for internal use
      */
     uint8  snsClkSource;
-} CapSense_RAM_WD_BASE_STRUCT;
+} capsense_RAM_WD_BASE_STRUCT;
 
 /***************************************************************************//**
 * \brief Declares RAM parameters for the CSX Button
@@ -250,7 +250,7 @@ typedef struct
     /**
      *  Widget Finger Threshold.
      */
-    CapSense_THRESHOLD_TYPE fingerTh;
+    capsense_THRESHOLD_TYPE fingerTh;
 
     /**
      *  Widget Noise Threshold.
@@ -279,14 +279,14 @@ typedef struct
      *  samples the sensor has to be below the Negative Noise 
      *  Threshold to trigger a baseline reset.
      */
-    CapSense_LOW_BSLN_RST_TYPE lowBslnRst;
+    capsense_LOW_BSLN_RST_TYPE lowBslnRst;
 
     /**
      *  Sets the current of the modulation IDAC for the widgets. 
      *  For the CSD Touchpad and Matrix Button widgets, sets 
      *  the current of the modulation IDAC for the column sensors.
      */
-    uint8  idacMod [CapSense_NUM_SCAN_FREQS];
+    uint8  idacMod [capsense_NUM_SCAN_FREQS];
 
     /**
      *  The index of the IDAC gain in the IDAC gain table structure for the widgets.
@@ -305,7 +305,7 @@ typedef struct
      *  Register for internal use
      */
     uint8  snsClkSource;
-} CapSense_RAM_WD_BUTTON_STRUCT;
+} capsense_RAM_WD_BUTTON_STRUCT;
 
 /***************************************************************************//**
 * \brief Declares RAM parameters for the Slider
@@ -320,7 +320,7 @@ typedef struct
     /**
      *  Widget Finger Threshold.
      */
-    CapSense_THRESHOLD_TYPE fingerTh;
+    capsense_THRESHOLD_TYPE fingerTh;
 
     /**
      *  Widget Noise Threshold.
@@ -349,14 +349,14 @@ typedef struct
      *  samples the sensor has to be below the Negative Noise 
      *  Threshold to trigger a baseline reset.
      */
-    CapSense_LOW_BSLN_RST_TYPE lowBslnRst;
+    capsense_LOW_BSLN_RST_TYPE lowBslnRst;
 
     /**
      *  Sets the current of the modulation IDAC for the widgets. 
      *  For the CSD Touchpad and Matrix Button widgets, sets 
      *  the current of the modulation IDAC for the column sensors.
      */
-    uint8  idacMod [CapSense_NUM_SCAN_FREQS];
+    uint8  idacMod [capsense_NUM_SCAN_FREQS];
 
     /**
      *  The index of the IDAC gain in the IDAC gain table structure for the widgets.
@@ -379,8 +379,8 @@ typedef struct
     /**
      *  Reports the widget position.
      */
-    uint16 position [CapSense_NUM_CENTROIDS];
-} CapSense_RAM_WD_SLIDER_STRUCT;
+    uint16 position [capsense_NUM_CENTROIDS];
+} capsense_RAM_WD_SLIDER_STRUCT;
 
 
 /***************************************************************************//**
@@ -391,23 +391,23 @@ typedef struct
     /**
      *  BTN0 widget RAM structure
      */
-    CapSense_RAM_WD_BUTTON_STRUCT btn0;
+    capsense_RAM_WD_BUTTON_STRUCT btn0;
 
     /**
      *  BTN1 widget RAM structure
      */
-    CapSense_RAM_WD_BUTTON_STRUCT btn1;
+    capsense_RAM_WD_BUTTON_STRUCT btn1;
 
     /**
      *  BTN2 widget RAM structure
      */
-    CapSense_RAM_WD_BUTTON_STRUCT btn2;
+    capsense_RAM_WD_BUTTON_STRUCT btn2;
 
     /**
      *  LinearSlider widget RAM structure
      */
-    CapSense_RAM_WD_SLIDER_STRUCT linearslider;
-} CapSense_RAM_WD_LIST_STRUCT;
+    capsense_RAM_WD_SLIDER_STRUCT linearslider;
+} capsense_RAM_WD_LIST_STRUCT;
 
 
 /***************************************************************************//**
@@ -418,34 +418,34 @@ typedef struct
     /**
      *  The sensor raw counts.
      */
-    uint16 raw [CapSense_NUM_SCAN_FREQS];
+    uint16 raw [capsense_NUM_SCAN_FREQS];
 
     /**
      *  The sensor baseline.
      */
-    uint16 bsln [CapSense_NUM_SCAN_FREQS];
+    uint16 bsln [capsense_NUM_SCAN_FREQS];
 
     /**
      *  For the bucket baseline algorithm holds the bucket state, 
      *  For the IIR baseline keeps LSB of the baseline value.
      */
-    uint8  bslnExt [CapSense_NUM_SCAN_FREQS];
+    uint8  bslnExt [capsense_NUM_SCAN_FREQS];
 
     /**
      *  Sensor differences.
      */
-    CapSense_THRESHOLD_TYPE diff;
+    capsense_THRESHOLD_TYPE diff;
 
     /**
      *  The baseline reset counter for the low baseline reset function.
      */
-    CapSense_LOW_BSLN_RST_TYPE negBslnRstCnt [CapSense_NUM_SCAN_FREQS];
+    capsense_LOW_BSLN_RST_TYPE negBslnRstCnt [capsense_NUM_SCAN_FREQS];
 
     /**
      *  The compensation IDAC value or the balancing IDAC value.
      */
-    uint8  idacComp [CapSense_NUM_SCAN_FREQS];
-} CapSense_RAM_SNS_STRUCT;
+    uint8  idacComp [capsense_NUM_SCAN_FREQS];
+} capsense_RAM_SNS_STRUCT;
 
 
 /***************************************************************************//**
@@ -456,23 +456,23 @@ typedef struct
     /**
      *  BTN0 sensors RAM structures array
      */
-    CapSense_RAM_SNS_STRUCT btn0         [CapSense_BTN0_NUM_SENSORS];
+    capsense_RAM_SNS_STRUCT btn0         [capsense_BTN0_NUM_SENSORS];
 
     /**
      *  BTN1 sensors RAM structures array
      */
-    CapSense_RAM_SNS_STRUCT btn1         [CapSense_BTN1_NUM_SENSORS];
+    capsense_RAM_SNS_STRUCT btn1         [capsense_BTN1_NUM_SENSORS];
 
     /**
      *  BTN2 sensors RAM structures array
      */
-    CapSense_RAM_SNS_STRUCT btn2         [CapSense_BTN2_NUM_SENSORS];
+    capsense_RAM_SNS_STRUCT btn2         [capsense_BTN2_NUM_SENSORS];
 
     /**
      *  LinearSlider sensors RAM structures array
      */
-    CapSense_RAM_SNS_STRUCT linearslider [CapSense_LINEARSLIDER_NUM_SENSORS];
-} CapSense_RAM_SNS_LIST_STRUCT;
+    capsense_RAM_SNS_STRUCT linearslider [capsense_LINEARSLIDER_NUM_SENSORS];
+} capsense_RAM_SNS_LIST_STRUCT;
 
 
 /***************************************************************************//**
@@ -517,14 +517,14 @@ typedef struct
      *  The bitmask that sets which Widgets are enabled and 
      *  scanned, each bit corresponds to one widget.
      */
-    uint32 wdgtEnable [CapSense_WDGT_STATUS_WORDS];
+    uint32 wdgtEnable [capsense_WDGT_STATUS_WORDS];
 
     /**
      *  The bitmask that reports activated Widgets (widgets that 
      *  detect a touch signal above the threshold), each bit 
      *  corresponds to one widget.
      */
-    uint32 wdgtStatus [CapSense_WDGT_STATUS_WORDS];
+    uint32 wdgtStatus [capsense_WDGT_STATUS_WORDS];
 
     /**
      *  For Buttons, Sliders, Matrix Buttons and CSD Touchpad each bit 
@@ -540,7 +540,7 @@ typedef struct
      *  the array element depends on the max number of sensors per 
      *  widget used in the current design. It could be 1, 2 or 4 bytes.
      */
-    CapSense_SNS_STS_TYPE snsStatus [CapSense_TOTAL_WIDGETS];
+    capsense_SNS_STS_TYPE snsStatus [capsense_TOTAL_WIDGETS];
 
     /**
      *  The configuration register for global parameters of the 
@@ -561,12 +561,12 @@ typedef struct
     /**
      *  RAM Widget Objects.
      */
-    CapSense_RAM_WD_LIST_STRUCT wdgtList;
+    capsense_RAM_WD_LIST_STRUCT wdgtList;
 
     /**
      *  RAM Sensor Objects.
      */
-    CapSense_RAM_SNS_LIST_STRUCT snsList;
+    capsense_RAM_SNS_LIST_STRUCT snsList;
 
     /**
      *  The selected widget ID.
@@ -586,7 +586,7 @@ typedef struct
     /**
      *  The sensor raw counts.
      */
-    uint16 snrTestRawCount [CapSense_NUM_SCAN_FREQS];
+    uint16 snrTestRawCount [capsense_NUM_SCAN_FREQS];
 
     /**
      *  The inactive sensor connection state for the CSD sensors.
@@ -602,7 +602,7 @@ typedef struct
      *  The current inactive sensor connection state for the sensors.
      */
     uint8  scanCurrentISC;
-} CapSense_RAM_STRUCT;
+} capsense_RAM_STRUCT;
 
 
 /***************************************************************************//**
@@ -654,7 +654,7 @@ typedef struct
      *  Position of the IO configuration bits in the PC register.
      */
     uint8    shift;
-} CapSense_FLASH_IO_STRUCT;
+} capsense_FLASH_IO_STRUCT;
 
 
 /***************************************************************************//**
@@ -685,7 +685,7 @@ typedef struct
      * \endif
      */
     uint8  type;
-} CapSense_FLASH_SNS_STRUCT;
+} capsense_FLASH_SNS_STRUCT;
 
 
 /***************************************************************************//**
@@ -697,7 +697,7 @@ typedef struct
      *  No ganged sensors available
      */
     uint8 notUsed;
-} CapSense_FLASH_SNS_LIST_STRUCT;
+} capsense_FLASH_SNS_LIST_STRUCT;
 
 
 
@@ -727,7 +727,7 @@ typedef struct
      *  Points to the array of Sensor Objects in RAM. The sensing and 
      *  processing blocks use it to access the scan data.
      */
-    CapSense_RAM_SNS_STRUCT * ptr2SnsRam;
+    capsense_RAM_SNS_STRUCT * ptr2SnsRam;
 
     /**
      *  Points to the array of the Filter History Objects in RAM that 
@@ -803,7 +803,7 @@ typedef struct
      *  The position IIR filter coefficient.
      */
     uint8  iirFilterCoeff;
-} CapSense_FLASH_WD_STRUCT;
+} capsense_FLASH_WD_STRUCT;
 
 
 /***************************************************************************//**
@@ -814,11 +814,11 @@ typedef struct
     /**
      *  Array of flash widget objects
      */
-    CapSense_FLASH_WD_STRUCT wdgtArray[CapSense_TOTAL_WIDGETS];
-} CapSense_FLASH_STRUCT;
+    capsense_FLASH_WD_STRUCT wdgtArray[capsense_TOTAL_WIDGETS];
+} capsense_FLASH_STRUCT;
 
 
-#if (CapSense_ENABLE == CapSense_TST_BSLN_RAW_OUT_RANGE_EN)
+#if (capsense_ENABLE == capsense_TST_BSLN_RAW_OUT_RANGE_EN)
     /***************************************************************************//**
     * \brief Defines the structure for test of baseline and raw count limits which
     * will be determined by user for every sensor grounding on the
@@ -842,8 +842,8 @@ typedef struct
          *  Lower limit of a sensor raw count.
          */
         uint16 rawLoLim;
-    } CapSense_BSLN_RAW_RANGE_STRUCT;
-#endif /* (CapSense_ENABLE == CapSense_TST_BSLN_RAW_OUT_RANGE_EN) */
+    } capsense_BSLN_RAW_RANGE_STRUCT;
+#endif /* (capsense_ENABLE == capsense_TST_BSLN_RAW_OUT_RANGE_EN) */
 
 /** \}
 * \endcond */
@@ -858,7 +858,7 @@ typedef struct
     uint8 csd0SensorId;
     uint8 csd1WidgetId;
     uint8 csd1SensorId;
-} CapSense_SCAN_SLOT_STRUCT;
+} capsense_SCAN_SLOT_STRUCT;
 
 
 /***************************************************************************//**
@@ -871,7 +871,7 @@ typedef struct
 typedef struct
 {
     uint16 notUsed;
-} CapSense_REGULAR_FLTR_CHANNEL_STRUCT;
+} capsense_REGULAR_FLTR_CHANNEL_STRUCT;
 
 /***************************************************************************//**
 * \brief Declares filter structure for regular sensors
@@ -879,10 +879,10 @@ typedef struct
 typedef struct
 {
     /**
-     *  Array of CapSense_REGULAR_FLTR_CHANNEL_STRUCT for each available scan frequency
+     *  Array of capsense_REGULAR_FLTR_CHANNEL_STRUCT for each available scan frequency
      */
-    CapSense_REGULAR_FLTR_CHANNEL_STRUCT regularChannel[CapSense_NUM_SCAN_FREQS];
-} CapSense_REGULAR_FLTR_STRUCT;
+    capsense_REGULAR_FLTR_CHANNEL_STRUCT regularChannel[capsense_NUM_SCAN_FREQS];
+} capsense_REGULAR_FLTR_STRUCT;
 
 /***************************************************************************//**
 * \brief Declares union for filter structure variants
@@ -895,47 +895,47 @@ typedef union
     void *ptr;
 
     /**
-     *  Pointer to CapSense_REGULAR_FLTR_STRUCT type
+     *  Pointer to capsense_REGULAR_FLTR_STRUCT type
      */
-    CapSense_REGULAR_FLTR_STRUCT *ptrRegular;
-} CapSense_PTR_FILTER_VARIANT;
+    capsense_REGULAR_FLTR_STRUCT *ptrRegular;
+} capsense_PTR_FILTER_VARIANT;
 
 
-#if (0u != CapSense_POSITION_FILTER_EN)
+#if (0u != capsense_POSITION_FILTER_EN)
 typedef struct
 {
-    #if (0u != CapSense_POS_MEDIAN_FILTER_EN)
+    #if (0u != capsense_POS_MEDIAN_FILTER_EN)
         uint16 posMedianZ1;
         uint16 posMedianZ2;
-    #endif /* #if (0u != CapSense_POS_MEDIAN_FILTER_EN) */
+    #endif /* #if (0u != capsense_POS_MEDIAN_FILTER_EN) */
 
-    #if (0u != CapSense_POS_IIR_FILTER_EN)
+    #if (0u != capsense_POS_IIR_FILTER_EN)
         uint16 posIIR;
-    #endif /* #if (0u != CapSense_POS_IIR_FILTER_EN) */
+    #endif /* #if (0u != capsense_POS_IIR_FILTER_EN) */
 
-    #if (0u != CapSense_POS_ADAPTIVE_IIR_FILTER_EN)
+    #if (0u != capsense_POS_ADAPTIVE_IIR_FILTER_EN)
         uint16 posAIIR;
-    #endif /* (0u != CapSense_POS_ADAPTIVE_IIR_FILTER_EN) */
+    #endif /* (0u != capsense_POS_ADAPTIVE_IIR_FILTER_EN) */
 
-    #if (0u != CapSense_POS_AVERAGE_FILTER_EN)
+    #if (0u != capsense_POS_AVERAGE_FILTER_EN)
         uint16 posAverage;
-    #endif /* #if (0u != CapSense_POS_AVERAGE_FILTER_EN) */
+    #endif /* #if (0u != capsense_POS_AVERAGE_FILTER_EN) */
 
-    #if (0u != CapSense_POS_JITTER_FILTER_EN)
+    #if (0u != capsense_POS_JITTER_FILTER_EN)
         uint16 posJitter;
-    #endif /* #if (0u != CapSense_POS_JITTER_FILTER_EN) */
+    #endif /* #if (0u != capsense_POS_JITTER_FILTER_EN) */
 
-    #if (0u != CapSense_POS_ADAPTIVE_IIR_FILTER_EN)
+    #if (0u != capsense_POS_ADAPTIVE_IIR_FILTER_EN)
         uint8 posAIIRCoeff;
-    #endif /* (0u != CapSense_POS_ADAPTIVE_IIR_FILTER_EN) */
-} CapSense_SLIDER_POS_HISTORY_STRUCT;
+    #endif /* (0u != capsense_POS_ADAPTIVE_IIR_FILTER_EN) */
+} capsense_SLIDER_POS_HISTORY_STRUCT;
 
 typedef struct
 {
-    CapSense_SLIDER_POS_HISTORY_STRUCT xPos;
-    CapSense_SLIDER_POS_HISTORY_STRUCT yPos;
-} CapSense_TOUCHPAD_POS_HISTORY_STRUCT;
-#endif /* (0u != CapSense_POSITION_FILTER_EN) */
+    capsense_SLIDER_POS_HISTORY_STRUCT xPos;
+    capsense_SLIDER_POS_HISTORY_STRUCT yPos;
+} capsense_TOUCHPAD_POS_HISTORY_STRUCT;
+#endif /* (0u != capsense_POSITION_FILTER_EN) */
 
 /*******************************************************************************
 * API Constants
@@ -950,152 +950,152 @@ typedef struct
 /* Bit 0: The multi-frequency scan enable/disable at runtime. This bit 
  * is functional only if the multi-frequency scan functionality 
  * has been activated in general component configuration. */
-#define CapSense_MULTI_FREQ_EN_SIZE       (0x00000001Lu)
-#define CapSense_MULTI_FREQ_EN_SHIFT      (0u)
-#define CapSense_MULTI_FREQ_EN_MASK       (CapSense_MULTI_FREQ_EN_SIZE << CapSense_MULTI_FREQ_EN_SHIFT)
+#define capsense_MULTI_FREQ_EN_SIZE       (0x00000001Lu)
+#define capsense_MULTI_FREQ_EN_SHIFT      (0u)
+#define capsense_MULTI_FREQ_EN_MASK       (capsense_MULTI_FREQ_EN_SIZE << capsense_MULTI_FREQ_EN_SHIFT)
 
 /* Bit 1: The sensor auto-reset is enabled */
-#define CapSense_SNS_ARST_SIZE            (0x00000001Lu)
-#define CapSense_SNS_ARST_SHIFT           (1u)
-#define CapSense_SNS_ARST_MASK            (CapSense_SNS_ARST_SIZE << CapSense_SNS_ARST_SHIFT)
+#define capsense_SNS_ARST_SIZE            (0x00000001Lu)
+#define capsense_SNS_ARST_SHIFT           (1u)
+#define capsense_SNS_ARST_MASK            (capsense_SNS_ARST_SIZE << capsense_SNS_ARST_SHIFT)
 
 /* Bits 2-3: The IDAC range setting (4x/8x) */
-#define CapSense_IDAC_RANGE_SIZE          (0x00000003Lu)
-#define CapSense_IDAC_RANGE_SHIFT         (2u)
-#define CapSense_IDAC_RANGE_MASK          (CapSense_IDAC_RANGE_SIZE << CapSense_IDAC_RANGE_SHIFT)
+#define capsense_IDAC_RANGE_SIZE          (0x00000003Lu)
+#define capsense_IDAC_RANGE_SHIFT         (2u)
+#define capsense_IDAC_RANGE_MASK          (capsense_IDAC_RANGE_SIZE << capsense_IDAC_RANGE_SHIFT)
 
 /* Bits 4-7: Reserved */
 
 /* Bit 8: The shield electrode signal Enable/Disable */
-#define CapSense_SHLD_EN_SIZE             (0x00000001Lu)
-#define CapSense_SHLD_EN_SHIFT            (8u)
-#define CapSense_SHLD_EN_MASK             (CapSense_SHLD_EN_SIZE << CapSense_SHLD_EN_SHIFT)
+#define capsense_SHLD_EN_SIZE             (0x00000001Lu)
+#define capsense_SHLD_EN_SHIFT            (8u)
+#define capsense_SHLD_EN_MASK             (capsense_SHLD_EN_SIZE << capsense_SHLD_EN_SHIFT)
 
 /* Bits 9-10: Selects the delay by which the csd_shield is delayed relative 
  * to csd_sense */
-#define CapSense_SHLD_DLY_SIZE            (0x00000003Lu)
-#define CapSense_SHLD_DLY_SHIFT           (9u)
-#define CapSense_SHLD_DLY_MASK            (CapSense_SHLD_DLY_SIZE << CapSense_SHLD_DLY_SHIFT)
+#define capsense_SHLD_DLY_SIZE            (0x00000003Lu)
+#define capsense_SHLD_DLY_SHIFT           (9u)
+#define capsense_SHLD_DLY_MASK            (capsense_SHLD_DLY_SIZE << capsense_SHLD_DLY_SHIFT)
 
 
 /* STATUS bit fields */
 
 /* Bits 0-6: The widget currently selected for SENSE_HW 0 */
-#define CapSense_STATUS_WDGT0_SIZE        (0x0000007FLu)
-#define CapSense_STATUS_WDGT0_SHIFT       (0u)
-#define CapSense_STATUS_WDGT0_MASK        (CapSense_STATUS_WDGT0_SIZE << CapSense_STATUS_WDGT0_SHIFT)
+#define capsense_STATUS_WDGT0_SIZE        (0x0000007FLu)
+#define capsense_STATUS_WDGT0_SHIFT       (0u)
+#define capsense_STATUS_WDGT0_MASK        (capsense_STATUS_WDGT0_SIZE << capsense_STATUS_WDGT0_SHIFT)
 
 /* Bit 7: The SENSE_HW0 block status */
-#define CapSense_STATUS_CSD0_SIZE         (0x00000001Lu)
-#define CapSense_STATUS_CSD0_SHIFT        (7u)
-#define CapSense_STATUS_CSD0_MASK         (CapSense_STATUS_CSD0_SIZE << CapSense_STATUS_CSD0_SHIFT)
+#define capsense_STATUS_CSD0_SIZE         (0x00000001Lu)
+#define capsense_STATUS_CSD0_SHIFT        (7u)
+#define capsense_STATUS_CSD0_MASK         (capsense_STATUS_CSD0_SIZE << capsense_STATUS_CSD0_SHIFT)
 
 /* Bits 8-14: The widget currently selected for SENSE_HW1 */
-#define CapSense_STATUS_WDGT1_SIZE        (0x0000007FLu)
-#define CapSense_STATUS_WDGT1_SHIFT       (8u)
-#define CapSense_STATUS_WDGT1_MASK        (CapSense_STATUS_WDGT1_SIZE << CapSense_STATUS_WDGT1_SHIFT)
+#define capsense_STATUS_WDGT1_SIZE        (0x0000007FLu)
+#define capsense_STATUS_WDGT1_SHIFT       (8u)
+#define capsense_STATUS_WDGT1_MASK        (capsense_STATUS_WDGT1_SIZE << capsense_STATUS_WDGT1_SHIFT)
 
 /* Bit 15: The SENSE_HW1 block status */
-#define CapSense_STATUS_CSD1_SIZE         (0x00000001Lu)
-#define CapSense_STATUS_CSD1_SHIFT        (15u)
-#define CapSense_STATUS_CSD1_MASK         (CapSense_STATUS_CSD1_SIZE << CapSense_STATUS_CSD1_SHIFT)
+#define capsense_STATUS_CSD1_SIZE         (0x00000001Lu)
+#define capsense_STATUS_CSD1_SHIFT        (15u)
+#define capsense_STATUS_CSD1_MASK         (capsense_STATUS_CSD1_SIZE << capsense_STATUS_CSD1_SHIFT)
 
 /* Bit 16: The WIDGET BUSY flag status for SENSE_HW0 */
-#define CapSense_STATUS_WDGT0_BUSY_SIZE   (0x00000001Lu)
-#define CapSense_STATUS_WDGT0_BUSY_SHIFT  (16u)
-#define CapSense_STATUS_WDGT0_BUSY_MASK   (CapSense_STATUS_WDGT0_BUSY_SIZE << CapSense_STATUS_WDGT0_BUSY_SHIFT)
+#define capsense_STATUS_WDGT0_BUSY_SIZE   (0x00000001Lu)
+#define capsense_STATUS_WDGT0_BUSY_SHIFT  (16u)
+#define capsense_STATUS_WDGT0_BUSY_MASK   (capsense_STATUS_WDGT0_BUSY_SIZE << capsense_STATUS_WDGT0_BUSY_SHIFT)
 
 /* Bit 17: The WIDGET BUSY flag status for SENSE_HW1 */
-#define CapSense_STATUS_WDGT1_BUSY_SIZE   (0x00000001Lu)
-#define CapSense_STATUS_WDGT1_BUSY_SHIFT  (17u)
-#define CapSense_STATUS_WDGT1_BUSY_MASK   (CapSense_STATUS_WDGT1_BUSY_SIZE << CapSense_STATUS_WDGT1_BUSY_SHIFT)
+#define capsense_STATUS_WDGT1_BUSY_SIZE   (0x00000001Lu)
+#define capsense_STATUS_WDGT1_BUSY_SHIFT  (17u)
+#define capsense_STATUS_WDGT1_BUSY_MASK   (capsense_STATUS_WDGT1_BUSY_SIZE << capsense_STATUS_WDGT1_BUSY_SHIFT)
 
 /* Bits 18-23: Reserved */
 
 /* Bits 24-31: Component error code */
-#define CapSense_STATUS_ERR_SIZE          (0x000000FFLu)
-#define CapSense_STATUS_ERR_SHIFT         (24u)
-#define CapSense_STATUS_ERR_MASK          (CapSense_STATUS_ERR_SIZE << CapSense_STATUS_ERR_SHIFT)
+#define capsense_STATUS_ERR_SIZE          (0x000000FFLu)
+#define capsense_STATUS_ERR_SHIFT         (24u)
+#define capsense_STATUS_ERR_MASK          (capsense_STATUS_ERR_SIZE << capsense_STATUS_ERR_SHIFT)
 
 
 /* WD_STATIC_CONFIG bit fields */
 
 /* Bit 0: The sense/Tx frequency selection: 0 - Common, 1 - Individual 
  * (per widget). */
-#define CapSense_SNS_FREQ_SIZE            (0x00000001Lu)
-#define CapSense_SNS_FREQ_SHIFT           (0u)
-#define CapSense_SNS_FREQ_MASK            (CapSense_SNS_FREQ_SIZE << CapSense_SNS_FREQ_SHIFT)
+#define capsense_SNS_FREQ_SIZE            (0x00000001Lu)
+#define capsense_SNS_FREQ_SHIFT           (0u)
+#define capsense_SNS_FREQ_MASK            (capsense_SNS_FREQ_SIZE << capsense_SNS_FREQ_SHIFT)
 
 /* Bit 1: Duplexing Enable/Disable for linear sliders. */
-#define CapSense_DIPLEXING_SIZE           (0x00000001Lu)
-#define CapSense_DIPLEXING_SHIFT          (1u)
-#define CapSense_DIPLEXING_MASK           (CapSense_DIPLEXING_SIZE << CapSense_DIPLEXING_SHIFT)
+#define capsense_DIPLEXING_SIZE           (0x00000001Lu)
+#define capsense_DIPLEXING_SHIFT          (1u)
+#define capsense_DIPLEXING_MASK           (capsense_DIPLEXING_SIZE << capsense_DIPLEXING_SHIFT)
 
 /* Bit 2: The widget contains a sensor ganged to other sensors. */
-#define CapSense_GANGED_SNS_SIZE          (0x00000001Lu)
-#define CapSense_GANGED_SNS_SHIFT         (2u)
-#define CapSense_GANGED_SNS_MASK          (CapSense_GANGED_SNS_SIZE << CapSense_GANGED_SNS_SHIFT)
+#define capsense_GANGED_SNS_SIZE          (0x00000001Lu)
+#define capsense_GANGED_SNS_SHIFT         (2u)
+#define capsense_GANGED_SNS_MASK          (capsense_GANGED_SNS_SIZE << capsense_GANGED_SNS_SHIFT)
 
 /* Bit 3: Some pin from this widget is used by other sensors to make 
  * a ganged sensor. */
-#define CapSense_SHARED_IO_SIZE           (0x00000001Lu)
-#define CapSense_SHARED_IO_SHIFT          (3u)
-#define CapSense_SHARED_IO_MASK           (CapSense_SHARED_IO_SIZE << CapSense_SHARED_IO_SHIFT)
+#define capsense_SHARED_IO_SIZE           (0x00000001Lu)
+#define capsense_SHARED_IO_SHIFT          (3u)
+#define capsense_SHARED_IO_MASK           (capsense_SHARED_IO_SIZE << capsense_SHARED_IO_SHIFT)
 
 /* Bit 4: The centroid position IIR filter Enable/Disable. */
-#define CapSense_POS_IIR_FILTER_SIZE      (0x00000001Lu)
-#define CapSense_POS_IIR_FILTER_SHIFT     (4u)
-#define CapSense_POS_IIR_FILTER_MASK      (CapSense_POS_IIR_FILTER_SIZE << CapSense_POS_IIR_FILTER_SHIFT)
+#define capsense_POS_IIR_FILTER_SIZE      (0x00000001Lu)
+#define capsense_POS_IIR_FILTER_SHIFT     (4u)
+#define capsense_POS_IIR_FILTER_MASK      (capsense_POS_IIR_FILTER_SIZE << capsense_POS_IIR_FILTER_SHIFT)
 
 /* Bit 5: The centroid position median filter Enable/Disable. */
-#define CapSense_POS_MEDIAN_FILTER_SIZE   (0x00000001Lu)
-#define CapSense_POS_MEDIAN_FILTER_SHIFT  (5u)
-#define CapSense_POS_MEDIAN_FILTER_MASK   (CapSense_POS_MEDIAN_FILTER_SIZE << CapSense_POS_MEDIAN_FILTER_SHIFT)
+#define capsense_POS_MEDIAN_FILTER_SIZE   (0x00000001Lu)
+#define capsense_POS_MEDIAN_FILTER_SHIFT  (5u)
+#define capsense_POS_MEDIAN_FILTER_MASK   (capsense_POS_MEDIAN_FILTER_SIZE << capsense_POS_MEDIAN_FILTER_SHIFT)
 
 /* Bit 6: The centroid position average filter Enable/Disable. */
-#define CapSense_POS_AVERAGE_FILTER_SIZE  (0x00000001Lu)
-#define CapSense_POS_AVERAGE_FILTER_SHIFT (6u)
-#define CapSense_POS_AVERAGE_FILTER_MASK  (CapSense_POS_AVERAGE_FILTER_SIZE << CapSense_POS_AVERAGE_FILTER_SHIFT)
+#define capsense_POS_AVERAGE_FILTER_SIZE  (0x00000001Lu)
+#define capsense_POS_AVERAGE_FILTER_SHIFT (6u)
+#define capsense_POS_AVERAGE_FILTER_MASK  (capsense_POS_AVERAGE_FILTER_SIZE << capsense_POS_AVERAGE_FILTER_SHIFT)
 
 /* Bit 7: The centroid position jitter filter Enable/Disable. */
-#define CapSense_POS_JITTER_FILTER_SIZE   (0x00000001Lu)
-#define CapSense_POS_JITTER_FILTER_SHIFT  (7u)
-#define CapSense_POS_JITTER_FILTER_MASK   (CapSense_POS_JITTER_FILTER_SIZE << CapSense_POS_JITTER_FILTER_SHIFT)
+#define capsense_POS_JITTER_FILTER_SIZE   (0x00000001Lu)
+#define capsense_POS_JITTER_FILTER_SHIFT  (7u)
+#define capsense_POS_JITTER_FILTER_MASK   (capsense_POS_JITTER_FILTER_SIZE << capsense_POS_JITTER_FILTER_SHIFT)
 
 /* Bit 8: The multiphase Tx scan Enable (CSX widgets only). */
-#define CapSense_MULTIPHASE_TX_SIZE       (0x00000001Lu)
-#define CapSense_MULTIPHASE_TX_SHIFT      (8u)
-#define CapSense_MULTIPHASE_TX_MASK       (CapSense_MULTIPHASE_TX_SIZE << CapSense_MULTIPHASE_TX_SHIFT)
+#define capsense_MULTIPHASE_TX_SIZE       (0x00000001Lu)
+#define capsense_MULTIPHASE_TX_SHIFT      (8u)
+#define capsense_MULTIPHASE_TX_MASK       (capsense_MULTIPHASE_TX_SIZE << capsense_MULTIPHASE_TX_SHIFT)
 
 /* Bit 9: The centroid position adaptive IIR filter Enable/Disable. */
-#define CapSense_AIIR_FILTER_SIZE         (0x00000001Lu)
-#define CapSense_AIIR_FILTER_SHIFT        (9u)
-#define CapSense_AIIR_FILTER_MASK         (CapSense_AIIR_FILTER_SIZE << CapSense_AIIR_FILTER_SHIFT)
+#define capsense_AIIR_FILTER_SIZE         (0x00000001Lu)
+#define capsense_AIIR_FILTER_SHIFT        (9u)
+#define capsense_AIIR_FILTER_MASK         (capsense_AIIR_FILTER_SIZE << capsense_AIIR_FILTER_SHIFT)
 
 /* Bit 10: Ballistic multiplier Enable/Disable. */
-#define CapSense_BALLISTIC_SIZE           (0x00000001Lu)
-#define CapSense_BALLISTIC_SHIFT          (10u)
-#define CapSense_BALLISTIC_MASK           (CapSense_BALLISTIC_SIZE << CapSense_BALLISTIC_SHIFT)
+#define capsense_BALLISTIC_SIZE           (0x00000001Lu)
+#define capsense_BALLISTIC_SHIFT          (10u)
+#define capsense_BALLISTIC_MASK           (capsense_BALLISTIC_SIZE << capsense_BALLISTIC_SHIFT)
 
 /* Bit 11: 3x3 centroid Enable/Disable. */
-#define CapSense_CENTROID_3X3_SIZE        (0x00000001Lu)
-#define CapSense_CENTROID_3X3_SHIFT       (11u)
-#define CapSense_CENTROID_3X3_MASK        (CapSense_CENTROID_3X3_SIZE << CapSense_CENTROID_3X3_SHIFT)
+#define capsense_CENTROID_3X3_SIZE        (0x00000001Lu)
+#define capsense_CENTROID_3X3_SHIFT       (11u)
+#define capsense_CENTROID_3X3_MASK        (capsense_CENTROID_3X3_SIZE << capsense_CENTROID_3X3_SHIFT)
 
 /* Bit 12: 5x5 centroid Enable/Disable. */
-#define CapSense_CENTROID_5X5_SIZE        (0x00000001Lu)
-#define CapSense_CENTROID_5X5_SHIFT       (12u)
-#define CapSense_CENTROID_5X5_MASK        (CapSense_CENTROID_5X5_SIZE << CapSense_CENTROID_5X5_SHIFT)
+#define capsense_CENTROID_5X5_SIZE        (0x00000001Lu)
+#define capsense_CENTROID_5X5_SHIFT       (12u)
+#define capsense_CENTROID_5X5_MASK        (capsense_CENTROID_5X5_SIZE << capsense_CENTROID_5X5_SHIFT)
 
 /* Bit 13: Edge correction Enable/Disable. */
-#define CapSense_EDGE_CORRECTION_SIZE     (0x00000001Lu)
-#define CapSense_EDGE_CORRECTION_SHIFT    (13u)
-#define CapSense_EDGE_CORRECTION_MASK     (CapSense_EDGE_CORRECTION_SIZE << CapSense_EDGE_CORRECTION_SHIFT)
+#define capsense_EDGE_CORRECTION_SIZE     (0x00000001Lu)
+#define capsense_EDGE_CORRECTION_SHIFT    (13u)
+#define capsense_EDGE_CORRECTION_MASK     (capsense_EDGE_CORRECTION_SIZE << capsense_EDGE_CORRECTION_SHIFT)
 
 /* Bit 14: Two finger detection Enable/Disable. */
-#define CapSense_TWO_FINGER_DETECTION_SIZE (0x00000001Lu)
-#define CapSense_TWO_FINGER_DETECTION_SHIFT (14u)
-#define CapSense_TWO_FINGER_DETECTION_MASK (CapSense_TWO_FINGER_DETECTION_SIZE << CapSense_TWO_FINGER_DETECTION_SHIFT)
+#define capsense_TWO_FINGER_DETECTION_SIZE (0x00000001Lu)
+#define capsense_TWO_FINGER_DETECTION_SHIFT (14u)
+#define capsense_TWO_FINGER_DETECTION_MASK (capsense_TWO_FINGER_DETECTION_SIZE << capsense_TWO_FINGER_DETECTION_SHIFT)
 
 
 /*******************************************************************************
@@ -1106,13 +1106,13 @@ typedef struct
 * Determines the widget specific word in the wdgtStatus array by widget ID
 *******************************************************************************/
 /* Divide by 32 - size of the wdgtStatus word in bits to find the word index */
-#define CapSense_GET_WDGT_STATUS_INDEX(wdgtId)  ((wdgtId) >> 5u)
+#define capsense_GET_WDGT_STATUS_INDEX(wdgtId)  ((wdgtId) >> 5u)
 
 /*******************************************************************************
 * Determines the widget bitmask in wdgtStatus word by widget ID
 *******************************************************************************/
 /* Take the least 5 bits of widget id to find the bit number */
-#define CapSense_GET_WDGT_STATUS_MASK(wdgtId)   (1Lu << ((wdgtId) & 0x1FLu))
+#define capsense_GET_WDGT_STATUS_MASK(wdgtId)   (1Lu << ((wdgtId) & 0x1FLu))
 
 /*******************************************************************************
 * Determines the sense method of the widget
@@ -1121,42 +1121,42 @@ typedef struct
 * If there are multiple sensing methods, get senseMethod from flash structure,
 * otherwise, hardcode it for speed.
 */
-#if (CapSense_MANY_WIDGET_METHODS_EN)
-    #define CapSense_GET_SENSE_METHOD(ptrFlash) ((CapSense_SENSE_METHOD_ENUM)(ptrFlash)->senseMethod)
-#elif (0u != CapSense_TOTAL_CSD_WIDGETS)
-    #define CapSense_GET_SENSE_METHOD(ptrFlash) CapSense_SENSE_METHOD_CSD_E
-#elif (0u != CapSense_TOTAL_CSX_WIDGETS)
-    #define CapSense_GET_SENSE_METHOD(ptrFlash) CapSense_SENSE_METHOD_CSX_E
-#elif (0u != CapSense_TOTAL_ISX_WIDGETS)
-    #define CapSense_GET_SENSE_METHOD(ptrFlash) CapSense_SENSE_METHOD_ISX_E
+#if (capsense_MANY_WIDGET_METHODS_EN)
+    #define capsense_GET_SENSE_METHOD(ptrFlash) ((capsense_SENSE_METHOD_ENUM)(ptrFlash)->senseMethod)
+#elif (0u != capsense_TOTAL_CSD_WIDGETS)
+    #define capsense_GET_SENSE_METHOD(ptrFlash) capsense_SENSE_METHOD_CSD_E
+#elif (0u != capsense_TOTAL_CSX_WIDGETS)
+    #define capsense_GET_SENSE_METHOD(ptrFlash) capsense_SENSE_METHOD_CSX_E
+#elif (0u != capsense_TOTAL_ISX_WIDGETS)
+    #define capsense_GET_SENSE_METHOD(ptrFlash) capsense_SENSE_METHOD_ISX_E
 #endif
 
 /*******************************************************************************
 * Gets the widget type
 *******************************************************************************/
-#define CapSense_GET_WIDGET_TYPE(ptrFlashWdgt)  ((CapSense_WD_TYPE_ENUM)((ptrFlashWdgt)->wdgtType))
+#define capsense_GET_WIDGET_TYPE(ptrFlashWdgt)  ((capsense_WD_TYPE_ENUM)((ptrFlashWdgt)->wdgtType))
 
 /*******************************************************************************
 * Gets the number of the widget's sensors
 *******************************************************************************/
-#define CapSense_GET_SENSOR_COUNT(widgetId)         CapSense_dsFlash.wdgtArray[(widgetId)].totalNumSns
-#define CapSense_GET_SNS_CNT_BY_PTR(ptrFlashWidget) (ptrFlashWidget)->totalNumSns
+#define capsense_GET_SENSOR_COUNT(widgetId)         capsense_dsFlash.wdgtArray[(widgetId)].totalNumSns
+#define capsense_GET_SNS_CNT_BY_PTR(ptrFlashWidget) (ptrFlashWidget)->totalNumSns
 
 /*******************************************************************************
 * Increments the pointer to the Regular Filter History Object
 *******************************************************************************/
-#if (0u != CapSense_REGULAR_RC_ALP_FILTER_EN)
-    #define CapSense_INC_REG_FLTR_OBJ(fltrVariant)      \
+#if (0u != capsense_REGULAR_RC_ALP_FILTER_EN)
+    #define capsense_INC_REG_FLTR_OBJ(fltrVariant)      \
         do {                                                    \
             (fltrVariant).ptrAlp++;                             \
         } while(0)
-#elif (0u != CapSense_REGULAR_RC_FILTER_EN)
-    #define CapSense_INC_REG_FLTR_OBJ(fltrVariant)      \
+#elif (0u != capsense_REGULAR_RC_FILTER_EN)
+    #define capsense_INC_REG_FLTR_OBJ(fltrVariant)      \
         do {                                                    \
             (fltrVariant).ptrRegular++;                         \
         } while(0)
 #else
-    #define CapSense_INC_REG_FLTR_OBJ(fltrVariant)      \
+    #define capsense_INC_REG_FLTR_OBJ(fltrVariant)      \
         do {                                                    \
         } while(0)
 #endif
@@ -1164,18 +1164,18 @@ typedef struct
 /*******************************************************************************
 * Increments the pointer to the Proximity Filter History Object
 *******************************************************************************/
-#if (0u != CapSense_PROX_RC_ALP_FILTER_EN)
-    #define CapSense_INC_PROX_FLTR_OBJ(fltrVariant)     \
+#if (0u != capsense_PROX_RC_ALP_FILTER_EN)
+    #define capsense_INC_PROX_FLTR_OBJ(fltrVariant)     \
         do {                                                    \
             (fltrVariant).ptrAlp++;                             \
         } while(0)
-#elif (0u != CapSense_PROX_RC_FILTER_EN)
-    #define CapSense_INC_PROX_FLTR_OBJ(fltrVariant)     \
+#elif (0u != capsense_PROX_RC_FILTER_EN)
+    #define capsense_INC_PROX_FLTR_OBJ(fltrVariant)     \
         do {                                                    \
             (fltrVariant).ptrProx++;                            \
         } while(0)
 #else
-    #define CapSense_INC_PROX_FLTR_OBJ(fltrVariant)     \
+    #define capsense_INC_PROX_FLTR_OBJ(fltrVariant)     \
         do {                                                    \
         } while(0)
 #endif
@@ -1183,47 +1183,47 @@ typedef struct
 /*******************************************************************************
 * Increments the pointer to the Filter History Object Variant
 *******************************************************************************/
-#define CapSense_INC_FLTR_OBJ_VARIANT(isProxHistObj, fltrVariant)   \
+#define capsense_INC_FLTR_OBJ_VARIANT(isProxHistObj, fltrVariant)   \
     do {                                                                    \
         if (0u == (isProxHistObj))                                          \
         {                                                                   \
-            CapSense_INC_REG_FLTR_OBJ(fltrVariant);                 \
+            capsense_INC_REG_FLTR_OBJ(fltrVariant);                 \
         }                                                                   \
         else                                                                \
         {                                                                   \
-            CapSense_INC_PROX_FLTR_OBJ(fltrVariant);                \
+            capsense_INC_PROX_FLTR_OBJ(fltrVariant);                \
         }                                                                   \
     } while(0)
 
 /*******************************************************************************
 * Gets a widget status in the global enable register dsRam.wdgtEnable[]
 *******************************************************************************/
-#if (CapSense_ENABLE == CapSense_SELF_TEST_EN)
-    #define CapSense_GET_WIDGET_EN_STATUS(wdId)                                                     \
-                 (CapSense_GET_WDGT_STATUS_MASK(wdId) &                                             \
-                  CapSense_dsRam.wdgtEnable[CapSense_GET_WDGT_STATUS_INDEX(wdId)] &         \
-                  CapSense_dsRam.wdgtWorking[CapSense_GET_WDGT_STATUS_INDEX(wdId)])
+#if (capsense_ENABLE == capsense_SELF_TEST_EN)
+    #define capsense_GET_WIDGET_EN_STATUS(wdId)                                                     \
+                 (capsense_GET_WDGT_STATUS_MASK(wdId) &                                             \
+                  capsense_dsRam.wdgtEnable[capsense_GET_WDGT_STATUS_INDEX(wdId)] &         \
+                  capsense_dsRam.wdgtWorking[capsense_GET_WDGT_STATUS_INDEX(wdId)])
 #else
-    #define CapSense_GET_WIDGET_EN_STATUS(wdId)                    \
-                (CapSense_GET_WDGT_STATUS_MASK(wdId) &             \
-                 CapSense_dsRam.wdgtEnable[CapSense_GET_WDGT_STATUS_INDEX(wdId)])
-#endif /* (CapSense_ENABLE == CapSense_SELF_TEST_EN) */
+    #define capsense_GET_WIDGET_EN_STATUS(wdId)                    \
+                (capsense_GET_WDGT_STATUS_MASK(wdId) &             \
+                 capsense_dsRam.wdgtEnable[capsense_GET_WDGT_STATUS_INDEX(wdId)])
+#endif /* (capsense_ENABLE == capsense_SELF_TEST_EN) */
 
 /*******************************************************************************
 * Gets a widget active status from the dsRam.wdgtStatus[] register
 *******************************************************************************/
-#define CapSense_GET_WIDGET_ACTIVE_STATUS(wdId)                    \
-            (CapSense_GET_WDGT_STATUS_MASK(wdId) &                 \
-             CapSense_dsRam.wdgtStatus[CapSense_GET_WDGT_STATUS_INDEX(wdId)])
+#define capsense_GET_WIDGET_ACTIVE_STATUS(wdId)                    \
+            (capsense_GET_WDGT_STATUS_MASK(wdId) &                 \
+             capsense_dsRam.wdgtStatus[capsense_GET_WDGT_STATUS_INDEX(wdId)])
 
 /*******************************************************************************
 * Declares Flash and RAM Data Structure variables
 *******************************************************************************/
-extern CapSense_RAM_STRUCT            CapSense_dsRam;
-extern const CapSense_FLASH_STRUCT    CapSense_dsFlash;
-extern const CapSense_FLASH_IO_STRUCT CapSense_ioList[CapSense_TOTAL_ELECTRODES];
-extern const CapSense_RAM_WD_LIST_STRUCT CapSense_ramWidgetInit;
-extern const uint8 CapSense_ramIdacInit[CapSense_TOTAL_SENSORS];
+extern capsense_RAM_STRUCT            capsense_dsRam;
+extern const capsense_FLASH_STRUCT    capsense_dsFlash;
+extern const capsense_FLASH_IO_STRUCT capsense_ioList[capsense_TOTAL_ELECTRODES];
+extern const capsense_RAM_WD_LIST_STRUCT capsense_ramWidgetInit;
+extern const uint8 capsense_ramIdacInit[capsense_TOTAL_SENSORS];
 
 
 
@@ -1244,13 +1244,13 @@ extern const uint8 CapSense_ramIdacInit[CapSense_TOTAL_SENSORS];
 * \{
 */
 
-uint32 CapSense_IsAnyWidgetActive(void);
-uint32 CapSense_IsWidgetActive(uint32 widgetId);
-uint32 CapSense_IsSensorActive(uint32 widgetId, uint32 sensorId);
+uint32 capsense_IsAnyWidgetActive(void);
+uint32 capsense_IsWidgetActive(uint32 widgetId);
+uint32 capsense_IsSensorActive(uint32 widgetId, uint32 sensorId);
 
-#if (0u != CapSense_PROXIMITY_WIDGET_EN)
-    uint32 CapSense_IsProximitySensorActive(uint32 widgetId, uint32 proxId);
-#endif /* #if (0u != CapSense_PROXIMITY_WIDGET_EN) */
+#if (0u != capsense_PROXIMITY_WIDGET_EN)
+    uint32 capsense_IsProximitySensorActive(uint32 widgetId, uint32 proxId);
+#endif /* #if (0u != capsense_PROXIMITY_WIDGET_EN) */
 
 /** \}
 * \endcond
@@ -1258,17 +1258,17 @@ uint32 CapSense_IsSensorActive(uint32 widgetId, uint32 sensorId);
 * \addtogroup group_c_high_level
 * \{
 */
-#if (0u != CapSense_MATRIX_WIDGET_EN)
-    uint32 CapSense_IsMatrixButtonsActive(uint32 widgetId);
-#endif /* #if (0u != CapSense_MATRIX_WIDGET_EN) */
+#if (0u != capsense_MATRIX_WIDGET_EN)
+    uint32 capsense_IsMatrixButtonsActive(uint32 widgetId);
+#endif /* #if (0u != capsense_MATRIX_WIDGET_EN) */
 
-#if (0u != CapSense_SLIDER_WIDGET_EN)
-    uint32 CapSense_GetCentroidPos(uint32 widgetId);
-#endif /* #if (0u != CapSense_SLIDER_WIDGET_EN) */
+#if (0u != capsense_SLIDER_WIDGET_EN)
+    uint32 capsense_GetCentroidPos(uint32 widgetId);
+#endif /* #if (0u != capsense_SLIDER_WIDGET_EN) */
 
-#if (0u != CapSense_TOUCHPAD_WIDGET_EN)
-    uint32 CapSense_GetXYCoordinates(uint32 widgetId);
-#endif /* #if (0u != CapSense_TOUCHPAD_WIDGET_EN) */
+#if (0u != capsense_TOUCHPAD_WIDGET_EN)
+    uint32 capsense_GetXYCoordinates(uint32 widgetId);
+#endif /* #if (0u != capsense_TOUCHPAD_WIDGET_EN) */
 
 /** \}
 * \endcond */
@@ -1283,8 +1283,8 @@ uint32 CapSense_IsSensorActive(uint32 widgetId, uint32 sensorId);
 * \{
 */
 
-cystatus CapSense_GetParam(uint32 paramId, uint32 *value);
-cystatus CapSense_SetParam(uint32 paramId, uint32 value);
+cystatus capsense_GetParam(uint32 paramId, uint32 *value);
+cystatus capsense_SetParam(uint32 paramId, uint32 value);
 
 /** \}
 * \endcond */
@@ -1300,15 +1300,15 @@ cystatus CapSense_SetParam(uint32 paramId, uint32 value);
 
 
 
-void CapSense_DsInitialize(void);
-#if (0u != CapSense_ADC_EN)
-    void CapSense_AdcDsInitialize(void);
-#endif /* (0u != CapSense_ADC_EN) */
+void capsense_DsInitialize(void);
+#if (0u != capsense_ADC_EN)
+    void capsense_AdcDsInitialize(void);
+#endif /* (0u != capsense_ADC_EN) */
 
 /** \}
 * \endcond */
 
-#endif /* End CY_SENSE_CapSense_STRUCTURE_H */
+#endif /* End CY_SENSE_capsense_STRUCTURE_H */
 
 
 /* [] END OF FILE */

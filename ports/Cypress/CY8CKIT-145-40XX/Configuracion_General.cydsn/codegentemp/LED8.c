@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED8.c  
+* File Name: led8.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "LED8.h"
+#include "led8.h"
 
 
-#if defined(LED8__PC)
-    #define LED8_SetP4PinDriveMode(shift, mode)  \
+#if defined(led8__PC)
+    #define led8_SetP4PinDriveMode(shift, mode)  \
     do { \
-        LED8_PC =   (LED8_PC & \
-                                (uint32)(~(uint32)(LED8_DRIVE_MODE_IND_MASK << \
-                                (LED8_DRIVE_MODE_BITS * (shift))))) | \
+        led8_PC =   (led8_PC & \
+                                (uint32)(~(uint32)(led8_DRIVE_MODE_IND_MASK << \
+                                (led8_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (LED8_DRIVE_MODE_BITS * (shift))); \
+                                (led8_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define LED8_SetP4PinDriveMode(shift, mode)  \
+        #define led8_SetP4PinDriveMode(shift, mode)  \
         do { \
-            LED8_USBIO_CTRL_REG = (LED8_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(LED8_DRIVE_MODE_IND_MASK << \
-                                    (LED8_DRIVE_MODE_BITS * (shift))))) | \
+            led8_USBIO_CTRL_REG = (led8_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(led8_DRIVE_MODE_IND_MASK << \
+                                    (led8_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (LED8_DRIVE_MODE_BITS * (shift))); \
+                                    (led8_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(LED8__PC) || (CY_PSOC4_4200L) 
+#if defined(led8__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: LED8_SetDriveMode
+    * Function Name: led8_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet LED8_SUT.c usage_LED8_SetDriveMode
+    *  \snippet led8_SUT.c usage_led8_SetDriveMode
     *******************************************************************************/
-    void LED8_SetDriveMode(uint8 mode)
+    void led8_SetDriveMode(uint8 mode)
     {
-		LED8_SetP4PinDriveMode(LED8__0__SHIFT, mode);
+		led8_SetP4PinDriveMode(led8__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: LED8_Write
+* Function Name: led8_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet LED8_SUT.c usage_LED8_Write
+*  \snippet led8_SUT.c usage_led8_Write
 *******************************************************************************/
-void LED8_Write(uint8 value)
+void led8_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(LED8_DR & (uint8)(~LED8_MASK));
-    drVal = (drVal | ((uint8)(value << LED8_SHIFT) & LED8_MASK));
-    LED8_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(led8_DR & (uint8)(~led8_MASK));
+    drVal = (drVal | ((uint8)(value << led8_SHIFT) & led8_MASK));
+    led8_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: LED8_Read
+* Function Name: led8_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void LED8_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet LED8_SUT.c usage_LED8_Read  
+*  \snippet led8_SUT.c usage_led8_Read  
 *******************************************************************************/
-uint8 LED8_Read(void)
+uint8 led8_Read(void)
 {
-    return (uint8)((LED8_PS & LED8_MASK) >> LED8_SHIFT);
+    return (uint8)((led8_PS & led8_MASK) >> led8_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED8_ReadDataReg
+* Function Name: led8_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 LED8_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred LED8_Read() API because the 
-* LED8_ReadDataReg() reads the data register instead of the status 
+* preferred led8_Read() API because the 
+* led8_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 LED8_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet LED8_SUT.c usage_LED8_ReadDataReg 
+*  \snippet led8_SUT.c usage_led8_ReadDataReg 
 *******************************************************************************/
-uint8 LED8_ReadDataReg(void)
+uint8 led8_ReadDataReg(void)
 {
-    return (uint8)((LED8_DR & LED8_MASK) >> LED8_SHIFT);
+    return (uint8)((led8_DR & led8_MASK) >> led8_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED8_SetInterruptMode
+* Function Name: led8_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 LED8_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use LED8_INTR_ALL to configure the
+*  component. Or you may use led8_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - LED8_0_INTR       (First pin in the list)
-*  - LED8_1_INTR       (Second pin in the list)
+*  - led8_0_INTR       (First pin in the list)
+*  - led8_1_INTR       (Second pin in the list)
 *  - ...
-*  - LED8_INTR_ALL     (All pins in Pins component)
+*  - led8_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 LED8_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet LED8_SUT.c usage_LED8_SetInterruptMode
+*  \snippet led8_SUT.c usage_led8_SetInterruptMode
 *******************************************************************************/
-void LED8_SetInterruptMode(uint16 position, uint16 mode)
+void led8_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  LED8_INTCFG & (uint32)(~(uint32)position);
-    LED8_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  led8_INTCFG & (uint32)(~(uint32)position);
+    led8_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: LED8_ClearInterrupt
+* Function Name: led8_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void LED8_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet LED8_SUT.c usage_LED8_ClearInterrupt
+*  \snippet led8_SUT.c usage_led8_ClearInterrupt
 *******************************************************************************/
-uint8 LED8_ClearInterrupt(void)
+uint8 led8_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(LED8_INTSTAT & LED8_MASK);
-	LED8_INTSTAT = maskedStatus;
-    return maskedStatus >> LED8_SHIFT;
+	uint8 maskedStatus = (uint8)(led8_INTSTAT & led8_MASK);
+	led8_INTSTAT = maskedStatus;
+    return maskedStatus >> led8_SHIFT;
 }
 
 

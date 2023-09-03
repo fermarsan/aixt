@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: SW2.c  
+* File Name: sw2.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "SW2.h"
+#include "sw2.h"
 
 
-#if defined(SW2__PC)
-    #define SW2_SetP4PinDriveMode(shift, mode)  \
+#if defined(sw2__PC)
+    #define sw2_SetP4PinDriveMode(shift, mode)  \
     do { \
-        SW2_PC =   (SW2_PC & \
-                                (uint32)(~(uint32)(SW2_DRIVE_MODE_IND_MASK << \
-                                (SW2_DRIVE_MODE_BITS * (shift))))) | \
+        sw2_PC =   (sw2_PC & \
+                                (uint32)(~(uint32)(sw2_DRIVE_MODE_IND_MASK << \
+                                (sw2_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (SW2_DRIVE_MODE_BITS * (shift))); \
+                                (sw2_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define SW2_SetP4PinDriveMode(shift, mode)  \
+        #define sw2_SetP4PinDriveMode(shift, mode)  \
         do { \
-            SW2_USBIO_CTRL_REG = (SW2_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(SW2_DRIVE_MODE_IND_MASK << \
-                                    (SW2_DRIVE_MODE_BITS * (shift))))) | \
+            sw2_USBIO_CTRL_REG = (sw2_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(sw2_DRIVE_MODE_IND_MASK << \
+                                    (sw2_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (SW2_DRIVE_MODE_BITS * (shift))); \
+                                    (sw2_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(SW2__PC) || (CY_PSOC4_4200L) 
+#if defined(sw2__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: SW2_SetDriveMode
+    * Function Name: sw2_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet SW2_SUT.c usage_SW2_SetDriveMode
+    *  \snippet sw2_SUT.c usage_sw2_SetDriveMode
     *******************************************************************************/
-    void SW2_SetDriveMode(uint8 mode)
+    void sw2_SetDriveMode(uint8 mode)
     {
-		SW2_SetP4PinDriveMode(SW2__0__SHIFT, mode);
+		sw2_SetP4PinDriveMode(sw2__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: SW2_Write
+* Function Name: sw2_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet SW2_SUT.c usage_SW2_Write
+*  \snippet sw2_SUT.c usage_sw2_Write
 *******************************************************************************/
-void SW2_Write(uint8 value)
+void sw2_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(SW2_DR & (uint8)(~SW2_MASK));
-    drVal = (drVal | ((uint8)(value << SW2_SHIFT) & SW2_MASK));
-    SW2_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(sw2_DR & (uint8)(~sw2_MASK));
+    drVal = (drVal | ((uint8)(value << sw2_SHIFT) & sw2_MASK));
+    sw2_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: SW2_Read
+* Function Name: sw2_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void SW2_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet SW2_SUT.c usage_SW2_Read  
+*  \snippet sw2_SUT.c usage_sw2_Read  
 *******************************************************************************/
-uint8 SW2_Read(void)
+uint8 sw2_Read(void)
 {
-    return (uint8)((SW2_PS & SW2_MASK) >> SW2_SHIFT);
+    return (uint8)((sw2_PS & sw2_MASK) >> sw2_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: SW2_ReadDataReg
+* Function Name: sw2_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 SW2_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred SW2_Read() API because the 
-* SW2_ReadDataReg() reads the data register instead of the status 
+* preferred sw2_Read() API because the 
+* sw2_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 SW2_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet SW2_SUT.c usage_SW2_ReadDataReg 
+*  \snippet sw2_SUT.c usage_sw2_ReadDataReg 
 *******************************************************************************/
-uint8 SW2_ReadDataReg(void)
+uint8 sw2_ReadDataReg(void)
 {
-    return (uint8)((SW2_DR & SW2_MASK) >> SW2_SHIFT);
+    return (uint8)((sw2_DR & sw2_MASK) >> sw2_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: SW2_SetInterruptMode
+* Function Name: sw2_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 SW2_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use SW2_INTR_ALL to configure the
+*  component. Or you may use sw2_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - SW2_0_INTR       (First pin in the list)
-*  - SW2_1_INTR       (Second pin in the list)
+*  - sw2_0_INTR       (First pin in the list)
+*  - sw2_1_INTR       (Second pin in the list)
 *  - ...
-*  - SW2_INTR_ALL     (All pins in Pins component)
+*  - sw2_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 SW2_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet SW2_SUT.c usage_SW2_SetInterruptMode
+*  \snippet sw2_SUT.c usage_sw2_SetInterruptMode
 *******************************************************************************/
-void SW2_SetInterruptMode(uint16 position, uint16 mode)
+void sw2_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  SW2_INTCFG & (uint32)(~(uint32)position);
-    SW2_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  sw2_INTCFG & (uint32)(~(uint32)position);
+    sw2_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: SW2_ClearInterrupt
+* Function Name: sw2_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void SW2_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet SW2_SUT.c usage_SW2_ClearInterrupt
+*  \snippet sw2_SUT.c usage_sw2_ClearInterrupt
 *******************************************************************************/
-uint8 SW2_ClearInterrupt(void)
+uint8 sw2_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(SW2_INTSTAT & SW2_MASK);
-	SW2_INTSTAT = maskedStatus;
-    return maskedStatus >> SW2_SHIFT;
+	uint8 maskedStatus = (uint8)(sw2_INTSTAT & sw2_MASK);
+	sw2_INTSTAT = maskedStatus;
+    return maskedStatus >> sw2_SHIFT;
 }
 
 

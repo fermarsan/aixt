@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 1
 
 
    1              		.syntax unified
@@ -15,161 +15,161 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
   14              		.syntax unified
-  15              		.file	"Out_PWM2_PM.c"
+  15              		.file	"out_pwm2_PM.c"
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.Out_PWM2_Sleep,"ax",%progbits
+  19              		.section	.text.out_pwm2_Sleep,"ax",%progbits
   20              		.align	2
-  21              		.global	Out_PWM2_Sleep
+  21              		.global	out_pwm2_Sleep
   22              		.code	16
   23              		.thumb_func
-  24              		.type	Out_PWM2_Sleep, %function
-  25              	Out_PWM2_Sleep:
+  24              		.type	out_pwm2_Sleep, %function
+  25              	out_pwm2_Sleep:
   26              	.LFB0:
-  27              		.file 1 "Generated_Source\\PSoC4\\Out_PWM2_PM.c"
-   1:Generated_Source\PSoC4/Out_PWM2_PM.c **** /*******************************************************************************
-   2:Generated_Source\PSoC4/Out_PWM2_PM.c **** * File Name: Out_PWM2.c  
-   3:Generated_Source\PSoC4/Out_PWM2_PM.c **** * Version 2.20
-   4:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-   5:Generated_Source\PSoC4/Out_PWM2_PM.c **** * Description:
-   6:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  This file contains APIs to set up the Pins component for low power modes.
-   7:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-   8:Generated_Source\PSoC4/Out_PWM2_PM.c **** * Note:
-   9:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-  10:Generated_Source\PSoC4/Out_PWM2_PM.c **** ********************************************************************************
-  11:Generated_Source\PSoC4/Out_PWM2_PM.c **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
-  12:Generated_Source\PSoC4/Out_PWM2_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
-  13:Generated_Source\PSoC4/Out_PWM2_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
-  14:Generated_Source\PSoC4/Out_PWM2_PM.c **** * the software package with which this file was provided.
-  15:Generated_Source\PSoC4/Out_PWM2_PM.c **** *******************************************************************************/
-  16:Generated_Source\PSoC4/Out_PWM2_PM.c **** 
-  17:Generated_Source\PSoC4/Out_PWM2_PM.c **** #include "cytypes.h"
-  18:Generated_Source\PSoC4/Out_PWM2_PM.c **** #include "Out_PWM2.h"
-  19:Generated_Source\PSoC4/Out_PWM2_PM.c **** 
-  20:Generated_Source\PSoC4/Out_PWM2_PM.c **** static Out_PWM2_BACKUP_STRUCT  Out_PWM2_backup = {0u, 0u, 0u};
-  21:Generated_Source\PSoC4/Out_PWM2_PM.c **** 
-  22:Generated_Source\PSoC4/Out_PWM2_PM.c **** 
-  23:Generated_Source\PSoC4/Out_PWM2_PM.c **** /*******************************************************************************
-  24:Generated_Source\PSoC4/Out_PWM2_PM.c **** * Function Name: Out_PWM2_Sleep
-  25:Generated_Source\PSoC4/Out_PWM2_PM.c **** ****************************************************************************//**
-  26:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-  27:Generated_Source\PSoC4/Out_PWM2_PM.c **** * \brief Stores the pin configuration and prepares the pin for entering chip 
-  28:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  deep-sleep/hibernate modes. This function applies only to SIO and USBIO pins.
-  29:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  It should not be called for GPIO or GPIO_OVT pins.
-  30:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 2
+  27              		.file 1 "Generated_Source\\PSoC4\\out_pwm2_PM.c"
+   1:Generated_Source\PSoC4/out_pwm2_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/out_pwm2_PM.c **** * File Name: out_pwm2.c  
+   3:Generated_Source\PSoC4/out_pwm2_PM.c **** * Version 2.20
+   4:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+   5:Generated_Source\PSoC4/out_pwm2_PM.c **** * Description:
+   6:Generated_Source\PSoC4/out_pwm2_PM.c **** *  This file contains APIs to set up the Pins component for low power modes.
+   7:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+   8:Generated_Source\PSoC4/out_pwm2_PM.c **** * Note:
+   9:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+  10:Generated_Source\PSoC4/out_pwm2_PM.c **** ********************************************************************************
+  11:Generated_Source\PSoC4/out_pwm2_PM.c **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC4/out_pwm2_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:Generated_Source\PSoC4/out_pwm2_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:Generated_Source\PSoC4/out_pwm2_PM.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC4/out_pwm2_PM.c **** *******************************************************************************/
+  16:Generated_Source\PSoC4/out_pwm2_PM.c **** 
+  17:Generated_Source\PSoC4/out_pwm2_PM.c **** #include "cytypes.h"
+  18:Generated_Source\PSoC4/out_pwm2_PM.c **** #include "out_pwm2.h"
+  19:Generated_Source\PSoC4/out_pwm2_PM.c **** 
+  20:Generated_Source\PSoC4/out_pwm2_PM.c **** static out_pwm2_BACKUP_STRUCT  out_pwm2_backup = {0u, 0u, 0u};
+  21:Generated_Source\PSoC4/out_pwm2_PM.c **** 
+  22:Generated_Source\PSoC4/out_pwm2_PM.c **** 
+  23:Generated_Source\PSoC4/out_pwm2_PM.c **** /*******************************************************************************
+  24:Generated_Source\PSoC4/out_pwm2_PM.c **** * Function Name: out_pwm2_Sleep
+  25:Generated_Source\PSoC4/out_pwm2_PM.c **** ****************************************************************************//**
+  26:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+  27:Generated_Source\PSoC4/out_pwm2_PM.c **** * \brief Stores the pin configuration and prepares the pin for entering chip 
+  28:Generated_Source\PSoC4/out_pwm2_PM.c **** *  deep-sleep/hibernate modes. This function applies only to SIO and USBIO pins.
+  29:Generated_Source\PSoC4/out_pwm2_PM.c **** *  It should not be called for GPIO or GPIO_OVT pins.
+  30:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 2
 
 
-  31:Generated_Source\PSoC4/Out_PWM2_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
-  32:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-  33:Generated_Source\PSoC4/Out_PWM2_PM.c **** * \return 
-  34:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  None 
-  35:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  
-  36:Generated_Source\PSoC4/Out_PWM2_PM.c **** * \sideeffect
-  37:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  For SIO pins, this function configures the pin input threshold to CMOS and
-  38:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  drive level to Vddio. This is needed for SIO pins when in device 
-  39:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  deep-sleep/hibernate modes.
-  40:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-  41:Generated_Source\PSoC4/Out_PWM2_PM.c **** * \funcusage
-  42:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  \snippet Out_PWM2_SUT.c usage_Out_PWM2_Sleep_Wakeup
-  43:Generated_Source\PSoC4/Out_PWM2_PM.c **** *******************************************************************************/
-  44:Generated_Source\PSoC4/Out_PWM2_PM.c **** void Out_PWM2_Sleep(void)
-  45:Generated_Source\PSoC4/Out_PWM2_PM.c **** {
+  31:Generated_Source\PSoC4/out_pwm2_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
+  32:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+  33:Generated_Source\PSoC4/out_pwm2_PM.c **** * \return 
+  34:Generated_Source\PSoC4/out_pwm2_PM.c **** *  None 
+  35:Generated_Source\PSoC4/out_pwm2_PM.c **** *  
+  36:Generated_Source\PSoC4/out_pwm2_PM.c **** * \sideeffect
+  37:Generated_Source\PSoC4/out_pwm2_PM.c **** *  For SIO pins, this function configures the pin input threshold to CMOS and
+  38:Generated_Source\PSoC4/out_pwm2_PM.c **** *  drive level to Vddio. This is needed for SIO pins when in device 
+  39:Generated_Source\PSoC4/out_pwm2_PM.c **** *  deep-sleep/hibernate modes.
+  40:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+  41:Generated_Source\PSoC4/out_pwm2_PM.c **** * \funcusage
+  42:Generated_Source\PSoC4/out_pwm2_PM.c **** *  \snippet out_pwm2_SUT.c usage_out_pwm2_Sleep_Wakeup
+  43:Generated_Source\PSoC4/out_pwm2_PM.c **** *******************************************************************************/
+  44:Generated_Source\PSoC4/out_pwm2_PM.c **** void out_pwm2_Sleep(void)
+  45:Generated_Source\PSoC4/out_pwm2_PM.c **** {
   28              		.loc 1 45 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-  46:Generated_Source\PSoC4/Out_PWM2_PM.c ****     #if defined(Out_PWM2__PC)
-  47:Generated_Source\PSoC4/Out_PWM2_PM.c ****         Out_PWM2_backup.pcState = Out_PWM2_PC;
+  46:Generated_Source\PSoC4/out_pwm2_PM.c ****     #if defined(out_pwm2__PC)
+  47:Generated_Source\PSoC4/out_pwm2_PM.c ****         out_pwm2_backup.pcState = out_pwm2_PC;
   33              		.loc 1 47 0
   34 0000 024B     		ldr	r3, .L2
   35 0002 1A68     		ldr	r2, [r3]
   36 0004 024B     		ldr	r3, .L2+4
   37 0006 1A60     		str	r2, [r3]
-  48:Generated_Source\PSoC4/Out_PWM2_PM.c ****     #else
-  49:Generated_Source\PSoC4/Out_PWM2_PM.c ****         #if (CY_PSOC4_4200L)
-  50:Generated_Source\PSoC4/Out_PWM2_PM.c ****             /* Save the regulator state and put the PHY into suspend mode */
-  51:Generated_Source\PSoC4/Out_PWM2_PM.c ****             Out_PWM2_backup.usbState = Out_PWM2_CR1_REG;
-  52:Generated_Source\PSoC4/Out_PWM2_PM.c ****             Out_PWM2_USB_POWER_REG |= Out_PWM2_USBIO_ENTER_SLEEP;
-  53:Generated_Source\PSoC4/Out_PWM2_PM.c ****             Out_PWM2_CR1_REG &= Out_PWM2_USBIO_CR1_OFF;
-  54:Generated_Source\PSoC4/Out_PWM2_PM.c ****         #endif
-  55:Generated_Source\PSoC4/Out_PWM2_PM.c ****     #endif
-  56:Generated_Source\PSoC4/Out_PWM2_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Out_PWM2__SIO)
-  57:Generated_Source\PSoC4/Out_PWM2_PM.c ****         Out_PWM2_backup.sioState = Out_PWM2_SIO_REG;
-  58:Generated_Source\PSoC4/Out_PWM2_PM.c ****         /* SIO requires unregulated output buffer and single ended input buffer */
-  59:Generated_Source\PSoC4/Out_PWM2_PM.c ****         Out_PWM2_SIO_REG &= (uint32)(~Out_PWM2_SIO_LPM_MASK);
-  60:Generated_Source\PSoC4/Out_PWM2_PM.c ****     #endif  
-  61:Generated_Source\PSoC4/Out_PWM2_PM.c **** }
+  48:Generated_Source\PSoC4/out_pwm2_PM.c ****     #else
+  49:Generated_Source\PSoC4/out_pwm2_PM.c ****         #if (CY_PSOC4_4200L)
+  50:Generated_Source\PSoC4/out_pwm2_PM.c ****             /* Save the regulator state and put the PHY into suspend mode */
+  51:Generated_Source\PSoC4/out_pwm2_PM.c ****             out_pwm2_backup.usbState = out_pwm2_CR1_REG;
+  52:Generated_Source\PSoC4/out_pwm2_PM.c ****             out_pwm2_USB_POWER_REG |= out_pwm2_USBIO_ENTER_SLEEP;
+  53:Generated_Source\PSoC4/out_pwm2_PM.c ****             out_pwm2_CR1_REG &= out_pwm2_USBIO_CR1_OFF;
+  54:Generated_Source\PSoC4/out_pwm2_PM.c ****         #endif
+  55:Generated_Source\PSoC4/out_pwm2_PM.c ****     #endif
+  56:Generated_Source\PSoC4/out_pwm2_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(out_pwm2__SIO)
+  57:Generated_Source\PSoC4/out_pwm2_PM.c ****         out_pwm2_backup.sioState = out_pwm2_SIO_REG;
+  58:Generated_Source\PSoC4/out_pwm2_PM.c ****         /* SIO requires unregulated output buffer and single ended input buffer */
+  59:Generated_Source\PSoC4/out_pwm2_PM.c ****         out_pwm2_SIO_REG &= (uint32)(~out_pwm2_SIO_LPM_MASK);
+  60:Generated_Source\PSoC4/out_pwm2_PM.c ****     #endif  
+  61:Generated_Source\PSoC4/out_pwm2_PM.c **** }
   38              		.loc 1 61 0
   39              		@ sp needed
   40 0008 7047     		bx	lr
   41              	.L3:
   42 000a C046     		.align	2
   43              	.L2:
-  44 000c 08020440 		.word	1074004488
+  44 000c 08010440 		.word	1074004232
   45 0010 00000000 		.word	.LANCHOR0
   46              		.cfi_endproc
   47              	.LFE0:
-  48              		.size	Out_PWM2_Sleep, .-Out_PWM2_Sleep
-  49              		.section	.text.Out_PWM2_Wakeup,"ax",%progbits
+  48              		.size	out_pwm2_Sleep, .-out_pwm2_Sleep
+  49              		.section	.text.out_pwm2_Wakeup,"ax",%progbits
   50              		.align	2
-  51              		.global	Out_PWM2_Wakeup
+  51              		.global	out_pwm2_Wakeup
   52              		.code	16
   53              		.thumb_func
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 3
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 3
 
 
-  54              		.type	Out_PWM2_Wakeup, %function
-  55              	Out_PWM2_Wakeup:
+  54              		.type	out_pwm2_Wakeup, %function
+  55              	out_pwm2_Wakeup:
   56              	.LFB1:
-  62:Generated_Source\PSoC4/Out_PWM2_PM.c **** 
-  63:Generated_Source\PSoC4/Out_PWM2_PM.c **** 
-  64:Generated_Source\PSoC4/Out_PWM2_PM.c **** /*******************************************************************************
-  65:Generated_Source\PSoC4/Out_PWM2_PM.c **** * Function Name: Out_PWM2_Wakeup
-  66:Generated_Source\PSoC4/Out_PWM2_PM.c **** ****************************************************************************//**
-  67:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-  68:Generated_Source\PSoC4/Out_PWM2_PM.c **** * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
-  69:Generated_Source\PSoC4/Out_PWM2_PM.c **** * function applies only to SIO and USBIO pins. It should not be called for
-  70:Generated_Source\PSoC4/Out_PWM2_PM.c **** * GPIO or GPIO_OVT pins.
-  71:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-  72:Generated_Source\PSoC4/Out_PWM2_PM.c **** * For USBIO pins, the wakeup is only triggered for falling edge interrupts.
-  73:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-  74:Generated_Source\PSoC4/Out_PWM2_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
-  75:Generated_Source\PSoC4/Out_PWM2_PM.c **** *
-  76:Generated_Source\PSoC4/Out_PWM2_PM.c **** * \return 
-  77:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  None
-  78:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  
-  79:Generated_Source\PSoC4/Out_PWM2_PM.c **** * \funcusage
-  80:Generated_Source\PSoC4/Out_PWM2_PM.c **** *  Refer to Out_PWM2_Sleep() for an example usage.
-  81:Generated_Source\PSoC4/Out_PWM2_PM.c **** *******************************************************************************/
-  82:Generated_Source\PSoC4/Out_PWM2_PM.c **** void Out_PWM2_Wakeup(void)
-  83:Generated_Source\PSoC4/Out_PWM2_PM.c **** {
+  62:Generated_Source\PSoC4/out_pwm2_PM.c **** 
+  63:Generated_Source\PSoC4/out_pwm2_PM.c **** 
+  64:Generated_Source\PSoC4/out_pwm2_PM.c **** /*******************************************************************************
+  65:Generated_Source\PSoC4/out_pwm2_PM.c **** * Function Name: out_pwm2_Wakeup
+  66:Generated_Source\PSoC4/out_pwm2_PM.c **** ****************************************************************************//**
+  67:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+  68:Generated_Source\PSoC4/out_pwm2_PM.c **** * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
+  69:Generated_Source\PSoC4/out_pwm2_PM.c **** * function applies only to SIO and USBIO pins. It should not be called for
+  70:Generated_Source\PSoC4/out_pwm2_PM.c **** * GPIO or GPIO_OVT pins.
+  71:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+  72:Generated_Source\PSoC4/out_pwm2_PM.c **** * For USBIO pins, the wakeup is only triggered for falling edge interrupts.
+  73:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+  74:Generated_Source\PSoC4/out_pwm2_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
+  75:Generated_Source\PSoC4/out_pwm2_PM.c **** *
+  76:Generated_Source\PSoC4/out_pwm2_PM.c **** * \return 
+  77:Generated_Source\PSoC4/out_pwm2_PM.c **** *  None
+  78:Generated_Source\PSoC4/out_pwm2_PM.c **** *  
+  79:Generated_Source\PSoC4/out_pwm2_PM.c **** * \funcusage
+  80:Generated_Source\PSoC4/out_pwm2_PM.c **** *  Refer to out_pwm2_Sleep() for an example usage.
+  81:Generated_Source\PSoC4/out_pwm2_PM.c **** *******************************************************************************/
+  82:Generated_Source\PSoC4/out_pwm2_PM.c **** void out_pwm2_Wakeup(void)
+  83:Generated_Source\PSoC4/out_pwm2_PM.c **** {
   57              		.loc 1 83 0
   58              		.cfi_startproc
   59              		@ args = 0, pretend = 0, frame = 0
   60              		@ frame_needed = 0, uses_anonymous_args = 0
   61              		@ link register save eliminated.
-  84:Generated_Source\PSoC4/Out_PWM2_PM.c ****     #if defined(Out_PWM2__PC)
-  85:Generated_Source\PSoC4/Out_PWM2_PM.c ****         Out_PWM2_PC = Out_PWM2_backup.pcState;
+  84:Generated_Source\PSoC4/out_pwm2_PM.c ****     #if defined(out_pwm2__PC)
+  85:Generated_Source\PSoC4/out_pwm2_PM.c ****         out_pwm2_PC = out_pwm2_backup.pcState;
   62              		.loc 1 85 0
   63 0000 024B     		ldr	r3, .L5
   64 0002 1A68     		ldr	r2, [r3]
   65 0004 024B     		ldr	r3, .L5+4
   66 0006 1A60     		str	r2, [r3]
-  86:Generated_Source\PSoC4/Out_PWM2_PM.c ****     #else
-  87:Generated_Source\PSoC4/Out_PWM2_PM.c ****         #if (CY_PSOC4_4200L)
-  88:Generated_Source\PSoC4/Out_PWM2_PM.c ****             /* Restore the regulator state and come out of suspend mode */
-  89:Generated_Source\PSoC4/Out_PWM2_PM.c ****             Out_PWM2_USB_POWER_REG &= Out_PWM2_USBIO_EXIT_SLEEP_PH1;
-  90:Generated_Source\PSoC4/Out_PWM2_PM.c ****             Out_PWM2_CR1_REG = Out_PWM2_backup.usbState;
-  91:Generated_Source\PSoC4/Out_PWM2_PM.c ****             Out_PWM2_USB_POWER_REG &= Out_PWM2_USBIO_EXIT_SLEEP_PH2;
-  92:Generated_Source\PSoC4/Out_PWM2_PM.c ****         #endif
-  93:Generated_Source\PSoC4/Out_PWM2_PM.c ****     #endif
-  94:Generated_Source\PSoC4/Out_PWM2_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Out_PWM2__SIO)
-  95:Generated_Source\PSoC4/Out_PWM2_PM.c ****         Out_PWM2_SIO_REG = Out_PWM2_backup.sioState;
-  96:Generated_Source\PSoC4/Out_PWM2_PM.c ****     #endif
-  97:Generated_Source\PSoC4/Out_PWM2_PM.c **** }
+  86:Generated_Source\PSoC4/out_pwm2_PM.c ****     #else
+  87:Generated_Source\PSoC4/out_pwm2_PM.c ****         #if (CY_PSOC4_4200L)
+  88:Generated_Source\PSoC4/out_pwm2_PM.c ****             /* Restore the regulator state and come out of suspend mode */
+  89:Generated_Source\PSoC4/out_pwm2_PM.c ****             out_pwm2_USB_POWER_REG &= out_pwm2_USBIO_EXIT_SLEEP_PH1;
+  90:Generated_Source\PSoC4/out_pwm2_PM.c ****             out_pwm2_CR1_REG = out_pwm2_backup.usbState;
+  91:Generated_Source\PSoC4/out_pwm2_PM.c ****             out_pwm2_USB_POWER_REG &= out_pwm2_USBIO_EXIT_SLEEP_PH2;
+  92:Generated_Source\PSoC4/out_pwm2_PM.c ****         #endif
+  93:Generated_Source\PSoC4/out_pwm2_PM.c ****     #endif
+  94:Generated_Source\PSoC4/out_pwm2_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(out_pwm2__SIO)
+  95:Generated_Source\PSoC4/out_pwm2_PM.c ****         out_pwm2_SIO_REG = out_pwm2_backup.sioState;
+  96:Generated_Source\PSoC4/out_pwm2_PM.c ****     #endif
+  97:Generated_Source\PSoC4/out_pwm2_PM.c **** }
   67              		.loc 1 97 0
   68              		@ sp needed
   69 0008 7047     		bx	lr
@@ -177,26 +177,26 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
   71 000a C046     		.align	2
   72              	.L5:
   73 000c 00000000 		.word	.LANCHOR0
-  74 0010 08020440 		.word	1074004488
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 4
+  74 0010 08010440 		.word	1074004232
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 4
 
 
   75              		.cfi_endproc
   76              	.LFE1:
-  77              		.size	Out_PWM2_Wakeup, .-Out_PWM2_Wakeup
+  77              		.size	out_pwm2_Wakeup, .-out_pwm2_Wakeup
   78              		.bss
   79              		.align	2
   80              		.set	.LANCHOR0,. + 0
-  81              		.type	Out_PWM2_backup, %object
-  82              		.size	Out_PWM2_backup, 12
-  83              	Out_PWM2_backup:
+  81              		.type	out_pwm2_backup, %object
+  82              		.size	out_pwm2_backup, 12
+  83              	out_pwm2_backup:
   84 0000 00000000 		.space	12
   84      00000000 
   84      00000000 
   85              		.text
   86              	.Letext0:
   87              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
-  88              		.file 3 "Generated_Source\\PSoC4\\Out_PWM2.h"
+  88              		.file 3 "Generated_Source\\PSoC4\\out_pwm2.h"
   89              		.section	.debug_info,"",%progbits
   90              	.Ldebug_info0:
   91 0000 05010000 		.4byte	0x105
@@ -204,48 +204,48 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
   93 0006 00000000 		.4byte	.Ldebug_abbrev0
   94 000a 04       		.byte	0x4
   95 000b 01       		.uleb128 0x1
-  96 000c 97010000 		.4byte	.LASF20
+  96 000c 81010000 		.4byte	.LASF20
   97 0010 0C       		.byte	0xc
-  98 0011 DA000000 		.4byte	.LASF21
-  99 0015 0F000000 		.4byte	.LASF22
+  98 0011 1F000000 		.4byte	.LASF21
+  99 0015 7D000000 		.4byte	.LASF22
  100 0019 00000000 		.4byte	.Ldebug_ranges0+0
  101 001d 00000000 		.4byte	0
  102 0021 00000000 		.4byte	.Ldebug_line0
  103 0025 02       		.uleb128 0x2
  104 0026 01       		.byte	0x1
  105 0027 06       		.byte	0x6
- 106 0028 29020000 		.4byte	.LASF0
+ 106 0028 13020000 		.4byte	.LASF0
  107 002c 02       		.uleb128 0x2
  108 002d 01       		.byte	0x1
  109 002e 08       		.byte	0x8
- 110 002f A7000000 		.4byte	.LASF1
+ 110 002f 4A000000 		.4byte	.LASF1
  111 0033 02       		.uleb128 0x2
  112 0034 02       		.byte	0x2
  113 0035 05       		.byte	0x5
- 114 0036 5C010000 		.4byte	.LASF2
+ 114 0036 66010000 		.4byte	.LASF2
  115 003a 02       		.uleb128 0x2
  116 003b 02       		.byte	0x2
  117 003c 07       		.byte	0x7
- 118 003d C7000000 		.4byte	.LASF3
+ 118 003d 6A000000 		.4byte	.LASF3
  119 0041 02       		.uleb128 0x2
  120 0042 04       		.byte	0x4
  121 0043 05       		.byte	0x5
- 122 0044 7E010000 		.4byte	.LASF4
+ 122 0044 78010000 		.4byte	.LASF4
  123 0048 02       		.uleb128 0x2
  124 0049 04       		.byte	0x4
  125 004a 07       		.byte	0x7
- 126 004b B5000000 		.4byte	.LASF5
+ 126 004b 58000000 		.4byte	.LASF5
  127 004f 02       		.uleb128 0x2
  128 0050 08       		.byte	0x8
  129 0051 05       		.byte	0x5
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 5
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 5
 
 
- 130 0052 3A010000 		.4byte	.LASF6
+ 130 0052 44010000 		.4byte	.LASF6
  131 0056 02       		.uleb128 0x2
  132 0057 08       		.byte	0x8
  133 0058 07       		.byte	0x7
- 134 0059 1A010000 		.4byte	.LASF7
+ 134 0059 0D010000 		.4byte	.LASF7
  135 005d 03       		.uleb128 0x3
  136 005e 04       		.byte	0x4
  137 005f 05       		.byte	0x5
@@ -253,24 +253,24 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
  139 0064 02       		.uleb128 0x2
  140 0065 04       		.byte	0x4
  141 0066 07       		.byte	0x7
- 142 0067 0D010000 		.4byte	.LASF8
+ 142 0067 00010000 		.4byte	.LASF8
  143 006b 04       		.uleb128 0x4
- 144 006c 06010000 		.4byte	.LASF12
+ 144 006c F9000000 		.4byte	.LASF12
  145 0070 02       		.byte	0x2
  146 0071 FE01     		.2byte	0x1fe
  147 0073 48000000 		.4byte	0x48
  148 0077 02       		.uleb128 0x2
  149 0078 04       		.byte	0x4
  150 0079 04       		.byte	0x4
- 151 007a 8A000000 		.4byte	.LASF9
+ 151 007a 44000000 		.4byte	.LASF9
  152 007e 02       		.uleb128 0x2
  153 007f 08       		.byte	0x8
  154 0080 04       		.byte	0x4
- 155 0081 FF000000 		.4byte	.LASF10
+ 155 0081 F2000000 		.4byte	.LASF10
  156 0085 02       		.uleb128 0x2
  157 0086 01       		.byte	0x1
  158 0087 08       		.byte	0x8
- 159 0088 48010000 		.4byte	.LASF11
+ 159 0088 52010000 		.4byte	.LASF11
  160 008c 04       		.uleb128 0x4
  161 008d 00000000 		.4byte	.LASF13
  162 0091 02       		.byte	0x2
@@ -284,13 +284,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
  170 00a0 21       		.byte	0x21
  171 00a1 CA000000 		.4byte	0xca
  172 00a5 07       		.uleb128 0x7
- 173 00a6 66010000 		.4byte	.LASF14
+ 173 00a6 70010000 		.4byte	.LASF14
  174 00aa 03       		.byte	0x3
  175 00ab 23       		.byte	0x23
  176 00ac 6B000000 		.4byte	0x6b
  177 00b0 00       		.byte	0
  178 00b1 07       		.uleb128 0x7
- 179 00b2 31010000 		.4byte	.LASF15
+ 179 00b2 3B010000 		.4byte	.LASF15
  180 00b6 03       		.byte	0x3
  181 00b7 24       		.byte	0x24
  182 00b8 6B000000 		.4byte	0x6b
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
  184 00bd 07       		.uleb128 0x7
  185 00be 06000000 		.4byte	.LASF16
  186 00c2 03       		.byte	0x3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 6
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 6
 
 
  187 00c3 25       		.byte	0x25
@@ -306,12 +306,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
  189 00c8 08       		.byte	0x8
  190 00c9 00       		.byte	0
  191 00ca 08       		.uleb128 0x8
- 192 00cb 90000000 		.4byte	.LASF17
+ 192 00cb 24010000 		.4byte	.LASF17
  193 00cf 03       		.byte	0x3
  194 00d0 26       		.byte	0x26
  195 00d1 9D000000 		.4byte	0x9d
  196 00d5 09       		.uleb128 0x9
- 197 00d6 4D010000 		.4byte	.LASF18
+ 197 00d6 57010000 		.4byte	.LASF18
  198 00da 01       		.byte	0x1
  199 00db 2C       		.byte	0x2c
  200 00dc 00000000 		.4byte	.LFB0
@@ -319,7 +319,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
  202 00e4 01       		.uleb128 0x1
  203 00e5 9C       		.byte	0x9c
  204 00e6 09       		.uleb128 0x9
- 205 00e7 6E010000 		.4byte	.LASF19
+ 205 00e7 0F000000 		.4byte	.LASF19
  206 00eb 01       		.byte	0x1
  207 00ec 52       		.byte	0x52
  208 00ed 00000000 		.4byte	.LFB1
@@ -327,13 +327,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
  210 00f5 01       		.uleb128 0x1
  211 00f6 9C       		.byte	0x9c
  212 00f7 0A       		.uleb128 0xa
- 213 00f8 87010000 		.4byte	.LASF23
+ 213 00f8 1F020000 		.4byte	.LASF23
  214 00fc 01       		.byte	0x1
  215 00fd 14       		.byte	0x14
  216 00fe CA000000 		.4byte	0xca
  217 0102 05       		.uleb128 0x5
  218 0103 03       		.byte	0x3
- 219 0104 00000000 		.4byte	Out_PWM2_backup
+ 219 0104 00000000 		.4byte	out_pwm2_backup
  220 0108 00       		.byte	0
  221              		.section	.debug_abbrev,"",%progbits
  222              	.Ldebug_abbrev0:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
  241 0012 00       		.byte	0
  242 0013 02       		.uleb128 0x2
  243 0014 24       		.uleb128 0x24
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 7
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 7
 
 
  244 0015 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
  298 004b 0D       		.uleb128 0xd
  299 004c 00       		.byte	0
  300 004d 03       		.uleb128 0x3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 8
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 8
 
 
  301 004e 0E       		.uleb128 0xe
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
  355 0085 3B       		.uleb128 0x3b
  356 0086 0B       		.uleb128 0xb
  357 0087 49       		.uleb128 0x49
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 9
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 9
 
 
  358 0088 13       		.uleb128 0x13
@@ -523,133 +523,133 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 1
  392 0006 75736253 		.ascii	"usbState\000"
  392      74617465 
  392      00
- 393              	.LASF22:
- 394 000f 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\Ejem"
- 394      6F63756D 
- 394      656E746F 
- 394      735C5544 
- 394      5C323032 
- 395 003d 706C6F73 		.ascii	"plos\\Configuracion General\\Configuracion_General\\"
- 395      5C436F6E 
- 395      66696775 
- 395      72616369 
- 395      6F6E2047 
- 396 006e 436F6E66 		.ascii	"Configuracion_General.cydsn\000"
- 396      69677572 
- 396      6163696F 
- 396      6E5F4765 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 10
-
-
- 396      6E657261 
+ 393              	.LASF19:
+ 394 000f 6F75745F 		.ascii	"out_pwm2_Wakeup\000"
+ 394      70776D32 
+ 394      5F57616B 
+ 394      65757000 
+ 395              	.LASF21:
+ 396 001f 47656E65 		.ascii	"Generated_Source\\PSoC4\\out_pwm2_PM.c\000"
+ 396      72617465 
+ 396      645F536F 
+ 396      75726365 
+ 396      5C50536F 
  397              	.LASF9:
- 398 008a 666C6F61 		.ascii	"float\000"
+ 398 0044 666C6F61 		.ascii	"float\000"
  398      7400
- 399              	.LASF17:
- 400 0090 4F75745F 		.ascii	"Out_PWM2_BACKUP_STRUCT\000"
- 400      50574D32 
- 400      5F424143 
- 400      4B55505F 
- 400      53545255 
- 401              	.LASF1:
- 402 00a7 756E7369 		.ascii	"unsigned char\000"
- 402      676E6564 
- 402      20636861 
- 402      7200
- 403              	.LASF5:
- 404 00b5 6C6F6E67 		.ascii	"long unsigned int\000"
- 404      20756E73 
- 404      69676E65 
- 404      6420696E 
- 404      7400
- 405              	.LASF3:
- 406 00c7 73686F72 		.ascii	"short unsigned int\000"
- 406      7420756E 
- 406      7369676E 
- 406      65642069 
- 406      6E7400
- 407              	.LASF21:
- 408 00da 47656E65 		.ascii	"Generated_Source\\PSoC4\\Out_PWM2_PM.c\000"
- 408      72617465 
- 408      645F536F 
- 408      75726365 
- 408      5C50536F 
+ 399              	.LASF1:
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 10
+
+
+ 400 004a 756E7369 		.ascii	"unsigned char\000"
+ 400      676E6564 
+ 400      20636861 
+ 400      7200
+ 401              	.LASF5:
+ 402 0058 6C6F6E67 		.ascii	"long unsigned int\000"
+ 402      20756E73 
+ 402      69676E65 
+ 402      6420696E 
+ 402      7400
+ 403              	.LASF3:
+ 404 006a 73686F72 		.ascii	"short unsigned int\000"
+ 404      7420756E 
+ 404      7369676E 
+ 404      65642069 
+ 404      6E7400
+ 405              	.LASF22:
+ 406 007d 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\aixt"
+ 406      6F63756D 
+ 406      656E746F 
+ 406      735C5544 
+ 406      5C323032 
+ 407 00ab 2D702D73 		.ascii	"-p-so-c-4\\devices\\Cypress\\CY8CKIT-145-40XX\\Conf"
+ 407      6F2D632D 
+ 407      345C6465 
+ 407      76696365 
+ 407      735C4379 
+ 408 00da 69677572 		.ascii	"iguracion_General.cydsn\000"
+ 408      6163696F 
+ 408      6E5F4765 
+ 408      6E657261 
+ 408      6C2E6379 
  409              	.LASF10:
- 410 00ff 646F7562 		.ascii	"double\000"
+ 410 00f2 646F7562 		.ascii	"double\000"
  410      6C6500
  411              	.LASF12:
- 412 0106 75696E74 		.ascii	"uint32\000"
+ 412 00f9 75696E74 		.ascii	"uint32\000"
  412      333200
  413              	.LASF8:
- 414 010d 756E7369 		.ascii	"unsigned int\000"
+ 414 0100 756E7369 		.ascii	"unsigned int\000"
  414      676E6564 
  414      20696E74 
  414      00
  415              	.LASF7:
- 416 011a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 416 010d 6C6F6E67 		.ascii	"long long unsigned int\000"
  416      206C6F6E 
  416      6720756E 
  416      7369676E 
  416      65642069 
- 417              	.LASF15:
- 418 0131 73696F53 		.ascii	"sioState\000"
- 418      74617465 
- 418      00
- 419              	.LASF6:
- 420 013a 6C6F6E67 		.ascii	"long long int\000"
- 420      206C6F6E 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccawSkOZ.s 			page 11
+ 417              	.LASF17:
+ 418 0124 6F75745F 		.ascii	"out_pwm2_BACKUP_STRUCT\000"
+ 418      70776D32 
+ 418      5F424143 
+ 418      4B55505F 
+ 418      53545255 
+ 419              	.LASF15:
+ 420 013b 73696F53 		.ascii	"sioState\000"
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZCXnHB.s 			page 11
 
 
- 420      6720696E 
- 420      7400
- 421              	.LASF11:
- 422 0148 63686172 		.ascii	"char\000"
- 422      00
- 423              	.LASF18:
- 424 014d 4F75745F 		.ascii	"Out_PWM2_Sleep\000"
- 424      50574D32 
- 424      5F536C65 
- 424      657000
- 425              	.LASF2:
- 426 015c 73686F72 		.ascii	"short int\000"
- 426      7420696E 
- 426      7400
- 427              	.LASF14:
- 428 0166 70635374 		.ascii	"pcState\000"
- 428      61746500 
- 429              	.LASF19:
- 430 016e 4F75745F 		.ascii	"Out_PWM2_Wakeup\000"
- 430      50574D32 
- 430      5F57616B 
- 430      65757000 
+ 420      74617465 
+ 420      00
+ 421              	.LASF6:
+ 422 0144 6C6F6E67 		.ascii	"long long int\000"
+ 422      206C6F6E 
+ 422      6720696E 
+ 422      7400
+ 423              	.LASF11:
+ 424 0152 63686172 		.ascii	"char\000"
+ 424      00
+ 425              	.LASF18:
+ 426 0157 6F75745F 		.ascii	"out_pwm2_Sleep\000"
+ 426      70776D32 
+ 426      5F536C65 
+ 426      657000
+ 427              	.LASF2:
+ 428 0166 73686F72 		.ascii	"short int\000"
+ 428      7420696E 
+ 428      7400
+ 429              	.LASF14:
+ 430 0170 70635374 		.ascii	"pcState\000"
+ 430      61746500 
  431              	.LASF4:
- 432 017e 6C6F6E67 		.ascii	"long int\000"
+ 432 0178 6C6F6E67 		.ascii	"long int\000"
  432      20696E74 
  432      00
- 433              	.LASF23:
- 434 0187 4F75745F 		.ascii	"Out_PWM2_backup\000"
- 434      50574D32 
- 434      5F626163 
- 434      6B757000 
- 435              	.LASF20:
- 436 0197 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 436      43313120 
- 436      352E342E 
- 436      31203230 
- 436      31363036 
- 437 01ca 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
- 437      20726576 
- 437      6973696F 
- 437      6E203233 
- 437      37373135 
- 438 01fd 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
- 438      67202D66 
- 438      66756E63 
- 438      74696F6E 
- 438      2D736563 
- 439              	.LASF0:
- 440 0229 7369676E 		.ascii	"signed char\000"
- 440      65642063 
- 440      68617200 
+ 433              	.LASF20:
+ 434 0181 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 434      43313120 
+ 434      352E342E 
+ 434      31203230 
+ 434      31363036 
+ 435 01b4 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 435      20726576 
+ 435      6973696F 
+ 435      6E203233 
+ 435      37373135 
+ 436 01e7 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 436      67202D66 
+ 436      66756E63 
+ 436      74696F6E 
+ 436      2D736563 
+ 437              	.LASF0:
+ 438 0213 7369676E 		.ascii	"signed char\000"
+ 438      65642063 
+ 438      68617200 
+ 439              	.LASF23:
+ 440 021f 6F75745F 		.ascii	"out_pwm2_backup\000"
+ 440      70776D32 
+ 440      5F626163 
+ 440      6B757000 
  441              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

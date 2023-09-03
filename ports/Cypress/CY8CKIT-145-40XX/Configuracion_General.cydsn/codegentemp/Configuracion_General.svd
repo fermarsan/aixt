@@ -7,7 +7,7 @@
   <width>32</width>
   <peripherals>
     <peripheral>
-      <name>PWM2</name>
+      <name>pwm1</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -64,7 +64,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>UART</name>
+      <name>uart</name>
       <description>Serial Communication Block</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -2240,7 +2240,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>PWM1</name>
+      <name>pwm0</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -2297,7 +2297,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>CapSense</name>
+      <name>capsense</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -4274,7 +4274,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>PWM3</name>
+      <name>pwm2</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>

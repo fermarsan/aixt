@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: UART_SCBCLK.h
+* File Name: uart_SCBCLK.h
 * Version 2.20
 *
 *  Description:
@@ -14,8 +14,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_CLOCK_UART_SCBCLK_H)
-#define CY_CLOCK_UART_SCBCLK_H
+#if !defined(CY_CLOCK_uart_SCBCLK_H)
+#define CY_CLOCK_uart_SCBCLK_H
 
 #include <cytypes.h>
 #include <cyfitter.h>
@@ -26,29 +26,29 @@
 ***************************************/
 #if defined CYREG_PERI_DIV_CMD
 
-void UART_SCBCLK_StartEx(uint32 alignClkDiv);
-#define UART_SCBCLK_Start() \
-    UART_SCBCLK_StartEx(UART_SCBCLK__PA_DIV_ID)
+void uart_SCBCLK_StartEx(uint32 alignClkDiv);
+#define uart_SCBCLK_Start() \
+    uart_SCBCLK_StartEx(uart_SCBCLK__PA_DIV_ID)
 
 #else
 
-void UART_SCBCLK_Start(void);
+void uart_SCBCLK_Start(void);
 
 #endif/* CYREG_PERI_DIV_CMD */
 
-void UART_SCBCLK_Stop(void);
+void uart_SCBCLK_Stop(void);
 
-void UART_SCBCLK_SetFractionalDividerRegister(uint16 clkDivider, uint8 clkFractional);
+void uart_SCBCLK_SetFractionalDividerRegister(uint16 clkDivider, uint8 clkFractional);
 
-uint16 UART_SCBCLK_GetDividerRegister(void);
-uint8  UART_SCBCLK_GetFractionalDividerRegister(void);
+uint16 uart_SCBCLK_GetDividerRegister(void);
+uint8  uart_SCBCLK_GetFractionalDividerRegister(void);
 
-#define UART_SCBCLK_Enable()                         UART_SCBCLK_Start()
-#define UART_SCBCLK_Disable()                        UART_SCBCLK_Stop()
-#define UART_SCBCLK_SetDividerRegister(clkDivider, reset)  \
-    UART_SCBCLK_SetFractionalDividerRegister((clkDivider), 0u)
-#define UART_SCBCLK_SetDivider(clkDivider)           UART_SCBCLK_SetDividerRegister((clkDivider), 1u)
-#define UART_SCBCLK_SetDividerValue(clkDivider)      UART_SCBCLK_SetDividerRegister((clkDivider) - 1u, 1u)
+#define uart_SCBCLK_Enable()                         uart_SCBCLK_Start()
+#define uart_SCBCLK_Disable()                        uart_SCBCLK_Stop()
+#define uart_SCBCLK_SetDividerRegister(clkDivider, reset)  \
+    uart_SCBCLK_SetFractionalDividerRegister((clkDivider), 0u)
+#define uart_SCBCLK_SetDivider(clkDivider)           uart_SCBCLK_SetDividerRegister((clkDivider), 1u)
+#define uart_SCBCLK_SetDividerValue(clkDivider)      uart_SCBCLK_SetDividerRegister((clkDivider) - 1u, 1u)
 
 
 /***************************************
@@ -56,36 +56,36 @@ uint8  UART_SCBCLK_GetFractionalDividerRegister(void);
 ***************************************/
 #if defined CYREG_PERI_DIV_CMD
 
-#define UART_SCBCLK_DIV_ID     UART_SCBCLK__DIV_ID
+#define uart_SCBCLK_DIV_ID     uart_SCBCLK__DIV_ID
 
-#define UART_SCBCLK_CMD_REG    (*(reg32 *)CYREG_PERI_DIV_CMD)
-#define UART_SCBCLK_CTRL_REG   (*(reg32 *)UART_SCBCLK__CTRL_REGISTER)
-#define UART_SCBCLK_DIV_REG    (*(reg32 *)UART_SCBCLK__DIV_REGISTER)
+#define uart_SCBCLK_CMD_REG    (*(reg32 *)CYREG_PERI_DIV_CMD)
+#define uart_SCBCLK_CTRL_REG   (*(reg32 *)uart_SCBCLK__CTRL_REGISTER)
+#define uart_SCBCLK_DIV_REG    (*(reg32 *)uart_SCBCLK__DIV_REGISTER)
 
-#define UART_SCBCLK_CMD_DIV_SHIFT          (0u)
-#define UART_SCBCLK_CMD_PA_DIV_SHIFT       (8u)
-#define UART_SCBCLK_CMD_DISABLE_SHIFT      (30u)
-#define UART_SCBCLK_CMD_ENABLE_SHIFT       (31u)
+#define uart_SCBCLK_CMD_DIV_SHIFT          (0u)
+#define uart_SCBCLK_CMD_PA_DIV_SHIFT       (8u)
+#define uart_SCBCLK_CMD_DISABLE_SHIFT      (30u)
+#define uart_SCBCLK_CMD_ENABLE_SHIFT       (31u)
 
-#define UART_SCBCLK_CMD_DISABLE_MASK       ((uint32)((uint32)1u << UART_SCBCLK_CMD_DISABLE_SHIFT))
-#define UART_SCBCLK_CMD_ENABLE_MASK        ((uint32)((uint32)1u << UART_SCBCLK_CMD_ENABLE_SHIFT))
+#define uart_SCBCLK_CMD_DISABLE_MASK       ((uint32)((uint32)1u << uart_SCBCLK_CMD_DISABLE_SHIFT))
+#define uart_SCBCLK_CMD_ENABLE_MASK        ((uint32)((uint32)1u << uart_SCBCLK_CMD_ENABLE_SHIFT))
 
-#define UART_SCBCLK_DIV_FRAC_MASK  (0x000000F8u)
-#define UART_SCBCLK_DIV_FRAC_SHIFT (3u)
-#define UART_SCBCLK_DIV_INT_MASK   (0xFFFFFF00u)
-#define UART_SCBCLK_DIV_INT_SHIFT  (8u)
+#define uart_SCBCLK_DIV_FRAC_MASK  (0x000000F8u)
+#define uart_SCBCLK_DIV_FRAC_SHIFT (3u)
+#define uart_SCBCLK_DIV_INT_MASK   (0xFFFFFF00u)
+#define uart_SCBCLK_DIV_INT_SHIFT  (8u)
 
 #else 
 
-#define UART_SCBCLK_DIV_REG        (*(reg32 *)UART_SCBCLK__REGISTER)
-#define UART_SCBCLK_ENABLE_REG     UART_SCBCLK_DIV_REG
-#define UART_SCBCLK_DIV_FRAC_MASK  UART_SCBCLK__FRAC_MASK
-#define UART_SCBCLK_DIV_FRAC_SHIFT (16u)
-#define UART_SCBCLK_DIV_INT_MASK   UART_SCBCLK__DIVIDER_MASK
-#define UART_SCBCLK_DIV_INT_SHIFT  (0u)
+#define uart_SCBCLK_DIV_REG        (*(reg32 *)uart_SCBCLK__REGISTER)
+#define uart_SCBCLK_ENABLE_REG     uart_SCBCLK_DIV_REG
+#define uart_SCBCLK_DIV_FRAC_MASK  uart_SCBCLK__FRAC_MASK
+#define uart_SCBCLK_DIV_FRAC_SHIFT (16u)
+#define uart_SCBCLK_DIV_INT_MASK   uart_SCBCLK__DIVIDER_MASK
+#define uart_SCBCLK_DIV_INT_SHIFT  (0u)
 
 #endif/* CYREG_PERI_DIV_CMD */
 
-#endif /* !defined(CY_CLOCK_UART_SCBCLK_H) */
+#endif /* !defined(CY_CLOCK_uart_SCBCLK_H) */
 
 /* [] END OF FILE */

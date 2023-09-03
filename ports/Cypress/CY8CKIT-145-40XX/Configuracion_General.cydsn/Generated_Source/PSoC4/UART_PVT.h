@@ -17,10 +17,10 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_SCB_PVT_UART_H)
-#define CY_SCB_PVT_UART_H
+#if !defined(CY_SCB_PVT_uart_H)
+#define CY_SCB_PVT_uart_H
 
-#include "UART.h"
+#include "uart.h"
 
 
 /***************************************
@@ -28,96 +28,96 @@
 ***************************************/
 
 /* APIs to service INTR_I2C_EC register */
-#define UART_SetI2CExtClkInterruptMode(interruptMask) UART_WRITE_INTR_I2C_EC_MASK(interruptMask)
-#define UART_ClearI2CExtClkInterruptSource(interruptMask) UART_CLEAR_INTR_I2C_EC(interruptMask)
-#define UART_GetI2CExtClkInterruptSource()                (UART_INTR_I2C_EC_REG)
-#define UART_GetI2CExtClkInterruptMode()                  (UART_INTR_I2C_EC_MASK_REG)
-#define UART_GetI2CExtClkInterruptSourceMasked()          (UART_INTR_I2C_EC_MASKED_REG)
+#define uart_SetI2CExtClkInterruptMode(interruptMask) uart_WRITE_INTR_I2C_EC_MASK(interruptMask)
+#define uart_ClearI2CExtClkInterruptSource(interruptMask) uart_CLEAR_INTR_I2C_EC(interruptMask)
+#define uart_GetI2CExtClkInterruptSource()                (uart_INTR_I2C_EC_REG)
+#define uart_GetI2CExtClkInterruptMode()                  (uart_INTR_I2C_EC_MASK_REG)
+#define uart_GetI2CExtClkInterruptSourceMasked()          (uart_INTR_I2C_EC_MASKED_REG)
 
-#if (!UART_CY_SCBIP_V1)
+#if (!uart_CY_SCBIP_V1)
     /* APIs to service INTR_SPI_EC register */
-    #define UART_SetSpiExtClkInterruptMode(interruptMask) \
-                                                                UART_WRITE_INTR_SPI_EC_MASK(interruptMask)
-    #define UART_ClearSpiExtClkInterruptSource(interruptMask) \
-                                                                UART_CLEAR_INTR_SPI_EC(interruptMask)
-    #define UART_GetExtSpiClkInterruptSource()                 (UART_INTR_SPI_EC_REG)
-    #define UART_GetExtSpiClkInterruptMode()                   (UART_INTR_SPI_EC_MASK_REG)
-    #define UART_GetExtSpiClkInterruptSourceMasked()           (UART_INTR_SPI_EC_MASKED_REG)
-#endif /* (!UART_CY_SCBIP_V1) */
+    #define uart_SetSpiExtClkInterruptMode(interruptMask) \
+                                                                uart_WRITE_INTR_SPI_EC_MASK(interruptMask)
+    #define uart_ClearSpiExtClkInterruptSource(interruptMask) \
+                                                                uart_CLEAR_INTR_SPI_EC(interruptMask)
+    #define uart_GetExtSpiClkInterruptSource()                 (uart_INTR_SPI_EC_REG)
+    #define uart_GetExtSpiClkInterruptMode()                   (uart_INTR_SPI_EC_MASK_REG)
+    #define uart_GetExtSpiClkInterruptSourceMasked()           (uart_INTR_SPI_EC_MASKED_REG)
+#endif /* (!uart_CY_SCBIP_V1) */
 
-#if(UART_SCB_MODE_UNCONFIG_CONST_CFG)
-    extern void UART_SetPins(uint32 mode, uint32 subMode, uint32 uartEnableMask);
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+#if(uart_SCB_MODE_UNCONFIG_CONST_CFG)
+    extern void uart_SetPins(uint32 mode, uint32 subMode, uint32 uartEnableMask);
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 
 
 /***************************************
 *     Vars with External Linkage
 ***************************************/
 
-#if (UART_SCB_IRQ_INTERNAL)
-#if !defined (CY_REMOVE_UART_CUSTOM_INTR_HANDLER)
-    extern cyisraddress UART_customIntrHandler;
-#endif /* !defined (CY_REMOVE_UART_CUSTOM_INTR_HANDLER) */
-#endif /* (UART_SCB_IRQ_INTERNAL) */
+#if (uart_SCB_IRQ_INTERNAL)
+#if !defined (CY_REMOVE_uart_CUSTOM_INTR_HANDLER)
+    extern cyisraddress uart_customIntrHandler;
+#endif /* !defined (CY_REMOVE_uart_CUSTOM_INTR_HANDLER) */
+#endif /* (uart_SCB_IRQ_INTERNAL) */
 
-extern UART_BACKUP_STRUCT UART_backup;
+extern uart_BACKUP_STRUCT uart_backup;
 
-#if(UART_SCB_MODE_UNCONFIG_CONST_CFG)
+#if(uart_SCB_MODE_UNCONFIG_CONST_CFG)
     /* Common configuration variables */
-    extern uint8 UART_scbMode;
-    extern uint8 UART_scbEnableWake;
-    extern uint8 UART_scbEnableIntr;
+    extern uint8 uart_scbMode;
+    extern uint8 uart_scbEnableWake;
+    extern uint8 uart_scbEnableIntr;
 
     /* I2C configuration variables */
-    extern uint8 UART_mode;
-    extern uint8 UART_acceptAddr;
+    extern uint8 uart_mode;
+    extern uint8 uart_acceptAddr;
 
     /* SPI/UART configuration variables */
-    extern volatile uint8 * UART_rxBuffer;
-    extern uint8   UART_rxDataBits;
-    extern uint32  UART_rxBufferSize;
+    extern volatile uint8 * uart_rxBuffer;
+    extern uint8   uart_rxDataBits;
+    extern uint32  uart_rxBufferSize;
 
-    extern volatile uint8 * UART_txBuffer;
-    extern uint8   UART_txDataBits;
-    extern uint32  UART_txBufferSize;
+    extern volatile uint8 * uart_txBuffer;
+    extern uint8   uart_txDataBits;
+    extern uint32  uart_txBufferSize;
 
     /* EZI2C configuration variables */
-    extern uint8 UART_numberOfAddr;
-    extern uint8 UART_subAddrSize;
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+    extern uint8 uart_numberOfAddr;
+    extern uint8 uart_subAddrSize;
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 
-#if (! (UART_SCB_MODE_I2C_CONST_CFG || \
-        UART_SCB_MODE_EZI2C_CONST_CFG))
-    extern uint16 UART_IntrTxMask;
-#endif /* (! (UART_SCB_MODE_I2C_CONST_CFG || \
-              UART_SCB_MODE_EZI2C_CONST_CFG)) */
+#if (! (uart_SCB_MODE_I2C_CONST_CFG || \
+        uart_SCB_MODE_EZI2C_CONST_CFG))
+    extern uint16 uart_IntrTxMask;
+#endif /* (! (uart_SCB_MODE_I2C_CONST_CFG || \
+              uart_SCB_MODE_EZI2C_CONST_CFG)) */
 
 
 /***************************************
 *        Conditional Macro
 ****************************************/
 
-#if(UART_SCB_MODE_UNCONFIG_CONST_CFG)
+#if(uart_SCB_MODE_UNCONFIG_CONST_CFG)
     /* Defines run time operation mode */
-    #define UART_SCB_MODE_I2C_RUNTM_CFG     (UART_SCB_MODE_I2C      == UART_scbMode)
-    #define UART_SCB_MODE_SPI_RUNTM_CFG     (UART_SCB_MODE_SPI      == UART_scbMode)
-    #define UART_SCB_MODE_UART_RUNTM_CFG    (UART_SCB_MODE_UART     == UART_scbMode)
-    #define UART_SCB_MODE_EZI2C_RUNTM_CFG   (UART_SCB_MODE_EZI2C    == UART_scbMode)
-    #define UART_SCB_MODE_UNCONFIG_RUNTM_CFG \
-                                                        (UART_SCB_MODE_UNCONFIG == UART_scbMode)
+    #define uart_SCB_MODE_I2C_RUNTM_CFG     (uart_SCB_MODE_I2C      == uart_scbMode)
+    #define uart_SCB_MODE_SPI_RUNTM_CFG     (uart_SCB_MODE_SPI      == uart_scbMode)
+    #define uart_SCB_MODE_UART_RUNTM_CFG    (uart_SCB_MODE_UART     == uart_scbMode)
+    #define uart_SCB_MODE_EZI2C_RUNTM_CFG   (uart_SCB_MODE_EZI2C    == uart_scbMode)
+    #define uart_SCB_MODE_UNCONFIG_RUNTM_CFG \
+                                                        (uart_SCB_MODE_UNCONFIG == uart_scbMode)
 
     /* Defines wakeup enable */
-    #define UART_SCB_WAKE_ENABLE_CHECK       (0u != UART_scbEnableWake)
-#endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+    #define uart_SCB_WAKE_ENABLE_CHECK       (0u != uart_scbEnableWake)
+#endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
 
 /* Defines maximum number of SCB pins */
-#if (!UART_CY_SCBIP_V1)
-    #define UART_SCB_PINS_NUMBER    (7u)
+#if (!uart_CY_SCBIP_V1)
+    #define uart_SCB_PINS_NUMBER    (7u)
 #else
-    #define UART_SCB_PINS_NUMBER    (2u)
-#endif /* (!UART_CY_SCBIP_V1) */
+    #define uart_SCB_PINS_NUMBER    (2u)
+#endif /* (!uart_CY_SCBIP_V1) */
 
-#endif /* (CY_SCB_PVT_UART_H) */
+#endif /* (CY_SCB_PVT_uart_H) */
 
 
 /* [] END OF FILE */

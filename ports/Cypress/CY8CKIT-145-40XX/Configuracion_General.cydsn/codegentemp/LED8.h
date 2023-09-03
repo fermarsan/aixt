@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED8.h  
+* File Name: led8.h  
 * Version 2.20
 *
 * Description:
@@ -12,12 +12,12 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_LED8_H) /* Pins LED8_H */
-#define CY_PINS_LED8_H
+#if !defined(CY_PINS_led8_H) /* Pins led8_H */
+#define CY_PINS_led8_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
-#include "LED8_aliases.h"
+#include "led8_aliases.h"
 
 
 /***************************************
@@ -35,7 +35,7 @@ typedef struct
     uint32 pcState; /**< State of the port control register */
     uint32 sioState; /**< State of the SIO configuration */
     uint32 usbState; /**< State of the USBIO regulator */
-} LED8_BACKUP_STRUCT;
+} led8_BACKUP_STRUCT;
 
 /** @} structures */
 
@@ -47,89 +47,89 @@ typedef struct
 * \addtogroup group_general
 * @{
 */
-uint8   LED8_Read(void);
-void    LED8_Write(uint8 value);
-uint8   LED8_ReadDataReg(void);
-#if defined(LED8__PC) || (CY_PSOC4_4200L) 
-    void    LED8_SetDriveMode(uint8 mode);
+uint8   led8_Read(void);
+void    led8_Write(uint8 value);
+uint8   led8_ReadDataReg(void);
+#if defined(led8__PC) || (CY_PSOC4_4200L) 
+    void    led8_SetDriveMode(uint8 mode);
 #endif
-void    LED8_SetInterruptMode(uint16 position, uint16 mode);
-uint8   LED8_ClearInterrupt(void);
+void    led8_SetInterruptMode(uint16 position, uint16 mode);
+uint8   led8_ClearInterrupt(void);
 /** @} general */
 
 /**
 * \addtogroup group_power
 * @{
 */
-void LED8_Sleep(void); 
-void LED8_Wakeup(void);
+void led8_Sleep(void); 
+void led8_Wakeup(void);
 /** @} power */
 
 
 /***************************************
 *           API Constants        
 ***************************************/
-#if defined(LED8__PC) || (CY_PSOC4_4200L) 
+#if defined(led8__PC) || (CY_PSOC4_4200L) 
     /* Drive Modes */
-    #define LED8_DRIVE_MODE_BITS        (3)
-    #define LED8_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - LED8_DRIVE_MODE_BITS))
+    #define led8_DRIVE_MODE_BITS        (3)
+    #define led8_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - led8_DRIVE_MODE_BITS))
 
     /**
     * \addtogroup group_constants
     * @{
     */
         /** \addtogroup driveMode Drive mode constants
-         * \brief Constants to be passed as "mode" parameter in the LED8_SetDriveMode() function.
+         * \brief Constants to be passed as "mode" parameter in the led8_SetDriveMode() function.
          *  @{
          */
-        #define LED8_DM_ALG_HIZ         (0x00u) /**< \brief High Impedance Analog   */
-        #define LED8_DM_DIG_HIZ         (0x01u) /**< \brief High Impedance Digital  */
-        #define LED8_DM_RES_UP          (0x02u) /**< \brief Resistive Pull Up       */
-        #define LED8_DM_RES_DWN         (0x03u) /**< \brief Resistive Pull Down     */
-        #define LED8_DM_OD_LO           (0x04u) /**< \brief Open Drain, Drives Low  */
-        #define LED8_DM_OD_HI           (0x05u) /**< \brief Open Drain, Drives High */
-        #define LED8_DM_STRONG          (0x06u) /**< \brief Strong Drive            */
-        #define LED8_DM_RES_UPDWN       (0x07u) /**< \brief Resistive Pull Up/Down  */
+        #define led8_DM_ALG_HIZ         (0x00u) /**< \brief High Impedance Analog   */
+        #define led8_DM_DIG_HIZ         (0x01u) /**< \brief High Impedance Digital  */
+        #define led8_DM_RES_UP          (0x02u) /**< \brief Resistive Pull Up       */
+        #define led8_DM_RES_DWN         (0x03u) /**< \brief Resistive Pull Down     */
+        #define led8_DM_OD_LO           (0x04u) /**< \brief Open Drain, Drives Low  */
+        #define led8_DM_OD_HI           (0x05u) /**< \brief Open Drain, Drives High */
+        #define led8_DM_STRONG          (0x06u) /**< \brief Strong Drive            */
+        #define led8_DM_RES_UPDWN       (0x07u) /**< \brief Resistive Pull Up/Down  */
         /** @} driveMode */
     /** @} group_constants */
 #endif
 
 /* Digital Port Constants */
-#define LED8_MASK               LED8__MASK
-#define LED8_SHIFT              LED8__SHIFT
-#define LED8_WIDTH              1u
+#define led8_MASK               led8__MASK
+#define led8_SHIFT              led8__SHIFT
+#define led8_WIDTH              1u
 
 /**
 * \addtogroup group_constants
 * @{
 */
     /** \addtogroup intrMode Interrupt constants
-     * \brief Constants to be passed as "mode" parameter in LED8_SetInterruptMode() function.
+     * \brief Constants to be passed as "mode" parameter in led8_SetInterruptMode() function.
      *  @{
      */
-        #define LED8_INTR_NONE      ((uint16)(0x0000u)) /**< \brief Disabled             */
-        #define LED8_INTR_RISING    ((uint16)(0x5555u)) /**< \brief Rising edge trigger  */
-        #define LED8_INTR_FALLING   ((uint16)(0xaaaau)) /**< \brief Falling edge trigger */
-        #define LED8_INTR_BOTH      ((uint16)(0xffffu)) /**< \brief Both edge trigger    */
+        #define led8_INTR_NONE      ((uint16)(0x0000u)) /**< \brief Disabled             */
+        #define led8_INTR_RISING    ((uint16)(0x5555u)) /**< \brief Rising edge trigger  */
+        #define led8_INTR_FALLING   ((uint16)(0xaaaau)) /**< \brief Falling edge trigger */
+        #define led8_INTR_BOTH      ((uint16)(0xffffu)) /**< \brief Both edge trigger    */
     /** @} intrMode */
 /** @} group_constants */
 
 /* SIO LPM definition */
-#if defined(LED8__SIO)
-    #define LED8_SIO_LPM_MASK       (0x03u)
+#if defined(led8__SIO)
+    #define led8_SIO_LPM_MASK       (0x03u)
 #endif
 
 /* USBIO definitions */
-#if !defined(LED8__PC) && (CY_PSOC4_4200L)
-    #define LED8_USBIO_ENABLE               ((uint32)0x80000000u)
-    #define LED8_USBIO_DISABLE              ((uint32)(~LED8_USBIO_ENABLE))
-    #define LED8_USBIO_SUSPEND_SHIFT        CYFLD_USBDEVv2_USB_SUSPEND__OFFSET
-    #define LED8_USBIO_SUSPEND_DEL_SHIFT    CYFLD_USBDEVv2_USB_SUSPEND_DEL__OFFSET
-    #define LED8_USBIO_ENTER_SLEEP          ((uint32)((1u << LED8_USBIO_SUSPEND_SHIFT) \
-                                                        | (1u << LED8_USBIO_SUSPEND_DEL_SHIFT)))
-    #define LED8_USBIO_EXIT_SLEEP_PH1       ((uint32)~((uint32)(1u << LED8_USBIO_SUSPEND_SHIFT)))
-    #define LED8_USBIO_EXIT_SLEEP_PH2       ((uint32)~((uint32)(1u << LED8_USBIO_SUSPEND_DEL_SHIFT)))
-    #define LED8_USBIO_CR1_OFF              ((uint32)0xfffffffeu)
+#if !defined(led8__PC) && (CY_PSOC4_4200L)
+    #define led8_USBIO_ENABLE               ((uint32)0x80000000u)
+    #define led8_USBIO_DISABLE              ((uint32)(~led8_USBIO_ENABLE))
+    #define led8_USBIO_SUSPEND_SHIFT        CYFLD_USBDEVv2_USB_SUSPEND__OFFSET
+    #define led8_USBIO_SUSPEND_DEL_SHIFT    CYFLD_USBDEVv2_USB_SUSPEND_DEL__OFFSET
+    #define led8_USBIO_ENTER_SLEEP          ((uint32)((1u << led8_USBIO_SUSPEND_SHIFT) \
+                                                        | (1u << led8_USBIO_SUSPEND_DEL_SHIFT)))
+    #define led8_USBIO_EXIT_SLEEP_PH1       ((uint32)~((uint32)(1u << led8_USBIO_SUSPEND_SHIFT)))
+    #define led8_USBIO_EXIT_SLEEP_PH2       ((uint32)~((uint32)(1u << led8_USBIO_SUSPEND_DEL_SHIFT)))
+    #define led8_USBIO_CR1_OFF              ((uint32)0xfffffffeu)
 #endif
 
 
@@ -137,36 +137,36 @@ void LED8_Wakeup(void);
 *             Registers        
 ***************************************/
 /* Main Port Registers */
-#if defined(LED8__PC)
+#if defined(led8__PC)
     /* Port Configuration */
-    #define LED8_PC                 (* (reg32 *) LED8__PC)
+    #define led8_PC                 (* (reg32 *) led8__PC)
 #endif
 /* Pin State */
-#define LED8_PS                     (* (reg32 *) LED8__PS)
+#define led8_PS                     (* (reg32 *) led8__PS)
 /* Data Register */
-#define LED8_DR                     (* (reg32 *) LED8__DR)
+#define led8_DR                     (* (reg32 *) led8__DR)
 /* Input Buffer Disable Override */
-#define LED8_INP_DIS                (* (reg32 *) LED8__PC2)
+#define led8_INP_DIS                (* (reg32 *) led8__PC2)
 
 /* Interrupt configuration Registers */
-#define LED8_INTCFG                 (* (reg32 *) LED8__INTCFG)
-#define LED8_INTSTAT                (* (reg32 *) LED8__INTSTAT)
+#define led8_INTCFG                 (* (reg32 *) led8__INTCFG)
+#define led8_INTSTAT                (* (reg32 *) led8__INTSTAT)
 
 /* "Interrupt cause" register for Combined Port Interrupt (AllPortInt) in GSRef component */
 #if defined (CYREG_GPIO_INTR_CAUSE)
-    #define LED8_INTR_CAUSE         (* (reg32 *) CYREG_GPIO_INTR_CAUSE)
+    #define led8_INTR_CAUSE         (* (reg32 *) CYREG_GPIO_INTR_CAUSE)
 #endif
 
 /* SIO register */
-#if defined(LED8__SIO)
-    #define LED8_SIO_REG            (* (reg32 *) LED8__SIO)
-#endif /* (LED8__SIO_CFG) */
+#if defined(led8__SIO)
+    #define led8_SIO_REG            (* (reg32 *) led8__SIO)
+#endif /* (led8__SIO_CFG) */
 
 /* USBIO registers */
-#if !defined(LED8__PC) && (CY_PSOC4_4200L)
-    #define LED8_USB_POWER_REG       (* (reg32 *) CYREG_USBDEVv2_USB_POWER_CTRL)
-    #define LED8_CR1_REG             (* (reg32 *) CYREG_USBDEVv2_CR1)
-    #define LED8_USBIO_CTRL_REG      (* (reg32 *) CYREG_USBDEVv2_USB_USBIO_CTRL)
+#if !defined(led8__PC) && (CY_PSOC4_4200L)
+    #define led8_USB_POWER_REG       (* (reg32 *) CYREG_USBDEVv2_USB_POWER_CTRL)
+    #define led8_CR1_REG             (* (reg32 *) CYREG_USBDEVv2_CR1)
+    #define led8_USBIO_CTRL_REG      (* (reg32 *) CYREG_USBDEVv2_USB_USBIO_CTRL)
 #endif    
     
     
@@ -178,11 +178,11 @@ void LED8_Wakeup(void);
 * \addtogroup group_deprecated
 * @{
 */
-#define LED8_DRIVE_MODE_SHIFT       (0x00u)
-#define LED8_DRIVE_MODE_MASK        (0x07u << LED8_DRIVE_MODE_SHIFT)
+#define led8_DRIVE_MODE_SHIFT       (0x00u)
+#define led8_DRIVE_MODE_MASK        (0x07u << led8_DRIVE_MODE_SHIFT)
 /** @} deprecated */
 
-#endif /* End Pins LED8_H */
+#endif /* End Pins led8_H */
 
 
 /* [] END OF FILE */

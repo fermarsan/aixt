@@ -1,11 +1,11 @@
 /***************************************************************************//**
-* \file CapSense_Tuner.h
+* \file capsense_Tuner.h
 * \version 7.10
 *
 * \brief
 *   This file provides Tuner FW module function prototypes.
 *
-* \see CapSense v7.10 Datasheet
+* \see capsense v7.10 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2019), Cypress Semiconductor Corporation.
@@ -36,29 +36,29 @@
 * limited by and subject to the applicable Cypress software license agreement.
 *******************************************************************************/
 
-#if !defined(CY_SENSE_CapSense_TUNER_H)
-#define CY_SENSE_CapSense_TUNER_H
+#if !defined(CY_SENSE_capsense_TUNER_H)
+#define CY_SENSE_capsense_TUNER_H
 
 #include "cytypes.h"
 
 /* Defines the Tuner command codes */
 typedef enum
 {
-    CapSense_TU_CMD_NONE_E          = 0x0000u,
-    CapSense_TU_CMD_SUSPEND_E       = 0x0001u,
-    CapSense_TU_CMD_RESUME_E        = 0x0002u,
-    CapSense_TU_CMD_RESTART_E       = 0x0003u,
-    CapSense_TU_CMD_RUN_SNR_TEST_E  = 0x0004u,
-    CapSense_TU_CMD_PING_E          = 0x0005u,
-    CapSense_TU_CMD_ONE_SCAN_E      = 0x0006u
-} CapSense_TU_CMD_ENUM;
+    capsense_TU_CMD_NONE_E          = 0x0000u,
+    capsense_TU_CMD_SUSPEND_E       = 0x0001u,
+    capsense_TU_CMD_RESUME_E        = 0x0002u,
+    capsense_TU_CMD_RESTART_E       = 0x0003u,
+    capsense_TU_CMD_RUN_SNR_TEST_E  = 0x0004u,
+    capsense_TU_CMD_PING_E          = 0x0005u,
+    capsense_TU_CMD_ONE_SCAN_E      = 0x0006u
+} capsense_TU_CMD_ENUM;
 
 /* Defines the command complete bit */
-#define CapSense_TU_CMD_COMPLETE_BIT        (0x8000u)
+#define capsense_TU_CMD_COMPLETE_BIT        (0x8000u)
 
 /* Defines the status of restart command operation */
-#define CapSense_STATUS_RESTART_NONE        (0x00000000Lu)
-#define CapSense_STATUS_RESTART_DONE        (0x00000001Lu)
+#define capsense_STATUS_RESTART_NONE        (0x00000000Lu)
+#define capsense_STATUS_RESTART_DONE        (0x00000001Lu)
 
 /*******************************************************************************
 * Function Prototypes
@@ -70,7 +70,7 @@ typedef enum
 * \{
 */
 
-uint32 CapSense_RunTuner(void);
+uint32 capsense_RunTuner(void);
 
 /** \}
 * \endcond */
@@ -81,12 +81,12 @@ uint32 CapSense_RunTuner(void);
 * \{
 */
 
-void CapSense_TuInitialize(void);
+void capsense_TuInitialize(void);
 
 /** \}
 * \endcond */
 
-#endif /* End CY_SENSE_CapSense_TUNER_H */
+#endif /* End CY_SENSE_capsense_TUNER_H */
 
 
 /* [] END OF FILE */

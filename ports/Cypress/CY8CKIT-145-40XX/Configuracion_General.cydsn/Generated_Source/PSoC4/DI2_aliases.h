@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: DI2.h  
+* File Name: di2.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_DI2_ALIASES_H) /* Pins DI2_ALIASES_H */
-#define CY_PINS_DI2_ALIASES_H
+#if !defined(CY_PINS_di2_ALIASES_H) /* Pins di2_ALIASES_H */
+#define CY_PINS_di2_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define DI2_0			(DI2__0__PC)
-#define DI2_0_PS		(DI2__0__PS)
-#define DI2_0_PC		(DI2__0__PC)
-#define DI2_0_DR		(DI2__0__DR)
-#define DI2_0_SHIFT	(DI2__0__SHIFT)
-#define DI2_0_INTR	((uint16)((uint16)0x0003u << (DI2__0__SHIFT*2u)))
+#define di2_0			(di2__0__PC)
+#define di2_0_PS		(di2__0__PS)
+#define di2_0_PC		(di2__0__PC)
+#define di2_0_DR		(di2__0__DR)
+#define di2_0_SHIFT	(di2__0__SHIFT)
+#define di2_0_INTR	((uint16)((uint16)0x0003u << (di2__0__SHIFT*2u)))
 
-#define DI2_INTR_ALL	 ((uint16)(DI2_0_INTR))
+#define di2_INTR_ALL	 ((uint16)(di2_0_INTR))
 
 
-#endif /* End Pins DI2_ALIASES_H */
+#endif /* End Pins di2_ALIASES_H */
 
 
 /* [] END OF FILE */

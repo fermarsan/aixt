@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LED6.c  
+* File Name: led6.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "LED6.h"
+#include "led6.h"
 
 
-#if defined(LED6__PC)
-    #define LED6_SetP4PinDriveMode(shift, mode)  \
+#if defined(led6__PC)
+    #define led6_SetP4PinDriveMode(shift, mode)  \
     do { \
-        LED6_PC =   (LED6_PC & \
-                                (uint32)(~(uint32)(LED6_DRIVE_MODE_IND_MASK << \
-                                (LED6_DRIVE_MODE_BITS * (shift))))) | \
+        led6_PC =   (led6_PC & \
+                                (uint32)(~(uint32)(led6_DRIVE_MODE_IND_MASK << \
+                                (led6_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (LED6_DRIVE_MODE_BITS * (shift))); \
+                                (led6_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define LED6_SetP4PinDriveMode(shift, mode)  \
+        #define led6_SetP4PinDriveMode(shift, mode)  \
         do { \
-            LED6_USBIO_CTRL_REG = (LED6_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(LED6_DRIVE_MODE_IND_MASK << \
-                                    (LED6_DRIVE_MODE_BITS * (shift))))) | \
+            led6_USBIO_CTRL_REG = (led6_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(led6_DRIVE_MODE_IND_MASK << \
+                                    (led6_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (LED6_DRIVE_MODE_BITS * (shift))); \
+                                    (led6_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(LED6__PC) || (CY_PSOC4_4200L) 
+#if defined(led6__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: LED6_SetDriveMode
+    * Function Name: led6_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet LED6_SUT.c usage_LED6_SetDriveMode
+    *  \snippet led6_SUT.c usage_led6_SetDriveMode
     *******************************************************************************/
-    void LED6_SetDriveMode(uint8 mode)
+    void led6_SetDriveMode(uint8 mode)
     {
-		LED6_SetP4PinDriveMode(LED6__0__SHIFT, mode);
+		led6_SetP4PinDriveMode(led6__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: LED6_Write
+* Function Name: led6_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet LED6_SUT.c usage_LED6_Write
+*  \snippet led6_SUT.c usage_led6_Write
 *******************************************************************************/
-void LED6_Write(uint8 value)
+void led6_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(LED6_DR & (uint8)(~LED6_MASK));
-    drVal = (drVal | ((uint8)(value << LED6_SHIFT) & LED6_MASK));
-    LED6_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(led6_DR & (uint8)(~led6_MASK));
+    drVal = (drVal | ((uint8)(value << led6_SHIFT) & led6_MASK));
+    led6_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: LED6_Read
+* Function Name: led6_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void LED6_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet LED6_SUT.c usage_LED6_Read  
+*  \snippet led6_SUT.c usage_led6_Read  
 *******************************************************************************/
-uint8 LED6_Read(void)
+uint8 led6_Read(void)
 {
-    return (uint8)((LED6_PS & LED6_MASK) >> LED6_SHIFT);
+    return (uint8)((led6_PS & led6_MASK) >> led6_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED6_ReadDataReg
+* Function Name: led6_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 LED6_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred LED6_Read() API because the 
-* LED6_ReadDataReg() reads the data register instead of the status 
+* preferred led6_Read() API because the 
+* led6_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 LED6_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet LED6_SUT.c usage_LED6_ReadDataReg 
+*  \snippet led6_SUT.c usage_led6_ReadDataReg 
 *******************************************************************************/
-uint8 LED6_ReadDataReg(void)
+uint8 led6_ReadDataReg(void)
 {
-    return (uint8)((LED6_DR & LED6_MASK) >> LED6_SHIFT);
+    return (uint8)((led6_DR & led6_MASK) >> led6_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: LED6_SetInterruptMode
+* Function Name: led6_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 LED6_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use LED6_INTR_ALL to configure the
+*  component. Or you may use led6_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - LED6_0_INTR       (First pin in the list)
-*  - LED6_1_INTR       (Second pin in the list)
+*  - led6_0_INTR       (First pin in the list)
+*  - led6_1_INTR       (Second pin in the list)
 *  - ...
-*  - LED6_INTR_ALL     (All pins in Pins component)
+*  - led6_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 LED6_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet LED6_SUT.c usage_LED6_SetInterruptMode
+*  \snippet led6_SUT.c usage_led6_SetInterruptMode
 *******************************************************************************/
-void LED6_SetInterruptMode(uint16 position, uint16 mode)
+void led6_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  LED6_INTCFG & (uint32)(~(uint32)position);
-    LED6_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  led6_INTCFG & (uint32)(~(uint32)position);
+    led6_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: LED6_ClearInterrupt
+* Function Name: led6_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void LED6_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet LED6_SUT.c usage_LED6_ClearInterrupt
+*  \snippet led6_SUT.c usage_led6_ClearInterrupt
 *******************************************************************************/
-uint8 LED6_ClearInterrupt(void)
+uint8 led6_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(LED6_INTSTAT & LED6_MASK);
-	LED6_INTSTAT = maskedStatus;
-    return maskedStatus >> LED6_SHIFT;
+	uint8 maskedStatus = (uint8)(led6_INTSTAT & led6_MASK);
+	led6_INTSTAT = maskedStatus;
+    return maskedStatus >> led6_SHIFT;
 }
 
 
