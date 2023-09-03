@@ -5,6 +5,7 @@
 
 #include <stdbool.h>
 
+#include "/home/aixt-project/ports/PC/api/builtin.c"
 
 #include "/home/aixt-project/ports/PC/api/time/sleep_ms.c"
 #include "/home/aixt-project/ports/PC/api/machine/pin.c"

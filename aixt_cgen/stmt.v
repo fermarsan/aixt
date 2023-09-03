@@ -39,7 +39,7 @@ fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
 }
 
 fn (mut gen Gen) import_stmt(node ast.Import) string {
-	println('${gen.setup.value('port').string()}')
+	// println('${gen.setup.value('port').string()}')
 	api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
 	mut out := ''
 	if node.syms.len == 0 {

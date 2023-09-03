@@ -20,7 +20,8 @@ fn (mut gen Gen) ast_file(node ast.File) string {
         out +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
 	}
     out += '\n'
-    // out += '#include "api/builtin.h"\n'
+	api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
+    out += '#include "${api_path}/builtin.c"\n'
     for m in gen.setup.value('macros').array() { 			// append the macros
         out += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
 	}
