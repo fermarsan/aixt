@@ -6,9 +6,11 @@
 #include <stdbool.h>
 
 
+#include "./api/time__sleep.c"
+#include "./api/machine.c"
 
 int main() {
-	long a = 0;
+	float a = 0.0;
 	while(true) {
 		sleep(1);
 		a++;
