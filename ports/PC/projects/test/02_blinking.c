@@ -7,15 +7,15 @@
 
 #include "/home/aixt-project/ports/PC/api/builtin.c"
 
-#include "/home/aixt-project/ports/PC/api/time/sleep_ms.c"
+#include "/home/aixt-project/ports/PC/api/time/sleep_us.c"
 #include "/home/aixt-project/ports/PC/api/machine/pin.c"
 
 int main() {
 	for(int i=0; i<5; i++) {
 		pin_high(A);
-		sleep_ms(1);
+		sleep_us(500000);
 		pin_low(A);
-		sleep_ms(1);
+		sleep_us(500000);
 	}
 	return 0;
 }

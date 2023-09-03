@@ -8,17 +8,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum __pin_names {    // enumerated type for the pin names
-    A = 0,    
-    B,
-    C,
-    D,
-    w,
-    x,
-    y,
-    z
-};
-
 int __pins[8] = {0, 0, 0, 0, 0, 0, 0, 0};    // virtual pin array
 int __input;
 
@@ -26,7 +15,7 @@ void pin_update(void) {
     system("clear");
     printf(" Aixt virtual pins     [#] = ON   [ ] = OFF\n");
     printf(" _____ _____ _____ _____ _____ _____ _____ _____\n");
-    printf("|  A  |  B  |  C  |  D  |  w  |  x  |  y  |  z  |\n");
+    printf("|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |\n");
     for(int __i=0; __i<=7; __i++) {
         if(__pins[__i] == 0) {
             printf("| [ ] ");
@@ -39,10 +28,10 @@ void pin_update(void) {
 
 char *pin_name(int pin) {
     switch (pin) {
-    case A:  return "A";
-    case B:  return "B";
-    case C:  return "C";
-    case D:  return "D";
+    case a:  return "a";
+    case b:  return "b";
+    case c:  return "c";
+    case d:  return "d";
     case w:  return "w";
     case x:  return "x";
     case y:  return "y";

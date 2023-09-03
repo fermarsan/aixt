@@ -13,3 +13,14 @@
 #define println(STR)    printf(STR); printf("\n")
 
 // #define string__assign(DEST, SOURCE)    strcpy(DEST, SOURCE) 
+
+enum __pin_names {    // enumerated type for the pin names
+    a = 0,    
+    b,
+    c,
+    d,
+    w,
+    x,
+    y,
+    z
+};
