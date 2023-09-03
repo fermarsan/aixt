@@ -4,8 +4,8 @@
 // Date: 2022-2023
 // License: MIT
 //
-// Description: This module includes all the timing functions for the Aixt 
-//              PC port. 
+// Description: Includes all the timing functions 
+//              (PC port). 
 #include "./time/sleep_us.c"
 #include "./time/sleep_ms.c"
 #include "./time/sleep.c"
