@@ -15,6 +15,9 @@ fn (mut gen Gen) stmt(node ast.Stmt) string {
 		ast.Module {
 			return ''
 		}
+		ast.Import {
+			return gen.import_stmt(node)
+		}
 		ast.GlobalDecl {
 			return gen.global_decl(node)
 		}

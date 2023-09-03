@@ -3,9 +3,9 @@
 import time { sleep }
 import machine
 
-a := 0
+a := 0.0
 
 for {
-	sleep(1000)
+	sleep(1)
 	a++
 }

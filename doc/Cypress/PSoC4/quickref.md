@@ -1,4 +1,7 @@
-# Quick reference for PC
+# Guía rapida PSoC4
+Esta implementación de Aixt para PSoC 4 da soporte a las tarjetas:
+- CY8CKIT-049-42XX
+- CY8CKIT-145-40XX
 
 ## Delay
 Use the `time` module:
