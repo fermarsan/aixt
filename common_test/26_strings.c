@@ -12,5 +12,7 @@ int main() {
 	char var[80];
 	char str[] = "constant";
 	__string_assign(var, str);
+	__string_append(var, " ");
+	__string_append(var, str);
 	return 0;
 }

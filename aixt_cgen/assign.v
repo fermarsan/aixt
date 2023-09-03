@@ -87,11 +87,19 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 								// 	panic('\n\n***** Transpiler error *****:\nFor now dynamic-size strings are not allowed.\n')
 								// }
 								if gen.idents[var_name].kind == ast.IdentKind.variable {
-									if node.op.str() == '=' {
-										out += '__string_assign(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+									match node.op.str() {
+										'=' {
+											out += '__string_assign(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+										} 
+										'+=' {
+											out += '__string_append(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+										}	
+										else {
+											panic('\n\n***** Transpiler error *****:\n${var_name} is a constant string.\n')
+										}
 									}
 								} else {
-									panic('\n\n***** Transpiler error *****:\n${var_name} is a constant string.\n')
+									panic('\n\n***** Transpiler error *****:\n${node.op.str()} assignment not supported for strings.\n')
 								}
 							}
 							else {
