@@ -11,10 +11,12 @@
 #include "/home/aixt-project/ports/PC/api/machine/pin.c"
 
 int main() {
+	pin_update();
+	sleep_us(500000);
 	for(int i=0; i<5; i++) {
-		pin_high(A);
+		pin_high(a);
 		sleep_us(500000);
-		pin_low(A);
+		pin_low(a);
 		sleep_us(500000);
 	}
 	return 0;
