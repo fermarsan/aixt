@@ -15,7 +15,7 @@
   <block name="di2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="do2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="di0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="pwm2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+  <block name="pwm1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VMux_count" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_reload" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_start" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -29,9 +29,9 @@
     <register name="PERIOD" address="0x40060154" bitWidth="32" desc="Period value" hidden="false" />
     <register name="PERIOD_BUF" address="0x40060158" bitWidth="32" desc="Period buffer value" hidden="false" />
   </block>
-  <block name="clock2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="out_pwm2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="clock1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="out_pwm1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="out_pwm0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="uart" BASE="0x0" SIZE="0x0" desc="Serial Communication Block" visible="true" hidden="false">
     <block name="clock_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="sclk_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -377,7 +377,7 @@
       <field name="BREAK_DETECT" from="11" to="11" access="RW" resetVal="" desc="Logical and of corresponding request and mask bits" hidden="false" />
     </register>
   </block>
-  <block name="pwm1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+  <block name="pwm0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VMux_count" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_reload" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_start" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -391,8 +391,8 @@
     <register name="PERIOD" address="0x400601D4" bitWidth="32" desc="Period value" hidden="false" />
     <register name="PERIOD_BUF" address="0x400601D8" bitWidth="32" desc="Period buffer value" hidden="false" />
   </block>
-  <block name="clock1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="clock3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="clock0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="clock2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="capsense" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="IDACComp" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -767,7 +767,7 @@
   <block name="led6" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="led7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="led4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="pwm3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+  <block name="pwm2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VMux_count" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_reload" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_start" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -781,6 +781,6 @@
     <register name="PERIOD" address="0x40060194" bitWidth="32" desc="Period value" hidden="false" />
     <register name="PERIOD_BUF" address="0x40060198" bitWidth="32" desc="Period buffer value" hidden="false" />
   </block>
-  <block name="out_pwm3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="out_pwm2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="led5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>

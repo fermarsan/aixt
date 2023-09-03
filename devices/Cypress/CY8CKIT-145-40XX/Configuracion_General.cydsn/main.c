@@ -16,12 +16,12 @@ int main(void)
 {   
     CyGlobalIntEnable; /* Enable global interrupts. */
     uart_Start();    /* Configuracion General*/
+    pwm0_Start();
+    clock0_Start();
     pwm1_Start();
     clock1_Start();
     pwm2_Start();
     clock2_Start();
-    pwm3_Start();
-    clock3_Start();
     capsense_Start();
     capsense_InitializeAllBaselines();
     capsense_ScanAllWidgets();

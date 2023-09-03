@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
   38              		.syntax divided
   39              	@ 17 "main.c" 1
   40 0002 62B6     		CPSIE   i
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 2
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 2
 
 
   41              	@ 0 "" 2
@@ -68,32 +68,32 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
   44              		.syntax unified
   45 0004 FFF7FEFF 		bl	uart_Start
   46              	.LVL0:
-  19:main.c        ****     pwm1_Start();
+  19:main.c        ****     pwm0_Start();
   47              		.loc 1 19 0
-  48 0008 FFF7FEFF 		bl	pwm1_Start
+  48 0008 FFF7FEFF 		bl	pwm0_Start
   49              	.LVL1:
-  20:main.c        ****     clock1_Start();
+  20:main.c        ****     clock0_Start();
   50              		.loc 1 20 0
   51 000c FF20     		movs	r0, #255
-  52 000e FFF7FEFF 		bl	clock1_StartEx
+  52 000e FFF7FEFF 		bl	clock0_StartEx
   53              	.LVL2:
-  21:main.c        ****     pwm2_Start();
+  21:main.c        ****     pwm1_Start();
   54              		.loc 1 21 0
-  55 0012 FFF7FEFF 		bl	pwm2_Start
+  55 0012 FFF7FEFF 		bl	pwm1_Start
   56              	.LVL3:
-  22:main.c        ****     clock2_Start();
+  22:main.c        ****     clock1_Start();
   57              		.loc 1 22 0
   58 0016 FF20     		movs	r0, #255
-  59 0018 FFF7FEFF 		bl	clock2_StartEx
+  59 0018 FFF7FEFF 		bl	clock1_StartEx
   60              	.LVL4:
-  23:main.c        ****     pwm3_Start();
+  23:main.c        ****     pwm2_Start();
   61              		.loc 1 23 0
-  62 001c FFF7FEFF 		bl	pwm3_Start
+  62 001c FFF7FEFF 		bl	pwm2_Start
   63              	.LVL5:
-  24:main.c        ****     clock3_Start();
+  24:main.c        ****     clock2_Start();
   64              		.loc 1 24 0
   65 0020 FF20     		movs	r0, #255
-  66 0022 FFF7FEFF 		bl	clock3_StartEx
+  66 0022 FFF7FEFF 		bl	clock2_StartEx
   67              	.LVL6:
   25:main.c        ****     capsense_Start();
   68              		.loc 1 25 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
   81              	.LVL10:
   32:main.c        ****         CyDelay(300);
   82              		.loc 1 32 0 discriminator 1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 3
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 3
 
 
   83 0038 9624     		movs	r4, #150
@@ -143,12 +143,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  100              		.text
  101              	.Letext0:
  102              		.file 2 "Generated_Source\\PSoC4/uart.h"
- 103              		.file 3 "Generated_Source\\PSoC4/pwm1.h"
- 104              		.file 4 "Generated_Source\\PSoC4/clock1.h"
- 105              		.file 5 "Generated_Source\\PSoC4/pwm2.h"
- 106              		.file 6 "Generated_Source\\PSoC4/clock2.h"
- 107              		.file 7 "Generated_Source\\PSoC4/pwm3.h"
- 108              		.file 8 "Generated_Source\\PSoC4/clock3.h"
+ 103              		.file 3 "Generated_Source\\PSoC4/pwm0.h"
+ 104              		.file 4 "Generated_Source\\PSoC4/clock0.h"
+ 105              		.file 5 "Generated_Source\\PSoC4/pwm1.h"
+ 106              		.file 6 "Generated_Source\\PSoC4/clock1.h"
+ 107              		.file 7 "Generated_Source\\PSoC4/pwm2.h"
+ 108              		.file 8 "Generated_Source\\PSoC4/clock2.h"
  109              		.file 9 "Generated_Source\\PSoC4/capsense_Control.h"
  110              		.file 10 "Generated_Source\\PSoC4/capsense_Filter.h"
  111              		.file 11 "Generated_Source\\PSoC4/capsense_Sensing.h"
@@ -164,21 +164,21 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  121 000c CC010000 		.4byte	.LASF26
  122 0010 0C       		.byte	0xc
  123 0011 A1010000 		.4byte	.LASF27
- 124 0015 9D000000 		.4byte	.LASF28
+ 124 0015 A8000000 		.4byte	.LASF28
  125 0019 00000000 		.4byte	.Ldebug_ranges0+0
  126 001d 00000000 		.4byte	0
  127 0021 00000000 		.4byte	.Ldebug_line0
  128 0025 02       		.uleb128 0x2
  129 0026 01       		.byte	0x1
  130 0027 06       		.byte	0x6
- 131 0028 20000000 		.4byte	.LASF0
+ 131 0028 2F000000 		.4byte	.LASF0
  132 002c 02       		.uleb128 0x2
  133 002d 01       		.byte	0x1
  134 002e 08       		.byte	0x8
- 135 002f 2C000000 		.4byte	.LASF1
+ 135 002f 3B000000 		.4byte	.LASF1
  136 0033 02       		.uleb128 0x2
  137 0034 02       		.byte	0x2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 4
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 4
 
 
  138 0035 05       		.byte	0x5
@@ -186,7 +186,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  140 003a 02       		.uleb128 0x2
  141 003b 02       		.byte	0x2
  142 003c 07       		.byte	0x7
- 143 003d 6C000000 		.4byte	.LASF3
+ 143 003d 86000000 		.4byte	.LASF3
  144 0041 02       		.uleb128 0x2
  145 0042 04       		.byte	0x4
  146 0043 05       		.byte	0x5
@@ -194,7 +194,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  148 0048 02       		.uleb128 0x2
  149 0049 04       		.byte	0x4
  150 004a 07       		.byte	0x7
- 151 004b 3A000000 		.4byte	.LASF5
+ 151 004b 54000000 		.4byte	.LASF5
  152 004f 02       		.uleb128 0x2
  153 0050 08       		.byte	0x8
  154 0051 05       		.byte	0x5
@@ -202,7 +202,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  156 0056 02       		.uleb128 0x2
  157 0057 08       		.byte	0x8
  158 0058 07       		.byte	0x7
- 159 0059 41010000 		.4byte	.LASF7
+ 159 0059 4C010000 		.4byte	.LASF7
  160 005d 03       		.uleb128 0x3
  161 005e 04       		.byte	0x4
  162 005f 05       		.byte	0x5
@@ -210,15 +210,15 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  164 0064 02       		.uleb128 0x2
  165 0065 04       		.byte	0x4
  166 0066 07       		.byte	0x7
- 167 0067 34010000 		.4byte	.LASF8
+ 167 0067 3F010000 		.4byte	.LASF8
  168 006b 02       		.uleb128 0x2
  169 006c 04       		.byte	0x4
  170 006d 04       		.byte	0x4
- 171 006e 1A000000 		.4byte	.LASF9
+ 171 006e 29000000 		.4byte	.LASF9
  172 0072 02       		.uleb128 0x2
  173 0073 08       		.byte	0x8
  174 0074 04       		.byte	0x4
- 175 0075 1D010000 		.4byte	.LASF10
+ 175 0075 28010000 		.4byte	.LASF10
  176 0079 02       		.uleb128 0x2
  177 007a 01       		.byte	0x1
  178 007b 08       		.byte	0x8
@@ -232,13 +232,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  186 0089 07       		.byte	0x7
  187 008a 8A010000 		.4byte	.LASF13
  188 008e 04       		.uleb128 0x4
- 189 008f 24010000 		.4byte	.LASF29
+ 189 008f 2F010000 		.4byte	.LASF29
  190 0093 01       		.byte	0x1
  191 0094 0F       		.byte	0xf
  192 0095 5D000000 		.4byte	0x5d
  193 0099 00000000 		.4byte	.LFB33
  194 009d 50000000 		.4byte	.LFE33-.LFB33
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 5
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 5
 
 
  195 00a1 01       		.uleb128 0x1
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  249 0119 05       		.uleb128 0x5
  250 011a 32000000 		.4byte	.LVL9
  251 011e D3010000 		.4byte	0x1d3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 6
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 6
 
 
  252 0122 06       		.uleb128 0x6
@@ -349,46 +349,46 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  297 0176 02       		.byte	0x2
  298 0177 72       		.byte	0x72
  299 0178 0A       		.uleb128 0xa
- 300 0179 12010000 		.4byte	.LASF15
- 301 017d 12010000 		.4byte	.LASF15
+ 300 0179 49000000 		.4byte	.LASF15
+ 301 017d 49000000 		.4byte	.LASF15
  302 0181 03       		.byte	0x3
  303 0182 3201     		.2byte	0x132
  304 0184 09       		.uleb128 0x9
- 305 0185 58010000 		.4byte	.LASF16
- 306 0189 58010000 		.4byte	.LASF16
+ 305 0185 1A000000 		.4byte	.LASF16
+ 306 0189 1A000000 		.4byte	.LASF16
  307 018d 04       		.byte	0x4
  308 018e 1D       		.byte	0x1d
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 7
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 7
 
 
  309 018f 0A       		.uleb128 0xa
- 310 0190 29010000 		.4byte	.LASF17
- 311 0194 29010000 		.4byte	.LASF17
+ 310 0190 1D010000 		.4byte	.LASF17
+ 311 0194 1D010000 		.4byte	.LASF17
  312 0198 05       		.byte	0x5
  313 0199 3201     		.2byte	0x132
  314 019b 09       		.uleb128 0x9
- 315 019c 00000000 		.4byte	.LASF18
- 316 01a0 00000000 		.4byte	.LASF18
+ 315 019c 63010000 		.4byte	.LASF18
+ 316 01a0 63010000 		.4byte	.LASF18
  317 01a4 06       		.byte	0x6
  318 01a5 1D       		.byte	0x1d
  319 01a6 0A       		.uleb128 0xa
- 320 01a7 67010000 		.4byte	.LASF19
- 321 01ab 67010000 		.4byte	.LASF19
+ 320 01a7 34010000 		.4byte	.LASF19
+ 321 01ab 34010000 		.4byte	.LASF19
  322 01af 07       		.byte	0x7
  323 01b0 3201     		.2byte	0x132
  324 01b2 09       		.uleb128 0x9
- 325 01b3 7F000000 		.4byte	.LASF20
- 326 01b7 7F000000 		.4byte	.LASF20
+ 325 01b3 00000000 		.4byte	.LASF20
+ 326 01b7 00000000 		.4byte	.LASF20
  327 01bb 08       		.byte	0x8
  328 01bc 1D       		.byte	0x1d
  329 01bd 09       		.uleb128 0x9
- 330 01be 8E000000 		.4byte	.LASF21
- 331 01c2 8E000000 		.4byte	.LASF21
+ 330 01be 99000000 		.4byte	.LASF21
+ 331 01c2 99000000 		.4byte	.LASF21
  332 01c6 09       		.byte	0x9
  333 01c7 3B       		.byte	0x3b
  334 01c8 09       		.uleb128 0x9
- 335 01c9 4C000000 		.4byte	.LASF22
- 336 01cd 4C000000 		.4byte	.LASF22
+ 335 01c9 66000000 		.4byte	.LASF22
+ 336 01cd 66000000 		.4byte	.LASF22
  337 01d1 0A       		.byte	0xa
  338 01d2 43       		.byte	0x43
  339 01d3 09       		.uleb128 0x9
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  363 0006 0B       		.uleb128 0xb
  364 0007 03       		.uleb128 0x3
  365 0008 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 8
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 8
 
 
  366 0009 1B       		.uleb128 0x1b
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  420 0040 18       		.uleb128 0x18
  421 0041 9742     		.uleb128 0x2117
  422 0043 19       		.uleb128 0x19
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 9
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 9
 
 
  423 0044 01       		.uleb128 0x1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  477 0083 0B       		.uleb128 0xb
  478 0084 3B       		.uleb128 0x3b
  479 0085 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 10
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 10
 
 
  480 0086 00       		.byte	0
@@ -586,7 +586,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  520      00000201 
  520      FB0E0D00 
  520      01010101 
- 521              	.LASF18:
+ 521              	.LASF20:
  522 0000 636C6F63 		.ascii	"clock2_StartEx\000"
  522      6B325F53 
  522      74617274 
@@ -595,102 +595,102 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  524 000f 75617274 		.ascii	"uart_Start\000"
  524      5F537461 
  524      727400
- 525              	.LASF9:
- 526 001a 666C6F61 		.ascii	"float\000"
- 526      7400
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 11
+ 525              	.LASF16:
+ 526 001a 636C6F63 		.ascii	"clock0_StartEx\000"
+ 526      6B305F53 
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 11
 
 
- 527              	.LASF0:
- 528 0020 7369676E 		.ascii	"signed char\000"
- 528      65642063 
- 528      68617200 
- 529              	.LASF1:
- 530 002c 756E7369 		.ascii	"unsigned char\000"
- 530      676E6564 
- 530      20636861 
- 530      7200
- 531              	.LASF5:
- 532 003a 6C6F6E67 		.ascii	"long unsigned int\000"
- 532      20756E73 
- 532      69676E65 
- 532      6420696E 
- 532      7400
- 533              	.LASF22:
- 534 004c 63617073 		.ascii	"capsense_InitializeAllBaselines\000"
- 534      656E7365 
- 534      5F496E69 
- 534      7469616C 
- 534      697A6541 
- 535              	.LASF3:
- 536 006c 73686F72 		.ascii	"short unsigned int\000"
- 536      7420756E 
- 536      7369676E 
- 536      65642069 
- 536      6E7400
- 537              	.LASF20:
- 538 007f 636C6F63 		.ascii	"clock3_StartEx\000"
- 538      6B335F53 
- 538      74617274 
- 538      457800
- 539              	.LASF21:
- 540 008e 63617073 		.ascii	"capsense_Start\000"
- 540      656E7365 
- 540      5F537461 
- 540      727400
- 541              	.LASF28:
- 542 009d 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\aixt"
- 542      6F63756D 
- 542      656E746F 
- 542      735C5544 
- 542      5C323032 
- 543 00cb 2D702D73 		.ascii	"-p-so-c-4\\devices\\Cypress\\CY8CKIT-145-40XX\\Conf"
- 543      6F2D632D 
- 543      345C6465 
- 543      76696365 
- 543      735C4379 
- 544 00fa 69677572 		.ascii	"iguracion_General.cydsn\000"
- 544      6163696F 
- 544      6E5F4765 
- 544      6E657261 
- 544      6C2E6379 
- 545              	.LASF15:
- 546 0112 70776D31 		.ascii	"pwm1_Start\000"
- 546      5F537461 
- 546      727400
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 12
+ 526      74617274 
+ 526      457800
+ 527              	.LASF9:
+ 528 0029 666C6F61 		.ascii	"float\000"
+ 528      7400
+ 529              	.LASF0:
+ 530 002f 7369676E 		.ascii	"signed char\000"
+ 530      65642063 
+ 530      68617200 
+ 531              	.LASF1:
+ 532 003b 756E7369 		.ascii	"unsigned char\000"
+ 532      676E6564 
+ 532      20636861 
+ 532      7200
+ 533              	.LASF15:
+ 534 0049 70776D30 		.ascii	"pwm0_Start\000"
+ 534      5F537461 
+ 534      727400
+ 535              	.LASF5:
+ 536 0054 6C6F6E67 		.ascii	"long unsigned int\000"
+ 536      20756E73 
+ 536      69676E65 
+ 536      6420696E 
+ 536      7400
+ 537              	.LASF22:
+ 538 0066 63617073 		.ascii	"capsense_InitializeAllBaselines\000"
+ 538      656E7365 
+ 538      5F496E69 
+ 538      7469616C 
+ 538      697A6541 
+ 539              	.LASF3:
+ 540 0086 73686F72 		.ascii	"short unsigned int\000"
+ 540      7420756E 
+ 540      7369676E 
+ 540      65642069 
+ 540      6E7400
+ 541              	.LASF21:
+ 542 0099 63617073 		.ascii	"capsense_Start\000"
+ 542      656E7365 
+ 542      5F537461 
+ 542      727400
+ 543              	.LASF28:
+ 544 00a8 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\aixt"
+ 544      6F63756D 
+ 544      656E746F 
+ 544      735C5544 
+ 544      5C323032 
+ 545 00d6 2D702D73 		.ascii	"-p-so-c-4\\devices\\Cypress\\CY8CKIT-145-40XX\\Conf"
+ 545      6F2D632D 
+ 545      345C6465 
+ 545      76696365 
+ 545      735C4379 
+ 546 0105 69677572 		.ascii	"iguracion_General.cydsn\000"
+ 546      6163696F 
+ 546      6E5F4765 
+ 546      6E657261 
+ 546      6C2E6379 
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 12
 
 
- 547              	.LASF10:
- 548 011d 646F7562 		.ascii	"double\000"
- 548      6C6500
- 549              	.LASF29:
- 550 0124 6D61696E 		.ascii	"main\000"
- 550      00
- 551              	.LASF17:
- 552 0129 70776D32 		.ascii	"pwm2_Start\000"
- 552      5F537461 
- 552      727400
- 553              	.LASF8:
- 554 0134 756E7369 		.ascii	"unsigned int\000"
- 554      676E6564 
- 554      20696E74 
- 554      00
- 555              	.LASF7:
- 556 0141 6C6F6E67 		.ascii	"long long unsigned int\000"
- 556      206C6F6E 
- 556      6720756E 
- 556      7369676E 
- 556      65642069 
- 557              	.LASF16:
- 558 0158 636C6F63 		.ascii	"clock1_StartEx\000"
- 558      6B315F53 
- 558      74617274 
- 558      457800
- 559              	.LASF19:
- 560 0167 70776D33 		.ascii	"pwm3_Start\000"
- 560      5F537461 
- 560      727400
+ 547              	.LASF17:
+ 548 011d 70776D31 		.ascii	"pwm1_Start\000"
+ 548      5F537461 
+ 548      727400
+ 549              	.LASF10:
+ 550 0128 646F7562 		.ascii	"double\000"
+ 550      6C6500
+ 551              	.LASF29:
+ 552 012f 6D61696E 		.ascii	"main\000"
+ 552      00
+ 553              	.LASF19:
+ 554 0134 70776D32 		.ascii	"pwm2_Start\000"
+ 554      5F537461 
+ 554      727400
+ 555              	.LASF8:
+ 556 013f 756E7369 		.ascii	"unsigned int\000"
+ 556      676E6564 
+ 556      20696E74 
+ 556      00
+ 557              	.LASF7:
+ 558 014c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 558      206C6F6E 
+ 558      6720756E 
+ 558      7369676E 
+ 558      65642069 
+ 559              	.LASF18:
+ 560 0163 636C6F63 		.ascii	"clock1_StartEx\000"
+ 560      6B315F53 
+ 560      74617274 
+ 560      457800
  561              	.LASF23:
  562 0172 63617073 		.ascii	"capsense_ScanAllWidgets\000"
  562      656E7365 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 1
  572      7400
  573              	.LASF4:
  574 01b7 6C6F6E67 		.ascii	"long int\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccQyOOni.s 			page 13
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccZR1H3d.s 			page 13
 
 
  574      20696E74 

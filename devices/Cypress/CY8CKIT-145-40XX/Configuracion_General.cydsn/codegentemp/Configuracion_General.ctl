@@ -1,6 +1,6 @@
 -- ======================================================================
 -- Configuracion_General.ctl generated from Configuracion_General
--- 08/23/2023 at 19:37
+-- 09/02/2023 at 21:00
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 

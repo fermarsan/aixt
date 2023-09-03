@@ -16,10 +16,6 @@ Archive member included to satisfy reference by file (symbol)
                               .\CortexM0p\ARM_GCC_541\Debug\main.o (pwm2_Start)
 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
                               .\CortexM0p\ARM_GCC_541\Debug\main.o (clock2_StartEx)
-.\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
-                              .\CortexM0p\ARM_GCC_541\Debug\main.o (clock3_StartEx)
-.\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                              .\CortexM0p\ARM_GCC_541\Debug\main.o (pwm3_Start)
 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
                               .\CortexM0p\ARM_GCC_541\Debug\main.o (capsense_Start)
 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
@@ -42,6 +38,10 @@ Archive member included to satisfy reference by file (symbol)
                               .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o) (capsense_ISR_StartEx)
 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
                               .\CortexM0p\ARM_GCC_541\Debug\main.o (led1_Write)
+.\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                              .\CortexM0p\ARM_GCC_541\Debug\main.o (pwm0_Start)
+.\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
+                              .\CortexM0p\ARM_GCC_541\Debug\main.o (clock0_StartEx)
 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyBootAsmGnu.o)
                               .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyLib.o) (CyDelayCycles)
 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(uart_SPI_UART.o)
@@ -419,83 +419,6 @@ Discarded input sections
                 0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
  .text.clock2_GetFractionalDividerRegister
                 0x00000000        0x4 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
- .text          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .data          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .bss           0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .text.clock3_Stop
-                0x00000000       0x18 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .text.clock3_SetFractionalDividerRegister
-                0x00000000       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .text.clock3_GetDividerRegister
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .text.clock3_GetFractionalDividerRegister
-                0x00000000        0x4 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .text          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .data          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_Stop
-                0x00000000       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetMode
-                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetQDMode
-                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetPrescaler
-                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetOneShot
-                0x00000000       0x30 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetPWMMode
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetPWMSyncKill
-                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetPWMStopOnKill
-                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetPWMDeadTime
-                0x00000000       0x2c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetPWMInvert
-                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_ReadCounter
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetCounterMode
-                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_ReadPeriod
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetCompareSwap
-                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_WritePeriodBuf
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_ReadPeriodBuf
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetPeriodSwap
-                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_ReadCompare
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_WriteCompareBuf
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_ReadCompareBuf
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_ReadCapture
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_ReadCaptureBuf
-                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetCaptureMode
-                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetReloadMode
-                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetStartMode
-                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetStopMode
-                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetCountMode
-                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_ReadStatus
-                0x00000000       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_GetInterruptSourceMasked
-                0x00000000        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_GetInterruptSource
-                0x00000000        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_ClearInterrupt
-                0x00000000        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .text.pwm3_SetInterrupt
-                0x00000000        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
  .text          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
  .data          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
  .text.capsense_Stop
@@ -630,6 +553,83 @@ Discarded input sections
                 0x00000000       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
  .text.led1_ClearInterrupt
                 0x00000000       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .text          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .data          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_Stop
+                0x00000000       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetMode
+                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetQDMode
+                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetPrescaler
+                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetOneShot
+                0x00000000       0x30 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetPWMMode
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetPWMSyncKill
+                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetPWMStopOnKill
+                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetPWMDeadTime
+                0x00000000       0x2c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetPWMInvert
+                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_ReadCounter
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetCounterMode
+                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_ReadPeriod
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetCompareSwap
+                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_WritePeriodBuf
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_ReadPeriodBuf
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetPeriodSwap
+                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_ReadCompare
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_WriteCompareBuf
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_ReadCompareBuf
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_ReadCapture
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_ReadCaptureBuf
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetCaptureMode
+                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetReloadMode
+                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetStartMode
+                0x00000000       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetStopMode
+                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetCountMode
+                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_ReadStatus
+                0x00000000       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_GetInterruptSourceMasked
+                0x00000000        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_GetInterruptSource
+                0x00000000        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_ClearInterrupt
+                0x00000000        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text.pwm0_SetInterrupt
+                0x00000000        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .text          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
+ .data          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
+ .bss           0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
+ .text.clock0_Stop
+                0x00000000       0x18 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
+ .text.clock0_SetFractionalDividerRegister
+                0x00000000       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
+ .text.clock0_GetDividerRegister
+                0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
+ .text.clock0_GetFractionalDividerRegister
+                0x00000000        0x4 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
  .data          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyBootAsmGnu.o)
  .bss           0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyBootAsmGnu.o)
  .text          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(uart_SPI_UART.o)
@@ -900,250 +900,250 @@ END GROUP
  .text.clock2_StartEx
                 0x000008fc       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
                 0x000008fc                clock2_StartEx
- .text.clock3_StartEx
-                0x00000918       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
-                0x00000918                clock3_StartEx
- .text.pwm3_WriteCounter
-                0x00000934       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                0x00000934                pwm3_WriteCounter
- .text.pwm3_WritePeriod
-                0x00000944       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                0x00000944                pwm3_WritePeriod
- .text.pwm3_WriteCompare
-                0x00000954       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                0x00000954                pwm3_WriteCompare
- .text.pwm3_TriggerCommand
-                0x00000964       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                0x00000964                pwm3_TriggerCommand
- .text.pwm3_Enable
-                0x00000980       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                0x00000980                pwm3_Enable
- .text.pwm3_SetInterruptMode
-                0x000009a4        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                0x000009a4                pwm3_SetInterruptMode
- .text.pwm3_Init
-                0x000009b0       0x4c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                0x000009b0                pwm3_Init
- .text.pwm3_Start
-                0x000009fc       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                0x000009fc                pwm3_Start
  .text.capsense_Initialize
-                0x00000a1c       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
-                0x00000a1c                capsense_Initialize
+                0x00000918       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+                0x00000918                capsense_Initialize
  .text.capsense_Start
-                0x00000a44       0x48 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
-                0x00000a44                capsense_Start
+                0x00000940       0x48 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+                0x00000940                capsense_Start
  .text.capsense_DpInitialize
-                0x00000a8c       0x84 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
-                0x00000a8c                capsense_DpInitialize
+                0x00000988       0x84 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
+                0x00000988                capsense_DpInitialize
  .text.capsense_DsInitialize
-                0x00000b10       0x7c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
-                0x00000b10                capsense_DsInitialize
+                0x00000a0c       0x7c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
+                0x00000a0c                capsense_DsInitialize
  .text.capsense_TuInitialize
-                0x00000b8c       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
-                0x00000b8c                capsense_TuInitialize
+                0x00000a88       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
+                0x00000a88                capsense_TuInitialize
  .text.capsense_FtInitialize
-                0x00000ba0        0x4 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
-                0x00000ba0                capsense_FtInitialize
+                0x00000a9c        0x4 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+                0x00000a9c                capsense_FtInitialize
  .text.capsense_FtInitializeBaselineChannel
-                0x00000ba4       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
-                0x00000ba4                capsense_FtInitializeBaselineChannel
+                0x00000aa0       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+                0x00000aa0                capsense_FtInitializeBaselineChannel
  .text.capsense_FtInitializeBaseline
-                0x00000bc4       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
-                0x00000bc4                capsense_FtInitializeBaseline
+                0x00000ac0       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+                0x00000ac0                capsense_FtInitializeBaseline
  .text.capsense_InitializeSensorBaseline
-                0x00000be4       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
-                0x00000be4                capsense_InitializeSensorBaseline
+                0x00000ae0       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+                0x00000ae0                capsense_InitializeSensorBaseline
  .text.capsense_InitializeWidgetBaseline
-                0x00000c08       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
-                0x00000c08                capsense_InitializeWidgetBaseline
+                0x00000b04       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+                0x00000b04                capsense_InitializeWidgetBaseline
  .text.capsense_InitializeAllBaselines
-                0x00000c30       0x18 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
-                0x00000c30                capsense_InitializeAllBaselines
+                0x00000b2c       0x18 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+                0x00000b2c                capsense_InitializeAllBaselines
  .text.capsense_SsCalcLfsrSize
-                0x00000c48       0x84 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000b44       0x84 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
  .text.capsense_SsCalcLfsrScale
-                0x00000ccc       0x44 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000bc8       0x44 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
  .text.capsense_SsSetWidgetTxClkSrc
-                0x00000d10       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000c0c       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
  .text.capsense_IsBusy
-                0x00000d38       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00000d38                capsense_IsBusy
+                0x00000c34       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000c34                capsense_IsBusy
  .text.capsense_SetupWidget
-                0x00000d48       0x64 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00000d48                capsense_SetupWidget
+                0x00000c44       0x64 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000c44                capsense_SetupWidget
  .text.capsense_Scan
-                0x00000dac       0x38 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00000dac                capsense_Scan
+                0x00000ca8       0x38 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000ca8                capsense_Scan
  .text.capsense_ScanAllWidgets
-                0x00000de4       0x48 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00000de4                capsense_ScanAllWidgets
+                0x00000ce0       0x48 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000ce0                capsense_ScanAllWidgets
  .text.capsense_SetPinState
-                0x00000e2c       0xec .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00000e2c                capsense_SetPinState
+                0x00000d28       0xec .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000d28                capsense_SetPinState
  .text.capsense_SsSetAllIOsState
-                0x00000f18       0x80 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00000f18                capsense_SsSetAllIOsState
+                0x00000e14       0x80 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000e14                capsense_SsSetAllIOsState
  .text.capsense_SsPostAllWidgetsScan
-                0x00000f98       0x78 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00000f98                capsense_SsPostAllWidgetsScan
+                0x00000e94       0x78 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000e94                capsense_SsPostAllWidgetsScan
  .text.capsense_SsIsrInitialize
-                0x00001010        0x8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00001010                capsense_SsIsrInitialize
+                0x00000f0c        0x8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000f0c                capsense_SsIsrInitialize
  .text.capsense_SsSetModClkClockDivider
-                0x00001018       0x30 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00001018                capsense_SsSetModClkClockDivider
+                0x00000f14       0x30 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000f14                capsense_SsSetModClkClockDivider
  .text.capsense_CalibrateWidget
-                0x00001048       0x3c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00001048                capsense_CalibrateWidget
+                0x00000f44       0x3c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000f44                capsense_CalibrateWidget
  .text.capsense_CalibrateAllWidgets
-                0x00001084       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00001084                capsense_CalibrateAllWidgets
+                0x00000f80       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000f80                capsense_CalibrateAllWidgets
  .text.capsense_SsCSDGetColSnsClkDivider
-                0x000010a0       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x000010a0                capsense_SsCSDGetColSnsClkDivider
+                0x00000f9c       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000f9c                capsense_SsCSDGetColSnsClkDivider
  .text.capsense_SsCSDCalcPrsSize
-                0x000010b4       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x000010b4                capsense_SsCSDCalcPrsSize
+                0x00000fb0       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000fb0                capsense_SsCSDCalcPrsSize
  .text.capsense_SsSetWidgetSenseClkSrc
-                0x000010d8       0x3c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000fd4       0x3c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
  .text.capsense_SsInitializeSourceSenseClk
-                0x00001114       0x38 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00001114                capsense_SsInitializeSourceSenseClk
+                0x00001010       0x38 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00001010                capsense_SsInitializeSourceSenseClk
  .text.capsense_DischargeExtCapacitors
-                0x0000114c       0xd8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x0000114c                capsense_DischargeExtCapacitors
+                0x00001048       0xd8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00001048                capsense_DischargeExtCapacitors
  .text.capsense_WriteBitsSafe
-                0x00001224       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x00001224                capsense_WriteBitsSafe
+                0x00001120       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00001120                capsense_WriteBitsSafe
  .text.capsense_SsCSDDisableMode
-                0x00001240       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x0000113c       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
  .text.capsense_SsDisableCSXMode
-                0x00001264       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00001160       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
  .text.capsense_SsSwitchSensingMode
-                0x0000128c       0x54 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x0000128c                capsense_SsSwitchSensingMode
+                0x00001188       0x54 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00001188                capsense_SsSwitchSensingMode
  .text.capsense_SsInitialize
-                0x000012e0       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
-                0x000012e0                capsense_SsInitialize
+                0x000011dc       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x000011dc                capsense_SsInitialize
  .text.capsense_SsCSDSetModeSnsClockDivider
-                0x00001304       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001200       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
  .text.capsense_SsCSDSetFilterDelay
-                0x00001314       0x50 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001210       0x50 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
  .text.capsense_SsCSDConfigIDACs
-                0x00001364       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001260       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
  .text.capsense_SsCSDCalibrateCheck
-                0x00001380       0xa0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x0000127c       0xa0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
  .text.capsense_SsCSDSwitchIdacGain
-                0x00001420       0x9c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x0000131c       0x9c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
  .text.capsense_SsCSDNormalizeIdac
-                0x000014bc       0xcc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x000013b8       0xcc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
  .text.capsense_SsCSDInitialize
-                0x00001588      0x138 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x00001588                capsense_SsCSDInitialize
+                0x00001484      0x138 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001484                capsense_SsCSDInitialize
  .text.capsense_SsCSDSetUpIdacs
-                0x000016c0       0x60 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x000016c0                capsense_SsCSDSetUpIdacs
+                0x000015bc       0x60 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x000015bc                capsense_SsCSDSetUpIdacs
  .text.capsense_SsCSDGetNumberOfConversions
-                0x00001720       0x2c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x00001720                capsense_SsCSDGetNumberOfConversions
+                0x0000161c       0x2c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x0000161c                capsense_SsCSDGetNumberOfConversions
  .text.capsense_SsCSDConfigClock
-                0x0000174c       0x44 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x0000174c                capsense_SsCSDConfigClock
+                0x00001648       0x44 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001648                capsense_SsCSDConfigClock
  .text.capsense_SsCSDCalculateScanDuration
-                0x00001790       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x00001790                capsense_SsCSDCalculateScanDuration
+                0x0000168c       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x0000168c                capsense_SsCSDCalculateScanDuration
  .text.capsense_SsCSDStartSample
-                0x000017ac       0xf0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x000017ac                capsense_SsCSDStartSample
+                0x000016a8       0xf0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x000016a8                capsense_SsCSDStartSample
  .text.capsense_CSDScanExt
-                0x0000189c       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x0000189c                capsense_CSDScanExt
+                0x00001798       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001798                capsense_CSDScanExt
  .text.capsense_CSDConnectSns
-                0x000018bc       0x34 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x000018bc                capsense_CSDConnectSns
+                0x000017b8       0x34 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x000017b8                capsense_CSDConnectSns
  .text.capsense_CSDScan
-                0x000018f0       0xa8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x000018f0                capsense_CSDScan
+                0x000017ec       0xa8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x000017ec                capsense_CSDScan
  .text.capsense_SsCSDConnectSensorExt
-                0x00001998       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x00001998                capsense_SsCSDConnectSensorExt
+                0x00001894       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001894                capsense_SsCSDConnectSensorExt
  .text.capsense_CSDDisconnectSns
-                0x000019c0       0x64 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x000019c0                capsense_CSDDisconnectSns
+                0x000018bc       0x64 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x000018bc                capsense_CSDDisconnectSns
  .text.capsense_SsCSDElectrodeCheck
-                0x00001a24       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x00001a24                capsense_SsCSDElectrodeCheck
+                0x00001920       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001920                capsense_SsCSDElectrodeCheck
  .text.capsense_CSDSetupWidget
-                0x00001a48       0x5c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x00001a48                capsense_CSDSetupWidget
+                0x00001944       0x5c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001944                capsense_CSDSetupWidget
  .text.capsense_CSDSetupWidgetExt
-                0x00001aa4       0x70 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x00001aa4                capsense_CSDSetupWidgetExt
+                0x000019a0       0x70 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x000019a0                capsense_CSDSetupWidgetExt
  .text.capsense_SsCSDCalibrate
-                0x00001b14      0x170 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001a10      0x170 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
  .text.capsense_CSDCalibrateWidget
-                0x00001c84       0x78 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
-                0x00001c84                capsense_CSDCalibrateWidget
+                0x00001b80       0x78 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00001b80                capsense_CSDCalibrateWidget
  .text.capsense_SsCSXCalibrateCheck
-                0x00001cfc       0x94 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x00001bf8       0x94 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
  .text.capsense_SsCalcCsxScanPeriod
-                0x00001d90        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x00001c8c        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
  .text.capsense_SsCSXStartSample
-                0x00001d9c      0x150 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x00001c98      0x150 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
  .text.capsense_CSXScanISR
-                0x00001eec       0x90 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x00001eec                capsense_CSXScanISR
+                0x00001de8       0x90 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x00001de8                capsense_CSXScanISR
  .text.capsense_CSXInitialize
-                0x00001f7c      0x1f4 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x00001f7c                capsense_CSXInitialize
+                0x00001e78      0x1f4 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x00001e78                capsense_CSXInitialize
  .text.capsense_CSXCalibrateWidget
-                0x00002170      0x12c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x00002170                capsense_CSXCalibrateWidget
+                0x0000206c      0x12c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x0000206c                capsense_CSXCalibrateWidget
  .text.capsense_CSXConnectTx
-                0x0000229c       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x0000229c                capsense_CSXConnectTx
+                0x00002198       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x00002198                capsense_CSXConnectTx
  .text.capsense_CSXConnectRx
-                0x000022c4       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x000022c4                capsense_CSXConnectRx
+                0x000021c0       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x000021c0                capsense_CSXConnectRx
  .text.capsense_CSXScan
-                0x000022e8       0x88 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x000022e8                capsense_CSXScan
+                0x000021e4       0x88 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x000021e4                capsense_CSXScan
  .text.capsense_CSXDisconnectTx
-                0x00002370       0x44 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x00002370                capsense_CSXDisconnectTx
+                0x0000226c       0x44 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x0000226c                capsense_CSXDisconnectTx
  .text.capsense_CSXDisconnectRx
-                0x000023b4       0x4c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x000023b4                capsense_CSXDisconnectRx
+                0x000022b0       0x4c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x000022b0                capsense_CSXDisconnectRx
  .text.capsense_SsCSXPostMultiScan
-                0x00002400       0xdc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x000022fc       0xdc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
  .text.capsense_CSXElectrodeCheck
-                0x000024dc       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x000024dc                capsense_CSXElectrodeCheck
+                0x000023d8       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x000023d8                capsense_CSXElectrodeCheck
  .text.capsense_CSXSetupWidget
-                0x00002500       0x6c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x00002500                capsense_CSXSetupWidget
+                0x000023fc       0x6c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x000023fc                capsense_CSXSetupWidget
  .text.capsense_SsCSXGetTxClkDivider
-                0x0000256c       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
-                0x0000256c                capsense_SsCSXGetTxClkDivider
+                0x00002468       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x00002468                capsense_SsCSXGetTxClkDivider
  .text.capsense_ISR_SetVector
-                0x00002580        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
-                0x00002580                capsense_ISR_SetVector
+                0x0000247c        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+                0x0000247c                capsense_ISR_SetVector
  .text.capsense_ISR_SetPriority
-                0x0000258c       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
-                0x0000258c                capsense_ISR_SetPriority
+                0x00002488       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+                0x00002488                capsense_ISR_SetPriority
  .text.capsense_ISR_Enable
-                0x000025b0       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
-                0x000025b0                capsense_ISR_Enable
+                0x000024ac       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+                0x000024ac                capsense_ISR_Enable
  .text.capsense_ISR_Disable
-                0x000025c0       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
-                0x000025c0                capsense_ISR_Disable
+                0x000024bc       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+                0x000024bc                capsense_ISR_Disable
  .text.capsense_ISR_StartEx
-                0x000025d0       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
-                0x000025d0                capsense_ISR_StartEx
+                0x000024cc       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+                0x000024cc                capsense_ISR_StartEx
  .text.led1_Write
-                0x000025ec       0x18 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
-                0x000025ec                led1_Write
+                0x000024e8       0x18 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+                0x000024e8                led1_Write
+ .text.pwm0_WriteCounter
+                0x00002500       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                0x00002500                pwm0_WriteCounter
+ .text.pwm0_WritePeriod
+                0x00002510       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                0x00002510                pwm0_WritePeriod
+ .text.pwm0_WriteCompare
+                0x00002520       0x10 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                0x00002520                pwm0_WriteCompare
+ .text.pwm0_TriggerCommand
+                0x00002530       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                0x00002530                pwm0_TriggerCommand
+ .text.pwm0_Enable
+                0x0000254c       0x24 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                0x0000254c                pwm0_Enable
+ .text.pwm0_SetInterruptMode
+                0x00002570        0xc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                0x00002570                pwm0_SetInterruptMode
+ .text.pwm0_Init
+                0x0000257c       0x4c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                0x0000257c                pwm0_Init
+ .text.pwm0_Start
+                0x000025c8       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                0x000025c8                pwm0_Start
+ .text.clock0_StartEx
+                0x000025e8       0x1c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
+                0x000025e8                clock0_StartEx
  *fill*         0x00002604        0x4 
  .text          0x00002608       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyBootAsmGnu.o)
                 0x00002608                CyDelayCycles
@@ -1327,9 +1327,8 @@ END GROUP
                 0x20000128                pwm1_initVar
  .bss           0x20000129        0x1 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm2.o)
                 0x20000129                pwm2_initVar
- .bss           0x2000012a        0x1 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                0x2000012a                pwm3_initVar
- .bss           0x2000012b        0x1 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+ .bss           0x2000012a        0x1 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+ *fill*         0x2000012b        0x1 
  .bss           0x2000012c        0xd .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
  *fill*         0x20000139        0x3 
  .bss           0x2000013c        0x4 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
@@ -1344,8 +1343,10 @@ END GROUP
  .bss           0x2000014c       0x12 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
                 0x2000014c                capsense_csxScanPeriod
                 0x2000014e                capsense_csxRawCount
+ .bss           0x2000015e        0x1 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                0x2000015e                pwm0_initVar
  *(COMMON)
- *fill*         0x2000015e        0x2 
+ *fill*         0x2000015f        0x1 
  COMMON         0x20000160       0xbc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
                 0x20000160                capsense_dsRam
  COMMON         0x2000021c        0x8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
@@ -1450,31 +1451,31 @@ END GROUP
  .debug_aranges
                 0x000006f8       0x40 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
  .debug_aranges
-                0x00000738       0x40 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
+                0x00000738       0x68 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
  .debug_aranges
-                0x00000778      0x158 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
+                0x000007a0       0x68 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
  .debug_aranges
-                0x000008d0       0x68 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+                0x00000808       0x58 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
  .debug_aranges
-                0x00000938       0x68 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
+                0x00000860       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
  .debug_aranges
-                0x000009a0       0x58 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
+                0x00000888       0x70 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
  .debug_aranges
-                0x000009f8       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
+                0x000008f8      0x100 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
  .debug_aranges
-                0x00000a20       0x70 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+                0x000009f8       0xd0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
  .debug_aranges
-                0x00000a90      0x100 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x00000ac8       0xa8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
  .debug_aranges
-                0x00000b90       0xd0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x00000b70       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
  .debug_aranges
-                0x00000c60       0xa8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x00000b98       0x80 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
  .debug_aranges
-                0x00000d08       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
+                0x00000c18       0x48 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
  .debug_aranges
-                0x00000d30       0x80 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+                0x00000c60      0x158 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
  .debug_aranges
-                0x00000db0       0x48 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+                0x00000db8       0x40 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
  .debug_aranges
                 0x00000df8       0x20 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyBootAsmGnu.o)
  .debug_aranges
@@ -1501,19 +1502,19 @@ END GROUP
  .debug_info    0x00002705      0x166 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock1.o)
  .debug_info    0x0000286b      0x909 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm2.o)
  .debug_info    0x00003174      0x166 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
- .debug_info    0x000032da      0x166 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .debug_info    0x00003440      0x909 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .debug_info    0x00003d49      0xc7b .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
- .debug_info    0x000049c4      0xf39 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
- .debug_info    0x000058fd      0xc4a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
- .debug_info    0x00006547      0x75c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
- .debug_info    0x00006ca3      0x805 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
- .debug_info    0x000074a8     0x155b .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
- .debug_info    0x00008a03     0x13d6 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
- .debug_info    0x00009dd9     0x10d2 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
- .debug_info    0x0000aeab      0x2d0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
- .debug_info    0x0000b17b      0x305 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
- .debug_info    0x0000b480      0x19d .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_info    0x000032da      0xc7b .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+ .debug_info    0x00003f55      0xf39 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
+ .debug_info    0x00004e8e      0xc4a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
+ .debug_info    0x00005ad8      0x75c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
+ .debug_info    0x00006234      0x805 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+ .debug_info    0x00006a39     0x155b .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+ .debug_info    0x00007f94     0x13d6 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+ .debug_info    0x0000936a     0x10d2 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+ .debug_info    0x0000a43c      0x2d0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
+ .debug_info    0x0000a70c      0x305 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+ .debug_info    0x0000aa11      0x19d .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_info    0x0000abae      0x909 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .debug_info    0x0000b4b7      0x166 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
  .debug_info    0x0000b61d       0xc3 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyBootAsmGnu.o)
  .debug_info    0x0000b6e0      0x220 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(uart_SPI_UART.o)
  .debug_info    0x0000b900      0x417 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyFlash.o)
@@ -1533,19 +1534,19 @@ END GROUP
  .debug_abbrev  0x00000a66       0xb7 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock1.o)
  .debug_abbrev  0x00000b1d      0x119 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm2.o)
  .debug_abbrev  0x00000c36       0xb7 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
- .debug_abbrev  0x00000ced       0xb7 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .debug_abbrev  0x00000da4      0x119 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .debug_abbrev  0x00000ebd      0x218 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
- .debug_abbrev  0x000010d5      0x226 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
- .debug_abbrev  0x000012fb      0x210 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
- .debug_abbrev  0x0000150b      0x166 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
- .debug_abbrev  0x00001671      0x202 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
- .debug_abbrev  0x00001873      0x21f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
- .debug_abbrev  0x00001a92      0x27a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
- .debug_abbrev  0x00001d0c      0x2dc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
- .debug_abbrev  0x00001fe8      0x100 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
- .debug_abbrev  0x000020e8      0x19a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
- .debug_abbrev  0x00002282       0xc8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_abbrev  0x00000ced      0x218 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+ .debug_abbrev  0x00000f05      0x226 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
+ .debug_abbrev  0x0000112b      0x210 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
+ .debug_abbrev  0x0000133b      0x166 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
+ .debug_abbrev  0x000014a1      0x202 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+ .debug_abbrev  0x000016a3      0x21f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+ .debug_abbrev  0x000018c2      0x27a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+ .debug_abbrev  0x00001b3c      0x2dc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+ .debug_abbrev  0x00001e18      0x100 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
+ .debug_abbrev  0x00001f18      0x19a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+ .debug_abbrev  0x000020b2       0xc8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_abbrev  0x0000217a      0x119 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .debug_abbrev  0x00002293       0xb7 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
  .debug_abbrev  0x0000234a       0x14 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyBootAsmGnu.o)
  .debug_abbrev  0x0000235e      0x14f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(uart_SPI_UART.o)
  .debug_abbrev  0x000024ad      0x19e .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyFlash.o)
@@ -1565,19 +1566,19 @@ END GROUP
  .debug_line    0x00001316       0xb9 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock1.o)
  .debug_line    0x000013cf      0x37d .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm2.o)
  .debug_line    0x0000174c       0xb9 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
- .debug_line    0x00001805       0xb9 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .debug_line    0x000018be      0x37d .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .debug_line    0x00001c3b      0x281 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
- .debug_line    0x00001ebc      0x3ed .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
- .debug_line    0x000022a9      0x1e7 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
- .debug_line    0x00002490      0x11c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
- .debug_line    0x000025ac      0x1bf .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
- .debug_line    0x0000276b      0x640 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
- .debug_line    0x00002dab      0x4cb .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
- .debug_line    0x00003276      0x3a4 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
- .debug_line    0x0000361a      0x134 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
- .debug_line    0x0000374e      0x158 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
- .debug_line    0x000038a6       0xbc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_line    0x00001805      0x281 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+ .debug_line    0x00001a86      0x3ed .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
+ .debug_line    0x00001e73      0x1e7 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
+ .debug_line    0x0000205a      0x11c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
+ .debug_line    0x00002176      0x1bf .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+ .debug_line    0x00002335      0x640 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+ .debug_line    0x00002975      0x4cb .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+ .debug_line    0x00002e40      0x3a4 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+ .debug_line    0x000031e4      0x134 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
+ .debug_line    0x00003318      0x158 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+ .debug_line    0x00003470       0xbc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_line    0x0000352c      0x37d .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .debug_line    0x000038a9       0xb9 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
  .debug_line    0x00003962       0x68 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyBootAsmGnu.o)
  .debug_line    0x000039ca      0x11a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(uart_SPI_UART.o)
  .debug_line    0x00003ae4      0x1e1 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyFlash.o)
@@ -1596,19 +1597,19 @@ END GROUP
  .debug_frame   0x00000d0c       0x6c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock1.o)
  .debug_frame   0x00000d78      0x3a0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm2.o)
  .debug_frame   0x00001118       0x6c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
- .debug_frame   0x00001184       0x6c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .debug_frame   0x000011f0      0x3a0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .debug_frame   0x00001590      0x128 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
- .debug_frame   0x000016b8      0x17c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
- .debug_frame   0x00001834       0xd0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
- .debug_frame   0x00001904       0x40 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
- .debug_frame   0x00001944      0x148 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
- .debug_frame   0x00001a8c      0x350 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
- .debug_frame   0x00001ddc      0x308 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
- .debug_frame   0x000020e4      0x224 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
- .debug_frame   0x00002308       0x64 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
- .debug_frame   0x0000236c      0x110 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
- .debug_frame   0x0000247c       0x70 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_frame   0x00001184      0x128 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+ .debug_frame   0x000012ac      0x17c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
+ .debug_frame   0x00001428       0xd0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
+ .debug_frame   0x000014f8       0x40 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
+ .debug_frame   0x00001538      0x148 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+ .debug_frame   0x00001680      0x350 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+ .debug_frame   0x000019d0      0x308 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+ .debug_frame   0x00001cd8      0x224 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+ .debug_frame   0x00001efc       0x64 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
+ .debug_frame   0x00001f60      0x110 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+ .debug_frame   0x00002070       0x70 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_frame   0x000020e0      0x3a0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .debug_frame   0x00002480       0x6c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
  .debug_frame   0x000024ec       0xb0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(uart_SPI_UART.o)
  .debug_frame   0x0000259c       0xa8 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyFlash.o)
  .debug_frame   0x00002644       0x78 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_INT.o)
@@ -1646,32 +1647,32 @@ END GROUP
                                 0x5be (size before relaxing)
  .debug_str     0x0000176b       0x8e .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
                                 0x288 (size before relaxing)
- .debug_str     0x000017f9       0x8e .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
-                                0x288 (size before relaxing)
- .debug_str     0x00001887      0x2f2 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
-                                0x5be (size before relaxing)
- .debug_str     0x00001b79      0x83c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+ .debug_str     0x000017f9      0x83c .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
                                 0xa65 (size before relaxing)
- .debug_str     0x000023b5      0x1dc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
+ .debug_str     0x00002035      0x1dc .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
                                 0x9c2 (size before relaxing)
- .debug_str     0x00002591      0x227 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
+ .debug_str     0x00002211      0x227 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
                                 0x951 (size before relaxing)
- .debug_str     0x000027b8      0x12d .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
+ .debug_str     0x00002438      0x12d .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
                                 0x702 (size before relaxing)
- .debug_str     0x000028e5      0x1ba .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+ .debug_str     0x00002565      0x1ba .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
                                 0x6bb (size before relaxing)
- .debug_str     0x00002a9f      0x79a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+ .debug_str     0x0000271f      0x79a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
                                 0xf0c (size before relaxing)
- .debug_str     0x00003239      0x386 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+ .debug_str     0x00002eb9      0x386 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
                                 0xd02 (size before relaxing)
- .debug_str     0x000035bf      0x2a7 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+ .debug_str     0x0000323f      0x2a7 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
                                 0xc9d (size before relaxing)
- .debug_str     0x00003866       0x98 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
+ .debug_str     0x000034e6       0x98 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
                                 0x337 (size before relaxing)
- .debug_str     0x000038fe      0x142 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+ .debug_str     0x0000357e      0x142 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
                                 0x383 (size before relaxing)
- .debug_str     0x00003a40       0x90 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_str     0x000036c0       0x90 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
                                 0x266 (size before relaxing)
+ .debug_str     0x00003750      0x2f2 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+                                0x5be (size before relaxing)
+ .debug_str     0x00003a42       0x8e .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
+                                0x288 (size before relaxing)
  .debug_str     0x00003ad0       0xe3 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(uart_SPI_UART.o)
                                 0x305 (size before relaxing)
  .debug_str     0x00003bb3      0x11d .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyFlash.o)
@@ -1691,19 +1692,19 @@ END GROUP
  .debug_loc     0x00001299       0x76 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock1.o)
  .debug_loc     0x0000130f      0x547 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm2.o)
  .debug_loc     0x00001856       0x76 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
- .debug_loc     0x000018cc       0x76 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .debug_loc     0x00001942      0x547 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .debug_loc     0x00001e89      0x63a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
- .debug_loc     0x000024c3      0xb69 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
- .debug_loc     0x0000302c      0x45a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
- .debug_loc     0x00003486      0x176 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
- .debug_loc     0x000035fc      0x5fb .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
- .debug_loc     0x00003bf7      0xbcd .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
- .debug_loc     0x000047c4      0xe93 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
- .debug_loc     0x00005657      0x7a0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
- .debug_loc     0x00005df7      0x223 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
- .debug_loc     0x0000601a       0x82 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
- .debug_loc     0x0000609c       0xa2 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_loc     0x000018cc      0x63a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+ .debug_loc     0x00001f06      0xb69 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
+ .debug_loc     0x00002a6f      0x45a .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
+ .debug_loc     0x00002ec9      0x176 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
+ .debug_loc     0x0000303f      0x5fb .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+ .debug_loc     0x0000363a      0xbcd .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+ .debug_loc     0x00004207      0xe93 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+ .debug_loc     0x0000509a      0x7a0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+ .debug_loc     0x0000583a      0x223 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
+ .debug_loc     0x00005a5d       0x82 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+ .debug_loc     0x00005adf       0xa2 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_loc     0x00005b81      0x547 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .debug_loc     0x000060c8       0x76 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
  .debug_loc     0x0000613e       0x96 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(uart_SPI_UART.o)
  .debug_loc     0x000061d4      0x1bd .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyFlash.o)
  .debug_loc     0x00006391       0xcf .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_INT.o)
@@ -1724,19 +1725,19 @@ END GROUP
  .debug_ranges  0x000004c8       0x30 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock1.o)
  .debug_ranges  0x000004f8      0x148 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm2.o)
  .debug_ranges  0x00000640       0x30 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
- .debug_ranges  0x00000670       0x30 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .debug_ranges  0x000006a0      0x148 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
- .debug_ranges  0x000007e8       0x58 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
- .debug_ranges  0x00000840       0x58 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
- .debug_ranges  0x00000898       0x48 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
- .debug_ranges  0x000008e0       0x18 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
- .debug_ranges  0x000008f8       0x60 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
- .debug_ranges  0x00000958       0xf0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
- .debug_ranges  0x00000a48       0xc0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
- .debug_ranges  0x00000b08       0x98 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
- .debug_ranges  0x00000ba0       0x18 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
- .debug_ranges  0x00000bb8       0x70 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
- .debug_ranges  0x00000c28       0x38 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_ranges  0x00000670       0x58 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+ .debug_ranges  0x000006c8       0x58 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
+ .debug_ranges  0x00000720       0x48 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
+ .debug_ranges  0x00000768       0x18 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
+ .debug_ranges  0x00000780       0x60 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+ .debug_ranges  0x000007e0       0xf0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+ .debug_ranges  0x000008d0       0xc0 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+ .debug_ranges  0x00000990       0x98 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+ .debug_ranges  0x00000a28       0x18 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
+ .debug_ranges  0x00000a40       0x70 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+ .debug_ranges  0x00000ab0       0x38 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .debug_ranges  0x00000ae8      0x148 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .debug_ranges  0x00000c30       0x30 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
  .debug_ranges  0x00000c60       0x50 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(uart_SPI_UART.o)
  .debug_ranges  0x00000cb0       0x38 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyFlash.o)
  .debug_ranges  0x00000ce8       0x28 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_INT.o)
@@ -1755,8 +1756,6 @@ END GROUP
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock1.o)
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm2.o)
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
- .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
- .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
@@ -1768,6 +1767,8 @@ END GROUP
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+ .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
+ .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(uart_SPI_UART.o)
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyFlash.o)
  .comment       0x0000006e       0x6f .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_INT.o)
@@ -1821,31 +1822,31 @@ END GROUP
  .ARM.attributes
                 0x0000028b       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock2.o)
  .ARM.attributes
-                0x000002bd       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock3.o)
+                0x000002bd       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
  .ARM.attributes
-                0x000002ef       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm3.o)
+                0x000002ef       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
  .ARM.attributes
-                0x00000321       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Control.o)
+                0x00000321       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
  .ARM.attributes
-                0x00000353       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Processing.o)
+                0x00000353       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
  .ARM.attributes
-                0x00000385       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Structure.o)
+                0x00000385       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
  .ARM.attributes
-                0x000003b7       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Tuner.o)
+                0x000003b7       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
  .ARM.attributes
-                0x000003e9       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Filter.o)
+                0x000003e9       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
  .ARM.attributes
-                0x0000041b       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Sensing.o)
+                0x0000041b       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
  .ARM.attributes
-                0x0000044d       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSD_LL.o)
+                0x0000044d       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
  .ARM.attributes
-                0x0000047f       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_SensingCSX_LL.o)
+                0x0000047f       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
  .ARM.attributes
-                0x000004b1       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_Centroid_LL.o)
+                0x000004b1       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
  .ARM.attributes
-                0x000004e3       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(capsense_ISR.o)
+                0x000004e3       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(pwm0.o)
  .ARM.attributes
-                0x00000515       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(led1.o)
+                0x00000515       0x32 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(clock0.o)
  .ARM.attributes
                 0x00000547       0x22 .\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.a(CyBootAsmGnu.o)
  .ARM.attributes

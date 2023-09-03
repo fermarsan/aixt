@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.307ms
+Loading plugins phase: Elapsed time ==> 0s.331ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\Configuracion_General.cyprj -d CY8C4045AZI-S413 -s D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 4s.363ms
+Elaboration phase: Elapsed time ==> 2s.981ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.138ms
+HDL generation phase: Elapsed time ==> 0s.078ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=D:\Documentos\
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Wed Aug 23 19:37:45 2023
+Sat Sep 02 21:00:53 2023
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 Configuracion_General.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Wed Aug 23 19:37:45 2023
+Sat Sep 02 21:00:53 2023
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
@@ -84,7 +84,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=D:\Documentos\
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Wed Aug 23 19:37:46 2023
+Sat Sep 02 21:00:53 2023
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -112,7 +112,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=D:\Documentos\
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Wed Aug 23 19:37:46 2023
+Sat Sep 02 21:00:53 2023
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -166,6 +166,12 @@ Aliasing zero to \uart:select_s_wire\
 Aliasing one to \uart:tmpOE__tx_net_0\
 Aliasing \uart:tmpOE__rx_net_0\ to \uart:tmpOE__tx_net_0\
 Aliasing \uart:cts_wire\ to \uart:select_s_wire\
+Aliasing \pwm0:Net_75\ to \uart:select_s_wire\
+Aliasing \pwm0:Net_69\ to \uart:tmpOE__tx_net_0\
+Aliasing \pwm0:Net_66\ to \uart:select_s_wire\
+Aliasing \pwm0:Net_82\ to \uart:select_s_wire\
+Aliasing \pwm0:Net_72\ to \uart:select_s_wire\
+Aliasing tmpOE__out_pwm0_net_0 to \uart:tmpOE__tx_net_0\
 Aliasing \pwm1:Net_75\ to \uart:select_s_wire\
 Aliasing \pwm1:Net_69\ to \uart:tmpOE__tx_net_0\
 Aliasing \pwm1:Net_66\ to \uart:select_s_wire\
@@ -178,12 +184,6 @@ Aliasing \pwm2:Net_66\ to \uart:select_s_wire\
 Aliasing \pwm2:Net_82\ to \uart:select_s_wire\
 Aliasing \pwm2:Net_72\ to \uart:select_s_wire\
 Aliasing tmpOE__out_pwm2_net_0 to \uart:tmpOE__tx_net_0\
-Aliasing \pwm3:Net_75\ to \uart:select_s_wire\
-Aliasing \pwm3:Net_69\ to \uart:tmpOE__tx_net_0\
-Aliasing \pwm3:Net_66\ to \uart:select_s_wire\
-Aliasing \pwm3:Net_82\ to \uart:select_s_wire\
-Aliasing \pwm3:Net_72\ to \uart:select_s_wire\
-Aliasing tmpOE__out_pwm3_net_0 to \uart:tmpOE__tx_net_0\
 Aliasing tmpOE__led5_net_0 to \uart:tmpOE__tx_net_0\
 Aliasing tmpOE__led4_net_0 to \uart:tmpOE__tx_net_0\
 Aliasing \capsense:Net_95\ to \uart:select_s_wire\
@@ -233,27 +233,27 @@ Removing Rhs of wire zero[17] = \uart:select_s_wire\[2]
 Removing Rhs of wire one[18] = \uart:tmpOE__tx_net_0\[12]
 Removing Lhs of wire \uart:tmpOE__rx_net_0\[23] = one[18]
 Removing Lhs of wire \uart:cts_wire\[27] = zero[17]
-Removing Lhs of wire \pwm1:Net_81\[54] = Net_25[66]
-Removing Lhs of wire \pwm1:Net_75\[55] = zero[17]
-Removing Lhs of wire \pwm1:Net_69\[56] = one[18]
-Removing Lhs of wire \pwm1:Net_66\[57] = zero[17]
-Removing Lhs of wire \pwm1:Net_82\[58] = zero[17]
-Removing Lhs of wire \pwm1:Net_72\[59] = zero[17]
-Removing Lhs of wire tmpOE__out_pwm1_net_0[69] = one[18]
-Removing Lhs of wire \pwm2:Net_81\[75] = Net_39[87]
-Removing Lhs of wire \pwm2:Net_75\[76] = zero[17]
-Removing Lhs of wire \pwm2:Net_69\[77] = one[18]
-Removing Lhs of wire \pwm2:Net_66\[78] = zero[17]
-Removing Lhs of wire \pwm2:Net_82\[79] = zero[17]
-Removing Lhs of wire \pwm2:Net_72\[80] = zero[17]
-Removing Lhs of wire tmpOE__out_pwm2_net_0[90] = one[18]
-Removing Lhs of wire \pwm3:Net_81\[98] = Net_73[96]
-Removing Lhs of wire \pwm3:Net_75\[99] = zero[17]
-Removing Lhs of wire \pwm3:Net_69\[100] = one[18]
-Removing Lhs of wire \pwm3:Net_66\[101] = zero[17]
-Removing Lhs of wire \pwm3:Net_82\[102] = zero[17]
-Removing Lhs of wire \pwm3:Net_72\[103] = zero[17]
-Removing Lhs of wire tmpOE__out_pwm3_net_0[111] = one[18]
+Removing Lhs of wire \pwm0:Net_81\[54] = Net_25[66]
+Removing Lhs of wire \pwm0:Net_75\[55] = zero[17]
+Removing Lhs of wire \pwm0:Net_69\[56] = one[18]
+Removing Lhs of wire \pwm0:Net_66\[57] = zero[17]
+Removing Lhs of wire \pwm0:Net_82\[58] = zero[17]
+Removing Lhs of wire \pwm0:Net_72\[59] = zero[17]
+Removing Lhs of wire tmpOE__out_pwm0_net_0[69] = one[18]
+Removing Lhs of wire \pwm1:Net_81\[75] = Net_39[87]
+Removing Lhs of wire \pwm1:Net_75\[76] = zero[17]
+Removing Lhs of wire \pwm1:Net_69\[77] = one[18]
+Removing Lhs of wire \pwm1:Net_66\[78] = zero[17]
+Removing Lhs of wire \pwm1:Net_82\[79] = zero[17]
+Removing Lhs of wire \pwm1:Net_72\[80] = zero[17]
+Removing Lhs of wire tmpOE__out_pwm1_net_0[90] = one[18]
+Removing Lhs of wire \pwm2:Net_81\[98] = Net_73[96]
+Removing Lhs of wire \pwm2:Net_75\[99] = zero[17]
+Removing Lhs of wire \pwm2:Net_69\[100] = one[18]
+Removing Lhs of wire \pwm2:Net_66\[101] = zero[17]
+Removing Lhs of wire \pwm2:Net_82\[102] = zero[17]
+Removing Lhs of wire \pwm2:Net_72\[103] = zero[17]
+Removing Lhs of wire tmpOE__out_pwm2_net_0[111] = one[18]
 Removing Lhs of wire tmpOE__led5_net_0[117] = one[18]
 Removing Lhs of wire tmpOE__led4_net_0[123] = one[18]
 Removing Lhs of wire \capsense:Net_95\[152] = zero[17]
@@ -320,14 +320,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\Configuracion_General.cyprj" -dcpsoc3 Configuracion_General.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 1s.033ms
+Warp synthesis phase: Elapsed time ==> 0s.621ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Wednesday, 23 August 2023 19:37:46
+cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Saturday, 02 September 2023 21:00:53
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\devices\Cypress\CY8CKIT-145-40XX\Configuracion_General.cydsn\Configuracion_General.cyprj -d CY8C4045AZI-S413 Configuracion_General.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.029ms
+Design parsing phase: Elapsed time ==> 0s.016ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -336,9 +336,9 @@ Removing unused cells resulting from optimization
 Done removing unused cells.
 <CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
     Fixed Function Clock 2: Automatic-assigning  clock 'capsense_ModClk'. Signal=\capsense:Net_1423_ff2\
-    Fixed Function Clock 3: Automatic-assigning  clock 'clock1'. Signal=Net_25_ff3
-    Fixed Function Clock 4: Automatic-assigning  clock 'clock2'. Signal=Net_39_ff4
-    Fixed Function Clock 5: Automatic-assigning  clock 'clock3'. Signal=Net_73_ff5
+    Fixed Function Clock 3: Automatic-assigning  clock 'clock0'. Signal=Net_25_ff3
+    Fixed Function Clock 4: Automatic-assigning  clock 'clock1'. Signal=Net_39_ff4
+    Fixed Function Clock 5: Automatic-assigning  clock 'clock2'. Signal=Net_73_ff5
     Fixed Function Clock 0: Automatic-assigning  clock 'uart_SCBCLK'. Signal=\uart:Net_847_ff0\
 <CYPRESSTAG name="UDB Clock/Enable Remapping Results">
 </CYPRESSTAG>
@@ -442,6 +442,46 @@ Design Equations
         {
         }
 
+    Pin : Name = out_pwm0(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => out_pwm0(0)__PA ,
+            pin_input => Net_28 ,
+            pad => out_pwm0(0)_PAD );
+        Properties:
+        {
+        }
+
     Pin : Name = out_pwm1(0)
         Attributes:
             In Group/Port: True
@@ -476,7 +516,7 @@ Design Equations
             IO Voltage: 0
         PORT MAP (
             pa_out => out_pwm1(0)__PA ,
-            pin_input => Net_28 ,
+            pin_input => Net_42 ,
             pad => out_pwm1(0)_PAD );
         Properties:
         {
@@ -516,48 +556,8 @@ Design Equations
             IO Voltage: 0
         PORT MAP (
             pa_out => out_pwm2(0)__PA ,
-            pin_input => Net_42 ,
-            pad => out_pwm2(0)_PAD );
-        Properties:
-        {
-        }
-
-    Pin : Name = out_pwm3(0)
-        Attributes:
-            In Group/Port: True
-            In Sync Option: AUTO
-            Out Sync Option: NOSYNC
-            Interrupt generated: False
-            Interrupt mode: NONE
-            Drive mode: CMOS_OUT
-            VTrip: EITHER
-            Slew: FAST
-            Input Sync needed: False
-            Output Sync needed: False
-            SC shield enabled: False
-            POR State: ANY
-            LCD Mode: COMMON
-            Register Mode: RegComb
-            CaSense Mode: NEITHER
-            Treat as pin: True
-            Is OE Registered: False
-            Uses Analog: False
-            Can contain Digital: True
-            Is SIO: False
-            SIO Output Buf: NONREGULATED
-            SIO Input Buf: SINGLE_ENDED
-            SIO HiFreq: LOW
-            SIO Hyst: DISABLED
-            SIO Vtrip: MULTIPLIER_0_5
-            SIO Multiplier Index: 0
-            SIO RefSel: VCC_IO
-            Required Capabilities: DIGITAL
-            Initial Value: 1
-            IO Voltage: 0
-        PORT MAP (
-            pa_out => out_pwm3(0)__PA ,
             pin_input => Net_76 ,
-            pad => out_pwm3(0)_PAD );
+            pad => out_pwm2(0)_PAD );
         Properties:
         {
         }
@@ -1728,8 +1728,8 @@ LP Comparator                 :    0 :    2 :    2 :  0.00 %
 DAC                           :      :      :      :        
   7-bit IDAC                  :    2 :    0 :    2 : 100.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.165ms
-Tech Mapping phase: Elapsed time ==> 0s.188ms
+Technology Mapping: Elapsed time ==> 0s.083ms
+Tech Mapping phase: Elapsed time ==> 0s.097ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="FFB & IO Pre Placement">
@@ -1739,9 +1739,9 @@ Cell                                : Block
 =========================================================================
 \uart:tx(0)\                        : [IOP=(3)][IoId=(1)]                
 \uart:rx(0)\                        : [IOP=(3)][IoId=(0)]                
-out_pwm1(0)                         : [IOP=(1)][IoId=(2)]                
-out_pwm2(0)                         : [IOP=(2)][IoId=(6)]                
-out_pwm3(0)                         : [IOP=(1)][IoId=(0)]                
+out_pwm0(0)                         : [IOP=(1)][IoId=(2)]                
+out_pwm1(0)                         : [IOP=(2)][IoId=(6)]                
+out_pwm2(0)                         : [IOP=(1)][IoId=(0)]                
 led5(0)                             : [IOP=(2)][IoId=(1)]                
 led4(0)                             : [IOP=(2)][IoId=(0)]                
 \capsense:Sns(0)\                   : [IOP=(0)][IoId=(0)]                
@@ -1772,9 +1772,9 @@ di0(0)                              : [IOP=(2)][IoId=(7)]
 do0(0)                              : [IOP=(4)][IoId=(0)]                
 ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
 \uart:SCB\                          : SCB_[FFB(SCB,1)]                   
-\pwm1:cy_m0s8_tcpwm_1\              : TCPWM_[FFB(TCPWM,3)]               
-\pwm2:cy_m0s8_tcpwm_1\              : TCPWM_[FFB(TCPWM,1)]               
-\pwm3:cy_m0s8_tcpwm_1\              : TCPWM_[FFB(TCPWM,2)]               
+\pwm0:cy_m0s8_tcpwm_1\              : TCPWM_[FFB(TCPWM,3)]               
+\pwm1:cy_m0s8_tcpwm_1\              : TCPWM_[FFB(TCPWM,1)]               
+\pwm2:cy_m0s8_tcpwm_1\              : TCPWM_[FFB(TCPWM,2)]               
 \capsense:CSD\                      : CSD_[FFB(CSD,0)]                   
 \capsense:IDACMod\                  : CSIDAC7_[FFB(CSIDAC7,0)]           
 \capsense:IDACComp\                 : CSIDAC7_[FFB(CSIDAC7,1)]           
@@ -1782,15 +1782,15 @@ ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Real Analog Placement">
-Elapsed time ==> 0.2464676s
+Elapsed time ==> 0.1558111s
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.771ms
+Analog Placement phase: Elapsed time ==> 0s.495ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0086563 secs
+Route success=True, Iterations=1 Elapsed=0.0062964 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.009ms
+Analog Routing phase: Elapsed time ==> 0s.006ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -1887,25 +1887,25 @@ Map of item to net {
 }
 Mux Info {
 }
-Analog Code Generation phase: Elapsed time ==> 0s.029ms
+Analog Code Generation phase: Elapsed time ==> 0s.023ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
-I2076: Total run-time: 0.2 sec.
+I2076: Total run-time: 0.1 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
 <CYPRESSTAG name="PLD Packing Summary">
 No PLDs were packed.
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.000ms
+PLD Packing: Elapsed time ==> 0s.001ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.017ms
+Partitioning: Elapsed time ==> 0s.016ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -2265,7 +2265,7 @@ Pin : Name = sw2(0)
 
 Port 1 contains the following IO cells:
 [IoId=0]: 
-Pin : Name = out_pwm3(0)
+Pin : Name = out_pwm2(0)
     Attributes:
         In Group/Port: True
         In Sync Option: AUTO
@@ -2298,15 +2298,15 @@ Pin : Name = out_pwm3(0)
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
-        pa_out => out_pwm3(0)__PA ,
+        pa_out => out_pwm2(0)__PA ,
         pin_input => Net_76 ,
-        pad => out_pwm3(0)_PAD );
+        pad => out_pwm2(0)_PAD );
     Properties:
     {
     }
 
 [IoId=2]: 
-Pin : Name = out_pwm1(0)
+Pin : Name = out_pwm0(0)
     Attributes:
         In Group/Port: True
         In Sync Option: AUTO
@@ -2339,9 +2339,9 @@ Pin : Name = out_pwm1(0)
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
-        pa_out => out_pwm1(0)__PA ,
+        pa_out => out_pwm0(0)__PA ,
         pin_input => Net_28 ,
-        pad => out_pwm1(0)_PAD );
+        pad => out_pwm0(0)_PAD );
     Properties:
     {
     }
@@ -2796,7 +2796,7 @@ Pin : Name = led1(0)
     }
 
 [IoId=6]: 
-Pin : Name = out_pwm2(0)
+Pin : Name = out_pwm1(0)
     Attributes:
         In Group/Port: True
         In Sync Option: AUTO
@@ -2829,9 +2829,9 @@ Pin : Name = out_pwm2(0)
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
-        pa_out => out_pwm2(0)__PA ,
+        pa_out => out_pwm1(0)__PA ,
         pin_input => Net_42 ,
-        pad => out_pwm2(0)_PAD );
+        pad => out_pwm1(0)_PAD );
     Properties:
     {
     }
@@ -3403,7 +3403,7 @@ CSIDAC7 group 0:
         }
 TCPWM group 0: 
     Tcpwm Block @ F(TCPWM,1): 
-    m0s8tcpwmcell: Name =\pwm2:cy_m0s8_tcpwm_1\
+    m0s8tcpwmcell: Name =\pwm1:cy_m0s8_tcpwm_1\
         PORT MAP (
             clock => Net_39_ff4 ,
             capture => zero ,
@@ -3422,7 +3422,7 @@ TCPWM group 0:
             cy_registers = ""
         }
     Tcpwm Block @ F(TCPWM,2): 
-    m0s8tcpwmcell: Name =\pwm3:cy_m0s8_tcpwm_1\
+    m0s8tcpwmcell: Name =\pwm2:cy_m0s8_tcpwm_1\
         PORT MAP (
             clock => Net_73_ff5 ,
             capture => zero ,
@@ -3441,7 +3441,7 @@ TCPWM group 0:
             cy_registers = ""
         }
     Tcpwm Block @ F(TCPWM,3): 
-    m0s8tcpwmcell: Name =\pwm1:cy_m0s8_tcpwm_1\
+    m0s8tcpwmcell: Name =\pwm0:cy_m0s8_tcpwm_1\
         PORT MAP (
             clock => Net_25_ff3 ,
             capture => zero ,
@@ -3492,8 +3492,8 @@ Port | Pin | Fixed |      Type |       Drive Mode |                Name | Connec
      |   6 |     * |      NONE |      HI_Z_ANALOG |   \capsense:Sns(4)\ | Analog(\capsense:Net_2_0\)
      |   7 |     * |      NONE |      RES_PULL_UP |              sw2(0) | 
 -----+-----+-------+-----------+------------------+---------------------+---------------------------
-   1 |   0 |     * |      NONE |         CMOS_OUT |         out_pwm3(0) | In(Net_76)
-     |   2 |     * |      NONE |         CMOS_OUT |         out_pwm1(0) | In(Net_28)
+   1 |   0 |     * |      NONE |         CMOS_OUT |         out_pwm2(0) | In(Net_76)
+     |   2 |     * |      NONE |         CMOS_OUT |         out_pwm0(0) | In(Net_28)
      |   3 |     * |      NONE |      HI_Z_ANALOG |    \capsense:Tx(0)\ | Analog(\capsense:Net_2_0\)
      |   4 |     * |      NONE |      HI_Z_ANALOG |    \capsense:Rx(0)\ | Analog(\capsense:Net_2_0\)
      |   5 |     * |      NONE |      HI_Z_ANALOG |    \capsense:Rx(1)\ | Analog(\capsense:Net_2_0\)
@@ -3506,7 +3506,7 @@ Port | Pin | Fixed |      Type |       Drive Mode |                Name | Connec
      |   3 |     * |      NONE |         CMOS_OUT |             led7(0) | 
      |   4 |     * |      NONE |         CMOS_OUT |             led8(0) | 
      |   5 |     * |      NONE |         CMOS_OUT |             led1(0) | 
-     |   6 |     * |      NONE |         CMOS_OUT |         out_pwm2(0) | In(Net_42)
+     |   6 |     * |      NONE |         CMOS_OUT |         out_pwm1(0) | In(Net_42)
      |   7 |     * |      NONE |      RES_PULL_UP |              di0(0) | 
 -----+-----+-------+-----------+------------------+---------------------+---------------------------
    3 |   0 |     * |      NONE |     HI_Z_DIGITAL |        \uart:rx(0)\ | FB(\uart:rx_wire\)
@@ -3524,33 +3524,33 @@ Port | Pin | Fixed |      Type |       Drive Mode |                Name | Connec
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.109ms
-Digital Placement phase: Elapsed time ==> 0s.418ms
+Digital component placer commit/Report: Elapsed time ==> 0s.053ms
+Digital Placement phase: Elapsed time ==> 0s.534ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc4/9/route_arch-rrg.cydata" --vh2-path "Configuracion_General_r.vh2" --pcf-path "Configuracion_General.pco" --des-name "Configuracion_General" --dsf-path "Configuracion_General.dsf"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.327ms
+Digital Routing phase: Elapsed time ==> 0s.280ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.186ms
+Bitstream Generation phase: Elapsed time ==> 0s.176ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
 Bitstream Verification phase: Elapsed time ==> 0s.004ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 No timing parameter file available for CY8C4045AZI-S413
-Static timing analysis phase: Elapsed time ==> 0s.000ms
+Static timing analysis phase: Elapsed time ==> 0s.001ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
-Data reporting phase: Elapsed time ==> 0s.001ms
+Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.394ms
+Design database save phase: Elapsed time ==> 0s.241ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 2s.569ms
+cydsfit: Elapsed time ==> 2s.005ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 2s.570ms
-API generation phase: Elapsed time ==> 5s.439ms
-Dependency generation phase: Elapsed time ==> 0s.038ms
-Cleanup phase: Elapsed time ==> 0s.003ms
+Fitter phase: Elapsed time ==> 2s.009ms
+API generation phase: Elapsed time ==> 7s.193ms
+Dependency generation phase: Elapsed time ==> 0s.033ms
+Cleanup phase: Elapsed time ==> 0s.002ms
