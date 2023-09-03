@@ -11,7 +11,8 @@
 
 int main() {
 	char str1[80];
-	__string_assign(str1, "Hello world!");
+	__string_assign(str1, "Hello ");
+	__string_append(str1, "world!");
 	println(str1);
 	return 0;
 }

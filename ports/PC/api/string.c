@@ -5,7 +5,7 @@
 // License: MIT
 //
 // Description: String managment functions
-//              (PC port). 
+//              (PC port)
 #include <string.h>
 
 char __temp_str[30];
@@ -14,7 +14,7 @@ char __temp_str[30];
 
 #define __string_append(DEST, SOURCE)   strcat(DEST, SOURCE)  
 
-// #define __string_add(SOURCE1, SOURCE2)  {
-//     strcpy(__temp_str, SOURCE1); 
-//     strcat(__temp_str, SOURCE2); 
-// } 
+#define __string_add(SOURCE1, SOURCE2) {\
+    strcpy(__temp_str, SOURCE1); \
+    strcat(__temp_str, SOURCE2); \
+}
