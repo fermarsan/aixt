@@ -1,9 +1,10 @@
-// This file is part of the Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// File Name: time.c
+// Author: Fernando Martínez Santa
+// Date: 2022-2023
+// License: MIT
 //
-// The MIT License (MIT)
-// 
-// Copyright (c) 2022 Fernando Martínez Santa
-
+// Description: Pin definitions (Explorer16-PIC24 port) 
 #ifndef _PORTS_1_H_
 #define _PORTS_1_H_
 
