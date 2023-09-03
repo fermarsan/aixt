@@ -24,15 +24,16 @@ fn main() {
 		mut base_name := input_name.replace('.aixt', '') // input file base name
 		base_name = base_name.replace('.v', '')
 
-		mut dev_setup_path := '${aixt_path}/devices/'
-		dev_setup_path += aixt_pref.device_path(device) or {
-			println(err)
-			return
-		}
-		dev_setup_path += '/setup.toml'
+		// mut dev_setup_path := '${aixt_path}/devices/'
+		// dev_setup_path += aixt_pref.device_path(device) or {
+		// 	println(err)
+		// 	return
+		// }
+		// dev_setup_path += '/setup.toml'
 
-		setup := toml.parse_file(dev_setup_path) or { return } // load the device's setup file
+		// setup := toml.parse_file(dev_setup_path) or { return } // load the device's setup file
 		// println('${dev_setup_path}')
+		setup := toml.parse_file('${aixt_path}/devices/setup/${device}.toml') or { return } // load the device's setup file
 
 		match command {
 			'transpile', '-t' {

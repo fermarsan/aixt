@@ -40,7 +40,7 @@ fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
 }
 
 fn (mut gen Gen) import_stmt(node ast.Import) string {
-	// println(os.getwd())
+	// println(gen.setup.value('api_path'))
 	mut out := ''
 	if node.syms.len == 0 {
 		out += '#include "${gen.base_path}/${node.mod}.c"\n'
