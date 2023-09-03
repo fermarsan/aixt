@@ -19,6 +19,7 @@ pub struct Gen {
 mut:	
 	file  		&ast.File  = unsafe { nil }
 	table 		&ast.Table = unsafe { nil }
+	base_path	string
 	out   		string
 	includes	string
 	definitions	string

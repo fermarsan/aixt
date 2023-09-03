@@ -40,14 +40,13 @@ fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
 }
 
 fn (mut gen Gen) import_stmt(node ast.Import) string {
-	println(os.getwd())
-	api_path := gen.setup.value('api_path').string()
+	// println(os.getwd())
 	mut out := ''
 	if node.syms.len == 0 {
-		out += '#include "${api_path}/${node.mod}.c"\n'
+		out += '#include "${gen.base_path}/${node.mod}.c"\n'
 	} else {
 		for s in node.syms {
-			out += '#include "${api_path}/${node.mod}__${s.name}.c"\n'
+			out += '#include "${gen.base_path}/${node.mod}__${s.name}.c"\n'
 		}
 	}
 

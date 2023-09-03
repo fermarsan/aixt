@@ -7,7 +7,7 @@
 // Description: This is the main file of the Aixt project. It works as a make file too.
 //
 // Usage:
-// 1. Run the program using `v run aixt.v command device input_file_name`
+// 1. Run the program using `v -enable-globals run aixt.v command device input_file_name`
 import os
 import toml
 import aixt_pref
@@ -36,7 +36,7 @@ fn main() {
 
 		match command {
 			'transpile', '-t' {
-				aixt_build.transpile_file(input_name, setup)
+				aixt_build.transpile_file(input_name, setup, aixt_path)
 				println('\n${input_name} was successfully transpiled to C.\n')
 			}
 			'compile', '-c' {

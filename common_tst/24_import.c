@@ -6,8 +6,8 @@
 #include <stdbool.h>
 
 
-#include "./api/time__sleep.c"
-#include "./api/machine.c"
+#include "/home/aixt-project/time__sleep.c"
+#include "/home/aixt-project/machine.c"
 
 int main() {
 	float a = 0.0;
