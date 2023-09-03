@@ -1,0 +1,64 @@
+# Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+# File Name: NXT.toml
+# Author: Fernando Martínez Santa
+# Date: 2022-2023
+# License: MIT
+#
+# Description: This is the setup file for the Mindstorms NXT (NXC) port 
+#              of Aixt project. 
+port =      "NXT" 
+device =    "Atmel AT91SAM7S256 + Atmel AVR ATmega48"
+board =     "LEGO Mindstorms NXT intelligent brick"
+backend =   "nxc"
+
+cc_linux =   "./nbc-linux"
+cc_windows = ".\\nbc-windows.exe"
+cc_flags =   "-T=NXT -S=usb -d"
+
+path = "NXT"
+
+api_modules = []
+
+fixed_size_arrays =  "true"
+fixed_size_strings = "true"
+
+void =  ""
+bool =  "bool"
+
+i8 =    "char"
+i16 =   "int"
+int =   "long"
+i64 =   "NOT SUPPORTED"
+isize = "long"
+int_literal = "long"
+
+u8 =    "byte"
+u16 =   "unsigned int"
+u32 =   "unsigned long"
+u64 =   "=== NOT SUPPORTED ==="
+usize = "unsigned long"
+
+f32 =   "float"
+f64 =   "=== NOT SUPPORTED ==="
+float_literal = "float"
+
+rune =  "char"
+string = "string"
+
+default_int =   "int"
+default_float = "float"
+
+mutex = "mutex"
+
+main_ret_type = ""
+main_params =   ""    
+
+headers = []
+
+macros = []
+
+config_operator = ""
+
+configuration = []
+
+initialization = []

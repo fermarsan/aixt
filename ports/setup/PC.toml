@@ -1,18 +1,18 @@
 # Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-# File Name: setup.toml (PC)
+# File Name: PC.toml
 # Author: Fernando Martínez Santa
 # Date: 2023
 # License: MIT
 #
 # Description: This is the setup file for the PC port of Aixt project 
-port =  "PC" 
+port =    "PC" 
 device =  "x64"
 board =   "x64-based board"
 backend = "pc"
 
 cc_linux =   "gcc"
 cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"
-cc_flags =   "-o" 
+cc_flags =   "-o"
 
 path = "PC"
 
