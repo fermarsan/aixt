@@ -1,5 +1,5 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: machine__pin.c
+// File Name: pin.c
 // Author: Fernando Martínez Santa
 // Date: 2023
 // License: MIT

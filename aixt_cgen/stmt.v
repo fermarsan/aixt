@@ -46,7 +46,7 @@ fn (mut gen Gen) import_stmt(node ast.Import) string {
 		out += '#include "${api_path}/${node.mod}.c"\n'
 	} else {
 		for s in node.syms {
-			out += '#include "${api_path}/${node.mod}__${s.name}.c"\n'
+			out += '#include "${api_path}/${node.mod}/${s.name}.c"\n'
 		}
 	}
 

@@ -14,6 +14,8 @@ cc_linux =   "gcc"
 cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"
 cc_flags =   "-o" 
 
+port_path = "/PC"
+
 api_modules = [
     "machine",
     "os",

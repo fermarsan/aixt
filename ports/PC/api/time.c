@@ -6,6 +6,6 @@
 //
 // Description: This module includes all the timing functions for the Aixt 
 //              PC port. 
-#include "./time/time__sleep_us.c"
-#include "./time/time__sleep_ms.c"
-#include "./time/time__sleep.c"
+#include "./time/sleep_us.c"
+#include "./time/sleep_ms.c"
+#include "./time/sleep.c"
