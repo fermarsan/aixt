@@ -5,8 +5,9 @@
 # License: MIT
 #
 # Description: This is the setup file for the PC port of Aixt project 
+port =  "PC" 
 device =  "x64"
-board =   "PC"
+board =   "x64-based board"
 backend = "pc"
 
 cc_linux =   "gcc"
