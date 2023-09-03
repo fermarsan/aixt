@@ -10,10 +10,8 @@
 
 // #define OUT = os__input(IN) 
 
-char __in_str[30];
-
-char *osinput(char *msg) {
+char *input(char *msg) {
     printf("%s", msg);
-    scanf("%s", &__in_str[0]);
-    return __in_str;
+    scanf("%s", &__temp_str[0]);
+    return __temp_str;
 }

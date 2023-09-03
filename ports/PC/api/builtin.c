@@ -9,10 +9,11 @@
 #include <stdio.h>
 #include <string.h>
 
-#define print(STR)      printf(STR)
-#define println(STR)    printf(STR); printf("\n")
+#include "./string.c"
 
-// #define string__assign(DEST, SOURCE)    strcpy(DEST, SOURCE) 
+#define print(STR)      printf(STR)
+
+#define println(STR)    printf(STR); printf("\n")
 
 enum __pin_names {    // enumerated type for the pin names
     a = 0,    
