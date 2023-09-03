@@ -3,5 +3,6 @@ import os
 // var := 
 // var = input('')
 // print('Echo: ')
-__string_add(__temp_str, 'Heloo world!')
-println(__temp_str)
+str1 := ''
+__string_assign(str1, 'Hello world!')
+println(str1)

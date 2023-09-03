@@ -5,15 +5,15 @@
 // License: MIT
 //
 // Description: Builtin definitions
-//              (PC port). 
+//              (PC port) 
 #include <stdio.h>
 #include <string.h>
 
 #include "./string.c"
 
-#define print(STR)      printf(STR)
+#define print(STR)      printf("%s", STR)
 
-#define println(STR)    printf(STR); printf("\n")
+#define println(STR)    printf("%s\n", STR)
 
 enum __pin_names {    // enumerated type for the pin names
     a = 0,    
