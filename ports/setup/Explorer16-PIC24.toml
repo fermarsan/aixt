@@ -15,67 +15,74 @@ cc_linux =   "xc16"
 cc_windows = "xc16.exe"
 cc_flags =   "-o"
 
-path = "PC"
+path = "Microchip/Explorer16/PIC24"
 
 api_modules = [
     "machine",
     "time"
 ]
 
-i8 =     int8_t
-i16 =    int16_t
-i32 =    int32_t
-isize =  int16_t
-int =    int32_t
+fixed_size_arrays =  "true"
+fixed_size_strings = "true"
 
-u8 =     uint8_t
-u16 =    uint16_t
-u32 =    uint32_t
-usize =  uint16_t
-byte =   uint8_t
+void =  ""
+bool =  "bool"
 
-f32 =    float
-f64 =    "long double"
+i8 =    "int8_t"
+i16 =   "int16_t"
+int =   "int32_t"
+i64 =   "=== NOT SUPPORTED ==="
+isize = "int16_t"
+int_literal = "int32_t"
 
-default_int =    int16_t
-default_float =  float
+u8 =    "uint8_t"
+u16 =   "uint16_t"
+u32 =   "uint32_t"
+u64 =   "=== NOT SUPPORTED ==="
+usize = "uint16_t"
 
-main_ret_type =  int
-main_params =    void    
+f32 = "float"
+f64 = "=== NOT SUPPORTED ==="
+float_literal = "=== NOT SUPPORTED ==="
 
-api_modules =
-  - machine
-  - time
+rune =  "char"
+string = "char []"
 
-headers =
-  - <xc.h>
-  - <stdint.h>
-  - <stdbool.h>
-  - <p24FJ128GA010.h>
-  - <libpic30.h>
+mutex = "=== NOT SUPPORTED ==="
 
-macros =
-  - "FCY 4000000UL"
+main_ret_type = "int"
+main_params =   "void "   
 
-config_operator =  "#pragma config"
+headers = [
+    "xc.h",
+    "stdint.h",
+    "stdbool.h",
+    "p24FJ128GA010.h",
+    "libpic30.h"
+]
 
-configuration =
-  - "POSCMOD = XT"
-  - "OSCIOFNC = ON"
-  - "FCKSM = CSDCMD"
-  - "FNOSC = PRI"
-  - "IESO = ON"
-  - "WDTPS = PS32768"
-  - "FWPSA = PR128"
-  - "WINDIS = ON"
-  - "FWDTEN = OFF"
-  - "ICS = PGx2"
-  - "GWRP = OFF"
-  - "GCP = OFF"
-  - "JTAGEN = OFF"
+macros = [
+    "FCY 4000000UL"
+]
 
-initialization =
-#  - ""
-  - "//AD1PCFG = 0xFFFF; // set all I/O digital"
+config_operator = "#pragma config"
 
-nxc =  false
+configuration = [
+    "POSCMOD = XT",
+    "OSCIOFNC = ON",
+    "FCKSM = CSDCMD",
+    "FNOSC = PRI",
+    "IESO = ON",
+    "WDTPS = PS32768",
+    "FWPSA = PR128",
+    "WINDIS = ON",
+    "FWDTEN = OFF",
+    "ICS = PGx2",
+    "GWRP = OFF",
+    "GCP = OFF",
+    "JTAGEN = OFF"
+]
+
+initialization = [
+    "//AD1PCFG = 0xFFFF; // set all I/O digital"
+]
