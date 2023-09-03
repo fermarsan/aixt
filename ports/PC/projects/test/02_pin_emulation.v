@@ -10,11 +10,11 @@ import machine { pin }
 
 fn main() {
     pin_update()
-    sleep_ms(1500)
-    pin_high(A)
-    pin_write(B, 1)
-    sleep_us(1500000)
-    pin_low(A)
+    sleep_ms(2000)
+    pin_high(a)
+    pin_write(b, 1)
+    sleep_us(2000000)
+    pin_low(a)
     sleep(2)
-    pin_write(B, 0)
+    pin_write(b, 0)
 }
