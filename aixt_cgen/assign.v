@@ -39,11 +39,17 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 				'string' {
 					gen.idents[var_name].len = (node.right[i] as ast.StringLiteral).val.len // string len
 					gen.idents[var_name].elem_type = ast.rune_type_idx // element type
-					out += 'char ${gen.ast_node(node.left[i])}[] = '
-					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
-						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
-					} else { 
-						'${gen.ast_node(node.right[i])};\n'
+					if gen.idents[var_name].len != 0 {	// Contants strings
+						out += 'char ${gen.ast_node(node.left[i])}[] = '
+						out += if node.right[i].type_name() == 'v.ast.CastExpr' {
+							'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
+						} else { 
+							'${gen.ast_node(node.right[i])};\n'
+						}
+					} else {	// Variable strings
+						len := gen.setup.value('string_default_len').int()
+						gen.idents[var_name].len = len
+						out += 'char ${gen.ast_node(node.left[i])}[${len}];\n'
 					}
 				}
 				else {
