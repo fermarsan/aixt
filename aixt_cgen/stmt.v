@@ -8,7 +8,6 @@
 module aixt_cgen
 
 import v.ast
-import os
 
 fn (mut gen Gen) expr_stmt(node ast.ExprStmt) string {
 	return '${gen.ast_node(node.expr)};\n'
@@ -40,14 +39,14 @@ fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
 }
 
 fn (mut gen Gen) import_stmt(node ast.Import) string {
-	println(os.getwd())
-	api_path := gen.setup.value('api_path').string()
+	println('${gen.setup.value('port').string()}')
+	api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
 	mut out := ''
 	if node.syms.len == 0 {
 		out += '#include "${api_path}/${node.mod}.c"\n'
 	} else {
 		for s in node.syms {
-			out += '#include "${api_path}/${node.mod}__${s.name}.c"\n'
+			out += '#include "${api_path}/${node.mod}/${s.name}.c"\n'
 		}
 	}
 
