@@ -10,7 +10,8 @@
 #include "/home/aixt-project/ports/PC/api/os.c"
 
 int main() {
-	__string_add(__temp_str, "Heloo world!");
-	println(__temp_str);
+	char str1[80];
+	__string_assign(str1, "Hello world!");
+	println(str1);
 	return 0;
 }
