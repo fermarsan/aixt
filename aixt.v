@@ -7,10 +7,10 @@
 // Description: This is the main file of the Aixt project. It works as a make file too.
 //
 // Usage:
-// 1. Run the program using `v -enable-globals run aixt.v command device input_file_name`
+// 1. Run the program using `v run aixt.v command port input_file_name`
 import os
 import toml
-import aixt_pref
+// import aixt_pref
 import aixt_build
 
 fn main() {
