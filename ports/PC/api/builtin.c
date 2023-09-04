@@ -9,8 +9,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "./string.c"
-
 #define print(STR)      printf("%s", STR)
 
 #define println(STR)    printf("%s\n", STR)

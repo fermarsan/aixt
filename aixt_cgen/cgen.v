@@ -105,6 +105,7 @@ fn (mut gen Gen) symbol_table() string {
 }
 
 fn (mut gen Gen) out_format() {
+	gen.out = gen.out.replace('___includes_block___', gen.includes)
 	gen.out = gen.out.replace('\n\n\n;', '\n')
 	gen.out = gen.out.replace('\n\n;', '\n---')
 	gen.out = gen.out.replace('}\n;', '}')

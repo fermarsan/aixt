@@ -50,6 +50,10 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 							'${gen.ast_node(node.right[i])};\n'
 						}
 					} else {	// Variable strings
+						if !gen.includes.contains('string.c') {
+							api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
+							gen.includes += '#include "${api_path}/string.c"\n'
+						}
 						len := gen.setup.value('string_default_len').int()
 						gen.idents[var_name].len = len
 						out += 'char ${gen.ast_node(node.left[i])}[${len}];\n'
