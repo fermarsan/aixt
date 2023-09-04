@@ -10,9 +10,9 @@
 #include "/home/aixt-project/ports/PC/api/os.c"
 
 int main() {
-	char str1[80];
-	__string_assign(str1, "Hello ");
-	__string_append(str1, "world!");
-	println(str1);
+	char var[80];
+	__string_assign(var, input("Enter a string: "));
+	print("Echo: ");
+	println(var);
 	return 0;
 }

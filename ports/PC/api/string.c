@@ -17,4 +17,5 @@ char __temp_str[30];
 #define __string_add(SOURCE1, SOURCE2) {\
     strcpy(__temp_str, SOURCE1); \
     strcat(__temp_str, SOURCE2); \
+    __temp_str; \
 }

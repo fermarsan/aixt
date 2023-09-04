@@ -74,17 +74,17 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 						} else if var_global_name in gen.idents {
 							gen.table.type_kind(gen.idents[var_global_name].typ).str()
 						} else {
-							panic('\n\n***** Transpiler error *****:\nUndefined variable "${node.left[i]}".\n')
+							panic('\n\nTranspiler Error:\nUndefined variable "${node.left[i]}".\n')
 						}
 						match var_type {
 							'array' {
 								if gen.setup.value('fixed_size_arrays').bool() {
-									panic('\n\n***** Transpiler error *****:\nFor now dynamic-size arrays are not allowed.\n')
+									panic('\n\nTranspiler Error:\nFor now dynamic-size arrays are not allowed.\n')
 								}
 							}
 							'string' {
 								// if gen.setup.value('fixed_size_strings').bool() {
-								// 	panic('\n\n***** Transpiler error *****:\nFor now dynamic-size strings are not allowed.\n')
+								// 	panic('\n\nTranspiler Error:\nFor now dynamic-size strings are not allowed.\n')
 								// }
 								if gen.idents[var_name].kind == ast.IdentKind.variable {
 									match node.op.str() {
@@ -95,11 +95,11 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 											out += '__string_append(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
 										}	
 										else {
-											panic('\n\n***** Transpiler error *****:\n"${node.op.str()}" operator not supported for strings.\n')
+											panic('\n\nTranspiler Error:\n"${node.op.str()}" operator not supported for strings.\n')
 										}
 									}
 								} else {
-									panic('\n\n***** Transpiler error *****:\n${var_name} is a constant string.\n')
+									panic('\n\nTranspiler Error:\n${var_name} is a constant string.\n')
 								}
 							}
 							else {
@@ -107,7 +107,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 							}
 						} 
 					} else {
-						panic('\n\n***** Transpiler error *****:\nUndefined variable "${node.left[i]}".\n')
+						panic('\n\nTranspiler Error:\nUndefined variable "${node.left[i]}".\n')
 					}
 				} 
 				else {
