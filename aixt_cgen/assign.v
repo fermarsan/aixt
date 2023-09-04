@@ -99,7 +99,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 										}
 									}
 								} else {
-									panic('\n\nTranspiler Error:\n${var_name} is a constant string.\n')
+									panic('\n\nTranspiler Error:\n"${var_global_name}" is a constant string.\n')
 								}
 							}
 							else {

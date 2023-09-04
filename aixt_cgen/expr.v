@@ -25,6 +25,8 @@ fn (mut gen Gen) par_expr(node ast.ParExpr) string {
 }
 
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
+	// lvar_global_name := '${node.left.str()}'
+	// lvar_name := '${gen.current_fn}.${var_global_name}'
 	return '${gen.ast_node(node.left)} ${node.op} ${gen.ast_node(node.right)}'
 }
 
