@@ -9,3 +9,5 @@ var += str
 
 var2 = var + str
 b1 = var == var2
+
+var2 += ' ' + str
