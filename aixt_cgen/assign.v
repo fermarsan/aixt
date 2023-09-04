@@ -95,11 +95,11 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 											out += '__string_append(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
 										}	
 										else {
-											panic('\n\n***** Transpiler error *****:\n${var_name} is a constant string.\n')
+											panic('\n\n***** Transpiler error *****:\n"${node.op.str()}" operator not supported for strings.\n')
 										}
 									}
 								} else {
-									panic('\n\n***** Transpiler error *****:\n${node.op.str()} assignment not supported for strings.\n')
+									panic('\n\n***** Transpiler error *****:\n${var_name} is a constant string.\n')
 								}
 							}
 							else {
