@@ -25,9 +25,15 @@ fn (mut gen Gen) par_expr(node ast.ParExpr) string {
 }
 
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
-	// lvar_global_name := '${node.left.str()}'
-	// lvar_name := '${gen.current_fn}.${var_global_name}'
-	return '${gen.ast_node(node.left)} ${node.op} ${gen.ast_node(node.right)}'
+	lvar_type := gen.idents['${gen.current_fn}.${node.left.str()}'].typ
+	rvar_type := gen.idents['${gen.current_fn}.${node.right.str()}'].typ
+	// println(lvar_type)
+	// println(rvar_type)
+	if lvar_type == ast.string_type_idx || rvar_type == ast.string_type_idx {
+		return '__string_add(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
+	} else {
+		return '${gen.ast_node(node.left)} ${node.op} ${gen.ast_node(node.right)}'
+	}
 }
 
 fn (mut gen Gen) prefix_expr(node ast.PrefixExpr) string {

@@ -1,7 +1,9 @@
 var := ''
+var2 := ''
 str := 'constant'
 
 var = str
 var += ' '
 var += str
-str += 'x'
+
+var2 = var + str
