@@ -1,0 +1,72 @@
+# Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+# File Name: setup.toml (PC)
+# Authores: Fernando Martínez Santa , Camilo Lucas , Javier Leon
+# Date: 2023
+# License: MIT
+#
+# Description: This is the setup file for the PC version of Aixt project 
+
+device =  "Cypress"
+board =   "CY8CKIT-049-42XX"
+backend = "CY8C4245AXI-483"
+
+cc_linux =      "gcc"
+cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
+cc_flags =      "-o" 
+
+fixed_size_arrays =  "true"
+fixed_size_strings = "true"
+
+void =  ""
+bool =  "bool"
+
+int8 =    "signed char"
+int16 =   "short"
+int32 =   "long"
+#i64 =   "long long"
+#isize = "long long"
+#int_literal = "long"
+
+uint8 =    "unsigned char"
+uint16 =   "unsigned short"
+uint32 =   "unsigned long"
+#u64 =   "unsigned long long"
+#usize = "unsigned long long"
+
+float32 =   "float"
+float64 =   "double"
+float_literal =   "float"
+
+rune =  "char"
+string = "char []"
+
+mutex = "=== NOT SUPPORTED ==="
+main_ret_type = "int"
+main_params =   ""   
+
+api_modules =   []
+  
+headers =   [ 
+    "project.h"
+]
+
+macros =    []
+
+config_operator =   []
+
+configuration = []
+
+initialization =    [
+    "CyGlobalInitEnable;",
+    "uart_Start();"
+    "pwm0_Start();"
+    "pwm1_Start();"
+    "pwm2_Start();"
+    "pwm3_Start();"
+    "clock0_Start();"
+    "clock1_Start();"
+    "clock2_Start();"
+    "clock3_Start();"
+    "adc_Start();"
+    "amux_Start();"
+]

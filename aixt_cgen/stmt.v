@@ -38,13 +38,23 @@ fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
 	return out
 }
 
-fn (mut gen Gen) import(node ast.Import) string {
+fn (mut gen Gen) import_stmt(node ast.Import) string {
+	// println('${gen.setup.value('port').string()}')
+	api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
 	mut out := ''
+	if node.syms.len == 0 {
+		out += '#include "${api_path}/${node.mod}.c"\n'
+	} else {
+		for s in node.syms {
+			out += '#include "${api_path}/${node.mod}/${s.name}.c"\n'
+		}
+	}
+
 	// for f in node.fields {
 	// 	out += '${gen.ast_node(f)}'
 	// }
-	println(node.mod)
-	println(node.alias)
-	println(node.syms)	
+	// println('------------${node.mod}------------')
+	// println(node.alias)
+	// println(node.syms)	
 	return out
 }

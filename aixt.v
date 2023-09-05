@@ -7,10 +7,10 @@
 // Description: This is the main file of the Aixt project. It works as a make file too.
 //
 // Usage:
-// 1. Run the program using `v run aixt.v command device input_file_name`
+// 1. Run the program using `v run aixt.v command port input_file_name`
 import os
 import toml
-import aixt_pref
+// import aixt_pref
 import aixt_build
 
 fn main() {
@@ -20,23 +20,24 @@ fn main() {
 	if command in ['help', '--help', '-h'] {
 		println(help_message())
 	} else {
-		device, input_name := os.args[2], os.args[3] // the other parameters
+		port, input_name := os.args[2], os.args[3] // the other parameters
 		mut base_name := input_name.replace('.aixt', '') // input file base name
 		base_name = base_name.replace('.v', '')
 
-		mut dev_setup_path := '${aixt_path}/devices/'
-		dev_setup_path += aixt_pref.device_path(device) or {
-			println(err)
-			return
-		}
-		dev_setup_path += '/setup.toml'
+		// mut dev_setup_path := '${aixt_path}/devices/'
+		// dev_setup_path += aixt_pref.device_path(port) or {
+		// 	println(err)
+		// 	return
+		// }
+		// dev_setup_path += '/setup.toml'
 
-		setup := toml.parse_file(dev_setup_path) or { return } // load the device's setup file
+		// setup := toml.parse_file(dev_setup_path) or { return } // load the device's setup file
 		// println('${dev_setup_path}')
+		setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { return } // load the device's setup file
 
 		match command {
 			'transpile', '-t' {
-				aixt_build.transpile_file(input_name, setup)
+				aixt_build.transpile_file(input_name, setup, aixt_path)
 				println('\n${input_name} was successfully transpiled to C.\n')
 			}
 			'compile', '-c' {
