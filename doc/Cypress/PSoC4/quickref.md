@@ -18,9 +18,9 @@ Use el module `machine` y el submodulo `{ pin }`.
 ```go
 import machine { pin }
 
-pin_write(1)        // Enciende el pin
-pin_write(0)        // Apaga el pin 
-pin_read(x)         // Identifica en que posición está pin
+pin_write(led1, 1)        // Enciende el pin
+pin_write(led1, 0)        // Apaga el pin 
+pin_read(x)         // Identica el estado del pin
 ```
 
 ### Se establecen los pines `pin` 
@@ -59,8 +59,22 @@ Use the `machine` module and the `{ pwm }` submodule.
 ```go
 import machine { pwm }
 
-pwm1_duty(40)       // set the duty cycle for PWM 1
-pwm2_duty(60)       // set the duty cycle for PWM 2
+out_pwm1_duty(40)       // set the duty cycle for PWM 1
+out_pwm2_duty(60)       // set the duty cycle for PWM 2
+out_pwm3_duty(40)       // set the duty cycle for PWM 3
+```
+
+## UART
+```go
+import machine { uart }
+
+uart1(115200)
+
+uart1_put(`x`)
+y := uart1_get()
+
+uart1_write('Hello...')
+msg := uart1_read()
 ```
 
 
