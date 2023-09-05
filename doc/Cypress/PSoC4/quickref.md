@@ -6,12 +6,17 @@ Esta implementación de Aixt para PSoC 4 da soporte a las tarjetas:
 # Tarjeta CY8CKIT-145-40XX
 
 ## Retardos
-Use el modulo `time` :
 ```go
-import time
+import time {
+	sleep,
+	sleep_ms,
+	sleep_us,
+}
 
-cydelay(2)            // sleep for 2 milisegundos
- 
+sleep(2)	    // sleep for 2 seconds
+sleep_us(1)     // sleep for 1 microsecond
+sleep_ms(500)   // sleep for 500 milliseconds
+```
 
 ## pines emulados
 Use el module `machine` y el submodulo `{ pin }`.
@@ -91,4 +96,17 @@ import machine { pin }
 pin_write(0)        // Enciende el pin
 pin_write(1)        // Apaga el pin 
 pin_read(x)         // Identifica en que posición está pin
+```
+
+## PWM
+Hay tres PWM; out_pwm1, out_pwm2 y out_pwm3.
+
+Use the `machine` module and the `{ pwm }` submodule.
+```go
+import machine { pwm }
+
+out_pwm0_duty(40)       // set the duty cycle for PWM 1
+out_pwm1_duty(60)       // set the duty cycle for PWM 2
+out_pwm2_duty(40)       // set the duty cycle for PWM 3
+out_pwm3_duty(40)       // set the duty cycle for PWM 4
 ```
