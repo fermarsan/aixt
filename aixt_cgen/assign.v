@@ -39,11 +39,24 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 				'string' {
 					gen.idents[var_name].len = (node.right[i] as ast.StringLiteral).val.len // string len
 					gen.idents[var_name].elem_type = ast.rune_type_idx // element type
-					out += 'char ${gen.ast_node(node.left[i])}[] = '
-					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
-						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
-					} else { 
-						'${gen.ast_node(node.right[i])};\n'
+					if gen.idents[var_name].len != 0 {	// Constant strings
+						if gen.setup.value('fixed_size_strings').bool() {
+							gen.idents[var_name].kind = ast.IdentKind.constant
+						}
+						out += 'char ${gen.ast_node(node.left[i])}[] = '
+						out += if node.right[i].type_name() == 'v.ast.CastExpr' {
+							'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
+						} else { 
+							'${gen.ast_node(node.right[i])};\n'
+						}
+					} else {	// Variable strings
+						if !gen.includes.contains('string.c') {
+							api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
+							gen.includes += '#include "${api_path}/string.c"\n'
+						}
+						len := gen.setup.value('string_default_len').int()
+						gen.idents[var_name].len = len
+						out += 'char ${gen.ast_node(node.left[i])}[${len}];\n'
 					}
 				}
 				else {
@@ -65,17 +78,32 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 						} else if var_global_name in gen.idents {
 							gen.table.type_kind(gen.idents[var_global_name].typ).str()
 						} else {
-							panic('\n\n***** Transpiler error *****:\nUndefined variable "${node.left[i]}".\n')
+							panic('\n\nTranspiler Error:\nUndefined variable "${node.left[i]}".\n')
 						}
 						match var_type {
 							'array' {
 								if gen.setup.value('fixed_size_arrays').bool() {
-									panic('\n\n***** Transpiler error *****:\nFor now dynamic-size arrays are not allowed.\n')
+									panic('\n\nTranspiler Error:\nFor now dynamic-size arrays are not allowed.\n')
 								}
 							}
 							'string' {
-								if gen.setup.value('fixed_size_strings').bool() {
-									panic('\n\n***** Transpiler error *****:\nFor now dynamic-size strings are not allowed.\n')
+								// if gen.setup.value('fixed_size_strings').bool() {
+								// 	panic('\n\nTranspiler Error:\nFor now dynamic-size strings are not allowed.\n')
+								// }
+								if gen.idents[var_name].kind == ast.IdentKind.variable {
+									match node.op.str() {
+										'=' {
+											out += '__string_assign(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+										} 
+										'+=' {
+											out += '__string_append(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+										}	
+										else {
+											panic('\n\nTranspiler Error:\n"${node.op.str()}" operator not supported for strings.\n')
+										}
+									}
+								} else {
+									panic('\n\nTranspiler Error:\n"${var_global_name}" is a constant string.\n')
 								}
 							}
 							else {
@@ -83,7 +111,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 							}
 						} 
 					} else {
-						panic('\n\n***** Transpiler error *****:\nUndefined variable "${node.left[i]}".\n')
+						panic('\n\nTranspiler Error:\nUndefined variable "${node.left[i]}".\n')
 					}
 				} 
 				else {
