@@ -28,22 +28,26 @@ Las funciones para emular los pines de salifa y entradas en la tarjeta son:
 
 Pin | nombre |Tipo    |
 --  |-       |-       |
-1.6 |led1    |salida
-1.5 |led4    |salida
-1.7 |led     |salida
-1.8 |led6    |salida
-1.9 |led7    |salida
-2   |led8    |salida
-3   |led9    |salida
-4   |led10   |salida
-5   |led11   |salida
-5   |sw2     |entrada
-5   |di0     |entrada
-5   |di1     |entrada
-5   |di2     |entrada
-5   |do0     |entrada
-5   |do1     |entrada
-5   |do2     |entrada
+2.5 |led1    |salida
+2.0 |led4    |salida
+2.1 |led5    |salida
+2.2 |led6    |salida
+2.3 |led7    |salida
+2.4 |led8    |salida
+3.4 |led9    |salida
+3.5 |led10   |salida
+3.6 |led11   |salida
+0.7 |sw2     |entrada
+2.7 |di0     |entrada
+0.4 |di1     |entrada
+1.7 |di2     |entrada
+4.0 |do0     |entrada
+0.5 |do1     |entrada
+3.7 |do2     |entrada
+1.2 |out_pwm1|entrada
+2.6 |out_pwm2|entrada
+1.0 |out_pwm3|entrada
+
 
 
 
@@ -65,3 +69,12 @@ The input strings to be captured by the `input()` function having a fixed size o
 
 # Tarjeta CY8CKIT-049-42XX
 
+## pines emulados
+Use el module `machine` y el submodulo `{ pin }`.
+```go
+import machine { pin }
+
+pin_write(0)        // Enciende el pin
+pin_write(1)        // Apaga el pin 
+pin_read(x)         // Identifica en que posición está pin
+```
