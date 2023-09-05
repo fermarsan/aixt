@@ -8,12 +8,10 @@ Esta implementación de Aixt para PSoC 4 da soporte a las tarjetas:
 ## Retardos
 ```go
 import time {
-	sleep,
 	sleep_ms,
 	sleep_us,
 }
 
-sleep(2)	    // sleep for 2 seconds
 sleep_us(1)     // sleep for 1 microsecond
 sleep_ms(500)   // sleep for 500 milliseconds
 ```
@@ -23,9 +21,10 @@ Use el module `machine` y el submodulo `{ pin }`.
 ```go
 import machine { pin }
 
-pin_write(led1, 1)        // Enciende el pin
-pin_write(led1, 0)        // Apaga el pin 
-pin_read(x)         // Identica el estado del pin
+pin_high(led1)         // turn ON the led1 pin 
+pin_low(led4)          // turn OFF the led4 pin 
+pin_write(led5, 1)     // write 1 on led5 pin
+pin_read(led6)         // read led6 pin
 ```
 
 ### Se establecen los pines `pin` 
@@ -110,3 +109,30 @@ out_pwm1_duty(60)       // set the duty cycle for PWM 2
 out_pwm2_duty(40)       // set the duty cycle for PWM 3
 out_pwm3_duty(40)       // set the duty cycle for PWM 4
 ```
+### Se establecen los pines `pin` 
+Las funciones para emular los pines de salifa y entradas en la tarjeta son: 
+
+Pin | nombre |Tipo    |
+--  |-       |-       |
+2.7 |di0     |entrada
+2.7 |di1     |entrada
+2.7 |di2     |entrada
+2.7 |di3     |entrada
+0.4 |di4     |entrada
+1.7 |di5     |entrada
+2.7 |di6     |entrada
+4.0 |do0     |entrada
+0.5 |do1     |salida
+3.7 |do2     |salida
+3.7 |do3     |salida
+3.7 |do4     |salida
+3.7 |do5     |salida
+3.7 |do6     |salida
+1.2 |out_pwm0|entrada
+2.6 |out_pwm1|entrada
+1.0 |out_pwm2|entrada
+1.2 |out_pwm3|entrada
+1.2  |in0_adc|entrada
+.2 |in1_adc|entrada
+1.2 |in2_adc|entrada
+1.2 |in3_adc|entrada
