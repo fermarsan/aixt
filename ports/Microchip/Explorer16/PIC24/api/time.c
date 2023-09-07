@@ -6,5 +6,6 @@
 //
 // Description: Includes all the timing functions 
 //              (Explorer16-PIC24 port)
+#include <libpic30.h>
 #include "./time/sleep_us.c"
 #include "./time/sleep_ms.c"
