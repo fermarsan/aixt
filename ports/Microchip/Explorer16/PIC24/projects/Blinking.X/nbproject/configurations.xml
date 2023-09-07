@@ -12,8 +12,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>main.v</itemPath>
-      <itemPath>main.c</itemPath>
+      <itemPath>blinking.c</itemPath>
+      <itemPath>blinking.v</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -200,6 +200,9 @@
       <PICkit3PlatformTool>
         <property key="firmware.download.all" value="false"/>
       </PICkit3PlatformTool>
+      <Tool>
+        <property key="firmware.download.all" value="false"/>
+      </Tool>
     </conf>
   </confs>
 </configurationDescriptor>

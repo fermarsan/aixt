@@ -16,13 +16,6 @@ fn (mut gen Gen) ast_file(node ast.File) string {
 	out += '// Device = ${gen.setup.value('device').string()}\n'
 	out += '// Board = ${gen.setup.value('board').string()}\n'
 	out += '// Backend = ${gen.setup.value('backend').string()}\n\n'
-	out += '___includes_block___\n' 
-	gen.includes = ''
-    for h in gen.setup.value('headers').array() {			// append the header files
-        gen.includes +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
-	}
-	api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
-    gen.includes += '#include "${api_path}/builtin.c"\n'
     for m in gen.setup.value('macros').array() { 			// append the macros
         out += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
 	}
@@ -30,6 +23,13 @@ fn (mut gen Gen) ast_file(node ast.File) string {
     for c in gen.setup.value('configuration').array() {		// append the configuration lines
         out += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
 	}
+	out += '\n___includes_block___\n' 
+	gen.includes = ''
+    for h in gen.setup.value('headers').array() {			// append the header files
+        gen.includes +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
+	}
+	api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
+    gen.includes += '#include "${api_path}/builtin.c"\n'
 	for st in node.stmts {
 		out += gen.ast_node(st)
 	}

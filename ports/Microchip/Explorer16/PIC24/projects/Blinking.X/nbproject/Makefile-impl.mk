@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Aixt-Explorer16-PIC24.X
+PROJECTNAME=Blinking.X
 
 # Active Configuration
 DEFAULTCONF=default

@@ -3,13 +3,6 @@
 // Board = Explorer 16
 // Backend = native
 
-#include <xc.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/builtin.c"
-#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/machine/pin.c"
-#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/time/sleep_ms.c"
-
 #define FCY 4000000UL
 
 #pragma config POSCMOD = XT
@@ -26,12 +19,20 @@
 #pragma config GCP = OFF
 #pragma config JTAGEN = OFF
 
+#include <xc.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/builtin.c"
+#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/time/sleep_ms.c"
+
+
 int main(void ) {
-	pin_mode(a7, out);
+	pin_mode(led4, out);
 	while(true) {
-		pin_high(a7);
+		pin_high(led4);
 		sleep_ms(500);
-		pin_low(a7);
+		pin_low(led4);
 		sleep_ms(500);
 	}
 	return 0;
