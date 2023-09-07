@@ -7,6 +7,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/builtin.c"
+#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/time/sleep_ms.c"
 
 #define FCY 4000000UL
 
@@ -23,8 +25,6 @@
 #pragma config GWRP = OFF
 #pragma config GCP = OFF
 #pragma config JTAGEN = OFF
-#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/machine/pin.c"
-#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/time/sleep_ms.c"
 
 int main(void ) {
 	pin_mode(a7, out);
