@@ -28,11 +28,12 @@
 
 
 int main(void ) {
-	pin_mode(led4, out);
+	AD1PCFG = 0xFFFF; // set all I/O digital
+	pin_mode(led3, out);
 	while(true) {
-		pin_high(led4);
+		pin_high(led3);
 		sleep_ms(500);
-		pin_low(led4);
+		pin_low(led3);
 		sleep_ms(500);
 	}
 	return 0;

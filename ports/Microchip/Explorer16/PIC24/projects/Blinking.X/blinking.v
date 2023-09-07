@@ -1,11 +1,11 @@
 import machine {pin}
 import time {sleep_ms}
 
-pin_mode(led4, out)
+pin_mode(led3, out)
 
 for {
-	pin_high(led4)
+	pin_high(led3)
 	sleep_ms(500)
-	pin_low(led4)
+	pin_low(led3)
 	sleep_ms(500)
 }
