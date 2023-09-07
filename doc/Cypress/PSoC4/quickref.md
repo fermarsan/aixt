@@ -1,78 +1,143 @@
 # Guía rapida PSoC4
 Esta implementación de Aixt para PSoC 4 da soporte a las tarjetas:
-- CY8CKIT-049-42XX
 - CY8CKIT-145-40XX
+- CY8CKIT-049-42XX
 
-## Delay
-Use the `time` module:
+# Tarjeta CY8CKIT-145-40XX
+
+## Retardos
 ```go
-import time
+import time {
+	sleep_ms,
+	sleep_us,
+}
 
-sleep(2)            // sleep for 2 seconds
-sleep_ms(50)        // sleep for 50 milliseconds
-sleep_us(100)       // sleep for 100 microseconds
-```
-alternatively you can import only the needed function:
-```go
-import time { sleep_ms }
-
-sleep_ms(200)       // sleep for 200 milliseconds
+sleep_us(1)     // sleep for 1 microsecond
+sleep_ms(500)   // sleep for 500 milliseconds
 ```
 
-## Emulated pins
-Use the `machine` module and the `{ pin }` submodule.
+## pines emulados
+Use el module `machine` y el submodulo `{ pin }`.
 ```go
 import machine { pin }
 
-pin_high(A)         // turn ON the A pin 
-pin_low(y)          // turn OFF the y pin 
-pin_write(D, 1)     // write 1 on D pin
-pin_read(x)         // read x pin
+pin_high(led1)         // turn ON the led1 pin 
+pin_low(led4)          // turn OFF the led4 pin 
+pin_write(led5, 1)     // write 1 on led5 pin
+pin_read(led6)         // read led6 pin
 ```
 
-### `pin` names
-Functions to emulate input/output pins on the console. There are 8 emulated pins named: `A`, `B`, `C`, `D`, `w`, `x`, `y` and `z`, which are show in the console after any change, as follows:
+### Se establecen los pines `pin` 
+Las funciones para emular los pines de salifa y entradas en la tarjeta son: 
 
-_**After calling a writing function**_
-```
- Aixt virtual pins     [#] = ON   [ ] = OFF
- _____ _____ _____ _____ _____ _____ _____ _____
-|  A  |  B  |  C  |  D  |  w  |  x  |  y  |  z  |
-| [#] | [ ] | [ ] | [ ] | [ ] | [#] | [ ] | [ ] |
-'-----'-----'-----'-----'-----'-----'-----'-----'
-```
-_**After calling a reading function**_
-```
- Aixt virtual pins     Input z : 1
-```
+Pin | nombre |Tipo    |
+--  |-       |-       |
+2.5 |led1    |salida
+2.0 |led4    |salida
+2.1 |led5    |salida
+2.2 |led6    |salida
+2.3 |led7    |salida
+2.4 |led8    |salida
+3.4 |led9    |salida
+3.5 |led10   |salida
+3.6 |led11   |salida
+0.7 |sw2     |entrada
+2.7 |di0     |entrada
+0.4 |di1     |entrada
+1.7 |di2     |entrada
+4.0 |do0     |salida
+0.5 |do1     |salida
+3.7 |do2     |salida
+1.2 |out_pwm1|salida
+2.6 |out_pwm2|salida
+1.0 |out_pwm3|salida
 
-#### Supported functions
-name                    | description
-------------------------|---------------------
-`pin_high(pin)`         | Turn ON `pin`
-`pin_low(pin)`          | Turn OFF `pin`
-`pin_write(pin, val)`   | Write `val` in `pin`
-`pin_read(pin)`         | Read `pin`
 
-_Note: when using `pin_read()` the user has to write the value in the console manually._
+
+
 
 ## PWM
+Se nombran 4 PWMS; out_pwm0, out_pwm1, out_pwm2 y out_pwm3.
+
 Use the `machine` module and the `{ pwm }` submodule.
 ```go
 import machine { pwm }
 
-pwm1_duty(40)       // set the duty cycle for PWM 1
-pwm2_duty(60)       // set the duty cycle for PWM 2
+out_pwm1_duty(100)       // set the duty cycle for PWM 1
+out_pwm2_duty(60)       // set the duty cycle for PWM 2
+out_pwm3_duty(40)       // set the duty cycle for PWM 3
 ```
 
-Console output:
+
+## UART
+```go
+import machine { uart }
+
+uart1(115200)
+
+uart1_put(`x`)
+y := uart1_get()
+
+uart1_write('Hello...')
+msg := uart1_read()
 ```
- Aixt virtual PWM outputs
-                                    PWM 1 :  40 %
-||||||||||||||||||||______________________________
-                                    PWM 2 :  60 %
-||||||||||||||||||||||||||||||____________________
+
+
+### `input()` function
+The input strings to be captured by the `input()` function having a fixed size of 30 characters.
+
+# Tarjeta CY8CKIT-049-42XX
+
+## pines emulados
+Use el module `machine` y el submodulo `{ pin }`.
+```go
+import machine { pin }
+
+pin_high(led1)         // turn ON the led1 pin 
+pin_low(led4)          // turn OFF the led4 pin 
+pin_write(led5, 1)     // write 1 on led5 pin
+pin_read(led6)         // read led6 pin
 ```
+
+## PWM
+Hay tres PWM; out_pwm1, out_pwm2 y out_pwm3.
+
+Use the `machine` module and the `{ pwm }` submodule.
+```go
+import machine { pwm }
+
+out_pwm0_duty(40)       // set the duty cycle for PWM 1
+out_pwm1_duty(60)       // set the duty cycle for PWM 2
+out_pwm2_duty(40)       // set the duty cycle for PWM 3
+out_pwm3_duty(40)       // set the duty cycle for PWM 4
+```
+### Se establecen los pines `pin` 
+Las funciones para emular los pines de salifa y entradas en la tarjeta son: 
+
+Pin | nombre |Tipo    |
+--  |-       |-       |
+2.7 |di0     |entrada
+2.7 |di1     |entrada
+2.7 |di2     |entrada
+2.7 |di3     |entrada
+0.4 |di4     |entrada
+1.7 |di5     |entrada
+2.7 |di6     |entrada
+4.0 |do0     |entrada
+0.5 |do1     |salida
+3.7 |do2     |salida
+3.7 |do3     |salida
+3.7 |do4     |salida
+3.7 |do5     |salida
+3.7 |do6     |salida
+1.2 |out_pwm0|entrada
+2.6 |out_pwm1|entrada
+1.0 |out_pwm2|entrada
+1.2 |out_pwm3|entrada
+1.2 |in0_adc |entrada
+.2  |in1_adc  |entrada
+1.2 |in2_adc |entrada
+1.2 |in3_adc |entrada
 
 ## ADC
 Use the `machine` module and the `{ adc }` submodule.
@@ -83,22 +148,3 @@ val1, val2 := 0, 0
 val1 = adc1_read()       // read de ADC 1
 val2 = adc2_read()       // read de ADC 2
 ```
-
-Console output:
-```
-Aixt virtual ADC input     ADC 1 : 23
-```
-```
-Aixt virtual ADC input     ADC 2 : 56
-```
-_**NOTE:** you can use the whole set of functions if you import all the machine module, like this._
-```go
-import machine
-```
-
-  
-
-## `os` module
-
-### `input()` function
-The input strings to be captured by the `input()` function having a fixed size of 30 characters.
