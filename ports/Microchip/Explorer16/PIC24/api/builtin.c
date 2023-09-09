@@ -6,6 +6,22 @@
 //
 // Description: Builtin definitions
 //              (Explorer16-PIC24)
+#define led3    a0  // Onboard LED            
+#define led4    a1        
+#define led5    a2        
+#define led6    a3       
+#define led7    a4       
+#define led8    a5        
+#define led9    a6        
+#define led10   a7    
+
+#define sw3     d6  // Onboard switchs  
+#define sw4     d13  
+#define sw5     a7  
+#define sw6     d7  
+
+#define pot     b5  // Onboard potentiometer
+
 enum __pin_names {
     a0 = 0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, //port A  
         b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, //port B

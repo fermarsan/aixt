@@ -17,6 +17,9 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		out += if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
 		out += '${gen.setup.value('main_ret_type').string()} '
 		out += 'main(${gen.setup.value('main_params').string()}) {\n'
+		for c in gen.setup.value('initialization').array() {		// append the initializatio lines
+        	out += '${c.string()}\n'    
+		}
 		// println('fn stmts:\t${node.stmts}')
 		for st in node.stmts {
 			out += gen.ast_node(st)

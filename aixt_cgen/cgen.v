@@ -134,26 +134,7 @@ fn (mut gen Gen) out_format() {
 }
 
 
-    // @v_args(inline=False)
-    // def import_stmt(self, ist):
-    //     s = ''
-    //     if ist[1] in self.setup['api_modules']:
-    //         self.moduleStack.append(ist[1])
-    //         if len(ist) == 2:
-    //             s = '#include "./{}.h"'.format(ist[1])
-    //         else:
-    //             s = ''
-    //             for i in range(3,len(ist)):
-    //                 if ist[i] not in ('}', ','):
-    //                     s += '#include "./{}/{}__{}.h"\n'.format(ist[1], ist[1], ist[i])
-    //     return s
-
-    // def global_decl(self, gl, lp, sl, rp):
-    //     s = '\n'
-    //     for st in sl:
-    //         s += '{};\n'.format(st)
-    //     return s + '\n'
-
+  
 
 
 // creating settings.h

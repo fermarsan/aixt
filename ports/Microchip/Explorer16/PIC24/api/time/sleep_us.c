@@ -6,4 +6,6 @@
 //
 // Description: Microseconds delay function
 //              (Explorer16-PIC24 port)
+#include <libpic30.h>
+
 #define sleep_us(TIME)    __delay_us(TIME)

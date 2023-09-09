@@ -6,4 +6,6 @@
 //
 // Description: Milliseconds delay function
 //              (Explorer16-PIC24 port)
+#include <libpic30.h>
+
 #define sleep_ms(TIME)    __delay_ms(TIME)

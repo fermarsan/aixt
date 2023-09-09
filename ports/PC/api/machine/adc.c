@@ -22,4 +22,4 @@ int adc2_read() {
     printf(" Aixt virtual ADC input     ADC 2 : ");
     scanf("%d", &__value);
     return __value;
-}
+}andcagual
