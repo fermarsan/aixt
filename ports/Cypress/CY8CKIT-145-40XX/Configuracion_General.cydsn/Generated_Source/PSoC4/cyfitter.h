@@ -699,8 +699,8 @@
 #define uart_SCB__UART_RX_STATUS CYREG_SCB1_UART_RX_STATUS
 #define uart_SCB__UART_TX_CTRL CYREG_SCB1_UART_TX_CTRL
 #define uart_SCBCLK__CTRL_REGISTER CYREG_PERI_PCLK_CTL1
-#define uart_SCBCLK__DIV_ID 0x00000044u
-#define uart_SCBCLK__DIV_REGISTER CYREG_PERI_DIV_16_CTL4
+#define uart_SCBCLK__DIV_ID 0x00000042u
+#define uart_SCBCLK__DIV_REGISTER CYREG_PERI_DIV_16_CTL2
 #define uart_SCBCLK__PA_DIV_ID 0x000000FFu
 #define uart_tx__0__DR CYREG_GPIO_PRT3_DR
 #define uart_tx__0__DR_CLR CYREG_GPIO_PRT3_DR_CLR
@@ -740,6 +740,12 @@
 #define uart_tx__PORT 3u
 #define uart_tx__PS CYREG_GPIO_PRT3_PS
 #define uart_tx__SHIFT 1u
+
+/* clock */
+#define clock__CTRL_REGISTER CYREG_PERI_PCLK_CTL6
+#define clock__DIV_ID 0x00000041u
+#define clock__DIV_REGISTER CYREG_PERI_DIV_16_CTL1
+#define clock__PA_DIV_ID 0x000000FFu
 
 /* led10 */
 #define led10__0__DR CYREG_GPIO_PRT3_DR
@@ -806,24 +812,6 @@
 #define led11__PORT 3u
 #define led11__PS CYREG_GPIO_PRT3_PS
 #define led11__SHIFT 6u
-
-/* clock0 */
-#define clock0__CTRL_REGISTER CYREG_PERI_PCLK_CTL6
-#define clock0__DIV_ID 0x00000041u
-#define clock0__DIV_REGISTER CYREG_PERI_DIV_16_CTL1
-#define clock0__PA_DIV_ID 0x000000FFu
-
-/* clock1 */
-#define clock1__CTRL_REGISTER CYREG_PERI_PCLK_CTL4
-#define clock1__DIV_ID 0x00000042u
-#define clock1__DIV_REGISTER CYREG_PERI_DIV_16_CTL2
-#define clock1__PA_DIV_ID 0x000000FFu
-
-/* clock2 */
-#define clock2__CTRL_REGISTER CYREG_PERI_PCLK_CTL5
-#define clock2__DIV_ID 0x00000043u
-#define clock2__DIV_REGISTER CYREG_PERI_DIV_16_CTL3
-#define clock2__PA_DIV_ID 0x000000FFu
 
 /* capsense */
 #define capsense_CintA__0__DR CYREG_GPIO_PRT4_DR

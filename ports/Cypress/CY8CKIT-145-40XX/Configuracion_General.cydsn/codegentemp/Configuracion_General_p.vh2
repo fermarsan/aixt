@@ -1,5 +1,5 @@
 -- Project:   Configuracion_General
--- Generated: 09/02/2023 21:00:54
+-- Generated: 09/07/2023 22:02:17
 -- PSoC Creator  4.4
 
 ENTITY Configuracion_General IS
@@ -46,6 +46,10 @@ ARCHITECTURE __DEFAULT__ OF Configuracion_General IS
     SIGNAL Net_24 : bit;
     SIGNAL Net_25_ff3 : bit;
     ATTRIBUTE global_signal OF Net_25_ff3 : SIGNAL IS true;
+    SIGNAL Net_25_ff4 : bit;
+    ATTRIBUTE global_signal OF Net_25_ff4 : SIGNAL IS true;
+    SIGNAL Net_25_ff5 : bit;
+    ATTRIBUTE global_signal OF Net_25_ff5 : SIGNAL IS true;
     SIGNAL Net_27 : bit;
     SIGNAL Net_28 : bit;
     SIGNAL Net_29 : bit;
@@ -53,16 +57,12 @@ ARCHITECTURE __DEFAULT__ OF Configuracion_General IS
     SIGNAL Net_30 : bit;
     SIGNAL Net_34 : bit;
     SIGNAL Net_38 : bit;
-    SIGNAL Net_39_ff4 : bit;
-    ATTRIBUTE global_signal OF Net_39_ff4 : SIGNAL IS true;
     SIGNAL Net_41 : bit;
     SIGNAL Net_42 : bit;
     SIGNAL Net_43 : bit;
     SIGNAL Net_44 : bit;
     SIGNAL Net_48 : bit;
     SIGNAL Net_72 : bit;
-    SIGNAL Net_73_ff5 : bit;
-    ATTRIBUTE global_signal OF Net_73_ff5 : SIGNAL IS true;
     SIGNAL Net_75 : bit;
     SIGNAL Net_76 : bit;
     SIGNAL Net_77 : bit;
@@ -439,8 +439,8 @@ BEGIN
             wco => ClockBlock_WCO,
             ff_div_2 => \capsense:Net_1423_ff2\,
             ff_div_3 => Net_25_ff3,
-            ff_div_4 => Net_39_ff4,
-            ff_div_5 => Net_73_ff5,
+            ff_div_4 => Net_25_ff4,
+            ff_div_5 => Net_25_ff5,
             ff_div_0 => \uart:Net_847_ff0\);
 
     \uart:tx\:logicalport
@@ -3030,7 +3030,7 @@ BEGIN
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => Net_39_ff4,
+            clock => Net_25_ff4,
             capture => '0',
             count => '1',
             reload => '0',
@@ -3047,7 +3047,7 @@ BEGIN
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => Net_73_ff5,
+            clock => Net_25_ff5,
             capture => '0',
             count => '1',
             reload => '0',
