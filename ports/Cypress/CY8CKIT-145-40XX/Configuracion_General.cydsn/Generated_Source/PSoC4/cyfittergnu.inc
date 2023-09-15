@@ -699,8 +699,8 @@
 .set uart_SCB__UART_RX_STATUS, CYREG_SCB1_UART_RX_STATUS
 .set uart_SCB__UART_TX_CTRL, CYREG_SCB1_UART_TX_CTRL
 .set uart_SCBCLK__CTRL_REGISTER, CYREG_PERI_PCLK_CTL1
-.set uart_SCBCLK__DIV_ID, 0x00000044
-.set uart_SCBCLK__DIV_REGISTER, CYREG_PERI_DIV_16_CTL4
+.set uart_SCBCLK__DIV_ID, 0x00000042
+.set uart_SCBCLK__DIV_REGISTER, CYREG_PERI_DIV_16_CTL2
 .set uart_SCBCLK__PA_DIV_ID, 0x000000FF
 .set uart_tx__0__DR, CYREG_GPIO_PRT3_DR
 .set uart_tx__0__DR_CLR, CYREG_GPIO_PRT3_DR_CLR
@@ -740,6 +740,12 @@
 .set uart_tx__PORT, 3
 .set uart_tx__PS, CYREG_GPIO_PRT3_PS
 .set uart_tx__SHIFT, 1
+
+/* clock */
+.set clock__CTRL_REGISTER, CYREG_PERI_PCLK_CTL6
+.set clock__DIV_ID, 0x00000041
+.set clock__DIV_REGISTER, CYREG_PERI_DIV_16_CTL1
+.set clock__PA_DIV_ID, 0x000000FF
 
 /* led10 */
 .set led10__0__DR, CYREG_GPIO_PRT3_DR
@@ -806,24 +812,6 @@
 .set led11__PORT, 3
 .set led11__PS, CYREG_GPIO_PRT3_PS
 .set led11__SHIFT, 6
-
-/* clock0 */
-.set clock0__CTRL_REGISTER, CYREG_PERI_PCLK_CTL6
-.set clock0__DIV_ID, 0x00000041
-.set clock0__DIV_REGISTER, CYREG_PERI_DIV_16_CTL1
-.set clock0__PA_DIV_ID, 0x000000FF
-
-/* clock1 */
-.set clock1__CTRL_REGISTER, CYREG_PERI_PCLK_CTL4
-.set clock1__DIV_ID, 0x00000042
-.set clock1__DIV_REGISTER, CYREG_PERI_DIV_16_CTL2
-.set clock1__PA_DIV_ID, 0x000000FF
-
-/* clock2 */
-.set clock2__CTRL_REGISTER, CYREG_PERI_PCLK_CTL5
-.set clock2__DIV_ID, 0x00000043
-.set clock2__DIV_REGISTER, CYREG_PERI_DIV_16_CTL3
-.set clock2__PA_DIV_ID, 0x000000FF
 
 /* capsense */
 .set capsense_CintA__0__DR, CYREG_GPIO_PRT4_DR

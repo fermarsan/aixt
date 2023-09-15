@@ -2,7 +2,7 @@
 --	Conversion of Configuracion_General.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Sep 02 21:00:53 2023
+--	Thu Sep 07 22:02:16 2023
 --
 
 USE cypress.cypress.all;
@@ -91,13 +91,11 @@ SIGNAL Net_38 : bit;
 SIGNAL Net_42 : bit;
 SIGNAL Net_43 : bit;
 SIGNAL Net_41 : bit;
-SIGNAL Net_39 : bit;
 SIGNAL tmpOE__out_pwm1_net_0 : bit;
 SIGNAL tmpFB_0__out_pwm1_net_0 : bit;
 SIGNAL tmpIO_0__out_pwm1_net_0 : bit;
 TERMINAL tmpSIOVREF__out_pwm1_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__out_pwm1_net_0 : bit;
-SIGNAL Net_73 : bit;
 SIGNAL \pwm2:Net_81\ : bit;
 SIGNAL \pwm2:Net_75\ : bit;
 SIGNAL \pwm2:Net_69\ : bit;
@@ -495,12 +493,12 @@ one <=  ('1') ;
 		line_out=>Net_28,
 		line_out_compl=>Net_29,
 		interrupt=>Net_27);
-clock0:cy_clock_v1_0
+clock:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"037dbe7e-8d39-4279-baa1-f63898faf1a3",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"83333333.3333333",
+		period=>"41666666.6666667",
 		is_direct=>'0',
 		is_digital=>'0')
 	PORT MAP(clock_out=>Net_25,
@@ -577,7 +575,7 @@ out_pwm0:cy_psoc3_pins_v1_10
 		interrupt=>tmpINTERRUPT_0__out_pwm0_net_0);
 \pwm1:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
 	GENERIC MAP(cy_registers=>"")
-	PORT MAP(clock=>Net_39,
+	PORT MAP(clock=>Net_25,
 		capture=>zero,
 		count=>one,
 		reload=>zero,
@@ -589,16 +587,6 @@ out_pwm0:cy_psoc3_pins_v1_10
 		line_out=>Net_42,
 		line_out_compl=>Net_43,
 		interrupt=>Net_41);
-clock1:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"82826932-03a0-4a68-90fc-5ed695add2f5",
-		source_clock_id=>"",
-		divisor=>0,
-		period=>"83333333.3333333",
-		is_direct=>'0',
-		is_digital=>'0')
-	PORT MAP(clock_out=>Net_39,
-		dig_domain_out=>open);
 out_pwm1:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"e95e1ce6-4e9a-485c-927a-a5992e52121f",
 		drive_mode=>"110",
@@ -669,19 +657,9 @@ out_pwm1:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__out_pwm1_net_0);
-clock2:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"f2ad5cfe-a91d-4f27-ae6f-560b40d903a8",
-		source_clock_id=>"",
-		divisor=>0,
-		period=>"83333333.3333333",
-		is_direct=>'0',
-		is_digital=>'0')
-	PORT MAP(clock_out=>Net_73,
-		dig_domain_out=>open);
 \pwm2:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
 	GENERIC MAP(cy_registers=>"")
-	PORT MAP(clock=>Net_73,
+	PORT MAP(clock=>Net_25,
 		capture=>zero,
 		count=>one,
 		reload=>zero,
