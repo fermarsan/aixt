@@ -3,6 +3,8 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-4
 
 
 # Tarjeta CY8CKIT-049-42XX
+![Alt text](../../../../imagenes/cy8kit049.jpg)
+
 
 ## pines emulados
 Use el module `machine` y el submodulo `{ pin }`.
@@ -30,7 +32,7 @@ out_pwm3_duty(40)       // set the duty cycle for PWM 4
 ### Se establecen los pines `pin` 
 Las funciones para emular los pines de salifa y entradas en la tarjeta son: 
 
-Pin | nombre |Tipo    |
+Puerto | nombre |Tipo    |
 --  |-       |-       |
 1.6 |led1    |salida
 0.7 |sw1     |entrada 
@@ -56,15 +58,16 @@ Pin | nombre |Tipo    |
 3.7 |do8     |salida
 4.2 |do9     |salida
 4.3 |do10    |salida
-1.0 |out_pwm0|entrada
-1.2 |out_pwm1|entrada
-1.4 |out_pwm2|entrada
-2.4 |out_pwm3|entrada
-2.6 |in0_adc |entrada
-2.0 |in0_adc  |entrada
+1.0 |out_pwm0|salida
+1.2 |out_pwm1|salida
+2.4 |out_pwm2|salida
+2.6 |out_pwm3|salida
+2.0 |in0_adc |entrada
 2.1 |in1_adc  |entrada
-2.2 |in2_adc |entrada
+2.2 |in2_adc  |entrada
 2.3 |in3_adc |entrada
+4.0 |\uart:rx\ |salida
+4.1 |\uart:tx\ |salida
 
 ## ADC
 Use the `machine` module and the `{ adc }` submodule.

@@ -27,7 +27,7 @@ pin_read(led6)         // read led6 pin
 ### Se establecen los pines `pin` 
 Las funciones para emular los pines de salifa y entradas en la tarjeta son: 
 
-Pin | nombre |Tipo    |
+Puerto | nombre |Tipo    |
 --  |-       |-       |
 2.5 |led1    |salida
 2.0 |led4    |salida
@@ -45,9 +45,11 @@ Pin | nombre |Tipo    |
 4.0 |do0     |salida
 0.5 |do1     |salida
 3.7 |do2     |salida
-1.2 |out_pwm1|salida
-2.6 |out_pwm2|salida
-1.0 |out_pwm3|salida
+1.2 |out_pwm0|salida
+2.6 |out_pwm1|salida
+1.0 |out_pwm2|salida
+3.0 |\uart:rx\ |salida
+3.1 |\uart:tx\ |salida
 
 
 
@@ -78,6 +80,7 @@ y := uart1_get()
 uart1_write('Hello...')
 msg := uart1_read()
 ```
+## Capsenses
 
 
 ### `input()` function
