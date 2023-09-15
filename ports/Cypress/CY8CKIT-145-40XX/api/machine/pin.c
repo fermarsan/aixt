@@ -6,10 +6,7 @@
 //
 // Description: Pin management functions
 //              (Explorer16-PIC24 port)
-#include <p24FJ128GA010.h>
-
-#define out 0   // pin direction
-#define in  1
+#include <p24FJ128GA010.h> //project.h
 
 int *__addr;          //PORT address pointer
 int __port_bit;     //specific bit of PORT
@@ -36,15 +33,17 @@ int __port_bit;     //specific bit of PORT
 //     ((*((int)(PIN/16)*3 + &PORTA) >> (PIN%16)) & 0x0001)
 
 
-void pin_mode(int PIN, int TYPE) { 
-    __addr = (int)(PIN/16)*3 + &TRISA;
-    __port_bit = PIN%16;
-    if(TYPE==in) *__addr |=   0x0001<<__port_bit;
-    else         *__addr &= ~(0x0001<<__port_bit);
-}
 
 void pin_high(int PIN) {   
-    *((int)(PIN/16)*3 + &LATA)  |=   0x0001<<(PIN%16);
+    switch (PIN)
+    {
+    case led1:
+        led1_Write(0);
+        break;
+    
+    default:
+        break;
+    }
 }
 
 void pin_low(int PIN) {    
