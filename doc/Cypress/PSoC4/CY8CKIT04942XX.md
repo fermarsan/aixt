@@ -3,8 +3,9 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-4
 
 
 # Tarjeta CY8CKIT-049-42XX
-![CY8CKIT-049-42XX](https://i.ytimg.com/vi/v-ZHFygeL2I/maxresdefault.jpg)
-../../../../imagenes/
+![](https://i.ytimg.com/vi/v-ZHFygeL2I/maxresdefault.jpg)
+![](https://m.media-amazon.com/images/I/61zGdygcL4L.jpg)
+
 
 ## pines emulados
 Use el module `machine` y el submodulo `{ pin }`.
