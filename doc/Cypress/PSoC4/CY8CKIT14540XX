@@ -1,31 +1,26 @@
 
 # Guía rapida PSoC4
-Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-42XX
+Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT14540XX
 
-## Retardos
-```go
-import time {
-	sleep_ms,
-	sleep_us,
-}
+# Identificación tarjeta CY8CKIT14540XX	
 
-sleep_us(1)     // sleep for 1 microsecond
-sleep_ms(500)   // sleep for 500 milliseconds
-```
+## Vista
+*Parte superior*
+![](https://iotexpert.com/wp-content/uploads/2016/02/145front-e.png)
+*Parte inferior*
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZfGdAnE2c-UQa2_0utN_ya3bh9NYv5eqZQ&usqp=CAU)
 
-## pines emulados
-Use el module `machine` y el submodulo `{ pin }`.
-```go
-import machine { pin }
+## Hoja de datos
+[CY8CKIT14540XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-145-40XX_PSoC_4000S_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0efccdd91344)
 
-pin_high(led1)         // turn ON the led1 pin 
-pin_low(led4)          // turn OFF the led4 pin 
-pin_write(led5, 1)     // write 1 on led5 pin
-pin_read(led6)         // read led6 pin
-```
 
-### Se establecen los pines `pin` 
-Las funciones para emular los pines de salifa y entradas en la tarjeta son: 
+
+# Configuración general
+
+Para generar una estructura de programación para este microcontrolador basasdo en el lenguaje V, se configuro una 
+
+## Puertos y nombramientos
+A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
 
 Puerto | nombre |Tipo    |
 --  |-       |-       |
@@ -51,6 +46,27 @@ Puerto | nombre |Tipo    |
 3.0 |\uart:rx\ |salida
 3.1 |\uart:tx\ |salida
 
+## Retardos
+```go
+import time {
+	sleep_ms,
+	sleep_us,
+}
+
+sleep_us(1)     // sleep for 1 microsecond
+sleep_ms(500)   // sleep for 500 milliseconds
+```
+
+## pines emulados
+Use el module `machine` y el submodulo `{ pin }`.
+```go
+import machine { pin }
+
+pin_high(led1)         // turn ON the led1 pin 
+pin_low(led4)          // turn OFF the led4 pin 
+pin_write(led5, 1)     // write 1 on led5 pin
+pin_read(led6)         // read led6 pin
+```
 
 
 

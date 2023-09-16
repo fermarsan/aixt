@@ -1,8 +1,10 @@
 # Guía rapida PSoC4
-Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-42XX; se dará una explicación de los 
+Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-42XX; 
 
 
-# Tarjeta CY8CKIT-049-42XX
+# Identificación tarjeta CY8CKIT-049-42XX
+
+## Vista
 *Parte superior*
 ![](https://i.ytimg.com/vi/v-ZHFygeL2I/maxresdefault.jpg)
 *Parte inferior*
@@ -13,6 +15,9 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-4
 
 
 # Configuración general
+
+
+
 ## Puertos y nombramientos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
 
