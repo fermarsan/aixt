@@ -9,7 +9,7 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-4
 ![](https://m.media-amazon.com/images/I/61zGdygcL4L.jpg)
 
 ## Hoja de datos
-[CY8CKIT-049-42XX](file:///E:/camilo/universidad/Ingenieria/Pasantia/cy8ckit04942xx/CY8CKIT-049-42XX-datasheet.pdf)
+[CY8CKIT-049-42XX](E:/camilo/universidad/Ingenieria/Pasantia/cy8ckit04942xx/CY8CKIT-049-42XX-datasheet.pdf)
 
 
 
