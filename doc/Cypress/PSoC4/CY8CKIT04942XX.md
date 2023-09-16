@@ -1,37 +1,21 @@
 # Guía rapida PSoC4
-Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-42XX
+Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-42XX; se dará una explicación de los 
 
 
 # Tarjeta CY8CKIT-049-42XX
+*Parte superior*
 ![](https://i.ytimg.com/vi/v-ZHFygeL2I/maxresdefault.jpg)
+*Parte inferior*
 ![](https://m.media-amazon.com/images/I/61zGdygcL4L.jpg)
 
+## Hoja de datos
+[CY8CKIT-049-42XX](file:///E:/camilo/universidad/Ingenieria/Pasantia/cy8ckit04942xx/CY8CKIT-049-42XX-datasheet.pdf)
 
-## pines emulados
-Use el module `machine` y el submodulo `{ pin }`.
-```go
-import machine { pin }
 
-pin_high(led1)         // turn ON the led1 pin 
-pin_low(led4)          // turn OFF the led4 pin 
-pin_write(led5, 1)     // write 1 on led5 pin
-pin_read(led6)         // read led6 pin
-```
 
-## PWM
-Hay tres PWM; out_pwm1, out_pwm2 y out_pwm3.
-
-Use the `machine` module and the `{ pwm }` submodule.
-```go
-import machine { pwm }
-
-out_pwm0_duty(40)       // set the duty cycle for PWM 1
-out_pwm1_duty(60)       // set the duty cycle for PWM 2
-out_pwm2_duty(40)       // set the duty cycle for PWM 3
-out_pwm3_duty(40)       // set the duty cycle for PWM 4
-```
-### Se establecen los pines `pin` 
-Las funciones para emular los pines de salifa y entradas en la tarjeta son: 
+# Configuración general
+## Puertos y nombramientos
+A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
 
 Puerto | nombre |Tipo    |
 --  |-       |-       |
@@ -69,6 +53,9 @@ Puerto | nombre |Tipo    |
 2.3 |in3_adc |entrada
 4.0 |\uart:rx\ |salida
 4.1 |\uart:tx\ |salida
+
+## PWM
+Hay tres PWM; out_pwm1, out_pwm2 y out_pwm3.
 
 ## ADC
 Use the `machine` module and the `{ adc }` submodule.
