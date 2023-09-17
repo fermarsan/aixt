@@ -16,7 +16,15 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-4
 
 # Configuración general
 
+Se integran las funciones básicas del microcontrolados para generar una estructura hardware general, asi;
 
+- 4 pwms
+- 1 leds
+- 1 pulsador
+- 2 puertos de comunicación
+- 11 entradas digitales
+- 11 salidas digitales
+- 4 entradas análogas
 
 ## Puertos y nombramientos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
@@ -57,6 +65,9 @@ Puerto | nombre |Tipo    |
 2.3 |in3_adc |entrada
 4.0 |\uart:rx\ |salida
 4.1 |\uart:tx\ |salida
+
+## Leds
+se enciende con un cero
 
 ## PWM
 Hay tres PWM; out_pwm1, out_pwm2 y out_pwm3.

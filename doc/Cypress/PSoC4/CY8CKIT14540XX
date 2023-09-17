@@ -17,7 +17,14 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT14540X
 
 # Configuración general
 
-Para generar una estructura de programación para este microcontrolador basasdo en el lenguaje V, se configuro una 
+Se integran las funciones básicas del microcontrolados para generar una estructura hardware general, asi;
+
+- 3 pwms
+- 9 leds
+- 1 pulsador
+- 2 puertos de comunicación
+- 3 entradas digitales
+- 3 salidas digitales
 
 ## Puertos y nombramientos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
@@ -56,6 +63,8 @@ import time {
 sleep_us(1)     // sleep for 1 microsecond
 sleep_ms(500)   // sleep for 500 milliseconds
 ```
+## Leds
+se enciende con un uno
 
 ## pines emulados
 Use el module `machine` y el submodulo `{ pin }`.
@@ -73,6 +82,8 @@ pin_read(led6)         // read led6 pin
 
 ## PWM
 Se nombran 4 PWMS; out_pwm0, out_pwm1, out_pwm2 y out_pwm3.
+
+
 
 Use the `machine` module and the `{ pwm }` submodule.
 ```go
@@ -96,8 +107,9 @@ y := uart1_get()
 uart1_write('Hello...')
 msg := uart1_read()
 ```
-## Capsenses
-
+## sensores capacitores
+Se tienen -- sensores de tipo botón  y -- sensores tipo slider
+Estos capsenses estan asociados a los leds 9, 10 y 11.
 
 ### `input()` function
 The input strings to be captured by the `input()` function having a fixed size of 30 characters.
