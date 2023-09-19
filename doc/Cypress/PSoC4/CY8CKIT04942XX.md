@@ -15,7 +15,8 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-4
 
 # Programación de la tarjeta
 Originalmente se realiza por medio de PSoC creator 4.4
-[](/doc/Cypress/PSoC4/Imagenes/p.jpeg)
+[](https://gitlab.com/LLuucas/aixt-docs-psoc4/-/raw/main/doc/Cypress/PSoC4/Imagenes/p.jpeg?ref_type=heads)
+
 
 
 
