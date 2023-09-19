@@ -10,9 +10,6 @@
 
 
 int main() {
-	long arr[4] = {2, 4, 9, 7};
-	for(int _t1 = 0; _t1 < 0; _t1++) {
-		arr[_t1]++;
-	}
+	float a = 10.5;
 	return 0;
 }
