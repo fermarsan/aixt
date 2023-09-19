@@ -65,7 +65,7 @@ stateDiagram-v2
 
 ### Example with `main` function
 ```go
-/*blinking led example (XC16 compiler)
+/* Turning ON a LED (XC16 compiler)
 working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 
 import machine { pin }
@@ -78,7 +78,7 @@ fn main() {
 
 ### Example without `main` function (Script mode)
 ```go
-/*blinking led example (XC16 compiler)
+/*blinking LED example (XC16 compiler)
 working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 
 import machine { pin }
@@ -96,7 +96,7 @@ for {   //infinite loop
 
 ## Aixt Transpiler
 
-The transpiler is written in _V_ using the _V's_ native self-compiler (a transpiler from _V_ to _C_). This is implemented in the folders `\cmd` and `\aixtlib`.
+The transpiler is written in _V_ using the _V's_ native self-compiler (a transpiler from _V_ to _C_). This is implemented in the folders `\aixt_build`, `\aixt_cgen` and `\aixt_pref`, and the main source code is the `aixt.v` file.
 
 ## Aixt API
 
