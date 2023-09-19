@@ -65,10 +65,13 @@ stateDiagram-v2
 
 ### Example with `main` function
 ```go
+/*blinking led example (XC16 compiler)
+working on the PORTB pin 0 of a PIC24FJ microcontroller*/
+
 import machine { pin }
 
 fn main() {
-    pin(b0, out)     
+    pin_mode(b0, out)     
     pin_high(b0)    //turn ON the PORTB0
 }
 ```
@@ -81,7 +84,7 @@ working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 import machine { pin }
 import time { sleep_ms }
 
-pin(b0, out)
+pin_mode(b0, out)
 
 for {   //infinite loop
     pin_high(b0)
