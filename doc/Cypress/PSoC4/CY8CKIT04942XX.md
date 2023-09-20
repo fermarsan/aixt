@@ -1,36 +1,39 @@
 # Guía rapida PSoC4
-Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-42XX
+Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-42XX; 
 
 
-# Tarjeta CY8CKIT-049-42XX
-![Alt text](../../../../imagenes/cy8kit049.jpg)
+# Identificación tarjeta CY8CKIT-049-42XX
+
+## Vista
+*Parte superior*
+![](https://i.ytimg.com/vi/v-ZHFygeL2I/maxresdefault.jpg)
+*Parte inferior*
+![](https://m.media-amazon.com/images/I/61zGdygcL4L.jpg)
+
+## Hoja de datos
+[CY8CKIT-049-42XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-049-4xxx_PSoC_4_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ef17bd002cb)
+
+# Programación de la tarjeta
+Originalmente se realiza por medio de PSoC creator 4.4
+
+![](image.png)
 
 
-## pines emulados
-Use el module `machine` y el submodulo `{ pin }`.
-```go
-import machine { pin }
 
-pin_high(led1)         // turn ON the led1 pin 
-pin_low(led4)          // turn OFF the led4 pin 
-pin_write(led5, 1)     // write 1 on led5 pin
-pin_read(led6)         // read led6 pin
-```
+# Configuración general
 
-## PWM
-Hay tres PWM; out_pwm1, out_pwm2 y out_pwm3.
+Se integran las funciones básicas del microcontrolados para generar una estructura hardware general, asi;
 
-Use the `machine` module and the `{ pwm }` submodule.
-```go
-import machine { pwm }
+- 4 pwms
+- 1 leds
+- 1 pulsador
+- 2 puertos de comunicación
+- 11 entradas digitales
+- 11 salidas digitales
+- 4 entradas análogas
 
-out_pwm0_duty(40)       // set the duty cycle for PWM 1
-out_pwm1_duty(60)       // set the duty cycle for PWM 2
-out_pwm2_duty(40)       // set the duty cycle for PWM 3
-out_pwm3_duty(40)       // set the duty cycle for PWM 4
-```
-### Se establecen los pines `pin` 
-Las funciones para emular los pines de salifa y entradas en la tarjeta son: 
+## Puertos y nombramientos
+A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
 
 Puerto | nombre |Tipo    |
 --  |-       |-       |
@@ -68,6 +71,12 @@ Puerto | nombre |Tipo    |
 2.3 |in3_adc |entrada
 4.0 |\uart:rx\ |salida
 4.1 |\uart:tx\ |salida
+
+## Leds
+se enciende con un cero
+
+## PWM
+Hay tres PWM; out_pwm1, out_pwm2 y out_pwm3.
 
 ## ADC
 Use the `machine` module and the `{ adc }` submodule.
