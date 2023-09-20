@@ -29,17 +29,36 @@ x = pin_read(pin_name)
 ```
 `pin_read` returns an integer (`0` or `1`)
 
-## Analog to Digital
+## Analog to Digital (ADC)
+```go
+adc_setup(channel, setup_value_1, ... )
+```
 ```go
 x = adc_read(channel)
 ```
 ## PWM
+```go
+pwm_setup(pwm_id, setup_value_1, ... )
+```
 ```go
 pwm_duty(pwm_id, duty)
 ```
 - `pwm_id` is the integer ID of each PWM module
 - `duty` is the duty cycle in percentage (0 - 100)
 
+## Serial comunication (UART)
+```go
+uart_setup(uart_id, baud_rate)
+```
+```go
+x = uart_input(uart_id)
+```
+```go
+uart_println(uart_id, message)
+```
+```go
+uart_print(uart_id, message)
+```
 ## Timming
 ```go
 sleep(s)
