@@ -16,7 +16,7 @@
 - **8-bit 18F family**
     - PIC18F452     **_soon....._**
     - PIC18F2550    **_soon....._** 
-- **_Explorer 16_**: PIC24FJ128GA010    **_soon....._**
+- **_Explorer 16_**: PIC24FJ128GA010
 - **_Explorer 16_**: dsPIC33FJ256GP710A **_soon....._**
 
 ## Atmel (Microchip)
@@ -30,6 +30,7 @@
     - **_CY8CKIT-001 + (009)_**: CY8C3866AXI-040 (8051) **_soon....._**
 - **PSoC 4**
   - **_CY8CKIT-049-42xx_**: CY8C4245AXI-483 (Cortex-M0) **_soon....._**
+  - **_CY8CKIT-145-40xx_**: CY8C4045AZI-S413 (Cortex-M0) **_soon....._**
 - **PSoC 5LP**
     - **_CY8CKIT-059_**: CY8C5888LTI-LP097 (Cortex-M3) **_soon....._**
 
