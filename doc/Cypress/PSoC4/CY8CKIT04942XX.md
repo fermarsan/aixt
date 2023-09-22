@@ -6,17 +6,13 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-4
 
 ## Vista
 *Parte superior*
-![](https://i.ytimg.com/vi/v-ZHFygeL2I/maxresdefault.jpg)
-*Parte inferior*
-![](https://m.media-amazon.com/images/I/61zGdygcL4L.jpg)
+
 
 ## Hoja de datos
 [CY8CKIT-049-42XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-049-4xxx_PSoC_4_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ef17bd002cb)
 
 # Programación de la tarjeta
 Originalmente se realiza por medio de PSoC creator 4.4
-
-![](image.png)
 
 
 
@@ -31,6 +27,10 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 - 11 entradas digitales
 - 11 salidas digitales
 - 4 entradas análogas
+
+![Alt text](<Imagenes/CY8CKIT04942XX/WhatsApp Image 2023-09-19 at 9.36.34 PM.jpeg>)
+
+![Alt text](<Imagenes/CY8CKIT04942XX/WhatsApp Image 2023-09-19 at 9.36.43 PM.jpeg>)
 
 ## Puertos y nombramientos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
@@ -72,8 +72,29 @@ Puerto | nombre |Tipo    |
 4.0 |\uart:rx\ |salida
 4.1 |\uart:tx\ |salida
 
-## Leds
-se enciende con un cero
+### A tener en cuenta
+
+- El led se enciende con un cero
+
+
+## Programación en lenguaje v
+
+### Pin output
+
+Para activar el puerto que va ha usar, se usa el siguiente comando;
+```go
+pin_high(pin_name)
+```
+*Ejemplo: si se desea activar el puerto do0;  pin_high(do0).*
+
+
+```go
+pin_low(pin_name)
+```
+```go
+pin_write(pin_name, value)
+```
+- `value` is an integer to be written in the pin (`0` or `1`)
 
 ## PWM
 Hay tres PWM; out_pwm1, out_pwm2 y out_pwm3.
