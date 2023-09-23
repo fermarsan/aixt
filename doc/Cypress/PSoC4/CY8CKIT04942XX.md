@@ -1,4 +1,4 @@
-# Guía rapida PSoC4
+# Guía rápida PSoC4
 Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-42XX; 
 
 
@@ -28,11 +28,12 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 - 11 salidas digitales
 - 4 entradas análogas
 
+*visualización en PSoC creator*
 ![Alt text](<Imagenes/CY8CKIT04942XX/WhatsApp Image 2023-09-19 at 9.36.34 PM.jpeg>)
 
 ![Alt text](<Imagenes/CY8CKIT04942XX/WhatsApp Image 2023-09-19 at 9.36.43 PM.jpeg>)
 
-## Puertos y nombramientos
+## Identificación de puertos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
 
 Puerto | nombre |Tipo    |
@@ -81,20 +82,25 @@ Puerto | nombre |Tipo    |
 
 ### Pin output
 
-Para activar el puerto que va ha usar, se usa el siguiente comando;
+Para activar el puerto que va ha usar;
 ```go
 pin_high(pin_name)
 ```
 *Ejemplo: si se desea activar el puerto do0;  pin_high(do0).*
 
-
+Para desactivar el puerto que se está usando;
 ```go
 pin_low(pin_name)
 ```
+*Ejemplo: si se desea desactivar el puerto do0;  pin_low(do0).*
+
+Para desactivar o activar el puerto que se va ha usar;
+
 ```go
 pin_write(pin_name, value)
 ```
-- `value` is an integer to be written in the pin (`0` or `1`)
+*Ejemplo: si se desea desactivar el puerto do0;  pin_write(do0, 1), y si se desea activar;  pin_write(do0, 0).*
+
 
 ## PWM
 Hay tres PWM; out_pwm1, out_pwm2 y out_pwm3.

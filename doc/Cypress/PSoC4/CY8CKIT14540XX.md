@@ -1,14 +1,10 @@
 
-# Guía rapida PSoC4
+# Guía rápida PSoC4
 Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT14540XX
 
 # Identificación tarjeta CY8CKIT14540XX	
 
 ## Vista
-*Parte superior*
-![](https://iotexpert.com/wp-content/uploads/2016/02/145front-e.png)
-*Parte inferior*
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZfGdAnE2c-UQa2_0utN_ya3bh9NYv5eqZQ&usqp=CAU)
 
 ## Hoja de datos
 [CY8CKIT14540XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-145-40XX_PSoC_4000S_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0efccdd91344)
@@ -26,7 +22,13 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 - 3 entradas digitales
 - 3 salidas digitales
 
-## Puertos y nombramientos
+*visualización en PSoC creator*
+
+![Alt text](<Imagenes/CY8CKIT14540XX/WhatsApp Image 2023-09-19 at 9.37.04 PM.jpeg>)
+
+![Alt text](<Imagenes/CY8CKIT14540XX/WhatsApp Image 2023-09-19 at 9.37.25 PM.jpeg>)
+
+## Identificación de puertos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
 
 Puerto | nombre |Tipo    |
