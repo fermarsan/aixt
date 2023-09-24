@@ -54,64 +54,111 @@ Puerto | nombre |Tipo    |
 1.0 |out_pwm2|salida
 3.0 |\uart:rx\ |salida
 3.1 |\uart:tx\ |salida
+0.0 |SLD0     |entrada
+0.1 |SLD1     |entrada
+0.2 |SLD2     |entrada
+0.6 |SLD3     |entrada
+1.4 |BTN0     |entrada
+1.5 |BTN2     |entrada
+1.6 |BTN3     |entrada
 
-## Retardos
+### A tener en cuenta
+
+-El led se enciende con un uno
+
+## Programación en lenguaje v
+
+### Pin output
+
+Para activar el puerto que va ha usar;
 ```go
-import time {
-	sleep_ms,
-	sleep_us,
-}
-
-sleep_us(1)     // sleep for 1 microsecond
-sleep_ms(500)   // sleep for 500 milliseconds
+pin_high(pin_name)
 ```
-## Leds
-se enciende con un uno
+*Ejemplo: si se desea activar el puerto do0;  pin_high(do0).*
 
-## pines emulados
-Use el module `machine` y el submodulo `{ pin }`.
+Para desactivar el puerto que se está usando;
 ```go
-import machine { pin }
-
-pin_high(led1)         // turn ON the led1 pin 
-pin_low(led4)          // turn OFF the led4 pin 
-pin_write(led5, 1)     // write 1 on led5 pin
-pin_read(led6)         // read led6 pin
+pin_low(pin_name)
 ```
+*Ejemplo: si se desea desactivar el puerto do0;  pin_low(do0).*
 
+Para desactivar o activar el puerto que se va ha usar;
 
-
-
-## PWM
-Se nombran 4 PWMS; out_pwm0, out_pwm1, out_pwm2 y out_pwm3.
-
-
-
-Use the `machine` module and the `{ pwm }` submodule.
 ```go
-import machine { pwm }
-
-out_pwm1_duty(100)       // set the duty cycle for PWM 1
-out_pwm2_duty(60)       // set the duty cycle for PWM 2
-out_pwm3_duty(40)       // set the duty cycle for PWM 3
+pin_write(pin_name, value)
 ```
+*Ejemplo: si se desea desactivar el puerto do0;  pin_write(do0, 1), y si se desea activar;  pin_write(do0, 0).*
 
+### Detección puertos de entrada
 
-## UART
+Si se necesita saber en que estado esta un puerto de entrada:
 ```go
-import machine { uart }
-
-uart1(115200)
-
-uart1_put(`x`)
-y := uart1_get()
-
-uart1_write('Hello...')
-msg := uart1_read()
+x = pin_read(pin_name)
 ```
-## sensores capacitores
-Se tienen -- sensores de tipo botón  y -- sensores tipo slider
-Estos capsenses estan asociados a los leds 9, 10 y 11.
 
-### `input()` function
-The input strings to be captured by the `input()` function having a fixed size of 30 characters.
+*Ejemplo: Si se desea detectar el valor del puerto di0;  x = pin_read(di0), y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
+
+### PWM
+
+Para configurar algún pwm;
+```go
+pwm_setup(pwm_id, setup_value_1, ... )
+```
+*En pwm_id se pone el pwm a usar,  y en setup_value_1 el valor al cual se desea configurar dicho pwm.*
+
+
+Ahora, para configurar el ciclo de trabajo de un modulador;
+```go
+pwm_duty(pwm_id, duty)
+```
+*En pwm_id se pone el pwm a usar,  y en duty el valor del ciclo (de 0 a 100) en porcentaje.*
+
+### Serial comunication (UART)
+
+Para configurar un puerto UART;
+```go
+uart_setup(uart_id, baud_rate)
+```
+*Aquí uart_id es el nombre del puerto que se va ha usar, y baud_rate es el valor de los baudios al cual se va ha usar.*
+
+Si se requiere ingresar un valor a un puerto UART;
+```go
+x = uart_input(uart_id)
+```
+*Donde x es dicho valor.*
+
+En el caso de que se necesite tomar un valor del puerto UART que se esta usando;
+
+-Forma lineal
+```go
+uart_println(uart_id, message)
+```
+*Muestra el mensaje (message) de tal forma que un carácter sigue al otro.*
+
+-Forma no lineal
+```go
+uart_print(uart_id, message)
+```
+*Muestra el mensaje (message) con saltos de renglon.*
+
+### Retardos
+
+Uso de tiempos;
+
+-Segundos
+```go
+sleep(s)
+```
+-milisegundos
+
+```go
+sleep_ms(ms)
+```
+
+
+-Microsegundos
+
+```go
+sleep_us(us)
+```
+*En cada expresión, el valor del tiempo se pone dentro del parentesis.*
