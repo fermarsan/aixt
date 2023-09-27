@@ -13,7 +13,11 @@
 
 #define STEP_SIZE (capsense_LINEARSLIDER_X_RESOLUTION/capsense_LINEARSLIDER_NUM_SENSORS)
 
-void pin_high(void),pin_low(void),pin_write(void);
+#include "../../api/builtin.c"
+#include "../../api/machine/pin.c"
+#include "../../api/time/sleep_ms.c"
+
+//void pin_high(void),pin_low(void),pin_write(void);
 
 //void PWM0(void),PWM1(void),PWM2(void);
 //void CAPSENSE0(void),CAPSENSE1(void);
@@ -30,9 +34,9 @@ int main(void)
     capsense_InitializeAllBaselines();
     capsense_ScanAllWidgets();
     
-    pin_high();
-    pin_low();
-    pin_write();
+    // pin_high();
+    // pin_low();
+    // pin_write();
     //PWM0();
     //PWM1();
     //PWM2();
@@ -45,130 +49,131 @@ int main(void)
                
         //CAPSENSE1();
         
-        led6_Write(1);
-        CyDelay(300);
-        led6_Write(0);
-        CyDelay(300);
+        pin_high(led4);
+        sleep_ms(300);
+        pin_low(led4);
+        sleep_ms(300);
     }
+    return 0;
 }
 
-void pin_high()
-{
-    int __pin_name;
-    __pin_name=1;
+// void pin_high()
+// {
+//     int __pin_name;
+//     __pin_name=1;
     
-    switch(__pin_name) {
-    case 1: led1_Write(0);
-    break;
-    case 2: ;
-    break;
-    case 3: ;
-    break;
-    case 4: led4_Write(0);
-    break;
-    case 5: led5_Write(0);
-    break;
-    case 6: led6_Write(0);
-    break;
-    case 7: led7_Write(0);
-    break;
-    case 8: led8_Write(0);
-    break;
-    case 9: led9_Write(0);
-    break;
-    case 10: led10_Write(0);
-    break;
-    case 11: led11_Write(0);
-    break;
-    case 12: ;
-    break;
-    case 13: do0_Write(0);
-    break;
-    case 14: do0_Write(0);
-    break;
-    case 15: do0_Write(0);
-    break;
-    }   
-}
+//     switch(__pin_name) {
+//     case 1: led1_Write(0);
+//     break;
+//     case 2: ;
+//     break;
+//     case 3: ;
+//     break;
+//     case 4: led4_Write(0);
+//     break;
+//     case 5: led5_Write(0);
+//     break;
+//     case 6: led6_Write(0);
+//     break;
+//     case 7: led7_Write(0);
+//     break;
+//     case 8: led8_Write(0);
+//     break;
+//     case 9: led9_Write(0);
+//     break;
+//     case 10: led10_Write(0);
+//     break;
+//     case 11: led11_Write(0);
+//     break;
+//     case 12: ;
+//     break;
+//     case 13: do0_Write(0);
+//     break;
+//     case 14: do0_Write(0);
+//     break;
+//     case 15: do0_Write(0);
+//     break;
+//     }   
+// }
 
-void pin_low()
-{
-    int __pin_name;
-    __pin_name=4;
+// void pin_low()
+// {
+//     int __pin_name;
+//     __pin_name=4;
     
-    switch(__pin_name) {
-    case 1: led1_Write(1);
-    break;
-    case 2: ;
-    break;
-    case 3: ;
-    break;
-    case 4: led4_Write(1);
-    break;
-    case 5: led5_Write(1);
-    break;
-    case 6: led6_Write(1);
-    break;
-    case 7: led7_Write(1);
-    break;
-    case 8: led8_Write(1);
-    break;
-    case 9: led9_Write(1);
-    break;
-    case 10: led10_Write(1);
-    break;
-    case 11: led11_Write(1);
-    break;
-    case 12: ;
-    break;
-    case 13: do0_Write(1);
-    break;
-    case 14: do0_Write(1);
-    break;
-    case 15: do0_Write(1);
-    break;
-    }   
-}
+//     switch(__pin_name) {
+//     case 1: led1_Write(1);
+//     break;
+//     case 2: ;
+//     break;
+//     case 3: ;
+//     break;
+//     case 4: led4_Write(1);
+//     break;
+//     case 5: led5_Write(1);
+//     break;
+//     case 6: led6_Write(1);
+//     break;
+//     case 7: led7_Write(1);
+//     break;
+//     case 8: led8_Write(1);
+//     break;
+//     case 9: led9_Write(1);
+//     break;
+//     case 10: led10_Write(1);
+//     break;
+//     case 11: led11_Write(1);
+//     break;
+//     case 12: ;
+//     break;
+//     case 13: do0_Write(1);
+//     break;
+//     case 14: do0_Write(1);
+//     break;
+//     case 15: do0_Write(1);
+//     break;
+//     }   
+// }
 
-void pin_write()
-{
-    int __pin_name, __value;
-    __pin_name=5;
-    __value=0;
+// void pin_write()
+// {
+//     int __pin_name, __value;
+//     __pin_name=5;
+//     __value=0;
     
-    switch(__pin_name) {
-    case 1: led1_Write(__value);
-    break;
-    case 2: ;
-    break;
-    case 3: ;
-    break;
-    case 4: led4_Write(__value);
-    break;
-    case 5: led5_Write(__value);
-    break;
-    case 6: led6_Write(__value);
-    break;
-    case 7: led7_Write(__value);
-    break;
-    case 8: led8_Write(__value);
-    break;
-    case 9: led9_Write(__value);
-    break;
-    case 10: led10_Write(__value);
-    break;
-    case 11: led11_Write(__value);
-    break;
-    case 12: ;
-    break;
-    case 13: do0_Write(__value);
-    break;
-    case 14: do0_Write(__value);
-    break;
-    case 15: do0_Write(__value);
-    break;
-    }       
-}
+//     switch(__pin_name) {
+//     case 1: led1_Write(__value);
+//     break;
+//     case 2: ;
+//     break;
+//     case 3: ;
+//     break;
+//     case 4: led4_Write(__value);
+//     break;
+//     case 5: led5_Write(__value);
+//     break;
+//     case 6: led6_Write(__value);
+//     break;
+//     case 7: led7_Write(__value);
+//     break;
+//     case 8: led8_Write(__value);
+//     break;
+//     case 9: led9_Write(__value);
+//     break;
+//     case 10: led10_Write(__value);
+//     break;
+//     case 11: led11_Write(__value);
+//     break;
+//     case 12: ;
+//     break;
+//     case 13: do0_Write(__value);
+//     break;
+//     case 14: do0_Write(__value);
+//     break;
+//     case 15: do0_Write(__value);
+//     break;
+//     }       
+// }
 
 void PWM0()
     {

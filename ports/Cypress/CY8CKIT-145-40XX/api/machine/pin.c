@@ -6,57 +6,34 @@
 //
 // Description: Pin management functions
 //              (Explorer16-PIC24 port)
-#include <p24FJ128GA010.h> //project.h
 
-int *__addr;          //PORT address pointer
-int __port_bit;     //specific bit of PORT
+#define pin_high(PIN)   pin_write(PIN, 0)
+#define pin_low(PIN)    pin_write(PIN, 1)
 
-// #define pin_mode(PIN,TYPE)   \
-//     __addr = (int)(PIN/16)*3 + &TRISA; \
-//     __port_bit = PIN%16; \
-//     if(TYPE==in) *__addr |=   0x0001<<__port_bit; \
-//     else         *__addr &= ~(0x0001<<__port_bit)
-
-// #define pin_high(PIN)    \
-//     *((int)(PIN/16)*3 + &LATA)  |=   0x0001<<(PIN%16)
-
-// #define pin_low(PIN)     \
-//     *((int)(PIN/16)*3 + &LATA)  &= ~(0x0001<<(PIN%16))
-
-// #define pin_write(PIN,VAL)   \
-//     __addr = (int)(PIN/16)*3 + &LATA; \
-//     __port_bit = PIN%16; \
-//     *__addr &= (~((0x0001)<<__port_bit)); \
-//     *__addr |= (VAL<<__port_bit)  
-
-// #define pin_read(PIN)    \
-//     ((*((int)(PIN/16)*3 + &PORTA) >> (PIN%16)) & 0x0001)
-
-
-
-void pin_high(int PIN) {   
-    switch (PIN)
+void pin_write(int pin_name, int value) {  
+    switch (pin_name)
     {
     case led1:
-        led1_Write(0);
+        led1_Write(!value);
         break;
-    
+    case led4:
+        led4_Write(!value);
+        break;
     default:
         break;
     }
 }
 
-void pin_low(int PIN) {    
-    *((int)(PIN/16)*3 + &LATA)  &= ~(0x0001<<(PIN%16));
-}
-
-void pin_write(int PIN, int VAL) {  
-    __addr = (int)(PIN/16)*3 + &LATA;
-    __port_bit = PIN % 16;
-    *__addr &= (~((0x0001)<<__port_bit));
-    *__addr |= (VAL<<__port_bit);  
-}
-
-void pin_read(int PIN) {   
-    ((*((int)(PIN/16)*3 + &PORTA) >> (PIN%16)) & 0x0001);
+int pin_read(int pin_name) {   
+    switch (pin_name)
+    {
+    case sw2:
+        return sw2_Read();
+        break;
+    case di0:
+        return di0_Read();
+        break;
+    default:
+        break;
+    }
 }
