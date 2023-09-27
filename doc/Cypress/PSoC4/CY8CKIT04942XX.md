@@ -1,4 +1,4 @@
-# Guía rapida PSoC4
+# Guía rápida PSoC4
 Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-42XX; 
 
 
@@ -6,17 +6,13 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-4
 
 ## Vista
 *Parte superior*
-![](https://i.ytimg.com/vi/v-ZHFygeL2I/maxresdefault.jpg)
-*Parte inferior*
-![](https://m.media-amazon.com/images/I/61zGdygcL4L.jpg)
+
 
 ## Hoja de datos
 [CY8CKIT-049-42XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-049-4xxx_PSoC_4_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ef17bd002cb)
 
 # Programación de la tarjeta
 Originalmente se realiza por medio de PSoC creator 4.4
-
-![](image.png)
 
 
 
@@ -32,7 +28,12 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 - 11 salidas digitales
 - 4 entradas análogas
 
-## Puertos y nombramientos
+*visualización en PSoC creator*
+![Alt text](<Imagenes/CY8CKIT04942XX/WhatsApp Image 2023-09-19 at 9.36.34 PM.jpeg>)
+
+![Alt text](<Imagenes/CY8CKIT04942XX/WhatsApp Image 2023-09-19 at 9.36.43 PM.jpeg>)
+
+## Identificación de puertos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
 
 Puerto | nombre |Tipo    |
@@ -72,18 +73,118 @@ Puerto | nombre |Tipo    |
 4.0 |\uart:rx\ |salida
 4.1 |\uart:tx\ |salida
 
-## Leds
-se enciende con un cero
+### A tener en cuenta
 
-## PWM
-Hay tres PWM; out_pwm1, out_pwm2 y out_pwm3.
+- El led se enciende con un cero
 
-## ADC
-Use the `machine` module and the `{ adc }` submodule.
+
+## Programación en lenguaje v
+
+### Configuración puertos de salida
+
+Para activar el puerto que va ha usar;
 ```go
-import machine { adc }
-
-val1, val2 := 0, 0
-val1 = adc1_read()       // read de ADC 1
-val2 = adc2_read()       // read de ADC 2
+pin_high(pin_name)
 ```
+*Ejemplo: Si se desea activar el puerto do0;  pin_high(do0).*
+
+Para desactivar el puerto que se está usando;
+```go
+pin_low(pin_name)
+```
+*Ejemplo: Si se desea desactivar el puerto do0;  pin_low(do0).*
+
+Para desactivar o activar el puerto que se va ha usar;
+
+```go
+pin_write(pin_name, value)
+```
+*Ejemplo: Si se desea desactivar el puerto do0;  pin_write(do0, 1), y si se desea activar;  pin_write(do0, 0).*
+
+### Detección puertos de entrada
+
+Si se necesita saber en que estado esta un puerto de entrada:
+```go
+x = pin_read(pin_name)
+```
+
+*Ejemplo: Si se desea detectar el valor del puerto di0;  x = pin_read(di0), y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
+
+### Puertos análogos a digital (ADC)
+
+Para configurar uno de los puertos análogos;
+```go
+adc_setup(channel, setup_value_1, ... )
+```
+*En channel se introduce el nombre del puerto análogo, en setup_value_1 el valor que se le va ha dar ha dicho puerto.*
+
+Para detectar el valor del puerto análogo;
+```go
+x = adc_read(channel)
+```
+*En channel se introduce el nombre del puerto análogo, y x toma el valor que tenga dicho puerto.*
+
+### PWM
+
+Para configurar algún pwm;
+```go
+pwm_setup(pwm_id, setup_value_1, ... )
+```
+*En pwm_id se pone el pwm a usar,  y en setup_value_1 el valor al cual se desea configurar dicho pwm.*
+
+
+Ahor, para configurar el ciclo de trabajo de un modulador;
+```go
+pwm_duty(pwm_id, duty)
+```
+*En pwm_id se pone el pwm a usar,  y en duty el valor del ciclo (de 0 a 100) en porcentaje.*
+
+### Serial comunication (UART)
+
+Para configurar un puerto UART;
+```go
+uart_setup(uart_id, baud_rate)
+```
+*Aquí uart_id es el nombre del puerto que se va ha usar, y baud_rate es el valor de los baudios al cual se va ha usar.*
+
+Si se requiere ingresar un valor a un puerto UART;
+```go
+x = uart_input(uart_id)
+```
+*Donde x es dicho valor.*
+
+En el caso de que se necesite tomar un valor del puerto UART que se esta usando;
+
+-Forma lineal
+```go
+uart_println(uart_id, message)
+```
+*Muestra el mensaje (message) de tal forma que un carácter sigue al otro.*
+
+-Forma no lineal
+```go
+uart_print(uart_id, message)
+```
+*Muestra el mensaje (message) con saltos de renglon.*
+
+### Retardos
+
+Uso de tiempos;
+
+-Segundos
+```go
+sleep(s)
+```
+-milisegundos
+
+```go
+sleep_ms(ms)
+```
+
+
+-Microsegundos
+
+```go
+sleep_us(us)
+```
+*En cada expresión, el valor del tiempo se pone dentro del parentesis.*
