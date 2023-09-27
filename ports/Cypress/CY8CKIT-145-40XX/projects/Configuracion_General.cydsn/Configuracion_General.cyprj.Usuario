@@ -95,6 +95,9 @@
 <dep name=".\Generated_Source\PSoC4\uart_rx_aliases.h" />
 <dep name=".\Generated_Source\PSoC4\uart_tx.h" />
 <dep name=".\Generated_Source\PSoC4\uart_tx_aliases.h" />
+<dep name="..\..\api\builtin.c" />
+<dep name="..\..\api\machine\pin.c" />
+<dep name="..\..\api\time\sleep_ms.c" />
 <dep name=".\main.c" />
 </file>
 <file name=".\Generated_Source\PSoC4\CyFlash.h" />
@@ -180,6 +183,9 @@
 <file name=".\Generated_Source\PSoC4\uart_rx_aliases.h" />
 <file name=".\Generated_Source\PSoC4\uart_tx.h" />
 <file name=".\Generated_Source\PSoC4\uart_tx_aliases.h" />
+<file name="..\..\api\builtin.c" />
+<file name="..\..\api\machine\pin.c" />
+<file name="..\..\api\time\sleep_ms.c" />
 <file name=".\main.c" />
 <file name=".\CortexM0p\ARM_GCC_541\Debug\capsense_Centroid_LL.o">
 <dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
@@ -1985,7 +1991,7 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0p" v="133401756822441456" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0p" v="133403310076032080" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
