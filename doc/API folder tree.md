@@ -1,11 +1,11 @@
 # **_Aixt_** API folder tree
 The _Aixt_ API for each microntroller port has to be located in the folder:
 ```
-./ports/brand/microcontroler_or_board/api
+./ports/brand/microcontroller_or_board/api
 ```
 for instance:
 ```
-./port/Explorer-16/PIC24/api
+./ports/Microchip/Explorer-16/PIC24/api
 ```
 
 All the API implementations have to follow this basic folder tree:
@@ -16,6 +16,7 @@ api
  ├── machine/
  │    ├── pin.c
  │    ├── adc.c
+ │    ├── pwm.c
  │    └── uart.c
  ├── time.c
  └── time/
