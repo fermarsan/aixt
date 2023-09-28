@@ -23,6 +23,22 @@ api
       └── sleep_us.c
 ```
 
+<!-- Raspberry-Pi-Pico
+ └── projects/
+      └── blinking/
+           ├── blinking.ino
+           └── api/
+               ├── builtin.c
+               ├── machine/
+               │    └── pin.c
+               └── time/
+                    └── sleep_ms.c
+
+#include "api/builtin.c"
+#include "api/machine/pin.c"
+#include "api/time/sleep_ms.c" -->
+
+
 starting from the _Aixt_ project main folder.
 
 The _Aixt_ API is composed by several modules with certain microcontroller fuctionality. All the API functions refering to the abailable inner hardware or peripherals of each microcontroller are located in the module named `machine`. Other functions refering to generic functionalities are located in a respective module named according them. For example, all the functions refering to time or delying are located un the `time` module.
