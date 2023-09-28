@@ -1,3 +1,3 @@
 ## How to contribute?
-The main idea of using the setup file `port_name.toml` is making the contributions easier. Each contributor has to code the API functions for the specific `C` compiler and additionally the setup file. 
-<!-- Also, it is necesary to do a Makefile to run in sequence the transiler and compiler tools. -->
+The `Aixt` to `V` transcompiler performs general equivalences between both languages, but the specific characteristics of each microcontroller or `C` compilers, such as types or necessary header files, must be recorded in a setup file in `.toml` format. The main idea of using that setup file (`port_name.toml`) is to facilitate contributions by simplifying the knowledge required on the part of the contributor. Each contributor has to code the API functions for the specific `C` compiler and also the setup file.
+<!-- Additionally, a Makefile needs to be created to run the transiler and compiler tools in sequence. -->
