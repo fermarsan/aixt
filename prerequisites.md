@@ -7,12 +7,13 @@ make
 v symlink
 ```
 
-# Native C compilers
+# Native C compilers (or IDEs)
 - **XC8**: Microchip and Atmel 8-bit microcontrollers
 - **XC16**: Microchip 16-bit microcontrollers
-- **ImageCraft**: Cypress PSoC1
-- **clang** or **gcc**: PC on linux
+- **PSoC Creator**: Cypress (PSoC 3, 4 and 5)
+- **clang** or **gcc**: PC on Linux
 - **tcc**: PC on Window
+- **Arduino IDE**: for all the ports that use Arduino backend
 
 _NOTE:_ **nbc**, the NXC compiler for LEGO Mindstorms NXT intelligent brick, is already delivered along with the **Aixt project** source code.
 
