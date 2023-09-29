@@ -5,7 +5,7 @@
 // License: MIT
 //
 // Description: Pin management functions
-//              (PIC16F676 port)
+//              (PIC16F873A port)
 #include <xc.h>
 
 #define out 0   // pin direction
@@ -34,5 +34,3 @@ unsigned char __port_bit;     //specific bit of PORT
 
 #define pin_read(PIN_NAME)    \
     ((*((unsigned char)(PIN_NAME/8) + &PORTA) >> (PIN_NAME%8)) & 0x01)
-
-
