@@ -3,4 +3,4 @@
 
 
 
-** NOTA: ** Este port solo tiene salidas y entradas digitales y conversión ADC.
+**NOTA:** Este port solo tiene salidas y entradas digitales y conversión ADC.
