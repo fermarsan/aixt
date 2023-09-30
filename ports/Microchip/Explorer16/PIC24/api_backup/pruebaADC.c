@@ -15,7 +15,7 @@
 
 void initADC (int amask)
 {
-
+AD1PCFG = amask; // select analog input pins
 AD1CON1 = 0x00E0; // automatic conversion start after sampling
 AD1CSSL = 0; // no scanning required
 AD1CON2 = 0; // use MUXA, AVss and AVdd are used as Vref+/-
