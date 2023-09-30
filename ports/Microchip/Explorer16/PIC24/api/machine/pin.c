@@ -4,8 +4,7 @@
 // Date: 2022-2023
 // License: MIT
 //
-// Description: Pin management functions
-//              (Explorer16-PIC24 port)
+// Description: Pin management functions (Explorer16-PIC24 port)
 #include <p24FJ128GA010.h>
 
 #define out 0   // pin direction
@@ -14,25 +13,25 @@
 unsigned int *__addr;       // PORT address pointer
 unsigned int __port_bit;    // specific bit of PORT
 
-#define pin_mode(PIN_NAME, MODE)   \
+#define pin_mode(PIN_NAME, MODE)    \
     __addr = (unsigned int)(PIN_NAME/16)*3 + &TRISA; \
     __port_bit = PIN_NAME%16; \
     if(MODE==in) *__addr |=   0x0001<<__port_bit; \
     else         *__addr &= ~(0x0001<<__port_bit)
 
-#define pin_high(PIN_NAME)    \
+#define pin_high(PIN_NAME)  \
     *((unsigned int)(PIN_NAME/16)*3 + &LATA)  |=   0x0001<<(PIN_NAME%16)
 
-#define pin_low(PIN_NAME)     \
+#define pin_low(PIN_NAME)   \
     *((unsigned int)(PIN_NAME/16)*3 + &LATA)  &= ~(0x0001<<(PIN_NAME%16))
 
-#define pin_write(PIN_NAME,VAL)   \
+#define pin_write(PIN_NAME,VAL) \
     __addr = (unsigned int)(PIN_NAME/16)*3 + &LATA; \
     __port_bit = PIN_NAME%16; \
     *__addr &= (~((0x0001)<<__port_bit)); \
     *__addr |= (VAL<<__port_bit)  
 
-#define pin_read(PIN_NAME)    \
+#define pin_read(PIN_NAME)  \
     ((*((unsigned int)(PIN_NAME/16)*3 + &PORTA) >> (PIN_NAME%16)) & 0x0001)
 
 

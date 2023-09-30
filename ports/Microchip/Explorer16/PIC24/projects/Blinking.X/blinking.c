@@ -26,6 +26,28 @@
 #include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/machine/pin.c"
 #include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/time/sleep_ms.c"
 
+#define suma() \
+({ \
+    unsigned char a=4, b=5, c; \
+    c = a + b; \                
+    c; \                        
+})
+
+
+#define adc_setup() \ 
+    AD1CON1 = 0x00E0; \ 
+    AD1CSSL = 0; \       
+    AD1CON2 = 0; \       
+    AD1CON3 = 0x1F02; \   
+    AD1CON1bits.ADON = 1
+
+#define adc_read(CHANNEL) \
+({ \   
+    AD1CHS = CHANNEL; \           
+    AD1CON1bits.SAMP = 1; \       
+    while (!AD1CON1bits.DONE); \  
+    ADC1BUF0; \                   
+})
 
 int main(void ) {
 	AD1PCFG = 0xFFFF; // set all I/O digital
@@ -36,5 +58,6 @@ int main(void ) {
 		pin_low(led3);
 		sleep_ms(500);
 	}
+    int x = suma();
 	return 0;
 }
