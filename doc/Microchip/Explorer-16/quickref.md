@@ -5,30 +5,29 @@ Development board for Microchip 16-bit microcontrollers. It includes the familie
 - _dsPIC33_: dsPIC33FJ256GP710
 
 ## Pin names
-The pin names are named with a capitalized letter indicating the port and a number indicating the pin. For example `B12` indicates de pin 12 of port B.
-That pin definition is done in `aixt-project/api/Explorer-16-xxxxx/ports.h`.
+The pin names are named with a capitalized letter indicating the port and a number indicating the pin. For example `rb12` indicates de pin 12 of port B.
 
 ### Pin original names for PIC24FJ
-| port |0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |14 |15 |
-|:----:|--|--|--|--|--|--|--|--|--|--|---|---|---|---|---|---| 
-|**A** |A0|A1|a2|A3|A4|A5|A6|A7|- |A9|A10|-  |-  |-  |A14|A15|
-|**B** |B0|B1|B2|B3|B4|b5|B6|B7|B8|B9|B10|B11|B12|B13|B14|B15|
-|**C** |C0|C1|C2|C3|C4|- |- |- |- |- |-  |-  |C12|C13|C14|C15|
-|**D** |D0|D1|D2|D3|D4|D5|D6|D7|D8|D9|D10|D11|D12|D13|D14|D15|
-|**E** |E0|E1|E2|E3|E4|E5|E6|E7|E8|E9|-  |-  |-  |-  |-  |-  |
-|**F** |F0|F1|F2|F3|F4|F5|F6|F7|F8|- |-  |-  |F12|F13|-  |-  |
-|**G** |G0|G1|G2|G3|G4|G5|G6|G7|G8|G9|-  |-  |G12|G13|G14|G15|
+| port |0  |1  |2  |3  |4  |5  |6  |7  |8  |9  |10  |11  |12  |13  |14  |15  |
+|:----:|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----| 
+|**A** |ra0|ra1|ra2|ra3|ra4|ra5|ra6|ra7|-  |ra9|ra10|-   |-   |-   |ra14|ra15|
+|**B** |rb0|rb1|rb2|rb3|rb4|rb5|rb6|rb7|rb8|rb9|rb10|rb11|rb12|rb13|rb14|rb15|
+|**C** |rc0|rc1|rc2|rc3|rc4|-  |-  |-  |-  |-  |-   |-   |rc12|rc13|rc14|rc15|
+|**D** |rd0|rd1|rd2|rd3|rd4|rd5|rd6|rd7|rd8|rd9|rd10|rd11|rd12|rd13|rd14|rd15|
+|**E** |re0|re1|re2|re3|re4|re5|re6|re7|re8|re9|-   |-   |-   |-   |-   |-   |
+|**F** |rf0|rf1|rf2|rf3|rf4|rf5|rf6|rf7|rf8|-  |-   |-   |rf12|rf13|-   |-   |
+|**G** |rg0|rg1|rg2|rg3|rg4|rg5|rg6|rg7|rg8|rg9|-   |-   |rg12|rg13|rg14|rg15|
 
 ### Pins original names for dsPIC33
-| port |0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |14 |15 |
-|:----:|--|--|--|--|--|--|--|--|--|--|---|---|---|---|---|---| 
-|**A** |A0|A1|a2|A3|A4|A5|A6|A7|- |A9|A10|-  |-  |-  |A14|A15|
-|**B** |B0|B1|B2|B3|B4|b5|B6|B7|B8|B9|B10|B11|B12|B13|B14|B15|
-|**C** |C0|C1|C2|C3|C4|- |- |- |- |- |-  |-  |C12|C13|C14|C15|
-|**D** |D0|D1|D2|D3|D4|D5|D6|D7|D8|D9|D10|D11|D12|D13|D14|D15|
-|**E** |E0|E1|E2|E3|E4|E5|E6|E7|E8|E9|-  |-  |-  |-  |-  |-  |
-|**F** |F0|F1|F2|F3|F4|F5|F6|F7|F8|- |-  |-  |F12|F13|-  |-  |
-|**G** |G0|G1|G2|G3|G4|G5|G6|G7|G8|G9|-  |-  |G12|G13|G14|G15|
+| port |0  |1  |2  |3  |4  |5  |6  |7  |8  |9  |10  |11  |12  |13  |14  |15  |
+|:----:|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----| 
+|**A** |ra0|ra1|ra2|ra3|ra4|ra5|ra6|ra7|-  |ra9|ra10|-   |-   |-   |ra14|ra15|
+|**B** |rb0|rb1|rb2|rb3|rb4|rb5|rb6|rb7|rb8|rb9|rb10|rb11|rb12|rb13|rb14|rb15|
+|**C** |rc0|rc1|rc2|rc3|rc4|-  |-  |-  |-  |-  |-   |-   |rc12|rc13|rc14|rc15|
+|**D** |rd0|rd1|rd2|rd3|rd4|rd5|rd6|rd7|rd8|rd9|rd10|rd11|rd12|rd13|rd14|rd15|
+|**E** |re0|re1|re2|re3|re4|re5|re6|re7|re8|re9|-   |-   |-   |-   |-   |-   |
+|**F** |rf0|rf1|rf2|rf3|rf4|rf5|rf6|rf7|rf8|-  |-   |-   |rf12|rf13|-   |-   |
+|**G** |rg0|rg1|rg2|rg3|rg4|rg5|rg6|rg7|rg8|rg9|-   |-   |rg12|rg13|rg14|rg15|
 
 ### Pin names in **Aixt**
 All the names in **Aixt** are written in lower-case, to follow the **V** variable naming rules.
