@@ -49,25 +49,24 @@ sleep_ms(500)   // sleep for 500 milliseconds
 ```go
 import machine { pin }
 
-pin(b5, out)
-pin(a2, in)
+pin_mode(rb5, out)
+pin_mode(ra2, in)
 
-pin_high(b5)
-pin_low(b5)
-pin_toogle(b5)
+pin_high(rb5)
+pin_low(rb5)
 
-pin_value(a2)
+pin_write(ra2)
 ```
 
 ## UART
 ```go
 import machine { uart }
 
-uart1(9600)
+uart_setup(1, 9600)
 
-uart1_put(`x`)
-y := uart1_get()
+uart_put(1, `x`)
+y := uart_get(1)
 
-uart1_write('Hello...')
-msg := uart1_read()
+uart_write(1, 'Hello...')
+msg := uart_read(1)
 ```
