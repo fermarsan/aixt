@@ -40,6 +40,7 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		else 		{ '.c' }
 	}
 	output_path := path.replace('.v', output_ext)
+	output_path := path.replace('.aixt', output_ext)
 	// println('\n${output_path}\n')
 	os.write_file(output_path, transpiled) or {}
 
