@@ -3,7 +3,7 @@
 ## Digital I/O (Pins)
 ### Pin setup
 ```go
-pin_mode(pin_name, mode)
+pin_setup(pin_name, mode)
 ```
 - `pin_name` could change depending on the microcontroller.
 - `mode`:
@@ -16,6 +16,10 @@ pin_high(pin_name)
 ```
 ```go
 pin_low(pin_name)
+```
+```go
+pin_toggle(pin_name)    
+// not available for all devices
 ```
 ```go
 pin_write(pin_name, value)
@@ -56,7 +60,7 @@ pwm1_setup(setup_value_1, setup_value_2, ... )  //or just pwm_setup(...)
 
 ### PWM duty cycle
 ```go
-pwm_duty(duty)  //or pwm1_duty(duty)
+pwm_write(duty)  //or pwm1_duty(duty)
 ```
 
 - `duty` is the duty cycle in percentage (0 - 100)
@@ -79,6 +83,9 @@ str1 = input()          // read a string from the default UART
 ```go
 str2 = uart2_input()    // read a string from UART2
 ```
+```go
+str2 = uart1_read()    // read a single Byte from UART1
+```
 
 ### Serial transmitting
 ```go
@@ -92,6 +99,9 @@ uart2_print(message)    // print a string to the UART2
 ```
 ```go
 uart1_println(message)  // print a string plus a line-new character to the UART1
+```
+```go
+uart2_write(message)    // send binary data (in Bytes) to UART2
 ```
 ## Timming
 ```go
