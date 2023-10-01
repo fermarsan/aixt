@@ -39,8 +39,8 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		'arduino'	{ '.ino' } 
 		else 		{ '.c' }
 	}
-	mut output_path := path.replace('.v', output_ext)
-	output_path = path.replace('.aixt', output_ext)
+	mut output_path := path.replace('.aixt', output_ext)
+	output_path = output_path.replace('.v', output_ext)
 	// println('\n${output_path}\n')
 	os.write_file(output_path, transpiled) or {}
 
