@@ -1,9 +1,9 @@
 # **_Aixt_** Application Programmimg Interface
 
-## Digital I/O
-### Pin setup `pin_mode()`
+## Digital I/O (Pins)
+### Pin setup
 ```go
-pin_mode(pin_name, mode)
+pin_setup(pin_name, mode)
 ```
 - `pin_name` could change depending on the microcontroller.
 - `mode`:
@@ -18,9 +18,15 @@ pin_high(pin_name)
 pin_low(pin_name)
 ```
 ```go
+pin_toggle(pin_name)    
+// not available for all devices
+```
+```go
 pin_write(pin_name, value)
 ```
-- `value` is an integer to be written in the pin (`0` or `1`)
+- `value` is an integer to be written in the pin
+  - `0` or `low` 
+  - `1` or `high`
 
 
 ### Pin input
@@ -29,45 +35,81 @@ x = pin_read(pin_name)
 ```
 `pin_read` returns an integer (`0` or `1`)
 
-## Analog to Digital (ADC)
+## Analog to Digital Converter (ADC inputs)
+
+The syntax for all the ADC functions is: `adcx_function_name()`, being `x` the identifing number in case of multiple ADCs. You can ommit the `x` for refering to the first ADC or in the case of having only one.
+
+### ADC setup
 ```go
-adc_setup(channel, setup_value_1, ... )
+adc_setup(setup_value_1, setup_value_2, ... )   // equals to adc1_setup(...)
 ```
+
+### ADC reading
 ```go
 x = adc_read(channel)
 ```
-## PWM
+- `channel` is an identifing number of the ADC input
+## Pulse Width Modulation (PWM outputs)
+
+The syntax for all the PWM functions is: `pwmx_function_name()`, being `x` the identifing number in case of multiple PWM outputs. You can ommit the `x` for refering to the first PWM output or in the case of having only one.
+
+### PWM setup
 ```go
-pwm_setup(pwm_id, setup_value_1, ... )
+pwm1_setup(setup_value_1, setup_value_2, ... )  //or just pwm_setup(...)
 ```
+
+### PWM duty cycle
 ```go
-pwm_duty(pwm_id, duty)
+pwm_write(duty)  //or pwm1_duty(duty)
 ```
-- `pwm_id` is the integer ID of each PWM module
+
 - `duty` is the duty cycle in percentage (0 - 100)
 
 ## Serial comunication (UART)
+
+The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the especific dom¿cumentation. The syntax for most of UART functions is: `uartx_function_name()`, being `x` the identifing number in case of multiple UARTs. You can ommit the `x` for refering to the first UART or in the case of having only one.  
+
+### UART setup
+
 ```go
-uart_setup(uart_id, baud_rate)
+uart_setup(baud_rate)   // the same of uart1_setup(baud_rate)
+```
+- `baud_rate` configurate the comunication speed
+
+### Serial receiving
+```go
+str1 = input()          // read a string from the default UART
 ```
 ```go
-x = uart_input(uart_id)
+str2 = uart2_input()    // read a string from UART2
 ```
 ```go
-uart_println(uart_id, message)
+str2 = uart1_read()    // read a single Byte from UART1
+```
+
+### Serial transmitting
+```go
+print(message)      // print a string to the default UART
 ```
 ```go
-uart_print(uart_id, message)
+println(message)    // print a string plus a line-new character to the default UART
+```
+```go
+uart2_print(message)    // print a string to the UART2
+```
+```go
+uart1_println(message)  // print a string plus a line-new character to the UART1
+```
+```go
+uart2_write(message)    // send binary data (in Bytes) to UART2
 ```
 ## Timming
 ```go
-sleep(s)
+sleep(s)    // delay in seconds
 ```
 ```go
-sleep_ms(ms)
+sleep_ms(ms)    // delay in milliseconds
 ```
 ```go
-sleep_us(us)
-
-
-
+sleep_us(us)    // delay in microseconds
+```

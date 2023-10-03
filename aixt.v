@@ -121,18 +121,10 @@ Examples:
 
 aixt supports the following commands:
 
-  transpile, -t                Compile and run a V program. Delete the
-                               executable after the run.
-  compile, -c                  Compile and run a V program without deleting the
-                               executable.
-  run, -r                      Compile and run a V program without deleting the
-                               executable.
-  build, -b                    Compile and run a V program without deleting the
-                               executable.
-  clean, -cl                   Compile and run a V program without deleting the
-                               executable.
-  clean_all, -ca               Compile and run a V program without deleting the
-                               executable.
-  help, --help, -h             Compile and run a V program without deleting the
-                               executable.'
+  transpile, -t   				Transpile to C an Aixt program.
+  compile, -c     				Compile the previosly generated C file.
+  run, -r         				Run the previosly generated executable file.
+  build, -b       				Build (transpile, compile and run) an Aixt program.
+  clean, -cl      				Clean all the generated file (C and executables).
+  help, --help, -h				Call this help'
 }
