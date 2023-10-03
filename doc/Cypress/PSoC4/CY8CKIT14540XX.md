@@ -6,6 +6,8 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT14540X
 
 ## Vista
 
+![Alt text](vista_general.jpg)
+
 ## Hoja de datos
 [CY8CKIT14540XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-145-40XX_PSoC_4000S_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0efccdd91344)
 
@@ -55,10 +57,11 @@ Puerto | nombre |Tipo    |
 0.0 |SLD0     |entrada
 0.1 |SLD1     |entrada
 0.2 |SLD2     |entrada
-0.6 |SLD3     |entrada
+0.3 |SLD3     |entrada
+0.6 |SLD4     |entrada
 1.4 |BTN0     |entrada
-1.5 |BTN2     |entrada
-1.6 |BTN3     |entrada
+1.5 |BTN1     |entrada
+1.6 |BTN2     |entrada
 
 ## Programación en lenguaje v
 
