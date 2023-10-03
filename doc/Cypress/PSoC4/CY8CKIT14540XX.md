@@ -6,7 +6,7 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT14540X
 
 ## Vista
 
-![Alt text](vista_general.jpg)
+![Alt text](Imagenes/CY8CKIT14540XX/vista_general.jpg)
 
 ## Hoja de datos
 [CY8CKIT14540XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-145-40XX_PSoC_4000S_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0efccdd91344)
@@ -26,7 +26,7 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 
 *visualización en PSoC creator*
 
-![Alt text](Estructura_general_hardware_14540.jpg)
+![!\[Alt text\](Imagenes/CY8CKIT14540XX/vista_general.jpg)](Imagenes/CY8CKIT14540XX/Estructura_general_hardware_14540.jpg)
 
 ## Identificación de puertos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
@@ -67,7 +67,7 @@ Puerto | nombre |Tipo    |
 
 Algo importante en esta tarjeta es la activación de los leds, estos se encienden con ceros logicos, como se puede apreciar en los leds correspondientes a los sensores capacitivos tipo slider:
 
-![Alt text](leds14540.jpg)
+![Alt text](Imagenes/CY8CKIT14540XX/leds14540.jpg)
 
 ### Pin output
 

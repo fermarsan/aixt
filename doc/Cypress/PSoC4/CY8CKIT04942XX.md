@@ -30,7 +30,7 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 
 *visualización en PSoC creator*
 
-![Alt text](Estructura_general_hardware_4942.jpg)
+![!\[Alt text\](Estructura_general_hardware_4942.jpg)](Imagenes/CY8CKIT04942XX/Estructura_general_hardware_4942.jpg)
 
 ## Identificación de puertos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
