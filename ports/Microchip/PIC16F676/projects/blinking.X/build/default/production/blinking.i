@@ -1197,6 +1197,9 @@ unsigned char *__addr;
 unsigned char __port_bit;
 # 20 "blinking.c" 2
 
+# 1 "./..\\..\\api\\time\\sleep_ms.c" 1
+# 21 "blinking.c" 2
+
 
 void main(void) {
 
@@ -1207,8 +1210,12 @@ void main(void) {
     __addr = (unsigned char)(rc1/8) + &TRISA; __port_bit = rc1%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
     __addr = (unsigned char)(rc0/8) + &TRISA; __port_bit = rc0%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
 
-    while(1){
+
+    while (1) {
         PORTC = 0b111111;
+        _delay((unsigned long)((500)*(4000000/4000.0)));
+        PORTC = 0b000000;
+        _delay((unsigned long)((500)*(4000000/4000.0)));
 
 
     }
