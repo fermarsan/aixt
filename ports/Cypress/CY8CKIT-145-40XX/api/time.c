@@ -1,11 +1,11 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: time.c
-// Author: Fernando Martínez Santa
-// Date: 2022-2023
+// Author: Javier Leon, Camilo Lucas and Fernando Martínez Santa
+// Date: 2023
 // License: MIT
 //
 // Description: Includes all the timing functions 
-//              (Explorer16-PIC24 port)
+//              (CY8CKIT-145-40XX)
 #include <libpic30.h>
 #include "./time/sleep_us.c"
 #include "./time/sleep_ms.c"

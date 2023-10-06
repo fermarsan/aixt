@@ -5120,21 +5120,23 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  1559              	.set CYDEV_STACK_SIZE, 0x0400
  1560              	.set CYDEV_USE_BUNDLED_CMSIS, 1
  1561              	.set CYDEV_VARIABLE_VDDA, 1
- 1562              	.set CYDEV_VDDA_MV, 3300
- 1563              	.set CYDEV_VDDD_MV, 3300
- 1564              	.set CYDEV_WDT_GENERATE_ISR, 0
- 1565              	.set CYIPBLOCK_m0s8cpussv3_VERSION, 1
- 1566              	.set CYIPBLOCK_m0s8csdv2_VERSION, 1
- 1567              	.set CYIPBLOCK_m0s8ioss_VERSION, 1
- 1568              	.set CYIPBLOCK_m0s8lcd_VERSION, 2
- 1569              	.set CYIPBLOCK_m0s8lpcomp_VERSION, 2
- 1570              	.set CYIPBLOCK_m0s8peri_VERSION, 1
- 1571              	.set CYIPBLOCK_m0s8scb_VERSION, 2
- 1572              	.set CYIPBLOCK_m0s8tcpwm_VERSION, 2
- 1573              	.set CYIPBLOCK_m0s8wco_VERSION, 1
- 1574              	.set CYIPBLOCK_s8srsslt_VERSION, 1
- 1575              	.set CYDEV_BOOTLOADER_ENABLE, 0
- 1576              	.endif
+ 1562              	.set CYDEV_VDDA, 5
+ 1563              	.set CYDEV_VDDA_MV, 5000
+ 1564              	.set CYDEV_VDDD, 5
+ 1565              	.set CYDEV_VDDD_MV, 5000
+ 1566              	.set CYDEV_WDT_GENERATE_ISR, 0
+ 1567              	.set CYIPBLOCK_m0s8cpussv3_VERSION, 1
+ 1568              	.set CYIPBLOCK_m0s8csdv2_VERSION, 1
+ 1569              	.set CYIPBLOCK_m0s8ioss_VERSION, 1
+ 1570              	.set CYIPBLOCK_m0s8lcd_VERSION, 2
+ 1571              	.set CYIPBLOCK_m0s8lpcomp_VERSION, 2
+ 1572              	.set CYIPBLOCK_m0s8peri_VERSION, 1
+ 1573              	.set CYIPBLOCK_m0s8scb_VERSION, 2
+ 1574              	.set CYIPBLOCK_m0s8tcpwm_VERSION, 2
+ 1575              	.set CYIPBLOCK_m0s8wco_VERSION, 1
+ 1576              	.set CYIPBLOCK_s8srsslt_VERSION, 1
+ 1577              	.set CYDEV_BOOTLOADER_ENABLE, 0
+ 1578              	.endif
   19              	
   20              	
   21              	/*******************************************************************************
@@ -5156,11 +5158,11 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   37              	.type CyDelayCycles, %function
   38              	.thumb_func
   39              	CyDelayCycles:              /* cycles bytes */
-  40 0000 0230     	    ADDS r0, r0, #2         /*    1    2    Round to nearest multiple of 4 */
-  41 0002 8008     	    LSRS r0, r0, #2         /*    1    2    Divide by 4 and set flags */
 ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 87
 
 
+  40 0000 0230     	    ADDS r0, r0, #2         /*    1    2    Round to nearest multiple of 4 */
+  41 0002 8008     	    LSRS r0, r0, #2         /*    1    2    Divide by 4 and set flags */
   42 0004 03D0     	    BEQ CyDelayCycles_done  /*    2    2    Skip if 0 */
   43              	.IFDEF CYIPBLOCK_m0s8cpuss_VERSION
   44              	    NOP                     /*    1    2    Loop alignment padding */
@@ -5216,11 +5218,11 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   94              	* \return
   95              	*  uint8
   96              	*   Returns 0 if interrupts were previously enabled or 1 if interrupts
-  97              	*   were previously disabled.
-  98              	*
 ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 88
 
 
+  97              	*   were previously disabled.
+  98              	*
   99              	*******************************************************************************/
  100              	/* uint8 CyEnterCriticalSection(void) */
  101              	.global CyEnterCriticalSection
