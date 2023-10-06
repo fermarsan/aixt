@@ -16,6 +16,7 @@
 #include "../../api/builtin.c"
 #include "../../api/machine/pin.c"
 #include "../../api/machine/pwm.c"
+#include "../../api/machine/uart.c"
 #include "../../api/time/sleep_ms.c"
 
 

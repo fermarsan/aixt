@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Config Gral 049\Config Gral 049\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>Config Gral 049</v>
 <v>Config Gral 049\Config Gral 049</v>
@@ -30,7 +30,6 @@
 <v>Config Gral 049\Config Gral 049\Header Files\cyapicallbacks.h</v>
 <v>Config Gral 049\Config Gral 049\Source Files</v>
 <v>Config Gral 049\Config Gral 049\Source Files\main.c</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source</v>
 <v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
@@ -50,20 +49,6 @@
 <v>Config Gral 049\Config Gral 049\Source Files</v>
 <v>Config Gral 049\Config Gral 049\Source Files\main.c</v>
 <v>Config Gral 049\Config Gral 049\Generated_Source</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\adc</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\adc_intClock</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\adc_IRQ</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\amux</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\bootloadable</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\clock</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\cy_boot</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\cy_lfclk</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\di0</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\di1</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\di10</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\di2</v>
-<v>Config Gral 049\Config Gral 049\Generated_Source\PSoC4\di3</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -230,7 +215,6 @@
 <v>Config Gral 049\Config Gral 049\CortexM0\ARM_GCC_541\Debug\Listing Files\di0_PM.lst</v>
 <v>Config Gral 049\Config Gral 049\CortexM0\ARM_GCC_541\Debug\Listing Files\di1.lst</v>
 <v>Config Gral 049\Config Gral 049\CortexM0\ARM_GCC_541\Debug\Listing Files\di1_PM.lst</v>
-<v>Config Gral 049\Config Gral 049\CortexM0\ARM_GCC_541\Debug\Listing Files\di10.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -283,8 +267,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Config Gral 049.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Config Gral 049.cydsn\main.c" />
+<name v=".\Config Gral 049.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Config Gral 049.cydsn\Config Gral 049.cydwr" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -292,7 +277,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="924, 569" SelectedTabbedMdiWindow="7807dc70-7bcd-47fd-9302-829e5bbc17a2"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="93b92e40-921f-4c80-b81e-81528cab2f9e" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-049-42XX\projects\Config Gral 049.cydsn\TopDesign\TopDesign.cysch" Guid="0d9d0644-ebf9-47ab-a7ac-1ea358515a81" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-049-42XX\projects\Config Gral 049.cydsn\main.c" Guid="7807dc70-7bcd-47fd-9302-829e5bbc17a2" /></TabbedMdiContainer><TabbedMdiContainer Size="924, 30" SelectedTabbedMdiWindow="1c19c30b-8eca-414b-bea5-bcb3ef020fdf"><ToolWindow Key="Output Window Plugin:7305390e-eabe-4963-b21f-3a0f11b4b1d5:Output Window" Guid="1c19c30b-8eca-414b-bea5-bcb3ef020fdf" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="924, 428" SelectedTabbedMdiWindow="7807dc70-7bcd-47fd-9302-829e5bbc17a2"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="93b92e40-921f-4c80-b81e-81528cab2f9e" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-049-42XX\projects\Config Gral 049.cydsn\main.c" Guid="7807dc70-7bcd-47fd-9302-829e5bbc17a2" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-049-42XX\projects\Config Gral 049.cydsn\TopDesign\TopDesign.cysch" Guid="0d9d0644-ebf9-47ab-a7ac-1ea358515a81" /><DocumentWindow Key="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-049-42XX\projects\Config Gral 049.cydsn\Config Gral 049.cydwr" Guid="741caaed-48d6-4736-8ff1-ae898c420ec1" /></TabbedMdiContainer><TabbedMdiContainer Size="924, 148" SelectedTabbedMdiWindow="1c19c30b-8eca-414b-bea5-bcb3ef020fdf"><ToolWindow Key="Output Window Plugin:7305390e-eabe-4963-b21f-3a0f11b4b1d5:Output Window" Guid="1c19c30b-8eca-414b-bea5-bcb3ef020fdf" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

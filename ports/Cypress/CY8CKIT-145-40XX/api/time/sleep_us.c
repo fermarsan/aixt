@@ -6,6 +6,5 @@
 //
 // Description: Microseconds delay function
 //              (CY8CKIT-145-40XX)
-#include <libpic30.h>
 
 #define sleep_us(TIME)    CyDelayUs(TIME)
