@@ -33,5 +33,16 @@ macros = [
 .
 ```
 
-The **_Aixt_** transpiler reads the `port_name.toml` and does the traslation based on the parameters written on it, as well as adding the specific parameters of the microcontroller or board in the output `C` file.  
+The **_Aixt_** transpiler reads the `port_name.toml` and does the traslation based on the parameters written on it, as well as adding the specific parameters of the microcontroller or board in the output `C` file. 
+
+## Backend
+ 
+**_Aixt_** can generated code for 3 different backends:
+
+Backend name    | Target
+----------------|-------------------------------------------------
+c               | for the native _C_ compiler of the device
+arduino         | for the ports that use _Arduino_ language
+nxc             | for LEGO Mindstorms NXT robots on _NXC_ language  
+
 

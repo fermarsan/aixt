@@ -34,8 +34,13 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
 	// saves the output file
-	output_ext := if c_gen.setup.value('backend').string() == 'nxc' { '.nxc' } else { '.c' }
-	output_path := path.replace('.v', output_ext)
+	output_ext := match c_gen.setup.value('backend').string() {
+		'nxc' 		{ '.nxc' }
+		'arduino'	{ '.ino' } 
+		else 		{ '.c' }
+	}
+	mut output_path := path.replace('.aixt', output_ext)
+	output_path = output_path.replace('.v', output_ext)
 	// println('\n${output_path}\n')
 	os.write_file(output_path, transpiled) or {}
 

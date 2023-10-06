@@ -13,7 +13,7 @@ stateDiagram-v2
     state Aixt {
         source: Source code
         API
-    }
+    } 
 
     Aixt2C: Aixt to C Transpiler
     state Aixt2C {
