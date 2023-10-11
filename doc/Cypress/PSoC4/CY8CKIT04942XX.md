@@ -6,13 +6,11 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-4
 
 ## Vista
 *Parte superior*
-
+![Alt text](Imagenes/CY8CKIT04942XX/CY8CKIT04942XX.jpg)
 
 ## Hoja de datos
 [CY8CKIT-049-42XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-049-4xxx_PSoC_4_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ef17bd002cb)
 
-# Programación de la tarjeta
-Originalmente se realiza por medio de PSoC creator 4.4
 
 
 
@@ -29,9 +27,8 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 - 4 entradas análogas
 
 *visualización en PSoC creator*
-![Alt text](<Imagenes/CY8CKIT04942XX/WhatsApp Image 2023-09-19 at 9.36.34 PM.jpeg>)
 
-![Alt text](<Imagenes/CY8CKIT04942XX/WhatsApp Image 2023-09-19 at 9.36.43 PM.jpeg>)
+![!\[Alt text\](Estructura_general_hardware_4942.jpg)](Imagenes/CY8CKIT04942XX/Estructura_general_hardware_4942.jpg)
 
 ## Identificación de puertos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
@@ -73,11 +70,6 @@ Puerto | nombre |Tipo    |
 4.0 |\uart:rx\ |salida
 4.1 |\uart:tx\ |salida
 
-### A tener en cuenta
-
-- El led se enciende con un cero
-
-
 ## Programación en lenguaje v
 
 ### Configuración puertos de salida
@@ -86,20 +78,20 @@ Para activar el puerto que va ha usar;
 ```go
 pin_high(pin_name)
 ```
-*Ejemplo: Si se desea activar el puerto do0;  pin_high(do0).*
+*Ejemplo: Si se desea activar el puerto do0;  `pin_high(do0)`.*
 
 Para desactivar el puerto que se está usando;
 ```go
 pin_low(pin_name)
 ```
-*Ejemplo: Si se desea desactivar el puerto do0;  pin_low(do0).*
+*Ejemplo: Si se desea desactivar el puerto do0;  `pin_low(do0)`.*
 
 Para desactivar o activar el puerto que se va ha usar;
 
 ```go
 pin_write(pin_name, value)
 ```
-*Ejemplo: Si se desea desactivar el puerto do0;  pin_write(do0, 1), y si se desea activar;  pin_write(do0, 0).*
+*Ejemplo: Si se desea desactivar el puerto do0;  `pin_write(do0, 1)`, y si se desea activar;  `pin_write(do0, 0)`.*
 
 ### Detección puertos de entrada
 
@@ -108,7 +100,7 @@ Si se necesita saber en que estado esta un puerto de entrada:
 x = pin_read(pin_name)
 ```
 
-*Ejemplo: Si se desea detectar el valor del puerto di0;  x = pin_read(di0), y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
+*Ejemplo: Si se desea detectar el valor del puerto di0; `x = pin_read(di0)`, y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
 
 ### Puertos análogos a digital (ADC)
 
@@ -188,3 +180,19 @@ sleep_ms(ms)
 sleep_us(us)
 ```
 *En cada expresión, el valor del tiempo se pone dentro del parentesis.*
+
+Ejemplo LED parapadeante
+
+```go
+import machine { pin }
+import time { sleep_ms }
+
+pin_mode(led1, out)
+
+for {   //infinite loop
+    pin_high(led1)
+    sleep_ms(500)
+    pin_low(led1)
+    sleep_ms(500)
+}
+```
