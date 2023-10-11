@@ -8,7 +8,7 @@
 port =    "PC" 
 device =  "x64"
 board =   "x64-based board"
-backend = "pc"
+backend = "c"
 
 cc_linux =   "gcc"
 cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"

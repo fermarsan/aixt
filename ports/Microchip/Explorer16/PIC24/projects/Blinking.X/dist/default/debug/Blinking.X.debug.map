@@ -4,11 +4,11 @@ Tool Name:
   /opt/microchip/xc16/v2.00/bin/bin/../bin/elf-ld
 
 Command:
-  -T/tmp/tmp00002ae7.00 \
-  -T/tmp/tmp00002ae7.01 \
-  -T/tmp/tmp00002ae7.02 \
-  -T/tmp/tmp00002ae7.03 \
-  -T/tmp/tmp00002ae7.04 \
+  -T/tmp/tmp00012008.00 \
+  -T/tmp/tmp00012008.01 \
+  -T/tmp/tmp00012008.02 \
+  -T/tmp/tmp00012008.03 \
+  -T/tmp/tmp00012008.04 \
   -p24FJ128GA010 \
   --mdfp=/opt/microchip/mplabx/v6.15/packs/Microchip/PIC24F-GA-GB_DFP/1.9.336/xc16 \
   -o \
@@ -235,18 +235,18 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x53c
+.debug_info       0x000000        0x546
  *(.debug_info)
- .debug_info      0x000000        0x53c build/default/debug/blinking.o
+ .debug_info      0x000000        0x546 build/default/debug/blinking.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000         0xcf
+.debug_abbrev     0x000000         0xc0
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xcf build/default/debug/blinking.o
+ .debug_abbrev    0x000000         0xc0 build/default/debug/blinking.o
 
-.debug_line       0x000000        0x185
+.debug_line       0x000000        0x195
  *(.debug_line)
- .debug_line      0x000000        0x185 build/default/debug/blinking.o
+ .debug_line      0x000000        0x195 build/default/debug/blinking.o
 
 .debug_frame      0x000000         0x2e
  *(.debug_frame)

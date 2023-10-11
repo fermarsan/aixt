@@ -22,42 +22,50 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/builtin.c"
-#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/machine/pin.c"
-#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api/time/sleep_ms.c"
+#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api_backup2/builtin.c"
+#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api_backup2/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/Explorer16/PIC24/api_backup2/time/sleep_ms.c"
+//
+//#define suma() \
+//({ \
+//    unsigned char a=4, b=5, c; \
+//    c = a + b; \                
+//    c; \                        
+//})
+//
+//
+//#define adc_setup() \ 
+//    AD1CON1 = 0x00E0; \ 
+//    AD1CSSL = 0; \       
+//    AD1CON2 = 0; \       
+//    AD1CON3 = 0x1F02; \   
+//    AD1CON1bits.ADON = 1
+//
+//#define adc_read(CHANNEL) \
+//({ \   
+//    AD1CHS = CHANNEL; \           
+//    AD1CON1bits.SAMP = 1; \       
+//    while (!AD1CON1bits.DONE); \  
+//    ADC1BUF0; \                   
+//})
 
-#define suma() \
-({ \
-    unsigned char a=4, b=5, c; \
-    c = a + b; \                
-    c; \                        
-})
+// #define ra  TRISAbits   
+// #define b0  TRISA0      
 
+// #define out 0
+// #define ra0 TRISAbits.TRISA0 
+// #define pin_setup(pin_name, mode)   pin_name = mode
 
-#define adc_setup() \ 
-    AD1CON1 = 0x00E0; \ 
-    AD1CSSL = 0; \       
-    AD1CON2 = 0; \       
-    AD1CON3 = 0x1F02; \   
-    AD1CON1bits.ADON = 1
-
-#define adc_read(CHANNEL) \
-({ \   
-    AD1CHS = CHANNEL; \           
-    AD1CON1bits.SAMP = 1; \       
-    while (!AD1CON1bits.DONE); \  
-    ADC1BUF0; \                   
-})
 
 int main(void ) {
 	AD1PCFG = 0xFFFF; // set all I/O digital
-	pin_mode(led3, out);
+	pin_setup(led3, out);
 	while(true) {
 		pin_high(led3);
 		sleep_ms(500);
 		pin_low(led3);
 		sleep_ms(500);
 	}
-    int x = suma();
+    //int x = suma();
 	return 0;
 }

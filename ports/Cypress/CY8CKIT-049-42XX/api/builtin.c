@@ -1,6 +1,6 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: builtin.c
-// Author: Fernando Martínez Santa, Camilo Lucas y Javier Leon
+// Author: Javier León, Camilo Lucas & Fernando Martínez Santa 
 // Date: 2022-2023
 // License: MIT
 //
