@@ -3,13 +3,14 @@ __S1 25 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-_main 39F 0 CODE 0
+_main 38A 0 CODE 0
 ___sp 7FE 0 STACK 2
 btemp 5E 0 ABS 0
 start 0 0 CODE 0
-_TRISA 85 0 ABS 0
+_TRISC 87 0 ABS 0
 reset_vec 0 0 CODE 0
 _PORTC 7 0 ABS 0
+_ANSEL 91 0 ABS 0
 wtemp0 5E 0 ABS 0
 __Hosccal 3FF 0 CODE 0
 __Losccal 3FF 0 CODE 0
@@ -20,13 +21,17 @@ __Hram 7FE 0 ABS 0
 __Lram 7FE 0 ABS 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
+_ADCON0 1F 0 ABS 0
+_ADCON1 9F 0 ABS 0
 __Hcommon 7FE 0 ABS 0
 __Lcommon 7FE 0 ABS 0
 __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
 ___int_sp 7FE 0 STACK 2
+_ADRESH 1E 0 ABS 0
 __Habs1 7FE 0 ABS 0
 __Labs1 7FE 0 ABS 0
+_ADRESL 9E 0 ABS 0
 __Hsfr0 7FE 0 ABS 0
 __Lsfr0 7FE 0 ABS 0
 __Hsfr1 7FE 0 ABS 0
@@ -36,7 +41,6 @@ __Hcode 7FE 0 ABS 0
 __Lcode 7FE 0 ABS 0
 __HcstackBANK0 7FE 0 ABS 0
 __LcstackBANK0 7FE 0 ABS 0
-___addr 24 0 BANK0 1
 __pcstackBANK0 20 0 BANK0 1
 __Hinit 0 0 CODE 0
 __Linit 0 0 CODE 0
@@ -76,7 +80,7 @@ __Hspace_3 0 0 ABS 0
 __Lspace_3 0 0 ABS 0
 __Hspace_4 400F 0 ABS 0
 __Lspace_4 0 0 ABS 0
-___port_bit 23 0 BANK0 1
+_ADCON0bits 1F 0 ABS 0
 __Hend_init 1 0 CODE 0
 __Lend_init 0 0 CODE 0
 __Hreset_vec 0 0 CODE 0
@@ -87,33 +91,59 @@ intlevel2 0 0 ENTRY 0
 intlevel3 0 0 ENTRY 0
 intlevel4 0 0 ENTRY 0
 intlevel5 0 0 ENTRY 0
+_adc_result 23 0 BANK0 1
 start_initialization 3FD 0 CODE 0
 __Hmaintext 7FE 0 ABS 0
 __Lmaintext 7FE 0 ABS 0
-__pmaintext 39F 0 CODE 0
+__pmaintext 38A 0 CODE 0
 __initialization 3FD 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
 cinit 7FA 7FD CODE 7FA 0
 cstackBANK0 20 24 BANK0 20 1
-maintext 73E 7F9 CODE 73E 0
+maintext 714 7F9 CODE 714 0
 %locals
-dist/default/production\blinking.X.production.o
-C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_1.s
-266 3FD 0 CODE 0
-269 3FD 0 CODE 0
-275 3FD 0 CODE 0
+dist/default/production\ADC.X.production.o
+C:\Users\WINDOW~1\AppData\Local\Temp\xcAs268.\driver_tmp_1.s
+274 3FD 0 CODE 0
 277 3FD 0 CODE 0
-278 3FE 0 CODE 0
-blinking.c
-23 39F 0 CODE 0
-25 39F 0 CODE 0
-26 3AB 0 CODE 0
-27 3B5 0 CODE 0
-28 3BF 0 CODE 0
-29 3C9 0 CODE 0
-30 3D3 0 CODE 0
-34 3DC 0 CODE 0
-35 3DF 0 CODE 0
-36 3EC 0 CODE 0
-37 3EE 0 CODE 0
+283 3FD 0 CODE 0
+285 3FD 0 CODE 0
+286 3FE 0 CODE 0
+adc.c
+23 38A 0 CODE 0
+25 38A 0 CODE 0
+26 38C 0 CODE 0
+28 38E 0 CODE 0
+32 399 0 CODE 0
+34 3B2 0 CODE 0
+34 3B5 0 CODE 0
+34 3B7 0 CODE 0
+36 3BB 0 CODE 0
+37 3BD 0 CODE 0
+39 3BE 0 CODE 0
+39 3C1 0 CODE 0
+39 3C3 0 CODE 0
+41 3C7 0 CODE 0
+42 3C9 0 CODE 0
+44 3CA 0 CODE 0
+44 3CD 0 CODE 0
+44 3CF 0 CODE 0
+46 3D3 0 CODE 0
+47 3D5 0 CODE 0
+49 3D6 0 CODE 0
+49 3D9 0 CODE 0
+49 3DB 0 CODE 0
+51 3DF 0 CODE 0
+52 3E1 0 CODE 0
+54 3E2 0 CODE 0
+54 3E5 0 CODE 0
+54 3E7 0 CODE 0
+56 3EB 0 CODE 0
+57 3ED 0 CODE 0
+59 3EE 0 CODE 0
+59 3F1 0 CODE 0
+59 3F3 0 CODE 0
+61 3F7 0 CODE 0
+62 3F9 0 CODE 0
+66 3FA 0 CODE 0

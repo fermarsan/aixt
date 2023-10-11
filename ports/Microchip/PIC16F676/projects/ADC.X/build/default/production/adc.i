@@ -1,4 +1,4 @@
-# 1 "blinking.c"
+# 1 "adc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "blinking.c" 2
+# 1 "adc.c" 2
 
 
 
@@ -1176,49 +1176,60 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 17 "blinking.c" 2
+# 17 "adc.c" 2
 
 
-# 1 "./..\\..\\api\\builtin.c" 1
-# 19 "./..\\..\\api\\builtin.c"
-enum __pin_names {
-     ra0, ra1, ra2, ra3, ra4, ra5, _ra6, _ra7,
-    _rb0, _rb1, _rb2, _rb3, _rb4, _rb5, _rb6, _rb7,
-     rc0, rc1, rc2, rc3, rc4, rc5, _rc6, _rc7,
-    _rd0, _rd1, _rd2, _rd3, _rd4, _rd5, _rd6, _rd7,
-    _re0, _re1, _re2, _re3, _re4, _re5, _re6, _re7
+# 1 "./..\\..\\api\\machine\\adc.c" 1
+# 19 "adc.c" 2
 
-};
-# 19 "blinking.c" 2
 
-# 1 "./..\\..\\api\\machine\\pin.c" 1
-# 14 "./..\\..\\api\\machine\\pin.c"
-unsigned char *__addr;
-unsigned char __port_bit;
-# 20 "blinking.c" 2
-
-# 1 "./..\\..\\api\\time\\sleep_ms.c" 1
-# 21 "blinking.c" 2
-
+unsigned int adc_result;
 
 void main(void) {
 
-    __addr = (unsigned char)(rc5/8) + &TRISA; __port_bit = rc5%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-    __addr = (unsigned char)(rc4/8) + &TRISA; __port_bit = rc4%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-    __addr = (unsigned char)(rc3/8) + &TRISA; __port_bit = rc3%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-    __addr = (unsigned char)(rc2/8) + &TRISA; __port_bit = rc2%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-    __addr = (unsigned char)(rc1/8) + &TRISA; __port_bit = rc1%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-    __addr = (unsigned char)(rc0/8) + &TRISA; __port_bit = rc0%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
+    TRISC = 0b000000;
+    PORTC = 0b000000;
 
+    ANSEL = 0b00000100; ADCON0 = 0b10000000; ADCON1 = 0b00110000; ADCON0bits.ADON = 1;;
 
-    while (1) {
-        PORTC = 0b111111;
-        _delay((unsigned long)((500)*(4000000/4000.0)));
-        PORTC = 0b000000;
-        _delay((unsigned long)((500)*(4000000/4000.0)));
+    while(1){
 
+        adc_result = ADCON0bits.CHS = 0; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = ((ADRESH << 8) | ADRESL); adc_result;
+
+        if ( adc_result >= 1020 ){
+
+            PORTC = 0b111111;
+        }
+
+        else if ( adc_result >= 820 ){
+
+            PORTC = 0b011111;
+        }
+
+        else if ( adc_result >= 620 ){
+
+            PORTC = 0b001111;
+        }
+
+        else if ( adc_result >= 420 ){
+
+            PORTC = 0b000111;
+        }
+
+        else if ( adc_result >= 220 ){
+
+            PORTC = 0b000011;
+        }
+
+        else if ( adc_result >= 120 ){
+
+            PORTC = 0b000001;
+        }
+
+        else {
+
+            PORTC = 0b000000;
+        }
 
     }
-
-
 }
