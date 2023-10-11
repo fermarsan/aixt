@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\dat\20230322214319_en.msgs \
   -cn -h+dist/default/production\blinking.X.production.sym \
   --cmf=dist/default/production\blinking.X.production.cmf -z -Q16F676 \
-  -oC:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_3.o \
+  -oC:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/blinking.X.production.map \
-  --md=C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_0.dat -E1 \
+  --md=C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-03FEh -ASTRCODE=00h-03FEh \
   -ASTRING=00h-0FFhx3,0300h-03FEh -ACONST=00h-0FFhx3,0300h-03FEh \
   -AENTRY=00h-0FFhx3,0300h-03FEh -ABANK0=020h-05Dh -ARAM=020h-05Dh \
@@ -19,7 +19,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -posccal=03FFh -k \
-  C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o \
+  C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o \
   dist/default/production\blinking.X.production.o 
 
 Object code version is 3.11
@@ -29,20 +29,21 @@ Machine type is 16F676
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
+C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
                 end_init                              0        0        1        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\blinking.X.production.o
                 cinit                               3FD      3FD        2      7FA       0
                 config                             2007     2007        1        0       4
-                maintext                            3BC      3BC       41      778       0
-                nvBANK0                              20       20        2       20       1
+                maintext                            39F      39F       5E      73E       0
+                cstackBANK0                          20       20        3       20       1
+                nvBANK0                              23       23        2       20       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 end_init                              0        0        1         0
                 cinit                               3FD      3FD        2         0
-                maintext                            3BC      3BC       41         0
+                maintext                            39F      39F       5E         0
 
         CLASS   STRCODE        
 
@@ -53,7 +54,8 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   BANK0          
-                nvBANK0                              20       20        2         1
+                cstackBANK0                          20       20        3         1
+                nvBANK0                              23       23        2         1
 
         CLASS   RAM            
 
@@ -82,25 +84,25 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000001  000001         0       0  CODE        2
-                nvBANK0                        000020  000002  000022        20       1  BANK0       1
-                maintext                       0003BC  000041  0003FD       778       0  CODE        2
+                cstackBANK0                    000020  000005  000025        20       1  BANK0       1
+                maintext                       00039F  00005E  0003FD       73E       0  CODE        2
                 cinit                          0003FD  000002  0003FF       7FA       0  CODE        2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0022-005D             3C           1
-        CODE             0001-03BB            3BB           2
-        CONST            0001-03BB            100           2
+        BANK0            0025-005D             39           1
+        CODE             0001-039E            39E           2
+        CONST            0001-039E            100           2
         EEDATA           2100-217F             80           2
-        ENTRY            0001-03BB            100           2
+        ENTRY            0001-039E            100           2
         IDLOC            2000-2003              4           2
-        RAM              0022-005D             3C           1
+        RAM              0025-005D             39           1
         SFR0             0000-001F             20           1
         SFR1             0080-00DD             5E           1
-        STRCODE          0001-03BB            3BB           2
-        STRING           0001-03BB            100           2
+        STRCODE          0001-039E            39E           2
+        STRING           0001-039E            100           2
 
                                   Symbol Table
 
@@ -116,7 +118,6 @@ __Hcode                  code         07FE
 __Hcommon                common       07FE
 __Hconfig                config       2008
 __HcstackBANK0           cstackBANK0  07FE
-__HcstackCOMMON          cstackCOMMON 07FE
 __Heeprom_data           eeprom_data  0000
 __Hend_init              end_init     0001
 __Hfunctab               functab      0000
@@ -148,7 +149,6 @@ __Lcode                  code         07FE
 __Lcommon                common       07FE
 __Lconfig                config       0000
 __LcstackBANK0           cstackBANK0  07FE
-__LcstackCOMMON          cstackCOMMON 07FE
 __Leeprom_data           eeprom_data  0000
 __Lend_init              end_init     0000
 __Lfunctab               functab      0000
@@ -171,24 +171,23 @@ __Lstack                 stack        07FE
 __Lstrings               strings      07FE
 __Ltext                  text         07FE
 __S0                     (abs)        03FF
-__S1                     (abs)        0022
+__S1                     (abs)        0025
 __S3                     (abs)        0000
-___addr                  nvBANK0      0021
+___addr                  nvBANK0      0024
 ___int_sp                stack        07FE
 ___latbits               (abs)        0000
 ___osccal_val            osccal       03FF
-___port_bit              nvBANK0      0020
+___port_bit              nvBANK0      0023
 ___sp                    stack        07FE
 ___stackhi               (abs)        0000
 ___stacklo               (abs)        0000
 __end_of__initialization cinit        03FD
 __end_of_main            maintext     03FD
 __initialization         cinit        03FD
-__pcstackBANK0           cstackBANK0  0000
-__pcstackCOMMON          cstackCOMMON 0000
-__pmaintext              maintext     03BC
-__pnvBANK0               nvBANK0      0020
-_main                    maintext     03BC
+__pcstackBANK0           cstackBANK0  0020
+__pmaintext              maintext     039F
+__pnvBANK0               nvBANK0      0023
+_main                    maintext     039F
 btemp                    (abs)        005E
 end_of_initialization    cinit        03FD
 intlevel0                functab      0000
@@ -207,9 +206,9 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 blinking.c
-		_main          		CODE           	03BC	0000	65
+		_main          		CODE           	039F	0000	94
 
-blinking.c estimated size: 65
+blinking.c estimated size: 94
 
 shared
 		__initialization		CODE           	03FD	0000	1

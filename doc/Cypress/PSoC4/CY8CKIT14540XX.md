@@ -6,6 +6,8 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT14540X
 
 ## Vista
 
+![Alt text](Imagenes/CY8CKIT14540XX/vista_general.jpg)
+
 ## Hoja de datos
 [CY8CKIT14540XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-145-40XX_PSoC_4000S_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0efccdd91344)
 
@@ -21,12 +23,12 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 - 2 puertos de comunicación
 - 3 entradas digitales
 - 3 salidas digitales
+- 5 sensores capacitivos tipo slider
+- 3 sensores capacitivos tipo boton
 
 *visualización en PSoC creator*
 
-![Alt text](<Imagenes/CY8CKIT14540XX/WhatsApp Image 2023-09-19 at 9.37.04 PM.jpeg>)
-
-![Alt text](<Imagenes/CY8CKIT14540XX/WhatsApp Image 2023-09-19 at 9.37.25 PM.jpeg>)
+![!\[Alt text\](Imagenes/CY8CKIT14540XX/vista_general.jpg)](Imagenes/CY8CKIT14540XX/Estructura_general_hardware_14540.jpg)
 
 ## Identificación de puertos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
@@ -57,16 +59,17 @@ Puerto | nombre |Tipo    |
 0.0 |SLD0     |entrada
 0.1 |SLD1     |entrada
 0.2 |SLD2     |entrada
-0.6 |SLD3     |entrada
+0.3 |SLD3     |entrada
+0.6 |SLD4     |entrada
 1.4 |BTN0     |entrada
-1.5 |BTN2     |entrada
-1.6 |BTN3     |entrada
-
-### A tener en cuenta
-
--El led se enciende con un uno
+1.5 |BTN1     |entrada
+1.6 |BTN2     |entrada
 
 ## Programación en lenguaje v
+
+Algo importante en esta tarjeta es la activación de los leds, estos se encienden con ceros logicos, como se puede apreciar en los leds correspondientes a los sensores capacitivos tipo slider:
+
+![Alt text](Imagenes/CY8CKIT14540XX/leds14540.jpg)
 
 ### Pin output
 
@@ -74,20 +77,20 @@ Para activar el puerto que va ha usar;
 ```go
 pin_high(pin_name)
 ```
-*Ejemplo: si se desea activar el puerto do0;  pin_high(do0).*
+*Ejemplo: si se desea activar el puerto do0; ` pin_high(do0)`.*
 
 Para desactivar el puerto que se está usando;
 ```go
 pin_low(pin_name)
 ```
-*Ejemplo: si se desea desactivar el puerto do0;  pin_low(do0).*
+*Ejemplo: si se desea desactivar el puerto do0; `pin_low(do0)`.*
 
 Para desactivar o activar el puerto que se va ha usar;
 
 ```go
 pin_write(pin_name, value)
 ```
-*Ejemplo: si se desea desactivar el puerto do0;  pin_write(do0, 1), y si se desea activar;  pin_write(do0, 0).*
+*Ejemplo: si se desea desactivar el puerto do0;  `pin_write(do0, 1)`, y si se desea activar;  `pin_write(do0, 0)`.*
 
 ### Detección puertos de entrada
 
@@ -96,7 +99,7 @@ Si se necesita saber en que estado esta un puerto de entrada:
 x = pin_read(pin_name)
 ```
 
-*Ejemplo: Si se desea detectar el valor del puerto di0;  x = pin_read(di0), y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
+*Ejemplo: Si se desea detectar el valor del puerto di0;  `x = pin_read(di0)`, y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
 
 ### PWM
 
@@ -162,3 +165,19 @@ sleep_ms(ms)
 sleep_us(us)
 ```
 *En cada expresión, el valor del tiempo se pone dentro del parentesis.*
+
+Ejemplo LED parapadeante
+
+```go
+import machine { pin }
+import time { sleep_ms }
+
+pin_mode(led1, out)
+
+for {   //infinite loop
+    pin_high(led1)
+    sleep_ms(500)
+    pin_low(led1)
+    sleep_ms(500)
+}
+```

@@ -1,13 +1,18 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: builtin.c
+<<<<<<< HEAD
 // Author: Javier León, Camilo Lucas & Fernando Martínez Santa 
 // Date: 2022-2023
+=======
+// Author: Javier Leon, Camilo Lucas and Fernando Martínez Santa
+// Date: 2023
+>>>>>>> 84174ccc1922e29cd5d2d7e44a6d339cb0234dfe
 // License: MIT
 //
 // Description: Builtin definitions
 //              (CY8CKIT-049-42XX)
 
-enum __pin_name {
+enum __pin_names {
 led1,
 _led2,
 do0,

@@ -1,5 +1,5 @@
 -- Project:   Configuracion_General
--- Generated: 09/25/2023 22:49:25
+-- Generated: 09/28/2023 22:29:37
 -- PSoC Creator  4.4
 
 ENTITY Configuracion_General IS
@@ -25,11 +25,11 @@ ENTITY Configuracion_General IS
         do2(0)_PAD : OUT std_ulogic;
         di0(0)_PAD : IN std_ulogic;
         do0(0)_PAD : OUT std_ulogic);
-    ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 3.3e0;
-    ATTRIBUTE voltage_VDDD_2 OF __DEFAULT__ : ENTITY IS 3.3e0;
-    ATTRIBUTE voltage_VDDD_1 OF __DEFAULT__ : ENTITY IS 3.3e0;
-    ATTRIBUTE voltage_VDDQ_1 OF __DEFAULT__ : ENTITY IS 3.3e0;
-    ATTRIBUTE voltage_VDDD OF __DEFAULT__ : ENTITY IS 3.3e0;
+    ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VDDD_2 OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VDDD_1 OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VDDQ_1 OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VDDD OF __DEFAULT__ : ENTITY IS 5e0;
 END Configuracion_General;
 
 ARCHITECTURE __DEFAULT__ OF Configuracion_General IS

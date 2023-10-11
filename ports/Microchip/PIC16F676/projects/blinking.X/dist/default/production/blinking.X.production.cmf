@@ -13,10 +13,11 @@
 %PSECTS
 $dist/default/production\blinking.X.production.o
 cinit CODE 0 3FD 3FD 2 2 1
-nvBANK0 BANK0 1 20 20 2 1 1
-maintext CODE 0 3BC 3BC 41 2 1
+nvBANK0 BANK0 1 23 23 2 1 1
+maintext CODE 0 39F 39F 5E 2 1
+cstackBANK0 BANK0 1 20 20 3 1 1
 config CONFIG 4 2007 2007 1 2 1
-$C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
+$C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
 end_init CODE 0 0 0 1 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
@@ -25,17 +26,17 @@ config CONFIG 4 2007 2007 1 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 22-5D 1
-BANK0 22-5D 1
-CONST 1-3BB 2
-ENTRY 1-3BB 2
+RAM 25-5D 1
+BANK0 25-5D 1
+CONST 1-39E 2
+ENTRY 1-39E 2
 IDLOC 2000-2003 2
-CODE 1-3BB 2
+CODE 1-39E 2
 SFR0 0-1F 1
 SFR1 80-DD 1
 EEDATA 2100-217F 2
-STRCODE 1-3BB 2
-STRING 1-3BB 2
+STRCODE 1-39E 2
+STRING 1-39E 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -50,19 +51,22 @@ STRING 1-3BB 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\blinking.X.production.o
-3FD cinit CODE >266:C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_1.s
-3FD cinit CODE >269:C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_1.s
-3FD cinit CODE >275:C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_1.s
-3FD cinit CODE >277:C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_1.s
-3FE cinit CODE >278:C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_1.s
-3BC maintext CODE >22:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
-3BC maintext CODE >24:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
-3C8 maintext CODE >25:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
-3D2 maintext CODE >26:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
-3DC maintext CODE >27:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
-3E6 maintext CODE >28:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
-3F0 maintext CODE >29:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
-3F9 maintext CODE >32:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3FD cinit CODE >266:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_1.s
+3FD cinit CODE >269:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_1.s
+3FD cinit CODE >275:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_1.s
+3FD cinit CODE >277:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_1.s
+3FE cinit CODE >278:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_1.s
+39F maintext CODE >23:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+39F maintext CODE >25:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3AB maintext CODE >26:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3B5 maintext CODE >27:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3BF maintext CODE >28:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3C9 maintext CODE >29:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3D3 maintext CODE >30:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3DC maintext CODE >34:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3DF maintext CODE >35:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3EC maintext CODE >36:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3EE maintext CODE >37:C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -84,27 +88,27 @@ __Hspace_4 400F 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 7FE 0 ABS 0 strings -
-___sp 7FE 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
-_main 778 0 CODE 0 maintext dist/default/production\blinking.X.production.o
+___sp 7FE 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
+_main 73E 0 CODE 0 maintext dist/default/production\blinking.X.production.o
 btemp 5E 0 ABS 0 - dist/default/production\blinking.X.production.o
-start 0 0 CODE 0 init C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
+start 0 0 CODE 0 init C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
 wtemp0 5E 0 ABS 0 - dist/default/production\blinking.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 7FE 0 ABS 0 clrtext -
 __Lmaintext 7FE 0 ABS 0 maintext -
 __LnvBANK0 7FE 0 ABS 0 nvBANK0 -
-___stackhi 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
-___stacklo 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
+___stackhi 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
+___stacklo 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
 start_initialization 7FA 0 CODE 0 cinit dist/default/production\blinking.X.production.o
-__pcstackBANK0 0 0 BANK0 1 cstackBANK0 dist/default/production\blinking.X.production.o
-___int_sp 7FE 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\blinking.X.production.o
+___int_sp 7FE 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
 __Hbank0 7FE 0 ABS 0 bank0 -
 __Hbank1 7FE 0 BANK1 1 bank1 -
 __Hcinit 7FE 0 CODE 0 cinit -
@@ -128,21 +132,20 @@ __Linit 0 0 CODE 0 init -
 __Lsfr0 7FE 0 ABS 0 sfr0 -
 __Lsfr1 7FE 0 ABS 0 sfr1 -
 __Ltext 7FE 0 ABS 0 text -
-__pnvBANK0 20 0 BANK0 1 nvBANK0 dist/default/production\blinking.X.production.o
-___addr 21 0 BANK0 1 nvBANK0 dist/default/production\blinking.X.production.o
+__pnvBANK0 23 0 BANK0 1 nvBANK0 dist/default/production\blinking.X.production.o
+___addr 24 0 BANK0 1 nvBANK0 dist/default/production\blinking.X.production.o
 __LcstackBANK0 7FE 0 ABS 0 cstackBANK0 -
-__HcstackCOMMON 7FE 0 ABS 0 cstackCOMMON -
 __S0 3FF 0 ABS 0 - -
-__S1 22 0 ABS 0 - -
+__S1 25 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Hosccal 7FE 0 CODE 0 osccal -
 __HnvBANK0 7FE 0 ABS 0 nvBANK0 -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
-__pmaintext 778 0 CODE 0 maintext dist/default/production\blinking.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
+__pmaintext 73E 0 CODE 0 maintext dist/default/production\blinking.X.production.o
 __Lcommon 7FE 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-___osccal_val 7FE 0 CODE 0 osccal C:\Users\WINDOW~1\AppData\Local\Temp\xcBshrk.1\driver_tmp_12.o
+___osccal_val 7FE 0 CODE 0 osccal C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_12.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -150,7 +153,6 @@ __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 __HcstackBANK0 7FE 0 ABS 0 cstackBANK0 -
 __Lend_init 0 0 CODE 0 end_init -
-__LcstackCOMMON 7FE 0 ABS 0 cstackCOMMON -
 end_of_initialization 7FA 0 CODE 0 cinit dist/default/production\blinking.X.production.o
 __Hintentry 0 0 CODE 0 intentry -
 __Losccal 7FE 0 CODE 0 osccal -
@@ -163,14 +165,13 @@ __Lreset_vec 0 0 CODE 0 reset_vec -
 __end_of__initialization 7FA 0 CODE 0 cinit dist/default/production\blinking.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 7FE 0 ABS 0 clrtext -
-__pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/production\blinking.X.production.o
 __Hend_init 2 0 CODE 0 end_init -
 __end_of_main 7FA 0 CODE 0 maintext dist/default/production\blinking.X.production.o
 _PORTC 7 0 ABS 0 - dist/default/production\blinking.X.production.o
 _TRISA 85 0 ABS 0 - dist/default/production\blinking.X.production.o
 __Hram 7FE 0 ABS 0 ram -
 __Lram 7FE 0 ABS 0 ram -
-___port_bit 20 0 BANK0 1 nvBANK0 dist/default/production\blinking.X.production.o
+___port_bit 23 0 BANK0 1 nvBANK0 dist/default/production\blinking.X.production.o
 __initialization 7FA 0 CODE 0 cinit dist/default/production\blinking.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -198,8 +199,8 @@ __initialization 7FA 0 CODE 0 cinit dist/default/production\blinking.X.productio
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 3FD 7FA 2 2
-nvBANK0 1 20 20 2 1
-maintext 0 3BC 778 41 2
+maintext 0 39F 73E 5E 2
+cstackBANK0 1 20 20 5 1
 reset_vec 0 0 0 1 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
