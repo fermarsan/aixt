@@ -1,4 +1,4 @@
---------------- Build Started: 09/25/2023 23:31:47 Project: Config Gral 049, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 10/05/2023 23:48:46 Project: Config Gral 049, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 cydsfit.exe -.appdatapath "C:\Users\Usuario\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-049-42XX\projects\Config Gral 049.cydsn\Config Gral 049.cyprj" -d CY8C4245AXI-483 -s "D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-049-42XX\projects\Config Gral 049.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
 ADD: fit.M0015: information: One or more rows of flash have been configured to be protected; however, debugging has been enabled in the System DWR Editor. This means that while write restrictions are honored flash rows can still be read via SWD or JTAG. To prevent any ability to read the flash rows, disable debugging in the System DWR Editor.
@@ -26,6 +26,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S "D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-049-42XX\projects\Config Gral 049.cydsn\CortexM0\ARM_GCC_541\Debug\Config Gral 049.elf"
-Flash used: 13416 of 32768 bytes (40,9 %). Bootloader: 9472 bytes. Application: 3816 bytes. Metadata: 128 bytes.
+Flash used: 13888 of 32768 bytes (42,4 %). Bootloader: 9728 bytes. Application: 4032 bytes. Metadata: 128 bytes.
 SRAM used: 1564 of 4096 bytes (38,2 %). Stack: 1024 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 09/25/2023 23:32:10 ---------------
+--------------- Build Succeeded: 10/05/2023 23:48:59 ---------------

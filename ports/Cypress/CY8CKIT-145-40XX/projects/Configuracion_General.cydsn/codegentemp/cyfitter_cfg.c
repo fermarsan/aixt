@@ -228,7 +228,7 @@ static void AnalogSetDefault(void)
 {
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CSD_SW_BYP_SEL, 0x00001000u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CSD_SW_DSI_SEL, 0x00000011u);
-	SetAnalogRoutingPumps(1);
+	/* Variable VDDA is selected; no pumps are enabled by default */
 }
 
 
