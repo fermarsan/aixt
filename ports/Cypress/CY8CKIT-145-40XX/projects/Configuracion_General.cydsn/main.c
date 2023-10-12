@@ -24,9 +24,9 @@ int main(void)
 {   
     CyGlobalIntEnable; /* Enable global interrupts. */
     uart_Start();    /* Configuracion General*/
-    pwm0_Start();
     pwm1_Start();
     pwm2_Start();
+    pwm3_Start();
     clock_Start();
     capsense_Start();
     capsense_InitializeAllBaselines();
@@ -35,11 +35,13 @@ int main(void)
             
     for(;;)
     {
-        //pin_high(do1);
-        //sleep_ms(300);
-        //pin_low(do1);
-        //sleep_ms(300);
+        //pin_high(led1);
+        //sleep_ms(1000);
+        //pin_low(led1);
+        //sleep_ms(1000);
         
+        //pwm_duty(1, 0);
+        //sleep_ms(2000);
         //pwm_duty(1, 10);
         //sleep_ms(2000);
         //pwm_duty(1, 20);

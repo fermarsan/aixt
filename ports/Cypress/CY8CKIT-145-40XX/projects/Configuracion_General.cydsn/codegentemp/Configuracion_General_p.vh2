@@ -1,14 +1,14 @@
 -- Project:   Configuracion_General
--- Generated: 09/28/2023 22:29:37
+-- Generated: 10/11/2023 19:44:38
 -- PSoC Creator  4.4
 
 ENTITY Configuracion_General IS
     PORT(
         \uart:tx(0)_PAD\ : INOUT std_ulogic;
         \uart:rx(0)_PAD\ : IN std_ulogic;
-        out_pwm0(0)_PAD : OUT std_ulogic;
-        out_pwm1(0)_PAD : OUT std_ulogic;
-        out_pwm2(0)_PAD : OUT std_ulogic;
+        pwm_1(0)_PAD : OUT std_ulogic;
+        pwm_2(0)_PAD : OUT std_ulogic;
+        pwm_3(0)_PAD : OUT std_ulogic;
         led5(0)_PAD : OUT std_ulogic;
         led4(0)_PAD : OUT std_ulogic;
         led6(0)_PAD : OUT std_ulogic;
@@ -142,18 +142,18 @@ ARCHITECTURE __DEFAULT__ OF Configuracion_General IS
     SIGNAL led9(0)__PA : bit;
     SIGNAL one : bit;
     ATTRIBUTE POWER OF one : SIGNAL IS true;
-    SIGNAL out_pwm0(0)__PA : bit;
-    SIGNAL out_pwm1(0)__PA : bit;
-    SIGNAL out_pwm2(0)__PA : bit;
+    SIGNAL pwm_1(0)__PA : bit;
+    SIGNAL pwm_2(0)__PA : bit;
+    SIGNAL pwm_3(0)__PA : bit;
     SIGNAL sw2(0)__PA : bit;
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE Location OF \uart:tx(0)\ : LABEL IS "P3[1]";
     ATTRIBUTE Location OF \uart:rx(0)\ : LABEL IS "P3[0]";
-    ATTRIBUTE Location OF out_pwm0(0) : LABEL IS "P1[2]";
-    ATTRIBUTE Location OF out_pwm1(0) : LABEL IS "P2[6]";
-    ATTRIBUTE Location OF out_pwm2(0) : LABEL IS "P1[0]";
+    ATTRIBUTE Location OF pwm_1(0) : LABEL IS "P1[2]";
+    ATTRIBUTE Location OF pwm_2(0) : LABEL IS "P2[6]";
+    ATTRIBUTE Location OF pwm_3(0) : LABEL IS "P1[0]";
     ATTRIBUTE Location OF led5(0) : LABEL IS "P2[1]";
     ATTRIBUTE Location OF led4(0) : LABEL IS "P2[0]";
     ATTRIBUTE Location OF \capsense:Sns(0)\ : LABEL IS "P0[0]";
@@ -626,7 +626,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    out_pwm0:logicalport
+    pwm_1:logicalport
         GENERIC MAP(
             drive_mode => "110",
             ibuf_enabled => "1",
@@ -697,20 +697,20 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    out_pwm0(0):iocell
+    pwm_1(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "out_pwm0",
+            logicalport => "pwm_1",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
-            pa_out => out_pwm0(0)__PA,
+            pa_out => pwm_1(0)__PA,
             oe => open,
             pin_input => Net_28,
-            pad_out => out_pwm0(0)_PAD,
-            pad_in => out_pwm0(0)_PAD,
+            pad_out => pwm_1(0)_PAD,
+            pad_in => pwm_1(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -718,7 +718,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    out_pwm1:logicalport
+    pwm_2:logicalport
         GENERIC MAP(
             drive_mode => "110",
             ibuf_enabled => "1",
@@ -789,20 +789,20 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    out_pwm1(0):iocell
+    pwm_2(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "out_pwm1",
+            logicalport => "pwm_2",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
-            pa_out => out_pwm1(0)__PA,
+            pa_out => pwm_2(0)__PA,
             oe => open,
             pin_input => Net_42,
-            pad_out => out_pwm1(0)_PAD,
-            pad_in => out_pwm1(0)_PAD,
+            pad_out => pwm_2(0)_PAD,
+            pad_in => pwm_2(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -810,7 +810,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    out_pwm2:logicalport
+    pwm_3:logicalport
         GENERIC MAP(
             drive_mode => "110",
             ibuf_enabled => "1",
@@ -881,20 +881,20 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    out_pwm2(0):iocell
+    pwm_3(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "out_pwm2",
+            logicalport => "pwm_3",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
-            pa_out => out_pwm2(0)__PA,
+            pa_out => pwm_3(0)__PA,
             oe => open,
             pin_input => Net_76,
-            pad_out => out_pwm2(0)_PAD,
-            pad_in => out_pwm2(0)_PAD,
+            pad_out => pwm_3(0)_PAD,
+            pad_in => pwm_3(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -3009,7 +3009,7 @@ BEGIN
             tr_tx_req => Net_21,
             tr_rx_req => Net_12);
 
-    \pwm0:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
+    \pwm1:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
@@ -3026,7 +3026,7 @@ BEGIN
             line_compl => Net_29,
             interrupt => Net_27);
 
-    \pwm1:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
+    \pwm2:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
@@ -3043,7 +3043,7 @@ BEGIN
             line_compl => Net_43,
             interrupt => Net_41);
 
-    \pwm2:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
+    \pwm3:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(

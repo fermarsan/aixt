@@ -20,16 +20,8 @@ void adc_read(int channel) {
     else if (channel==4){
         amux_FastSelect(3);
     }
-    //uint16 conv;
     adc_StartConvert();
     adc_IsEndConversion(adc_WAIT_FOR_RESULT);
     uint16 conv=adc_GetResult16(0);
     adc_StopConvert();
-    
-    //Codigo de prueba
-        if (conv>30000) {led1_Write(1);
-        }
-        else
-        {led1_Write(0);
-        }
 }
