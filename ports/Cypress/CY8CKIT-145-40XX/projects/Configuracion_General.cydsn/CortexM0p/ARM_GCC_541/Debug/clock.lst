@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
   28:Generated_Source\PSoC4/clock.c **** * Summary:
   29:Generated_Source\PSoC4/clock.c **** *  Starts the clock, aligned to the specified running clock.
   30:Generated_Source\PSoC4/clock.c **** *
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 2
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 2
 
 
   31:Generated_Source\PSoC4/clock.c **** * Parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
   60              		.align	2
   61              		.global	clock_Stop
   62              		.code	16
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 3
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 3
 
 
   63              		.thumb_func
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
   72              	.L6:
   97:Generated_Source\PSoC4/clock.c **** #if defined CYREG_PERI_DIV_CMD
   98:Generated_Source\PSoC4/clock.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 4
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 4
 
 
   99:Generated_Source\PSoC4/clock.c ****     /* Make sure any previous start command has finished. */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  125:Generated_Source\PSoC4/clock.c **** * Parameters:
  126:Generated_Source\PSoC4/clock.c **** *  clkDivider:  Divider register value (0-65535). This value is NOT the
  127:Generated_Source\PSoC4/clock.c **** *    divider; the clock hardware divides by clkDivider plus one. For example,
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 5
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 5
 
 
  128:Generated_Source\PSoC4/clock.c **** *    to divide the clock by 2, this parameter should be set to 1.
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  151:Generated_Source\PSoC4/clock.c ****     maskVal = clock_DIV_REG & (uint32)(~(uint32)clock__DIVIDER_MASK);
  152:Generated_Source\PSoC4/clock.c ****     /* combine mask and new divider val into 32-bit value */
  153:Generated_Source\PSoC4/clock.c ****     regVal = clkDivider | maskVal;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 6
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 6
 
 
  154:Generated_Source\PSoC4/clock.c ****     
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  159 0006 80B2     		uxth	r0, r0
  179:Generated_Source\PSoC4/clock.c ****         >> clock_DIV_INT_SHIFT);
  180:Generated_Source\PSoC4/clock.c **** }
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 7
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 7
 
 
  160              		.loc 1 180 0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  187              		.cfi_endproc
  188              	.LFE4:
  189              		.size	clock_GetFractionalDividerRegister, .-clock_GetFractionalDividerRegister
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 8
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 8
 
 
  190              		.text
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  244 0065 04       		.byte	0x4
  245 0066 07       		.byte	0x7
  246 0067 59010000 		.4byte	.LASF8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 9
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 9
 
 
  247 006b 04       		.uleb128 0x4
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  301 00e1 00000000 		.4byte	.LFB1
  302 00e5 18000000 		.4byte	.LFE1-.LFB1
  303 00e9 01       		.uleb128 0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 10
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 10
 
 
  304 00ea 9C       		.byte	0x9c
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  358 0165 00       		.byte	0
  359              		.section	.debug_abbrev,"",%progbits
  360              	.Ldebug_abbrev0:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 11
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 11
 
 
  361 0000 01       		.uleb128 0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  415 0036 05       		.uleb128 0x5
  416 0037 35       		.uleb128 0x35
  417 0038 00       		.byte	0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 12
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 12
 
 
  418 0039 49       		.uleb128 0x49
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  472 0070 0B       		.uleb128 0xb
  473 0071 27       		.uleb128 0x27
  474 0072 19       		.uleb128 0x19
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 13
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 13
 
 
  475 0073 11       		.uleb128 0x11
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  529 00aa 13       		.uleb128 0x13
  530 00ab 11       		.uleb128 0x11
  531 00ac 01       		.uleb128 0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 14
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 14
 
 
  532 00ad 12       		.uleb128 0x12
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  586 0063 0A000000 		.4byte	.LVL3
  587 0067 10000000 		.4byte	.LVL5
  588 006b 0100     		.2byte	0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 15
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 15
 
 
  589 006d 53       		.byte	0x53
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  636 0014 756E7369 		.ascii	"unsigned char\000"
  636      676E6564 
  636      20636861 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 16
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 16
 
 
  636      7200
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  657              	.LASF16:
  658 010f 636C6F63 		.ascii	"clock_StartEx\000"
  658      6B5F5374 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 17
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 17
 
 
  658      61727445 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 1
  683              	.LASF25:
  684 01c8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  684      43313120 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc7AOS5P.s 			page 18
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc2gLYw0.s 			page 18
 
 
  684      352E342E 

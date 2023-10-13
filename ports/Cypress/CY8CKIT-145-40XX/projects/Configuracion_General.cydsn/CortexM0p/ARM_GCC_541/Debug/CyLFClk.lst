@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
   28:Generated_Source\PSoC4/CyLFClk.c ****     /* Default Ilo Trim Register value for ILO trimming*/
   29:Generated_Source\PSoC4/CyLFClk.c ****     static volatile uint16 defaultIloTrimRegValue = CY_SYS_CLK_ILO_TRIM_DEFAULT_VALUE;
   30:Generated_Source\PSoC4/CyLFClk.c **** #endif /* (CY_IP_SRSSV2 && (!CY_IP_CPUSS)) */
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 2
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 2
 
 
   31:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
   28              		.loc 1 84 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 3
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 3
 
 
   31              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
   60              		@ args = 0, pretend = 0, frame = 0
   61              		@ frame_needed = 0, uses_anonymous_args = 0
   62              		@ link register save eliminated.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 4
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 4
 
 
  110:Generated_Source\PSoC4/CyLFClk.c ****     #if(CY_IP_SRSSV2)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
   83              		.thumb_func
   84              		.type	CySysClkIloStartMeasurement, %function
   85              	CySysClkIloStartMeasurement:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 5
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 5
 
 
   86              	.LFB3:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  183:Generated_Source\PSoC4/CyLFClk.c ****                             CY_SYS_CLK_SEL_ILO_DFT_SOURCE; 
  184:Generated_Source\PSoC4/CyLFClk.c **** 
  185:Generated_Source\PSoC4/CyLFClk.c ****     CY_SYS_TST_DDFT_CTRL_REG = (CY_SYS_TST_DDFT_CTRL_REG & (uint32) ~ CY_SYS_TST_DDFT_CTRL_REG_DEFA
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 6
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 6
 
 
  101              		.loc 1 185 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  136              		.loc 1 204 0
  137 0000 054A     		ldr	r2, .L11
  138 0002 1168     		ldr	r1, [r2]
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 7
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 7
 
 
  139 0004 054B     		ldr	r3, .L11+4
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  228:Generated_Source\PSoC4/CyLFClk.c **** * CySysClkIloCompensate() API can give incorrect results.
  229:Generated_Source\PSoC4/CyLFClk.c **** *
  230:Generated_Source\PSoC4/CyLFClk.c **** * \note If the System clock frequency is changed in runtime, the CyDelayFreq() 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 8
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 8
 
 
  231:Generated_Source\PSoC4/CyLFClk.c **** * with the appropriate parameter (Frequency of bus clock in Hertz) should be 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  273:Generated_Source\PSoC4/CyLFClk.c ****     cystatus returnStatus;
  274:Generated_Source\PSoC4/CyLFClk.c **** 
  275:Generated_Source\PSoC4/CyLFClk.c ****     checkStatus = (uint32) (CY_SYS_CLK_DFT_REG & (uint32) CY_SYS_TST_DDFT_CTRL_REG_DEFAULT_MASK);
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 9
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 9
 
 
  182              		.loc 1 275 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  221              		.loc 1 289 0
  222 003c 2C4B     		ldr	r3, .L25+28
  223 003e 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 10
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 10
 
 
  224 0040 002B     		cmp	r3, #0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  315:Generated_Source\PSoC4/CyLFClk.c ****                                                    CY_SYS_CLK_SYS_CLK_DEVIDER)) / CY_SYS_CLK_ILO_FR
  253              		.loc 1 315 0
  254 006c 2821     		movs	r1, #40
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 11
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 11
 
 
  255 006e FFF7FEFF 		bl	__aeabi_uidiv
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  294 009c 124B     		ldr	r3, .L25+20
  295 009e 1860     		str	r0, [r3]
  296              	.LVL18:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 12
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 12
 
 
  297 00a0 16E0     		b	.L14
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  328 00be 1120     		movs	r0, #17
  329              	.LVL27:
  330 00c0 06E0     		b	.L14
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 13
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 13
 
 
  331              	.LVL28:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  379              		.global	CySysClkWcoStart
  380              		.code	16
  381              		.thumb_func
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 14
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 14
 
 
  382              		.type	CySysClkWcoStart, %function
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  406:Generated_Source\PSoC4/CyLFClk.c **** *
  407:Generated_Source\PSoC4/CyLFClk.c **** * \warning Do not enter deep sleep mode until the function returns CYRET_SUCCESS
  408:Generated_Source\PSoC4/CyLFClk.c **** * or CYRET_TIMEOUT.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 15
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 15
 
 
  409:Generated_Source\PSoC4/CyLFClk.c **** *
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  463:Generated_Source\PSoC4/CyLFClk.c ****     {
  464:Generated_Source\PSoC4/CyLFClk.c ****         if(CY_SYS_CLK_BLOCKING == mode)
  465:Generated_Source\PSoC4/CyLFClk.c ****         {
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 16
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 16
 
 
  466:Generated_Source\PSoC4/CyLFClk.c ****             waitUntilCntr1Stops = cydelayFreqHz >> CY_SYS_CLK_SYS_CLK_DEVIDER;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  520:Generated_Source\PSoC4/CyLFClk.c ****                 }
  521:Generated_Source\PSoC4/CyLFClk.c ****             }
  522:Generated_Source\PSoC4/CyLFClk.c ****             else
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 17
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 17
 
 
  523:Generated_Source\PSoC4/CyLFClk.c ****             {
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  577:Generated_Source\PSoC4/CyLFClk.c ****     cystatus errorRangeStatus;
  578:Generated_Source\PSoC4/CyLFClk.c **** 
  579:Generated_Source\PSoC4/CyLFClk.c ****     if(0u != CY_SYS_CNT_REG2_REG)
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 18
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 18
 
 
  580:Generated_Source\PSoC4/CyLFClk.c ****     {
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  634:Generated_Source\PSoC4/CyLFClk.c **** * \brief
  635:Generated_Source\PSoC4/CyLFClk.c **** * Restores the ILO Trim Register to factory value.
  636:Generated_Source\PSoC4/CyLFClk.c **** *
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 19
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 19
 
 
  637:Generated_Source\PSoC4/CyLFClk.c **** * The CySysClkIloStartMeasurement() API should be called prior to 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  691:Generated_Source\PSoC4/CyLFClk.c **** 
  692:Generated_Source\PSoC4/CyLFClk.c **** 
  693:Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 20
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 20
 
 
  694:Generated_Source\PSoC4/CyLFClk.c ****     * Function Name: CySysClkSetLfclkSource
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  748:Generated_Source\PSoC4/CyLFClk.c **** #endif /* (CY_IP_WCO && CY_IP_SRSSV2) */
  749:Generated_Source\PSoC4/CyLFClk.c **** 
  750:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 21
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 21
 
 
  751:Generated_Source\PSoC4/CyLFClk.c **** #if (CY_IP_WCO)
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
   22:Generated_Source\PSoC4/CyLFClk.h **** 
   23:Generated_Source\PSoC4/CyLFClk.h **** #define CY_IP_WCO_WDT_EN           (-1 == 1)
   24:Generated_Source\PSoC4/CyLFClk.h **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 22
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 22
 
 
   25:Generated_Source\PSoC4/CyLFClk.h **** typedef enum
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
   79:Generated_Source\PSoC4/CyLFClk.h ****     void   CySysClkWcoStop(void);
   80:Generated_Source\PSoC4/CyLFClk.h ****     uint32 CySysClkWcoSetPowerMode(uint32 mode);
   81:Generated_Source\PSoC4/CyLFClk.h ****     void CySysClkWcoClockOutSelect(uint32 clockSel);
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 23
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 23
 
 
   82:Generated_Source\PSoC4/CyLFClk.h ****     /** @} wco */
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  136:Generated_Source\PSoC4/CyLFClk.h ****     void   CySysWdtEnable(void);
  137:Generated_Source\PSoC4/CyLFClk.h ****     void   CySysWdtDisable(void);
  138:Generated_Source\PSoC4/CyLFClk.h ****     void   CySysWdtSetMatch(uint32 match);
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 24
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 24
 
 
  139:Generated_Source\PSoC4/CyLFClk.h ****     uint32 CySysWdtGetMatch(void);
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  193:Generated_Source\PSoC4/CyLFClk.h **** 
  194:Generated_Source\PSoC4/CyLFClk.h **** /*******************************************************************************
  195:Generated_Source\PSoC4/CyLFClk.h **** * Clock API Constants
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 25
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 25
 
 
  196:Generated_Source\PSoC4/CyLFClk.h **** *******************************************************************************/
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  250:Generated_Source\PSoC4/CyLFClk.h **** 
  251:Generated_Source\PSoC4/CyLFClk.h ****     /* CySysClkSetLfclkSource() - implementation definitions */
  252:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_CLK_LFCLK_SEL_MASK                   ((uint32)(( uint32 )0x03u << 30u))
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 26
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 26
 
 
  253:Generated_Source\PSoC4/CyLFClk.h **** #endif /* (CY_IP_WCO) */
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  307:Generated_Source\PSoC4/CyLFClk.h **** #if (CY_IP_WCO)
  308:Generated_Source\PSoC4/CyLFClk.h **** 
  309:Generated_Source\PSoC4/CyLFClk.h ****     /* WCO Configuration Register */
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 27
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 27
 
 
  310:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_CLK_WCO_CONFIG_LPM_EN                (( uint32 )(( uint32 )0x01u <<  0u))
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  364:Generated_Source\PSoC4/CyLFClk.h ****                                                  CY_SYS_WDT_COUNTER1_RESET |\
  365:Generated_Source\PSoC4/CyLFClk.h ****                                                  CY_SYS_WDT_COUNTER2_RESET)
  366:Generated_Source\PSoC4/CyLFClk.h **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 28
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 28
 
 
  367:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_WDT_COUNTER0                 (0x00u)
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  421:Generated_Source\PSoC4/CyLFClk.h ****                                             (CY_SYS_WDT_3LFCLK_WCO_DELAY_US))
  422:Generated_Source\PSoC4/CyLFClk.h ****     #else
  423:Generated_Source\PSoC4/CyLFClk.h ****         #define CY_SYS_WDT_1LFCLK_DELAY_US      ((uint16)  (67u))
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 29
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 29
 
 
  424:Generated_Source\PSoC4/CyLFClk.h ****         #define CY_SYS_WDT_3LFCLK_DELAY_US      ((uint16) (201u))
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  478:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_TIMER_1WCO_DELAY_US          ((uint16)( 31u))
  479:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_TIMER_4WCO_DELAY_US          ((uint16)(124u))
  480:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_TIMER_3WCO_DELAY_US          ((uint16)( 93u))
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 30
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 30
 
 
  481:Generated_Source\PSoC4/CyLFClk.h **** 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  535:Generated_Source\PSoC4/CyLFClk.h **** ********************************************************************************/
  536:Generated_Source\PSoC4/CyLFClk.h **** /* DFT TST Control Register*/
  537:Generated_Source\PSoC4/CyLFClk.h **** #define CY_SYS_TST_DDFT_CTRL_REG                         (*(reg32*) CYREG_TST_DDFT_CTRL)
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 31
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 31
 
 
  538:Generated_Source\PSoC4/CyLFClk.h **** #define CY_SYS_CNT_CTRL_PTR                              ( (reg32*) CYREG_TST_DDFT_CTRL)
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  592:Generated_Source\PSoC4/CyLFClk.h **** 
  593:Generated_Source\PSoC4/CyLFClk.h **** /*******************************************************************************
  594:Generated_Source\PSoC4/CyLFClk.h **** * WDT API Registers
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 32
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 32
 
 
  595:Generated_Source\PSoC4/CyLFClk.h **** *******************************************************************************/
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  649:Generated_Source\PSoC4/CyLFClk.h **** 
  650:Generated_Source\PSoC4/CyLFClk.h ****     /*******************************************************************************
  651:Generated_Source\PSoC4/CyLFClk.h ****     * Function Name: CySysClkWcoSetHighPowerMode
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 33
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 33
 
 
  652:Generated_Source\PSoC4/CyLFClk.h ****     ********************************************************************************
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  427              		.loc 1 774 0
  428 002c 1A68     		ldr	r2, [r3]
  429 002e 8021     		movs	r1, #128
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 34
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 34
 
 
  430 0030 0906     		lsls	r1, r1, #24
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  807:Generated_Source\PSoC4/CyLFClk.c ****             #endif /* (CY_IP_SRSSV2) */
  808:Generated_Source\PSoC4/CyLFClk.c ****             {
  809:Generated_Source\PSoC4/CyLFClk.c ****                 CY_SYS_CLK_WCO_CONFIG_REG &= (uint32) ~CY_SYS_CLK_WCO_CONFIG_LPM_ENABLE;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 35
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 35
 
 
  810:Generated_Source\PSoC4/CyLFClk.c ****             }
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  790:Generated_Source\PSoC4/CyLFClk.c ****         #if (CY_IP_SRSSV2)
  486              		.loc 1 790 0
  487              		.cfi_startproc
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 36
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 36
 
 
  488              		@ args = 0, pretend = 0, frame = 0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  845:Generated_Source\PSoC4/CyLFClk.c ****     * \return A previous power mode. The same as the parameters.
  846:Generated_Source\PSoC4/CyLFClk.c ****     *
  847:Generated_Source\PSoC4/CyLFClk.c ****     * \note
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 37
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 37
 
 
  848:Generated_Source\PSoC4/CyLFClk.c ****     * The WCO Low Power mode is applicable for PSoC 4100 BLE / PSoC 4200 BLE devices.
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  564              	.LVL42:
  565 002a 0143     		orrs	r1, r0
  667:Generated_Source\PSoC4/CyLFClk.h ****                     | (uint32)(CY_SYS_CLK_WCO_TRIM_GM_HPM << CY_SYS_CLK_WCO_TRIM_GM_SHIFT);
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 38
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 38
 
 
  566              		.loc 2 667 0
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  600              		.size	CySysClkWcoSetPowerMode, .-CySysClkWcoSetPowerMode
  601              		.section	.text.CySysClkWcoClockOutSelect,"ax",%progbits
  602              		.align	2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 39
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 39
 
 
  603              		.global	CySysClkWcoClockOutSelect
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  613              	.LVL48:
  614 0000 10B5     		push	{r4, lr}
  615              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 40
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 40
 
 
  616              		.cfi_offset 4, -8
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  656              		.section	.text.CySysWdtGetEnabledStatus,"ax",%progbits
  657              		.align	2
  658              		.global	CySysWdtGetEnabledStatus
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 41
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 41
 
 
  659              		.code	16
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  982:Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
  983:Generated_Source\PSoC4/CyLFClk.c ****     void CySysWdtUnlock(void)
  984:Generated_Source\PSoC4/CyLFClk.c ****     {
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 42
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 42
 
 
  985:Generated_Source\PSoC4/CyLFClk.c ****         uint8 interruptState;
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1039:Generated_Source\PSoC4/CyLFClk.c ****     *
 1040:Generated_Source\PSoC4/CyLFClk.c ****     * \details
 1041:Generated_Source\PSoC4/CyLFClk.c ****     * WDT counter counterNum should be disabled to set a mode. Otherwise, this
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 43
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 43
 
 
 1042:Generated_Source\PSoC4/CyLFClk.c ****     * function call has no effect. If the specified counter is enabled,
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1096:Generated_Source\PSoC4/CyLFClk.c ****     *
 1097:Generated_Source\PSoC4/CyLFClk.c ****     * \details
 1098:Generated_Source\PSoC4/CyLFClk.c ****     * WDT counter counterNum should be disabled. Otherwise this function call
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 44
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 44
 
 
 1099:Generated_Source\PSoC4/CyLFClk.c ****     * has no effect. If the specified counter is enabled, call the CySysWdtDisable()
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1153:Generated_Source\PSoC4/CyLFClk.c ****     * All the counters specified in the mask are enabled.
 1154:Generated_Source\PSoC4/CyLFClk.c ****     *
 1155:Generated_Source\PSoC4/CyLFClk.c ****     * \param counterMask
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 45
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 45
 
 
 1156:Generated_Source\PSoC4/CyLFClk.c ****     *  CY_SYS_WDT_COUNTER0_MASK - The mask for counter 0 to enable.<br>
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1210:Generated_Source\PSoC4/CyLFClk.c **** 
 1211:Generated_Source\PSoC4/CyLFClk.c **** 
 1212:Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 46
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 46
 
 
 1213:Generated_Source\PSoC4/CyLFClk.c ****     * Function Name: CySysWdtDisable
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1267:Generated_Source\PSoC4/CyLFClk.c ****     * CY_SYS_WDT_CASCADE_NONE - Neither <br>
 1268:Generated_Source\PSoC4/CyLFClk.c ****     * CY_SYS_WDT_CASCADE_01 - Cascade 01 <br>
 1269:Generated_Source\PSoC4/CyLFClk.c ****     * CY_SYS_WDT_CASCADE_12 - Cascade 12
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 47
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 47
 
 
 1270:Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1324:Generated_Source\PSoC4/CyLFClk.c ****     ****************************************************************************//**
 1325:Generated_Source\PSoC4/CyLFClk.c ****     *
 1326:Generated_Source\PSoC4/CyLFClk.c ****     * \brief Configures the WDT counter match comparison value.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 48
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 48
 
 
 1327:Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1381:Generated_Source\PSoC4/CyLFClk.c ****             configRegValue = CY_SYS_WDT_CONFIG_REG;
 1382:Generated_Source\PSoC4/CyLFClk.c ****             configRegValue &= (uint32)(~((uint32)(CY_SYS_WDT_CONFIG_BITS2_MASK << CY_SYS_WDT_CONFIG
 1383:Generated_Source\PSoC4/CyLFClk.c ****             configRegValue |= ((bits & CY_SYS_WDT_CONFIG_BITS2_MASK) << CY_SYS_WDT_CONFIG_BITS2_POS
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 49
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 49
 
 
 1384:Generated_Source\PSoC4/CyLFClk.c ****             CY_SYS_WDT_CONFIG_REG = configRegValue;
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1438:Generated_Source\PSoC4/CyLFClk.c ****     uint32 CySysWdtGetCount(uint32 counterNum)
 1439:Generated_Source\PSoC4/CyLFClk.c ****     {
 1440:Generated_Source\PSoC4/CyLFClk.c ****         uint32 regValue = 0u;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 50
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 50
 
 
 1441:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1495:Generated_Source\PSoC4/CyLFClk.c ****     *
 1496:Generated_Source\PSoC4/CyLFClk.c ****     * All the WDT interrupts are to be cleared by the firmware, otherwise
 1497:Generated_Source\PSoC4/CyLFClk.c ****     * interrupts are generated continuously.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 51
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 51
 
 
 1498:Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1552:Generated_Source\PSoC4/CyLFClk.c ****     ****************************************************************************//**
 1553:Generated_Source\PSoC4/CyLFClk.c ****     * \brief
 1554:Generated_Source\PSoC4/CyLFClk.c ****     * Resets all the WDT counters set in the mask.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 52
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 52
 
 
 1555:Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1609:Generated_Source\PSoC4/CyLFClk.c ****     }
 1610:Generated_Source\PSoC4/CyLFClk.c **** 
 1611:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 53
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 53
 
 
 1612:Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1666:Generated_Source\PSoC4/CyLFClk.c **** 
 1667:Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
 1668:Generated_Source\PSoC4/CyLFClk.c ****     * Function Name: CySysWdtDisableCounterIsr
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 54
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 54
 
 
 1669:Generated_Source\PSoC4/CyLFClk.c ****     ****************************************************************************//**
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1723:Generated_Source\PSoC4/CyLFClk.c ****         }
 1724:Generated_Source\PSoC4/CyLFClk.c **** 
 1725:Generated_Source\PSoC4/CyLFClk.c ****         if(0u != (CY_SYS_WDT_COUNTER1_INT & CY_SYS_WDT_CONTROL_REG))
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 55
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 55
 
 
 1726:Generated_Source\PSoC4/CyLFClk.c ****         {
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1780:Generated_Source\PSoC4/CyLFClk.c ****                 CySysWdtClearInterrupt(CY_SYS_WDT_COUNTER0_INT);
 1781:Generated_Source\PSoC4/CyLFClk.c ****             }
 1782:Generated_Source\PSoC4/CyLFClk.c ****             else if(CY_SYS_WDT_MODE_RESET == CySysWdtGetMode(counterNum))
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 56
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 56
 
 
 1783:Generated_Source\PSoC4/CyLFClk.c ****             {
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1837:Generated_Source\PSoC4/CyLFClk.c ****     * called). Call CySysWdtUnlock() to unlock WDT.
 1838:Generated_Source\PSoC4/CyLFClk.c ****     * \endinternal
 1839:Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 57
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 57
 
 
 1840:Generated_Source\PSoC4/CyLFClk.c ****     static void CySysClkLfclkPosedgeCatch(void)
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1894:Generated_Source\PSoC4/CyLFClk.c ****     static void CySysClkLfclkPosedgeRestore(void)
 1895:Generated_Source\PSoC4/CyLFClk.c ****     {
 1896:Generated_Source\PSoC4/CyLFClk.c ****         if (lfclkPosedgeWdtCounter0Enabled != 0u)
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 58
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 58
 
 
 1897:Generated_Source\PSoC4/CyLFClk.c ****         {
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  693              		.thumb_func
  694              		.type	CySysWdtEnable, %function
  695              	CySysWdtEnable:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 59
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 59
 
 
  696              	.LFB12:
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1948:Generated_Source\PSoC4/CyLFClk.c ****     *
 1949:Generated_Source\PSoC4/CyLFClk.c ****     * This function unlocks the ENABLE bit in the CLK_ILO_CONFIG registers and
 1950:Generated_Source\PSoC4/CyLFClk.c ****     * enables the user to disable ILO.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 60
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 60
 
 
 1951:Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 1971:Generated_Source\PSoC4/CyLFClk.c ****         match &= CY_SYS_WDT_MATCH_MASK;
  758              		.loc 1 1971 0
  759 0000 0004     		lsls	r0, r0, #16
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 61
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 61
 
 
  760              	.LVL54:
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  798 0006 000C     		lsrs	r0, r0, #16
 1988:Generated_Source\PSoC4/CyLFClk.c ****     }
  799              		.loc 1 1988 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 62
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 62
 
 
  800              		@ sp needed
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  839              		.thumb_func
  840              		.type	CySysWdtSetIgnoreBits, %function
  841              	CySysWdtSetIgnoreBits:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 63
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 63
 
 
  842              	.LFB17:
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  875              		.size	CySysWdtSetIgnoreBits, .-CySysWdtSetIgnoreBits
  876              		.section	.text.CySysWdtGetIgnoreBits,"ax",%progbits
  877              		.align	2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 64
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 64
 
 
  878              		.global	CySysWdtGetIgnoreBits
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
 2044:Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
 2045:Generated_Source\PSoC4/CyLFClk.c ****     * Function Name: CySysWdtClearInterrupt
 2046:Generated_Source\PSoC4/CyLFClk.c ****     ****************************************************************************//**
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 65
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 65
 
 
 2047:Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  942              		.loc 1 2071 0
  943              		.cfi_startproc
  944              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 66
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 66
 
 
  945              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  982              		.loc 1 2088 0
  983              		@ sp needed
  984 000a 7047     		bx	lr
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 67
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 67
 
 
  985              	.L83:
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1016 0008 7047     		bx	lr
  1017              	.L86:
  1018 000a C046     		.align	2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 68
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 68
 
 
  1019              	.L85:
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1057              	.LFB24:
 2128:Generated_Source\PSoC4/CyLFClk.c **** 
 2129:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 69
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 69
 
 
 2130:Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1085              		.cfi_endproc
  1086              	.LFE24:
  1087              		.size	CySysWdtIsr, .-CySysWdtIsr
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 70
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 70
 
 
  1088              		.bss
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1142 0050 08       		.byte	0x8
  1143 0051 05       		.byte	0x5
  1144 0052 73000000 		.4byte	.LASF6
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 71
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 71
 
 
  1145 0056 02       		.uleb128 0x2
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1199 00c3 B5000000 		.4byte	0xb5
  1200 00c7 02       		.uleb128 0x2
  1201 00c8 08       		.byte	0x8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 72
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 72
 
 
  1202 00c9 04       		.byte	0x4
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1256 013d AB010000 		.4byte	.LASF23
  1257 0141 01       		.byte	0x1
  1258 0142 0B01     		.2byte	0x10b
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 73
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 73
 
 
  1259 0144 77000000 		.4byte	0x77
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1313 01cc D5000000 		.4byte	0xd5
  1314 01d0 02000000 		.4byte	.LBB6
  1315 01d4 2A000000 		.4byte	.LBE6-.LBB6
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 74
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 74
 
 
  1316 01d8 01       		.byte	0x1
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1370 025d 40000000 		.4byte	.LVL46
  1371 0261 38040000 		.4byte	0x438
  1372 0265 15       		.uleb128 0x15
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 75
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 75
 
 
  1373 0266 01       		.uleb128 0x1
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1427 02d9 A107     		.2byte	0x7a1
  1428 02db 00000000 		.4byte	.LFB13
  1429 02df 10000000 		.4byte	.LFE13-.LFB13
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 76
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 76
 
 
  1430 02e3 01       		.uleb128 0x1
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1484 0364 01       		.byte	0x1
  1485 0365 F607     		.2byte	0x7f6
  1486 0367 77000000 		.4byte	0x77
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 77
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 77
 
 
  1487 036b 00000000 		.4byte	.LFB18
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1541 03ec 4C08     		.2byte	0x84c
  1542 03ee BC000000 		.4byte	0xbc
  1543 03f2 00000000 		.4byte	.LFB23
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 78
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 78
 
 
  1544 03f6 0C000000 		.4byte	.LFE23-.LFB23
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1598 0011 00       		.byte	0
  1599 0012 00       		.byte	0
  1600 0013 02       		.uleb128 0x2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 79
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 79
 
 
  1601 0014 24       		.uleb128 0x24
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1655 004a 19       		.uleb128 0x19
  1656 004b 00       		.byte	0
  1657 004c 00       		.byte	0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 80
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 80
 
 
  1658 004d 08       		.uleb128 0x8
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1712 0084 3F       		.uleb128 0x3f
  1713 0085 19       		.uleb128 0x19
  1714 0086 03       		.uleb128 0x3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 81
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 81
 
 
  1715 0087 0E       		.uleb128 0xe
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1769 00be 03       		.uleb128 0x3
  1770 00bf 0E       		.uleb128 0xe
  1771 00c0 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 82
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 82
 
 
  1772 00c1 0B       		.uleb128 0xb
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1826 00f8 03       		.uleb128 0x3
  1827 00f9 0E       		.uleb128 0xe
  1828 00fa 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 83
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 83
 
 
  1829 00fb 0B       		.uleb128 0xb
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1883 0135 898201   		.uleb128 0x4109
  1884 0138 01       		.byte	0x1
  1885 0139 11       		.uleb128 0x11
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 84
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 84
 
 
  1886 013a 01       		.uleb128 0x1
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1940 0174 40       		.uleb128 0x40
  1941 0175 18       		.uleb128 0x18
  1942 0176 9642     		.uleb128 0x2116
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 85
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 85
 
 
  1943 0178 19       		.uleb128 0x19
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  1997 01ae 00       		.byte	0
  1998              		.section	.debug_loc,"",%progbits
  1999              	.Ldebug_loc0:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 86
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 86
 
 
  2000              	.LLST0:
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2054 007b 50       		.byte	0x50
  2055 007c 9F       		.byte	0x9f
  2056 007d C2000000 		.4byte	.LVL28
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 87
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 87
 
 
  2057 0081 C4000000 		.4byte	.LVL29
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2111 00ff A2000000 		.4byte	.LVL19
  2112 0103 D0000000 		.4byte	.LVL35
  2113 0107 0100     		.2byte	0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 88
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 88
 
 
  2114 0109 51       		.byte	0x51
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2168 0194 B6000000 		.4byte	.LVL22
  2169 0198 BA000000 		.4byte	.LVL24
  2170 019c 0100     		.2byte	0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 89
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 89
 
 
  2171 019e 53       		.byte	0x53
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2225 0220 4C000000 		.4byte	.LFE9
  2226 0224 0400     		.2byte	0x4
  2227 0226 F3       		.byte	0xf3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 90
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 90
 
 
  2228 0227 01       		.uleb128 0x1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2282 02ab 01       		.uleb128 0x1
  2283 02ac 50       		.byte	0x50
  2284 02ad 9F       		.byte	0x9f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 91
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 91
 
 
  2285 02ae 04000000 		.4byte	.LVL55
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2339 0322 10000000 		.4byte	.LFE22
  2340 0326 0500     		.2byte	0x5
  2341 0328 03       		.byte	0x3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 92
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 92
 
 
  2342 0329 04000000 		.4byte	cySysWdtCallback
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2396 008c 0C000000 		.4byte	.LFE16-.LFB16
  2397 0090 00000000 		.4byte	.LFB17
  2398 0094 20000000 		.4byte	.LFE17-.LFB17
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 93
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 93
 
 
  2399 0098 00000000 		.4byte	.LFB18
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2453 0090 00000000 		.4byte	.LFB19
  2454 0094 10000000 		.4byte	.LFE19
  2455 0098 00000000 		.4byte	.LFB20
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 94
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 94
 
 
  2456 009c 10000000 		.4byte	.LFE20
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2483 0081 7369676E 		.ascii	"signed char\000"
  2483      65642063 
  2483      68617200 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 95
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 95
 
 
  2484              	.LASF53:
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2509 0123 43795379 		.ascii	"CySysClkIloStopMeasurement\000"
  2509      73436C6B 
  2509      496C6F53 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 96
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 96
 
 
  2509      746F704D 
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2529      7420756E 
  2529      7369676E 
  2529      65642069 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 97
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 97
 
 
  2529      6E7400
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2553 0292 63796465 		.ascii	"cydelayFreqHz\000"
  2553      6C617946 
  2553      72657148 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 98
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 98
 
 
  2553      7A00
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2577 0355 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  2577      43313120 
  2577      352E342E 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 99
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 99
 
 
  2577      31203230 
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 1
  2597      73576474 
  2597      47657449 
  2597      6E746572 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNHGb51.s 			page 100
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccutKFkW.s 			page 100
 
 
  2597      72757074 

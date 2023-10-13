@@ -1,5 +1,5 @@
 # Config Gral 049
-# 2023-10-06 04:48:52Z
+# 2023-10-12 02:43:56Z
 
 # IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
 dont_use_io iocell 3 2
@@ -8,10 +8,10 @@ dont_use_io iocell 3 3
 set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
 set_io "\uart:tx(0)\" iocell 4 1
 set_io "\uart:rx(0)\" iocell 4 0
-set_io "out_pwm0(0)" iocell 1 0
-set_io "out_pwm1(0)" iocell 1 2
-set_io "out_pwm2(0)" iocell 2 4
-set_io "out_pwm3(0)" iocell 2 6
+set_io "pwm_1(0)" iocell 1 0
+set_io "pwm_2(0)" iocell 1 2
+set_io "pwm_3(0)" iocell 2 4
+set_io "pwm_4(0)" iocell 2 6
 set_io "in0_adc(0)" iocell 2 0
 set_io "in1_adc(0)" iocell 2 1
 set_io "in2_adc(0)" iocell 2 2

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
   29:Generated_Source\PSoC4/capsense_Structure.c **** * Cypress reserves the right to make changes without further notice to the
   30:Generated_Source\PSoC4/capsense_Structure.c **** * materials described herein. Cypress does not assume any liability arising out
   31:Generated_Source\PSoC4/capsense_Structure.c **** * of the application or use of any product or circuit described herein. Cypress
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 2
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 2
 
 
   32:Generated_Source\PSoC4/capsense_Structure.c **** * does not authorize its products for use as critical components in life-support
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
   86:Generated_Source\PSoC4/capsense_Structure.c **** 
   87:Generated_Source\PSoC4/capsense_Structure.c **** /*******************************************************************************
   88:Generated_Source\PSoC4/capsense_Structure.c **** * Defines and initializes the Flash Data Structure
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 3
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 3
 
 
   89:Generated_Source\PSoC4/capsense_Structure.c **** *******************************************************************************/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  143:Generated_Source\PSoC4/capsense_Structure.c ****             capsense_BTN2_STATIC_CONFIG,
  144:Generated_Source\PSoC4/capsense_Structure.c ****             capsense_BTN2_NUM_SENSORS,
  145:Generated_Source\PSoC4/capsense_Structure.c ****             (uint8)capsense_WD_BUTTON_E,
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 4
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 4
 
 
  146:Generated_Source\PSoC4/capsense_Structure.c ****             (uint8)capsense_SENSE_METHOD_CSX_E,
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  200:Generated_Source\PSoC4/capsense_Structure.c ****         (reg32 *)capsense_Rx__1__HSIOM,
  201:Generated_Source\PSoC4/capsense_Structure.c ****         (reg32 *)capsense_Rx__1__PC,
  202:Generated_Source\PSoC4/capsense_Structure.c ****         (reg32 *)capsense_Rx__1__DR,
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 5
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 5
 
 
  203:Generated_Source\PSoC4/capsense_Structure.c ****         (reg32 *)capsense_Rx__1__PS,
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  257:Generated_Source\PSoC4/capsense_Structure.c ****         (reg32 *)capsense_Sns__1__DR,
  258:Generated_Source\PSoC4/capsense_Structure.c ****         (reg32 *)capsense_Sns__1__PS,
  259:Generated_Source\PSoC4/capsense_Structure.c ****         capsense_Sns__1__HSIOM_MASK,
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 6
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 6
 
 
  260:Generated_Source\PSoC4/capsense_Structure.c ****         capsense_Sns__1__MASK,
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  314:Generated_Source\PSoC4/capsense_Structure.c ****         capsense_BTN0_ON_DEBOUNCE,
  315:Generated_Source\PSoC4/capsense_Structure.c ****         capsense_BTN0_LOW_BSLN_RST,
  316:Generated_Source\PSoC4/capsense_Structure.c ****         {
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 7
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 7
 
 
  317:Generated_Source\PSoC4/capsense_Structure.c ****             capsense_BTN0_IDAC_MOD0,
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  371:Generated_Source\PSoC4/capsense_Structure.c **** };
  372:Generated_Source\PSoC4/capsense_Structure.c **** 
  373:Generated_Source\PSoC4/capsense_Structure.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 8
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 8
 
 
  374:Generated_Source\PSoC4/capsense_Structure.c **** /* IDAC Initialization Data */
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  428:Generated_Source\PSoC4/capsense_Structure.c ****     uint8  widgetId;    /* widget Id parameter belongs to */
  429:Generated_Source\PSoC4/capsense_Structure.c ****     uint8  affectsCrc;  /* parameter affects widget CRC */
  430:Generated_Source\PSoC4/capsense_Structure.c ****     uint8  crc;         /* parameter CRC */
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 9
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 9
 
 
  431:Generated_Source\PSoC4/capsense_Structure.c ****     uint8  flash;       /* parameter located in FLASH flag */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  485:Generated_Source\PSoC4/capsense_Structure.c ****     #endif
  486:Generated_Source\PSoC4/capsense_Structure.c **** 
  487:Generated_Source\PSoC4/capsense_Structure.c ****     /* Reset RAM data structure content */
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 10
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 10
 
 
  488:Generated_Source\PSoC4/capsense_Structure.c ****     (void)memset(&capsense_dsRam, 0, sizeof(capsense_dsRam));
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  542:Generated_Source\PSoC4/capsense_Structure.c **** 
  543:Generated_Source\PSoC4/capsense_Structure.c ****         #if (0u != capsense_TST_SNS_CAP_EN)
  544:Generated_Source\PSoC4/capsense_Structure.c ****             #if (0u != capsense_CSD_EN)
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 11
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 11
 
 
  545:Generated_Source\PSoC4/capsense_Structure.c ****                 capsense_dsRam.selfTestConfig.bistCsdSnsCapISC = capsense_SNS_CAP_CSD_INACTIVE_CONN
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  599:Generated_Source\PSoC4/capsense_Structure.c ****                 ptrSnsTmp->idacComp[0u] = *ptrIdacInit;
  600:Generated_Source\PSoC4/capsense_Structure.c ****                 ptrIdacInit++;
  601:Generated_Source\PSoC4/capsense_Structure.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 12
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 12
 
 
  602:Generated_Source\PSoC4/capsense_Structure.c ****                 #if (0u != capsense_MULTI_FREQ_SCAN_EN)
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  656:Generated_Source\PSoC4/capsense_Structure.c ****     void capsense_AdcDsInitialize(void)
  657:Generated_Source\PSoC4/capsense_Structure.c ****     {
  658:Generated_Source\PSoC4/capsense_Structure.c ****         capsense_dsRam.adcResolution = capsense_ADC_RESOLUTION;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 13
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 13
 
 
  659:Generated_Source\PSoC4/capsense_Structure.c ****         capsense_dsRam.adcIdac = (uint8)(capsense_ADC_IDAC_DEFAULT);
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
   39              		.loc 1 700 0
   40 0002 85B2     		uxth	r5, r0
   41 0004 0D80     		strh	r5, [r1]
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 14
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 14
 
 
  701:Generated_Source\PSoC4/capsense_Structure.c ****     pData->affectsCrc = LO8((paramId & PARAM_UBIT_MASK)  >> PARAM_UBIT_OFFSET);
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  728:Generated_Source\PSoC4/capsense_Structure.c **** 
  729:Generated_Source\PSoC4/capsense_Structure.c ****         if (0u != actualCrc)
  730:Generated_Source\PSoC4/capsense_Structure.c ****         {
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 15
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 15
 
 
  731:Generated_Source\PSoC4/capsense_Structure.c ****             /* CRC mismatch */
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  774:Generated_Source\PSoC4/capsense_Structure.c ****             {
  775:Generated_Source\PSoC4/capsense_Structure.c ****                 result = CYRET_BAD_PARAM;
  776:Generated_Source\PSoC4/capsense_Structure.c ****             }
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 16
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 16
 
 
  777:Generated_Source\PSoC4/capsense_Structure.c ****         }
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  110 0056 04D0     		beq	.L6
  111 0058 032E     		cmp	r6, #3
  112 005a 05D0     		beq	.L7
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 17
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 17
 
 
  113 005c 012E     		cmp	r6, #1
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  820:Generated_Source\PSoC4/capsense_Structure.c ****     }
  821:Generated_Source\PSoC4/capsense_Structure.c **** 
  822:Generated_Source\PSoC4/capsense_Structure.c ****     return result;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 18
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 18
 
 
  823:Generated_Source\PSoC4/capsense_Structure.c **** }
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  189 0020 0322     		movs	r2, #3
  190 0022 B233     		adds	r3, r3, #178
  191 0024 E254     		strb	r2, [r4, r3]
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 19
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 19
 
 
  500:Generated_Source\PSoC4/capsense_Structure.c ****         capsense_dsRam.scanCsdISC = capsense_CSD_INACTIVE_SNS_CONNECTION;
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  234 0052 0300     		movs	r3, r0
  235              	.LVL21:
  236              	.L18:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 20
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 20
 
 
  597:Generated_Source\PSoC4/capsense_Structure.c ****             {
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  832:Generated_Source\PSoC4/capsense_Structure.c **** * \details
  833:Generated_Source\PSoC4/capsense_Structure.c **** *  This function gets the value of the specified parameter by the paramId
  834:Generated_Source\PSoC4/capsense_Structure.c **** *  argument. The paramId for each register is available in the
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 21
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 21
 
 
  835:Generated_Source\PSoC4/capsense_Structure.c **** *  capsense RegisterMap header file as
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  876:Generated_Source\PSoC4/capsense_Structure.c ****     cystatus result;
  877:Generated_Source\PSoC4/capsense_Structure.c **** 
  878:Generated_Source\PSoC4/capsense_Structure.c ****     union
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 22
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 22
 
 
  879:Generated_Source\PSoC4/capsense_Structure.c ****     {
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  904:Generated_Source\PSoC4/capsense_Structure.c ****         /* Read data */
  905:Generated_Source\PSoC4/capsense_Structure.c ****         if (DS_PARAM_TYPE_UINT8 == pData.type)
  320              		.loc 1 905 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 23
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 23
 
 
  321 0028 6A46     		mov	r2, sp
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  355 0052 03B0     		add	sp, sp, #12
  356              		@ sp needed
  357              	.LVL37:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 24
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 24
 
 
  358              	.LVL38:
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  962:Generated_Source\PSoC4/capsense_Structure.c **** *  This function writes specified value into the desired register without
  963:Generated_Source\PSoC4/capsense_Structure.c **** *  other registers update. It is application layer responsibility to keep all
  964:Generated_Source\PSoC4/capsense_Structure.c **** *  the data structure registers aligned. Repeated call of
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 25
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 25
 
 
  965:Generated_Source\PSoC4/capsense_Structure.c **** *  capsense_Start() function helps aligning dependent register values.
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  397 000e 04D1     		bne	.L33
  998:Generated_Source\PSoC4/capsense_Structure.c ****     {
  999:Generated_Source\PSoC4/capsense_Structure.c ****         if (0u == pData.rw)
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 26
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 26
 
 
  398              		.loc 1 999 0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  430              		.loc 1 1021 0
  431 0038 ADB2     		uxth	r5, r5
  432              	.LVL46:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 27
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 27
 
 
  433 003a 1D80     		strh	r5, [r3]
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  451 004e 03B0     		add	sp, sp, #12
  452              		@ sp needed
  453              	.LVL49:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 28
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 28
 
 
  454 0050 30BD     		pop	{r4, r5, pc}
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  481 0004 06E0     		b	.L42
  482              	.LVL51:
  483              	.L43:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 29
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 29
 
 
 1084:Generated_Source\PSoC4/capsense_Structure.c ****     {
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
 1101:Generated_Source\PSoC4/capsense_Structure.c **** *  extracting information from the wdgtStatus registers
 1102:Generated_Source\PSoC4/capsense_Structure.c **** *  (capsense_WDGT_STATUS<X>_VALUE). This function does not process the
 1103:Generated_Source\PSoC4/capsense_Structure.c **** *  widget but extracts processed results from the \ref group_structures.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 30
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 30
 
 
 1104:Generated_Source\PSoC4/capsense_Structure.c **** *
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
 1127:Generated_Source\PSoC4/capsense_Structure.c **** }
  549              		.loc 1 1127 0
  550              		@ sp needed
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 31
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 31
 
 
  551 001e 7047     		bx	lr
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
 1166:Generated_Source\PSoC4/capsense_Structure.c **** *
 1167:Generated_Source\PSoC4/capsense_Structure.c **** *******************************************************************************/
 1168:Generated_Source\PSoC4/capsense_Structure.c **** uint32 capsense_IsSensorActive(uint32 widgetId, uint32 sensorId)
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 32
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 32
 
 
 1169:Generated_Source\PSoC4/capsense_Structure.c **** {
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  605              	.LVL66:
  606              	.L52:
 1183:Generated_Source\PSoC4/capsense_Structure.c ****     }
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 33
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 33
 
 
 1184:Generated_Source\PSoC4/capsense_Structure.c **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
 1219:Generated_Source\PSoC4/capsense_Structure.c **** *      - Bits [30..24] are reserved
 1220:Generated_Source\PSoC4/capsense_Structure.c **** *      - Bits [23..16] indicate the logical sensor number of the sensor that
 1221:Generated_Source\PSoC4/capsense_Structure.c **** *        detected a touch. If more than one sensor detected a touch for the CSD
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 34
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 34
 
 
 1222:Generated_Source\PSoC4/capsense_Structure.c **** *        widget, no status is reported because more than one touch is invalid for the
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
 1276:Generated_Source\PSoC4/capsense_Structure.c **** 
 1277:Generated_Source\PSoC4/capsense_Structure.c ****         #if (0u != capsense_CSX_MATRIX_WIDGET_EN)
 1278:Generated_Source\PSoC4/capsense_Structure.c ****             case capsense_SENSE_METHOD_CSX_E:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 35
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 35
 
 
 1279:Generated_Source\PSoC4/capsense_Structure.c ****                 result = capsense_dsRam.snsStatus[widgetId];
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
 1333:Generated_Source\PSoC4/capsense_Structure.c ****     if ((widgetId < capsense_TOTAL_WIDGETS) && (proxId < capsense_GET_SENSOR_COUNT(widgetId)) &&
 1334:Generated_Source\PSoC4/capsense_Structure.c ****         (capsense_WD_PROXIMITY_E ==
 1335:Generated_Source\PSoC4/capsense_Structure.c ****             (capsense_WD_TYPE_ENUM)capsense_dsFlash.wdgtArray[widgetId].wdgtType))
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 36
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 36
 
 
 1336:Generated_Source\PSoC4/capsense_Structure.c ****     {
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  634 0002 11D8     		bhi	.L59
 1382:Generated_Source\PSoC4/capsense_Structure.c ****         ((capsense_WD_LINEAR_SLIDER_E ==
 1383:Generated_Source\PSoC4/capsense_Structure.c ****             (capsense_WD_TYPE_ENUM)capsense_dsFlash.wdgtArray[widgetId].wdgtType) ||
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 37
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 37
 
 
  635              		.loc 1 1383 0 discriminator 1
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  678 0034 FFFF0000 		.word	65535
  679              		.cfi_endproc
  680              	.LFE8:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 38
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 38
 
 
  681              		.size	capsense_GetCentroidPos, .-capsense_GetCentroidPos
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  735 0058 70000000 		.word	capsense_ioList+112
  736 005c 40000000 		.word	capsense_dsRam+64
  737 0060 76000000 		.word	capsense_dsRam+118
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 39
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 39
 
 
  738 0064 00000000 		.word	0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  792 00c6 00       		.byte	0
  793 00c7 00       		.space	1
  794 00c8 6400     		.short	100
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 40
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 40
 
 
  795 00ca 6400     		.short	100
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  849 0134 0000F000 		.word	15728640
  850 0138 20000000 		.word	32
  851 013c 14       		.byte	20
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 41
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 41
 
 
  852 013d 05       		.byte	5
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  906 01d0 08000440 		.word	1074003976
  907 01d4 00000440 		.word	1074003968
  908 01d8 04000440 		.word	1074003972
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 42
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 42
 
 
  909 01dc 000F0000 		.word	3840
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  963              	.Ldebug_info0:
  964 0000 460C0000 		.4byte	0xc46
  965 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 43
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 43
 
 
  966 0006 00000000 		.4byte	.Ldebug_abbrev0
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1020 0073 2C000000 		.4byte	0x2c
  1021 0077 04       		.uleb128 0x4
  1022 0078 8D040000 		.4byte	.LASF10
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 44
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 44
 
 
  1023 007c 02       		.byte	0x2
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1077 00ed 4701     		.2byte	0x147
  1078 00ef 6B000000 		.4byte	0x6b
  1079 00f3 07       		.uleb128 0x7
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 45
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 45
 
 
  1080 00f4 01       		.byte	0x1
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1134 0160 0A       		.uleb128 0xa
  1135 0161 6B000000 		.4byte	0x6b
  1136 0165 70010000 		.4byte	0x170
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 46
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 46
 
 
  1137 0169 0B       		.uleb128 0xb
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1191 01d7 2101     		.2byte	0x121
  1192 01d9 60010000 		.4byte	0x160
  1193 01dd 09       		.byte	0x9
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 47
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 47
 
 
  1194 01de 0E       		.uleb128 0xe
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1248 0250 87030000 		.4byte	.LASF38
  1249 0254 04       		.byte	0x4
  1250 0255 5301     		.2byte	0x153
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 48
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 48
 
 
  1251 0257 6B000000 		.4byte	0x6b
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1305 02cd 04       		.byte	0x4
  1306 02ce 7F01     		.2byte	0x17f
  1307 02d0 12020000 		.4byte	0x212
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 49
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 49
 
 
  1308 02d4 0F       		.uleb128 0xf
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1362 0346 04       		.byte	0x4
  1363 0347 B001     		.2byte	0x1b0
  1364 0349 60010000 		.4byte	0x160
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 50
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 50
 
 
  1365 034d 04       		.byte	0x4
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1419 03c1 14       		.byte	0x14
  1420 03c2 0E       		.uleb128 0xe
  1421 03c3 C8060000 		.4byte	.LASF51
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 51
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 51
 
 
  1422 03c7 04       		.byte	0x4
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1476 043a 35010000 		.4byte	.LASF64
  1477 043e 04       		.byte	0x4
  1478 043f FD01     		.2byte	0x1fd
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 52
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 52
 
 
  1479 0441 77000000 		.4byte	0x77
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1533 04b6 F0030000 		.4byte	0x3f0
  1534 04ba 62       		.byte	0x62
  1535 04bb 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 53
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 53
 
 
  1536 04bc FA000000 		.4byte	.LASF74
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1590 0535 03       		.byte	0x3
  1591 0536 00       		.byte	0
  1592 0537 04       		.uleb128 0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 54
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 54
 
 
  1593 0538 26080000 		.4byte	.LASF81
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1647 05ad 8B02     		.2byte	0x28b
  1648 05af 6B000000 		.4byte	0x6b
  1649 05b3 19       		.byte	0x19
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 55
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 55
 
 
  1650 05b4 0E       		.uleb128 0xe
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1704 0626 83000000 		.4byte	0x83
  1705 062a 14       		.byte	0x14
  1706 062b 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 56
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 56
 
 
  1707 062c F5030000 		.4byte	.LASF98
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1761 069d 86030000 		.4byte	0x386
  1762 06a1 11       		.uleb128 0x11
  1763 06a2 04       		.byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 57
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 57
 
 
  1764 06a3 6B000000 		.4byte	0x6b
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1818 0717 63726300 		.ascii	"crc\000"
  1819 071b 01       		.byte	0x1
  1820 071c AE01     		.2byte	0x1ae
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 58
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 58
 
 
  1821 071e 6B000000 		.4byte	0x6b
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1875 079a 21000000 		.4byte	.LLST1
  1876 079e 00       		.byte	0
  1877 079f 11       		.uleb128 0x11
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 59
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 59
 
 
  1878 07a0 04       		.byte	0x4
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1932 0821 01       		.uleb128 0x1
  1933 0822 30       		.byte	0x30
  1934 0823 19       		.uleb128 0x19
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 60
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 60
 
 
  1935 0824 01       		.uleb128 0x1
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  1989 0886 3C010000 		.4byte	.LLST7
  1990 088a 14       		.uleb128 0x14
  1991 088b 54030000 		.4byte	.LASF123
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 61
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 61
 
 
  1992 088f 01       		.byte	0x1
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2046 0910 19       		.uleb128 0x19
  2047 0911 01       		.uleb128 0x1
  2048 0912 50       		.byte	0x50
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 62
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 62
 
 
  2049 0913 03       		.uleb128 0x3
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2103 097a 01       		.uleb128 0x1
  2104 097b 9C       		.byte	0x9c
  2105 097c 300A0000 		.4byte	0xa30
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 63
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 63
 
 
  2106 0980 14       		.uleb128 0x14
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2160 09fe 01       		.byte	0x1
  2161 09ff E003     		.2byte	0x3e0
  2162 0a01 BF090000 		.4byte	0x9bf
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 64
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 64
 
 
  2163 0a05 18       		.uleb128 0x18
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2217 0a6a 83000000 		.4byte	0x83
  2218 0a6e 6D020000 		.4byte	.LLST14
  2219 0a72 16       		.uleb128 0x16
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 65
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 65
 
 
  2220 0a73 47050000 		.4byte	.LASF131
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2274 0afb 01       		.byte	0x1
  2275 0afc 9204     		.2byte	0x492
  2276 0afe 83000000 		.4byte	0x83
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 66
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 66
 
 
  2277 0b02 84030000 		.4byte	.LLST19
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2331 0b81 60010000 		.4byte	0x160
  2332 0b85 05       		.uleb128 0x5
  2333 0b86 03       		.byte	0x3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 67
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 67
 
 
  2334 0b87 04000000 		.4byte	capsense_debounceBTN2
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2388 0c00 1B       		.uleb128 0x1b
  2389 0c01 12030000 		.4byte	0x312
  2390 0c05 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 68
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 68
 
 
  2391 0c06 5B080000 		.4byte	0x85b
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2445 0018 3E       		.uleb128 0x3e
  2446 0019 0B       		.uleb128 0xb
  2447 001a 03       		.uleb128 0x3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 69
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 69
 
 
  2448 001b 0E       		.uleb128 0xe
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2502 0051 00       		.byte	0
  2503 0052 00       		.byte	0
  2504 0053 08       		.uleb128 0x8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 70
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 70
 
 
  2505 0054 28       		.uleb128 0x28
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2559 008a 00       		.byte	0
  2560 008b 03       		.uleb128 0x3
  2561 008c 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 71
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 71
 
 
  2562 008d 3A       		.uleb128 0x3a
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2616 00c3 0F       		.uleb128 0xf
  2617 00c4 00       		.byte	0
  2618 00c5 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 72
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 72
 
 
  2619 00c6 0B       		.uleb128 0xb
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2673 00fd 0E       		.uleb128 0xe
  2674 00fe 3A       		.uleb128 0x3a
  2675 00ff 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 73
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 73
 
 
  2676 0100 3B       		.uleb128 0x3b
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2730 0139 13       		.uleb128 0x13
  2731 013a 01       		.uleb128 0x1
  2732 013b 13       		.uleb128 0x13
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 74
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 74
 
 
  2733 013c 00       		.byte	0
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2787 0178 1D       		.uleb128 0x1d
  2788 0179 34       		.uleb128 0x34
  2789 017a 00       		.byte	0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 75
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 75
 
 
  2790 017b 03       		.uleb128 0x3
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2844 01b1 00       		.byte	0
  2845 01b2 00       		.byte	0
  2846 01b3 22       		.uleb128 0x22
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 76
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 76
 
 
  2847 01b4 34       		.uleb128 0x34
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2901 01ea 13       		.uleb128 0x13
  2902 01eb 3F       		.uleb128 0x3f
  2903 01ec 19       		.uleb128 0x19
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 77
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 77
 
 
  2904 01ed 02       		.uleb128 0x2
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  2958 0029 0200     		.2byte	0x2
  2959 002b 30       		.byte	0x30
  2960 002c 9F       		.byte	0x9f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 78
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 78
 
 
  2961 002d 44000000 		.4byte	.LVL3
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3015 00c0 0100     		.2byte	0x1
  3016 00c2 53       		.byte	0x53
  3017 00c3 60000000 		.4byte	.LVL25
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 79
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 79
 
 
  3018 00c7 64000000 		.4byte	.LVL27
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3072 0153 50       		.byte	0x50
  3073 0154 9F       		.byte	0x9f
  3074 0155 00000000 		.4byte	0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 80
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 80
 
 
  3075 0159 00000000 		.4byte	0
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3129 01e2 00000000 		.4byte	0
  3130              	.LLST12:
  3131 01e6 00000000 		.4byte	.LVL39
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 81
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 81
 
 
  3132 01ea 08000000 		.4byte	.LVL40
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3186 026d 00000000 		.4byte	.LVL50
  3187 0271 06000000 		.4byte	.LVL51
  3188 0275 0200     		.2byte	0x2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 82
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 82
 
 
  3189 0277 30       		.byte	0x30
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3243 02fb 00000000 		.4byte	.LVL55
  3244 02ff 1A000000 		.4byte	.LVL57
  3245 0303 0200     		.2byte	0x2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 83
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 83
 
 
  3246 0305 30       		.byte	0x30
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3300 0384 00000000 		.4byte	.LVL60
  3301 0388 20000000 		.4byte	.LVL62
  3302 038c 0200     		.2byte	0x2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 84
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 84
 
 
  3303 038e 30       		.byte	0x30
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3357 040d 00000000 		.4byte	.LVL67
  3358 0411 26000000 		.4byte	.LVL70
  3359 0415 0400     		.2byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 85
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 85
 
 
  3360 0417 0A       		.byte	0xa
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3414 0000 00000000 		.4byte	.LFB2
  3415 0004 7A000000 		.4byte	.LFE2
  3416 0008 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 86
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 86
 
 
  3417 000c 7C000000 		.4byte	.LFE1
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3444      4D415452 
  3444      49585F42 
  3445              	.LASF33:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 87
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 87
 
 
  3446 00cf 63617073 		.ascii	"capsense_SENSE_METHOD_ISX_E\000"
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3470      5F52414D 
  3470      5F534E53 
  3470      5F4C4953 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 88
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 88
 
 
  3471              	.LASF152:
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3491      37373135 
  3492 028a 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
  3492      67202D66 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 89
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 89
 
 
  3492      66756E63 
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3514      6500
  3515              	.LASF143:
  3516 035a 63617073 		.ascii	"capsense_ioList\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 90
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 90
 
 
  3516      656E7365 
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3543              	.LASF98:
  3544 03f5 746F7461 		.ascii	"totalNumSns\000"
  3544      6C4E756D 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 91
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 91
 
 
  3544      536E7300 
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3568      6542544E 
  3569              	.LASF138:
  3570 04c6 63617073 		.ascii	"capsense_debounceBTN1\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 92
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 92
 
 
  3570      656E7365 
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3594      73655468 
  3594      00
  3595              	.LASF69:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 93
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 93
 
 
  3596 0577 63736430 		.ascii	"csd0Config\000"
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3620      63616E43 
  3620      6F756E74 
  3620      657200
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 94
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 94
 
 
  3621              	.LASF60:
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3644      00
  3645              	.LASF55:
  3646 06d5 64696666 		.ascii	"diff\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 95
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 95
 
 
  3646      00
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3672      41727200 
  3673              	.LASF104:
  3674 077b 7843656E 		.ascii	"xCentroidMultiplier\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 96
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 96
 
 
  3674      74726F69 
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3698      534300
  3699              	.LASF93:
  3700 081a 70747232 		.ascii	"ptr2WdgtRam\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 97
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 97
 
 
  3700      57646774 
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 1
  3724      63747343 
  3724      726300
  3725              	.LASF147:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccIJdPEa.s 			page 98
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccGDYthN.s 			page 98
 
 
  3726 08d7 6D656D63 		.ascii	"memcpy\000"

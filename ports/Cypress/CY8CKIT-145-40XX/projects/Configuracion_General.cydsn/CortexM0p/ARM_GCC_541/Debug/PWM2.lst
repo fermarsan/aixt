@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
   28:Generated_Source\PSoC4/pwm2.c **** * Summary:
   29:Generated_Source\PSoC4/pwm2.c **** *  Initialize/Restore default pwm2 configuration.
   30:Generated_Source\PSoC4/pwm2.c **** *
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 2
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 2
 
 
   31:Generated_Source\PSoC4/pwm2.c **** * Parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
   85:Generated_Source\PSoC4/pwm2.c ****         #endif /* (pwm2_CY_TCPWM_V2 && pwm2_TIMER_UPDOWN_CNT_USED && !pwm2_CY_TCPWM_4000) */
   86:Generated_Source\PSoC4/pwm2.c ****     #endif  /* (pwm2__TIMER == pwm2_CONFIG) */
   87:Generated_Source\PSoC4/pwm2.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 3
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 3
 
 
   88:Generated_Source\PSoC4/pwm2.c ****     #if (pwm2__PWM_SEL == pwm2_CONFIG)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  142:Generated_Source\PSoC4/pwm2.c ****             #endif  /* (pwm2__ASYMMETRIC == pwm2_PWM_ALIGN) */
  143:Generated_Source\PSoC4/pwm2.c ****         #endif  /* (pwm2__PWM_PR == pwm2_PWM_MODE) */
  144:Generated_Source\PSoC4/pwm2.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 4
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 4
 
 
  145:Generated_Source\PSoC4/pwm2.c ****         /* Set other values from customizer */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  199:Generated_Source\PSoC4/pwm2.c ****         #if (0u != pwm2_QUAD_AUTO_START)
  200:Generated_Source\PSoC4/pwm2.c ****             pwm2_TriggerCommand(pwm2_MASK, pwm2_CMD_RELOAD);
  201:Generated_Source\PSoC4/pwm2.c ****         #endif /* (0u != pwm2_QUAD_AUTO_START) */
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 5
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 5
 
 
  202:Generated_Source\PSoC4/pwm2.c ****     #endif  /* (pwm2__QUAD == pwm2_CONFIG) */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  256:Generated_Source\PSoC4/pwm2.c **** void pwm2_Stop(void)
  257:Generated_Source\PSoC4/pwm2.c **** {
   28              		.loc 1 257 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 6
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 6
 
 
   29              		.cfi_startproc
@@ -319,7 +319,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
   39              		.loc 1 262 0
   40 0006 044A     		ldr	r2, .L2
   41 0008 1368     		ldr	r3, [r2]
-  42 000a 0421     		movs	r1, #4
+  42 000a 0221     		movs	r1, #2
   43 000c 8B43     		bics	r3, r1
   44 000e 1360     		str	r3, [r2]
  263:Generated_Source\PSoC4/pwm2.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  275:Generated_Source\PSoC4/pwm2.c **** *  set at runtime. The mode must be set while the component is disabled.
  276:Generated_Source\PSoC4/pwm2.c **** *
  277:Generated_Source\PSoC4/pwm2.c **** * Parameters:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 7
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 7
 
 
  278:Generated_Source\PSoC4/pwm2.c **** *  mode: Mode for the pwm2 to operate in
@@ -418,12 +418,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
   94              		@ sp needed
   95 001c 10BD     		pop	{r4, pc}
   96              	.L6:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 8
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 8
 
 
   97 001e C046     		.align	2
   98              	.L5:
-  99 0020 80010640 		.word	1074135424
+  99 0020 40010640 		.word	1074135360
  100 0024 FFFFFFF8 		.word	-117440513
  101              		.cfi_endproc
  102              	.LFE5:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  124              	.LVL7:
  331:Generated_Source\PSoC4/pwm2.c **** 
  332:Generated_Source\PSoC4/pwm2.c ****     pwm2_CONTROL_REG &= (uint32)~pwm2_QUAD_MODE_MASK;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 9
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 9
 
 
  125              		.loc 1 332 0
@@ -505,7 +505,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  142              	.L9:
  143 001e C046     		.align	2
  144              	.L8:
- 145 0020 80010640 		.word	1074135424
+ 145 0020 40010640 		.word	1074135360
  146 0024 FFFF8FFF 		.word	-7340033
  147              		.cfi_endproc
  148              	.LFE6:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  354:Generated_Source\PSoC4/pwm2.c **** *         - pwm2_PRESCALE_DIVBY16   - Divide by 16
  355:Generated_Source\PSoC4/pwm2.c **** *         - pwm2_PRESCALE_DIVBY32   - Divide by 32
  356:Generated_Source\PSoC4/pwm2.c **** *         - pwm2_PRESCALE_DIVBY64   - Divide by 64
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 10
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 10
 
 
  357:Generated_Source\PSoC4/pwm2.c **** *         - pwm2_PRESCALE_DIVBY128  - Divide by 128
@@ -591,14 +591,14 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  188              	.L12:
  189 001e C046     		.align	2
  190              	.L11:
- 191 0020 80010640 		.word	1074135424
+ 191 0020 40010640 		.word	1074135360
  192 0024 FF00FFFF 		.word	-65281
  193              		.cfi_endproc
  194              	.LFE7:
  195              		.size	pwm2_SetPrescaler, .-pwm2_SetPrescaler
  196              		.section	.text.pwm2_SetOneShot,"ax",%progbits
  197              		.align	2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 11
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 11
 
 
  198              		.global	pwm2_SetOneShot
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  224 0010 0B60     		str	r3, [r1]
  402:Generated_Source\PSoC4/pwm2.c ****     pwm2_CONTROL_REG |= ((uint32)((oneShotEnable & pwm2_1BIT_MASK) <<
  225              		.loc 1 402 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 12
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 12
 
 
  226 0012 0D68     		ldr	r5, [r1]
@@ -682,7 +682,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  240              	.L15:
  241 0026 C046     		.align	2
  242              	.L14:
- 243 0028 80010640 		.word	1074135424
+ 243 0028 40010640 		.word	1074135360
  244 002c FFFFFBFF 		.word	-262145
  245              		.cfi_endproc
  246              	.LFE8:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  427:Generated_Source\PSoC4/pwm2.c **** *     - CC_MATCH_NO_CHANGE  - No change on comparison match
  428:Generated_Source\PSoC4/pwm2.c **** *     - OVERLOW_SET         - Set on overflow
  429:Generated_Source\PSoC4/pwm2.c **** *     - OVERLOW_CLEAR       - Clear on  overflow
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 13
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 13
 
 
  430:Generated_Source\PSoC4/pwm2.c **** *     - OVERLOW_INVERT      - Invert on overflow
@@ -762,7 +762,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  271              	.L18:
  272 000a C046     		.align	2
  273              	.L17:
- 274 000c A8010640 		.word	1074135464
+ 274 000c 68010640 		.word	1074135400
  275              		.cfi_endproc
  276              	.LFE9:
  277              		.size	pwm2_SetPWMMode, .-pwm2_SetPWMMode
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  454:Generated_Source\PSoC4/pwm2.c **** 
  455:Generated_Source\PSoC4/pwm2.c **** 
  456:Generated_Source\PSoC4/pwm2.c **** /*******************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 14
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 14
 
 
  457:Generated_Source\PSoC4/pwm2.c **** * Function Name: pwm2_SetPWMSyncKill
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  305 000e 8B43     		bics	r3, r1
  306 0010 1360     		str	r3, [r2]
  492:Generated_Source\PSoC4/pwm2.c ****     pwm2_CONTROL_REG |= ((uint32)((syncKillEnable & pwm2_1BIT_MASK)  <<
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 15
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 15
 
 
  307              		.loc 1 492 0
@@ -862,7 +862,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  321              	.L21:
  322              		.align	2
  323              	.L20:
- 324 0024 80010640 		.word	1074135424
+ 324 0024 40010640 		.word	1074135360
  325              		.cfi_endproc
  326              	.LFE10:
  327              		.size	pwm2_SetPWMSyncKill, .-pwm2_SetPWMSyncKill
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  518:Generated_Source\PSoC4/pwm2.c **** *******************************************************************************/
  519:Generated_Source\PSoC4/pwm2.c **** void pwm2_SetPWMStopOnKill(uint32 stopOnKillEnable)
  520:Generated_Source\PSoC4/pwm2.c **** {
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 16
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 16
 
 
  336              		.loc 1 520 0
@@ -949,7 +949,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  371              	.L24:
  372              		.align	2
  373              	.L23:
- 374 0024 80010640 		.word	1074135424
+ 374 0024 40010640 		.word	1074135360
  375              		.cfi_endproc
  376              	.LFE11:
  377              		.size	pwm2_SetPWMStopOnKill, .-pwm2_SetPWMStopOnKill
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  380              		.global	pwm2_SetPWMDeadTime
  381              		.code	16
  382              		.thumb_func
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 17
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 17
 
 
  383              		.type	pwm2_SetPWMDeadTime, %function
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  408              	.LVL30:
  409 0016 240C     		lsrs	r4, r4, #16
  410 0018 1443     		orrs	r4, r2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 18
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 18
 
 
  411 001a 1C60     		str	r4, [r3]
@@ -1035,7 +1035,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  418              	.L27:
  419 0022 C046     		.align	2
  420              	.L26:
- 421 0024 80010640 		.word	1074135424
+ 421 0024 40010640 		.word	1074135360
  422 0028 FF00FFFF 		.word	-65281
  423              		.cfi_endproc
  424              	.LFE12:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  438              	.LVL32:
  439 0000 10B5     		push	{r4, lr}
  440              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 19
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 19
 
 
  441              		.cfi_offset 4, -8
@@ -1116,7 +1116,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  464              	.L30:
  465 001e C046     		.align	2
  466              	.L29:
- 467 0020 80010640 		.word	1074135424
+ 467 0020 40010640 		.word	1074135360
  468 0024 FFFFCFFF 		.word	-3145729
  469              		.cfi_endproc
  470              	.LFE13:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  602:Generated_Source\PSoC4/pwm2.c **** *
  603:Generated_Source\PSoC4/pwm2.c **** * Summary:
  604:Generated_Source\PSoC4/pwm2.c **** *  Writes a new 16bit counter value directly into the counter register, thus
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 20
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 20
 
 
  605:Generated_Source\PSoC4/pwm2.c **** *  setting the counter (not the period) to the value written. It is not
@@ -1173,7 +1173,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  495              	.L33:
  496 000a C046     		.align	2
  497              	.L32:
- 498 000c 88010640 		.word	1074135432
+ 498 000c 48010640 		.word	1074135368
  499              		.cfi_endproc
  500              	.LFE14:
  501              		.size	pwm2_WriteCounter, .-pwm2_WriteCounter
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  629:Generated_Source\PSoC4/pwm2.c **** *  None
  630:Generated_Source\PSoC4/pwm2.c **** *
  631:Generated_Source\PSoC4/pwm2.c **** * Return:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 21
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 21
 
 
  632:Generated_Source\PSoC4/pwm2.c **** *  Current counter value
@@ -1224,7 +1224,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  523              	.L36:
  524 000a C046     		.align	2
  525              	.L35:
- 526 000c 88010640 		.word	1074135432
+ 526 000c 48010640 		.word	1074135368
  527              		.cfi_endproc
  528              	.LFE15:
  529              		.size	pwm2_ReadCounter, .-pwm2_ReadCounter
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  658:Generated_Source\PSoC4/pwm2.c **** *                                         and period
  659:Generated_Source\PSoC4/pwm2.c **** *
  660:Generated_Source\PSoC4/pwm2.c **** * Return:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 22
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 22
 
 
  661:Generated_Source\PSoC4/pwm2.c **** *  None
@@ -1308,7 +1308,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  568              	.L39:
  569 001e C046     		.align	2
  570              	.L38:
- 571 0020 80010640 		.word	1074135424
+ 571 0020 40010640 		.word	1074135360
  572 0024 FFFFFCFF 		.word	-196609
  573              		.cfi_endproc
  574              	.LFE16:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  578              		.global	pwm2_WritePeriod
  579              		.code	16
  580              		.thumb_func
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 23
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 23
 
 
  581              		.type	pwm2_WritePeriod, %function
@@ -1364,7 +1364,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  599              	.L42:
  600 000a C046     		.align	2
  601              	.L41:
- 602 000c 94010640 		.word	1074135444
+ 602 000c 54010640 		.word	1074135380
  603              		.cfi_endproc
  604              	.LFE17:
  605              		.size	pwm2_WritePeriod, .-pwm2_WritePeriod
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  613              	.LFB18:
  697:Generated_Source\PSoC4/pwm2.c **** 
  698:Generated_Source\PSoC4/pwm2.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 24
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 24
 
 
  699:Generated_Source\PSoC4/pwm2.c **** /*******************************************************************************
@@ -1415,7 +1415,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  627              	.L45:
  628 000a C046     		.align	2
  629              	.L44:
- 630 000c 94010640 		.word	1074135444
+ 630 000c 54010640 		.word	1074135380
  631              		.cfi_endproc
  632              	.LFE18:
  633              		.size	pwm2_ReadPeriod, .-pwm2_ReadPeriod
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  725:Generated_Source\PSoC4/pwm2.c **** *  swapped. When enabled in the Timer/Counter mode(without capture) the swap
  726:Generated_Source\PSoC4/pwm2.c **** *  occurs at a TC event. In the PWM mode the swap occurs at the next TC event
  727:Generated_Source\PSoC4/pwm2.c **** *  following a hardware switch event.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 25
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 25
 
 
  728:Generated_Source\PSoC4/pwm2.c **** *
@@ -1497,8 +1497,8 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  673              	.L48:
  674              		.align	2
  675              	.L47:
- 676 0020 80010640 		.word	1074135424
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 26
+ 676 0020 40010640 		.word	1074135360
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 26
 
 
  677              		.cfi_endproc
@@ -1550,7 +1550,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  703              	.L51:
  704 000a C046     		.align	2
  705              	.L50:
- 706 000c 98010640 		.word	1074135448
+ 706 000c 58010640 		.word	1074135384
  707              		.cfi_endproc
  708              	.LFE20:
  709              		.size	pwm2_WritePeriodBuf, .-pwm2_WritePeriodBuf
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  711              		.align	2
  712              		.global	pwm2_ReadPeriodBuf
  713              		.code	16
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 27
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 27
 
 
  714              		.thumb_func
@@ -1601,7 +1601,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  731              	.L54:
  732 000a C046     		.align	2
  733              	.L53:
- 734 000c 98010640 		.word	1074135448
+ 734 000c 58010640 		.word	1074135384
  735              		.cfi_endproc
  736              	.LFE21:
  737              		.size	pwm2_ReadPeriodBuf, .-pwm2_ReadPeriodBuf
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  792:Generated_Source\PSoC4/pwm2.c **** /*******************************************************************************
  793:Generated_Source\PSoC4/pwm2.c **** * Function Name: pwm2_SetPeriodSwap
  794:Generated_Source\PSoC4/pwm2.c **** ********************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 28
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 28
 
 
  795:Generated_Source\PSoC4/pwm2.c **** *
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  820:Generated_Source\PSoC4/pwm2.c ****                                                             pwm2_RELOAD_PERIOD_SHIFT));
  821:Generated_Source\PSoC4/pwm2.c **** 
  822:Generated_Source\PSoC4/pwm2.c ****     CyExitCriticalSection(enableInterrupts);
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 29
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 29
 
 
  775              		.loc 1 822 0
@@ -1691,7 +1691,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  781              	.L57:
  782              		.align	2
  783              	.L56:
- 784 0024 80010640 		.word	1074135424
+ 784 0024 40010640 		.word	1074135360
  785              		.cfi_endproc
  786              	.LFE22:
  787              		.size	pwm2_SetPeriodSwap, .-pwm2_SetPeriodSwap
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  801              	.LVL54:
  851:Generated_Source\PSoC4/pwm2.c ****     #if (pwm2_CY_TCPWM_4000)
  852:Generated_Source\PSoC4/pwm2.c ****         uint32 currentMode;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 30
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 30
 
 
  853:Generated_Source\PSoC4/pwm2.c ****     #endif /* (pwm2_CY_TCPWM_4000) */
@@ -1775,7 +1775,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  811              	.L60:
  812 000a C046     		.align	2
  813              	.L59:
- 814 000c 8C010640 		.word	1074135436
+ 814 000c 4C010640 		.word	1074135372
  815              		.cfi_endproc
  816              	.LFE23:
  817              		.size	pwm2_WriteCompare, .-pwm2_WriteCompare
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  883:Generated_Source\PSoC4/pwm2.c **** *  or in Quadrature Decoder modes.
  884:Generated_Source\PSoC4/pwm2.c **** *  PSoC 4000 devices read the incremented compare register value in the 
  885:Generated_Source\PSoC4/pwm2.c **** *  Up counting mode (except 0xFFFFu), and the decremented value in the 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 31
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 31
 
 
  886:Generated_Source\PSoC4/pwm2.c **** *  Down counting mode (except 0x0u).
@@ -1858,12 +1858,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  837              		@ sp needed
  838 0008 7047     		bx	lr
  839              	.L63:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 32
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 32
 
 
  840 000a C046     		.align	2
  841              	.L62:
- 842 000c 8C010640 		.word	1074135436
+ 842 000c 4C010640 		.word	1074135372
  843              		.cfi_endproc
  844              	.LFE24:
  845              		.size	pwm2_ReadCompare, .-pwm2_ReadCompare
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  963:Generated_Source\PSoC4/pwm2.c ****         if (((uint32)pwm2__COUNT_DOWN == currentMode) && (0xFFFFu != compareBuf))
  964:Generated_Source\PSoC4/pwm2.c ****         {
  965:Generated_Source\PSoC4/pwm2.c ****             compareBuf++;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 33
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 33
 
 
  966:Generated_Source\PSoC4/pwm2.c ****         }
@@ -1945,7 +1945,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  869              	.L66:
  870 000a C046     		.align	2
  871              	.L65:
- 872 000c 90010640 		.word	1074135440
+ 872 000c 50010640 		.word	1074135376
  873              		.cfi_endproc
  874              	.LFE25:
  875              		.size	pwm2_WriteCompareBuf, .-pwm2_WriteCompareBuf
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  996:Generated_Source\PSoC4/pwm2.c **** *  Up counting mode (except 0xFFFFu), and the decremented value in the 
  997:Generated_Source\PSoC4/pwm2.c **** *  Down counting mode (except 0x0u).
  998:Generated_Source\PSoC4/pwm2.c **** *
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 34
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 34
 
 
  999:Generated_Source\PSoC4/pwm2.c **** *******************************************************************************/
@@ -2027,7 +2027,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  897              	.L69:
  898 000a C046     		.align	2
  899              	.L68:
- 900 000c 90010640 		.word	1074135440
+ 900 000c 50010640 		.word	1074135376
  901              		.cfi_endproc
  902              	.LFE26:
  903              		.size	pwm2_ReadCompareBuf, .-pwm2_ReadCompareBuf
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  908              		.thumb_func
  909              		.type	pwm2_ReadCapture, %function
  910              	pwm2_ReadCapture:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 35
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 35
 
 
  911              	.LFB27:
@@ -2079,7 +2079,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  925              	.L72:
  926 000a C046     		.align	2
  927              	.L71:
- 928 000c 8C010640 		.word	1074135436
+ 928 000c 4C010640 		.word	1074135372
  929              		.cfi_endproc
  930              	.LFE27:
  931              		.size	pwm2_ReadCapture, .-pwm2_ReadCapture
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
 1054:Generated_Source\PSoC4/pwm2.c **** ********************************************************************************
 1055:Generated_Source\PSoC4/pwm2.c **** *
 1056:Generated_Source\PSoC4/pwm2.c **** * Summary:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 36
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 36
 
 
 1057:Generated_Source\PSoC4/pwm2.c **** *  Reads the capture buffer register. This API is applicable only for
@@ -2131,7 +2131,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  953              	.L75:
  954 000a C046     		.align	2
  955              	.L74:
- 956 000c 90010640 		.word	1074135440
+ 956 000c 50010640 		.word	1074135376
  957              		.cfi_endproc
  958              	.LFE28:
  959              		.size	pwm2_ReadCaptureBuf, .-pwm2_ReadCaptureBuf
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
 1083:Generated_Source\PSoC4/pwm2.c **** *  triggerMode: Enumerated trigger mode value
 1084:Generated_Source\PSoC4/pwm2.c **** *   Values:
 1085:Generated_Source\PSoC4/pwm2.c **** *     - pwm2_TRIG_LEVEL     - Level
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 37
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 37
 
 
 1086:Generated_Source\PSoC4/pwm2.c **** *     - pwm2_TRIG_RISING    - Rising edge
@@ -2213,12 +2213,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  998              	.L78:
  999 001e C046     		.align	2
  1000              	.L77:
- 1001 0020 A4010640 		.word	1074135460
+ 1001 0020 64010640 		.word	1074135396
  1002              		.cfi_endproc
  1003              	.LFE29:
  1004              		.size	pwm2_SetCaptureMode, .-pwm2_SetCaptureMode
  1005              		.section	.text.pwm2_SetReloadMode,"ax",%progbits
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 38
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 38
 
 
  1006              		.align	2
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1031 0010 1A60     		str	r2, [r3]
 1134:Generated_Source\PSoC4/pwm2.c ****     pwm2_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << pwm2_RELOAD_SHIFT));
  1032              		.loc 1 1134 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 39
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 39
 
 
  1033 0012 1A68     		ldr	r2, [r3]
@@ -2298,7 +2298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1044              	.L81:
  1045              		.align	2
  1046              	.L80:
- 1047 0020 A4010640 		.word	1074135460
+ 1047 0020 64010640 		.word	1074135396
  1048              		.cfi_endproc
  1049              	.LFE30:
  1050              		.size	pwm2_SetReloadMode, .-pwm2_SetReloadMode
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1060              		.cfi_startproc
  1061              		@ args = 0, pretend = 0, frame = 0
  1062              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 40
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 40
 
 
  1063              	.LVL66:
@@ -2380,7 +2380,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1090              	.L84:
  1091              		.align	2
  1092              	.L83:
- 1093 0020 A4010640 		.word	1074135460
+ 1093 0020 64010640 		.word	1074135396
  1094 0024 FFFCFFFF 		.word	-769
  1095              		.cfi_endproc
  1096              	.LFE31:
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
 1173:Generated_Source\PSoC4/pwm2.c **** /*******************************************************************************
 1174:Generated_Source\PSoC4/pwm2.c **** * Function Name: pwm2_SetStopMode
 1175:Generated_Source\PSoC4/pwm2.c **** ********************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 41
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 41
 
 
 1176:Generated_Source\PSoC4/pwm2.c **** *
@@ -2458,14 +2458,14 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
 1202:Generated_Source\PSoC4/pwm2.c **** }
  1134              		.loc 1 1202 0
  1135              		@ sp needed
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 42
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 42
 
 
  1136 001e 10BD     		pop	{r4, pc}
  1137              	.L87:
  1138              		.align	2
  1139              	.L86:
- 1140 0020 A4010640 		.word	1074135460
+ 1140 0020 64010640 		.word	1074135396
  1141              		.cfi_endproc
  1142              	.LFE32:
  1143              		.size	pwm2_SetStopMode, .-pwm2_SetStopMode
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1163 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  1164              	.LVL75:
 1230:Generated_Source\PSoC4/pwm2.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 43
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 43
 
 
 1231:Generated_Source\PSoC4/pwm2.c ****     pwm2_TRIG_CONTROL1_REG &= (uint32)~pwm2_COUNT_MASK;
@@ -2547,7 +2547,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1183              	.L90:
  1184              		.align	2
  1185              	.L89:
- 1186 0020 A4010640 		.word	1074135460
+ 1186 0020 64010640 		.word	1074135396
  1187              		.cfi_endproc
  1188              	.LFE33:
  1189              		.size	pwm2_SetCountMode, .-pwm2_SetCountMode
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
 1252:Generated_Source\PSoC4/pwm2.c **** *        define.
 1253:Generated_Source\PSoC4/pwm2.c **** *  command: Enumerated command values. Capture command only applicable for
 1254:Generated_Source\PSoC4/pwm2.c **** *           Timer/Counter with Capture and PWM modes.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 44
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 44
 
 
 1255:Generated_Source\PSoC4/pwm2.c **** *   Values:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1232              		.size	pwm2_TriggerCommand, .-pwm2_TriggerCommand
  1233              		.section	.text.pwm2_Enable,"ax",%progbits
  1234              		.align	2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 45
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 45
 
 
  1235              		.global	pwm2_Enable
@@ -2664,7 +2664,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1252              		.loc 1 182 0
  1253 0006 064A     		ldr	r2, .L95
  1254 0008 1168     		ldr	r1, [r2]
- 1255 000a 0423     		movs	r3, #4
+ 1255 000a 0223     		movs	r3, #2
  1256 000c 0B43     		orrs	r3, r1
  1257 000e 1360     		str	r3, [r2]
  183:Generated_Source\PSoC4/pwm2.c **** 
@@ -2674,7 +2674,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  188:Generated_Source\PSoC4/pwm2.c ****         #endif /* (0u == pwm2_PWM_START_SIGNAL_PRESENT) */
  1261              		.loc 1 188 0
  1262 0014 1821     		movs	r1, #24
- 1263 0016 0420     		movs	r0, #4
+ 1263 0016 0220     		movs	r0, #2
  1264 0018 FFF7FEFF 		bl	pwm2_TriggerCommand
  1265              	.LVL85:
  203:Generated_Source\PSoC4/pwm2.c **** 
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1283              	.LFB35:
 1275:Generated_Source\PSoC4/pwm2.c **** 
 1276:Generated_Source\PSoC4/pwm2.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 46
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 46
 
 
 1277:Generated_Source\PSoC4/pwm2.c **** /*******************************************************************************
@@ -2745,7 +2745,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1302              	.L99:
  1303              		.align	2
  1304              	.L98:
- 1305 0010 84010640 		.word	1074135428
+ 1305 0010 44010640 		.word	1074135364
  1306              		.cfi_endproc
  1307              	.LFE35:
  1308              		.size	pwm2_ReadStatus, .-pwm2_ReadStatus
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1315              	pwm2_SetInterruptMode:
  1316              	.LFB36:
 1299:Generated_Source\PSoC4/pwm2.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 47
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 47
 
 
 1300:Generated_Source\PSoC4/pwm2.c **** 
@@ -2799,7 +2799,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1329              	.L102:
  1330 0006 C046     		.align	2
  1331              	.L101:
- 1332 0008 B8010640 		.word	1074135480
+ 1332 0008 78010640 		.word	1074135416
  1333              		.cfi_endproc
  1334              	.LFE36:
  1335              		.size	pwm2_SetInterruptMode, .-pwm2_SetInterruptMode
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1347              		@ frame_needed = 0, uses_anonymous_args = 0
  1348 0000 10B5     		push	{r4, lr}
  1349              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 48
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 48
 
 
  1350              		.cfi_offset 4, -8
@@ -2874,11 +2874,11 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1390              	.L105:
  1391              		.align	2
  1392              	.L104:
- 1393 0038 80010640 		.word	1074135424
- 1394 003c A4010640 		.word	1074135460
- 1395 0040 A8010640 		.word	1074135464
+ 1393 0038 40010640 		.word	1074135360
+ 1394 003c 64010640 		.word	1074135396
+ 1395 0040 68010640 		.word	1074135400
  1396 0044 FFFF0000 		.word	65535
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 49
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 49
 
 
  1397 0048 FF7F0000 		.word	32767
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1445              		.global	pwm2_GetInterruptSourceMasked
  1446              		.code	16
  1447              		.thumb_func
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 50
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 50
 
 
  1448              		.type	pwm2_GetInterruptSourceMasked, %function
@@ -2981,7 +2981,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1462              	.L112:
  1463 0006 C046     		.align	2
  1464              	.L111:
- 1465 0008 BC010640 		.word	1074135484
+ 1465 0008 7C010640 		.word	1074135420
  1466              		.cfi_endproc
  1467              	.LFE37:
  1468              		.size	pwm2_GetInterruptSourceMasked, .-pwm2_GetInterruptSourceMasked
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
 1348:Generated_Source\PSoC4/pwm2.c **** /*******************************************************************************
 1349:Generated_Source\PSoC4/pwm2.c **** * Function Name: pwm2_GetInterruptSource
 1350:Generated_Source\PSoC4/pwm2.c **** ********************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 51
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 51
 
 
 1351:Generated_Source\PSoC4/pwm2.c **** *
@@ -3033,7 +3033,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1488              	.L115:
  1489 0006 C046     		.align	2
  1490              	.L114:
- 1491 0008 B0010640 		.word	1074135472
+ 1491 0008 70010640 		.word	1074135408
  1492              		.cfi_endproc
  1493              	.LFE38:
  1494              		.size	pwm2_GetInterruptSource, .-pwm2_GetInterruptSource
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
 1379:Generated_Source\PSoC4/pwm2.c **** *   interruptMask: Mask of interrupts to clear
 1380:Generated_Source\PSoC4/pwm2.c **** *   Values:
 1381:Generated_Source\PSoC4/pwm2.c **** *     - pwm2_INTR_MASK_TC       - Terminal count mask
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 52
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 52
 
 
 1382:Generated_Source\PSoC4/pwm2.c **** *     - pwm2_INTR_MASK_CC_MATCH - Compare count / capture mask
@@ -3086,7 +3086,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1515              	.L118:
  1516 0006 C046     		.align	2
  1517              	.L117:
- 1518 0008 B0010640 		.word	1074135472
+ 1518 0008 70010640 		.word	1074135408
  1519              		.cfi_endproc
  1520              	.LFE39:
  1521              		.size	pwm2_ClearInterrupt, .-pwm2_ClearInterrupt
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
 1409:Generated_Source\PSoC4/pwm2.c **** *
 1410:Generated_Source\PSoC4/pwm2.c **** *******************************************************************************/
 1411:Generated_Source\PSoC4/pwm2.c **** void pwm2_SetInterrupt(uint32 interruptMask)
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 53
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 53
 
 
 1412:Generated_Source\PSoC4/pwm2.c **** {
@@ -3139,7 +3139,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1542              	.L121:
  1543 0006 C046     		.align	2
  1544              	.L120:
- 1545 0008 B4010640 		.word	1074135476
+ 1545 0008 74010640 		.word	1074135412
  1546              		.cfi_endproc
  1547              	.LFE40:
  1548              		.size	pwm2_SetInterrupt, .-pwm2_SetInterrupt
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1581 002f 22030000 		.4byte	.LASF1
  1582 0033 02       		.uleb128 0x2
  1583 0034 02       		.byte	0x2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 54
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 54
 
 
  1584 0035 05       		.byte	0x5
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1638 009d 02       		.byte	0x2
  1639 009e A802     		.2byte	0x2a8
  1640 00a0 A4000000 		.4byte	0xa4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 55
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 55
 
 
  1641 00a4 05       		.uleb128 0x5
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1695 0127 08000000 		.4byte	.LVL3
  1696 012b F4080000 		.4byte	0x8f4
  1697 012f 08       		.uleb128 0x8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 56
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 56
 
 
  1698 0130 1C000000 		.4byte	.LVL5
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1752 01bd F4080000 		.4byte	0x8f4
  1753 01c1 08       		.uleb128 0x8
  1754 01c2 1C000000 		.4byte	.LVL13
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 57
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 57
 
 
  1755 01c6 FF080000 		.4byte	0x8ff
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1809 024d 84020000 		.4byte	0x284
  1810 0251 09       		.uleb128 0x9
  1811 0252 F1040000 		.4byte	.LASF30
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 58
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 58
 
 
  1812 0256 01       		.byte	0x1
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1866 02e3 09       		.uleb128 0x9
  1867 02e4 99010000 		.4byte	.LASF34
  1868 02e8 01       		.byte	0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 59
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 59
 
 
  1869 02e9 2802     		.2byte	0x228
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1923 0376 00000000 		.4byte	.LASF38
  1924 037a 01       		.byte	0x1
  1925 037b 6702     		.2byte	0x267
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 60
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 60
 
 
  1926 037d 77000000 		.4byte	0x77
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  1980 0407 8C020000 		.4byte	.LLST21
  1981 040b 00       		.byte	0
  1982 040c 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 61
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 61
 
 
  1983 040d 8B000000 		.4byte	.LASF44
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2037 0497 01       		.byte	0x1
  2038 0498 1203     		.2byte	0x312
  2039 049a 77000000 		.4byte	0x77
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 62
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 62
 
 
  2040 049e 00000000 		.4byte	.LFB21
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2094 0528 10000000 		.4byte	.LFE24-.LFB24
  2095 052c 01       		.uleb128 0x1
  2096 052d 9C       		.byte	0x9c
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 63
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 63
 
 
  2097 052e 06       		.uleb128 0x6
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2151 05b2 01       		.byte	0x1
  2152 05b3 4604     		.2byte	0x446
  2153 05b5 77000000 		.4byte	0x77
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 64
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 64
 
 
  2154 05b9 8E030000 		.4byte	.LLST29
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2208 0645 8804     		.2byte	0x488
  2209 0647 77000000 		.4byte	0x77
  2210 064b 0C040000 		.4byte	.LLST33
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 65
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 65
 
 
  2211 064f 07       		.uleb128 0x7
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2265 06d9 77000000 		.4byte	0x77
  2266 06dd 8A040000 		.4byte	.LLST37
  2267 06e1 07       		.uleb128 0x7
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 66
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 66
 
 
  2268 06e2 B7040000 		.4byte	.LASF19
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2322 076e A8070000 		.4byte	0x7a8
  2323 0772 0C       		.uleb128 0xc
  2324 0773 B7040000 		.4byte	.LASF19
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 67
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 67
 
 
  2325 0777 01       		.byte	0x1
@@ -3978,7 +3978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2339 079d 01       		.uleb128 0x1
  2340 079e 50       		.byte	0x50
  2341 079f 01       		.uleb128 0x1
- 2342 07a0 34       		.byte	0x34
+ 2342 07a0 32       		.byte	0x32
  2343 07a1 0E       		.uleb128 0xe
  2344 07a2 01       		.uleb128 0x1
  2345 07a3 51       		.byte	0x51
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2379 07e9 26       		.byte	0x26
  2380 07ea 00000000 		.4byte	.LFB1
  2381 07ee 4C000000 		.4byte	.LFE1-.LFB1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 68
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 68
 
 
  2382 07f2 01       		.uleb128 0x1
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2436 085a 08       		.uleb128 0x8
  2437 085b 0E000000 		.4byte	.LVL91
  2438 085f E3070000 		.4byte	0x7e3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 69
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 69
 
 
  2439 0863 08       		.uleb128 0x8
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2493 08e1 50       		.byte	0x50
  2494 08e2 00       		.byte	0
  2495 08e3 11       		.uleb128 0x11
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 70
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 70
 
 
  2496 08e4 60030000 		.4byte	.LASF82
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2550 0022 0B       		.uleb128 0xb
  2551 0023 3E       		.uleb128 0x3e
  2552 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 71
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 71
 
 
  2553 0025 03       		.uleb128 0x3
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2607 005c 3A       		.uleb128 0x3a
  2608 005d 0B       		.uleb128 0xb
  2609 005e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 72
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 72
 
 
  2610 005f 05       		.uleb128 0x5
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2664 0098 00       		.byte	0
  2665 0099 00       		.byte	0
  2666 009a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 73
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 73
 
 
  2667 009b 2E       		.uleb128 0x2e
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2721 00d7 18       		.uleb128 0x18
  2722 00d8 00       		.byte	0
  2723 00d9 00       		.byte	0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 74
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 74
 
 
  2724 00da 0F       		.uleb128 0xf
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2778 0112 3A       		.uleb128 0x3a
  2779 0113 0B       		.uleb128 0xb
  2780 0114 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 75
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 75
 
 
  2781 0115 0B       		.uleb128 0xb
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2835 0076 00000000 		.4byte	0
  2836 007a 00000000 		.4byte	0
  2837              	.LLST4:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 76
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 76
 
 
  2838 007e 08000000 		.4byte	.LVL7
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2892 0107 00000000 		.4byte	0
  2893 010b 00000000 		.4byte	0
  2894              	.LLST9:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 77
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 77
 
 
  2895 010f 00000000 		.4byte	.LVL18
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  2949 0193 00000000 		.4byte	0
  2950 0197 00000000 		.4byte	0
  2951              	.LLST13:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 78
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 78
 
 
  2952 019b 08000000 		.4byte	.LVL25
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3006 0224 00000000 		.4byte	0
  3007 0228 00000000 		.4byte	0
  3008              	.LLST18:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 79
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 79
 
 
  3009 022c 00000000 		.4byte	.LVL36
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3063 02b1 07000000 		.4byte	.LVL45-1
  3064 02b5 0100     		.2byte	0x1
  3065 02b7 50       		.byte	0x50
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 80
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 80
 
 
  3066 02b8 07000000 		.4byte	.LVL45-1
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3120 033d 21000000 		.4byte	.LVL53-1
  3121 0341 0100     		.2byte	0x1
  3122 0343 50       		.byte	0x50
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 81
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 81
 
 
  3123 0344 00000000 		.4byte	0
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3177 03c9 00000000 		.4byte	0
  3178              	.LLST31:
  3179 03cd 00000000 		.4byte	.LVL62
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 82
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 82
 
 
  3180 03d1 07000000 		.4byte	.LVL63-1
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3234 045a 16000000 		.4byte	.LVL72
  3235 045e 0100     		.2byte	0x1
  3236 0460 54       		.byte	0x54
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 83
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 83
 
 
  3237 0461 16000000 		.4byte	.LVL72
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3291 04ea 01       		.uleb128 0x1
  3292 04eb 50       		.byte	0x50
  3293 04ec 9F       		.byte	0x9f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 84
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 84
 
 
  3294 04ed 00000000 		.4byte	0
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3348 0040 00000000 		.4byte	.LFB10
  3349 0044 28000000 		.4byte	.LFE10-.LFB10
  3350 0048 00000000 		.4byte	.LFB11
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 85
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 85
 
 
  3351 004c 28000000 		.4byte	.LFE11-.LFB11
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3405 0124 4C000000 		.4byte	.LFE1-.LFB1
  3406 0128 00000000 		.4byte	.LFB3
  3407 012c 20000000 		.4byte	.LFE3-.LFB3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 86
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 86
 
 
  3408 0130 00000000 		.4byte	.LFB37
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3462 00a8 00000000 		.4byte	.LFB25
  3463 00ac 10000000 		.4byte	.LFE25
  3464 00b0 00000000 		.4byte	.LFB26
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 87
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 87
 
 
  3465 00b4 10000000 		.4byte	.LFE26
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3510 001c 70776D32 		.ascii	"pwm2_WritePeriodBuf\000"
  3510      5F577269 
  3510      74655065 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 88
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 88
 
 
  3510      72696F64 
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3532      68617200 
  3533              	.LASF53:
  3534 00cf 70776D32 		.ascii	"pwm2_ReadCompare\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 89
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 89
 
 
  3534      5F526561 
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3556      6F646500 
  3557              	.LASF43:
  3558 0175 70776D32 		.ascii	"pwm2_ReadCounter\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 90
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 90
 
 
  3558      5F526561 
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3578      65642069 
  3578      6E7400
  3579              	.LASF77:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 91
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 91
 
 
  3580 0229 4379456E 		.ascii	"CyEnterCriticalSection\000"
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3602      5F536574 
  3602      50726573 
  3602      63616C65 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 92
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 92
 
 
  3602      7200
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3624      72727570 
  3624      744D6173 
  3624      6B00
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 93
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 93
 
 
  3625              	.LASF65:
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3644      42756600 
  3645              	.LASF55:
  3646 048c 636F6D70 		.ascii	"compareBuf\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 94
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 94
 
 
  3646      61726542 
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 1
  3668 0534 70657269 		.ascii	"periodBuf\000"
  3668      6F644275 
  3668      6600
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccKRjYBg.s 			page 95
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccYbftQP.s 			page 95
 
 
  3669              	.LASF72:

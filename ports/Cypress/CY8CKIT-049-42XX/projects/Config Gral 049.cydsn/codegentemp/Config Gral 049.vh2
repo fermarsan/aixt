@@ -2,7 +2,7 @@
 --	Conversion of Config Gral 049.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Oct 05 23:48:51 2023
+--	Wed Oct 11 21:43:55 2023
 --
 
 USE cypress.cypress.all;
@@ -61,12 +61,12 @@ SIGNAL Net_11 : bit;
 SIGNAL Net_14 : bit;
 SIGNAL Net_15 : bit;
 SIGNAL Net_22 : bit;
-SIGNAL \pwm0:Net_81\ : bit;
-SIGNAL \pwm0:Net_75\ : bit;
-SIGNAL \pwm0:Net_69\ : bit;
-SIGNAL \pwm0:Net_66\ : bit;
-SIGNAL \pwm0:Net_82\ : bit;
-SIGNAL \pwm0:Net_72\ : bit;
+SIGNAL \pwm1:Net_81\ : bit;
+SIGNAL \pwm1:Net_75\ : bit;
+SIGNAL \pwm1:Net_69\ : bit;
+SIGNAL \pwm1:Net_66\ : bit;
+SIGNAL \pwm1:Net_82\ : bit;
+SIGNAL \pwm1:Net_72\ : bit;
 SIGNAL Net_34 : bit;
 SIGNAL Net_30 : bit;
 SIGNAL Net_24 : bit;
@@ -74,62 +74,62 @@ SIGNAL Net_28 : bit;
 SIGNAL Net_29 : bit;
 SIGNAL Net_27 : bit;
 SIGNAL Net_25 : bit;
-SIGNAL tmpOE__out_pwm0_net_0 : bit;
-SIGNAL tmpFB_0__out_pwm0_net_0 : bit;
-SIGNAL tmpIO_0__out_pwm0_net_0 : bit;
-TERMINAL tmpSIOVREF__out_pwm0_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__out_pwm0_net_0 : bit;
-SIGNAL \pwm1:Net_81\ : bit;
-SIGNAL \pwm1:Net_75\ : bit;
-SIGNAL \pwm1:Net_69\ : bit;
-SIGNAL \pwm1:Net_66\ : bit;
-SIGNAL \pwm1:Net_82\ : bit;
-SIGNAL \pwm1:Net_72\ : bit;
-SIGNAL Net_48 : bit;
-SIGNAL Net_44 : bit;
-SIGNAL Net_38 : bit;
-SIGNAL Net_42 : bit;
-SIGNAL Net_43 : bit;
-SIGNAL Net_41 : bit;
-SIGNAL tmpOE__out_pwm1_net_0 : bit;
-SIGNAL tmpFB_0__out_pwm1_net_0 : bit;
-SIGNAL tmpIO_0__out_pwm1_net_0 : bit;
-TERMINAL tmpSIOVREF__out_pwm1_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__out_pwm1_net_0 : bit;
+SIGNAL tmpOE__pwm_1_net_0 : bit;
+SIGNAL tmpFB_0__pwm_1_net_0 : bit;
+SIGNAL tmpIO_0__pwm_1_net_0 : bit;
+TERMINAL tmpSIOVREF__pwm_1_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__pwm_1_net_0 : bit;
 SIGNAL \pwm2:Net_81\ : bit;
 SIGNAL \pwm2:Net_75\ : bit;
 SIGNAL \pwm2:Net_69\ : bit;
 SIGNAL \pwm2:Net_66\ : bit;
 SIGNAL \pwm2:Net_82\ : bit;
 SIGNAL \pwm2:Net_72\ : bit;
-SIGNAL Net_62 : bit;
-SIGNAL Net_58 : bit;
-SIGNAL Net_52 : bit;
-SIGNAL Net_56 : bit;
-SIGNAL Net_57 : bit;
-SIGNAL Net_55 : bit;
-SIGNAL tmpOE__out_pwm2_net_0 : bit;
-SIGNAL tmpFB_0__out_pwm2_net_0 : bit;
-SIGNAL tmpIO_0__out_pwm2_net_0 : bit;
-TERMINAL tmpSIOVREF__out_pwm2_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__out_pwm2_net_0 : bit;
+SIGNAL Net_48 : bit;
+SIGNAL Net_44 : bit;
+SIGNAL Net_38 : bit;
+SIGNAL Net_42 : bit;
+SIGNAL Net_43 : bit;
+SIGNAL Net_41 : bit;
+SIGNAL tmpOE__pwm_2_net_0 : bit;
+SIGNAL tmpFB_0__pwm_2_net_0 : bit;
+SIGNAL tmpIO_0__pwm_2_net_0 : bit;
+TERMINAL tmpSIOVREF__pwm_2_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__pwm_2_net_0 : bit;
 SIGNAL \pwm3:Net_81\ : bit;
 SIGNAL \pwm3:Net_75\ : bit;
 SIGNAL \pwm3:Net_69\ : bit;
 SIGNAL \pwm3:Net_66\ : bit;
 SIGNAL \pwm3:Net_82\ : bit;
 SIGNAL \pwm3:Net_72\ : bit;
+SIGNAL Net_62 : bit;
+SIGNAL Net_58 : bit;
+SIGNAL Net_52 : bit;
+SIGNAL Net_56 : bit;
+SIGNAL Net_57 : bit;
+SIGNAL Net_55 : bit;
+SIGNAL tmpOE__pwm_3_net_0 : bit;
+SIGNAL tmpFB_0__pwm_3_net_0 : bit;
+SIGNAL tmpIO_0__pwm_3_net_0 : bit;
+TERMINAL tmpSIOVREF__pwm_3_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__pwm_3_net_0 : bit;
+SIGNAL \pwm4:Net_81\ : bit;
+SIGNAL \pwm4:Net_75\ : bit;
+SIGNAL \pwm4:Net_69\ : bit;
+SIGNAL \pwm4:Net_66\ : bit;
+SIGNAL \pwm4:Net_82\ : bit;
+SIGNAL \pwm4:Net_72\ : bit;
 SIGNAL Net_75 : bit;
 SIGNAL Net_71 : bit;
 SIGNAL Net_65 : bit;
 SIGNAL Net_69 : bit;
 SIGNAL Net_70 : bit;
 SIGNAL Net_68 : bit;
-SIGNAL tmpOE__out_pwm3_net_0 : bit;
-SIGNAL tmpFB_0__out_pwm3_net_0 : bit;
-SIGNAL tmpIO_0__out_pwm3_net_0 : bit;
-TERMINAL tmpSIOVREF__out_pwm3_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__out_pwm3_net_0 : bit;
+SIGNAL tmpOE__pwm_4_net_0 : bit;
+SIGNAL tmpFB_0__pwm_4_net_0 : bit;
+SIGNAL tmpIO_0__pwm_4_net_0 : bit;
+TERMINAL tmpSIOVREF__pwm_4_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__pwm_4_net_0 : bit;
 SIGNAL tmpOE__in0_adc_net_0 : bit;
 SIGNAL tmpFB_0__in0_adc_net_0 : bit;
 TERMINAL Net_79 : bit;
@@ -571,7 +571,7 @@ one <=  ('1') ;
 		sda=>Net_20,
 		tx_req=>Net_21,
 		rx_req=>Net_12);
-\pwm0:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
+\pwm1:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
 	GENERIC MAP(cy_registers=>"")
 	PORT MAP(clock=>Net_25,
 		capture=>zero,
@@ -595,7 +595,7 @@ clock:cy_clock_v1_0
 		is_digital=>'0')
 	PORT MAP(clock_out=>Net_25,
 		dig_domain_out=>open);
-out_pwm0:cy_psoc3_pins_v1_10
+pwm_1:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"e851a3b9-efb8-48be-bbb8-b303b216c393",
 		drive_mode=>"110",
 		ibuf_enabled=>"1",
@@ -653,10 +653,10 @@ out_pwm0:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>Net_28,
-		fb=>(tmpFB_0__out_pwm0_net_0),
+		fb=>(tmpFB_0__pwm_1_net_0),
 		analog=>(open),
-		io=>(tmpIO_0__out_pwm0_net_0),
-		siovref=>(tmpSIOVREF__out_pwm0_net_0),
+		io=>(tmpIO_0__pwm_1_net_0),
+		siovref=>(tmpSIOVREF__pwm_1_net_0),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>one,
@@ -664,8 +664,8 @@ out_pwm0:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>tmpINTERRUPT_0__out_pwm0_net_0);
-\pwm1:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
+		interrupt=>tmpINTERRUPT_0__pwm_1_net_0);
+\pwm2:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
 	GENERIC MAP(cy_registers=>"")
 	PORT MAP(clock=>Net_25,
 		capture=>zero,
@@ -679,7 +679,7 @@ out_pwm0:cy_psoc3_pins_v1_10
 		line_out=>Net_42,
 		line_out_compl=>Net_43,
 		interrupt=>Net_41);
-out_pwm1:cy_psoc3_pins_v1_10
+pwm_2:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"305d7384-34ed-4140-8a87-aacc08dfcdee",
 		drive_mode=>"110",
 		ibuf_enabled=>"1",
@@ -737,10 +737,10 @@ out_pwm1:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>Net_42,
-		fb=>(tmpFB_0__out_pwm1_net_0),
+		fb=>(tmpFB_0__pwm_2_net_0),
 		analog=>(open),
-		io=>(tmpIO_0__out_pwm1_net_0),
-		siovref=>(tmpSIOVREF__out_pwm1_net_0),
+		io=>(tmpIO_0__pwm_2_net_0),
+		siovref=>(tmpSIOVREF__pwm_2_net_0),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>one,
@@ -748,8 +748,8 @@ out_pwm1:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>tmpINTERRUPT_0__out_pwm1_net_0);
-\pwm2:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
+		interrupt=>tmpINTERRUPT_0__pwm_2_net_0);
+\pwm3:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
 	GENERIC MAP(cy_registers=>"")
 	PORT MAP(clock=>Net_25,
 		capture=>zero,
@@ -763,7 +763,7 @@ out_pwm1:cy_psoc3_pins_v1_10
 		line_out=>Net_56,
 		line_out_compl=>Net_57,
 		interrupt=>Net_55);
-out_pwm2:cy_psoc3_pins_v1_10
+pwm_3:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"abe9923b-d76b-483c-a9b1-3325c92a0ab6",
 		drive_mode=>"110",
 		ibuf_enabled=>"1",
@@ -821,10 +821,10 @@ out_pwm2:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>Net_56,
-		fb=>(tmpFB_0__out_pwm2_net_0),
+		fb=>(tmpFB_0__pwm_3_net_0),
 		analog=>(open),
-		io=>(tmpIO_0__out_pwm2_net_0),
-		siovref=>(tmpSIOVREF__out_pwm2_net_0),
+		io=>(tmpIO_0__pwm_3_net_0),
+		siovref=>(tmpSIOVREF__pwm_3_net_0),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>one,
@@ -832,8 +832,8 @@ out_pwm2:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>tmpINTERRUPT_0__out_pwm2_net_0);
-\pwm3:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
+		interrupt=>tmpINTERRUPT_0__pwm_3_net_0);
+\pwm4:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
 	GENERIC MAP(cy_registers=>"")
 	PORT MAP(clock=>Net_25,
 		capture=>zero,
@@ -847,7 +847,7 @@ out_pwm2:cy_psoc3_pins_v1_10
 		line_out=>Net_69,
 		line_out_compl=>Net_70,
 		interrupt=>Net_68);
-out_pwm3:cy_psoc3_pins_v1_10
+pwm_4:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"b1340654-a3f4-4918-897e-5f8b629bf750",
 		drive_mode=>"110",
 		ibuf_enabled=>"1",
@@ -905,10 +905,10 @@ out_pwm3:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>Net_69,
-		fb=>(tmpFB_0__out_pwm3_net_0),
+		fb=>(tmpFB_0__pwm_4_net_0),
 		analog=>(open),
-		io=>(tmpIO_0__out_pwm3_net_0),
-		siovref=>(tmpSIOVREF__out_pwm3_net_0),
+		io=>(tmpIO_0__pwm_4_net_0),
+		siovref=>(tmpSIOVREF__pwm_4_net_0),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>one,
@@ -916,7 +916,7 @@ out_pwm3:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>tmpINTERRUPT_0__out_pwm3_net_0);
+		interrupt=>tmpINTERRUPT_0__pwm_4_net_0);
 in0_adc:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"77715107-f8d5-47e5-a629-0fb83101ac6b",
 		drive_mode=>"000",
