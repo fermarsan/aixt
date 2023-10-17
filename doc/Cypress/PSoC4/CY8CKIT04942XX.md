@@ -5,7 +5,6 @@ Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-4
 # Identificación tarjeta CY8CKIT-049-42XX
 
 ## Vista
-*Parte superior*
 ![Alt text](Imagenes/CY8CKIT04942XX/CY8CKIT04942XX.jpg)
 
 ## Hoja de datos
@@ -48,7 +47,7 @@ Puerto | nombre |Tipo    |
 1.3 |di8     |entrada
 1.4 |di9     |entrada
 1.5 |di10    |entrada
-1.7 |do0     |entrada 
+1.7 |do0     |salida 
 2.5 |do1     |salida
 2.7 |do2     |salida
 3.0 |do3     |salida
