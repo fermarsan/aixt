@@ -7,7 +7,7 @@
   <width>32</width>
   <peripherals>
     <peripheral>
-      <name>pwm2</name>
+      <name>pwm3</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -64,7 +64,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>pwm3</name>
+      <name>pwm4</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -121,7 +121,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>pwm1</name>
+      <name>pwm2</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -2315,7 +2315,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>pwm0</name>
+      <name>pwm1</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>

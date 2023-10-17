@@ -1,12 +1,7 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: builtin.c
-<<<<<<< HEAD
-// Author: Javier León, Camilo Lucas & Fernando Martínez Santa 
-// Date: 2022-2023
-=======
 // Author: Javier Leon, Camilo Lucas and Fernando Martínez Santa
 // Date: 2023
->>>>>>> 84174ccc1922e29cd5d2d7e44a6d339cb0234dfe
 // License: MIT
 //
 // Description: Builtin definitions
@@ -26,6 +21,10 @@ do7,
 do8,
 do9,
 do10,
+pwm_1,
+pwm_2,
+pwm_3,
+pwm_4,
 sw1,
 di0,
 di1,
@@ -38,4 +37,8 @@ di7,
 di8,
 di9,
 di10,
+in0_adc,
+in1_adc,
+in2_adc,
+in3_adc,
 };  

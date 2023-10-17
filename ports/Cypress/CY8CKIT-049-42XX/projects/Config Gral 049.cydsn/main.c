@@ -23,10 +23,10 @@ int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
     uart_Start();
-    pwm0_Start();
     pwm1_Start();
     pwm2_Start();
     pwm3_Start();
+    pwm4_Start();
     clock_Start();
     adc_Start();
     amux_Start();

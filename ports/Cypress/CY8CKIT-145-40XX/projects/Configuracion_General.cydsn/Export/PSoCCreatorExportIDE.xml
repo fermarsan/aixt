@@ -111,17 +111,12 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm1_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm2.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm2.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm2_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm2_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm3.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm3.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm3_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Control.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Processing.c</File>
@@ -210,15 +205,20 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do0.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do0_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do0_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm0.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm0.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm0_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm0.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm0.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm0_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\out_pwm0_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\clock.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\clock.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_2_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_2_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_3.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_3.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_3_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_3_PM.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-145-40XX\projects\Configuracion_General.cydsn\Export\ARM_GCC_Generic\CapSense_P4_v7_10">

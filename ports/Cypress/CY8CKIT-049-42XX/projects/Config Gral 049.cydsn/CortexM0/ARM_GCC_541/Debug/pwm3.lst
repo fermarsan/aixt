@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
   28:Generated_Source\PSoC4/pwm3.c **** * Summary:
   29:Generated_Source\PSoC4/pwm3.c **** *  Initialize/Restore default pwm3 configuration.
   30:Generated_Source\PSoC4/pwm3.c **** *
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 2
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 2
 
 
   31:Generated_Source\PSoC4/pwm3.c **** * Parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
   85:Generated_Source\PSoC4/pwm3.c ****         #endif /* (pwm3_CY_TCPWM_V2 && pwm3_TIMER_UPDOWN_CNT_USED && !pwm3_CY_TCPWM_4000) */
   86:Generated_Source\PSoC4/pwm3.c ****     #endif  /* (pwm3__TIMER == pwm3_CONFIG) */
   87:Generated_Source\PSoC4/pwm3.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 3
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 3
 
 
   88:Generated_Source\PSoC4/pwm3.c ****     #if (pwm3__PWM_SEL == pwm3_CONFIG)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  142:Generated_Source\PSoC4/pwm3.c ****             #endif  /* (pwm3__ASYMMETRIC == pwm3_PWM_ALIGN) */
  143:Generated_Source\PSoC4/pwm3.c ****         #endif  /* (pwm3__PWM_PR == pwm3_PWM_MODE) */
  144:Generated_Source\PSoC4/pwm3.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 4
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 4
 
 
  145:Generated_Source\PSoC4/pwm3.c ****         /* Set other values from customizer */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  199:Generated_Source\PSoC4/pwm3.c ****         #if (0u != pwm3_QUAD_AUTO_START)
  200:Generated_Source\PSoC4/pwm3.c ****             pwm3_TriggerCommand(pwm3_MASK, pwm3_CMD_RELOAD);
  201:Generated_Source\PSoC4/pwm3.c ****         #endif /* (0u != pwm3_QUAD_AUTO_START) */
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 5
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 5
 
 
  202:Generated_Source\PSoC4/pwm3.c ****     #endif  /* (pwm3__QUAD == pwm3_CONFIG) */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  256:Generated_Source\PSoC4/pwm3.c **** void pwm3_Stop(void)
  257:Generated_Source\PSoC4/pwm3.c **** {
   28              		.loc 1 257 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 6
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 6
 
 
   29              		.cfi_startproc
@@ -319,7 +319,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
   39              		.loc 1 262 0
   40 0006 044A     		ldr	r2, .L2
   41 0008 1368     		ldr	r3, [r2]
-  42 000a 0221     		movs	r1, #2
+  42 000a 0121     		movs	r1, #1
   43 000c 8B43     		bics	r3, r1
   44 000e 1360     		str	r3, [r2]
  263:Generated_Source\PSoC4/pwm3.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  275:Generated_Source\PSoC4/pwm3.c **** *  set at runtime. The mode must be set while the component is disabled.
  276:Generated_Source\PSoC4/pwm3.c **** *
  277:Generated_Source\PSoC4/pwm3.c **** * Parameters:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 7
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 7
 
 
  278:Generated_Source\PSoC4/pwm3.c **** *  mode: Mode for the pwm3 to operate in
@@ -418,12 +418,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
   94              		@ sp needed
   95 001c 10BD     		pop	{r4, pc}
   96              	.L6:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 8
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 8
 
 
   97 001e C046     		.align	2
   98              	.L5:
-  99 0020 40010540 		.word	1074069824
+  99 0020 00010540 		.word	1074069760
  100 0024 FFFFFFF8 		.word	-117440513
  101              		.cfi_endproc
  102              	.LFE4:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  124              	.LVL7:
  331:Generated_Source\PSoC4/pwm3.c **** 
  332:Generated_Source\PSoC4/pwm3.c ****     pwm3_CONTROL_REG &= (uint32)~pwm3_QUAD_MODE_MASK;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 9
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 9
 
 
  125              		.loc 1 332 0
@@ -505,7 +505,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  142              	.L9:
  143 001e C046     		.align	2
  144              	.L8:
- 145 0020 40010540 		.word	1074069824
+ 145 0020 00010540 		.word	1074069760
  146 0024 FFFF8FFF 		.word	-7340033
  147              		.cfi_endproc
  148              	.LFE5:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  354:Generated_Source\PSoC4/pwm3.c **** *         - pwm3_PRESCALE_DIVBY16   - Divide by 16
  355:Generated_Source\PSoC4/pwm3.c **** *         - pwm3_PRESCALE_DIVBY32   - Divide by 32
  356:Generated_Source\PSoC4/pwm3.c **** *         - pwm3_PRESCALE_DIVBY64   - Divide by 64
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 10
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 10
 
 
  357:Generated_Source\PSoC4/pwm3.c **** *         - pwm3_PRESCALE_DIVBY128  - Divide by 128
@@ -591,14 +591,14 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  188              	.L12:
  189 001e C046     		.align	2
  190              	.L11:
- 191 0020 40010540 		.word	1074069824
+ 191 0020 00010540 		.word	1074069760
  192 0024 FF00FFFF 		.word	-65281
  193              		.cfi_endproc
  194              	.LFE6:
  195              		.size	pwm3_SetPrescaler, .-pwm3_SetPrescaler
  196              		.section	.text.pwm3_SetOneShot,"ax",%progbits
  197              		.align	2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 11
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 11
 
 
  198              		.global	pwm3_SetOneShot
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  224 0010 0B60     		str	r3, [r1]
  402:Generated_Source\PSoC4/pwm3.c ****     pwm3_CONTROL_REG |= ((uint32)((oneShotEnable & pwm3_1BIT_MASK) <<
  225              		.loc 1 402 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 12
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 12
 
 
  226 0012 0D68     		ldr	r5, [r1]
@@ -682,7 +682,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  240              	.L15:
  241 0026 C046     		.align	2
  242              	.L14:
- 243 0028 40010540 		.word	1074069824
+ 243 0028 00010540 		.word	1074069760
  244 002c FFFFFBFF 		.word	-262145
  245              		.cfi_endproc
  246              	.LFE7:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  427:Generated_Source\PSoC4/pwm3.c **** *     - CC_MATCH_NO_CHANGE  - No change on comparison match
  428:Generated_Source\PSoC4/pwm3.c **** *     - OVERLOW_SET         - Set on overflow
  429:Generated_Source\PSoC4/pwm3.c **** *     - OVERLOW_CLEAR       - Clear on  overflow
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 13
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 13
 
 
  430:Generated_Source\PSoC4/pwm3.c **** *     - OVERLOW_INVERT      - Invert on overflow
@@ -762,7 +762,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  271              	.L18:
  272 000a C046     		.align	2
  273              	.L17:
- 274 000c 68010540 		.word	1074069864
+ 274 000c 28010540 		.word	1074069800
  275              		.cfi_endproc
  276              	.LFE8:
  277              		.size	pwm3_SetPWMMode, .-pwm3_SetPWMMode
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  454:Generated_Source\PSoC4/pwm3.c **** 
  455:Generated_Source\PSoC4/pwm3.c **** 
  456:Generated_Source\PSoC4/pwm3.c **** /*******************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 14
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 14
 
 
  457:Generated_Source\PSoC4/pwm3.c **** * Function Name: pwm3_SetPWMSyncKill
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  305 000e 8B43     		bics	r3, r1
  306 0010 1360     		str	r3, [r2]
  492:Generated_Source\PSoC4/pwm3.c ****     pwm3_CONTROL_REG |= ((uint32)((syncKillEnable & pwm3_1BIT_MASK)  <<
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 15
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 15
 
 
  307              		.loc 1 492 0
@@ -862,7 +862,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  321              	.L21:
  322              		.align	2
  323              	.L20:
- 324 0024 40010540 		.word	1074069824
+ 324 0024 00010540 		.word	1074069760
  325              		.cfi_endproc
  326              	.LFE9:
  327              		.size	pwm3_SetPWMSyncKill, .-pwm3_SetPWMSyncKill
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  518:Generated_Source\PSoC4/pwm3.c **** *******************************************************************************/
  519:Generated_Source\PSoC4/pwm3.c **** void pwm3_SetPWMStopOnKill(uint32 stopOnKillEnable)
  520:Generated_Source\PSoC4/pwm3.c **** {
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 16
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 16
 
 
  336              		.loc 1 520 0
@@ -949,7 +949,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  371              	.L24:
  372              		.align	2
  373              	.L23:
- 374 0024 40010540 		.word	1074069824
+ 374 0024 00010540 		.word	1074069760
  375              		.cfi_endproc
  376              	.LFE10:
  377              		.size	pwm3_SetPWMStopOnKill, .-pwm3_SetPWMStopOnKill
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  380              		.global	pwm3_SetPWMDeadTime
  381              		.code	16
  382              		.thumb_func
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 17
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 17
 
 
  383              		.type	pwm3_SetPWMDeadTime, %function
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  408              	.LVL30:
  409 0016 240C     		lsrs	r4, r4, #16
  410 0018 1443     		orrs	r4, r2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 18
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 18
 
 
  411 001a 1C60     		str	r4, [r3]
@@ -1035,7 +1035,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  418              	.L27:
  419 0022 C046     		.align	2
  420              	.L26:
- 421 0024 40010540 		.word	1074069824
+ 421 0024 00010540 		.word	1074069760
  422 0028 FF00FFFF 		.word	-65281
  423              		.cfi_endproc
  424              	.LFE11:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  438              	.LVL32:
  439 0000 10B5     		push	{r4, lr}
  440              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 19
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 19
 
 
  441              		.cfi_offset 4, -8
@@ -1116,7 +1116,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  464              	.L30:
  465 001e C046     		.align	2
  466              	.L29:
- 467 0020 40010540 		.word	1074069824
+ 467 0020 00010540 		.word	1074069760
  468 0024 FFFFCFFF 		.word	-3145729
  469              		.cfi_endproc
  470              	.LFE12:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  602:Generated_Source\PSoC4/pwm3.c **** *
  603:Generated_Source\PSoC4/pwm3.c **** * Summary:
  604:Generated_Source\PSoC4/pwm3.c **** *  Writes a new 16bit counter value directly into the counter register, thus
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 20
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 20
 
 
  605:Generated_Source\PSoC4/pwm3.c **** *  setting the counter (not the period) to the value written. It is not
@@ -1173,7 +1173,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  495              	.L33:
  496 000a C046     		.align	2
  497              	.L32:
- 498 000c 48010540 		.word	1074069832
+ 498 000c 08010540 		.word	1074069768
  499              		.cfi_endproc
  500              	.LFE13:
  501              		.size	pwm3_WriteCounter, .-pwm3_WriteCounter
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  629:Generated_Source\PSoC4/pwm3.c **** *  None
  630:Generated_Source\PSoC4/pwm3.c **** *
  631:Generated_Source\PSoC4/pwm3.c **** * Return:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 21
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 21
 
 
  632:Generated_Source\PSoC4/pwm3.c **** *  Current counter value
@@ -1224,7 +1224,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  523              	.L36:
  524 000a C046     		.align	2
  525              	.L35:
- 526 000c 48010540 		.word	1074069832
+ 526 000c 08010540 		.word	1074069768
  527              		.cfi_endproc
  528              	.LFE14:
  529              		.size	pwm3_ReadCounter, .-pwm3_ReadCounter
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  658:Generated_Source\PSoC4/pwm3.c **** *                                         and period
  659:Generated_Source\PSoC4/pwm3.c **** *
  660:Generated_Source\PSoC4/pwm3.c **** * Return:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 22
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 22
 
 
  661:Generated_Source\PSoC4/pwm3.c **** *  None
@@ -1308,7 +1308,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  568              	.L39:
  569 001e C046     		.align	2
  570              	.L38:
- 571 0020 40010540 		.word	1074069824
+ 571 0020 00010540 		.word	1074069760
  572 0024 FFFFFCFF 		.word	-196609
  573              		.cfi_endproc
  574              	.LFE15:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  578              		.global	pwm3_WritePeriod
  579              		.code	16
  580              		.thumb_func
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 23
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 23
 
 
  581              		.type	pwm3_WritePeriod, %function
@@ -1364,7 +1364,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  599              	.L42:
  600 000a C046     		.align	2
  601              	.L41:
- 602 000c 54010540 		.word	1074069844
+ 602 000c 14010540 		.word	1074069780
  603              		.cfi_endproc
  604              	.LFE16:
  605              		.size	pwm3_WritePeriod, .-pwm3_WritePeriod
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  613              	.LFB17:
  697:Generated_Source\PSoC4/pwm3.c **** 
  698:Generated_Source\PSoC4/pwm3.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 24
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 24
 
 
  699:Generated_Source\PSoC4/pwm3.c **** /*******************************************************************************
@@ -1415,7 +1415,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  627              	.L45:
  628 000a C046     		.align	2
  629              	.L44:
- 630 000c 54010540 		.word	1074069844
+ 630 000c 14010540 		.word	1074069780
  631              		.cfi_endproc
  632              	.LFE17:
  633              		.size	pwm3_ReadPeriod, .-pwm3_ReadPeriod
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  725:Generated_Source\PSoC4/pwm3.c **** *  swapped. When enabled in the Timer/Counter mode(without capture) the swap
  726:Generated_Source\PSoC4/pwm3.c **** *  occurs at a TC event. In the PWM mode the swap occurs at the next TC event
  727:Generated_Source\PSoC4/pwm3.c **** *  following a hardware switch event.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 25
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 25
 
 
  728:Generated_Source\PSoC4/pwm3.c **** *
@@ -1497,8 +1497,8 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  673              	.L48:
  674              		.align	2
  675              	.L47:
- 676 0020 40010540 		.word	1074069824
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 26
+ 676 0020 00010540 		.word	1074069760
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 26
 
 
  677              		.cfi_endproc
@@ -1550,7 +1550,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  703              	.L51:
  704 000a C046     		.align	2
  705              	.L50:
- 706 000c 58010540 		.word	1074069848
+ 706 000c 18010540 		.word	1074069784
  707              		.cfi_endproc
  708              	.LFE19:
  709              		.size	pwm3_WritePeriodBuf, .-pwm3_WritePeriodBuf
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  711              		.align	2
  712              		.global	pwm3_ReadPeriodBuf
  713              		.code	16
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 27
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 27
 
 
  714              		.thumb_func
@@ -1601,7 +1601,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  731              	.L54:
  732 000a C046     		.align	2
  733              	.L53:
- 734 000c 58010540 		.word	1074069848
+ 734 000c 18010540 		.word	1074069784
  735              		.cfi_endproc
  736              	.LFE20:
  737              		.size	pwm3_ReadPeriodBuf, .-pwm3_ReadPeriodBuf
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  792:Generated_Source\PSoC4/pwm3.c **** /*******************************************************************************
  793:Generated_Source\PSoC4/pwm3.c **** * Function Name: pwm3_SetPeriodSwap
  794:Generated_Source\PSoC4/pwm3.c **** ********************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 28
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 28
 
 
  795:Generated_Source\PSoC4/pwm3.c **** *
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  820:Generated_Source\PSoC4/pwm3.c ****                                                             pwm3_RELOAD_PERIOD_SHIFT));
  821:Generated_Source\PSoC4/pwm3.c **** 
  822:Generated_Source\PSoC4/pwm3.c ****     CyExitCriticalSection(enableInterrupts);
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 29
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 29
 
 
  775              		.loc 1 822 0
@@ -1691,7 +1691,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  781              	.L57:
  782              		.align	2
  783              	.L56:
- 784 0024 40010540 		.word	1074069824
+ 784 0024 00010540 		.word	1074069760
  785              		.cfi_endproc
  786              	.LFE21:
  787              		.size	pwm3_SetPeriodSwap, .-pwm3_SetPeriodSwap
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  801              	.LVL54:
  851:Generated_Source\PSoC4/pwm3.c ****     #if (pwm3_CY_TCPWM_4000)
  852:Generated_Source\PSoC4/pwm3.c ****         uint32 currentMode;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 30
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 30
 
 
  853:Generated_Source\PSoC4/pwm3.c ****     #endif /* (pwm3_CY_TCPWM_4000) */
@@ -1775,7 +1775,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  811              	.L60:
  812 000a C046     		.align	2
  813              	.L59:
- 814 000c 4C010540 		.word	1074069836
+ 814 000c 0C010540 		.word	1074069772
  815              		.cfi_endproc
  816              	.LFE22:
  817              		.size	pwm3_WriteCompare, .-pwm3_WriteCompare
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  883:Generated_Source\PSoC4/pwm3.c **** *  or in Quadrature Decoder modes.
  884:Generated_Source\PSoC4/pwm3.c **** *  PSoC 4000 devices read the incremented compare register value in the 
  885:Generated_Source\PSoC4/pwm3.c **** *  Up counting mode (except 0xFFFFu), and the decremented value in the 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 31
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 31
 
 
  886:Generated_Source\PSoC4/pwm3.c **** *  Down counting mode (except 0x0u).
@@ -1858,12 +1858,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  837              		@ sp needed
  838 0008 7047     		bx	lr
  839              	.L63:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 32
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 32
 
 
  840 000a C046     		.align	2
  841              	.L62:
- 842 000c 4C010540 		.word	1074069836
+ 842 000c 0C010540 		.word	1074069772
  843              		.cfi_endproc
  844              	.LFE23:
  845              		.size	pwm3_ReadCompare, .-pwm3_ReadCompare
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  963:Generated_Source\PSoC4/pwm3.c ****         if (((uint32)pwm3__COUNT_DOWN == currentMode) && (0xFFFFu != compareBuf))
  964:Generated_Source\PSoC4/pwm3.c ****         {
  965:Generated_Source\PSoC4/pwm3.c ****             compareBuf++;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 33
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 33
 
 
  966:Generated_Source\PSoC4/pwm3.c ****         }
@@ -1945,7 +1945,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  869              	.L66:
  870 000a C046     		.align	2
  871              	.L65:
- 872 000c 50010540 		.word	1074069840
+ 872 000c 10010540 		.word	1074069776
  873              		.cfi_endproc
  874              	.LFE24:
  875              		.size	pwm3_WriteCompareBuf, .-pwm3_WriteCompareBuf
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  996:Generated_Source\PSoC4/pwm3.c **** *  Up counting mode (except 0xFFFFu), and the decremented value in the 
  997:Generated_Source\PSoC4/pwm3.c **** *  Down counting mode (except 0x0u).
  998:Generated_Source\PSoC4/pwm3.c **** *
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 34
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 34
 
 
  999:Generated_Source\PSoC4/pwm3.c **** *******************************************************************************/
@@ -2027,7 +2027,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  897              	.L69:
  898 000a C046     		.align	2
  899              	.L68:
- 900 000c 50010540 		.word	1074069840
+ 900 000c 10010540 		.word	1074069776
  901              		.cfi_endproc
  902              	.LFE25:
  903              		.size	pwm3_ReadCompareBuf, .-pwm3_ReadCompareBuf
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  908              		.thumb_func
  909              		.type	pwm3_ReadCapture, %function
  910              	pwm3_ReadCapture:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 35
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 35
 
 
  911              	.LFB26:
@@ -2079,7 +2079,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  925              	.L72:
  926 000a C046     		.align	2
  927              	.L71:
- 928 000c 4C010540 		.word	1074069836
+ 928 000c 0C010540 		.word	1074069772
  929              		.cfi_endproc
  930              	.LFE26:
  931              		.size	pwm3_ReadCapture, .-pwm3_ReadCapture
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
 1054:Generated_Source\PSoC4/pwm3.c **** ********************************************************************************
 1055:Generated_Source\PSoC4/pwm3.c **** *
 1056:Generated_Source\PSoC4/pwm3.c **** * Summary:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 36
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 36
 
 
 1057:Generated_Source\PSoC4/pwm3.c **** *  Reads the capture buffer register. This API is applicable only for
@@ -2131,7 +2131,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  953              	.L75:
  954 000a C046     		.align	2
  955              	.L74:
- 956 000c 50010540 		.word	1074069840
+ 956 000c 10010540 		.word	1074069776
  957              		.cfi_endproc
  958              	.LFE27:
  959              		.size	pwm3_ReadCaptureBuf, .-pwm3_ReadCaptureBuf
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
 1083:Generated_Source\PSoC4/pwm3.c **** *  triggerMode: Enumerated trigger mode value
 1084:Generated_Source\PSoC4/pwm3.c **** *   Values:
 1085:Generated_Source\PSoC4/pwm3.c **** *     - pwm3_TRIG_LEVEL     - Level
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 37
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 37
 
 
 1086:Generated_Source\PSoC4/pwm3.c **** *     - pwm3_TRIG_RISING    - Rising edge
@@ -2213,12 +2213,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  998              	.L78:
  999 001e C046     		.align	2
  1000              	.L77:
- 1001 0020 64010540 		.word	1074069860
+ 1001 0020 24010540 		.word	1074069796
  1002              		.cfi_endproc
  1003              	.LFE28:
  1004              		.size	pwm3_SetCaptureMode, .-pwm3_SetCaptureMode
  1005              		.section	.text.pwm3_SetReloadMode,"ax",%progbits
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 38
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 38
 
 
  1006              		.align	2
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1031 0010 1A60     		str	r2, [r3]
 1134:Generated_Source\PSoC4/pwm3.c ****     pwm3_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << pwm3_RELOAD_SHIFT));
  1032              		.loc 1 1134 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 39
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 39
 
 
  1033 0012 1A68     		ldr	r2, [r3]
@@ -2298,7 +2298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1044              	.L81:
  1045              		.align	2
  1046              	.L80:
- 1047 0020 64010540 		.word	1074069860
+ 1047 0020 24010540 		.word	1074069796
  1048              		.cfi_endproc
  1049              	.LFE29:
  1050              		.size	pwm3_SetReloadMode, .-pwm3_SetReloadMode
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1060              		.cfi_startproc
  1061              		@ args = 0, pretend = 0, frame = 0
  1062              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 40
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 40
 
 
  1063              	.LVL66:
@@ -2380,7 +2380,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1090              	.L84:
  1091              		.align	2
  1092              	.L83:
- 1093 0020 64010540 		.word	1074069860
+ 1093 0020 24010540 		.word	1074069796
  1094 0024 FFFCFFFF 		.word	-769
  1095              		.cfi_endproc
  1096              	.LFE30:
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
 1173:Generated_Source\PSoC4/pwm3.c **** /*******************************************************************************
 1174:Generated_Source\PSoC4/pwm3.c **** * Function Name: pwm3_SetStopMode
 1175:Generated_Source\PSoC4/pwm3.c **** ********************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 41
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 41
 
 
 1176:Generated_Source\PSoC4/pwm3.c **** *
@@ -2458,14 +2458,14 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
 1202:Generated_Source\PSoC4/pwm3.c **** }
  1134              		.loc 1 1202 0
  1135              		@ sp needed
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 42
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 42
 
 
  1136 001e 10BD     		pop	{r4, pc}
  1137              	.L87:
  1138              		.align	2
  1139              	.L86:
- 1140 0020 64010540 		.word	1074069860
+ 1140 0020 24010540 		.word	1074069796
  1141              		.cfi_endproc
  1142              	.LFE31:
  1143              		.size	pwm3_SetStopMode, .-pwm3_SetStopMode
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1163 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  1164              	.LVL75:
 1230:Generated_Source\PSoC4/pwm3.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 43
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 43
 
 
 1231:Generated_Source\PSoC4/pwm3.c ****     pwm3_TRIG_CONTROL1_REG &= (uint32)~pwm3_COUNT_MASK;
@@ -2547,7 +2547,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1183              	.L90:
  1184              		.align	2
  1185              	.L89:
- 1186 0020 64010540 		.word	1074069860
+ 1186 0020 24010540 		.word	1074069796
  1187              		.cfi_endproc
  1188              	.LFE32:
  1189              		.size	pwm3_SetCountMode, .-pwm3_SetCountMode
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
 1252:Generated_Source\PSoC4/pwm3.c **** *        define.
 1253:Generated_Source\PSoC4/pwm3.c **** *  command: Enumerated command values. Capture command only applicable for
 1254:Generated_Source\PSoC4/pwm3.c **** *           Timer/Counter with Capture and PWM modes.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 44
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 44
 
 
 1255:Generated_Source\PSoC4/pwm3.c **** *   Values:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1232              		.size	pwm3_TriggerCommand, .-pwm3_TriggerCommand
  1233              		.section	.text.pwm3_Enable,"ax",%progbits
  1234              		.align	2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 45
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 45
 
 
  1235              		.global	pwm3_Enable
@@ -2664,7 +2664,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1252              		.loc 1 182 0
  1253 0006 064A     		ldr	r2, .L95
  1254 0008 1168     		ldr	r1, [r2]
- 1255 000a 0223     		movs	r3, #2
+ 1255 000a 0123     		movs	r3, #1
  1256 000c 0B43     		orrs	r3, r1
  1257 000e 1360     		str	r3, [r2]
  183:Generated_Source\PSoC4/pwm3.c **** 
@@ -2674,7 +2674,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  188:Generated_Source\PSoC4/pwm3.c ****         #endif /* (0u == pwm3_PWM_START_SIGNAL_PRESENT) */
  1261              		.loc 1 188 0
  1262 0014 1821     		movs	r1, #24
- 1263 0016 0220     		movs	r0, #2
+ 1263 0016 0120     		movs	r0, #1
  1264 0018 FFF7FEFF 		bl	pwm3_TriggerCommand
  1265              	.LVL85:
  203:Generated_Source\PSoC4/pwm3.c **** 
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1283              	.LFB34:
 1275:Generated_Source\PSoC4/pwm3.c **** 
 1276:Generated_Source\PSoC4/pwm3.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 46
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 46
 
 
 1277:Generated_Source\PSoC4/pwm3.c **** /*******************************************************************************
@@ -2745,7 +2745,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1302              	.L99:
  1303              		.align	2
  1304              	.L98:
- 1305 0010 44010540 		.word	1074069828
+ 1305 0010 04010540 		.word	1074069764
  1306              		.cfi_endproc
  1307              	.LFE34:
  1308              		.size	pwm3_ReadStatus, .-pwm3_ReadStatus
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1315              	pwm3_SetInterruptMode:
  1316              	.LFB35:
 1299:Generated_Source\PSoC4/pwm3.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 47
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 47
 
 
 1300:Generated_Source\PSoC4/pwm3.c **** 
@@ -2799,7 +2799,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1329              	.L102:
  1330 0006 C046     		.align	2
  1331              	.L101:
- 1332 0008 78010540 		.word	1074069880
+ 1332 0008 38010540 		.word	1074069816
  1333              		.cfi_endproc
  1334              	.LFE35:
  1335              		.size	pwm3_SetInterruptMode, .-pwm3_SetInterruptMode
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1347              		@ frame_needed = 0, uses_anonymous_args = 0
  1348 0000 10B5     		push	{r4, lr}
  1349              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 48
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 48
 
 
  1350              		.cfi_offset 4, -8
@@ -2875,10 +2875,10 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1391              	.L105:
  1392 003a C046     		.align	2
  1393              	.L104:
- 1394 003c 40010540 		.word	1074069824
- 1395 0040 64010540 		.word	1074069860
- 1396 0044 68010540 		.word	1074069864
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 49
+ 1394 003c 00010540 		.word	1074069760
+ 1395 0040 24010540 		.word	1074069796
+ 1396 0044 28010540 		.word	1074069800
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 49
 
 
  1397 0048 FFFF0000 		.word	65535
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1445              		.global	pwm3_GetInterruptSourceMasked
  1446              		.code	16
  1447              		.thumb_func
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 50
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 50
 
 
  1448              		.type	pwm3_GetInterruptSourceMasked, %function
@@ -2981,7 +2981,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1462              	.L112:
  1463 0006 C046     		.align	2
  1464              	.L111:
- 1465 0008 7C010540 		.word	1074069884
+ 1465 0008 3C010540 		.word	1074069820
  1466              		.cfi_endproc
  1467              	.LFE36:
  1468              		.size	pwm3_GetInterruptSourceMasked, .-pwm3_GetInterruptSourceMasked
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
 1348:Generated_Source\PSoC4/pwm3.c **** /*******************************************************************************
 1349:Generated_Source\PSoC4/pwm3.c **** * Function Name: pwm3_GetInterruptSource
 1350:Generated_Source\PSoC4/pwm3.c **** ********************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 51
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 51
 
 
 1351:Generated_Source\PSoC4/pwm3.c **** *
@@ -3033,7 +3033,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1488              	.L115:
  1489 0006 C046     		.align	2
  1490              	.L114:
- 1491 0008 70010540 		.word	1074069872
+ 1491 0008 30010540 		.word	1074069808
  1492              		.cfi_endproc
  1493              	.LFE37:
  1494              		.size	pwm3_GetInterruptSource, .-pwm3_GetInterruptSource
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
 1379:Generated_Source\PSoC4/pwm3.c **** *   interruptMask: Mask of interrupts to clear
 1380:Generated_Source\PSoC4/pwm3.c **** *   Values:
 1381:Generated_Source\PSoC4/pwm3.c **** *     - pwm3_INTR_MASK_TC       - Terminal count mask
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 52
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 52
 
 
 1382:Generated_Source\PSoC4/pwm3.c **** *     - pwm3_INTR_MASK_CC_MATCH - Compare count / capture mask
@@ -3086,7 +3086,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1515              	.L118:
  1516 0006 C046     		.align	2
  1517              	.L117:
- 1518 0008 70010540 		.word	1074069872
+ 1518 0008 30010540 		.word	1074069808
  1519              		.cfi_endproc
  1520              	.LFE38:
  1521              		.size	pwm3_ClearInterrupt, .-pwm3_ClearInterrupt
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
 1409:Generated_Source\PSoC4/pwm3.c **** *
 1410:Generated_Source\PSoC4/pwm3.c **** *******************************************************************************/
 1411:Generated_Source\PSoC4/pwm3.c **** void pwm3_SetInterrupt(uint32 interruptMask)
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 53
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 53
 
 
 1412:Generated_Source\PSoC4/pwm3.c **** {
@@ -3139,7 +3139,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1542              	.L121:
  1543 0006 C046     		.align	2
  1544              	.L120:
- 1545 0008 74010540 		.word	1074069876
+ 1545 0008 34010540 		.word	1074069812
  1546              		.cfi_endproc
  1547              	.LFE39:
  1548              		.size	pwm3_SetInterrupt, .-pwm3_SetInterrupt
@@ -3163,8 +3163,8 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1566 000b 01       		.uleb128 0x1
  1567 000c 41000000 		.4byte	.LASF79
  1568 0010 0C       		.byte	0xc
- 1569 0011 6C030000 		.4byte	.LASF80
- 1570 0015 14040000 		.4byte	.LASF81
+ 1569 0011 E2030000 		.4byte	.LASF80
+ 1570 0015 B2020000 		.4byte	.LASF81
  1571 0019 00000000 		.4byte	.Ldebug_ranges0+0
  1572 001d 00000000 		.4byte	0
  1573 0021 00000000 		.4byte	.Ldebug_line0
@@ -3175,14 +3175,14 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1578 002c 02       		.uleb128 0x2
  1579 002d 01       		.byte	0x1
  1580 002e 08       		.byte	0x8
- 1581 002f B9030000 		.4byte	.LASF1
+ 1581 002f 2F040000 		.4byte	.LASF1
  1582 0033 02       		.uleb128 0x2
  1583 0034 02       		.byte	0x2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 54
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 54
 
 
  1584 0035 05       		.byte	0x5
- 1585 0036 E8030000 		.4byte	.LASF2
+ 1585 0036 5E040000 		.4byte	.LASF2
  1586 003a 02       		.uleb128 0x2
  1587 003b 02       		.byte	0x2
  1588 003c 07       		.byte	0x7
@@ -3224,7 +3224,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1624 0083 02       		.uleb128 0x2
  1625 0084 04       		.byte	0x4
  1626 0085 04       		.byte	0x4
- 1627 0086 94030000 		.4byte	.LASF11
+ 1627 0086 0A040000 		.4byte	.LASF11
  1628 008a 02       		.uleb128 0x2
  1629 008b 08       		.byte	0x8
  1630 008c 04       		.byte	0x4
@@ -3232,13 +3232,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1632 0091 02       		.uleb128 0x2
  1633 0092 01       		.byte	0x1
  1634 0093 08       		.byte	0x8
- 1635 0094 9F040000 		.4byte	.LASF13
+ 1635 0094 A8040000 		.4byte	.LASF13
  1636 0098 04       		.uleb128 0x4
- 1637 0099 F5020000 		.4byte	.LASF14
+ 1637 0099 6B030000 		.4byte	.LASF14
  1638 009d 02       		.byte	0x2
  1639 009e A802     		.2byte	0x2a8
  1640 00a0 A4000000 		.4byte	0xa4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 55
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 55
 
 
  1641 00a4 05       		.uleb128 0x5
@@ -3246,13 +3246,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1643 00a9 02       		.uleb128 0x2
  1644 00aa 08       		.byte	0x8
  1645 00ab 04       		.byte	0x4
- 1646 00ac 33030000 		.4byte	.LASF15
+ 1646 00ac A9030000 		.4byte	.LASF15
  1647 00b0 02       		.uleb128 0x2
  1648 00b1 04       		.byte	0x4
  1649 00b2 07       		.byte	0x7
- 1650 00b3 1F030000 		.4byte	.LASF16
+ 1650 00b3 95030000 		.4byte	.LASF16
  1651 00b7 06       		.uleb128 0x6
- 1652 00b8 8A030000 		.4byte	.LASF17
+ 1652 00b8 00040000 		.4byte	.LASF17
  1653 00bc 01       		.byte	0x1
  1654 00bd 0001     		.2byte	0x100
  1655 00bf 00000000 		.4byte	.LFB3
@@ -3261,7 +3261,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1658 00c8 9C       		.byte	0x9c
  1659 00c9 F0000000 		.4byte	0xf0
  1660 00cd 07       		.uleb128 0x7
- 1661 00ce 1C050000 		.4byte	.LASF19
+ 1661 00ce 25050000 		.4byte	.LASF19
  1662 00d2 01       		.byte	0x1
  1663 00d3 0201     		.2byte	0x102
  1664 00d5 6B000000 		.4byte	0x6b
@@ -3283,13 +3283,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1680 0101 9C       		.byte	0x9c
  1681 0102 39010000 		.4byte	0x139
  1682 0106 09       		.uleb128 0x9
- 1683 0107 BA040000 		.4byte	.LASF21
+ 1683 0107 C3040000 		.4byte	.LASF21
  1684 010b 01       		.byte	0x1
  1685 010c 2501     		.2byte	0x125
  1686 010e 77000000 		.4byte	0x77
  1687 0112 13000000 		.4byte	.LLST1
  1688 0116 07       		.uleb128 0x7
- 1689 0117 1C050000 		.4byte	.LASF19
+ 1689 0117 25050000 		.4byte	.LASF19
  1690 011b 01       		.byte	0x1
  1691 011c 2701     		.2byte	0x127
  1692 011e 6B000000 		.4byte	0x6b
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1695 0127 08000000 		.4byte	.LVL3
  1696 012b F2080000 		.4byte	0x8f2
  1697 012f 08       		.uleb128 0x8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 56
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 56
 
 
  1698 0130 1C000000 		.4byte	.LVL5
@@ -3320,7 +3320,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1714 0157 77000000 		.4byte	0x77
  1715 015b 52000000 		.4byte	.LLST3
  1716 015f 07       		.uleb128 0x7
- 1717 0160 1C050000 		.4byte	.LASF19
+ 1717 0160 25050000 		.4byte	.LASF19
  1718 0164 01       		.byte	0x1
  1719 0165 4801     		.2byte	0x148
  1720 0167 6B000000 		.4byte	0x6b
@@ -3333,7 +3333,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1727 017d FD080000 		.4byte	0x8fd
  1728 0181 00       		.byte	0
  1729 0182 06       		.uleb128 0x6
- 1730 0183 D1020000 		.4byte	.LASF23
+ 1730 0183 47030000 		.4byte	.LASF23
  1731 0187 01       		.byte	0x1
  1732 0188 6B01     		.2byte	0x16b
  1733 018a 00000000 		.4byte	.LFB6
@@ -3342,13 +3342,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1736 0193 9C       		.byte	0x9c
  1737 0194 CB010000 		.4byte	0x1cb
  1738 0198 09       		.uleb128 0x9
- 1739 0199 9A030000 		.4byte	.LASF24
+ 1739 0199 10040000 		.4byte	.LASF24
  1740 019d 01       		.byte	0x1
  1741 019e 6B01     		.2byte	0x16b
  1742 01a0 77000000 		.4byte	0x77
  1743 01a4 91000000 		.4byte	.LLST5
  1744 01a8 07       		.uleb128 0x7
- 1745 01a9 1C050000 		.4byte	.LASF19
+ 1745 01a9 25050000 		.4byte	.LASF19
  1746 01ad 01       		.byte	0x1
  1747 01ae 6D01     		.2byte	0x16d
  1748 01b0 6B000000 		.4byte	0x6b
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1752 01bd F2080000 		.4byte	0x8f2
  1753 01c1 08       		.uleb128 0x8
  1754 01c2 1C000000 		.4byte	.LVL13
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 57
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 57
 
 
  1755 01c6 FD080000 		.4byte	0x8fd
@@ -3373,13 +3373,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1764 01dc 9C       		.byte	0x9c
  1765 01dd 14020000 		.4byte	0x214
  1766 01e1 09       		.uleb128 0x9
- 1767 01e2 C3020000 		.4byte	.LASF26
+ 1767 01e2 39030000 		.4byte	.LASF26
  1768 01e6 01       		.byte	0x1
  1769 01e7 8B01     		.2byte	0x18b
  1770 01e9 77000000 		.4byte	0x77
  1771 01ed D0000000 		.4byte	.LLST7
  1772 01f1 07       		.uleb128 0x7
- 1773 01f2 1C050000 		.4byte	.LASF19
+ 1773 01f2 25050000 		.4byte	.LASF19
  1774 01f6 01       		.byte	0x1
  1775 01f7 8D01     		.2byte	0x18d
  1776 01f9 6B000000 		.4byte	0x6b
@@ -3392,7 +3392,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1783 020f FD080000 		.4byte	0x8fd
  1784 0213 00       		.byte	0
  1785 0214 06       		.uleb128 0x6
- 1786 0215 C7030000 		.4byte	.LASF27
+ 1786 0215 3D040000 		.4byte	.LASF27
  1787 0219 01       		.byte	0x1
  1788 021a C101     		.2byte	0x1c1
  1789 021c 00000000 		.4byte	.LFB8
@@ -3417,8 +3417,8 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1808 024c 9C       		.byte	0x9c
  1809 024d 84020000 		.4byte	0x284
  1810 0251 09       		.uleb128 0x9
- 1811 0252 84050000 		.4byte	.LASF30
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 58
+ 1811 0252 8D050000 		.4byte	.LASF30
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 58
 
 
  1812 0256 01       		.byte	0x1
@@ -3426,7 +3426,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1814 0259 77000000 		.4byte	0x77
  1815 025d 30010000 		.4byte	.LLST10
  1816 0261 07       		.uleb128 0x7
- 1817 0262 1C050000 		.4byte	.LASF19
+ 1817 0262 25050000 		.4byte	.LASF19
  1818 0266 01       		.byte	0x1
  1819 0267 E701     		.2byte	0x1e7
  1820 0269 6B000000 		.4byte	0x6b
@@ -3439,7 +3439,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1827 027f FD080000 		.4byte	0x8fd
  1828 0283 00       		.byte	0
  1829 0284 06       		.uleb128 0x6
- 1830 0285 A4040000 		.4byte	.LASF31
+ 1830 0285 AD040000 		.4byte	.LASF31
  1831 0289 01       		.byte	0x1
  1832 028a 0702     		.2byte	0x207
  1833 028c 00000000 		.4byte	.LFB10
@@ -3448,13 +3448,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1836 0295 9C       		.byte	0x9c
  1837 0296 CD020000 		.4byte	0x2cd
  1838 029a 09       		.uleb128 0x9
- 1839 029b D7030000 		.4byte	.LASF32
+ 1839 029b 4D040000 		.4byte	.LASF32
  1840 029f 01       		.byte	0x1
  1841 02a0 0702     		.2byte	0x207
  1842 02a2 77000000 		.4byte	0x77
  1843 02a6 6F010000 		.4byte	.LLST12
  1844 02aa 07       		.uleb128 0x7
- 1845 02ab 1C050000 		.4byte	.LASF19
+ 1845 02ab 25050000 		.4byte	.LASF19
  1846 02af 01       		.byte	0x1
  1847 02b0 0902     		.2byte	0x209
  1848 02b2 6B000000 		.4byte	0x6b
@@ -3467,7 +3467,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1855 02c8 FD080000 		.4byte	0x8fd
  1856 02cc 00       		.byte	0
  1857 02cd 06       		.uleb128 0x6
- 1858 02ce F2030000 		.4byte	.LASF33
+ 1858 02ce 68040000 		.4byte	.LASF33
  1859 02d2 01       		.byte	0x1
  1860 02d3 2802     		.2byte	0x228
  1861 02d5 00000000 		.4byte	.LFB11
@@ -3478,14 +3478,14 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1866 02e3 09       		.uleb128 0x9
  1867 02e4 18020000 		.4byte	.LASF34
  1868 02e8 01       		.byte	0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 59
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 59
 
 
  1869 02e9 2802     		.2byte	0x228
  1870 02eb 77000000 		.4byte	0x77
  1871 02ef AE010000 		.4byte	.LLST14
  1872 02f3 07       		.uleb128 0x7
- 1873 02f4 1C050000 		.4byte	.LASF19
+ 1873 02f4 25050000 		.4byte	.LASF19
  1874 02f8 01       		.byte	0x1
  1875 02f9 2A02     		.2byte	0x22a
  1876 02fb 6B000000 		.4byte	0x6b
@@ -3513,7 +3513,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1898 0334 77000000 		.4byte	0x77
  1899 0338 ED010000 		.4byte	.LLST16
  1900 033c 07       		.uleb128 0x7
- 1901 033d 1C050000 		.4byte	.LASF19
+ 1901 033d 25050000 		.4byte	.LASF19
  1902 0341 01       		.byte	0x1
  1903 0342 4B02     		.2byte	0x24b
  1904 0344 6B000000 		.4byte	0x6b
@@ -3526,7 +3526,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1911 035a FD080000 		.4byte	0x8fd
  1912 035e 00       		.byte	0
  1913 035f 06       		.uleb128 0x6
- 1914 0360 E3020000 		.4byte	.LASF37
+ 1914 0360 59030000 		.4byte	.LASF37
  1915 0364 01       		.byte	0x1
  1916 0365 6702     		.2byte	0x267
  1917 0367 00000000 		.4byte	.LFB13
@@ -3538,14 +3538,14 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1923 0376 00000000 		.4byte	.LASF38
  1924 037a 01       		.byte	0x1
  1925 037b 6702     		.2byte	0x267
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 60
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 60
 
 
  1926 037d 77000000 		.4byte	0x77
  1927 0381 2C020000 		.4byte	.LLST18
  1928 0385 00       		.byte	0
  1929 0386 0A       		.uleb128 0xa
- 1930 0387 53030000 		.4byte	.LASF43
+ 1930 0387 C9030000 		.4byte	.LASF43
  1931 038b 01       		.byte	0x1
  1932 038c 7B02     		.2byte	0x27b
  1933 038e 77000000 		.4byte	0x77
@@ -3563,13 +3563,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1945 03ad 9C       		.byte	0x9c
  1946 03ae E5030000 		.4byte	0x3e5
  1947 03b2 09       		.uleb128 0x9
- 1948 03b3 E5040000 		.4byte	.LASF40
+ 1948 03b3 EE040000 		.4byte	.LASF40
  1949 03b7 01       		.byte	0x1
  1950 03b8 9802     		.2byte	0x298
  1951 03ba 77000000 		.4byte	0x77
  1952 03be 4D020000 		.4byte	.LLST19
  1953 03c2 07       		.uleb128 0x7
- 1954 03c3 1C050000 		.4byte	.LASF19
+ 1954 03c3 25050000 		.4byte	.LASF19
  1955 03c7 01       		.byte	0x1
  1956 03c8 9A02     		.2byte	0x29a
  1957 03ca 6B000000 		.4byte	0x6b
@@ -3598,10 +3598,10 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1980 0407 8C020000 		.4byte	.LLST21
  1981 040b 00       		.byte	0
  1982 040c 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 61
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 61
 
 
- 1983 040d FB020000 		.4byte	.LASF44
+ 1983 040d 71030000 		.4byte	.LASF44
  1984 0411 01       		.byte	0x1
  1985 0412 C902     		.2byte	0x2c9
  1986 0414 77000000 		.4byte	0x77
@@ -3619,13 +3619,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  1998 0433 9C       		.byte	0x9c
  1999 0434 6B040000 		.4byte	0x46b
  2000 0438 09       		.uleb128 0x9
- 2001 0439 93050000 		.4byte	.LASF46
+ 2001 0439 9C050000 		.4byte	.LASF46
  2002 043d 01       		.byte	0x1
  2003 043e E302     		.2byte	0x2e3
  2004 0440 77000000 		.4byte	0x77
  2005 0444 AD020000 		.4byte	.LLST22
  2006 0448 07       		.uleb128 0x7
- 2007 0449 1C050000 		.4byte	.LASF19
+ 2007 0449 25050000 		.4byte	.LASF19
  2008 044d 01       		.byte	0x1
  2009 044e E502     		.2byte	0x2e5
  2010 0450 6B000000 		.4byte	0x6b
@@ -3638,7 +3638,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2017 0466 FD080000 		.4byte	0x8fd
  2018 046a 00       		.byte	0
  2019 046b 06       		.uleb128 0x6
- 2020 046c D1040000 		.4byte	.LASF47
+ 2020 046c DA040000 		.4byte	.LASF47
  2021 0470 01       		.byte	0x1
  2022 0471 FE02     		.2byte	0x2fe
  2023 0473 00000000 		.4byte	.LFB19
@@ -3647,18 +3647,18 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2026 047c 9C       		.byte	0x9c
  2027 047d 92040000 		.4byte	0x492
  2028 0481 09       		.uleb128 0x9
- 2029 0482 A8050000 		.4byte	.LASF48
+ 2029 0482 B1050000 		.4byte	.LASF48
  2030 0486 01       		.byte	0x1
  2031 0487 FE02     		.2byte	0x2fe
  2032 0489 77000000 		.4byte	0x77
  2033 048d EC020000 		.4byte	.LLST24
  2034 0491 00       		.byte	0
  2035 0492 0A       		.uleb128 0xa
- 2036 0493 09050000 		.4byte	.LASF49
+ 2036 0493 12050000 		.4byte	.LASF49
  2037 0497 01       		.byte	0x1
  2038 0498 1203     		.2byte	0x312
  2039 049a 77000000 		.4byte	0x77
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 62
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 62
 
 
  2040 049e 00000000 		.4byte	.LFB20
@@ -3666,7 +3666,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2042 04a6 01       		.uleb128 0x1
  2043 04a7 9C       		.byte	0x9c
  2044 04a8 06       		.uleb128 0x6
- 2045 04a9 71050000 		.4byte	.LASF50
+ 2045 04a9 7A050000 		.4byte	.LASF50
  2046 04ad 01       		.byte	0x1
  2047 04ae 2C03     		.2byte	0x32c
  2048 04b0 00000000 		.4byte	.LFB21
@@ -3675,13 +3675,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2051 04b9 9C       		.byte	0x9c
  2052 04ba F1040000 		.4byte	0x4f1
  2053 04be 09       		.uleb128 0x9
- 2054 04bf 93050000 		.4byte	.LASF46
+ 2054 04bf 9C050000 		.4byte	.LASF46
  2055 04c3 01       		.byte	0x1
  2056 04c4 2C03     		.2byte	0x32c
  2057 04c6 77000000 		.4byte	0x77
  2058 04ca 0D030000 		.4byte	.LLST25
  2059 04ce 07       		.uleb128 0x7
- 2060 04cf 1C050000 		.4byte	.LASF19
+ 2060 04cf 25050000 		.4byte	.LASF19
  2061 04d3 01       		.byte	0x1
  2062 04d4 2E03     		.2byte	0x32e
  2063 04d6 6B000000 		.4byte	0x6b
@@ -3703,14 +3703,14 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2079 0502 9C       		.byte	0x9c
  2080 0503 18050000 		.4byte	0x518
  2081 0507 09       		.uleb128 0x9
- 2082 0508 64030000 		.4byte	.LASF52
+ 2082 0508 DA030000 		.4byte	.LASF52
  2083 050c 01       		.byte	0x1
  2084 050d 5103     		.2byte	0x351
  2085 050f 77000000 		.4byte	0x77
  2086 0513 4C030000 		.4byte	.LLST27
  2087 0517 00       		.byte	0
  2088 0518 0A       		.uleb128 0xa
- 2089 0519 B2020000 		.4byte	.LASF53
+ 2089 0519 28030000 		.4byte	.LASF53
  2090 051d 01       		.byte	0x1
  2091 051e 8403     		.2byte	0x384
  2092 0520 77000000 		.4byte	0x77
@@ -3718,11 +3718,11 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2094 0528 10000000 		.4byte	.LFE23-.LFB23
  2095 052c 01       		.uleb128 0x1
  2096 052d 9C       		.byte	0x9c
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 63
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 63
 
 
  2097 052e 06       		.uleb128 0x6
- 2098 052f A4030000 		.4byte	.LASF54
+ 2098 052f 1A040000 		.4byte	.LASF54
  2099 0533 01       		.byte	0x1
  2100 0534 BA03     		.2byte	0x3ba
  2101 0536 00000000 		.4byte	.LFB24
@@ -3731,7 +3731,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2104 053f 9C       		.byte	0x9c
  2105 0540 55050000 		.4byte	0x555
  2106 0544 09       		.uleb128 0x9
- 2107 0545 FE040000 		.4byte	.LASF55
+ 2107 0545 07050000 		.4byte	.LASF55
  2108 0549 01       		.byte	0x1
  2109 054a BA03     		.2byte	0x3ba
  2110 054c 77000000 		.4byte	0x77
@@ -3756,7 +3756,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2129 057f 01       		.uleb128 0x1
  2130 0580 9C       		.byte	0x9c
  2131 0581 0A       		.uleb128 0xa
- 2132 0582 4B050000 		.4byte	.LASF58
+ 2132 0582 54050000 		.4byte	.LASF58
  2133 0586 01       		.byte	0x1
  2134 0587 2B04     		.2byte	0x42b
  2135 0589 77000000 		.4byte	0x77
@@ -3774,16 +3774,16 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2147 05a8 9C       		.byte	0x9c
  2148 05a9 E0050000 		.4byte	0x5e0
  2149 05ad 09       		.uleb128 0x9
- 2150 05ae 93040000 		.4byte	.LASF60
+ 2150 05ae 9C040000 		.4byte	.LASF60
  2151 05b2 01       		.byte	0x1
  2152 05b3 4604     		.2byte	0x446
  2153 05b5 77000000 		.4byte	0x77
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 64
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 64
 
 
  2154 05b9 8E030000 		.4byte	.LLST29
  2155 05bd 07       		.uleb128 0x7
- 2156 05be 1C050000 		.4byte	.LASF19
+ 2156 05be 25050000 		.4byte	.LASF19
  2157 05c2 01       		.byte	0x1
  2158 05c3 4804     		.2byte	0x448
  2159 05c5 6B000000 		.4byte	0x6b
@@ -3805,13 +3805,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2175 05f1 9C       		.byte	0x9c
  2176 05f2 29060000 		.4byte	0x629
  2177 05f6 09       		.uleb128 0x9
- 2178 05f7 93040000 		.4byte	.LASF60
+ 2178 05f7 9C040000 		.4byte	.LASF60
  2179 05fb 01       		.byte	0x1
  2180 05fc 6704     		.2byte	0x467
  2181 05fe 77000000 		.4byte	0x77
  2182 0602 CD030000 		.4byte	.LLST31
  2183 0606 07       		.uleb128 0x7
- 2184 0607 1C050000 		.4byte	.LASF19
+ 2184 0607 25050000 		.4byte	.LASF19
  2185 060b 01       		.byte	0x1
  2186 060c 6904     		.2byte	0x469
  2187 060e 6B000000 		.4byte	0x6b
@@ -3824,7 +3824,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2194 0624 FD080000 		.4byte	0x8fd
  2195 0628 00       		.byte	0
  2196 0629 06       		.uleb128 0x6
- 2197 062a 81040000 		.4byte	.LASF62
+ 2197 062a 8A040000 		.4byte	.LASF62
  2198 062e 01       		.byte	0x1
  2199 062f 8804     		.2byte	0x488
  2200 0631 00000000 		.4byte	.LFB30
@@ -3833,16 +3833,16 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2203 063a 9C       		.byte	0x9c
  2204 063b 72060000 		.4byte	0x672
  2205 063f 09       		.uleb128 0x9
- 2206 0640 93040000 		.4byte	.LASF60
+ 2206 0640 9C040000 		.4byte	.LASF60
  2207 0644 01       		.byte	0x1
  2208 0645 8804     		.2byte	0x488
  2209 0647 77000000 		.4byte	0x77
  2210 064b 0C040000 		.4byte	.LLST33
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 65
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 65
 
 
  2211 064f 07       		.uleb128 0x7
- 2212 0650 1C050000 		.4byte	.LASF19
+ 2212 0650 25050000 		.4byte	.LASF19
  2213 0654 01       		.byte	0x1
  2214 0655 8A04     		.2byte	0x48a
  2215 0657 6B000000 		.4byte	0x6b
@@ -3864,13 +3864,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2231 0683 9C       		.byte	0x9c
  2232 0684 BB060000 		.4byte	0x6bb
  2233 0688 09       		.uleb128 0x9
- 2234 0689 93040000 		.4byte	.LASF60
+ 2234 0689 9C040000 		.4byte	.LASF60
  2235 068d 01       		.byte	0x1
  2236 068e A804     		.2byte	0x4a8
  2237 0690 77000000 		.4byte	0x77
  2238 0694 4B040000 		.4byte	.LLST35
  2239 0698 07       		.uleb128 0x7
- 2240 0699 1C050000 		.4byte	.LASF19
+ 2240 0699 25050000 		.4byte	.LASF19
  2241 069d 01       		.byte	0x1
  2242 069e AA04     		.2byte	0x4aa
  2243 06a0 6B000000 		.4byte	0x6b
@@ -3883,7 +3883,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2250 06b6 FD080000 		.4byte	0x8fd
  2251 06ba 00       		.byte	0
  2252 06bb 06       		.uleb128 0x6
- 2253 06bc 5F050000 		.4byte	.LASF64
+ 2253 06bc 68050000 		.4byte	.LASF64
  2254 06c0 01       		.byte	0x1
  2255 06c1 C904     		.2byte	0x4c9
  2256 06c3 00000000 		.4byte	.LFB32
@@ -3892,16 +3892,16 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2259 06cc 9C       		.byte	0x9c
  2260 06cd 04070000 		.4byte	0x704
  2261 06d1 09       		.uleb128 0x9
- 2262 06d2 93040000 		.4byte	.LASF60
+ 2262 06d2 9C040000 		.4byte	.LASF60
  2263 06d6 01       		.byte	0x1
  2264 06d7 C904     		.2byte	0x4c9
  2265 06d9 77000000 		.4byte	0x77
  2266 06dd 8A040000 		.4byte	.LLST37
  2267 06e1 07       		.uleb128 0x7
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 66
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 66
 
 
- 2268 06e2 1C050000 		.4byte	.LASF19
+ 2268 06e2 25050000 		.4byte	.LASF19
  2269 06e6 01       		.byte	0x1
  2270 06e7 CB04     		.2byte	0x4cb
  2271 06e9 6B000000 		.4byte	0x6b
@@ -3914,7 +3914,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2278 06ff FD080000 		.4byte	0x8fd
  2279 0703 00       		.byte	0
  2280 0704 06       		.uleb128 0x6
- 2281 0705 0B030000 		.4byte	.LASF65
+ 2281 0705 81030000 		.4byte	.LASF65
  2282 0709 01       		.byte	0x1
  2283 070a F104     		.2byte	0x4f1
  2284 070c 00000000 		.4byte	.LFB33
@@ -3935,7 +3935,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2299 0732 77000000 		.4byte	0x77
  2300 0736 F5040000 		.4byte	.LLST40
  2301 073a 07       		.uleb128 0x7
- 2302 073b 1C050000 		.4byte	.LASF19
+ 2302 073b 25050000 		.4byte	.LASF19
  2303 073f 01       		.byte	0x1
  2304 0740 F304     		.2byte	0x4f3
  2305 0742 6B000000 		.4byte	0x6b
@@ -3957,8 +3957,8 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2321 076d 9C       		.byte	0x9c
  2322 076e A8070000 		.4byte	0x7a8
  2323 0772 0C       		.uleb128 0xc
- 2324 0773 1C050000 		.4byte	.LASF19
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 67
+ 2324 0773 25050000 		.4byte	.LASF19
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 67
 
 
  2325 0777 01       		.byte	0x1
@@ -3978,7 +3978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2339 079d 01       		.uleb128 0x1
  2340 079e 50       		.byte	0x50
  2341 079f 01       		.uleb128 0x1
- 2342 07a0 32       		.byte	0x32
+ 2342 07a0 31       		.byte	0x31
  2343 07a1 0E       		.uleb128 0xe
  2344 07a2 01       		.uleb128 0x1
  2345 07a3 51       		.byte	0x51
@@ -4005,7 +4005,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2366 07cf 9C       		.byte	0x9c
  2367 07d0 E3070000 		.4byte	0x7e3
  2368 07d4 0F       		.uleb128 0xf
- 2369 07d5 06040000 		.4byte	.LASF70
+ 2369 07d5 7C040000 		.4byte	.LASF70
  2370 07d9 01       		.byte	0x1
  2371 07da 2705     		.2byte	0x527
  2372 07dc 77000000 		.4byte	0x77
@@ -4013,12 +4013,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2374 07e1 50       		.byte	0x50
  2375 07e2 00       		.byte	0
  2376 07e3 0B       		.uleb128 0xb
- 2377 07e4 9E050000 		.4byte	.LASF71
+ 2377 07e4 A7050000 		.4byte	.LASF71
  2378 07e8 01       		.byte	0x1
  2379 07e9 26       		.byte	0x26
  2380 07ea 00000000 		.4byte	.LFB0
  2381 07ee 4C000000 		.4byte	.LFE0-.LFB0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 68
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 68
 
 
  2382 07f2 01       		.uleb128 0x1
@@ -4067,7 +4067,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2425 0841 00       		.byte	0
  2426 0842 00       		.byte	0
  2427 0843 0B       		.uleb128 0xb
- 2428 0844 28030000 		.4byte	.LASF72
+ 2428 0844 9E030000 		.4byte	.LASF72
  2429 0848 01       		.byte	0x1
  2430 0849 E6       		.byte	0xe6
  2431 084a 00000000 		.4byte	.LFB2
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2436 0858 08       		.uleb128 0x8
  2437 0859 0E000000 		.4byte	.LVL91
  2438 085d E3070000 		.4byte	0x7e3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 69
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 69
 
 
  2439 0861 08       		.uleb128 0x8
@@ -4086,7 +4086,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2441 0866 5D070000 		.4byte	0x75d
  2442 086a 00       		.byte	0
  2443 086b 0A       		.uleb128 0xa
- 2444 086c 2D050000 		.4byte	.LASF73
+ 2444 086c 36050000 		.4byte	.LASF73
  2445 0870 01       		.byte	0x1
  2446 0871 3E05     		.2byte	0x53e
  2447 0873 77000000 		.4byte	0x77
@@ -4104,7 +4104,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2459 0895 01       		.uleb128 0x1
  2460 0896 9C       		.byte	0x9c
  2461 0897 06       		.uleb128 0x6
- 2462 0898 3F030000 		.4byte	.LASF75
+ 2462 0898 B5030000 		.4byte	.LASF75
  2463 089c 01       		.byte	0x1
  2464 089d 6C05     		.2byte	0x56c
  2465 089f 00000000 		.4byte	.LFB38
@@ -4113,7 +4113,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2468 08a8 9C       		.byte	0x9c
  2469 08a9 BC080000 		.4byte	0x8bc
  2470 08ad 0F       		.uleb128 0xf
- 2471 08ae 06040000 		.4byte	.LASF70
+ 2471 08ae 7C040000 		.4byte	.LASF70
  2472 08b2 01       		.byte	0x1
  2473 08b3 6C05     		.2byte	0x56c
  2474 08b5 77000000 		.4byte	0x77
@@ -4121,7 +4121,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2476 08ba 50       		.byte	0x50
  2477 08bb 00       		.byte	0
  2478 08bc 06       		.uleb128 0x6
- 2479 08bd BF040000 		.4byte	.LASF76
+ 2479 08bd C8040000 		.4byte	.LASF76
  2480 08c1 01       		.byte	0x1
  2481 08c2 8305     		.2byte	0x583
  2482 08c4 00000000 		.4byte	.LFB39
@@ -4130,7 +4130,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2485 08cd 9C       		.byte	0x9c
  2486 08ce E1080000 		.4byte	0x8e1
  2487 08d2 0F       		.uleb128 0xf
- 2488 08d3 06040000 		.4byte	.LASF70
+ 2488 08d3 7C040000 		.4byte	.LASF70
  2489 08d7 01       		.byte	0x1
  2490 08d8 8305     		.2byte	0x583
  2491 08da 77000000 		.4byte	0x77
@@ -4138,10 +4138,10 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2493 08df 50       		.byte	0x50
  2494 08e0 00       		.byte	0
  2495 08e1 11       		.uleb128 0x11
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 70
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 70
 
 
- 2496 08e2 F1040000 		.4byte	.LASF82
+ 2496 08e2 FA040000 		.4byte	.LASF82
  2497 08e6 01       		.byte	0x1
  2498 08e7 15       		.byte	0x15
  2499 08e8 6B000000 		.4byte	0x6b
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2550 0022 0B       		.uleb128 0xb
  2551 0023 3E       		.uleb128 0x3e
  2552 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 71
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 71
 
 
  2553 0025 03       		.uleb128 0x3
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2607 005c 3A       		.uleb128 0x3a
  2608 005d 0B       		.uleb128 0xb
  2609 005e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 72
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 72
 
 
  2610 005f 05       		.uleb128 0x5
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2664 0098 00       		.byte	0
  2665 0099 00       		.byte	0
  2666 009a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 73
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 73
 
 
  2667 009b 2E       		.uleb128 0x2e
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2721 00d7 18       		.uleb128 0x18
  2722 00d8 00       		.byte	0
  2723 00d9 00       		.byte	0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 74
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 74
 
 
  2724 00da 0F       		.uleb128 0xf
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2778 0112 3A       		.uleb128 0x3a
  2779 0113 0B       		.uleb128 0xb
  2780 0114 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 75
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 75
 
 
  2781 0115 0B       		.uleb128 0xb
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2835 0076 00000000 		.4byte	0
  2836 007a 00000000 		.4byte	0
  2837              	.LLST4:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 76
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 76
 
 
  2838 007e 08000000 		.4byte	.LVL7
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2892 0107 00000000 		.4byte	0
  2893 010b 00000000 		.4byte	0
  2894              	.LLST9:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 77
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 77
 
 
  2895 010f 00000000 		.4byte	.LVL18
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  2949 0193 00000000 		.4byte	0
  2950 0197 00000000 		.4byte	0
  2951              	.LLST13:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 78
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 78
 
 
  2952 019b 08000000 		.4byte	.LVL25
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3006 0224 00000000 		.4byte	0
  3007 0228 00000000 		.4byte	0
  3008              	.LLST18:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 79
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 79
 
 
  3009 022c 00000000 		.4byte	.LVL36
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3063 02b1 07000000 		.4byte	.LVL45-1
  3064 02b5 0100     		.2byte	0x1
  3065 02b7 50       		.byte	0x50
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 80
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 80
 
 
  3066 02b8 07000000 		.4byte	.LVL45-1
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3120 033d 21000000 		.4byte	.LVL53-1
  3121 0341 0100     		.2byte	0x1
  3122 0343 50       		.byte	0x50
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 81
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 81
 
 
  3123 0344 00000000 		.4byte	0
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3177 03c9 00000000 		.4byte	0
  3178              	.LLST31:
  3179 03cd 00000000 		.4byte	.LVL62
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 82
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 82
 
 
  3180 03d1 07000000 		.4byte	.LVL63-1
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3234 045a 16000000 		.4byte	.LVL72
  3235 045e 0100     		.2byte	0x1
  3236 0460 54       		.byte	0x54
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 83
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 83
 
 
  3237 0461 16000000 		.4byte	.LVL72
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3291 04ea 01       		.uleb128 0x1
  3292 04eb 50       		.byte	0x50
  3293 04ec 9F       		.byte	0x9f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 84
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 84
 
 
  3294 04ed 00000000 		.4byte	0
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3348 0040 00000000 		.4byte	.LFB9
  3349 0044 28000000 		.4byte	.LFE9-.LFB9
  3350 0048 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 85
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 85
 
 
  3351 004c 28000000 		.4byte	.LFE10-.LFB10
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3405 0124 4C000000 		.4byte	.LFE0-.LFB0
  3406 0128 00000000 		.4byte	.LFB2
  3407 012c 20000000 		.4byte	.LFE2-.LFB2
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 86
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 86
 
 
  3408 0130 00000000 		.4byte	.LFB36
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3462 00a8 00000000 		.4byte	.LFB24
  3463 00ac 10000000 		.4byte	.LFE24
  3464 00b0 00000000 		.4byte	.LFB25
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 87
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 87
 
 
  3465 00b4 10000000 		.4byte	.LFE25
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3510 001c 70776D33 		.ascii	"pwm3_SetStopMode\000"
  3510      5F536574 
  3510      53746F70 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 88
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 88
 
 
  3510      4D6F6465 
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3530      43617074 
  3530      7572654D 
  3530      6F646500 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 89
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 89
 
 
  3531              	.LASF41:
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3554      74757300 
  3555              	.LASF74:
  3556 01d3 70776D33 		.ascii	"pwm3_GetInterruptSource\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 90
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 90
 
 
  3556      5F476574 
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3578 0274 4379456E 		.ascii	"CyEnterCriticalSection\000"
  3578      74657243 
  3578      72697469 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 91
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 91
 
 
  3578      63616C53 
@@ -5415,249 +5415,250 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 1
  3582      7369676E 
  3582      65642069 
  3582      6E7400
- 3583              	.LASF53:
- 3584 02b2 70776D33 		.ascii	"pwm3_ReadCompare\000"
- 3584      5F526561 
- 3584      64436F6D 
- 3584      70617265 
- 3584      00
- 3585              	.LASF26:
- 3586 02c3 6F6E6553 		.ascii	"oneShotEnable\000"
- 3586      686F7445 
- 3586      6E61626C 
- 3586      6500
- 3587              	.LASF23:
- 3588 02d1 70776D33 		.ascii	"pwm3_SetPrescaler\000"
- 3588      5F536574 
- 3588      50726573 
- 3588      63616C65 
- 3588      7200
- 3589              	.LASF37:
- 3590 02e3 70776D33 		.ascii	"pwm3_WriteCounter\000"
- 3590      5F577269 
- 3590      7465436F 
- 3590      756E7465 
- 3590      7200
- 3591              	.LASF14:
- 3592 02f5 72656733 		.ascii	"reg32\000"
- 3592      3200
- 3593              	.LASF44:
- 3594 02fb 70776D33 		.ascii	"pwm3_ReadPeriod\000"
- 3594      5F526561 
- 3594      64506572 
- 3594      696F6400 
- 3595              	.LASF65:
- 3596 030b 70776D33 		.ascii	"pwm3_TriggerCommand\000"
- 3596      5F547269 
- 3596      67676572 
- 3596      436F6D6D 
- 3596      616E6400 
- 3597              	.LASF16:
- 3598 031f 73697A65 		.ascii	"sizetype\000"
- 3598      74797065 
- 3598      00
- 3599              	.LASF72:
- 3600 0328 70776D33 		.ascii	"pwm3_Start\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 92
+ 3583              	.LASF81:
+ 3584 02b2 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\aixt"
+ 3584      6F63756D 
+ 3584      656E746F 
+ 3584      735C5544 
+ 3584      5C323032 
+ 3585 02e0 2D702D73 		.ascii	"-p-so-c-4\\ports\\Cypress\\CY8CKIT-049-42XX\\projec"
+ 3585      6F2D632D 
+ 3585      345C706F 
+ 3585      7274735C 
+ 3585      43797072 
+ 3586 030f 74735C43 		.ascii	"ts\\Config Gral 049.cydsn\000"
+ 3586      6F6E6669 
+ 3586      67204772 
+ 3586      616C2030 
+ 3586      34392E63 
+ 3587              	.LASF53:
+ 3588 0328 70776D33 		.ascii	"pwm3_ReadCompare\000"
+ 3588      5F526561 
+ 3588      64436F6D 
+ 3588      70617265 
+ 3588      00
+ 3589              	.LASF26:
+ 3590 0339 6F6E6553 		.ascii	"oneShotEnable\000"
+ 3590      686F7445 
+ 3590      6E61626C 
+ 3590      6500
+ 3591              	.LASF23:
+ 3592 0347 70776D33 		.ascii	"pwm3_SetPrescaler\000"
+ 3592      5F536574 
+ 3592      50726573 
+ 3592      63616C65 
+ 3592      7200
+ 3593              	.LASF37:
+ 3594 0359 70776D33 		.ascii	"pwm3_WriteCounter\000"
+ 3594      5F577269 
+ 3594      7465436F 
+ 3594      756E7465 
+ 3594      7200
+ 3595              	.LASF14:
+ 3596 036b 72656733 		.ascii	"reg32\000"
+ 3596      3200
+ 3597              	.LASF44:
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 92
 
 
- 3600      5F537461 
- 3600      727400
- 3601              	.LASF15:
- 3602 0333 6C6F6E67 		.ascii	"long double\000"
- 3602      20646F75 
- 3602      626C6500 
- 3603              	.LASF75:
- 3604 033f 70776D33 		.ascii	"pwm3_ClearInterrupt\000"
- 3604      5F436C65 
- 3604      6172496E 
- 3604      74657272 
- 3604      75707400 
- 3605              	.LASF43:
- 3606 0353 70776D33 		.ascii	"pwm3_ReadCounter\000"
- 3606      5F526561 
- 3606      64436F75 
- 3606      6E746572 
- 3606      00
- 3607              	.LASF52:
- 3608 0364 636F6D70 		.ascii	"compare\000"
- 3608      61726500 
- 3609              	.LASF80:
- 3610 036c 47656E65 		.ascii	"Generated_Source\\PSoC4\\pwm3.c\000"
- 3610      72617465 
- 3610      645F536F 
- 3610      75726365 
- 3610      5C50536F 
- 3611              	.LASF17:
- 3612 038a 70776D33 		.ascii	"pwm3_Stop\000"
- 3612      5F53746F 
- 3612      7000
- 3613              	.LASF11:
- 3614 0394 666C6F61 		.ascii	"float\000"
- 3614      7400
- 3615              	.LASF24:
- 3616 039a 70726573 		.ascii	"prescaler\000"
- 3616      63616C65 
- 3616      7200
- 3617              	.LASF54:
- 3618 03a4 70776D33 		.ascii	"pwm3_WriteCompareBuf\000"
- 3618      5F577269 
- 3618      7465436F 
- 3618      6D706172 
- 3618      65427566 
- 3619              	.LASF1:
- 3620 03b9 756E7369 		.ascii	"unsigned char\000"
- 3620      676E6564 
- 3620      20636861 
+ 3598 0371 70776D33 		.ascii	"pwm3_ReadPeriod\000"
+ 3598      5F526561 
+ 3598      64506572 
+ 3598      696F6400 
+ 3599              	.LASF65:
+ 3600 0381 70776D33 		.ascii	"pwm3_TriggerCommand\000"
+ 3600      5F547269 
+ 3600      67676572 
+ 3600      436F6D6D 
+ 3600      616E6400 
+ 3601              	.LASF16:
+ 3602 0395 73697A65 		.ascii	"sizetype\000"
+ 3602      74797065 
+ 3602      00
+ 3603              	.LASF72:
+ 3604 039e 70776D33 		.ascii	"pwm3_Start\000"
+ 3604      5F537461 
+ 3604      727400
+ 3605              	.LASF15:
+ 3606 03a9 6C6F6E67 		.ascii	"long double\000"
+ 3606      20646F75 
+ 3606      626C6500 
+ 3607              	.LASF75:
+ 3608 03b5 70776D33 		.ascii	"pwm3_ClearInterrupt\000"
+ 3608      5F436C65 
+ 3608      6172496E 
+ 3608      74657272 
+ 3608      75707400 
+ 3609              	.LASF43:
+ 3610 03c9 70776D33 		.ascii	"pwm3_ReadCounter\000"
+ 3610      5F526561 
+ 3610      64436F75 
+ 3610      6E746572 
+ 3610      00
+ 3611              	.LASF52:
+ 3612 03da 636F6D70 		.ascii	"compare\000"
+ 3612      61726500 
+ 3613              	.LASF80:
+ 3614 03e2 47656E65 		.ascii	"Generated_Source\\PSoC4\\pwm3.c\000"
+ 3614      72617465 
+ 3614      645F536F 
+ 3614      75726365 
+ 3614      5C50536F 
+ 3615              	.LASF17:
+ 3616 0400 70776D33 		.ascii	"pwm3_Stop\000"
+ 3616      5F53746F 
+ 3616      7000
+ 3617              	.LASF11:
+ 3618 040a 666C6F61 		.ascii	"float\000"
+ 3618      7400
+ 3619              	.LASF24:
+ 3620 0410 70726573 		.ascii	"prescaler\000"
+ 3620      63616C65 
  3620      7200
- 3621              	.LASF27:
- 3622 03c7 70776D33 		.ascii	"pwm3_SetPWMMode\000"
- 3622      5F536574 
- 3622      50574D4D 
- 3622      6F646500 
- 3623              	.LASF32:
- 3624 03d7 73746F70 		.ascii	"stopOnKillEnable\000"
- 3624      4F6E4B69 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 93
+ 3621              	.LASF54:
+ 3622 041a 70776D33 		.ascii	"pwm3_WriteCompareBuf\000"
+ 3622      5F577269 
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 93
 
 
- 3624      6C6C456E 
- 3624      61626C65 
- 3624      00
- 3625              	.LASF2:
- 3626 03e8 73686F72 		.ascii	"short int\000"
- 3626      7420696E 
- 3626      7400
- 3627              	.LASF33:
- 3628 03f2 70776D33 		.ascii	"pwm3_SetPWMDeadTime\000"
- 3628      5F536574 
- 3628      50574D44 
- 3628      65616454 
- 3628      696D6500 
- 3629              	.LASF70:
- 3630 0406 696E7465 		.ascii	"interruptMask\000"
- 3630      72727570 
- 3630      744D6173 
- 3630      6B00
- 3631              	.LASF81:
- 3632 0414 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\aixt"
- 3632      6F63756D 
- 3632      656E746F 
- 3632      735C5544 
- 3632      5C323032 
- 3633 0442 2D702D73 		.ascii	"-p-so-c-4\\ports\\Cypress\\CY8CKIT-049-42XX\\Config"
- 3633      6F2D632D 
- 3633      345C706F 
- 3633      7274735C 
- 3633      43797072 
- 3634 0471 20477261 		.ascii	" Gral 049.cydsn\000"
- 3634      6C203034 
- 3634      392E6379 
- 3634      64736E00 
+ 3622      7465436F 
+ 3622      6D706172 
+ 3622      65427566 
+ 3623              	.LASF1:
+ 3624 042f 756E7369 		.ascii	"unsigned char\000"
+ 3624      676E6564 
+ 3624      20636861 
+ 3624      7200
+ 3625              	.LASF27:
+ 3626 043d 70776D33 		.ascii	"pwm3_SetPWMMode\000"
+ 3626      5F536574 
+ 3626      50574D4D 
+ 3626      6F646500 
+ 3627              	.LASF32:
+ 3628 044d 73746F70 		.ascii	"stopOnKillEnable\000"
+ 3628      4F6E4B69 
+ 3628      6C6C456E 
+ 3628      61626C65 
+ 3628      00
+ 3629              	.LASF2:
+ 3630 045e 73686F72 		.ascii	"short int\000"
+ 3630      7420696E 
+ 3630      7400
+ 3631              	.LASF33:
+ 3632 0468 70776D33 		.ascii	"pwm3_SetPWMDeadTime\000"
+ 3632      5F536574 
+ 3632      50574D44 
+ 3632      65616454 
+ 3632      696D6500 
+ 3633              	.LASF70:
+ 3634 047c 696E7465 		.ascii	"interruptMask\000"
+ 3634      72727570 
+ 3634      744D6173 
+ 3634      6B00
  3635              	.LASF62:
- 3636 0481 70776D33 		.ascii	"pwm3_SetStartMode\000"
+ 3636 048a 70776D33 		.ascii	"pwm3_SetStartMode\000"
  3636      5F536574 
  3636      53746172 
  3636      744D6F64 
  3636      6500
  3637              	.LASF60:
- 3638 0493 74726967 		.ascii	"triggerMode\000"
+ 3638 049c 74726967 		.ascii	"triggerMode\000"
  3638      6765724D 
  3638      6F646500 
  3639              	.LASF13:
- 3640 049f 63686172 		.ascii	"char\000"
+ 3640 04a8 63686172 		.ascii	"char\000"
  3640      00
  3641              	.LASF31:
- 3642 04a4 70776D33 		.ascii	"pwm3_SetPWMStopOnKill\000"
+ 3642 04ad 70776D33 		.ascii	"pwm3_SetPWMStopOnKill\000"
  3642      5F536574 
  3642      50574D53 
  3642      746F704F 
  3642      6E4B696C 
  3643              	.LASF21:
- 3644 04ba 6D6F6465 		.ascii	"mode\000"
+ 3644 04c3 6D6F6465 		.ascii	"mode\000"
  3644      00
  3645              	.LASF76:
- 3646 04bf 70776D33 		.ascii	"pwm3_SetInterrupt\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 94
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 94
 
 
+ 3646 04c8 70776D33 		.ascii	"pwm3_SetInterrupt\000"
  3646      5F536574 
  3646      496E7465 
  3646      72727570 
  3646      7400
  3647              	.LASF47:
- 3648 04d1 70776D33 		.ascii	"pwm3_WritePeriodBuf\000"
+ 3648 04da 70776D33 		.ascii	"pwm3_WritePeriodBuf\000"
  3648      5F577269 
  3648      74655065 
  3648      72696F64 
  3648      42756600 
  3649              	.LASF40:
- 3650 04e5 636F756E 		.ascii	"counterMode\000"
+ 3650 04ee 636F756E 		.ascii	"counterMode\000"
  3650      7465724D 
  3650      6F646500 
  3651              	.LASF82:
- 3652 04f1 70776D33 		.ascii	"pwm3_initVar\000"
+ 3652 04fa 70776D33 		.ascii	"pwm3_initVar\000"
  3652      5F696E69 
  3652      74566172 
  3652      00
  3653              	.LASF55:
- 3654 04fe 636F6D70 		.ascii	"compareBuf\000"
+ 3654 0507 636F6D70 		.ascii	"compareBuf\000"
  3654      61726542 
  3654      756600
  3655              	.LASF49:
- 3656 0509 70776D33 		.ascii	"pwm3_ReadPeriodBuf\000"
+ 3656 0512 70776D33 		.ascii	"pwm3_ReadPeriodBuf\000"
  3656      5F526561 
  3656      64506572 
  3656      696F6442 
  3656      756600
  3657              	.LASF19:
- 3658 051c 656E6162 		.ascii	"enableInterrupts\000"
+ 3658 0525 656E6162 		.ascii	"enableInterrupts\000"
  3658      6C65496E 
  3658      74657272 
  3658      75707473 
  3658      00
  3659              	.LASF73:
- 3660 052d 70776D33 		.ascii	"pwm3_GetInterruptSourceMasked\000"
+ 3660 0536 70776D33 		.ascii	"pwm3_GetInterruptSourceMasked\000"
  3660      5F476574 
  3660      496E7465 
  3660      72727570 
  3660      74536F75 
  3661              	.LASF58:
- 3662 054b 70776D33 		.ascii	"pwm3_ReadCaptureBuf\000"
+ 3662 0554 70776D33 		.ascii	"pwm3_ReadCaptureBuf\000"
  3662      5F526561 
  3662      64436170 
  3662      74757265 
  3662      42756600 
  3663              	.LASF64:
- 3664 055f 70776D33 		.ascii	"pwm3_SetCountMode\000"
+ 3664 0568 70776D33 		.ascii	"pwm3_SetCountMode\000"
  3664      5F536574 
  3664      436F756E 
  3664      744D6F64 
  3664      6500
  3665              	.LASF50:
- 3666 0571 70776D33 		.ascii	"pwm3_SetPeriodSwap\000"
+ 3666 057a 70776D33 		.ascii	"pwm3_SetPeriodSwap\000"
  3666      5F536574 
+ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cc1PhKeq.s 			page 95
+
+
  3666      50657269 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cceQptAG.s 			page 95
-
-
  3666      6F645377 
  3666      617000
  3667              	.LASF30:
- 3668 0584 73796E63 		.ascii	"syncKillEnable\000"
+ 3668 058d 73796E63 		.ascii	"syncKillEnable\000"
  3668      4B696C6C 
  3668      456E6162 
  3668      6C6500
  3669              	.LASF46:
- 3670 0593 73776170 		.ascii	"swapEnable\000"
+ 3670 059c 73776170 		.ascii	"swapEnable\000"
  3670      456E6162 
  3670      6C6500
  3671              	.LASF71:
- 3672 059e 70776D33 		.ascii	"pwm3_Init\000"
+ 3672 05a7 70776D33 		.ascii	"pwm3_Init\000"
  3672      5F496E69 
  3672      7400
  3673              	.LASF48:
- 3674 05a8 70657269 		.ascii	"periodBuf\000"
+ 3674 05b1 70657269 		.ascii	"periodBuf\000"
  3674      6F644275 
  3674      6600
  3675              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

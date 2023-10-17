@@ -62,12 +62,12 @@ Port Name  Setup to Clk  Clock Name:Phase
 -----------------------3.2::Clock to Out
 ----------------------------------------
 
-Port Name        Clock to Out  Clock Name:Phase  
----------------  ------------  ----------------  
-out_pwm0(0)_PAD  15120         clock(FFB):R      
-out_pwm1(0)_PAD  16230         clock(FFB):R      
-out_pwm2(0)_PAD  18370         clock(FFB):R      
-out_pwm3(0)_PAD  18510         clock(FFB):R      
+Port Name     Clock to Out  Clock Name:Phase  
+------------  ------------  ----------------  
+pwm_1(0)_PAD  15120         clock(FFB):R      
+pwm_2(0)_PAD  16230         clock(FFB):R      
+pwm_3(0)_PAD  18370         clock(FFB):R      
+pwm_4(0)_PAD  18510         clock(FFB):R      
 
 
                          3.3::Pad to Pad
