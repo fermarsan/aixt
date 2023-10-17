@@ -4,7 +4,7 @@
 # Date: 2023
 # License: MIT
 #
-# Description: This is the setup file for the PC port of Aixt project 
+# Description: Setup file for the PC port
 port =    "PC" 
 device =  "x64"
 board =   "x64-based board"
@@ -15,12 +15,6 @@ cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"
 cc_flags =   "-o"
 
 path = "PC"
-
-api_modules = [
-    "machine",
-    "os",
-    "time"
-]
 
 fixed_size_arrays  = "true"
 array_default_len  = 20
@@ -67,3 +61,24 @@ config_operator = ""
 configuration = []
 
 initialization = []
+
+# API functions
+# (function) - (module path)
+pin_high    =   "machine/pin"
+pin_low     =   "machine/pin"
+pin_write   =   "machine/pin"
+pin_read    =   "machine/pin"
+
+pwm1_duty   =   "machine/pwm"
+pwm2_duty   =   "machine/pwm"
+
+adc1_read   =   "machine/adc"
+adc2_read   =   "machine/adc"
+
+input       =   "machine/uart"
+print       =   "machine/uart"
+println     =   "machine/uart"
+
+sleep       =   "time/sleep"
+sleep_ms    =   "time/sleep_ms"
+sleep_us    =   "time/sleep_us"
