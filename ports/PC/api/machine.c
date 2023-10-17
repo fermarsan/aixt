@@ -8,3 +8,4 @@
 #include "./machine/pin.c"
 #include "./machine/pwm.c"
 #include "./machine/adc.c"
+#include "./machine/uart.c"

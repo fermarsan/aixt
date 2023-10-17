@@ -7,18 +7,11 @@
 # Description: This is the setup file for the PC port of Aixt project 
 device =  "x64"
 board =   "PC"
-backend = "pc"
+backend = "c"
 
 cc_linux =   "gcc"
 cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"
 cc_flags =   "-o" 
-
-api_path = "./api"
-api_modules = [
-    "machine",
-    "os",
-    "time"
-]
 
 fixed_size_arrays =  "true"
 fixed_size_strings = "true"
@@ -62,3 +55,25 @@ config_operator = []
 configuration = []
 
 initialization = []
+
+api_path = "./api"
+
+# API (function) - (module path)
+pin_high    =   "machine/pin"
+pin_low     =   "machine/pin"
+pin_write   =   "machine/pin"
+pin_read    =   "machine/pin"
+
+pwm1_duty   =   "machine/pwm"
+pwm2_duty   =   "machine/pwm"
+
+adc1_read   =   "machine/adc"
+adc2_read   =   "machine/adc"
+
+input       =   "machine/uart"
+print       =   "machine/uart"
+println     =   "machine/uart"
+
+sleep       =   "time/sleep"
+sleep_ms    =   "time/sleep_ms"
+sleep_us    =   "time/sleep_us"
