@@ -15,7 +15,7 @@ unsigned char *__addr;          //PORT address pointer
 unsigned char __port_bit;     //specific bit of PORT
 
 #define pin_mode(PIN_NAME,MODE)   \
-    __addr = (unsigned char)(PIN_NAME/8) + &TRISA; \
+    __addr = (unsigned char)(PIN_NAME>>3) + &TRISA; \
     __port_bit = PIN_NAME%8; \
     if(MODE==in) *__addr |=   0x01<<__port_bit; \
     else         *__addr &= ~(0x01<<__port_bit)

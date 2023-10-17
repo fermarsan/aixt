@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/debug\blinking.X.debug.hex">
+  <executable name="dist/default/debug/blinking.X.debug.hex">
     <memory name="program">
       <units>words</units>
       <length>1024</length>
-      <used>68</used>
-      <free>956</free>
+      <used>55</used>
+      <free>969</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>64</length>
-      <used>4</used>
-      <free>60</free>
+      <used>5</used>
+      <free>59</free>
     </memory>
   </executable>
 </project>
