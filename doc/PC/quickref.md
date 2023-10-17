@@ -21,20 +21,20 @@ Use the `machine` module and the `{ pin }` submodule.
 ```go
 import machine { pin }
 
-pin_high(A)         // turn ON the A pin 
-pin_low(y)          // turn OFF the y pin 
-pin_write(D, 1)     // write 1 on D pin
-pin_read(x)         // read x pin
+pin_high(a)         // turn ON the "a" pin 
+pin_low(y)          // turn OFF the "y" pin 
+pin_write(d, 1)     // write 1 on "d" pin
+pin_read(x)         // read "x" pin
 ```
 
 ### `pin` names
-Functions to emulate input/output pins on the console. There are 8 emulated pins named: `A`, `B`, `C`, `D`, `w`, `x`, `y` and `z`, which are show in the console after any change, as follows:
+Functions to emulate input/output pins on the console. There are 8 emulated pins named: `a`, `b`, `c`, `d`, `w`, `x`, `y` and `z`, which are show in the console after any change, as follows:
 
 _**After calling a writing function**_
 ```
  Aixt virtual pins     [#] = ON   [ ] = OFF
  _____ _____ _____ _____ _____ _____ _____ _____
-|  A  |  B  |  C  |  D  |  w  |  x  |  y  |  z  |
+|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |
 | [#] | [ ] | [ ] | [ ] | [ ] | [#] | [ ] | [ ] |
 '-----'-----'-----'-----'-----'-----'-----'-----'
 ```
@@ -95,7 +95,7 @@ import machine
 
   
 
-## `os` module
+## `machine/uart` module
 
 ### `input()` function
 The input strings to be captured by the `input()` function having a fixed size of 30 characters.
