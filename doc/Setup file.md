@@ -42,7 +42,7 @@ The **_Aixt_** transpiler reads the `port_name.toml` and does the traslation bas
 Backend name    | Target
 ----------------|-------------------------------------------------
 c               | for the native _C_ compiler of the device
-arduino         | for the ports that use _Arduino_ language
+arduino         | for the ports that use _Arduino_ API
 nxc             | for LEGO Mindstorms NXT robots on _NXC_ language  
 
 
