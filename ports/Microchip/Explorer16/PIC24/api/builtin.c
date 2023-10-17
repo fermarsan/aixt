@@ -24,7 +24,7 @@
 #define ta0     TRISAbits.TRISA0    // pin configuration pits
 #define ta1     TRISAbits.TRISA1 
 #define ta2     TRISAbits.TRISA2 
-#define ta3     TRISAbits.TRISA3 
+#define ta3     TRISAbits.TRISA3 up
 #define ta4     TRISAbits.TRISA4 
 #define ta5     TRISAbits.TRISA5 
 #define ta6     TRISAbits.TRISA6 
