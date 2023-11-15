@@ -69,7 +69,7 @@ stateDiagram-v2
 for the PIC24FJ microcontroller (XC16 compiler)*/
 
 fn main() { 
-    pin_high(led10)    //turn ON the PORTB0
+    pin_high(led10)    //turn ON the LED 10 (PORTA7)
 }
 ```
 
@@ -79,7 +79,7 @@ fn main() {
 for the PIC24FJ microcontroller (XC16 compiler)*/
 
 for {   //infinite loop
-    pin_high(led10)
+    pin_high(led10)     // LED 10 blinking 
     sleep_ms(500)
     pin_low(led10)
     sleep_ms(500)
