@@ -68,10 +68,8 @@ stateDiagram-v2
 /* Turning ON a LED (XC16 compiler)
 working on the PORTB pin 0 of a PIC24FJ microcontroller*/
 
-import machine { pin }
-
 fn main() {
-    pin_mode(b0, out)     
+    pin_setup(b0_s, out)     
     pin_high(b0)    //turn ON the PORTB0
 }
 ```
@@ -80,11 +78,7 @@ fn main() {
 ```go
 /*blinking LED example (XC16 compiler)
 working on the PORTB pin 0 of a PIC24FJ microcontroller*/
-
-import machine { pin }
-import time { sleep_ms }
-
-pin_mode(b0, out)
+pin_setup(b0_s, out)
 
 for {   //infinite loop
     pin_high(b0)
