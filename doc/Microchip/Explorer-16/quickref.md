@@ -82,7 +82,8 @@ pin_setup(c10_s, input)
 pin_high(b5)
 pin_low(b5)
 
-pin_write(a2)
+pin_write(a2, 0)
+pin_write(a2, 1)
 
 x = pin_read(c10_i)
 ```
