@@ -30,14 +30,14 @@ The pin names are named with a letter indicating the port and a number indicatin
 |**G** |g0|g1|g2|g3|g4|g5|g6|g7|g8|g9|-  |-  |g12|g13|g14|g15|
 
 In _dsPIC33_ and _PIC24_ microcontrollers families, the port's registers are divided in:
-  - ´TRIS´ for setting up each pin of the port
-  - ´PORT´ for managing the pins as inputs 
-  - ´LAT´ for managing the pins as outputs
+  - `TRIS` for setting up each pin of the port
+  - `PORT` for managing the pins as inputs 
+  - `LAT` for managing the pins as outputs
 
 then, for making easy the implementation (and for avoiding to generate unnecessary code) of this _Aixt_ port, the name of each pin differ among its setup, input and output as the following example:
-  - ´c6_s´ name of the bit for setting up the ´c6´ pin as input or output
-  - ´c6_i´ name of the bit for reading the input pin ´c6´
-  - ´c6´ name of the bit for writing the output pin ´c6´
+  - `c6_s` name of the bit for setting up the `c6` pin as input or output
+  - `c6_i` name of the bit for reading the input pin `c6`
+  - `c6` name of the bit for writing the output pin `c6`
 
 ### Explorer16 Onboard components
 
@@ -68,9 +68,9 @@ Potentiometer	| name	| pin
 
 ## Delay and timing
 ```go
-sleep(2)	    // sleep for 2 seconds
-sleep_us(1)     // sleep for 1 microsecond
-sleep_ms(500)   // sleep for 500 milliseconds
+sleep(2)		// sleep for 2 seconds
+sleep_us(1)		// sleep for 1 microsecond
+sleep_ms(500)	// sleep for 500 milliseconds
 ```
 
 ## Pin and GPIO
@@ -87,7 +87,7 @@ pin_write(a2)
 x = pin_read(c10_i)
 ```
 
-### Blinking LED example
+Blinking LED example:
 ```go
 for {
 	pin_high(led10)
