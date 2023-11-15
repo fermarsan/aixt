@@ -65,25 +65,23 @@ stateDiagram-v2
 
 ### Example with `main` function
 ```go
-/* Turning ON a LED (XC16 compiler)
-working on the PORTB pin 0 of a PIC24FJ microcontroller*/
+/* Turning ON the onboard LED 10 for the Explorer16 board 
+for the PIC24FJ microcontroller (XC16 compiler)*/
 
-fn main() {
-    pin_setup(b0_s, out)     
-    pin_high(b0)    //turn ON the PORTB0
+fn main() { 
+    pin_high(led10)    //turn ON the PORTB0
 }
 ```
 
 ### Example without `main` function (Script mode)
 ```go
-/*blinking LED example (XC16 compiler)
-working on the PORTB pin 0 of a PIC24FJ microcontroller*/
-pin_setup(b0_s, out)
+/* Turning ON the onboard LED 10 for the Explorer16 board 
+for the PIC24FJ microcontroller (XC16 compiler)*/
 
 for {   //infinite loop
-    pin_high(b0)
+    pin_high(led10)
     sleep_ms(500)
-    pin_low(b0)
+    pin_low(led10)
     sleep_ms(500)
 }
 ```
