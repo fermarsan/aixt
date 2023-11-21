@@ -1,4 +1,6 @@
-# Quick reference for PC
+# Quick reference for the Software Emulator port
+
+This software emulation works on _Linux_.
 
 ## Delay
 Use the `time` module:
