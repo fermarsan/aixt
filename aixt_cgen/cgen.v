@@ -17,14 +17,17 @@ import toml
 
 pub struct Gen {
 mut:	
-	file  		&ast.File  = unsafe { nil }
-	table 		&ast.Table = unsafe { nil }
-	base_path	string
-	out   		string
-	includes	string
-	definitions	string
-	current_fn	string = 'global'
-	idents		map[string] struct {
+	file  			&ast.File  = unsafe { nil }
+	table 			&ast.Table = unsafe { nil }
+	base_path		string
+	out   			string
+	includes		string
+	definitions		string
+	current_fn		string
+	main_loop_cmds	string
+	// temps_cont	int
+	level_cont		int
+	idents			map[string] struct {
 	mut:
 		kind    	ast.IdentKind	
 		typ			ast.Type
@@ -32,11 +35,9 @@ mut:
 		elem_type	ast.Type
 		len			int
 	}
-	// temps_cont	int
-	level_cont	int
 pub mut:
-	pref  	&pref.Preferences = unsafe { nil }
-	setup 	toml.Doc
+	pref  			&pref.Preferences = unsafe { nil }
+	setup 			toml.Doc
 }
 
 pub fn (mut gen Gen) gen(source_path string) string {
