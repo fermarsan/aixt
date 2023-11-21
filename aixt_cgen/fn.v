@@ -12,17 +12,51 @@ import v.ast
 
 fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 	mut out := '\n'
-	if node.is_main {
+	if node.is_main {	// main function
 		gen.current_fn = 'main'
-		out += if gen.setup.value('backend').string() == 'nxc' { 'task ' } else { '' }
-		out += '${gen.setup.value('main_ret_type').string()} '
-		out += 'main(${gen.setup.value('main_params').string()}) {\n'
-		for c in gen.setup.value('initialization').array() {		// append the initializatio lines
-        	out += '${c.string()}\n'    
+		match gen.setup.value('backend').string() {
+			'c' {
+				out += '${gen.setup.value('main_ret_type').string()} '	// return type
+				out += 'main('	// main function 
+				out += '${gen.setup.value('main_params').string()}) {\n'	// parameters	
+				for c in gen.setup.value('initialization').array() {	// initialization lines
+					out += '${c.string()}\n'    
+				}		
+				for st in node.stmts {	// inner statements
+					out += gen.ast_node(st)
+				}
+				out += if gen.setup.value('main_ret_type').string() == 'int' {	// return value 
+					'return 0;\n}' 
+				} else { 
+					'}' 
+				}
+			}
+			'nxc' {
+				out += 'task main() {\n'	// main task
+				for c in gen.setup.value('initialization').array() {	// initialization lines
+					out += '${c.string()}\n'    
+				}		
+				for st in node.stmts {	// inner statements
+					out += gen.ast_node(st)
+				}
+			}
+			'arduino' {
+				out += 'void setup() {\n'
+			}
 		}
+		out = if out[0] == ` ` { out[1..] } else { out }	// closing
 		// println('fn stmts:\t${node.stmts}')
 		for st in node.stmts {
+			stmt_str := gen.ast_node(st)
+			if stmt_str.starts_with('while(true) {\n') && gen.setup.value('backend').string() == 'arduino' {
+				out += '}\n\n'
+				out void loop()'
+			} else
+
+
 			out += gen.ast_node(st)
+
+
 			// println('fn stmt:\t${st}')
 		}
 		out += if gen.setup.value('main_ret_type').string() == 'int' { 'return 0;\n}' } else { '}' }
