@@ -8,13 +8,13 @@
 port =    "PC" 
 device =  "x64"
 board =   "x64-based board"
-backend = "c"
+backend = "arduino"
 
 cc_linux =   "gcc"
 cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"
 cc_flags =   "-o"
 
-path = "PC"
+path = "Emulator"
 
 fixed_size_arrays  = "true"
 array_default_len  = 20

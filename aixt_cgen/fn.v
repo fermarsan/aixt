@@ -58,6 +58,9 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				}
 				out += '}'
 			}
+			else{
+				print('Invalid "Backend" in setup file.' )
+			}
 		}
 		out = if out[0] == ` ` { out[1..] } else { out }	// closing
 	} else {

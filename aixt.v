@@ -71,6 +71,8 @@ fn main() {
 			// }
 			'clean', '-cl' {
 				os.rm('${base_name}.c') or {}
+				os.rm('${base_name}.nxc') or {}
+				os.rm('${base_name}.ino') or {}
 				$if windows {
 					os.rm('${base_name}.exe') or {}
 				} $else {
