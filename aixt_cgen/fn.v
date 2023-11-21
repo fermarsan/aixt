@@ -39,28 +39,27 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				for st in node.stmts {	// inner statements
 					out += gen.ast_node(st)
 				}
+				out += '}'
 			}
 			'arduino' {
-				out += 'void setup() {\n'
+				out += 'void setup() {\n'	// setup function
+				for c in gen.setup.value('initialization').array() {	// initialization lines
+					out += '${c.string()}\n'    
+				}		
+				for st in node.stmts {	// inner statements
+					 stmt_str := gen.ast_node(st)
+					 if stmt_str.starts_with('while(true) {\n') {
+						out += '}\n\n'	// close the setup function
+						out += stmt_str.replace('while(true)', 'void loop()')	// loop function
+						break
+					 } else {
+						out += stmt_str
+					 }
+				}
+				out += '}'
 			}
 		}
 		out = if out[0] == ` ` { out[1..] } else { out }	// closing
-		// println('fn stmts:\t${node.stmts}')
-		for st in node.stmts {
-			stmt_str := gen.ast_node(st)
-			if stmt_str.starts_with('while(true) {\n') && gen.setup.value('backend').string() == 'arduino' {
-				out += '}\n\n'
-				out void loop()'
-			} else
-
-
-			out += gen.ast_node(st)
-
-
-			// println('fn stmt:\t${st}')
-		}
-		out += if gen.setup.value('main_ret_type').string() == 'int' { 'return 0;\n}' } else { '}' }
-		out = if out[0] == ` ` { out[1..] } else { out }
 	} else {
 		gen.current_fn = node.name
 		for a in node.attrs {
