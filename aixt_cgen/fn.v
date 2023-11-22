@@ -50,7 +50,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 					 stmt_str := gen.ast_node(st)
 					 if stmt_str.starts_with('while(true) {\n') {
 						out += '}\n\n'	// close the setup function
-						out += stmt_str.replace('while(true)', 'void loop()')	// loop function
+						out += stmt_str#[..-2].replace('while(true)', 'void loop()')	// loop function
 						break
 					 } else {
 						out += stmt_str
