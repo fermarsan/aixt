@@ -102,28 +102,21 @@ Usage:
   aixt command device input_file_name
 
 Examples:
-  aixt transpile pc hello.aixt	Transpile the file `hello.aixt` and output it as 
-  								`hello.c`.
-  aixt compile pc hello.aixt  	Compile a previously transpiled `hello.c` and 
-								output it as `hello.hex` or equivalent binary file.
-  aixt -c nxc hello.aixt      	Same as above, but make debugging easier
-                            	(in case your program crashes).
-  aixt crun hello.aixt         	Same as above, but do not recompile, if the
-                            	executable already exists, and is newer than the
-                            	sources.
-  aixt -o h.c hello.aixt       	Translate `hello.aixt` to `h.c`. Do not compile
-                            	further.
-  aixt -o - hello.aixt         	Translate `hello.aixt` and output the C source code
-                            	to stdout. Do not compile further.
-  aixt watch hello.aixt        	Re-does the same compilation, when a source code
-                            	change is detected.
-                            	The program is only compiled, not run.
-  aixt watch run hello.aixt    	Re-runs the same `hello.aixt` file, when a source
-                            	code change is detected.
+  aixt transpile NXC hello.aixt	Transpile the file `hello.aixt` and output it as 
+  								`hello.nxc`.
+  aixt build NXC hello.v    	Transpile, compile and download `hello.v` to NXT 
+  								Intelligent brick.
+  aixt -t Arduino_Nano hello.v	Transpile the file `hello.v` and output it as 
+  								`hello.c` or `hello.ino` (depending on the Backend).
+  aixt -c Emulator hello.aixt	Compile a previously transpiled `hello.c` (from
+  								`hello.aixt`) and output it as `hello` or `hello.exe`
+  aixt run Emulator hello.v     Run the previously compiled `hello` or `hello.exe`
+								emulator executable.
+  aixt clean hello.aixt         Clean all the generated files `hello.*`
 
 aixt supports the following commands:
 
-  transpile, -t   				Transpile to C an Aixt program.
+  transpile, -t   				Transpile to C an Aixt source file.
   compile, -c     				Compile the previosly generated C file.
   run, -r         				Run the previosly generated executable file.
   build, -b       				Build (transpile, compile and run) an Aixt program.
