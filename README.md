@@ -59,6 +59,13 @@ stateDiagram-v2
     Microcontroller --> API_C
 ```
 
+## Aixt to C Transpiler
+
+The transpiler is written in [_V_](https://vlang.io/) using the _V's_ native self-compiler (a transpiler from _V_ to _C_). This is implemented in the folders `\aixt_build`, `\aixt_cgen` and `\aixt_pref`, and the main source code is the `aixt.v` file. It generates code for 3 different backends:
+- **c**: for the microcontroller native C compiler
+- **nxc**: for the NXC compiler (LEGO Mindstorms NXT)
+- **arduino**: for the Arduino IDE
+- 
 ## Aixt Language
 
 **Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all variables in **Aixt** are mutable by default.
@@ -86,10 +93,6 @@ for {   //infinite loop
 }
 ```
 
-## Aixt Transpiler
-
-The transpiler is written in _V_ using the _V's_ native self-compiler (a transpiler from _V_ to _C_). This is implemented in the folders `\aixt_build`, `\aixt_cgen` and `\aixt_pref`, and the main source code is the `aixt.v` file.
-
 ## Aixt API
 
 The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_ projects. The API for all the ports includes at least functions for:
@@ -98,5 +101,21 @@ The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_ projects. 
 - PWM outputs
 - Serial port (UART)
 
+## Using Aixt
+First compile `aixt.v`: 
+```
+v aixt.v
+```
+and run it as:
+```
+./aixt <command> <device_or_board> <source_file>
+```
+Example:
+```
+./aixt -t Emulator test.v
+```
+```
+./aixt -b NXT ports/NXT/projects/1_motor_forward.v
+```
 #### Project's name
 The project's name is inspired in _Veasel_, the Weasel pet of _V Language_, and at the same time is a tribute to _Ticuna_ people who live in the Amazonic forest in the borders of _Colombia_, _Brasil_ and _Perú_. Weasels are _mustelids_ just like otters, so the name **Aixt** comes from _Aixtü_, which is a way to say otter in [_Ticuna_](https://www.sil.org/system/files/reapdata/90/20/51/90205190508691852389084667097660892450/tca_Ticuna_Dictionary_2016_web.pdf) language.
