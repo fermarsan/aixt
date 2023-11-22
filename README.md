@@ -65,7 +65,7 @@ The transpiler is written in [_V_](https://vlang.io/) using the _V's_ native sel
 - **c**: for the microcontroller native C compiler
 - **nxc**: for the NXC compiler (LEGO Mindstorms NXT)
 - **arduino**: for the Arduino IDE
-- 
+
 ## Aixt Language
 
 **Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all variables in **Aixt** are mutable by default.

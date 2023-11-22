@@ -4,7 +4,9 @@
 # Date: 2023
 # License: MIT
 #
-# Description: Setup file for the Emulator port
+# Description: Setup file for the Emulator port. It works on Linux and Windows 
+#              PCs and on Android with Termux
+#              
 port =    "PC" 
 device =  "Emulator"
 board =   "Software Emulator"

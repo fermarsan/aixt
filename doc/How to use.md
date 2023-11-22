@@ -8,7 +8,7 @@ v run aixt.v <command> <device_or_board> <source_file>
 ```
 Examples:
 ```
-v run aixt.v -t PC ports/PC/projects/blinking/blinking.v
+v run aixt.v -t Emulator ports/PC/projects/blinking/blinking.v
 ```
 ```
 v run aixt.v -c Explorer16-PIC24 common_test/17_for_in_range.v
@@ -26,7 +26,7 @@ and the execute:
 ```
 Examples:
 ```
-./aixt -t PC common_test/02_casting.v
+./aixt -t Emulator common_test/02_casting.v
 ```
 ```
 ./aixt -b NXT ports/NXT/projects/1_motor_forward.v
