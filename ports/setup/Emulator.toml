@@ -1,14 +1,14 @@
 # Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-# File Name: PC.toml
+# File Name: Emulator.toml
 # Author: Fernando Martínez Santa
 # Date: 2023
 # License: MIT
 #
-# Description: Setup file for the PC port
+# Description: Setup file for the Emulator port
 port =    "PC" 
-device =  "x64"
-board =   "x64-based board"
-backend = "arduino"
+device =  "Emulator"
+board =   "Software Emulator"
+backend = "c"
 
 cc_linux =   "gcc"
 cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"
