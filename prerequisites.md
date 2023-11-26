@@ -10,7 +10,7 @@ v symlink
 # Native C compilers (or IDEs)
 - **XC8**: Microchip and Atmel 8-bit microcontrollers
 - **XC16**: Microchip 16-bit microcontrollers
-- **PSoC Creator**: Cypress (PSoC 3, 4 and 5)
+- **PSoC Creator**: Cypress (PSoC 3, 4 ,5 and 6)
 - **clang** or **gcc**: Emulator on Linux
 - **tcc**: Emulator on Window
 - **Arduino IDE**: for all the ports that use Arduino backend
