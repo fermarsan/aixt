@@ -11,8 +11,8 @@ v symlink
 - **XC8**: Microchip and Atmel 8-bit microcontrollers
 - **XC16**: Microchip 16-bit microcontrollers
 - **PSoC Creator**: Cypress (PSoC 3, 4 and 5)
-- **clang** or **gcc**: PC on Linux
-- **tcc**: PC on Window
+- **clang** or **gcc**: Emulator on Linux
+- **tcc**: Emulator on Window
 - **Arduino IDE**: for all the ports that use Arduino backend
 
 _NOTE:_ **nbc**, the NXC compiler for LEGO Mindstorms NXT intelligent brick, is already delivered along with the **Aixt project** source code.
