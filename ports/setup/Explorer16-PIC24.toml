@@ -9,7 +9,7 @@
 port =    "Explorer16-PIC24"
 device =  "PIC24FJ128GA010"
 board =   "Explorer 16"
-backend = "native"
+backend = "c"
 
 cc_linux =   "xc16"
 cc_windows = "xc16.exe"

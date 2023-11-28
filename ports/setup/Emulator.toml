@@ -64,7 +64,7 @@ configuration = []
 
 initialization = []
 
-# API functions
+[api_functions]
 # (function) - (module path)
 pin_high    =   "machine/pin"
 pin_low     =   "machine/pin"
@@ -84,3 +84,4 @@ println     =   "machine/uart"
 sleep       =   "time/sleep"
 sleep_ms    =   "time/sleep_ms"
 sleep_us    =   "time/sleep_us"
+
