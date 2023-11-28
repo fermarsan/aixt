@@ -10,7 +10,6 @@
 // 1. Run the program using `v run aixt.v command port input_file_name`
 import os
 import toml
-// import aixt_pref
 import aixt_build
 
 fn main() {
@@ -23,18 +22,7 @@ fn main() {
 		port, input_name := os.args[2], os.args[3] // the other parameters
 		mut base_name := input_name.replace('.aixt', '') // input file base name
 		base_name = base_name.replace('.v', '')
-
-		// mut dev_setup_path := '${aixt_path}/devices/'
-		// dev_setup_path += aixt_pref.device_path(port) or {
-		// 	println(err)
-		// 	return
-		// }
-		// dev_setup_path += '/setup.toml'
-
-		// setup := toml.parse_file(dev_setup_path) or { return } // load the device's setup file
-		// println('${dev_setup_path}')
 		setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { return } // load the device's setup file
-
 		match command {
 			'transpile', '-t' {
 				aixt_build.transpile_file(input_name, setup, aixt_path)
@@ -44,11 +32,6 @@ fn main() {
 				aixt_build.compile_file(base_name, setup)
 				ext := if setup.value('backend').string() == 'nxc' { 'nxc' } else { 'c' }
 				println('\n${base_name}.${ext} compilation finished.\n')
-				// mut file_str_list := walk_ext(api_path, '.c').join(' ')
-				// println('file_str_list: ${file_str_list}')
-				// file_str_list += ' ' + walk_ext(dir(input_name), '.c').join(' ')
-				// println('file_str_list: ${file_str_list}')
-				// println(execute('${cc} ${file_str_list} -o ${base_name}').output)
 			}
 			// 'run', '-r' {
 			// 	result := $if windows {
@@ -80,14 +63,6 @@ fn main() {
 				}
 				println('Output files cleaned.')
 			}
-			// 'clean_all', 'ca' {
-			// 	mut result := execute('find . -name "*.c" -type f -delete')
-			// 	println(result.output)
-			// 	result = execute('find . -name "*.exe" -type f -delete')
-			// 	println(result.output)
-			// 	// result := execute('find . -name "*.c" -type f -delete')
-			// 	// println(result.output)
-			// }
 			else {
 				println('Invalid command.')
 			}
