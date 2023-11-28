@@ -80,24 +80,4 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 	} else { 
 		println(os.execute('${cc} ${path}.c ${flags} ${path}').output)
 	}
-	
-	// output_path := path.replace('.v', output_ext)
-	// os.write_file(output_path, transpiled) or {}
-
-	// // mut trans_code := c_embedded.gen(tree)
-	// mut trans_code := ''
-	// if os.args.len > 2 {
-	// 	if os.args[2] == '-nxc' { // if -nxt flag
-	// 		equivalents := toml.parse_file('../api/equivalents.toml') or {
-	// 			panic('file does not exist. ')
-	// 		}
-	// 		for eq in equivalents.to_any().as_map().keys() {
-	// 			trans_code = trans_code.replace(eq, equivalents.value(eq).string()) // replace the NXC equivalents
-	// 		}
-	// 	} else {
-	// 		println('Invalid flag.\n')
-	// 	}
-	// }
-	// println(trans_code)
-	// println('_'.repeat(60) + '\n')
 }
