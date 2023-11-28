@@ -1,86 +1,110 @@
 {
     "version": "2.0.0",
     "tasks": [
-      {
-        "label": "Aixt: Transpile",
-        "type": "shell",
-        "windows": {
-            "command": [ "v -enable-globals run ${config:aixt_windows}",
-                         "transpile",
-                         "${config:device}",
-                         "${file}" ],
+        {
+            "label": "Aixt: Transpile",
+            "type": "shell",
+            "windows": {
+                "command": [ "v -enable-globals run ${config:aixt_windows}",
+                            "transpile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "v -enable-globals run ${config:aixt_linux}",
+                            "transpile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
         },
-        "linux": {
-            "command": [ "v -enable-globals run ${config:aixt_linux}",
-                         "transpile",
-                         "${config:device}",
-                         "${file}" ],
+        {
+            "label": "Aixt: Compile",
+            "type": "shell",
+            "windows": {
+                "command": [ "v -enable-globals run ${config:aixt_windows}",
+                            "compile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "v -enable-globals run ${config:aixt_linux}",
+                            "compile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
         },
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
-          "showReuseMessage": false
+        {
+            "label": "Aixt: Build",
+            "type": "shell",
+            "windows": {
+                "command": [ "v -enable-globals run ${config:aixt_windows}",
+                            "build",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "v -enable-globals run ${config:aixt_linux}",
+                            "build",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Clean",
+            "type": "shell",
+            "windows": {
+                "command": [ "v -enable-globals run ${config:aixt_windows}",
+                            "clean",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "v -enable-globals run ${config:aixt_linux}",
+                            "clean",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Run",
+            "type": "shell",
+            "windows": {
+                "command": [ "${fileDirname}\\${fileBasenameNoExtension}.exe" ],
+            },
+            "linux": {
+                "command": [ "${fileDirname}/${fileBasenameNoExtension}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }  
+        },
+        {
+            "label": "Aixt: Build & Run",
+            "group": "build",
+            "dependsOrder": "sequence",
+            "dependsOn": ["Aixt: Build", "Aixt: Run"]
         }
-      },
-      {
-        "label": "Aixt: Compile",
-        "type": "shell",
-        "command": [ "v run make.vsh",
-                     "compile",
-                     "${file}" ],
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
-          "showReuseMessage": false
-        }
-      },
-      {
-        "label": "Aixt: Run",
-        "type": "shell",
-        "command": [ "v run make.vsh",
-                     "run",
-                     "${file}" ],
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
-          "showReuseMessage": false
-        }  
-      },
-      {
-        "label": "Aixt: Build & Run",
-        "type": "shell",
-        "command": [ "v run make.vsh",
-                     "build",
-                     "${file}" ],
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
-          "showReuseMessage": false
-        }  
-      },
-      {
-        "label": "Aixt: Clean",
-        "type": "shell",
-        "command": [ "v run make.vsh",
-                     "clean",
-                     "${file}" ],
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
-          "showReuseMessage": false
-        }  
-      },
-      {
-        "label": "Aixt: Clean all",
-        "type": "shell",
-        "command": [ "v run make.vsh",
-                     "clean_all",
-                     "${relativeFileDirname}" ],
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
-          "showReuseMessage": false
-        }  
-      }
     ]
-  }
+}
