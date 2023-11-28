@@ -1,12 +1,15 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: input.c
+// File Name: uart.c
 // Author: Fernando Martínez Santa
 // Date: 2023
 // License: MIT
 //
-// Description: input function for the Aixt PC port.
+// Description: input and printing functions.
 #include <stdio.h>
 #include <string.h>
+
+#define print(STR)      printf("%s", STR)
+#define println(STR)    printf("%s\n", STR)
 
 // #define OUT = os__input(IN) 
 

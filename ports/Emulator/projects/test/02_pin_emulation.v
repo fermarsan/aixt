@@ -1,13 +1,3 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pin_emu_test.v
-// Author: Fernando Martínez Santa
-// Date: 2023
-// License: MIT
-//
-// Description: Pin emulation testing.
-import time
-import machine { pin }
-
 fn main() {
     pin_update()
     sleep_ms(2000)

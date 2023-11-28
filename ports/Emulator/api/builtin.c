@@ -5,14 +5,7 @@
 // License: MIT
 //
 // Description: Builtin definitions
-//              (PC port) 
-#include <stdio.h>
-#include <string.h>
-
-#define print(STR)      printf("%s", STR)
-
-#define println(STR)    printf("%s\n", STR)
-
+//              (Emulator port) 
 enum __pin_names {    // enumerated type for the pin names
     a = 0,    
     b,
