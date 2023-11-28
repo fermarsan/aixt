@@ -38,12 +38,12 @@ fn main() {
 		match command {
 			'transpile', '-t' {
 				aixt_build.transpile_file(input_name, setup, aixt_path)
-				println('\n${input_name} was successfully transpiled to C.\n')
+				println('\n${input_name} transpilation finished.\n')
 			}
 			'compile', '-c' {
 				aixt_build.compile_file(base_name, setup)
 				ext := if setup.value('backend').string() == 'nxc' { 'nxc' } else { 'c' }
-				println('\n${base_name}.${ext} was successfully compiled.\n')
+				println('\n${base_name}.${ext} compilation finished.\n')
 				// mut file_str_list := walk_ext(api_path, '.c').join(' ')
 				// println('file_str_list: ${file_str_list}')
 				// file_str_list += ' ' + walk_ext(dir(input_name), '.c').join(' ')
