@@ -33,14 +33,6 @@ fn main() {
 				ext := if setup.value('backend').string() == 'nxc' { 'nxc' } else { 'c' }
 				println('\n${base_name}.${ext} compilation finished.\n')
 			}
-			// 'run', '-r' {
-			// 	result := $if windows {
-			// 		execute('${base_name}.exe')
-			// 	} $else {
-			// 		execute('${base_name}')
-			// 	}
-			// 	println(result.output)
-			// }
 			// 'build', '-b' {
 			// 	println(execute('${python} ${aixtt} ${input_name}').output) // transpile
 			// 	// compile_directory(api_path, cc)
@@ -85,16 +77,13 @@ Examples:
   								`hello.c` or `hello.ino` (depending on the Backend).
   aixt -c Emulator hello.aixt	Compile a previously transpiled `hello.c` (from
   								`hello.aixt`) and output it as `hello` or `hello.exe`
-  aixt run Emulator hello.v     Run the previously compiled `hello` or `hello.exe`
-								emulator executable.
   aixt clean hello.aixt         Clean all the generated files `hello.*`
 
 aixt supports the following commands:
 
   transpile, -t   				Transpile to C an Aixt source file.
   compile, -c     				Compile the previosly generated C file.
-  run, -r         				Run the previosly generated executable file.
-  build, -b       				Build (transpile, compile and run) an Aixt program.
+  build, -b       				Build (transpile and compile) an Aixt program.
   clean, -cl      				Clean all the generated file (C and executables).
   help, --help, -h				Call this help'
 }
