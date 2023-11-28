@@ -14,7 +14,6 @@ v run aixt.v -t Emulator ports/PC/projects/blinking/blinking.v
 v run aixt.v -c Explorer16-PIC24 common_test/17_for_in_range.v
 ```
 
-
 ## Compile **Aixt**
 For improving the transcompilation from _Aixt_ to _C_ ou can compile first `aixt.v`: 
 ```
@@ -33,7 +32,6 @@ Examples:
 ```
 
 ## Aixt commands
-
 _**Aixt**_ supports the following commands:
 
 Command          | working
