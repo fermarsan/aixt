@@ -1,6 +1,3 @@
-// import time { sleep_us }
-// import machine { pin }
-
 pin_update()
 sleep_us(500000)
 

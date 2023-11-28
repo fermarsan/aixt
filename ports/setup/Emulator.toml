@@ -66,6 +66,7 @@ initialization = []
 
 [api_functions]
 # (function) - (module path)
+pin_update  =   "machine/pin"
 pin_high    =   "machine/pin"
 pin_low     =   "machine/pin"
 pin_write   =   "machine/pin"

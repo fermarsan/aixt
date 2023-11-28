@@ -12,13 +12,11 @@ import v.ast
 fn (mut gen Gen) call_expr(node ast.CallExpr) string {
 	fn_name := node.name.after('.')	// remove the parent function name
 	fn_api_path := gen.setup.value('api_functions').as_map()[fn_name] or { '' }	// api path of function
-	if fn_api_path.string() != '' {
+	if fn_api_path.string() != '' && !gen.includes.contains(fn_api_path.string()){	// self-including of api files
 		api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
     	gen.includes += '#include "${api_path}/${fn_api_path.string()}.c"\n'
 	}
-	// println('**${fn_api_path.string()}**')
 	mut out := '${fn_name}('
-	// println()
 	if node.args.len != 0 {
 		for ar in node.args {
 			out += '${gen.ast_node(ar)}, '

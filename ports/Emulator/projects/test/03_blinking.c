@@ -7,9 +7,6 @@
 
 #include <stdbool.h>
 #include "/home/aixt-project/ports/Emulator/api/builtin.c"
-#include "/home/aixt-project/ports/Emulator/api/time/sleep_us.c"
-#include "/home/aixt-project/ports/Emulator/api/machine/pin.c"
-#include "/home/aixt-project/ports/Emulator/api/time/sleep_us.c"
 #include "/home/aixt-project/ports/Emulator/api/machine/pin.c"
 #include "/home/aixt-project/ports/Emulator/api/time/sleep_us.c"
 
