@@ -33,17 +33,13 @@ fn main() {
 				ext := if setup.value('backend').string() == 'nxc' { 'nxc' } else { 'c' }
 				println('\n${base_name}.${ext} compilation finished.\n')
 			}
-			// 'build', '-b' {
-			// 	println(execute('${python} ${aixtt} ${input_name}').output) // transpile
-			// 	// compile_directory(api_path, cc)
-			// 	println(execute('${cc} ${base_name}.c -o ${base_name}').output) // compile
-			// 	result := $if windows {
-			// 		execute('${base_name}.exe')
-			// 	} $else {
-			// 		execute('${base_name}')
-			// 	} // run
-			// 	println(result.output)
-			// }
+			'build', '-b' {
+				aixt_build.transpile_file(input_name, setup, aixt_path)
+				println('\n${input_name} transpilation finished.\n')
+				aixt_build.compile_file(base_name, setup)
+				ext := if setup.value('backend').string() == 'nxc' { 'nxc' } else { 'c' }
+				println('\n${base_name}.${ext} compilation finished.\n')
+			}
 			'clean', '-cl' {
 				os.rm('${base_name}.c') or {}	// clean c-type files
 				os.rm('${base_name}.nxc') or {}
