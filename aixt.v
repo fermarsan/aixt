@@ -16,7 +16,7 @@ fn main() {
 	aixt_path := os.dir(os.args[0]) // aixt base path
 	command := os.args[1] // command
 
-	if command in ['help', '--help', '-h'] {
+	if command in ['help', '--help', '-h'] {	// help message
 		println(help_message())
 	} else {
 		port, input_name := os.args[2], os.args[3] // the other parameters
@@ -30,22 +30,30 @@ fn main() {
 			}
 			'compile', '-c' {
 				aixt_build.compile_file(base_name, setup)
-				ext := if setup.value('backend').string() == 'nxc' { 'nxc' } else { 'c' }
+				ext := match setup.value('backend').string() {
+					'nxc' 		{ 'nxc' }
+					'arduino'	{ 'ino' } 
+					else 		{ 'c' }
+				}
 				println('\n${base_name}.${ext} compilation finished.\n')
 			}
 			'build', '-b' {
 				aixt_build.transpile_file(input_name, setup, aixt_path)
 				println('\n${input_name} transpilation finished.\n')
 				aixt_build.compile_file(base_name, setup)
-				ext := if setup.value('backend').string() == 'nxc' { 'nxc' } else { 'c' }
+				ext := match setup.value('backend').string() {
+					'nxc' 		{ 'nxc' }
+					'arduino'	{ 'ino' } 
+					else 		{ 'c' }
+				}
 				println('\n${base_name}.${ext} compilation finished.\n')
 			}
 			'clean', '-cl' {
 				os.rm('${base_name}.c') or {}	// clean c-type files
 				os.rm('${base_name}.nxc') or {}
 				os.rm('${base_name}.ino') or {}
-				$if windows {
-					os.rm('${base_name}.exe') or {}	// and executables
+				$if windows {	// and executables
+					os.rm('${base_name}.exe') or {}	
 				} $else {
 					os.rm('${base_name}') or {}
 				}
