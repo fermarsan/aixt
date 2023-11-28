@@ -101,12 +101,3 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 	// println(trans_code)
 	// println('_'.repeat(60) + '\n')
 }
-
-// pub fn build_api(path string) {
-// 	file_list := os.walk_ext(path, '.aixt') // transpile secondary files
-// 	for file in file_list {
-// 		// if file != input_name {
-// 		println('Building API........') // os.execute('v run ${aixt_builder} ${device} ${file}').output)
-// 		// }
-// 	}
-// }
