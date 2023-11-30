@@ -14,12 +14,14 @@ import aixt_build
 
 fn main() {
 	aixt_path := os.dir(os.args[0]) // aixt base path
+	println(os.args[0])
+	println(aixt_path)
 	command := os.args[1] // command
 
 	if command in ['help', '--help', '-h'] {	// help message
 		println(help_message())
 	} else {
-		port, input_name := os.args[2], os.args[3] // the other parameters
+		port, input_name := os.args[2], os.abs_path(os.args[3]) // the other parameters
 		mut base_name := input_name.replace('.aixt', '') // input file base name
 		base_name = base_name.replace('.v', '')
 		setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { return } // load the device's setup file
