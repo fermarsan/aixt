@@ -56,7 +56,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	println('\n===== Top-down node analysis =====')
 	gen.out = gen.ast_node(gen.file) // starts from the main node (file)
 	println('\n===== Symbol table =====\n${gen.symbol_table()}')
-	gen.out_format()
+	// gen.out_format()
 	return gen.out
 }
 

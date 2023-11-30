@@ -31,7 +31,7 @@ Release(move_mutex);
 }
 
 task main() {
- move_mutex = mutex();
+ move_mutex = mutex("");
 Precedes(move_square, check_sensors);
-SetSensorTouch(IN_1);
+SetSensorTouch(in_1);
 }
