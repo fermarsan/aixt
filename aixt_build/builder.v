@@ -33,7 +33,25 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	c_gen.pref.enable_globals = true
 	c_gen.setup = setup_file
 
-	transpiled := c_gen.gen(path) // transpile Aixt (V) to C
+	// do the aliases replacement
+	// mut source := os.read_file(path) or { 'Cannot read the file...' }	// read the source code
+	// for alias in c_gen.setup.value('aliases').as_map().keys() { // replace aliases in source
+	// 	source = source.replace(
+	// 		alias,
+	// 		(c_gen.setup.value('aliases').as_map()[alias] or {''}).string()
+	// 	)
+	// }
+	// os.write_file('${os.dir(path)}/temp.v', source) or {}	// write the modified source code to a temporary file
+
+	// mut transpiled := c_gen.gen('${os.dir(path)}/temp.v') // transpile Aixt (V) to C
+	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
+
+	for alias in c_gen.setup.value('aliases').as_map().keys() { // replace aliases in the transpiled code
+		transpiled = transpiled.replace(
+			alias,
+			(c_gen.setup.value('aliases').as_map()[alias] or {''}).string()
+		)
+	}
 
 	// saves the output file
 	output_ext := match c_gen.setup.value('backend').string() {
@@ -45,23 +63,6 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	output_path = output_path.replace('.v', output_ext)
 	// println('\n${output_path}\n')
 	os.write_file(output_path, transpiled) or {}
-
-	// // mut trans_code := c_embedded.gen(tree)
-	// mut trans_code := ''
-	// if os.args.len > 2 {
-	// 	if os.args[2] == '-nxc' { // if -nxt flag
-	// 		equivalents := toml.parse_file('../api/equivalents.toml') or {
-	// 			panic('file does not exist. ')
-	// 		}
-	// 		for eq in equivalents.to_any().as_map().keys() {
-	// 			trans_code = trans_code.replace(eq, equivalents.value(eq).string()) // replace the NXC equivalents
-	// 		}
-	// 	} else {
-	// 		println('Invalid flag.\n')
-	// 	}
-	// }
-	// println(trans_code)
-	// println('_'.repeat(60) + '\n')
 }
 
 pub fn compile_file(path string, setup_file toml.Doc) {
