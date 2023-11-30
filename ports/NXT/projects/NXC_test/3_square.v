@@ -7,8 +7,8 @@ const (
 )
 
 for {
-	on_forward(out_ab, 50)	// Aixt-style functions
+	forward(out_ab, 50)	// Aixt-style functions
 	sleep(t_fwd)
-	on_reverse(out_a, 50)			
+	reverse(out_a, 50)			
 	sleep(t_turn)
 }
