@@ -33,7 +33,11 @@ fn (mut gen Gen) ast_file(node ast.File) string {
         gen.includes +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
 	}
 	api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
-    gen.includes += '#include "${api_path}/builtin.c"\n'
+    gen.includes += if gen.setup.value('backend').string() != 'nxc'{
+		'#include "${api_path}/builtin.c"\n'
+	} else {
+		''
+	}
 	for st in node.stmts {
 		out += gen.ast_node(st)
 	}
