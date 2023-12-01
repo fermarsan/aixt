@@ -82,7 +82,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 			}
 			out = out#[..-2] + ') {\n'
 		} else {
-			') {\n'
+			out += ') {\n'
 		}
 		for st in node.stmts {
 			out += gen.ast_node(st)

@@ -7,7 +7,8 @@
 
 ___includes_block___
 
-task  move_square(while(TRUE) {
+task  move_square() {
+while(TRUE) {
 Acquire(move_mutex);
 OnFwd(OUT_AC, 75);
 Wait(1000);
@@ -17,7 +18,8 @@ Release(move_mutex);
 }
 }
 
-task  check_sensors(while(TRUE) {
+task  check_sensors() {
+while(TRUE) {
 if(SENSOR_1 == 1) {
 Acquire(move_mutex);
 OnRev(OUT_AC, 75);
