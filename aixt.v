@@ -13,9 +13,10 @@ import toml
 import aixt_build
 
 fn main() {
-	aixt_path := os.dir(os.args[0]) // aixt base path
-	println(os.args[0])
-	println(aixt_path)
+	aixt_path := os.abs_path(os.dir(os.args[0])) // aixt base path
+//	println(os.args[0])
+//	println(aixt_path)
+//	println(os.abs_path(os.args[0]))
 	command := os.args[1] // command
 
 	if command in ['help', '--help', '-h'] {	// help message

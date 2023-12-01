@@ -131,7 +131,7 @@ fn (mut gen Gen) out_format() {
 		}
 	}
 	temp = temp.replace('\t}', '}')
-	gen.out = temp + 'fin'
+	gen.out = temp + '\n'
 }
 
 
