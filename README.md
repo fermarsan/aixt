@@ -71,7 +71,7 @@ The transpiler is written in [_V_](https://vlang.io/) using the _V's_ native sel
 **Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all variables in **Aixt** are mutable by default.
 
 ### Example with `main` function
-```go
+```v
 /* Turning ON the onboard LED 10 for the Explorer16 board 
 for the PIC24FJ microcontroller (XC16 compiler)*/
 
@@ -81,7 +81,7 @@ fn main() {
 ```
 
 ### Example without `main` function (Script mode)
-```go
+```v
 /* Turning ON the onboard LED 10 for the Explorer16 board 
 for the PIC24FJ microcontroller (XC16 compiler)*/
 
