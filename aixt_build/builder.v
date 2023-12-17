@@ -24,6 +24,7 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		definitions: ''
 		current_fn: 'global'
 		main_loop_cmds:	''
+		cond_assign: false
 		level_cont: 0
 		pref: &pref.Preferences{}
 		setup: toml.Doc{}

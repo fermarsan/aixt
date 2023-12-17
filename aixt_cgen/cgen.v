@@ -25,6 +25,7 @@ mut:
 	definitions		string
 	current_fn		string
 	main_loop_cmds	string
+	cond_assign		bool
 	// temps_cont	int
 	level_cont		int
 	idents			map[string] struct {

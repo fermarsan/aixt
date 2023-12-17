@@ -13,6 +13,10 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut out := ''
 	mut var_type := ''
 	for i in 0 .. node.left.len {
+		if node.right[i].type_name() == 'v.ast.IfExpr' {
+			gen.cond_assign = true	// conditional assignment flag
+		} 
+
 		var_global_name := '${node.left[i].str()}'
 		var_name := '${gen.current_fn}.${var_global_name}'
 		
