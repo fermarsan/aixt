@@ -4,3 +4,4 @@ b = c + a
 
 a = if b > c { b } else { c }
 
+if b > c { a = b } else { a = c }

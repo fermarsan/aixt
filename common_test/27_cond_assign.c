@@ -14,11 +14,12 @@ int main() {
 	long b = 20;
 	long c = 30;
 	b = c + a;
-	a = if(b > c) {
-		b;
+	a = (b > c) ? b : c;
+	if(b > c) {
+		a = b;
 	}
 	else {
-		c;
+		a = c;
 	}
 	return 0;
 }
