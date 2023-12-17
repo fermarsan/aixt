@@ -10,7 +10,7 @@ module aixt_cgen
 import v.ast
 
 fn (mut gen Gen) if_expr(node ast.IfExpr) string { // basic shape of an "if" expression
-	mut out := 'if(${gen.ast_node(node.branches[0].cond)}) {\n${gen.ast_node(node.branches[0])}}\n'
+	mut out := gen 'if(${gen.ast_node(node.branches[0].cond)}) {\n${gen.ast_node(node.branches[0])}}\n'
 	for i, br in node.branches {
 		if i >= 1 {
 			out += 'else '
