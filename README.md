@@ -61,7 +61,7 @@ stateDiagram-v2
 
 ## Aixt to C Transpiler
 
-The transpiler is written in [_V_](https://vlang.io/) using the _V's_ native self-compiler (a transpiler from _V_ to _C_). This is implemented in the folders `\aixt_build`, `\aixt_cgen` and `\aixt_pref`, and the main source code is the `aixt.v` file. It generates code for 3 different backends:
+The transpiler is written in [_V_](https://vlang.io/) using the _V's_ native self-compiler (a transpiler from _V_ to _C_). This is implemented in the folders `\aixt_build`, `\aixt_cgen` and the main source code in the `aixt.v` file. It generates code for 3 different backends:
 - **c**: for the microcontroller native C compiler
 - **nxc**: for the NXC compiler (LEGO Mindstorms NXT)
 - **arduino**: for the Arduino IDE
