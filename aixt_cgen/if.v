@@ -10,17 +10,24 @@ module aixt_cgen
 import v.ast
 
 fn (mut gen Gen) if_expr(node ast.IfExpr) string { // basic shape of an "if" expression
-	mut out := gen 'if(${gen.ast_node(node.branches[0].cond)}) {\n${gen.ast_node(node.branches[0])}}\n'
-	for i, br in node.branches {
-		if i >= 1 {
-			out += 'else '
-			if br.cond.type_name().str() == 'unknown v.ast.Expr' { // only 'else'
-				out += '{\n${gen.ast_node(br)}}\n'
-			} else {
-				out += 'if(${gen.ast_node(br.cond)}) {\n${gen.ast_node(br)}}\n' //'else if'
+	mut out := ''
+	if gen.cond_assign {	
+		out = '(${gen.ast_node(node.branches[0].cond)}) ? ${gen.ast_node(node.branches[0])} : ${gen.ast_node(node.branches[1])}'
+		gen.cond_assign = false
+	} else {
+		out = 'if(${gen.ast_node(node.branches[0].cond)}) {\n${gen.ast_node(node.branches[0])}}\n'
+		for i, br in node.branches {
+			if i >= 1 {
+				out += 'else '
+				if br.cond.type_name().str() == 'unknown v.ast.Expr' { // only 'else'
+					out += '{\n${gen.ast_node(br)}}\n'
+				} else {
+					out += 'if(${gen.ast_node(br.cond)}) {\n${gen.ast_node(br)}}\n' //'else if'
+				}
 			}
 		}
 	}
+
 	return out
 }
 
