@@ -36,9 +36,17 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
 	if lvar_type == ast.string_type_idx || rvar_type == ast.string_type_idx {
 		match node.op.str() {
 			'==' {
+				if !gen.includes.contains('strings/comp.c') {
+					api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
+					gen.includes += '#include "${api_path}/strings/comp.c"\n'
+				}
 				return '__string_comp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
 			} 
 			'+' {
+				if !gen.includes.contains('strings/add.c') {
+					api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
+					gen.includes += '#include "${api_path}/strings/add.c"\n'
+				}
 				return '__string_add(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
 			}	
 			else {

@@ -58,6 +58,9 @@ fn (mut gen Gen) expr(node ast.Expr) string {
 		ast.IfExpr { // basic shape of an "if" expression
 			return gen.if_expr(node)
 		}
+		ast.MatchExpr {
+			return gen.match_expr(node)
+		}
 		ast.CallExpr {
 			return gen.call_expr(node)
 		}

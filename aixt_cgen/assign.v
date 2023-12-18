@@ -13,7 +13,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut out := ''
 	mut var_type := ''
 	for i in 0 .. node.left.len {
-		if node.right[i].type_name() == 'v.ast.IfExpr' {
+		if node.right[i].type_name() in ['v.ast.IfExpr', 'v.ast.MatchExpr'] {
 			gen.cond_assign = true	// conditional assignment flag
 		} 
 
@@ -54,10 +54,6 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 							'${gen.ast_node(node.right[i])};\n'
 						}
 					} else {	// Variable strings
-						if !gen.includes.contains('string.c') {
-							api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
-							gen.includes += '#include "${api_path}/string.c"\n'
-						}
 						len := gen.setup.value('string_default_len').int()
 						gen.idents[var_name].len = len
 						out += 'char ${gen.ast_node(node.left[i])}[${len}];\n'
@@ -97,9 +93,17 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 								if gen.idents[var_name].kind == ast.IdentKind.variable {
 									match node.op.str() {
 										'=' {
+											if !gen.includes.contains('strings/assign.c') {
+												api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
+												gen.includes += '#include "${api_path}/strings/assign.c"\n'
+											}
 											out += '__string_assign(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
 										} 
 										'+=' {
+											if !gen.includes.contains('strings/append.c') {
+												api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
+												gen.includes += '#include "${api_path}/strings/append.c"\n'
+											}
 											out += '__string_append(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
 										}	
 										else {
