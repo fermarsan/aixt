@@ -13,7 +13,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut out := ''
 	mut var_type := ''
 	for i in 0 .. node.left.len {
-		if node.right[i].type_name() == 'v.ast.IfExpr' {
+		if node.right[i].type_name() in ['v.ast.IfExpr', 'v.ast.MatchExpr'] {
 			gen.cond_assign = true	// conditional assignment flag
 		} 
 
