@@ -36,10 +36,16 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
 	if lvar_type == ast.string_type_idx || rvar_type == ast.string_type_idx {
 		match node.op.str() {
 			'==' {
-				return '__string_comp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
+				if '#include <string.h>' !in gen.includes {
+					gen.includes += '#include <string.h>\n' 
+				}
+				return '!strcmp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
 			} 
 			'+' {
-				return '__string_add(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
+				if '#include <string.h>' !in gen.includes {
+					gen.includes += '#include <string.h>\n' 
+				}
+				return 'strcat(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
 			}	
 			else {
 				panic('\n\nTranspiler Error:\n"${node.op.str()}" operator not supported for strings.\n')
