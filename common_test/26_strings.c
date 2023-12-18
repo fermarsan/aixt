@@ -8,7 +8,6 @@
 #include <stdbool.h>
 #include "/home/fercho/aixt/ports/Emulator/api/builtin.c"
 #include "/home/fercho/aixt/ports/Emulator/api/string.c"
-#include <string.h>
 
 
 int main() {
@@ -19,8 +18,8 @@ int main() {
 	__string_assign(var, str);
 	__string_append(var, " ");
 	__string_append(var, str);
-	__string_assign(var2, strcat(var, str));
-	b1 = !strcmp(var, var2);
-	__string_append(var2, strcat(" ", str));
+	__string_assign(var2, __string_add(var, str));
+	b1 = __string_comp(var, var2);
+	__string_append(var2, __string_add(" ", str));
 	return 0;
 }
