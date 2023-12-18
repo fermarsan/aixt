@@ -27,7 +27,6 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) string { // basic shape of an "if" exp
 			}
 		}
 	}
-
 	return out
 }
 
