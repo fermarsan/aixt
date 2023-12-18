@@ -36,13 +36,13 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
 	if lvar_type == ast.string_type_idx || rvar_type == ast.string_type_idx {
 		match node.op.str() {
 			'==' {
-				if '#include <string.h>' !in gen.includes {
+				if !gen.includes.contains('#include <string.h>') {
 					gen.includes += '#include <string.h>\n' 
 				}
 				return '!strcmp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
 			} 
 			'+' {
-				if '#include <string.h>' !in gen.includes {
+				if !gen.includes.contains('#include <string.h>') {
 					gen.includes += '#include <string.h>\n' 
 				}
 				return 'strcat(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
