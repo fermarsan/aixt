@@ -20,3 +20,9 @@ fn (mut gen Gen) add_custom_include(path_ext string) {
 		gen.includes += '#include "${path_ext}"\n'
 	}
 }
+
+fn (mut gen Gen) add_definition(def string) {
+	if !gen.definitions.contains(def) {
+		gen.definitions += '${def}\n'
+	}
+}
