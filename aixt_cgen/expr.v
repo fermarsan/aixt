@@ -9,53 +9,8 @@ module aixt_cgen
 
 import v.ast
 
-fn (mut gen Gen) call_expr(node ast.CallExpr) string {
-	fn_name := node.name.after('.')	// remove the parent function name
-	fn_api_path := gen.setup.value('api_functions').as_map()[fn_name] or { '' }	// api path of function
-	if fn_api_path.string() != '' && !gen.includes.contains(fn_api_path.string()){	// self-including of api files
-		api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
-    	gen.includes += '#include "${api_path}/${fn_api_path.string()}.c"\n'
-	}
-	mut out := '${fn_name}('
-	if node.args.len != 0 {
-		for ar in node.args {
-			out += '${gen.ast_node(ar)}, '
-		}
-		out = out#[..-2]
-	}
-	return out + ')'
-}
-
 fn (mut gen Gen) par_expr(node ast.ParExpr) string {
 	return '(${gen.ast_node(node.expr)})'
-}
-
-fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
-	lvar_type := gen.idents['${gen.current_fn}.${node.left.str()}'].typ
-	rvar_type := gen.idents['${gen.current_fn}.${node.right.str()}'].typ
-	if lvar_type == ast.string_type_idx || rvar_type == ast.string_type_idx {
-		match node.op.str() {
-			'==' {
-				if !gen.includes.contains('strings/comp.c') {
-					api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
-					gen.includes += '#include "${api_path}/strings/comp.c"\n'
-				}
-				return '__string_comp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
-			} 
-			'+' {
-				if !gen.includes.contains('strings/add.c') {
-					api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
-					gen.includes += '#include "${api_path}/strings/add.c"\n'
-				}
-				return '__string_add(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
-			}	
-			else {
-				panic('\n\nTranspiler Error:\n"${node.op.str()}" operator not supported for strings.\n')
-			}
-		}
-	} else {
-		return '${gen.ast_node(node.left)} ${node.op} ${gen.ast_node(node.right)}'
-	}
 }
 
 fn (mut gen Gen) prefix_expr(node ast.PrefixExpr) string {
