@@ -9,13 +9,13 @@ module aixt_cgen
 
 import v.ast
 
-fn (mut gen Gen) add_incl(name_ext string) {
+fn (mut gen Gen) add_include(name_ext string) {
 	if !gen.includes.contains(name_ext) {
 		gen.includes += '#include <${name_ext}>\n'
 	}
 }
 
-fn (mut gen Gen) add_custom_incl(path_ext string) {
+fn (mut gen Gen) add_custom_include(path_ext string) {
 	if !gen.includes.contains(path_ext) {
 		gen.includes += '#include "${path_ext}"\n'
 	}
