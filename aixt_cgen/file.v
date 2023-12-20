@@ -38,6 +38,9 @@ fn (mut gen Gen) ast_file(node ast.File) string {
 	} else {
 		''
 	}
+	out += '\n___definitions_block___\n' 
+	gen.definitions = ''
+
 	for st in node.stmts {
 		out += gen.ast_node(st)
 	}

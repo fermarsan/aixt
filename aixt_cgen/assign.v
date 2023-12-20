@@ -93,18 +93,12 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 								if gen.idents[var_name].kind == ast.IdentKind.variable {
 									match node.op.str() {
 										'=' {
-											if !gen.includes.contains('strings/assign.c') {
-												api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
-												gen.includes += '#include "${api_path}/strings/assign.c"\n'
-											}
-											out += '__string_assign(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+											gen.add_include('string.h')
+											out += 'strcpy(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
 										} 
 										'+=' {
-											if !gen.includes.contains('strings/append.c') {
-												api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
-												gen.includes += '#include "${api_path}/strings/append.c"\n'
-											}
-											out += '__string_append(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+											gen.add_include('string.h')
+											out += 'strcat(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
 										}	
 										else {
 											panic('\n\nTranspiler Error:\n"${node.op.str()}" operator not supported for strings.\n')
