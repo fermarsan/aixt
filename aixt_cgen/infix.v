@@ -17,16 +17,16 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
 			'==' {
 				gen.add_include('string.h')
 				return '!strcmp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
-			}
+			} 
 			'!=' {
 				gen.add_include('string.h')
 				return 'strcmp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
 			} 
 			'+' {
 				gen.add_include('string.h')
-				gen.add_definition('char __temp_str[30];')
+				gen.add_definition('char __temp_str[${gen.setup.value('string_default_len').int()}];')
 				return 'strcat(strcpy(__temp_str, ${gen.ast_node(node.left)}), ${gen.ast_node(node.right)})'
-			}	
+			} 
 			else {
 				panic('\n\nTranspiler Error:\n"${node.op.str()}" operator not supported for strings.\n')
 			}
