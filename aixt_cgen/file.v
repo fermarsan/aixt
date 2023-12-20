@@ -31,13 +31,17 @@ fn (mut gen Gen) ast_file(node ast.File) string {
 	gen.includes = ''
     for h in gen.setup.value('headers').array() {			// append the header files
         gen.includes +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
-	}
+	}	out += '\n___includes_block___\n' 
+	gen.includes = ''
 	api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
     gen.includes += if gen.setup.value('backend').string() != 'nxc'{
 		'#include "${api_path}/builtin.c"\n'
 	} else {
 		''
 	}
+	out += '\n___definitions_block___\n' 
+	gen.definitions = ''
+
 	for st in node.stmts {
 		out += gen.ast_node(st)
 	}

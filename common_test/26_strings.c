@@ -7,11 +7,8 @@
 
 #include <stdbool.h>
 #include "/home/fercho/aixt/ports/Emulator/api/builtin.c"
-#include "/home/fercho/aixt/ports/Emulator/api/strings/assign.c"
+#include <string.h>
 #include "/home/fercho/aixt/ports/Emulator/api/machine/uart.c"
-#include "/home/fercho/aixt/ports/Emulator/api/strings/append.c"
-#include "/home/fercho/aixt/ports/Emulator/api/strings/add.c"
-#include "/home/fercho/aixt/ports/Emulator/api/strings/comp.c"
 
 
 int main() {
@@ -19,23 +16,23 @@ int main() {
 	char var2[80];
 	char str[] = "constant";
 	bool b1 = false;
-	__string_assign(var, str);
+	strcpy(var, str);
 	println(var);
-	__string_append(var, " ");
-	__string_append(var, str);
+	strcat(var, " ");
+	strcat(var, str);
 	println(var);
-	__string_assign(var2, __string_add(var, str));
+	strcpy(var2, strcat(strcpy(__temp_str, var), str)));
 	println(var2);
-	b1 = __string_comp(var, var2);
+	b1 = !srtcmp(var, var2);
 	if(b1) {
 		println("true");
 	}
 	else {
 		println("false");
 	}
-	__string_append(var2, __string_add(" ", str));
+	strcat(var2, strcat(strcpy(__temp_str, " "), str)));
 	println(var2);
-	if(__string_comp(str, "constant")) {
+	if(!srtcmp(str, "constant")) {
 		println("true");
 	}
 	return 0;
