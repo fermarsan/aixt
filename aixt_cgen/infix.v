@@ -16,16 +16,16 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
 		match node.op.str() {
 			'==' {
 				gen.add_include('string.h')
-				return '!srtcmp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
+				return '!strcmp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
 			}
 			'!=' {
 				gen.add_include('string.h')
-				return 'srtcmp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
+				return 'strcmp(${gen.ast_node(node.left)}, ${gen.ast_node(node.right)})'
 			} 
 			'+' {
 				gen.add_include('string.h')
 				gen.add_definition('char __temp_str[30];')
-				return 'strcat(strcpy(__temp_str, ${gen.ast_node(node.left)}), ${gen.ast_node(node.right)}))'
+				return 'strcat(strcpy(__temp_str, ${gen.ast_node(node.left)}), ${gen.ast_node(node.right)})'
 			}	
 			else {
 				panic('\n\nTranspiler Error:\n"${node.op.str()}" operator not supported for strings.\n')
