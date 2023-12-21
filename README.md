@@ -113,7 +113,6 @@ The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_ projects. 
 - Serial port (UART)
 
 ## Installing Aixt from source
-
 clone the Aixt repository:
 ```
 git clone https://github.com/fermarsan/aixt
@@ -124,15 +123,18 @@ compile `aixt.v`:
 cd aixt
 v aixt.v
 ```
-and run it in Linux as:
+
+## Using Aixt
+run it in a Linux-based system as:
 ```
 ./aixt <command> <device_or_board> <source_file>
 ```
-in Windows:
+or in Windows:
 ```
 aixt.exe <command> <device_or_board> <source_file>
 ```
-Example:
+
+### Running examples:
 ```
 ./aixt -t Emulator test.v
 ```
