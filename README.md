@@ -79,7 +79,16 @@ The transpiler is written in [_V_](https://vlang.io/) using the _V's_ native sel
 
 ## Aixt Language
 
-**Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main difference is all variables in **Aixt** are mutable by default.
+**Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main differences are show as follows:
+
+feature                 |V                                  | Aixt
+------------------------|-----------------------------------|----------------------------------------
+variables               |unmutable by default               | mutable by default
+strings                 |dynamic-size                       | fixed-size
+arrays                  |dynamic-size                       | fixed-size
+default integers size   |32 bits                            | depends on the device  
+structs                 |allow functions (object oriented)  | don't allow functions (only structural)
+
 
 ### Example with `main` function
 ```v

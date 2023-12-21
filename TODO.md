@@ -14,6 +14,7 @@ Tasks to do in Aixt
 - [ ] Improve README.md #feat @fermarsan
   - [ ] Add Emulator examples
   - [ ] Editor/IDE VSCode and task file
+  - [x] Add table of differences v-Aixt
 
 ### Done ✓
 
