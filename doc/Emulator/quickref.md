@@ -73,10 +73,6 @@ Aixt virtual ADC input     ADC 1 : 23
 ```
 Aixt virtual ADC input     ADC 2 : 56
 ```
-_**NOTE:** you can use the whole set of functions if you import all the machine module, like this._
-```go
-import machine
-```
 
 
 ### `input()` function
