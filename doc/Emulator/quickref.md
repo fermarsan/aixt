@@ -1,28 +1,17 @@
 # Quick reference for the Software Emulator port
 
-This software emulation works on _Linux_.
+This software emulation works on _Linux_, _Windows_ and _Android (Termux)_.
 
 ## Delay
 Use the `time` module:
-```go
-import time
-
+```v
 sleep(2)            // sleep for 2 seconds
 sleep_ms(50)        // sleep for 50 milliseconds
 sleep_us(100)       // sleep for 100 microseconds
 ```
-alternatively you can import only the needed function:
-```go
-import time { sleep_ms }
-
-sleep_ms(200)       // sleep for 200 milliseconds
-```
 
 ## Emulated pins
-Use the `machine` module and the `{ pin }` submodule.
-```go
-import machine { pin }
-
+```v
 pin_high(a)         // turn ON the "a" pin 
 pin_low(y)          // turn OFF the "y" pin 
 pin_write(d, 1)     // write 1 on "d" pin
@@ -30,7 +19,7 @@ pin_read(x)         // read "x" pin
 ```
 
 ### `pin` names
-Functions to emulate input/output pins on the console. There are 8 emulated pins named: `a`, `b`, `c`, `d`, `w`, `x`, `y` and `z`, which are show in the console after any change, as follows:
+Functions to emulate input/output pins on the terminal. There are 8 emulated pins named: `a`, `b`, `c`, `d`, `w`, `x`, `y` and `z`, which are show in the terminal after any change, as follows:
 
 _**After calling a writing function**_
 ```
@@ -53,18 +42,15 @@ name                    | description
 `pin_write(pin, val)`   | Write `val` in `pin`
 `pin_read(pin)`         | Read `pin`
 
-_Note: when using `pin_read()` the user has to write the value in the console manually._
+_Note: when using `pin_read()` the user has to write the value in the terminal manually._
 
 ## PWM
-Use the `machine` module and the `{ pwm }` submodule.
-```go
-import machine { pwm }
-
+```v
 pwm1_duty(40)       // set the duty cycle for PWM 1
 pwm2_duty(60)       // set the duty cycle for PWM 2
 ```
 
-Console output:
+terminal output:
 ```
  Aixt virtual PWM outputs
                                     PWM 1 :  40 %
@@ -74,16 +60,13 @@ Console output:
 ```
 
 ## ADC
-Use the `machine` module and the `{ adc }` submodule.
-```go
-import machine { adc }
-
+```v
 val1, val2 := 0, 0
 val1 = adc1_read()       // read de ADC 1
 val2 = adc2_read()       // read de ADC 2
 ```
 
-Console output:
+terminal output:
 ```
 Aixt virtual ADC input     ADC 1 : 23
 ```
@@ -95,9 +78,6 @@ _**NOTE:** you can use the whole set of functions if you import all the machine 
 import machine
 ```
 
-  
-
-## `machine/uart` module
 
 ### `input()` function
 The input strings to be captured by the `input()` function having a fixed size of 30 characters.

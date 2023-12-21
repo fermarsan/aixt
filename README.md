@@ -153,6 +153,44 @@ aixt.exe <command> <device_or_board> <source_file>
 ./aixt -b NXT ports/NXT/projects/1_motor_forward.v
 ```
 
+## Emulator
+For ease of testing, Aixt includes an emulator that allows to run Aixt programs in a terminal. This works on Windows, Linux and Android (using Termux).
+
+Pins:
+```v
+/* Turn on example*/
+pin_high(x)
+pin_high(a)
+```
+terminal output:
+```
+ Aixt virtual pins     [#] = ON   [ ] = OFF
+ _____ _____ _____ _____ _____ _____ _____ _____
+|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |
+| [#] | [ ] | [ ] | [ ] | [ ] | [#] | [ ] | [ ] |
+'-----'-----'-----'-----'-----'-----'-----'-----'
+```
+
+PWM:
+```v
+pwm1_duty(40)       // set the duty cycle for PWM 1
+pwm2_duty(60)       // set the duty cycle for PWM 2
+```
+
+terminal output:
+```
+ Aixt virtual PWM outputs
+                                    PWM 1 :  40 %
+||||||||||||||||||||______________________________
+                                    PWM 2 :  60 %
+||||||||||||||||||||||||||||||____________________
+```
+
+### Running examples:
+```
+./aixt -t Emulator test.v
+```
+
 ## Editor/IDE
 
 Aixt is designed for mainly working with VS Code using the [VS Code extension for V language](https://marketplace.visualstudio.com/items?itemName=VOSCA.vscode-v-analyzer). Aixt brings a project template including a VS Code task file (`tasks.json`) including the commands: transpile, compile,run, build, clean, and help. 
