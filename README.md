@@ -214,7 +214,7 @@ for {
 }
 ```
 
-The function names have been wrapped from the original ones on _NXC_. The complete list of these equivalences is in [NXT.toml](ports/setup/NXT.toml) file.
+The function names have been wrapped from the original ones on _NXC_. The complete list of these equivalences is in [NXT.toml](ports/setup/NXT.toml) file in the dictionary named `aliases`.
 
 ## Editor/IDE
 
