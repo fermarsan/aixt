@@ -19,7 +19,7 @@ Tasks to do in Aixt
   - [ ] Add Emulator examples
   - [ ] Editor/IDE VSCode and task file
   - [x] Add table of differences V-Aixt
-  - [ ] Add acknoledgements
+  - [x] Add acknowledgement
    
 ### Done ✓
 
