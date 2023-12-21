@@ -14,14 +14,14 @@ Tasks to do in Aixt
 
 ### In Progress
 
-- [ ] Implements the `match` expression #feat @fermarsan  
-- [ ] Improve README.md #feat @fermarsan
-  - [ ] Add Emulator examples
-  - [ ] Add NXT examples
-  - [x] Editor/IDE VSCode and task file
-  - [x] Add table of differences V-Aixt
-  - [x] Add acknowledgement
+- [ ] Implements the `match` expression #feat @fermarsan
    
 ### Done ✓
 
-- [x] Delete unnecessary files
+- [x] Delete unnecessary files  
+- [x] Improve README.md #feat @fermarsan
+  - [x] Add Emulator examples
+  - [x] Add NXT examples
+  - [x] Editor/IDE VSCode and task file
+  - [x] Add table of differences V-Aixt
+  - [x] Add acknowledgement

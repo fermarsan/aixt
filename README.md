@@ -186,10 +186,35 @@ terminal output:
 ||||||||||||||||||||||||||||||____________________
 ```
 
-### Running examples:
+# NXT port
+Aixt NXT port allows to program the Lego Mindstorms NXT brick in Aixt language.
+
+```v
+forward(motor_a, 75)
+forward(motor_b, 50)
+sleep(4000)
+reverse(motors_ab, 75)
+sleep(4000)
+off(motors_ab)
 ```
-./aixt -t Emulator test.v
+
+```v
+// "Draw" an square with a differential platform (motors A and B) 
+
+const (
+	t_fwd = 3000
+	t_turn = 500
+)
+
+for {
+	forward(motors_ab, 50)	// Aixt-style functions
+	sleep(t_fwd)
+	reverse(motor_a, 50)			
+	sleep(t_turn)
+}
 ```
+
+The function names have been wrapped from the original ones on _NXC_. The complete list of these equivalences is in [NXT.toml](ports/setup/NXT.toml) file.
 
 ## Editor/IDE
 
