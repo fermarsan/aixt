@@ -155,9 +155,9 @@ aixt.exe <command> <device_or_board> <source_file>
 
 ## Editor/IDE
 
-Aixt is designed for mainly working with VS Code using the [VS Code extensionfor V language](https://marketplace.visualstudio.com/items?itemName=VOSCA.vscode-v-analyzer). Aixt brings a project template including a VS Code task file (`tasks.json`) including the commands: transpile, compile,run, build, clean, and help. 
+Aixt is designed for mainly working with VS Code using the [VS Code extension for V language](https://marketplace.visualstudio.com/items?itemName=VOSCA.vscode-v-analyzer). Aixt brings a project template including a VS Code task file (`tasks.json`) including the commands: transpile, compile,run, build, clean, and help. 
 
-Anyways, Aixt can be used with any editor/IDE that supports V language, such as Vim, Emacs, Sublime Text, Atom, etc, but running commands from the terminal.
+Anyways, Aixt can be used with any editor/IDE that supports V language, such as Vim, Emacs, Sublime Text, Atom, etc, but running Aixt commands from the terminal.
 
 ## Project's name
 The project's name is inspired in _Veasel_, the Weasel pet of _V Language_, and at the same time is a tribute to _Ticuna_ people who live in the Amazonic forest in the borders of _Colombia_, _Brasil_ and _Perú_. Weasels are _mustelids_ just like otters, so the name **Aixt** comes from _Aixtü_, which is a way to say otter in [_Ticuna_](https://www.sil.org/system/files/reapdata/90/20/51/90205190508691852389084667097660892450/tca_Ticuna_Dictionary_2016_web.pdf) language.
