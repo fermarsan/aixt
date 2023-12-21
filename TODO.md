@@ -4,13 +4,16 @@ Tasks to do in Aixt
 
 ### Todo
 
-- [ ] Fix the function attributes ~3d #feat @fermarsan 2020-03-20  
-- [ ] Improve README.md ~1d #bug @fermarsan  
-  - [ ] Sub-task or description  
+- [ ] Fix the function attributes #bug @fermarsan
+- [ ] Improve README.md #feat @fermarsan
+  - [ ] Add Emulator examples #new
+- [ ] Add the --version option #new
+- [ ] Add a "New project" option #new
+- [ ]    
 
 ### In Progress
 
-- [ ] Implements the match expression #new @fermarsan  
+- [ ] Implements the `match` expression #new @fermarsan  
 
 ### Done ✓
 
