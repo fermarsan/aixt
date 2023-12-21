@@ -1,13 +1,16 @@
 <div align="center">
 <h1>Aixt</h1>
-<h2>Microcontroller Programming Framework</h2>
+<h2>Programming Framework for Microcontrollers</h2>
 </div>
 
-Aixt is a programming framework for microcontrollers which uses a modern language syntax and is focused on low-resource devices. This project is composed by 3 main components:
+Aixt is a programming framework for microcontrollers which uses a modern language syntax based on [_V_](https://vlang.io/) and able to be used by low-resource devices. Aixt is composed by 3 main components:
 
-- The **Aixt** programing language based on the [_V language_](https://vlang.io/) syntax.
-- The **Aixt to C Transpiler**, which translate de **Aixt** source code to _C_, for a expecific _C_ compiler of each microcontroller.
-- The **Aixt API**, which makes the programming easy by standardizing the setup and I/O functions.  
+- the **Aixt** programing language based on the [_V language_](https://vlang.io/) syntax.
+- the **Aixt to C Transpiler**, which translate de **Aixt** source code to _C_, for a expecific _C_ compiler of each microcontroller.
+&
+- the **Aixt API**, which makes the programming easy by standardizing the setup and I/O functions.
+
+working together as follows, to obtain the binary file:
 
 ```mermaid
 stateDiagram-v2
