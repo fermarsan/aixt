@@ -1,6 +1,6 @@
 <div align="center">
-<h1>Aixt</h1>#  
-<h2>Microcontrollers Programming Framework</h2>
+<h1>Aixt</h1>
+<h2>Microcontroller Programming Framework</h2>
 </div>
 
 Aixt is a programming framework for microcontrollers which uses a modern language syntax and is focused on low-resource devices. This project is composed by 3 main components:
