@@ -5,15 +5,15 @@ Tasks to do in Aixt
 ### Todo
 
 - [ ] Fix the function attributes #bug @fermarsan
-- [ ] Improve README.md #feat @fermarsan
-  - [ ] Add Emulator examples #new
-- [ ] Add the --version option #new
-- [ ] Add a "New project" option #new
-- [ ]    
+- [ ] Add the --version option #feat
+- [ ] Add a "New project" option #feat
 
 ### In Progress
 
-- [ ] Implements the `match` expression #new @fermarsan  
+- [ ] Implements the `match` expression #feat @fermarsan  
+- [ ] Improve README.md #feat @fermarsan
+  - [ ] Add Emulator examples
+  - [ ] Editor/IDE VSCode and task file
 
 ### Done ✓
 
