@@ -1,4 +1,4 @@
-# Aixt Project
+# Aixt Microcontrollers Programming Framework
 
 Aixt is a programming framework for microcontrollers which uses a modern language syntax and is focused on low-resource devices. This project is composed by 3 main components:
 
