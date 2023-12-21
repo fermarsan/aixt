@@ -11,6 +11,7 @@ Tasks to do in Aixt
 - [ ] Implement enums #feat
 - [ ] Include `api_path` to the `gen` class #feat
 - [ ] Implement variable swaping (by using temporal vars) #feat
+- [ ] Update all NXT examples #feat
 
 ### In Progress
 
