@@ -89,6 +89,8 @@ arrays                  |dynamic-sized                      | fixed-sized
 default integers size   |32 bits                            | depends on the device  
 structs                 |allow functions (object-oriented)  | don't allow functions (only structured)
 
+## Aixt Examples
+Just like _V_, the `main` function is optional in Aixt if the source code is in only one file.
 
 ### Example with `main` function
 ```v
