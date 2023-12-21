@@ -229,7 +229,7 @@ The project's name is inspired in _Veasel_, the Weasel pet of _V Language_, and 
 
 
 ## Acknowledgement
-Aixt thanks Alexander Medvednikov and all the contributors of [The V Programming Language](https://github.com/vlang) for their original work. Aixt is not only inspired by the _V_ syntax, but also it is written in _V_. Aixt also thanks [ARMOS research group](https://armos-ud.gitlab.io/armos/index.html) for their support to this project.
+Aixt thanks Alexander Medvednikov and all the contributors of [The V Programming Language](https://github.com/vlang) for their original work. Aixt is not only inspired by the _V_ syntax, but also it is written in _V_. Aixt also thanks [ARMOS research group](https://armos-ud.gitlab.io/armos/index.html) for its support to this project.
 
 ## License
 Aixt is licensed under the [MIT License](https://github.com/fermarsan/aixt/LICENSE).
