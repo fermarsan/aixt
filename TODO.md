@@ -9,7 +9,7 @@ Tasks to do in Aixt
 - [ ] Add a "New project" option #feat
 - [ ] Implement structs #feat
 - [ ] Implement enums #feat
-- [ ] Include `api_path` to the _gen_ class #feat
+- [ ] Include `api_path` to the `gen` class #feat
 - [ ] Implement variable swaping (by using temporal vars) #feat
 
 ### In Progress
