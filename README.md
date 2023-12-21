@@ -112,9 +112,16 @@ The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_ projects. 
 - PWM outputs
 - Serial port (UART)
 
-## Using Aixt
-First compile `aixt.v`: 
+## Installing Aixt from source
+
+clone the Aixt repository:
 ```
+git clone https://github.com/fermarsan/aixt
+```
+
+compile `aixt.v`: 
+```
+cd aixt
 v aixt.v
 ```
 and run it in Linux as:
