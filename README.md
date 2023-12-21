@@ -220,6 +220,8 @@ The function names have been wrapped from the original ones on _NXC_. The comple
 
 Aixt is designed for mainly working with VS Code using the [VS Code extension for V language](https://marketplace.visualstudio.com/items?itemName=VOSCA.vscode-v-analyzer). Aixt brings a project template including a VS Code task file (`tasks.json`) including the commands: transpile, compile,run, build, clean, and help. 
 
+![](assets/tasks.png)
+
 Anyways, Aixt can be used with any editor/IDE that supports V language, such as Vim, Emacs, Sublime Text, Atom, etc, but running Aixt commands from the terminal.
 
 ## Project's name
