@@ -17,7 +17,7 @@ Tasks to do in Aixt
 - [ ] Implements the `match` expression #feat @fermarsan  
 - [ ] Improve README.md #feat @fermarsan
   - [ ] Add Emulator examples
-  - [ ] Editor/IDE VSCode and task file
+  - [x] Editor/IDE VSCode and task file
   - [x] Add table of differences V-Aixt
   - [x] Add acknowledgement
    
