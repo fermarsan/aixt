@@ -9,18 +9,18 @@ const (
 )
 
 fn straight(power int, time int) {
-	on_forward(out_a, power)
-	on_reverse(out_b, power)
+	forward(motor_a, power)
+	reverse(out_b, power)
 	sleep(time)
 }
 
 fn spin(power int, time int) {
-	on_forward(out_a, power)
-	on_forward(out_b, power)
+	forward(motor_a, power)
+	forward(out_b, power)
 	sleep(time)
 }
 
-fn _stop(time int) { off(out_ab); sleep(time) }
+fn _stop(time int) { off(motors_ab); sleep(time) }
 
 set_sensor_touch(in_3)
 

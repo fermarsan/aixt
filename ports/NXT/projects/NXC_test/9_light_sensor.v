@@ -3,10 +3,10 @@
 const limit = 40
 
 set_sensor_light(in_1);
-on_forward(out_ab, 60)
+forward(motors_ab, 60)
 
 for {
 	if sensor(in_1) > limit {
-		off(out_ab)
+		off(motors_ab)
 	}
 }

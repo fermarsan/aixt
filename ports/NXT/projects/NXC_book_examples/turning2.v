@@ -3,8 +3,8 @@ const (
 	turn_time = 360
 )
 
-on_forward(out_ac, 75)
+forward(motors_ac, 75)
 sleep(move_time)
-on_reverse(out_c, 75)
+reverse(motor_c, 75)
 sleep(turn_time)
-off(out_ac)
+off(motors_ac)

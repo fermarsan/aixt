@@ -1,2 +1,1 @@
-on_forward(out_bc)
-delay(1000)
+forward(motors_bc)

@@ -1,6 +1,0 @@
-on_fwd(out_a, 75)
-on_fwd(out_b, 75)
-wait(4000)
-on_rev(out_ab, 75)
-wait(4000)
-off(out_ab)

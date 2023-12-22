@@ -1,9 +1,9 @@
-const forward = true
+const fwd = true
 
-if forward {
-	on_fwd(out_ab, 60)
-	wait(1000)
-} else if ! forward {
-	on_rev(out_ab, 60)
-	wait(1000)
+if fwd {
+	forward(motors_ab, 60)
+	sleep(1000)
+} else if ! fwd {
+	reverse(motors_ab, 60)
+	sleep(1000)
 }

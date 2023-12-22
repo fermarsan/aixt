@@ -9,6 +9,6 @@ fn add(x i16, y i16) i16 {
 	return x + y
 }
 
-on_fwd(out_ab, 50)
-wait(add(t1, t2))
-off(out_ab)
+forward(motors_ab, 50)
+sleep(add(t1, t2))
+off(motors_ab)

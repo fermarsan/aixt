@@ -2,9 +2,9 @@
 #define	t_turn	500
 
 for {
-	on_fwd(OUT_AB)
-	wait(t_fwd)
-	off(OUT_A)
-	wait(t_turn)
+	forward(motors_ab)
+	sleep(t_fwd)
+	off(motor_a)
+	sleep(t_turn)
 }
 

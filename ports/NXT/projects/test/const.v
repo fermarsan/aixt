@@ -1,19 +1,19 @@
 const (
-	t_ON  = 1000
-	t_OFF = 500
+	t_on  = 1000
+	t_off = 500
 )
 
-// const t_ON = 1000
-// const t_OFF = 500
+// const t_on = 1000
+// const t_off = 500
 // const a = 34.67
 
-on_fwd(out_ab,70)
-wait(t_ON)
+forward(motors_ab,70)
+sleep(t_on)
 
-off(out_ab)
-wait(t_OFF)
+off(motors_ab)
+sleep(t_off)
 
-on_fwd(out_ab,70)
-wait(t_ON)
+forward(motors_ab,70)
+sleep(t_on)
 
-off(out_ab)
+off(motors_ab)

@@ -6,24 +6,24 @@ const (
 	t_turn = 500
 )
 
-on_fwd(out_ab, 60)	// move forward
-wait(t_on)
-off(out_a)			// off motor A to turn
-wait(t_turn)
+forward(motors_ab, 60)	// move forward
+sleep(t_on)
+off(motor_a)			// off motor A to turn
+sleep(t_turn)
 
-on_fwd(out_ab, 60)
-wait(t_on)
-off(out_a)
-wait(t_turn)
+forward(motors_ab, 60)
+sleep(t_on)
+off(motor_a)
+sleep(t_turn)
 
-on_fwd(out_ab, 60)
-wait(t_on)
-off(out_a)
-wait(t_turn)
+forward(motors_ab, 60)
+sleep(t_on)
+off(motor_a)
+sleep(t_turn)
 
-on_fwd(out_ab, 60)
-wait(t_on)
-off(out_a)
-wait(t_turn)
+forward(motors_ab, 60)
+sleep(t_on)
+off(motor_a)
+sleep(t_turn)
 
-off(out_ab)			// stop
+off(motors_ab)			// stop
