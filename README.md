@@ -187,7 +187,7 @@ terminal output:
 ```
 
 ## NXT port
-Aixt NXT port allows to program the Lego Mindstorms NXT brick in Aixt language.
+Aixt NXT port allows to program the LEGO Mindstorms NXT brick in Aixt language.
 
 ```v
 forward(motor_a, 75)

@@ -1,6 +1,7 @@
-# Quick reference for Mondstorms NXT (NXC language)
+# Quick reference for Mindstorms NXT brick
+## (transpiled to NXC language)
 
-This **Aixt** port works as a **NXC** language wrapper, keeping the same function names, but using _snake\_case_ instead of _CamelCase_. For instance this **Aixt** code:
+This **Aixt** port works as an **NXC** language wrapper. Most of the name functions keep the same function names, but using _snake\_case_ instead of _CamelCase_, but some of them are totally change. For instance this **Aixt** code:
 ```v
 forward(motor_a, 75)    
 forward(motor_c, 75)
@@ -95,6 +96,8 @@ task main()
     SetSensorTouch(IN_1);
 }
 ```
+
+The complete list of the equivalences is in [NXT.toml](ports/setup/NXT.toml) file in the dictionary named `aliases`.
 
 The NXC port of **Aixt** can be used in _script_ mode (without main function). In that case the _mutex_ variables have to be "declared" after _task_ functions definition, as shown in the previous example.
 
