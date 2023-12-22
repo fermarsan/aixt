@@ -27,3 +27,4 @@ Tasks to do in Aixt
   - [x] Add table of differences V-Aixt
   - [x] Add acknowledgement
 - [x] Update all NXT examples #feat
+- [x] Create a .gitattributes file #feat
