@@ -1,13 +1,13 @@
-# Quick reference for NXC (Mindstorms NXT)
+# Quick reference for Mondstorms NXT (NXC language)
 
 This **Aixt** port works as a **NXC** language wrapper, keeping the same function names, but using _snake\_case_ instead of _CamelCase_. For instance this **Aixt** code:
-```go
-on_fwd(out_a, 75)   // alternatively: on_forward()  
-on_fwd(out_c, 75)
-wait(4000)          // alternatively: sleep()  
-on_rev(out_ac, 75)  // alternatively: on_reverse()  
-wait(4000)
-off(out_ac)
+```v
+forward(motor_a, 75)    
+forward(motor_c, 75)
+sleep(4000)          
+reverse(motors_ac, 75)  
+sleep(4000)
+off(motors_ac)
 ```
 
 will be transpiled to:
@@ -25,22 +25,26 @@ task main()
 
 ## Multitasking
 The **Aixt** port for **NXC** language suports _tasks_ by using attributes and special variable types. In this case the special type `mutex` is used for implementing mutex variables, and the attribute `[task]` for implementing task functions. For instance, the follow code: 
-```go
-[task] fn move_square() {
+```v
+@[task] fn move_square() {
     for {
         acquire(move_mutex)
-        on_forward(out_ac, 75); sleep(1000)
-        on_reverse(out_c, 75); sleep(500)
+        forward(motors_ac, 75)
+        sleep(1000)
+        reverse(motor_c, 75)
+        sleep(500)
         release(move_mutex)
     }
 }
 
-[task] fn check_sensors() {
+@[task] fn check_sensors() {
     for {
         if sensor_1 == 1 {
             acquire(move_mutex)
-            on_reverse(out_ac, 75); sleep(500)
-            on_forward(out_a, 75); sleep(500)
+            reverse(motors_ac, 75)
+            sleep(500)
+            forward(motor_a, 75)
+            sleep(500)
             release(move_mutex)
         }
     }
@@ -102,7 +106,7 @@ Download the _NXT_ software from (https://education.lego.com/en-us/downloads/ret
 
 
 ## for Linux
-Install the last version of `libusb-dev` package acording to your distribution. For instance in _Ubuntu_ you can type in a terminal:
+Install the last version of `libusb-dev` package acording to your distribution. For instance in a _Debian-based_ distribution you can type in a terminal:
 ```
 apt-get install libusb-1.0-0-dev
 ```
