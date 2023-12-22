@@ -7,7 +7,7 @@
 # *.i linguist-detectable=false
 # *.sdc linguist-detectable=false
 # *.json linguist-detectable=false
-# *.h linguist-detectable=false
+*.h linguist-detectable=false
 # Makefile linguist-detectable=false
-.ports/Cypress/CY8CKIT-049-42XX/projects* linguist-detectable=false
-.ports/Cypress/CY8CKIT-145-40XX/projects* linguist-detectable=false
+# .ports/Cypress/CY8CKIT-049-42XX/projects* linguist-detectable=false
+# .ports/Cypress/CY8CKIT-145-40XX/projects* linguist-detectable=false
