@@ -10,18 +10,17 @@ for instance:
 
 All the API implementations have to follow this basic folder tree:
 ```
-api
- ├── builtin.c
- ├── machine.c
- ├── machine/
- │    ├── pin.c
- │    ├── adc.c
- │    ├── pwm.c
- │    └── uart.c
- ├── time.c
- └── time/
-      ├── sleep_ms.c
-      └── sleep_us.c
+ports/Microchip/Explorer-16/PIC24/api/
+├── builtin.c
+├── machine
+│   ├── adc.c
+│   ├── pin.c
+│   ├── pwm.c
+│   └── uart.c
+└── time
+    ├── sleep.c
+    ├── sleep_ms.c
+    └── sleep_us.c
 ```
 
 <!-- Raspberry-Pi-Pico
