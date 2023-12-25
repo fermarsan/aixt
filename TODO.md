@@ -12,11 +12,12 @@ Tasks to do in Aixt
 - [ ] Include `api_path` to the `gen` class #feat
 - [ ] Implement variable swaping (by using temporal vars) #feat
 - [ ] Update the Aixt executable path #bug
-- [ ] New API folder tree #feat
+- [ ] Migrates all the possible API functions from C to V
 
 ### In Progress
 
 - [ ] Implements the `match` expression #feat @fermarsan
+- [ ] New API folder tree #feat
    
 ### Done ✓
 

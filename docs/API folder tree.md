@@ -9,6 +9,7 @@ for instance:
 ```
 
 All the API implementations have to follow this basic folder tree:
+
 ```
 ports/Microchip/Explorer-16/PIC24/api/
 ├── builtin.c
@@ -22,22 +23,6 @@ ports/Microchip/Explorer-16/PIC24/api/
     ├── sleep_ms.c
     └── sleep_us.c
 ```
-
-<!-- Raspberry-Pi-Pico
- └── projects/
-      └── blinking/
-           ├── blinking.ino
-           └── api/
-               ├── builtin.c
-               ├── machine/
-               │    └── pin.c
-               └── time/
-                    └── sleep_ms.c
-
-#include "api/builtin.c"
-#include "api/machine/pin.c"
-#include "api/time/sleep_ms.c" -->
-
 
 starting from the _Aixt_ project main folder.
 
