@@ -70,7 +70,7 @@ Aixt is designed as modular as possible, to make it easy to append new devices a
 The transpiler is written in [_V_](https://vlang.io/) using the _V's_ native self-compiler (a transpiler from _V_ to _C_). This is implemented in the folders `\aixt_build` and `\aixt_cgen`, and the main source code is the `aixt.v` file. It generates code for 3 different backends:
 - **c**: for the microcontroller native C compiler
 - **nxc**: for the NXC compiler (LEGO Mindstorms NXT)
-- **arduino**: for the Arduino IDE **WIP**
+- **arduino**: for the Arduino IDE (WIP)
 
 
 ## Aixt Language
