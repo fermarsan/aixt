@@ -92,5 +92,5 @@ aixt supports the following commands:
   compile, -c                   Compile the previosly generated C file.
   build, -b                     Build (transpile and compile) an Aixt program.
   clean, -cl                    Clean all the generated file (C and executables).
-  help, --help, -h				Call this help'
+  help, --help, -h              Call this help'
 }
