@@ -72,6 +72,7 @@ The transpiler is written in [_V_](https://vlang.io/) using the _V's_ native sel
 - **nxc**: for the NXC compiler (LEGO Mindstorms NXT)
 - **arduino**: for the Arduino IDE **WIP**
 
+
 ## Aixt Language
 
 **Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main differences are show as follows:
@@ -126,7 +127,6 @@ cd aixt
 v aixt.v
 ```
 
-## Using Aixt
 run it in a Linux-based system as:
 ```
 ./aixt <command> <device_or_board> <source_file>
