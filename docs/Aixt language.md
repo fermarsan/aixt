@@ -71,20 +71,20 @@ The V's supported keywors are in bold.
 - Declaration by default type inference for scalar and array variables
 - Variable casting in case of need to specify the variable type of number of bits
 - Function attributes using the syntax: 
-    ```go
-    [attribute] 
-    fn <name>(<params>) {
-        <statements>
-    }```
+```v
+[attribute] 
+fn <name>(<params>) {
+    <statements>
+}```
 - Loops with `for` through arrays and integer ranges:
-    ```go
-    arr := [3,5,7,9]
-    for a in arr {
-        a = 0
-    }
-    ```   
-    ```go
-    for i in 1..11 {
-        x += i
-    }
-    ```
+```v
+arr := [3,5,7,9]
+for a in arr {
+    a = 0
+}
+```   
+```v
+for i in 1..11 {
+    x += i
+}
+```
