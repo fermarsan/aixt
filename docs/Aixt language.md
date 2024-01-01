@@ -12,8 +12,18 @@ The _V_ grammar was taken from these sources (ordered by importance):
 - As _V_, **Aixt** support function attributes like `[inline]`, but these attributes include others like `[task]` which gives support to multitasking in the transpiling to _NXC_ language
 - `mutex` variables for giving support to multitasking in _NXC_ transcompiling
 
+The main differences between **Aixt** and **V**are show as follows:
+
+feature                 |V                                  | Aixt
+------------------------|-----------------------------------|----------------------------------------
+variables               |immutable by default               | mutable by default
+strings                 |dynamic-sized                      | fixed-sized
+arrays                  |dynamic-sized                      | fixed-sized
+default integers size   |32 bits                            | depends on the device  
+structs                 |allow functions (object-oriented)  | don't allow functions (only structured)
+
 # V's supported keywords
-The V's supported keywors are in bold.
+The V's supported keywors are listed in bold text as follows.
 - as
 - asm
 - assert
