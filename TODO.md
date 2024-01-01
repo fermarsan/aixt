@@ -21,12 +21,4 @@ Tasks to do in Aixt
    
 ### Done ✓
 
-- [x] Delete unnecessary files  
-- [x] Improve README.md #feat @fermarsan
-  - [x] Add Emulator examples
-  - [x] Add NXT examples
-  - [x] Editor/IDE VSCode and task file
-  - [x] Add table of differences V-Aixt
-  - [x] Add acknowledgement
-- [x] Update all NXT examples #feat
 - [x] Create a .gitattributes file #feat
