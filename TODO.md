@@ -12,7 +12,7 @@ Tasks to do in Aixt
 - [ ] Include `api_path` to the `gen` class #feat
 - [ ] Implement variable swaping (by using temporal vars) #feat
 - [ ] Update the Aixt executable path #bug
-- [ ] Implements c-preprocessor #feat
+- [ ] Implements C-preprocessor directives #feat
 
 ### In Progress
 
