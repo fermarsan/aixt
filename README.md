@@ -158,12 +158,16 @@ Email: fmartinezsanta@gmail.com
 
 ## Want to contribute?
 
-Great, go ahead and make the contributions you want, then submit a new pull request
+Cool, go ahead and make the contributions you want, then submit a new pull request
+
+The microcontroller or board that you use is not listed [here](docs/Devices%20and%20Boards.md) and you know programming it C?... You can easily add it to Aixt.
 
 Take a look at [TODO.md](TODO.md) to find a task for you.
 
 Please check [CONTRIBUTING.md](CONTRIBUTING.md) to learn how you can contribute.
 
+
+
 # License
 
-The Aixt project is licensed under the [MIT](LICENSE), which is attached in this repository
+The Aixt project is licensed under the [MIT](LICENSE), which is attached in this repository.
