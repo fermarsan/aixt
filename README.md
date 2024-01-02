@@ -1,6 +1,6 @@
 <div align="center">
-<h1>Aixt</h1>
-<h2>Programming Framework for Microcontrollers</h2>
+<img src="assets/text-logo.png" width="20%" height="20%">
+<h1>Aixt, Programming Framework for Microcontrollers</h1>
 </div>
 
 Aixt is a programming framework for microcontrollers which uses a modern language syntax based on [_V_](https://vlang.io/) and able to be used by low-resource devices. Aixt is composed by 3 main components:
