@@ -23,3 +23,4 @@ Tasks to do in Aixt
 
 - [x] Create a .gitattributes file #feat
 - [x] Design the text logo #feat
+- [x] Add "How to contribute" and "License" to README.md
