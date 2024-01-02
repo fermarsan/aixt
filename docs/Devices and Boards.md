@@ -45,6 +45,7 @@
     - **_D1 R32_**: ESP32 (LX6) **_WIP_**
     - **_CORE-ESP32_**: ESP32-C3 (RV32) **_WIP_**
     - **_ESP32-C3FH4 Core Board_**: ESP32-C3 (RV32) **_WIP_**
+    - **_LILYGO T-Watch 2020 V1_**: ESP32 (LX6) **_WIP_**  
 
 ## ST
 - **_Blue Pill_**: STM32F103C6 (Cortex-M3) **_WIP_**
