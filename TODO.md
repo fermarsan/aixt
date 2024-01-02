@@ -22,3 +22,4 @@ Tasks to do in Aixt
 ### Done ✓
 
 - [x] Create a .gitattributes file #feat
+- [x] Design the text logo #feat
