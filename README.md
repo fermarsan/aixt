@@ -1,5 +1,5 @@
 <div align="center">
-<img src="assets/text-logo-sh.png" width="23%" height="23%">
+<img src="assets/text-logo.png" width="24%" height="24%">
 <h1>Aixt, Programming Framework for Microcontrollers</h1>
 </div>
 
