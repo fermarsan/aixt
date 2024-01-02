@@ -1,7 +1,7 @@
 # Supported devices and boards
 
-## PC
-- **_x64-based PCs_**: x64 **_done_**
+## Emulator on Linux, Android (Termux) and Windows
+- **_x64-based or AArch64-based device_**: x64 or AArch64 **_done_**
 
 ## LEGO Mindstorms NXT
 - **_NXT Intelligent Brick_**: AT91SAM7S256 (ARM7TDMI) "Transpiled to _NXC_ Language" **_done_**
