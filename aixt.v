@@ -31,48 +31,52 @@ fn main() {
 				}
 			}
 			else {
-				port, input_name := os.args[2], os.abs_path(os.args[3]) // the other parameters
-				mut base_name := input_name.replace('.aixt', '') // input file base name
-				base_name = base_name.replace('.v', '')
-				setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { return } // load the device's setup file
-				match command {
-					'transpile', '-t' {
-						aixt_build.transpile_file(input_name, setup, aixt_path)
-						println('\n${input_name} transpilation finished.\n')
-					}
-					'compile', '-c' {
-						aixt_build.compile_file(base_name, setup)
-						ext := match setup.value('backend').string() {
-							'nxc' { 'nxc' }
-							'arduino' { 'ino' }
-							else { 'c' }
+				if os.args.len < 4 {
+					println(help_message())
+				} else {
+					port, input_name := os.args[2], os.abs_path(os.args[3]) // the other parameters
+					mut base_name := input_name.replace('.aixt', '') // input file base name
+					base_name = base_name.replace('.v', '')
+					setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { return } // load the device's setup file
+					match command {
+						'transpile', '-t' {
+							aixt_build.transpile_file(input_name, setup, aixt_path)
+							println('\n${input_name} transpilation finished.\n')
 						}
-						println('\n${base_name}.${ext} compilation finished.\n')
-					}
-					'build', '-b' {
-						aixt_build.transpile_file(input_name, setup, aixt_path)
-						println('\n${input_name} transpilation finished.\n')
-						aixt_build.compile_file(base_name, setup)
-						ext := match setup.value('backend').string() {
-							'nxc' { 'nxc' }
-							'arduino' { 'ino' }
-							else { 'c' }
+						'compile', '-c' {
+							aixt_build.compile_file(base_name, setup)
+							ext := match setup.value('backend').string() {
+								'nxc' { 'nxc' }
+								'arduino' { 'ino' }
+								else { 'c' }
+							}
+							println('\n${base_name}.${ext} compilation finished.\n')
 						}
-						println('\n${base_name}.${ext} compilation finished.\n')
-					}
-					'clean', '-cl' {
-						os.rm('${base_name}.c') or {} // clean c-type files
-						os.rm('${base_name}.nxc') or {}
-						os.rm('${base_name}.ino') or {}
-						$if windows { // and executables
-							os.rm('${base_name}.exe') or {}
-						} $else {
-							os.rm('${base_name}') or {}
+						'build', '-b' {
+							aixt_build.transpile_file(input_name, setup, aixt_path)
+							println('\n${input_name} transpilation finished.\n')
+							aixt_build.compile_file(base_name, setup)
+							ext := match setup.value('backend').string() {
+								'nxc' { 'nxc' }
+								'arduino' { 'ino' }
+								else { 'c' }
+							}
+							println('\n${base_name}.${ext} compilation finished.\n')
 						}
-						println('Output files cleaned.')
-					}
-					else {
-						println('Invalid command.')
+						'clean', '-cl' {
+							os.rm('${base_name}.c') or {} // clean c-type files
+							os.rm('${base_name}.nxc') or {}
+							os.rm('${base_name}.ino') or {}
+							$if windows { // and executables
+								os.rm('${base_name}.exe') or {}
+							} $else {
+								os.rm('${base_name}') or {}
+							}
+							println('Output files cleaned.')
+						}
+						else {
+							println('Invalid command.')
+						}
 					}
 				}
 			}
