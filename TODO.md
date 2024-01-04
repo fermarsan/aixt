@@ -12,6 +12,7 @@ Tasks to do in Aixt
 - [ ] Implement variable swaping (by using temporal vars) #feat
 - [ ] Update the Aixt executable path #bug
 - [ ] Implements C-preprocessor directives #feat
+- [ ] Improve the AIP.md file #feat @fermarsan
 
 ### In Progress
 
