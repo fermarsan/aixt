@@ -61,6 +61,9 @@ fn main() {
 					}
 					println('Output files cleaned.')
 				}
+				'version' {
+					println('0.1.0')
+				}
 				else {
 					println('Invalid command.')
 				}
