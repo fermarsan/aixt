@@ -99,7 +99,7 @@ Examples:
                                 `hello.c` or `hello.ino` (depending on the Backend).
   aixt -c Emulator hello.aixt	Compile a previously transpiled `hello.c` (from
                                 `hello.aixt`) and output it as `hello` or `hello.exe`
-  aixt clean hello.aixt         Clean all the generated files `hello.*`
+  aixt clean NXC hello.aixt     Clean all the generated files `hello.*`
   aixt -h                       Print this help message
   aixt version                  Print the Aixt version number
 
