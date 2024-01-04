@@ -1,5 +1,5 @@
 <div align="center">
-<img src="assets/text-logo.png" width="24%" height="24%">
+<img src="assets/text-logo-sh.png" width="24%" height="24%">
 <h1>Programming Framework for Microcontrollers</h1>
 </div>
 
@@ -161,7 +161,7 @@ Email: fmartinezsanta@gmail.com
 
 Cool, go ahead and make the contributions you want, then submit a new pull request
 
-The microcontroller or board that you use is not listed [here](docs/Devices%20and%20Boards.md) and you know programming it in C?... You can easily add it to Aixt, please check [CONTRIBUTING.md](CONTRIBUTING.md).
+The microcontroller or board that you use is not listed [here](docs/Devices%20and%20Boards.md) and you know how to program it in C?... You can easily add it to Aixt, please check [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Take a look at [TODO.md](TODO.md) to find a task for you.
 
