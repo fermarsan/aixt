@@ -5,7 +5,6 @@ Tasks to do in Aixt
 ### Todo
 
 - [ ] Fix the function attributes #bug @fermarsan
-- [ ] Add the `--version` option #feat
 - [ ] Add a `New project` option #feat
 - [ ] Implement structs #feat
 - [ ] Implement enums #feat
@@ -24,3 +23,4 @@ Tasks to do in Aixt
 - [x] Create a .gitattributes file #feat
 - [x] Design the text logo #feat
 - [x] Add "How to contribute" and "License" to README.md
+- [x] Add the `version` option #feat
