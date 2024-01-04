@@ -7,7 +7,7 @@
 // Description: code generation utils.
 module aixt_cgen
 
-import v.ast
+// import v.ast
 
 fn (mut gen Gen) add_include(name_ext string) {
 	if !gen.includes.contains(name_ext) {

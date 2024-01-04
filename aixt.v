@@ -1,7 +1,7 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: aixt.v
 // Author: Fernando Martínez Santa
-// Date: 2023
+// Date: 2023-2024
 // License: MIT
 //
 // Description: This is the main file of the Aixt project. It works as a make file too.
@@ -13,59 +13,67 @@ import toml
 import aixt_build
 
 fn main() {
-	if os.args.len < 4 {
+	if os.args.len < 2 {
 		println(help_message())
 	} else {
 		aixt_path := os.abs_path(os.dir(os.args[0])) // aixt base path
 		command := os.args[1] // command
-		if command in ['help', '--help', '-h'] { // help message
-			println(help_message())
-		} else {
-			port, input_name := os.args[2], os.abs_path(os.args[3]) // the other parameters
-			mut base_name := input_name.replace('.aixt', '') // input file base name
-			base_name = base_name.replace('.v', '')
-			setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { return } // load the device's setup file
-			match command {
-				'transpile', '-t' {
-					aixt_build.transpile_file(input_name, setup, aixt_path)
-					println('\n${input_name} transpilation finished.\n')
-				}
-				'compile', '-c' {
-					aixt_build.compile_file(base_name, setup)
-					ext := match setup.value('backend').string() {
-						'nxc' { 'nxc' }
-						'arduino' { 'ino' }
-						else { 'c' }
+		match command {
+			'help', '--help', '-h' {
+				println(help_message())
+			}
+			'version' {	
+				lines := os.read_lines('v.mod') or {['']}
+				for line in lines {
+					if line.contains('version:') {
+						println('Aixt ${line.replace('\tversion:\t', '')}')
 					}
-					println('\n${base_name}.${ext} compilation finished.\n')
 				}
-				'build', '-b' {
-					aixt_build.transpile_file(input_name, setup, aixt_path)
-					println('\n${input_name} transpilation finished.\n')
-					aixt_build.compile_file(base_name, setup)
-					ext := match setup.value('backend').string() {
-						'nxc' { 'nxc' }
-						'arduino' { 'ino' }
-						else { 'c' }
+			}
+			else {
+				port, input_name := os.args[2], os.abs_path(os.args[3]) // the other parameters
+				mut base_name := input_name.replace('.aixt', '') // input file base name
+				base_name = base_name.replace('.v', '')
+				setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { return } // load the device's setup file
+				match command {
+					'transpile', '-t' {
+						aixt_build.transpile_file(input_name, setup, aixt_path)
+						println('\n${input_name} transpilation finished.\n')
 					}
-					println('\n${base_name}.${ext} compilation finished.\n')
-				}
-				'clean', '-cl' {
-					os.rm('${base_name}.c') or {} // clean c-type files
-					os.rm('${base_name}.nxc') or {}
-					os.rm('${base_name}.ino') or {}
-					$if windows { // and executables
-						os.rm('${base_name}.exe') or {}
-					} $else {
-						os.rm('${base_name}') or {}
+					'compile', '-c' {
+						aixt_build.compile_file(base_name, setup)
+						ext := match setup.value('backend').string() {
+							'nxc' { 'nxc' }
+							'arduino' { 'ino' }
+							else { 'c' }
+						}
+						println('\n${base_name}.${ext} compilation finished.\n')
 					}
-					println('Output files cleaned.')
-				}
-				'version' {
-					println('0.1.0')
-				}
-				else {
-					println('Invalid command.')
+					'build', '-b' {
+						aixt_build.transpile_file(input_name, setup, aixt_path)
+						println('\n${input_name} transpilation finished.\n')
+						aixt_build.compile_file(base_name, setup)
+						ext := match setup.value('backend').string() {
+							'nxc' { 'nxc' }
+							'arduino' { 'ino' }
+							else { 'c' }
+						}
+						println('\n${base_name}.${ext} compilation finished.\n')
+					}
+					'clean', '-cl' {
+						os.rm('${base_name}.c') or {} // clean c-type files
+						os.rm('${base_name}.nxc') or {}
+						os.rm('${base_name}.ino') or {}
+						$if windows { // and executables
+							os.rm('${base_name}.exe') or {}
+						} $else {
+							os.rm('${base_name}') or {}
+						}
+						println('Output files cleaned.')
+					}
+					else {
+						println('Invalid command.')
+					}
 				}
 			}
 		}
@@ -95,5 +103,6 @@ aixt supports the following commands:
   compile, -c                   Compile the previosly generated C file.
   build, -b                     Build (transpile and compile) an Aixt program.
   clean, -cl                    Clean all the generated file (C and executables).
-  help, --help, -h              Call this help'
+  help, --help, -h              Call this help
+  version                       Returns the Aixt version number'
 }
