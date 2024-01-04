@@ -90,7 +90,7 @@ structs                 |allow functions (object-oriented)  | don't allow functi
 
 ```v
 /* Turning ON the onboard LED 10 for the Explorer16 board
-for the PIC24FJ microcontroller (XC16 compiler)*/
+with a PIC24FJ microcontroller (XC16 compiler)*/
 
 fn main() {
     pin_high(led10)    //turn ON the LED 10 (PORTA7)
@@ -100,8 +100,8 @@ fn main() {
 ### Example without `main` function (Script mode)
 
 ```v
-/* Turning ON the onboard LED 10 for the Explorer16 board
-for the PIC24FJ microcontroller (XC16 compiler)*/
+/* Blinking LED on the Explorer16 board with 
+a PIC24FJ microcontroller (XC16 compiler)*/
 
 for {   //infinite loop
     pin_high(led10)     // LED 10 blinking
