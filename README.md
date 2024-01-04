@@ -6,7 +6,7 @@
 Aixt is a programming framework for microcontrollers which uses a modern language syntax based on [_V_](https://vlang.io/) and able to be used by low-resource devices. Aixt is composed by 3 main components:
 
 - The **Aixt** programing language based on the [_V language_](https://vlang.io/) syntax.
-- The **Aixt to C Transpiler**, which translate the **Aixt** source code to _C_, for a expecific _C_ compiler of each microcontroller.
+- The **Aixt to C Transpiler**, which translate the **Aixt** source code to _C_, for the specific _C_ compiler of each microcontroller.
 - The **Aixt API**, which makes the programming easy by standardizing the setup and I/O functions.  
 
 ```mermaid
@@ -67,15 +67,15 @@ Aixt is designed as modular as possible, to make it easy to append new devices a
 
 ## Aixt to C Transpiler
 
-The transpiler is written in [_V_](https://vlang.io/) using the _V's_ native self-compiler (a transpiler from _V_ to _C_). This is implemented in the folders `\aixt_build` and `\aixt_cgen`, and the main source code is the `aixt.v` file. It generates code for 3 different backends:
+The transpiler is written in [_V_](https://vlang.io/) and uses _V's_ native compiler facilities to transpile from _V_ to _C_. This is implemented in the folders `\aixt_build` and `\aixt_cgen`, and the main source code is the `aixt.v` file. It generates code for 3 different backends:
 - **c**: for the microcontroller native C compiler
 - **nxc**: for the NXC compiler (LEGO Mindstorms NXT)
-- **arduino**: for the Arduino IDE (WIP)
+- **arduino**: for the Arduino IDE **WIP...**
 
 
 ## Aixt Language
 
-**Aixt** programing language implements a subset of [_V language_](https://vlang.io/). The main differences are show as follows:
+**Aixt** programing language implements a subset of the [_V language_](https://vlang.io/). The main differences are show as follows:
 
 feature                 |V                                  | Aixt
 ------------------------|-----------------------------------|----------------------------------------
