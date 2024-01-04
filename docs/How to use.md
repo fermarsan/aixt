@@ -42,3 +42,4 @@ run, -r          | Run the previously generated executable file.
 build, -b        | Build (transpile, compile and run) an Aixt program.
 clean, -cl       | Clean all the generated file (C and executables).
 help, --help, -h | Call this help'
+version          | Print the Aixt version number
