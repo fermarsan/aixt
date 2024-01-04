@@ -2,7 +2,7 @@
 
 ## Digital I/O (Pins)
 ### Pin setup
-```go
+```v
 pin_setup(pin_name, mode)
 ```
 - `pin_name` could change depending on the microcontroller.
@@ -11,17 +11,17 @@ pin_setup(pin_name, mode)
   - `out`
 
 ### Pin output
-```go
+```v
 pin_high(pin_name)
 ```
-```go
+```v
 pin_low(pin_name)
 ```
-```go
+```v
 pin_toggle(pin_name)    
 // not available for all devices
 ```
-```go
+```v
 pin_write(pin_name, value)
 ```
 - `value` is an integer to be written in the pin
@@ -30,7 +30,7 @@ pin_write(pin_name, value)
 
 
 ### Pin input
-```go
+```v
 x = pin_read(pin_name)
 ```
 `pin_read` returns an integer (`0` or `1`)
@@ -40,12 +40,12 @@ x = pin_read(pin_name)
 The syntax for all the ADC functions is: `adcx_function_name()`, being `x` the identifing number in case of multiple ADCs. You can ommit the `x` for refering to the first ADC or in the case of having only one.
 
 ### ADC setup
-```go
+```v
 adc_setup(setup_value_1, setup_value_2, ... )   // equals to adc1_setup(...)
 ```
 
 ### ADC reading
-```go
+```v
 x = adc_read(channel)
 ```
 - `channel` is an identifing number of the ADC input
@@ -54,12 +54,12 @@ x = adc_read(channel)
 The syntax for all the PWM functions is: `pwmx_function_name()`, being `x` the identifing number in case of multiple PWM outputs. You can ommit the `x` for refering to the first PWM output or in the case of having only one.
 
 ### PWM setup
-```go
+```v
 pwm1_setup(setup_value_1, setup_value_2, ... )  //or just pwm_setup(...)
 ```
 
 ### PWM duty cycle
-```go
+```v
 pwm_write(duty)  //or pwm1_duty(duty)
 ```
 
@@ -71,45 +71,45 @@ The UART used to be the standard stream output, so the functions `print()`, `pri
 
 ### UART setup
 
-```go
+```v
 uart_setup(baud_rate)   // the same of uart1_setup(baud_rate)
 ```
 - `baud_rate` configurate the comunication speed
 
 ### Serial receiving
-```go
+```v
 str1 = input()          // read a string from the default UART
 ```
-```go
+```v
 str2 = uart2_input()    // read a string from UART2
 ```
-```go
+```v
 str2 = uart1_read()    // read a single Byte from UART1
 ```
 
 ### Serial transmitting
-```go
+```v
 print(message)      // print a string to the default UART
 ```
-```go
+```v
 println(message)    // print a string plus a line-new character to the default UART
 ```
-```go
+```v
 uart2_print(message)    // print a string to the UART2
 ```
-```go
+```v
 uart1_println(message)  // print a string plus a line-new character to the UART1
 ```
-```go
+```v
 uart2_write(message)    // send binary data (in Bytes) to UART2
 ```
 ## Timming
-```go
+```v
 sleep(s)    // delay in seconds
 ```
-```go
+```v
 sleep_ms(ms)    // delay in milliseconds
 ```
-```go
+```v
 sleep_us(us)    // delay in microseconds
 ```
