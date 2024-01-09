@@ -67,7 +67,7 @@ pwm_write(duty)  //or pwm1_duty(duty)
 
 ## Serial comunication (UART)
 
-The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the especific dom¿cumentation. The syntax for most of UART functions is: `uartx_function_name()`, being `x` the identifing number in case of multiple UARTs. You can ommit the `x` for refering to the first UART or in the case of having only one.  
+The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the especific documentation. The syntax for most of UART functions is: `uartx_function_name()`, being `x` the identifing number in case of multiple UARTs. You can ommit the `x` for refering to the first or default UART, or in the case of having only one.  
 
 ### UART setup
 
