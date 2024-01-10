@@ -9,7 +9,7 @@ Tasks to do in Aixt
 - [ ] Implement structs #feat
 - [ ] Implement enums #feat
 - [ ] Include `api_path` to the `gen` class #feat
-- [ ] Implement variable swaping (by using temporal vars) #feat
+- [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] Update the Aixt executable path #bug
 - [ ] Implements C-preprocessor directives #feat
 - [ ] Improve the AIP.md file #feat @fermarsan
@@ -17,10 +17,9 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implements the `match` expression #feat @fermarsan
-- [ ] New API folder tree #feat
    
 ### Done ✓
 
+
+- [x] New API folder tree #feat
 - [x] Design the text logo #feat
-- [x] Add "How to contribute" and "License" to README.md
-- [x] Add the `version` option #feat
