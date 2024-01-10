@@ -1,4 +1,4 @@
-# **_Aixt_** Application Programmimg Interface
+# **_Aixt_** Application Programming Interface
 
 ## Digital I/O (Pins)
 ### Pin setup
@@ -37,7 +37,7 @@ x = pin_read(pin_name)
 
 ## Analog to Digital Converter (ADC inputs)
 
-The syntax for all the ADC functions is: `adcx_function_name()`, being `x` the identifing number in case of multiple ADCs. You can ommit the `x` for refering to the first ADC or in the case of having only one.
+The syntax for all the ADC functions is: `adcx_function_name()`, being `x` the identifying number in case of multiple ADCs. You can omit the `x` for referring to the first ADC or in the case of having only one.
 
 ### ADC setup
 ```v
@@ -48,10 +48,10 @@ adc_setup(setup_value_1, setup_value_2, ... )   // equals to adc1_setup(...)
 ```v
 x = adc_read(channel)
 ```
-- `channel` is an identifing number of the ADC input
+- `channel` is an identifying number of the ADC input
 ## Pulse Width Modulation (PWM outputs)
 
-The syntax for all the PWM functions is: `pwmx_function_name()`, being `x` the identifing number in case of multiple PWM outputs. You can ommit the `x` for refering to the first PWM output or in the case of having only one.
+The syntax for all the PWM functions is: `pwmx_function_name()`, being `x` the identifying number in case of multiple PWM outputs. You can omit the `x` for referring to the first PWM output or in the case of having only one.
 
 ### PWM setup
 ```v
@@ -67,14 +67,14 @@ pwm_write(duty)  //or pwm1_duty(duty)
 
 ## Serial comunication (UART)
 
-The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the especific documentation. The syntax for most of UART functions is: `uartx_function_name()`, being `x` the identifing number in case of multiple UARTs. You can ommit the `x` for refering to the first or default UART, or in the case of having only one.  
+The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the especific documentation. The syntax for most of UART functions is: `uartx_function_name()`, being `x` the identifying number in case of multiple UARTs. You can omit the `x` for referring to the first or default UART, or in the case of having only one.  
 
 ### UART setup
 
 ```v
 uart_setup(baud_rate)   // the same of uart1_setup(baud_rate)
 ```
-- `baud_rate` configurate the comunication speed
+- `baud_rate` configure the communication speed
 
 ### Serial receiving
 ```v
