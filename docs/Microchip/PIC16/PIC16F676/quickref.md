@@ -8,7 +8,7 @@
 Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 
-### Nombres de pines PIC16F676
+### Nombres de los pines del PIC16F676
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 
 |:------:|---|---|---|---|---|---|
 | **A**  | a0| a1| a2| a3| a4| a5|
@@ -19,7 +19,7 @@ En las familias de microcontroladores del _PIC16_, los registros del puerto se d
 - `TRIS` Para configurar cada pin del puerto
 - `PORT` Para gestionar los pines como entradas o salidas
 
-Luego, para facilitar la implementación (y generar código inncesario) de este port _Aixt_, el nombre de cada pin difiere de su configuración, entrada y salida como en el siguiente ejemplo: 
+Luego, para facilitar la implementación (y no generar código inncesario) de este port _Aixt_, el nombre de cada pin difiere de su configuración, entrada y salida como en el siguiente ejemplo: 
 
 - `a5_s` Nombre del bit para configurar el `a5` pin como entrada o salida 
 - `a5`   Nombre del bit para leer el pin como entrada o salida `a5`
@@ -32,8 +32,8 @@ Cuenta con siete entradas analogicas que se encuentran distribuidas entre en el 
 | **A**  |AN0|AN1|AN2|-  |AN3|-  |
 | **C**  |AN4|AN5|AN6|AN7|-  |-  |
 
-#### Supported functions
-Las funciones que contiene la API entradas o salidas digital y para realizar una conversión analogico a digital.
+#### Funciones soportadas
+Las funciones que contiene la API entradas o salidas digitales y para realizar una conversión analogico a digital.
 
 name                    | description
 ------------------------|------------------------------
@@ -49,7 +49,7 @@ name                    | description
 
 ## Tiempo
 ```go
-sleep(5)		// Tiempo de 5 segundos
+sleep(5)	// Tiempo de 5 segundos
 sleep_us(10)	// Tiempo de 10 microsegundos
 sleep_ms(500)	// Tiempo de 500 milisegundos
 
@@ -65,8 +65,8 @@ pin_setup(c4_s, input)    // Función para configurar el pin como entrada
 pin_high(a5)    // Función para encender el pin           
 pin_low(a5)     // Función para apagar el pin
 
-pin_write(a2, 0)  // Función sobre escribir el pin en 0
-pin_write(a2, 1)  // Función sobre escribir el pin en 1 
+pin_write(a2, 0)  // Función sobre escribir el pin
+pin_write(a2, 1)  // Función sobre escribir el pin
 
 ```
 
