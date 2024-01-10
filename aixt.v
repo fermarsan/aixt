@@ -30,6 +30,10 @@ fn main() {
 					}
 				}
 			}
+			'new_project', '-np' {
+				path := os.args[2] or { println(help_message()) }
+				os.cp('${aixt_path}/.template/main.v', path)
+			}
 			else {
 				if os.args.len < 4 {
 					println(help_message())
