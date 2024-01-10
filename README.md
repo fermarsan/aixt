@@ -9,6 +9,8 @@ Aixt is a programming framework for microcontrollers which uses a modern languag
 - The **Aixt to C Transpiler**, which translate the **Aixt** source code to _C_, for the specific _C_ compiler of each microcontroller.
 - The **Aixt API**, which makes the programming easy by standardizing the setup and I/O functions.  
 
+This diagram shows all the blocks that compose Aixt:
+
 ```mermaid
 stateDiagram-v2
 
