@@ -119,7 +119,7 @@ adc_read(0)     // Escoge el pin del canal analogico
 
 Ejemplo de prender y apagar leds dependiendo del valor del ADC:
 ```go
-unsigned int adc_result;  // Declaración de variable para guardar el valor del ADC
+unsigned int adc_result;  // Declaración de variable para almacenar el valor del ADC
         
 while(1){
             
