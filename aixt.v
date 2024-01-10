@@ -30,10 +30,6 @@ fn main() {
 					}
 				}
 			}
-			'new_project', '-np' {
-				path := os.args[2] or { println(help_message()) }
-				os.cp('${aixt_path}/.template/main.v', path)
-			}
 			else {
 				if os.args.len < 4 {
 					println(help_message())
@@ -77,6 +73,13 @@ fn main() {
 								os.rm('${base_name}') or {}
 							}
 							println('Output files cleaned.')
+						}
+						'new_project', '-np' {
+							path, name := os.args[2], os.args[3]
+							os.mkdir('${path}/${name}') or {}
+							// println('${aixt_path}/.template/main.v')
+							// println('${path}/${name}')
+							// os.cp('${aixt_path}/.template', '${path}/${name}') or {println('yyy')}
 						}
 						else {
 							println('Invalid command.')
