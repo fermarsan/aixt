@@ -23,7 +23,7 @@ default integers size   |32 bits                            | depends on the dev
 structs                 |allow functions (object-oriented)  | don't allow functions (only structured)
 
 # V's supported keywords
-The V's supported keywors are listed in bold text as follows.
+The V's supported keywords are listed in bold text as follows.
 - as
 - asm
 - assert
