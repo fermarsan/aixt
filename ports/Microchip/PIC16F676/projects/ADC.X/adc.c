@@ -17,13 +17,26 @@
 #include <xc.h>
 #define _XTAL_FREQ 4000000
 #include "..\..\api\machine\adc.c"
+#include "../../api/builtin.c"
+#include "../../api/machine/pin.c"
 
 unsigned int adc_result;
 
 void main(void) {
     
-    TRISC = 0b000000;
-    PORTC = 0b000000;
+    pin_setup(c0_s, out);
+    pin_setup(c1_s, out);
+    pin_setup(c2_s, out);
+    pin_setup(c3_s, out);
+    pin_setup(c4_s, out);
+    pin_setup(c5_s, out);
+    
+    pin_write(c0, 0);
+    pin_write(c1, 0);
+    pin_write(c2, 0);
+    pin_write(c3, 0);
+    pin_write(c4, 0);
+    pin_write(c5, 0);
     
     adc_setup();
     
@@ -33,37 +46,72 @@ void main(void) {
         
         if ( adc_result >= 1020 ){
             
-            PORTC = 0b111111;        
+            c0 = 1;
+            c1 = 1;
+            c2 = 1;
+            c3 = 1;
+            c4 = 1;
+            c5 = 1;            
         }
         
         else if ( adc_result >= 820 ){
             
-            PORTC = 0b011111;        
+            c0 = 1;
+            c1 = 1;
+            c2 = 1;
+            c3 = 1;
+            c4 = 1;
+            c5 = 0;        
         }
         
         else if ( adc_result >= 620 ){
             
-            PORTC = 0b001111;        
+            c0 = 1;
+            c1 = 1;
+            c2 = 1;
+            c3 = 1;
+            c4 = 0;
+            c5 = 0;     
         }
         
         else if ( adc_result >= 420 ){
             
-            PORTC = 0b000111;        
+            c0 = 1;
+            c1 = 1;
+            c2 = 1;
+            c3 = 0;
+            c4 = 0;
+            c5 = 0;       
         }
         
         else if ( adc_result >= 220 ){
             
-            PORTC = 0b000011;        
+            c0 = 1;
+            c1 = 1;
+            c2 = 0;
+            c3 = 0;
+            c4 = 0;
+            c5 = 0;      
         }
         
         else if ( adc_result >= 120 ){
             
-            PORTC = 0b000001;        
+            c0 = 1;
+            c1 = 0;
+            c2 = 0;
+            c3 = 0;
+            c4 = 0;
+            c5 = 0;        
         }
         
         else {
             
-            PORTC = 0b000000;        
+            c0 = 0;
+            c1 = 0;
+            c2 = 0;
+            c3 = 0;
+            c4 = 0;
+            c5 = 0;       
         }
     
     }
