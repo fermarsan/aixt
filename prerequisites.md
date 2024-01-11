@@ -7,11 +7,11 @@ make
 ./v symlink
 ```
 
-# Native C compilers (or IDEs)
+# C compilers (or IDEs)
 - **XC8**: Microchip and Atmel 8-bit microcontrollers
 - **XC16**: Microchip 16-bit microcontrollers
 - **PSoC Creator**: Cypress (PSoC 3, 4 ,5 and 6)
-- **clang** or **gcc**: Emulator on Linux
+- **clang** or **gcc**: Emulator on Linux or Android (Termux)
 - **tcc**: Emulator on Windows
 - **Arduino IDE**: for all the ports that use the Arduino backend
 
