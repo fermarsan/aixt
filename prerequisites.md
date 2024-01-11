@@ -4,7 +4,7 @@
 git clone https://github.com/vlang/v
 cd v
 make 
-v symlink
+./v symlink
 ```
 
 # Native C compilers (or IDEs)
