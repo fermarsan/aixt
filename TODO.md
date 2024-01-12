@@ -14,10 +14,10 @@ Tasks to do in Aixt
 
 ### In Progress
 
-- [ ] Implements C-preprocessor directives #feat @fermarsan
 - [ ] Implements the `match` expression #feat @fermarsan
    
 ### Done ✓
 
+- [x] Implements C-preprocessor directives #feat @fermarsan
 - [x] Improve the API.md file #feat @fermarsan
 - [x] Add a `New project` Aixt command and vscode task #feat
