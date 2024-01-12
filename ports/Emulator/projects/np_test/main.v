@@ -3,4 +3,4 @@
 // Author: 
 // Date: 
 
-a := 3
+a:=6
