@@ -105,32 +105,48 @@
             "group": "build",
             "dependsOrder": "sequence",
             "dependsOn": ["Aixt: Build", "Aixt: Run"]
+        },
+        {
+            "label": "Aixt: New Project",
+            "type": "shell",
+            "windows": {
+                "command": [ "v run ${config:aixt_windows}",
+                            "new_project",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "v run ${config:aixt_linux}",
+                            "new_project",
+                            "${input:projectName}",
+                            "${input:dirName}",
+                            "${input:device}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
         }
     ],
     "inputs": [
       {
         "type": "promptString",
-        "id": "fileName",
-        "description": "File name.",
-        "default": "main.py"
-      },
-      {
-        "type": "promptString",
-        "id": "outputFileName",
-        "description": "Output file name.",
-        "default": "main.py"
+        "id": "projectName",
+        "description": "Project name.",
+        "default": "project"
       },
       {
         "type": "promptString",
         "id": "dirName",
         "description": "Directory name.",
-        "default": "/"
+        "default": "."
       },
       {
         "type": "promptString",
-        "id": "dirName2",
-        "description": "Directory name.",
-        "default": "/dirName"
+        "id": "device",
+        "description": "Device or Board name.",
+        "default": "Emulator"
       }
     ]
 }
