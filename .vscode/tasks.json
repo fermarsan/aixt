@@ -106,5 +106,31 @@
             "dependsOrder": "sequence",
             "dependsOn": ["Aixt: Build", "Aixt: Run"]
         }
+    ],
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "fileName",
+        "description": "File name.",
+        "default": "main.py"
+      },
+      {
+        "type": "promptString",
+        "id": "outputFileName",
+        "description": "Output file name.",
+        "default": "main.py"
+      },
+      {
+        "type": "promptString",
+        "id": "dirName",
+        "description": "Directory name.",
+        "default": "/"
+      },
+      {
+        "type": "promptString",
+        "id": "dirName2",
+        "description": "Directory name.",
+        "default": "/dirName"
+      }
     ]
 }
