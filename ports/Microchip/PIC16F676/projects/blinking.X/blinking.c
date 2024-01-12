@@ -16,32 +16,24 @@
 
 #include <xc.h>
 #define _XTAL_FREQ 4000000
-// #include "..\..\api\builtin.c"
-// #include "..\..\api\machine\pin.c"
-// #include "..\..\api\time\sleep_ms.c"
+
 #include "../../api/builtin.c"
 #include "../../api/machine/pin.c"
-//#include "../../api/time/sleep_ms.c"
+#include "../../api/time/sleep_ms.c"
+#include "../../api/time/sleep_us.c"
 
 void main(void) {
+        
+    pin_setup(c5_s, out);
 
-    pin_mode(rc5, out);
-    pin_mode(rc4, out);
-    pin_mode(rc3, out);
-    TRISAbits.TRISA2 = 0;
-    // pin_mode(rc2, out);
-    // pin_mode(rc1, out);
-    // pin_mode(rc0, out);
-   
-    
+    pin_write(c5, 0);
+
     while (1) {
-        PORTC = 0b111111;
-        //sleep_ms(500);
-        PORTC = 0b000000;
-        //sleep_ms(500);
+
+        pin_high(c5);
+        sleep_ms(500);
+        pin_low(c5);
+        sleep_ms(500);
     
-
     }
-
-
 }

@@ -239,8 +239,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 68 ]
 {
 "45
-[; ;adc.c: 45:         adc_result = ADCON0bits.CHS = 0; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = ((ADRESH << 8) | ADRESL); adc_result;
-[e = _adc_result -> = . . _ADCON0bits 0 2 -> -> 0 `i `uc `ui ]
+[; ;adc.c: 45:         adc_result = ADCON0bits.CHS = 2; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = ((ADRESH << 8) | ADRESL); adc_result;
+[e = _adc_result -> = . . _ADCON0bits 0 2 -> -> 2 `i `uc `ui ]
 [e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]
 [e $U 70  ]
 [e :U 71 ]

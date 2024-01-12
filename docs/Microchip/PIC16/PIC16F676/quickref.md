@@ -73,8 +73,6 @@ pin_write(a2, 1)  // Función sobre escribir el pin
 Ejemplo de prender y apagar un led:
 
 ```go
-
-ANSEL = 0b00000000; // Todas los pines son I/O digitales
       
 while (1) {
 
@@ -127,30 +125,30 @@ while(1){
     
     if ( adc_result >= 1020 ){
         
-        c0 = 1;
-        c1 = 1;
-        c2 = 1;           
+        pin_high(c0);
+        pin_high(c1);
+        pin_high(c2);           
     }
     
     else if ( adc_result >= 820 ){
         
-        c0 = 1;
-        c1 = 1;
-        c2 = 0;
+        pin_high(c0);
+        pin_high(c1);
+        pin_low(c2);
     }
     
     else if ( adc_result >= 620 ){
         
-        c0 = 1;
-        c1 = 0;
-        c2 = 0;    
+        pin_high(c0);
+        pin_low(c1);
+        pin_low(c2);   
     }
         
     else {
         
-        c0 = 0;
-        c1 = 0;
-        c2 = 0;      
+        pin_low(c0);
+        pin_low(c1);
+        pin_low(c2);      
     }
 
 }

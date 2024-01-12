@@ -175,47 +175,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [; ;digital.c: 34:     PORTCbits.RC1 = 0;
 [e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
-"39
-[; ;digital.c: 39:     while(1){
+"40
+[; ;digital.c: 40:     while(1){
 [e :U 68 ]
 {
-"41
-[; ;digital.c: 41:         if(PORTCbits.RC2 == 1){
+"42
+[; ;digital.c: 42:         if(PORTCbits.RC2 == 1){
 [e $ ! == -> . . _PORTCbits 0 2 `i -> 1 `i 70  ]
 {
-"43
-[; ;digital.c: 43:             PORTCbits.RC1 = 1;
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
 "44
-[; ;digital.c: 44:             PORTCbits.RC0 = 1;
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+[; ;digital.c: 44:             PORTCbits.RC1 = 1;
+[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
 "45
-[; ;digital.c: 45:         }
+[; ;digital.c: 45:             PORTCbits.RC0 = 1;
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+"46
+[; ;digital.c: 46:         }
 }
 [e $U 71  ]
-"47
-[; ;digital.c: 47:         else if(PORTCbits.RC4 == 1){
+"48
+[; ;digital.c: 48:         else if(PORTCbits.RC4 == 1){
 [e :U 70 ]
 [e $ ! == -> . . _PORTCbits 0 4 `i -> 1 `i 72  ]
 {
-"49
-[; ;digital.c: 49:             PORTCbits.RC1 = 0;
-[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
 "50
-[; ;digital.c: 50:             PORTCbits.RC0 = 0;
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+[; ;digital.c: 50:             PORTCbits.RC1 = 0;
+[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
 "51
-[; ;digital.c: 51:         }
+[; ;digital.c: 51:             PORTCbits.RC0 = 0;
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+"52
+[; ;digital.c: 52:         }
 }
 [e :U 72 ]
 [e :U 71 ]
-"54
-[; ;digital.c: 54:     }
+"55
+[; ;digital.c: 55:     }
 }
 [e :U 67 ]
 [e $U 68  ]
 [e :U 69 ]
-"56
-[; ;digital.c: 56: }
+"57
+[; ;digital.c: 57: }
 [e :UE 66 ]
 }

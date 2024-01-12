@@ -1203,6 +1203,7 @@ void main(void) {
 
 
 
+
     while(1){
 
         if(PORTCbits.RC2 == 1){
