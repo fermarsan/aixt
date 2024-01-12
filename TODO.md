@@ -10,11 +10,11 @@ Tasks to do in Aixt
 - [ ] Include `api_path` to the `gen` class #feat
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] Update the Aixt executable path #bug
-- [ ] Implements C-preprocessor directives #feat
 - [ ] for temporal variables as references (writeable)
 
 ### In Progress
 
+- [ ] Implements C-preprocessor directives #feat @fermarsan
 - [ ] Implements the `match` expression #feat @fermarsan
    
 ### Done ✓
