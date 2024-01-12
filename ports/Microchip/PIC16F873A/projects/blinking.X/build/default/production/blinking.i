@@ -1736,10 +1736,8 @@ void main(void) {
     ADCON1bits.PCFG = 0b00000110;
 
     TRISBbits.TRISB0 = 0;
-    TRISCbits.TRISC7 = 0;
 
     PORTBbits.RB0 = 0;
-    PORTCbits.RC7 = 0;
 
     while(1){
 

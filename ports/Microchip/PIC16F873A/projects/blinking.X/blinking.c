@@ -28,10 +28,8 @@ void main(void) {
     ADCON1bits.PCFG = 0b00000110;  // Se defien todos los pines como I/O digitales
     
     pin_setup(b0_s, out);
-    pin_setup(c7_s, out);
     
     pin_write(b0, 0);
-    pin_write(c7, 0);
     
     while(1){
     

@@ -11,12 +11,12 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
+$C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
 end_init CODE 0 0 0 2 2 1
 config CONFIG 4 2007 2007 1 2 1
 $dist/default/production\blinking.X.production.o
 cinit CODE 0 7FD 7FD 3 2 1
-maintext CODE 0 7CA 7CA 33 2 1
+maintext CODE 0 7CC 7CC 31 2 1
 cstackBANK0 BANK0 1 20 20 3 1 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
@@ -29,21 +29,21 @@ RAM 23-7D 1
 RAM A0-FD 1
 BANK0 23-7D 1
 BANK1 A0-FD 1
-CONST 2-7C9 2
+CONST 2-7CB 2
 CONST 800-FFF 2
-ENTRY 2-7C9 2
+ENTRY 2-7CB 2
 ENTRY 800-FFF 2
 IDLOC 2000-2003 2
-CODE 2-7C9 2
+CODE 2-7CB 2
 CODE 800-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-17D 1
 SFR3 180-1FD 1
 EEDATA 2100-217F 2
-STRCODE 2-7C9 2
+STRCODE 2-7CB 2
 STRCODE 800-FFF 2
-STRING 2-7C9 2
+STRING 2-7CB 2
 STRING 800-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -59,21 +59,19 @@ STRING 800-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\blinking.X.production.o
-7FD cinit CODE >342:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_1.s
-7FD cinit CODE >345:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_1.s
-7FD cinit CODE >351:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_1.s
-7FD cinit CODE >353:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_1.s
-7FE cinit CODE >354:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_1.s
-7CA maintext CODE >26:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
-7CA maintext CODE >28:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
-7D0 maintext CODE >30:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
-7D1 maintext CODE >31:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
-7D2 maintext CODE >33:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
-7D5 maintext CODE >34:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
-7D6 maintext CODE >38:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
-7D9 maintext CODE >39:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
-7E8 maintext CODE >40:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
-7EB maintext CODE >41:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
+7FD cinit CODE >338:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_1.s
+7FD cinit CODE >341:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_1.s
+7FD cinit CODE >347:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_1.s
+7FD cinit CODE >349:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_1.s
+7FE cinit CODE >350:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_1.s
+7CC maintext CODE >26:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
+7CC maintext CODE >28:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
+7D2 maintext CODE >30:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
+7D3 maintext CODE >32:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
+7D6 maintext CODE >36:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
+7D9 maintext CODE >37:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
+7E8 maintext CODE >38:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
+7EB maintext CODE >39:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\blinking.X\blinking.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -95,28 +93,27 @@ __Hspace_4 400F 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
-_main F94 0 CODE 0 maintext dist/default/production\blinking.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
+_main F98 0 CODE 0 maintext dist/default/production\blinking.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\blinking.X.production.o
-start 0 0 CODE 0 init C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
+start 0 0 CODE 0 init C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
 wtemp0 7E 0 ABS 0 - dist/default/production\blinking.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
-___stacklo 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
+___stackhi 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
+___stacklo 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
 start_initialization FFA 0 CODE 0 cinit dist/default/production\blinking.X.production.o
 _TRISBbits 86 0 ABS 0 - dist/default/production\blinking.X.production.o
-_TRISCbits 87 0 ABS 0 - dist/default/production\blinking.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\blinking.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
+___int_sp 0 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
@@ -133,7 +130,6 @@ __Lbank3 0 0 BANK3 1 bank3 -
 __Lcinit FFA 0 CODE 0 cinit -
 __Lstack 0 0 STACK 2 stack -
 _PORTBbits 6 0 ABS 0 - dist/default/production\blinking.X.production.o
-_PORTCbits 7 0 ABS 0 - dist/default/production\blinking.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 0 0 CODE 0 init -
@@ -155,8 +151,8 @@ __S0 800 0 ABS 0 - -
 __S1 23 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_12.o
-__pmaintext F94 0 CODE 0 maintext dist/default/production\blinking.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_12.o
+__pmaintext F98 0 CODE 0 maintext dist/default/production\blinking.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 _ADCON1bits 9F 0 ABS 0 - dist/default/production\blinking.X.production.o
@@ -209,7 +205,7 @@ __initialization FFA 0 CODE 0 cinit dist/default/production\blinking.X.productio
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7FD FFA 3 2
-maintext 0 7CA F94 33 2
+maintext 0 7CC F98 31 2
 cstackBANK0 1 20 20 3 1
 reset_vec 0 0 0 2 2
 # %NOTES Section

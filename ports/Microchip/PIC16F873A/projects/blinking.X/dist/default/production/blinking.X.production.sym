@@ -3,7 +3,7 @@ __S1 23 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-_main 7CA 0 CODE 0
+_main 7CC 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
 start 0 0 CODE 0
@@ -44,9 +44,7 @@ __Ltext 0 0 ABS 0
 end_of_initialization 7FD 0 CODE 0
 ___stacklo 0 0 ABS 0
 _TRISBbits 86 0 ABS 0
-_TRISCbits 87 0 ABS 0
 _PORTBbits 6 0 ABS 0
-_PORTCbits 7 0 ABS 0
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
 __Hbank0 0 0 ABS 0
@@ -93,29 +91,27 @@ intlevel5 0 0 ENTRY 0
 start_initialization 7FD 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__pmaintext 7CA 0 CODE 0
+__pmaintext 7CC 0 CODE 0
 __initialization 7FD 0 CODE 0
 %segments
 reset_vec 0 3 CODE 0 0
 cinit FFA FFF CODE FFA 0
 cstackBANK0 20 22 BANK0 20 1
-maintext F94 FF9 CODE F94 0
+maintext F98 FF9 CODE F98 0
 %locals
 dist/default/production\blinking.X.production.o
-C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdtc.\driver_tmp_1.s
-342 7FD 0 CODE 0
-345 7FD 0 CODE 0
-351 7FD 0 CODE 0
-353 7FD 0 CODE 0
-354 7FE 0 CODE 0
+C:\Users\WINDOW~1\AppData\Local\Temp\xcAsj9c.\driver_tmp_1.s
+338 7FD 0 CODE 0
+341 7FD 0 CODE 0
+347 7FD 0 CODE 0
+349 7FD 0 CODE 0
+350 7FE 0 CODE 0
 blinking.c
-26 7CA 0 CODE 0
-28 7CA 0 CODE 0
-30 7D0 0 CODE 0
-31 7D1 0 CODE 0
-33 7D2 0 CODE 0
-34 7D5 0 CODE 0
-38 7D6 0 CODE 0
-39 7D9 0 CODE 0
-40 7E8 0 CODE 0
-41 7EB 0 CODE 0
+26 7CC 0 CODE 0
+28 7CC 0 CODE 0
+30 7D2 0 CODE 0
+32 7D3 0 CODE 0
+36 7D6 0 CODE 0
+37 7D9 0 CODE 0
+38 7E8 0 CODE 0
+39 7EB 0 CODE 0
