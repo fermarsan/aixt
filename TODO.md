@@ -13,6 +13,7 @@ Tasks to do in Aixt
 - [ ] Update the Aixt executable path #bug
 - [ ] Implements C-preprocessor directives #feat
 - [ ] Improve the AIP.md file #feat @fermarsan
+- [ ] for temporal variables as references (writeable)
 
 ### In Progress
 
