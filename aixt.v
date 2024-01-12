@@ -76,10 +76,18 @@ fn main() {
 						}
 						'new_project', '-np' {
 							path, name := os.args[2], os.args[3]
+							device := os.args[4] or { 'Emulator' }
 							os.mkdir('${path}/${name}') or {}
-							// println('${aixt_path}/.template/main.v')
-							// println('${path}/${name}')
-							// os.cp('${aixt_path}/.template', '${path}/${name}') or {println('yyy')}
+							os.cp('${aixt_path}/.template/main.v', '${path}/${name}/main.v') or {}
+							os.cp_all('${aixt_path}/.vscode/', '${path}/${name}/.vscode/', true) or {}
+							mut lines := os.read_file('${path}/${name}/.vscode/settings.json') or {''}
+							$if windows {
+								lines = lines.replace('.\\aixt.v', '${os.getwd()}\\aixt.v')
+							} $else {
+								lines = lines.replace('./aixt.v', '${os.getwd()}/aixt.v')
+							}
+							lines = lines.replace('device_name', '${device}')
+							os.write_file('${path}/${name}/.vscode/settings.json', lines) or {}							
 						}
 						else {
 							println('Invalid command.')

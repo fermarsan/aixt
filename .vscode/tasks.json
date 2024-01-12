@@ -105,6 +105,49 @@
             "group": "build",
             "dependsOrder": "sequence",
             "dependsOn": ["Aixt: Build", "Aixt: Run"]
+        },
+        {
+            "label": "Aixt: New Project",
+            "type": "shell",
+            "windows": {
+                "command": [ "v run ${config:aixt_windows}",
+                            "new_project",
+                            "${input:dirName}",
+                            "${input:projectName}",
+                            "${input:device}" ],
+            },
+            "linux": {
+                "command": [ "v run ${config:aixt_linux}",
+                            "new_project",
+                            "${input:dirName}",
+                            "${input:projectName}",
+                            "${input:device}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
         }
+    ],
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "projectName",
+        "description": "Project name.",
+        "default": "project"
+      },
+      {
+        "type": "promptString",
+        "id": "dirName",
+        "description": "Directory name.",
+        "default": "."
+      },
+      {
+        "type": "promptString",
+        "id": "device",
+        "description": "Device or Board name.",
+        "default": "Emulator"
+      }
     ]
 }

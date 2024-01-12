@@ -1,8 +1,9 @@
 {
+    "aixt_linux":   "./aixt.v",
+    "aixt_windows": ".\\aixt.v",
+    "device":       "device_name",
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",
-    },
-    "editor.inlineSuggest.showToolbar": "always",
-    "julia.environmentPath": "/home/fercho/aixt"
+    }
 }

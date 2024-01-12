@@ -48,6 +48,9 @@ fn (mut gen Gen) stmt(node ast.Stmt) string {
 		ast.ForInStmt {
 			return gen.for_in_stmt(node)
 		}
+		ast.HashStmt {
+			return gen.hash_stmt(node)
+		}
 		else { panic('\n\n***** Transpiler error *****:\nUndefined statement.\n') }
 	}
 }
