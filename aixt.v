@@ -77,7 +77,8 @@ fn main() {
 						'new_project', '-np' {
 							path, name := os.args[2], os.args[3]
 							os.mkdir('${path}/${name}') or {}
-							os.cp_all('${aixt_path}/.template', '${path}/${name}', false) or {}
+							os.cp('${aixt_path}/.template/main.v', '${path}/${name}/main.v') or {}
+							os.cp_all('${aixt_path}/.vscode/', '${path}/${name}/.vscode/', true) or {}
 						}
 						else {
 							println('Invalid command.')
