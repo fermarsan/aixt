@@ -1211,7 +1211,7 @@ void main(void) {
 
     while(1){
 
-        adc_result = ADCON0bits.CHS = 0; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = ((ADRESH << 8) | ADRESL); adc_result;
+        adc_result = ADCON0bits.CHS = 2; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = ((ADRESH << 8) | ADRESL); adc_result;
 
         if ( adc_result >= 1020 ){
 

@@ -1,15 +1,27 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"731 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 731: extern volatile unsigned char TRISA __attribute__((address(0x085)));
-[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
-"25 blinking.c
-[; ;blinking.c: 25:     __addr = (unsigned char)(rc5/8) + &TRISA; __port_bit = rc5%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-[c E545 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 .. ]
-[n E545 __pin_names ra0 ra1 ra2 ra3 ra4 ra5 _ra6 _ra7 _rb0 _rb1 _rb2 _rb3 _rb4 _rb5 _rb6 _rb7 rc0 rc1 rc2 rc3 rc4 rc5 _rc6 _rc7 _rd0 _rd1 _rd2 _rd3 _rd4 _rd5 _rd6 _rd7 _re0 _re1 _re2 _re3 _re4 _re5 _re6 _re7  ]
-"216 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 216: extern volatile unsigned char PORTC __attribute__((address(0x007)));
-[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"787 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 787:     struct {
+[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S34 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 ]
+"786
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 786: typedef union {
+[u S33 `S34 1 ]
+[n S33 . . ]
+"796
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 796: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
+[v _TRISCbits `VS33 ~T0 @X0 0 e@135 ]
+"222
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 222:     struct {
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . RC0 RC1 RC2 RC3 RC4 RC5 ]
+"221
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 221: typedef union {
+[u S7 `S8 1 ]
+[n S7 . . ]
+"231
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 231: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
+[v _PORTCbits `VS7 ~T0 @X0 0 e@7 ]
 [v F36 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
 [v __delay `JF36 ~T0 @X0 0 e ]
@@ -136,102 +148,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1380
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 1380: __asm("ADCON1 equ 09Fh");
 [; <" ADCON1 equ 09Fh ;# ">
-"14 ./..\..\api\machine\pin.c
-[; ;./..\..\api\machine\pin.c: 14: unsigned char *__addr;
-[v ___addr `*uc ~T0 @X0 1 e ]
-"15
-[; ;./..\..\api\machine\pin.c: 15: unsigned char __port_bit;
-[v ___port_bit `uc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"23 blinking.c
-[; ;blinking.c: 23: void main(void) {
+"25 blinking.c
+[; ;blinking.c: 25: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"25
-[; ;blinking.c: 25:     __addr = (unsigned char)(rc5/8) + &TRISA; __port_bit = rc5%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-[e = ___addr -> + &U _TRISA * -> -> -> / -> . `E545 21 `i -> 8 `i `uc `i `x -> -> # *U &U _TRISA `i `x `*uc ]
-[e = ___port_bit -> % -> . `E545 21 `i -> 8 `i `uc ]
-[e $ ! == -> 0 `i -> 1 `i 67  ]
-[e =| *U ___addr -> << -> 1 `i -> ___port_bit `i `uc ]
-[e $U 68  ]
-[e :U 67 ]
-[e =& *U ___addr -> ~ << -> 1 `i -> ___port_bit `i `uc ]
-[e :U 68 ]
-"26
-[; ;blinking.c: 26:     __addr = (unsigned char)(rc4/8) + &TRISA; __port_bit = rc4%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-[e = ___addr -> + &U _TRISA * -> -> -> / -> . `E545 20 `i -> 8 `i `uc `i `x -> -> # *U &U _TRISA `i `x `*uc ]
-[e = ___port_bit -> % -> . `E545 20 `i -> 8 `i `uc ]
-[e $ ! == -> 0 `i -> 1 `i 69  ]
-[e =| *U ___addr -> << -> 1 `i -> ___port_bit `i `uc ]
-[e $U 70  ]
-[e :U 69 ]
-[e =& *U ___addr -> ~ << -> 1 `i -> ___port_bit `i `uc ]
-[e :U 70 ]
 "27
-[; ;blinking.c: 27:     __addr = (unsigned char)(rc3/8) + &TRISA; __port_bit = rc3%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-[e = ___addr -> + &U _TRISA * -> -> -> / -> . `E545 19 `i -> 8 `i `uc `i `x -> -> # *U &U _TRISA `i `x `*uc ]
-[e = ___port_bit -> % -> . `E545 19 `i -> 8 `i `uc ]
-[e $ ! == -> 0 `i -> 1 `i 71  ]
-[e =| *U ___addr -> << -> 1 `i -> ___port_bit `i `uc ]
-[e $U 72  ]
-[e :U 71 ]
-[e =& *U ___addr -> ~ << -> 1 `i -> ___port_bit `i `uc ]
-[e :U 72 ]
-"28
-[; ;blinking.c: 28:     __addr = (unsigned char)(rc2/8) + &TRISA; __port_bit = rc2%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-[e = ___addr -> + &U _TRISA * -> -> -> / -> . `E545 18 `i -> 8 `i `uc `i `x -> -> # *U &U _TRISA `i `x `*uc ]
-[e = ___port_bit -> % -> . `E545 18 `i -> 8 `i `uc ]
-[e $ ! == -> 0 `i -> 1 `i 73  ]
-[e =| *U ___addr -> << -> 1 `i -> ___port_bit `i `uc ]
-[e $U 74  ]
-[e :U 73 ]
-[e =& *U ___addr -> ~ << -> 1 `i -> ___port_bit `i `uc ]
-[e :U 74 ]
+[; ;blinking.c: 27:     TRISCbits.TRISC5 = 0;
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
 "29
-[; ;blinking.c: 29:     __addr = (unsigned char)(rc1/8) + &TRISA; __port_bit = rc1%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-[e = ___addr -> + &U _TRISA * -> -> -> / -> . `E545 17 `i -> 8 `i `uc `i `x -> -> # *U &U _TRISA `i `x `*uc ]
-[e = ___port_bit -> % -> . `E545 17 `i -> 8 `i `uc ]
-[e $ ! == -> 0 `i -> 1 `i 75  ]
-[e =| *U ___addr -> << -> 1 `i -> ___port_bit `i `uc ]
-[e $U 76  ]
-[e :U 75 ]
-[e =& *U ___addr -> ~ << -> 1 `i -> ___port_bit `i `uc ]
-[e :U 76 ]
-"30
-[; ;blinking.c: 30:     __addr = (unsigned char)(rc0/8) + &TRISA; __port_bit = rc0%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-[e = ___addr -> + &U _TRISA * -> -> -> / -> . `E545 16 `i -> 8 `i `uc `i `x -> -> # *U &U _TRISA `i `x `*uc ]
-[e = ___port_bit -> % -> . `E545 16 `i -> 8 `i `uc ]
-[e $ ! == -> 0 `i -> 1 `i 77  ]
-[e =| *U ___addr -> << -> 1 `i -> ___port_bit `i `uc ]
-[e $U 78  ]
-[e :U 77 ]
-[e =& *U ___addr -> ~ << -> 1 `i -> ___port_bit `i `uc ]
-[e :U 78 ]
-"33
-[; ;blinking.c: 33:     while (1) {
-[e :U 80 ]
+[; ;blinking.c: 29:     PORTCbits.RC5 = 0;
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
+"31
+[; ;blinking.c: 31:     while (1) {
+[e :U 68 ]
 {
+"33
+[; ;blinking.c: 33:         PORTCbits.RC5 = 1;
+[e = . . _PORTCbits 0 5 -> -> 1 `i `uc ]
 "34
-[; ;blinking.c: 34:         PORTC = 0b111111;
-[e = _PORTC -> -> 63 `i `uc ]
+[; ;blinking.c: 34:         _delay((unsigned long)((500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "35
-[; ;blinking.c: 35:         _delay((unsigned long)((500)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;blinking.c: 35:         PORTCbits.RC5 = 0;
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
 "36
-[; ;blinking.c: 36:         PORTC = 0b000000;
-[e = _PORTC -> -> 0 `i `uc ]
-"37
-[; ;blinking.c: 37:         _delay((unsigned long)((500)*(4000000/4000.0)));
+[; ;blinking.c: 36:         _delay((unsigned long)((500)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"40
-[; ;blinking.c: 40:     }
+"38
+[; ;blinking.c: 38:     }
 }
-[e :U 79 ]
-[e $U 80  ]
-[e :U 81 ]
-"43
-[; ;blinking.c: 43: }
+[e :U 67 ]
+[e $U 68  ]
+[e :U 69 ]
+"39
+[; ;blinking.c: 39: }
 [e :UE 66 ]
 }

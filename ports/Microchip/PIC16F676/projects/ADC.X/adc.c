@@ -42,77 +42,78 @@ void main(void) {
     
     while(1){
                 
-        adc_result = adc_read(0);
+        adc_result = adc_read(2);
         
         if ( adc_result >= 1020 ){
             
-            c0 = 1;
-            c1 = 1;
-            c2 = 1;
-            c3 = 1;
-            c4 = 1;
-            c5 = 1;            
+            pin_high(c0);
+            pin_high(c1);
+            pin_high(c2);
+            pin_high(c3);
+            pin_high(c4);
+            pin_high(c5);            
         }
         
         else if ( adc_result >= 820 ){
             
-            c0 = 1;
-            c1 = 1;
-            c2 = 1;
-            c3 = 1;
-            c4 = 1;
-            c5 = 0;        
+            pin_high(c0);
+            pin_high(c1);
+            pin_high(c2);
+            pin_high(c3);
+            pin_high(c4);
+            pin_low(c5);       
         }
         
         else if ( adc_result >= 620 ){
             
-            c0 = 1;
-            c1 = 1;
-            c2 = 1;
-            c3 = 1;
-            c4 = 0;
-            c5 = 0;     
+            pin_high(c0);
+            pin_high(c1);
+            pin_high(c2);
+            pin_high(c3);
+            pin_low(c4);
+            pin_low(c5);     
         }
         
         else if ( adc_result >= 420 ){
             
-            c0 = 1;
-            c1 = 1;
-            c2 = 1;
-            c3 = 0;
-            c4 = 0;
-            c5 = 0;       
+            pin_high(c0);
+            pin_high(c1);
+            pin_high(c2);
+            pin_low(c3);
+            pin_low(c4);
+            pin_low(c5);       
         }
         
         else if ( adc_result >= 220 ){
             
-            c0 = 1;
-            c1 = 1;
-            c2 = 0;
-            c3 = 0;
-            c4 = 0;
-            c5 = 0;      
+            pin_high(c0);
+            pin_high(c1);
+            pin_low(c2);
+            pin_low(c3);
+            pin_low(c4);
+            pin_low(c5);      
         }
         
         else if ( adc_result >= 120 ){
             
-            c0 = 1;
-            c1 = 0;
-            c2 = 0;
-            c3 = 0;
-            c4 = 0;
-            c5 = 0;        
+            pin_high(c0);
+            pin_low(c1);
+            pin_low(c2);
+            pin_low(c3);
+            pin_low(c4);
+            pin_low(c5);        
         }
         
         else {
             
-            c0 = 0;
-            c1 = 0;
-            c2 = 0;
-            c3 = 0;
-            c4 = 0;
-            c5 = 0;       
+            pin_low(c0);
+            pin_low(c1);
+            pin_low(c2);
+            pin_low(c3);
+            pin_low(c4);
+            pin_low(c5);       
         }
     
     }
 }
+

@@ -33,9 +33,6 @@ void main(void) {
     pin_write(c0, 0);   // Inicia la salida C0 en cero
     pin_write(c1, 0);   // Inicia la salida C1 en cero
     
-    
-    
-    
     while(1){
         
         if(c2 == 1){

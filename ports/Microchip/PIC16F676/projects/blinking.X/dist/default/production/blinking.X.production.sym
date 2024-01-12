@@ -1,15 +1,13 @@
 __S0 3FF 0 ABS 0
-__S1 25 0 ABS 0
+__S1 23 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-_main 39F 0 CODE 0
+_main 3D9 0 CODE 0
 ___sp 7FE 0 STACK 2
 btemp 5E 0 ABS 0
 start 0 0 CODE 0
-_TRISA 85 0 ABS 0
 reset_vec 0 0 CODE 0
-_PORTC 7 0 ABS 0
 wtemp0 5E 0 ABS 0
 __Hosccal 3FF 0 CODE 0
 __Losccal 3FF 0 CODE 0
@@ -36,7 +34,6 @@ __Hcode 7FE 0 ABS 0
 __Lcode 7FE 0 ABS 0
 __HcstackBANK0 7FE 0 ABS 0
 __LcstackBANK0 7FE 0 ABS 0
-___addr 24 0 BANK0 1
 __pcstackBANK0 20 0 BANK0 1
 __Hinit 0 0 CODE 0
 __Linit 0 0 CODE 0
@@ -44,10 +41,9 @@ __end_of_main 3FD 0 CODE 0
 __Htext 7FE 0 ABS 0
 __Ltext 7FE 0 ABS 0
 end_of_initialization 3FD 0 CODE 0
-__HnvBANK0 7FE 0 ABS 0
-__LnvBANK0 7FE 0 ABS 0
 ___stacklo 0 0 ABS 0
-__pnvBANK0 23 0 BANK0 1
+_TRISCbits 87 0 ABS 0
+_PORTCbits 7 0 ABS 0
 __Hstrings 7FE 0 ABS 0
 __Lstrings 7FE 0 ABS 0
 __Hbank0 7FE 0 ABS 0
@@ -76,7 +72,6 @@ __Hspace_3 0 0 ABS 0
 __Lspace_3 0 0 ABS 0
 __Hspace_4 400F 0 ABS 0
 __Lspace_4 0 0 ABS 0
-___port_bit 23 0 BANK0 1
 __Hend_init 1 0 CODE 0
 __Lend_init 0 0 CODE 0
 __Hreset_vec 0 0 CODE 0
@@ -90,30 +85,27 @@ intlevel5 0 0 ENTRY 0
 start_initialization 3FD 0 CODE 0
 __Hmaintext 7FE 0 ABS 0
 __Lmaintext 7FE 0 ABS 0
-__pmaintext 39F 0 CODE 0
+__pmaintext 3D9 0 CODE 0
 __initialization 3FD 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
 cinit 7FA 7FD CODE 7FA 0
-cstackBANK0 20 24 BANK0 20 1
-maintext 73E 7F9 CODE 73E 0
+cstackBANK0 20 22 BANK0 20 1
+maintext 7B2 7F9 CODE 7B2 0
 %locals
 dist/default/production\blinking.X.production.o
-C:\Users\WINDOW~1\AppData\Local\Temp\xcAsdq0.\driver_tmp_1.s
+C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1fs.\driver_tmp_1.s
+255 3FD 0 CODE 0
+258 3FD 0 CODE 0
+264 3FD 0 CODE 0
 266 3FD 0 CODE 0
-269 3FD 0 CODE 0
-275 3FD 0 CODE 0
-277 3FD 0 CODE 0
-278 3FE 0 CODE 0
+267 3FE 0 CODE 0
 blinking.c
-23 39F 0 CODE 0
-25 39F 0 CODE 0
-26 3AB 0 CODE 0
-27 3B5 0 CODE 0
-28 3BF 0 CODE 0
-29 3C9 0 CODE 0
-30 3D3 0 CODE 0
-34 3DC 0 CODE 0
-35 3DF 0 CODE 0
-36 3EC 0 CODE 0
-37 3EE 0 CODE 0
+25 3D9 0 CODE 0
+27 3D9 0 CODE 0
+29 3DB 0 CODE 0
+31 3DD 0 CODE 0
+33 3DD 0 CODE 0
+34 3DF 0 CODE 0
+35 3EC 0 CODE 0
+36 3EE 0 CODE 0

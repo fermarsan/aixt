@@ -1179,46 +1179,32 @@ extern __bank0 __bit __timeout;
 # 17 "blinking.c" 2
 
 
-# 1 "./..\\..\\api\\builtin.c" 1
-# 19 "./..\\..\\api\\builtin.c"
-enum __pin_names {
-     ra0, ra1, ra2, ra3, ra4, ra5, _ra6, _ra7,
-    _rb0, _rb1, _rb2, _rb3, _rb4, _rb5, _rb6, _rb7,
-     rc0, rc1, rc2, rc3, rc4, rc5, _rc6, _rc7,
-    _rd0, _rd1, _rd2, _rd3, _rd4, _rd5, _rd6, _rd7,
-    _re0, _re1, _re2, _re3, _re4, _re5, _re6, _re7
 
-};
-# 19 "blinking.c" 2
-
-# 1 "./..\\..\\api\\machine\\pin.c" 1
-# 14 "./..\\..\\api\\machine\\pin.c"
-unsigned char *__addr;
-unsigned char __port_bit;
+# 1 "./../../api/builtin.c" 1
 # 20 "blinking.c" 2
 
-# 1 "./..\\..\\api\\time\\sleep_ms.c" 1
+# 1 "./../../api/machine/pin.c" 1
 # 21 "blinking.c" 2
+
+# 1 "./../../api/time/sleep_ms.c" 1
+# 22 "blinking.c" 2
+
+# 1 "./../../api/time/sleep_us.c" 1
+# 23 "blinking.c" 2
 
 
 void main(void) {
 
-    __addr = (unsigned char)(rc5/8) + &TRISA; __port_bit = rc5%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-    __addr = (unsigned char)(rc4/8) + &TRISA; __port_bit = rc4%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-    __addr = (unsigned char)(rc3/8) + &TRISA; __port_bit = rc3%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-    __addr = (unsigned char)(rc2/8) + &TRISA; __port_bit = rc2%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-    __addr = (unsigned char)(rc1/8) + &TRISA; __port_bit = rc1%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
-    __addr = (unsigned char)(rc0/8) + &TRISA; __port_bit = rc0%8; if(0==1) *__addr |= 0x01<<__port_bit; else *__addr &= ~(0x01<<__port_bit);
+    TRISCbits.TRISC5 = 0;
 
+    PORTCbits.RC5 = 0;
 
     while (1) {
-        PORTC = 0b111111;
-        _delay((unsigned long)((500)*(4000000/4000.0)));
-        PORTC = 0b000000;
-        _delay((unsigned long)((500)*(4000000/4000.0)));
 
+        PORTCbits.RC5 = 1;
+        _delay((unsigned long)((500)*(4000000/4000.0)));
+        PORTCbits.RC5 = 0;
+        _delay((unsigned long)((500)*(4000000/4000.0)));
 
     }
-
-
 }

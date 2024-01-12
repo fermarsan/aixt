@@ -3,50 +3,7 @@
 [d edition pro ]
 [d chip 16F676 ]
 [d frameptr 0 ]
-"25 C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
-[e E545 __pin_names `uc
-ra0 0
-ra1 1
-ra2 2
-ra3 3
-ra4 4
-ra5 5
-_ra6 6
-_ra7 7
-_rb0 8
-_rb1 9
-_rb2 10
-_rb3 11
-_rb4 12
-_rb5 13
-_rb6 14
-_rb7 15
-rc0 16
-rc1 17
-rc2 18
-rc3 19
-rc4 20
-rc5 21
-_rc6 22
-_rc7 23
-_rd0 24
-_rd1 25
-_rd2 26
-_rd3 27
-_rd4 28
-_rd5 29
-_rd6 30
-_rd7 31
-_re0 32
-_re1 33
-_re2 34
-_re3 35
-_re4 36
-_re5 37
-_re6 38
-_re7 39
-]
-"23
+"25 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
 [v _main main `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
@@ -56,16 +13,28 @@ _re7 39
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"14 C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\api\machine\pin.c
-[v ___addr __addr `*.4uc  1 e 1 0 ]
-"15
-[v ___port_bit __port_bit `uc  1 e 1 0 ]
-"216 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h
-[v _PORTC PORTC `VEuc  1 e 1 @7 ]
-"731
-[v _TRISA TRISA `VEuc  1 e 1 @133 ]
-"23 C:\Users\WINDOWS10\OneDrive - Universidad Distrital Francisco José de Caldas\Documentos\Cesar\PROYECTO DE GRADO\aixt-pic-16-cesar\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+[s S39 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+]
+"231 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h
+[u S46 . 1 `S39 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES46  1 e 1 @7 ]
+[s S22 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+]
+"796
+[u S29 . 1 `S22 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES29  1 e 1 @135 ]
+"25 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
 [v _main main `(v  1 e 1 0 ]
 {
-"43
+"39
 } 0
