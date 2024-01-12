@@ -77,9 +77,7 @@ fn main() {
 						'new_project', '-np' {
 							path, name := os.args[2], os.args[3]
 							os.mkdir('${path}/${name}') or {}
-							// println('${aixt_path}/.template/main.v')
-							// println('${path}/${name}')
-							// os.cp('${aixt_path}/.template', '${path}/${name}') or {println('yyy')}
+							os.cp_all('${aixt_path}/.template', '${path}/${name}', false) or {}
 						}
 						else {
 							println('Invalid command.')
