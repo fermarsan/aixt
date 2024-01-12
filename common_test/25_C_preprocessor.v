@@ -1,8 +1,7 @@
 // Aixt supports any C preprocessor directive
 
 #define	time	1500
-
-import time { sleep }
+#include <stdio.h>
 
 a := 0
 

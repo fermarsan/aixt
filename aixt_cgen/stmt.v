@@ -57,3 +57,12 @@ fn (mut gen Gen) import_stmt(node ast.Import) string {
 	// println(node.syms)	
 	return ''
 }
+
+fn (mut gen Gen) hash_stmt(node ast.HashStmt) string {
+	if node.kind == 'include' {
+		gen.includes += '#${node.val}\n'
+	} else {
+		gen.definitions += '#${node.val}\n'
+	}
+	return ''
+}
