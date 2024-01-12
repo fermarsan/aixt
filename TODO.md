@@ -21,5 +21,3 @@ Tasks to do in Aixt
 
 - [x] Improve the API.md file #feat @fermarsan
 - [x] Add a `New project` Aixt command and vscode task #feat
-- [x] New API folder tree #feat
-- [x] Design the text logo #feat
