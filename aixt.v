@@ -79,16 +79,13 @@ fn main() {
 							os.mkdir('${path}/${name}') or {}
 							os.cp('${aixt_path}/.template/main.v', '${path}/${name}/main.v') or {}
 							os.cp_all('${aixt_path}/.vscode/', '${path}/${name}/.vscode/', true) or {}
-							mut lines := os.read_lines('${path}/${name}/.vscode/settings.json') or {['']}
-							for line in lines {
-								if line.contains('aixt.v:') {
-									$if windows {
-										line = line.replace('.\\aixt.v', '${os.getwd()}\\aixt.v')
-									} else {
-										line = line.replace('./aixt.v', '${os.getwd()}/aixt.v')
-									}
-								}
+							mut lines := os.read_file('${path}/${name}/.vscode/settings.json') or {''}
+							$if windows {
+								lines = lines.replace('.\\aixt.v', '${os.getwd()}\\aixt.v')
+							} $else {
+								lines = lines.replace('./aixt.v', '${os.getwd()}/aixt.v')
 							}
+							os.write_file('${path}/${name}/.vscode/settings.json', lines) or {}							
 						}
 						else {
 							println('Invalid command.')
