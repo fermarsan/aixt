@@ -1,7 +1,7 @@
 {
     "aixt_linux":   "./aixt.v",
     "aixt_windows": ".\\aixt.v",
-    "device":       "Emulator",
+    "device":       "device_name",
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",

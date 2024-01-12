@@ -76,6 +76,7 @@ fn main() {
 						}
 						'new_project', '-np' {
 							path, name := os.args[2], os.args[3]
+							device := os.args[4] or { 'Emulator' }
 							os.mkdir('${path}/${name}') or {}
 							os.cp('${aixt_path}/.template/main.v', '${path}/${name}/main.v') or {}
 							os.cp_all('${aixt_path}/.vscode/', '${path}/${name}/.vscode/', true) or {}
@@ -85,6 +86,7 @@ fn main() {
 							} $else {
 								lines = lines.replace('./aixt.v', '${os.getwd()}/aixt.v')
 							}
+							lines = lines.replace('device_name', '${device}')
 							os.write_file('${path}/${name}/.vscode/settings.json', lines) or {}							
 						}
 						else {
