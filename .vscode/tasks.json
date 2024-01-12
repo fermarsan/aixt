@@ -112,14 +112,15 @@
             "windows": {
                 "command": [ "v run ${config:aixt_windows}",
                             "new_project",
-                            "${config:device}",
-                            "${file}" ],
+                            "${input:dirName}",
+                            "${input:projectName}",
+                            "${input:device}" ],
             },
             "linux": {
                 "command": [ "v run ${config:aixt_linux}",
                             "new_project",
-                            "${input:projectName}",
                             "${input:dirName}",
+                            "${input:projectName}",
                             "${input:device}" ],
             },
             "problemMatcher": ["$tsc"],
