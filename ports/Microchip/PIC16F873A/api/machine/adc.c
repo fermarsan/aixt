@@ -16,7 +16,7 @@
 
 #define adc_read(CHANNEL) \
     ADCON0bits.CHS = CHANNEL; /* Asigna el canal del ADC */ \
-    adc_reading() // Función para retornar el valor del ADC
+    adc_reading() /* Función para retornar el valor del ADC*/ 
 
 unsigned int adc_reading(){
     ADCON0bits.GO_DONE = 1; /* Inicia la conversión */ 
