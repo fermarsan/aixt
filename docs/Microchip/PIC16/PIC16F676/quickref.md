@@ -25,14 +25,14 @@ Luego, para facilitar la implementación (y no generar código inncesario) de es
 - `a5`   Nombre del bit para leer el pin como entrada o salida `a5`
 
 ### Componentes Integrados 
-Cuenta con siete entradas analogicas que se encuentran distribuidas entre en el puerto A y el puerto C.
+Cuenta con ocho pines analogicas que se encuentran distribuidas entre en el puerto A y el puerto C.
 
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 
 |:------:|---|---|---|---|---|---|
 | **A**  |AN0|AN1|AN2|-  |AN3|-  |
 | **C**  |AN4|AN5|AN6|AN7|-  |-  |
 
-#### Funciones soportadas
+### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales y para realizar una conversión analogico a digital.
 
 name                    | description
@@ -42,7 +42,7 @@ name                    | description
 `pin_write(pin, val)`   | Escribe `val` en `pin`
 `pin_read(pin)`         | lee `pin`
 `adc_setup()`           | Configura el `adc` 
-`adc_setup()`           | Configura el canal del `adc`
+`adc_read(channel)`     | Configura el canal `channel` del `adc`
 `sleep(time)`           | Retardo en `seg`
 `sleep_us(time)`        | Retardo en `microseg`
 `sleep_ms(time)`        | Retardo en `miliseg`
