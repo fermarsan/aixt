@@ -21,5 +21,5 @@
 unsigned int adc_reading(){
     ADCON0bits.GO_DONE = 1; /* Inicia la conversión */ 
     while (ADCON0bits.GO_DONE == 1); /* Espera a que la conversión termine */
-    return ((ADRESH << 8) | ADRESL); //adc_result = ((ADRESH << 8) | ADRESL); /* Devuelve el valor del ADC */
+    return ((ADRESH << 8) | ADRESL); /* Devuelve el valor del ADC */
 }
