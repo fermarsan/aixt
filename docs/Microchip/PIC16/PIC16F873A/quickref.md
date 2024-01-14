@@ -2,12 +2,12 @@
 ## Referencia del PIC16 utilizado de la marca MICROCHIP
 - PIC16F873A
 
-**NOTA:** Este microcontrolador PIC16F solo cuenta con salidas digitales, entradas digitales, ADC, PWM y comunicación serial.
+**NOTA:** Este microcontrolador PIC16F cuenta con salidas digitales, entradas digitales, ADC, PWM y comunicación serial.
 
 ## Nombres de los Pines
 Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
-### Nombres de los pines del PIC16F676
+### Nombres de los pines del PIC16F873A
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:------:|---|---|---|---|---|---|---|---|
 | **A**  | a0| a1| a2| a3| a4| a5| - | - |
@@ -25,7 +25,7 @@ Luego, para facilitar la implementación (y no generar código inncesario) de es
 - `b5`   Nombre del bit para leer el pin como entrada o salida `b5`
 
 ### Componentes Integrados 
-Cuenta con seis pines analogicos que se encuentran distribuidas entre en el puerto A.
+- Cuenta con seis pines analogicos que se encuentran distribuidas en el puerto A.
 
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 
 |:------:|---|---|---|---|---|---|---|---|
@@ -33,7 +33,7 @@ Cuenta con seis pines analogicos que se encuentran distribuidas entre en el puer
 | **B**  | - | - | - | - | - | - | - | - |
 | **C**  | - | - | - | - | - | - | - | - |
 
-Cuenta con dos pines para la modulacion del PWM.
+- Cuenta con dos pines para la modulacion del PWM.
 
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:------:|---|---|---|---|---|---|---|---|
@@ -41,7 +41,7 @@ Cuenta con dos pines para la modulacion del PWM.
 | **B**  | - | - | - | - | - | - | - | - |
 | **C**  | - | c1| c2| - | - | - | - | - |
 
-Cuenta con dos pines para la cominicación serial.   
+- Cuenta con dos pines para la cominicación serial.   
 
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:------:|---|---|---|---|---|---|---|---|
@@ -49,25 +49,25 @@ Cuenta con dos pines para la cominicación serial.
 | **B**  | - | - | - | - | - | - | - | - |
 | **C**  | - | - | - | - | - | - | c6| c7|
 
-#### Funciones soportadas
-Las funciones que contiene la API entradas o salidas digitales y para realizar una conversión analogico a digital.
+### Funciones soportadas
+Las funciones que contiene la API entradas o salidas digitales, conversor analogico a digital, modulación pwm y comunicación serial.
 
-name                    | description
-------------------------|---------------------------------------------
-`pin_high(pin)`         | Encender `pin`
-`pin_low(pin)`          | Apagar `pin`
-`pin_write(pin, val)`   | Escribe `val` en `pin`
-`pin_read(pin)`         | lee `pin`
-`adc_setup()`           | Configura el `adc` 
-`adc_read()`            | Configura el canal del `adc`
-`adc_reading()`         | Alamacena el valor del `adc`
-`pwm_setup()`           | Configura el `pwm`
-`pwm_write()`           | Calcula el ciclo de trabajo del `pwm`
-`uart_setup()`          | Configura el `uart`
-`print()`               | Configura e imprime el mensaje del `uart`
-`sleep(time)`           | Retardo en `seg`
-`sleep_us(time)`        | Retardo en `microseg`
-`sleep_ms(time)`        | Retardo en `miliseg`
+name                             | description
+---------------------------------|------------------------------------------------------
+`pin_high(pin)`                  | Encender `pin`
+`pin_low(pin)`                   | Apagar `pin`
+`pin_write(pin, val)`            | Escribe `val` en `pin`
+`pin_read(pin)`                  | lee `pin`
+`adc_setup()`                    | Configura el `adc` 
+`adc_read(channel)`              | Configura el canal `channel` del `adc`
+`adc_reading()`                  | Alamacena el valor del `adc`
+`pwm_setup(pin1, pin2)`          | Configura el resgitro `pin1` y la salida en `pin2`
+`pwm_write(duty, pin)`           | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
+`uart_setup()`                   | Configura el `uart`
+`print(menssage)`                | Configura el `menssage` y lo `print`
+`sleep(time)`                    | Retardo en `seg`
+`sleep_us(time)`                 | Retardo en `microseg`
+`sleep_ms(time)`                 | Retardo en `miliseg`
 
 ## Tiempo
 ```go
@@ -211,7 +211,7 @@ while(1){
               
     adc = adc_reading();
          
-    sprintf(caracteres, "ADC CH0: %u\r\n", adc); // Almacena la cadena de caracteres en la variable caracteres
+    sprintf(caracteres, "ADC CH0: %u\r\n", adc); // Cambia el formato del ADC
     print(caracteres);   // Imprime el mensaje
     __delay_ms(200);     // Tiempo para no saturar la ventana de mensajes 
     

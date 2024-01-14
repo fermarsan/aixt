@@ -14,8 +14,8 @@
     ADCON0 = 0b11001000; /* Ajusta todos las entradas como analogicos */\
     ADCON0bits.ADON = 1
 
-#define adc_read(CHANNEL) \
-    ADCON0bits.CHS = CHANNEL; /* Asigna el canal del ADC */ \
+#define adc_read(channel) \
+    ADCON0bits.CHS = channel; /* Asigna el canal del ADC */ \
     adc_reading() /* Función para retornar el valor del ADC*/ 
 
 unsigned int adc_reading(){
