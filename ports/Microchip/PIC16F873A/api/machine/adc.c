@@ -14,12 +14,12 @@
     ADCON0 = 0b11001000; /* Ajusta todos las entradas como analogicos */\
     ADCON0bits.ADON = 1
 
-#define adc_read(CHANNEL) \
-    ADCON0bits.CHS = CHANNEL; /* Asigna el canal del ADC */ \
-    adc_reading() // Función para retornar el valor del ADC
+#define adc_read(channel) \
+    ADCON0bits.CHS = channel; /* Asigna el canal del ADC */ \
+    adc_reading() /* Función para retornar el valor del ADC*/ 
 
 unsigned int adc_reading(){
     ADCON0bits.GO_DONE = 1; /* Inicia la conversión */ 
     while (ADCON0bits.GO_DONE == 1); /* Espera a que la conversión termine */
-    return ((ADRESH << 8) | ADRESL); //adc_result = ((ADRESH << 8) | ADRESL); /* Devuelve el valor del ADC */
+    return ((ADRESH << 8) | ADRESL); /* Devuelve el valor del ADC */
 }
