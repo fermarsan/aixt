@@ -1,7 +1,7 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: builder.v
 // Author: Fernando Martínez Santa
-// Date: 2023
+// Date: 2023-2024
 // License: MIT
 //
 // Description: This file contains the functions to make a source code project in Aixt.
@@ -34,17 +34,6 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	c_gen.pref.enable_globals = true
 	c_gen.setup = setup_file
 
-	// do the aliases replacement
-	// mut source := os.read_file(path) or { 'Cannot read the file...' }	// read the source code
-	// for alias in c_gen.setup.value('aliases').as_map().keys() { // replace aliases in source
-	// 	source = source.replace(
-	// 		alias,
-	// 		(c_gen.setup.value('aliases').as_map()[alias] or {''}).string()
-	// 	)
-	// }
-	// os.write_file('${os.dir(path)}/temp.v', source) or {}	// write the modified source code to a temporary file
-
-	// mut transpiled := c_gen.gen('${os.dir(path)}/temp.v') // transpile Aixt (V) to C
 	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
 	for alias in c_gen.setup.value('aliases').as_map().keys() { // replace aliases in the transpiled code
