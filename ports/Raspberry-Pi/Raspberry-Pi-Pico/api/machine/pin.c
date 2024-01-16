@@ -1,21 +1,5 @@
 #define out OUTPUT
 
-//#define out1 OUTPUT
-
-//#define out2 OUTPUT
-
-//#define out3 OUTPUT
-
-//#define out4 OUTPUT
-
-//#define out5 OUTPUT
-
-//#define val INPUT
-
-//#define pot INPUT
-
-//#define BRILLO INPUT
-
 #define in INPUT_PULLUP
 
 #define pin_mode(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
