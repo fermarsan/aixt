@@ -110,6 +110,9 @@ fn (mut gen Gen) expr(node ast.Expr) string {
 		ast.BoolLiteral {
 			return gen.bool_literal(node)
 		}
+		ast.EnumVal {
+			return gen.enum_val(node)
+		}
 		ast.EmptyExpr {
 			return ''
 		}

@@ -28,3 +28,7 @@ fn (mut gen Gen) enum_field(node ast.EnumField) string {
 		}
 	}
 }
+
+fn (mut gen Gen) enum_val(node ast.EnumVal) string {
+	return '${node.val}'
+}

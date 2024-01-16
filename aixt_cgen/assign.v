@@ -25,10 +25,17 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 			gen.idents[var_name] = struct { // add the new symbol
 				kind: ast.IdentKind.variable
 			}
+			// println('XXXX--${node.right_types[i]}--XXXX\n')
 			gen.idents[var_name].typ = match node.right_types[i] {
-				ast.int_literal_type_idx { ast.int_type_idx }
-				ast.float_literal_type_idx { ast.f32_type_idx }
-				else { node.right_types[i] }	
+				ast.int_literal_type_idx { 
+					ast.int_type_idx 
+				}
+				ast.float_literal_type_idx { 
+					ast.f32_type_idx 
+				}
+				else { 
+					node.right_types[i] 
+				}	
 			}
 			var_type = gen.table.type_kind(gen.idents[var_name].typ).str()
 			match var_type {
