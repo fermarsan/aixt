@@ -36,6 +36,7 @@ mut:
 		elem_type	ast.Type
 		len			int
 	}
+	types			[]string
 pub mut:
 	pref  			&pref.Preferences = unsafe { nil }
 	setup 			toml.Doc
