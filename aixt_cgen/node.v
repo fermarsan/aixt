@@ -1,7 +1,7 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
 // File Name: node.v
 // Author: Fernando Martínez Santa
-// Date: 2023
+// Date: 2023-2024
 // License: MIT
 //
 // Description: code generation for AST nodes.
