@@ -27,6 +27,9 @@ fn (mut gen Gen) stmt(node ast.Stmt) string {
 		ast.FnDecl {
 			return gen.fn_decl(node)
 		}
+		ast.EnumDecl {
+			return gen.enum_decl(node)
+		}
 		ast.AssignStmt {
 			return gen.assign_stmt(node)
 		}

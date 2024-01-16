@@ -79,6 +79,9 @@ fn (mut gen Gen) ast_node(node ast.Node) string {
 		ast.GlobalField {
 			return gen.global_field(node)
 		}
+		ast.EnumField {
+			return gen.enum_field(node)
+		}
 		ast.IfBranch { // statement block of "if" and "else" expressions
 			return gen.if_branch(node)
 		}
