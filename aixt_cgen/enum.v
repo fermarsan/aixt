@@ -10,7 +10,7 @@ module aixt_cgen
 import v.ast
 
 fn (mut gen Gen) enum_decl(node ast.EnumDecl) string {
-	mut out := 'enum ${node.name} {\n'
+	mut out := 'enum ${node.name.after_char(`.`)} {\n'
 	for f in node.fields {
 		out += '${gen.ast_node(f)}'
 	}
@@ -24,7 +24,7 @@ fn (mut gen Gen) enum_field(node ast.EnumField) string {
 			return '${node.name},\n'
 		} 
 		else {
-			return '${gen.ast_node(node.expr)},\n'
+			return '${node.name} = ${gen.ast_node(node.expr)},\n'
 		}
 	}
 }
