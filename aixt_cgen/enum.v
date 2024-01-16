@@ -10,6 +10,7 @@ module aixt_cgen
 import v.ast
 
 fn (mut gen Gen) enum_decl(node ast.EnumDecl) string {
+	gen.types << node.name
 	mut out := 'enum ${node.name.after_char(`.`)} {\n'
 	for f in node.fields {
 		out += '${gen.ast_node(f)}'
