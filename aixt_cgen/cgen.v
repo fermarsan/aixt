@@ -36,7 +36,7 @@ mut:
 		elem_type	ast.Type
 		len			int
 	}
-	types			[]string
+	type_names		[]string
 pub mut:
 	pref  			&pref.Preferences = unsafe { nil }
 	setup 			toml.Doc
@@ -59,6 +59,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.out = gen.ast_node(gen.file) // starts from the main node (file)
 	println('\n===== Symbol table =====\n${gen.symbol_table()}')
 	gen.out_format()
+	println(gen.table.type_idxs)
 	return gen.out
 }
 

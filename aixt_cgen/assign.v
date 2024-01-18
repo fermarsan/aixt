@@ -25,7 +25,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 			gen.idents[var_name] = struct { // add the new symbol
 				kind: ast.IdentKind.variable
 			}
-			// println('XXXX--${node.right_types[i]}--XXXX\n')
+			println('XXXX--${(node.right_types[i])}--XXXX\n')
 			gen.idents[var_name].typ = match node.right_types[i] {
 				ast.int_literal_type_idx { 
 					ast.int_type_idx 
@@ -38,6 +38,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 				}	
 			}
 			var_type = gen.table.type_kind(gen.idents[var_name].typ).str()
+			println('XXXX--${var_type}--XXXX\n')
 			match var_type {
 				'array' {
 					gen.idents[var_name].len = (node.right[i] as ast.ArrayInit).exprs.len // array len

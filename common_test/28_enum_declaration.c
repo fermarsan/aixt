@@ -14,8 +14,14 @@ enum Color {
 	red = 10,
 	blue,
 	green,
+};enum Zzz {
+	transpile,
+	uh,
+	transpile_file,
 };
 int main() {
 	toml.Any(toml.Null{}) c1 = green;
+	toml.Any(toml.Null{}) c2 = uh;
+	toml.Any(toml.Null{}) c3 = red;
 	return 0;
 }
