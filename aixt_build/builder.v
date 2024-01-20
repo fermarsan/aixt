@@ -18,7 +18,7 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	mut c_gen := aixt_cgen.Gen{
 		file: &ast.File{}
 		table: ast.new_table()
-		base_path: aixt_path
+		transpiler_path: aixt_path
 		out: ''
 		includes: ''
 		definitions: ''

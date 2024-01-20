@@ -19,7 +19,7 @@ pub struct Gen {
 mut:	
 	file  			&ast.File  = unsafe { nil }
 	table 			&ast.Table = unsafe { nil }
-	base_path		string
+	transpiler_path string
 	out   			string
 	includes		string
 	definitions		string
@@ -28,6 +28,7 @@ mut:
 	cond_assign		bool
 	// temps_cont	int
 	level_cont		int
+	// idents			[]ast.Ident
 	idents			map[string] struct {
 	mut:
 		kind    	ast.IdentKind	
@@ -55,11 +56,12 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// gen.table.cur_fn.scope.children[0].objets['_i'] = 0
 	// println('${gen.table.cur_fn.scope.children[0]}')
 	// println('a' in gen.table.cur_fn.scope.children[0].objects)
+	println(gen.file.scope.children[0].objects.keys())
 	println('\n===== Top-down node analysis =====')
 	gen.out = gen.ast_node(gen.file) // starts from the main node (file)
 	println('\n===== Symbol table =====\n${gen.symbol_table()}')
 	gen.out_format()
-	println(gen.table.type_idxs)
+	// println(gen.file.used_fns)
 	return gen.out
 }
 
@@ -101,13 +103,22 @@ fn (mut gen Gen) ast_node(node ast.Node) string {
 
 fn (mut gen Gen) symbol_table() string {
 	mut msg := ''
-	for key, val in gen.idents {
+	// msg = gen.file.scope.str()
+	for key, val in gen.file.scope.children[0].objects {
 		msg += '${val.kind} - ${key} - ${gen.table.type_kind(val.typ)}' + if val.len != 0 { 
 			'[${val.len}] - ${gen.table.type_kind(val.elem_type)}\n' 
 		} else {
 			'\n'
 		}
 	}
+	println(gen.table.type_symbols)
+	// for key, val in gen.idents {
+	// 	msg += '${val.kind} - ${key} - ${gen.table.type_kind(val.typ)}' + if val.len != 0 { 
+	// 		'[${val.len}] - ${gen.table.type_kind(val.elem_type)}\n' 
+	// 	} else {
+	// 		'\n'
+	// 	}
+	// }
 	return msg
 }
 
@@ -140,57 +151,3 @@ fn (mut gen Gen) out_format() {
 	temp = temp.replace('\t}', '}')
 	gen.out = temp + '\n'
 }
-
-
-  
-
-
-// creating settings.h
-// ast.File {
-// base_path := os.dir(gen.file.path)
-// // println(base_path)
-// mut out_settings := os.create('${base_path}/settings.h') or {	// creates the settings.h file
-// 	println('Failed to create file')			// from setup.toml
-// 	return false
-// }
-// defer { out_settings.close() }
-
-// mut s := '#ifndef _SETTINGS_H_\n#define _SETTINGS_H_\n\n#include "api/builtin.h"\n'
-// // println(gen.setup.value('headers').array())
-// for h in gen.setup.value('headers').array() {			// append the header files
-//     s +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
-// }
-// s += '\n'
-// for m in gen.setup.value('macros').array() { 			// append the macros
-//     s += if m.string() != '' { '#define ${m.string()}\n' } else { '' }
-// }
-// s += '\n'
-// for c in gen.setup.value('configuration').array() {		// append the configuration lines
-//     s += '${gen.setup.value('config_operator').string()} ${c.string()}\n'
-// }
-// s += '\n#endif  //_SETTINGS_H_'
-// out_settings.write_string(s) or {
-// 	println('Failed to write file')
-// 	return false
-// }
-
-// gen.out += if gen.setup.value('backend').string() != 'nxc' { '#include "../../settings.h"\n\n' } else {''}
-// s += '// ' + self.moduleDef + '\n'  // module definition
-// s += self.includes + '\n'           // user defined headers files
-// for td in self.topDecl:
-//     s += '{}\n'.format(td) #top level declarations
-// if not self.main:       #adds the main function structure if not exist
-//     s += 'task' if gen.setup.value('nxc'] else ''
-//     s += gen.setup.value('main_ret_type'] if gen.setup.value('main_ret_type'] != 'none' else ''
-//     s += ' main('
-//     s += gen.setup.value('main_params'] if gen.setup.value('main_params'] != 'none' else ''
-//     s += ') {'
-//     for i in gen.setup.value('initialization']:
-//         s += i + '\n' if i != '' else ''
-//     s += '\n\t'
-//     s += self.transpiled.replace('\n','\n\t')[:-1]
-//     s += 'return 0;\n}' if gen.setup.value('main_ret_type'] == 'int' else '}'
-// else:
-//     s += self.transpiled
-// # s = s.replace('};','}')
-// outText.write(s)

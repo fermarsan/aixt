@@ -40,7 +40,7 @@ fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
 
 fn (mut gen Gen) import_stmt(node ast.Import) string {
 	// println('${gen.setup.value('port').string()}')
-	api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
+	api_path := '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api'
 	if node.syms.len == 0 {
 		gen.includes += '#include "${api_path}/${node.mod}.c"\n'
 	} else {

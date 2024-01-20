@@ -7,7 +7,7 @@
 # Description: Setup file for the Emulator port. It works on Linux and Windows 
 #              PCs and on Android with Termux
 #              
-port =    "PC" 
+port =    "Emulator" 
 device =  "Emulator"
 board =   "Software Emulator"
 backend = "c"

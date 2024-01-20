@@ -32,7 +32,7 @@ fn (mut gen Gen) ast_file(node ast.File) string {
     for h in gen.setup.value('headers').array() {			// append the header files
         gen.includes +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
 	}
-	api_path := '${gen.base_path}/ports/${gen.setup.value('path').string()}/api'
+	api_path := '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api'
     gen.includes += if gen.setup.value('backend').string() != 'nxc'{
 		'#include "${api_path}/builtin.c"\n'
 	} else {
