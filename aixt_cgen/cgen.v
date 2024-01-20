@@ -100,26 +100,27 @@ fn (mut gen Gen) ast_node(node ast.Node) string {
 }
 
 fn (mut gen Gen) kind_and_type(object ast.ScopeObject) string {
-	return match object {
+	mut msg := match object {
 		ast.ConstField {
-			'Constant -- ${gen.table.type_symbols[object.expr.get_pure_type()].str().replace('&', '')}'
+			'Constant -- ${gen.table.type_symbols[object.expr.get_pure_type()].str().after_char(`.`)}'
 		}
 		ast.GlobalField {
-			'Global -- ${gen.table.type_symbols[object.typ].str().replace('&', '')}'
+			'Global -- ${gen.table.type_symbols[object.typ].str().after_char(`.`)}'
 		}
 		ast.Var {
-			'Variable -- ${gen.table.type_symbols[object.typ].str().replace('&', '')}'
+			'Variable -- ${gen.table.type_symbols[object.typ].str().after_char(`.`)}'
 		}
 		else {
-			'Asm Reg  -- ${gen.table.type_symbols[object.typ].str().replace('&', '')}'
+			'Asm Reg  -- ${gen.table.type_symbols[object.typ].str().after_char(`.`)}'
 		}
 	}
+	return msg.replace('&', '')
 }
 
 fn (mut gen Gen) symbol_table(scope ast.Scope) string {
 	mut msg := ''
 	for key, val in scope.objects {
-		msg += '${key} -- ${gen.kind_and_type(val)}\n'
+		msg += '${val.name.after_char(`.`)} -- ${gen.kind_and_type(val)}\n'
 	}
 	for child in scope.children {
 		msg += gen.symbol_table(child) 
