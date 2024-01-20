@@ -25,7 +25,6 @@ mut:
 	definitions		string
 	current_fn		string
 	main_loop_cmds	string
-	cond_assign		bool
 	// temps_cont	int
 	level_cont		int
 	// idents			[]ast.Ident
@@ -50,7 +49,6 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.includes = ''
 	// gen.pref.is_script = true
 	gen.file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
-	// println('${'='.repeat(50)}\n${gen.file}${'='.repeat(50)}\n')
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut gen.file)
 	println(gen.table.type_symbols)
@@ -119,7 +117,7 @@ fn (mut gen Gen) kind_and_type(object ast.ScopeObject) string {
 
 fn (mut gen Gen) symbol_table(scope ast.Scope) string {
 	mut msg := ''
-	for key, val in scope.objects {
+	for _, val in scope.objects {
 		msg += '${val.name.after_char(`.`)} -- ${gen.kind_and_type(val)}\n'
 	}
 	for child in scope.children {
