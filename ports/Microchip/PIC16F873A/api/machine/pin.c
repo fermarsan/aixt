@@ -12,7 +12,7 @@
 #define out 0   // pin direction
 #define in  1
 
-#define pin_setup(PIN_NAME, MODE)   PIN_NAME = MODE
+#define pin_setup(PIN_NAME, MODE)   PIN_NAME = MODE     // pin_setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.TRISB0 = 0;
 
 #define pin_high(PIN_NAME)  PIN_NAME = 1
 #define pin_low(PIN_NAME)   PIN_NAME = 0

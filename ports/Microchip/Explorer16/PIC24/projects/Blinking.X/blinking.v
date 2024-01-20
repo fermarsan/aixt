@@ -1,7 +1,7 @@
-import machine {pin}
-import time {sleep_ms}
+// import machine {pin}
+// import time {sleep_ms}
 
-pin_mode(led3, out)
+pin_setup(led3, out)
 
 for {
 	pin_high(led3)

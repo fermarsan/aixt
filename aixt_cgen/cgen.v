@@ -56,10 +56,12 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// gen.table.cur_fn.scope.children[0].objets['_i'] = 0
 	// println('${gen.table.cur_fn.scope.children[0]}')
 	// println('a' in gen.table.cur_fn.scope.children[0].objects)
-	println(gen.file.scope.children[0].objects.keys())
-	println('\n===== Top-down node analysis =====')
+	println(gen.table.type_symbols)
+	println('\n\n===== Top-down node analysis =====\n')
 	gen.out = gen.ast_node(gen.file) // starts from the main node (file)
-	println('\n===== Symbol table =====\n${gen.symbol_table()}')
+	println('\n\n===== Symbol table =====\n')
+	print('${gen.symbol_table(gen.table.global_scope)}')
+	println('${gen.symbol_table(gen.file.scope.children[0])}')
 	gen.out_format()
 	// println(gen.file.used_fns)
 	return gen.out
@@ -101,24 +103,28 @@ fn (mut gen Gen) ast_node(node ast.Node) string {
 	}
 }
 
-fn (mut gen Gen) symbol_table() string {
-	mut msg := ''
-	// msg = gen.file.scope.str()
-	for key, val in gen.file.scope.children[0].objects {
-		msg += '${val.kind} - ${key} - ${gen.table.type_kind(val.typ)}' + if val.len != 0 { 
-			'[${val.len}] - ${gen.table.type_kind(val.elem_type)}\n' 
-		} else {
-			'\n'
+fn (mut gen Gen) kind_and_type(object ast.ScopeObject) string {
+	return match object {
+		ast.ConstField {
+			'Constant -- ${gen.table.type_symbols[object.expr.get_pure_type()].str().replace('&', '')}'
+		}
+		ast.GlobalField {
+			'Global -- ${gen.table.type_symbols[object.typ].str().replace('&', '')}'
+		}
+		ast.Var {
+			'Variable -- ${gen.table.type_symbols[object.typ].str().replace('&', '')}'
+		}
+		else {
+			'Asm Reg  -- ${gen.table.type_symbols[object.typ].str().replace('&', '')}'
 		}
 	}
-	println(gen.table.type_symbols)
-	// for key, val in gen.idents {
-	// 	msg += '${val.kind} - ${key} - ${gen.table.type_kind(val.typ)}' + if val.len != 0 { 
-	// 		'[${val.len}] - ${gen.table.type_kind(val.elem_type)}\n' 
-	// 	} else {
-	// 		'\n'
-	// 	}
-	// }
+}
+
+fn (mut gen Gen) symbol_table(scope ast.Scope) string {
+	mut msg := ''
+	for key, val in scope.objects {
+		msg += '${key} -- ${gen.kind_and_type(val)}\n'
+	}
 	return msg
 }
 
