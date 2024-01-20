@@ -53,9 +53,6 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// println('${'='.repeat(50)}\n${gen.file}${'='.repeat(50)}\n')
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut gen.file)
-	// gen.table.cur_fn.scope.children[0].objets['_i'] = 0
-	// println('${gen.table.cur_fn.scope.children[0]}')
-	// println('a' in gen.table.cur_fn.scope.children[0].objects)
 	println(gen.table.type_symbols)
 	println('\n\n===== Top-down node analysis =====\n')
 	gen.out = gen.ast_node(gen.file) // starts from the main node (file)
@@ -63,7 +60,6 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	print('${gen.symbol_table(gen.table.global_scope)}')
 	println('${gen.symbol_table(gen.file.scope.children[0])}')
 	gen.out_format()
-	// println(gen.file.used_fns)
 	return gen.out
 }
 
@@ -124,6 +120,9 @@ fn (mut gen Gen) symbol_table(scope ast.Scope) string {
 	mut msg := ''
 	for key, val in scope.objects {
 		msg += '${key} -- ${gen.kind_and_type(val)}\n'
+	}
+	for child in scope.children {
+		msg += gen.symbol_table(child) 
 	}
 	return msg
 }
