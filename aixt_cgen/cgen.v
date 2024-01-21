@@ -28,14 +28,14 @@ mut:
 	// temps_cont	int
 	level_cont		int
 	// idents			[]ast.Ident
-	idents			map[string] struct {
-	mut:
-		kind    	ast.IdentKind	
-		typ			ast.Type
-		// is_busy		bool
-		elem_type	ast.Type
-		len			int
-	}
+	// idents			map[string] struct {
+	// mut:
+	// 	kind    	ast.IdentKind	
+	// 	typ			ast.Type
+	// 	// is_busy		bool
+	// 	elem_type	ast.Type
+	// 	len			int
+	// }
 	type_names		[]string
 pub mut:
 	pref  			&pref.Preferences = unsafe { nil }
