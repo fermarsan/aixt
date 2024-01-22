@@ -1,9 +1,10 @@
 /*
- * File:   ADC_2550.c
- * Author: Andr�s Fajardo
+ * File:   Blinking_2550.c
+ * Author: afajardo
  *
- * Created on 2 de enero de 2024, 05:12 PM
+ * Created on January 22, 2024, 2:47 PM
  */
+
 
 // CONFIG1L
 #pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
@@ -16,7 +17,7 @@
 #pragma config IESO = OFF       // Internal/External Oscillator Switchover bit (Oscillator Switchover mode disabled)
 
 // CONFIG2L
-#pragma config PWRT = OFF       // Power-up Timer Enable bit (PWRT disabled)
+#pragma config PWRT = ON       // Power-up Timer Enable bit (PWRT disabled)
 #pragma config BOR = OFF        // Brown-out Reset Enable bits (Brown-out Reset disabled in hardware and software)
 #pragma config BORV = 3         // Brown-out Reset Voltage bits (Minimum setting 2.05V)
 #pragma config VREGEN = OFF     // USB Voltage Regulator Enable bit (USB voltage regulator disabled)
@@ -69,27 +70,36 @@
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
-
-#define _XTAL_FREQ 8000000
 #include <xc.h>
+#define _XTAL_FREQ 8000000
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/builtin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/time/sleep_ms.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/time/sleep_us.c"
+
+
+/*void main(void) {
+    ADCON1bits.PCFG = 0x0F;     //TODAS LOS PINES COMO DIGITALES
+    TRISBbits.RB0 = 0;          //CONFIGURAMOS EL PIN B0 COMO SALIDA
+    LATBbits.LB0  = 0;          //LIMPIAMOS EL BIT B0
+    while(1){ 
+        LATBbits.LB0 = 1;       //PIN_HIGH
+          __delay_ms(1000);   
+        LATBbits.LB0 = 0;       //PIN_LOW
+          __delay_ms(1000);   
+    }
+  return;
+}*/
 
 void main(void) {
-    ADCON1 = 0x0E;                          // Vref = VSS y GND, Configuracion de entradas analogicas
-    ADCON0 = 0x00;                          // Seleccion del canal, Habilitaci�n del conversor
-    ADCON2 = 0x97;                          // Tiempo de adquisicion, Justificacion hacia la derecha
-    ADCON0bits.ADON = 1;                    // Enciende el conversor
-    
-    TRISB = 0x00;
-    TRISC = 0x00;
-    LATB = 0x00;
-    LATC = 0X00;
-    
-    while(1)
-    {
-        ADCON0bits.GO_DONE = 1;             // Inicia la conversion
-        while(ADCON0bits.GO_DONE == 1);     // Espera a que termine la conversion
-        LATB = ADRESL;                      // Muestra el dato de la parte baja en el puerto B
-        LATC = ADRESH;                      // Muestra el dato de la parte alta en el puerto C
-        __delay_ms(10);
+    ADCON1bits.PCFG = 0x0F;     //TODAS LOS PINES COMO DIGITALES
+    pin_setup(b0_s, out)        //CONFIGURAMOS EL PIN B0 COMO SALIDA
+    pin_write(b0, 0);           //LIMPIAMOS EL BIT B0
+    while(1){ 
+        pin_high(b0);       //PIN_HIGH
+          sleep_ms(1000);   
+        pin_low(b0);        //PIN_LOW
+          sleep_ms(1000);   
     }
+  return;
 }
