@@ -1,6 +1,6 @@
 /*
  * File:   7_Segmentos.c
- * Author: Andrés Fajardo
+ * Author: Andrï¿½s Fajardo
  *
  * Created on 24 de diciembre de 2023, 12:11 AM
  */
@@ -72,16 +72,20 @@
 
 #include <xc.h>
 #define _XTAL_FREQ 8000000
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/builtin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/time/sleep_ms.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/time/sleep_us.c"
 
-unsigned char display[10] = {0x40,0x79,0x24,0x30,0x19,0x12,0x02,0x78,0x00,0x10};
+/*unsigned char display[10] = {0x40,0x79,0x24,0x30,0x19,0x12,0x02,0x78,0x00,0x10};
 int contador;
 
 void main(void) {
     ADCON1bits.PCFG = 0x0F;  // Coloca todos los pines como digitales
     TRISCbits.RC0 = 1;       // Puerto como entrada para manejar el 7 segmentos con un pulsador (CONTADOR+)
     TRISCbits.RC1 = 1;          // Puerto como entrada para manejar el 7 SEG con un pulsador (CONTADOR-)
-    TRISB = 0x00;                   // Puerto D como salida
-    LATB = 0x00;                    // Limpia al puerto D
+    TRISB = 0x00;                   // Puerto B como salida
+    LATB = 0x00;                    // Limpia al puerto B
     
     while (1){
         
@@ -103,6 +107,71 @@ void main(void) {
                     while (PORTCbits.RC1 == 1);
             
             __delay_ms(20);
+            
+            contador--;
+            LATB = display[contador];
+            if (contador == -1){
+                contador = 0;
+            LATB = display[contador];
+            } 
+        }
+    }
+  return;
+}
+*/
+
+unsigned char display[10] = {0x40,0x79,0x24,0x30,0x19,0x12,0x02,0x78,0x00,0x10};
+int contador;
+
+void main(void) {
+    ADCON1bits.PCFG = 0x0F;  // Coloca todos los pines como digitales
+
+    pin_setup(c0_s, in);       // Puerto como entrada para manejar el 7 segmentos con un pulsador (CONTADOR+)
+    pin_setup(c1_s, in);          // Puerto como entrada para manejar el 7 SEG con un pulsador (CONTADOR-)
+
+    // CONFIGURAMOS EL PUERTO B COMO SALIDA
+
+    pin_setup(b0_s, out);
+    pin_setup(b1_s, out);
+    pin_setup(b2_s, out);
+    pin_setup(b3_s, out);
+    pin_setup(b4_s, out);
+    pin_setup(b5_s, out);
+    pin_setup(b6_s, out);
+    pin_setup(b7_s, out);
+
+    // LIMPIAMOS EL PUERTO B
+
+    pin_write(b0, 0);
+    pin_write(b1, 0);
+    pin_write(b2, 0);
+    pin_write(b3, 0);
+    pin_write(b4, 0);
+    pin_write(b5, 0);
+    pin_write(b6, 0);
+    pin_write(b7, 0);
+   
+   
+    while (1){
+        
+        if (pin_read(c0_i) == 1){
+       
+            while (pin_read(c0_i) == 1);
+            
+            sleep_ms(20);
+            contador++;
+            LATB = display[contador];
+            
+            if(contador > 9){        
+                contador = 9;
+                LATB = display[contador];
+            }
+        }
+               if (pin_read(c1_i) == 1){ 
+                   
+                    while (pin_read(c1_i) == 1);
+            
+            sleep_ms(20);
             
             contador--;
             LATB = display[contador];
