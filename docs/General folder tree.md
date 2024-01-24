@@ -42,3 +42,9 @@ aixt/
     ├── TODO.md
     └── v.mod
 ```
+
+- The _source code_ is located in `aixt.v` file, and `aixt_build/`, `aixt_cgen/` folders.
+- The `assets` folder contains the resource files such images.
+- The `ports` folder contains the implementation code for each device or board (mainly C source code)
+- The `docs` folder contains the documentation for each device or board
+
