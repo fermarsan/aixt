@@ -48,4 +48,23 @@ aixt/
 - The `ports/` folder contains the implementation code for each device or board (mainly C source code)
 - The `docs/` folder contains the documentation for each device or board
 
-## ``
+## `ports` folder
+This contains the implementation in _C_ language of the Aixt API, projects and _Aixt_ examples, of each device or board. The recommended folder tree for each port is:
+
+```
+device_or_board_name/    
+    ├── api
+    │   ├── machine
+    :   :   
+    │   └── builtin.c
+    ├── examples
+    │   ├── example_1.v
+    │   ├── example_2.v
+    :   :
+    │   └── example_n.v
+    └── projects
+        ├── project_1
+        ├── project_2
+        :
+        └── project_n
+```
