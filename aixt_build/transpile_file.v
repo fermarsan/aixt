@@ -1,10 +1,10 @@
 // Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: builder.v
+// File Name: transpile_file.v
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
 //
-// Description: This file contains the functions to make a source code project in Aixt.
+// Description: Function for transpiling an Aixt source code.
 
 module aixt_build
 
@@ -52,22 +52,4 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	output_path = output_path.replace('.v', output_ext)
 	// println('\n${output_path}\n')
 	os.write_file(output_path, transpiled) or {}
-}
-
-pub fn compile_file(path string, setup_file toml.Doc) {
-
-	cc := $if windows { // C compiler depending on the OS
-		setup_file.value('cc_windows').string()
-	} $else {
-		setup_file.value('cc_linux').string()
-	}
-
-	flags := setup_file.value('cc_flags').string()
-
-	// compiles the output file
-	if setup_file.value('backend').string() == 'nxc' {
-		println(os.execute('${cc} ${path}.nxc ${flags} ${path}').output)
-	} else { 
-		println(os.execute('${cc} ${path}.c ${flags} ${path}').output)
-	}
 }
