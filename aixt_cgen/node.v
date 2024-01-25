@@ -23,7 +23,7 @@ fn (mut gen Gen) ast_node(node ast.Node) string {
 			return gen.expr(node)
 		}
 		ast.ConstField {
-			return gen.const_field(node)
+			return gen.const_field(node) 
 		}
 		ast.GlobalField {
 			return gen.global_field(node)

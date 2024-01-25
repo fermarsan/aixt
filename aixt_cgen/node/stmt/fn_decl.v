@@ -1,8 +1,8 @@
 
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: fn.v
+// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
+// File Name: fn_decl.v
 // Author: Fernando Martínez Santa
-// Date: 2023
+// Date: 2023-2024
 // License: MIT
 //
 // Description: code generation for the function declaration statement.

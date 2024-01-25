@@ -1,5 +1,5 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: assign.v
+// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
+// File Name: assign_stmt.v
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
