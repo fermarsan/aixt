@@ -9,7 +9,7 @@ module aixt_cgen
 
 import v.ast
 
-fn (mut gen Gen) decl_assign_stmt(node ast.AssignStmt) string {
+fn (mut gen Gen) assign_only(node ast.AssignStmt) string {
 	mut out := ''
 	mut var_type := ''
 	for i in 0 .. node.left.len {
