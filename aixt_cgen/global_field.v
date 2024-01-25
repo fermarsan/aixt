@@ -1,10 +1,10 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: global.v
+// File Name: global_field.v
 // Author: Fernando Martínez Santa
 // Date: 2023
 // License: MIT
 //
-// Description: code generation global variables definition.
+// Description: code generation global field.
 module aixt_cgen
 
 import v.ast
