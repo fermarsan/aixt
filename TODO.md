@@ -12,6 +12,7 @@ Tasks to do in Aixt
 - [ ] Update the Aixt executable path #bug
 - [ ] for-statement temporal variables as references (writeable)
 - [ ] dynamic memory definition
+- [ ] implement string interpolation
 
 ### In Progress
 
