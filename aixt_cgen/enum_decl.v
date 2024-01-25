@@ -1,10 +1,10 @@
 // Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: enum.v
+// File Name: enum_decl.v
 // Author: Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: code generation for enum definitions.
+// Description: code generation for enum declarations.
 module aixt_cgen
 
 import v.ast
@@ -18,19 +18,4 @@ fn (mut gen Gen) enum_decl(node ast.EnumDecl) string {
 	out += '};'
 	println('\n\n${gen.type_names}\n\n')
 	return out
-}
-
-fn (mut gen Gen) enum_field(node ast.EnumField) string {
-	match node.expr {
-		ast.EmptyExpr {
-			return '${node.name},\n'
-		} 
-		else {
-			return '${node.name} = ${gen.ast_node(node.expr)},\n'
-		}
-	}
-}
-
-fn (mut gen Gen) enum_val(node ast.EnumVal) string {
-	return '${node.val}'
 }
