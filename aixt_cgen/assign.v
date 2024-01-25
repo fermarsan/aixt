@@ -1,7 +1,7 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
 // File Name: assign.v
 // Author: Fernando Martínez Santa
-// Date: 2023
+// Date: 2023-2024
 // License: MIT
 //
 // Description: code generation the assignment statement.
@@ -14,29 +14,29 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut var_type := ''
 	for i in 0 .. node.left.len {
 		// println('\n\nXXXX--  ${(node.left[i] as ast.Ident)}  --XXXX\n\n')
-		var_name := '${node.left[i].str()}'
-		// var_global_name := '${node.left[i].str()}'
-		// var_name := '${gen.current_fn}.${var_global_name}'
+		// var_name := '${node.left[i].str()}'
+		var_global_name := '${node.left[i].str()}'
+		var_name := '${gen.current_fn}.${var_global_name}'
 		
 		// println(var_name)
 		if node.op.str() == ':=' { // declaration-assignment
-			// // gen.idents << node.left[i] as  ast.Ident
-			// gen.idents[var_name] = struct { // add the new symbol
-			// 	kind: ast.IdentKind.variable
-			// }
-			// // println('XXXX--  ${node.right_types[i]}  --XXXX\n')
-			// gen.idents[var_name].typ = match node.right_types[i] {
-			// 	ast.int_literal_type_idx { 
-			// 		ast.int_type_idx 
-			// 	}
-			// 	ast.float_literal_type_idx { 
-			// 		ast.f32_type_idx 
-			// 	}
-			// 	else { 
-			// 		node.right_types[i] 
-			// 	}	
-			// }
-			// var_type = gen.table.type_kind(gen.idents[var_name].typ).str()
+			// gen.idents << node.left[i] as  ast.Ident
+			gen.idents[var_name] = struct { // add the new symbol
+				kind: ast.IdentKind.variable
+			}
+			// println('XXXX--  ${node.right_types[i]}  --XXXX\n')
+			gen.idents[var_name].typ = match node.right_types[i] {
+				ast.int_literal_type_idx { 
+					ast.int_type_idx 
+				}
+				ast.float_literal_type_idx { 
+					ast.f32_type_idx 
+				}
+				else { 
+					node.right_types[i] 
+				}	
+			}
+			var_type = gen.table.type_kind(gen.idents[var_name].typ).str()
 			var_type = gen.table.type_kind(gen.idents[var_name].typ).str()
 			// println('XXXX--${var_type}--XXXX\n')
 			match var_type {
