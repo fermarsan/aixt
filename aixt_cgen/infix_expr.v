@@ -1,7 +1,7 @@
 // Project Name: Aixt project, https://github.com/fermarsan/aixt.git
 // File Name: infix_expr.v
 // Author: Fernando Martínez Santa
-// Date: 2023
+// Date: 2023-2024
 // License: MIT
 //
 // Description: code generation for 'infix' expressions (binary operations).
