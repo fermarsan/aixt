@@ -55,8 +55,24 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	println('\n\n===== Top-down node analysis =====\n')
 	gen.out = gen.ast_node(gen.file) // starts from the main node (file)
 	println('\n\n===== Symbol table =====\n')
-	print('${gen.symbol_table(gen.table.global_scope)}')
-	println('${gen.symbol_table(gen.file.scope.children[0])}')
+	println('\n--file.global_scope')
+	print('${gen.symbol_table(gen.file.global_scope)}')
+	println('\n--file.scope')
+	print('${gen.symbol_table(gen.file.scope)}')
+	println('\n--file.scope.childern')
+	for child in gen.file.scope.children {
+		println('${gen.symbol_table(child)}')
+	}
+
+	// println(gen.file)
+
+	// all := gen.file.scope.get_all_vars()
+	// println(all)
+
+	// for var in  {
+	// 	println(var.name)
+	// }
+
 	gen.out_format()
 	return gen.out
 }

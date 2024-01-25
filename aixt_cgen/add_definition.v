@@ -7,8 +7,6 @@
 // Description: add a definition command in the out file.
 module aixt_cgen
 
-import v.ast
-
 fn (mut gen Gen) add_definition(def string) {
 	if !gen.definitions.contains(def) {
 		gen.definitions += '${def}\n'

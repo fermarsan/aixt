@@ -7,8 +7,6 @@
 // Description: add a custom include clause in the out file.
 module aixt_cgen
 
-import v.ast
-
 fn (mut gen Gen) add_custom_include(path_ext string) {
 	if !gen.includes.contains(path_ext) {
 		gen.includes += '#include "${path_ext}"\n'

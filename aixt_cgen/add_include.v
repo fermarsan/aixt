@@ -7,8 +7,6 @@
 // Description: add an include clause in the out file.
 module aixt_cgen
 
-import v.ast
-
 fn (mut gen Gen) add_include(name_ext string) {
 	if !gen.includes.contains(name_ext) {
 		gen.includes += '#include <${name_ext}>\n'

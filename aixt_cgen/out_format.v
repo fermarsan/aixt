@@ -7,8 +7,6 @@
 // Description: format the output file.
 module aixt_cgen
 
-import v.ast
-
 fn (mut gen Gen) out_format() {
 	gen.out = gen.out.replace('___includes_block___', gen.includes)
 	gen.out = gen.out.replace('___definitions_block___', gen.definitions)
