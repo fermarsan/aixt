@@ -1,9 +1,5 @@
 // Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-<<<<<<<< HEAD:aixt_cgen/old/assign.v
-// File Name: assign.v
-========
 // File Name: assign_stmt.v
->>>>>>>> develop:aixt_cgen/node/stmt/assign_stmt.v
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
@@ -24,11 +20,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 		
 		// println(var_name)
 		if node.op.str() == ':=' { // declaration-assignment
-<<<<<<<< HEAD:aixt_cgen/old/assign.v
 			// gen.idents << node.left[i] as  ast.Ident
-========
-			// // gen.idents << node.left[i] as  ast.Ident
->>>>>>>> develop:aixt_cgen/node/stmt/assign_stmt.v
 			gen.idents[var_name] = struct { // add the new symbol
 				kind: ast.IdentKind.variable
 			}
@@ -44,10 +36,6 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					node.right_types[i] 
 				}	
 			}
-<<<<<<<< HEAD:aixt_cgen/old/assign.v
-			var_type = gen.table.type_kind(gen.idents[var_name].typ).str()
-========
->>>>>>>> develop:aixt_cgen/node/stmt/assign_stmt.v
 			var_type = gen.table.type_kind(gen.idents[var_name].typ).str()
 			// var_type = gen.table.type_kind(gen.file.scope.children[0].objects[var_name].typ)
 			// println('XXXX--${var_type}--XXXX\n')
