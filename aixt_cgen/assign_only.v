@@ -1,10 +1,10 @@
 // Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: decl_assign.v
+// File Name: assign_only.v
 // Author: Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: declaration and assignment.
+// Description: simple assignment.
 module aixt_cgen
 
 import v.ast
