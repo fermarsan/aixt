@@ -1,1 +1,0 @@
-#define sleep_s(S)    delay(S*1000)
