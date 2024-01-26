@@ -8,7 +8,7 @@
 module aixt_cgen
 
 fn (mut gen Gen) add_definition(def string) {
-	if !gen.definitions.contains(def) {
-		gen.definitions += '${def}\n'
+	if !gen.defs.contains(def) {
+		gen.defs += '${def}\n'
 	}
 }

@@ -10,6 +10,7 @@ module aixt_cgen
 import v.ast
 
 fn (mut gen Gen) ast_file(node ast.File) string {
+	// println(node)
     mut out := '// This '
     out += match gen.setup.value('backend').string() {
 		'nxc' 		{ 'NXC ' }
@@ -28,18 +29,18 @@ fn (mut gen Gen) ast_file(node ast.File) string {
         out += '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
 	}
 	out += '\n___includes_block___\n' 
-	gen.includes = ''
+	gen.incls = ''
     for h in gen.setup.value('headers').array() {			// append the header files
-        gen.includes +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
+        gen.incls +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
 	}
-	api_path := '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api'
-    gen.includes += if gen.setup.value('backend').string() != 'nxc'{
+	api_path := '${gen.tr_path}/ports/${gen.setup.value('path').string()}/api'
+    gen.incls += if gen.setup.value('backend').string() != 'nxc'{
 		'#include "${api_path}/builtin.c"\n'
 	} else {
 		''
 	}
 	out += '\n___definitions_block___\n' 
-	gen.definitions = ''
+	gen.defs = ''
 
 	for st in node.stmts {
 		out += gen.ast_node(st)

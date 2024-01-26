@@ -11,23 +11,25 @@ import v.ast
 
 fn (mut gen Gen) const_field(node ast.ConstField) string {
 	mut out := ''
-	gen.idents[node.name] = struct { // add the new symbol
-		kind: ast.IdentKind.constant
-		typ: node.typ
-	}
-	mut var_type := gen.table.type_kind(gen.idents[node.name].typ).str()
-	// println(var_type)
+	mut var_kind := (*gen.table.type_symbols[node.typ]).kind.str()
+	// print('\n\n(${var_kind})\n\n')
+	// print('\n\n(${node.expr})\n\n')
 	if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
-		out += if gen.setup.value(var_type).string() == 'char []' {
+		out += if gen.setup.value(var_kind).string() == 'char []' {
 			'const char ${node.name.after('.')}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
 		} else {
-			'const ${gen.setup.value(var_type).string()} ${node.name.after('.')} = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
+			'const ${gen.setup.value(var_kind).string()} ${node.name.after('.')} = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
 		}								
 	} else {
-		out += if gen.setup.value(var_type).string() == 'char []' {
+		var_kind = match var_kind {		// var literal kind standardization
+			'f64' { 'float_literal' }
+			'int' { 'int_literal' }
+			else { var_kind }
+		}
+		out += if gen.setup.value(var_kind).string() == 'char []' {
 			'const char ${node.name.after('.')}[] = ${gen.ast_node(node.expr)};\n'
 		} else {
-			'const ${gen.setup.value(var_type).string()} ${node.name.after('.')} = ${gen.ast_node(node.expr)};\n'
+			'const ${gen.setup.value(var_kind).string()} ${node.name.after('.')} = ${gen.ast_node(node.expr)};\n'
 		}
 	}
 	return out

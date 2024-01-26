@@ -8,8 +8,8 @@
 module aixt_cgen
 
 fn (mut gen Gen) out_format() {
-	gen.out = gen.out.replace('___includes_block___', gen.includes)
-	gen.out = gen.out.replace('___definitions_block___', gen.definitions)
+	gen.out = gen.out.replace('___includes_block___', gen.incls)
+	gen.out = gen.out.replace('___definitions_block___', gen.defs)
 	gen.out = gen.out.replace('\n\n\n;', '\n')
 	gen.out = gen.out.replace('\n\n;', '\n---')
 	gen.out = gen.out.replace('}\n;', '}')

@@ -11,9 +11,9 @@ import v.ast
 
 fn (mut gen Gen) hash_stmt(node ast.HashStmt) string {
 	if node.kind == 'include' {
-		gen.includes += '#${node.val}\n'
+		gen.incls += '#${node.val}\n'
 	} else {
-		gen.definitions += '#${node.val}\n'
+		gen.defs += '#${node.val}\n'
 	}
 	return ''
 }
