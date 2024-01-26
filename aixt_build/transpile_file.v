@@ -18,12 +18,12 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	mut c_gen := aixt_cgen.Gen{
 		file: &ast.File{}
 		table: ast.new_table()
-		transpiler_path: aixt_path
+		cur_scope: &ast.Scope{}
+		tr_path: aixt_path
 		out: ''
-		includes: ''
-		definitions: ''
-		current_fn: 'global'
-		main_loop_cmds:	''
+		incls: ''
+		defs: ''
+		cur_fn: 'main'
 		level_cont: 0
 		pref: &pref.Preferences{}
 		setup: toml.Doc{}

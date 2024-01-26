@@ -8,7 +8,7 @@
 module aixt_cgen
 
 fn (mut gen Gen) add_include(name_ext string) {
-	if !gen.includes.contains(name_ext) {
-		gen.includes += '#include <${name_ext}>\n'
+	if !gen.incls.contains(name_ext) {
+		gen.incls += '#include <${name_ext}>\n'
 	}
 }

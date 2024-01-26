@@ -11,9 +11,10 @@ module aixt_cgen
 import v.ast
 
 fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
+	// println('--${typeof(node)}--')
 	mut out := '\n'
 	if node.is_main {	// main function
-		gen.current_fn = 'main'
+		gen.cur_fn = 'main'
 		match gen.setup.value('backend').string() {
 			'c' {
 				out += '${gen.setup.value('main_ret_type').string()} '	// return type
@@ -64,7 +65,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		}
 		out = if out[0] == ` ` { out[1..] } else { out }	// closing
 	} else {
-		gen.current_fn = node.name
+		gen.cur_fn = node.name
 		for a in node.attrs {
 			out += '${a.name} '
 		}
@@ -74,11 +75,11 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 			for pr in node.params {
 				out += '${gen.ast_node(pr)}, '
 				println(pr.name)
-				var_name := '${gen.current_fn}.${pr.name}'
-				gen.idents[var_name] = struct { // add the new symbol
-					kind: ast.IdentKind.variable
-					typ:  pr.typ	
-				}
+				// var_name := '${gen.cur_fn}.${pr.name}'
+				// gen.idents[var_name] = struct { // add the new symbol
+				// 	kind: ast.IdentKind.variable
+				// 	typ:  pr.typ	
+				// }
 			}
 			out = out#[..-2] + ') {\n'
 		} else {
