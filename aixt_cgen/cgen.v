@@ -55,5 +55,8 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.err_war_check()
 	gen.err_war_print()
 	gen.out_format()
+	if gen.file.errors.len != 0 {	// clear out strem if any error exist
+		gen.out = ''
+	}
 	return gen.out
 }
