@@ -7,22 +7,21 @@
 // Description: check the Aixt transpiler errors and warnings (based on v.ast.file.errors)
 module aixt_cgen
 
-fn (mut gen Gen) err_war_check()  {	
-	mut indexes := []int{}
+fn (mut gen Gen) err_war_check()  {
 	msg_exceptions := [ // V error message exceptions in Aixt
-		'is immutable, declare it with `mut` to make it mutable',
+		'is immutable, declare it with `mut`',
+		'expected `#define`',
+		'unknown function:',
 	]
 
-	for i in 0..gen.file.errors.len {	// look for each exception message by index 
+	for i in 0 .. gen.file.errors.len {	// look for each exception message by index 
 		message := gen.file.errors[i].message
 		for msg in msg_exceptions {
 			if message.contains(msg) {
-				indexes << i
+				gen.file.errors.delete(i)
+				gen.err_war_check()	// recursively deleting
+				break
 			}
 		}
-	}
-
-	for i in indexes {	// delete exceptions by index
-		gen.file.errors.delete(i)
 	}
 }
