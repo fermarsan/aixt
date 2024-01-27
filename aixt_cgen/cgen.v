@@ -52,13 +52,8 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	for child in gen.file.scope.children {
 		println('${gen.symbol_table(child)}')
 	}
-	println('${gen.file.errors.len} errors, ${gen.file.warnings.len} warnings.')
-	for w in gen.file.warnings {
-		println('Warning: ${w.message}')
-	}
-	for e in gen.file.errors {
-		println('Error: ${e.message}')
-	}
+	gen.err_war_check()
+	gen.err_war_print()
 	gen.out_format()
 	return gen.out
 }
