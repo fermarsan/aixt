@@ -81,11 +81,12 @@ The transpiler is written in [_V_](https://vlang.io/) and uses _V's_ native comp
 
 feature                 |V                                  | Aixt
 ------------------------|-----------------------------------|----------------------------------------
-variables               |immutable by default               | mutable by default
-strings                 |dynamic-sized                      | fixed-sized
-arrays                  |dynamic-sized                      | fixed-sized
-default integers size   |32 bits                            | depends on the device  
-structs                 |allow functions (object-oriented)  | don't allow functions (only structured)
+variables               | immutable by default              | mutable by default
+strings                 | dynamic-sized                     | dynamic-sized (only if supported)
+arrays                  | dynamic-sized                     | dynamic-sized (only if supported)
+default integers size   | 32 bits                           | depends on the device  
+structs                 | allow functions (object-oriented) | don't allow functions (only structured)
+functions               | only one return value             | multiple return values
 
 
 ### Example with `main` function

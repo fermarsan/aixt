@@ -41,7 +41,7 @@ Each module in the API have to be implemented by means of a _C_'s files in the m
 api
  ├── ...
  :
- └── time/
+ └── time
       ├── sleep_ms.c
       └── sleep_us.c
 ```

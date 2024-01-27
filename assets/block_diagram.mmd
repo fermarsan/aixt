@@ -1,0 +1,50 @@
+stateDiagram-v2
+
+    Aixt: Aixt language
+    state Aixt {
+        source: Source code
+        API
+    }
+
+    Aixt2C: Aixt to C Transpiler
+    state Aixt2C {
+        Transpiler: Transpiler (V)
+        setup: setup file (TOML)
+    }
+
+    C: C language
+    state C {
+        Tr_Code: Transpiled code
+        API_C: API in C
+    }
+
+    state Microcontroller {
+        PICs: PIC
+        ATM: AT
+        ESP
+        RP2040
+        others2: ...
+        NXT: NXT brick
+    }
+
+    C_Compiler: C Compiler
+    state C_Compiler {
+        others: ...
+        XC8
+        XC16
+        ImageCraft
+        GCC
+        others
+        nbc: nbc (NXC)
+    }
+
+    machine
+    state machine {
+        BF: Binary file
+    }
+
+    Aixt    --> Aixt2C
+    Aixt2C  --> Tr_Code
+    C       --> C_Compiler
+    C_Compiler  --> machine
+    Microcontroller --> API_C

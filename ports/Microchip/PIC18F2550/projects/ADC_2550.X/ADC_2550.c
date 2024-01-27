@@ -1,6 +1,6 @@
 /*
  * File:   ADC_2550.c
- * Author: Andrés Fajardo
+ * Author: Andrï¿½s Fajardo
  *
  * Created on 2 de enero de 2024, 05:12 PM
  */
@@ -75,7 +75,7 @@
 
 void main(void) {
     ADCON1 = 0x0E;                          // Vref = VSS y GND, Configuracion de entradas analogicas
-    ADCON0 = 0x00;                          // Seleccion del canal, Habilitación del conversor
+    ADCON0 = 0x00;                          // Seleccion del canal, Habilitaciï¿½n del conversor
     ADCON2 = 0x97;                          // Tiempo de adquisicion, Justificacion hacia la derecha
     ADCON0bits.ADON = 1;                    // Enciende el conversor
     
@@ -88,8 +88,8 @@ void main(void) {
     {
         ADCON0bits.GO_DONE = 1;             // Inicia la conversion
         while(ADCON0bits.GO_DONE == 1);     // Espera a que termine la conversion
-        LATB = ADRESL;                      // Muestra el dato de la parte baja en el puerto D
-        LATC = ADRESH;                      // Muestra el dato de la parte alta en el puerto E
+        LATB = ADRESL;                      // Muestra el dato de la parte baja en el puerto B
+        LATC = ADRESH;                      // Muestra el dato de la parte alta en el puerto C
         __delay_ms(10);
     }
 }
