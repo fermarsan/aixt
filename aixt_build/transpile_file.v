@@ -35,21 +35,24 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 
 	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
-	for alias in c_gen.setup.value('aliases').as_map().keys() { // replace aliases in the transpiled code
-		transpiled = transpiled.replace(
-			alias,
-			(c_gen.setup.value('aliases').as_map()[alias] or {''}).string()
-		)
+	if transpiled != '' {
+		for alias in c_gen.setup.value('aliases').as_map().keys() { // replace aliases in the transpiled code
+			transpiled = transpiled.replace(
+				alias,
+				(c_gen.setup.value('aliases').as_map()[alias] or {''}).string()
+			)
+		}
+
+		// saves the output file
+		output_ext := match c_gen.setup.value('backend').string() {
+			'nxc' 		{ '.nxc' }
+			'arduino'	{ '.ino' } 
+			else 		{ '.c' }
+		}
+		mut output_path := path.replace('.aixt', output_ext)
+		output_path = output_path.replace('.v', output_ext)
+		// println('\n${output_path}\n')
+		os.write_file(output_path, transpiled) or {}
 	}
 
-	// saves the output file
-	output_ext := match c_gen.setup.value('backend').string() {
-		'nxc' 		{ '.nxc' }
-		'arduino'	{ '.ino' } 
-		else 		{ '.c' }
-	}
-	mut output_path := path.replace('.aixt', output_ext)
-	output_path = output_path.replace('.v', output_ext)
-	// println('\n${output_path}\n')
-	os.write_file(output_path, transpiled) or {}
 }
