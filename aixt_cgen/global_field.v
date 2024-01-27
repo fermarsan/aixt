@@ -11,7 +11,7 @@ import v.ast
 
 fn (mut gen Gen) global_field(node ast.GlobalField) string {
 	mut out := ''
-	var_kind := (*gen.table.type_symbols[node.typ]).kind.str()
+	var_kind := gen.table.type_kind(node.typ).str()
 	// print('\n\n(${var_kind})\n\n')
 	// print('\n\n(${node.expr})\n\n')
 	match node.expr {

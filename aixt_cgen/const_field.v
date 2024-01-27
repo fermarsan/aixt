@@ -11,7 +11,7 @@ import v.ast
 
 fn (mut gen Gen) const_field(node ast.ConstField) string {
 	mut out := ''
-	mut var_kind := (*gen.table.type_symbols[node.typ]).kind.str()
+	mut var_kind := gen.table.type_kind(node.typ).str()
 	// print('\n\n(${var_kind})\n\n')
 	// print('\n\n(${node.expr})\n\n')
 	if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
