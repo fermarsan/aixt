@@ -14,6 +14,7 @@ Tasks to do in Aixt
 
 ### In Progress
 
+- [ ] Function calling before defining
 - [ ] Implements the `match` expression #feat @fermarsan
 - [ ] Multiple source files support
    
