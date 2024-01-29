@@ -7,7 +7,7 @@ __global (
 	x = 12.5
 )
 
-fn add(a int, b f32) {
+fn add(a int, b f32) f32 {
 	return a + b
 }
 

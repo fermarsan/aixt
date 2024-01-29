@@ -41,22 +41,19 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut gen.file)
 	// println(gen.table.type_symbols)
-	println('\n\n===== Top-down node analysis =====\n')
+
+	println('\n===== Top-down node analysis =====')
 	gen.out = gen.ast_node(gen.file) // starts from the main node (file)
-	println('\n\n===== Symbol table =====\n')
-	println('--file.global_scope\n')
-	print('${gen.symbol_table(gen.file.global_scope)}')
-	// println('\n--file.scope\n')
-	// print('${gen.symbol_table(gen.file.scope)}')
-	println('\n--file.scope.childern\n')
-	for child in gen.file.scope.children {
-		println('${gen.symbol_table(child)}')
-	}
+
+	gen.sym_table_print()
+
 	gen.err_war_check()
 	gen.err_war_print()
 	gen.out_format()
+
 	if gen.file.errors.len != 0 {	// clear out strem if any error exist
 		gen.out = ''
 	}
+	
 	return gen.out
 }

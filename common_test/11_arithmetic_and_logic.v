@@ -7,7 +7,7 @@ fn main() {
 
 	counter = 10
 	counter = counter + delta / 2
-	counter = delta * 4 - 35.6
+	counter = delta * 4 - 35
 	delta = counter % 3
 	delta = counter * (delta + 2)
 
@@ -15,8 +15,8 @@ fn main() {
 	condition := i8(0xAA)
 
 	state = state & condition
-	state = !state | condition
-	state = state ^ !condition
+	state = ~state | condition
+	state = state ^ ~condition
 	state = state << 6
 	state = (condition & state) >> 2
 

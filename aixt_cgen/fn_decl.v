@@ -12,7 +12,7 @@ import v.ast
 
 fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 	// println('--${typeof(node)}--')
-	gen.cur_scope = node.scope
+	// gen.cur_scope = node.scope
 	// println(gen.cur_scope.children[0])
 	mut out := '\n'
 	if node.is_main {	// main function

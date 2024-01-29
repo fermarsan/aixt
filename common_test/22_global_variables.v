@@ -9,9 +9,9 @@ __global (
 	str1 = 'name'
 )
 
-// a := 1
-// x = 9
-// y = 5
+a := 1
+x = 9
+y = 5
 
-// a = x + y - z + a
+a = x + y - z + a
 
