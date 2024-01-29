@@ -14,13 +14,11 @@ Tasks to do in Aixt
 
 ### In Progress
 
-- [ ] Function calling before defining
 - [ ] Implements the `match` expression #feat @fermarsan
 - [ ] Multiple source files support
    
 ### Done ✓
 
-
+- [x] Function calling before defining
 - [x] for-statement temporal variables as references (writeable) "Solved in the transpiling process"
 - [x] Implement enums #feat
-- [x] Replace repository URL in source files comments

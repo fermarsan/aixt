@@ -66,6 +66,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 			}
 		}
 		out = if out[0] == ` ` { out[1..] } else { out }	// closing
+		return out	
 	} else {
 		gen.cur_fn = node.name
 		for a in node.attrs {
@@ -92,6 +93,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		}
 		out += '}\n'
 		out = if out[0] == ` ` { out[1..] } else { out }
+		gen.defs += out
+		return ''
 	}
-	return out
 }
