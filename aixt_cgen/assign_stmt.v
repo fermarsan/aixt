@@ -35,6 +35,11 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 						out += 'char ${gen.ast_node(node.left[i])}[${len}];\n'
 					}
 				}
+				'enum' {
+					out += 'enum ${(node.right[i] as ast.EnumVal).enum_name.after('.')} '
+					out += '${gen.ast_node(node.left[i])} = '
+					out += '${gen.ast_node(node.right[i])};\n'
+				}
 				else {
 					out += '${gen.setup.value(var_kind).string()} ${gen.ast_node(node.left[i])} = '
 					out += if node.right[i].type_name() == 'v.ast.CastExpr' {

@@ -8,8 +8,8 @@ const (
 const repetitions = 10		// single constant
 const r = 1.76
 
-// x := 0
+x := 0.0
 
-// for i in 0..repetitions {
-// 	x += (e*e) + (pi/2)
-// }
+for i in 0..repetitions {
+	x += (e*e) + (pi/2)
+}
