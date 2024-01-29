@@ -17,12 +17,10 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implements the `match` expression #feat @fermarsan
-- [ ] Replace repository URL in source files comments
 - [ ] Multiple source files support
    
 ### Done ✓
 
+- [x] Replace repository URL in source files comments
 - [x] Splitting `aixt_cgen` files in single files by method 
 - [x] Implements C-preprocessor directives #feat @fermarsan
-- [x] Improve the API.md file #feat @fermarsan
-- [x] Add a `New project` Aixt command and vscode task #feat
