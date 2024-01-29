@@ -1,1 +1,1 @@
-#define adc_write(PIN_NAME, MODE)   analogWrite(PIN_NAME, MODE)
+#define pwm_write(PIN_NAME, MODE)   analogWrite(PIN_NAME, MODE)
