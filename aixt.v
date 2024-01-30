@@ -34,12 +34,7 @@ fn main() {
 				if os.args.len < 4 {
 					println(help_message())
 				} else {
-					port := os.args[2]	// port name (device or board)
-					input_name := if os.args[3] == '.' { // source path input
-						'.'
-					} else {
-						os.abs_path(os.args[3])
-					} 
+					port, input_name := os.args[2], os.abs_path(os.args[3])	// port name and source path input
 					mut base_name := input_name.replace('.aixt', '') // input file base name
 					base_name = base_name.replace('.v', '')
 					setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { return } // load the device's setup file

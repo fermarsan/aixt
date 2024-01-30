@@ -42,8 +42,10 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	if source_path != '.' {	// only one source code
 		gen.file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
 	} else {
-		files := os.ls(source_path) or { [] }
-		print(files)
+		println('ALL FILES')
+		gen.file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
+		// files := os.ls(source_path) or { [] }
+		// print(files)
 	}
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
