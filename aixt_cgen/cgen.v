@@ -17,7 +17,7 @@ import toml
 
 pub struct Gen {
 mut:	
-	file  		&ast.File  = unsafe { nil }
+	files 		[]&ast.File  = unsafe { nil }
 	table 		&ast.Table = unsafe { nil }
 	cur_scope	&ast.Scope = unsafe { nil }
 	tr_path 	string
@@ -39,18 +39,14 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.incls = ''
 	// gen.pref.is_script = true
 
-	print(source_path)
-	if os.is_file(source_path) {	// only one source code
-		gen.file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
-	} else {
-		files = 
-		gen.file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
-		// files := os.ls(source_path) or { [] }
-		// print(files)
-	}
+	gen.find_sources(source_path)
+
+	gen.files = parser.parse_files(gen.src_paths, gen.table, gen.pref)
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
-	checker_.check(mut gen.file)
+	for file in gen.files {
+		checker_.check(mut file)
+	}
 	// println(gen.table.type_symbols)
 
 	println('\n===== Top-down node analysis =====')
