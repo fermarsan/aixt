@@ -11,8 +11,6 @@ module aixt_cgen
 import v.ast
 
 fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
-	// println('--${typeof(node)}--')
-	// gen.cur_scope = node.scope
 	// println(gen.cur_scope.children[0])
 	mut out := '\n'
 	if node.is_main {	// main function
@@ -66,7 +64,6 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 			}
 		}
 		out = if out[0] == ` ` { out[1..] } else { out }	// closing
-		return out	
 	} else {
 		gen.cur_fn = node.name
 		for a in node.attrs {
@@ -79,12 +76,10 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				out += '${gen.ast_node(pr)}, '
 				println(pr.name)
 				// var_name := '${gen.cur_fn}.${pr.name}'
-				// gen.idents[var_name] = struct { // add the new symbol
-				// 	kind: ast.IdentKind.variable
-				// 	typ:  pr.typ	
-				// }
 			}
-			out = out#[..-2] + ') {\n'
+			out = out#[..-2] + ')' 
+			gen.defs += out + ';\n'	// generates the function's prototype
+			out += ' {\n'
 		} else {
 			out += ') {\n'
 		}
@@ -93,7 +88,6 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		}
 		out += '}\n'
 		out = if out[0] == ` ` { out[1..] } else { out }
-		gen.defs += out
-		return ''
 	}
+	return out	
 }
