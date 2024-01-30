@@ -20,6 +20,7 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		table: ast.new_table()
 		cur_scope: &ast.Scope{}
 		tr_path: aixt_path
+		src_paths: []
 		out: ''
 		incls: ''
 		defs: ''
