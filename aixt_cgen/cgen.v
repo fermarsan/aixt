@@ -37,7 +37,15 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.defs = ''
 	gen.incls = ''
 	// gen.pref.is_script = true
-	gen.file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
+
+	print(source_path)
+	if source_path != '.' {	// only one source code
+		gen.file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
+	} else {
+		files := os.ls(source_path) or { [] }
+		print(files)
+	}
+
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut gen.file)
 	// println(gen.table.type_symbols)
