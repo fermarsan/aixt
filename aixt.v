@@ -35,9 +35,10 @@ fn main() {
 					println(help_message())
 				} else {
 					port := os.args[2]	// port name (device or board)
-					input_name := os.abs_path(os.args[3]) if os.args[3] != '.' { // source input
-					} else {
+					input_name := if os.args[3] == '.' { // source path input
 						'.'
+					} else {
+						os.abs_path(os.args[3])
 					} 
 					mut base_name := input_name.replace('.aixt', '') // input file base name
 					base_name = base_name.replace('.v', '')
