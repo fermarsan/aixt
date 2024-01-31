@@ -33,7 +33,8 @@ pub mut:
 	setup 		toml.Doc
 }
 
-// 
+// gen is the main function of the code generation.
+// It receives the source path (file or folder), and return a string with the generated code.
 pub fn (mut gen Gen) gen(source_path string) string {
 	// gen.temps_cont = 0
 	gen.level_cont = 0
