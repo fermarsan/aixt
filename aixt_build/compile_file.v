@@ -1,16 +1,18 @@
 // Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: compile_file.v
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: Function for compiling a previous transpiled Aixt source code.
-
 module aixt_build
 
 import os
 import toml
 
+// compile_file calls the port's defined compiler to compile a previous transpiled Aixt source code.
+// example:
+// ```v
+// aixt_build.compile_file('example.v', setup)
+// ```
+// calls the compiler with `example.c` previously generated from `example.v`
 pub fn compile_file(path string, setup_file toml.Doc) {
 
 	cc := $if windows { // C compiler depending on the OS

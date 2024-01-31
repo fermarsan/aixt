@@ -1,5 +1,4 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: aixt.v
+// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
@@ -8,6 +7,10 @@
 //
 // Usage:
 // 1. Run the program using `v run aixt.v command port input_file_name`
+
+module main
+// Aixt transpiler
+
 import os
 import toml
 import aixt_build
@@ -44,7 +47,7 @@ fn main() {
 					match command {
 						'transpile', '-t' {
 							aixt_build.transpile_file(input_name, setup, aixt_path)
-							println('\n${input_name} transpilation finished.\n')
+							println('\n${input_name} transpiling finished.\n')
 						}
 						'compile', '-c' {
 							aixt_build.compile_file(base_name, setup)
@@ -53,18 +56,18 @@ fn main() {
 								'arduino' { 'ino' }
 								else { 'c' }
 							}
-							println('\n${base_name}.${ext} compilation finished.\n')
+							println('\n${base_name}.${ext} compiling finished.\n')
 						}
 						'build', '-b' {
 							aixt_build.transpile_file(input_name, setup, aixt_path)
-							println('\n${input_name} transpilation finished.\n')
+							println('\n${input_name} transpiling finished.\n')
 							aixt_build.compile_file(base_name, setup)
 							ext := match setup.value('backend').string() {
 								'nxc' { 'nxc' }
 								'arduino' { 'ino' }
 								else { 'c' }
 							}
-							println('\n${base_name}.${ext} compilation finished.\n')
+							println('\n${base_name}.${ext} compiling finished.\n')
 						}
 						'clean', '-cl' {
 							os.rm('${base_name}.c') or {} // clean c-type files
