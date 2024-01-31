@@ -1,0 +1,204 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+idloc IDLOC 5 2000 2000 4 2 1
+end_init CODE 0 0 0 1 2 1
+config CONFIG 4 2007 2007 1 2 1
+$dist/default/production\digital.X.production.o
+cinit CODE 0 3FE 3FE 2 2 1
+idloc IDLOC 5 2000 2000 4 2 1
+maintext CODE 0 3F0 3F0 E 2 1
+config CONFIG 4 2007 2007 1 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM C-4D 1
+BANK0 C-4D 1
+CONST 1-3EF 2
+ENTRY 1-3EF 2
+CODE 1-3EF 2
+SFR0 0-B 1
+SFR1 80-CD 1
+EEDATA 2100-213F 2
+STRCODE 1-3EF 2
+STRING 1-3EF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\digital.X.production.o
+3FE cinit CODE >172:C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.s
+3FE cinit CODE >175:C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.s
+3FE cinit CODE >181:C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.s
+3FE cinit CODE >183:C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.s
+3FF cinit CODE >184:C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.s
+3F0 maintext CODE >20:C:\Users\LUIS PINTO\proyecto\aixt-PIC16-Luis-Pinto\ports\Microchip\PIC16F84A\projects\digital.X\digital.c
+3F0 maintext CODE >22:C:\Users\LUIS PINTO\proyecto\aixt-PIC16-Luis-Pinto\ports\Microchip\PIC16F84A\projects\digital.X\digital.c
+3F2 maintext CODE >23:C:\Users\LUIS PINTO\proyecto\aixt-PIC16-Luis-Pinto\ports\Microchip\PIC16F84A\projects\digital.X\digital.c
+3F3 maintext CODE >24:C:\Users\LUIS PINTO\proyecto\aixt-PIC16-Luis-Pinto\ports\Microchip\PIC16F84A\projects\digital.X\digital.c
+3F4 maintext CODE >27:C:\Users\LUIS PINTO\proyecto\aixt-PIC16-Luis-Pinto\ports\Microchip\PIC16F84A\projects\digital.X\digital.c
+3F4 maintext CODE >29:C:\Users\LUIS PINTO\proyecto\aixt-PIC16-Luis-Pinto\ports\Microchip\PIC16F84A\projects\digital.X\digital.c
+3F9 maintext CODE >31:C:\Users\LUIS PINTO\proyecto\aixt-PIC16-Luis-Pinto\ports\Microchip\PIC16F84A\projects\digital.X\digital.c
+3FA maintext CODE >32:C:\Users\LUIS PINTO\proyecto\aixt-PIC16-Luis-Pinto\ports\Microchip\PIC16F84A\projects\digital.X\digital.c
+3FB maintext CODE >33:C:\Users\LUIS PINTO\proyecto\aixt-PIC16-Luis-Pinto\ports\Microchip\PIC16F84A\projects\digital.X\digital.c
+3FB maintext CODE >35:C:\Users\LUIS PINTO\proyecto\aixt-PIC16-Luis-Pinto\ports\Microchip\PIC16F84A\projects\digital.X\digital.c
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 0 0 ABS 0 - dist/default/production\digital.X.production.o
+__Hspace_0 400 0 ABS 0 - -
+__Hspace_1 0 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 400F 0 ABS 0 - -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__Hstrings 0 0 ABS 0 strings -
+___sp 0 0 STACK 2 stack C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+_main 7E0 0 CODE 0 maintext dist/default/production\digital.X.production.o
+btemp 4E 0 ABS 0 - dist/default/production\digital.X.production.o
+start 0 0 CODE 0 init C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+__Hpowerup 0 0 CODE 0 powerup -
+intlevel0 0 0 ENTRY 0 functab C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+wtemp0 4E 0 ABS 0 - dist/default/production\digital.X.production.o
+__Hfunctab 0 0 ENTRY 0 functab -
+__Hclrtext 0 0 ABS 0 clrtext -
+__Lmaintext 0 0 ABS 0 maintext -
+___stackhi 0 0 ABS 0 - C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+___stacklo 0 0 ABS 0 - C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+start_initialization 7FC 0 CODE 0 cinit dist/default/production\digital.X.production.o
+_TRISBbits 86 0 ABS 0 - dist/default/production\digital.X.production.o
+__pcstackBANK0 0 0 BANK0 1 cstackBANK0 dist/default/production\digital.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 BANK1 1 bank1 -
+__Hcinit 800 0 CODE 0 cinit -
+__Hidloc 4008 0 IDLOC 5 idloc -
+__Hstack 0 0 STACK 2 stack -
+__Hmaintext 0 0 ABS 0 maintext -
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 4010 0 CONFIG 4 config -
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 BANK1 1 bank1 -
+__Lcinit 7FC 0 CODE 0 cinit -
+__Lidloc 0 0 IDLOC 5 idloc -
+__Lstack 0 0 STACK 2 stack -
+_PORTBbits 6 0 ABS 0 - dist/default/production\digital.X.production.o
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 0 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Linit 0 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Ltext 0 0 ABS 0 text -
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__S0 400 0 ABS 0 - -
+__S1 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__Lintentry 0 0 CODE 0 intentry -
+reset_vec 0 0 CODE 0 reset_vec C:\Users\LUISPI~1\AppData\Local\Temp\xcAs2f0.o
+__pmaintext 7E0 0 CODE 0 maintext dist/default/production\digital.X.production.o
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 4 config -
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__Lend_init 0 0 CODE 0 end_init -
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+end_of_initialization 7FC 0 CODE 0 cinit dist/default/production\digital.X.production.o
+__Hintentry 0 0 CODE 0 intentry -
+__Lstrings 0 0 ABS 0 strings -
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__end_of__initialization 7FC 0 CODE 0 cinit dist/default/production\digital.X.production.o
+__Lfunctab 0 0 ENTRY 0 functab -
+__Lclrtext 0 0 ABS 0 clrtext -
+__pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/production\digital.X.production.o
+__Hend_init 2 0 CODE 0 end_init -
+__end_of_main 7FC 0 CODE 0 maintext dist/default/production\digital.X.production.o
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__initialization 7FC 0 CODE 0 cinit dist/default/production\digital.X.production.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 4E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 3FE 7FC 2 2
+maintext 0 3F0 7E0 E 2
+reset_vec 0 0 0 1 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES
