@@ -6,7 +6,6 @@ Tasks to do in Aixt
 
 - [ ] Fix the function attributes #bug @fermarsan
 - [ ] Implement structs #feat
-- [ ] Include `api_path` to the `gen` class #feat
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] Update the Aixt executable path #bug
 - [ ] dynamic memory definition
