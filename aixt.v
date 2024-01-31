@@ -2,7 +2,7 @@
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-// Description: This is the main file of the Aixt project. It works as a make file too.
+// Description: This is the main file of the Aixt project. It works as a makefile too.
 // Usage:
 // 1. Run the program using `v run aixt.v command port input_file_name`
 

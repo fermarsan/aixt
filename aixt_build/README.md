@@ -8,9 +8,9 @@
 import aixt_build
 
 fn main() {
-    port, input_name := 'Emulator', 'example.v'// port name and source path input
+    port, input_name := 'Emulator', 'example.v'
     base_name = input_name.replace('.v', '')
-    setup := toml.parse_file('aixt/ports/setup/Emulator.toml') or { return } // load the device's setup 
+    setup := toml.parse_file('aixt/ports/setup/Emulator.toml') or { return }
 
     aixt_build.transpile_file(input_name, setup, aixt_path)
     println('\n${input_name} transpiling finished.\n')
