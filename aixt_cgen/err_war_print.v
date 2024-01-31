@@ -1,12 +1,10 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: err_war_print.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2024
 // License: MIT
-//
-// Description: print Aixt transpiler warnings and errors (based on v.ast.file)
 module aixt_cgen
 
+// err_war_print prints Aixt transpiler warnings and errors (based on v.ast.file)
 fn (mut gen Gen) err_war_print() {
 	println('\n${gen.file.warnings.len} warning(s), ${gen.file.errors.len} error(s)')
 	for w in gen.file.warnings {

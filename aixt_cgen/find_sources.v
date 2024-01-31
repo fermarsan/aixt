@@ -1,12 +1,10 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: find_sources.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2024
 // License: MIT
-//
-// Description: recursively find all the source file paths in a given path
 module aixt_cgen
 
+// find_sources recursively finds all the source file paths in a given path
 fn (mut gen Gen) find_sources(global_path string) {
 	if os.is_file(global_path) {	// only one source code
 		gen.src_paths << global_path

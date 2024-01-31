@@ -1,14 +1,15 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: string_literal.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation for string literals.
 module aixt_cgen
 
 import v.ast
 
+// string_literal is the code generation function for string literals.
+// ```v
+// str := 'Aixt'
+// ```
 fn (mut gen Gen) string_literal(node ast.StringLiteral) string {
 	return '"${node.val}"'
 }

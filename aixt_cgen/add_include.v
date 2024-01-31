@@ -1,12 +1,10 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: add_include.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: add an include clause in the out file.
 module aixt_cgen
 
+// add_include adds an include clause to the output file.
 fn (mut gen Gen) add_include(name_ext string) {
 	if !gen.incls.contains(name_ext) {
 		gen.incls += '#include <${name_ext}>\n'

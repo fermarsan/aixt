@@ -1,14 +1,12 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: kind_and_type.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: print the kind and type of a identifier.
 module aixt_cgen
 
 import v.ast
 
+// kind_and_type prints the kind and type of a identifier.
 fn (mut gen Gen) kind_and_type(object ast.ScopeObject) string {
 	mut msg := match object {
 		ast.ConstField {

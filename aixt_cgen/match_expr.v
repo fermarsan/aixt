@@ -1,14 +1,12 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: match_expr.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation for 'match' expressions.
 module aixt_cgen
 
 import v.ast
 
+// match_expr is the code generation function for 'match' expressions.
 fn (mut gen Gen) match_expr(node ast.MatchExpr) string {
 	return ''
 }

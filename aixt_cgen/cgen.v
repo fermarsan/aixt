@@ -2,9 +2,8 @@
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: This file contains the C code generation functions of the Aixt project.
 
+// Description: This file contains the C code generation functions of the Aixt.
 module aixt_cgen
 
 import v.ast

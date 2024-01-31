@@ -1,12 +1,10 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: out_format.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: format the output file.
 module aixt_cgen
 
+// out_format formats the output file.
 fn (mut gen Gen) out_format() {
 	gen.out = gen.out.replace('___includes_block___', gen.incls)
 	gen.out = gen.out.replace('___definitions_block___', gen.defs)

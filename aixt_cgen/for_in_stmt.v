@@ -1,14 +1,12 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: for_in_stmt.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation for all variations of the 'for in' statement.
 module aixt_cgen
 
 import v.ast
 
+// for_in_stmt is the code generation function for the 'for in' statements.
 fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) string {
 	mut out := ''
 	if node.high.type_name() == 'v.ast.EmptyExpr' { // in an array

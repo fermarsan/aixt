@@ -1,14 +1,12 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: import_stmt.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation for import statements.
 module aixt_cgen
 
 import v.ast
 
+// import_stmt is the code generation function for import statements.
 fn (mut gen Gen) import_stmt(node ast.Import) string {
 	// println('${gen.setup.value('port').string()}')
 	api_path := '${gen.tr_path}/ports/${gen.setup.value('path').string()}/api'

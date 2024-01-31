@@ -1,14 +1,23 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: const_field.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation constants definition.
 module aixt_cgen
 
 import v.ast
 
+// const_field is the code generation function for constant definitions.
+// This works for single definitions:
+// ```v
+// const max_count = 20
+// ```
+// and block definitions:
+// ```v
+// const(
+// 	max = 50
+// 	min = 5
+// )
+// ```
 fn (mut gen Gen) const_field(node ast.ConstField) string {
 	mut out := ''
 	mut var_kind := gen.table.type_kind(node.typ).str()

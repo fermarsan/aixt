@@ -1,14 +1,12 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: if_expr.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation for 'if' expressions.
 module aixt_cgen
 
 import v.ast
 
+// if_expr is the code generation function for 'if' expressions.
 fn (mut gen Gen) if_expr(node ast.IfExpr) string { // basic shape of an "if" expression
 	mut out := ''
 	if node.is_expr { // in case of conditional assignment

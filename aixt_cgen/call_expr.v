@@ -1,14 +1,12 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: call.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation for calling functions.
 module aixt_cgen
 
 import v.ast
 
+// call_expr is the code generation function for function calling expressions.
 fn (mut gen Gen) call_expr(node ast.CallExpr) string {
 	fn_name := node.name.after('.')	// remove the parent function name
 	fn_api_path := gen.setup.value('api_functions').as_map()[fn_name] or { '' }	// api path of function

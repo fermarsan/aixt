@@ -1,11 +1,10 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: aixt.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: This is the help option message function
+module main
 
+// help_message is the help option message function
 fn help_message() string {
 	return 'aixt is a tool for managing Aixt source code (*.aixt or *.v).
 

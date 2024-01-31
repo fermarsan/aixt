@@ -1,15 +1,13 @@
 
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: fn_decl.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation for the function declaration statement.
 module aixt_cgen
 
 import v.ast
 
+// fn_decl is the code generation function for the function declaration statement.
 fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 	// println(gen.cur_scope.children[0])
 	mut out := '\n'

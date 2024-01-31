@@ -1,14 +1,12 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: global_field.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation global field.
 module aixt_cgen
 
 import v.ast
 
+// global_field is the code generation function for global fields.
 fn (mut gen Gen) global_field(node ast.GlobalField) string {
 	mut out := ''
 	var_kind := gen.table.type_kind(node.typ).str()

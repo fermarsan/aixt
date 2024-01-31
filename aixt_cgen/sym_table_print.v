@@ -1,14 +1,12 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: symbol_table.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: print the table of all symbols.
 module aixt_cgen
 
 import v.ast
 
+// symbol_table prints the symbol table os a specific scope
 fn (mut gen Gen) symbol_table(scope ast.Scope) string {
 	mut msg := ''
 	// println('+'.repeat(25))

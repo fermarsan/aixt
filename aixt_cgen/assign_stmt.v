@@ -1,14 +1,17 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: assign_stmt.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation the assignment statement.
 module aixt_cgen
 
 import v.ast
 
+// assign_stmt is the code generation function for assignment statements.
+// This works for:
+// - declaration-assignments `:=`
+// - only assignments `:=`
+// and
+// - cumulative-assignments `+=`, `-=`, etc. 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut out := ''
 	mut var_kind := ''
