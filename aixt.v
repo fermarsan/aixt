@@ -12,6 +12,9 @@ import os
 import toml
 import aixt_build
 
+// main function for Aixt transpiler.
+// Usage:
+//     v run aixt.v <command> <device_or_board> <source_path>
 fn main() {
 	if os.args.len < 2 {
 		println(help_message())
