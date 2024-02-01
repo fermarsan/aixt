@@ -8,7 +8,9 @@ module aixt_cgen
 fn (mut gen Gen) sym_table_print() {
 	println('\n===== Symbol table =====')
 	println(' ==== global scope ==== ')
-	print('${gen.symbol_table(gen.file.global_scope)}')
+	print('${gen.symbol_table(gen.table.global_scope)}')
 	println(' ======= scope ======== ')
-	print('${gen.symbol_table(gen.file.scope)}')
+	for file in gen.files {
+		print('${gen.symbol_table(file.scope)}')
+	}
 }

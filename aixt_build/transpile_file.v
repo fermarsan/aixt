@@ -24,13 +24,12 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		cur_fn: 'main'
 		level_cont: 0
 		pref: &pref.Preferences{}
-		setup: toml.Doc{}
+		setup: setup_file
 	}
 
 	c_gen.pref.is_script = true
 	c_gen.pref.enable_globals = true
-	c_gen.setup = setup_file
-
+	
 	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
 	if transpiled != '' {
@@ -47,9 +46,14 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 			'arduino'	{ '.ino' } 
 			else 		{ '.c' }
 		}
-		mut output_path := path.replace('.aixt', output_ext)
-		output_path = output_path.replace('.v', output_ext)
-		// println('\n${output_path}\n')
+
+		mut output_path := ''
+		if os.is_file(path) {
+			output_path = path.replace('.aixt', output_ext)
+			output_path = output_path.replace('.v', output_ext)
+		} else {
+			output_path = '${path}/main${output_ext}'
+		}
 		os.write_file(output_path, transpiled) or {}
 	}
 

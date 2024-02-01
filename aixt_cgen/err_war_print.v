@@ -6,13 +6,22 @@ module aixt_cgen
 
 // err_war_print prints Aixt transpiler warnings and errors (based on v.ast.file)
 fn (mut gen Gen) err_war_print() {
-	println('\n${gen.file.warnings.len} warning(s), ${gen.file.errors.len} error(s)')
-	for w in gen.file.warnings {
-		println('warning: ${w.message}')
-		// println('\t${w.details}')
+	mut w_count, mut e_count := 0, 0
+	for file in gen.files {
+		w_count += file.warnings.len
+		e_count += file.errors.len
 	}
-	for e in gen.file.errors {
-		println('error: ${e.message}')
-		// println('\t${e.details}')
+	println('\n${w_count} warning(s), ${e_count} error(s)')
+	for file in gen.files {
+		for w in file.warnings {
+			println('warning: ${w.message}')
+			// println('\t${w.details}')
+		}
+	}
+	for file in gen.files {
+		for e in file.errors {
+			println('error: ${e.message}')
+			// println('\t${e.details}')
+		}
 	}
 }
