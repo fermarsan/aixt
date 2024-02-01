@@ -1,0 +1,45 @@
+### HEXMate logfile and output summary ###
+
+### Command-line arguments ###
+ dist/default/production\LEDBASICO.X.production.hex
+ -Odist/default/production\LEDBASICO.X.production.hex
+ -logfile=dist/default/production\LEDBASICO.X.production.hxl
+ -addressing=1
+ -find=010F@0-0x7FFF/2wtMOVLB#15
+ -break=300000
+
+### OP Code find / replace / delete results ###
+ Search results for "MOVLB 15" (010Fh & FFFFh): (-find=010F@0-0x7FFF/2wtMOVLB#15)
+  No occurrences found.
+
+### Memory Usage ###
+ Intel Hex-file ranges:
+  0h - 5h		(dist/default/production\LEDBASICO.X.production.hex)
+  3FAEh - 3FFFh		(dist/default/production\LEDBASICO.X.production.hex)
+  200000h - 200007h		(dist/default/production\LEDBASICO.X.production.hex)
+  300000h - 30000Dh		(dist/default/production\LEDBASICO.X.production.hex)
+ Unused ranges:
+  6h - 3FADh
+  4000h - 1FFFFFh
+  200008h - 2FFFFFh
+
+### Hex Memory Map ###
+ Legend:
+  -- = Unused memory
+  H1 = Intel Hex-file         (dist/default/production\LEDBASICO.X.production.hex)
+----------------------------------------------------------
+         | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+----------------------------------------------------------
+00000000 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
+----------------------------------------------------------
+00003FA0 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
+00003FB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003FC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003FD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003FE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003FF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+----------------------------------------------------------
+00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
+----------------------------------------------------------
+00300000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
+00300010 | --
