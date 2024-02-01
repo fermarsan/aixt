@@ -17,6 +17,7 @@ import toml
 pub struct Gen {
 mut:	
 	files 		[]&ast.File
+	files_inc	[]&ast.File
 	table 		&ast.Table = unsafe { nil }
 	cur_scope	&ast.Scope = unsafe { nil }
 	tr_path 	string
