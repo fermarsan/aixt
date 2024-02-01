@@ -47,9 +47,9 @@ fn main() {
 						'compile', '-c' {
 							aixt_build.compile_file(base_name, setup)
 							ext := match setup.value('backend').string() {
-								'nxc' { 'nxc' }
-								'arduino' { 'ino' }
-								else { 'c' }
+								'nxc' 		{ 'nxc' }
+								'arduino' 	{ 'ino' }
+								else 		{ 'c' }
 							}
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}

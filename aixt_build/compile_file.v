@@ -23,10 +23,14 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 
 	flags := setup_file.value('cc_flags').string()
 
-	// compiles the output file
-	if setup_file.value('backend').string() == 'nxc' {
-		println(os.execute('${cc} ${path}.nxc ${flags} ${path}').output)
-	} else { 
-		println(os.execute('${cc} ${path}.c ${flags} ${path}').output)
+	output_ext := match setup_file.value('backend').string() {
+		'nxc' 		{ '.nxc' }
+		'arduino'	{ '.ino' } 
+		else 		{ '.c' }
+	}
+	if os.is_dir(path) {
+		println(os.execute('${cc} ${path}/main${output_ext} ${flags} ${path}/main').output)
+	} else {
+		println(os.execute('${cc} ${path}${output_ext} ${flags} ${path}').output)
 	}
 }

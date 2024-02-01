@@ -40,7 +40,6 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 			)
 		}
 
-		// saves the output file
 		output_ext := match c_gen.setup.value('backend').string() {
 			'nxc' 		{ '.nxc' }
 			'arduino'	{ '.ino' } 
