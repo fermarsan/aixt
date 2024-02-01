@@ -4,7 +4,7 @@ This Aixt implementation that supports the card  AI-WB2-32S-KIT
 # **ID card AI-WB2-32S-KIT**
 
 ## View
-* *The different pins on the card and the functions that correspond to each of these are shown in order.*
+* *Ai-WB2-32S-Kit, a total of 38 interfaces are connected, for example, the pin function definition table is the interface definition.*
 
 ![Alt text](Picture/AI-WBS-32S_FRONT.jpg)
 
@@ -93,13 +93,13 @@ To configure one of the analog ports
 ```go
 adc_setup(channel, setup_value_1, ... )
 ```
-*In channel the name of the analog port is entered, in setup_value_1 the value that will be given is said port.*
+* *In channel the name of the analog port is entered, in setup_value_1 the value that will be given is said port.*
 
 To detect the analog port value
 ```go
 x = adc_read(channel)
 ```
-*In `channel` the name of the analog port is entered, and `x` takes the value of said port..*
+* *In `channel` the name of the analog port is entered, and `x` takes the value of said port..*
 
 ## Pulse Width Modulation (PWM outputs)
 
