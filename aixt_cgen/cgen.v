@@ -22,6 +22,7 @@ mut:
 	cur_scope	&ast.Scope = unsafe { nil }
 	tr_path 	string
 	src_paths	[]string
+	inc_paths	[]string
 	out   		string
 	incls		string
 	defs		string
@@ -48,6 +49,11 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 	println('\n===== Top-down node analysis =====')
 	for i, file in gen.files {
+		gen.file_count = i
+		gen.out += gen.ast_node(file) // starts from the main node (file)
+	}
+	println('\n ==== API ====')
+	for i, file in gen.files_inc {
 		gen.file_count = i
 		gen.out += gen.ast_node(file) // starts from the main node (file)
 	}
