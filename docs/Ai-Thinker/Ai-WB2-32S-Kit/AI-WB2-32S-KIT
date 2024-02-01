@@ -1,11 +1,10 @@
 # Fast guide AI-WB2-32S-KIT
-This Aixt implementation that supports the card  AI-WB2-32S-KIT; 
-
+This Aixt implementation that supports the card  AI-WB2-32S-KIT
 
 # ID card AI-WB2-32S-KIT
 
-## Vista
-![Alt text](Picture/AI-WBS-32S_FRONT)
+## View
+![Alt text](Picture/AI-WBS-32S_FRONT.jpg)
 
 ## Datasheet
 [AI-WB2-32S-KIT](http://www.ai-thinker.com/Uploads/file/20221008/20221008082356_37940.pdf)
@@ -13,7 +12,8 @@ This Aixt implementation that supports the card  AI-WB2-32S-KIT;
 ## Port Identification
 Below are the ports used and their proper designations for programming:
 
-No.| Name| Function 
+No.| Name     | Function 
+-- |-----     |---
 1  |3V3       |3.3V power supply; The output current of the external power supply is recommended to be above 500mA 
 2  |EN        | By default, it is enabled as a chip, and the high level is effective 
 3  |NC        | Empty feet 
