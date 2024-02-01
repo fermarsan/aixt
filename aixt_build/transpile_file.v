@@ -13,18 +13,19 @@ import aixt_cgen
 // transpile_file transpiles an Aixt source code into C.
 pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	mut c_gen := aixt_cgen.Gen{
-		files: []&ast.File{}
-		table: ast.new_table()
-		cur_scope: &ast.Scope{}
-		tr_path: aixt_path
-		src_paths: []string{}
-		out: ''
-		incls: ''
-		defs: ''
-		cur_fn: 'main'
+		files: 		[]&ast.File{}
+		table: 		ast.new_table()
+		cur_scope: 	&ast.Scope{}
+		tr_path: 	aixt_path
+		src_paths: 	[]string{}
+		out: 		''
+		incls: 		''
+		defs: 		''
+		cur_fn: 	'main'
+		file_count: 0
 		level_cont: 0
-		pref: &pref.Preferences{}
-		setup: setup_file
+		pref:	 	&pref.Preferences{}
+		setup: 		setup_file
 	}
 
 	c_gen.pref.is_script = true

@@ -25,6 +25,7 @@ mut:
 	incls		string
 	defs		string
 	cur_fn		string
+	file_count	int
 	level_cont	int
 pub mut:
 	pref  		&pref.Preferences = unsafe { nil }
@@ -45,7 +46,8 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	checker_.check_files(gen.files)
 
 	println('\n===== Top-down node analysis =====')
-	for file in gen.files {
+	for i, file in gen.files {
+		gen.file_count = i
 		gen.out += gen.ast_node(file) // starts from the main node (file)
 	}
 	
