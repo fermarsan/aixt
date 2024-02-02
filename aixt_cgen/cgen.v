@@ -17,7 +17,7 @@ import toml
 pub struct Gen {
 mut:	
 	files 		[]&ast.File
-	files_inc	[]&ast.File
+	api_files	[]&ast.File
 	table 		&ast.Table = unsafe { nil }
 	cur_scope	&ast.Scope = unsafe { nil }
 	tr_path 	string
@@ -48,12 +48,12 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	checker_.check_files(gen.files)
 
 	println('\n===== Top-down node analysis =====')
-	for i, file in gen.files {
+	for i, file in gen.files {	// source folder
 		gen.file_count = i
 		gen.out += gen.ast_node(file) // starts from the main node (file)
 	}
 	println('\n ==== API ====')
-	for i, file in gen.files_inc {
+	for i, file in gen.api_files {	// API used functions
 		gen.file_count = i
 		gen.out += gen.ast_node(file) // starts from the main node (file)
 	}

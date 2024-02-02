@@ -14,7 +14,7 @@ import aixt_cgen
 pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	mut c_gen := aixt_cgen.Gen{
 		files: 		[]&ast.File{}
-		files_inc:	[]&ast.File{}
+		api_files:	[]&ast.File{}
 		table: 		ast.new_table()
 		cur_scope: 	&ast.Scope{}
 		tr_path: 	aixt_path
