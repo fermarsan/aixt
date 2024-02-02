@@ -59,8 +59,13 @@
 
 #include <xc.h>
 #define _XTAL_FREQ 8000000
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/builtin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/time/sleep_ms.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/time/sleep_us.c"
 
-void main(void) {
+
+/*void main(void) {
    ADCON1bits.PCFG = 0x0F;     //TODAS LOS PINES COMO DIGITALES
    TRISBbits.RB0 = 0;          //CONFIGURAMOS EL PIN B0 COMO SALIDA
     LATBbits.LB0  = 0;          //LIMPIAMOS EL BIT B0
@@ -69,6 +74,20 @@ void main(void) {
           __delay_ms(1000);   
         LATBbits.LB0 = 0;       //PIN_LOW
           __delay_ms(1000);   
+    }
+  return;
+}*/
+
+
+void main(void) {
+    ADCON1bits.PCFG = 0x0F;     //TODAS LOS PINES COMO DIGITALES
+    pin_setup(b0_s, out);       //CONFIGURAMOS EL PIN B0 COMO SALIDA
+    pin_write(b0, 0);           //LIMPIAMOS EL BIT B0
+    while(1){ 
+        pin_high(b0);       //PIN HIGH
+          sleep_ms(1000);   
+        pin_low(b0);        //PIN LOW
+          sleep_ms(1000);   
     }
   return;
 }

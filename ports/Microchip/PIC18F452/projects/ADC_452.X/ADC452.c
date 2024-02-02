@@ -57,10 +57,14 @@
 
 #define _XTAL_FREQ 8000000
 #include <xc.h>
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/builtin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/time/sleep_ms.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/adc.c"
 
-void main(void) {
+/*void main(void) {
     ADCON1 = 0x8E;                          // Vref = VSS y GND, Configuracion de entradas analogicas
-    ADCON0 = 0xC0;                          // Seleccion del canal, Habilitación del conversor
+    ADCON0 = 0xC0;                          // Seleccion del canal, Habilitaciï¿½n del conversor
     ADCON0bits.ADON = 1;                    // Enciende el conversor
     
     TRISB = 0x00;
@@ -72,8 +76,68 @@ void main(void) {
     {
         ADCON0bits.GO_DONE = 1;             // Inicia la conversion
         while(ADCON0bits.GO_DONE == 1);     // Espera a que termine la conversion
-        LATB = ADRESL;                      // Muestra el dato de la parte baja en el puerto D
-        LATC = ADRESH;                      // Muestra el dato de la parte alta en el puerto E
+        LATB = ADRESL;                      // Muestra el dato de la parte baja en el puerto B
+        LATC = ADRESH;                      // Muestra el dato de la parte alta en el puerto C
         __delay_ms(10);
+    }
+}*/
+
+void main(void) {
+    
+    adc_setup();
+    
+   // TRISB = 0x00;
+   // Puerto b como salida
+    pin_setup(b0_s, out);
+    pin_setup(b1_s, out);
+    pin_setup(b2_s, out);
+    pin_setup(b3_s, out);
+    pin_setup(b4_s, out);
+    pin_setup(b5_s, out);
+    pin_setup(b6_s, out);
+    pin_setup(b7_s, out);
+
+  // TRISC = 0x00; 
+  //PUERTO C como salida
+    pin_setup(c0_s, out);
+    pin_setup(c1_s, out);
+    pin_setup(c2_s, out);
+    pin_setup(c3_s, out);
+    pin_setup(c4_s, out);
+    pin_setup(c5_s, out);
+    pin_setup(c6_s, out);
+    pin_setup(c7_s, out);
+
+    //LATB = 0x00;
+    // LIMPIAMOS EL PUERTO B
+
+    pin_write(b0, 0);
+    pin_write(b1, 0);
+    pin_write(b2, 0);
+    pin_write(b3, 0);
+    pin_write(b4, 0);
+    pin_write(b5, 0);
+    pin_write(b6, 0);
+    pin_write(b7, 0);
+
+    //LATC = 0X00;
+    // LIMPIAMOS EL PUERTO C
+
+    pin_write(c0, 0);
+    pin_write(c1, 0);
+    pin_write(c2, 0);
+    pin_write(c3, 0);
+    pin_write(c4, 0);
+    pin_write(c5, 0);
+    pin_write(c6, 0);
+    pin_write(c7, 0);
+    
+    while(1)
+    {
+        adc_read(0);
+        valor = adc_reading();
+        LATB = valor & 0xFF;                      // Muestra el dato de la parte baja en el puerto B
+        LATC = (valor>>8) & 0x03;                      // Muestra el dato de la parte alta en el puerto C
+        sleep_ms(10);
     }
 }

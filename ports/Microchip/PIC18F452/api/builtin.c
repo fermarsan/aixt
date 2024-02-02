@@ -1,10 +1,10 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: builtin.c
-// Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
+// Author: Jan Carlo Peñuela Jurado and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: Builtin definitions (PIC18F2550) 
+// Description: Builtin definitions (PIC18F452) 
    
 #define a0_s    TRISAbits.TRISA0    // pin configuration pits
 #define a1_s    TRISAbits.TRISA1 
@@ -31,6 +31,19 @@
 #define c6_s    TRISCbits.TRISC6 
 #define c7_s    TRISCbits.TRISC7 
 
+#define d0_s    TRISCbits.TRISD0 
+#define d1_s    TRISCbits.TRISD1 
+#define d2_s    TRISCbits.TRISD2 
+#define d4_s    TRISCbits.TRISD4 
+#define d5_s    TRISCbits.TRISD5 
+#define d6_s    TRISCbits.TRISD6 
+#define d7_s    TRISCbits.TRISD7 
+
+#define e0_s    TRISCbits.TRISE0 
+#define e1_s    TRISCbits.TRISE1 
+#define e2_s    TRISCbits.TRISE2 
+
+
 #define a0_i    PORTAbits.RA0       // pin input pits 
 #define a1_i    PORTAbits.RA1 
 #define a2_i    PORTAbits.RA2 
@@ -56,6 +69,18 @@
 #define c6_i    PORTCbits.RC6 
 #define c7_i    PORTCbits.RC7 
 
+#define d0_i    TRISCbits.TRISD0 
+#define d1_i    TRISCbits.TRISD1 
+#define d2_i    TRISCbits.TRISD2 
+#define d4_i    TRISCbits.TRISD4 
+#define d5_i   TRISCbits.TRISD5 
+#define d6_i    TRISCbits.TRISD6 
+#define d7_i    TRISCbits.TRISD7 
+
+#define e0_i    TRISCbits.TRISE0 
+#define e1_i    TRISCbits.TRISE1 
+#define e2_i    TRISCbits.TRISE2 
+
 #define a0      LATAbits.LATA0      // pin output pits
 #define a1      LATAbits.LATA1 
 #define a2      LATAbits.LATA2 
@@ -80,3 +105,15 @@
 #define c5      LATCbits.LATC5 
 #define c6      LATCbits.LATC6 
 #define c7      LATCbits.LATC7 
+
+#define d1    TRISCbits.TRISD0 
+#define d2    TRISCbits.TRISD1 
+#define d3    TRISCbits.TRISD2 
+#define d4    TRISCbits.TRISD4 
+#define d5   TRISCbits.TRISD5 
+#define d6    TRISCbits.TRISD6 
+#define d7    TRISCbits.TRISD7 
+
+#define e0    TRISCbits.TRISE0 
+#define e1    TRISCbits.TRISE1 
+#define e2    TRISCbits.TRISE2 

@@ -1,10 +1,10 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: pin.c
-// Author: Andrés Felipe Fajardo and Fernando Martínez Santa
+// Author: Jan Carlo Peñuela Jurado and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: Pin management functions (PIC18F2550)
+// Description: Pin management functions (PIC18F452)
 
 #include <xc.h>
 
