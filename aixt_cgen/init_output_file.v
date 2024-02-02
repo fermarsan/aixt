@@ -28,10 +28,10 @@ fn (mut gen Gen) init_output_file() {
         gen.incls +=  if h.string() != '' { '#include <${h.string()}>\n' } else { '' }
 	}
 	api_path := '${gen.tr_path}/ports/${gen.setup.value('path').string()}/api'
-    gen.incls += if gen.setup.value('backend').string() != 'nxc'{
-		'#include "${api_path}/builtin.c"\n'
-	} else {
-		''
-	}
+    // gen.incls += if gen.setup.value('backend').string() != 'nxc'{
+	// 	'#include "${api_path}/builtin.c"\n'
+	// } else {
+	// 	''
+	// }
 	gen.out += '\n___definitions_block___\n' 
 }
