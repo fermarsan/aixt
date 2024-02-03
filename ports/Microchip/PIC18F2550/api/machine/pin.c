@@ -13,7 +13,7 @@
 
 #define pin_setup(PIN_NAME, MODE)   PIN_NAME = MODE  // pin_setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
 //#define port_setup(PORT_NAME, MODE)   PORT_NAME = MODE
-//#define pin_write(PORT_NAME,VAL)      PORT_NAME = VAL    
+//#define port_write(PORT_NAME,VAL)      PORT_NAME = VAL    
 
 #define pin_high(PIN_NAME)  PIN_NAME = 1          // LATBbits.LB0 = 1
 #define pin_low(PIN_NAME)   PIN_NAME = 0          // LATBbits.LB0 = 0
