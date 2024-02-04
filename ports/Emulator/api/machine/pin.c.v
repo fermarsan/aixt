@@ -60,7 +60,7 @@ fn pin_write(pin int, val int) {
 fn pin_read(pin  int) int {
     system("clear")
     printf(" Aixt virtual pins     Input %s : ", pin_name(pin))
-    scanf("%d", &input__)
+    scanf("%l", &input__)
     pin_write(pin, input__)
     return input__
 }

@@ -12,5 +12,6 @@ fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
 	for f in node.fields {
 		out += '${gen.ast_node(f)}'
 	}
-	return out
+	gen.defs += out
+	return ''
 }

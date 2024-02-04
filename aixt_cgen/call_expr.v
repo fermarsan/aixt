@@ -5,7 +5,6 @@
 module aixt_cgen
 
 import v.ast
-import v.parser
 
 // call_expr is the code generation function for function calling expressions.
 fn (mut gen Gen) call_expr(node ast.CallExpr) string {

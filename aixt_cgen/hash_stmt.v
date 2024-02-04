@@ -13,7 +13,7 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) string {
 			gen.headers += '#${node.val}\n'
 		}
 	} else {
-		gen.defs += '#${node.val}\n'
+		gen.macros += '#${node.val}\n'
 	}
 	return ''
 }

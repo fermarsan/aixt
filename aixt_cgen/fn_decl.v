@@ -67,7 +67,8 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		for a in node.attrs {
 			out += '${a.name} '
 		}
-		out += '${gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()} ' // return type
+		// println('##########${gen.table.type_symbols[node.return_type].str()}##########')
+		out += '${gen.setup.value(gen.table.type_symbols[node.return_type].str()).string()} ' // return type
 		out += '${node.name.after('.')}('
 		if node.params.len != 0 {
 			for pr in node.params {
@@ -76,7 +77,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				// var_name := '${gen.cur_fn}.${pr.name}'
 			}
 			out = out#[..-2] + ')' 
-			gen.defs += out + ';\n'	// generates the function's prototype
+			// gen.defs += out + ';\n'	// generates the function's prototype
 			out += ' {\n'
 		} else {
 			out += ') {\n'

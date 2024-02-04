@@ -28,9 +28,9 @@ fn pwm_print(duty int) {
 fn pwm_update() {
     system('clear')
     printf(' Aixt virtual PWM outputs\n')
-    printf('\t\t\t\t    PWM 1 :  %d %%\n', duty1__)
+    printf('\t\t\t\t    PWM 1 :  %l %%\n', duty1__)
     pwm_print(duty1__)
-    printf('\t\t\t\t    PWM 2 :  %d %%\n', duty2__)
+    printf('\t\t\t\t    PWM 2 :  %l %%\n', duty2__)
     pwm_print(duty2__)
 }
 
