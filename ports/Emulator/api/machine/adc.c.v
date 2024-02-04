@@ -7,18 +7,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-__value := 0
+__global (
+    value__ = 0
+)
 
 fn adc1_read() int {
     system('clear')
     printf(' Aixt virtual ADC input     ADC 1 : ')
-    scanf('%d', &__value)
-    return __value
+    scanf('%d', &value__)
+    return value__
 }
 
 fn adc2_read() int {
     system('clear')
     printf(' Aixt virtual ADC input     ADC 2 : ')
-    scanf('%d', &__value)
-    return __value
+    scanf('%d', &value__)
+    return value__
 }

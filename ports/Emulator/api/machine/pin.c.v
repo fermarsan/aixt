@@ -7,8 +7,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-__pins[8] := [0, 0, 0, 0, 0, 0, 0, 0]   // virtual pin array
-__input := 0
+__global (
+    pins__ = [0, 0, 0, 0, 0, 0, 0, 0]   // virtual pin array
+    input__ = 0
+)
 
 // pin_update prints the pins table in the command line
 fn pin_update() {
@@ -16,8 +18,8 @@ fn pin_update() {
     printf(" Aixt virtual pins     [#] = ON   [ ] = OFF\n")
     printf(" _____ _____ _____ _____ _____ _____ _____ _____\n")
     printf("|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |\n")
-    for __i := 0; __i<=7; __i++ {
-        if __pins[__i] == 0 {
+    for i__ := 0; i__<=7; i__++ {
+        if pins__[i__] == 0 {
             printf("| [ ] ")
         } else {
             printf("| [#] ")
@@ -26,39 +28,39 @@ fn pin_update() {
     printf("|\n'-----'-----'-----'-----'-----'-----'-----'-----'\n")
 }
 
-fn pin_name(int pin) &char {
-    switch (pin) {
-    case a:  return "a";
-    case b:  return "b";
-    case c:  return "c";
-    case d:  return "d";
-    case w:  return "w";
-    case x:  return "x";
-    case y:  return "y";
-    case z:  return "z";    
-    default: return "ERROR";
-    }
-} 
+// fn pin_name(pin int) &char {
+//     switch (pin) {
+//     case a:  return "a";
+//     case b:  return "b";
+//     case c:  return "c";
+//     case d:  return "d";
+//     case w:  return "w";
+//     case x:  return "x";
+//     case y:  return "y";
+//     case z:  return "z";    
+//     default: return "ERROR";
+//     }
+// } 
 
-void pin_high(int pin) {   
-    __pins[pin] = 1;
-    pin_update();
+fn pin_high(pin int) {   
+   pins__[pin] = 1
+    pin_update()
 }
 
-void pin_low(int pin) {   
-    __pins[pin] = 0;
-    pin_update();
+fn pin_low(pin int) {   
+   pins__[pin] = 0
+    pin_update()
 }
 
-void pin_write(int pin, int val) {  
-    __pins[pin] = val;
-    pin_update();
+fn pin_write(pin int, val int) {  
+   pins__[pin] = val
+    pin_update()
 }
 
-int pin_read(int pin) {
-    system("clear");
-    printf(" Aixt virtual pins     Input %s : ", pin_name(pin));
-    scanf("%d", &__input);
-    pin_write(pin, __input);
-    return __input;
+fn pin_read(pin  int) int {
+    system("clear")
+    printf(" Aixt virtual pins     Input %s : ", pin_name(pin))
+    scanf("%d", &input__)
+    pin_write(pin, input__)
+    return input__
 }

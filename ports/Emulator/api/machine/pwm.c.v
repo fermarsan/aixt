@@ -7,35 +7,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-__duty1 := 0;
-__duty2 := 0;
+// module main
+
+__global (
+    duty1__ int
+    duty2__ int
+)
 
 fn pwm_print(duty int) {
-    for __i := 1; __i <= 50; __i++ {
-        if __i <= (duty/2) {
-            printf("|")
+    for i__ := 1; i__ <= 50; i__++ {
+        if i__ <= duty/2 {
+            printf('|')
         } else {
-            printf("_")
+            printf('_')
         }
     }
-    printf("\n")
+    printf('\n')
 }
 
 fn pwm_update() {
-    system("clear")
-    printf(" Aixt virtual PWM outputs\n")
-    printf("\t\t\t\t    PWM 1 :  %d %%\n", __duty1)
-    pwm_print(__duty1);
-    printf("\t\t\t\t    PWM 2 :  %d %%\n", __duty2)
-    pwm_print(__duty2)
+    system('clear')
+    printf(' Aixt virtual PWM outputs\n')
+    printf('\t\t\t\t    PWM 1 :  %d %%\n', duty1__)
+    pwm_print(duty1__)
+    printf('\t\t\t\t    PWM 2 :  %d %%\n', duty2__)
+    pwm_print(duty2__)
 }
 
 fn pwm1_duty(duty int) {
-    __duty1 = duty
+    duty1__ = duty
     pwm_update()
 }
 
 fn pwm2_duty(duty int) {
-    __duty2 = duty
+    duty2__ = duty
     pwm_update()
 }

@@ -8,7 +8,7 @@
 #include <string.h>
 
 #define print(STR)      printf("%s", STR)
-#define println(STR)    printf("%s\n", STR)
+#define println(STR)	printf("%s\n", STR)
 
 // #define OUT = os__input(IN) 
 

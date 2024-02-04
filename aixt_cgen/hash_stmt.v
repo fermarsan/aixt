@@ -9,7 +9,9 @@ import v.ast
 // hash_stmt: code generation for hash statements (C preprocessor).
 fn (mut gen Gen) hash_stmt(node ast.HashStmt) string {
 	if node.kind == 'include' {
-		gen.incls += '#${node.val}\n'
+		if !gen.headers.contains(node.val) {
+			gen.headers += '#${node.val}\n'
+		}
 	} else {
 		gen.defs += '#${node.val}\n'
 	}

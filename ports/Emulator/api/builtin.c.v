@@ -2,10 +2,9 @@
 // Author: Fernando Martínez Santa
 // Date: 2022-2024
 // License: MIT
-//
-// Description: Builtin definitions
-//              (Emulator port) 
-enum __pin_names {    // enumerated type for the pin names
+
+// Pin_names is the enumerated type for the pin names
+enum Pin_names {
     a = 0   
     b
     c
