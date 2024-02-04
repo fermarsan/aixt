@@ -93,7 +93,7 @@
 
 void main(void) {
     ADCON1bits.PCFG = 0x0F;     //TODAS LOS PINES COMO DIGITALES
-    pin_setup(b0_s, out)        //CONFIGURAMOS EL PIN B0 COMO SALIDA
+    pin_setup(b0_s, out);       //CONFIGURAMOS EL PIN B0 COMO SALIDA
     pin_write(b0, 0);           //LIMPIAMOS EL BIT B0
     while(1){ 
         pin_high(b0);       //PIN_HIGH
@@ -101,5 +101,5 @@ void main(void) {
         pin_low(b0);        //PIN_LOW
           sleep_ms(1000);   
     }
-  return;
+  return;   
 }
