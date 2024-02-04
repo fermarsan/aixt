@@ -57,10 +57,10 @@ fn pin_write(pin int, val int) {
     pin_update()
 }
 
-fn pin_read(pin  int) int {
-    system("clear")
-    printf(" Aixt virtual pins     Input %s : ", pin_name(pin))
-    scanf("%l", &input__)
-    pin_write(pin, input__)
-    return input__
-}
+// fn pin_read(pin  int) int {
+//     system("clear")
+//     printf(" Aixt virtual pins     Input %s : ", pin_name(pin))
+//     scanf("%ld", &input__)
+//     pin_write(pin, input__)
+//     return input__
+// }

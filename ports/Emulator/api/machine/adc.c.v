@@ -14,13 +14,13 @@ __global (
 fn adc1_read() int {
     system('clear')
     printf(' Aixt virtual ADC input     ADC 1 : ')
-    scanf('%l', &value__)
+    scanf('%ld', &value__)
     return value__
 }
 
 fn adc2_read() int {
     system('clear')
     printf(' Aixt virtual ADC input     ADC 2 : ')
-    scanf('%l', &value__)
+    scanf('%ld', &value__)
     return value__
 }
