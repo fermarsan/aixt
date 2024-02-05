@@ -16,18 +16,21 @@ import toml
 // Gen is the struct that defines all the necessary data for the code generation
 pub struct Gen {
 mut:	
-	files 		[]&ast.File
-	table 		&ast.Table = unsafe { nil }
-	cur_scope	&ast.Scope = unsafe { nil }
-	tr_path 	string
-	src_paths	[]string
-	out   		string
-	headers		string
-	macros		string
-	defs		string
-	cur_fn		string
-	file_count	int
-	level_cont	int
+	files 			[]&ast.File
+	table 			&ast.Table = unsafe { nil }
+	cur_scope		&ast.Scope = unsafe { nil }
+	tr_path 		string
+	src_paths		[]string
+	out   			string
+	headers_block	string
+	headers			[]string
+	macros_block	string
+	macros			[]string
+	globals_block	string
+	globals			[]string
+	cur_fn			string
+	file_count		int
+	level_cont		int
 pub mut:
 	pref  		&pref.Preferences = unsafe { nil }
 	setup 		toml.Doc
@@ -47,6 +50,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 	println('\n===== Top-down node analysis =====')
 	for i, file in gen.files {	// source folder
+		println('############### ${file.auto_imports} ###############')
 		gen.file_count = i
 		gen.out += gen.ast_node(file) // starts from the main node (file)
 	}
