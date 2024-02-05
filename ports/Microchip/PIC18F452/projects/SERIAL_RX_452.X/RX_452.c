@@ -1,29 +1,33 @@
 /*
- * File:   PWM_452.c
- * Author: jean carlo
+ * File:   RX_452.c
+ * Author: afajardo
  *
- * Created on 6 de enero de 2024, 09:37 PM
+ * Created on January 12, 2024, 10:03 AM
  */
 
+// PIC18F452 Configuration Bit Settings
+
+// 'C' source line config statements
+
 // CONFIG1H
-#pragma config OSC = HS       // Oscillator Selection bits (RC oscillator w/ OSC2 configured as RA6)
+#pragma config OSC = HS         // Oscillator Selection bits (HS oscillator)
 #pragma config OSCS = OFF       // Oscillator System Clock Switch Enable bit (Oscillator system clock switch option is disabled (main oscillator is source))
 
 // CONFIG2L
-#pragma config PWRT = OFF       // Power-up Timer Enable bit (PWRT disabled)
-#pragma config BOR = OFF         // Brown-out Reset Enable bit (Brown-out Reset enabled)
-#pragma config BORV = 20       // Brown-out Reset Voltage bits (VBOR set to 2.0V)
+#pragma config PWRT = ON        // Power-up Timer Enable bit (PWRT enabled)
+#pragma config BOR = OFF        // Brown-out Reset Enable bit (Brown-out Reset disabled)
+#pragma config BORV = 20        // Brown-out Reset Voltage bits (VBOR set to 2.0V)
 
 // CONFIG2H
-#pragma config WDT = OFF        // Watchdog Timer Enable bit (WDT enabled)
+#pragma config WDT = OFF        // Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))
 #pragma config WDTPS = 128      // Watchdog Timer Postscale Select bits (1:128)
 
 // CONFIG3H
-#pragma config CCP2MUX = ON     // CCP2 Mux bit (CCP2 input/output is multiplexed with RC1)
+#pragma config CCP2MUX = OFF    // CCP2 Mux bit (CCP2 input/output is multiplexed with RB3)
 
 // CONFIG4L
-#pragma config STVR = ON        // Stack Full/Underflow Reset Enable bit (Stack Full/Underflow will cause RESET)
-#pragma config LVP = ON         // Low Voltage ICSP Enable bit (Low Voltage ICSP enabled)
+#pragma config STVR = OFF       // Stack Full/Underflow Reset Enable bit (Stack Full/Underflow will not cause RESET)
+#pragma config LVP = OFF        // Low Voltage ICSP Enable bit (Low Voltage ICSP disabled)
 
 // CONFIG5L
 #pragma config CP0 = OFF        // Code Protection bit (Block 0 (000200-001FFFh) not code protected)
@@ -56,43 +60,16 @@
 #pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot Block (000000-0001FFh) not protected from Table Reads executed in other blocks)
 
 
-#define _XTAL_FREQ 8000000
 #include <xc.h>
-#include "/home/aixt-project/ports/Microchip/PIC18F452/api/builtin.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/pin.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/adc.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/pwm.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F452/api/time/sleep_ms.c"
+#include "USART_452.h"
+#define _XTAL_FREQ 8000000
 
-void main()
-{
-/*  ADCON1 = 0x8E;                        // Configura el pin RA0 como analogico
-    ADCON0 = 0xC0;                          // Selecciona el canal 0 del ADC                           
-    ADCON0bits.ADON = 1;                    // Habilita el conversor */
-    adc_setup();
 
- /* PR2 = 0xC;                             // Valor del periodo
-    CCPR1L = 0;                             // Inicia el CCP1 en 0
-    TRISCbits.TRISC2 = 0;                   // Pin C2 como salida
-    T2CON = 0x03;                           // Configuracion del timer 2
-    CCP1CON = 0x0C;                         // Configura el CCP1 en modo PWM
-    TMR2 = 0;                               // Timer 2 en 0
-    T2CONbits.TMR2ON = 1;                   // Timer 2 ON
-    */
-    pwm_setup(1,2);    
-    
-    while(1)
-    {
-        /* ADCON0bits.GO_DONE = 1;
-        while(ADCON0bits.GO_DONE == 1); */
-        adc_read(0);
-
-        /*int valor_adc = ADRES; */
-        int valor_adc = adc_reading();
-
-        /*unsigned char valor_pwm = map(valor_adc, 0, 1023, 0, 50);
-        CCPR1L = (valor_pwm >> 2);*/
-        pwm_write(valor_adc,1);
-
-    }
+void main(void) {
+    TRISB=0x00; 
+    USART_Init(9600);            //inicializa la comunicacion serial en 9600 baudios
+     while (1) {
+         PORTB=USART_Rx();
+     }
+    return;
 }
