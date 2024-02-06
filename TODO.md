@@ -20,6 +20,7 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Manually parse used API files
 - [ ] change API to once file by function
+- [ ] API auto-import option
    
 ### Done ✓
 

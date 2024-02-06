@@ -42,11 +42,6 @@ fn pin_update() {
 //     }
 // } 
 
-fn pin_high(pin int) {   
-   pins__[pin] = 1
-    pin_update()
-}
-
 fn pin_low(pin int) {   
    pins__[pin] = 0
     pin_update()
