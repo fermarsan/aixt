@@ -4,7 +4,7 @@ Tasks to do in Aixt
 
 ### Todo
 
-- [ ] Fix the function attributes #bug @fermarsangit 
+- [ ] Fix the function attributes #bug @fermarsan
 - [ ] Implement structs #feat
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] Update the Aixt executable path #bug
