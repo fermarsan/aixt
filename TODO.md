@@ -12,13 +12,16 @@ Tasks to do in Aixt
 - [ ] implement string interpolation
 - [ ] generates documentation from code
 - [ ] pass default config from `<port>.toml` to `builtin.c.v`
+- [ ] Give support to transpile multi-file folders (`aixt.v`)
+- [ ] Change the vscode tasks to point the folder instead of `aixt.v`
 
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
+- [ ] Manually parse used API files
    
 ### Done ✓
 
-- [x] Manually parse used API files
+- [x] Manually parse used module files
 - [x] Implement Custom Module code generation
 - [x] Multiple source files support
