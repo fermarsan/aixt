@@ -4,7 +4,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin management functions (PIC18F2550 port)
+// Description: PWM management functions (PIC18F2550 port)
 
 // Función para configurar el PWM
 #define pwm_setup(pin1, pin2) \
