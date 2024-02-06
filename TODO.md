@@ -15,7 +15,8 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
-- [ ] Manually parse used API files 
+- [ ] Manually parse used API files
+- [ ] Implement Custom Module code generation
    
 ### Done ✓
 
