@@ -82,7 +82,8 @@ main_params =   ""
 # sleep_us    =   "time/sleep_us"
 
 api_modules = [
-    "pin"
+    "pin",
+    "time"
 ]
 
 [aliases]

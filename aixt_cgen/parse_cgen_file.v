@@ -14,12 +14,8 @@ import v.pref
 // parse_cgen_file, parces and generates code from a new source file
 // this is used mainly for modules
 pub fn (mut gen Gen) parse_cgen_file(source_path string) string {
-	mut pref1 := &pref.Preferences{} 
-	pref1.is_script = true
-	pref1.enable_globals = true
-	mut table := ast.new_table()
-	mut file := parser.parse_file(source_path, table, .skip_comments, pref1)
-	mut checker_ := checker.new_checker(table, pref1)
+	mut file := parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
+	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut file)
 
 	println('\n===== Top-down node analysis =====')
