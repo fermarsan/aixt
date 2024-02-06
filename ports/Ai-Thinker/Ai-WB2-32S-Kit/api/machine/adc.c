@@ -1,0 +1,1 @@
+#define adc_read(PIN_NAME)   analogRead(PIN_NAME)
