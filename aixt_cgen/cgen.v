@@ -41,8 +41,8 @@ pub mut:
 pub fn (mut gen Gen) gen(source_path string) string {
 	gen.init_output_file()
 
-	// gen.find_sources('${gen.tr_path}/ports/${gen.setup.value('path').string()}/api') //auto-inludes API
-	gen.find_sources(source_path)
+	// gen.add_sources('${gen.tr_path}/ports/${gen.setup.value('path').string()}/api') //auto-inludes API
+	gen.add_sources(source_path)
 
 	gen.files = parser.parse_files(gen.src_paths, gen.table, gen.pref)
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
