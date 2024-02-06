@@ -39,7 +39,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					}
 				}
 				'enum' {
-					out += 'enum ${(node.right[i] as ast.EnumVal).enum_name.after('.')} '
+					out += 'enum ${(node.right[i] as ast.EnumVal).enum_name.replace('.', '__')} '
 					out += '${gen.ast_node(node.left[i])} = '
 					out += '${gen.ast_node(node.right[i])};\n'
 				}

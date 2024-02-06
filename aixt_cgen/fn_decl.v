@@ -69,7 +69,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		}
 		// println('##########${gen.table.type_symbols[node.return_type].str()}##########')
 		out += '${gen.setup.value(gen.table.type_symbols[node.return_type].str()).string()} ' // return type
-		out += '${node.name.after('.')}('
+		out += '${node.name.replace('.', '__')}('
 		if node.params.len != 0 {
 			for pr in node.params {
 				out += '${gen.ast_node(pr)}, '

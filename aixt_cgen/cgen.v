@@ -7,7 +7,6 @@
 module aixt_cgen
 
 import v.ast
-// import v.token
 import v.pref
 import v.parser
 import v.checker
