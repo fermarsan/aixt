@@ -4,7 +4,7 @@ Tasks to do in Aixt
 
 ### Todo
 
-- [ ] Fix the function attributes #bug @fermarsan
+- [ ] Fix the function attributes #bug @fermarsangit 
 - [ ] Implement structs #feat
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] Update the Aixt executable path #bug
@@ -19,6 +19,7 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Manually parse used API files
+- [ ] change API to once file by function
    
 ### Done ✓
 
