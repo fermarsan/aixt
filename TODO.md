@@ -11,15 +11,14 @@ Tasks to do in Aixt
 - [ ] dynamic memory definition
 - [ ] implement string interpolation
 - [ ] generates documentation from code
+- [ ] pass default config from `<port>.toml` to `builtin.c.v`
 
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
-- [ ] Manually parse used API files
-- [ ] Implement Custom Module code generation
    
 ### Done ✓
 
+- [x] Manually parse used API files
+- [x] Implement Custom Module code generation
 - [x] Multiple source files support
-- [x] Append documentation comments in all source files
-- [x] Function calling before defining
