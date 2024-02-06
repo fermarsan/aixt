@@ -5,8 +5,9 @@
 // License: MIT
 //
 // Description: Builtin definitions (PIC18F2550) 
-   
-#define a0_s    TRISAbits.TRISA0    // pin configuration pits
+
+// #define a_s     TRISA           // pin configuration pits
+#define a0_s    TRISAbits.TRISA0    
 #define a1_s    TRISAbits.TRISA1 
 #define a2_s    TRISAbits.TRISA2 
 #define a3_s    TRISAbits.TRISA3
@@ -14,6 +15,7 @@
 #define a5_s    TRISAbits.TRISA5 
 #define a6_s    TRISAbits.TRISA6 
 
+// #define b_s     TRISB
 #define b0_s    TRISBbits.TRISB0 
 #define b1_s    TRISBbits.TRISB1 
 #define b2_s    TRISBbits.TRISB2 
@@ -23,6 +25,7 @@
 #define b6_s    TRISBbits.TRISB6 
 #define b7_s    TRISBbits.TRISB7 
 
+// #define c_s     TRISC
 #define c0_s    TRISCbits.TRISC0 
 #define c1_s    TRISCbits.TRISC1 
 #define c2_s    TRISCbits.TRISC2 
@@ -31,7 +34,8 @@
 #define c6_s    TRISCbits.TRISC6 
 #define c7_s    TRISCbits.TRISC7 
 
-#define a0_i    PORTAbits.RA0       // pin input pits 
+//#define a_i     PORTA        // pin input pits 
+#define a0_i    PORTAbits.RA0       
 #define a1_i    PORTAbits.RA1 
 #define a2_i    PORTAbits.RA2 
 #define a3_i    PORTAbits.RA3 
@@ -39,6 +43,7 @@
 #define a5_i    PORTAbits.RA5 
 #define a6_i    PORTAbits.RA6 
 
+//#define b_i     PORTB
 #define b0_i    PORTBbits.RB0 
 #define b1_i    PORTBbits.RB1 
 #define b2_i    PORTBbits.RB2 
@@ -48,6 +53,7 @@
 #define b6_i    PORTBbits.RB6 
 #define b7_i    PORTBbits.RB7 
 
+//#define c_i     PORTC 
 #define c0_i    PORTCbits.RC0 
 #define c1_i    PORTCbits.RC1 
 #define c2_i    PORTCbits.RC2 
