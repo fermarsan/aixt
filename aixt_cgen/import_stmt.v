@@ -9,12 +9,12 @@ import v.ast
 // import_stmt is the code generation function for import statements.
 fn (mut gen Gen) import_stmt(node ast.Import) string {
 	// println('${gen.setup.value('port').string()}')
-	api_path := '${gen.tr_path}/ports/${gen.setup.value('path').string()}/api'
+	api_path := '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api'
 	if node.syms.len == 0 {
-		gen.headers += '#include "${api_path}/${node.mod}.c"\n'
+		gen.includes << '#include "${api_path}/${node.mod}.c"\n'
 	} else {
 		for s in node.syms {
-			gen.headers += '#include "${api_path}/${node.mod}/${s.name}.c"\n'
+			gen.includes << '#include "${api_path}/${node.mod}/${s.name}.c"\n'
 		}
 	}
 

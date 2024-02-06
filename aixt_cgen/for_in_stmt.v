@@ -18,7 +18,7 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) string {
 				typ: ast.Type(ast.Kind.int)
 			}
 			gen.files[gen.file_count].scope.objects[temp_name] = temp_var //
-			gen.defs += 'int ${temp_name};\n'
+			gen.definitions << 'int ${temp_name};\n'
 		}
 		var := *gen.files[gen.file_count].scope.children[0].find_var(node.cond.str()) or { }
 		out += 'for(int ${temp_name} = 0;'

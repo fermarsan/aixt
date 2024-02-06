@@ -19,21 +19,18 @@ mut:
 	files 			[]&ast.File
 	table 			&ast.Table = unsafe { nil }
 	cur_scope		&ast.Scope = unsafe { nil }
-	tr_path 		string
-	src_paths		[]string
+	transpiler_path	string
+	source_paths	[]string
 	out   			string
-	headers_block	string
-	headers			[]string
-	macros_block	string
+	includes		[]string
 	macros			[]string
-	globals_block	string
-	globals			[]string
+	definitions		[]string
 	cur_fn			string
 	file_count		int
 	level_cont		int
 pub mut:
-	pref  		&pref.Preferences = unsafe { nil }
-	setup 		toml.Doc
+	pref  			&pref.Preferences = unsafe { nil }
+	setup 			toml.Doc
 }
 
 // gen is the main function of the code generation.
@@ -41,10 +38,10 @@ pub mut:
 pub fn (mut gen Gen) gen(source_path string) string {
 	gen.init_output_file()
 
-	// gen.add_sources('${gen.tr_path}/ports/${gen.setup.value('path').string()}/api') //auto-inludes API
+	// gen.add_sources('${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api') //auto-inludes API
 	gen.add_sources(source_path)
 
-	gen.files = parser.parse_files(gen.src_paths, gen.table, gen.pref)
+	gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check_files(gen.files)
 

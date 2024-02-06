@@ -10,7 +10,7 @@ import os
 fn (mut gen Gen) add_sources(global_path string) {
 	if os.is_file(global_path) {	// only one source code
 		if global_path.ends_with('.v') || global_path.ends_with('.aixt') {
-			gen.src_paths << global_path
+			gen.source_paths << global_path
 		}
 	} else {
 		paths := os.ls(global_path) or { [] }

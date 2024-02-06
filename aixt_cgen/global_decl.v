@@ -12,6 +12,6 @@ fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
 	for f in node.fields {
 		out += '${gen.ast_node(f)}'
 	}
-	gen.defs += out
+	gen.definitions << out
 	return ''
 }

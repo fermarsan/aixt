@@ -6,7 +6,7 @@ module aixt_cgen
 
 // add_definition adds a definition command to the output file.
 fn (mut gen Gen) add_definition(def string) {
-	if !gen.defs.contains(def) {
-		gen.defs += '${def}\n'
+	if def !in gen.definitions {
+		gen.definitions << '${def}\n'
 	}
 }
