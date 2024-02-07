@@ -18,12 +18,6 @@ enum Pin_names {
     z
 }
 
-// Channel_names is the enumerated type for the ADC channel names
-enum Channel_names {
-    ch_0 = 0
-    ch_1   
-}
-
 // init function call setup or initialization code
 fn init() {
     // my_var := 3.45

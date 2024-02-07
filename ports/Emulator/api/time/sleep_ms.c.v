@@ -4,8 +4,6 @@
 // License: MIT
 module time
 
-#include <unistd.h>
-
 // sleep_ms is a delay function in milliseconds for the Aixt PC port. 
 fn sleep_ms(tms u32) {
   usleep(tms * 1000)

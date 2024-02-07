@@ -1,9 +1,12 @@
-pin_update()
+import time { sleep }
+import pin
+
+pin.update()
 sleep(1)
 
 for i in 0..5 {
-	pin_high(a)
+	pin.high(a)
 	sleep(1)
-	pin_low(a)
+	pin.low(a)
 	sleep(1)
 }

@@ -61,29 +61,12 @@ main_params =   ""
 # initialization = []
 
 # [api_functions]
-# pin_update  =   "machine/pin"
-# pin_high    =   "machine/pin"
-# pin_low     =   "machine/pin"
-# pin_write   =   "machine/pin"
-# pin_read    =   "machine/pin"
-
-# pwm1_duty   =   "machine/pwm"
-# pwm2_duty   =   "machine/pwm"
-
-# adc1_read   =   "machine/adc"
-# adc2_read   =   "machine/adc"
-
-# input       =   "machine/uart"
-# print       =   "machine/uart"
-# println     =   "machine/uart"
-
-# sleep       =   "time/sleep"
-# sleep_ms    =   "time/sleep_ms"
-# sleep_us    =   "time/sleep_us"
 
 api_modules = [
     "pin",
     "adc",
+    "pwm",
+    "uart",
     "time"
 ]
 

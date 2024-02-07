@@ -4,17 +4,22 @@
 // License: MIT
 //
 // Description: This is a module to emulate a PWM output in console.
+module pwm
+
 #include <stdio.h>
 #include <stdlib.h>
 
-// module main
+// PWM_names is the enumerated type for the PWM names
+enum PWM_names {
+    pwm_0 = 0
+    pwm_1   
+}
 
 __global (
-    duty1__ int
-    duty2__ int
+    duty__ = [0, 0]
 )
 
-fn pwm_print(duty int) {
+pub fn print(duty int) {
     for i__ := 1; i__ <= 50; i__++ {
         if i__ <= duty/2 {
             printf('|')
@@ -25,21 +30,11 @@ fn pwm_print(duty int) {
     printf('\n')
 }
 
-fn pwm_update() {
+pub fn update() {
     system('clear')
     printf(' Aixt virtual PWM outputs\n')
-    printf('\t\t\t\t    PWM 1 :  %ld %%\n', duty1__)
-    pwm_print(duty1__)
-    printf('\t\t\t\t    PWM 2 :  %ld %%\n', duty2__)
-    pwm_print(duty2__)
-}
-
-fn pwm1_duty(duty int) {
-    duty1__ = duty
-    pwm_update()
-}
-
-fn pwm2_duty(duty int) {
-    duty2__ = duty
-    pwm_update()
+    printf('\t\t\t\t    PWM 0 :  %ld %%\n', duty__[0])
+    pwm__print(duty__[0])
+    printf('\t\t\t\t    PWM 1 :  %ld %%\n', duty__[1])
+    pwm__print(duty__[1])
 }
