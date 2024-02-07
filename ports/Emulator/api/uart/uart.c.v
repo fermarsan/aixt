@@ -1,14 +1,13 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
-// Date: 2023-2014
+// Date: 2023-2024
 // License: MIT
 //
 // Description: input and printing functions.
+module uart
+
 #include <stdio.h>
 #include <string.h>
-
-#define print(STR)      printf("%s", STR)
-#define println(STR)	printf("%s\n", STR)
 
 // #define OUT = os__input(IN) 
 
