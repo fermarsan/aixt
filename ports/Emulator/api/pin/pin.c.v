@@ -4,6 +4,8 @@
 // License: MIT
 //
 // Description: This is a module to emulate digital pines in console.
+module pin
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,7 +15,7 @@ __global (
 )
 
 // pin_update prints the pins table in the command line
-pub fn pin_update() {
+pub fn update() {
     system("clear")
     printf(" Aixt virtual pins     [#] = ON   [ ] = OFF\n")
     printf(" _____ _____ _____ _____ _____ _____ _____ _____\n")

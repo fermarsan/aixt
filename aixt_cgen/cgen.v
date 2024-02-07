@@ -38,6 +38,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.init_output_file()
 
 	// gen.add_sources('${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api') //auto-inludes API
+	gen.source_paths << '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api/builtin.c.v'
 	gen.add_sources(source_path)
 
 	gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
@@ -46,7 +47,6 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 	println('\n===== Top-down node analysis =====')
 	for i, file in gen.files {	// source folder
-		println('############### ${file.auto_imports} ###############')
 		gen.file_count = i
 		gen.out += gen.ast_node(file) // starts from the main node (file)
 	}

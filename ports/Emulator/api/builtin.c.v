@@ -2,6 +2,7 @@
 // Author: Fernando Martínez Santa
 // Date: 2022-2024
 // License: MIT
+module main
 
 #include <stdbool.h>
 
@@ -15,4 +16,9 @@ enum Pin_names {
     x
     y
     z
+}
+
+// init function call setup or initialization code
+fn init() {
+    // my_var := 3.45
 }
