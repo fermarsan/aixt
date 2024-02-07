@@ -4,21 +4,9 @@
 // License: MIT
 //
 // Description: ADC functions (Explorer16-PIC24 port)
-#include <p24FJ128GA010.h>
-
-#define adc_setup() AD1PCFG = 0xffdf; AD1CON1 = 0x00E0;  AD1CSSL = 0; AD1CON2 = 0; AD1CON3 = 0x1F02; AD1CON1bits.ADON = 1
+module adc
 
 #define adc_read(CHANNEL) ({ AD1CHS = CHANNEL; AD1CON1bits.SAMP = 1; while (!AD1CON1bits.DONE); ADC1BUF0; })
-
-// void ADC_setup() // setup function
-// {
-//     AD1PCFG = 0xffdf         // Analog inputs for Explorer16 POT and TSENS
-//     AD1CON1 = 0x00E0;        // automatic conversion start after sampling
-//     AD1CSSL = 0;             // no scanning required
-//     AD1CON2 = 0;             // use MUXA, AVss and AVdd are used as Vref+/-
-//     AD1CON3 = 0x1F02;        // Tsamp = 32 x Tad; Tad=125ns
-//     AD1CON1bits.ADON = 1;    // turn on the ADC
-// }
 
 // int adc_read(int channel)    // read the converted value
 // {

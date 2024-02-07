@@ -2,7 +2,9 @@
 // Author: Fernando Martínez Santa
 // Date: 2022-2024
 // License: MIT
+//
+// Description: Milliseconds delay function
+//              (Explorer16-PIC24 port)
 module time
 
-// sleep_us is a delay function in microseconds for the Aixt Explorer16-PIC24 port. 
-#define time__sleep_us(TIME)    __delay_us(TIME)
+#include <libpic30.h>
