@@ -105,7 +105,7 @@ fn main() {
 
 ```v
 // Blinking LED on the Explorer16 (PIC24FJ, using XC16 compiler)
-import time { sleep }
+import time { sleep_ms }
 import pin
 
 for {   //infinite loop
