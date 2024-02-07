@@ -10,7 +10,7 @@ import v.ast
 fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
 	mut out := ''
 	for f in node.fields {
-		out += '${gen.ast_node(f)}'
+		out += '\n${gen.ast_node(f)}'
 	}
 	gen.definitions << out
 	return ''

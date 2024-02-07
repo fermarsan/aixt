@@ -6,10 +6,10 @@
 // Description: This file contains the C code generation functions of the Aixt.
 module aixt_cgen
 
-import v.ast
+// import v.ast
 import v.parser
 import v.checker
-import v.pref
+// import v.pref
 
 // parse_cgen_file, parces and generates code from a new source file
 // this is used mainly for modules

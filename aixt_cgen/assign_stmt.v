@@ -13,10 +13,12 @@ import v.ast
 // and
 // - cumulative-assignments `+=`, `-=`, etc. 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
+	// println('############# ${node} #############')	
 	mut out := ''
 	mut var_kind := ''
 	for i in 0 .. node.left.len {
-		var_kind = gen.table.type_kind(node.left_types[i]).str()
+		var_kind = if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
+
 		if node.op.str() == ':=' { // declaration-assignment
 			match var_kind {
 				'array' {

@@ -22,10 +22,11 @@ pub fn update() {
     printf("|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |\n")
     for i__ := 0; i__<=7; i__++ {
         if pins__[i__] == 0 {
-            printf("| [ ] |\n")
+            printf("| [ ] ")
         } else {
-            printf("| [#] |\n")
+            printf("| [#] ")
         }
     }
+    printf("|\n")
     printf("'-----'-----'-----'-----'-----'-----'-----'-----'\n")
 }

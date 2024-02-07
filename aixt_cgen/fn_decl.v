@@ -81,10 +81,12 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				// var_name := '${gen.cur_fn}.${pr.name}'
 			}
 			out = out#[..-2] + ')' 
-			// gen.defs += out + ';\n'	// generates the function's prototype
+			gen.definitions << out + ';\n'	// generates the function's prototype
 			out += ' {\n'
 		} else {
-			out += ') {\n'
+			out += ')' 
+			gen.definitions << out + ';\n'	// generates the function's prototype
+			out += ' {\n'
 		}
 		for st in node.stmts {
 			out += gen.ast_node(st)

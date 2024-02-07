@@ -18,7 +18,7 @@ fn (mut gen Gen) import_stmt(node ast.Import) string {
 		module_path := '${gen.transpiler_path}/ports/${port_path}/api/${base_mod_name}'	
 		if node.syms.len == 0 {
 			file_paths := os.ls('${module_path}') or { [] }
-			// println(file_paths)
+			println('############# ${file_paths} #############')
 			for file_path in file_paths {
 				if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
 					gen.parse_cgen_file(os.abs_path('${module_path}/${file_path}'))

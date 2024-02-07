@@ -10,7 +10,7 @@ import v.ast
 fn (mut gen Gen) hash_stmt(node ast.HashStmt) string {
 	// println('########### ${node.ct_conds} ###########')
 	if node.kind == 'include' {
-		if !gen.includes.contains(node.val) {
+		if '#${node.val}\n' !in gen.includes {
 			gen.includes << '#${node.val}\n'
 		}
 	} else {
