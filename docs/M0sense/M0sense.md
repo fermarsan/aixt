@@ -16,44 +16,22 @@ Below are the ports used and their proper designations for programming:
 
 No.| Name     | Function 
 -- |-----     |---
-1  |3V3       |3.3V power supply; The output current of the external power supply is recommended to be above 500mA 
-2  |EN        | By default, it is enabled as a chip, and the high level is effective 
-3  |NC        | Empty feet 
-4  |IO11      | GPIO11/SPI_SCLK/IIC_SDA/ADC_CH10/JTAG_TDI/TDO 
-5  |NC        | Empty feet 
-6  |Empty feet| Empty feet 
-7  |IO14      | GPIO14/SPI_SS/IIC_SCL/PWM_CH4/ADC_CH2/JTAG_TCK/TMS 
-8  |IO17      | GPIO17/SPI_MOSI/MISO/IIC_SDA/PWM_CH2/JTAG_TCK/TMS 
-9  |IO3       | GPIO3/SPI_SCLK/IIC_SDA/PWM_CH3/JTAG_TDO/TDI 
-10 |IO20/NC   | The default NC is unavailable 
-11 |IO22/NC   | The default NC is unavailable 
-12 |IO0/NC    | The default NC is unavailable 
-13 |IO21/NC   | The default NC is unavailable 
-14 |GND       | Ground 
-15 |NC        | Empty feet 
-16 |NC        | Empty feet 
-17 |NC        | Empty feet 
-18 |NC        | Empty feet 
-19 |5V        | 5V power supply; External power supply output current is recommended to be above 500mA 
-20 |NC        | Empty feet 
-21 |NC        | Empty feet 
-22 |NC        | Empty feet 
-23 |NC        | Empty feet 
-24 |NC        | Empty feet 
-25 |IO8/NC    | The default NC is unavailable. 
-26 |NC        | Empty feet 
-27 |IO4       | GPIO4/SPI_MOSI/MISO/IIC_SCL/PWM_CH4/ADC_CH1 
-28 |IO2/NC    | The default NC is unavailable
-29 |NC        | Empty feet 
-30 |IO1/NC    | The default NC is unavailable 
-31 |IO5       | GPIO5/SPI_MOSI/MISO/IIC_SDA/PWM_CH0/ADC_CH4/JTAG_T MS/TCK 
-32 |NC        | Empty feet 
-33 |NC        | Empty feet 
-34 |RX        | RXD/GPIO7/SPI_SCLK/IIC_SDA/PWM_CH2/JTAG_TDO/TDI 
-35 |TX        | TXD/GPIO16/SPI_MOSI/MISO/IIC_SCL/PWM_CH1/JTAG_TMS/T CK 
-36 |IO12      | GPIO12/SPI_MOSI/MISO/IIC_SCL/PWM_CH2/ADC_CH0/JTAG_T MS/TCK 
-37 |NC        | Empty feet 
-38 |GND       | Ground
+1  |IO28      | GPIO28 
+2  |3V3       | 3.3V power supply; The output current of the external power supply is recommended to be above 500mA  
+3  |GND       | Ground 
+4  |VSYS      | REF System 
+5  |I02       | GPI02/BOOT Button
+6  |IO0       | GPIO0 
+7  |IO1       | GPIO1_LCD_CS
+8  |IO9       | GPIO9 
+9  |IO27      | GPIO27_SDA
+10 |IO26      | GPIO26_SCL 
+11 |IO25      | GPIO25_LEDR_LCD_DC 
+12 |IO24      | GPIO25_LEDG_LCD_MOSI 
+13 |IO23      | GPIO25_LEDB_LCD_SCLK
+14 |IO15      | GPIO15 
+15 |IO14      | GPIO14 
+16 |GND       | Ground
 
 ## Programming in v language
 
