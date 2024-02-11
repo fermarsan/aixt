@@ -2,10 +2,12 @@
 // Author: Fernando Martínez Santa
 // Date: 2022-2024
 // License: MIT
-//
-// Description: Builtin definitions
-//              (Emulator port) 
-enum __pin_names {    // enumerated type for the pin names
+module main
+
+#include <stdbool.h>
+
+// Pin_names is the enumerated type for the pin names
+enum Pin_names {
     a = 0   
     b
     c
@@ -14,4 +16,9 @@ enum __pin_names {    // enumerated type for the pin names
     x
     y
     z
+}
+
+// init function call setup or initialization code
+fn init() {
+    // my_var := 3.45
 }

@@ -1,9 +1,8 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2022-2024
 // License: MIT
-//
-// Description: Delay function in microseconds for the Aixt PC port. 
-#include <unistd.h>
+module time
 
-#define sleep_us(TIME)    usleep(TIME)
+// sleep_us is a delay function in microseconds for the Aixt PC port. 
+#define time__sleep_us(TIME)	usleep(TIME)

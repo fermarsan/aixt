@@ -11,6 +11,8 @@ fn (mut gen Gen) err_war_check() {
 		'is immutable, declare it with `mut`',
 		'expected `#define`',
 		'unknown function:',
+		'has no constant or function',
+		'returns 0 value(s)',
 	]
 
 	for mut file in gen.files {

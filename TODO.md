@@ -11,13 +11,19 @@ Tasks to do in Aixt
 - [ ] dynamic memory definition
 - [ ] implement string interpolation
 - [ ] generates documentation from code
+- [ ] Give support to transpile multi-file folders (`aixt.v`)
+- [ ] Change the vscode tasks to point the folder instead of `aixt.v`
 
 ### In Progress
 
-- [ ] Implements the `match` expression #feat @fermarsan
+- [ ] Implement the `match` expression #feat @fermarsan
+- [ ] API auto-import option
    
 ### Done ✓
 
+- [x] pass default config from `<port>.toml` to `builtin.c.v`
+- [x] Manually parse used API files
+- [x] change API to once file by function
+- [x] Manually parse used module files
+- [x] Implement Custom Module code generation
 - [x] Multiple source files support
-- [x] Append documentation comments in all source files
-- [x] Function calling before defining

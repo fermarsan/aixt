@@ -1,6 +1,6 @@
 /*
  * File:   Serial_2550.c
- * Author: Andrés Fajardo
+ * Author: Andrï¿½s Fajardo
  *
  * Created on 10 de enero de 2024, 10:26 PM
  */
@@ -70,9 +70,16 @@
 
 #define _XTAL_FREQ 8000000
 #include <xc.h>
-#include "USART.h"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/builtin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/uart.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/time/sleep_ms.c"
 
+/*
 void main(void) {
+       //CONFIG DEL PIN RC6 
+    TRISCbits.RC6=0;    //RC6 = TX
+
     USART_Init(9600);
     
     while (1) {
@@ -80,5 +87,22 @@ void main(void) {
          __delay_ms(500);
          USART_Tx(0x99);
          __delay_ms(500);
+     }
+}
+*/
+
+void main(void) {
+    
+       //CONFIG DE LOS PINES
+    pin_setup(c6_s,0);    //RC6 = TX
+
+       //Inicializamos la comunicaciÃ³n serial
+    uart_setup();
+    
+    while (1) {
+         tx_write(0x33);
+         sleep_ms(500);
+         tx_write(0x99);
+         sleep_ms(500);
      }
 }
