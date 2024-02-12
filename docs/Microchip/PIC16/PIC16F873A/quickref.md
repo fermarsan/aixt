@@ -228,7 +228,7 @@ print()          // Alamacena los caracteres, revisa que no haya ningún caracte
 uart_read()      // Almacena los datos recibidos que envia el otro dispositivo
 
 ```
-Ejemplo de variar el valor del ADC y visualizarlo en un mensaje:
+Ejemplo de encender y apagar un led enviando un caracter desde el PC:
 
 ```go
 
