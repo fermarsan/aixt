@@ -68,6 +68,9 @@ pin_low(a5)     // Función para apagar el pin
 pin_write(a2, 0)  // Función sobre escribir el pin
 pin_write(a2, 1)  // Función sobre escribir el pin
 
+pin_read(a4)      // Función para leer el pin
+pin_read(c3)      // Función para leer el pin
+
 ```
 
 Ejemplo de prender y apagar un led:
