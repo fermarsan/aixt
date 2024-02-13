@@ -90,6 +90,8 @@ pin_low(a5)     // Función para apagar el pin
 pin_write(a2, 0)  // Función sobre escribir el pin
 pin_write(a2, 1)  // Función sobre escribir el pin
 
+pin_read(b4)      // Función para leer el pin
+pin_read(c7)      // Función para leer el pin
 ```
 
 Ejemplo de prender y apagar un led:
@@ -195,10 +197,10 @@ Ejemplo de variar la intensidad de un led:
 
 ```
 
-## Configuración del UART
+## Configuración del UART Transmisión
 ```go
 uart_setup()     // Inicializa la comunicación serial
-print()          // Alamacena los caracteres,revisa que no haya ningún caracter nulo
+print()          // Alamacena los caracteres, revisa que no haya ningún caracter nulo
 
 ```
 Ejemplo de variar el valor del ADC y visualizarlo en un mensaje:
@@ -215,6 +217,55 @@ while(1){
     print(caracteres);   // Imprime el mensaje
     __delay_ms(200);     // Tiempo para no saturar la ventana de mensajes 
     
+    }
+
+```
+
+## Configuración del UART Recepción
+```go
+uart_setup()     // Inicializa la comunicación serial
+print()          // Alamacena los caracteres, revisa que no haya ningún caracter nulo
+uart_read()      // Almacena los datos recibidos que envia el otro dispositivo
+
+```
+Ejemplo de encender y apagar un led enviando un caracter desde el PC:
+
+```go
+
+char datos;    // Variable almacena los datos de la función uart_read
+
+void main(void) {
+    
+    ADCON1bits.PCFG = 0;   // Declara todos los pines como digitales 
+    
+    pin_setup(b0_s,out);   // Configuracion del pin
+    pin_setup(b1_s,out);   // Configuracion del pin
+    
+    pin_write(b0,0);       // Incializa el pin como apagado
+    pin_write(b1,0);       // Incializa el pin como apagado
+    
+    while(1){
+        
+        if(uart_input ()> 0){    // Verifica si hay datos para ser leidos
+                       
+            datos = uart_read();  // Almacena los datos de la funcion uart_read
+        
+        }
+        
+        switch (datos){
+            
+            case 'a':                         // Si el dato enviado es el caracter "a" 
+                
+                pin_high(b0);                 // Enciende el led que se encuentra en el pin b0
+                print("led1: Encendido\r\n"); // Imprime el mensaje en la pantalla 
+                break;  
+                
+            case 'b':                         // Si el dato enviado es el caracter "b" 
+                
+                pin_low(b0);                 // Apaga el led que se encuentra en el pin b0
+                print("led1: Apagado\r\n");  // Imprime el mensaje en la pantalla 
+                break;
+        }
     }
 
 ```
