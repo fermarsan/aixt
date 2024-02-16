@@ -1,10 +1,10 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pic.c
+// File Name: pwm.c
 // Author: Cesar Alejandro Roa Acosta and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: Pin management functions
+// Description: Pwm management functions
 //              (PIC16F873A port)
 
 // Función para configurar el PWM

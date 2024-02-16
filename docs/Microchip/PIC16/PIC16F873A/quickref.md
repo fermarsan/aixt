@@ -225,6 +225,7 @@ while(1){
 ```go
 uart_setup()     // Inicializa la comunicación serial
 print()          // Alamacena los caracteres, revisa que no haya ningún caracter nulo
+uart_input()     // Valida si hay datos recibidos 
 uart_read()      // Almacena los datos recibidos que envia el otro dispositivo
 
 ```
