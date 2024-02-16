@@ -10,6 +10,7 @@
 
 #define time__sleep_us(TIME)	usleep(TIME)
 #define time__sleep(TIME)		sleep(TIME)
+#define pin__setup(PIN_NUMBER, PIN_MODE)	printf("TRIS ## PIN_NUMBER ## bits.TRIS ## PIN_NUMBER = PIN_MODE")
 
 void main__init();
 

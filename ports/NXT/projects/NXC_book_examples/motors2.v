@@ -1,0 +1,16 @@
+forward_reg(motor_ac,50,motor_regmode_idle)
+
+ sleep(2000)
+
+ Off(motor_ac)
+ play_tone(4000,50)
+ sleep(1000)
+ reset_tacho_count(motor_ac)
+ forward_reg(motor_ac,50,motor_regmode_speed)
+ sleep(2000)
+ Off(motor_ac)
+ play_tone(4000,50)
+ sleep(1000)
+ forward_reg(motor_ac,50,motor_regmode_sync)
+ sleep(2000)
+ Off(motor_ac)

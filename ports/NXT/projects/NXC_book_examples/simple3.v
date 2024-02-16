@@ -1,0 +1,5 @@
+forward(motor_ac, 30)
+sleep(4000)
+reverse(motor_ac, 30)
+sleep(4000)
+off(motor_ac)
