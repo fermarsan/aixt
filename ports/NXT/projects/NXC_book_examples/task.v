@@ -1,7 +1,6 @@
 moveMutex := mutex()
 
-task move_square()
-{
+@[task] fn move_square() {
     for {
         acquire(moveMutex)
         forward(motors_ac, 75)
@@ -12,8 +11,7 @@ task move_square()
     }
 }
 
-task check_sensors()
-{
+@[task] fn check_sensors() {
     for {
         if (sensor_1 == 1)
         {
@@ -27,8 +25,7 @@ task check_sensors()
     }
 }
 
-task main()
-{
+@[task] fn main() {
     precedes(move_square, check_sensors);
     set_sensor_touch(in_1)
 }

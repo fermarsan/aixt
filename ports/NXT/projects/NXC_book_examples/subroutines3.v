@@ -1,14 +1,7 @@
-inline void turn_around
-
-const (
-pwr 
-turntime
-)
-
-{
- reverse(motor_c, pwr)
- sleep(turntime)
- forward(motors_ac, pwr)
+@[inline] fn turn_around(pwr int, turntime int) {
+	reverse(motor_c, pwr)
+	sleep(turntime)
+	forward(motors_ac, pwr)
 }
 
 
