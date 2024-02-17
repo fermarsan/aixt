@@ -4,4 +4,4 @@
 // License: MIT
 module pin
 
-#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME = PIN_MODE
+#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
