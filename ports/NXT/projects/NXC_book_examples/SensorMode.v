@@ -5,6 +5,6 @@ for {
 	clear_sensor(in_1)
 	for !(sensor_1 > 0) {}
 	wait(500)
-	if sensor_1 == 1 {off(motor_ac)}
-	if sensor_1 == 2 {forward(motor_ac, 75)}
+	if sensor_1 == 1 { off(motors_ac) }
+	if sensor_1 == 2 { forward(motors_ac, 75) }
 }

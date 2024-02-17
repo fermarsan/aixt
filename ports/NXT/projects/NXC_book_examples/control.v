@@ -1,8 +1,10 @@
-#define	move_time 500
-#define	turn_time 360
+const(
+	move_time = 500
+	turn_time = 360
+)
 
 for {
-	forward(motor_ac, 75)
+	forward(motors_ac, 75)
 	sleep(move_time)
 	if random() >= 0 {
 		reverse(motor_c, 75)

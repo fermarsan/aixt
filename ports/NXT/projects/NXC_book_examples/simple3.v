@@ -1,5 +1,5 @@
-forward(motor_ac, 30)
+forward(motors_ac, 30)
 sleep(4000)
-reverse(motor_ac, 30)
+reverse(motors_ac, 30)
 sleep(4000)
-off(motor_ac)
+off(motors_ac)

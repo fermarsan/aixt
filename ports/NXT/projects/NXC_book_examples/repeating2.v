@@ -1,5 +1,7 @@
-#define	move_time 1000
-#define	turn_time 500
+const (
+	move_time = 1000
+	turn_time = 500
+)
 
 
 for n in 1..10 {
