@@ -1,4 +1,4 @@
-#define turn_around	( reverse(motor_b, 75); sleep(3400); forward(motors_ab, 75) )
+#define turn_around	reverse(motor_b, 75); sleep(3400); forward(motors_ab, 75);
 
 forward(motors_ab, 75)
 sleep(1000)

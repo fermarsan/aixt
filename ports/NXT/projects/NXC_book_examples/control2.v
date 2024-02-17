@@ -20,6 +20,6 @@ for total_time < 20000 {
 	total_time += turn_time
  }
 
- off(motors_ac)
+off(motors_ac)
 
 
