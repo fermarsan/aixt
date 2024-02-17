@@ -8,6 +8,6 @@ play_tone(5000,30)
  forward_sync(motor_ac,50,-40)
  sleep(1000)
  play_tone(5000,30)
- on_rev_sync(motor_ac,50,90)
+ reverse_sync(motor_ac,50,90)
  sleep(1000)
- Off(motor_ac);
+ off(motor_ac);

@@ -1,7 +1,6 @@
 task music()
 {
- while (true)
- {
+ for {
  play_tone(262,400)
   sleep(500)
  play_tone(294,400)
@@ -14,11 +13,10 @@ task music()
 }
 task movement()
 {
- while(true)
- {
+ for {
  forward(motor_ac, 75)
   sleep(3000)
- on_rev(motor_ac, 75)
+ reverse(motor_ac, 75)
   sleep(3000);
  }
 }

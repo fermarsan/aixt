@@ -6,7 +6,7 @@ for n in 1..10 {
 	for n in 1..4 {
 		forward(motors_ac, 75)
 		sleep(move_time)
-		on_rev(motor_c, 75)
+		reverse(motor_c, 75)
 		sleep(turn_time)
 	}
 }

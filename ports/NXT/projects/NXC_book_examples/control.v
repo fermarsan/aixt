@@ -6,8 +6,7 @@ for {
 	sleep(move_time)
 	if random() >= 0 {
 		reverse(motor_c, 75)
-	}
-	else {
+	} else {
 		reverse(motor_a, 75)
 	}
 	sleep(turn_time)

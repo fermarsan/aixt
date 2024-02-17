@@ -2,8 +2,7 @@ moveMutex := mutex()
 
 task move_square()
 {
-    while (true)
-    {
+    for {
         acquire(moveMutex)
         forward(motors_ac, 75)
         sleep(1000)
@@ -15,12 +14,11 @@ task move_square()
 
 task check_sensors()
 {
-    while (true)
-        {
+    for {
         if (sensor_1 == 1)
         {
             acquire(moveMutex)
-            on_rev(motors_ac, 75)
+            reverse(motors_ac, 75)
             sleep(500)
             forward(motor_a, 75)
             sleep(500)

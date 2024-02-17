@@ -6,7 +6,7 @@ turntime
 )
 
 {
- on_rev(motor_c, pwr)
+ reverse(motor_c, pwr)
  sleep(turntime)
  forward(motor_ac, pwr)
 }
