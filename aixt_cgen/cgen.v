@@ -21,8 +21,9 @@ mut:
 	transpiler_path	string
 	source_paths	[]string
 	out   			string
-	includes		[]string
-	macros			[]string
+	c_preproc_cmds	[]string	
+	// includes		[]string
+	// macros		[]string
 	definitions		[]string
 	cur_fn			string
 	file_count		int

@@ -16,8 +16,10 @@ fn (mut gen Gen) init_output_file() {
 	gen.out += '// Device = ${gen.setup.value('device').string()}\n'
 	gen.out += '// Board = ${gen.setup.value('board').string()}\n'
 	gen.out += '// Backend = ${gen.setup.value('backend').string()}\n\n'
-	gen.out += '\n___includes_block___\n'
-	gen.out += '\n___macros_block___\n' 
+
+	gen.out += '\n___preprocessor_block___\n' 
+	// gen.out += '\n___includes_block___\n'
+	// gen.out += '\n___macros_block___\n' 
 	gen.out += '\n___definitions_block___\n\n'
  
     // for h in gen.setup.value('includes').array() {	// append the header files
