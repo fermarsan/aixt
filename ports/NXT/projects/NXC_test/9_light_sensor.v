@@ -2,7 +2,7 @@
 
 const limit = 40
 
-set_sensor_light(in_1);
+set_sensor_light(in_1)
 forward(motors_ab, 60)
 
 for {
