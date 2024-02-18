@@ -8,8 +8,6 @@
 // Description: ADC management functions
 //              (PIC16F676 port)
 
-#include <xc.h>
-
 #define adc_setup() \
     ANSEL = 0b00000100; /* Configura el pin AN1 como entrada analógica */ \
     ADCON0 = 0b10000000; /* Habilita el ADC y selecciona AN1 como entrada */ \

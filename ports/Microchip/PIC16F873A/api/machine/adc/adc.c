@@ -1,13 +1,11 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pic.c
+// File Name: adc.c
 // Author: Cesar Alejandro Roa Acosta and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
 // Description: ADC management functions
 //              (PIC16F873A port)
-
-#include <xc.h>
 
 #define adc_setup() \
     ADCON1 = 0b10000000; /* Ajusta todos los canales como analogicos */ \
