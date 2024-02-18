@@ -1,15 +1,10 @@
 import time { sleep_ms }
-import pin {
-	high
-	low
-}
-
-pin_setup(led3, out)
+import pin
 
 for {
-	high(led3)
+	pin.high(led3)
 	sleep_ms(500)
-	low(led3)
+	pin.low(led3)
 	sleep_ms(500)
 }
 

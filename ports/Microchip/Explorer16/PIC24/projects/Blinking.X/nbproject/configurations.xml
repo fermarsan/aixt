@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>/opt/microchip/xc16/v2.10/support/PIC24F/h/p24FJ128GA010.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,6 +24,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>../../api</Elem>
+    <Elem>/opt/microchip/xc16/v2.10/support/PIC24F/h</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
