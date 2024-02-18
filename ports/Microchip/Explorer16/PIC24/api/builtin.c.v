@@ -51,12 +51,12 @@ module main
 #define a5_s    TRISAbits.TRISA5 
 #define a6_s    TRISAbits.TRISA6 
 #define a7_s    TRISAbits.TRISA7 
-#define a8_s    TRISAbits.TRISA8 
+// #define a8_s    TRISAbits.TRISA8 
 #define a9_s    TRISAbits.TRISA9 
 #define a10_s   TRISAbits.TRISA10
-#define a11_s   TRISAbits.TRISA11
-#define a12_s   TRISAbits.TRISA12
-#define a13_s   TRISAbits.TRISA13
+// #define a11_s   TRISAbits.TRISA11
+// #define a12_s   TRISAbits.TRISA12
+// #define a13_s   TRISAbits.TRISA13
 #define a14_s   TRISAbits.TRISA14
 #define a15_s   TRISAbits.TRISA15
 
@@ -77,18 +77,18 @@ module main
 #define b14_s   TRISBbits.TRISB14
 #define b15_s   TRISBbits.TRISB15
 
-#define c0_s    TRISCbits.TRISC0 
+// #define c0_s    TRISCbits.TRISC0 
 #define c1_s    TRISCbits.TRISC1 
 #define c2_s    TRISCbits.TRISC2 
 #define c3_s    TRISCbits.TRISC3 
 #define c4_s    TRISCbits.TRISC4 
-#define c5_s    TRISCbits.TRISC5 
-#define c6_s    TRISCbits.TRISC6 
-#define c7_s    TRISCbits.TRISC7 
-#define c8_s    TRISCbits.TRISC8 
-#define c9_s    TRISCbits.TRISC9 
-#define c10_s   TRISCbits.TRISC10
-#define c11_s   TRISCbits.TRISC11
+// #define c5_s    TRISCbits.TRISC5 
+// #define c6_s    TRISCbits.TRISC6 
+// #define c7_s    TRISCbits.TRISC7 
+// #define c8_s    TRISCbits.TRISC8 
+// #define c9_s    TRISCbits.TRISC9 
+// #define c10_s   TRISCbits.TRISC10
+// #define c11_s   TRISCbits.TRISC11
 #define c12_s   TRISCbits.TRISC12
 #define c13_s   TRISCbits.TRISC13
 #define c14_s   TRISCbits.TRISC14
@@ -121,12 +121,12 @@ module main
 #define e7_s    TRISEbits.TRISE7 
 #define e8_s    TRISEbits.TRISE8 
 #define e9_s    TRISEbits.TRISE9 
-#define e10_s   TRISEbits.TRISE10
-#define e11_s   TRISEbits.TRISE11
-#define e12_s   TRISEbits.TRISE12
-#define e13_s   TRISEbits.TRISE13
-#define e14_s   TRISEbits.TRISE14
-#define e15_s   TRISEbits.TRISE15
+// #define e10_s   TRISEbits.TRISE10
+// #define e11_s   TRISEbits.TRISE11
+// #define e12_s   TRISEbits.TRISE12
+// #define e13_s   TRISEbits.TRISE13
+// #define e14_s   TRISEbits.TRISE14
+// #define e15_s   TRISEbits.TRISE15
 
 #define f0_s     TRISFbits.TRISF0 
 #define f1_s     TRISFbits.TRISF1 
@@ -137,26 +137,26 @@ module main
 #define f6_s     TRISFbits.TRISF6 
 #define f7_s     TRISFbits.TRISF7 
 #define f8_s     TRISFbits.TRISF8 
-#define f9_s     TRISFbits.TRISF9 
-#define f10_s    TRISFbits.TRISF10
-#define f11_s    TRISFbits.TRISF11
+// #define f9_s     TRISFbits.TRISF9 
+// #define f10_s    TRISFbits.TRISF10
+// #define f11_s    TRISFbits.TRISF11
 #define f12_s    TRISFbits.TRISF12
 #define f13_s    TRISFbits.TRISF13
-#define f14_s    TRISFbits.TRISF14
-#define f15_s    TRISFbits.TRISF15
+// #define f14_s    TRISFbits.TRISF14
+// #define f15_s    TRISFbits.TRISF15
 
 #define g0_s    TRISGbits.TRISG0 
 #define g1_s    TRISGbits.TRISG1 
 #define g2_s    TRISGbits.TRISG2 
 #define g3_s    TRISGbits.TRISG3 
-#define g4_s    TRISGbits.TRISG4 
-#define g5_s    TRISGbits.TRISG5 
+// #define g4_s    TRISGbits.TRISG4 
+// #define g5_s    TRISGbits.TRISG5 
 #define g6_s    TRISGbits.TRISG6 
 #define g7_s    TRISGbits.TRISG7 
 #define g8_s    TRISGbits.TRISG8 
 #define g9_s    TRISGbits.TRISG9 
-#define g10_s   TRISGbits.TRISG10
-#define g11_s   TRISGbits.TRISG11
+// #define g10_s   TRISGbits.TRISG10
+// #define g11_s   TRISGbits.TRISG11
 #define g12_s   TRISGbits.TRISG12
 #define g13_s   TRISGbits.TRISG13
 #define g14_s   TRISGbits.TRISG14
@@ -170,12 +170,12 @@ module main
 #define a5_i    PORTAbits.RA5 
 #define a6_i    PORTAbits.RA6 
 #define a7_i    PORTAbits.RA7 
-#define a8_i    PORTAbits.RA8 
+// #define a8_i    PORTAbits.RA8 
 #define a9_i    PORTAbits.RA9 
 #define a10_i   PORTAbits.RA10
-#define a11_i   PORTAbits.RA11
-#define a12_i   PORTAbits.RA12
-#define a13_i   PORTAbits.RA13
+// #define a11_i   PORTAbits.RA11
+// #define a12_i   PORTAbits.RA12
+// #define a13_i   PORTAbits.RA13
 #define a14_i   PORTAbits.RA14
 #define a15_i   PORTAbits.RA15
 
@@ -196,18 +196,18 @@ module main
 #define b14_i   PORTBbits.RB14
 #define b15_i   PORTBbits.RB15
 
-#define c0_i    PORTCbits.RC0 
+// #define c0_i    PORTCbits.RC0 
 #define c1_i    PORTCbits.RC1 
 #define c2_i    PORTCbits.RC2 
 #define c3_i    PORTCbits.RC3 
 #define c4_i    PORTCbits.RC4 
-#define c5_i    PORTCbits.RC5 
-#define c6_i    PORTCbits.RC6 
-#define c7_i    PORTCbits.RC7 
-#define c8_i    PORTCbits.RC8 
-#define c9_i    PORTCbits.RC9 
-#define c10_i   PORTCbits.RC10
-#define c11_i   PORTCbits.RC11
+// #define c5_i    PORTCbits.RC5 
+// #define c6_i    PORTCbits.RC6 
+// #define c7_i    PORTCbits.RC7 
+// #define c8_i    PORTCbits.RC8 
+// #define c9_i    PORTCbits.RC9 
+// #define c10_i   PORTCbits.RC10
+// #define c11_i   PORTCbits.RC11
 #define c12_i   PORTCbits.RC12
 #define c13_i   PORTCbits.RC13
 #define c14_i   PORTCbits.RC14
@@ -218,13 +218,13 @@ module main
 #define d2_i    PORTDbits.RD2 
 #define d3_i    PORTDbits.RD3 
 #define d4_i    PORTDbits.RD4 
-#define d5_i    PORTDbits.RD5 
-#define d6_i    PORTDbits.RD6 
-#define d7_i    PORTDbits.RD7 
-#define d8_i    PORTDbits.RD8 
-#define d9_i    PORTDbits.RD9 
-#define d10_i   PORTDbits.RD10
-#define d11_i   PORTDbits.RD11
+// #define d5_i    PORTDbits.RD5 
+// #define d6_i    PORTDbits.RD6 
+// #define d7_i    PORTDbits.RD7 
+// #define d8_i    PORTDbits.RD8 
+// #define d9_i    PORTDbits.RD9 
+// #define d10_i   PORTDbits.RD10
+// #define d11_i   PORTDbits.RD11
 #define d12_i   PORTDbits.RD12
 #define d13_i   PORTDbits.RD13
 #define d14_i   PORTDbits.RD14
@@ -240,12 +240,12 @@ module main
 #define e7_i    PORTEbits.RE7 
 #define e8_i    PORTEbits.RE8 
 #define e9_i    PORTEbits.RE9 
-#define e10_i   PORTEbits.RE10
-#define e11_i   PORTEbits.RE11
-#define e12_i   PORTEbits.RE12
-#define e13_i   PORTEbits.RE13
-#define e14_i   PORTEbits.RE14
-#define e15_i   PORTEbits.RE15
+// #define e10_i   PORTEbits.RE10
+// #define e11_i   PORTEbits.RE11
+// #define e12_i   PORTEbits.RE12
+// #define e13_i   PORTEbits.RE13
+// #define e14_i   PORTEbits.RE14
+// #define e15_i   PORTEbits.RE15
 
 #define f0_i    PORTFbits.RF0 
 #define f1_i    PORTFbits.RF1 
@@ -256,26 +256,26 @@ module main
 #define f6_i    PORTFbits.RF6 
 #define f7_i    PORTFbits.RF7 
 #define f8_i    PORTFbits.RF8 
-#define f9_i    PORTFbits.RF9 
-#define f10_i   PORTFbits.RF10
-#define f11_i   PORTFbits.RF11
+// #define f9_i    PORTFbits.RF9 
+// #define f10_i   PORTFbits.RF10
+// #define f11_i   PORTFbits.RF11
 #define f12_i   PORTFbits.RF12
 #define f13_i   PORTFbits.RF13
-#define f14_i   PORTFbits.RF14
-#define f15_i   PORTFbits.RF15
+// #define f14_i   PORTFbits.RF14
+// #define f15_i   PORTFbits.RF15
 
 #define g0_i    PORTGbits.RG0 
 #define g1_i    PORTGbits.RG1 
 #define g2_i    PORTGbits.RG2 
 #define g3_i    PORTGbits.RG3 
-#define g4_i    PORTGbits.RG4 
-#define g5_i    PORTGbits.RG5 
+// #define g4_i    PORTGbits.RG4 
+// #define g5_i    PORTGbits.RG5 
 #define g6_i    PORTGbits.RG6 
 #define g7_i    PORTGbits.RG7 
 #define g8_i    PORTGbits.RG8 
 #define g9_i    PORTGbits.RG9 
-#define g10_i   PORTGbits.RG10
-#define g11_i   PORTGbits.RG11
+// #define g10_i   PORTGbits.RG10
+// #define g11_i   PORTGbits.RG11
 #define g12_i   PORTGbits.RG12
 #define g13_i   PORTGbits.RG13
 #define g14_i   PORTGbits.RG14
@@ -289,12 +289,12 @@ module main
 #define a5      LATAbits.LATA5 
 #define a6      LATAbits.LATA6 
 #define a7      LATAbits.LATA7 
-#define a8      LATAbits.LATA8 
+// #define a8      LATAbits.LATA8 
 #define a9      LATAbits.LATA9 
 #define a10     LATAbits.LATA10
-#define a11     LATAbits.LATA11
-#define a12     LATAbits.LATA12
-#define a13     LATAbits.LATA13
+// #define a11     LATAbits.LATA11
+// #define a12     LATAbits.LATA12
+// #define a13     LATAbits.LATA13
 #define a14     LATAbits.LATA14
 #define a15     LATAbits.LATA15
 
@@ -315,18 +315,18 @@ module main
 #define b14     LATBbits.LATB14
 #define b15     LATBbits.LATB15
 
-#define c0      LATCbits.LATC0 
+// #define c0      LATCbits.LATC0 
 #define c1      LATCbits.LATC1 
 #define c2      LATCbits.LATC2 
 #define c3      LATCbits.LATC3 
 #define c4      LATCbits.LATC4 
-#define c5      LATCbits.LATC5 
-#define c6      LATCbits.LATC6 
-#define c7      LATCbits.LATC7 
-#define c8      LATCbits.LATC8 
-#define c9      LATCbits.LATC9 
-#define c10     LATCbits.LATC10
-#define c11     LATCbits.LATC11
+// #define c5      LATCbits.LATC5 
+// #define c6      LATCbits.LATC6 
+// #define c7      LATCbits.LATC7 
+// #define c8      LATCbits.LATC8 
+// #define c9      LATCbits.LATC9 
+// #define c10     LATCbits.LATC10
+// #define c11     LATCbits.LATC11
 #define c12     LATCbits.LATC12
 #define c13     LATCbits.LATC13
 #define c14     LATCbits.LATC14
@@ -359,12 +359,12 @@ module main
 #define e7      LATEbits.LATE7 
 #define e8      LATEbits.LATE8 
 #define e9      LATEbits.LATE9 
-#define e10     LATEbits.LATE10
-#define e11     LATEbits.LATE11
-#define e12     LATEbits.LATE12
-#define e13     LATEbits.LATE13
-#define e14     LATEbits.LATE14
-#define e15     LATEbits.LATE15
+// #define e10     LATEbits.LATE10
+// #define e11     LATEbits.LATE11
+// #define e12     LATEbits.LATE12
+// #define e13     LATEbits.LATE13
+// #define e14     LATEbits.LATE14
+// #define e15     LATEbits.LATE15
 
 #define f0      LATFbits.LATF0 
 #define f1      LATFbits.LATF1 
@@ -375,26 +375,26 @@ module main
 #define f6      LATFbits.LATF6 
 #define f7      LATFbits.LATF7 
 #define f8      LATFbits.LATF8 
-#define f9      LATFbits.LATF9 
-#define f10     LATFbits.LATF10
-#define f11     LATFbits.LATF11
+// #define f9      LATFbits.LATF9 
+// #define f10     LATFbits.LATF10
+// #define f11     LATFbits.LATF11
 #define f12     LATFbits.LATF12
 #define f13     LATFbits.LATF13
-#define f14     LATFbits.LATF14
-#define f15     LATFbits.LATF15
+// #define f14     LATFbits.LATF14
+// #define f15     LATFbits.LATF15
 
 #define g0      LATGbits.LATG0 
 #define g1      LATGbits.LATG1 
 #define g2      LATGbits.LATG2 
 #define g3      LATGbits.LATG3 
-#define g4      LATGbits.LATG4 
-#define g5      LATGbits.LATG5 
+// #define g4      LATGbits.LATG4 
+// #define g5      LATGbits.LATG5 
 #define g6      LATGbits.LATG6 
 #define g7      LATGbits.LATG7 
 #define g8      LATGbits.LATG8 
 #define g9      LATGbits.LATG9 
-#define g10     LATGbits.LATG10
-#define g11     LATGbits.LATG11
+// #define g10     LATGbits.LATG10
+// #define g11     LATGbits.LATG11
 #define g12     LATGbits.LATG12
 #define g13     LATGbits.LATG13
 #define g14     LATGbits.LATG14
@@ -428,15 +428,6 @@ fn init () {
 	AD1CON3 = 0x1F02      	// Tsamp = 32 x Tad; Tad=125ns
 	// AD1CON1bits.ADON = 1  // turn on the ADC
 	TRISA = 0xff00        	// select the PORTA pins as outputs to drive the LEDs
-
-	a0_s = 0    // pins from A0 to A7 as output
-	a1_s = 0 
-	a2_s = 0 
-	a3_s = 0
-	a4_s = 0 
-	a5_s = 0 
-	a6_s = 0 
-	a7_s = 0 
 
 	d6_s = 1	// inputs switches
 	d13_s = 1  
