@@ -24,9 +24,3 @@ Tasks to do in Aixt
 - [x] Force to include `module_name.c.v` first
 - [x] Implement automatic use of Makefiles in -c (compile) command
 - [x] Change the vscode tasks to point the folder instead of `aixt.v`
-- [x] pass default config from `<port>.toml` to `builtin.c.v`
-- [x] Manually parse used API files
-- [x] change API to once file by function
-- [x] Manually parse used module files
-- [x] Implement Custom Module code generation
-- [x] Multiple source files support
