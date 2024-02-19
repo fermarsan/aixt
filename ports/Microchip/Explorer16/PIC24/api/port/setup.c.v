@@ -4,4 +4,4 @@
 // License: MIT
 module port
 
-#define port__setup(PORT_NAME, BITS)   TRIS ## PORT_NAME = BITS
+#define port__setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
