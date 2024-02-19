@@ -18,6 +18,7 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
+- [ ] Add `void` type to C void functions 
    
 ### Done ✓
 
