@@ -43,6 +43,14 @@ module main
 
 #define pot     b5_i  // Onboard potentiometer
 
+#define a	A
+#define b	B
+#define c	C
+#define d	D
+#define e	E
+#define f   F
+#define g   G
+
 #define a0_s    TRISAbits.TRISA0    // pin configuration pits
 #define a1_s    TRISAbits.TRISA1 
 #define a2_s    TRISAbits.TRISA2 

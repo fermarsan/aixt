@@ -2,6 +2,6 @@
 // Author: Fernando Martínez Santa
 // Date: 2022-2024
 // License: MIT
-module pin
+module port
 
-#define pin__write(PIN_NAME, VALUE) PIN_NAME = VALUE
+#define port__write(PORT_NAME, VALUE)	LAT ## PORT_NAME = VALUE

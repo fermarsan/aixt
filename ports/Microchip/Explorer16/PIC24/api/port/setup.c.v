@@ -4,4 +4,4 @@
 // License: MIT
 module port
 
-#define port__setup(PORT_NAME, MODE)   PIN_NAME ## _s = PIN_MODE
+#define port__setup(PORT_NAME, BITS)   TRIS ## PORT_NAME = BITS

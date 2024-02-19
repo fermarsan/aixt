@@ -1,7 +1,7 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
-// Date: 2022-2024
+// Date: 2024
 // License: MIT
-module pin
+module port
 
-#define pin__read(PIN_NAME)  PIN_NAME ## _i
+#define port__read(PORT_NAME)  PORT ## PORT_NAME
