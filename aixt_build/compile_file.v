@@ -12,7 +12,9 @@ import toml
 // ```v
 // aixt_build.compile_file('example.v', setup)
 // ```
-// calls the compiler with `example.c` previously generated from `example.v`
+// Calls the compiler with `example.c` file, previously generated from `example.v`.
+// If inside the containing folder of `example.v` a `Makefile` exits, it calls the 
+// `make` command insted.
 pub fn compile_file(path string, setup_file toml.Doc) {
 
 	cc := $if windows { // C compiler depending on the OS

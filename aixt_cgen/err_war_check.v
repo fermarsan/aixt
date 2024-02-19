@@ -19,6 +19,8 @@ fn (mut gen Gen) err_war_check() {
 		for i in 0 .. file.errors.len {	// look for each exception message by index
 			if j == 0 {	// for builtin.c.v
 				file.errors.delete(i)
+						gen.err_war_check()	// recursively deleting
+						break
 			} else {
 				message := file.errors[i].message
 				for msg in msg_exceptions {
