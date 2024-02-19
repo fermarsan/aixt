@@ -6,9 +6,6 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include <libpic30.h>
-#include <p24FJ128GA010.h>
-
 #define FCY 8000000UL
 #pragma config POSCMOD = XT
 #pragma config OSCIOFNC = ON
@@ -284,12 +281,14 @@
 #define g13     LATGbits.LATG13
 #define g14     LATGbits.LATG14
 #define g15     LATGbits.LATG15
+#include <libpic30.h>
 #define time__sleep_ms(TIME)    __delay_ms(TIME)
 #define pin__write(PIN_NAME, VALUE) PIN_NAME = VALUE
 #define pin__high(PIN_NAME)  PIN_NAME = 1
 #define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
 #define pin__read(PIN_NAME)  PIN_NAME ## _i
 #define pin__low(PIN_NAME)   PIN_NAME = 0
+#include <p24FJ128GA010.h>
 #define out 0   // pin mode (direction)
 #define in  1
 
