@@ -289,8 +289,8 @@
 #define pin__read(PIN_NAME)  PIN_NAME ## _i
 #define pin__low(PIN_NAME)   PIN_NAME = 0
 #include <p24FJ128GA010.h>
-#define out 0   // pin mode (direction)
-#define in  1
+#define pin__out 0   // pin mode (direction)
+#define pin__in  1
 
  main__init();
 
@@ -308,11 +308,12 @@
 
 int main(void ) {
 	main__init();
+	pin__setup(a0, pin__out);
 	while(true) {
 		pin__high(led3);
 		time__sleep_ms(500);
 		pin__low(led3);
-		time__sleep_ms(1000);
+		time__sleep_ms(500);
 	}
 	return 0;
 }
