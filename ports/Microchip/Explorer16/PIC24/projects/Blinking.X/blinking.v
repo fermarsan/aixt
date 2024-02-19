@@ -1,7 +1,7 @@
 import time { sleep_ms }
 import pin
 
-pin.setup(a0, pin.out)
+// pin.setup(a0, pin.out)
 
 for {
 	pin.high(led3)
