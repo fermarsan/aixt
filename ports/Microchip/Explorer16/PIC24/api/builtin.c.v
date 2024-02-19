@@ -43,13 +43,29 @@ module main
 
 #define pot     b5_i  // Onboard potentiometer
 
-#define p_a		A	// port name equivalents
-#define p_b		B
-#define p_c		C
-#define p_d		D
-#define p_e		E
-#define p_f		F
-#define p_g		G
+#define TRISa		TRISA	// port setup name equivalents
+#define TRISb		TRISB
+#define TRISc		TRISC
+#define TRISd		TRISD
+#define TRISe		TRISE
+#define TRISf		TRISF
+#define TRISg		TRISG
+
+#define PORTa		PORTA	// port in name equivalents
+#define PORTb		PORTB
+#define PORTc		PORTC
+#define PORTd		PORTD
+#define PORTe		PORTE
+#define PORTf		PORTF
+#define PORTg		PORTG
+
+#define LATa		LATA	// port out name equivalents
+#define LATb		LATB
+#define LATc		LATC
+#define LATd		LATD
+#define LATe		LATE
+#define LATf		LATF
+#define LATg		LATG
 
 #define a0_s    TRISAbits.TRISA0    // pin configuration pits
 #define a1_s    TRISAbits.TRISA1 
@@ -408,37 +424,17 @@ module main
 #define g14     LATGbits.LATG14
 #define g15     LATGbits.LATG15
 
-// #include "./machine/pin.c"
-
-// void setup(void)
-// {   
-//     pin_setup(ta0, out); // Onboard LEDs            
-//     pin_setup(ta1, out);        
-//     pin_setup(ta2, out);        
-//     pin_setup(ta3, out);       
-//     pin_setup(ta4, out);       
-//     pin_setup(ta5, out);        
-//     pin_setup(ta6, out);        
-//     pin_setup(ta7, out);    
-
-//     pin_setup(td6, in); // Onboard switchs  
-//     pin_setup(td13, in);  
-//     pin_setup(ta7, in); 
-//     pin_setup(td7, in); 
-
-//     pin_setup(tb5, in);  // Onboard potentiometer
-// }
-
 fn init () {
 	AD1PCFG = 0xFFDF      	// Analog inputs for Explorer16 POT and TSENS
 	AD1CSSL = 0           	// no scanning required
 	AD1CON2 = 0           	// use MUXA, AVss and AVdd are used as Vref+/-
 	AD1CON3 = 0x1F02      	// Tsamp = 32 x Tad; Tad=125ns
 	// AD1CON1bits.ADON = 1  // turn on the ADC
+	
 	TRISA = 0xff00        	// select the PORTA pins as outputs to drive the LEDs
 
-	d6_s = 1	// inputs switches
-	d13_s = 1  
-	d7_s = 1  
-	b5_s = 1  	// potentiometer
+	d6_s =  1	// inputs switches
+	d13_s = 1	 
+	d7_s =  1	 
+	b5_s =  1	// potentiometer
 }
