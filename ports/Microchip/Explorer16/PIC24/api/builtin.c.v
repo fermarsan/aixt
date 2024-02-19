@@ -43,7 +43,7 @@ module main
 
 #define pot     b5_i  // Onboard potentiometer
 
-#define p_a		A
+#define p_a		A	// port name equivalents
 #define p_b		B
 #define p_c		C
 #define p_d		D
