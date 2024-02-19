@@ -312,7 +312,7 @@ int main(void ) {
 		pin__high(led3);
 		time__sleep_ms(500);
 		pin__low(led3);
-		time__sleep_ms(500);
+		time__sleep_ms(1000);
 	}
 	return 0;
 }

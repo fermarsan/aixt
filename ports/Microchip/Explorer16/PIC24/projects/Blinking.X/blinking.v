@@ -5,6 +5,6 @@ for {
 	pin.high(led3)
 	sleep_ms(500)
 	pin.low(led3)
-	sleep_ms(500)
+	sleep_ms(1000)
 }
 
