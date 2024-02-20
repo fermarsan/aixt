@@ -10,11 +10,11 @@ import v.ast
 fn (mut gen Gen) hash_stmt(node ast.HashStmt) string {
 	// println('########### ${node.ct_conds} ###########')
 	if node.kind == 'include' {
-		if '#${node.val}\n' !in gen.includes {
-			gen.includes << '#${node.val}\n'
+		if '#${node.val}\n' !in gen.c_preproc_cmds {
+			gen.c_preproc_cmds << '#${node.val}\n'
 		}
 	} else {
-		gen.macros << '#${node.val}\n'
+		gen.c_preproc_cmds << '#${node.val}\n'
 	}
 	return ''
 }

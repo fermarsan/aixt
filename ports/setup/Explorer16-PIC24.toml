@@ -49,8 +49,11 @@ main_params =   "void "
 
 api_modules = [
     "pin",
+    "port",
     "adc",
     "pwm",
     "uart",
     "time"
 ]
+
+[aliases]

@@ -118,7 +118,7 @@ for {   //infinite loop
 
 ## Aixt API
 
-The **Aixt API** is inspired by the _Micropython_, _Arduino_ and _Tinygo_ projects. The API for all the ports includes at least functions for:
+The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API for all the ports includes at least functions for:
 
 - Digital input/output
 - Analog inputs (ADC)

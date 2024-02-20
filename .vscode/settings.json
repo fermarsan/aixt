@@ -1,7 +1,7 @@
 {
-    "aixt_linux":   "./aixt.v",
-    "aixt_windows": ".\\aixt.v",
-    "device":       "device_name",
+    "aixt_linux":   ".",
+    "aixt_windows": ".",
+    "device":       "Explorer16-PIC24",
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",

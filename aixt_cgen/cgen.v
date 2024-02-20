@@ -21,8 +21,9 @@ mut:
 	transpiler_path	string
 	source_paths	[]string
 	out   			string
-	includes		[]string
-	macros			[]string
+	c_preproc_cmds	[]string	
+	// includes		[]string
+	// macros		[]string
 	definitions		[]string
 	cur_fn			string
 	file_count		int
@@ -40,6 +41,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// gen.add_sources('${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api') //auto-inludes API
 	gen.source_paths << '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api/builtin.c.v'
 	gen.add_sources(source_path)
+	println('\n===== ${gen.source_paths} =====')
 
 	gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
@@ -56,8 +58,8 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.err_war_print()
 
 	mut e_count := 0
-	for file in gen.files {
-		e_count += file.errors.len
+	for i, file in gen.files {
+		e_count += if i != 0 { file.errors.len } else { 0 }
 	}
 	if e_count != 0 {	// clear out stream if any error exist
 		gen.out = ''
