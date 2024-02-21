@@ -50,7 +50,7 @@ Nombre                  | Descripción
 `sleep_ms(time)`        | Retardo en `miliseg`
 
 ### EJEMPLOS
-Parpadeo de un LED
+#### Parpadeo de un LED
 ```go
 pin_mode(5, out)
 
@@ -61,7 +61,65 @@ for i in 0..10{   //10 veces
     sleep_ms(500)
 }
 ```
-Encender un LED con u pulsador
+
+#### Ejemplo lectura analoga
+
+```go
+
+pin_setup(2, out)
+pin_setup(3, out)
+pin_setup(4, out)
+for {
+    if( adc_read(8)>=1017 ){
+
+        pin_high(2)
+        pin_high(3)
+        pin_high(4)
+
+    }
+    else if( adc_read(8)>=750 ){
+
+        pin_high(2)
+        pin_high(3)
+        pin_low(4)
+        
+    }
+    else if( adc_read(8)>=480 ){
+
+        pin_high(2)
+        pin_low(3)
+        pin_low(4)
+        
+    }
+    else {
+
+        pin_low(2)
+        pin_low(3)
+        pin_low(4)
+        
+    }
+    } 
+```
+
+#### Ejemplo salida PWM
+```go
+
+pin_setup(5, out)
+int util=0
+
+for {
+    pwm_write(5, util)
+    sleep_ms(250)
+    util=util+10
+    if (util==250){
+
+        util=0
+        
+    }
+    } 
+```
+
+#### Encender un LED con u pulsador
 ```go
 pin_mode(3, out)
 
@@ -72,6 +130,7 @@ for {   //infinite loop
     sleep_ms(500)
 }
 ```
+
 ### Configuración Pines de Salida
 
 To activate the port to use
@@ -116,7 +175,7 @@ x = adc_read(channel)
 ```
 * *In `channel` the name of the analog port is entered, and `x` takes the value of said port..*
 
-## Pulse Width Modulation (PWM outputs)
+### Pulse Width Modulation (PWM outputs)
 
 To configure some PWM
 ```go
@@ -131,11 +190,11 @@ pwm_duty(duty)
 ```
 * *In PWM the pwm to be used is set, and in `duty` the value of the cycle (from 0 to 100) in percentage.*
 
-## Serial communication (UART)
+### Serial communication (UART)
 
 The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the specific documentation. The syntax for most of UART functions is: `uartx_function_name()`, being `x` the identifying number in case of multiple UARTs. You can omit the `x` for referring to the first or default UART, or in the case of having only one.  
 
-### UART setup
+#### UART setup
 
 ```v
 uart_setup(baud_rate)   // the same of uart1_setup(baud_rate)
