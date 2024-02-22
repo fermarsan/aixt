@@ -1,9 +1,11 @@
 import time { sleep_ms }
 import pin
 
+pin.setup(a0, pin.out)
+
 for {
-	pin.high(led3)
+	pin.high(a0)
 	sleep_ms(500)
-	pin.low(led3)
+	pin.low(a0)
 	sleep_ms(500)
 }
