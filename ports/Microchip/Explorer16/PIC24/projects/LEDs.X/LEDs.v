@@ -1,4 +1,4 @@
-// Implements de secuence:
+// Implements de sequence:
 // a2 a1 a0
 //  0  0  0
 //  0  0  1

@@ -2,7 +2,6 @@ import time {sleep_ms}
 import pin
 
 pin.setup(b3_s, pin.out)
-
 pin.setup(a6_s, pin.in)
 
 x := 0
