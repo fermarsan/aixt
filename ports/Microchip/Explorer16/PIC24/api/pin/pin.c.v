@@ -8,5 +8,8 @@ module pin
 
 #include <p24FJ128GA010.h>
 
-#define pin__out 0   // pin mode (direction)
-#define pin__in  1
+// out macro defines the pin output mode
+#define pin__out	0
+
+// in macro defines the pin input mode
+#define pin__in		1

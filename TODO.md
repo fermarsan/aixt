@@ -18,10 +18,10 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
-- [ ] Add `void` type to C void functions 
    
 ### Done ✓
 
+- [x] Add `void` type to C void functions 
 - [x] Force to include `module_name.c.v` first
 - [x] Implement automatic use of Makefiles in -c (compile) command
 - [x] Change the vscode tasks to point the folder instead of `aixt.v`
