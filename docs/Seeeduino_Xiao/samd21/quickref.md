@@ -49,8 +49,8 @@ Nombre                  | Descripción
 `sleep_us(time)`        | Retardo en `microseg`
 `sleep_ms(time)`        | Retardo en `miliseg`
 
-### EJEMPLOS
-#### Parpadeo de un LED
+## EJEMPLOS
+### Parpadeo de un LED
 ```go
 pin_mode(5, out)
 
@@ -61,11 +61,23 @@ for i in 0..10{   //10 veces
     sleep_ms(500)
 }
 ```
-
-#### Ejemplo lectura analoga
-
+### Lectura digital
+ Encender un LED con pulsador
 ```go
+pin_setup(3,input)
+pin_setup(5,out)
 
+for{
+    
+    if(pin_read(3)==1){
+        pin_high(5);
+    }
+    pin_low(5)    
+}
+
+```
+### Lectura analoga
+```go
 pin_setup(2, out)
 pin_setup(3, out)
 pin_setup(4, out)
@@ -100,10 +112,8 @@ for {
     }
     } 
 ```
-
-#### Ejemplo salida PWM
+### Salida PWM
 ```go
-
 pin_setup(5, out)
 int util=0
 
@@ -117,134 +127,4 @@ for {
         
     }
     } 
-```
-
-#### Encender un LED con u pulsador
-```go
-pin_mode(3, out)
-
-for {   //infinite loop
-    pin_high(5)
-    sleep_ms(500)
-    pin_low(5)
-    sleep_ms(500)
-}
-```
-
-### Configuración Pines de Salida
-
-To activate the port to use
-```go
-pin_high(pin_name)
-```
-* *Example: If you want to activate the port IO17;  `pin_high(IO17)`.*
-
-To disable the port being used
-```go
-pin_low(pin_name)
-```
-* *Example: If you want to disable the port IO17;  `pin_low(O17I)`.*
-
-To disable or enable the port to be used
-
-```go
-pin_write(pin_name, value)
-```
-* *Example: If you want to disable port IO17 `pin_write(IO17, 1)`, and if you want to activate  `pin_write(IO17, 0)`.*
-
-### Input port detection
-
-If you need to know what state an entry port is in:
-```go
-x = pin_read(pin_name)
-```
-
-* *Example: If you want to detect the value of port IO3; `x = pin_read(IO17)`, and `x` will take the value of 0 or 1, depending on which port is active or disabled.*
-
-### Analog to digital ports (ADC)
-
-To configure one of the analog ports
-```go
-adc_setup(channel, setup_value_1, ... )
-```
-* *In channel the name of the analog port is entered, in setup_value_1 the value that will be given is said port.*
-
-To detect the analog port value
-```go
-x = adc_read(channel)
-```
-* *In `channel` the name of the analog port is entered, and `x` takes the value of said port..*
-
-### Pulse Width Modulation (PWM outputs)
-
-To configure some PWM
-```go
-pwm_setup(setup_value_1, setup_value_2, ... )
-```
-* *In pwm you set the PWM to use, and in setup_value_1 the value to which you want to configure said pwm.*
-
-
-To configure the duty cycle of a modulator
-```go
-pwm_duty(duty)
-```
-* *In PWM the pwm to be used is set, and in `duty` the value of the cycle (from 0 to 100) in percentage.*
-
-### Serial communication (UART)
-
-The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the specific documentation. The syntax for most of UART functions is: `uartx_function_name()`, being `x` the identifying number in case of multiple UARTs. You can omit the `x` for referring to the first or default UART, or in the case of having only one.  
-
-#### UART setup
-
-```v
-uart_setup(baud_rate)   // the same of uart1_setup(baud_rate)
-```
-- `baud_rate` configure the communication speed
-
-### Serial transmitting
-```v
-print(message)      // print a string to the default UART
-```
-```v
-println(message)    // print a string plus a line-new character to the default UART
-```
-```v
-uart2_print(message)    // print a string to the UART2
-```
-```v
-uart1_println(message)  // print a string plus a line-new character to the UART1
-```
-```v
-uart2_write(message)    // send binary data (in Bytes) to UART2
-```
-
-### Retardos
-
-* Use of times
-
-    * In each expression, the time value is put inside the parentheses.
-```go
-sleep(s) //Seconds
-```
-```go
-sleep_ms(ms) //Milliseconds
-```
-```go
-sleep_us(us) //Microseconds
-```
-
-* Example flashing LED
-
-```go
-import machine { pin }
-import time { sleep_ms }
-
-pin_mode(IO14, out)
-
-for {   //infinite loop
-    pin_high(IO14)
-    sleep_ms(500)
-    pin_low(IO14)
-    sleep_ms(500)
-}
 ```
