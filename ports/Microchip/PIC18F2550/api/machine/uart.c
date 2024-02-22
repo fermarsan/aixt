@@ -11,7 +11,7 @@
 
 #define uart_setup() \
     //Configuración del registro SPBRG (9600 Baudios)
-    SPBRG=(unsigned char)((_XTAL_FREQ/9600)/64)-1  \
+    SPBRG=(unsigned char)((_XTAL_FREQ/9600)/64)-1;  \
     //configuracion
     TXSTAbits.BRGH=0;   /*LOW SPEED*/  \
     TXSTAbits.SYNC=0;   /*ASINCRONO*/  \
@@ -27,6 +27,7 @@
 void tx_write(char data){
     TXREG=data;
 }
+
 char rx_read(){
   return RCREG;  
 }

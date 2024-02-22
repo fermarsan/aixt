@@ -1,9 +1,12 @@
-/*
- * File:   RX_2550.c
- * Author: Andr�s Fajardo
- *
- * Created on 10 de enero de 2024, 11:10 PM
- */
+// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// File Name: builtin.c
+// Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
+// Date: 2024
+// License: MIT
+//
+// Description: Builtin definitions (PIC18F2550)
+
+module main
 
 // CONFIG1L
 #pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
@@ -16,7 +19,7 @@
 #pragma config IESO = OFF       // Internal/External Oscillator Switchover bit (Oscillator Switchover mode disabled)
 
 // CONFIG2L
-#pragma config PWRT = ON       // Power-up Timer Enable bit (PWRT disabled)
+#pragma config PWRT = OFF       // Power-up Timer Enable bit (PWRT disabled)
 #pragma config BOR = OFF        // Brown-out Reset Enable bits (Brown-out Reset disabled in hardware and software)
 #pragma config BORV = 3         // Brown-out Reset Voltage bits (Minimum setting 2.05V)
 #pragma config VREGEN = OFF     // USB Voltage Regulator Enable bit (USB voltage regulator disabled)
@@ -66,57 +69,86 @@
 // CONFIG7H
 #pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot block (000000-0007FFh) is not protected from table reads executed in other blocks)
 
-// #pragma config statements should precede project file includes.
-// Use project enums instead of #define for ON and OFF.
-
-#define _XTAL_FREQ 8000000
 #include <xc.h>
-#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/builtin.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/pin.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/uart.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/time/sleep_ms.c"
+#define _XTAL_FREQ 8000000
 
-/*void main(void) {
-    TRISB=0x00;
-    USART_Init(9600);                //inicializa la comunicacion serial en 9600 baudios
-     while (1) {
-         PORTB=USART_Rx();
-     }
-    return;
-} */
+#define a_s     TRISA            // pin configuration pits
+#define a0_s    TRISAbits.TRISA0 
+#define a1_s    TRISAbits.TRISA1 
+#define a2_s    TRISAbits.TRISA2 
+#define a3_s    TRISAbits.TRISA3
+#define a4_s    TRISAbits.TRISA4 
+#define a5_s    TRISAbits.TRISA5 
+#define a6_s    TRISAbits.TRISA6 
 
-void main(void) {
+// #define b_s     TRISB
+#define b0_s    TRISBbits.TRISB0 
+#define b1_s    TRISBbits.TRISB1 
+#define b2_s    TRISBbits.TRISB2 
+#define b3_s    TRISBbits.TRISB3 
+#define b4_s    TRISBbits.TRISB4 
+#define b5_s    TRISBbits.TRISB5 
+#define b6_s    TRISBbits.TRISB6 
+#define b7_s    TRISBbits.TRISB7 
 
-    // CONFIGURAMOS EL PUERTO B COMO SALIDA
+// #define c_s     TRISC
+#define c0_s    TRISCbits.TRISC0 
+#define c1_s    TRISCbits.TRISC1 
+#define c2_s    TRISCbits.TRISC2 
+#define c4_s    TRISCbits.TRISC4 
+#define c5_s    TRISCbits.TRISC5 
+#define c6_s    TRISCbits.TRISC6 
+#define c7_s    TRISCbits.TRISC7 
 
-    pin_setup(b0_s, out);
-    pin_setup(b1_s, out);
-    pin_setup(b2_s, out);
-    pin_setup(b3_s, out);
-    pin_setup(b4_s, out);
-    pin_setup(b5_s, out);
-    pin_setup(b6_s, out);
-    pin_setup(b7_s, out);
+//#define a_i     PORTA        // pin input pits 
+#define a0_i    PORTAbits.RA0       
+#define a1_i    PORTAbits.RA1 
+#define a2_i    PORTAbits.RA2 
+#define a3_i    PORTAbits.RA3 
+#define a4_i    PORTAbits.RA4 
+#define a5_i    PORTAbits.RA5 
+#define a6_i    PORTAbits.RA6 
 
-    // LIMPIAMOS EL PUERTO B
+//#define b_i     PORTB
+#define b0_i    PORTBbits.RB0 
+#define b1_i    PORTBbits.RB1 
+#define b2_i    PORTBbits.RB2 
+#define b3_i    PORTBbits.RB3 
+#define b4_i    PORTBbits.RB4 
+#define b5_i    PORTBbits.RB5 
+#define b6_i    PORTBbits.RB6 
+#define b7_i    PORTBbits.RB7 
 
-    pin_write(b0, 0);
-    pin_write(b1, 0);
-    pin_write(b2, 0);
-    pin_write(b3, 0);
-    pin_write(b4, 0);
-    pin_write(b5, 0);
-    pin_write(b6, 0);
-  mmpin_write(b7, 0);  
-   
-   // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
-    pin_setup(c7_s,1); //;
+//#define c_i     PORTC 
+#define c0_i    PORTCbits.RC0 
+#define c1_i    PORTCbits.RC1 
+#define c2_i    PORTCbits.RC2 
+#define c4_i    PORTCbits.RC4 
+#define c5_i    PORTCbits.RC5 
+#define c6_i    PORTCbits.RC6 
+#define c7_i    PORTCbits.RC7 
 
-   // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
-    uart_setup();               
+#define a0      LATAbits.LATA0      // pin output pits
+#define a1      LATAbits.LATA1 
+#define a2      LATAbits.LATA2 
+#define a3      LATAbits.LATA3 
+#define a4      LATAbits.LATA4 
+#define a5      LATAbits.LATA5 
+#define a6      LATAbits.LATA6 
 
-     while (1) {
-         val=rx_read();   // port_write (b_o, val)
-     }
-    return;
-} 
+#define b0      LATBbits.LATB0 
+#define b1      LATBbits.LATB1 
+#define b2      LATBbits.LATB2 
+#define b3      LATBbits.LATB3 
+#define b4      LATBbits.LATB4 
+#define b5      LATBbits.LATB5 
+#define b6      LATBbits.LATB6 
+#define b7      LATBbits.LATB7 
+
+#define c0      LATCbits.LATC0 
+#define c1      LATCbits.LATC1 
+#define c2      LATCbits.LATC2 
+#define c4      LATCbits.LATC4 
+#define c5      LATCbits.LATC5 
+#define c6      LATCbits.LATC6 
+#define c7      LATCbits.LATC7 
