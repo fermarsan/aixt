@@ -6,17 +6,17 @@
 #
 # Description: This is the setup file for the PC version of Aixt project 
 
-port = "Seeeduino-Xiao/SAMD21"
+port = "SAMD21"
 device = "SAMD21"
 board = "Seeeduino Xiao"
 backend = "arduino"
 
-cc_linux =      ""
-cc_windows =    "C:\Users\AppData\Local\Programs\Arduino IDE"
+cc_linux =      "-o"
+cc_windows =    "C:\Users\Alexa\AppData\Local\Programs\Arduino IDE"
 cc_flags =      "-o"
 
 
-path="Seeeduino_Xiao/SAMD21"
+path="Seeeduino-Xiao\SAMD21"
 
 
 fixed_size_arrays =  "true"
