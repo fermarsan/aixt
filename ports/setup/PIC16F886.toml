@@ -1,0 +1,96 @@
+# Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+# File Name: PIC16F886.toml
+# Author: Luis Alfredo Pinto Medina and Fernado Martinez Santa
+# Date: 2024
+# License: MIT
+#
+# Description: Setup file for the PIC16F84A port. It works on Linux and Windows 
+#              PCs and on Android with Termux
+#              
+port =    "PIC16F886" 
+device =  "PIC16F886"
+board =   "Nothing"
+backend = "c"
+
+cc_linux =   "gcc"
+cc_windows = "C:\Program Files\Microchip\xc8\v2.40\bin\xc8.exe"
+cc_flags =   "-o"
+
+path = "Microchip/PIC16F84A"
+
+fixed_size_arrays  = "true"
+array_default_len  = 10
+
+fixed_size_strings = "true"
+string_default_len = 20
+
+void =  ""
+bool =  "bool"
+
+i8 =    "signed char"
+i16 =   "signed short"
+int =   "long"
+i64 =   "=== NOT SUPPORTED ==="
+isize = "=== NOT SUPPORTED ==="
+int_literal = "=== NOT SUPPORTED ==="
+
+u8 =    "unsigned char"
+u16 =   "unsigned short"
+u16 =   "unsigned int"
+u24 =   "unsigned short long"
+u32 =   "unsigned long"
+u32 =   "unsigned long long"
+u64 =   "=== NOT SUPPORTED ==="
+usize = "=== NOT SUPPORTED ==="
+
+f24 = "float"
+f32 = "float"
+f64 = "=== NOT SUPPORTED ==="
+float_literal = "=== NOT SUPPORTED ==="
+
+rune =  "=== NOT SUPPORTED ==="
+string = "char []"
+
+mutex = "=== NOT SUPPORTED ==="
+
+main_ret_type = "int"
+main_params =   ""   
+
+headers = [ 
+    "xc.h"
+]
+
+macros = [
+    "XTAL_FREQ 8000000"
+]
+
+config_operator = "#pragma config"
+
+configuration = [
+    "FOSC = HS",
+    "WDTE = OFF",
+    "PWRTE = OFF",
+    "MCLRE = OFF",
+    "CP = OFF",
+    "CPD = OFF",
+    "BOREN = OFF",
+    "IESO = OFF",
+    "FCMEN = OFF",
+    "LVP = OFF",
+    "BOR4V = BOR40V",
+    "WRT = OFF" 
+    ]
+
+initialization = []
+
+[api_functions]
+pin_high    =   "machine/pin"
+pin_low     =   "machine/pin"
+pin_write   =   "machine/pin"
+pin_read    =   "machine/pin"
+
+sleep_s     =   "time/sleep_s"
+sleep_ms    =   "time/sleep_ms"
+sleep_us    =   "time/sleep_us"
+
+[aliases]

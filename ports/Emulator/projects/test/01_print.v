@@ -1,4 +1,7 @@
-for i in 0..5 {
-	print('Hello ')
-	println('world!')
+import uart {
+	print
+	println
 }
+
+print('Printing ')
+println('test program... ')

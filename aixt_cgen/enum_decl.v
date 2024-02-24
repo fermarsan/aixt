@@ -8,7 +8,7 @@ import v.ast
 
 // enum_decl is code generation function for enum declarations.
 fn (mut gen Gen) enum_decl(node ast.EnumDecl) string {
-	mut out := 'enum ${node.name.after_char(`.`)} {\n'
+	mut out := 'enum ${node.name.replace('.', '__')} {\n'
 	for f in node.fields {
 		out += '${gen.ast_node(f)}'
 	}
