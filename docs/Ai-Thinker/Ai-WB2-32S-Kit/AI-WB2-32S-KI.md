@@ -7,6 +7,7 @@ This Aixt implementation that supports the card  AI-WB2-32S-KIT
 * *Ai-WB2-32S-Kit, a total of 38 interfaces are connected, for example, the pin function definition table is the interface definition.*
 
 ![Alt text](Picture/AI-WBS-32S_FRONT.jpg)
+*Image taken from the device datasheet*
 
 ## Datasheet
 [AI-WB2-32S-KIT](http://www.ai-thinker.com/Uploads/file/20221008/20221008082356_37940.pdf)
@@ -61,116 +62,116 @@ No.| Name     | Function
 
 To activate the port to use
 ```go
-pin_high(pin_name)
+pin__high(PIN_NAME)
 ```
-* *Example: If you want to activate the port IO17;  `pin_high(IO17)`.*
+* *Example: If you want to activate the port IO17;  `pin__high(17)`.*
 
 To disable the port being used
 ```go
-pin_low(pin_name)
+pin__low(PIN_NAME)
 ```
-* *Example: If you want to disable the port IO17;  `pin_low(IO17)`.*
+* *Example: If you want to disable the port IO17;  `pin__low(17)`.*
 
 To disable or enable the port to be used
 
 ```go
-pin_write(pin_name, value)
+pin__write(PIN_NAME, VALUE)
 ```
-* *Example: If you want to disable port IO17 `pin_write(IO17, 1)`, and if you want to activate  `pin_write(IO17, 0)`.*
+* *Example: If you want to disable port IO17 `pin__write(17, 1)`, and if you want to activate  `pin__write(17, 0)`.*
 
 ### Input port detection
 
 If you need to know what state an entry port is in:
 ```go
-x = pin_read(pin_name)
+x = pin__read(PIN_NAME)
 ```
 
-* *Example: If you want to detect the value of port IO3; `x = pin_read(IO17)`, and `x` will take the value of 0 or 1, depending on which port is active or disabled.*
+* *Example: If you want to detect the VALUE of port IO3; `x = pin__read(17)`, and `x` will take the VALUE of 0 or 1, depending on which port is active or disabled.*
 
 ### Analog to digital ports (ADC)
 
 To configure one of the analog ports
 ```go
-adc_setup(channel, setup_value_1, ... )
+adc__setup(channel, SETUP_VALUE_1, ... )
 ```
-* *In channel the name of the analog port is entered, in setup_value_1 the value that will be given is said port.*
+* *In channel the name of the analog port is entered, in setup_VALUE_1 the VALUE that will be given is said port.*
 
-To detect the analog port value
+To detect the analog port VALUE
 ```go
-x = adc_read(channel)
+x = adc__read(channel)
 ```
-* *In `channel` the name of the analog port is entered, and `x` takes the value of said port..*
+* *In `channel` the name of the analog port is entered, and `x` takes the VALUE of said port..*
 
 ## Pulse Width Modulation (PWM outputs)
 
 To configure some PWM
 ```go
-pwm_setup(setup_value_1, setup_value_2, ... )
+pwm__setup(SETUP_VALUE_1, setup_VALUE_2, ... )
 ```
-* *In pwm you set the PWM to use, and in setup_value_1 the value to which you want to configure said pwm.*
+* *In pwm you set the PWM to use, and in SETUP_VALUE_1 the VALUE to which you want to configure said pwm.*
 
 
 To configure the duty cycle of a modulator
 ```go
-pwm_duty(duty)
+pwm__duty(duty)
 ```
-* *In PWM the pwm to be used is set, and in `duty` the value of the cycle (from 0 to 100) in percentage.*
+* *In PWM the pwm to be used is set, and in `duty` the VALUE of the cycle (from 0 to 100) in percentage.*
 
 ## Serial communication (UART)
 
-The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the specific documentation. The syntax for most of UART functions is: `uartx_function_name()`, being `x` the identifying number in case of multiple UARTs. You can omit the `x` for referring to the first or default UART, or in the case of having only one.  
+The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the specific documentation. The syntax for most of UART functions is: `uart_function_name_x()`, being `x` the identifying number in case of multiple UARTs. You can omit the `x` for referring to the first or default UART, or in the case of having only one.  
 
 ### UART setup
 
 ```v
-uart_setup(baud_rate)   // the same of uart1_setup(baud_rate)
+uart__setup(BAUD_RATE)   // the same of uart__setup_1(BAUD_RATE)
 ```
-- `baud_rate` configure the communication speed
+- `BAUD_RATE` configure the communication speed
 
 ### Serial transmitting
 ```v
-print(message)      // print a string to the default UART
+uart__print(MESSAGE)      // print a string to the default UART
 ```
 ```v
-println(message)    // print a string plus a line-new character to the default UART
+uart__println(MESSAGE)    // print a string plus a line-new character to the default UART
 ```
 ```v
-uart2_print(message)    // print a string to the UART2
+uart__print_1(MESSAGE)    // print a string to the UART
 ```
 ```v
-uart1_println(message)  // print a string plus a line-new character to the UART1
+uart__println_1(MESSAGE)  // print a string plus a line-new character to the UART1
 ```
 ```v
-uart2_write(message)    // send binary data (in Bytes) to UART2
+uart__write_1(MESSAGE)    // send binary data (in Bytes) to UART
 ```
 
 ### Retardos
 
 * Use of times
 
-    * In each expression, the time value is put inside the parentheses.
+    * In each expression, the time VALUE is put inside the parentheses.
 ```go
-sleep(s) //Seconds
+time__sleep(S) //Seconds
 ```
 ```go
-sleep_ms(ms) //Milliseconds
+time__sleep_ms(MS) //Milliseconds
 ```
 ```go
-sleep_us(us) //Microseconds
+time__sleep_us(US) //Microseconds
 ```
 
 * Example flashing LED
 
 ```go
-import machine { pin }
-import time { sleep_ms }
+import pin
+import time {sleep_ms}
 
-pin_mode(IO14, out)
+pin.setup(14, pin.out)
 
 for {   //infinite loop
-    pin_high(IO14)
+    pin.high(14)
     sleep_ms(500)
-    pin_low(IO14)
+    pin.low(14)
     sleep_ms(500)
 }
 ```

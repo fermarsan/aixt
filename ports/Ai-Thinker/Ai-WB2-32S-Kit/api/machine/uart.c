@@ -1,20 +1,10 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: uart.c
-// Author: Fernando Martínez Santa
-// Date: 2023
-// License: MIT
-//
-// Description: input and printing functions.
-#include <stdio.h>
-#include <string.h>
+#define uart0_setup(baud_rate)   Serial.begin(baud_rate)
+#define uart_setup(baud_rate)   Serial.begin(baud_rate)
 
-#define print(STR)      printf("%s", STR)
-#define println(STR)    printf("%s\n", STR)
+#define uart0_ready()  Serial.available()
+#define uart_ready()   Serial.available()
 
-// #define OUT = os__input(IN) 
+#define uart0_read()   Serial.read()
+#define uart_read()   Serial.read()
 
-// char *input(char *msg) {
-//     printf("%s", msg);
-//     scanf("%s", &__temp_str[0]);
-//     return __temp_str;
-// }
+#define println(message)   Serial.println(message)
