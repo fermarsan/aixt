@@ -18,6 +18,7 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
+- [ ] support enum fields (`enum_name.enum_field`)
    
 ### Done ✓
 

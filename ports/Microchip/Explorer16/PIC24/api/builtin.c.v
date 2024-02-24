@@ -429,7 +429,7 @@ fn init () {
 	AD1CSSL = 0           	// no scanning required
 	AD1CON2 = 0           	// use MUXA, AVss and AVdd are used as Vref+/-
 	AD1CON3 = 0x1F02      	// Tsamp = 32 x Tad; Tad=125ns
-	// AD1CON1bits.ADON = 1  // turn on the ADC
+	AD1CON1bits.ADON = 1  // turn on the ADC
 	
 	TRISA = 0xff00        	// select the PORTA pins as outputs to drive the LEDs
 
