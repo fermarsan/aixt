@@ -6,7 +6,7 @@ module aixt_cgen
 
 // add_include adds an include clause to the output file.
 fn (mut gen Gen) add_include(name_ext string) {
-	if !gen.incls.contains(name_ext) {
-		gen.incls += '#include <${name_ext}>\n'
+	if name_ext !in gen.c_preproc_cmds {
+		gen.c_preproc_cmds << '#include <${name_ext}>\n'
 	}
 }

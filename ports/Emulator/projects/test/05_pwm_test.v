@@ -1,6 +1,10 @@
-pwm2_duty(100)
+import time { sleep }
+import pwm
+
+pwm.duty(pwm_1, 100)
+
 for i in 1..100 {
     sleep(1)
-    pwm1_duty(i)
-    pwm2_duty(100-i)
+    pwm.duty(pwm_0, i)
+    pwm.duty(pwm_1, 100-i)
 }

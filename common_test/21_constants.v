@@ -11,5 +11,5 @@ const r = 1.76
 x := 0.0
 
 for i in 0..repetitions {
-	x += (e*e) + (pi/2)
+	x += (e*r) + (pi/2)
 }

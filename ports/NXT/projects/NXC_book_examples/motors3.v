@@ -1,0 +1,13 @@
+play_tone(5000,30)
+forward_sync(motors_ac,50,0)
+sleep(1000)
+play_tone(5000,30)
+forward_sync(motors_ac,50,20)
+sleep(1000)
+play_tone(5000,30)
+forward_sync(motors_ac,50,-40)
+sleep(1000)
+play_tone(5000,30)
+reverse_sync(motors_ac,50,90)
+sleep(1000)
+off(motors_ac);

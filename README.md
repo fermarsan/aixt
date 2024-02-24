@@ -94,29 +94,31 @@ functions               | only one return value             | multiple return va
 ```v
 /* Turning ON the onboard LED 10 for the Explorer16 board
 with a PIC24FJ microcontroller (XC16 compiler)*/
+import pin
 
 fn main() {
-    pin_high(led10)    //turn ON the LED 10 (PORTA7)
+    pin.high(led10)    //turn ON the LED 10 (PORTA7)
 }
 ```
 
 ### Example without `main` function (Script mode)
 
 ```v
-/* Blinking LED on the Explorer16 board with 
-a PIC24FJ microcontroller (XC16 compiler)*/
+// Blinking LED on the Explorer16 (PIC24FJ, using XC16 compiler)
+import time { sleep_ms }
+import pin
 
 for {   //infinite loop
-    pin_high(led10)     // LED 10 blinking
+    pin.high(led10)     // LED 10 blinking
     sleep_ms(500)
-    pin_low(led10)
+    pin.low(led10)
     sleep_ms(500)
 }
 ```
 
 ## Aixt API
 
-The **Aixt API** is inspired by the _Micropython_, _Arduino_ and _Tinygo_ projects. The API for all the ports includes at least functions for:
+The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API for all the ports includes at least functions for:
 
 - Digital input/output
 - Analog inputs (ADC)

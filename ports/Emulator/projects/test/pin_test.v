@@ -1,9 +1,9 @@
-import machine { pin }
+import pin
 import time { sleep }
 
-for i in 1:10 {
-	pin_high(C)
+for i in 1..10 {
+	pin.write(y, high)
 	sleep(1)
-	pin_low(C)
+	pin.write(y, low)
 	sleep(1)
 }

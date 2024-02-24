@@ -18,9 +18,10 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				out += '${gen.setup.value('main_ret_type').string()} '	// return type
 				out += 'main('	// main function 
 				out += '${gen.setup.value('main_params').string()}) {\n'	// parameters	
-				for c in gen.setup.value('initialization').array() {	// initialization lines
-					out += '${c.string()}\n'    
-				}		
+				// for c in gen.setup.value('initialization').array() {	// initialization lines
+				// 	out += '${c.string()}\n'    
+				// }
+				out += 'main__init();\n'	// initialization function	
 				for st in node.stmts {	// inner statements
 					out += gen.ast_node(st)
 				}
@@ -32,9 +33,10 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 			}
 			'nxc' {
 				out += 'task main() {\n'	// main task
-				for c in gen.setup.value('initialization').array() {	// initialization lines
-					out += '${c.string()}\n'    
-				}		
+				// for c in gen.setup.value('initialization').array() {	// initialization lines
+				// 	out += '${c.string()}\n'    
+				// }
+				out += 'main__init();\n'	// initialization function			
 				for st in node.stmts {	// inner statements
 					out += gen.ast_node(st)
 				}
@@ -42,9 +44,10 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 			}
 			'arduino' {
 				out += 'void setup() {\n'	// setup function
-				for c in gen.setup.value('initialization').array() {	// initialization lines
-					out += '${c.string()}\n'    
-				}		
+				// for c in gen.setup.value('initialization').array() {	// initialization lines
+				// 	out += '${c.string()}\n'    
+				// }		
+				out += 'main__init();\n'	// initialization function	
 				for st in node.stmts {	// inner statements
 					 stmt_str := gen.ast_node(st)
 					 if stmt_str.starts_with('while(true) {\n') {
@@ -67,8 +70,10 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		for a in node.attrs {
 			out += '${a.name} '
 		}
-		out += '${gen.setup.value(ast.new_table().type_symbols[node.return_type].str()).string()} ' // return type
-		out += '${node.name.after('.')}('
+		// println('##########${gen.table.type_symbols[node.return_type].str()}##########')
+		out += '${gen.setup.value(gen.table.type_symbols[node.return_type].str()).string()} ' // return type
+		// out += '${node.name.replace('.', '__')}('
+		out += '${node.mod.all_after_last('.')}__${node.short_name}('
 		if node.params.len != 0 {
 			for pr in node.params {
 				out += '${gen.ast_node(pr)}, '
@@ -76,10 +81,12 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				// var_name := '${gen.cur_fn}.${pr.name}'
 			}
 			out = out#[..-2] + ')' 
-			gen.defs += out + ';\n'	// generates the function's prototype
+			gen.definitions << out + ';\n'	// generates the function's prototype
 			out += ' {\n'
 		} else {
-			out += ') {\n'
+			out += ')' 
+			gen.definitions << out + ';\n'	// generates the function's prototype
+			out += ' {\n'
 		}
 		for st in node.stmts {
 			out += gen.ast_node(st)

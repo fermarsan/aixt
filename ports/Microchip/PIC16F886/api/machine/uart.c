@@ -25,3 +25,20 @@
             TXREG = caracter; \
         }                       \
     }
+
+
+#define uart_input() (PIR1bits.RCIF ? 1 : 0)  // Valida si hay datos recibidos retorna un 1 si no hay datos recibidos un 0
+
+
+char uart_read()     // Almacena los datos recibidos que envia el otro dispositivo
+{
+    while(PIR1bits.RCIF == 0);  // Pregunta si hay datos recibidos  
+    if(RCSTAbits.OERR == 1)     // Verifica que no haya errores de desbordamiento
+    {
+        RCSTAbits.CREN = 0;     // Deshabilita la recepcion
+        RCSTAbits.CREN = 1;     // Habilita la recepcion 
+    }
+    PIR1bits.RCIF = 0;    // Reinicia para que no hayan errores
+    return RCREG;         // Retorna los caracteres recibidos 
+}
+    

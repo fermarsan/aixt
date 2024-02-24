@@ -9,5 +9,5 @@ import v.ast
 // ident is the code generation function for identifiers.
 fn (mut gen Gen) ident(node ast.Ident) string {
 	// println('${node.name}-${node.scope.parent}')
-	return node.name.after('.')
+	return node.name.replace('.', '__')
 }
