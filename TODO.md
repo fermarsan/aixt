@@ -21,6 +21,7 @@ Tasks to do in Aixt
    
 ### Done ✓
 
+- [x] Update the general diagram
 - [x] support enum fields (`enum_name.enum_field`)
 - [x] Add `void` type to C void functions 
 - [x] Force to include `module_name.c.v` first
