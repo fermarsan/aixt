@@ -9,15 +9,15 @@
 module main
 
 enum __pin_names {    // enumerated type for the pin names
-    IO11
-    IO14
-    IO17
-    IO3
-    IO4
-    IO5
-    RX
-    TX
-    IO12
+    IO11=11
+    IO14=14
+    IO17=17
+    IO3=3
+    IO4=4
+    IO5=5
+    RX=7
+    TX=16
+    IO12=12
 
 }
 
