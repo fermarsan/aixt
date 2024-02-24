@@ -302,8 +302,6 @@
 #define g13     LATGbits.LATG13
 #define g14     LATGbits.LATG14
 #define g15     LATGbits.LATG15
-#include <libpic30.h>
-#define time__sleep_ms(TIME)    __delay_ms(TIME)
 #include <p24FJ128GA010.h>
 #define pin__out	0
 #define pin__in		1
@@ -312,6 +310,10 @@
 #define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
 #define pin__read(PIN_NAME)  PIN_NAME ## _i
 #define pin__low(PIN_NAME)   PIN_NAME = 0
+#include <libpic30.h>
+#define time__sleep_ms(TIME)    __delay_ms(TIME)
+#define time__sleep_us(TIME)    __delay_us(TIME)
+#define time__sleep(TIME)    __delay_ms(TIME*1000)
 
 void main__init();
 
@@ -329,11 +331,10 @@ void main__init() {
 
 int main(void ) {
 	main__init();
-	pin__setup(a0, pin__out);
 	while(true) {
-		pin__high(a0);
+		pin__high(led10);
 		time__sleep_ms(500);
-		pin__low(a0);
+		pin__low(led10);
 		time__sleep_ms(500);
 	}
 	return 0;
