@@ -33,6 +33,27 @@
 #define sw5     a7_i
 #define sw6     d7_i
 #define pot     b5_i  // Onboard potentiometer
+#define TRISa		TRISA	// port setup name equivalents
+#define TRISb		TRISB
+#define TRISc		TRISC
+#define TRISd		TRISD
+#define TRISe		TRISE
+#define TRISf		TRISF
+#define TRISg		TRISG
+#define PORTa		PORTA	// port in name equivalents
+#define PORTb		PORTB
+#define PORTc		PORTC
+#define PORTd		PORTD
+#define PORTe		PORTE
+#define PORTf		PORTF
+#define PORTg		PORTG
+#define LATa		LATA	// port out name equivalents
+#define LATb		LATB
+#define LATc		LATC
+#define LATd		LATD
+#define LATe		LATE
+#define LATf		LATF
+#define LATg		LATG
 #define a0_s    TRISAbits.TRISA0    // pin configuration pits
 #define a1_s    TRISAbits.TRISA1
 #define a2_s    TRISAbits.TRISA2
@@ -283,22 +304,23 @@
 #define g15     LATGbits.LATG15
 #include <libpic30.h>
 #define time__sleep_ms(TIME)    __delay_ms(TIME)
+#include <p24FJ128GA010.h>
+#define pin__out	0
+#define pin__in		1
 #define pin__write(PIN_NAME, VALUE) PIN_NAME = VALUE
 #define pin__high(PIN_NAME)  PIN_NAME = 1
 #define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
 #define pin__read(PIN_NAME)  PIN_NAME ## _i
 #define pin__low(PIN_NAME)   PIN_NAME = 0
-#include <p24FJ128GA010.h>
-#define out 0   // pin mode (direction)
-#define in  1
 
- main__init();
+void main__init();
 
- main__init() {
+void main__init() {
 	AD1PCFG = 0xFFDF;
 	AD1CSSL = 0;
 	AD1CON2 = 0;
 	AD1CON3 = 0x1F02;
+	AD1CON1bits.ADON = 1;
 	TRISA = 0xff00;
 	d6_s = 1;
 	d13_s = 1;
@@ -308,11 +330,12 @@
 
 int main(void ) {
 	main__init();
+	pin__setup(a0, pin__out);
 	while(true) {
-		pin__high(led3);
+		pin__high(a0);
 		time__sleep_ms(500);
-		pin__low(led3);
-		time__sleep_ms(1000);
+		pin__low(a0);
+		time__sleep_ms(500);
 	}
 	return 0;
 }

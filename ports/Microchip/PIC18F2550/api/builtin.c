@@ -6,8 +6,8 @@
 //
 // Description: Builtin definitions (PIC18F2550) 
 
-// #define a_s     TRISA           // pin configuration pits
-#define a0_s    TRISAbits.TRISA0    
+#define a_s     TRISA            // pin configuration pits
+#define a0_s    TRISAbits.TRISA0 
 #define a1_s    TRISAbits.TRISA1 
 #define a2_s    TRISAbits.TRISA2 
 #define a3_s    TRISAbits.TRISA3

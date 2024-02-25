@@ -24,81 +24,41 @@ array_default_len  = 10
 fixed_size_strings = "true"
 string_default_len = 20
 
-void =  ""
+void =  "void"
 bool =  "bool"
 
 i8 =    "signed char"
 i16 =   "signed short"
 int =   "long"
 i64 =   "=== NOT SUPPORTED ==="
-isize = "=== NOT SUPPORTED ==="
-int_literal = "=== NOT SUPPORTED ==="
+isize = "signed char"
+int_literal = "signed char"
 
 u8 =    "unsigned char"
 u16 =   "unsigned short"
-u16 =   "unsigned int"
 u32 =   "unsigned long"
-u32 =   "unsigned long long"
 u64 =   "=== NOT SUPPORTED ==="
-usize = "=== NOT SUPPORTED ==="
+usize = "unsigned char"
 
 f32 = "float"
 f64 = "=== NOT SUPPORTED ==="
-float_literal = "=== NOT SUPPORTED ==="
+float_literal = "float"
 
 rune =  "char"
 string = "char []"
 
 mutex = "=== NOT SUPPORTED ==="
 
-main_ret_type = ""
-main_params =   ""   
+main_ret_type = "void"
+main_params =   "void"   
 
-headers = [ 
-    "xc.h"
-    "stdio.h"
+api_modules = [
+    "pin",
+    "port",
+    "adc",
+    "pwm",
+    "uart",
+    "time"
 ]
-
-macros = [
-    "XTAL_FREQ 8000000"
-]
-
-config_operator = "#pragma config"
-
-configuration = [
-    "FOSC = HS",     
-    "WDTE = OFF",      
-    "PWRTE = OFF",      
-    "BOREN = OFF",      
-    "LVP = OFF",      
-    "CPD = OFF",      
-    "WRT = OFF",     
-    "CP = OFF"      
-]
-
-initialization = []
-
-[api_functions]
-pin_setup   =   "machine/pin"
-pin_high    =   "machine/pin"
-pin_low     =   "machine/pin"
-pin_write   =   "machine/pin"
-pin_read    =   "machine/pin"
-
-pwm_setup   =   "machine/pwm"
-pwm_write   =   "machine/pwm"
-
-adc_setup    =   "machine/adc"
-adc_read     =   "machine/adc"
-adc_reading  =   "machine/adc"
-
-uart_setup  =   "machine/uart"
-print       =   "machine/uart"
-uart_input  =   "machine/uart"
-uart_read  =    "machine/uart"
-
-sleep       =   "time/sleep"
-sleep_ms    =   "time/sleep_ms"
-sleep_us    =   "time/sleep_us"
 
 [aliases]

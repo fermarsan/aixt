@@ -21,7 +21,7 @@ api_modules = []
 fixed_size_arrays =  "true"
 fixed_size_strings = "true"
 
-void =  ""
+void =  "void"
 bool =  "bool"
 
 i8 =    "char"
@@ -2095,7 +2095,7 @@ initialization = []
 "null" = "NULL"
 "off(" = "Off("
 "pos(" = "Pos("
-# "eof" = "EOF"
+"eof" = "EOF"
 # "na" = "NA"
 # "pi" = "PI"
 # "s1" = "S1"

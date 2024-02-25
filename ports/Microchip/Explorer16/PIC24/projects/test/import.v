@@ -1,6 +1,6 @@
-import machine
+import pin
 import time
 
 
-time(1000)
-pin(B0,out)
+time.sleep_ms(1000)
+pin.setup(b0, pin.out)

@@ -5,28 +5,27 @@
 
 #include <stdbool.h>
 #include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 #define time__sleep_us(TIME)	usleep(TIME)
 #define time__sleep(TIME)		sleep(TIME)
+#include <stdio.h>
+#include <stdlib.h>
 #define pin__setup(PIN_NUMBER, PIN_MODE)	printf("TRIS ## PIN_NUMBER ## bits.TRIS ## PIN_NUMBER = PIN_MODE")
 
 void main__init();
 
 void time__sleep_ms(unsigned long tms);
 
-void pin__write(long pin_name, long val);
-
-void pin__high(long pin_name);
-
-void pin__low(long pin_name);
-
 long pins__[] = {0, 0, 0, 0, 0, 0, 0, 0};
 
 long input__ = 0;
 
 void pin__update();
+
+void pin__write(long pin_name, long val);
+
+void pin__high(long pin_name);
+
+void pin__low(long pin_name);
 
 enum main__Pin_names {
 	a = 0,
@@ -46,21 +45,6 @@ void time__sleep_ms(unsigned long tms) {
 	usleep(tms * 1000);
 }
 
-void pin__write(long pin_name, long val) {
-	pins__[pin_name] = val;
-	pin__update();
-}
-
-void pin__high(long pin_name) {
-	pins__[pin_name] = 1;
-	pin__update();
-}
-
-void pin__low(long pin_name) {
-	pins__[pin_name] = 0;
-	pin__update();
-}
-
 void pin__update() {
 	system("clear");
 	printf(" Aixt virtual pins     [#] = ON   [ ] = OFF\n");
@@ -76,6 +60,21 @@ void pin__update() {
 	}
 	printf("|\n");
 	printf("'-----'-----'-----'-----'-----'-----'-----'-----'\n");
+}
+
+void pin__write(long pin_name, long val) {
+	pins__[pin_name] = val;
+	pin__update();
+}
+
+void pin__high(long pin_name) {
+	pins__[pin_name] = 1;
+	pin__update();
+}
+
+void pin__low(long pin_name) {
+	pins__[pin_name] = 0;
+	pin__update();
 }
 
 int main() {

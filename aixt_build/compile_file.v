@@ -12,7 +12,9 @@ import toml
 // ```v
 // aixt_build.compile_file('example.v', setup)
 // ```
-// calls the compiler with `example.c` previously generated from `example.v`
+// Calls the compiler with `example.c` file, previously generated from `example.v`.
+// If inside the containing folder of `example.v` a `Makefile` exits, it calls the 
+// `make` command insted.
 pub fn compile_file(path string, setup_file toml.Doc) {
 
 	cc := $if windows { // C compiler depending on the OS
@@ -28,9 +30,15 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 		'arduino'	{ '.ino' } 
 		else 		{ '.c' }
 	}
-	if os.is_dir(path) {
-		println(os.execute('${cc} ${path}/main${output_ext} ${flags} ${path}/main').output)
-	} else {
-		println(os.execute('${cc} ${path}${output_ext} ${flags} ${path}').output)
+
+	if os.exists('${path.all_before_last('/')}/Makefile') {	// through Makefile
+		// println('Makefile OK')
+		println(os.execute('make -C ${path.all_before_last('/')}').output)
+	} else {	// calling compiler directly
+		if os.is_dir(path) {
+			println(os.execute('${cc} ${path}/main${output_ext} ${flags} ${path}/main').output)
+		} else {
+			println(os.execute('${cc} ${path}${output_ext} ${flags} ${path}').output)
+		}
 	}
 }
