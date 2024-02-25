@@ -10,7 +10,6 @@ Tasks to do in Aixt
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] Update the Aixt executable path #bug
 - [ ] dynamic memory definition
-- [ ] implement string interpolation
 - [ ] generates documentation from code
 - [ ] Give support to transpile multi-file folders (`aixt.v`)
 - [ ] API auto-import option
@@ -18,6 +17,7 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
+- [ ] implement string interpolation
    
 ### Done ✓
 
