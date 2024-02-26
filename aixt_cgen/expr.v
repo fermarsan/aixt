@@ -47,6 +47,9 @@ fn (mut gen Gen) expr(node ast.Expr) string {
 		ast.StringLiteral {
 			return gen.string_literal(node)
 		}
+		ast.StringInterLiteral {
+			return gen.string_inter_literal(node)
+		}
 		ast.CharLiteral {
 			return gen.char_literal(node)
 		}
