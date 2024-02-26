@@ -1,11 +1,12 @@
-/*
-        TARJETA DE PROGRAMACIÓN Ai-WB2-32S-Kit
+// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
+// File Name: Blinking_RGB.ino
+// Author: Fernando Martínez Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+// Date: 2022-2024
+// License: MIT
+//
+// // Description: Blinking leds RED, Green and Blue functions (Ai-Thinker_Ai-WB2-32S-Kit)
+//              (PC port) 
 
-                  DESCRIPCIÓN:
-
-     Ouput_Digital_Blink_Leds_RED_GREEN_and_BLUE.                              
-
-*/
 void setup() {
   pinMode(14, OUTPUT);
   pinMode(17, OUTPUT);

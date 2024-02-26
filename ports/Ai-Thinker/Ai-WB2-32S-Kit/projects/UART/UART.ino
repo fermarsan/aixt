@@ -1,11 +1,11 @@
-/*
-        TARJETA DE PROGRAMACIÓN Ai-WB2-32S-Kit
-
-                  DESCRIPCIÓN:
-
-              Serial_Port_(UART)                              
-
-*/
+// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
+// File Name: UART.ino
+// Author: Fernando Martínez Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+// Date: 2022-2024
+// License: MIT
+//
+// // Description: Serial Port UART functions (Ai-Thinker_Ai-WB2-32S-Kit)
+//              (PC port) 
 
 void setup() {
   Serial.begin(115200);

@@ -1,11 +1,11 @@
-/*        
-      TARJETA DE PROGRAMACIÓN Ai-WB2-32S-Kit
-
-                  DESCRIPCIÓN:
-
- 	PWM_Output                                
-
-*/
+// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
+// File Name: PWM.ino
+// Author: Fernando Martínez Santa - Stiven Cortazar Cortazar - Yesid Reyes Tique
+// Date: 2022-2024
+// License: MIT
+//
+// // Description: PWM Ouput functions (Ai-Thinker_Ai-WB2-32S-Kit)
+//              (PC port) 
 
 #include "bl602_pwm.h"
 
