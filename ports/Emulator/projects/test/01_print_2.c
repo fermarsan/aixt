@@ -6,11 +6,13 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
-
 #define uart__print(STR)      printf("%s", STR)
 #define uart__println(STR)	printf("%s\n", STR)
 
 void main__init();
+
+void uart__init();
+uart__init()
 
 enum main__Pin_names {
 	a = 0,
@@ -24,6 +26,14 @@ enum main__Pin_names {
 };
 
 void main__init() {
+}
+
+void uart__init() {
+	printf("\033[0;32m");
+	printf("UART 0\t");
+	printf("\033[0;31m");
+	printf("UART 1\n");
+	printf("\033[0;31m");
 }
 
 int main() {

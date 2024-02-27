@@ -17,6 +17,7 @@ fn (mut gen Gen) import_stmt(node ast.Import) string {
 	if base_mod_name in api_modules {	// API modules
 		module_path := '${gen.transpiler_path}/ports/${port_path}/api/${base_mod_name}'	
 		gen.parse_cgen_file('${module_path}/${base_mod_name}.c.v')	// parse `module_name.c.v` first
+		gen.add_definition('${base_mod_name}__init()')	// call the module initialization function
 		if node.syms.len == 0 {	// if import all the module
 			file_paths := os.ls('${module_path}') or { [] }
 			// println('############# ${file_paths} #############')
