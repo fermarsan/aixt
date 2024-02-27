@@ -18,8 +18,7 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
-- [ ] Implement strings.Builder instead of regular strings in C Gen
-    - [ ] use builder.write() and builder.writeln() instead of return strings
+<!-- - [ ] Directly modify gen.out instead of return strings in all c_gen functions -->
    
 ### Done ✓
 

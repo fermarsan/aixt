@@ -4,7 +4,6 @@
 // Backend = c
 
 #include <stdbool.h>
-#include <stdio.h>
 
 void main__init();
 
@@ -25,7 +24,8 @@ void main__init() {
 int main() {
 	main__init();
 	char name[] = "Fernando";
-	long age = 43;
+	double height = 1.72;
+	long weight = 89;
 	println();
 	return 0;
 }

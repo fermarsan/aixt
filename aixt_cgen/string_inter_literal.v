@@ -14,6 +14,12 @@ fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) string {
 	println(node.vals)
 	println(node.exprs)
 	println(node.expr_types)
-	gen.add_include('stdio.h')
+	// gen.add_include('stdio.h')
+	// for ex in node.exprs {
+	// 	println(ex.get_pure_type())//gen.ast_node(ex)
+	// }
+
+	println(node.expr_types)
+	
 	return '' //sprintf(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
 }

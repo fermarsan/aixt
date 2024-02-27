@@ -1,4 +1,5 @@
 name := 'Fernando'
-age := 43
+height := 1.72
+weight := 89
 
-println('Mr. ${name} is ${age} years old.')
+println('Mr. ${name} your IMC is ${weight / (height*height)}.')
