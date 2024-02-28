@@ -1,1 +1,4 @@
 module time
+fn.init(){
+
+}

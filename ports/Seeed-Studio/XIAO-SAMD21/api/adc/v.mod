@@ -1,3 +1,4 @@
+
 Module {
 	name:	'adc'
 	description:	'Aixt pin management module for Seeeduino Xiao (samd21).'
