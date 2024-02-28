@@ -1,2 +1,5 @@
 module uart
 
+fn init() {
+
+}

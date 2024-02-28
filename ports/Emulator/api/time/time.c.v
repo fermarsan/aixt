@@ -5,3 +5,8 @@
 module time
 
 #include <unistd.h>
+
+
+fn init() {
+
+}

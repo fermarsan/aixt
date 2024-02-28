@@ -38,3 +38,7 @@ pub fn update() {
     printf('\t\t\t\t    PWM 1 :  %ld %%\n', duty__[1])
     pwm__print(duty__[1])
 }
+
+fn init() {
+    update()
+}

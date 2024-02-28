@@ -320,6 +320,7 @@ void main__init() {
 	AD1CSSL = 0;
 	AD1CON2 = 0;
 	AD1CON3 = 0x1F02;
+	AD1CON1bits.ADON = 1;
 	TRISA = 0xff00;
 	d6_s = 1;
 	d13_s = 1;
