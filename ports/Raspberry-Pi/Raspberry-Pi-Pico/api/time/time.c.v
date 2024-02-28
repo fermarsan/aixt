@@ -1,1 +1,6 @@
 module time
+
+
+fn init() {
+
+}
