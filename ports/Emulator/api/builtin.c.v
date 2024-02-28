@@ -20,5 +20,5 @@ enum Pin_names {
 
 // init function call setup or initialization code
 fn init() {
-    printf('\033[1;37m')    // white bold
+    printf('\033[1;37m')    // white bold text in terminal
 }
