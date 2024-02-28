@@ -25,6 +25,7 @@ mut:
 	// includes		[]string
 	// macros		[]string
 	definitions		[]string
+	init_cmds		string
 	cur_fn			string
 	file_count		int
 	level_cont		int

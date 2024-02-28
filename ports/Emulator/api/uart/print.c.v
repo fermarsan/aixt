@@ -4,4 +4,4 @@
 // License: MIT
 module uart
 
-#define uart__print(STR)      printf("%s", STR)
+#define uart__print(STR)	printf("\033[1;32m");	printf("%s", STR)

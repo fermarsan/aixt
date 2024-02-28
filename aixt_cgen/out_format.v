@@ -10,6 +10,7 @@ fn (mut gen Gen) out_format() {
 	// gen.out = gen.out.replace('___includes_block___', gen.includes.join(''))
 	// gen.out = gen.out.replace('___macros_block___', gen.macros.join(''))
 	gen.out = gen.out.replace('___definitions_block___', gen.definitions.join(''))
+	gen.out = gen.out.replace('___initialization_block___', gen.init_cmds)
 	gen.out = gen.out.replace('\n\n\n\n\n', '\n\n')
 	gen.out = gen.out.replace('\n\n\n\n', '\n\n')
 	gen.out = gen.out.replace('\n\n\n', '\n\n')
