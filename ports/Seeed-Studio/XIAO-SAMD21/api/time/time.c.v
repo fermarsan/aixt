@@ -1,4 +1,4 @@
 module time
-fn.init(){
+fn init() {
 
 }
