@@ -1,4 +1,4 @@
 module pwm
-fn_init(){
+fn.init(){
 
 }

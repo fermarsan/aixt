@@ -1,5 +1,6 @@
 module main
 
-fn init{
-	
+fn.init(){
+
 }
+

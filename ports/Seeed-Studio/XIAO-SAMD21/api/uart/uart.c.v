@@ -1,4 +1,4 @@
 module uart
-fn_init(){
+fn.init(){
 
 }
