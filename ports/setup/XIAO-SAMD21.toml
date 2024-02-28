@@ -19,8 +19,11 @@ cc_flags =      "-o"
 path="Seeed-Studio\XIAO-SAMD21"
 
 
-fixed_size_arrays =  "true"
+fixed_size_arrays  = "true"
+array_default_len  = 20
+
 fixed_size_strings = "true"
+string_default_len = 80
 
 void =  "void"
 bool =  "bool"
