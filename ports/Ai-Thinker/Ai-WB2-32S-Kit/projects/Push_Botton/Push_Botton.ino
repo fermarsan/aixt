@@ -1,11 +1,11 @@
-/*
-        TARJETA DE PROGRAMACIÓN Ai-WB2-32S-Kit
-
-                  DESCRIPCIÓN:
-
-              Input-Ouput_Digital                              
-
-*/
+// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
+// File Name: Push_Botton.ino
+// Author: Fernando Martínez Santa - Stiven Cortazar Cortazar - Yesid Reyes Tique
+// Date: 2022-2024
+// License: MIT
+//
+// // Description: Input Push Botton, Ouput Digital functions (Ai-Thinker_Ai-WB2-32S-Kit)
+//              (PC port) 
 
 void setup() {
   pinMode(3, INPUT_PULLDOWN);
