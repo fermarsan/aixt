@@ -1,1 +1,4 @@
 module adc
+fn.init(){
+
+}
