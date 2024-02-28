@@ -7,4 +7,10 @@
 // // Description: UART functions (Ai_Thinker_Ai-WB2-32S-Kit)
 //              (PC port) 
 
+<<<<<<< HEAD
+fn init() {
+
+}
+=======
 module uart
+>>>>>>> eb738258f8b308832f65c20f9d5f8c2af4249322
