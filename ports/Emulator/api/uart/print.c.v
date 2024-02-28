@@ -4,11 +4,11 @@
 // License: MIT
 module uart
 
-#define uart__print_0(STR)		printf("\033[0;32m");	printf("%s", STR)	// in green
+#define uart__print_0(STR)		printf("\033[1;32m");	printf("%s", STR)	// in green
 
-#define uart__print_1(STR)		printf("\033[0;31m");	printf("%s", STR)	// in red
+#define uart__print_1(STR)		printf("\033[1;31m");	printf("%s", STR)	// in red
 
-#define uart__print_2(STR)		printf("\033[0;34m");	printf("%s", STR)	// in blue
+#define uart__print_2(STR)		printf("\033[1;34m");	printf("%s", STR)	// in blue
 
 #define uart__print_x(UART_NUMBER, STR)		uart__print_ ## UART_NUMBER (STR) 			
 
