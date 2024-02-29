@@ -23,6 +23,7 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		// includes: 		[]string{}	
 		// macros: 			[]string{}	
 		definitions: 		[]string{}	
+		init_cmds:			''
 		cur_fn: 			'main'
 		file_count: 		0
 		level_cont: 		0

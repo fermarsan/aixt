@@ -305,8 +305,8 @@
 #include <libpic30.h>
 #define time__sleep_ms(TIME)    __delay_ms(TIME)
 #include <p24FJ128GA010.h>
-#define pin__out 0   // pin mode (direction)
-#define pin__in  1
+#define pin__out	0
+#define pin__in		1
 #define pin__write(PIN_NAME, VALUE) PIN_NAME = VALUE
 #define pin__high(PIN_NAME)  PIN_NAME = 1
 #define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
@@ -320,6 +320,7 @@ void main__init() {
 	AD1CSSL = 0;
 	AD1CON2 = 0;
 	AD1CON3 = 0x1F02;
+	AD1CON1bits.ADON = 1;
 	TRISA = 0xff00;
 	d6_s = 1;
 	d13_s = 1;
@@ -329,10 +330,11 @@ void main__init() {
 
 int main(void ) {
 	main__init();
+	pin__setup(a0, pin__out);
 	while(true) {
-		pin__high(led3);
+		pin__high(a0);
 		time__sleep_ms(500);
-		pin__low(led3);
+		pin__low(a0);
 		time__sleep_ms(500);
 	}
 	return 0;

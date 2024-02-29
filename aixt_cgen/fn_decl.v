@@ -91,7 +91,12 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		for st in node.stmts {
 			out += gen.ast_node(st)
 		}
-		out += '}\n'
+		
+		out += if node.name == 'main.init' {
+			'___initialization_block___\n}\n'
+		} else {
+			'}\n'
+		}
 		out = if out[0] == ` ` { out[1..] } else { out }
 	}
 	return out	
