@@ -1,13 +1,12 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pic.c
+// File Name: sleep.c.v
 // Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: UART management functions  (PIC18F2550 port)
+// Description: Seconds delay function
+//              (PIC18F2550)
 
-module uart
+module time
 
-fn read() char{
-  return RCREG
-}
+#define time__sleep(TIME)    __delay_s(TIME*1000)

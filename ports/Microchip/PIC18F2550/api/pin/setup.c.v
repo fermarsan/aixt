@@ -1,5 +1,5 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pic.c
+// File Name: setup.c.v
 // Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
@@ -8,4 +8,4 @@
 
 module pin
 
-#define pin_setup(PIN_NAME, MODE)     PIN_NAME = MODE  // pin_setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+#define pin__setup(PIN_NAME, PIN_MODE)     PIN_NAME ## _s = PIN_MODE    // pin_setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;

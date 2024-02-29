@@ -1,5 +1,5 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pic.c
+// File Name: pwm.c.v
 // Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
@@ -8,7 +8,4 @@
 
 module pwm 
 
-fn pwm_write(duty int, pin u16) { 
-        pwm := ((duty - 0) * (50 - 0) / (1023 - 0) + 0)  // Calculando el ciclo de trabajo
-        CCPR##pin##L = (pwm >> 2)                        // Alamacena el valor del PWM     
-    }
+#include <xc.h>

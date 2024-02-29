@@ -1,12 +1,12 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: sleep_ms.c
+// File Name: sleep_us.c.v
 // Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: Milliseconds delay function
+// Description: Microseconds delay function
 //              (PIC18F2550)
 
 module time
 
-#define sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
+#define time__sleep_us(TIME)    __delay_us(TIME)  // implementing by a macro for saving memory

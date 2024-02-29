@@ -1,12 +1,11 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: sleep_ms.c
+// File Name: read.c.v
 // Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: TIME delay function
-//              (PIC18F2550)
+// Description: PIN management functions  (PIC18F2550 port)
 
-module time
+module pin
 
-#include <xc.h>
+#define pin__read(PIN_NAME)            PIN_NAME ## _i             // PORTBbits.RB0 
