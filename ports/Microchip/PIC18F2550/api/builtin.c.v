@@ -1,5 +1,5 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: builtin.c
+// File Name: builtin.c.v
 // Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
@@ -7,6 +7,10 @@
 // Description: Builtin definitions (PIC18F2550)
 
 module main
+
+#include <xc.h>
+#include <stdio.h>
+#define _XTAL_FREQ 8000000
 
 // CONFIG1L
 #pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
@@ -69,10 +73,20 @@ module main
 // CONFIG7H
 #pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot block (000000-0007FFh) is not protected from table reads executed in other blocks)
 
-#include <xc.h>
-#define _XTAL_FREQ 8000000
 
-#define a_s     TRISA            // pin configuration pits
+#define TRISa		TRISA	// port setup name equivalents
+#define TRISb		TRISB
+#define TRISc		TRISC
+
+#define PORTa		PORTA	// port in name equivalents
+#define PORTb		PORTB
+#define PORTc		PORTC
+
+#define LATa		LATA	// port out name equivalents
+#define LATb		LATB
+#define LATc		LATC
+
+// pin configuration pits
 #define a0_s    TRISAbits.TRISA0 
 #define a1_s    TRISAbits.TRISA1 
 #define a2_s    TRISAbits.TRISA2 
@@ -81,7 +95,6 @@ module main
 #define a5_s    TRISAbits.TRISA5 
 #define a6_s    TRISAbits.TRISA6 
 
-// #define b_s     TRISB
 #define b0_s    TRISBbits.TRISB0 
 #define b1_s    TRISBbits.TRISB1 
 #define b2_s    TRISBbits.TRISB2 
@@ -91,7 +104,6 @@ module main
 #define b6_s    TRISBbits.TRISB6 
 #define b7_s    TRISBbits.TRISB7 
 
-// #define c_s     TRISC
 #define c0_s    TRISCbits.TRISC0 
 #define c1_s    TRISCbits.TRISC1 
 #define c2_s    TRISCbits.TRISC2 
@@ -100,7 +112,7 @@ module main
 #define c6_s    TRISCbits.TRISC6 
 #define c7_s    TRISCbits.TRISC7 
 
-//#define a_i     PORTA        // pin input pits 
+// pin input pits 
 #define a0_i    PORTAbits.RA0       
 #define a1_i    PORTAbits.RA1 
 #define a2_i    PORTAbits.RA2 
@@ -109,7 +121,6 @@ module main
 #define a5_i    PORTAbits.RA5 
 #define a6_i    PORTAbits.RA6 
 
-//#define b_i     PORTB
 #define b0_i    PORTBbits.RB0 
 #define b1_i    PORTBbits.RB1 
 #define b2_i    PORTBbits.RB2 
@@ -119,7 +130,6 @@ module main
 #define b6_i    PORTBbits.RB6 
 #define b7_i    PORTBbits.RB7 
 
-//#define c_i     PORTC 
 #define c0_i    PORTCbits.RC0 
 #define c1_i    PORTCbits.RC1 
 #define c2_i    PORTCbits.RC2 

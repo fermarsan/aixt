@@ -1,5 +1,5 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pic.c
+// File Name: pin.c.v
 // Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
@@ -8,4 +8,7 @@
 
 module pin
 
-#define pin_low(PIN_NAME)             PIN_NAME = 0          // LATBbits.LB0 = 0
+#include <xc.h>
+
+#define pin__out  0   // pin mode (direction)
+#define pin__in   1

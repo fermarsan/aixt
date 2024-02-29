@@ -1,14 +1,13 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pic.c
+// File Name: read.c.v
 // Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: PIN management functions  (PIC18F2550 port)
+// Description: UART management functions  (PIC18F2550 port)
 
-module pin
+module uart
 
-#include <xc.h>
-
-#define out 0   // pin mode (direction)
-#define in  1
+fn read() char{
+  return RCREG
+}
