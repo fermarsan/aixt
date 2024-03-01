@@ -44,11 +44,13 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.add_sources(source_path)
 	println('\n===== ${gen.source_paths} =====')
 
-	$if windows {
-		gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
-	} $else {
-		gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
-	}
+	gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
+	
+	// $if windows {
+	// 	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
+	// } $else {
+	// 	gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
+	// }
 	
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check_files(gen.files)
