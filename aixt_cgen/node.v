@@ -9,6 +9,9 @@ import v.ast
 
 // ast_node is the Code generation function for AST nodes.
 fn (mut gen Gen) ast_node(node ast.Node) string {
+	if node.type_name() == 'v.ast.File' {
+		println('')
+	}
 	print('${node.type_name().after('v.ast.')} -> ')
 	match node {
 		ast.File {

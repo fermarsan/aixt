@@ -42,7 +42,11 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// gen.add_sources('${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api') //auto-inludes API
 	gen.source_paths << '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api/builtin.c.v'
 	gen.add_sources(source_path)
-	println('\n===== ${gen.source_paths} =====')
+
+	println('main source files:')	//  print source files
+	for source in gen.source_paths {
+		println('\t${source}')
+	}
 
 	// gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
 	
