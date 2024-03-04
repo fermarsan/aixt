@@ -7,6 +7,7 @@
 module uart
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 // #define OUT = os__input(IN) 
@@ -18,6 +19,7 @@ module uart
 // }
 
 fn init() {
+    system("clear")
 	printf(' Aixt virtual UARTs:\t')
 	printf('\033[1;32m')	// print in green
 	printf('UART 0\t')

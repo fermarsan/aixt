@@ -67,6 +67,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		out = if out[0] == ` ` { out[1..] } else { out }	// closing
 	} else {
 		gen.cur_fn = node.name
+		println('## fn name: ${node.name} ##')
 		for a in node.attrs {
 			out += '${a.name} '
 		}

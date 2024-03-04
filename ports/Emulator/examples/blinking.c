@@ -13,6 +13,8 @@
 
 void main__init();
 
+void time__init();
+
 void time__sleep_ms(unsigned long tms);
 
 long pins__[] = {0, 0, 0, 0, 0, 0, 0, 0};
@@ -20,6 +22,8 @@ long pins__[] = {0, 0, 0, 0, 0, 0, 0, 0};
 long input__ = 0;
 
 void pin__update();
+
+void pin__init();
 
 void pin__write(long pin_name, long val);
 
@@ -39,6 +43,13 @@ enum main__Pin_names {
 };
 
 void main__init() {
+	printf("\033[1;37m");
+	time__init();
+	pin__init();
+	
+}
+
+void time__init() {
 }
 
 void time__sleep_ms(unsigned long tms) {
@@ -51,15 +62,28 @@ void pin__update() {
 	printf(" _____ _____ _____ _____ _____ _____ _____ _____\n");
 	printf("|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |\n");
 	for(long i__ = 0; i__ <= 7; i__++) {
-		if(pins__[i__] == 0) {
-			printf("| [ ] ");
+		printf("| [");
+		if(i__ <= 3) {
+			printf("\033[1;32m");
 		}
 		else {
-			printf("| [#] ");
+			printf("\033[1;31m");
 		}
+		if(pins__[i__] == 0) {
+			printf(" ");
+		}
+		else {
+			printf("#");
+		}
+		printf("\033[1;37m");
+		printf("] ");
 	}
 	printf("|\n");
 	printf("'-----'-----'-----'-----'-----'-----'-----'-----'\n");
+}
+
+void pin__init() {
+	pin__update();
 }
 
 void pin__write(long pin_name, long val) {

@@ -13,5 +13,6 @@ fn (mut gen Gen) enum_decl(node ast.EnumDecl) string {
 		out += '${gen.ast_node(f)}'
 	}
 	out += '};\n'
+	println('')
 	return out
 }

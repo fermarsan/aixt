@@ -6,7 +6,7 @@
 // Description: This file contains the C code generation functions of the Aixt.
 module aixt_cgen
 
-// import v.ast
+import v.ast
 import v.parser
 import v.checker
 // import v.pref
@@ -14,7 +14,14 @@ import v.checker
 // parse_cgen_file, parces and generates code from a new source file
 // this is used mainly for modules
 pub fn (mut gen Gen) parse_cgen_file(source_path string) string {
-	mut file := parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
+	mut file := &ast.File(unsafe { nil })	// parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
+	
+	$if windows {
+		file = parser.parse_file(source_path, mut gen.table, .skip_comments, gen.pref)
+	} $else {
+		file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
+	}
+
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut file)
 

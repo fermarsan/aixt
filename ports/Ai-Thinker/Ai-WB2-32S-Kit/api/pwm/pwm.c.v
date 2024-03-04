@@ -8,3 +8,7 @@
 //              (PC port) 
 
 module pwm
+
+fn init() {
+
+}

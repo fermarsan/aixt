@@ -11,13 +11,16 @@ board =   "Ai-WB2-32S-Kit"
 backend = "arduino"
 
 cc_linux =   "xc16"
-cc_windows = "C:\Program Files\Arduino IDE.exe"
+cc_windows = "C:\\Program Files\\Arduino IDE.exe"
 cc_flags =   "-o"
 
 path = "Ai-Thinker/Ai-WB2-32S-Kit"
 
-fixed_size_arrays =  "true"
+fixed_size_arrays  = "true"
+array_default_len  = 20
+
 fixed_size_strings = "true"
+string_default_len = 80
 
 void =  "void"
 bool =  "bool"
@@ -49,7 +52,6 @@ main_params =   "void "
 
 api_modules = [
     "pin",
-    "adc",
     "pwm",
     "uart",
     "time"
