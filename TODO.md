@@ -16,12 +16,12 @@ Tasks to do in Aixt
 
 ### In Progress
 
-- [ ] Emulator issue on Windows, in `time` module
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
    
 ### Done ✓
 
+- [x] Emulator issue on Windows, in `time` module
 - [x] Windows gen.files more than gen.source paths SOLVED
 - [x] Printing improved messages for debugging
 - [x] Update the general diagram
