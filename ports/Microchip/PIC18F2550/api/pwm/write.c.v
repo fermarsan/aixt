@@ -8,7 +8,7 @@
 
 module pwm 
 
-fn pwm_write(duty int, pin u16) { 
+fn pwm__write(duty int, pin u16) { 
         pwm := ((duty - 0) * (50 - 0) / (1023 - 0) + 0)  // Calculando el ciclo de trabajo
         CCPR##pin##L = (pwm >> 2)                        // Alamacena el valor del PWM     
     }

@@ -8,7 +8,7 @@
 
 module adc
 
-fn read(channel u8) u16 {
+fn adc__read(channel u8) u16 {
     ADCON0bits.CHS = channel // Asigna el canal del ADC  
     reading()                // Función para retornar el valor del ADC 
 }
