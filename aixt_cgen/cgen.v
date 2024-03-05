@@ -63,6 +63,11 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	for i, file in gen.files {	// source folder
 		gen.file_count = i
 		gen.out += gen.ast_node(file) // starts from the main node (file)
+		
+		println('main source files:')	//  print source files
+		for source in gen.source_paths {
+			println('\t${source}')
+		}
 	}
 	
 	gen.sym_table_print()
