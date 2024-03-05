@@ -55,19 +55,19 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	} $else {
 		gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
 	}
-	
+
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check_files(gen.files)
+
+	// solve issue in Windows
+	if gen.files.len > gen.source_paths.len {
+		gen.files.pop()
+	}
 
 	println('\n===== Top-down node analysis =====')
 	for i, file in gen.files {	// source folder
 		gen.file_count = i
 		gen.out += gen.ast_node(file) // starts from the main node (file)
-		
-		println('main source files:')	//  print source files
-		for source in gen.source_paths {
-			println('\t${source}')
-		}
 	}
 	
 	gen.sym_table_print()

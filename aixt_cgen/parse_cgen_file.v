@@ -25,7 +25,7 @@ pub fn (mut gen Gen) parse_cgen_file(source_path string) string {
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut file)
 
-	println('\n===== Top-down node analysis X =====')
+	println('\n===== Top-down node analysis =====')
 	gen.out += gen.ast_node(file) // starts from the main node (file)
 
 
