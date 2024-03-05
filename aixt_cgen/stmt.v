@@ -1,14 +1,12 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: stmt.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation for statements.
 module aixt_cgen
 
 import v.ast
 
+// stmt is the code generation function for statements.
 fn (mut gen Gen) stmt(node ast.Stmt) string {
 	println('${node.type_name().after('v.ast.')}:\t\t${node}')
 	match node {

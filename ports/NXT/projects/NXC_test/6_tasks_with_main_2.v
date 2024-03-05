@@ -1,4 +1,4 @@
-[task] fn move_square() {
+@[task] fn move_square() {
     for {
         acquire(move_mutex)
         forward(motors_ac, 75); wait(1000)
@@ -7,7 +7,7 @@
     }
 }
 
-[task] fn check_sensors() {
+@[task] fn check_sensors() {
     for {
         if sensor_1 == 1 {
             acquire(move_mutex)

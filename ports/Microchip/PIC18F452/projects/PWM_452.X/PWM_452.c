@@ -58,29 +58,41 @@
 
 #define _XTAL_FREQ 8000000
 #include <xc.h>
-#include "map_function.h"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/builtin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/adc.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/pwm.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F452/api/time/sleep_ms.c"
 
 void main()
 {
-    ADCON1 = 0x8E;                          // Configura el pin RA0 como analogico
-    ADCON0 = 0xc0;                          // Selecciona el canal 0 del ADC
-                            
-    ADCON0bits.ADON = 1;                    // Habilita el conversor
-    
-    PR2 = 0xC;                             // Valor del periodo
+/*  ADCON1 = 0x8E;                        // Configura el pin RA0 como analogico
+    ADCON0 = 0xC0;                          // Selecciona el canal 0 del ADC                           
+    ADCON0bits.ADON = 1;                    // Habilita el conversor */
+    adc_setup();
+
+ /* PR2 = 0xC;                             // Valor del periodo
     CCPR1L = 0;                             // Inicia el CCP1 en 0
     TRISCbits.TRISC2 = 0;                   // Pin C2 como salida
     T2CON = 0x03;                           // Configuracion del timer 2
     CCP1CON = 0x0C;                         // Configura el CCP1 en modo PWM
     TMR2 = 0;                               // Timer 2 en 0
     T2CONbits.TMR2ON = 1;                   // Timer 2 ON
+    */
+    pwm_setup(1,2);    
     
     while(1)
     {
-        ADCON0bits.GO_DONE = 1;
-        while(ADCON0bits.GO_DONE == 1);
-        int valor_adc = ADRES;
-        unsigned char valor_pwm = map(valor_adc, 0, 1023, 0, 50);
-        CCPR1L = (valor_pwm >> 2);
+        /* ADCON0bits.GO_DONE = 1;
+        while(ADCON0bits.GO_DONE == 1); */
+        adc_read(0);
+
+        /*int valor_adc = ADRES; */
+        int valor_adc = adc_reading();
+
+        /*unsigned char valor_pwm = map(valor_adc, 0, 1023, 0, 50);
+        CCPR1L = (valor_pwm >> 2);*/
+        pwm_write(valor_adc,1);
+
     }
 }

@@ -5,4 +5,5 @@ c, d := true, false
 
 a = -b
 c = !d
+b = ~a
 

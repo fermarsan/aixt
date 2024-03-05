@@ -1,0 +1,6 @@
+forward(motor_a, 75)
+forward(motor_b, 75)
+sleep(4000)
+reverse(motors_ab, 75)
+sleep(4000)
+off(motors_ab)

@@ -7,15 +7,6 @@
 // Description: Builtin definitions
 //              (PIC16F676)
 
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: builtin.c
-// Author: Cesar Alejandro Roa Acosta and Fernando Martínez Santa
-// Date: 2023
-// License: MIT
-//
-// Description: Builtin definitions
-//              (PIC16F676)
-
 #define an0    ra0  // Onboard LED            
 #define an1    ra1        
 #define an2    ra2              

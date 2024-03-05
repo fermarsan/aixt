@@ -1,18 +1,14 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: infix_expr.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation for 'infix' expressions (binary operations).
 module aixt_cgen
 
 import v.ast
 
+// infix_expr is the code generation function for 'infix' expressions (binary operations).
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
-	lvar_type := gen.idents['${gen.current_fn}.${node.left.str()}'].typ
-	rvar_type := gen.idents['${gen.current_fn}.${node.right.str()}'].typ
-	if lvar_type == ast.string_type_idx || rvar_type == ast.string_type_idx {
+	if node.left_type == ast.string_type_idx || node.right_type == ast.string_type_idx {
 		match node.op.str() {
 			'==' {
 				gen.add_include('string.h')
@@ -28,10 +24,12 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
 				return 'strcat(strcpy(__temp_str, ${gen.ast_node(node.left)}), ${gen.ast_node(node.right)})'
 			} 
 			else {
-				panic('\n\nTranspiler Error:\n"${node.op.str()}" operator not supported for strings.\n')
+				return ''
 			}
 		}
 	} else {
 		return '${gen.ast_node(node.left)} ${node.op} ${gen.ast_node(node.right)}'
 	}
+	println('XXXXXXXXXXXXX ${node.promoted_type} XXXXXXXXXXXXX')
+	return ''
 }

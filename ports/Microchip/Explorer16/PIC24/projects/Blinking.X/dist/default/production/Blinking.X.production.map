@@ -1,23 +1,23 @@
-Microchip Technology Inc, v2.00 (B)
+Microchip Technology Inc, v2.10 (B)
 
 Tool Name:
-  /opt/microchip/xc16/v2.00/bin/bin/../bin/elf-ld
+  /opt/microchip/xc16/v2.10/bin/bin/../bin/elf-ld
 
 Command:
   -p24FJ128GA010 \
   --mdfp=/opt/microchip/mplabx/v6.15/packs/Microchip/PIC24F-GA-GB_DFP/1.9.336/xc16 \
   -o \
   dist/default/production/Blinking.X.production.elf \
-  -L/opt/microchip/xc16/v2.00/bin/bin/.. \
+  -L/opt/microchip/xc16/v2.10/bin/bin/.. \
   -L/opt/microchip/mplabx/v6.15/packs/Microchip/PIC24F-GA-GB_DFP/1.9.336/xc16/bin/../support/PIC24F/gld \
-  -L/opt/microchip/xc16/v2.00/bin/bin/../../lib \
-  -L/opt/microchip/xc16/v2.00/bin/bin/../../support/PIC24E/gld \
-  -L/opt/microchip/xc16/v2.00/bin/bin/../../support/PIC24F/gld \
-  -L/opt/microchip/xc16/v2.00/bin/bin/../../support/PIC24H/gld \
-  -L/opt/microchip/xc16/v2.00/bin/bin/../../support/dsPIC30F/gld \
-  -L/opt/microchip/xc16/v2.00/bin/bin/../../support/dsPIC33C/gld \
-  -L/opt/microchip/xc16/v2.00/bin/bin/../../support/dsPIC33E/gld \
-  -L/opt/microchip/xc16/v2.00/bin/bin/../../support/dsPIC33F/gld \
+  -L/opt/microchip/xc16/v2.10/bin/bin/../../lib \
+  -L/opt/microchip/xc16/v2.10/bin/bin/../../support/PIC24E/gld \
+  -L/opt/microchip/xc16/v2.10/bin/bin/../../support/PIC24F/gld \
+  -L/opt/microchip/xc16/v2.10/bin/bin/../../support/PIC24H/gld \
+  -L/opt/microchip/xc16/v2.10/bin/bin/../../support/dsPIC30F/gld \
+  -L/opt/microchip/xc16/v2.10/bin/bin/../../support/dsPIC33C/gld \
+  -L/opt/microchip/xc16/v2.10/bin/bin/../../support/dsPIC33E/gld \
+  -L/opt/microchip/xc16/v2.10/bin/bin/../../support/dsPIC33F/gld \
   build/default/production/blinking.o \
   --defsym=__MPLAB_BUILD=1 \
   -Tp24FJ128GA010.gld.00 \
@@ -46,17 +46,17 @@ Command:
 Optional library libpPIC24Fxxx.a not found
 Archive member included because of file (symbol)
 
-/opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o)
+/opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o)
                               (__resetPRI)
-/opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(data_init_standard.o)
-                              /opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o) (__data_init_standard)
-/opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.Meo)
+/opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(data_init_standard.o)
+                              /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o) (__data_init_standard)
+/opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.Meo)
                               (__crt_start_mode_normal)
-/opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
+/opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
                               build/default/production/blinking.o (___delay32)
 
 
-xc16-ld 2.00 (B)
+xc16-ld 2.10 (B)
 
 Default Code Model: Small
 Default Data Model: Large
@@ -67,20 +67,18 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0xce           0x135  (309)
-.text                        0x2ce                0x38            0x54  (84)
-.init.delay32                0x306                0x1c            0x2a  (42)
-.dinit                       0x322                 0x8             0xc  (12)
+.text                        0x2ce                0x36            0x51  (81)
+.init.delay32                0x304                0x1c            0x2a  (42)
 
-                 Total "program" memory used (bytes):          0x1bf  (447) <1%
+                 Total "program" memory used (bytes):          0x1b0  (432) <1%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                        0x800                   0             0x4  (4)
 
-                 Total "data" memory used (bytes):            0x4  (4) <1%
+                 Total "data" memory used (bytes):              0  (0) 
 
 
 Dynamic Memory Usage
@@ -88,22 +86,12 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x804                              0x1ffc  (8188)
+stack                        0x800                              0x2000  (8192)
 
-                 Maximum dynamic memory (bytes):         0x1ffc  (8188)
+                 Maximum dynamic memory (bytes):         0x2000  (8192)
 
 Info: Project is using a large data memory model when small data memory model is sufficient.
 
-
-External Symbols in Data Memory (by address):
-
-                    0x0800                  ___addr
-                    0x0802                  ___port_bit
-
-External Symbols in Data Memory (by name):
-
-                    0x0800                  ___addr
-                    0x0802                  ___port_bit
 
 External Symbols in Program Memory (by address):
 
@@ -112,18 +100,20 @@ External Symbols in Program Memory (by address):
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
                   0x0002c8                  __DefaultInterrupt
-                  0x0002ce                  _main
-                  0x000306                  ___delay32
+                  0x0002ce                  _main__init
+                  0x0002ec                  _main
+                  0x000304                  ___delay32
 
 External Symbols in Program Memory (by name):
 
                   0x0002c8                  __DefaultInterrupt
-                  0x000306                  ___delay32
+                  0x000304                  ___delay32
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0002ce                  _main
+                  0x0002ec                  _main
+                  0x0002ce                  _main__init
 
 Memory Configuration
 
@@ -143,7 +133,7 @@ Linker script and memory map
 LOAD build/default/production/blinking.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD pPIC24Fxxx
-LOAD /opt/microchip/xc16/v2.00/bin/bin/../../lib/libfx-elf.a
+LOAD /opt/microchip/xc16/v2.10/bin/bin/../../lib/libfx-elf.a
                     0x157fc                  __CONFIG2 = 0x157fc
                     0x157fe                  __CONFIG1 = 0x157fe
                     0x0200                  __CODE_BASE = 0x200
@@ -161,11 +151,11 @@ LOAD /opt/microchip/xc16/v2.00/bin/bin/../../lib/libfx-elf.a
 
 .text             0x000200         0xce
  *(.init)
- .init            0x000200         0x4c /opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o)
+ .init            0x000200         0x4c /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o)
                   0x000200                  __reset
                   0x000200                  __resetPRI
                   0x00023c                  __psv_init
- .init            0x00024c         0x7c /opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(data_init_standard.o)
+ .init            0x00024c         0x7c /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(data_init_standard.o)
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
  *(.user_init)
@@ -178,7 +168,7 @@ LOAD /opt/microchip/xc16/v2.00/bin/bin/../../lib/libfx-elf.a
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x0002cc          0x2 /opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.Meo)
+                  0x0002cc          0x2 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.Meo)
                   0x0002cc                  __crt_start_mode_normal
                   0x0002cc                  __crt_start_mode
 
@@ -194,26 +184,26 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x4be
+.debug_info       0x000000        0x810
  *(.debug_info)
- .debug_info      0x000000        0x4be build/default/production/blinking.o
+ .debug_info      0x000000        0x810 build/default/production/blinking.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000         0xc0
+.debug_abbrev     0x000000         0xb0
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xc0 build/default/production/blinking.o
+ .debug_abbrev    0x000000         0xb0 build/default/production/blinking.o
 
-.debug_line       0x000000        0x185
+.debug_line       0x000000        0x102
  *(.debug_line)
- .debug_line      0x000000        0x185 build/default/production/blinking.o
+ .debug_line      0x000000        0x102 build/default/production/blinking.o
 
-.debug_frame      0x000000         0x2e
+.debug_frame      0x000000         0x48
  *(.debug_frame)
- .debug_frame     0x000000         0x2e build/default/production/blinking.o
+ .debug_frame     0x000000         0x48 build/default/production/blinking.o
 
-.debug_str        0x000000          0xb
+.debug_str        0x000000         0x27
  *(.debug_str)
- .debug_str       0x000000          0xb build/default/production/blinking.o
+ .debug_str       0x000000         0x27 build/default/production/blinking.o
 
 .debug_loc
  *(.debug_loc)
@@ -222,10 +212,10 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0x35
+                  0x000000         0x2a
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x35 build/default/production/blinking.o
+                  0x000000         0x2a build/default/production/blinking.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -807,34 +797,28 @@ __CONFIG1
                     0x0230                  UART2 = 0x230
                     0x0230                  _UART2 = 0x230
 START GROUP
-LOAD /opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a
-LOAD /opt/microchip/xc16/v2.00/bin/bin/../../lib/libm-elf.a
-LOAD /opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-elf.a
+LOAD /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a
+LOAD /opt/microchip/xc16/v2.10/bin/bin/../../lib/libm-elf.a
+LOAD /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-elf.a
 END GROUP
 OUTPUT(dist/default/production/Blinking.X.production.elf elf32-pic30)
 LOAD default_isr
-LOAD data_init
 
 .debug_pubtypes
-                  0x000018         0x2f
+                  0x000018         0x99
  .debug_pubtypes
-                  0x000018         0x2f build/default/production/blinking.o
+                  0x000018         0x99 build/default/production/blinking.o
 
 __c30_signature
-                  0x000047         0x18
+                  0x0000b1         0x18
  __c30_signature
-                  0x000047          0x6 build/default/production/blinking.o
+                  0x0000b1          0x6 build/default/production/blinking.o
  __c30_signature
-                  0x00004d          0x6 /opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o)
+                  0x0000b7          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x000053          0x6 /opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(data_init_standard.o)
+                  0x0000bd          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x000059          0x6 /opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
-
-.nbss               0x0800          0x4
- .nbss              0x0800          0x4 build/default/production/blinking.o
-                    0x0800                  ___addr
-                    0x0802                  ___port_bit
+                  0x0000c3          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
 
 .config_JTAGEN    0x0157fe          0x2
  .config_JTAGEN
@@ -843,13 +827,11 @@ __c30_signature
 .config_IESO      0x0157fc          0x2
  .config_IESO     0x0157fc          0x2 build/default/production/blinking.o
 
-.text             0x0002ce         0x38
- .text            0x0002ce         0x38 build/default/production/blinking.o
-                  0x0002ce                  _main
+.text             0x0002ce         0x36
+ .text            0x0002ce         0x36 build/default/production/blinking.o
+                  0x0002ce                  _main__init
+                  0x0002ec                  _main
 
-.init.delay32     0x000306         0x1c
- .init.delay32    0x000306         0x1c /opt/microchip/xc16/v2.00/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
-                  0x000306                  ___delay32
-
-.dinit            0x000322          0x8
- .dinit           0x000322          0x8 data_init
+.init.delay32     0x000304         0x1c
+ .init.delay32    0x000304         0x1c /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
+                  0x000304                  ___delay32

@@ -1,0 +1,6 @@
+module main
+
+fn init() {
+
+}
+

@@ -1,14 +1,13 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: enum_val.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2024
 // License: MIT
-//
-// Description: code generation for enum values.
 module aixt_cgen
 
 import v.ast
 
+// enum_val is the code generation function for enum values.
 fn (mut gen Gen) enum_val(node ast.EnumVal) string {
-	return '${node.val}'
+	// println('\n${node.enum_name}\n')
+	return '${node.enum_name.after('.')}.${node.val}'
 }

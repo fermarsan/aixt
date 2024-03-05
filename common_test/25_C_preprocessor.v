@@ -7,5 +7,6 @@ a := 0
 
 for {
 	sleep(time)
-	a++
+	// a++
+	a = a + 1
 }

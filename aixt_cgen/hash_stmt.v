@@ -1,19 +1,20 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// File Name: hash_stmt.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: code generation for hash statements (C preprocessor).
 module aixt_cgen
 
 import v.ast
 
+// hash_stmt: code generation for hash statements (C preprocessor).
 fn (mut gen Gen) hash_stmt(node ast.HashStmt) string {
+	// println('########### ${node.ct_conds} ###########')
 	if node.kind == 'include' {
-		gen.includes += '#${node.val}\n'
+		if '#${node.val}\n' !in gen.c_preproc_cmds {
+			gen.c_preproc_cmds << '#${node.val}\n'
+		}
 	} else {
-		gen.definitions += '#${node.val}\n'
+		gen.c_preproc_cmds << '#${node.val}\n'
 	}
 	return ''
 }
