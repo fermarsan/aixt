@@ -1,0 +1,64 @@
+# Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+# File Name: PIC18F452.toml
+# Author: Jan Carlo Peñuela Jurado and Fernado Martinez Santa
+# Date: 2024
+# License: MIT
+#
+# Description: Setup file for the PIC18F452 port. It works on Linux and Windows 
+#              PCs and on Android with Termux
+#              
+port =    "PIC18F452" 
+device =  "PIC18F452"
+board =   "Nothing"
+backend = "c"
+
+cc_linux =   "gcc"
+cc_windows = "C:\\Program Files\\Microchip\\xc8\\v2.40\\bin\\xc8.exe"
+cc_flags =   "-o"
+
+path = "Microchip/PIC18F452"
+
+fixed_size_arrays  = "true"
+array_default_len  = 10
+
+fixed_size_strings = "true"
+string_default_len = 20
+
+void =  "void"
+bool =  "bool"
+
+i8 =    "signed char"
+i16 =   "signed short"
+int =   "long"
+i64 =   "=== NOT SUPPORTED ==="
+isize = "signed char"
+int_literal = "signed char"
+
+u8 =    "unsigned char"
+u16 =   "unsigned short"
+u32 =   "unsigned long"
+u64 =   "=== NOT SUPPORTED ==="
+usize = "unsigned char"
+
+f32 = "float"
+f64 = "=== NOT SUPPORTED ==="
+float_literal = "float"
+
+rune =  "char"
+string = "char []"
+
+mutex = "=== NOT SUPPORTED ==="
+
+main_ret_type = "void"
+main_params =   "void"   
+
+api_modules = [
+    "pin",
+    "port",
+    "adc",
+    "pwm",
+    "uart",
+    "time"
+]
+
+[aliases]

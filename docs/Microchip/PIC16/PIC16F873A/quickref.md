@@ -131,8 +131,8 @@ while(1){
 ```
 ## Configuración del ADC
 ```go
-adc_setup()     // Inicializa el ADC
-adc_read(0)     // Escoge el pin del canal analogico
+adc_setup()     // Iicializa el ADC
+adc_read(0)     // Escoge el pin denl canal analogico
 adc_reading();  // Almacena el valor del ADC en una función
 
 ```
@@ -268,5 +268,5 @@ void main(void) {
                 break;
         }
     }
-
+}
 ```

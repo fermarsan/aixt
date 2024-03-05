@@ -8,6 +8,7 @@
 //              (PIC18F452 port)
 
 // Función para configurar el PWM
+#include <xc.h>
 #define pwm_setup(pin1, pin2) \
     PR2 = 0x0C;                             /* Valor del periodo */  \
     CCPR##pin1##L = 0;                             /* Inicia el CCP1 en 0 */  \
