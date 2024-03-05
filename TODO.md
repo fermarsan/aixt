@@ -16,6 +16,7 @@ Tasks to do in Aixt
 
 ### In Progress
 
+- [ ] Emulator issue on Windows, in `time` module
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
    
