@@ -18,10 +18,10 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
-- [ ] Issue .exe extension in Emulator on Windows
    
 ### Done ✓
 
+- [X] Issue .exe extension in Emulator on Windows SOLVED
 - [x] Emulator issue on Windows, in `time` module SOLVED
 - [x] Windows gen.files more than gen.source paths SOLVED
 - [x] Printing improved messages for debugging
