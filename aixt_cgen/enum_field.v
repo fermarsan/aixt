@@ -13,7 +13,7 @@ fn (mut gen Gen) enum_field(node ast.EnumField) string {
 			return '${node.name},\n'
 		} 
 		else {
-			return '${node.name} = ${gen.ast_node(node.expr)},\n'
+			return '${node.name} = ${gen.ast_node(node.expr)},\n'  // '${node.name} = ${node.expr},\n'
 		}
 	}
 }

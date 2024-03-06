@@ -18,13 +18,10 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
-<!-- - [ ] Directly modify gen.out instead of return strings in all c_gen functions -->
    
 ### Done ✓
 
+- [x] Printing improved messages for debugging
 - [x] Update the general diagram
 - [x] support enum fields (`enum_name.enum_field`)
-- [x] Add `void` type to C void functions 
-- [x] Force to include `module_name.c.v` first
-- [x] Implement automatic use of Makefiles in -c (compile) command
-- [x] Change the vscode tasks to point the folder instead of `aixt.v`
+- [x] Add `void` type to C void functions

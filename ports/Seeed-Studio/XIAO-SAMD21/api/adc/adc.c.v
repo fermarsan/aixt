@@ -1,4 +1,4 @@
 module adc
-fn.init(){
+fn init(){
 
 }
