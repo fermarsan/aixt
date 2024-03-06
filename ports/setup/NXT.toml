@@ -11,7 +11,7 @@ board =     "LEGO Mindstorms NXT intelligent brick"
 backend =   "nxc"
 
 cc_linux =   "./nbc-linux"
-cc_windows = ".\\nbc-windows.exe"
+cc_windows = "c:\\aixt\\ports\\NXT\\nbc-windows.exe"
 cc_flags =   "-T=NXT -S=usb -d"
 
 path = "NXT"
