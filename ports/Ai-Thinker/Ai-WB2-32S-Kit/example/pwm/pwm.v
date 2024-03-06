@@ -1,5 +1,5 @@
 // Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: PWM.ino
+// File Name: PWM.v
 // Author: Fernando Martínez Santa - Stiven Cortazar Cortazar - Yesid Reyes Tique
 // Date: 2022-2024
 // License: MIT
@@ -7,21 +7,19 @@
 // // Description: PWM Ouput functions (Ai-Thinker_Ai-WB2-32S-Kit)
 //              (PC port) 
 
-#include "bl602_pwm.h"
+import time {sleep_ms}
+import pin
+import pwm
 
-void setup() {
- pinMode(17, OUTPUT);
-}
-void loop() {
-  for (int i = 0; i <= 255; i++) {
-    analogWrite(17, i);
-    delay(10);
-  }
-  delay(1000);
+__global val = 0
 
-  for (int i = 255; i >= 0; i--) {
-    analogWrite(17, i);
-    delay(10);
-  }
-  delay(1000);
-}
+pin.setup(17, pin.out)
+
+for {
+    pwm.write(17, val)
+    sleep_ms(250)
+    val=val+10
+    if val==250{
+		val=0  
+    }
+} 

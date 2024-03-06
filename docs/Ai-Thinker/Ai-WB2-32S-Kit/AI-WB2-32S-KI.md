@@ -156,22 +156,6 @@ uart__read // receives binary data (in Bytes) to UART
 ```v
 uart__write(MESSAGE)    // send binary data (in Bytes) to second UART
 ```
-- For a second UART, it would be used as follows:
-```v
-uart__print_1(MESSAGE)    // print a string to the second UART
-```
-```v
-uart__println_1(MESSAGE)  // print a string plus a line-new character to the second UART
-```
-```v
-uart__write_1(MESSAGE)    // send binary data (in Bytes) to second UART
-```
-```v
-uart__ready_1 // get everything ready for to second UART
-```
-```v
-uart__read_1 // receives binary data (in Bytes) to second UART
-```
 
 ### Retardos
 
@@ -202,4 +186,23 @@ for {   //infinite loop
     pin.low(14)
     sleep_ms(500)
 }
+```
+* Example PWM
+```go
+import time {sleep_ms}
+import pin
+import pwm
+
+__global val = 0
+
+pin.setup(17, pin.out)
+
+for {
+    pwm.write(17, val)
+    sleep_ms(250)
+    val=val+10
+    if val==250{
+		val=0  
+    }
+} 
 ```
