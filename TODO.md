@@ -18,6 +18,7 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
+- [ ] Issue .exe extension in Emulator on Windows
    
 ### Done ✓
 
