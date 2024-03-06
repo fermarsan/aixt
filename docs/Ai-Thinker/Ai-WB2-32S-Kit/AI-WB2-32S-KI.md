@@ -148,10 +148,10 @@ uart__print(MESSAGE)      // print a string to the default UART
 uart__println(MESSAGE)    // print a string plus a line-new character to the default UART
 ```
 ```v
-uart__ready // get everything ready for to UART
+uart__ready() // get everything ready for to UART
 ```
 ```v
-uart__read // receives binary data (in Bytes) to UART
+uart__read() // receives binary data (in Bytes) to UART
 ```
 ```v
 uart__write(MESSAGE)    // send binary data (in Bytes) to second UART
