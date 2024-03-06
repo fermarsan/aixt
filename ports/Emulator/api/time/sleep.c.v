@@ -5,4 +5,4 @@
 module time
 
 // sleep is a delay function in seconds for the Aixt PC port. 
-#define time__sleep(TMS)  start_time = clock();  while (clock() < start_time + TMS*1000000)
+#define time__sleep(TMS)  start_time = clock();  printf("\nt = %lu\n", start_time); while (clock() < start_time + TMS*1000000)
