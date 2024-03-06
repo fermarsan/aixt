@@ -5,4 +5,4 @@
 module time
 
 // sleep_us is a delay function in microseconds for the Aixt PC port. 
-#define time__sleep_us(TIME)	usleep(TIME)
+#define time__sleep_us(TMS)  start_time = clock();  while (clock() < start_time + TMS)

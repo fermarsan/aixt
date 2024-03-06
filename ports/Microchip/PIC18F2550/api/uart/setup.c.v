@@ -8,7 +8,7 @@
 
 module uart
 
-fn setup() { 
+fn uart__setup() { 
     //Configuración del registro SPBRG (9600 Baudios)
     SPBRG=((_XTAL_FREQ/9600)/64)-1  
     //CONFIGURACION

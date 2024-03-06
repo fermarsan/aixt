@@ -4,8 +4,11 @@
 // License: MIT
 module time
 
-#include <unistd.h>
+#include <time.h>
 
+__global (
+	start_time i64
+)
 
 fn init() {
 

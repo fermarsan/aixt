@@ -8,7 +8,7 @@
 
 module pwm 
 
-fn pwm_setup(pin1 u16, pin2 u16) { 
+fn pwm__setup(pin1 u16, pin2 u16) { 
     PR2 = 0x0C                   // Valor del período del PWM 
     CCPR##pin1##L = 0            // Inicializa el registro CCP en 0 dependiendo el CCP que configure el usuario
     TRISCbits.TRISC##pin2 = 0    // Configura el Pin correspondiente como salida dependiendo el pin que configure el usuario 

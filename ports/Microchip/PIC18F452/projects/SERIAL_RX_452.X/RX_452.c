@@ -1,6 +1,6 @@
 /*
  * File:   RX_452.c
- * Author: afajardo
+ * Author: Jan Carlo Peñuela
  *
  * Created on January 12, 2024, 10:03 AM
  */
@@ -64,12 +64,49 @@
 #include "USART_452.h"
 #define _XTAL_FREQ 8000000
 
-
+/*
 void main(void) {
     TRISB=0x00; 
     USART_Init(9600);            //inicializa la comunicacion serial en 9600 baudios
      while (1) {
          PORTB=USART_Rx();
+     }
+    return;
+}*/
+
+
+void main(void) {
+
+    // CONFIGURAMOS EL PUERTO B COMO SALIDA
+
+    pin_setup(b0_s, out);
+    pin_setup(b1_s, out);
+    pin_setup(b2_s, out);
+    pin_setup(b3_s, out);
+    pin_setup(b4_s, out);
+    pin_setup(b5_s, out);
+    pin_setup(b6_s, out);
+    pin_setup(b7_s, out);
+
+    // LIMPIAMOS EL PUERTO B
+
+    pin_write(b0, 0);
+    pin_write(b1, 0);
+    pin_write(b2, 0);
+    pin_write(b3, 0);
+    pin_write(b4, 0);
+    pin_write(b5, 0);
+    pin_write(b6, 0);
+    pin_write(b7, 0);
+   
+   // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
+    pin_setup(c7_s,1);
+
+   // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
+    uart_setup();               
+
+     while (1) {
+         PORTB=rx_read();
      }
     return;
 }
