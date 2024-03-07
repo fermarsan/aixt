@@ -3,16 +3,16 @@
 // Board = Seed Studio XIAO SAMD21
 // Backend = arduino
 
-#define time__sleep(TIME) delay(TIME*1000)
 #define time__sleep_ms(TIME)  delay(TIME)
 #define time__sleep_us(TIME)	delayMicroseconds(TIME)
+#define time__sleep(TIME) delay(TIME*1000)
 #define pin__out OUTPUT
 #define pin__in INPUT
-#define pin__high(PIN_NAME)		digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)		digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)		digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)		pinMode(PIN_NAME, MODE)
 #define pin__write(PIN_NAME, VALUE)		digitalWrite(PIN_NAME, VALUE)
+#define pin__high(PIN_NAME)		digitalWrite(PIN_NAME, HIGH)
+#define pin__setup(PIN_NAME, MODE)		pinMode(PIN_NAME, MODE)
+#define pin__read(PIN_NAME)		digitalRead(PIN_NAME)
+#define pin__low(PIN_NAME)		digitalWrite(PIN_NAME, LOW)
 
 void main__init();
 

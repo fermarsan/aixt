@@ -1,18 +1,18 @@
-import time {sleep_ms}
+import time { sleep_ms }
 import pin
 import pwm
 
-__global val = 0
+__global (
+  val = 0
+)
 
 pin.setup(5, pin.out)
-
-
 
 for {
     pwm.write(5, val)
     sleep_ms(250)
     val=val+10
-    if val==250{
-		val=0  
+    if val==250 {
+		  val=0  
     }
 } 
