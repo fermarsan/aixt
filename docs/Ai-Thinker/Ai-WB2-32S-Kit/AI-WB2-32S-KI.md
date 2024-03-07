@@ -214,7 +214,7 @@ for {
     }
 } 
 ```
-* Example PWM
+* Example UART
 ```go
 import time {sleep_ms}
 import pin
