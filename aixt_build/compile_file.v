@@ -25,10 +25,17 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 
 	flags := setup_file.value('cc_flags').string()
 
-	output_ext := match setup_file.value('backend').string() {
+	input_ext := match setup_file.value('backend').string() {
 		'nxc' 		{ '.nxc' }
 		'arduino'	{ '.ino' } 
 		else 		{ '.c' }
+	}
+
+	output_ext := match setup_file.value('port').string() {
+		'Emulator'	{
+			$if windows { '.exe' } $else { '' }
+		}
+		else 		{ '' }
 	}
 
 	if os.exists('${path.all_before_last('/')}/Makefile') {	// through Makefile
@@ -36,9 +43,9 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 		println(os.execute('make -C ${path.all_before_last('/')}').output)
 	} else {	// calling compiler directly
 		if os.is_dir(path) {
-			println(os.execute('${cc} ${path}/main${output_ext} ${flags} ${path}/main').output)
+			println(os.execute('${cc} ${path}/main${input_ext} ${flags} ${path}/main').output)
 		} else {
-			println(os.execute('${cc} ${path}${output_ext} ${flags} ${path}').output)
+			println(os.execute('${cc} ${path}${input_ext} ${flags} ${path}${output_ext}').output)
 		}
 	}
 }

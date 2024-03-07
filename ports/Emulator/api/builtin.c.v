@@ -5,6 +5,13 @@
 module main
 
 #include <stdbool.h>
+#include <stdlib.h>
+
+#if defined(__linux) || defined(linux)
+#define CLEAR_SCREEN    "clear" // for Linux
+#else
+#define CLEAR_SCREEN    "cls"   // for Windows
+#endif 
 
 // Pin_names is the enumerated type for the pin names
 enum Pin_names {

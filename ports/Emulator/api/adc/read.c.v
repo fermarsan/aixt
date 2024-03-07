@@ -10,7 +10,7 @@ module adc
 // read is the reading function for emulated ADC
 // receive as parameter the ADC channel 
 fn read(channel int) int {
-    system('clear')
+    system(CLEAR_SCREEN)
     printf(' Aixt virtual ADC input     ADC %ld : ', channel)
     scanf('%ld', &value__)
     return value__

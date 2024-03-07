@@ -2,7 +2,7 @@
 Esta implementación de Aixt para dae soporte a la tarjeta SAMD21.
 
 ## Resumen
-* *SAMD21, tiene 14 PIN, que se pueden usar para 11 interfaces digitales, 11 interfaces simuladas, 10 interfaces PWM (d1-d10), 1 pin de salida DAC D0, 1 interfaz de pad SWD, 1 interfaz I2C, 1 interfaz SPI, 1 Interfaz UART, Indicador de comunicación serial (T/R), Luz parpadeante (L) mediante multiplexación de pines. Los colores de los LED (Power,L,RX,TX) son verde, amarillo, azul y azul. Además, Seeed Studio XIAO SAMD21 tiene una interfaz tipo C que puede suministrar energía y descargar código. Hay dos botones de reinicio, puedes conectarl2os brevemente para reiniciar la placa.La definició de pines esta descrita en la tala de* Identificación de Pines.
+* *SAMD21, tiene 14 PIN, que se pueden usar para 11 interfaces digitales, 11 interfaces simuladas, 10 interfaces PWM (d1-d10), 1 pin de salida DAC D0, 1 interfaz de pad SWD, 1 interfaz I2C, 1 interfaz SPI, 1 Interfaz UART, Indicador de comunicación serial (T/R), Luz parpadeante (L) mediante multiplexación de pines. Los colores de los LED (Power,L,RX,TX) son verde, amarillo, azul y azul. Además, Seeed Studio XIAO SAMD21 tiene una interfaz tipo C que puede suministrar energía y descargar código. Hay dos botones de reinicio, puedes conectarlos brevemente para reiniciar la placa.La definición de pines esta descrita en la tala de* Identificación de Pines.
 
 ![Alt text](Picture/Seeeduino_XIAO_SAMD21.jpg)
 
@@ -75,14 +75,14 @@ A continuación se comprobara el funcionamiento de entrada y salida digital. Par
 ```go
 import pin  // importa el modulo pin
 
-__global Lectura = 0    //Crea una variable global para almacenar la lectura digital
+__global lectura = 0    //Crea una variable global para almacenar la lectura digital
 
 pin.setup(3, pin.input)     // Configura el pin #3 como entrada
 pin.setup(5, pin.out)       // Configura el pin #5 como salida
 
 for{        // For infinito
-    Lectura=pin.read(3)     //Almacena la lectura digital del pin #3
-    if(Lectura==1){         //Condición si el valor de lectura es 1 (Alto)
+    lectura=pin.read(3)     //Almacena la lectura digital del pin #3
+    if lectura==1{         //Condición si el valor de lectura es 1 (Alto)
         pin.high(5);        // Salida en Alto
     }
     pin.low(5)              // Salida en Bajo 
@@ -140,12 +140,11 @@ __global val = 0        //Crea una variable global para almacenar un valor el cu
 pin.setup(5, pin.out)   // Configura el pin #5 como salida
 
 
-
 for {
     pwm.write(5, val)   // Salida pwm a un ciclo util de val
     sleep_ms(250)       // Retardo de 250ms
     val=val+10          // Suma 10 a val
-    if val==250{        // Condicion si val=250
+    if val==250{        // Condición si val=250
 		val=0  
     }
 } 
