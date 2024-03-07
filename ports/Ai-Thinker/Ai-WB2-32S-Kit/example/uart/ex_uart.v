@@ -13,9 +13,9 @@ import uart
 
 
   uart.setup(115200)
-  pin.out(4)
-  pin.out(5)
-  pin.out(12)
+  pin.setup(4,pin.out)
+  pin.setup(5,pin.out)
+  pin.setup(12,pin.out)
 
 for {
   uart.println_0("\r\n Este programa realiza unas funciones establecidas:")
@@ -29,11 +29,13 @@ for {
 
   pin.low(12)
   sleep_ms(500)
-  if (uart.available() > 0) {
-    //command := ``
+  x:=0
+  x=uart.available()
+  if  x> 0 {
+  command := ` `
 	command = uart.read_0()
 
-    if(command==A) {
+    if command==`A` {
         uart.println_0("\r\n Comando A recibido. \r\n")
         uart.println_0("\r\n Realizando acción A. \r\n")
         pin.high(4)
@@ -44,7 +46,7 @@ for {
         uart.println_0("\r\n Proceso A finalizado. \r\n")
 	}
 
-      if (command==B) {
+      if command==`B` {
         uart.println_0("\r\n Comando B recibido. \r\n")
         uart.println_0("\r\n Realizando acción B. \r\n")
         pin.high(5)
