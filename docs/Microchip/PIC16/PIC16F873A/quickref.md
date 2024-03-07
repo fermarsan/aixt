@@ -52,46 +52,53 @@ Luego, para facilitar la implementación (y no generar código inncesario) de es
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales, conversor analogico a digital, modulación pwm y comunicación serial.
 
-name                             | description
----------------------------------|------------------------------------------------------
-`pin_high(pin)`                  | Encender `pin`
-`pin_low(pin)`                   | Apagar `pin`
-`pin_write(pin, val)`            | Escribe `val` en `pin`
-`pin_read(pin)`                  | lee `pin`
-`adc_setup()`                    | Configura el `adc` 
-`adc_read(channel)`              | Configura el canal `channel` del `adc`
-`adc_reading()`                  | Alamacena el valor del `adc`
-`pwm_setup(pin1, pin2)`          | Configura el resgitro `pin1` y la salida en `pin2`
-`pwm_write(duty, pin)`           | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
-`uart_setup()`                   | Configura el `uart`
-`print(menssage)`                | Configura el `menssage` y lo `print`
-`sleep(time)`                    | Retardo en `seg`
-`sleep_us(time)`                 | Retardo en `microseg`
-`sleep_ms(time)`                 | Retardo en `miliseg`
+name                              | description
+----------------------------------|------------------------------------------------------
+`pin__high(pin)`                  | Encender `pin`
+`pin__low(pin)`                   | Apagar `pin`
+`pin__write(pin, val)`            | Escribe `val` en `pin`
+`pin__read(pin)`                  | lee `pin`
+`port`                            | Configura `port`
+`port__read(PORT_NAME)`           | Lee `PORT_NAME`
+`port__setup(PORT_NAME, VALUE)`   | Configura `PORT_NAME` asigna valor `VALUE`
+`adc__setup()`                    | Configura el `adc` 
+`adc__read(channel)`              | Configura el canal `channel` del `adc`
+`adc__reading()`                  | Alamacena el valor del `adc`
+`pwm__setup(pin1, pin2)`          | Configura el resgitro `pin1` y la salida en `pin2`
+`pwm__write(duty, pin)`           | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
+`uart__input()`                   | Verifca datos en el `uart`
+`uart__read()`                    | Alamacena los datos del `uart`
+`print(menssage)`                 | Configura el `menssage` y lo `print`
+`time__sleep(time)`               | Retardo en `seg`
+`time__sleep_us(time)`            | Retardo en `microseg`
+`time__sleep_ms(time)`            | Retardo en `miliseg`
 
 ## Tiempo
 ```go
 sleep(5)	// Tiempo de 5 segundos
-sleep_us(10)	// Tiempo de 10 microsegundos
-sleep_ms(500)	// Tiempo de 500 milisegundos
+sleep__us(10)	// Tiempo de 10 microsegundos
+sleep__ms(500)	// Tiempo de 500 milisegundos
 
 ```
 
 ## Configuración de pines 
+
 ```go
-pin_setup(a5_s, out)      // Función para configurar el pin como salida 
-pin_setup(b7_s, out)      // Función para configurar el pin como salida
-pin_setup(a0_s, input)    // Función para configurar el pin como entrada
-pin_setup(c4_s, input)    // Función para configurar el pin como entrada
 
-pin_high(a5)    // Función para encender el pin           
-pin_low(a5)     // Función para apagar el pin
+pin__setup(a5, out)      // Función para configurar el pin como salida 
+pin__setup(b7, out)      // Función para configurar el pin como salida
+pin__setup(a0, input)    // Función para configurar el pin como entrada
+pin__setup(c4, input)    // Función para configurar el pin como entrada
 
-pin_write(a2, 0)  // Función sobre escribir el pin
-pin_write(a2, 1)  // Función sobre escribir el pin
+pin__high(a5)    // Función para encender el pin           
+pin__low(a5)     // Función para apagar el pin
 
-pin_read(b4)      // Función para leer el pin
-pin_read(c7)      // Función para leer el pin
+pin__write(a2, 0)  // Función sobre escribir el pin
+pin__write(a2, 1)  // Función sobre escribir el pin
+
+pin__read(b4)      // Función para leer el pin
+pin__read(c7)      // Función para leer el pin
+
 ```
 
 Ejemplo de prender y apagar un led:
@@ -100,10 +107,10 @@ Ejemplo de prender y apagar un led:
       
 while (1) {
 
-    pin_high(c7);
-    sleep_us(500);
-    pin_low(c7);
-    sleep_us(500);
+    pin__high(c7);
+    time__sleep_us(500);
+    pin__low(c7);
+    time__sleep_us(500);
 
 }
 
@@ -116,61 +123,88 @@ while(1){
     
     if(b4 == 1){        // Condición si encuentra un 1 en el pin c2
         
-        pin_high(a4);
-        pin_high(a5);
+        pin__high(a4);
+        pin__high(a5);
     }
     
     else if(b5 == 1){   // Condición si encuentra un 1 en el pin c4
         
-        pin_low(a4);
-        pin_low(a5);
+        pin__low(a4);
+        pin__low(a5);
     }
 
 }
         
 ```
-## Configuración del ADC
+## Configuración del port
+
 ```go
-adc_setup()     // Iicializa el ADC
-adc_read(0)     // Escoge el pin denl canal analogico
-adc_reading();  // Almacena el valor del ADC en una función
+
+port__setup(b, ob00000000)      // Función para configurar el puerto como salida 
+
+```
+
+Ejemplo de prender y apagar un puerto del microcontrolador:
+
+```go
+      
+while(1){
+        
+    port__write(b,0b01010101);
+    time__sleep_ms(500);
+    port__write(b,0b10101010);
+    time__sleep_ms(500);      
+        
+}
+
+```
+
+## Configuración del ADC
+
+```go
+
+adc__setup()     // Iicializa el ADC
+adc__read(0)     // Escoge el pin denl canal analogico
+adc__reading();  // Almacena el valor del ADC en una función
 
 ```
 
 Ejemplo de prender y apagar leds dependiendo del valor del ADC:
+
 ```go
+
 unsigned int adc_result;  // Declaración de variable para almacenar el valor del ADC
         
 while(1){
             
-    adc_result = adc_reading(); // Almacena el valor del ADC
+    adc_result = adc__reading(); // Almacena el valor del ADC
     
     if ( adc_result >= 1020 ){
         
-        pin_high(b0);
-        pin_high(b1);
-        pin_high(b2);           
+        pin__high(b0);
+        pin__high(b1);
+        pin__high(b2);           
     }
     
     else if ( adc_result >= 820 ){
         
-        pin_high(b0);
-        pin_high(b1);
-        pin_low(b2);
+        pin__high(b0);
+        pin__high(b1);
+        pin__low(b2);
     }
     
     else if ( adc_result >= 620 ){
         
-        pin_high(b0);
-        pin_low(b1);
-        pin_low(b2);   
+        pin__high(b0);
+        pin__low(b1);
+        pin__low(b2);   
     }
         
     else {
         
-        pin_low(b0);
-        pin_low(b1);
-        pin_low(b2);      
+        pin__low(b0);
+        pin__low(b1);
+        pin__low(b2);      
     }
 
 }
@@ -178,28 +212,33 @@ while(1){
 ```
 
 ## Configuración del PWM
+
 ```go
-pwm_setup()     // Inicializa el pwm
-pwm_write()     // Calcula el ciclo de trabajo 
+
+pwm__setup()     // Inicializa el pwm
+pwm__write()     // Calcula el ciclo de trabajo 
 
 ```
 Ejemplo de variar la intensidad de un led:
 
 ```go
+
  while(1){
     
-        adc_read(2);  // Escoge el canal analogico AN2
-        adc = adc_reading();  // Almacena el valor del ADC
+        adc__read(2);  // Escoge el canal analogico AN2
+        adc = adc__reading();  // Almacena el valor del ADC
         
-        pwm_write(adc,2);  // Realiza el calculo del Duty y lo guarda en CCP2
+        pwm__write(adc,2);  // Realiza el calculo del Duty y lo guarda en CCP2
         
     }
 
 ```
 
 ## Configuración del UART Transmisión
+
 ```go
-uart_setup()     // Inicializa la comunicación serial
+
+uart__setup()     // Inicializa la comunicación serial
 print()          // Alamacena los caracteres, revisa que no haya ningún caracter nulo
 
 ```
@@ -209,24 +248,26 @@ Ejemplo de variar el valor del ADC y visualizarlo en un mensaje:
 
 while(1){
         
-    adc_read(0);
+    adc__read(0);
               
-    adc = adc_reading();
+    adc = adc__reading();
          
     sprintf(caracteres, "ADC CH0: %u\r\n", adc); // Cambia el formato del ADC
-    print(caracteres);   // Imprime el mensaje
-    __delay_ms(200);     // Tiempo para no saturar la ventana de mensajes 
+    print(caracteres);          // Imprime el mensaje
+    time__sleep_ms(200);        // Tiempo para no saturar la ventana de mensajes 
     
     }
 
 ```
 
 ## Configuración del UART Recepción
+
 ```go
-uart_setup()     // Inicializa la comunicación serial
+
+uart__setup()     // Inicializa la comunicación serial
 print()          // Alamacena los caracteres, revisa que no haya ningún caracter nulo
-uart_input()     // Valida si hay datos recibidos 
-uart_read()      // Almacena los datos recibidos que envia el otro dispositivo
+uart__input()     // Valida si hay datos recibidos 
+uart__read()      // Almacena los datos recibidos que envia el otro dispositivo
 
 ```
 Ejemplo de encender y apagar un led enviando un caracter desde el PC:
@@ -239,17 +280,17 @@ void main(void) {
     
     ADCON1bits.PCFG = 0;   // Declara todos los pines como digitales 
     
-    pin_setup(b0_s,out);   // Configuracion del pin
-    pin_setup(b1_s,out);   // Configuracion del pin
+    pin__setup(b0_s,out);   // Configuracion del pin
+    pin__setup(b1_s,out);   // Configuracion del pin
     
-    pin_write(b0,0);       // Incializa el pin como apagado
-    pin_write(b1,0);       // Incializa el pin como apagado
+    pin__write(b0,0);       // Incializa el pin como apagado
+    pin__write(b1,0);       // Incializa el pin como apagado
     
     while(1){
         
         if(uart_input ()> 0){    // Verifica si hay datos para ser leidos
                        
-            datos = uart_read();  // Almacena los datos de la funcion uart_read
+            datos = uart__read();  // Almacena los datos de la funcion uart_read
         
         }
         
@@ -257,13 +298,13 @@ void main(void) {
             
             case 'a':                         // Si el dato enviado es el caracter "a" 
                 
-                pin_high(b0);                 // Enciende el led que se encuentra en el pin b0
+                pin__high(b0);                 // Enciende el led que se encuentra en el pin b0
                 print("led1: Encendido\r\n"); // Imprime el mensaje en la pantalla 
                 break;  
                 
             case 'b':                         // Si el dato enviado es el caracter "b" 
                 
-                pin_low(b0);                 // Apaga el led que se encuentra en el pin b0
+                pin__low(b0);                 // Apaga el led que se encuentra en el pin b0
                 print("led1: Apagado\r\n");  // Imprime el mensaje en la pantalla 
                 break;
         }
