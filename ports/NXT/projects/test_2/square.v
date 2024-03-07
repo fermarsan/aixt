@@ -2,7 +2,7 @@
 #define	t_turn	500
 
 for {
-	forward(motors_ab)
+	forward(motors_ab, 50)
 	sleep(t_fwd)
 	off(motor_a)
 	sleep(t_turn)

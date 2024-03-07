@@ -19,7 +19,7 @@ module uart
 // }
 
 fn init() {
-    system("clear")
+    system(CLEAR_SCREEN)
 	printf(' Aixt virtual UARTs:\t')
 	printf('\033[1;32m')	// print in green
 	printf('UART 0\t')
