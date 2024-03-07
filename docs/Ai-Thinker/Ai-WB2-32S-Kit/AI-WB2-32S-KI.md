@@ -147,11 +147,11 @@ uart.println(MESSAGE)    // print a string plus a line-new character to the defa
 ```
 * *Example: This is used as `uart.println(Command received)`*
 ```v
-uart.ready() // get everything ready for to UART
+uart__ready // get everything ready for to UART
 ```
 * *Example: This is used as `uart.ready()`*
 ```v
-uart.read() // receives binary data (in Bytes) to UART
+uart__read // receives binary data (in Bytes) to UART
 ```
 * *Example: This is used as `uart.read()`*
 ```v
@@ -214,72 +214,3 @@ for {
     }
 } 
 ```
-
-* Example UART
-```go
-import time {sleep_ms}
-import pin
-import uart
-
-
-  uart.setup(115200)
-  pin.setup(4,pin.out)
-  pin.setup(5,pin.out)
-  pin.setup(12,pin.out)
-
-for {
-  uart.println_0("\r\n Este programa realiza unas funciones establecidas:")
-  uart.println_0("\r\n Oprimiendo la letra A, activa la salida  del pin GPIO4.")
-  uart.println_0("\r\n Oprimiendo la letra B, activa la salida  del pin GPIO5.")
-  uart.println_0("\r\n El piloto (led) Rojo indica que esta esperando instrucciones.")
-  uart.println_0("\r\n Esperando instrucciones: \r\n")
-
-  pin.high(12)
-  sleep_ms(500)
-
-  pin.low(12)
-  sleep_ms(500)
-  x:=0
-  x=uart.available()
-  if  x> 0 {
-  command := ` `
-	command = uart.read_0()
-
-    if command==`A` {
-        uart.println_0("\r\n Comando A recibido. \r\n")
-        uart.println_0("\r\n Realizando acción A. \r\n")
-        pin.high(4)
-        sleep_ms(5000)
-
-        pin.low(4)
-        sleep_ms(1000)
-        uart.println_0("\r\n Proceso A finalizado. \r\n")
-	}
-
-      if command==`B` {
-        uart.println_0("\r\n Comando B recibido. \r\n")
-        uart.println_0("\r\n Realizando acción B. \r\n")
-        pin.high(5)
-        sleep_ms(5000)
-
-        pin.low(5)
-        sleep_ms(1000)
-        uart.println_0("\r\n Proceso B finalizado. \r\n")
-	  }
-
-      else {
-        pin.high(12)
-        sleep_ms(1000)
-
-        pin.low(12)
-        sleep_ms(1000)
-      
-    }
-  }
-}
-```
-
-## Informative video
-
-Informative video on the development of the AIXT project, with the device
-[AI-WB2-32S-KIT](http://www.ai-thinker.com/Uploads/file/20221008/20221008082356_37940.pdf)
