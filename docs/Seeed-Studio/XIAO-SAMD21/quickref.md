@@ -1,5 +1,5 @@
 # **Guia Rápida Seeeduino Xiao**
-Esta implementación de Aixt para dae soporte a la tarjeta SAMD21.
+Esta implementación de Aixt para dar soporte a la tarjeta SAMD21.
 
 ## Resumen
 * *SAMD21, tiene 14 PIN, que se pueden usar para 11 interfaces digitales, 11 interfaces simuladas, 10 interfaces PWM (d1-d10), 1 pin de salida DAC D0, 1 interfaz de pad SWD, 1 interfaz I2C, 1 interfaz SPI, 1 Interfaz UART, Indicador de comunicación serial (T/R), Luz parpadeante (L) mediante multiplexación de pines. Los colores de los LED (Power,L,RX,TX) son verde, amarillo, azul y azul. Además, Seeed Studio XIAO SAMD21 tiene una interfaz tipo C que puede suministrar energía y descargar código. Hay dos botones de reinicio, puedes conectarlos brevemente para reiniciar la placa.La definición de pines esta descrita en la tabla de* Identificación de Pines.
@@ -10,7 +10,6 @@ Esta implementación de Aixt para dae soporte a la tarjeta SAMD21.
 [Seeeduino Xiao SAMD21G18A-MU](https://files.seeedstudio.com/wiki/XIAO/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf)
 
 ## Identificación de Pines
-Below are the ports used and their proper designations for programming:
 
 Pin No. |Nombre                | Función 
 --      |-----                 | ---
