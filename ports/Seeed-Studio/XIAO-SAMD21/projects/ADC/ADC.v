@@ -2,7 +2,9 @@ import pin
 import adc
 import uart
 
-__global val = 0
+__global (
+    val = 0
+    )
 
 pin.setup(3, pin.out)
 pin.setup(4, pin.out)
