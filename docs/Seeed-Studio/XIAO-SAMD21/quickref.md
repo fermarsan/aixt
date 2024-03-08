@@ -32,24 +32,24 @@ Pin No. |Nombre                | Función
 
 Las funciones que contiene la API entradas o salidas digitales y para realizar una conversión analógico a digital.
 
-Nombre                  | Descripción                                    |Ejemplos
-------------------------|------------------------------------------------|------------
-`pin.setup(pin, mode)`  | Configura `pin`como `mode` (input, out)        |<pre><code>**pin.setup**(5, pin.in) // Configura el pin 5 como entrada
-`pin.out`               | Parámetro `mode` configuración de salida       |<pre><code>pin.setup(3, **pin.out**) // Configura el pin 3 como salida
-`pin.in`                | Parámetro `mode` configuración de entrada      |<pre><code>pin.setup(7, **pin.in**) // Configura el pin 7 como entrada
-`pin.high(pin)`         | Salida Digital en alto `pin`                   |<pre><code>**pin.high**(3) // Salida en alto pin 3
-`pin.low(pin)`          | Salida Digital en bajo `pin`                   |<pre><code>**pin.low**(3) // Salida en bajo pin 3
-`pin.write(pin, val)`   | Escribe `val` en `pin`                         |<pre><code>**pin.write**(3, 1) // Escribe 1 en el pin 3
-`pin.read(pin)`         | Lectura digital `pin`                          |<pre><code>val=**pin.read**(3) // Almacena en **val** la lectura del pin 3
-`adc.read(pin)`         | Lectura analógica `pin` para el `adc`          |<pre><code>val=**adc.read**(3) // Almacena en **val** la lectura analógica del pin 3
-`pwm.write(pin, val)`   | Salida PWM `pin` y un ciclo util de `val`      |<pre><code>**pwm.write**(4, 125) // Escribe en el pin 3 una señal PWM con un ciclo util de aproximadamente el 50%
-`uart.setup(baud_rate)` | Iniciación Comunicación Serial a `Baud.rate`  |<pre><code>**uart.setup**( 9600 ) // Inicia la comunicación del puerto serial a una velocidad de 9600 baudios
-`uart.ready()`          | Obtiene el número de bytes a leer              |<pre><code>val=**uart.ready()** // Almacena en **val** el número de bytes a leer del puerto serial
-`uart.read()`           | Lectura de Comunicación Serial                 |<pre><code>lec=**uart.read()** // Almacena en **lec** la lectura del puerto serial
-`uart.println("message")` | Imprime  `message` a través Comunicación Serial|<pre><code>**uart.println**("Hola mundo") // Imprime **Hola mundo** en el puerto serial
-`time.sleep(time)`      | Retardo en `seg`                               |<pre><code>**time.sleep**(5) // Retardo de **5** segundos    
-`time.sleep_us(time)`   | Retardo en `microseg`                          |<pre><code>**time.sleep_us**(250) // Retardo de **250** microsegundos
-`time.sleep_ms(time)`   | Retardo en `miliseg`                           |<pre><code>**time.sleep_ms**(250) // Retardo de **250** milisegundos
+Nombre                   | Descripción                                     |Ejemplos
+-------------------------|-------------------------------------------------|------------
+`pin.setup(pin, mode)`   | Configura `pin`como `mode` (input, out)         |<pre><code>**pin.setup**(5, pin.in) // Configura el pin 5 como entrada
+`pin.out`                | Parámetro `mode` configuración de salida        |<pre><code>pin.setup(3, **pin.out**) // Configura el pin 3 como salida
+`pin.in`                 | Parámetro `mode` configuración de entrada       |<pre><code>pin.setup(7, **pin.in**) // Configura el pin 7 como entrada
+`pin.high(pin)`          | Salida Digital en alto `pin`                    |<pre><code>**pin.high**(3) // Salida en alto pin 3
+`pin.low(pin)`           | Salida Digital en bajo `pin`                    |<pre><code>**pin.low**(3) // Salida en bajo pin 3
+`pin.write(pin, val)`    | Escribe `val` en `pin`                          |<pre><code>**pin.write**(3, 1) // Escribe 1 en el pin 3
+`pin.read(pin)`          | Lectura digital `pin`                           |<pre><code>val=**pin.read**(3) // Almacena en **val** la lectura del pin 3
+`adc.read(pin)`          | Lectura analógica `pin` para el `adc`           |<pre><code>val=**adc.read**(3) // Almacena en **val** la lectura analógica del pin 3
+`pwm.write(pin, val)`    | Salida PWM `pin` y un ciclo util de `val`       |<pre><code>**pwm.write**(4, 125) // Escribe en el pin 3 una señal PWM con un ciclo util de 125
+`uart.setup(baud_rate)`  | Iniciación Comunicación Serial a `Baud.rate`    |<pre><code>**uart.setup**( 9600 ) // Inicia la comunicación serial a una velocidad de 9600 baudios
+`uart.ready()`           | Obtiene el número de bytes a leer               |<pre><code>val=**uart.ready()** // Almacena en **val** el número de bytes a leer del puerto serial
+`uart.read()`            | Lectura de Comunicación Serial                  |<pre><code>lec=**uart.read()** // Almacena en **lec** la lectura del puerto serial
+`uart.println("message")`| Imprime  `message` a través Comunicación Serial |<pre><code>**uart.println**("Hola mundo") // Imprime **Hola mundo** en el puerto serial
+`time.sleep(time)`       | Retardo en `seg`                                |<pre><code>**time.sleep**(5) // Retardo de **5** segundos    
+`time.sleep_us(time)`    | Retardo en `microseg`                           |<pre><code>**time.sleep_us**(250) // Retardo de **250** microsegundos
+`time.sleep_ms(time)`    | Retardo en `miliseg`                            |<pre><code>**time.sleep_ms**(250) // Retardo de **250** milisegundos
 
 
 ## EJEMPLOS
