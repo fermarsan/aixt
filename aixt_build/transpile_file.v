@@ -34,7 +34,7 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	c_gen.pref.is_script = true
 	c_gen.pref.enable_globals = true
 	
-	println('\n\n+++++++${path}++++++++\n\n')
+	// println('\n\n+++++++${path}++++++++\n\n')
 	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
 	if transpiled != '' {

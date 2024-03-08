@@ -1,12 +1,12 @@
-import motor
+
 
 #define	t_fwd	1
 #define	t_turn	500
 
 for {
-	motor.forward(ab, 50)
+	motor.forward(mt_ab, 50)
 	sleep(t_fwd)
-	motor.off(a)
+	motor.off(mt_a)
 	sleep_ms(t_turn)
 }
 
