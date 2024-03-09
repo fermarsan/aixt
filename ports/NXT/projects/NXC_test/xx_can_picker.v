@@ -1,1 +1,3 @@
-forward(motors_bc)
+import motor
+
+motor.forward(bc)

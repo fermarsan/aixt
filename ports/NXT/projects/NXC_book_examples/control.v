@@ -1,15 +1,17 @@
+import motor
+
 const(
 	move_time = 500
 	turn_time = 360
 )
 
 for {
-	forward(motors_ac, 75)
-	sleep(move_time)
+	motor.forward(ac, 75)
+	sleep_ms(move_time)
 	if random() >= 0 {
-		reverse(motor_c, 75)
+		motor.reverse(c, 75)
 	} else {
-		reverse(motor_a, 75)
+		motor.reverse(a, 75)
 	}
-	sleep(turn_time)
+	sleep_ms(turn_time)
 }

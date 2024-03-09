@@ -1,13 +1,13 @@
-const (
-	move_time 
-	turn_time
-)
+import motor
 
- for {
+move_time := 0
+turn_time := 0
+
+for {
 	move_time = random(600)
 	turn_time = random(400)
-	forward(motors_ac, 75)
-	sleep(move_time)
-	reverse(motor_a, 75)
-	sleep(turn_time)
- }
+	motor.forward(ac, 75)
+	sleep_ms(move_time)
+	motor.reverse(a, 75)
+	sleep_ms(turn_time)
+}

@@ -1,5 +1,7 @@
-forward(motors_ac, 75)
-sleep(800)
-reverse(motor_c, 75)
-sleep(360)
-off(motors_ac)
+import motor
+
+motor.forward(ac, 75)
+sleep_ms(800)
+motor.reverse(c, 75)
+sleep_ms(360)
+motor.off(ac)
