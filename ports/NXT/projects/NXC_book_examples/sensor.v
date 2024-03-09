@@ -1,4 +1,7 @@
-set_sensor(in_1,sensor_touch)
-forward(motors_ac, 75)
-for !(sensor_1 == 1) {}
-off(motors_ac)
+import motor
+import sensor
+
+sensor.set(i1, touch)
+motor.forward(ac, 75)
+for sensor.read(i1) == 0 {}
+motor.off(ac)

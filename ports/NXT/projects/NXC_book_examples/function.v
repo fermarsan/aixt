@@ -8,13 +8,13 @@ fn turn_around() {
 }	 
 
 motor.forward(ab, 75)
-sleep(1)
+sleep_ms(1)
 
 turn_around()
-sleep(2)
+sleep_ms(2)
 
 turn_around()
-sleep(1)
+sleep_ms(1)
 
 turn_around()
 motor.off(ab)

@@ -7,7 +7,7 @@ sensor.set_sound(i2)
 
 for {
 	for sensor(s2) <= threshold {}
-	motor.forward(motors_ac, 75)
+	motor.forward(ac, 75)
 	sleep_ms(300)
 	for sensor(s2) <= threshold {}
 	motor.off(ac)

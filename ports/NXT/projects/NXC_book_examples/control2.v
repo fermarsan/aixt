@@ -13,15 +13,15 @@ for total_time < 20000 {
 	turn_time = random(1000)
 
 	motor.forward(ac, 75)
-	sleep(move_time)
+	sleep_ms(move_time)
 
 	motor.reverse(c, 75)
-	sleep(turn_time)
+	sleep_ms(turn_time)
 
 	total_time += move_time
 	total_time += turn_time
  }
 
-off(ac)
+motor.off(ac)
 
 

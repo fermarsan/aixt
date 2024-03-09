@@ -13,5 +13,5 @@ for {
 	} else {
 		motor.reverse(a, 75)
 	}
-	sleep(turn_time)
+	sleep_ms(turn_time)
 }
