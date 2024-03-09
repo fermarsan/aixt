@@ -3,8 +3,8 @@
 [d edition pro ]
 [d chip 16F873A ]
 [d frameptr 0 ]
-"33 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/machine/uart.c
-[v _uart_read uart_read `(uc  1 e 1 0 ]
+"13 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/uart/read.c.v
+[v _uart__read uart__read `(uc  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
@@ -13,7 +13,7 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"29 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\UARTRECEP.X\recepcionUART.c
+"19 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\UARTRECEP.X\recepcionUART.c
 [v _main main `(v  1 e 1 0 ]
 [s S131 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
@@ -112,31 +112,31 @@
 [v _ADCON1bits ADCON1bits `VES96  1 e 1 @159 ]
 "2732
 [v _TXIF TXIF `VEb  1 e 0 @100 ]
-"27 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\UARTRECEP.X\recepcionUART.c
+"17 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\UARTRECEP.X\recepcionUART.c
 [v _datos datos `uc  1 e 1 0 ]
-"29
+"19
 [v _main main `(v  1 e 1 0 ]
 {
-"72
+"62
 [v main@i_253 i `i  1 a 2 8 ]
-"66
+"56
 [v main@i_250 i `i  1 a 2 6 ]
-"60
+"50
 [v main@i_247 i `i  1 a 2 4 ]
-"54
+"44
 [v main@i i `i  1 a 2 2 ]
-"72
+"62
 [v main@caracter_252 caracter `uc  1 a 1 13 ]
-"66
+"56
 [v main@caracter_249 caracter `uc  1 a 1 12 ]
-"60
+"50
 [v main@caracter_246 caracter `uc  1 a 1 11 ]
-"54
+"44
 [v main@caracter caracter `uc  1 a 1 10 ]
-"77
+"67
 } 0
-"33 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/machine/uart.c
-[v _uart_read uart_read `(uc  1 e 1 0 ]
+"13 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/uart/read.c.v
+[v _uart__read uart__read `(uc  1 e 1 0 ]
 {
-"43
+"23
 } 0

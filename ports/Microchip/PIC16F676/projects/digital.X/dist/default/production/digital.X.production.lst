@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Wed Jan 10 12:17:54 2024
+                                                                                               Wed Feb 28 00:19:32 2024
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	16F676
@@ -162,7 +162,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    148 ;;
    149 ;; *************** function _main *****************
    150 ;; Defined at:
-   151 ;;		line 24 in file "digital.c"
+   151 ;;		line 14 in file "digital.c"
    152 ;; Parameters:    Size  Location     Type
    153 ;;		None
    154 ;; Auto vars:     Size  Location     Type
@@ -196,37 +196,37 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    182                           ; Regs used in _main: [status,2]
    183                           
    184                           
-   185                           ;digital.c: 26:     ANSEL = 0b00000000;
+   185                           ;digital.c: 16:     ANSEL = 0b00000000;
    186     03E5  1683               	bsf	3,5	;RP0=1, select bank1
    187     03E6  0191               	clrf	17	;volatile
    188     03E7                     l631:
    189                           
-   190                           ;digital.c: 28:     TRISCbits.TRISC2 = 1;
+   190                           ;digital.c: 18:     TRISCbits.TRISC2 = 1;
    191     03E7  1507               	bsf	7,2	;volatile
    192     03E8                     l633:
    193                           
-   194                           ;digital.c: 29:     TRISCbits.TRISC4 = 1;
+   194                           ;digital.c: 19:     TRISCbits.TRISC4 = 1;
    195     03E8  1607               	bsf	7,4	;volatile
    196     03E9                     l635:
    197                           
-   198                           ;digital.c: 30:     TRISCbits.TRISC1 = 0;
+   198                           ;digital.c: 20:     TRISCbits.TRISC1 = 0;
    199     03E9  1087               	bcf	7,1	;volatile
    200     03EA                     l637:
    201                           
-   202                           ;digital.c: 31:     TRISCbits.TRISC0 = 0;
+   202                           ;digital.c: 21:     TRISCbits.TRISC0 = 0;
    203     03EA  1007               	bcf	7,0	;volatile
    204     03EB                     l639:
    205                           
-   206                           ;digital.c: 33:     PORTCbits.RC0 = 0;
+   206                           ;digital.c: 23:     PORTCbits.RC0 = 0;
    207     03EB  1283               	bcf	3,5	;RP0=0, select bank0
    208     03EC  1007               	bcf	7,0	;volatile
    209     03ED                     l641:
    210                           
-   211                           ;digital.c: 34:     PORTCbits.RC1 = 0;
+   211                           ;digital.c: 24:     PORTCbits.RC1 = 0;
    212     03ED  1087               	bcf	7,1	;volatile
    213     03EE                     l643:
    214                           
-   215                           ;digital.c: 42:         if(PORTCbits.RC2 == 1){
+   215                           ;digital.c: 28:         if(PORTCbits.RC2 == 1){
    216     03EE  1D07               	btfss	7,2	;volatile
    217     03EF  2BF1               	goto	u31
    218     03F0  2BF2               	goto	u30
@@ -235,16 +235,16 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    221     03F2                     u30:
    222     03F2                     l645:
    223                           
-   224                           ;digital.c: 44:             PORTCbits.RC1 = 1;
+   224                           ;digital.c: 30:             PORTCbits.RC1 = 1;
    225     03F2  1487               	bsf	7,1	;volatile
    226                           
-   227                           ;digital.c: 45:             PORTCbits.RC0 = 1;
+   227                           ;digital.c: 31:             PORTCbits.RC0 = 1;
    228     03F3  1407               	bsf	7,0	;volatile
    229                           
-   230                           ;digital.c: 46:         }
+   230                           ;digital.c: 32:         }
    231     03F4  2BEE               	goto	l643
    232     03F5                     l12:	
-   233                           ;digital.c: 48:         else if(PORTCbits.RC4 == 1){
+   233                           ;digital.c: 34:         else if(PORTCbits.RC4 == 1){
    234                           
    235     03F5  1E07               	btfss	7,4	;volatile
    236     03F6  2BF8               	goto	u41
@@ -254,10 +254,10 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    240     03F9                     u40:
    241     03F9                     l647:
    242                           
-   243                           ;digital.c: 50:             PORTCbits.RC1 = 0;
+   243                           ;digital.c: 36:             PORTCbits.RC1 = 0;
    244     03F9  1087               	bcf	7,1	;volatile
    245                           
-   246                           ;digital.c: 51:             PORTCbits.RC0 = 0;
+   246                           ;digital.c: 37:             PORTCbits.RC0 = 0;
    247     03FA  1007               	bcf	7,0	;volatile
    248     03FB  2BEE               	goto	l643
    249     03FC  2800               	ljmp	start
@@ -344,7 +344,7 @@ DATA                 0      0       0       6        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Wed Jan 10 12:17:54 2024
+Symbol Table                                                                                   Wed Feb 28 00:19:32 2024
 
                      l12 03F5                       u30 03F2                       u31 03F1  
                      u40 03F9                       u41 03F8                      l631 03E7  

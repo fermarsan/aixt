@@ -3,7 +3,7 @@ __S1 23 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-_main 3D9 0 CODE 0
+_main 3DB 0 CODE 0
 ___sp 7FE 0 STACK 2
 btemp 5E 0 ABS 0
 start 0 0 CODE 0
@@ -85,27 +85,27 @@ intlevel5 0 0 ENTRY 0
 start_initialization 3FD 0 CODE 0
 __Hmaintext 7FE 0 ABS 0
 __Lmaintext 7FE 0 ABS 0
-__pmaintext 3D9 0 CODE 0
+__pmaintext 3DB 0 CODE 0
 __initialization 3FD 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
 cinit 7FA 7FD CODE 7FA 0
 cstackBANK0 20 22 BANK0 20 1
-maintext 7B2 7F9 CODE 7B2 0
+maintext 7B6 7F9 CODE 7B6 0
 %locals
 dist/default/production\blinking.X.production.o
-C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1fs.\driver_tmp_1.s
+C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1b80.\driver_tmp_1.s
 255 3FD 0 CODE 0
 258 3FD 0 CODE 0
 264 3FD 0 CODE 0
 266 3FD 0 CODE 0
 267 3FE 0 CODE 0
 blinking.c
-25 3D9 0 CODE 0
-27 3D9 0 CODE 0
-29 3DB 0 CODE 0
-31 3DD 0 CODE 0
-33 3DD 0 CODE 0
-34 3DF 0 CODE 0
-35 3EC 0 CODE 0
-36 3EE 0 CODE 0
+14 3DB 0 CODE 0
+16 3DB 0 CODE 0
+18 3DD 0 CODE 0
+20 3DF 0 CODE 0
+22 3DF 0 CODE 0
+23 3E1 0 CODE 0
+24 3ED 0 CODE 0
+25 3EF 0 CODE 0

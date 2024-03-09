@@ -35,41 +35,47 @@ Cuenta con ocho pines analogicas que se encuentran distribuidas entre en el puer
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales y para realizar una conversión analogico a digital.
 
-name                    | description
-------------------------|------------------------------
-`pin_high(pin)`         | Encender `pin`
-`pin_low(pin)`          | Apagar `pin`
-`pin_write(pin, val)`   | Escribe `val` en `pin`
-`pin_read(pin)`         | lee `pin`
-`adc_setup()`           | Configura el `adc` 
-`adc_read(channel)`     | Configura el canal `channel` del `adc`
-`sleep(time)`           | Retardo en `seg`
-`sleep_us(time)`        | Retardo en `microseg`
-`sleep_ms(time)`        | Retardo en `miliseg`
+name                              | description
+----------------------------------|----------------------------------------------
+`pin__high(pin)`                  | Encender `pin`
+`pin__low(pin)`                   | Apagar `pin`
+`pin__write(pin, val)`            | Escribe `val` en `pin`
+`pin__read(pin)`                  | lee `pin`
+`port`                            | Configura `port`
+`port__read(PORT_NAME)`           | Lee `PORT_NAME`
+`port__setup(PORT_NAME, VALUE)`   | Configura `PORT_NAME` asigna valor `VALUE`
+`pin__read(PORT_NAME, VALUE)`     | Escribe `PORT_NAME` en `VALUE`
+`adc__setup()`                    | Configura el `adc` 
+`adc__read(channel)`              | Configura el canal `channel` del `adc`
+`time__sleep(time)`               | Retardo en `seg`
+`time__sleep_us(time)`            | Retardo en `microseg`
+`time__sleep_ms(time)`            | Retardo en `miliseg`
 
 ## Tiempo
+
 ```go
-sleep(5)	// Tiempo de 5 segundos
-sleep_us(10)	// Tiempo de 10 microsegundos
-sleep_ms(500)	// Tiempo de 500 milisegundos
+time__sleep(5)	// Tiempo de 5 segundos
+time__sleep_us(10)	// Tiempo de 10 microsegundos
+time__sleep_ms(500)	// Tiempo de 500 milisegundos
 
 ```
 
 ## Configuración de pines 
+
 ```go
-pin_setup(a5_s, out)      // Función para configurar el pin como salida 
-pin_setup(c2_s, out)      // Función para configurar el pin como salida
-pin_setup(a2_s, input)    // Función para configurar el pin como entrada
-pin_setup(c4_s, input)    // Función para configurar el pin como entrada
+pin__setup(a5, out)      // Función para configurar el pin como salida 
+pin__setup(c2, out)      // Función para configurar el pin como salida
+pin__setup(a2, input)    // Función para configurar el pin como entrada
+pin__setup(c4, input)    // Función para configurar el pin como entrada
 
-pin_high(a5)    // Función para encender el pin           
-pin_low(a5)     // Función para apagar el pin
+pin__high(a5)    // Función para encender el pin           
+pin__low(a5)     // Función para apagar el pin
 
-pin_write(a2, 0)  // Función sobre escribir el pin
-pin_write(a2, 1)  // Función sobre escribir el pin
+pin__write(a2, 0)  // Función sobre escribir el pin
+pin__write(a2, 1)  // Función sobre escribir el pin
 
-pin_read(a4)      // Función para leer el pin
-pin_read(c3)      // Función para leer el pin
+pin__read(a4)      // Función para leer el pin
+pin__read(c3)      // Función para leer el pin
 
 ```
 
@@ -79,10 +85,10 @@ Ejemplo de prender y apagar un led:
       
 while (1) {
 
-    pin_high(c1);
-    sleep_us(500);
-    pin_low(c1);
-    sleep_us(500);
+    pin__high(c1);
+    time__sleep_us(500);
+    pin__low(c1);
+    time__sleep_us(500);
 
 }
 
@@ -97,61 +103,88 @@ while(1){
     
     if(c2 == 1){        // Condición si encuentra un 1 en el pin c2
         
-        pin_high(c1);
-        pin_high(c0);
+        pin__high(c1);
+        pin__high(c0);
     }
     
     else if(c4 == 1){   // Condición si encuentra un 1 en el pin c4
         
-        pin_low(c1);
-        pin_low(c0);
+        pin__low(c1);
+        pin__low(c0);
     }
 
 }
         
 ```
 
-## Configuración del ADC
+## Configuración del port
+
 ```go
-adc_setup()     // Inicializa el ADC
-adc_read(0)     // Escoge el pin del canal analogico
+
+port__setup(a, ob000000)      // Función para configurar el puerto como salida 
+
+```
+
+Ejemplo de prender y apagar un puerto del microcontrolador:
+
+```go
+      
+while(1){
+        
+    port__write(a,0b010101);
+    time__sleep_ms(500);
+    port__write(a,0b101010);
+    time__sleep_ms(500);      
+        
+}
+
+```
+
+## Configuración del ADC
+
+```go
+
+adc__setup()     // Inicializa el ADC
+adc__read(0)     // Escoge el pin del canal analogico
 
 ```
 
 Ejemplo de prender y apagar leds dependiendo del valor del ADC:
+
 ```go
+
 unsigned int adc_result;  // Declaración de variable para almacenar el valor del ADC
         
 while(1){
             
-    adc_result = adc_read(0); // Almacena el valor del ADC
+    adc_result = adc__read(0); // Almacena el valor del ADC
     
     if ( adc_result >= 1020 ){
         
-        pin_high(c0);
-        pin_high(c1);
-        pin_high(c2);           
+        pin__high(c0);
+        pin__high(c1);
+        pin__high(c2);           
     }
     
     else if ( adc_result >= 820 ){
         
-        pin_high(c0);
-        pin_high(c1);
-        pin_low(c2);
+        pin__high(c0);
+        pin__high(c1);
+        pin__low(c2);
     }
     
     else if ( adc_result >= 620 ){
         
-        pin_high(c0);
-        pin_low(c1);
-        pin_low(c2);   
+        pin__high(c0);
+        pin__low(c1);
+        pin__low(c2);   
     }
         
     else {
         
-        pin_low(c0);
-        pin_low(c1);
-        pin_low(c2);      
+        pin__low(c0);
+        pin__low(c1);
+        pin__low(c2);      
     }
 
 }
