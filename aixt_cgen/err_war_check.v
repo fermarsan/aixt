@@ -13,6 +13,7 @@ fn (mut gen Gen) err_war_check() {
 		'unknown function:',
 		'has no constant or function',
 		'returns 0 value(s)',
+		'non-bool',
 	]
 
 	for j, mut file in gen.files {

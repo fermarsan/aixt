@@ -1,5 +1,0 @@
-forward(motors_ac, 30)
-sleep(4000)
-reverse(motors_ac, 30)
-sleep(4000)
-off(motors_ac)
