@@ -44,7 +44,7 @@ Nombre                   | Descripción                                     |Eje
 `adc.read(pin)`          | Lectura analógica `pin` para el `adc`           |<pre><code>val=**adc.read**(3) // Almacena en **val** la lectura analógica del pin 3
 `pwm.write(pin, val)`    | Salida PWM `pin` y un ciclo util de `val`       |<pre><code>**pwm.write**(4, 125) // Escribe en el pin 3 una señal PWM con un ciclo util de 125
 `uart.setup(baud_rate)`  | Iniciación Comunicación Serial a `Baud.rate`    |<pre><code>**uart.setup**( 9600 ) // Inicia la comunicación serial a una velocidad de 9600 baudios
-`uart.ready()`           | Obtiene el número de bytes a leer               |<pre><code>val=**uart.ready()** // Almacena en **val** el número de bytes a leer del puerto serial
+`uart.any()`           | Obtiene el número de bytes a leer               |<pre><code>val=**uart.any()** // Almacena en **val** el número de bytes a leer del puerto serial
 `uart.read()`            | Lectura de Comunicación Serial                  |<pre><code>lec=**uart.read()** // Almacena en **lec** la lectura del puerto serial
 `uart.println("message")`| Imprime  `message` a través Comunicación Serial |<pre><code>**uart.println**("Hola mundo") // Imprime **Hola mundo** en el puerto serial
 `time.sleep(time)`       | Retardo en `seg`                                |<pre><code>**time.sleep**(5) // Retardo de **5** segundos    
@@ -190,26 +190,35 @@ A continuación se encenderá o apagara un del dependiendo de la lectura del pue
 
 ```go
 
-import pin
-import uart
+import pin      // importa el modulo pin
+import uart     // importa el modulo uart
  
  __global (
     num = 0    //Crea una variable global para almacenar el número de bytes a leer del puerto serial
     lec = 0    //Crea una variable global para almacenar la lectura del puerto serial
  )
- pin.setup(3, pin.out)      // Configura el pin #5 como salida
+
+ pin.setup(3, pin.out)      // Configura el pin #3 como salida
+ uart.setup(9600)           // Define la velocidad en 9600 baudios 
 
 
 for{
-    num = uart.ready()      // Almacena el número de bytes a leer del puerto serial
-    if  num>0  {
-        lec = uart.read()   // Almacena la lectura del puerto serial
-    }
-    if lec==1 {           // Condición si la lectura es 'on'
-        pin.high(3)         // Salida en Alto
-    }
-    if lec==2 {          // Condición si la lectura es 'off'
-        pin.low(3)          // Salida en Bajo
+    num = uart.any()      // Almacena el número de bytes a leer del puerto serial
+    if  num>0  {          // Condición si el número de bytes a leer es mayor a 0
+        lec=uart.read()   // Almacena la lectura del puerto serial
+        if lec == `1` {     // Condición cuando la lectura es 1
+
+            pin.high(3)     // Salida en alto 
+            uart.println('Led encendido')   //Mensaje en el puerto serial
+
+        }
+
+        else if lec == `2` {    // Condición cuando la lectura es 2
+
+            pin.low(3)      // Salida en bajo 
+            uart.println('Led apagado')     //Mensaje en el puerto serial
+
+        }
     }
 }
 
