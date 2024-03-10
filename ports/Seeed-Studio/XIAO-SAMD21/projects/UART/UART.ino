@@ -10,7 +10,11 @@
 #define pin__read(PIN_NAME)		digitalRead(PIN_NAME)
 #define pin__setup(PIN_NAME, MODE)		pinMode(PIN_NAME, MODE)
 #define pin__write(PIN_NAME, VALUE)		digitalWrite(PIN_NAME, VALUE)
-#define adc__read(PIN_NAME)   analogRead(PIN_NAME)
+#define uart__any_0()	Serial.available()
+#define uart__any_1()	Serial1.available()
+#define uart__any_x(UART_NUMBER)	uart__any_ ## UART_NUMBER ## .available()
+#define SEL_UART_ANY(_0, _1, MACRO_NAME, ...) MACRO_NAME
+#define uart__any(...) SEL_UART_ANY(_0 __VA_OPT__(,) __VA_ARGS__, uart__any_x, uart__any_0)(__VA_ARGS__)
 #define uart__print_0(MESSAGE)	Serial.print(MESSAGE)
 #define uart__print_1(MESSAGE)	Serial1.print(MESSAGE)
 #define uart__print_x(UART_NUMBER, MESSAGE)		uart__print_ ## UART_NUMBER (MESSAGE)
@@ -26,11 +30,6 @@
 #define uart__read_x(UART_NUMBER)	uart__read_ ## UART_NUMBER ## .read()
 #define SEL_UART_READ(_0, _1, MACRO_NAME, ...) MACRO_NAME
 #define uart__read(...) SEL_UART_READ(_0 __VA_OPT__(,) __VA_ARGS__, uart__read_x, uart__read_0)(__VA_ARGS__)
-#define uart__ready_0()	Serial.available()
-#define uart__ready_1()	Serial1.available()
-#define uart__ready_x(UART_NUMBER)	uart__ready_ ## UART_NUMBER ## .ready()
-#define SEL_UART_READY(_0, _1, MACRO_NAME, ...) MACRO_NAME
-#define uart__ready(...) SEL_UART_READY(_0 __VA_OPT__(,) __VA_ARGS__, uart__ready_x, uart__ready_0)(__VA_ARGS__)
 #define uart__setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
 #define uart__setup_0(BAUD_RATE)					Serial.begin(BAUD_RATE)
 #define uart__setup_1(BAUD_RATE)					Serial1.begin(BAUD_RATE)
@@ -42,23 +41,19 @@ void main__init();
 
 void pin__init();
 
-void adc__init();
-
 void uart__init();
 
-int32_t val = 0;
+int32_t num = 0;
+
+int32_t lec = 0;
 
 void main__init() {
 	pin__init();
-	adc__init();
 	uart__init();
 	
 }
 
 void pin__init() {
-}
-
-void adc__init() {
 }
 
 void uart__init() {
@@ -67,23 +62,20 @@ void uart__init() {
 void setup() {
 	main__init();
 	pin__setup(3, pin__out);
-	pin__setup(4, pin__out);
 	uart__setup(9600);
 }
 
 void loop() {
-	val = adc__read(8);
-	uart__println(val);
-	if(val >= 750 && val <= 800) {
-		pin__high(3);
-		pin__low(4);
-	}
-	else if(val >= 1000) {
-		pin__low(3);
-		pin__high(4);
-	}
-	else {
-		pin__low(3);
-		pin__low(4);
+	num = uart__any();
+	if(num > 0) {
+		lec = uart__read();
+		if(lec == '1') {
+			pin__high(3);
+			uart__println("Led encendido");
+		}
+		else if(lec == '2') {
+			pin__low(3);
+			uart__println("Led apagado");
+		}
 	}
 }

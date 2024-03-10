@@ -11,7 +11,6 @@
 #define pin__read(PIN_NAME)		digitalRead(PIN_NAME)
 #define pin__setup(PIN_NAME, MODE)		pinMode(PIN_NAME, MODE)
 #define pin__write(PIN_NAME, VALUE)		digitalWrite(PIN_NAME, VALUE)
-#define pwm__write(PIN, VAL)	analogWrite(PIN, VAL)
 
 void main__init();
 
@@ -19,14 +18,9 @@ void time__init();
 
 void pin__init();
 
-void pwm__init();
-
-int32_t val = 0;
-
 void main__init() {
 	time__init();
 	pin__init();
-	pwm__init();
 	
 }
 
@@ -36,19 +30,24 @@ void time__init() {
 void pin__init() {
 }
 
-void pwm__init() {
-}
-
 void setup() {
 	main__init();
+	pin__setup(3, pin__out);
+	pin__setup(4, pin__out);
 	pin__setup(5, pin__out);
 }
 
 void loop() {
-	pwm__write(5, val);
+	pin__high(3);
 	time__sleep_ms(250);
-	val = val + 10;
-	if(val == 250) {
-		val = 0;
-	}
+	pin__high(4);
+	time__sleep_ms(250);
+	pin__high(5);
+	time__sleep_ms(250);
+	pin__low(3);
+	time__sleep_ms(250);
+	pin__low(4);
+	time__sleep_ms(250);
+	pin__low(5);
+	time__sleep_ms(250);
 }
