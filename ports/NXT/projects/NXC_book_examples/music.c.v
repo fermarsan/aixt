@@ -1,3 +1,5 @@
+import sound
+
 const time = 200
 const maxvol = 7
 const minvol = 1
@@ -15,17 +17,17 @@ fn pause_8th() {
 
 @[inline]
 fn note_4th() {
-	play_file_ex('! Click.rso', midvol, false)
+	sound.play_file_ex('! Click.rso', midvol, false)
 	pause_4th()
 }
 
 @[inline]
 fn note_8th() {
-	play_file_ex('! Click.rso', maxvol, false)
+	sound.play_file_ex('! Click.rso', maxvol, false)
 	pause_8th()
 }
 
-play_file_ex('! Startup.rso', minvol, false)
+sound.play_file_ex('! Startup.rso', minvol, false)
 sleep_ms(2000)
 note_4th()
 note_8th()
