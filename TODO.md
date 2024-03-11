@@ -6,18 +6,25 @@ Tasks to do in Aixt
 
 - [ ] Fix the function attributes #bug @fermarsan
 - [ ] Implement structs #feat
-- [ ] Implement enums #feat
-- [ ] Include `api_path` to the `gen` class #feat
+    - [ ] support struct fields (`struct_name.struct_field`)
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] Update the Aixt executable path #bug
-- [ ] for-statement temporal variables as references (writeable)
+- [ ] dynamic memory definition
+- [ ] generates documentation from code
+- [ ] Give support to transpile multi-file folders (`aixt.v`)
+- [ ] API auto-import option
 
 ### In Progress
 
-- [ ] Implements the `match` expression #feat @fermarsan
+- [ ] Implement the `match` expression #feat @fermarsan
+- [ ] Implement string interpolation
    
 ### Done ✓
 
-- [x] Implements C-preprocessor directives #feat @fermarsan
-- [x] Improve the API.md file #feat @fermarsan
-- [x] Add a `New project` Aixt command and vscode task #feat
+- [X] Issue .exe extension in Emulator on Windows SOLVED
+- [x] Emulator issue on Windows, in `time` module SOLVED
+- [x] Windows gen.files more than gen.source paths SOLVED
+- [x] Printing improved messages for debugging
+- [x] Update the general diagram
+- [x] support enum fields (`enum_name.enum_field`)
+- [x] Add `void` type to C void functions

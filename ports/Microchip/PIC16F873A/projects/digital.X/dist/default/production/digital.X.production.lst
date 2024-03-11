@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Sun Jan 14 01:11:14 2024
+                                                                                               Fri Mar 01 01:14:12 2024
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	16F873A
@@ -203,7 +203,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    189 ;;
    190 ;; *************** function _main *****************
    191 ;; Defined at:
-   192 ;;		line 24 in file "digital.c"
+   192 ;;		line 14 in file "digital.c"
    193 ;; Parameters:    Size  Location     Type
    194 ;;		None
    195 ;; Auto vars:     Size  Location     Type
@@ -237,44 +237,44 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    223                           ; Regs used in _main: []
    224                           
    225                           
-   226                           ;digital.c: 26:     TRISCbits.TRISC4 = 0;
+   226                           ;digital.c: 16:     TRISCbits.TRISC4 = 0;
    227     07DD  1683               	bsf	3,5	;RP0=1, select bank1
    228     07DE  1303               	bcf	3,6	;RP1=0, select bank1
    229     07DF  1207               	bcf	7,4	;volatile
    230                           
-   231                           ;digital.c: 27:     TRISCbits.TRISC5 = 0;
+   231                           ;digital.c: 17:     TRISCbits.TRISC5 = 0;
    232     07E0  1287               	bcf	7,5	;volatile
    233                           
-   234                           ;digital.c: 28:     TRISCbits.TRISC6 = 0;
+   234                           ;digital.c: 18:     TRISCbits.TRISC6 = 0;
    235     07E1  1307               	bcf	7,6	;volatile
    236                           
-   237                           ;digital.c: 29:     TRISBbits.TRISB5 = 1;
+   237                           ;digital.c: 19:     TRISBbits.TRISB5 = 1;
    238     07E2  1686               	bsf	6,5	;volatile
    239                           
-   240                           ;digital.c: 30:     TRISBbits.TRISB6 = 1;
+   240                           ;digital.c: 20:     TRISBbits.TRISB6 = 1;
    241     07E3  1706               	bsf	6,6	;volatile
    242                           
-   243                           ;digital.c: 32:     PORTCbits.RC4 = 0;
+   243                           ;digital.c: 22:     PORTCbits.RC4 = 0;
    244     07E4  1283               	bcf	3,5	;RP0=0, select bank0
    245     07E5  1303               	bcf	3,6	;RP1=0, select bank0
    246     07E6  1207               	bcf	7,4	;volatile
    247                           
-   248                           ;digital.c: 33:     PORTCbits.RC5 = 0;
+   248                           ;digital.c: 23:     PORTCbits.RC5 = 0;
    249     07E7  1287               	bcf	7,5	;volatile
    250                           
-   251                           ;digital.c: 34:     PORTCbits.RC6 = 0;
+   251                           ;digital.c: 24:     PORTCbits.RC6 = 0;
    252     07E8  1307               	bcf	7,6	;volatile
    253                           
-   254                           ;digital.c: 35:     PORTBbits.RB5 = 0;
+   254                           ;digital.c: 25:     PORTBbits.RB5 = 0;
    255     07E9  1286               	bcf	6,5	;volatile
    256                           
-   257                           ;digital.c: 36:     PORTBbits.RB6 = 0;
+   257                           ;digital.c: 26:     PORTBbits.RB6 = 0;
    258     07EA  1306               	bcf	6,6	;volatile
    259     07EB                     l13:	
-   260                           ;digital.c: 38:     while(1){
+   260                           ;digital.c: 28:     while(1){
    261                           
    262                           
-   263                           ;digital.c: 40:         if(PORTBbits.RB5 == 1){
+   263                           ;digital.c: 30:         if(PORTBbits.RB5 == 1){
    264     07EB  1E86               	btfss	6,5	;volatile
    265     07EC  2FEE               	goto	u31
    266     07ED  2FEF               	goto	u30
@@ -283,19 +283,19 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    269     07EF                     u30:
    270     07EF                     l619:
    271                           
-   272                           ;digital.c: 42:             PORTCbits.RC4 = 1;
+   272                           ;digital.c: 32:             PORTCbits.RC4 = 1;
    273     07EF  1607               	bsf	7,4	;volatile
    274                           
-   275                           ;digital.c: 43:             PORTCbits.RC5 = 1;
+   275                           ;digital.c: 33:             PORTCbits.RC5 = 1;
    276     07F0  1687               	bsf	7,5	;volatile
    277                           
-   278                           ;digital.c: 44:             PORTCbits.RC6 = 1;
+   278                           ;digital.c: 34:             PORTCbits.RC6 = 1;
    279     07F1  1707               	bsf	7,6	;volatile
    280                           
-   281                           ;digital.c: 45:         }
+   281                           ;digital.c: 35:         }
    282     07F2  2FEB               	goto	l13
    283     07F3                     l14:	
-   284                           ;digital.c: 47:         else if(PORTBbits.RB6 == 1){
+   284                           ;digital.c: 37:         else if(PORTBbits.RB6 == 1){
    285                           
    286     07F3  1F06               	btfss	6,6	;volatile
    287     07F4  2FF6               	goto	u41
@@ -305,13 +305,13 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    291     07F7                     u40:
    292     07F7                     l621:
    293                           
-   294                           ;digital.c: 49:             PORTCbits.RC4 = 0;
+   294                           ;digital.c: 39:             PORTCbits.RC4 = 0;
    295     07F7  1207               	bcf	7,4	;volatile
    296                           
-   297                           ;digital.c: 50:             PORTCbits.RC5 = 0;
+   297                           ;digital.c: 40:             PORTCbits.RC5 = 0;
    298     07F8  1287               	bcf	7,5	;volatile
    299                           
-   300                           ;digital.c: 51:             PORTCbits.RC6 = 0;
+   300                           ;digital.c: 41:             PORTCbits.RC6 = 0;
    301     07F9  1307               	bcf	7,6	;volatile
    302     07FA  2FEB               	goto	l13
    303     07FB  118A  2800         	ljmp	start
@@ -412,7 +412,7 @@ DATA                 0      0       0       8        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Sun Jan 14 01:11:14 2024
+Symbol Table                                                                                   Fri Mar 01 01:14:12 2024
 
                      l13 07EB                       l14 07F3                       u30 07EF  
                      u31 07EE                       u40 07F7                       u41 07F6  

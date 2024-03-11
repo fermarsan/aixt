@@ -1,12 +1,10 @@
-# Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-# File Name: Emulator.toml
+# Project Name: Aixt, https://github.com/fermarsan/aixt.git
 # Author: Fernando Martínez Santa
 # Date: 2023
 # License: MIT
 #
 # Description: Setup file for the Emulator port. It works on Linux and Windows 
 #              PCs and on Android with Termux
-#              
 port =    "Emulator" 
 device =  "Emulator"
 board =   "Software Emulator"
@@ -24,7 +22,7 @@ array_default_len  = 20
 fixed_size_strings = "true"
 string_default_len = 80
 
-void =  ""
+void =  "void"
 bool =  "bool"
 
 i8 =    "signed char"
@@ -52,38 +50,13 @@ mutex = "=== NOT SUPPORTED ==="
 main_ret_type = "int"
 main_params =   ""   
 
-headers = [ 
-    "stdbool.h"
+api_modules = [
+    "pin",
+    "adc",
+    "pwm",
+    "uart",
+    "time"
 ]
-
-macros = []
-
-config_operator = ""
-
-configuration = []
-
-initialization = []
-
-[api_functions]
-pin_update  =   "machine/pin"
-pin_high    =   "machine/pin"
-pin_low     =   "machine/pin"
-pin_write   =   "machine/pin"
-pin_read    =   "machine/pin"
-
-pwm1_duty   =   "machine/pwm"
-pwm2_duty   =   "machine/pwm"
-
-adc1_read   =   "machine/adc"
-adc2_read   =   "machine/adc"
-
-input       =   "machine/uart"
-print       =   "machine/uart"
-println     =   "machine/uart"
-
-sleep       =   "time/sleep"
-sleep_ms    =   "time/sleep_ms"
-sleep_us    =   "time/sleep_us"
 
 [aliases]
 

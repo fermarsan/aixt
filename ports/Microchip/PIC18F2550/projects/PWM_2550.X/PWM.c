@@ -1,6 +1,6 @@
 /*
  * File:   PWM.c
- * Author: Andrés Fajardo
+ * Author: Andrï¿½s Fajardo
  *
  * Created on 6 de enero de 2024, 02:22 PM
  */
@@ -73,29 +73,46 @@
 
 #define _XTAL_FREQ 8000000
 #include <xc.h>
-#include "map_function.h"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/builtin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/adc.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/pwm.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/time/sleep_ms.c"
+
 
 void main()
 {
-    ADCON1 = 0x0E;                          // Configura el pin RA0 como analogico
+    /*ADCON1 = 0x0E;                          // Configura el pin RA0 como analogico
     ADCON0 = 0x00;                          // Selecciona el canal 0 del ADC
     ADCON2 = 0x97;                          // Configura el tiempo de adquisicion
-    ADCON0bits.ADON = 1;                    // Habilita el conversor
+    ADCON0bits.ADON = 1;                    // Habilita el conversor */
+ 
+    adc_setup();
     
-    PR2 = 0xC;                             // Valor del periodo
+    /*PR2 = 0xC;                             // Valor del periodo
     CCPR1L = 0;                             // Inicia el CCP1 en 0
     TRISCbits.TRISC2 = 0;                   // Pin C2 como salida
     T2CON = 0x03;                           // Configuracion del timer 2
     CCP1CON = 0x0C;                         // Configura el CCP1 en modo PWM
     TMR2 = 0;                               // Timer 2 en 0
-    T2CONbits.TMR2ON = 1;                   // Timer 2 ON
+    T2CONbits.TMR2ON = 1;                   // Timer 2 ON */
+ 
+    pwm_setup(1,2);
     
     while(1)
     {
-        ADCON0bits.GO_DONE = 1;
-        while(ADCON0bits.GO_DONE == 1);
-        int valor_adc = ADRES;
-        unsigned char valor_pwm = map(valor_adc, 0, 1023, 0, 50);
-        CCPR1L = (valor_pwm >> 2);
+        /* ADCON0bits.GO_DONE = 1;
+        while(ADCON0bits.GO_DONE == 1); */
+ 
+        adc_read(0);
+
+       /* int valor_adc = ADRES; */
+ 
+        int valor_adc = adc_reading();
+
+        /*unsigned char valor_pwm = map(valor_adc, 0, 1023, 0, 50);
+        CCPR1L = (valor_pwm >> 2); */
+ 
+        pwm_write(valor_adc,1);  
     }
 }

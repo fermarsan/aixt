@@ -14,54 +14,58 @@ This diagram shows the Aixt blocks and their interactions:
 ```mermaid
 stateDiagram-v2
 
-    Aixt: Aixt language
+    Aixt: Aixt (V-based)
     state Aixt {
         source: Source code
-        API
+
+        API: Microcontroller API    
+        state API {
+            PICs: PIC
+            ATM: AT
+            ESP
+            RP2040
+            PSoC
+            others2: ...
+            NXT: NXT brick
+        }
     }
 
-    Aixt2C: Aixt to C Transpiler
+
+
+    Aixt2C: Transpiler
     state Aixt2C {
-        Transpiler: Transpiler (V)
-        setup: setup file (TOML)
+        state V {
+            Transpiler: Transpiler
+        }
+        
+        state TOML {
+            setup: Setup file
+        }
     }
 
-    C: C language
+    C: C
     state C {
         Tr_Code: Transpiled code
-        API_C: API in C
     }
 
-    state Microcontroller {
-        PICs: PIC
-        ATM: AT
-        ESP
-        RP2040
-        others2: ...
-        NXT: NXT brick
-    }
-
-    C_Compiler: C Compiler
-    state C_Compiler {
-        others: ...
+    state Compiler {
         XC8
         XC16
-        ImageCraft
+        Arduino
         GCC
-        others
+        others: ...
         nbc: nbc (NXC)
     }
 
-    machine
     state machine {
         BF: Binary file
     }
 
-    Aixt    --> Aixt2C
-    Aixt2C  --> Tr_Code
-    C       --> C_Compiler
-    C_Compiler  --> machine
-    Microcontroller --> API_C
+    source --> Aixt2C
+    API --> Aixt2C
+    Aixt2C --> C
+    C --> Compiler
+    Compiler --> machine
 ```
 
 Aixt is designed as modular as possible to facilitate the incorporation of new devices and boards. This is mainly possible by using a configuration file (in TOML format) instead of creating new source code for each new device. That `.TOML` file contains the specific parameters of each device, board or compiler such as: variable types, initialization commands, compiler paths, etc.
@@ -81,11 +85,12 @@ The transpiler is written in [_V_](https://vlang.io/) and uses _V's_ native comp
 
 feature                 |V                                  | Aixt
 ------------------------|-----------------------------------|----------------------------------------
-variables               |immutable by default               | mutable by default
-strings                 |dynamic-sized                      | fixed-sized
-arrays                  |dynamic-sized                      | fixed-sized
-default integers size   |32 bits                            | depends on the device  
-structs                 |allow functions (object-oriented)  | don't allow functions (only structured)
+variables               | immutable by default              | mutable by default
+strings                 | dynamic-sized                     | dynamic-sized (only if supported)
+arrays                  | dynamic-sized                     | dynamic-sized (only if supported)
+default integers size   | 32 bits                           | depends on the device  
+structs                 | allow functions (object-oriented) | don't allow functions (only structured)
+functions               | only one return value             | multiple return values
 
 
 ### Example with `main` function
@@ -93,29 +98,31 @@ structs                 |allow functions (object-oriented)  | don't allow functi
 ```v
 /* Turning ON the onboard LED 10 for the Explorer16 board
 with a PIC24FJ microcontroller (XC16 compiler)*/
+import pin
 
 fn main() {
-    pin_high(led10)    //turn ON the LED 10 (PORTA7)
+    pin.high(led10)    //turn ON the LED 10 (PORTA7)
 }
 ```
 
 ### Example without `main` function (Script mode)
 
 ```v
-/* Blinking LED on the Explorer16 board with 
-a PIC24FJ microcontroller (XC16 compiler)*/
+// Blinking LED on the Explorer16 (PIC24FJ, using XC16 compiler)
+import time { sleep_ms }
+import pin
 
 for {   //infinite loop
-    pin_high(led10)     // LED 10 blinking
+    pin.high(led10)     // LED 10 blinking
     sleep_ms(500)
-    pin_low(led10)
+    pin.low(led10)
     sleep_ms(500)
 }
 ```
 
 ## Aixt API
 
-The **Aixt API** is inspired by the _Micropython_, _Arduino_ and _Tinygo_ projects. The API for all the ports includes at least functions for:
+The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API for all the ports includes at least functions for:
 
 - Digital input/output
 - Analog inputs (ADC)

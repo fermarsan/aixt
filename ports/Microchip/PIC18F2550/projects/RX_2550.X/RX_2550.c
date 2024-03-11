@@ -1,6 +1,6 @@
 /*
  * File:   RX_2550.c
- * Author: Andrés Fajardo
+ * Author: Andrï¿½s Fajardo
  *
  * Created on 10 de enero de 2024, 11:10 PM
  */
@@ -71,14 +71,52 @@
 
 #define _XTAL_FREQ 8000000
 #include <xc.h>
-#include "USART.h"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/builtin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/pin.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/machine/uart.c"
+#include "/home/aixt-project/ports/Microchip/PIC18F2550/api/time/sleep_ms.c"
 
-
-void main(void) {
+/*void main(void) {
     TRISB=0x00;
     USART_Init(9600);                //inicializa la comunicacion serial en 9600 baudios
      while (1) {
          PORTB=USART_Rx();
      }
     return;
-}
+} */
+
+void main(void) {
+
+    // CONFIGURAMOS EL PUERTO B COMO SALIDA
+
+    pin_setup(b0_s, out);
+    pin_setup(b1_s, out);
+    pin_setup(b2_s, out);
+    pin_setup(b3_s, out);
+    pin_setup(b4_s, out);
+    pin_setup(b5_s, out);
+    pin_setup(b6_s, out);
+    pin_setup(b7_s, out);
+
+    // LIMPIAMOS EL PUERTO B
+
+    pin_write(b0, 0);
+    pin_write(b1, 0);
+    pin_write(b2, 0);
+    pin_write(b3, 0);
+    pin_write(b4, 0);
+    pin_write(b5, 0);
+    pin_write(b6, 0);
+    pin_write(b7, 0);  
+   
+   // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÃ“N DE DATOS
+    pin_setup(c7_s,1); //;
+
+   // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
+    uart_setup();               
+
+     while (1) {
+         val=rx_read();   // port_write (b_o, val)
+     }
+    return;
+} 

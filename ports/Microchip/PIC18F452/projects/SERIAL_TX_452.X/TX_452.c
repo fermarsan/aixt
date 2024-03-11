@@ -1,6 +1,6 @@
 /*
  * File:   TX_452.c
- * Author: afajardo
+ * Author: Jan Carlo 
  *
  * Created on January 12, 2024, 9:43 AM
  */
@@ -58,7 +58,7 @@
 #define _XTAL_FREQ 8000000
 #include <xc.h>
 #include "USART_452.h"
-
+/*
 void main(void) {
     USART_Init(9600);
     while(1){
@@ -67,4 +67,20 @@ void main(void) {
         USART_Tx(0x55);
         __delay_ms(500);
     }
+}*/
+
+void main(void) {
+    
+       //CONFIG DE LOS PINES
+    pin_setup(c6_s,0);    //RC6 = TX
+
+       //Inicializamos la comunicación serial
+    uart_setup();
+    
+    while (1) {
+         tx_write(0x33);
+         sleep_ms(500);
+         tx_write(0x99);
+         sleep_ms(500);
+     }
 }

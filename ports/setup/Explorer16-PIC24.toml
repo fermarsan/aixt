@@ -1,7 +1,6 @@
-# Project Name = Aixt project, https =//gitlab.com/fermarsan/aixt-project.git
-# File Name = Explorer16-PIC24.toml
+# Project Name = Aixt, https =//github.com/fermarsan/aixt.git
 # Author = Fernando Martínez Santa
-# Date = 2022-2023
+# Date = 2022-2024
 # License = MIT
 #
 # Description = This is the setup file for the Explorer16 (with PIC24)
@@ -17,15 +16,13 @@ cc_flags =   "-o"
 
 path = "Microchip/Explorer16/PIC24"
 
-api_modules = [
-    "machine",
-    "time"
-]
+fixed_size_arrays  = "true"
+array_default_len  = 20
 
-fixed_size_arrays =  "true"
 fixed_size_strings = "true"
+string_default_len = 80
 
-void =  ""
+void =  "void"
 bool =  "bool"
 
 i8 =    "int8_t"
@@ -51,41 +48,15 @@ string = "char []"
 mutex = "=== NOT SUPPORTED ==="
 
 main_ret_type = "int"
-main_params =   "void "   
+main_params =   "void "
 
-headers = [
-    "xc.h",
-    "stdint.h",
-    "stdbool.h",
+api_modules = [
+    "pin",
+    "port",
+    "adc",
+    "pwm",
+    "uart",
+    "time"
 ]
 
-macros = [
-    "FCY 8000000UL"
-]
-
-config_operator = "#pragma config"
-
-configuration = [
-    "POSCMOD = XT",
-    "OSCIOFNC = ON",
-    "FCKSM = CSDCMD",
-    "FNOSC = PRI",
-    "IESO = ON",
-    "WDTPS = PS32768",
-    "FWPSA = PR128",
-    "WINDIS = ON",
-    "FWDTEN = OFF",
-    "ICS = PGx2",
-    "GWRP = OFF",
-    "GCP = OFF",
-    "JTAGEN = OFF"
-]
-
-initialization = [
-    "AD1PCFG = 0xFFDF;      // Analog inputs for Explorer16 POT and TSENS",
-    "AD1CSSL = 0;           // no scanning required",
-    "AD1CON2 = 0;           // use MUXA, AVss and AVdd are used as Vref+/-",
-    "AD1CON3 = 0x1F02;      // Tsamp = 32 x Tad; Tad=125ns",
-    "AD1CON1bits.ADON = 1;  // turn on the ADC", 
-    "TRISA = 0xff00;        // select the PORTA pins as outputs to drive the LEDs",   
-]
+[aliases]

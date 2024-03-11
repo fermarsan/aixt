@@ -1,17 +1,18 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: aixt.v
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-//
-// Description: This is the main file of the Aixt project. It works as a make file too.
-//
-// Usage:
-// 1. Run the program using `v run aixt.v command port input_file_name`
+// Description: This is the main file of the Aixt project. It works as a makefile too.
+module main
+// Aixt transpiler
+
 import os
 import toml
 import aixt_build
 
+// main function for Aixt transpiler.
+// Usage:
+//     v run aixt.v <command> <device_or_board> <source_path>
 fn main() {
 	if os.args.len < 2 {
 		println(help_message())
@@ -34,34 +35,36 @@ fn main() {
 				if os.args.len < 4 {
 					println(help_message())
 				} else {
-					port, input_name := os.args[2], os.abs_path(os.args[3]) // the other parameters
+					port, input_name := os.args[2], os.abs_path(os.args[3])	// port name and source path input
 					mut base_name := input_name.replace('.aixt', '') // input file base name
 					base_name = base_name.replace('.v', '')
+					println('setup file:\n\t${aixt_path}/ports/setup/${port}.toml\n')
+					// println(os.read_file('${aixt_path}/ports/setup/${port}.toml') or { 'file doesn\'t exist' } )
 					setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { return } // load the device's setup file
 					match command {
 						'transpile', '-t' {
 							aixt_build.transpile_file(input_name, setup, aixt_path)
-							println('\n${input_name} transpilation finished.\n')
+							println('\n${input_name} transpiling finished.\n')
 						}
 						'compile', '-c' {
 							aixt_build.compile_file(base_name, setup)
 							ext := match setup.value('backend').string() {
-								'nxc' { 'nxc' }
-								'arduino' { 'ino' }
-								else { 'c' }
+								'nxc' 		{ 'nxc' }
+								'arduino' 	{ 'ino' }
+								else 		{ 'c' }
 							}
-							println('\n${base_name}.${ext} compilation finished.\n')
+							println('\n${base_name}.${ext} compiling finished.\n')
 						}
 						'build', '-b' {
 							aixt_build.transpile_file(input_name, setup, aixt_path)
-							println('\n${input_name} transpilation finished.\n')
+							println('\n${input_name} transpiling finished.\n')
 							aixt_build.compile_file(base_name, setup)
 							ext := match setup.value('backend').string() {
 								'nxc' { 'nxc' }
 								'arduino' { 'ino' }
 								else { 'c' }
 							}
-							println('\n${base_name}.${ext} compilation finished.\n')
+							println('\n${base_name}.${ext} compiling finished.\n')
 						}
 						'clean', '-cl' {
 							os.rm('${base_name}.c') or {} // clean c-type files
@@ -99,30 +102,3 @@ fn main() {
 	}
 }
 
-fn help_message() string {
-	return 'aixt is a tool for managing Aixt source code (*.aixt or *.v).
-
-Usage:
-  aixt command device input_file_name
-
-Examples:
-  aixt transpile NXC hello.aixt	Transpile the file `hello.aixt` and output it as
-	                            `hello.nxc`.
-  aixt build NXC hello.v        Transpile, compile and download `hello.v` to NXT
-                                Intelligent brick.
-  aixt -t Arduino_Nano hello.v	Transpile the file `hello.v` and output it as
-                                `hello.c` or `hello.ino` (depending on the Backend).
-  aixt -c Emulator hello.aixt	Compile a previously transpiled `hello.c` (from
-                                `hello.aixt`) and output it as `hello` or `hello.exe`
-  aixt clean NXC hello.aixt     Clean all the generated files `hello.*`
-  aixt -h                       Print this help message
-  aixt version                  Print the Aixt version number
-
-aixt supports the following commands:
-  transpile, -t                 Transpile to C an Aixt source file.
-  compile, -c                   Compile the previosly generated C file.
-  build, -b                     Build (transpile and compile) an Aixt program.
-  clean, -cl                    Clean all the generated file (C and executables).
-  help, --help, -h              Call this help
-  version                       Returns the Aixt version number'
-}

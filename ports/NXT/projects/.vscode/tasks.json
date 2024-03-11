@@ -1,65 +1,153 @@
 {
-    "version": "2.0.0",
-    "tasks": [
+  "version": "2.0.0",
+  "tasks": [
       {
-        "label": "Aixt: Transpile",
-        "type": "shell",
-        "command": [ "v run make.vsh",
-                     "transpile",
-                     "${file}" ],
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
+          "label": "Aixt: Transpile",
+          "type": "shell",
+          "windows": {
+              "command": [ "v run ${config:aixt_windows}",
+                          "transpile",
+                          "${config:device}",
+                          "${file}" ],
+          },
+          "linux": {
+              "command": [ "v run ${config:aixt_linux}",
+                          "transpile",
+                          "${config:device}",
+                          "${file}" ],
+          },
+          "problemMatcher": ["$tsc"],
+          "group": "build",
+          "presentation": {
           "showReuseMessage": false
-        }
+          }
       },
       {
-        "label": "Aixt: Compile & Download",
-        "type": "shell",
-        "command": [ "v run make.vsh",
-                     "compile",
-                     "${file}" ],
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
+          "label": "Aixt: Compile",
+          "type": "shell",
+          "windows": {
+              "command": [ "v run ${config:aixt_windows}",
+                          "compile",
+                          "${config:device}",
+                          "${file}" ],
+          },
+          "linux": {
+              "command": [ "v run ${config:aixt_linux}",
+                          "compile",
+                          "${config:device}",
+                          "${file}" ],
+          },
+          "problemMatcher": ["$tsc"],
+          "group": "build",
+          "presentation": {
           "showReuseMessage": false
-        }
+          }
       },
       {
-        "label": "Aixt: Build & Download",
-        "type": "shell",
-        "command": [ "v run make.vsh",
-                     "build",
-                     "${file}" ],
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
+          "label": "Aixt: Build",
+          "type": "shell",
+          "windows": {
+              "command": [ "v run ${config:aixt_windows}",
+                          "build",
+                          "${config:device}",
+                          "${file}" ],
+          },
+          "linux": {
+              "command": [ "v run ${config:aixt_linux}",
+                          "build",
+                          "${config:device}",
+                          "${file}" ],
+          },
+          "problemMatcher": ["$tsc"],
+          "group": "build",
+          "presentation": {
           "showReuseMessage": false
-        }  
+          }
       },
       {
-        "label": "Aixt: Clean",
-        "type": "shell",
-        "command": [ "v run make.vsh",
-                     "clean",
-                     "${file}" ],
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
+          "label": "Aixt: Clean",
+          "type": "shell",
+          "windows": {
+              "command": [ "v run ${config:aixt_windows}",
+                          "clean",
+                          "${config:device}",
+                          "${file}" ],
+          },
+          "linux": {
+              "command": [ "v run ${config:aixt_linux}",
+                          "clean",
+                          "${config:device}",
+                          "${file}" ],
+          },
+          "problemMatcher": ["$tsc"],
+          "group": "build",
+          "presentation": {
           "showReuseMessage": false
-        }  
+          }
       },
       {
-        "label": "Aixt: Clean all",
-        "type": "shell",
-        "command": [ "v run make.vsh",
-                     "clean_all",
-                     "${relativeFileDirname}" ],
-        "problemMatcher": ["$tsc"],
-        "group": "build",
-        "presentation": {
+          "label": "Aixt: Run",
+          "type": "shell",
+          "windows": {
+              "command": [ "${fileDirname}\\${fileBasenameNoExtension}.exe" ],
+          },
+          "linux": {
+              "command": [ "${fileDirname}/${fileBasenameNoExtension}" ],
+          },
+          "problemMatcher": ["$tsc"],
+          "group": "build",
+          "presentation": {
           "showReuseMessage": false
-        }  
+          }  
+      },
+      {
+          "label": "Aixt: Build & Run",
+          "group": "build",
+          "dependsOrder": "sequence",
+          "dependsOn": ["Aixt: Build", "Aixt: Run"]
+      },
+      {
+          "label": "Aixt: New Project",
+          "type": "shell",
+          "windows": {
+              "command": [ "v run ${config:aixt_windows}",
+                          "new_project",
+                          "${input:dirName}",
+                          "${input:projectName}",
+                          "${input:device}" ],
+          },
+          "linux": {
+              "command": [ "v run ${config:aixt_linux}",
+                          "new_project",
+                          "${input:dirName}",
+                          "${input:projectName}",
+                          "${input:device}" ],
+          },
+          "problemMatcher": ["$tsc"],
+          "group": "build",
+          "presentation": {
+          "showReuseMessage": false
+          }
       }
-    ]
-  }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "projectName",
+      "description": "Project name.",
+      "default": "project"
+    },
+    {
+      "type": "promptString",
+      "id": "dirName",
+      "description": "Directory name.",
+      "default": "."
+    },
+    {
+      "type": "promptString",
+      "id": "device",
+      "description": "Device or Board name.",
+      "default": "Emulator"
+    }
+  ]
+}
