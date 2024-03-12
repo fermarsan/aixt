@@ -102,22 +102,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "959
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f873a.h: 959: extern volatile unsigned char TXREG __attribute__((address(0x019)));
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"7 recepcionUART.c
-[p x FOSC  =  HS         ]
-"8
-[p x WDTE  =  OFF        ]
-"9
-[p x PWRTE  =  OFF       ]
-"10
-[p x BOREN  =  OFF       ]
-"11
-[p x LVP  =  OFF         ]
-"12
-[p x CPD  =  OFF         ]
-"13
-[p x WRT  =  OFF         ]
-"14
-[p x CP  =  OFF          ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f873a.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f873a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -286,108 +270,124 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2138
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f873a.h: 2138: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"33 ./../../api/machine/uart.c
-[; ;./../../api/machine/uart.c: 33: char uart_read()
-[v _uart_read `(uc ~T0 @X0 1 ef ]
-"34
-[; ;./../../api/machine/uart.c: 34: {
+"17 ./../../api/builtin.c.v
+[p x FOSC  =  HS         ]
+"18
+[p x WDTE  =  OFF        ]
+"19
+[p x PWRTE  =  OFF       ]
+"20
+[p x BOREN  =  OFF       ]
+"21
+[p x LVP  =  OFF         ]
+"22
+[p x CPD  =  OFF         ]
+"23
+[p x WRT  =  OFF         ]
+"24
+[p x CP  =  OFF          ]
+"13 ./../../api/uart/read.c.v
+[; ;./../../api/uart/read.c.v: 13: char uart__read()
+[v _uart__read `(uc ~T0 @X0 1 ef ]
+"14
+[; ;./../../api/uart/read.c.v: 14: {
 {
-[e :U _uart_read ]
+[e :U _uart__read ]
 [f ]
-"35
-[; ;./../../api/machine/uart.c: 35:     while(PIR1bits.RCIF == 0);
+"15
+[; ;./../../api/uart/read.c.v: 15:     while(PIR1bits.RCIF == 0);
 [e $U 89  ]
 [e :U 90 ]
 [e :U 89 ]
 [e $ == -> . . _PIR1bits 0 5 `i -> 0 `i 90  ]
 [e :U 91 ]
-"36
-[; ;./../../api/machine/uart.c: 36:     if(RCSTAbits.OERR == 1)
+"16
+[; ;./../../api/uart/read.c.v: 16:     if(RCSTAbits.OERR == 1)
 [e $ ! == -> . . _RCSTAbits 0 1 `i -> 1 `i 92  ]
-"37
-[; ;./../../api/machine/uart.c: 37:     {
+"17
+[; ;./../../api/uart/read.c.v: 17:     {
 {
-"38
-[; ;./../../api/machine/uart.c: 38:         RCSTAbits.CREN = 0;
+"18
+[; ;./../../api/uart/read.c.v: 18:         RCSTAbits.CREN = 0;
 [e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-"39
-[; ;./../../api/machine/uart.c: 39:         RCSTAbits.CREN = 1;
+"19
+[; ;./../../api/uart/read.c.v: 19:         RCSTAbits.CREN = 1;
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"40
-[; ;./../../api/machine/uart.c: 40:     }
+"20
+[; ;./../../api/uart/read.c.v: 20:     }
 }
 [e :U 92 ]
-"41
-[; ;./../../api/machine/uart.c: 41:     PIR1bits.RCIF = 0;
+"21
+[; ;./../../api/uart/read.c.v: 21:     PIR1bits.RCIF = 0;
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"42
-[; ;./../../api/machine/uart.c: 42:     return RCREG;
+"22
+[; ;./../../api/uart/read.c.v: 22:     return RCREG;
 [e ) -> _RCREG `uc ]
 [e $UE 88  ]
-"43
-[; ;./../../api/machine/uart.c: 43: }
+"23
+[; ;./../../api/uart/read.c.v: 23: }
 [e :UE 88 ]
 }
-"27 recepcionUART.c
-[; ;recepcionUART.c: 27: char datos;
+"17 recepcionUART.c
+[; ;recepcionUART.c: 17: char datos;
 [v _datos `uc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"29
-[; ;recepcionUART.c: 29: void main(void) {
+"19
+[; ;recepcionUART.c: 19: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"31
-[; ;recepcionUART.c: 31:     ADCON1bits.PCFG = 0;
+"21
+[; ;recepcionUART.c: 21:     ADCON1bits.PCFG = 0;
 [e = . . _ADCON1bits 0 0 -> -> 0 `i `uc ]
-"33
-[; ;recepcionUART.c: 33:     TRISBbits.TRISB0 = 0;
+"23
+[; ;recepcionUART.c: 23:     TRISBbits.TRISB0 = 0;
 [e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
-"34
-[; ;recepcionUART.c: 34:     TRISBbits.TRISB1 = 0;
+"24
+[; ;recepcionUART.c: 24:     TRISBbits.TRISB1 = 0;
 [e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
-"36
-[; ;recepcionUART.c: 36:     PORTBbits.RB0 = 0;
+"26
+[; ;recepcionUART.c: 26:     PORTBbits.RB0 = 0;
 [e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-"37
-[; ;recepcionUART.c: 37:     PORTBbits.RB1 = 0;
+"27
+[; ;recepcionUART.c: 27:     PORTBbits.RB1 = 0;
 [e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
-"39
-[; ;recepcionUART.c: 39:     SPBRG = 51; TXSTAbits.SYNC = 0; TXSTAbits.BRGH = 1; RCSTAbits.SPEN = 1; TXSTAbits.TXEN = 1; RCSTAbits.CREN = 1;;
+"29
+[; ;recepcionUART.c: 29:     SPBRG = 51; TXSTAbits.SYNC = 0; TXSTAbits.BRGH = 1; RCSTAbits.SPEN = 1; TXSTAbits.TXEN = 1; RCSTAbits.CREN = 1;;
 [e = _SPBRG -> -> 51 `i `uc ]
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"41
-[; ;recepcionUART.c: 41:     while(1){
+"31
+[; ;recepcionUART.c: 31:     while(1){
 [e :U 95 ]
 {
-"43
-[; ;recepcionUART.c: 43:         if((PIR1bits.RCIF ? 1 : 0)> 0){
+"33
+[; ;recepcionUART.c: 33:         if((PIR1bits.RCIF ? 1 : 0)> 0){
 [e $ ! > ? != -> . . _PIR1bits 0 5 `i -> 0 `i : -> 1 `i -> 0 `i -> 0 `i 97  ]
 {
-"45
-[; ;recepcionUART.c: 45:             datos = uart_read();
-[e = _datos ( _uart_read ..  ]
-"47
-[; ;recepcionUART.c: 47:         }
+"35
+[; ;recepcionUART.c: 35:             datos = uart__read();
+[e = _datos ( _uart__read ..  ]
+"37
+[; ;recepcionUART.c: 37:         }
 }
 [e :U 97 ]
-"49
-[; ;recepcionUART.c: 49:         switch (datos){
+"39
+[; ;recepcionUART.c: 39:         switch (datos){
 [e $U 99  ]
 {
-"51
-[; ;recepcionUART.c: 51:             case 'a':
+"41
+[; ;recepcionUART.c: 41:             case 'a':
 [e :U 100 ]
-"53
-[; ;recepcionUART.c: 53:                 PORTBbits.RB0 = 1;
+"43
+[; ;recepcionUART.c: 43:                 PORTBbits.RB0 = 1;
 [e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
-"54
-[; ;recepcionUART.c: 54:                 { char caracter; for (int i = 0; (caracter = ("led1: Encendido\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
+"44
+[; ;recepcionUART.c: 44:                 { char caracter; for (int i = 0; (caracter = ("led1: Encendido\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
 {
 [v _caracter `uc ~T0 @X0 1 a ]
 {
@@ -409,17 +409,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 102 ]
 }
 }
-"55
-[; ;recepcionUART.c: 55:                 break;
+"45
+[; ;recepcionUART.c: 45:                 break;
 [e $U 98  ]
-"57
-[; ;recepcionUART.c: 57:             case 'b':
+"47
+[; ;recepcionUART.c: 47:             case 'b':
 [e :U 108 ]
-"59
-[; ;recepcionUART.c: 59:                 PORTBbits.RB0 = 0;
+"49
+[; ;recepcionUART.c: 49:                 PORTBbits.RB0 = 0;
 [e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-"60
-[; ;recepcionUART.c: 60:                 { char caracter; for (int i = 0; (caracter = ("led1: Apagado\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
+"50
+[; ;recepcionUART.c: 50:                 { char caracter; for (int i = 0; (caracter = ("led1: Apagado\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
 {
 [v _caracter `uc ~T0 @X0 1 a ]
 {
@@ -441,17 +441,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 110 ]
 }
 }
-"61
-[; ;recepcionUART.c: 61:                 break;
+"51
+[; ;recepcionUART.c: 51:                 break;
 [e $U 98  ]
-"63
-[; ;recepcionUART.c: 63:             case 'q':
+"53
+[; ;recepcionUART.c: 53:             case 'q':
 [e :U 116 ]
-"65
-[; ;recepcionUART.c: 65:                 PORTBbits.RB1 = 1;
+"55
+[; ;recepcionUART.c: 55:                 PORTBbits.RB1 = 1;
 [e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
-"66
-[; ;recepcionUART.c: 66:                 { char caracter; for (int i = 0; (caracter = ("led1: Encendido\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
+"56
+[; ;recepcionUART.c: 56:                 { char caracter; for (int i = 0; (caracter = ("led2: Encendido\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
 {
 [v _caracter `uc ~T0 @X0 1 a ]
 {
@@ -473,17 +473,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 118 ]
 }
 }
-"67
-[; ;recepcionUART.c: 67:                 break;
+"57
+[; ;recepcionUART.c: 57:                 break;
 [e $U 98  ]
-"69
-[; ;recepcionUART.c: 69:             case 'w':
+"59
+[; ;recepcionUART.c: 59:             case 'w':
 [e :U 124 ]
-"71
-[; ;recepcionUART.c: 71:                 PORTBbits.RB1 = 0;
+"61
+[; ;recepcionUART.c: 61:                 PORTBbits.RB1 = 0;
 [e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
-"72
-[; ;recepcionUART.c: 72:                 { char caracter; for (int i = 0; (caracter = ("led1: Apagado\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
+"62
+[; ;recepcionUART.c: 62:                 { char caracter; for (int i = 0; (caracter = ("led2: Apagado\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
 {
 [v _caracter `uc ~T0 @X0 1 a ]
 {
@@ -505,11 +505,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 126 ]
 }
 }
-"73
-[; ;recepcionUART.c: 73:                 break;
+"63
+[; ;recepcionUART.c: 63:                 break;
 [e $U 98  ]
-"74
-[; ;recepcionUART.c: 74:         }
+"64
+[; ;recepcionUART.c: 64:         }
 }
 [e $U 98  ]
 [e :U 99 ]
@@ -519,21 +519,21 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> -> 119 `ui `i 124
  98 ]
 [e :U 98 ]
-"76
-[; ;recepcionUART.c: 76:     }
+"66
+[; ;recepcionUART.c: 66:     }
 }
 [e :U 94 ]
 [e $U 95  ]
 [e :U 96 ]
-"77
-[; ;recepcionUART.c: 77: }
+"67
+[; ;recepcionUART.c: 67: }
 [e :UE 93 ]
 }
+[a 5C 108 101 100 50 58 32 69 110 99 101 110 100 105 100 111 13 10 0 ]
+[a 6C 108 101 100 50 58 32 69 110 99 101 110 100 105 100 111 13 10 0 ]
 [a 1C 108 101 100 49 58 32 69 110 99 101 110 100 105 100 111 13 10 0 ]
 [a 2C 108 101 100 49 58 32 69 110 99 101 110 100 105 100 111 13 10 0 ]
-[a 5C 108 101 100 49 58 32 69 110 99 101 110 100 105 100 111 13 10 0 ]
-[a 6C 108 101 100 49 58 32 69 110 99 101 110 100 105 100 111 13 10 0 ]
+[a 7C 108 101 100 50 58 32 65 112 97 103 97 100 111 13 10 0 ]
+[a 8C 108 101 100 50 58 32 65 112 97 103 97 100 111 13 10 0 ]
 [a 3C 108 101 100 49 58 32 65 112 97 103 97 100 111 13 10 0 ]
 [a 4C 108 101 100 49 58 32 65 112 97 103 97 100 111 13 10 0 ]
-[a 7C 108 101 100 49 58 32 65 112 97 103 97 100 111 13 10 0 ]
-[a 8C 108 101 100 49 58 32 65 112 97 103 97 100 111 13 10 0 ]

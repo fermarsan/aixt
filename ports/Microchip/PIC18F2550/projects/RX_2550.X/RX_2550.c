@@ -107,7 +107,7 @@ void main(void) {
     pin_write(b4, 0);
     pin_write(b5, 0);
     pin_write(b6, 0);
-  mmpin_write(b7, 0);  
+    pin_write(b7, 0);  
    
    // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
     pin_setup(c7_s,1); //;

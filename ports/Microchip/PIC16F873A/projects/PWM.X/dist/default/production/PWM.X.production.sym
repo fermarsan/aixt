@@ -100,9 +100,9 @@ __pbssBANK0 2A 0 BANK0 1
 _ADCON0bits 1F 0 ABS 0
 __Hend_init 2 0 CODE 0
 __Lend_init 0 0 CODE 0
+__end_of_adc__reading 780 0 CODE 0
 __Hreset_vec 0 0 CODE 0
 __Lreset_vec 0 0 CODE 0
-__end_of_adc_reading 780 0 CODE 0
 intlevel0 0 0 ENTRY 0
 intlevel1 0 0 ENTRY 0
 intlevel2 0 0 ENTRY 0
@@ -119,8 +119,8 @@ __Lmaintext 0 0 ABS 0
 __pmaintext 7A7 0 CODE 0
 __initialization 7F9 0 CODE 0
 ___wmul@product 24 0 BANK0 1
-?_adc_reading 20 0 BANK0 1
-_adc_reading 770 0 CODE 0
+?_adc__reading 20 0 BANK0 1
+_adc__reading 770 0 CODE 0
 %segments
 reset_vec 0 3 CODE 0 0
 cinit FF2 FFF CODE FF2 0
@@ -130,7 +130,7 @@ text2 F00 F4D CODE F00 0
 text1 EE0 EFF CODE EE0 0
 %locals
 dist/default/production\PWM.X.production.o
-C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
+C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_1.s
 359 7F9 0 CODE 0
 362 7F9 0 CODE 0
 373 7F9 0 CODE 0
@@ -141,20 +141,20 @@ C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
 384 7FD 0 CODE 0
 385 7FE 0 CODE 0
 pwm.c
-28 7A7 0 CODE 0
-30 7A7 0 CODE 0
-31 7B0 0 CODE 0
-35 7C2 0 CODE 0
-36 7C9 0 CODE 0
-38 7D2 0 CODE 0
-38 7EE 0 CODE 0
-38 7F1 0 CODE 0
-./../../api/machine/adc.c
-21 770 0 CODE 0
-22 770 0 CODE 0
-23 773 0 CODE 0
-24 777 0 CODE 0
-25 77F 0 CODE 0
+17 7A7 0 CODE 0
+19 7A7 0 CODE 0
+20 7B0 0 CODE 0
+24 7C2 0 CODE 0
+25 7C9 0 CODE 0
+27 7D2 0 CODE 0
+27 7EE 0 CODE 0
+27 7F1 0 CODE 0
+./../../api/adc/reading.c.v
+12 770 0 CODE 0
+13 770 0 CODE 0
+14 773 0 CODE 0
+15 777 0 CODE 0
+16 77F 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul16.c
 15 780 0 CODE 0
 43 780 0 CODE 0

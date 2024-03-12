@@ -1,25 +1,30 @@
-@[task] fnmusic() {
-    for {
-        play_tone(262,400)
-        sleep(500)
-        play_tone(294,400)
-        sleep(500)
-        play_tone(330,400)
-        sleep(500)
-        play_tone(294,400)
-        sleep(500)
-    }
+import sound
+
+@[task]
+fn music() {
+	for {
+		sound.play_tone(262, 400)
+		sleep_ms(500)
+		sound.play_tone(294, 400)
+		sleep_ms(500)
+		sound.play_tone(330, 400)
+		sleep_ms(500)
+		sound.play_tone(294, 400)
+		sleep_ms(500)
+	}
 }
 
-@[task] fnmovement() {
-    for {
-        forward(motors_ac, 75)
-        sleep(3000)
-        reverse(motors_ac, 75)
-        sleep(3000)
-    }
+@[task]
+fn movement() {
+	for {
+		motor.forward(ac, 75)
+		sleep_ms(3000)
+		motor.reverse(ac, 75)
+		sleep_ms(3000)
+	}
 }
 
-@[task] fnmain() {
-    precedes(music, movement)
+@[task]
+fn main() {
+	precedes(music, movement)
 }

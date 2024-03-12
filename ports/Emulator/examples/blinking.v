@@ -1,9 +1,9 @@
 import time
 import pin
 
-for i in 0..10 {   //blinking the emulated pin x, 10 times
+for i in 0..5 {   //blinking the emulated pin x, 5 times
     pin.high(x)
-    time.sleep_ms(500)
+    time.sleep(1)
     pin.low(x)
-    time.sleep_ms(500)
+    time.sleep(1)
 }

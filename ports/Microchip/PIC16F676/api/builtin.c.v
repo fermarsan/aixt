@@ -7,14 +7,26 @@
 // Description: Builtin definitions
 //              (PIC16F676)
 
-#define an0    ra0  // Onboard LED            
-#define an1    ra1        
-#define an2    ra2              
-#define an3    ra4       
-#define an4    rc0        
-#define an5    rc1        
-#define an6    rc2   
-#define an7    rc3  
+module main
+
+#include <xc.h>
+#include <stdio.h>
+
+#define _XTAL_FREQ 4000000
+
+#pragma config FOSC = INTRCIO   
+#pragma config WDTE = OFF      
+#pragma config PWRTE = OFF     
+#pragma config MCLRE = OFF      
+#pragma config BOREN = OFF     
+#pragma config CP = OFF         
+#pragma config CPD = OFF 
+
+#define TRISa		TRISA	// port setup name equivalents
+#define TRISc		TRISC
+
+#define PORTa		PORTA	// port in name equivalents
+#define PORTc		PORTC
 
 #define a0_s    TRISAbits.TRISA0    // pin configuration pits
 #define a1_s    TRISAbits.TRISA1 

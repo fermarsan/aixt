@@ -16,7 +16,7 @@ __global (
 
 // pin_update prints the pins table in the command line
 pub fn update() {
-    system("clear")
+    system(CLEAR_SCREEN)
     printf(" Aixt virtual pins     [#] = ON   [ ] = OFF\n")
     printf(" _____ _____ _____ _____ _____ _____ _____ _____\n")
     printf("|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |\n")

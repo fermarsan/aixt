@@ -1,9 +1,11 @@
+import motor
+
 const fwd = true
 
 if fwd {
-	forward(motors_ab, 60)
-	sleep(1000)
+	motor.forward(ab, 60)
+	sleep_ms(1000)
 } else if ! fwd {
-	reverse(motors_ab, 60)
-	sleep(1000)
+	motor.reverse(ab, 60)
+	sleep_ms(1000)
 }

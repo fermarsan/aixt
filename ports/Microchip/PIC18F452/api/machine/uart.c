@@ -1,10 +1,10 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: pic.c
-// Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
+// Author: Jan Carlo Peñuela Jurado and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: UART management functions  (PIC18F2550 port)
+// Description: UART management functions  (PIC18F452 port)
 
 #include <xc.h>
 #define _XTAL_FREQ 8000000

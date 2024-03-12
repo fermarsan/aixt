@@ -1,15 +1,17 @@
-@[inline] fn turn_around(pwr int, turntime int) {
-	reverse(motor_c, pwr)
-	sleep(turntime)
-	forward(motors_ac, pwr)
+import motor
+
+@[inline]
+fn turn_around(pwr int, turntime int) {
+	motor.reverse(c, pwr)
+	sleep_ms(turntime)
+	motor.forward(ac, pwr)
 }
 
-
- forward(motors_ac, 75)
- sleep(1000)
- turn_around(75, 2000)
- sleep(2000)
- turn_around(75, 500)
- sleep(1000)
- turn_around(75, 3000)
- off(motors_ac)
+motor.forward(ac, 75)
+sleep_ms(1000)
+turn_around(75, 2000)
+sleep_ms(2000)
+turn_around(75, 500)
+sleep_ms(1000)
+turn_around(75, 3000)
+motor.off(ac)

@@ -11,21 +11,8 @@
 
 
 
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
+# 1 "./../../api/builtin.c.v" 1
+# 12 "./../../api/builtin.c.v"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1715,7 +1702,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 19 "recepcionUART.c" 2
+# 12 "./../../api/builtin.c.v" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -1810,19 +1797,45 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 20 "recepcionUART.c" 2
+# 13 "./../../api/builtin.c.v" 2
 
 
 
-# 1 "./../../api/builtin.c" 1
-# 23 "recepcionUART.c" 2
 
-# 1 "./../../api/machine/pin.c" 1
-# 24 "recepcionUART.c" 2
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+# 5 "recepcionUART.c" 2
 
-# 1 "./../../api/machine/uart.c" 1
-# 33 "./../../api/machine/uart.c"
-char uart_read()
+# 1 "./../../api/pin/pin.c.v" 1
+# 6 "recepcionUART.c" 2
+
+# 1 "./../../api/pin/high.c.v" 1
+# 7 "recepcionUART.c" 2
+
+# 1 "./../../api/pin/setup.c.v" 1
+# 8 "recepcionUART.c" 2
+
+# 1 "./../../api/pin/low.c.v" 1
+# 9 "recepcionUART.c" 2
+
+# 1 "./../../api/pin/write.c.v" 1
+# 10 "recepcionUART.c" 2
+
+# 1 "./../../api/uart/input.c.v" 1
+# 11 "recepcionUART.c" 2
+
+# 1 "./../../api/uart/setup.c.v" 1
+# 12 "recepcionUART.c" 2
+
+# 1 "./../../api/uart/read.c.v" 1
+# 13 "./../../api/uart/read.c.v"
+char uart__read()
 {
     while(PIR1bits.RCIF == 0);
     if(RCSTAbits.OERR == 1)
@@ -1833,7 +1846,11 @@ char uart_read()
     PIR1bits.RCIF = 0;
     return RCREG;
 }
-# 25 "recepcionUART.c" 2
+# 13 "recepcionUART.c" 2
+
+# 1 "./../../api/uart/print.c.v" 1
+# 14 "recepcionUART.c" 2
+
 
 
 char datos;
@@ -1854,7 +1871,7 @@ void main(void) {
 
         if((PIR1bits.RCIF ? 1 : 0)> 0){
 
-            datos = uart_read();
+            datos = uart__read();
 
         }
 
