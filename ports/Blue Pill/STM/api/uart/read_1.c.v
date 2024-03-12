@@ -4,7 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: READ_1 functions (Blue Pill_STM32F103C)
+// // Description: READ_1 functions (STM32F103C)
 //              (PC port) 
 
 module uart
