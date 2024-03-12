@@ -4,7 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: SETUP functions (Blue Pill_STM32F103C)
+// // Description: SETUP functions (STM32F103C)
 //              (PC port) 
 
 module uart
