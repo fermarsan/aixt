@@ -1,10 +1,10 @@
 // Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
 // File Name: uart.c.v
-// Author: Fernando Martínez Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+// Author: Fernando Martínez Santa - Julian Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagose
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: UART functions (Ai_Thinker_Ai-WB2-32S-Kit)
+// // Description: UART functions (Blue Pill_STM32F103C)
 //              (PC port) 
 module uart
 
