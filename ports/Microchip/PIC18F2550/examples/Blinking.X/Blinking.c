@@ -118,58 +118,30 @@
 #define c5      LATCbits.LATC5
 #define c6      LATCbits.LATC6
 #define c7      LATCbits.LATC7
-
-long adc__read(unsigned char channel);
-
-long adc__reading();
-
-void adc__setup();
-
-void pwm__setup();
-
-void pwm__write(long duty);
-
-long adc__read(unsigned char channel) {
-	ADCON0bits.CHS = channel;
-	adc__reading();
-}
-
-long adc__reading() {
-	ADCON0bits.GO_DONE = 1;
-	while((ADCON0bits.GO_DONE == 1)) {
-	}
-	return ADRES;
-}
-
-void adc__setup() {
-	ADCON1 = 0x00;
-	ADCON0 = 0x00;
-	ADCON2 = 0x97;
-	ADCON0bits.ADON = 1;
-}
-
-void pwm__setup() {
-	PR2 = 0x0C;
-	CCPR1L = 0;
-	TRISCbits.TRISC2 = 0;
-	T2CON = 0x03;
-	CCP1CON = 0x0C;
-	TMR2 = 0;
-	T2CONbits.TMR2ON = 1;
-}
-
-void pwm__write(long duty) {
-	long pwm = ((duty - 0) * (50 - 0) / (1023 - 0) + 0);
-	CCPR1L = pwm >> 2;
-}
+#define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
+#define pin__out  0   // pin mode (direction)
+#define pin__in   1
+#define pin__high(PIN_NAME)            PIN_NAME = 1          // LATBbits.LB0 = 1
+#define pin__low(PIN_NAME)             PIN_NAME = 0          // LATBbits.LB0 = 0
+#define pin__read(PIN_NAME)            PIN_NAME ## _i             // PORTBbits.RB0
+#define pin__setup(PIN_NAME, PIN_MODE)     PIN_NAME ## _s = PIN_MODE    // pin_setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+#define pin__write(PIN_NAME,VAL)       PIN_NAME = VAL        // LATBbits.LB0 = 0
 
 void main(void) {
 	main__init();
-	adc__setup();
-	pwm__setup();
+	pin__setup(a0, pin__out);
+	pin__setup(a1, pin__out);
+	pin__setup(a2, pin__out);
 	while(true) {
-		adc__read(0);
-		toml.Any(toml.Null{}) valor = adc__reading();
-		pwm__write(valor);
+		pin__high(a0);
+		time__sleep_ms(200);
+		pin__high(a1);
+		time__sleep_ms(200);
+		pin__high(a2);
+		time__sleep_ms(200);
+		pin__low(a0);
+		pin__low(a1);
+		pin__low(a2);
+		time__sleep_ms(200);
 	}
 }
