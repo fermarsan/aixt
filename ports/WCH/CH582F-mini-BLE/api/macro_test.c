@@ -24,7 +24,7 @@ int main()
     return 0;
 }
 
-// #include "CH57x_common.h"                                
+// #include "CH58x_common.h"                                
 
 // int main(void) {                                
 
