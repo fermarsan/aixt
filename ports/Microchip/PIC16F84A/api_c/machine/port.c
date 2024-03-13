@@ -4,7 +4,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin management functions (PIC16F886 port)
+// Description: Pin management functions (PIC16F84A port)
 
 #define port_setup(PORT_NAME, VALUE)  TRIS ## PORT_NAME = VALUE
 #define port_read(PORT_NAME)          PORT ## PORT_NAME
