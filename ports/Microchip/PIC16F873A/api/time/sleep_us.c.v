@@ -7,4 +7,6 @@
 // Description: Microseconds delay function
 //              (PIC16F873A port)
 
-#define sleep_us(TIME)    __delay_us(TIME)
+module time
+
+#define time__sleep_us(TIME)    __delay_us(TIME)

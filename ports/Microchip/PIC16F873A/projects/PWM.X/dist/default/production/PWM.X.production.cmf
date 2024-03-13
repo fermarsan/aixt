@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
+$C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
 end_init CODE 0 0 0 2 2 1
 config CONFIG 4 2007 2007 1 2 1
 $dist/default/production\PWM.X.production.o
@@ -62,15 +62,15 @@ STRING 800-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\PWM.X.production.o
-7F9 cinit CODE >359:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
-7F9 cinit CODE >362:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
-7F9 cinit CODE >373:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
-7FA cinit CODE >374:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
-7FB cinit CODE >375:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
-7FC cinit CODE >376:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
-7FD cinit CODE >382:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
-7FD cinit CODE >384:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
-7FE cinit CODE >385:C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_1.s
+7F9 cinit CODE >359:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_1.s
+7F9 cinit CODE >362:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_1.s
+7F9 cinit CODE >373:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_1.s
+7FA cinit CODE >374:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_1.s
+7FB cinit CODE >375:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_1.s
+7FC cinit CODE >376:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_1.s
+7FD cinit CODE >382:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_1.s
+7FD cinit CODE >384:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_1.s
+7FE cinit CODE >385:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_1.s
 780 text2 CODE >15:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul16.c
 780 text2 CODE >43:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul16.c
 784 text2 CODE >45:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul16.c
@@ -85,19 +85,19 @@ $dist/default/production\PWM.X.production.o
 79C text2 CODE >49:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul16.c
 7A2 text2 CODE >52:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul16.c
 7A6 text2 CODE >53:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul16.c
-770 text1 CODE >21:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/machine/adc.c
-770 text1 CODE >22:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/machine/adc.c
-773 text1 CODE >23:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/machine/adc.c
-777 text1 CODE >24:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/machine/adc.c
-77F text1 CODE >25:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/machine/adc.c
-7A7 maintext CODE >28:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
-7A7 maintext CODE >30:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
-7B0 maintext CODE >31:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
-7C2 maintext CODE >35:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
-7C9 maintext CODE >36:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
-7D2 maintext CODE >38:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
-7EE maintext CODE >38:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
-7F1 maintext CODE >38:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
+770 text1 CODE >12:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/adc/reading.c.v
+770 text1 CODE >13:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/adc/reading.c.v
+773 text1 CODE >14:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/adc/reading.c.v
+777 text1 CODE >15:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/adc/reading.c.v
+77F text1 CODE >16:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A/api/adc/reading.c.v
+7A7 maintext CODE >17:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
+7A7 maintext CODE >19:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
+7B0 maintext CODE >20:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
+7C2 maintext CODE >24:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
+7C9 maintext CODE >25:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
+7D2 maintext CODE >27:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
+7EE maintext CODE >27:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
+7F1 maintext CODE >27:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\projects\PWM.X\pwm.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -120,43 +120,45 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 0 0 ABS 0 strings -
 _TMR2 11 0 ABS 0 - dist/default/production\PWM.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
+___sp 0 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
 _main F4E 0 CODE 0 maintext dist/default/production\PWM.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\PWM.X.production.o
-start 0 0 CODE 0 init C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
+start 0 0 CODE 0 init C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
 ?___wmul 20 0 BANK0 1 cstackBANK0 dist/default/production\PWM.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
 wtemp0 7E 0 ABS 0 - dist/default/production\PWM.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
-?_adc_reading 20 0 BANK0 1 cstackBANK0 dist/default/production\PWM.X.production.o
 ___wmul@multiplicand 22 0 BANK0 1 cstackBANK0 dist/default/production\PWM.X.production.o
 _ADCON0 1F 0 ABS 0 - dist/default/production\PWM.X.production.o
 _ADCON1 9F 0 ABS 0 - dist/default/production\PWM.X.production.o
 _ADRESH 1E 0 ABS 0 - dist/default/production\PWM.X.production.o
 _ADRESL 9E 0 ABS 0 - dist/default/production\PWM.X.production.o
 _CCPR2L 1B 0 ABS 0 - dist/default/production\PWM.X.production.o
+_adc__reading EE0 0 CODE 0 text1 dist/default/production\PWM.X.production.o
 __end_of___wmul F4E 0 CODE 0 text2 dist/default/production\PWM.X.production.o
 main@pwm 28 0 BANK0 1 cstackBANK0 dist/default/production\PWM.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
-___stacklo 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
+___stackhi 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
+___stacklo 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
 start_initialization FF2 0 CODE 0 cinit dist/default/production\PWM.X.production.o
 _TRISCbits 87 0 ABS 0 - dist/default/production\PWM.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\PWM.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
+__end_of_adc__reading F00 0 CODE 0 text1 dist/default/production\PWM.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
 __Hbank3 0 0 BANK3 1 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
+?_adc__reading 20 0 BANK0 1 cstackBANK0 dist/default/production\PWM.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4010 0 CONFIG 4 config -
@@ -191,8 +193,7 @@ __S1 2C 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 _adc 2A 0 BANK0 1 bssBANK0 dist/default/production\PWM.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\WINDOW~1\AppData\Local\Temp\xcAsluo.\driver_tmp_12.o
-_adc_reading EE0 0 CODE 0 text1 dist/default/production\PWM.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\WINDOW~1\AppData\Local\Temp\xcAs316o.\driver_tmp_12.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __pmaintext F4E 0 CODE 0 maintext dist/default/production\PWM.X.production.o
 __Lcommon 0 0 ABS 0 common -
@@ -231,7 +232,6 @@ _CCP2CON 1D 0 ABS 0 - dist/default/production\PWM.X.production.o
 __initialization FF2 0 CODE 0 cinit dist/default/production\PWM.X.production.o
 __pbssBANK0 2A 0 BANK0 1 bssBANK0 dist/default/production\PWM.X.production.o
 _T2CONbits 12 0 ABS 0 - dist/default/production\PWM.X.production.o
-__end_of_adc_reading F00 0 CODE 0 text1 dist/default/production\PWM.X.production.o
 ___wmul@product 24 0 BANK0 1 cstackBANK0 dist/default/production\PWM.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.

@@ -1,7 +1,9 @@
- forward(motors_ac, 75)
- sleep(500)
- off(motors_ac)
- sleep(1000)
- forward(motors_ac, 75)
- sleep(500)
- float(motors_ac)
+ import motor
+ 
+ motor.forward(ac, 75)
+ sleep_ms(500)
+ motor.off(ac)
+ sleep_ms(1000)
+ motor.forward(ac, 75)
+ sleep_ms(500)
+ motor.float(ac)

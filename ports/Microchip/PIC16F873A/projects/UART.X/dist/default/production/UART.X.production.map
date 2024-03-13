@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\dat\20230322214319_en.msgs \
   -cn -h+dist/default/production\UART.X.production.sym \
   --cmf=dist/default/production\UART.X.production.cmf -z -Q16F873A \
-  -oC:\Users\WINDOW~1\AppData\Local\Temp\xcAsab8.\driver_tmp_3.o \
+  -oC:\Users\WINDOW~1\AppData\Local\Temp\xcAs3upo.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/UART.X.production.map \
-  --md=C:\Users\WINDOW~1\AppData\Local\Temp\xcAsab8.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3upo.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFhx2 -ASTRCODE=00h-0FFFh \
   -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 -AENTRY=00h-0FFhx16 \
   -ABANK0=020h-07Dh -ABANK1=0A0h-0FDh -ARAM=020h-07Dh,0A0h-0FDh \
@@ -20,7 +20,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -k \
-  C:\Users\WINDOW~1\AppData\Local\Temp\xcAsab8.\driver_tmp_17.o \
+  C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3upo.\driver_tmp_17.o \
   dist/default/production\UART.X.production.o 
 
 Object code version is 3.11
@@ -30,7 +30,7 @@ Machine type is 16F873A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\WINDOW~1\AppData\Local\Temp\xcAsab8.\driver_tmp_17.o
+C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3upo.\driver_tmp_17.o
                 end_init                              0        0        2        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\UART.X.production.o
@@ -141,13 +141,15 @@ UNUSED ADDRESS RANGES
 
 ?___lwdiv                cstackBANK0  0020
 ?___lwmod                cstackBANK0  0027
-?_adc_reading            cstackBANK0  0020
+?_adc__reading           cstackBANK0  0020
 ?_sprintf                cstackBANK0  002C
 _ADCON0                  (abs)        001F
 _ADCON0bits              (abs)        001F
 _ADCON1                  (abs)        009F
 _ADRESH                  (abs)        001E
 _ADRESL                  (abs)        009E
+_PIR1bits                (abs)        000C
+_RCREG                   (abs)        001A
 _RCSTAbits               (abs)        0018
 _SPBRG                   (abs)        0099
 _TXIF                    (abs)        0064
@@ -244,7 +246,7 @@ __end_of___lwdiv         text3        06E5
 __end_of___lwmod         text2        069F
 __end_of__initialization cinit        07FD
 __end_of__stringtab      strings      0008
-__end_of_adc_reading     text4        0663
+__end_of_adc__reading    text4        0663
 __end_of_dpowers         strings      0012
 __end_of_main            maintext     0745
 __end_of_sprintf         text1        07F8
@@ -261,7 +263,7 @@ __ptext4                 text4        0653
 __stringbase             strings      0007
 __stringtab              strings      0002
 _adc                     bssBANK0     003F
-_adc_reading             text4        0653
+_adc__reading            text4        0653
 _caracteres              bssBANK0     0041
 _dpowers                 strings      0008
 _main                    maintext     06E5
@@ -292,15 +294,15 @@ wtemp0                   (abs)        007E
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
+./../../api/adc/reading.c.v
+		_adc__reading  		CODE           	0653	0000	16
+
+./../../api/adc/reading.c.v estimated size: 16
+
 uart.c
 		_main          		CODE           	06E5	0000	96
 
 uart.c estimated size: 96
-
-./../../api/machine/adc.c
-		_adc_reading   		CODE           	0653	0000	16
-
-./../../api/machine/adc.c estimated size: 16
 
 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\lwdiv.c
 		___lwdiv       		CODE           	069F	0000	70

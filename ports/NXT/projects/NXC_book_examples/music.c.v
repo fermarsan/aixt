@@ -1,20 +1,40 @@
-#define TIME 200
-#define MAXVOL 7
-#define MINVOL 1
-#define MIDVOL 3
-#define pause_4th sleep(TIME)
-#define pause_8th sleep(TIME/2)
-#define note_4th play_file_ex("! Click.rso",MIDVOL,FALSE); pause_4th
-#define note_8th play_file_ex("! Click.rso",MAXVOL,FALSE); pause_8th
+import sound
 
-play_file_ex("! Startup.rso",MINVOL,FALSE)
-sleep(2000)
-note_4th
-note_8th
-note_8th
-note_4th
-note_4th
-pause_4th
-note_4th
-note_4th
-sleep(100)
+const time = 200
+const maxvol = 7
+const minvol = 1
+const midvol = 3
+
+@[inline]
+fn pause_4th() {
+	sleep_ms(time)
+}
+
+@[inline]
+fn pause_8th() {
+	sleep_ms(time / 2)
+}
+
+@[inline]
+fn note_4th() {
+	sound.play_file_ex('! Click.rso', midvol, false)
+	pause_4th()
+}
+
+@[inline]
+fn note_8th() {
+	sound.play_file_ex('! Click.rso', maxvol, false)
+	pause_8th()
+}
+
+sound.play_file_ex('! Startup.rso', minvol, false)
+sleep_ms(2000)
+note_4th()
+note_8th()
+note_8th()
+note_4th()
+note_4th()
+pause_4th()
+note_4th()
+note_4th()
+sleep_ms(100)

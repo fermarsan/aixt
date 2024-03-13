@@ -1,14 +1,17 @@
-set_sensor_touch(in_1)
-forward(motors_ac, 75)
+import motor
+import sensor
+
+sensor.set_touch(i1)
+motor.forward(ac, 75)
 
 for {
-	if sensor_1 == 1 {
-		reverse(motors_ac, 75) 
-		sleep(300)
+	if sensor.read(i1) == 1 {
+		motor.reverse(ac, 75)
+		sleep_ms(300)
 
-		forward(motor_a, 75) 
-		sleep(300)
-		
-		forward(motors_ac, 75)
+		motor.forward(a, 75)
+		sleep_ms(300)
+
+		motor.forward(ac, 75)
 	}
 }

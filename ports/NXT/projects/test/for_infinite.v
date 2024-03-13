@@ -1,8 +1,8 @@
 for {
-	forward(motors_ab,75)
-	sleep(1000)
-	reverse(motor_a,50)
-	sleep(1000)
-	off(motor_a)
-	sleep(500)
+	motor.forward(ab, 75)
+	sleep_ms(1000)
+	motor.reverse(a, 50)
+	sleep_ms(1000)
+	motor.off(a)
+	sleep_ms(500)
 }

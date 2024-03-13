@@ -121,11 +121,13 @@
 #define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 #define pin__out  0   // pin mode (direction)
 #define pin__in   1
+
 #define pin__high(PIN_NAME)            PIN_NAME = 1          // LATBbits.LB0 = 1
 #define pin__low(PIN_NAME)             PIN_NAME = 0          // LATBbits.LB0 = 0
 #define pin__read(PIN_NAME)            PIN_NAME ## _i             // PORTBbits.RB0
 #define pin__setup(PIN_NAME, PIN_MODE)     PIN_NAME ## _s = PIN_MODE    // pin_setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
 #define pin__write(PIN_NAME,VAL)       PIN_NAME = VAL        // LATBbits.LB0 = 0
+
 
 void main(void) {
 	main__init();
