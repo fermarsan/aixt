@@ -37,45 +37,27 @@ int_literal = "=== NOT SUPPORTED ==="
 u8 =    "unsigned char"
 u16 =   "unsigned short"
 u16 =   "unsigned int"
-u24 =   "unsigned short long"
 u32 =   "unsigned long"
 u32 =   "unsigned long long"
 u64 =   "=== NOT SUPPORTED ==="
 usize = "=== NOT SUPPORTED ==="
 
-f24 = "float"
 f32 = "float"
 f64 = "=== NOT SUPPORTED ==="
 float_literal = "=== NOT SUPPORTED ==="
 
-rune =  "=== NOT SUPPORTED ==="
+rune =  "char"
 string = "char []"
 
 mutex = "=== NOT SUPPORTED ==="
 
-main_ret_type = "int"
+main_ret_type = ""
 main_params =   ""   
-
-headers = [ 
-    "xc.h"
-]
-
-macros = [
-    "XTAL_FREQ 4000000"
-]
-
-config_operator = "#pragma config"
-
-configuration = [
-    "FOSC = HS",
-    "WDTE = OFF",
-    "PWRTE = OFF",
-    "CP = OFF" 
-    ]
 
 initialization = []
 
 [api_functions]
+pin_setup   =   "machine/pin"
 pin_high    =   "machine/pin"
 pin_low     =   "machine/pin"
 pin_write   =   "machine/pin"
