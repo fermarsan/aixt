@@ -2,8 +2,13 @@
 // Author: Fernando Martínez Santa
 // Date: 2022-2024
 // License: MIT
-//
-// Description: Pin management functions (Explorer16-PIC24 port)
 module pin
 
-#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
+// write macro writes a binary value on an output pin. This is expanded in this way:
+//   pin.write(b2, value)
+//     |
+//	   +-->	b2 = value
+//	          |
+//	          +-->	PORTBbits.PORTB2 = value	// PIC16	
+// 	          		LATBbits.LATB2 = value		// (PIC18, PIC24, dsPIC33)
+#define pin__write(PIN_NAME, VALUE) PIN_NAME = VALUE

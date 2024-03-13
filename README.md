@@ -14,54 +14,58 @@ This diagram shows the Aixt blocks and their interactions:
 ```mermaid
 stateDiagram-v2
 
-    Aixt: Aixt language
+    Aixt: Aixt (V-based)
     state Aixt {
         source: Source code
-        API
+
+        API: Microcontroller API    
+        state API {
+            PICs: PIC
+            ATM: AT
+            ESP
+            RP2040
+            PSoC
+            others2: ...
+            NXT: NXT brick
+        }
     }
 
-    Aixt2C: Aixt to C Transpiler
+
+
+    Aixt2C: Transpiler
     state Aixt2C {
-        Transpiler: Transpiler (V)
-        setup: setup file (TOML)
+        state V {
+            Transpiler: Transpiler
+        }
+        
+        state TOML {
+            setup: Setup file
+        }
     }
 
-    C: C language
+    C: C
     state C {
         Tr_Code: Transpiled code
-        API_C: API in C
     }
 
-    state Microcontroller {
-        PICs: PIC
-        ATM: AT
-        ESP
-        RP2040
-        others2: ...
-        NXT: NXT brick
-    }
-
-    C_Compiler: C Compiler
-    state C_Compiler {
-        others: ...
+    state Compiler {
         XC8
         XC16
-        ImageCraft
+        Arduino
         GCC
-        others
+        others: ...
         nbc: nbc (NXC)
     }
 
-    machine
     state machine {
         BF: Binary file
     }
 
-    Aixt    --> Aixt2C
-    Aixt2C  --> Tr_Code
-    C       --> C_Compiler
-    C_Compiler  --> machine
-    Microcontroller --> API_C
+    source --> Aixt2C
+    API --> Aixt2C
+    Aixt2C --> C
+    C --> Compiler
+    Compiler --> machine
 ```
 
 Aixt is designed as modular as possible to facilitate the incorporation of new devices and boards. This is mainly possible by using a configuration file (in TOML format) instead of creating new source code for each new device. That `.TOML` file contains the specific parameters of each device, board or compiler such as: variable types, initialization commands, compiler paths, etc.
@@ -118,7 +122,7 @@ for {   //infinite loop
 
 ## Aixt API
 
-The **Aixt API** is inspired by the _Micropython_, _Arduino_ and _Tinygo_ projects. The API for all the ports includes at least functions for:
+The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API for all the ports includes at least functions for:
 
 - Digital input/output
 - Analog inputs (ADC)

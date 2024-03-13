@@ -10,20 +10,8 @@
 
 
 
-
-
-#pragma config FOSC = INTRCIO
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config BOREN = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-
-
-
-
-
+# 1 "./../../api/builtin.c.v" 1
+# 12 "./../../api/builtin.c.v"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1176,17 +1164,141 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 17 "adc.c" 2
+# 12 "./../../api/builtin.c.v" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
 
 
-# 1 "./..\\..\\api\\machine\\adc.c" 1
-# 19 "adc.c" 2
 
-# 1 "./../../api/builtin.c" 1
-# 20 "adc.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__size_t.h" 1 3
 
-# 1 "./../../api/machine/pin.c" 1
-# 21 "adc.c" 2
+
+
+typedef unsigned size_t;
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__null.h" 1 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdarg.h" 1 3
+
+
+
+
+
+
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
+{
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 9 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 86 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 13 "./../../api/builtin.c.v" 2
+
+
+
+
+#pragma config FOSC = INTRCIO
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config BOREN = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+# 4 "adc.c" 2
+
+# 1 "./../../api/adc/adc.c.v" 1
+# 5 "adc.c" 2
+
+# 1 "./../../api/adc/setup.c.v" 1
+# 6 "adc.c" 2
+
+# 1 "./../../api/adc/read.c.v" 1
+# 7 "adc.c" 2
+
+# 1 "./../../api/pin/pin.c.v" 1
+# 8 "adc.c" 2
+
+# 1 "./../../api/pin/setup.c.v" 1
+# 9 "adc.c" 2
+
+# 1 "./../../api/pin/high.c.v" 1
+# 10 "adc.c" 2
+
+# 1 "./../../api/pin/low.c.v" 1
+# 11 "adc.c" 2
+
+# 1 "./../../api/pin/read.c.v" 1
+# 12 "adc.c" 2
+
+# 1 "./../../api/pin/write.c.v" 1
+# 13 "adc.c" 2
 
 
 unsigned int adc_result;
@@ -1207,11 +1319,11 @@ void main(void) {
     PORTCbits.RC4 = 0;
     PORTCbits.RC5 = 0;
 
-    ANSEL = 0b00000100; ADCON0 = 0b10000000; ADCON1 = 0b00110000; ADCON0bits.ADON = 1;;
+    ; ANSEL = 0b00000100; ADCON0 = 0b10000000; ADCON1 = 0b00110000; ADCON0bits.ADON = 1;
 
     while(1){
 
-        adc_result = ADCON0bits.CHS = 0; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = ((ADRESH << 8) | ADRESL); adc_result;
+        adc_result = ADCON0bits.CHS = 2; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = (ADRESH << 8) | ADRESL; adc_result;
 
         if ( adc_result >= 1020 ){
 

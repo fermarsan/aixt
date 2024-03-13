@@ -1,0 +1,60 @@
+# Project Name = Aixt, https =//github.com/fermarsan/aixt.git
+# Author = Fernando Martínez Santa - Stiven Cortazar Cortazar - Yesid Reyes Tique
+# Date = 2022-2024
+# License = MIT
+#
+# Description = This is the setup file for the Ai-WB2-32S-Kit
+#               port of Aixt project 
+port =    "Ai-WB2-32S-Kit"
+device =  "2ATPO-AIWB2"
+board =   "Ai-WB2-32S-Kit"
+backend = "arduino"
+
+cc_linux =   "xc16"
+cc_windows = "C:\\Program Files\\Arduino IDE.exe"
+cc_flags =   "-o"
+
+path = "Ai-Thinker/Ai-WB2-32S-Kit"
+
+fixed_size_arrays  = "true"
+array_default_len  = 20
+
+fixed_size_strings = "true"
+string_default_len = 80
+
+void =  "void"
+bool =  "bool"
+
+i8 =    "int8_t"  #"char"
+i16 =   "int16_t"
+int =   "int32_t"
+i64 =   "int64_t"
+isize = "int32_t"
+int_literal = "int32_t"
+
+u8 =    "uint8_t"
+u16 =   "uint16_t"
+u32 =   "uint32_t"
+u64 =   "uint64_t"
+usize = "uint32_t"
+
+f32 = "float"
+f64 = "=== NOT SUPPORTED ==="
+float_literal = "float"
+
+rune =  "char"
+string = "char []"
+
+mutex = "=== NOT SUPPORTED ==="
+
+main_ret_type = "int"
+main_params =   "void "   
+
+api_modules = [
+    "pin",
+    "pwm",
+    "uart",
+    "time"
+]
+
+[aliases]

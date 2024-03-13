@@ -86,6 +86,7 @@ void main()
     ADCON0 = 0x00;                          // Selecciona el canal 0 del ADC
     ADCON2 = 0x97;                          // Configura el tiempo de adquisicion
     ADCON0bits.ADON = 1;                    // Habilita el conversor */
+ 
     adc_setup();
     
     /*PR2 = 0xC;                             // Valor del periodo
@@ -95,19 +96,23 @@ void main()
     CCP1CON = 0x0C;                         // Configura el CCP1 en modo PWM
     TMR2 = 0;                               // Timer 2 en 0
     T2CONbits.TMR2ON = 1;                   // Timer 2 ON */
+ 
     pwm_setup(1,2);
     
     while(1)
     {
         /* ADCON0bits.GO_DONE = 1;
         while(ADCON0bits.GO_DONE == 1); */
+ 
         adc_read(0);
 
        /* int valor_adc = ADRES; */
+ 
         int valor_adc = adc_reading();
 
         /*unsigned char valor_pwm = map(valor_adc, 0, 1023, 0, 50);
         CCPR1L = (valor_pwm >> 2); */
+ 
         pwm_write(valor_adc,1);  
     }
 }

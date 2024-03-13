@@ -107,16 +107,16 @@ void main(void) {
     pin_write(b4, 0);
     pin_write(b5, 0);
     pin_write(b6, 0);
-    pin_write(b7, 0);
+    pin_write(b7, 0);  
    
    // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
-    pin_setup(c7_s,1)
+    pin_setup(c7_s,1); //;
 
    // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
     uart_setup();               
 
      while (1) {
-         PORTB=rx_read();
+         val=rx_read();   // port_write (b_o, val)
      }
     return;
-}
+} 

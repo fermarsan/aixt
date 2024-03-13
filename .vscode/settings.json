@@ -1,9 +1,10 @@
 {
-    "aixt_linux":   "./aixt.v",
-    "aixt_windows": ".\\aixt.v",
-    "device":       "device_name",
+    "aixt_linux":   ".",
+    "aixt_windows": ".",
+    "device":       "PIC16F676",
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",
-    }
+    },
+    "cSpell.language": "en,es-ES",
 }

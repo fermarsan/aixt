@@ -15,3 +15,7 @@ enum Channel_names {
 __global (
     value__ = 0
 )
+
+fn init() {
+    
+}

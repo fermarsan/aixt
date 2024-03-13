@@ -19,9 +19,11 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		transpiler_path:	aixt_path
 		source_paths: 		[]string{}
 		out: 				''
-		includes: 			[]string{}	
-		macros: 			[]string{}	
+		c_preproc_cmds:		[]string{}	
+		// includes: 		[]string{}	
+		// macros: 			[]string{}	
 		definitions: 		[]string{}	
+		init_cmds:			''
 		cur_fn: 			'main'
 		file_count: 		0
 		level_cont: 		0
@@ -32,6 +34,8 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	c_gen.pref.is_script = true
 	c_gen.pref.enable_globals = true
 	
+
+	// println('\n\n+++++++${path}++++++++\n\n')
 	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
 	if transpiled != '' {

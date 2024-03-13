@@ -5,6 +5,13 @@
 module main
 
 #include <stdbool.h>
+#include <stdlib.h>
+
+#if defined(__linux) || defined(linux)
+#define CLEAR_SCREEN    "clear" // for Linux
+#else
+#define CLEAR_SCREEN    "cls"   // for Windows
+#endif 
 
 // Pin_names is the enumerated type for the pin names
 enum Pin_names {
@@ -20,5 +27,5 @@ enum Pin_names {
 
 // init function call setup or initialization code
 fn init() {
-    // my_var := 3.45
+    printf('\033[1;37m')    // white bold text in terminal
 }

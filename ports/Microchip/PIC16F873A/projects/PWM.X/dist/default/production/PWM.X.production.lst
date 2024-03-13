@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Fri Jan 12 10:08:23 2024
+                                                                                               Fri Mar 01 01:24:05 2024
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	16F873A
@@ -209,7 +209,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    195                           
    196                           	psect	cstackCOMMON
    197     0000                     __pcstackCOMMON:
-   198     0000                     ??_adc_reading:
+   198     0000                     ??_adc__reading:
    199     0000                     ??___wmul:	
    200                           ; 1 bytes @ 0x0
    201                           
@@ -219,7 +219,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    205                           ; 1 bytes @ 0x0
    206                           
    207     0020                     ?_main:
-   208     0020                     ?_adc_reading:	
+   208     0020                     ?_adc__reading:	
    209                           ; 1 bytes @ 0x0
    210                           
    211     0020                     ?___wmul:	
@@ -255,7 +255,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    241 ;;
    242 ;; *************** function _main *****************
    243 ;; Defined at:
-   244 ;;		line 28 in file "pwm.c"
+   244 ;;		line 17 in file "pwm.c"
    245 ;; Parameters:    Size  Location     Type
    246 ;;		None
    247 ;; Auto vars:     Size  Location     Type
@@ -277,7 +277,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    263 ;; Hardware stack levels required when called: 1
    264 ;; This function calls:
    265 ;;		___wmul
-   266 ;;		_adc_reading
+   266 ;;		_adc__reading
    267 ;; This function is called by:
    268 ;;		Startup code after reset
    269 ;; This function uses a non-reentrant model
@@ -291,7 +291,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    277                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
    278                           
    279                           
-   280                           ;pwm.c: 30:     ADCON1 = 0b10000000; ADCON0 = 0b11001000; ADCON0bits.ADON = 1;
+   280                           ;pwm.c: 19:     ADCON1 = 0b10000000; ADCON0 = 0b11001000; ADCON0bits.ADON = 1;
    281     07A7  3080               	movlw	128
    282     07A8  1683               	bsf	3,5	;RP0=1, select bank1
    283     07A9  1303               	bcf	3,6	;RP1=0, select bank1
@@ -303,7 +303,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    289     07AF                     l698:
    290     07AF  141F               	bsf	31,0	;volatile
    291                           
-   292                           ;pwm.c: 31:     PR2 = 0x3E; CCPR2L = 0; TRISCbits.TRISC1 = 0; T2CON = 0b00000011; CCP2CO
+   292                           ;pwm.c: 20:     PR2 = 0x3E; CCPR2L = 0; TRISCbits.TRISC1 = 0; T2CON = 0b00000011; CCP2CO
       +                          N = 0b00001100; TMR2 = 0; T2CONbits.TMR2ON = 1;;
    293     07B0  303E               	movlw	62
    294     07B1  1683               	bsf	3,5	;RP0=1, select bank1
@@ -331,25 +331,25 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    316     07C1  1512               	bsf	18,2	;volatile
    317     07C2                     l712:
    318                           
-   319                           ;pwm.c: 35:         ADCON0bits.CHS = 2; adc_reading();
+   319                           ;pwm.c: 24:         ADCON0bits.CHS = 2; adc__reading();
    320     07C2  081F               	movf	31,w	;volatile
    321     07C3  39C7               	andlw	-57
    322     07C4  3810               	iorlw	16
    323     07C5  009F               	movwf	31	;volatile
    324     07C6                     l714:
-   325     07C6  118A  2770  118A   	fcall	_adc_reading
+   325     07C6  118A  2770  118A   	fcall	_adc__reading
    326                           
-   327                           ;pwm.c: 36:         adc = adc_reading();
-   328     07C9  118A  2770  118A   	fcall	_adc_reading
+   327                           ;pwm.c: 25:         adc = adc__reading();
+   328     07C9  118A  2770  118A   	fcall	_adc__reading
    329     07CC  1283               	bcf	3,5	;RP0=0, select bank0
    330     07CD  1303               	bcf	3,6	;RP1=0, select bank0
-   331     07CE  0821               	movf	?_adc_reading+1,w
+   331     07CE  0821               	movf	?_adc__reading+1,w
    332     07CF  00AB               	movwf	_adc+1
-   333     07D0  0820               	movf	?_adc_reading,w
+   333     07D0  0820               	movf	?_adc__reading,w
    334     07D1  00AA               	movwf	_adc
    335     07D2                     l716:
    336                           
-   337                           ;pwm.c: 38:         { unsigned int pwm; pwm = ((adc - 0) * (60 - 0) / (256 - 0) + 0); CC
+   337                           ;pwm.c: 27:         { unsigned int pwm; pwm = ((adc - 0) * (60 - 0) / (256 - 0) + 0); CC
       +                          PR2L = (pwm >> 2); };
    338     07D2  082B               	movf	_adc+1,w
    339     07D3  00A1               	movwf	___wmul@multiplier+1
@@ -392,9 +392,9 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    376                           
    377                           	psect	text1
    378     0770                     __ptext1:	
-   379 ;; *************** function _adc_reading *****************
+   379 ;; *************** function _adc__reading *****************
    380 ;; Defined at:
-   381 ;;		line 21 in file "./../../api/machine/adc.c"
+   381 ;;		line 12 in file "./../../api/adc/reading.c.v"
    382 ;; Parameters:    Size  Location     Type
    383 ;;		None
    384 ;; Auto vars:     Size  Location     Type
@@ -421,20 +421,20 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    405 ;; This function uses a non-reentrant model
    406 ;;
    407                           
-   408     0770                     _adc_reading:	
-   409                           ;psect for function _adc_reading
+   408     0770                     _adc__reading:	
+   409                           ;psect for function _adc__reading
    410                           
    411     0770                     l676:	
    412                           ;incstack = 0
-   413                           ; Regs used in _adc_reading: [wreg]
+   413                           ; Regs used in _adc__reading: [wreg]
    414                           
    415                           
-   416                           ;./../../api/machine/adc.c: 22:     ADCON0bits.GO_DONE = 1;
+   416                           ;./../../api/adc/reading.c.v: 13:     ADCON0bits.GO_DONE = 1;
    417     0770  1283               	bcf	3,5	;RP0=0, select bank0
    418     0771  1303               	bcf	3,6	;RP1=0, select bank0
    419     0772  151F               	bsf	31,2	;volatile
    420     0773                     l27:	
-   421                           ;./../../api/machine/adc.c: 23:     while (ADCON0bits.GO_DONE == 1);
+   421                           ;./../../api/adc/reading.c.v: 14:     while (ADCON0bits.GO_DONE == 1);
    422                           
    423     0773  191F               	btfsc	31,2	;volatile
    424     0774  2F76               	goto	u61
@@ -444,18 +444,18 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    428     0777                     u60:
    429     0777                     l678:
    430                           
-   431                           ;./../../api/machine/adc.c: 24:     return ((ADRESH << 8) | ADRESL);
+   431                           ;./../../api/adc/reading.c.v: 15:     return (ADRESH << 8) | ADRESL;
    432     0777  081E               	movf	30,w	;volatile
-   433     0778  00A1               	movwf	?_adc_reading+1
+   433     0778  00A1               	movwf	?_adc__reading+1
    434     0779  1683               	bsf	3,5	;RP0=1, select bank1
    435     077A  1303               	bcf	3,6	;RP1=0, select bank1
    436     077B  081E               	movf	30,w	;volatile
    437     077C  1283               	bcf	3,5	;RP0=0, select bank0
    438     077D  1303               	bcf	3,6	;RP1=0, select bank0
-   439     077E  00A0               	movwf	?_adc_reading
+   439     077E  00A0               	movwf	?_adc__reading
    440     077F                     l30:
    441     077F  0008               	return
-   442     0780                     __end_of_adc_reading:
+   442     0780                     __end_of_adc__reading:
    443                           
    444                           	psect	text2
    445     0780                     __ptext2:	
@@ -614,9 +614,9 @@ Call Graph Tables:
  (0) _main                                                 4     4      0     267
                                               6 BANK0      4     4      0
                              ___wmul
-                        _adc_reading
+                       _adc__reading
  ---------------------------------------------------------------------------------
- (1) _adc_reading                                          2     0      2       0
+ (1) _adc__reading                                         2     0      2       0
                                               0 BANK0      2     0      2
  ---------------------------------------------------------------------------------
  (1) ___wmul                                               6     2      4     244
@@ -629,7 +629,7 @@ Call Graph Tables:
 
  _main (ROOT)
    ___wmul
-   _adc_reading
+   _adc__reading
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -656,7 +656,7 @@ DATA                 0      0       C       8        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Fri Jan 12 10:08:23 2024
+Symbol Table                                                                                   Fri Mar 01 01:24:05 2024
 
                      l30 077F                       l27 0773                       u60 0777  
                      u61 0776                       u70 0788                       u71 0787  
@@ -671,16 +671,16 @@ Symbol Table                                                                    
                     l698 07AF                      u100 07A2                      u101 07A1  
                     _PR2 0092                      _adc 002A                     _TMR2 0011  
                    _main 07A7                     btemp 007E                     start 0000  
-                  ?_main 0020                    _T2CON 0012                    status 0003  
-                  wtemp0 007E          __initialization 07F9             __end_of_main 07F9  
-                 ??_main 0026                   _ADCON0 001F                   _ADCON1 009F  
-                 _ADRESH 001E                   _ADRESL 009E                   _CCPR2L 001B  
-                 ___wmul 0780  __end_of__initialization 07FD           __pcstackCOMMON 0000  
-             __pbssBANK0 002A               __pmaintext 07A7                  ?___wmul 0020  
-                _CCP2CON 001D            ??_adc_reading 0000                  __ptext1 0770  
-                __ptext2 0780                _T2CONbits 0012      __end_of_adc_reading 0780  
-                main@pwm 0028     end_of_initialization 07FD                _TRISCbits 0087  
-         __end_of___wmul 07A7              _adc_reading 0770      start_initialization 07F9  
-               ??___wmul 0000                ___latbits 0001            __pcstackBANK0 0020  
+           _adc__reading 0770                    ?_main 0020                    _T2CON 0012  
+                  status 0003                    wtemp0 007E          __initialization 07F9  
+           __end_of_main 07F9                   ??_main 0026                   _ADCON0 001F  
+                 _ADCON1 009F                   _ADRESH 001E                   _ADRESL 009E  
+                 _CCPR2L 001B                   ___wmul 0780  __end_of__initialization 07FD  
+         __pcstackCOMMON 0000               __pbssBANK0 002A               __pmaintext 07A7  
+                ?___wmul 0020                  _CCP2CON 001D                  __ptext1 0770  
+                __ptext2 0780                _T2CONbits 0012                  main@pwm 0028  
+   end_of_initialization 07FD                _TRISCbits 0087           __end_of___wmul 07A7  
+    start_initialization 07F9                 ??___wmul 0000            ?_adc__reading 0020  
+              ___latbits 0001            __pcstackBANK0 0020           ??_adc__reading 0000  
          ___wmul@product 0024               _ADCON0bits 001F        ___wmul@multiplier 0020  
-           ?_adc_reading 0020  
+   __end_of_adc__reading 0780  

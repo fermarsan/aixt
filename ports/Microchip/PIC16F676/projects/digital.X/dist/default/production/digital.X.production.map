@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\dat\20230322214319_en.msgs \
   -cn -h+dist/default/production\digital.X.production.sym \
   --cmf=dist/default/production\digital.X.production.cmf -z -Q16F676 \
-  -oC:\Users\WINDOW~1\AppData\Local\Temp\xcAsaqc.\driver_tmp_3.o \
+  -oC:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/digital.X.production.map \
-  --md=C:\Users\WINDOW~1\AppData\Local\Temp\xcAsaqc.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-03FEh -ASTRCODE=00h-03FEh \
   -ASTRING=00h-0FFhx3,0300h-03FEh -ACONST=00h-0FFhx3,0300h-03FEh \
   -AENTRY=00h-0FFhx3,0300h-03FEh -ABANK0=020h-05Dh -ARAM=020h-05Dh \
@@ -19,7 +19,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -posccal=03FFh -k \
-  C:\Users\WINDOW~1\AppData\Local\Temp\xcAsaqc.\driver_tmp_12.o \
+  C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o \
   dist/default/production\digital.X.production.o 
 
 Object code version is 3.11
@@ -29,7 +29,7 @@ Machine type is 16F676
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\WINDOW~1\AppData\Local\Temp\xcAsaqc.\driver_tmp_12.o
+C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
                 end_init                              0        0        1        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\digital.X.production.o

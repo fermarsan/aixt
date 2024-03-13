@@ -16,16 +16,19 @@ fn (mut gen Gen) import_stmt(node ast.Import) string {
 
 	if base_mod_name in api_modules {	// API modules
 		module_path := '${gen.transpiler_path}/ports/${port_path}/api/${base_mod_name}'	
-		if node.syms.len == 0 {
+		gen.parse_cgen_file('${module_path}/${base_mod_name}.c.v')	// parse `module_name.c.v` first
+		gen.init_cmds += '${base_mod_name}__init();\n'	// call the module initialization function
+		if node.syms.len == 0 {	// if import all the module
 			file_paths := os.ls('${module_path}') or { [] }
-			println('############# ${file_paths} #############')
+			// println('############# ${file_paths} #############')
 			for file_path in file_paths {
 				if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
-					gen.parse_cgen_file(os.abs_path('${module_path}/${file_path}'))
+					if file_path != '${base_mod_name}.c.v' {	// ommit `module_name.c.v`
+						gen.parse_cgen_file(os.abs_path('${module_path}/${file_path}'))
+					}
 				}
 			}
-		} else {
-			gen.parse_cgen_file('${module_path}/${base_mod_name}.c.v') // base module file
+		} else {	// if import specific module components
 			for s in node.syms {
 				gen.parse_cgen_file(os.abs_path('${module_path}/${s.name}.c.v'))
 			}
