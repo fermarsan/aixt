@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Sun Feb 11 10:51:07 2024
+                                                                                               Mon Mar 04 07:36:41 2024
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	16F873A
@@ -259,13 +259,13 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    245                           
    246                           	psect	cstackCOMMON
    247     0000                     __pcstackCOMMON:
-   248     0000                     ??_uart_read:
+   248     0000                     ??_uart__read:
    249                           
    250                           	psect	cstackBANK0
    251     0020                     __pcstackBANK0:	
    252                           ; 1 bytes @ 0x0
    253                           
-   254     0020                     ?_uart_read:
+   254     0020                     ?_uart__read:
    255     0020                     ?_main:	
    256                           ; 1 bytes @ 0x0
    257                           
@@ -315,7 +315,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    301 ;;
    302 ;; *************** function _main *****************
    303 ;; Defined at:
-   304 ;;		line 29 in file "recepcionUART.c"
+   304 ;;		line 19 in file "recepcionUART.c"
    305 ;; Parameters:    Size  Location     Type
    306 ;;		None
    307 ;; Auto vars:     Size  Location     Type
@@ -343,7 +343,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    329 ;;Total ram usage:       14 bytes
    330 ;; Hardware stack levels required when called: 1
    331 ;; This function calls:
-   332 ;;		_uart_read
+   332 ;;		_uart__read
    333 ;; This function is called by:
    334 ;;		Startup code after reset
    335 ;; This function uses a non-reentrant model
@@ -357,32 +357,32 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    343                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
    344                           
    345                           
-   346                           ;recepcionUART.c: 31:     ADCON1bits.PCFG = 0;
+   346                           ;recepcionUART.c: 21:     ADCON1bits.PCFG = 0;
    347     074A  30F0               	movlw	-16
    348     074B  1683               	bsf	3,5	;RP0=1, select bank1
    349     074C  1303               	bcf	3,6	;RP1=0, select bank1
    350     074D  059F               	andwf	31,f	;volatile
    351     074E                     l768:
    352                           
-   353                           ;recepcionUART.c: 33:     TRISBbits.TRISB0 = 0;
+   353                           ;recepcionUART.c: 23:     TRISBbits.TRISB0 = 0;
    354     074E  1006               	bcf	6,0	;volatile
    355     074F                     l770:
    356                           
-   357                           ;recepcionUART.c: 34:     TRISBbits.TRISB1 = 0;
+   357                           ;recepcionUART.c: 24:     TRISBbits.TRISB1 = 0;
    358     074F  1086               	bcf	6,1	;volatile
    359     0750                     l772:
    360                           
-   361                           ;recepcionUART.c: 36:     PORTBbits.RB0 = 0;
+   361                           ;recepcionUART.c: 26:     PORTBbits.RB0 = 0;
    362     0750  1283               	bcf	3,5	;RP0=0, select bank0
    363     0751  1303               	bcf	3,6	;RP1=0, select bank0
    364     0752  1006               	bcf	6,0	;volatile
    365     0753                     l774:
    366                           
-   367                           ;recepcionUART.c: 37:     PORTBbits.RB1 = 0;
+   367                           ;recepcionUART.c: 27:     PORTBbits.RB1 = 0;
    368     0753  1086               	bcf	6,1	;volatile
    369     0754                     l776:
    370                           
-   371                           ;recepcionUART.c: 39:     SPBRG = 51; TXSTAbits.SYNC = 0; TXSTAbits.BRGH = 1; RCSTAbits.
+   371                           ;recepcionUART.c: 29:     SPBRG = 51; TXSTAbits.SYNC = 0; TXSTAbits.BRGH = 1; RCSTAbits.
       +                          SPEN = 1; TXSTAbits.TXEN = 1; RCSTAbits.CREN = 1;;
    372     0754  3033               	movlw	51
    373     0755  1683               	bsf	3,5	;RP0=1, select bank1
@@ -406,7 +406,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    391     0762  1618               	bsf	24,4	;volatile
    392     0763                     l788:
    393                           
-   394                           ;recepcionUART.c: 43:         if((PIR1bits.RCIF ? 1 : 0)> 0){
+   394                           ;recepcionUART.c: 33:         if((PIR1bits.RCIF ? 1 : 0)> 0){
    395     0763  1E8C               	btfss	12,5	;volatile
    396     0764  2F66               	goto	u141
    397     0765  2F67               	goto	u140
@@ -415,21 +415,21 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    400     0767                     u140:
    401     0767                     l790:
    402                           
-   403                           ;recepcionUART.c: 45:             datos = uart_read();
-   404     0767  118A  273B  118A   	fcall	_uart_read
+   403                           ;recepcionUART.c: 35:             datos = uart__read();
+   404     0767  118A  273B  118A   	fcall	_uart__read
    405     076A  1283               	bcf	3,5	;RP0=0, select bank0
    406     076B  1303               	bcf	3,6	;RP1=0, select bank0
    407     076C  00AE               	movwf	_datos
    408     076D  2FE2               	goto	l818
    409     076E                     l37:	
-   410                           ;recepcionUART.c: 51:             case 'a':
+   410                           ;recepcionUART.c: 41:             case 'a':
    411                           
    412                           
-   413                           ;recepcionUART.c: 53:                 PORTBbits.RB0 = 1;
+   413                           ;recepcionUART.c: 43:                 PORTBbits.RB0 = 1;
    414     076E  1406               	bsf	6,0	;volatile
    415     076F                     l792:
    416                           
-   417                           ;recepcionUART.c: 54:                 { char caracter; for (int i = 0; (caracter = ("led
+   417                           ;recepcionUART.c: 44:                 { char caracter; for (int i = 0; (caracter = ("led
       +                          1: Encendido\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
    418     076F  01A2               	clrf	main@i
    419     0770  01A3               	clrf	main@i+1
@@ -465,14 +465,14 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    449     078A                     u160:
    450     078A  2F63               	goto	l788
    451     078B                     l45:	
-   452                           ;recepcionUART.c: 57:             case 'b':
+   452                           ;recepcionUART.c: 47:             case 'b':
    453                           
    454                           
-   455                           ;recepcionUART.c: 59:                 PORTBbits.RB0 = 0;
+   455                           ;recepcionUART.c: 49:                 PORTBbits.RB0 = 0;
    456     078B  1006               	bcf	6,0	;volatile
    457     078C                     l798:
    458                           
-   459                           ;recepcionUART.c: 60:                 { char caracter; for (int i = 0; (caracter = ("led
+   459                           ;recepcionUART.c: 50:                 { char caracter; for (int i = 0; (caracter = ("led
       +                          1: Apagado\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
    460     078C  01A4               	clrf	main@i_247
    461     078D  01A5               	clrf	main@i_247+1
@@ -508,14 +508,14 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    491     07A7                     u180:
    492     07A7  2F63               	goto	l788
    493     07A8                     l52:	
-   494                           ;recepcionUART.c: 63:             case 'q':
+   494                           ;recepcionUART.c: 53:             case 'q':
    495                           
    496                           
-   497                           ;recepcionUART.c: 65:                 PORTBbits.RB1 = 1;
+   497                           ;recepcionUART.c: 55:                 PORTBbits.RB1 = 1;
    498     07A8  1486               	bsf	6,1	;volatile
    499     07A9                     l804:
    500                           
-   501                           ;recepcionUART.c: 66:                 { char caracter; for (int i = 0; (caracter = ("led
+   501                           ;recepcionUART.c: 56:                 { char caracter; for (int i = 0; (caracter = ("led
       +                          1: Encendido\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
    502     07A9  01A6               	clrf	main@i_250
    503     07AA  01A7               	clrf	main@i_250+1
@@ -551,14 +551,14 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    533     07C4                     u200:
    534     07C4  2F63               	goto	l788
    535     07C5                     l59:	
-   536                           ;recepcionUART.c: 69:             case 'w':
+   536                           ;recepcionUART.c: 59:             case 'w':
    537                           
    538                           
-   539                           ;recepcionUART.c: 71:                 PORTBbits.RB1 = 0;
+   539                           ;recepcionUART.c: 61:                 PORTBbits.RB1 = 0;
    540     07C5  1086               	bcf	6,1	;volatile
    541     07C6                     l810:
    542                           
-   543                           ;recepcionUART.c: 72:                 { char caracter; for (int i = 0; (caracter = ("led
+   543                           ;recepcionUART.c: 62:                 { char caracter; for (int i = 0; (caracter = ("led
       +                          1: Apagado\r\n")[i]); ++i) { while (!TXIF); TXREG = caracter; } };
    544     07C6  01A8               	clrf	main@i_253
    545     07C7  01A9               	clrf	main@i_253+1
@@ -642,9 +642,9 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    622                           
    623                           	psect	text1
    624     073B                     __ptext1:	
-   625 ;; *************** function _uart_read *****************
+   625 ;; *************** function _uart__read *****************
    626 ;; Defined at:
-   627 ;;		line 33 in file "./../../api/machine/uart.c"
+   627 ;;		line 13 in file "./../../api/uart/read.c.v"
    628 ;; Parameters:    Size  Location     Type
    629 ;;		None
    630 ;; Auto vars:     Size  Location     Type
@@ -671,15 +671,15 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    651 ;; This function uses a non-reentrant model
    652 ;;
    653                           
-   654     073B                     _uart_read:	
-   655                           ;psect for function _uart_read
+   654     073B                     _uart__read:	
+   655                           ;psect for function _uart__read
    656                           
    657     073B                     l758:	
    658                           ;incstack = 0
-   659                           ; Regs used in _uart_read: [wreg]
+   659                           ; Regs used in _uart__read: [wreg]
    660                           
    661     073B                     l23:	
-   662                           ;./../../api/machine/uart.c: 35:     while(PIR1bits.RCIF == 0);
+   662                           ;./../../api/uart/read.c.v: 15:     while(PIR1bits.RCIF == 0);
    663                           
    664     073B  1283               	bcf	3,5	;RP0=0, select bank0
    665     073C  1303               	bcf	3,6	;RP1=0, select bank0
@@ -691,7 +691,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    671     0741                     u120:
    672     0741                     l25:
    673                           
-   674                           ;./../../api/machine/uart.c: 36:     if(RCSTAbits.OERR == 1)
+   674                           ;./../../api/uart/read.c.v: 16:     if(RCSTAbits.OERR == 1)
    675     0741  1C98               	btfss	24,1	;volatile
    676     0742  2F44               	goto	u131
    677     0743  2F45               	goto	u130
@@ -700,25 +700,25 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    680     0745                     u130:
    681     0745                     l760:
    682                           
-   683                           ;./../../api/machine/uart.c: 37:     {;./../../api/machine/uart.c: 38:         RCSTAbits
-      +                          .CREN = 0;
+   683                           ;./../../api/uart/read.c.v: 17:     {;./../../api/uart/read.c.v: 18:         RCSTAbits.C
+      +                          REN = 0;
    684     0745  1218               	bcf	24,4	;volatile
    685                           
-   686                           ;./../../api/machine/uart.c: 39:         RCSTAbits.CREN = 1;
+   686                           ;./../../api/uart/read.c.v: 19:         RCSTAbits.CREN = 1;
    687     0746  1618               	bsf	24,4	;volatile
    688     0747                     l26:	
-   689                           ;./../../api/machine/uart.c: 40:     }
+   689                           ;./../../api/uart/read.c.v: 20:     }
    690                           
    691                           
-   692                           ;./../../api/machine/uart.c: 41:     PIR1bits.RCIF = 0;
+   692                           ;./../../api/uart/read.c.v: 21:     PIR1bits.RCIF = 0;
    693     0747  128C               	bcf	12,5	;volatile
    694     0748                     l762:
    695                           
-   696                           ;./../../api/machine/uart.c: 42:     return RCREG;
+   696                           ;./../../api/uart/read.c.v: 22:     return RCREG;
    697     0748  081A               	movf	26,w	;volatile
    698     0749                     l27:
    699     0749  0008               	return
-   700     074A                     __end_of_uart_read:
+   700     074A                     __end_of_uart__read:
    701     007E                     btemp	set	126	;btemp
    702     007E                     wtemp0	set	126
    703                           
@@ -783,9 +783,9 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (0) _main                                                14    14      0     188
                                               0 BANK0     14    14      0
-                          _uart_read
+                         _uart__read
  ---------------------------------------------------------------------------------
- (1) _uart_read                                            0     0      0       0
+ (1) _uart__read                                           0     0      0       0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 1
  ---------------------------------------------------------------------------------
@@ -793,7 +793,7 @@ Call Graph Tables:
  Call Graph Graphs:
 
  _main (ROOT)
-   _uart_read
+   _uart__read
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -820,7 +820,7 @@ DATA                 0      0       F       8        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Sun Feb 11 10:51:07 2024
+Symbol Table                                                                                   Mon Mar 04 07:36:41 2024
 
                       pc 0002                       l23 073B                       l40 0772  
                      l25 0741                       l26 0747                       l27 0749  
@@ -855,11 +855,11 @@ Symbol Table                                                                    
         __initialization 07FA             __end_of_main 07FA                   ??_main 0020  
 __end_of__initialization 07FD           __pcstackCOMMON 0000               __pbssBANK0 002E  
              __pmaintext 074A               __stringtab 0002                  __ptext1 073B  
-   end_of_initialization 07FD        __end_of_uart_read 074A                _RCSTAbits 0018  
+   end_of_initialization 07FD                _RCSTAbits 0018               _uart__read 073B  
               _PORTBbits 0006                _TRISBbits 0086                _TXSTAbits 0098  
-    start_initialization 07FA                ___latbits 0001            __pcstackBANK0 0020  
-              __pstrings 0002                 _PIR1bits 000C                _uart_read 073B  
+    start_initialization 07FA              ?_uart__read 0020                ___latbits 0001  
+          __pcstackBANK0 0020                __pstrings 0002                 _PIR1bits 000C  
             __stringbase 0007               _ADCON1bits 009F                main@i_250 0026  
-              main@i_253 0028                main@i_247 0024               ?_uart_read 0020  
-     __end_of__stringtab 0008                stringcode 0002              ??_uart_read 0000  
+              main@i_253 0028                main@i_247 0024       __end_of__stringtab 0008  
+           ??_uart__read 0000       __end_of_uart__read 074A                stringcode 0002  
                stringdir 0002                 stringtab 0002  

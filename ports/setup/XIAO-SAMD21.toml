@@ -1,22 +1,21 @@
 # Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-# File Name: Samd21.toml (PC)
-# Authores: Carlos Zapata , Anderson Marin
+# Authors: Carlos Zapata , Anderson Marin
 # Date: 2024
 # License: MIT
 #
-# Description: This is the setup file for the PC version of Aixt project 
+# Description: This is the setup file for the XIAO-SAMD21 board
 
 port = "XIAO-SAMD21"
 device = "SAMD21"
-board = "Seed Studio XIAO SAMD21"
+board = "Seeed Studio XIAO SAMD21"
 backend = "arduino"
 
-cc_linux =      "-o"
+cc_linux =      "Arduino CLI"
 cc_windows =    "C:\\Users\\Alexa\\AppData\\Local\\Programs\\Arduino IDE"
 cc_flags =      "-o"
 
 
-path="Seeed-Studio/XIAO-SAMD21"
+path="Seeed-Studio/XIAO-SAMD21"  
 
 
 fixed_size_arrays  = "true"

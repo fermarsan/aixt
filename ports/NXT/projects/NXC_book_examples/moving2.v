@@ -1,9 +1,9 @@
-const (
-	aaa
-	bbb
-    ccc
-    values
-)
+
+aaa 	:= 0		
+bbb 	:= 0		
+ccc   	:= 0		
+values	:= []int	
+
 
 aaa = 10
 bbb = 20 + 5

@@ -8,6 +8,6 @@
 
 module uart
 
-fn write(data char){
+fn write(data rune){
     TXREG=data
 }
