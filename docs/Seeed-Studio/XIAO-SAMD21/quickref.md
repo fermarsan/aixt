@@ -52,9 +52,9 @@ The functions contained in the API for digital input or output and for performin
 | `uart.any()`            | Get the number of bytes to read                | val=**uart.any()** // Get the number of bytes to read from serial port and store in val |
 | `uart.read()`           | Serial Communication read                      | lec=**uart.read()** // Read from serial port and store in lec |
 | `uart.println("message")`| Print `message` through Serial Communication  | **uart.println**("Hello world") // Print "Hello world" through serial port |
-`time.sleep(time)`        | Retardo en `seg`                                |<pre><code>**time.sleep**(5) // **5** seconds delay
-`time.sleep_us(time)`     | Retardo en `microseg`                           |<pre><code>**time.sleep_us**(250) // **250** microseconds delay
-`time.sleep_ms(time)`     | Retardo en `miliseg`                            |<pre><code>**time.sleep_ms**(250) // **250** milliseconds delay
+`time.sleep(time)`        | Retardo en `seg`                                |**time.sleep**(5) // **5** seconds delay
+`time.sleep_us(time)`     | Retardo en `microseg`                           |**time.sleep_us**(250) // **250** microseconds delay
+`time.sleep_ms(time)`     | Retardo en `miliseg`                            |**time.sleep_ms**(250) // **250** milliseconds delay
 
 ## EXAMPLES
 
