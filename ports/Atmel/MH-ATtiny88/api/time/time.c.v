@@ -5,3 +5,7 @@
 // License : MIT
 
 module time
+
+fn init() {
+	
+}

@@ -11,11 +11,11 @@ device =  "Atmel"
 board =   "MH-ATtiny88"
 backend = "arduino"
 
-cc_linux =   ""
-cc_windows = "C:\Program Files\Arduino IDE"
+cc_linux =   "-o"
+cc_windows = "C:\\Program Files\\Arduino IDE"
 cc_flags =   "-o"
 
-path = "Atmel\MH-ATtiny88"
+path = "Atmel/MH-ATtiny88"
 
 fixed_size_arrays =  "true"
 fixed_size_strings = "true"

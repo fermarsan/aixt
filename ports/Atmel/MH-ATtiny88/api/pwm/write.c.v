@@ -4,6 +4,6 @@
 // Date: 2024
 // License : MIT
 
-module pin  
+module pwm
 
-#define pin__write(PIN_NAME, VALUE)  digitalWrite(PIN_NAME, VALUE)
+#define pwm__write(PIN, VALUE)   analogWrite(PIN, VALUE)
