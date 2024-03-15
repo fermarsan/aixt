@@ -13,9 +13,9 @@ import uart
 
 
   uart.setup(115200)
-  pin.setup(4,pin.out)
-  pin.setup(5,pin.out)
-  pin.setup(12,pin.out)
+  pin.setup(4,pin.output)
+  pin.setup(5,pin.output)
+  pin.setup(12,pin.output)
 
 for {
   uart.println_0("\r\n Este programa realiza unas funciones establecidas:")
@@ -30,7 +30,7 @@ for {
   pin.low(12)
   sleep_ms(500)
   x:=0
-  x=uart.available()
+  x=uart.any_0()
   if  x> 0 {
   command := ` `
 	command = uart.read_0()
