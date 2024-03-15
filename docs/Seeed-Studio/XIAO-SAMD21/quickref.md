@@ -1,151 +1,229 @@
-# **Guia Rápida Seeeduino Xiao**
-Esta implementación de Aixt para dae soporte a la tarjeta SAMD21.
+# **Quick Guide Seeeduino Xiao**
 
-## Resumen
-* *SAMD21, tiene 14 PIN, que se pueden usar para 11 interfaces digitales, 11 interfaces simuladas, 10 interfaces PWM (d1-d10), 1 pin de salida DAC D0, 1 interfaz de pad SWD, 1 interfaz I2C, 1 interfaz SPI, 1 Interfaz UART, Indicador de comunicación serial (T/R), Luz parpadeante (L) mediante multiplexación de pines. Los colores de los LED (Power,L,RX,TX) son verde, amarillo, azul y azul. Además, Seeed Studio XIAO SAMD21 tiene una interfaz tipo C que puede suministrar energía y descargar código. Hay dos botones de reinicio, puedes conectarlos brevemente para reiniciar la placa.La definición de pines esta descrita en la tala de* Identificación de Pines.
+This is an Aixt implementation to provide support for the SAMD21 board.
+
+## Summary
+* SAMD21 has 14 pins, which can be used for 11 digital interfaces, 11 simulated interfaces, 10 PWM interfaces (d1-d10), 1 DAC output pin D0, 1 SWD pad interface, 1 I2C interface, 1 SPI interface, 1 UART interface, Serial communication indicator (T/R), Flashing light (L) through pin multiplexing. The LED colors (Power, L, RX, TX) are green, yellow, blue, and blue. Additionally, Seeed Studio XIAO SAMD21 has a Type-C interface that can supply power and download code. There are two reset buttons, you can briefly connect them to reset the board. The pin definition is described in the* Pin Identification table.
+
+
 
 ![Alt text](Picture/Seeeduino_XIAO_SAMD21.jpg)
+***Getting Started with Seeed Studio XIAO SAMD21." (n.d.). Retrieved February 17, 2024, from: https://wiki.seeedstudio.com/Seeeduino-XIAO/
 
 ## Datasheet
-[Seeeduino Xiao SAMD21G18A-MU](https://files.seeedstudio.com/wiki/XIAO/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf)
+[Seeeduino Xiao SAMD21G18A-MU](https://files.seeedstudio.com/wiki/XIAOSeeed-Studio-XIAO-Series-SOM-Datasheet.pdf) 
 
-## Identificación de Pines
-Below are the ports used and their proper designations for programming:
+## Pin Identification
 
-Pin No. |Nombre                | Función 
---      |-----                 | ---
-0       |D0-A0-DAC-QT0         | Analogo; Digital; Convertidor Analogo Digital;            Circuito integrado para botón capacitivo 
-1       |D1-A1-QT1             | Analogo; Digital;                                         Circuito integrado para botón capacitivo  
-2       |D2-A2                 | Analogo; Digital; 
-3       |D3-A3                 | Analogo; Digital; 
-4       |D4-A4-SDA(I2C)        | Analogo; Digital; Protocolo control de dispositivos(Transmisión de datos)
-5       |D5-A5-SCL(I2C)        | Analogo; Digital; Protocolo control de dispositivos(Envio sincronismos de reloj) 
-6       |D6-A6-TX-QT2          | Analogo; Digital; Comunicación Serial(Transmisor);        Circuito integrado para botón capacitivo
-7       |D7-A7-RX-QT3          | Analogo; Digital; Comunicación Serial(Receptor);          Circuito integrado para botón capacitivo
-8       |D8-A8-SCK(SPI)-QT4    | Analogo; Digital; Reloj serial;                           Circuito integrado para botón capacitivo
-9       |D9-A9-MISO(SPI)-QT5   | Analogo; Digital; Protocolo de comunicación 4 hilos;      Circuito integrado para botón capacitivo 
-10      |D10-A10-MOSI(SPI)-QT6 | Analogo; Digital; Protocolo de comunicación 4 hilos;      Circuito integrado para botón capacitivo 
-11      |3.3V                  | Alimentación de Microcontrolador 
-12      |GND                   | Tierra Común
-13      |5V                    | Alimentación de la Placa 
+| Pin No. | Name                 | Function |
+|---------|----------------------|----------|
+| 0       | D0-A0-DAC-QT0        | Analog; Digital; Analog to Digital Converter; Capacitive touch button integrated circuit |
+| 1       | D1-A1-QT1            | Analog; Digital; Capacitive touch button integrated circuit |
+| 2       | D2-A2                | Analog; Digital |
+| 3       | D3-A3                | Analog; Digital |
+| 4       | D4-A4-SDA(I2C)       | Analog; Digital; Inter-Integrated Circuit (I2C) Protocol (Data Transmission) |
+| 5       | D5-A5-SCL(I2C)       | Analog; Digital; Inter-Integrated Circuit (I2C) Protocol (Clock Synchronization) |
+| 6       | D6-A6-TX-QT2         | Analog; Digital; Serial Communication (Transmitter); Capacitive touch button integrated circuit |
+| 7       | D7-A7-RX-QT3         | Analog; Digital; Serial Communication (Receiver); Capacitive touch button integrated circuit |
+| 8       | D8-A8-SCK(SPI)-QT4   | Analog; Digital; Serial Clock; Capacitive touch button integrated circuit |
+| 9       | D9-A9-MISO(SPI)-QT5  | Analog; Digital; 4-Wire Communication Protocol; Capacitive touch button integrated circuit |
+| 10      | D10-A10-MOSI(SPI)-QT6| Analog; Digital; 4-Wire Communication Protocol; Capacitive touch button integrated circuit |
+| 11      | 3.3V                 | Microcontroller Power Supply |
+| 12      | GND                  | Ground |
+| 13      | 5V                   | Board Power Supply |
 
-## Programación en Lenguaje V
 
-Las funciones que contiene la API entradas o salidas digitales y para realizar una conversión analogico a digital.
+## Programming in V Language
 
-Nombre                  | Descripción
-------------------------|------------------------------
-`pin.setup(pin, mode)`  | Configura `pin`como `mode` (input, out)
-`pin.out`               | Parametro `mode` configuración de salida
-`pin.in`                | Parametro `mode` configuración de entrada
-`pin.high(pin)`         | Salida Digital en alto `pin`
-`pin.low(pin)`          | Salida Digital en bajo `pin`
-`pin.write(pin, val)`   | Escribe `val` en `pin`
-`pin.read(pin)`         | Lectrura digital `pin`
-`adc.read(pin)`         | Lectura analogica `pin` para el `adc`
-`pwm.write(pin, val)`   | Salida PWM `pin` y un ciclo util de `val`
-`uart.setup(baud_rate)` | Iniciación Comunicacón Serial a `Baund.rate`
-`uart.ready()`          | Obtiene el numero de bytes a leer
-`uart.read()`           | Lectura de Comunicacón Serial
-`uart.println(message)`      | Imprime  `message` a través Comunicacón Serial
-`time.sleep(time)`           | Retardo en `seg`
-`time.sleep_us(time)`        | Retardo en `microseg`
-`time.sleep_ms(time)`        | Retardo en `miliseg`
+The functions contained in the API for digital input or output and for performing analog to digital conversion.
 
-## EJEMPLOS
-### Parpadeo de un LED
-A continuación se comprobara el funcionamiento de la salida digital y el retardo en milisegundos. Para esto se encendera y apagara un led 10 veces, en este ejemplo se importaran del modulo `time` la función `sleep_ms` (retardo en milisegundos), y el modulo `pin` en su totalidad. 
+| Name                    | Description                                    | Examples                                 |
+|-------------------------|------------------------------------------------|------------------------------------------|
+| `pin.setup(pin, mode)`  | Configure `pin` as `mode` (input, out)         | **pin.setup**(5, pin.input) // Set pin 5 as input |
+| `pin.output`            | Parameter `mode` output configuration          | pin.setup(3, **pin.output**) // Set pin 3 as output |
+| `pin.input`             | Parameter `mode` input configuration           | pin.setup(7, **pin.input**) // Set pin 7 as input |
+| `pin.high(pin)`         | Digital output high `pin`                      | **pin.high**(3) // Output high on pin 3 |
+| `pin.low(pin)`          | Digital output low `pin`                       | **pin.low**(3) // Output low on pin 3 |
+| `pin.write(pin, val)`   | Write `val` to `pin`                           | **pin.write**(3, 1) // Write 1 to pin 3 |
+| `pin.read(pin)`         | Digital read `pin`                             | val=**pin.read**(3) // Read pin 3 and store in val |
+| `adc.read(pin)`         | Analog read `pin` for `adc`                    | val=**adc.read**(3) // Read analog value of pin 3 and store in val |
+| `pwm.write(pin, val)`   | PWM output `pin` with duty cycle `val`         | **pwm.write**(4, 125) // Write PWM signal with duty cycle of 125 to pin 3 |
+| `uart.setup(baud_rate)` | Serial Communication initiation at `Baud.rate` | **uart.setup**(9600) // Initialize serial communication at 9600 baud rate |
+| `uart.any()`            | Get the number of bytes to read                | val=**uart.any()** // Get the number of bytes to read from serial port and store in val |
+| `uart.read()`           | Serial Communication read                      | lec=**uart.read()** // Read from serial port and store in lec |
+| `uart.println("message")`| Print `message` through Serial Communication  | **uart.println**("Hello world") // Print "Hello world" through serial port |
+`time.sleep(time)`        | Retardo en `seg`                                |**time.sleep**(5) // **5** seconds delay
+`time.sleep_us(time)`     | Retardo en `microseg`                           |**time.sleep_us**(250) // **250** microseconds delay
+`time.sleep_ms(time)`     | Retardo en `miliseg`                            |**time.sleep_ms**(250) // **250** milliseconds delay
+
+## EXAMPLES
+
+###Example of Transcompilation and Compilation on YouTube.
+**Link:** https://youtu.be/Wi4j1mvfa_0
+
+### LED Blinking
+Next, an LED will be turned on and off 10 times.
+
 ```go
-import time {sleep_ms}   //impota la fución sleep_ms del modulo time 
-import pin  // importa el modulo pin en su totalidad
+import time {sleep_ms}   // Import the sleep_ms function from the time module 
+import pin  // Import the pin module in its entirety
 
-pin.mode(5, pin.out)    // Configura el pin #5 como salida
+pin.mode(5, pin.output)    // Set pin #5 as output
 
-for i in 0..10{   // 10 veces
-    pin.high(5)     // Salida en Alto (Enciende el led)
-    sleep_ms(500)   // Retardo de 0.5s
-    pin.low(5)      // Salida en Bajo (Apaga el led)
-    sleep_ms(500)   // Retardo de 0.5s
+for i in 0..10{   // 10 times
+    pin.high(5)     // Output high (Turn on the LED)
+    sleep_ms(500)   // Delay for 0.5s
+    pin.low(5)      // Output low (Turn off the LED)
+    sleep_ms(500)   // Delay for 0.5s
 }
-for{}       // For infinito necesario para la compilación
+for{}       // Infinite loop necessary for compilation
 ```
-### Encender un LED con pulsador
-A continuación se comprobara el funcionamiento de entrada y salida digital. Para esto se condicionara el encendido de un led a un pulsador, en este ejemplo se importara modulo `pin` en su totalidad. 
+
+### Sequence of 3 LEDs
+Next, a sequence of 3 LEDs will be shown.
 
 ```go
-import pin  // importa el modulo pin
+import time {sleep_ms} // Import the sleep_ms function
+import pin  // Import the pin module
 
-__global lectura = 0    //Crea una variable global para almacenar la lectura digital
+pin.setup(3, pin.output)    // Set pin #3 as output
+pin.setup(4, pin.output)    // Set pin #4 as output
+pin.setup(5, pin.output)    // Set pin #5 as output
 
-pin.setup(3, pin.input)     // Configura el pin #3 como entrada
-pin.setup(5, pin.out)       // Configura el pin #5 como salida
-
-for{        // For infinito
-    lectura=pin.read(3)     //Almacena la lectura digital del pin #3
-    if lectura==1{         //Condición si el valor de lectura es 1 (Alto)
-        pin.high(5);        // Salida en Alto
-    }
-    pin.low(5)              // Salida en Bajo 
+for{
+    pin.high(3)     // Output high
+    sleep_ms(250)   // Delay for 250 milliseconds
+    pin.high(4)     // Output high
+    sleep_ms(250)   // Delay for 250 milliseconds
+    pin.high(5)     // Output high
+    sleep_ms(250)   // Delay for 250 milliseconds
+    pin.low(3)      // Output low
+    sleep_ms(250)   // Delay for 250 milliseconds
+    pin.low(4)      // Output low
+    sleep_ms(250)   // Delay for 250 milliseconds
+    pin.low(5)      // Output low
+    sleep_ms(250)   // Delay for 250 milliseconds
 }
-
 ```
-### Lectura analoga
-A continuación se comprobara el funcionamiento de entrada analogica y salida digital. Para esto se condicionara el encendido de 3 led a un potencimetro, estos led encenderan dependiendo de la lectura analogica, en este ejemplo se importara modulo `pin` y el modulo `adc`en su totalidad. 
+
+### Turn on an LED with a Button
+Next, the turning on of an LED will be conditioned to a button.
+
 ```go
-import pin  // importa el modulo pin
-import adc  // importa el modulo adc
+import pin  // Import the pin module
 
-__global val = 0    //Crea una variable global para almacenar la lectura analogica
+__global (
+    reading = 0      // Create a global variable to store digital reading
+)    
 
-pin.setup(2, pin.out)   // Configura el pin #2 como salida
-pin.setup(3, pin.out)   // Configura el pin #3 como salida
-pin.setup(4, pin.out)   // Configura el pin #4 como salida
+pin.setup(3, pin.input)     // Set pin #3 as input
+pin.setup(5, pin.output)       // Set pin #5 as output
 
-
-
-for {       // For infinito
-    val=adc.read(8)     //Almacena la lectura analogica del pin #8
-    if val>=1000 {      //Condición de la lectura analogica
-        pin.high(2)     // Salida en Alto
-        pin.high(3)     // Salida en Alto
-        pin.high(4)     // Salida en Alto
+for{        // Infinite loop
+    reading=pin.read(3)     // Store digital reading of pin #3
+    if reading==1{         // Condition if reading value is 1 (High)
+        pin.high(5);        // Output high
     }
-    else if val>=750 {
-        pin.high(2)     // Salida en Alto
-        pin.high(3)     // Salida en Alto
-        pin.low(4)      // Salida en Bajo 
+    pin.low(5)              // Output low 
+}
+```
+
+
+### Analog Reading
+
+```go
+import pin  // import the pin module
+import adc  // import the adc module
+
+__global (
+    val = 0      // Create a global variable to store the analog reading
+)     
+pin.setup(2, pin.output)   // Set pin #2 as output
+pin.setup(3, pin.output)   // Set pin #3 as output
+pin.setup(4, pin.output)   // Set pin #4 as output
+
+
+for {       // Infinite loop
+    val = adc.read(8)     // Store the analog reading of pin #8
+    if val >= 1000 {      // Condition for the analog reading
+        pin.high(2)     // Output high
+        pin.high(3)     // Output high
+        pin.high(4)     // Output high
     }
-    else if val>=480 {
-        pin.high(2)     // Salida en Alto
-        pin.low(3)      // Salida en Bajo 
-        pin.low(4)      // Salida en Bajo 
+    else if val >= 750 {
+        pin.high(2)     // Output high
+        pin.high(3)     // Output high
+        pin.low(4)      // Output low
+    }
+    else if val >= 480 {
+        pin.high(2)     // Output high
+        pin.low(3)      // Output low
+        pin.low(4)      // Output low
     }
     else {
-        pin.low(2)      // Salida en Bajo 
-        pin.low(3)      // Salida en Bajo 
-        pin.low(4)      // Salida en Bajo  
+        pin.low(2)      // Output low
+        pin.low(3)      // Output low
+        pin.low(4)      // Output low  
     }   
     }
 ```
-### Salida PWM
-A continuación se comprobara el funcionamiento de la salida analogica (PWM). Para esto se variara la intensidad luminica de un led en un periodo de tiempo, en este ejemplo se importara modulo `pin` y el modulo `pwm`en su totalidad y la la función `sleep_ms` del modulo`time`.
+
+### PWM Output
+
 ```go
+import time {sleep_ms}  // import the sleep_ms function
+import pin              // import the pin module
+import pwm              // import the pwm module
 
-import time {sleep_ms}  // importa el función sleep_ms
-import pin              // importa el modulo pin
-import pwm              // importa el modulo pwm
+__global (
+    val = 0        // Create a global variable to store a value corresponding to the luminous intensity
+)      
 
-__global val = 0        //Crea una variable global para almacenar un valor el cual corresponde a la intensidad luminica
-
-pin.setup(5, pin.out)   // Configura el pin #5 como salida
+pin.setup(5, pin.output)   // Set pin #5 as output
 
 
 for {
-    pwm.write(5, val)   // Salida pwm a un ciclo util de val
-    sleep_ms(250)       // Retardo de 250ms
-    val=val+10          // Suma 10 a val
-    if val==250{        // Condición si val=250
-		val=0  
+    pwm.write(5, val)   // PWM output with a duty cycle of val
+    sleep_ms(250)       // Delay of 250ms
+    val = val + 10      // Add 10 to val
+    if val == 250 {     // Condition if val equals 250
+		val = 0  
     }
 } 
 ```
+
+### Serial Communication
+
+```go
+import pin      // import the pin module
+import uart     // import the uart module
+ 
+ __global (
+    num = 0    // Create a global variable to store the number of bytes to read from the serial port
+    lec = 0    // Create a global variable to store the reading from the serial port
+ )
+
+ pin.setup(3, pin.output)      // Set pin #3 as output
+ uart.setup(9600)           // Set the baud rate to 9600
+
+for {
+    num = uart.any()      // Store the number of bytes to read from the serial port
+    if  num > 0  {          // Condition if the number of bytes to read is greater than 0
+        lec = uart.read()   // Store the reading from the serial port
+        if lec == `1` {     // Condition when the reading is 1
+
+            pin.high(3)     // Output high
+            uart.println('Led on')   // Message on the serial port
+
+        }
+
+        else if lec == `2` {    // Condition when the reading is 2
+
+            pin.low(3)      // Output low
+            uart.println('Led off')     // Message on the serial port
+
+        }
+    }
+}
+```
+ 

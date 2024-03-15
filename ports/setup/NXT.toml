@@ -54,8 +54,19 @@ main_ret_type = ""
 main_params = "" 
 
 api_modules = [
+  "button",
+  "file",
+  "i2c",
+  "io",
+  "lcd",
+  "lowspeed",
+  "math",
   "motor",
-  "sensor"
+  "rand",
+  "rune",
+  "sensor",
+  "sound",
+  "string"
 ]
 
 [aliases]
