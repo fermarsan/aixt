@@ -383,7 +383,7 @@ void main__init() {
 
 void motor__init() {
 }
-const long main__t_on = 1000;
+const long t_on = 1000;
 
 task main() {
 	main__init();
