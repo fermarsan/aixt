@@ -214,7 +214,7 @@ for {
     }
 } 
 ```
-* Example PWM
+* Example UART
 ```go
 import time {sleep_ms}
 import pin
@@ -278,4 +278,4 @@ for {
 }
 ```
 ## Informative video
-Informative video on the development of the AIXT project, with the device [Video-I-WB2-32S-KIT](pendiente ur)
+Informative video on the development of the AIXT project, with the device [Video-I-WB2-32S-KIT](https://youtu.be/BRSWZXQ2mLY)

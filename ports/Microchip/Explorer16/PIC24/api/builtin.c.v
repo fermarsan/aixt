@@ -26,7 +26,6 @@ module main
 #pragma config GCP = OFF
 #pragma config JTAGEN = OFF
 
-
 #define led3    a0  // Onboard LEDs            
 #define led4    a1        
 #define led5    a2        
