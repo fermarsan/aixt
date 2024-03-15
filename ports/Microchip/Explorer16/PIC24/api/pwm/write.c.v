@@ -6,11 +6,8 @@
 // Description: PWM functions (Explorer16-PIC24 port)
 module pwm
 
-#define		pwm__out_1		1
-#define		pwm__out_2		2
-#define		pwm__out_1_2	3
 
 
-fn init() {
-
+fn write(duty u8) {
+	
 }

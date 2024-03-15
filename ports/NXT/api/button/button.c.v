@@ -3,32 +3,32 @@ module button
 // #################### NXC Button module ####################
 
 // Constant offsets into the Button module IOMAP structure. 
-#define 	button__offset_pressed_cnt		ButtonOffsetPressedCnt  
-#define 	button__offset_long_press_cnt	ButtonOffsetLongPressCnt
-#define 	button__offset_short_rel_cnt	ButtonOffsetShortRelCnt
-#define 	button__offset_long_rel_cnt		ButtonOffsetLongRelCnt
-#define 	button__offset_rel_cnt			ButtonOffsetRelCnt
-#define 	button__offset_state			ButtonOffsetState
+#define 	offset_pressed_cnt		ButtonOffsetPressedCnt  
+#define 	offset_long_press_cnt	ButtonOffsetLongPressCnt
+#define 	offset_short_rel_cnt	ButtonOffsetShortRelCnt
+#define 	offset_long_rel_cnt		ButtonOffsetLongRelCnt
+#define 	offset_rel_cnt			ButtonOffsetRelCnt
+#define 	offset_state			ButtonOffsetState
 
 // Constants to specify which button to use with button module functions. 
-#define 	button__1      		BTN1       
-#define 	button__2      		BTN2       
-#define 	button__3      		BTN3       
-#define 	button__4      		BTN4       
-#define 	button__exit   		BTNEXIT     
-#define 	button__right  		BTNRIGHT     
-#define 	button__left   		BTNLEFT     
-#define 	button__center 		BTNCENTER     
-#define 	button__no_of		NO_OF_BTNS
+#define 	btn1      		BTN1       
+#define 	btn2      		BTN2       
+#define 	btn3      		BTN3       
+#define 	btn4      		BTN4       
+#define 	btn_exit   		BTNEXIT     
+#define 	btn_right  		BTNRIGHT     
+#define 	btn_left   		BTNLEFT     
+#define 	btn_center 		BTNCENTER     
+#define 	btn_no_of		NO_OF_BTNS
 
 // Constants for use with the ButtonState() function.
 // The _EV values can be combined together using a bitwise OR operation. 
-#define 	button__state_pressed_ev   			BTNSTATE_PRESSED_EV   
-#define 	button__state_short_released_ev   	BTNSTATE_SHORT_RELEASED_EV   
-#define 	button__state_long_pressed_ev   	BTNSTATE_LONG_PRESSED_EV   
-#define 	button__state_long_released_ev   	BTNSTATE_LONG_RELEASED_EV   
-#define 	button__state_pressed_state   		BTNSTATE_PRESSED_STATE   
-#define 	button__state_none   				BTNSTATE_NONE   
+#define 	state_pressed_ev   			BTNSTATE_PRESSED_EV   
+#define 	state_short_released_ev   	BTNSTATE_SHORT_RELEASED_EV   
+#define 	state_long_pressed_ev   	BTNSTATE_LONG_PRESSED_EV   
+#define 	state_long_released_ev   	BTNSTATE_LONG_RELEASED_EV   
+#define 	state_pressed_state   		BTNSTATE_PRESSED_STATE   
+#define 	state_none   				BTNSTATE_NONE   
 
 // Functions for accessing and modifying Button module features. 
 #define     button__pressed(...)                    ButtonPressed(__VA_ARGS__)
