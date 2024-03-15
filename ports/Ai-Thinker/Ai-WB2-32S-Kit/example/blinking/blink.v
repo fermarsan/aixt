@@ -1,11 +1,11 @@
 import time {sleep_ms}
 import pin
 
-pin.setup(1, pin.out)
+pin.setup(17, pin.output)
 
 for {
-	pin.high(1)
+	pin.high(17)
 	sleep_ms(250)
-	pin.low(1)
+	pin.low(17)
 	sleep_ms(250)
 }
