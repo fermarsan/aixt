@@ -41,22 +41,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
 [v __delay `JF36 ~T0 @X0 0 e ]
 [p i __delay ]
-"6 blinking.c
-[p x FOSC  =  HS         ]
-"7
-[p x WDTE  =  OFF        ]
-"8
-[p x PWRTE  =  OFF       ]
-"9
-[p x BOREN  =  OFF       ]
-"10
-[p x LVP  =  OFF         ]
-"11
-[p x CPD  =  OFF         ]
-"12
-[p x WRT  =  OFF         ]
-"13
-[p x CP  =  OFF          ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f873a.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f873a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -225,45 +209,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2138
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f873a.h: 2138: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"17 ./../../api/builtin.c.v
+[p x FOSC  =  HS         ]
+"18
+[p x WDTE  =  OFF        ]
+"19
+[p x PWRTE  =  OFF       ]
+"20
+[p x BOREN  =  OFF       ]
+"21
+[p x LVP  =  OFF         ]
+"22
+[p x CPD  =  OFF         ]
+"23
+[p x WRT  =  OFF         ]
+"24
+[p x CP  =  OFF          ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"26 blinking.c
-[; ;blinking.c: 26: void main(void) {
+"14 blinking.c
+[; ;blinking.c: 14: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"28
-[; ;blinking.c: 28:     ADCON1bits.PCFG = 0b00000110;
+"16
+[; ;blinking.c: 16:     ADCON1bits.PCFG = 0b00000110;
 [e = . . _ADCON1bits 0 0 -> -> 6 `i `uc ]
-"30
-[; ;blinking.c: 30:     TRISBbits.TRISB0 = 0;
-[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
-"32
-[; ;blinking.c: 32:     PORTBbits.RB0 = 0;
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-"34
-[; ;blinking.c: 34:     while(1){
-[e :U 89 ]
-{
-"36
-[; ;blinking.c: 36:         PORTBbits.RB0 = 1;
-[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
-"37
-[; ;blinking.c: 37:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"38
-[; ;blinking.c: 38:         PORTBbits.RB0 = 0;
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-"39
-[; ;blinking.c: 39:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"41
-[; ;blinking.c: 41:     }
-}
-[e :U 88 ]
-[e $U 89  ]
+"18
+[; ;blinking.c: 18:     TRISBbits.TRISB4 = 0;
+[e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
+"20
+[; ;blinking.c: 20:     PORTBbits.RB4 = 0;
+[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
+"22
+[; ;blinking.c: 22:     while(1){
 [e :U 90 ]
-"42
-[; ;blinking.c: 42: }
-[e :UE 87 ]
+{
+"24
+[; ;blinking.c: 24:         PORTBbits.RB4 = 1;
+[e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
+"25
+[; ;blinking.c: 25:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"26
+[; ;blinking.c: 26:         PORTBbits.RB4 = 0;
+[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
+"27
+[; ;blinking.c: 27:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"29
+[; ;blinking.c: 29:     }
+}
+[e :U 89 ]
+[e $U 90  ]
+[e :U 91 ]
+"30
+[; ;blinking.c: 30: }
+[e :UE 88 ]
 }

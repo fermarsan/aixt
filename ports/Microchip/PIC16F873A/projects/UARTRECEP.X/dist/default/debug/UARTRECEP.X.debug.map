@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\dat\20230322214319_en.msgs \
   -cn -h+dist/default/debug\UARTRECEP.X.debug.sym \
   --cmf=dist/default/debug\UARTRECEP.X.debug.cmf -z -Q16F873A \
-  -oC:\Users\WINDOW~1\AppData\Local\Temp\xcAs2mg8.\driver_tmp_3.o \
+  -oC:\Users\WINDOW~1\AppData\Local\Temp\xcAs3k2o.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/debug/UARTRECEP.X.debug.map \
-  --md=C:\Users\WINDOW~1\AppData\Local\Temp\xcAs2mg8.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3k2o.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFhx2 -ASTRCODE=00h-0FFFh \
   -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 -AENTRY=00h-0FFhx16 \
   -ABANK0=020h-07Dh -ABANK1=0A0h-0FDh -ARAM=020h-07Dh,0A0h-0FDh \
@@ -20,7 +20,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -k \
-  C:\Users\WINDOW~1\AppData\Local\Temp\xcAs2mg8.\driver_tmp_12.o \
+  C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3k2o.\driver_tmp_12.o \
   dist/default/debug\UARTRECEP.X.debug.o 
 
 Object code version is 3.11
@@ -30,7 +30,7 @@ Machine type is 16F873A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\WINDOW~1\AppData\Local\Temp\xcAs2mg8.\driver_tmp_12.o
+C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3k2o.\driver_tmp_12.o
                 end_init                              0        0        2        0       0
                 config                             2007     2007        1        0       4
 dist/default/debug\UARTRECEP.X.debug.o
@@ -221,7 +221,7 @@ ___stacklo               (abs)        0000
 __end_of__initialization cinit        07FD
 __end_of__stringtab      strings      0008
 __end_of_main            maintext     07FA
-__end_of_uart_read       text1        074A
+__end_of_uart__read      text1        074A
 __initialization         cinit        07FA
 __pbssBANK0              bssBANK0     002E
 __pcstackBANK0           cstackBANK0  0020
@@ -233,7 +233,7 @@ __stringbase             strings      0007
 __stringtab              strings      0002
 _datos                   bssBANK0     002E
 _main                    maintext     074A
-_uart_read               text1        073B
+_uart__read              text1        073B
 btemp                    (abs)        007E
 end_of_initialization    cinit        07FD
 intlevel0                functab      0000
@@ -259,15 +259,15 @@ wtemp0                   (abs)        007E
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-./../../api/machine/uart.c
-		_uart_read     		CODE           	073B	0000	15
-
-./../../api/machine/uart.c estimated size: 15
-
 recepcionUART.c
 		_main          		CODE           	074A	0000	176
 
 recepcionUART.c estimated size: 176
+
+./../../api/uart/read.c.v
+		_uart__read    		CODE           	073B	0000	15
+
+./../../api/uart/read.c.v estimated size: 15
 
 shared
 		__stringtab    		STRING         	0002	0000	6

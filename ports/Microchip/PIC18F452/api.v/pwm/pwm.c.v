@@ -8,3 +8,7 @@
 //              (PIC18F452)
 module pwm
 #include <xc.h>
+
+fn init() {
+    
+}

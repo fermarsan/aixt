@@ -7,4 +7,6 @@
 // Description: Seconds delay function
 //              (PIC16F873A port)
 
-#define sleep_s(TIME)    __delay_s(TIME)
+module time
+
+#define time__sleep_s(TIME)    __delay_s(TIME)

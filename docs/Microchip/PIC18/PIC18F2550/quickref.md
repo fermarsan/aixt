@@ -81,8 +81,8 @@ name                             | description
 
 ## Configuración de pines 
 ```go
-pin__setup(b3, out)      // Función para configurar el pin como salida 
-pin__setup(a2, out)      // Función para configurar el pin como salida
+pin__setup(b3, output)      // Función para configurar el pin como salida 
+pin__setup(a2, output)      // Función para configurar el pin como salida
 pin__setup(b2, input)    // Función para configurar el pin como entrada
 pin__setup(a1, input)    // Función para configurar el pin como entrada
 
@@ -185,9 +185,8 @@ Ejemplo de variar la intensidad de un led:
 ```go
  while(1){
     
-        adc_read(3);  // Lee el valor analógico del canal 3 (AN3)
-        adc = adc_reading();  // Almacena el valor del ADC
-        pwm_write(adc,1);  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1
+        adc := adc_read(3)  // Almacena el valor del ADC
+        pwm_write(adc)  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1
         
     }
 
@@ -197,7 +196,7 @@ Ejemplo de variar la intensidad de un led:
 ```go
    
        //CONFIG DE LOS PINES
-    pin.setup(c6,out)   //RC6 = TX
+    pin.setup(c6,output)   //RC6 = TX
 
        //Inicializamos la comunicación serial
     uart.setup()
@@ -215,15 +214,15 @@ Ejemplo de variar la intensidad de un led:
 
 ```go
 
-    port.setup(b, port.out)
+    port.setup(b, port.output)
 
     // LIMPIAMOS EL PUERTO B
 
-    port.write(b, port.out)
+    port.write(b, port.output)
     
    
    // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
-    pin.setup(c7,in)
+    pin.setup(c7,input)
 
    // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
     uart.setup()             

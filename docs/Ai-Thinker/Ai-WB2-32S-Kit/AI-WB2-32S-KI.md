@@ -59,119 +59,105 @@ No.| Name     | Function
 ## Programming in v language
 For each of these modules, you will have a file in .c.v format with the same name of the module and in this you will have the text module followed by the name of the module, example:
 * module pin
-* module adc
 * module pwm
-
+* module uart
 
 ### Output port configuration
 To activate the port to use
 ```go
-pin__setup(PIN_NAME, MODE)
+pin.setup(PIN_NAME, pin.out)
 ```
+* *Example: If you want to activate the port 17;  `pin.setup(17, pin.out)`.*
 To activate the port to use
 ```go
-pin__high(PIN_NAME)
+pin.high(PIN_NAME)
 ```
-* *Example: If you want to activate the port 17;  `pin__high(17)`.*
+* *Example: If you want to activate the port 17;  `pin.high(17)`.*
 
 To disable the port being used
 ```go
-pin__low(PIN_NAME)
+pin.low(PIN_NAME)
 ```
-* *Example: If you want to disable the port 17;  `pin__low(17)`.*
+* *Example: If you want to disable the port 17;  `pin.low(17)`.*
 
 To disable or enable the port to be used
 
 ```go
-pin__write(PIN_NAME, VALUE)
+pin.write(PIN_NAME, VALUE)
 ```
-* *Example: If you want to disable port 17 `pin__write(17, 1)`, and if you want to activate  `pin__write(17, 0)`.*
+* *Example: If you want to disable port 17 `pin.write(17, 1)`, and if you want to activate  `pin.write(17, 0)`.*
 
 ### Input port detection
 
 If you need to know what state an entry port is in:
 ```go
-x = pin__read(PIN_NAME)
+x = pin.read(PIN_NAME)
 ```
 
-* *Example: If you want to detect the VALUE of port 3; `x = pin__read(17)`, and `x` will take the VALUE of 0 or 1, depending on which port is active or disabled.*
+* *Example: If you want to detect the VALUE of port 3; `x = pin.read(3)`, and `x` will take the VALUE of 0 or 1, depending on which port is active or disabled.*
 
-### Analog to digital ports (ADC)
-
-To configure one of the analog ports
-```go
-adc__setup(PIN_NAME, SETUP_VALUE, ... )
-```
-* *In PIN_NAME the name of the analog port is entered, in SETUP_VALUE the VALUE that will be given is said port.*
-
-To detect the analog port VALUE
-```go
-x = adc__read(PIN_NAME)
-```
-* *In `PIN_NAME` the name of the analog port is entered, and `x` takes the VALUE of said port..*
-
-## Pulse Width Modulation (PWM outputs)
+### Pulse Width Modulation (PWM outputs)
 
 To configure some PWM
 ```go
-pwm__setup(SETUP_VALUE, setup_VALUE_1, ... )
+pin.setup(PIN_NAME, pin.out)
 ```
-* *In pwm you set the PWM to use, and in SETUP_VALUE the VALUE to which you want to configure said pwm.*
+* *Example: in pwm you set the PWM to use `pin.setup(17, pin.out)`*
 
 
 To configure the duty cycle of a modulator
-```go
-pwm__duty(duty)
-```
-* *In PWM the pwm to be used is set, and in `duty` the VALUE of the cycle (from 0 to 100) in percentage.*
 
-## Serial communication (UART)
+Everything is implemented within a for, with a counter up to the desired cycles
+
+```go
+pwm.write(PIN_NAME, pin.out)
+```
+* *Example: in pwm you set the PWM to use* 
+```go
+for {
+    pwm.write(17, val)
+    sleep_ms(250)
+    val=val+10
+    if val==250{
+		val=0  
+    }
+}
+```
+
+### Serial communication (UART)
 
 The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the specific documentation. The syntax for most of UART functions is: `uart_function_name_x()`, being `x` the identifying number in case of multiple UARTs. You can omit the `x` for referring to the first or default UART, or in the case of having only one.  
 
 ### UART setup
 
-```v
-uart__setup(BAUD_RATE)   // the same of uart__setup(BAUD_RATE)
-```
-For a second connection it is used as:
+For the UART module it is implemented as follows:
 ```v 
-uart__setup_1(BAUD_RATE)   // the same of uart__setup_1(BAUD_RATE)
+uart.setup(BAUD_RATE)
 ```
 - `BAUD_RATE` configure the communication speed
+* *Example: in uart to use `uart.setup(115200)`*
 ### Serial transmitting
 
 ```v
-uart__print(MESSAGE)      // print a string to the default UART
+uart.print(MESSAGE)      // print a string to the default UART
 ```
+* *Example: This is used as `uart.print(Uart for AIXT)`*
 ```v
-uart__println(MESSAGE)    // print a string plus a line-new character to the default UART
+uart.println(MESSAGE)    // print a string plus a line-new character to the default UART
 ```
+* *Example: This is used as `uart.println(Command received)`*
 ```v
 uart__ready // get everything ready for to UART
 ```
+* *Example: This is used as `uart.ready()`*
 ```v
 uart__read // receives binary data (in Bytes) to UART
 ```
+* *Example: This is used as `uart.read()`*
 ```v
-uart__write(MESSAGE)    // send binary data (in Bytes) to second UART
+uart.write(MESSAGE)    // send binary data (in Bytes) to second UART
 ```
-- For a second UART, it would be used as follows:
-```v
-uart__print_1(MESSAGE)    // print a string to the second UART
-```
-```v
-uart__println_1(MESSAGE)  // print a string plus a line-new character to the second UART
-```
-```v
-uart__write_1(MESSAGE)    // send binary data (in Bytes) to second UART
-```
-```v
-uart__ready_1 // get everything ready for to second UART
-```
-```v
-uart__read_1 // receives binary data (in Bytes) to second UART
-```
+* *Example: This is used as `uart.write()`*
 
 ### Retardos
 
@@ -179,15 +165,21 @@ uart__read_1 // receives binary data (in Bytes) to second UART
 
     * In each expression, the time VALUE is put inside the parentheses.
 ```go
-time__sleep(S) //Seconds
+time.sleep(S) //Seconds
 ```
+* *Example: This is used as `time.sleep(2)`*
 ```go
-time__sleep_ms(MS) //Milliseconds
+time.sleep_ms(MS) //Milliseconds
 ```
+* *Example: This is used as `time.sleep_ms(500)`*
 ```go
-time__sleep_us(US) //Microseconds
+time.sleep_us(US) //Microseconds
 ```
+ *Example: This is used as `time.sleep_us(5000)`*
 
+## Implementation of the AIXT project
+
+For the development of the program, some examples of the codes in v languages ​​are shown, which will be transpiled
 * Example flashing LED
 
 ```go
@@ -203,3 +195,87 @@ for {   //infinite loop
     sleep_ms(500)
 }
 ```
+* Example PWM
+```go
+import time {sleep_ms}
+import pin
+import pwm
+
+__global val = 0
+
+pin.setup(17, pin.out)
+
+for {
+    pwm.write(17, val)
+    sleep_ms(250)
+    val=val+10
+    if val==250{
+		val=0  
+    }
+} 
+```
+* Example UART
+```go
+import time {sleep_ms}
+import pin
+import uart
+
+
+  uart.setup(115200)
+  pin.setup(4,pin.out)
+  pin.setup(5,pin.out)
+  pin.setup(12,pin.out)
+
+for {
+  uart.println_0("\r\n Este programa realiza unas funciones establecidas:")
+  uart.println_0("\r\n Oprimiendo la letra A, activa la salida  del pin GPIO4.")
+  uart.println_0("\r\n Oprimiendo la letra B, activa la salida  del pin GPIO5.")
+  uart.println_0("\r\n El piloto (led) Rojo indica que esta esperando instrucciones.")
+  uart.println_0("\r\n Esperando instrucciones: \r\n")
+
+  pin.high(12)
+  sleep_ms(500)
+
+  pin.low(12)
+  sleep_ms(500)
+  x:=0
+  x=uart.available()
+  if  x> 0 {
+  command := ` `
+	command = uart.read_0()
+
+    if command==`A` {
+        uart.println_0("\r\n Comando A recibido. \r\n")
+        uart.println_0("\r\n Realizando acción A. \r\n")
+        pin.high(4)
+        sleep_ms(5000)
+
+        pin.low(4)
+        sleep_ms(1000)
+        uart.println_0("\r\n Proceso A finalizado. \r\n")
+	}
+
+      if command==`B` {
+        uart.println_0("\r\n Comando B recibido. \r\n")
+        uart.println_0("\r\n Realizando acción B. \r\n")
+        pin.high(5)
+        sleep_ms(5000)
+
+        pin.low(5)
+        sleep_ms(1000)
+        uart.println_0("\r\n Proceso B finalizado. \r\n")
+	  }
+
+      else {
+        pin.high(12)
+        sleep_ms(1000)
+
+        pin.low(12)
+        sleep_ms(1000)
+      
+    }
+  }
+}
+```
+## Informative video
+Informative video on the development of the AIXT project, with the device [Video-I-WB2-32S-KIT](https://youtu.be/BRSWZXQ2mLY)

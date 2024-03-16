@@ -11,13 +11,11 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/debug/blinking.X.debug.o
+$dist/default/debug\blinking.X.debug.o
 cinit CODE 0 3FD 3FD 2 2 1
-nvBANK0 BANK0 1 20 20 2 1 1
-maintext CODE 0 3C9 3C9 34 2 1
-cstackBANK0 BANK0 1 22 22 1 1 1
+maintext CODE 0 3FC 3FC 1 2 1
 config CONFIG 4 2007 2007 1 2 1
-$/tmp/xcXEMnMFA.o
+$C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
 end_init CODE 0 0 0 1 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
@@ -26,17 +24,17 @@ config CONFIG 4 2007 2007 1 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 23-5D 1
-BANK0 23-5D 1
-CONST 1-3C8 2
-ENTRY 1-3C8 2
+RAM 20-5D 1
+BANK0 20-5D 1
+CONST 1-3FB 2
+ENTRY 1-3FB 2
 IDLOC 2000-2003 2
-CODE 1-3C8 2
+CODE 1-3FB 2
 SFR0 0-1F 1
 SFR1 80-DD 1
 EEDATA 2100-217F 2
-STRCODE 1-3C8 2
-STRING 1-3C8 2
+STRCODE 1-3FB 2
+STRING 1-3FB 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -50,19 +48,14 @@ STRING 1-3C8 2
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
-$dist/default/debug/blinking.X.debug.o
-3FD cinit CODE >268:/tmp/xcXfKkpLn.s
-3FD cinit CODE >271:/tmp/xcXfKkpLn.s
-3FD cinit CODE >277:/tmp/xcXfKkpLn.s
-3FD cinit CODE >279:/tmp/xcXfKkpLn.s
-3FE cinit CODE >280:/tmp/xcXfKkpLn.s
-3C9 maintext CODE >26:/home/aixt-project/ports/Microchip/PIC16F676/projects/blinking.X/blinking.c
-3C9 maintext CODE >28:/home/aixt-project/ports/Microchip/PIC16F676/projects/blinking.X/blinking.c
-3D9 maintext CODE >29:/home/aixt-project/ports/Microchip/PIC16F676/projects/blinking.X/blinking.c
-3E7 maintext CODE >30:/home/aixt-project/ports/Microchip/PIC16F676/projects/blinking.X/blinking.c
-3F5 maintext CODE >31:/home/aixt-project/ports/Microchip/PIC16F676/projects/blinking.X/blinking.c
-3F7 maintext CODE >38:/home/aixt-project/ports/Microchip/PIC16F676/projects/blinking.X/blinking.c
-3FA maintext CODE >40:/home/aixt-project/ports/Microchip/PIC16F676/projects/blinking.X/blinking.c
+$dist/default/debug\blinking.X.debug.o
+3FD cinit CODE >251:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_1.s
+3FD cinit CODE >254:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_1.s
+3FD cinit CODE >260:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_1.s
+3FD cinit CODE >262:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_1.s
+3FE cinit CODE >263:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_1.s
+3FC maintext CODE >21:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
+3FC maintext CODE >23:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\blinking.X\blinking.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -75,36 +68,35 @@ $dist/default/debug/blinking.X.debug.o
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-___latbits 0 0 ABS 0 - dist/default/debug/blinking.X.debug.o
+___latbits 0 0 ABS 0 - dist/default/debug\blinking.X.debug.o
 __Hspace_0 7FE 0 ABS 0 - -
 __Hspace_1 7FE 0 ABS 0 - -
 __Hspace_2 7FE 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 7FE 0 ABS 0 strings -
-___sp 7FE 0 STACK 2 stack /tmp/xcXEMnMFA.o
-_main 792 0 CODE 0 maintext dist/default/debug/blinking.X.debug.o
-btemp 5E 0 ABS 0 - dist/default/debug/blinking.X.debug.o
-start 0 0 CODE 0 init /tmp/xcXEMnMFA.o
+___sp 7FE 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
+_main 7F8 0 CODE 0 maintext dist/default/debug\blinking.X.debug.o
+btemp 5E 0 ABS 0 - dist/default/debug\blinking.X.debug.o
+start 0 0 CODE 0 init C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab /tmp/xcXEMnMFA.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcXEMnMFA.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcXEMnMFA.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcXEMnMFA.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcXEMnMFA.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcXEMnMFA.o
-wtemp0 5E 0 ABS 0 - dist/default/debug/blinking.X.debug.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
+wtemp0 5E 0 ABS 0 - dist/default/debug\blinking.X.debug.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 7FE 0 ABS 0 clrtext -
 __Lmaintext 7FE 0 ABS 0 maintext -
-__LnvBANK0 7FE 0 ABS 0 nvBANK0 -
-___stackhi 0 0 ABS 0 - /tmp/xcXEMnMFA.o
-___stacklo 0 0 ABS 0 - /tmp/xcXEMnMFA.o
-start_initialization 7FA 0 CODE 0 cinit dist/default/debug/blinking.X.debug.o
-_TRISAbits 85 0 ABS 0 - dist/default/debug/blinking.X.debug.o
-__pcstackBANK0 22 0 BANK0 1 cstackBANK0 dist/default/debug/blinking.X.debug.o
-___int_sp 7FE 0 STACK 2 stack /tmp/xcXEMnMFA.o
+___stackhi 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
+___stacklo 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
+start_initialization 7FA 0 CODE 0 cinit dist/default/debug\blinking.X.debug.o
+__pcstackBANK0 0 0 BANK0 1 cstackBANK0 dist/default/debug\blinking.X.debug.o
+___int_sp 7FE 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
 __Hbank0 7FE 0 ABS 0 bank0 -
 __Hbank1 7FE 0 BANK1 1 bank1 -
 __Hcinit 7FE 0 CODE 0 cinit -
@@ -128,20 +120,18 @@ __Linit 0 0 CODE 0 init -
 __Lsfr0 7FE 0 ABS 0 sfr0 -
 __Lsfr1 7FE 0 ABS 0 sfr1 -
 __Ltext 7FE 0 ABS 0 text -
-__pnvBANK0 20 0 BANK0 1 nvBANK0 dist/default/debug/blinking.X.debug.o
-___addr 21 0 BANK0 1 nvBANK0 dist/default/debug/blinking.X.debug.o
 __LcstackBANK0 7FE 0 ABS 0 cstackBANK0 -
+__HcstackCOMMON 7FE 0 ABS 0 cstackCOMMON -
 __S0 3FF 0 ABS 0 - -
-__S1 23 0 ABS 0 - -
+__S1 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Hosccal 7FE 0 CODE 0 osccal -
-__HnvBANK0 7FE 0 ABS 0 nvBANK0 -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcXEMnMFA.o
-__pmaintext 792 0 CODE 0 maintext dist/default/debug/blinking.X.debug.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
+__pmaintext 7F8 0 CODE 0 maintext dist/default/debug\blinking.X.debug.o
 __Lcommon 7FE 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-___osccal_val 7FE 0 CODE 0 osccal /tmp/xcXEMnMFA.o
+___osccal_val 7FE 0 CODE 0 osccal C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_12.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -149,25 +139,25 @@ __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 __HcstackBANK0 7FE 0 ABS 0 cstackBANK0 -
 __Lend_init 0 0 CODE 0 end_init -
-end_of_initialization 7FA 0 CODE 0 cinit dist/default/debug/blinking.X.debug.o
+__LcstackCOMMON 7FE 0 ABS 0 cstackCOMMON -
+end_of_initialization 7FA 0 CODE 0 cinit dist/default/debug\blinking.X.debug.o
 __Hintentry 0 0 CODE 0 intentry -
 __Losccal 7FE 0 CODE 0 osccal -
 __Lstrings 7FE 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__H__absolute__ 0 0 ABS 0 __absolute__ -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__end_of__initialization 7FA 0 CODE 0 cinit dist/default/debug/blinking.X.debug.o
+__end_of__initialization 7FA 0 CODE 0 cinit dist/default/debug\blinking.X.debug.o
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 7FE 0 ABS 0 clrtext -
+__pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/debug\blinking.X.debug.o
 __Hend_init 2 0 CODE 0 end_init -
-__end_of_main 7FA 0 CODE 0 maintext dist/default/debug/blinking.X.debug.o
-_PORTC 7 0 ABS 0 - dist/default/debug/blinking.X.debug.o
-_TRISA 85 0 ABS 0 - dist/default/debug/blinking.X.debug.o
+__end_of_main 7FA 0 CODE 0 maintext dist/default/debug\blinking.X.debug.o
 __Hram 7FE 0 ABS 0 ram -
 __Lram 7FE 0 ABS 0 ram -
-___port_bit 20 0 BANK0 1 nvBANK0 dist/default/debug/blinking.X.debug.o
-__initialization 7FA 0 CODE 0 cinit dist/default/debug/blinking.X.debug.o
+__initialization 7FA 0 CODE 0 cinit dist/default/debug\blinking.X.debug.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -194,8 +184,7 @@ __initialization 7FA 0 CODE 0 cinit dist/default/debug/blinking.X.debug.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 3FD 7FA 2 2
-nvBANK0 1 20 20 3 1
-maintext 0 3C9 792 34 2
+maintext 0 3FC 7F8 1 2
 reset_vec 0 0 0 1 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

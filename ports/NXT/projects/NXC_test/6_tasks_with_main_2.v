@@ -1,8 +1,8 @@
 @[task] fn move_square() {
     for {
         acquire(move_mutex)
-        forward(motors_ac, 75); wait(1000)
-        reverse(motor_c, 75); wait(500)
+        motor.forward(ac, 75); wait(1000)
+        motor.reverse(c, 75); wait(500)
         release(move_mutex)
     }
 }
@@ -11,8 +11,8 @@
     for {
         if sensor_1 == 1 {
             acquire(move_mutex)
-            reverse(motors_ac, 75); wait(500)
-            forward(motor_a, 75); wait(500)
+            motor.reverse(ac, 75); wait(500)
+            motor.forward(a, 75); wait(500)
             release(move_mutex)
         }
     }

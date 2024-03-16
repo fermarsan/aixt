@@ -4,8 +4,8 @@ import pin
 pin.setup(1, pin.out)
 
 for {
-	pin.high(1)
+	pin.high(17)
 	sleep_ms(250)
-	pin.low(1)
+	pin.low(17)
 	sleep_ms(250)
 }

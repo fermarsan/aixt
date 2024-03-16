@@ -1,5 +1,6 @@
 module uart
 
+
 #define uart__read_0()	Serial.read()
 
 #define uart__read_1()	Serial1.read()

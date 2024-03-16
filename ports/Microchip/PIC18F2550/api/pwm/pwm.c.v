@@ -9,3 +9,7 @@
 module pwm 
 
 #include <xc.h>
+
+fn init() {
+    
+}
