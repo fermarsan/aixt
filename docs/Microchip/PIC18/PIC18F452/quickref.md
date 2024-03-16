@@ -9,7 +9,7 @@ Los nombres de los pines se nombran con una letra que indica el puerto y un núm
 
 
 ### Nombres de los pines del PIC18F452
-| Puerto | 
+| Puerto | - | - | - | - | - | - | - | - |
 | **A**  | a0| a1| a2| a3| a4| a5| - | - |
 | **B**  | b0| b1| b2| b3| b4| b5| b6| b7|
 | **C**  | c0| c1| c2| c3| c4| c5| c6| c7|
@@ -73,8 +73,8 @@ name                             | description
 `port__read(port)`               | Lee `port`
 `adc__setup()`                   | Configura el `adc` 
 `adc__read(channel)`             | Configura el canal `channel` del `adc`
-`adc__reading()`                 | Alamacena el valor del `adc`
-`pwm__setup(pin1, pin2)`         | Configura el resgitro `pin1` y la salida en `pin2`
+`adc__reading()`                 | Almacena el valor del `adc`
+`pwm__setup(pin1, pin2)`         | Configura el registro `pin1` y la salida en `pin2`
 `pwm__write(duty, pin)`          | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
 `uart__setup()`                  | Configura el `uart`
 `uart__write()`                  | Configura el `TX`
