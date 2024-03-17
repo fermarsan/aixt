@@ -1,29 +1,33 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_3.o
+ C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3ndc.\driver_tmp_3.o
  -Odist/default/debug\blinking.X.debug.hex
  -logfile=dist/default/debug\blinking.X.debug.hxl
  -addressing=2
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 1h		(C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_3.o)
-  7F8h - 7FDh		(C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_3.o)
-  400Eh - 400Fh		(C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_3.o)
+  0h - 1h		(C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3ndc.\driver_tmp_3.o)
+  7B6h - 7FDh		(C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3ndc.\driver_tmp_3.o)
+  400Eh - 400Fh		(C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3ndc.\driver_tmp_3.o)
  Unused ranges:
-  2h - 7F7h
+  2h - 7B5h
   7FEh - 400Dh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3ndc.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
 00000000 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-000007F0 | -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 -- --
+000007B0 | -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000007C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000007D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000007E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000007F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
 ----------------------------------------------------------
 00004000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1

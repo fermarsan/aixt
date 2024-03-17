@@ -9,3 +9,7 @@
 
 
 module adc
+
+fn init() {
+    
+}
