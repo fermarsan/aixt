@@ -163,3 +163,9 @@ module main
 #define c5      LATCbits.LATC5 
 #define c6      LATCbits.LATC6 
 #define c7      LATCbits.LATC7 
+
+
+
+fn init() {
+    
+}

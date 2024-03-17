@@ -14,5 +14,5 @@ module pin
 #define pin__input   1
 
 fn init() {
-    
+
 }
