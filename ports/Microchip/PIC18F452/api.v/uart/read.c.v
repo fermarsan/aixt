@@ -8,6 +8,6 @@
 //              (PIC18F452)
 module uart
 
-fn read() char{
+fn read() rune{
   return RCREG  
 }

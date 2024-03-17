@@ -11,6 +11,7 @@ module main
 #include <xc.h>
 #include <stdio.h>
 #define _XTAL_FREQ 8000000
+#define true 1
 
 // CONFIG1L
 #pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))

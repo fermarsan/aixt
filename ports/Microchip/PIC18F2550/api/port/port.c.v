@@ -11,3 +11,7 @@ module port
 
 #define port__out  0   // port mode (direction)
 #define port__in   1
+
+fn init() {
+    
+}
