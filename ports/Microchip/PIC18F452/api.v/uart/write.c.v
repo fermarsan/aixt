@@ -7,6 +7,6 @@
 // Description: write UART
 //              (PIC18F452)
 module uart
-fn write(data char){
+fn write(data rune){
     TXREG=data
 }

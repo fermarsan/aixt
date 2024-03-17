@@ -1,10 +1,13 @@
 {
     "aixt_linux":   ".",
     "aixt_windows": ".",
+<<<<<<< HEAD
     "device":       "PIC16F676",
+=======
+    "device":       "XIAO-SAMD21",
+>>>>>>> 4b0401ce63fedc80f1ff4a1aa728f8a09eac67fa
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",
-    },
-    "cSpell.language": "en,es-ES",
+    }
 }

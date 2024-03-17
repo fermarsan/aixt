@@ -6,6 +6,7 @@
 #include <xc.h>
 #include <stdio.h>
 #define _XTAL_FREQ 8000000
+#define true 1
 #pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
 #pragma config CPUDIV = OSC1_PLL2// System Clock Postscaler Selection bits ([Primary Oscillator Src: /1][96 MHz PLL Src: /2])
 #pragma config USBDIV = 1       // USB Clock Selection bit (used in Full-Speed USB mode only; UCFG:FSEN = 1) (USB clock source comes directly from the primary oscillator block with no postscale)
@@ -119,48 +120,60 @@
 #define c6      LATCbits.LATC6
 #define c7      LATCbits.LATC7
 
+void main__init();
+
+void adc__init();
+
 long adc__read(unsigned char channel);
 
-long adc__reading();
-
 void adc__setup();
+
+void pwm__init();
 
 void pwm__setup();
 
 void pwm__write(long duty);
 
-long adc__read(unsigned char channel) {
-	ADCON0bits.CHS = channel;
-	adc__reading();
+void main__init() {
+	adc__init();
+	pwm__init();
+	
 }
 
-long adc__reading() {
+void adc__init() {
+}
+
+long adc__read(unsigned char channel) {
+	ADCON0bits.CHS = ports.Microchip.PIC18F2550.api.adc__channel;
 	ADCON0bits.GO_DONE = 1;
 	while((ADCON0bits.GO_DONE == 1)) {
 	}
-	return ADRES;
+	return ports.Microchip.PIC18F2550.api.adc__ADRES;
 }
 
 void adc__setup() {
-	ADCON1 = 0x00;
-	ADCON0 = 0x00;
-	ADCON2 = 0x97;
+	ports.Microchip.PIC18F2550.api.adc__ADCON1 = 0x00;
+	ports.Microchip.PIC18F2550.api.adc__ADCON0 = 0x00;
+	ports.Microchip.PIC18F2550.api.adc__ADCON2 = 0x97;
 	ADCON0bits.ADON = 1;
 }
 
+void pwm__init() {
+}
+
 void pwm__setup() {
-	PR2 = 0x0C;
-	CCPR1L = 0;
+	ports.Microchip.PIC18F2550.api.pwm__PR2 = 0x0C;
+	ports.Microchip.PIC18F2550.api.pwm__CCPR1L = 0;
 	TRISCbits.TRISC2 = 0;
-	T2CON = 0x03;
-	CCP1CON = 0x0C;
-	TMR2 = 0;
+	ports.Microchip.PIC18F2550.api.pwm__T2CON = 0x03;
+	ports.Microchip.PIC18F2550.api.pwm__CCP1CON = 0x0C;
+	ports.Microchip.PIC18F2550.api.pwm__TMR2 = 0;
 	T2CONbits.TMR2ON = 1;
 }
 
 void pwm__write(long duty) {
-	long pwm = ((duty - 0) * (50 - 0) / (1023 - 0) + 0);
-	CCPR1L = pwm >> 2;
+	long ports.Microchip.PIC18F2550.api.pwm__pwm = ((ports.Microchip.PIC18F2550.api.pwm__duty - 0) * (50 - 0) / (1023 - 0) + 0);
+	ports.Microchip.PIC18F2550.api.pwm__CCPR1L = ports.Microchip.PIC18F2550.api.pwm__pwm >> 2;
 }
 
 void main(void) {
@@ -168,8 +181,8 @@ void main(void) {
 	adc__setup();
 	pwm__setup();
 	while(true) {
-		adc__read(0);
-		toml.Any(toml.Null{}) valor = adc__reading();
+		long valor = 0;
+		valor = adc__read(0);
 		pwm__write(valor);
 	}
 }

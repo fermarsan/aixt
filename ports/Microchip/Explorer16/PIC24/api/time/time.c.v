@@ -8,3 +8,7 @@
 module time
 
 #include <libpic30.h>
+
+fn init() {
+	
+}

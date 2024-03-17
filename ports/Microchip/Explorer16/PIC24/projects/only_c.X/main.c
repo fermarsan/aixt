@@ -2,7 +2,7 @@
  * File:   main.c
  * Author: fercho
  *
- * Created on March 15, 2024, 1:06 PM
+ * Created on March 15, 2024, 1:06 PM${aixt_path}/.template/${device}.v
  */
 
 
