@@ -8,7 +8,7 @@
 
 void main(void) {
     
-    pin_setup(c1, out);
+    pin__setup(c1, out);
 
     pin_write(c1, 0);
 

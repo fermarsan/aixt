@@ -14,6 +14,9 @@ module main
 
 #define _XTAL_FREQ 4000000
 
+#define true   1
+#define false  0
+
 #pragma config FOSC = INTRCIO   
 #pragma config WDTE = OFF      
 #pragma config PWRTE = OFF     
@@ -55,3 +58,7 @@ module main
 #define c3      PORTCbits.RC3 
 #define c4      PORTCbits.RC4 
 #define c5      PORTCbits.RC5
+
+fn init() {
+    
+}
