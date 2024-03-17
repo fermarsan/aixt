@@ -54,6 +54,12 @@ Archive member included because of file (symbol)
                               (__crt_start_mode_normal)
 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
                               build/default/production/blinking.o (___delay32)
+/opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.XX_o)
+                              build/default/production/blinking.o (___udivdi3)
+/opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(muldi3.XX_o)
+                              build/default/production/blinking.o (___muldi3)
+/opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
+                              /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(muldi3.XX_o) (___umuldi3)
 
 
 xc16-ld 2.10 (B)
@@ -66,11 +72,12 @@ Default Scalar Model: Small
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200                0xce           0x135  (309)
-.text                        0x2ce                0x36            0x51  (81)
-.init.delay32                0x304                0x1c            0x2a  (42)
+.text                        0x200               0x368           0x51c  (1308)
+.const                       0x568                 0x4             0x6  (6)
+.text                        0x56c                0x74            0xae  (174)
+.init.delay32                0x5e0                0x1c            0x2a  (42)
 
-                 Total "program" memory used (bytes):          0x1b0  (432) <1%
+                 Total "program" memory used (bytes):          0x5fa  (1530) 1%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -100,20 +107,40 @@ External Symbols in Program Memory (by address):
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
                   0x0002c8                  __DefaultInterrupt
-                  0x0002ce                  _main__init
-                  0x0002ec                  _main
-                  0x000304                  ___delay32
+                  0x00031a                  ___udivmoddi3
+                  0x000400                  ___udivdi3
+                  0x00040e                  ___umoddi3
+                  0x000416                  ___divdi3
+                  0x000476                  ___moddi3
+                  0x0004d2                  ___muldi3
+                  0x000524                  ___umuldi3
+                  0x000568                  _t1
+                  0x00056c                  _main__init
+                  0x000590                  _time__init
+                  0x000596                  _pin__init
+                  0x00059c                  _main
+                  0x0005e0                  ___delay32
 
 External Symbols in Program Memory (by name):
 
                   0x0002c8                  __DefaultInterrupt
-                  0x000304                  ___delay32
+                  0x0005e0                  ___delay32
+                  0x000416                  ___divdi3
+                  0x000476                  ___moddi3
+                  0x0004d2                  ___muldi3
+                  0x000400                  ___udivdi3
+                  0x00031a                  ___udivmoddi3
+                  0x00040e                  ___umoddi3
+                  0x000524                  ___umuldi3
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0002ec                  _main
-                  0x0002ce                  _main__init
+                  0x00059c                  _main
+                  0x00056c                  _main__init
+                  0x000596                  _pin__init
+                  0x000568                  _t1
+                  0x000590                  _time__init
 
 Memory Configuration
 
@@ -149,7 +176,7 @@ LOAD /opt/microchip/xc16/v2.10/bin/bin/../../lib/libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200         0xce
+.text             0x000200        0x368
  *(.init)
  .init            0x000200         0x4c /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o)
                   0x000200                  __reset
@@ -171,6 +198,30 @@ LOAD /opt/microchip/xc16/v2.10/bin/bin/../../lib/libfx-elf.a
                   0x0002cc          0x2 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.Meo)
                   0x0002cc                  __crt_start_mode_normal
                   0x0002cc                  __crt_start_mode
+ .libm.__PplusBdi
+                  0x0002ce         0x26 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.XX_o)
+ .libm.__PminusBdi
+                  0x0002f4         0x26 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.XX_o)
+ .libm.__udivmoddi3
+                  0x00031a         0xe6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.XX_o)
+                  0x00031a                  ___udivmoddi3
+ .libm.__udivdi3
+                  0x000400          0xe /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.XX_o)
+                  0x000400                  ___udivdi3
+ .libm.__umoddi3
+                  0x00040e          0x8 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.XX_o)
+                  0x00040e                  ___umoddi3
+ .libm.__divdi3
+                  0x000416         0x60 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.XX_o)
+                  0x000416                  ___divdi3
+ .libm.__moddi3
+                  0x000476         0x5c /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.XX_o)
+                  0x000476                  ___moddi3
+ .libm.__muldi3
+                  0x0004d2         0x52 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(muldi3.XX_o)
+                  0x0004d2                  ___muldi3
+ .libm.umuldi3    0x000524         0x44 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
+                  0x000524                  ___umuldi3
 
 usercode
  *(usercode)
@@ -184,26 +235,29 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x810
+.debug_info       0x000000        0xa6c
  *(.debug_info)
- .debug_info      0x000000        0x810 build/default/production/blinking.o
+ .debug_info      0x000000        0x9df build/default/production/blinking.o
+ .debug_info      0x0009df         0x8d /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000         0xb0
+.debug_abbrev     0x000000        0x106
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xb0 build/default/production/blinking.o
+ .debug_abbrev    0x000000         0xf2 build/default/production/blinking.o
+ .debug_abbrev    0x0000f2         0x14 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
 
-.debug_line       0x000000        0x102
+.debug_line       0x000000        0x162
  *(.debug_line)
- .debug_line      0x000000        0x102 build/default/production/blinking.o
+ .debug_line      0x000000        0x10b build/default/production/blinking.o
+ .debug_line      0x00010b         0x57 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
 
-.debug_frame      0x000000         0x48
+.debug_frame      0x000000         0x7c
  *(.debug_frame)
- .debug_frame     0x000000         0x48 build/default/production/blinking.o
+ .debug_frame     0x000000         0x7c build/default/production/blinking.o
 
-.debug_str        0x000000         0x27
+.debug_str        0x000000         0x33
  *(.debug_str)
- .debug_str       0x000000         0x27 build/default/production/blinking.o
+ .debug_str       0x000000         0x33 build/default/production/blinking.o
 
 .debug_loc
  *(.debug_loc)
@@ -212,18 +266,20 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0x2a
+                  0x000000         0x4e
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x2a build/default/production/blinking.o
+                  0x000000         0x4e build/default/production/blinking.o
 
 .debug_ranges
  *(.debug_ranges)
 
-.debug_aranges    0x000000         0x18
+.debug_aranges    0x000000         0x38
  *(.debug_aranges)
  .debug_aranges
                   0x000000         0x18 build/default/production/blinking.o
+ .debug_aranges
+                  0x000018         0x20 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -805,20 +861,26 @@ OUTPUT(dist/default/production/Blinking.X.production.elf elf32-pic30)
 LOAD default_isr
 
 .debug_pubtypes
-                  0x000018         0x99
+                  0x000038         0xc8
  .debug_pubtypes
-                  0x000018         0x99 build/default/production/blinking.o
+                  0x000038         0xc8 build/default/production/blinking.o
 
 __c30_signature
-                  0x0000b1         0x18
+                  0x000100         0x2a
  __c30_signature
-                  0x0000b1          0x6 build/default/production/blinking.o
+                  0x000100          0x6 build/default/production/blinking.o
  __c30_signature
-                  0x0000b7          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o)
+                  0x000106          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x0000bd          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(data_init_standard.o)
+                  0x00010c          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x0000c3          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
+                  0x000112          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
+ __c30_signature
+                  0x000118          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.XX_o)
+ __c30_signature
+                  0x00011e          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(muldi3.XX_o)
+ __c30_signature
+                  0x000124          0x6 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
 
 .config_JTAGEN    0x0157fe          0x2
  .config_JTAGEN
@@ -827,11 +889,17 @@ __c30_signature
 .config_IESO      0x0157fc          0x2
  .config_IESO     0x0157fc          0x2 build/default/production/blinking.o
 
-.text             0x0002ce         0x36
- .text            0x0002ce         0x36 build/default/production/blinking.o
-                  0x0002ce                  _main__init
-                  0x0002ec                  _main
+.const              0x8568          0x4 load address 0x000568  
+ .const             0x8568          0x4 build/default/production/blinking.o
+                    0x8568                  _t1
 
-.init.delay32     0x000304         0x1c
- .init.delay32    0x000304         0x1c /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
-                  0x000304                  ___delay32
+.text             0x00056c         0x74
+ .text            0x00056c         0x74 build/default/production/blinking.o
+                  0x00056c                  _main__init
+                  0x000590                  _time__init
+                  0x000596                  _pin__init
+                  0x00059c                  _main
+
+.init.delay32     0x0005e0         0x1c
+ .init.delay32    0x0005e0         0x1c /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)
+                  0x0005e0                  ___delay32
