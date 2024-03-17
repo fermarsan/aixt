@@ -11,7 +11,7 @@ module main
 #include <stdbool.h>
 
 // ----------  if setup.c.v doesn't found  ----------
-#ifndef __setup__
+// #ifndef __setup__
 
 #define FCY 8000000UL
 
@@ -29,7 +29,7 @@ module main
 #pragma config GCP = OFF
 #pragma config JTAGEN = OFF
 
-#endif
+// #endif
 // --------------------------------------------------
 
 #define led3    a0  // Onboard LEDs            
