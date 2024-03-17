@@ -9,7 +9,7 @@ Los nombres de los pines se nombran con una letra que indica el puerto y un núm
 
 
 ### Nombres de los pines del PIC18F452
-| Puerto | 
+| Puerto | - | - | - | - | - | - | - | - |
 | **A**  | a0| a1| a2| a3| a4| a5| - | - |
 | **B**  | b0| b1| b2| b3| b4| b5| b6| b7|
 | **C**  | c0| c1| c2| c3| c4| c5| c6| c7|
@@ -73,8 +73,8 @@ name                             | description
 `port__read(port)`               | Lee `port`
 `adc__setup()`                   | Configura el `adc` 
 `adc__read(channel)`             | Configura el canal `channel` del `adc`
-`adc__reading()`                 | Alamacena el valor del `adc`
-`pwm__setup(pin1, pin2)`         | Configura el resgitro `pin1` y la salida en `pin2`
+`adc__reading()`                 | Almacena el valor del `adc`
+`pwm__setup(pin1, pin2)`         | Configura el registro `pin1` y la salida en `pin2`
 `pwm__write(duty, pin)`          | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
 `uart__setup()`                  | Configura el `uart`
 `uart__write()`                  | Configura el `TX`
@@ -85,10 +85,10 @@ name                             | description
 
 ## Configuración de pines 
 ```go
-pin.setup(d3, out)      // Función para configurar el pin como salida 
-pin.setup(a2, out)      // Función para configurar el pin como salida
-pin.setup(b5, in)    // Función para configurar el pin como entrada
-pin.setup(d1, in)    // Función para configurar el pin como entrada
+pin.setup(d3, output)      // Función para configurar el pin como salida 
+pin.setup(a2, output)      // Función para configurar el pin como salida
+pin.setup(b5, input)    // Función para configurar el pin como entrada
+pin.setup(d1, input)    // Función para configurar el pin como entrada
 
 pin.high(b3)    // Función para encender el pin           
 pin.low(b3)     // Función para apagar el pin
@@ -103,8 +103,8 @@ pin.read(b3)      // Función para leer el pin
 ## Configuración de puertos
 ```go
 
-port.setup(d3, out)      // Función para configurar el pin como salida 
-port.setup(b5, in)    // Función para configurar el pin como entrada
+port.setup(d3, output)      // Función para configurar el pin como salida 
+port.setup(b5, input)    // Función para configurar el pin como entrada
 
 port.write(d1, 0b01010101)  // Función sobre escribir el pin
 port.write(d1, 0x00)  // Función sobre escribir el pin
@@ -152,11 +152,11 @@ for {
     
 // CONFIGURAMOS EL PUERTO B COMO SALIDA
 
-    port.setup(b, port.out)
+    port.setup(b, port.output)
     
     // CONFIGURAMOS EL PUERTO C COMO SALIDA
 
-    port.setup(c, port.out)
+    port.setup(c, port.output)
 
     // LIMPIAMOS EL PUERTO B
 
@@ -187,8 +187,7 @@ Ejemplo de variar la intensidad de un led:
 
 ```go
  for {    
-        adc.read(0)  // Lee el valor analógico del canal 0 (AN0)
-        valor_adc := adc.reading()  // Almacena el valor del ADC
+        valor_adc := adc.read(0)  // Almacena el valor del ADC
         pwm.write(valor_adc,1)  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1        
     }
 
@@ -201,7 +200,7 @@ Ejemplo de variar la intensidad de un led:
 ```go
    
        //CONFIG DE LOS PINES
-    pin.setup(c6,out)   //RC6 = TX
+    pin.setup(c6,output)   //RC6 = TX
 
        //Inicializamos la comunicación serial
     uart.setup()
@@ -218,15 +217,15 @@ Ejemplo de variar la intensidad de un led:
 
 ```go
 
-    port.setup(b, port.out)
+    port.setup(b, port.output)
 
     // LIMPIAMOS EL PUERTO B
 
-    port.write(b, port.out)
+    port.write(b, port.output)
     
    
    // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
-    pin.setup(c7,in)
+    pin.setup(c7,input)
 
    // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
     uart.setup()             

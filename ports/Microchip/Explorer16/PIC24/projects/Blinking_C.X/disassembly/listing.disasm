@@ -1,0 +1,26 @@
+Disassembly Listing for Blinking_C
+Generated From:
+/home/fercho/aixt/ports/Microchip/Explorer16/PIC24/projects/Blinking_C.X/dist/default/debug/Blinking_C.X.debug.elf
+Mar 15, 2024 5:23:21 PM
+
+---  /home/fercho/aixt/ports/Microchip/Explorer16/PIC24/projects/Blinking_C.X/blinking_c.c  -------------
+1:                 /*
+2:                  * File:   blinking_c.c
+3:                  * Author: fercho
+4:                  *
+5:                  * Created on March 15, 2024, 5:12 PM
+6:                  */
+7:                 
+8:                 
+9:                 #include "xc.h"
+10:                
+11:                int main(void) {
+0002CE  FA0000     LNK #0x0
+12:                    TRISA = 0; // todo el puerto A como salida
+0002D0  EF22C0     CLR TRISA
+13:                    
+14:                    return 0;
+0002D2  EB0000     CLR W0
+15:                }
+0002D4  FA8000     ULNK
+0002D6  060000     RETURN

@@ -8,3 +8,7 @@
 //              (PIC18F452)
 module adc
 #include <xc.h>
+
+fn init() {
+    
+}
