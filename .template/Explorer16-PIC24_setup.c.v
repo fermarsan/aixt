@@ -1,8 +1,10 @@
 module main
 
+#define __setup__
+
 #define FCY 8000000UL
 
-#pragma config POSCMOD = XT
+#pragma config POSCMOD = HS
 #pragma config OSCIOFNC = ON
 #pragma config FCKSM = CSDCMD
 #pragma config FNOSC = PRI
