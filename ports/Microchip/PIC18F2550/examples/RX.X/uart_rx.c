@@ -160,11 +160,11 @@ void uart__init() {
 }
 
 char uart__read() {
-	return ports.Microchip.PIC18F2550.api.uart__RCREG;
+	return RCREG;
 }
 
 void uart__setup() {
-	ports.Microchip.PIC18F2550.api.uart__SPBRG = ((ports.Microchip.PIC18F2550.api.uart___XTAL_FREQ / 9600) / 64) - 1;
+	SPBRG = ((_XTAL_FREQ / 9600) / 64) - 1;
 	TXSTAbits.BRGH = 0;
 	TXSTAbits.SYNC = 0;
 	RCSTAbits.SPEN = 1;
@@ -175,7 +175,7 @@ void uart__setup() {
 }
 
 void uart__write(char data) {
-	ports.Microchip.PIC18F2550.api.uart__TXREG = ports.Microchip.PIC18F2550.api.uart__data;
+	TXREG = data;
 }
 
 void pin__init() {
@@ -183,9 +183,9 @@ void pin__init() {
 
 void main(void) {
 	main__init();
-	port__setup(b, port.out);
+	port__setup(b, port__output);
 	port__write(b, 0b00000000);
-	pin__setup(c7, pin.input);
+	pin__setup(c7, pin__input);
 	uart__setup();
 	while(true) {
 		port__read(b) = uart__read();
