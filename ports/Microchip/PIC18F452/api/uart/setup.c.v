@@ -10,7 +10,7 @@ module uart
 
 fn setup() {
     //Configuración del registro SPBRG (9600 Baudios)
-    SPBRG=(unsigned char)((_XTAL_FREQ/9600)/64)-1  
+    SPBRG=((_XTAL_FREQ/9600)/64)-1 
     //configuracion
     TXSTAbits.BRGH=0   /*LOW SPEED*/  
     TXSTAbits.SYNC=0   /*ASINCRONO*/  

@@ -7,6 +7,7 @@
 // Description: uart
 //              (PIC18F452)
 module uart
+
 #include <xc.h>
 
 fn init() {

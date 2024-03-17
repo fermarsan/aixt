@@ -132,69 +132,72 @@
 #define e0    TRISCbits.TRISE0
 #define e1    TRISCbits.TRISE1
 #define e2    TRISCbits.TRISE2
+#define pin__output 0   // pin mode (direction)
+#define pin__input  1
+#define pin__high(PIN_NAME)  PIN_NAME = 1          // LATBbits.LB0 = 1
+#define pin__low(PIN_NAME)   PIN_NAME = 0          // LATBbits.LB0 = 0
+#define pin__read(PIN_NAME)  PIN_NAME ##_i             // PORTBbits.RB0
+#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE  // pin_setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+#define pin__write(PIN_NAME,VAL)   PIN_NAME = VAL    // LATBbits.LB0 = 0
+#define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 
 void main__init();
 
-void adc__init();
+void pin__init();
 
-long adc__read(unsigned char channel);
+void uart__init();
 
-void adc__setup();
+char uart__read();
 
-void pwm__init();
+void uart__setup();
 
-void pwm__setup();
+void uart__write(char data);
 
-void pwm__write(long duty);
+void time__init();
 
 void main__init() {
-	adc__init();
-	pwm__init();
+	pin__init();
+	uart__init();
+	time__init();
 	
 }
 
-void adc__init() {
+void pin__init() {
 }
 
-long adc__read(unsigned char channel) {
-	ADCON0bits.CHS = channel;
-	ADCON0bits.GO_DONE = 1;
-	while((ADCON0bits.GO_DONE == 1)) {
-	}
-	return ADRES;
+void uart__init() {
 }
 
-void adc__setup() {
-	ADCON1 = 0xC0;
-	ADCON0 = 0xC0;
-	ADCON0bits.ADON = 1;
+char uart__read() {
+	return RCREG;
 }
 
-void pwm__init() {
+void uart__setup() {
+	SPBRG = ((_XTAL_FREQ / 9600) / 64) - 1;
+	TXSTAbits.BRGH = 0;
+	TXSTAbits.SYNC = 0;
+	RCSTAbits.SPEN = 1;
+	TXSTAbits.TX9 = 0;
+	TXSTAbits.TXEN = 1;
+	RCSTAbits.RC9 = 0;
+	RCSTAbits.CREN = 1;
 }
 
-void pwm__setup() {
-	PR2 = 0x0C;
-	CCPR1L = 0;
-	TRISCbits.TRISC2 = 0;
-	T2CON = 0x03;
-	CCP1CON = 0x0C;
-	TMR2 = 0;
-	T2CONbits.TMR2ON = 1;
+void uart__write(char data) {
+	TXREG = data;
 }
 
-void pwm__write(long duty) {
-	long pwm = ((duty - 0) * (50 - 0) / (1023 - 0) + 0);
-	CCPR1L = pwm >> 2;
+void time__init() {
 }
 
 void main(void) {
 	main__init();
-	adc__setup();
-	pwm__setup();
+	pin__setup(c6, pin__output);
+	uart__setup();
 	while(true) {
-		long valor_adc = 0;
-		valor_adc = adc__read(0);
-		pwm__write(valor_adc);
+		uart__write(0x33);
+		time__sleep_ms(1000);
+		uart__write(0x99);
+		time__sleep_ms(1000);
 	}
 }
