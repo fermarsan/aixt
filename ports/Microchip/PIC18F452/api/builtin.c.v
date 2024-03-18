@@ -6,6 +6,13 @@
 //
 // Description: Builtin definitions (PIC18F452) 
 
+module main
+
+#include <xc.h>
+#include <stdio.h>
+#define _XTAL_FREQ 8000000
+#define true 1
+
 // CONFIG1H
 #pragma config OSC = HS       // Oscillator Selection bits (RC oscillator w/ OSC2 configured as RA6)
 #pragma config OSCS = OFF       // Oscillator System Clock Switch Enable bit (Oscillator system clock switch option is disabled (main oscillator is source))
@@ -171,3 +178,7 @@
 #define e0    TRISCbits.TRISE0 
 #define e1    TRISCbits.TRISE1 
 #define e2    TRISCbits.TRISE2 
+
+fn init() {
+	
+}
