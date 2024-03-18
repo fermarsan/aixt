@@ -9,12 +9,12 @@ unsigned int adc_result;
 
 void main(void) {
     
-    pin_setup(c0, out);
-    pin_setup(c1, out);
-    pin_setup(c2, out);
-    pin_setup(c3, out);
-    pin_setup(c4, out);
-    pin_setup(c5, out);
+    pin__setup(c0, out);
+    pin__setup(c1, out);
+    pin__setup(c2, out);
+    pin__setup(c3, out);
+    pin__setup(c4, out);
+    pin__setup(c5, out);
     
     pin_write(c0, 0);
     pin_write(c1, 0);

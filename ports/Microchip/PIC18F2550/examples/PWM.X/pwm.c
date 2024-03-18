@@ -6,6 +6,7 @@
 #include <xc.h>
 #include <stdio.h>
 #define _XTAL_FREQ 8000000
+#define true 1
 #pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
 #pragma config CPUDIV = OSC1_PLL2// System Clock Postscaler Selection bits ([Primary Oscillator Src: /1][96 MHz PLL Src: /2])
 #pragma config USBDIV = 1       // USB Clock Selection bit (used in Full-Speed USB mode only; UCFG:FSEN = 1) (USB clock source comes directly from the primary oscillator block with no postscale)
@@ -119,22 +120,31 @@
 #define c6      LATCbits.LATC6
 #define c7      LATCbits.LATC7
 
+void main__init();
+
+void adc__init();
+
 long adc__read(unsigned char channel);
 
-long adc__reading();
-
 void adc__setup();
+
+void pwm__init();
 
 void pwm__setup();
 
 void pwm__write(long duty);
 
-long adc__read(unsigned char channel) {
-	ADCON0bits.CHS = channel;
-	adc__reading();
+void main__init() {
+	adc__init();
+	pwm__init();
+	
 }
 
-long adc__reading() {
+void adc__init() {
+}
+
+long adc__read(unsigned char channel) {
+	ADCON0bits.CHS = channel;
 	ADCON0bits.GO_DONE = 1;
 	while((ADCON0bits.GO_DONE == 1)) {
 	}
@@ -146,6 +156,9 @@ void adc__setup() {
 	ADCON0 = 0x00;
 	ADCON2 = 0x97;
 	ADCON0bits.ADON = 1;
+}
+
+void pwm__init() {
 }
 
 void pwm__setup() {
@@ -168,8 +181,8 @@ void main(void) {
 	adc__setup();
 	pwm__setup();
 	while(true) {
-		adc__read(0);
-		toml.Any(toml.Null{}) valor = adc__reading();
+		long valor = 0;
+		valor = adc__read(0);
 		pwm__write(valor);
 	}
 }
