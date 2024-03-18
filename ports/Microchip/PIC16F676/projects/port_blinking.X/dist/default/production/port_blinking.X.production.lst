@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Tue Feb 27 23:47:54 2024
+                                                                                               Sat Mar 16 15:14:54 2024
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	16F676
@@ -159,7 +159,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    145 ;;
    146 ;; *************** function _main *****************
    147 ;; Defined at:
-   148 ;;		line 10 in file "port_blinking.c"
+   148 ;;		line 8 in file "port_blinking.c"
    149 ;; Parameters:    Size  Location     Type
    150 ;;		None
    151 ;; Auto vars:     Size  Location     Type
@@ -193,18 +193,18 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    179                           ; Regs used in _main: [wreg+status,2]
    180                           
    181                           
-   182                           ;port_blinking.c: 12:     TRISC = 0b00000000;
+   182                           ;port_blinking.c: 10:     TRISC = 0b00000000;
    183     03D9  1683               	bsf	3,5	;RP0=1, select bank1
    184     03DA  0187               	clrf	7	;volatile
    185     03DB                     l618:
    186                           
-   187                           ;port_blinking.c: 16:         PORTC = 0b010101;
+   187                           ;port_blinking.c: 14:         PORTC = 0b010101;
    188     03DB  3015               	movlw	21
    189     03DC  1283               	bcf	3,5	;RP0=0, select bank0
    190     03DD  0087               	movwf	7	;volatile
    191     03DE                     l620:
    192                           
-   193                           ;port_blinking.c: 17:         _delay((unsigned long)((500)*(4000000/4000.0)));
+   193                           ;port_blinking.c: 15:         _delay((unsigned long)((500)*(4000000/4000.0)));
    194     03DE  3003               	movlw	3
    195     03DF  00A2               	movwf	??_main+2
    196     03E0  308A               	movlw	138
@@ -221,13 +221,13 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    207     03EA  2BEB               	nop2
    208     03EB                     l622:
    209                           
-   210                           ;port_blinking.c: 18:         PORTC = 0b101010;
+   210                           ;port_blinking.c: 16:         PORTC = 0b101010;
    211     03EB  302A               	movlw	42
    212     03EC  1283               	bcf	3,5	;RP0=0, select bank0
    213     03ED  0087               	movwf	7	;volatile
    214     03EE                     l624:
    215                           
-   216                           ;port_blinking.c: 19:         _delay((unsigned long)((500)*(4000000/4000.0)));
+   216                           ;port_blinking.c: 17:         _delay((unsigned long)((500)*(4000000/4000.0)));
    217     03EE  3003               	movlw	3
    218     03EF  00A2               	movwf	??_main+2
    219     03F0  308A               	movlw	138
@@ -328,7 +328,7 @@ DATA                 0      0       0       6        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Tue Feb 27 23:47:54 2024
+Symbol Table                                                                                   Sat Mar 16 15:14:54 2024
 
                      u17 03E4                       u27 03F4                      l620 03DE  
                     l622 03EB                      l624 03EE                      l616 03D9  

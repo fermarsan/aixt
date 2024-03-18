@@ -168,78 +168,78 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1380
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 1380: __asm("ADCON1 equ 09Fh");
 [; <" ADCON1 equ 09Fh ;# ">
-"17 ./../../api/builtin.c.v
+"15 ./../../api_c/builtin.c
 [p x FOSC  =  INTRCIO    ]
-"18
+"16
 [p x WDTE  =  OFF       ]
-"19
+"17
 [p x PWRTE  =  OFF      ]
-"20
+"18
 [p x MCLRE  =  OFF       ]
-"21
+"19
 [p x BOREN  =  OFF      ]
-"22
+"20
 [p x CP  =  OFF          ]
-"23
+"21
 [p x CPD  =  OFF  ]
-"15 adc.c
-[; ;adc.c: 15: unsigned int adc_result;
+"8 adc.c
+[; ;adc.c: 8: unsigned int adc_result;
 [v _adc_result `ui ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"17
-[; ;adc.c: 17: void main(void) {
+"10
+[; ;adc.c: 10: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"19
-[; ;adc.c: 19:     TRISCbits.TRISC0 = 0;
+"12
+[; ;adc.c: 12:     TRISCbits.TRISC0 = 0;
 [e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"20
-[; ;adc.c: 20:     TRISCbits.TRISC1 = 0;
+"13
+[; ;adc.c: 13:     TRISCbits.TRISC1 = 0;
 [e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
-"21
-[; ;adc.c: 21:     TRISCbits.TRISC2 = 0;
+"14
+[; ;adc.c: 14:     TRISCbits.TRISC2 = 0;
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"22
-[; ;adc.c: 22:     TRISCbits.TRISC3 = 0;
+"15
+[; ;adc.c: 15:     TRISCbits.TRISC3 = 0;
 [e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-"23
-[; ;adc.c: 23:     TRISCbits.TRISC4 = 0;
+"16
+[; ;adc.c: 16:     TRISCbits.TRISC4 = 0;
 [e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-"24
-[; ;adc.c: 24:     TRISCbits.TRISC5 = 0;
+"17
+[; ;adc.c: 17:     TRISCbits.TRISC5 = 0;
 [e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-"26
-[; ;adc.c: 26:     PORTCbits.RC0 = 0;
+"19
+[; ;adc.c: 19:     PORTCbits.RC0 = 0;
 [e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-"27
-[; ;adc.c: 27:     PORTCbits.RC1 = 0;
+"20
+[; ;adc.c: 20:     PORTCbits.RC1 = 0;
 [e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
-"28
-[; ;adc.c: 28:     PORTCbits.RC2 = 0;
+"21
+[; ;adc.c: 21:     PORTCbits.RC2 = 0;
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"29
-[; ;adc.c: 29:     PORTCbits.RC3 = 0;
+"22
+[; ;adc.c: 22:     PORTCbits.RC3 = 0;
 [e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"30
-[; ;adc.c: 30:     PORTCbits.RC4 = 0;
+"23
+[; ;adc.c: 23:     PORTCbits.RC4 = 0;
 [e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
-"31
-[; ;adc.c: 31:     PORTCbits.RC5 = 0;
+"24
+[; ;adc.c: 24:     PORTCbits.RC5 = 0;
 [e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-"33
-[; ;adc.c: 33:     ; ANSEL = 0b00000100; ADCON0 = 0b10000000; ADCON1 = 0b00110000; ADCON0bits.ADON = 1;
+"26
+[; ;adc.c: 26:     ANSEL = 0b00000100; ADCON0 = 0b10000000; ADCON1 = 0b00110000; ADCON0bits.ADON = 1;;
 [e = _ANSEL -> -> 4 `i `uc ]
 [e = _ADCON0 -> -> 128 `i `uc ]
 [e = _ADCON1 -> -> 48 `i `uc ]
 [e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"35
-[; ;adc.c: 35:     while(1){
+"28
+[; ;adc.c: 28:     while(1){
 [e :U 69 ]
 {
-"37
-[; ;adc.c: 37:         adc_result = ADCON0bits.CHS = 2; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = (ADRESH << 8) | ADRESL; adc_result;
+"30
+[; ;adc.c: 30:         adc_result = ADCON0bits.CHS = 2; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = ((ADRESH << 8) | ADRESL); adc_result;
 [e = _adc_result -> = . . _ADCON0bits 0 2 -> -> 2 `i `uc `ui ]
 [e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]
 [e $U 71  ]
@@ -249,191 +249,191 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 73 ]
 [e = _adc_result -> | << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
 [e _adc_result ]
-"39
-[; ;adc.c: 39:         if ( adc_result >= 1020 ){
+"32
+[; ;adc.c: 32:         if ( adc_result >= 1020 ){
 [e $ ! >= _adc_result -> -> 1020 `i `ui 74  ]
 {
-"41
-[; ;adc.c: 41:             PORTCbits.RC0 = 1;
+"34
+[; ;adc.c: 34:             PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"42
-[; ;adc.c: 42:             PORTCbits.RC1 = 1;
+"35
+[; ;adc.c: 35:             PORTCbits.RC1 = 1;
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"43
-[; ;adc.c: 43:             PORTCbits.RC2 = 1;
+"36
+[; ;adc.c: 36:             PORTCbits.RC2 = 1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"44
-[; ;adc.c: 44:             PORTCbits.RC3 = 1;
+"37
+[; ;adc.c: 37:             PORTCbits.RC3 = 1;
 [e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"45
-[; ;adc.c: 45:             PORTCbits.RC4 = 1;
+"38
+[; ;adc.c: 38:             PORTCbits.RC4 = 1;
 [e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
-"46
-[; ;adc.c: 46:             PORTCbits.RC5 = 1;
+"39
+[; ;adc.c: 39:             PORTCbits.RC5 = 1;
 [e = . . _PORTCbits 0 5 -> -> 1 `i `uc ]
-"47
-[; ;adc.c: 47:         }
+"40
+[; ;adc.c: 40:         }
 }
 [e $U 75  ]
-"49
-[; ;adc.c: 49:         else if ( adc_result >= 820 ){
+"42
+[; ;adc.c: 42:         else if ( adc_result >= 820 ){
 [e :U 74 ]
 [e $ ! >= _adc_result -> -> 820 `i `ui 76  ]
 {
-"51
-[; ;adc.c: 51:             PORTCbits.RC0 = 1;
+"44
+[; ;adc.c: 44:             PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"52
-[; ;adc.c: 52:             PORTCbits.RC1 = 1;
+"45
+[; ;adc.c: 45:             PORTCbits.RC1 = 1;
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"53
-[; ;adc.c: 53:             PORTCbits.RC2 = 1;
+"46
+[; ;adc.c: 46:             PORTCbits.RC2 = 1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"54
-[; ;adc.c: 54:             PORTCbits.RC3 = 1;
+"47
+[; ;adc.c: 47:             PORTCbits.RC3 = 1;
 [e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"55
-[; ;adc.c: 55:             PORTCbits.RC4 = 1;
+"48
+[; ;adc.c: 48:             PORTCbits.RC4 = 1;
 [e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
-"56
-[; ;adc.c: 56:             PORTCbits.RC5 = 0;
+"49
+[; ;adc.c: 49:             PORTCbits.RC5 = 0;
 [e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-"57
-[; ;adc.c: 57:         }
+"50
+[; ;adc.c: 50:         }
 }
 [e $U 77  ]
-"59
-[; ;adc.c: 59:         else if ( adc_result >= 620 ){
+"52
+[; ;adc.c: 52:         else if ( adc_result >= 620 ){
 [e :U 76 ]
 [e $ ! >= _adc_result -> -> 620 `i `ui 78  ]
 {
-"61
-[; ;adc.c: 61:             PORTCbits.RC0 = 1;
+"54
+[; ;adc.c: 54:             PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"62
-[; ;adc.c: 62:             PORTCbits.RC1 = 1;
+"55
+[; ;adc.c: 55:             PORTCbits.RC1 = 1;
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"63
-[; ;adc.c: 63:             PORTCbits.RC2 = 1;
+"56
+[; ;adc.c: 56:             PORTCbits.RC2 = 1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"64
-[; ;adc.c: 64:             PORTCbits.RC3 = 1;
+"57
+[; ;adc.c: 57:             PORTCbits.RC3 = 1;
 [e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"65
-[; ;adc.c: 65:             PORTCbits.RC4 = 0;
+"58
+[; ;adc.c: 58:             PORTCbits.RC4 = 0;
 [e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
-"66
-[; ;adc.c: 66:             PORTCbits.RC5 = 0;
+"59
+[; ;adc.c: 59:             PORTCbits.RC5 = 0;
 [e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-"67
-[; ;adc.c: 67:         }
+"60
+[; ;adc.c: 60:         }
 }
 [e $U 79  ]
-"69
-[; ;adc.c: 69:         else if ( adc_result >= 420 ){
+"62
+[; ;adc.c: 62:         else if ( adc_result >= 420 ){
 [e :U 78 ]
 [e $ ! >= _adc_result -> -> 420 `i `ui 80  ]
 {
-"71
-[; ;adc.c: 71:             PORTCbits.RC0 = 1;
+"64
+[; ;adc.c: 64:             PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"72
-[; ;adc.c: 72:             PORTCbits.RC1 = 1;
+"65
+[; ;adc.c: 65:             PORTCbits.RC1 = 1;
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"73
-[; ;adc.c: 73:             PORTCbits.RC2 = 1;
+"66
+[; ;adc.c: 66:             PORTCbits.RC2 = 1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"74
-[; ;adc.c: 74:             PORTCbits.RC3 = 0;
+"67
+[; ;adc.c: 67:             PORTCbits.RC3 = 0;
 [e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"75
-[; ;adc.c: 75:             PORTCbits.RC4 = 0;
+"68
+[; ;adc.c: 68:             PORTCbits.RC4 = 0;
 [e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
-"76
-[; ;adc.c: 76:             PORTCbits.RC5 = 0;
+"69
+[; ;adc.c: 69:             PORTCbits.RC5 = 0;
 [e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-"77
-[; ;adc.c: 77:         }
+"70
+[; ;adc.c: 70:         }
 }
 [e $U 81  ]
-"79
-[; ;adc.c: 79:         else if ( adc_result >= 220 ){
+"72
+[; ;adc.c: 72:         else if ( adc_result >= 220 ){
 [e :U 80 ]
 [e $ ! >= _adc_result -> -> 220 `i `ui 82  ]
 {
-"81
-[; ;adc.c: 81:             PORTCbits.RC0 = 1;
+"74
+[; ;adc.c: 74:             PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"82
-[; ;adc.c: 82:             PORTCbits.RC1 = 1;
+"75
+[; ;adc.c: 75:             PORTCbits.RC1 = 1;
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"83
-[; ;adc.c: 83:             PORTCbits.RC2 = 0;
+"76
+[; ;adc.c: 76:             PORTCbits.RC2 = 0;
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"84
-[; ;adc.c: 84:             PORTCbits.RC3 = 0;
+"77
+[; ;adc.c: 77:             PORTCbits.RC3 = 0;
 [e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"85
-[; ;adc.c: 85:             PORTCbits.RC4 = 0;
+"78
+[; ;adc.c: 78:             PORTCbits.RC4 = 0;
 [e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
-"86
-[; ;adc.c: 86:             PORTCbits.RC5 = 0;
+"79
+[; ;adc.c: 79:             PORTCbits.RC5 = 0;
 [e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-"87
-[; ;adc.c: 87:         }
+"80
+[; ;adc.c: 80:         }
 }
 [e $U 83  ]
-"89
-[; ;adc.c: 89:         else if ( adc_result >= 120 ){
+"82
+[; ;adc.c: 82:         else if ( adc_result >= 120 ){
 [e :U 82 ]
 [e $ ! >= _adc_result -> -> 120 `i `ui 84  ]
 {
-"91
-[; ;adc.c: 91:             PORTCbits.RC0 = 1;
+"84
+[; ;adc.c: 84:             PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"92
-[; ;adc.c: 92:             PORTCbits.RC1 = 0;
+"85
+[; ;adc.c: 85:             PORTCbits.RC1 = 0;
 [e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
-"93
-[; ;adc.c: 93:             PORTCbits.RC2 = 0;
+"86
+[; ;adc.c: 86:             PORTCbits.RC2 = 0;
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"94
-[; ;adc.c: 94:             PORTCbits.RC3 = 0;
+"87
+[; ;adc.c: 87:             PORTCbits.RC3 = 0;
 [e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"95
-[; ;adc.c: 95:             PORTCbits.RC4 = 0;
+"88
+[; ;adc.c: 88:             PORTCbits.RC4 = 0;
 [e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
-"96
-[; ;adc.c: 96:             PORTCbits.RC5 = 0;
+"89
+[; ;adc.c: 89:             PORTCbits.RC5 = 0;
 [e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-"97
-[; ;adc.c: 97:         }
+"90
+[; ;adc.c: 90:         }
 }
 [e $U 85  ]
-"99
-[; ;adc.c: 99:         else {
+"92
+[; ;adc.c: 92:         else {
 [e :U 84 ]
 {
-"101
-[; ;adc.c: 101:             PORTCbits.RC0 = 0;
+"94
+[; ;adc.c: 94:             PORTCbits.RC0 = 0;
 [e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-"102
-[; ;adc.c: 102:             PORTCbits.RC1 = 0;
+"95
+[; ;adc.c: 95:             PORTCbits.RC1 = 0;
 [e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
-"103
-[; ;adc.c: 103:             PORTCbits.RC2 = 0;
+"96
+[; ;adc.c: 96:             PORTCbits.RC2 = 0;
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"104
-[; ;adc.c: 104:             PORTCbits.RC3 = 0;
+"97
+[; ;adc.c: 97:             PORTCbits.RC3 = 0;
 [e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"105
-[; ;adc.c: 105:             PORTCbits.RC4 = 0;
+"98
+[; ;adc.c: 98:             PORTCbits.RC4 = 0;
 [e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
-"106
-[; ;adc.c: 106:             PORTCbits.RC5 = 0;
+"99
+[; ;adc.c: 99:             PORTCbits.RC5 = 0;
 [e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-"107
-[; ;adc.c: 107:         }
+"100
+[; ;adc.c: 100:         }
 }
 [e :U 85 ]
 [e :U 83 ]
@@ -441,13 +441,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 79 ]
 [e :U 77 ]
 [e :U 75 ]
-"109
-[; ;adc.c: 109:     }
+"102
+[; ;adc.c: 102:     }
 }
 [e :U 68 ]
 [e $U 69  ]
 [e :U 70 ]
-"110
-[; ;adc.c: 110: }
+"103
+[; ;adc.c: 103: }
 [e :UE 67 ]
 }

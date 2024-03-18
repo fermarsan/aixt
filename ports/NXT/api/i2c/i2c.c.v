@@ -2,16 +2,16 @@ module i2c
 
 // Constants for the SetI2COptions function.
 // These values are combined with a bitwise OR operation. 
-#define 	i2c__option_standard 	I2C_OPTION_STANDARD 
-#define 	i2c__option_norestart	I2C_OPTION_NORESTART
-#define 	i2c__option_fast     	I2C_OPTION_FAST  
+#define 	option_standard 	I2C_OPTION_STANDARD 
+#define 	option_norestart	I2C_OPTION_NORESTART
+#define 	option_fast     	I2C_OPTION_FAST  
 
 // Constants for use with standard I2C devices. 
-#define 	i2c__addr_default 		I2C_ADDR_DEFAULT 
-#define 	i2c__reg_version  		I2C_REG_VERSION  
-#define 	i2c__reg_vendor_id		I2C_REG_VENDOR_ID
-#define 	i2c__reg_device_id		I2C_REG_DEVICE_ID
-#define 	i2c__reg_cmd      		I2C_REG_CMD  
+#define 	addr_default 		I2C_ADDR_DEFAULT 
+#define 	reg_version  		I2C_REG_VERSION  
+#define 	reg_vendor_id		I2C_REG_VENDOR_ID
+#define 	reg_device_id		I2C_REG_DEVICE_ID
+#define 	reg_cmd      		I2C_REG_CMD  
 
 // Constants for LEGO I2C device addresses. 
 #define 	lego_addr_us    	LEGO_ADDR_US    

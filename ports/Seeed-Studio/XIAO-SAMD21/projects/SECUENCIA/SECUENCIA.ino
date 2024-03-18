@@ -4,8 +4,8 @@
 // Backend = arduino
 
 #define time__sleep_ms(TIME)  delay(TIME)
-#define pin__out OUTPUT
-#define pin__in INPUT
+#define pin__output OUTPUT
+#define pin__input INPUT
 #define pin__high(PIN_NAME)		digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)		digitalWrite(PIN_NAME, LOW)
 #define pin__read(PIN_NAME)		digitalRead(PIN_NAME)
@@ -32,9 +32,9 @@ void pin__init() {
 
 void setup() {
 	main__init();
-	pin__setup(3, pin__out);
-	pin__setup(4, pin__out);
-	pin__setup(5, pin__out);
+	pin__setup(3, pin__output);
+	pin__setup(4, pin__output);
+	pin__setup(5, pin__output);
 }
 
 void loop() {

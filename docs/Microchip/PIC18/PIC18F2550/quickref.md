@@ -9,7 +9,7 @@ Los nombres de los pines se nombran con una letra que indica el puerto y un núm
 
 
 ### Nombres de los pines del PIC18F2550
-| Puerto | 
+| Puerto | - | - | - | - | - | - | - | - | 
 | **A**  | a0| a1| a2| a3| a4| a5| a6| - |
 | **B**  | b0| b1| b2| b3| b4| b5| b6| b7|
 | **C**  | c0| c1| c2| - | c4| c5| c6| c7|
@@ -31,7 +31,7 @@ Luego, para facilitar la implementación (y no generar código inncesario) de es
 | Puerto     | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 
 |:------:    |---|---|---|---|---|---|---|---|
 | **A**      |AN0|AN1|AN2|AN3| - |AN4| - | - |
-| **B**    |AN12|AN10|AN8|AN9|AN11| - | - | - |
+| **B**   |AN12|AN10|AN8|AN9|AN11| - | - | - |
 | **C**      | - | - | - | - | - | - | - | - |
 
 
@@ -81,8 +81,8 @@ name                             | description
 
 ## Configuración de pines 
 ```go
-pin__setup(b3, out)      // Función para configurar el pin como salida 
-pin__setup(a2, out)      // Función para configurar el pin como salida
+pin__setup(b3, output)      // Función para configurar el pin como salida 
+pin__setup(a2, output)      // Función para configurar el pin como salida
 pin__setup(b2, input)    // Función para configurar el pin como entrada
 pin__setup(a1, input)    // Función para configurar el pin como entrada
 
@@ -185,11 +185,50 @@ Ejemplo de variar la intensidad de un led:
 ```go
  while(1){
     
-        adc_read(3);  // Lee el valor analógico del canal 3 (AN3)
-        adc = adc_reading();  // Almacena el valor del ADC
-        pwm_write(adc,1);  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1
+        adc := adc_read(3)  // Almacena el valor del ADC
+        pwm_write(adc)  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1
         
     }
 
+```
+
+## Configuración del UART Transmisión
+```go
+   
+       //CONFIG DE LOS PINES
+    pin.setup(c6,output)   //RC6 = TX
+
+       //Inicializamos la comunicación serial
+    uart.setup()
+    
+    for {
+         uart.write(0x33)
+         time.sleep_ms(500)
+         uart.write(0x99)
+         time.sleep_ms(500)
+     }
+     
+```
+
+## Configuración del UART Recepcion
+
+```go
+
+    port.setup(b, port.output)
+
+    // LIMPIAMOS EL PUERTO B
+
+    port.write(b, port.output)
+    
+   
+   // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
+    pin.setup(c7,input)
+
+   // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
+    uart.setup()             
+
+     for {
+         port.write(b, uart.read())
+     }
 ```
 

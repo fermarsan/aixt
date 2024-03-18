@@ -1,7 +1,16 @@
+// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
+// File Name: blink.v
+// Author: Fernando Martínez Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+// Date: 2022-2024
+// License: MIT
+//
+// // Description: Blinking led RED functions (Ai-Thinker_Ai-WB2-32S-Kit)
+//              (PC port) 
+
 import time {sleep_ms}
 import pin
 
-pin.setup(17, pin.out)
+pin.setup(1, pin.out)
 
 for {
 	pin.high(17)
