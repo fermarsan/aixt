@@ -1,0 +1,505 @@
+
+
+Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
+                                                                                               Mon Mar 18 06:54:55 2024
+
+Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
+     1                           	processor	16F676
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     6                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	maintext,global,class=CODE,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,merge=1,delta=2
+     9                           	psect	text2,local,class=CODE,merge=1,delta=2
+    10                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    11                           	dabs	1,0x5E,2
+    12     0000                     
+    13                           ; Generated 22/03/2023 GMT
+    14                           ; 
+    15                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    16                           ; All rights reserved.
+    17                           ; 
+    18                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    19                           ; 
+    20                           ; Redistribution and use in source and binary forms, with or without modification, are
+    21                           ; permitted provided that the following conditions are met:
+    22                           ; 
+    23                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    24                           ;        conditions and the following disclaimer.
+    25                           ; 
+    26                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    27                           ;        of conditions and the following disclaimer in the documentation and/or other
+    28                           ;        materials provided with the distribution. Publication is not required when
+    29                           ;        this file is used in an embedded application.
+    30                           ; 
+    31                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    32                           ;        software without specific prior written permission.
+    33                           ; 
+    34                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    35                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    36                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    37                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    38                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    39                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    40                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    41                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    42                           ; 
+    43                           ; 
+    44                           ; Code-generator required, PIC16F676 Definitions
+    45                           ; 
+    46                           ; SFR Addresses
+    47     0000                     	;# 
+    48     0001                     	;# 
+    49     0002                     	;# 
+    50     0003                     	;# 
+    51     0004                     	;# 
+    52     0005                     	;# 
+    53     0007                     	;# 
+    54     000A                     	;# 
+    55     000B                     	;# 
+    56     000C                     	;# 
+    57     000E                     	;# 
+    58     000E                     	;# 
+    59     000F                     	;# 
+    60     0010                     	;# 
+    61     0019                     	;# 
+    62     001E                     	;# 
+    63     001F                     	;# 
+    64     0081                     	;# 
+    65     0085                     	;# 
+    66     0087                     	;# 
+    67     008C                     	;# 
+    68     008E                     	;# 
+    69     0090                     	;# 
+    70     0091                     	;# 
+    71     0095                     	;# 
+    72     0095                     	;# 
+    73     0096                     	;# 
+    74     0096                     	;# 
+    75     0099                     	;# 
+    76     009A                     	;# 
+    77     009A                     	;# 
+    78     009B                     	;# 
+    79     009C                     	;# 
+    80     009D                     	;# 
+    81     009E                     	;# 
+    82     009F                     	;# 
+    83     0000                     	;# 
+    84     0001                     	;# 
+    85     0002                     	;# 
+    86     0003                     	;# 
+    87     0004                     	;# 
+    88     0005                     	;# 
+    89     0007                     	;# 
+    90     000A                     	;# 
+    91     000B                     	;# 
+    92     000C                     	;# 
+    93     000E                     	;# 
+    94     000E                     	;# 
+    95     000F                     	;# 
+    96     0010                     	;# 
+    97     0019                     	;# 
+    98     001E                     	;# 
+    99     001F                     	;# 
+   100     0081                     	;# 
+   101     0085                     	;# 
+   102     0087                     	;# 
+   103     008C                     	;# 
+   104     008E                     	;# 
+   105     0090                     	;# 
+   106     0091                     	;# 
+   107     0095                     	;# 
+   108     0095                     	;# 
+   109     0096                     	;# 
+   110     0096                     	;# 
+   111     0099                     	;# 
+   112     009A                     	;# 
+   113     009A                     	;# 
+   114     009B                     	;# 
+   115     009C                     	;# 
+   116     009D                     	;# 
+   117     009E                     	;# 
+   118     009F                     	;# 
+   119     0007                     _PORTCbits	set	7
+   120     0091                     _ANSEL	set	145
+   121     0087                     _TRISCbits	set	135
+   122                           
+   123                           	psect	cinit
+   124     03FD                     start_initialization:	
+   125                           ; #config settings
+   126                           
+   127     03FD                     __initialization:
+   128     03FD                     end_of_initialization:	
+   129                           ;End of C runtime variable initialization code
+   130                           
+   131     03FD                     __end_of__initialization:
+   132     03FD  0183               	clrf	3
+   133     03FE  2BD9               	ljmp	_main	;jump to C main() function
+   134                           
+   135                           	psect	cstackCOMMON
+   136     0000                     __pcstackCOMMON:
+   137     0000                     ??_pin__init:
+   138     0000                     ??_main__init:	
+   139                           ; 1 bytes @ 0x0
+   140                           
+   141     0000                     ??_main:	
+   142                           ; 1 bytes @ 0x0
+   143                           
+   144                           
+   145                           	psect	cstackBANK0
+   146     0020                     __pcstackBANK0:	
+   147                           ; 1 bytes @ 0x0
+   148                           
+   149     0020                     ?_pin__init:
+   150     0020                     ?_main__init:	
+   151                           ; 1 bytes @ 0x0
+   152                           
+   153     0020                     ?_main:	
+   154                           ; 1 bytes @ 0x0
+   155                           
+   156     0020                     main@x:	
+   157                           ; 1 bytes @ 0x0
+   158                           
+   159                           
+   160                           ; 1 bytes @ 0x0
+   161     0020                     	ds	1
+   162     0021                     main@x1:
+   163                           
+   164                           ; 1 bytes @ 0x1
+   165     0021                     	ds	1
+   166                           
+   167                           	psect	maintext
+   168     03D9                     __pmaintext:	
+   169 ;;
+   170 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   171 ;;
+   172 ;; *************** function _main *****************
+   173 ;; Defined at:
+   174 ;;		line 67 in file "digital.c"
+   175 ;; Parameters:    Size  Location     Type
+   176 ;;		None
+   177 ;; Auto vars:     Size  Location     Type
+   178 ;;  x1              1    1[BANK0 ] unsigned char 
+   179 ;;  x               1    0[BANK0 ] unsigned char 
+   180 ;; Return value:  Size  Location     Type
+   181 ;;                  1    wreg      void 
+   182 ;; Registers used:
+   183 ;;		wreg, status,2, status,0, pclath, cstack
+   184 ;; Tracked objects:
+   185 ;;		On entry : B00/0
+   186 ;;		On exit  : 0/0
+   187 ;;		Unchanged: 0/0
+   188 ;; Data sizes:     COMMON   BANK0
+   189 ;;      Params:         0       0
+   190 ;;      Locals:         0       2
+   191 ;;      Temps:          0       0
+   192 ;;      Totals:         0       2
+   193 ;;Total ram usage:        2 bytes
+   194 ;; Hardware stack levels required when called: 2
+   195 ;; This function calls:
+   196 ;;		_main__init
+   197 ;; This function is called by:
+   198 ;;		Startup code after reset
+   199 ;; This function uses a non-reentrant model
+   200 ;;
+   201                           
+   202     03D9                     _main:	
+   203                           ;psect for function _main
+   204                           
+   205     03D9                     l651:	
+   206                           ;incstack = 0
+   207                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   208                           
+   209                           
+   210                           ;digital.c: 68:  main__init();
+   211     03D9  23D7               	fcall	_main__init
+   212     03DA                     l653:
+   213                           
+   214                           ;digital.c: 69:  TRISCbits.TRISC2 = 1;
+   215     03DA  1683               	bsf	3,5	;RP0=1, select bank1
+   216     03DB  1507               	bsf	7,2	;volatile
+   217     03DC                     l655:
+   218                           
+   219                           ;digital.c: 70:  TRISCbits.TRISC4 = 1;
+   220     03DC  1607               	bsf	7,4	;volatile
+   221     03DD                     l657:
+   222                           
+   223                           ;digital.c: 71:  TRISCbits.TRISC0 = 0;
+   224     03DD  1007               	bcf	7,0	;volatile
+   225     03DE                     l659:
+   226                           
+   227                           ;digital.c: 72:  TRISCbits.TRISC1 = 0;
+   228     03DE  1087               	bcf	7,1	;volatile
+   229     03DF                     l661:
+   230                           
+   231                           ;digital.c: 73:  PORTCbits.RC0 = 0;
+   232     03DF  1283               	bcf	3,5	;RP0=0, select bank0
+   233     03E0  1007               	bcf	7,0	;volatile
+   234     03E1                     l663:
+   235     03E1                     l665:
+   236     03E1                     l667:
+   237                           
+   238                           ;digital.c: 76:  ANSEL = 0;
+   239     03E1  1683               	bsf	3,5	;RP0=1, select bank1
+   240     03E2  0191               	clrf	17	;volatile
+   241     03E3                     l669:
+   242                           
+   243                           ;digital.c: 78:   x = PORTCbits.RC2;
+   244     03E3  3000               	movlw	0
+   245     03E4  1283               	bcf	3,5	;RP0=0, select bank0
+   246     03E5  1907               	btfsc	7,2	;volatile
+   247     03E6  3001               	movlw	1
+   248     03E7  00A0               	movwf	main@x
+   249     03E8                     l671:
+   250                           
+   251                           ;digital.c: 79:   x1 = PORTCbits.RC4;
+   252     03E8  3000               	movlw	0
+   253     03E9  1A07               	btfsc	7,4	;volatile
+   254     03EA  3001               	movlw	1
+   255     03EB  00A1               	movwf	main@x1
+   256     03EC                     l673:
+   257                           
+   258                           ;digital.c: 80:   if(x == 1) {
+   259     03EC  0320               	decf	main@x,w
+   260     03ED  1D03               	btfss	3,2
+   261     03EE  2BF0               	goto	u31
+   262     03EF  2BF1               	goto	u30
+   263     03F0                     u31:
+   264     03F0  2BF4               	goto	l677
+   265     03F1                     u30:
+   266     03F1                     l675:
+   267                           
+   268                           ;digital.c: 81:    PORTCbits.RC0 = 1;
+   269     03F1  1407               	bsf	7,0	;volatile
+   270                           
+   271                           ;digital.c: 82:    PORTCbits.RC1 = 1;
+   272     03F2  1487               	bsf	7,1	;volatile
+   273                           
+   274                           ;digital.c: 83:   }
+   275     03F3  2BE3               	goto	l669
+   276     03F4                     l677:
+   277     03F4  0321               	decf	main@x1,w
+   278     03F5  1D03               	btfss	3,2
+   279     03F6  2BF8               	goto	u41
+   280     03F7  2BF9               	goto	u40
+   281     03F8                     u41:
+   282     03F8  2BE3               	goto	l669
+   283     03F9                     u40:
+   284     03F9                     l679:
+   285                           
+   286                           ;digital.c: 85:    PORTCbits.RC0 = 0;
+   287     03F9  1007               	bcf	7,0	;volatile
+   288                           
+   289                           ;digital.c: 86:    PORTCbits.RC1 = 0;
+   290     03FA  1087               	bcf	7,1	;volatile
+   291     03FB  2BE3               	goto	l669
+   292     03FC  2800               	ljmp	start
+   293     03FD                     __end_of_main:
+   294                           
+   295                           	psect	text1
+   296     03D7                     __ptext1:	
+   297 ;; *************** function _main__init *****************
+   298 ;; Defined at:
+   299 ;;		line 59 in file "digital.c"
+   300 ;; Parameters:    Size  Location     Type
+   301 ;;		None
+   302 ;; Auto vars:     Size  Location     Type
+   303 ;;		None
+   304 ;; Return value:  Size  Location     Type
+   305 ;;                  1    wreg      void 
+   306 ;; Registers used:
+   307 ;;		status,2, status,0, pclath, cstack
+   308 ;; Tracked objects:
+   309 ;;		On entry : 0/0
+   310 ;;		On exit  : 0/0
+   311 ;;		Unchanged: 0/0
+   312 ;; Data sizes:     COMMON   BANK0
+   313 ;;      Params:         0       0
+   314 ;;      Locals:         0       0
+   315 ;;      Temps:          0       0
+   316 ;;      Totals:         0       0
+   317 ;;Total ram usage:        0 bytes
+   318 ;; Hardware stack levels used: 1
+   319 ;; Hardware stack levels required when called: 1
+   320 ;; This function calls:
+   321 ;;		_pin__init
+   322 ;; This function is called by:
+   323 ;;		_main
+   324 ;; This function uses a non-reentrant model
+   325 ;;
+   326                           
+   327     03D7                     _main__init:	
+   328                           ;psect for function _main__init
+   329                           
+   330     03D7                     l649:	
+   331                           ;incstack = 0
+   332                           ; Regs used in _main__init: [status,2+status,0+pclath+cstack]
+   333                           
+   334                           
+   335                           ;digital.c: 60:  pin__init();
+   336     03D7  23D6               	fcall	_pin__init
+   337     03D8                     l11:
+   338     03D8  0008               	return
+   339     03D9                     __end_of_main__init:
+   340                           
+   341                           	psect	text2
+   342     03D6                     __ptext2:	
+   343 ;; *************** function _pin__init *****************
+   344 ;; Defined at:
+   345 ;;		line 64 in file "digital.c"
+   346 ;; Parameters:    Size  Location     Type
+   347 ;;		None
+   348 ;; Auto vars:     Size  Location     Type
+   349 ;;		None
+   350 ;; Return value:  Size  Location     Type
+   351 ;;                  1    wreg      void 
+   352 ;; Registers used:
+   353 ;;		None
+   354 ;; Tracked objects:
+   355 ;;		On entry : 0/0
+   356 ;;		On exit  : 0/0
+   357 ;;		Unchanged: 0/0
+   358 ;; Data sizes:     COMMON   BANK0
+   359 ;;      Params:         0       0
+   360 ;;      Locals:         0       0
+   361 ;;      Temps:          0       0
+   362 ;;      Totals:         0       0
+   363 ;;Total ram usage:        0 bytes
+   364 ;; Hardware stack levels used: 1
+   365 ;; This function calls:
+   366 ;;		Nothing
+   367 ;; This function is called by:
+   368 ;;		_main__init
+   369 ;; This function uses a non-reentrant model
+   370 ;;
+   371                           
+   372     03D6                     _pin__init:	
+   373                           ;psect for function _pin__init
+   374                           
+   375     03D6                     l14:	
+   376                           ;incstack = 0
+   377                           ; Regs used in _pin__init: []
+   378                           
+   379     03D6  0008               	return
+   380     03D7                     __end_of_pin__init:
+   381     005E                     btemp	set	94	;btemp
+   382     005E                     wtemp0	set	94
+   383                           
+   384                           	psect	config
+   385                           
+   386                           ;Config register CONFIG @ 0x2007
+   387                           ;	Oscillator Selection bits
+   388                           ;	FOSC = INTRCIO, INTOSC oscillator: I/O function on RA4/OSC2/CLKOUT pin, I/O function o
+      +                          n RA5/OSC1/CLKIN
+   389                           ;	Watchdog Timer Enable bit
+   390                           ;	WDTE = OFF, WDT disabled
+   391                           ;	Power-up Timer Enable bit
+   392                           ;	PWRTE = OFF, PWRT disabled
+   393                           ;	RA3/MCLR pin function select
+   394                           ;	MCLRE = OFF, RA3/MCLR pin function is digital I/O, MCLR internally tied to VDD
+   395                           ;	Brown-out Detect Enable bit
+   396                           ;	BOREN = OFF, BOD disabled
+   397                           ;	Code Protection bit
+   398                           ;	CP = OFF, Program Memory code protection is disabled
+   399                           ;	Data Code Protection bit
+   400                           ;	CPD = OFF, Data memory code protection is disabled
+   401     2007                     	org	8199
+   402     2007  3F94               	dw	16276
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            62      2       2
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0      48
+                                              0 BANK0      2     2      0
+                         _main__init
+ ---------------------------------------------------------------------------------
+ (1) _main__init                                           0     0      0       0
+                          _pin__init
+ ---------------------------------------------------------------------------------
+ (2) _pin__init                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _main__init
+     _pin__init
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              80      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BITBANK0            3E      0       0       3        0.0%
+BANK0               3E      2       2       4        3.2%
+ABS                  0      0       0       5        0.0%
+DATA                 0      0       0       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
+Symbol Table                                                                                   Mon Mar 18 06:54:55 2024
+
+                     l11 03D8                       l14 03D6                       u30 03F1  
+                     u31 03F0                       u40 03F9                       u41 03F8  
+                    l651 03D9                      l661 03DF                      l653 03DA  
+                    l671 03E8                      l663 03E1                      l655 03DC  
+                    l649 03D7                      l673 03EC                      l665 03E1  
+                    l657 03DD                      l675 03F1                      l667 03E1  
+                    l659 03DE                      l677 03F4                      l669 03E3  
+                    l679 03F9                     _main 03D9                     btemp 005E  
+                   start 0000                    ?_main 0020                    _ANSEL 0091  
+                  main@x 0020                    status 0003                    wtemp0 005E  
+        __initialization 03FD             __end_of_main 03FD                   ??_main 0000  
+                 main@x1 0021  __end_of__initialization 03FD           __pcstackCOMMON 0000  
+             __pmaintext 03D9               _main__init 03D7                  __ptext1 03D7  
+                __ptext2 03D6        __end_of_pin__init 03D7     end_of_initialization 03FD  
+              _PORTCbits 0007                _TRISCbits 0087              ?_main__init 0020  
+    start_initialization 03FD                ___latbits 0000            __pcstackBANK0 0020  
+              _pin__init 03D6             ??_main__init 0000               ?_pin__init 0020  
+     __end_of_main__init 03D9              ??_pin__init 0000  

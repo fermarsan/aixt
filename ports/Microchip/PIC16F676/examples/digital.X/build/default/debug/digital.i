@@ -1,4 +1,4 @@
-# 1 "blinking.c"
+# 1 "digital.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "blinking.c" 2
+# 1 "digital.c" 2
 
 
 
@@ -1164,7 +1164,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 7 "blinking.c" 2
+# 7 "digital.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
 
 
@@ -1258,7 +1258,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 8 "blinking.c" 2
+# 8 "digital.c" 2
 
 
 
@@ -1269,20 +1269,14 @@ extern int printf(const char *, ...);
 #pragma config BOREN = OFF
 #pragma config CP = OFF
 #pragma config CPD = OFF
-# 55 "blinking.c"
+# 55 "digital.c"
 void main__init();
-
-void time__init();
 
 void pin__init();
 
 void main__init() {
- time__init();
  pin__init();
 
-}
-
-void time__init() {
 }
 
 void pin__init() {
@@ -1290,19 +1284,24 @@ void pin__init() {
 
 void main(void) {
  main__init();
+ TRISCbits.TRISC2 = 1;
+ TRISCbits.TRISC4 = 1;
  TRISCbits.TRISC0 = 0;
  TRISCbits.TRISC1 = 0;
- TRISCbits.TRISC2 = 0;
+ PORTCbits.RC0 = 0;
+ signed char x = 0;
+ signed char x1 = 0;
+ ANSEL = 0;
  while(1) {
-  PORTCbits.RC0 = 1;
-  _delay((unsigned long)((500)*(4000000/4000.0)));
-  PORTCbits.RC1 = 1;
-  _delay((unsigned long)((500)*(4000000/4000.0)));
-  PORTCbits.RC2 = 1;
-  _delay((unsigned long)((500)*(4000000/4000.0)));
-  PORTCbits.RC0 = 0;
-  PORTCbits.RC1 = 0;
-  PORTCbits.RC2 = 0;
-  _delay((unsigned long)((500)*(4000000/4000.0)));
+  x = PORTCbits.RC2;
+  x1 = PORTCbits.RC4;
+  if(x == 1) {
+   PORTCbits.RC0 = 1;
+   PORTCbits.RC1 = 1;
+  }
+  else if(x1 == 1) {
+   PORTCbits.RC0 = 0;
+   PORTCbits.RC1 = 0;
+  }
  }
 }
