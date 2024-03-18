@@ -10,7 +10,12 @@
 module adc
 
 fn adc__reading() u16 {
+    
     ADCON0bits.GO_DONE = 1 /* Inicia la conversión */ 
-    for (ADCON0bits.GO_DONE == 1) {} /* Espera a que la conversión termine */
-    return (ADRESH << 8) | ADRESL /* Devuelve el valor del ADC */
-}
+    for (ADCON0bits.GO_DONE == 1) {} 
+    return (ADRESH << 8) | ADRESL  
+
+    }
+
+
+

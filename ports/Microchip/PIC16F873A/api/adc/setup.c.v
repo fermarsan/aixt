@@ -9,7 +9,14 @@
 
 module adc
 
-#define adc__setup() \
+#define adc__setup()  ADCON1 = 0b10000000  ADCON0 = 0b11001000  ADCON0bits.ADON = 1
+
+
+
+
+
+/*#define adc__setup() \
     ADCON1 = 0b10000000 /* Ajusta todos los canales como analogicos */ \
     ADCON0 = 0b11001000 /* Ajusta todos las entradas como analogicos */\
     ADCON0bits.ADON = 1
+*/

@@ -1,19 +1,31 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"6 blinking.c
-[p x FOSC  =  INTRCIO    ]
-"7
-[p x WDTE  =  OFF        ]
-"8
-[p x PWRTE  =  OFF       ]
-"9
-[p x MCLRE  =  OFF       ]
-"10
-[p x BOREN  =  OFF       ]
-"11
-[p x CP  =  OFF          ]
-"12
-[p x CPD  =  OFF         ]
+"787 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 787:     struct {
+[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S34 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 ]
+"786
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 786: typedef union {
+[u S33 `S34 1 ]
+[n S33 . . ]
+"796
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 796: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
+[v _TRISCbits `VS33 ~T0 @X0 0 e@135 ]
+"222
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 222:     struct {
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . RC0 RC1 RC2 RC3 RC4 RC5 ]
+"221
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 221: typedef union {
+[u S7 `S8 1 ]
+[n S7 . . ]
+"231
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 231: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
+[v _PORTCbits `VS7 ~T0 @X0 0 e@7 ]
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
+[v __delay `JF36 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -122,14 +134,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1380
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h: 1380: __asm("ADCON1 equ 09Fh");
 [; <" ADCON1 equ 09Fh ;# ">
+"15 ./../../api_c/builtin.c
+[p x FOSC  =  INTRCIO    ]
+"16
+[p x WDTE  =  OFF       ]
+"17
+[p x PWRTE  =  OFF      ]
+"18
+[p x MCLRE  =  OFF       ]
+"19
+[p x BOREN  =  OFF      ]
+"20
+[p x CP  =  OFF          ]
+"21
+[p x CPD  =  OFF  ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"21 blinking.c
-[; ;blinking.c: 21: void main(void) {
+"9 blinking.c
+[; ;blinking.c: 9: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
+"11
+[; ;blinking.c: 11:     TRISCbits.TRISC1 = 0;
+[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+"13
+[; ;blinking.c: 13:     PORTCbits.RC1 = 0;
+[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
+"15
+[; ;blinking.c: 15:     while (1) {
+[e :U 69 ]
+{
+"17
+[; ;blinking.c: 17:         PORTCbits.RC1 = 1;
+[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
+"18
+[; ;blinking.c: 18:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"19
+[; ;blinking.c: 19:         PORTCbits.RC1 = 0;
+[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
+"20
+[; ;blinking.c: 20:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"22
+[; ;blinking.c: 22:     }
+}
+[e :U 68 ]
+[e $U 69  ]
+[e :U 70 ]
 "23
 [; ;blinking.c: 23: }
-[e :UE 66 ]
+[e :UE 67 ]
 }

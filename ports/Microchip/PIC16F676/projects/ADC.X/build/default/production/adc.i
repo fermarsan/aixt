@@ -10,8 +10,8 @@
 
 
 
-# 1 "./../../api/builtin.c.v" 1
-# 12 "./../../api/builtin.c.v"
+# 1 "./../../api_c/builtin.c" 1
+# 10 "./../../api_c/builtin.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1164,7 +1164,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 12 "./../../api/builtin.c.v" 2
+# 10 "./../../api_c/builtin.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -1259,7 +1259,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 13 "./../../api/builtin.c.v" 2
+# 11 "./../../api_c/builtin.c" 2
 
 
 
@@ -1273,32 +1273,11 @@ extern int printf(const char *, ...);
 #pragma config CPD = OFF
 # 4 "adc.c" 2
 
-# 1 "./../../api/adc/adc.c.v" 1
+# 1 "./../../api_c/machine/adc.c" 1
 # 5 "adc.c" 2
 
-# 1 "./../../api/adc/setup.c.v" 1
+# 1 "./../../api_c/machine/pin.c" 1
 # 6 "adc.c" 2
-
-# 1 "./../../api/adc/read.c.v" 1
-# 7 "adc.c" 2
-
-# 1 "./../../api/pin/pin.c.v" 1
-# 8 "adc.c" 2
-
-# 1 "./../../api/pin/setup.c.v" 1
-# 9 "adc.c" 2
-
-# 1 "./../../api/pin/high.c.v" 1
-# 10 "adc.c" 2
-
-# 1 "./../../api/pin/low.c.v" 1
-# 11 "adc.c" 2
-
-# 1 "./../../api/pin/read.c.v" 1
-# 12 "adc.c" 2
-
-# 1 "./../../api/pin/write.c.v" 1
-# 13 "adc.c" 2
 
 
 unsigned int adc_result;
@@ -1319,11 +1298,11 @@ void main(void) {
     PORTCbits.RC4 = 0;
     PORTCbits.RC5 = 0;
 
-    ; ANSEL = 0b00000100; ADCON0 = 0b10000000; ADCON1 = 0b00110000; ADCON0bits.ADON = 1;
+    ANSEL = 0b00000100; ADCON0 = 0b10000000; ADCON1 = 0b00110000; ADCON0bits.ADON = 1;;
 
     while(1){
 
-        adc_result = ADCON0bits.CHS = 2; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = (ADRESH << 8) | ADRESL; adc_result;
+        adc_result = ADCON0bits.CHS = 2; ADCON0bits.GO_DONE = 1; while (ADCON0bits.GO_DONE == 1); adc_result = ((ADRESH << 8) | ADRESL); adc_result;
 
         if ( adc_result >= 1020 ){
 
