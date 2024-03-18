@@ -9,6 +9,5 @@ pin.setup(c7, pin.input)
 uart.setup()
 
 for {
-	val := rx.read()
-	port.write (b, val)
+	port.read(b) = uart.read()
 }

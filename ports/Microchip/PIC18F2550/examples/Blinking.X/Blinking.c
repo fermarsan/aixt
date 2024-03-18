@@ -148,9 +148,9 @@ void pin__init() {
 
 void main(void) {
 	main__init();
-	pin__setup(a0, pin.output);
-	pin__setup(a1, pin.output);
-	pin__setup(a2, pin.output);
+	pin__setup(a0, pin__output);
+	pin__setup(a1, pin__output);
+	pin__setup(a2, pin__output);
 	while(true) {
 		pin__high(a0);
 		time__sleep_ms(200);
