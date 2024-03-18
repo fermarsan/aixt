@@ -6,6 +6,6 @@
 //
 // Description: Pin management functions (PIC16F886 port)
 
-moodule pin
+module pin
 
 #define pin__setup(PIN_NAME, MODE)   PIN_NAME ## _s = PIN_MODE
