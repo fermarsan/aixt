@@ -23,7 +23,7 @@ Tasks to do in Aixt
 ### Done ✓
 
 
-- [x] `module.dent` issue
+- [x] `module.ident` issue SOLVED
 - [x] Issue .exe extension in Emulator on Windows SOLVED
 - [x] Emulator issue on Windows, in `time` module SOLVED
 - [x] Windows gen.files more than gen.source paths SOLVED

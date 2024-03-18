@@ -6,6 +6,7 @@
 #include <xc.h>
 #include <stdio.h>
 #define _XTAL_FREQ 8000000
+#define true 1
 #pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
 #pragma config CPUDIV = OSC1_PLL2// System Clock Postscaler Selection bits ([Primary Oscillator Src: /1][96 MHz PLL Src: /2])
 #pragma config USBDIV = 1       // USB Clock Selection bit (used in Full-Speed USB mode only; UCFG:FSEN = 1) (USB clock source comes directly from the primary oscillator block with no postscale)
@@ -118,8 +119,8 @@
 #define c5      LATCbits.LATC5
 #define c6      LATCbits.LATC6
 #define c7      LATCbits.LATC7
-#define pin__out  0   // pin mode (direction)
-#define pin__in   1
+#define pin__output  0   // pin mode (direction)
+#define pin__input   1
 #define pin__high(PIN_NAME)            PIN_NAME = 1          // LATBbits.LB0 = 1
 #define pin__low(PIN_NAME)             PIN_NAME = 0          // LATBbits.LB0 = 0
 #define pin__read(PIN_NAME)            PIN_NAME ## _i             // PORTBbits.RB0
@@ -127,11 +128,32 @@
 #define pin__write(PIN_NAME,VAL)       PIN_NAME = VAL        // LATBbits.LB0 = 0
 #define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 
+void main__init();
+
+void pin__init();
+
+void uart__init();
+
 char uart__read();
 
 void uart__setup();
 
 void uart__write(char data);
+
+void time__init();
+
+void main__init() {
+	pin__init();
+	uart__init();
+	time__init();
+	
+}
+
+void pin__init() {
+}
+
+void uart__init() {
+}
 
 char uart__read() {
 	return RCREG;
@@ -152,9 +174,12 @@ void uart__write(char data) {
 	TXREG = data;
 }
 
+void time__init() {
+}
+
 void main(void) {
 	main__init();
-	pin__setup(c6, pin__out);
+	pin__setup(c6, pin__output);
 	uart__setup();
 	while(true) {
 		uart__write(0x33);
