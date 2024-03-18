@@ -65,7 +65,7 @@ Descripción de pines y su desiganación:
 ## CONFIGURACION PUERTOS LECTURA ANALOGA
 
 |PIN NO.  | NOMBRE | DECLARACION |
-|---------|--------|
+|---------|--------|-------------|
 |17       |A6      | 1|
 |18       |A7      | 2|
 |19       |A0      |-5|
