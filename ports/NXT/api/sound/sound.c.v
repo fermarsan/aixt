@@ -3,38 +3,38 @@ module sound
 // #################### NXC Sound module ####################
 
 // Constant offsets into the Sound module IOMAP structure. 
-#define 	sound__offset_freq         		SoundOffsetFreq           
-#define 	sound__offset_duration     		SoundOffsetDuration       
-#define 	sound__offset_sample_rate   	SoundOffsetSampleRate     
-#define 	sound__offset_sound_filename	SoundOffsetSoundFilename  
-#define 	sound__offset_flags        		SoundOffsetFlags          
-#define 	sound__offset_state        		SoundOffsetState          
-#define 	sound__offset_mode         		SoundOffsetMode           
-#define 	sound__offset_volume       		SoundOffsetVolume         
+#define 	offset_freq         		SoundOffsetFreq           
+#define 	offset_duration     		SoundOffsetDuration       
+#define 	offset_sample_rate   		SoundOffsetSampleRate     
+#define 	offset_sound_filename		SoundOffsetSoundFilename  
+#define 	offset_flags        		SoundOffsetFlags          
+#define 	offset_state        		SoundOffsetState          
+#define 	offset_mode         		SoundOffsetMode           
+#define 	offset_volume       		SoundOffsetVolume         
 
 // Constants defining miscellaneous sound module aspects. 
-#define 	sound__frequency_min     	FREQUENCY_MIN     
-#define 	sound__frequency_max     	FREQUENCY_MAX     
-#define 	sound__samplerate_min    	SAMPLERATE_MIN    
-#define 	sound__samplerate_default	SAMPLERATE_DEFAULT
-#define 	sound__samplerate_max    	SAMPLERATE_MAX    
+#define 	frequency_min     	FREQUENCY_MIN     
+#define 	frequency_max     	FREQUENCY_MAX     
+#define 	samplerate_min    	SAMPLERATE_MIN    
+#define 	samplerate_default	SAMPLERATE_DEFAULT
+#define 	samplerate_max    	SAMPLERATE_MAX    
 
 
 // Constants for use with the sound__flags() function. 
-#define 	sound__flags_idle   	SOUND_FLAGS_IDLE    
-#define 	sound__flags_update 	SOUND_FLAGS_UPDATE    
-#define 	sound__flags_running	SOUND_FLAGS_RUNNING    
+#define 	flags_idle   	SOUND_FLAGS_IDLE    
+#define 	flags_update 	SOUND_FLAGS_UPDATE    
+#define 	flags_running	SOUND_FLAGS_RUNNING    
 
 // Constants for use with the sound__mode() function. 
-#define 	sound_mode_once		SOUND_MODE_ONCE    
-#define 	sound_mode_loop		SOUND_MODE_LOOP    
-#define 	sound_mode_tone		SOUND_MODE_TONE   
+#define 	mode_once		SOUND_MODE_ONCE    
+#define 	mode_loop		SOUND_MODE_LOOP    
+#define 	mode_tone		SOUND_MODE_TONE   
 
 // Constants for use with the sound__state() function. 
-#define 	sound__state_idle	SOUND_STATE_IDLE    
-#define 	sound__state_file	SOUND_STATE_FILE    
-#define 	sound__state_tone	SOUND_STATE_TONE    
-#define 	sound__state_stop	SOUND_STATE_STOP   
+#define 	state_idle	SOUND_STATE_IDLE    
+#define 	state_file	SOUND_STATE_FILE    
+#define 	state_tone	SOUND_STATE_TONE    
+#define 	state_stop	SOUND_STATE_STOP   
 
 // Constants for use in the sound__play_tone() api function. 
 #define 	tone_c3		TONE_C3

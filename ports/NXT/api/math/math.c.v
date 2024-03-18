@@ -1,9 +1,9 @@
 module math
 
 // Miscellaneous NBC/NXC constants
-#define 	math__pi					  PI
-#define 	math__rad_to_deg			  RADIANS_PER_DEGREE
-#define 	math__deg_to_rad			  DEGREES_PER_RADIAN
+#define 	pi					  PI
+#define 	rad_to_deg			  RADIANS_PER_DEGREE
+#define 	deg_to_rad			  DEGREES_PER_RADIAN
 
 // cmath.h
 #define     math__sqrt(...)               sqrt(__VA_ARGS__)

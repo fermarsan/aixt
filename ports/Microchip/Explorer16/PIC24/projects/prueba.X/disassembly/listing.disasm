@@ -1,0 +1,50 @@
+Disassembly Listing for prueba
+Generated From:
+/home/fercho/aixt/ports/Microchip/Explorer16/PIC24/projects/prueba.X/dist/default/debug/prueba.X.debug.elf
+Mar 15, 2024 5:04:23 PM
+
+---  /home/fercho/aixt/ports/Microchip/Explorer16/PIC24/projects/prueba.X/prueba.c  ---------------------
+1:                 /*
+2:                  * File:   prueba.c
+3:                  * Author: fercho
+4:                  *
+5:                  * Created on March 15, 2024, 4:36 PM
+6:                  */
+7:                 
+8:                 
+9:                 #include "xc.h"
+10:                
+11:                int A;  // declaración de variable entera
+12:                
+13:                int main(void) {
+000300  FA0000     LNK #0x0
+14:                    
+15:                    A = 0x1F4A;
+000302  21F4A0     MOV #0x1F4A, W0
+000304  888000     MOV W0, A
+16:                    A = 0xCAB0;
+000306  2CAB00     MOV #0xCAB0, W0
+000308  888000     MOV W0, A
+17:                    
+18:                    if(A == 45) {
+00030A  808001     MOV A, W1
+00030C  2002D0     MOV #0x2D, W0
+00030E  508F80     SUB W1, W0, [W15]
+000310  3A0004     BRA NZ, .L2
+19:                        A++;
+000312  808000     MOV A, W0
+000314  E80000     INC W0, W0
+000316  888000     MOV W0, A
+000318  370003     BRA .L3
+20:                    } else {
+21:                        A--;
+00031A  808000     MOV A, W0
+00031C  E90000     DEC W0, W0
+00031E  888000     MOV W0, A
+22:                    }
+23:                    
+24:                    return 0;
+000320  EB0000     CLR W0
+25:                }
+000322  FA8000     ULNK
+000324  060000     RETURN

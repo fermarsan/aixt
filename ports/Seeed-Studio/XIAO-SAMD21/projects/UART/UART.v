@@ -1,30 +1,29 @@
-import pin      // importa el modulo pin
-import uart     // importa el modulo uart
+import pin      // import the pin module
+import uart     // import the uart module
  
  __global (
-    num = 0    //Crea una variable global para almacenar el número de bytes a leer del puerto serial
-    lec = 0    //Crea una variable global para almacenar la lectura del puerto serial
+    num = 0    // Create a global variable to store the number of bytes to read from the serial port
+    lec = 0    // Create a global variable to store the reading from the serial port
  )
 
- pin.setup(3, pin.out)      // Configura el pin #3 como salida
- uart.setup(9600)           // Define la velocidad en 9600 baudios 
+ pin.setup(3, pin.output)      // Set pin #3 as output
+ uart.setup(9600)           // Set the baud rate to 9600
 
+for {
+    num = uart.any()      // Store the number of bytes to read from the serial port
+    if  num > 0  {          // Condition if the number of bytes to read is greater than 0
+        lec = uart.read()   // Store the reading from the serial port
+        if lec == `1` {     // Condition when the reading is 1
 
-for{
-    num = uart.any()      // Almacena el número de bytes a leer del puerto serial
-    if  num>0  {          // Condición si el número de bytes a leer es mayor a 0
-        lec=uart.read()   // Almacena la lectura del puerto serial
-        if lec == `1` {     // Condición cuando la lectura es 1
-
-            pin.high(3)     // Salida en alto 
-            uart.println('Led encendido')   //Mensaje en el puerto serial
+            pin.high(3)     // Output high
+            uart.println('Led on')   // Message on the serial port
 
         }
 
-        else if lec == `2` {    // Condición cuando la lectura es 2
+        else if lec == `2` {    // Condition when the reading is 2
 
-            pin.low(3)      // Salida en bajo 
-            uart.println('Led apagado')     //Mensaje en el puerto serial
+            pin.low(3)      // Output low
+            uart.println('Led off')     // Message on the serial port
 
         }
     }

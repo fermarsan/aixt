@@ -8,3 +8,7 @@
 //              (PIC16F873A port)
 
 module port
+
+fn init() {
+    
+}

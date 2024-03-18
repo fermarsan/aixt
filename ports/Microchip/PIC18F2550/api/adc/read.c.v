@@ -10,5 +10,7 @@ module adc
 
 fn read(channel u8) int {
     ADCON0bits.CHS = channel      // Asigna el canal del ADC  
-    adc__reading()                // Función para retornar el valor del ADC 
+    ADCON0bits.GO_DONE = 1             // Inicia la conversion
+    for (ADCON0bits.GO_DONE == 1) {}   // Espera a que termine la conversion
+    return ADRES   
 }

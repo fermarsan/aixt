@@ -8,3 +8,7 @@
 //              (PIC16F676 port)
 
 module adc
+
+fn init() {
+    
+}

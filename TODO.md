@@ -18,13 +18,15 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
+- [ ] setup template files
    
 ### Done ✓
 
-- [X] Issue .exe extension in Emulator on Windows SOLVED
+
+- [x] `module.dent` issue
+- [x] Issue .exe extension in Emulator on Windows SOLVED
 - [x] Emulator issue on Windows, in `time` module SOLVED
 - [x] Windows gen.files more than gen.source paths SOLVED
 - [x] Printing improved messages for debugging
-- [x] Update the general diagram
 - [x] support enum fields (`enum_name.enum_field`)
 - [x] Add `void` type to C void functions

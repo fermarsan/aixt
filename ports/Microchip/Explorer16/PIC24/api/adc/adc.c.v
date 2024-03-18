@@ -7,3 +7,8 @@
 module adc
 
 #include <p24FJ128GA010.h>
+
+
+fn init() {
+	
+}
