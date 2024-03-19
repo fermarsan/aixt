@@ -4,7 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: PIN functions (Blue Pill_STM32F103C)
+// // Description: PIN functions (Blue Pill_AIR32F103C)
 //              (PC port) 
 
 #define pin_setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
