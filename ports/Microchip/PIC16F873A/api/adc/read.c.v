@@ -9,7 +9,7 @@
 
 module adc
 
-#define adc__read(channel)  ADCON0bits.CHS = channel  adc__reading()
+#define adc__read(channel)  ADCON0bits.CHS = channel;  adc__reading();
 
 
 

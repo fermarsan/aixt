@@ -12,7 +12,7 @@ module adc
 fn adc__reading() u16 {
     
     ADCON0bits.GO_DONE = 1 /* Inicia la conversión */ 
-    for (ADCON0bits.GO_DONE == 1) {} 
+    for ADCON0bits.GO_DONE == 1 {} 
     return (ADRESH << 8) | ADRESL  
 
     }
