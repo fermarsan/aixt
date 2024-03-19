@@ -9,7 +9,7 @@
 
 module adc
 
-#define adc__setup()  ANSEL = 0b00000100  ADCON0 = 0b10000000  ADCON1 = 0b00110000  ADCON0bits.ADON = 1 
+#define adc__setup()  ANSEL = 0b00000010;  ADCON0 = 0b10000000;  ADCON1 = 0b00110000;  ADCON0bits.ADON = 1     
 
 
 
