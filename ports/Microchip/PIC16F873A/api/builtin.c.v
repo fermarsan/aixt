@@ -14,6 +14,9 @@ module main
 
 #define _XTAL_FREQ 8000000
 
+#define true   1
+#define false  0
+
 #pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
 #pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
@@ -80,3 +83,7 @@ module main
 #define c5    PORTCbits.RC5 
 #define c6    PORTCbits.RC6 
 #define c7    PORTCbits.RC7 
+
+fn init() {
+    
+}

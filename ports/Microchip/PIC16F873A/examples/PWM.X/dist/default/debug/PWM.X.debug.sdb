@@ -1,0 +1,166 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F873A ]
+[d frameptr 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"83 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\examples\PWM.X\pwm.c
+[v _main__init main__init `(v  1 e 1 0 ]
+"89
+[v _adc__init adc__init `(v  1 e 1 0 ]
+"92
+[v _adc__read adc__read `(ui  1 e 2 0 ]
+"100
+[v _pwm__init pwm__init `(v  1 e 1 0 ]
+"103
+[v _pwm__setup pwm__setup `(v  1 e 1 0 ]
+"113
+[v _pwm__write pwm__write `(v  1 e 1 0 ]
+"118
+[v _main main `(v  1 e 1 0 ]
+"630 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f873a.h
+[v _TMR2 TMR2 `VEuc  1 e 1 @17 ]
+"637
+[v _T2CON T2CON `VEuc  1 e 1 @18 ]
+[s S104 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 TOUTPS 1 0 :4:3 
+]
+"658
+[s S108 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 TOUTPS0 1 0 :1:3 
+`uc 1 TOUTPS1 1 0 :1:4 
+`uc 1 TOUTPS2 1 0 :1:5 
+`uc 1 TOUTPS3 1 0 :1:6 
+]
+[u S116 . 1 `S104 1 . 1 0 `S108 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES116  1 e 1 @18 ]
+"980
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @27 ]
+"994
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @29 ]
+"1052
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"1059
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+[s S30 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 GO_nDONE 1 0 :1:2 
+`uc 1 CHS 1 0 :3:3 
+`uc 1 ADCS 1 0 :2:6 
+]
+"1090
+[s S36 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GO 1 0 :1:2 
+`uc 1 CHS0 1 0 :1:3 
+`uc 1 CHS1 1 0 :1:4 
+`uc 1 CHS2 1 0 :1:5 
+`uc 1 ADCS0 1 0 :1:6 
+`uc 1 ADCS1 1 0 :1:7 
+]
+[s S44 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nDONE 1 0 :1:2 
+]
+[s S47 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GO_DONE 1 0 :1:2 
+]
+[u S50 . 1 `S30 1 . 1 0 `S36 1 . 1 0 `S44 1 . 1 0 `S47 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES50  1 e 1 @31 ]
+[s S80 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1354
+[u S89 . 1 `S80 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES89  1 e 1 @135 ]
+"1591
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
+"1997
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"2004
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"118 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\examples\PWM.X\pwm.c
+[v _main main `(v  1 e 1 0 ]
+{
+"123
+[v main@valor valor `l  1 a 4 18 ]
+"127
+} 0
+"113
+[v _pwm__write pwm__write `(v  1 e 1 0 ]
+{
+[v pwm__write@duty duty `uc  1 a 1 wreg ]
+"114
+[v pwm__write@pwm pwm `uc  1 a 1 17 ]
+"113
+[v pwm__write@duty duty `uc  1 a 1 wreg ]
+[v pwm__write@duty duty `uc  1 a 1 16 ]
+"116
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 12 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 11 ]
+[v ___awdiv@counter counter `uc  1 a 1 10 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 6 ]
+[v ___awdiv@dividend dividend `i  1 p 2 8 ]
+"41
+} 0
+"103 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F873A\examples\PWM.X\pwm.c
+[v _pwm__setup pwm__setup `(v  1 e 1 0 ]
+{
+"111
+} 0
+"83
+[v _main__init main__init `(v  1 e 1 0 ]
+{
+"87
+} 0
+"100
+[v _pwm__init pwm__init `(v  1 e 1 0 ]
+{
+"101
+} 0
+"89
+[v _adc__init adc__init `(v  1 e 1 0 ]
+{
+"90
+} 0
+"92
+[v _adc__read adc__read `(ui  1 e 2 0 ]
+{
+[v adc__read@channel channel `ui  1 p 2 0 ]
+"98
+} 0

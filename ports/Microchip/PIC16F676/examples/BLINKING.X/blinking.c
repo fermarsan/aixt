@@ -72,9 +72,9 @@ void pin__init() {
 
 void main(void) {
 	main__init();
-	pin__setup(c0, pin.output);
-	pin__setup(c1, pin.output);
-	pin__setup(c2, pin.output);
+	pin__setup(c0, pin__output);
+	pin__setup(c1, pin__output);
+	pin__setup(c2, pin__output);
 	while(true) {
 		pin__high(c0);
 		time__sleep_ms(500);

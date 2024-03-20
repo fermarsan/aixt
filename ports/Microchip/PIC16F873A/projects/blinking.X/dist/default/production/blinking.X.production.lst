@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Fri Mar 01 01:10:15 2024
+                                                                                               Tue Mar 19 07:13:16 2024
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	16F873A
@@ -200,7 +200,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    186 ;;
    187 ;; *************** function _main *****************
    188 ;; Defined at:
-   189 ;;		line 14 in file "blinking.c"
+   189 ;;		line 10 in file "blinking.c"
    190 ;; Parameters:    Size  Location     Type
    191 ;;		None
    192 ;; Auto vars:     Size  Location     Type
@@ -234,7 +234,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    220                           ; Regs used in _main: [wreg+status,2+status,0]
    221                           
    222                           
-   223                           ;blinking.c: 16:     ADCON1bits.PCFG = 0b00000110;
+   223                           ;blinking.c: 12:     ADCON1bits.PCFG = 0b00000110;
    224     07CC  1683               	bsf	3,5	;RP0=1, select bank1
    225     07CD  1303               	bcf	3,6	;RP1=0, select bank1
    226     07CE  081F               	movf	31,w	;volatile
@@ -243,23 +243,23 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    229     07D1  009F               	movwf	31	;volatile
    230     07D2                     l624:
    231                           
-   232                           ;blinking.c: 18:     TRISBbits.TRISB4 = 0;
+   232                           ;blinking.c: 14:     TRISBbits.TRISB4 = 0;
    233     07D2  1206               	bcf	6,4	;volatile
    234     07D3                     l626:
    235                           
-   236                           ;blinking.c: 20:     PORTBbits.RB4 = 0;
+   236                           ;blinking.c: 16:     PORTBbits.RB4 = 0;
    237     07D3  1283               	bcf	3,5	;RP0=0, select bank0
    238     07D4  1303               	bcf	3,6	;RP1=0, select bank0
    239     07D5  1206               	bcf	6,4	;volatile
    240     07D6                     l628:
    241                           
-   242                           ;blinking.c: 24:         PORTBbits.RB4 = 1;
+   242                           ;blinking.c: 20:         PORTBbits.RB4 = 1;
    243     07D6  1283               	bcf	3,5	;RP0=0, select bank0
    244     07D7  1303               	bcf	3,6	;RP1=0, select bank0
    245     07D8  1606               	bsf	6,4	;volatile
    246     07D9                     l630:
    247                           
-   248                           ;blinking.c: 25:         _delay((unsigned long)((200)*(8000000/4000.0)));
+   248                           ;blinking.c: 21:         _delay((unsigned long)((200)*(8000000/4000.0)));
    249     07D9  3003               	movlw	3
    250     07DA  1283               	bcf	3,5	;RP0=0, select bank0
    251     07DB  1303               	bcf	3,6	;RP1=0, select bank0
@@ -278,13 +278,13 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    264     07E7  2FE8               	nop2
    265     07E8                     l632:
    266                           
-   267                           ;blinking.c: 26:         PORTBbits.RB4 = 0;
+   267                           ;blinking.c: 22:         PORTBbits.RB4 = 0;
    268     07E8  1283               	bcf	3,5	;RP0=0, select bank0
    269     07E9  1303               	bcf	3,6	;RP1=0, select bank0
    270     07EA  1206               	bcf	6,4	;volatile
    271     07EB                     l634:
    272                           
-   273                           ;blinking.c: 27:         _delay((unsigned long)((200)*(8000000/4000.0)));
+   273                           ;blinking.c: 23:         _delay((unsigned long)((200)*(8000000/4000.0)));
    274     07EB  3003               	movlw	3
    275     07EC  1283               	bcf	3,5	;RP0=0, select bank0
    276     07ED  1303               	bcf	3,6	;RP1=0, select bank0
@@ -401,7 +401,7 @@ DATA                 0      0       0       8        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Fri Mar 01 01:10:15 2024
+Symbol Table                                                                                   Tue Mar 19 07:13:16 2024
 
                      u17 07E1                       u27 07F3                      l630 07D9  
                     l622 07CC                      l632 07E8                      l624 07D2  

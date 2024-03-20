@@ -1,10 +1,6 @@
 build/default/debug/blinking.p1:  \
 blinking.c  \
-../../api/builtin.c.v  \
-../../api/pin/pin.c.v  \
-../../api/pin/setup.c.v  \
-../../api/pin/high.c.v  \
-../../api/pin/low.c.v  \
-../../api/pin/write.c.v  \
-../../api/time/sleep_ms.c.v  \
-../../api/time/sleep_us.c.v 
+../../api_c/builtin.c  \
+../../api_c/machine/pin.c  \
+../../api_c/time/sleep_ms.c  \
+../../api_c/time/sleep_us.c 
