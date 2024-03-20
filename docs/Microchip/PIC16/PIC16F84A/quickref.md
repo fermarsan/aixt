@@ -24,14 +24,6 @@ Luego, para facilitar la implementación (y no generar código inncesario) de es
 - `a5_s` Nombre del bit para configurar el `a5` pin como entrada o salida 
 - `a5`   Nombre del bit para leer el pin como entrada o salida `a5`
 
-
-
-
-
-
-
-
-
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales.
 
@@ -48,8 +40,6 @@ name                              | description
 `time__sleep(time)`               | Retardo en `seg`
 `time__sleep_us(time)`            | Retardo en `microseg`
 `time__sleep_ms(time)`            | Retardo en `miliseg`
-
-
 
 
 ## Tiempo
