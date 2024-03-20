@@ -10,7 +10,7 @@
 module pwm
 
 // Función para configurar el PWM
-fn pwm__setup() {
+fn setup() {
 
     PR2 = 0x3E
     CCPR2L = 0  

@@ -7,15 +7,13 @@
 // Description: Pwm management functions
 //              (PIC16F873A port)
 
-// module pwm
+module pwm
 
 // Función para el ciclo de trabajo
-fn pwm__write(duty u8) {
-
-        unsigned int pwm 
-        pwm = ((duty - 0) * (60 - 0) / (256 - 0) + 0) 
+fn write(duty u16) {
+        pwm := ((duty - 0) * (60 - 0) / (256 - 0) + 0) 
         CCPR2L = (pwm >> 2)  
-    }
+}
 
 
 
