@@ -23,8 +23,6 @@ for{
 
 	x = adc.read(2)
 
-	//x ++
-
 	if x >= 1020 {
 
 		pin.high(c0)
@@ -34,7 +32,6 @@ for{
         pin.high(c4)
         pin.high(c5)
 
-		x--
 	}
 
 	else if  x >= 820 {
@@ -45,8 +42,7 @@ for{
         pin.high(c3)
         pin.high(c4)
         pin.low(c5)
-
-		x--      
+  
     }
         
     else if  x >= 620 {
@@ -58,7 +54,6 @@ for{
     	pin.low(c4)
     	pin.low(c5)   
 
-		//x++ 
     }
         
     else if  x >= 420 {
@@ -69,8 +64,7 @@ for{
         pin.low(c3)
         pin.low(c4)
         pin.low(c5)  
-
-		//x++     
+  
     }
 
 	else if  x >= 220 {
@@ -81,8 +75,7 @@ for{
         pin.low(c3)
         pin.low(c4)
         pin.low(c5)  
-
-		//x++    
+   
      }
         
     else if  x >= 120 {
@@ -93,8 +86,7 @@ for{
         pin.low(c3)
         pin.low(c4)
         pin.low(c5)
-
-		//x++        
+      
     }
         
      else {

@@ -11,8 +11,8 @@
 
 
 
-# 1 "./../../api/builtin.c.v" 1
-# 12 "./../../api/builtin.c.v"
+# 1 "./../../api_c/builtin.c" 1
+# 10 "./../../api_c/builtin.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1702,7 +1702,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 12 "./../../api/builtin.c.v" 2
+# 10 "./../../api_c/builtin.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -1797,7 +1797,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 13 "./../../api/builtin.c.v" 2
+# 11 "./../../api_c/builtin.c" 2
 
 
 
@@ -1812,26 +1812,14 @@ extern int printf(const char *, ...);
 #pragma config CP = OFF
 # 5 "blinking.c" 2
 
-# 1 "./../../api/pin/pin.c.v" 1
+# 1 "./../../api_c/machine/pin.c" 1
 # 6 "blinking.c" 2
 
-# 1 "./../../api/pin/setup.c.v" 1
+# 1 "./../../api_c/time/sleep_ms.c" 1
 # 7 "blinking.c" 2
 
-# 1 "./../../api/pin/high.c.v" 1
+# 1 "./../../api_c/time/sleep_us.c" 1
 # 8 "blinking.c" 2
-
-# 1 "./../../api/pin/low.c.v" 1
-# 9 "blinking.c" 2
-
-# 1 "./../../api/pin/write.c.v" 1
-# 10 "blinking.c" 2
-
-# 1 "./../../api/time/sleep_ms.c.v" 1
-# 11 "blinking.c" 2
-
-# 1 "./../../api/time/sleep_us.c.v" 1
-# 12 "blinking.c" 2
 
 
 void main(void) {

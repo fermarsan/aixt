@@ -209,61 +209,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2138
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f873a.h: 2138: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"17 ./../../api/builtin.c.v
+"15 ./../../api_c/builtin.c
 [p x FOSC  =  HS         ]
-"18
+"16
 [p x WDTE  =  OFF        ]
-"19
+"17
 [p x PWRTE  =  OFF       ]
-"20
+"18
 [p x BOREN  =  OFF       ]
-"21
+"19
 [p x LVP  =  OFF         ]
-"22
+"20
 [p x CPD  =  OFF         ]
-"23
+"21
 [p x WRT  =  OFF         ]
-"24
+"22
 [p x CP  =  OFF          ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"14 blinking.c
-[; ;blinking.c: 14: void main(void) {
+"10 blinking.c
+[; ;blinking.c: 10: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"16
-[; ;blinking.c: 16:     ADCON1bits.PCFG = 0b00000110;
+"12
+[; ;blinking.c: 12:     ADCON1bits.PCFG = 0b00000110;
 [e = . . _ADCON1bits 0 0 -> -> 6 `i `uc ]
+"14
+[; ;blinking.c: 14:     TRISBbits.TRISB4 = 0;
+[e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
+"16
+[; ;blinking.c: 16:     PORTBbits.RB4 = 0;
+[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
 "18
-[; ;blinking.c: 18:     TRISBbits.TRISB0 = 0;
-[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
-"20
-[; ;blinking.c: 20:     PORTBbits.RB0 = 0;
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-"22
-[; ;blinking.c: 22:     while(1){
+[; ;blinking.c: 18:     while(1){
 [e :U 90 ]
 {
-"24
-[; ;blinking.c: 24:         PORTBbits.RB0 = 1;
-[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
+"20
+[; ;blinking.c: 20:         PORTBbits.RB4 = 1;
+[e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
+"21
+[; ;blinking.c: 21:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"22
+[; ;blinking.c: 22:         PORTBbits.RB4 = 0;
+[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
+"23
+[; ;blinking.c: 23:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "25
-[; ;blinking.c: 25:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"26
-[; ;blinking.c: 26:         PORTBbits.RB0 = 0;
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-"27
-[; ;blinking.c: 27:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"29
-[; ;blinking.c: 29:     }
+[; ;blinking.c: 25:     }
 }
 [e :U 89 ]
 [e $U 90  ]
 [e :U 91 ]
-"30
-[; ;blinking.c: 30: }
+"26
+[; ;blinking.c: 26: }
 [e :UE 88 ]
 }
