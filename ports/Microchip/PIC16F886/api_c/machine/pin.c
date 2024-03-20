@@ -7,8 +7,8 @@
 // Description: Pin management functions (PIC16F886 port)
 #include <xc.h>
 
-#define out 0   // pin mode (direction)
-#define in  1
+#define output 0   // pin mode (direction)
+#define input  1
 
 #define pin_setup(PIN_NAME, MODE)   PIN_NAME = MODE
 
