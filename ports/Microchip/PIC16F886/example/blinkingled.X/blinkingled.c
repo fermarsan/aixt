@@ -75,11 +75,11 @@
 #define time__sleep_ms(TIME)    __delay_s(TIME)  // implementing by a macro for saving memory
 #define pin__output 0   // pin mode (direction)
 #define pin__input  1
-#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
 #define pin__high(PIN_NAME)  PIN_NAME = 1
-#define pin__setup(PIN_NAME, MODE)   PIN_NAME ## _s = PIN_MODE
-#define pin__read(PIN_NAME)  PIN_NAME
 #define pin__low(PIN_NAME)   PIN_NAME = 0
+#define pin__read(PIN_NAME)  PIN_NAME
+#define pin__setup(PIN_NAME, MODE)   PIN_NAME ## _s = PIN_MODE
+#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
 
 void main__init();
 
