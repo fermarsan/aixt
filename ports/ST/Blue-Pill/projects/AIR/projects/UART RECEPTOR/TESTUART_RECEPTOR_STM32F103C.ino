@@ -1,21 +1,22 @@
 // Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: TESTUART_RECEPTOR_AIR32F103C.ino
+// File Name: TESTINDIG.ino
 // Author: Fernando Martínez Santa - Julián Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: Serial Port UART functions (Blue Pill_STM32F103C)
+// // Description: Test ports analog (Blue Pill_AIR32F103C)
 //              (PC port) 
 
-
-int LEDPinI=PA4;//LEDPinI asignado al pin PA4
-int LEDPinII=PA6;//LEDPinI asignado al pin PA6
-int LEDPinIII=PA5;//LEDPinI asignado al pin PA5
+int LEDPinI=PB13;//LEDPinI asignado al pin PB13
+int LEDPinII=PB14;//LEDPinII asignado al pin PB14
+int LEDPinIII=PB15;//LEDPinIII asignado al pin PB15
 int RecibeDato;
+
 void setup() {
+  // put your setup code here, to run once:
 pinMode(LEDPinI,OUTPUT);//LEDPinI asignado
 //como salida
-pinMode(LEDPinII,OUTPUT);//LEDPinII asignado
+pinMode(LEDPinII,OUTPUT);/LEDPinII asignado
 //como salida
 pinMode(LEDPinIII,OUTPUT);//LEDPinIII asignado
 //como salida
@@ -24,8 +25,8 @@ Serial.begin(9600);//Velocidad en Baudios
 void loop() {
   if(Serial.available()>0){//Comparacion serial
   //Mayor a cero
-    RecibeDato=Serial.read();//Recibe dato STM32
-    delay(100); //Reset 100 ms
+    RecibeDato=Serial.read();//Recibe dato AIR32
+    delay(100);//Reset 100 ms
   }
   switch(RecibeDato){
     case '1':
@@ -49,4 +50,6 @@ void loop() {
     digitalWrite(LEDPinIII,LOW);//LEDPinIII apagado
     break;
   }
+  // put your main code here, to run repeatedly:
+
 }

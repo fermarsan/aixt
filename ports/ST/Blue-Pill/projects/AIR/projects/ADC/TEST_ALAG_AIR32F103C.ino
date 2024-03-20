@@ -4,11 +4,11 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: Test ports analog (Blue Pill_STM32F103C)
+// // Description: Test ports analog (Blue Pill_AIR32F103C)
 //              (PC port) 
 
-int pinA = PA5;  // Pin para el LED A
-int pinB = PA6;  // Pin para el LED B
+int pinA = PA8;  // Pin para el LED PA8
+int pinB = PB7;  // Pin para el LED PB7
 
 void setup() {
   pinMode(pinA, OUTPUT); //Coniguracion salida pinA
@@ -17,8 +17,9 @@ void setup() {
 
 void loop() {
  
-  analogRead(pinA);//salida PA4 conectada a un LED 
-  analogRead(pinB);//salida PA5 conectada a un LED 
+  analogRead(pinA);//salida PA8 conectada a un LED 
+  analogRead(pinB);//salida PB7 conectada a un LED 
   Serial.println(9600);//velocidad en baudios soportado   
  //por la tarjeta
 }
+
