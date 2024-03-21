@@ -6,4 +6,4 @@
 
 module pin
 
-#define pin_low(PIN_NAME)        digitalWrite(PIN_NAME, LOW)
+#define pin__low(PIN_NAME)        digitalWrite(PIN_NAME, LOW)
