@@ -1,5 +1,5 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: print.c.v
+// File Name: write.c.v
 // Author: Cesar Alejandro Roa Acosta and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
@@ -9,6 +9,11 @@
 
 module uart
 
+fn write(data u8){
+    TXREG=data
+}
+
+/*
 #define print(menssage)      \
     {                         \
         char caracter \
@@ -17,3 +22,4 @@ module uart
             TXREG = caracter \
         }                       \
     }
+*/
