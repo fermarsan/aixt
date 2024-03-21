@@ -54,7 +54,7 @@ name                                  | description
 `time__sleep(time)`                   | Retardo en `seg`
 `time__sleep_us(time)`                | Retardo en `microseg`
 `time__sleep_ms(time)`                | Retardo en `miliseg`
-`time`                                | Incializa el `time`
+`time`                                | Inicializa el `time`
 
 ### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v 
 
