@@ -6,7 +6,7 @@ Implementation of Aixt to support the ATtiny88 card.
 
 * The ATtiny88 microcontroller is a small, high performance AVR microcontroller using a RISC processor. This microcontroller comes in two packages that are mainly used for interfacing and control between different sensors and devices.
 
-* Este microcontrolador está disponible con bajo consumo de energía a través de MSSP y ADC de 10 bits. El código de instrucciones de este microcontrolador se puede guardar a través de SRAM -512 bytes y EEPROM -64 bytes, fabricado por la empresa Micro Ship Tecnologic. 
+* This microcontroller is available with low power consumption through MSSP and 10-bit ADC. The instruction code of this microcontroller can be stored through SRAM - 512 bytes and EEPROM - 64 bytes, manufactured by Micro Ship Tecnologic.
 
 ## Las funciones:
 
