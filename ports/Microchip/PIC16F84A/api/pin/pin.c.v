@@ -8,7 +8,7 @@
 
 module pin
 
-#define pin__output 0   // pin mode (direction)
+#define pin__output 0   // pin mode direction
 #define pin__input  1
 
 fn init() {

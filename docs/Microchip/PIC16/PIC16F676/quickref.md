@@ -60,7 +60,7 @@ name                                  | description
 
 ## Tiempo
 
-```go
+```v
 
 time__sleep(5)	// Tiempo de 5 segundos
 time__sleep_us(10)	// Tiempo de 10 microsegundos
@@ -70,7 +70,7 @@ time__sleep_ms(500)	// Tiempo de 500 milisegundos
 
 ## Configuración de pines 
 
-```go
+```v
 
 pin.setup(a5, pin.output)      // Función para configurar el pin como salida 
 pin.setup(c2, pin.output)      // Función para configurar el pin como salida
@@ -90,7 +90,7 @@ pin.read(c3)      // Función para leer el pin
 
 Ejemplo de prender y apagar un led:
 
-```go
+```v
       
 for {
 
@@ -104,7 +104,7 @@ for {
 ```
 Ejemplo de prender y apagar un led con una entrada digital:
 
-```go
+```v
 
 pin.digital(); // Todas los pin son I/O digitales
 
@@ -128,7 +128,7 @@ for {
 
 ## Configuración del port
 
-```go
+```v
 
 port.setup(a, ob000000)      // Función para configurar el puerto como salida 
 
@@ -136,7 +136,7 @@ port.setup(a, ob000000)      // Función para configurar el puerto como salida
 
 Ejemplo de prender y apagar un puerto del microcontrolador:
 
-```go
+```v
       
 for {
         
@@ -151,7 +151,7 @@ for {
 
 ## Configuración del ADC
 
-```go
+```v
 
 adc.setup()     // Inicializa el ADC
 adc.read(0)     // Escoge el pin del canal analogico
@@ -160,7 +160,7 @@ adc.read(0)     // Escoge el pin del canal analogico
 
 Ejemplo de prender y apagar leds dependiendo del valor del ADC:
 
-```go
+```v
 
 unsigned int adc_result;  // Declaración de variable para almacenar el valor del ADC
         

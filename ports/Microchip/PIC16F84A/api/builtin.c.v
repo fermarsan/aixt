@@ -13,6 +13,9 @@ module main
 
 #define _XTAL_FREQ 4000000
 
+#define true   1
+#define false  0
+
 #pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
 #pragma config WDTE = OFF       // Watchdog Timer (WDT disabled)
 #pragma config PWRTE = OFF      // Power-up Timer Enable bit (Power-up Timer is disabled)
