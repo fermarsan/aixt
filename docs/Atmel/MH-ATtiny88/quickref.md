@@ -8,14 +8,14 @@ Implementation of Aixt to support the ATtiny88 card.
 
 * This microcontroller is available with low power consumption through MSSP and 10-bit ADC. The instruction code of this microcontroller can be stored through SRAM - 512 bytes and EEPROM - 64 bytes, manufactured by Micro Ship Tecnologic.
 
-## Las funciones:
+## The functions:
 
-* El microcontrolador ATtiny88 realiza varias funciones en un solo circuito integrado. Algunos pines del microcontrolador están disponibles con la capacidad de usar la función anterior. Algunas de las funciones principales de este microcontrolador incluyen temporizadores, comunicación SPI, comunicación I2C, BOD (Brown Out Reset), interrupción y ADC. Este microcontrolador ATtiny88 incluye diferentes memorias como FLASH, EEPROM y SRAM.
+* The ATtiny88 microcontroller performs several functions on a single integrated circuit. Some pins of the microcontroller are available with the ability to use the above function. Some of the main functions of this microcontroller include timers, SPI communication, I2C communication, BOD (Brown Out Reset), interrupt and ADC. This ATtiny88 microcontroller includes different memories such as FLASH, EEPROM and SRAM.
+  
+* The Atmel® ATtiny88 is a low-power 8-bit CMOS microcontroller based on the AVR® enhanced RISC architecture. By executing powerful instructions in a single clock cycle, the Atmel ATtiny88 achieves performances close to 1MIPS per MHz, allowing the system designer to optimize power consumption versus processing speed.
 
-* El Atmel® ATtiny88 es un microcontrolador CMOS de 8 bits de bajo consumo basado en la arquitectura RISC mejorada AVR®. Al ejecutar instrucciones potentes en un solo ciclo de reloj, el Atmel ATtiny88 alcanza rendimientos cercanos a 1MIPS por MHz, lo que permite al diseñador del sistema optimizar el consumo de energía frente a la velocidad de procesamiento.
 
-
-## Caracteristicas:
+## Features:
 
 ------------------------------------------
 
