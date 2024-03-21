@@ -11,8 +11,8 @@
 
 
 
-# 1 "./../../api/builtin.c.v" 1
-# 12 "./../../api/builtin.c.v"
+# 1 "./../../api_c/builtin.c" 1
+# 10 "./../../api_c/builtin.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1702,7 +1702,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 12 "./../../api/builtin.c.v" 2
+# 10 "./../../api_c/builtin.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -1797,7 +1797,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 13 "./../../api/builtin.c.v" 2
+# 11 "./../../api_c/builtin.c" 2
 
 
 
@@ -1812,181 +1812,163 @@ extern int printf(const char *, ...);
 #pragma config CP = OFF
 # 5 "adc.c" 2
 
-# 1 "./../../api/adc/adc.c.v" 1
+# 1 "./../../api_c/machine/pin.c" 1
 # 6 "adc.c" 2
 
-# 1 "./../../api/adc/setup.c.v" 1
-# 7 "adc.c" 2
+# 1 "./../../api_c/machine/adc.c" 1
+# 13 "./../../api_c/machine/adc.c"
+unsigned int adc_setup() {
+    ADCON1 = 0b10000000;
+    ADCON0 = 0b11001000;
+    ADCON0bits.ADON = 1;
+}
 
-# 1 "./../../api/adc/read.c.v" 1
-# 8 "adc.c" 2
 
-# 1 "./../../api/adc/reading.c.v" 1
-# 12 "./../../api/adc/reading.c.v"
-unsigned int adc__reading(){
+unsigned int adc_read( unsigned int channel) {
+    ADCON0bits.CHS = channel;
     ADCON0bits.GO_DONE = 1;
     while (ADCON0bits.GO_DONE == 1);
     return (ADRESH << 8) | ADRESL;
 }
-# 9 "adc.c" 2
-
-# 1 "./../../api/pin/pin.c.v" 1
-# 10 "adc.c" 2
-
-# 1 "./../../api/pin/setup.c.v" 1
-# 11 "adc.c" 2
-
-# 1 "./../../api/pin/high.c.v" 1
-# 12 "adc.c" 2
-
-# 1 "./../../api/pin/low.c.v" 1
-# 13 "adc.c" 2
-
-# 1 "./../../api/pin/read.c.v" 1
-# 14 "adc.c" 2
-
-# 1 "./../../api/pin/write.c.v" 1
-# 15 "adc.c" 2
+# 7 "adc.c" 2
 
 
 unsigned int adc_result;
 
 void main(void) {
 
-    TRISBbits.TRISB0 = 0;
-    TRISBbits.TRISB1 = 0;
-    TRISBbits.TRISB2 = 0;
-    TRISBbits.TRISB3 = 0;
-    TRISBbits.TRISB4 = 0;
-    TRISBbits.TRISB5 = 0;
-    TRISBbits.TRISB6 = 0;
-    TRISBbits.TRISB7 = 0;
+    TRISCbits.TRISC0 = 0;
+    TRISCbits.TRISC1 = 0;
+    TRISCbits.TRISC2 = 0;
+    TRISCbits.TRISC3 = 0;
+    TRISCbits.TRISC4 = 0;
+    TRISCbits.TRISC5 = 0;
+    TRISCbits.TRISC6 = 0;
+    TRISCbits.TRISC7 = 0;
 
-    PORTBbits.RB0 = 0;
-    PORTBbits.RB1 = 0;
-    PORTBbits.RB2 = 0;
-    PORTBbits.RB3 = 0;
-    PORTBbits.RB4 = 0;
-    PORTBbits.RB5 = 0;
-    PORTBbits.RB6 = 0;
-    PORTBbits.RB7 = 0;
+    PORTCbits.RC0 = 0;
+    PORTCbits.RC1 = 0;
+    PORTCbits.RC2 = 0;
+    PORTCbits.RC3 = 0;
+    PORTCbits.RC4 = 0;
+    PORTCbits.RC5 = 0;
+    PORTCbits.RC6 = 0;
+    PORTCbits.RC7 = 0;
 
-    ADCON1 = 0b10000000; ADCON0 = 0b11001000; ADCON0bits.ADON = 1;
+    adc_setup();
 
     while(1){
 
-        ADCON0bits.CHS = 2; adc__reading();
 
-        adc_result = adc__reading();
+
+        adc_result = adc_read(2);
 
         if ( adc_result >= 1020 ){
 
-            PORTBbits.RB0 = 1;
-            PORTBbits.RB1 = 1;
-            PORTBbits.RB2 = 1;
-            PORTBbits.RB3 = 1;
-            PORTBbits.RB4 = 1;
-            PORTBbits.RB5 = 1;
-            PORTBbits.RB6 = 1;
-            PORTBbits.RB7 = 1;
+            PORTCbits.RC0 = 1;
+            PORTCbits.RC1 = 1;
+            PORTCbits.RC2 = 1;
+            PORTCbits.RC3 = 1;
+            PORTCbits.RC4 = 1;
+            PORTCbits.RC5 = 1;
+            PORTCbits.RC6 = 1;
+            PORTCbits.RC7 = 1;
         }
 
         else if ( adc_result >= 875 ){
 
-            PORTBbits.RB0 = 1;
-            PORTBbits.RB1 = 1;
-            PORTBbits.RB2 = 1;
-            PORTBbits.RB3 = 1;
-            PORTBbits.RB4 = 1;
-            PORTBbits.RB5 = 1;
-            PORTBbits.RB6 = 1;
-            PORTBbits.RB7 = 0;
+            PORTCbits.RC0 = 1;
+            PORTCbits.RC1 = 1;
+            PORTCbits.RC2 = 1;
+            PORTCbits.RC3 = 1;
+            PORTCbits.RC4 = 1;
+            PORTCbits.RC5 = 1;
+            PORTCbits.RC6 = 1;
+            PORTCbits.RC7 = 0;
         }
 
         else if ( adc_result >= 730 ){
 
-            PORTBbits.RB0 = 1;
-            PORTBbits.RB1 = 1;
-            PORTBbits.RB2 = 1;
-            PORTBbits.RB3 = 1;
-            PORTBbits.RB4 = 1;
-            PORTBbits.RB5 = 1;
-            PORTBbits.RB6 = 0;
-            PORTBbits.RB7 = 0;
+            PORTCbits.RC0 = 1;
+            PORTCbits.RC1 = 1;
+            PORTCbits.RC2 = 1;
+            PORTCbits.RC3 = 1;
+            PORTCbits.RC4 = 1;
+            PORTCbits.RC5 = 1;
+            PORTCbits.RC6 = 0;
+            PORTCbits.RC7 = 0;
         }
 
         else if ( adc_result >= 585 ){
 
-            PORTBbits.RB0 = 1;
-            PORTBbits.RB1 = 1;
-            PORTBbits.RB2 = 1;
-            PORTBbits.RB3 = 1;
-            PORTBbits.RB4 = 1;
-            PORTBbits.RB5 = 0;
-            PORTBbits.RB6 = 0;
-            PORTBbits.RB7 = 0;
+            PORTCbits.RC0 = 1;
+            PORTCbits.RC1 = 1;
+            PORTCbits.RC2 = 1;
+            PORTCbits.RC3 = 1;
+            PORTCbits.RC4 = 1;
+            PORTCbits.RC5 = 0;
+            PORTCbits.RC6 = 0;
+            PORTCbits.RC7 = 0;
         }
 
         else if ( adc_result >= 440 ){
 
-            PORTBbits.RB0 = 1;
-            PORTBbits.RB1 = 1;
-            PORTBbits.RB2 = 1;
-            PORTBbits.RB3 = 1;
-            PORTBbits.RB4 = 0;
-            PORTBbits.RB5 = 0;
-            PORTBbits.RB6 = 0;
-            PORTBbits.RB7 = 0;
+            PORTCbits.RC0 = 1;
+            PORTCbits.RC1 = 1;
+            PORTCbits.RC2 = 1;
+            PORTCbits.RC3 = 1;
+            PORTCbits.RC4 = 0;
+            PORTCbits.RC5 = 0;
+            PORTCbits.RC6 = 0;
+            PORTCbits.RC7 = 0;
         }
 
         else if ( adc_result >= 295 ){
 
-            PORTBbits.RB0 = 1;
-            PORTBbits.RB1 = 1;
-            PORTBbits.RB2 = 1;
-            PORTBbits.RB3 = 0;
-            PORTBbits.RB4 = 0;
-            PORTBbits.RB5 = 0;
-            PORTBbits.RB6 = 0;
-            PORTBbits.RB7 = 0;
+            PORTCbits.RC0 = 1;
+            PORTCbits.RC1 = 1;
+            PORTCbits.RC2 = 1;
+            PORTCbits.RC3 = 0;
+            PORTCbits.RC4 = 0;
+            PORTCbits.RC5 = 0;
+            PORTCbits.RC6 = 0;
+            PORTCbits.RC7 = 0;
         }
 
         else if ( adc_result >= 150 ){
 
-            PORTBbits.RB0 = 1;
-            PORTBbits.RB1 = 1;
-            PORTBbits.RB2 = 0;
-            PORTBbits.RB3 = 0;
-            PORTBbits.RB4 = 0;
-            PORTBbits.RB5 = 0;
-            PORTBbits.RB6 = 0;
-            PORTBbits.RB7 = 0;
+            PORTCbits.RC0 = 1;
+            PORTCbits.RC1 = 1;
+            PORTCbits.RC2 = 0;
+            PORTCbits.RC3 = 0;
+            PORTCbits.RC4 = 0;
+            PORTCbits.RC5 = 0;
+            PORTCbits.RC6 = 0;
+            PORTCbits.RC7 = 0;
         }
 
         else if ( adc_result >= 20 ){
 
-            PORTBbits.RB0 = 1;
-            PORTBbits.RB1 = 0;
-            PORTBbits.RB2 = 0;
-            PORTBbits.RB3 = 0;
-            PORTBbits.RB4 = 0;
-            PORTBbits.RB5 = 0;
-            PORTBbits.RB6 = 0;
-            PORTBbits.RB7 = 0;
+            PORTCbits.RC0 = 1;
+            PORTCbits.RC1 = 0;
+            PORTCbits.RC2 = 0;
+            PORTCbits.RC3 = 0;
+            PORTCbits.RC4 = 0;
+            PORTCbits.RC5 = 0;
+            PORTCbits.RC6 = 0;
+            PORTCbits.RC7 = 0;
         }
 
         else {
 
-            PORTBbits.RB0 = 0;
-            PORTBbits.RB1 = 0;
-            PORTBbits.RB2 = 0;
-            PORTBbits.RB3 = 0;
-            PORTBbits.RB4 = 0;
-            PORTBbits.RB5 = 0;
-            PORTBbits.RB6 = 0;
-            PORTBbits.RB7 = 0;
+            PORTCbits.RC0 = 0;
+            PORTCbits.RC1 = 0;
+            PORTCbits.RC2 = 0;
+            PORTCbits.RC3 = 0;
+            PORTCbits.RC4 = 0;
+            PORTCbits.RC5 = 0;
+            PORTCbits.RC6 = 0;
+            PORTCbits.RC7 = 0;
         }
     }
-
-
 }

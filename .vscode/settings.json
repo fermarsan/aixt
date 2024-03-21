@@ -1,10 +1,13 @@
 {
     "aixt_linux":   ".",
     "aixt_windows": ".",
-    "device":       "PIC16F676",
+<<<<<<< HEAD
+    "device":       "PIC16F873A",
+=======
+    "device":       "PIC16F886",
+>>>>>>> a4ab2e128c46c4eb73005f5d1d73f371fde2fc68
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",
-    },
-    "cSpell.language": "en,es-ES",
+    }
 }

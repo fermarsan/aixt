@@ -11,6 +11,10 @@ ports/Microchip/PIC18F452/projects/** linguist-vendored=true
 ports/Microchip/PIC18F2550/projects/** linguist-vendored=true
 ports/Raspberry-Pi/Raspberry-Pi-Pico/projects/** linguist-vendored=true
 ports/Ai-Thinker/Ai-WB2-32S-Kit/projects/** linguist-vendored=true
+
+ports/Microchip/PIC16F676/projects/ADC.X/build/default/debug/** linguist-vendored=true
+ports/Microchip/PIC16F873A/projects/PWM.X/build/default/debug/** linguist-vendored=true
+
 ports/M0sense/projects/** linguist-vendored=true
 assets/** linguist-documentation=true
 *Makefile* linguist-vendored=true

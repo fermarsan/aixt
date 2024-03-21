@@ -1,5 +1,5 @@
 // Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: uart.v
+// File Name: ex_uart.v
 // Author: Fernando Martínez Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
 // Date: 2022-2024
 // License: MIT
@@ -11,11 +11,10 @@ import time {sleep_ms}
 import pin
 import uart
 
-
   uart.setup(115200)
-  pin.setup(4,pin.out)
-  pin.setup(5,pin.out)
-  pin.setup(12,pin.out)
+  pin.setup(4,pin.output)
+  pin.setup(5,pin.output)
+  pin.setup(12,pin.output)
 
 for {
   uart.println_0("\r\n Este programa realiza unas funciones establecidas:")
@@ -30,7 +29,7 @@ for {
   pin.low(12)
   sleep_ms(500)
   x:=0
-  x=uart.available()
+  x=uart.any_0()
   if  x> 0 {
   command := ` `
 	command = uart.read_0()

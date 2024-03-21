@@ -1,9 +1,9 @@
 __S0 3FF 0 ABS 0
-__S1 0 0 ABS 0
+__S1 23 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-_main 3FC 0 CODE 0
+_main 3DB 0 CODE 0
 ___sp 7FE 0 STACK 2
 btemp 5E 0 ABS 0
 start 0 0 CODE 0
@@ -34,7 +34,7 @@ __Hcode 7FE 0 ABS 0
 __Lcode 7FE 0 ABS 0
 __HcstackBANK0 7FE 0 ABS 0
 __LcstackBANK0 7FE 0 ABS 0
-__pcstackBANK0 0 0 BANK0 1
+__pcstackBANK0 20 0 BANK0 1
 __Hinit 0 0 CODE 0
 __Linit 0 0 CODE 0
 __end_of_main 3FD 0 CODE 0
@@ -42,6 +42,8 @@ __Htext 7FE 0 ABS 0
 __Ltext 7FE 0 ABS 0
 end_of_initialization 3FD 0 CODE 0
 ___stacklo 0 0 ABS 0
+_TRISCbits 87 0 ABS 0
+_PORTCbits 7 0 ABS 0
 __Hstrings 7FE 0 ABS 0
 __Lstrings 7FE 0 ABS 0
 __Hbank0 7FE 0 ABS 0
@@ -80,26 +82,30 @@ intlevel2 0 0 ENTRY 0
 intlevel3 0 0 ENTRY 0
 intlevel4 0 0 ENTRY 0
 intlevel5 0 0 ENTRY 0
-__HcstackCOMMON 7FE 0 ABS 0
-__LcstackCOMMON 7FE 0 ABS 0
-__pcstackCOMMON 0 0 COMMON 1
 start_initialization 3FD 0 CODE 0
 __Hmaintext 7FE 0 ABS 0
 __Lmaintext 7FE 0 ABS 0
-__pmaintext 3FC 0 CODE 0
+__pmaintext 3DB 0 CODE 0
 __initialization 3FD 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
 cinit 7FA 7FD CODE 7FA 0
-maintext 7F8 7F9 CODE 7F8 0
+cstackBANK0 20 22 BANK0 20 1
+maintext 7B6 7F9 CODE 7B6 0
 %locals
 dist/default/debug\blinking.X.debug.o
-C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1l0k.\driver_tmp_1.s
-251 3FD 0 CODE 0
-254 3FD 0 CODE 0
-260 3FD 0 CODE 0
-262 3FD 0 CODE 0
-263 3FE 0 CODE 0
+C:\Users\WINDOW~1\AppData\Local\Temp\xcAs3ndc.\driver_tmp_1.s
+255 3FD 0 CODE 0
+258 3FD 0 CODE 0
+264 3FD 0 CODE 0
+266 3FD 0 CODE 0
+267 3FE 0 CODE 0
 blinking.c
-21 3FC 0 CODE 0
-23 3FC 0 CODE 0
+9 3DB 0 CODE 0
+11 3DB 0 CODE 0
+13 3DD 0 CODE 0
+15 3DF 0 CODE 0
+17 3DF 0 CODE 0
+18 3E1 0 CODE 0
+19 3ED 0 CODE 0
+20 3EF 0 CODE 0

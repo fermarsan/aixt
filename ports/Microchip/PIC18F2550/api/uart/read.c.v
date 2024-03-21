@@ -8,6 +8,6 @@
 
 module uart
 
-fn uart__read() char{
+fn read() rune{
   return RCREG
 }

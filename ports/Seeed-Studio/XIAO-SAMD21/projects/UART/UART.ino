@@ -3,8 +3,8 @@
 // Board = Seeed Studio XIAO SAMD21
 // Backend = arduino
 
-#define pin__out OUTPUT
-#define pin__in INPUT
+#define pin__output OUTPUT
+#define pin__input INPUT
 #define pin__high(PIN_NAME)		digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)		digitalWrite(PIN_NAME, LOW)
 #define pin__read(PIN_NAME)		digitalRead(PIN_NAME)
@@ -61,7 +61,7 @@ void uart__init() {
 
 void setup() {
 	main__init();
-	pin__setup(3, pin__out);
+	pin__setup(3, pin__output);
 	uart__setup(9600);
 }
 
@@ -71,11 +71,11 @@ void loop() {
 		lec = uart__read();
 		if(lec == '1') {
 			pin__high(3);
-			uart__println("Led encendido");
+			uart__println("Led on");
 		}
 		else if(lec == '2') {
 			pin__low(3);
-			uart__println("Led apagado");
+			uart__println("Led off");
 		}
 	}
 }

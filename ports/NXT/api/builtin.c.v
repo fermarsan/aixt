@@ -286,16 +286,16 @@ module main
 #define     get_display_module_value(...)      GetDisplayModuleValue(__VA_ARGS__) 
 #define     get_comm_module_value(...)         GetCommModuleValue(__VA_ARGS__)
 
-#define		sleep(TMS)							Wait(TMS*1000)		//custom
+#define		sleep(TS)							Wait(TS*1000)		//custom
 
 // cstdlib.c
-#define     abort(...)              abort(__VA_ARGS__)
-#define     atoi(...)               atoi(__VA_ARGS__)
-#define     atol(...)               atol(__VA_ARGS__)
-#define     atof(...)               atof(__VA_ARGS__)
-#define     strtod(...)             strtod(__VA_ARGS__)
-#define     strtol(...)             strtol(__VA_ARGS__)
-#define     strtoul(...)            strtoul(__VA_ARGS__)
+// #define     abort(...)              abort(__VA_ARGS__)
+// #define     atoi(...)               atoi(__VA_ARGS__)
+// #define     atol(...)               atol(__VA_ARGS__)
+// #define     atof(...)               atof(__VA_ARGS__)
+// #define     strtod(...)             strtod(__VA_ARGS__)
+// #define     strtol(...)             strtol(__VA_ARGS__)
+// #define     strtoul(...)            strtoul(__VA_ARGS__)
 
 
 // #################### NXC IOCtrl module ####################
