@@ -16,54 +16,50 @@ Implementation of Aixt to support the ATtiny88 card.
 
 
 ## FEATURES:
+ 
 
-Características:  
-
-* Velocidad de reloj: 16Mhz (Número de ciclos que ejecuta la CPU por segundo). 
-* Voltaje de alimentación: 5V por micro USB, 7-12V pin VIN. 
-* 26 pines de entrada/salida (2 exclusivamente para USB).  
-* 26 pines de input/output para PWM por software/ 2 de ellas PWM(modulación por ancho de pulsos) por hardware (D9-D10). 
-* 8 entradas analógicas (Las entradas analógicas son terminales o pines en un microcontrolador que permiten la entrada de
-  señales analógicas, un rango de señal de varios valores). 
-*Interfaz 12c y SPI (La Interfaz de Comunicación en Serie (SPI) y el Inter-Integrated Circuit (I2C) son dos protocolos de comunicación en 
- serie comunes utilizados en la electrónica. Ambos protocolos permiten que varios dispositivos se comuniquen entre sí y con un 
- microcontrolador o procesador.). 
-* Led de PWR y led Builtin o prueba “Pin 0”. 
-* Botón reset.  
-* Microcontrolador AVR® de 8 bits de alto rendimiento y bajo consumo. 
-* Grado de velocidad: 0 a 8Mhz a 2.7-5.5V, 0 a 16 Mhz en 4.5-5.5V.
-* Bajo consumo de energía: modo activo: 8Mhz en 5V-4.4mA, modo suspendido: en 5V-6microA. 
-* Arquitectura RISC avanzada. 
-* 123 potentes instrucciones - la mayoría de ejecución en un solo ciclo de reloj. 
-* 32 x 8 registros de trabajo de propósito general. 
-* Funcionamiento totalmente estático. 
-* Segmentos de memoria no volátil de alta resistencia. 
-* 8K bytes de memoria de programa flash autoprogramable en el sistema(ATtiny88) se refiere a la capacidad de almacenamiento de la memoria 
-  de programa flash en un dispositivo electrónico. 
-* 64 bytes de EEPROM(Electrically Erasable Programmable Read-Only Memory). 
-* 512 bytes de SRAM interna (Static Random-Access Memory o Memoria de Acceso Aleatorio Estático). 
-* Ciclos de escritura/borrado: 10.000 Flash/100.000 EEPROM. 
-* Bloqueo de programación para seguridad del software. 
-* Características periféricas. 
-* Un temporizador/contador de 8 bits con preescalador independiente y modo de comparación. 
-* Un temporizador/contador de 16 bits con preescalador y modos de comparación y captura. 
-* ADC de 8 canales y 10 bits en encapsulado TQFP de 32 terminales y QFN de 32 terminales. 
-* Interfaz serie SPI maestro/esclavo. 
-* Interfaz serie de 2 hilos orientada a bytes (Phillips I2C compatible). 
-* Temporizador de vigilancia programable con oscilador independiente en chip. 
-* Comparador analógico en chip. 
-* Interrupción y activación por cambio de pin.
-* Características especiales del microcontrolador. 
-* Sistema de depuración en chip debugWIRE. 
-* Programable en el sistema a través del puerto SPI. 
-* Restablecimiento de encendido y detección de caída de tensión programable. 
-* Oscilador interno calibrado. 
-* Fuentes de interrupción externas e internas. 
-*Tres modos de suspensión: Reposo, reducción de ruido ADC y apagado. 
-* E/S y paquetes. 
-* 28 líneas de E/S programables en encapsulado TQFP de 32 terminales y QFN de 32 terminales. 
-* Tensión de funcionamiento: 2.7- 5.5V. 
-* Rango de temperatura de automoción: -40°C a +125°C. 
+* Clock speed: 16Mhz (Number of cycles the CPU executes per second). 
+* Power supply voltage: 5V via micro USB, 7-12V VIN pin. 
+* 26 input/output pins (2 exclusively for USB).  
+* 26 input/output pins for software PWM / 2 of them PWM (pulse width modulation) by hardware (D9-D10). 
+* 8 analog inputs (Analog inputs are terminals or pins on a microcontroller that allow input of analog signals, a signal range of various values). 
+* 12c and SPI interface (The Serial Communication Interface (SPI) and the Inter-Integrated Circuit (I2C) are two common serial communication protocols used in 
+  electronics. Both protocols allow multiple devices to communicate with each other and with a microcontroller or processor). 
+* PWR led and Builtin led or "Pin 0" test. 
+* Reset button.  
+* 8-bit AVR® microcontroller with high performance and low power consumption. 
+* Speed range: 0 to 8Mhz at 2.7-5.5V, 0 to 16 Mhz at 4.5-5.5V.
+* Low power consumption: active mode: 8Mhz at 5V-4.4mA, sleep mode: at 5V-6microA. 
+* Advanced RISC architecture. 
+* 123 powerful instructions - most execute in a single clock cycle. 
+* 32 x 8 general-purpose working registers. 
+* Fully static operation. 
+* High endurance non-volatile memory segments. 
+* 8K bytes of self-programmable flash program memory in the system (ATtiny88) refers to the storage capacity of the flash program memory in an electronic device. 
+* 64 bytes of EEPROM (Electrically Erasable Programmable Read-Only Memory). 
+* 512 bytes of internal SRAM (Static Random-Access Memory). 
+* Write/erase cycles: 10,000 Flash/100,000 EEPROM. 
+* Programming lock for software security. 
+* Peripheral features. 
+* One 8-bit timer/counter with independent prescaler and compare mode. 
+* One 16-bit timer/counter with prescaler and compare and capture modes. 
+* An 8-channel, 10-bit ADC in 32-terminal TQFP and 32-terminal QFN packages. 
+* Serial SPI master/slave interface. 
+* 2-wire byte-oriented serial interface (Phillips I2C compatible). 
+* Programmable watchdog timer with independent on-chip oscillator. 
+* On-chip analog comparator. 
+* Interruption and activation by pin change.
+* Special features of the microcontroller. 
+* On-chip debugging system debugWIRE. 
+* On-system programmable through SPI port. 
+* Programmable power-on reset and brownout detection. 
+* Internal calibrated oscillator. 
+* External and internal interrupt sources. 
+* Three sleep modes: Sleep, ADC noise reduction and shutdown. 
+* I/O and packages. 
+* 28 programmable I/O lines in 32-pin TQFP and 32-pin QFN package. 
+* Operating voltage: 2.7- 5.5V. 
+* Automotive temperature range: -40°C to +125°C. 
 
 
 ![Alt text](picture/MH-ATtiny88.jpg)
@@ -73,6 +69,7 @@ Retrieved from: [ATtiny88 data sheet](https://ww1.microchip.com/downloads/en/Dev
 
 ## DATA SHEET
 [ATtiny88](https://ww1.microchip.com/downloads/en/DeviceDoc/atmel-9157-automotive-microcontrollers-attiny88_datasheet.pdf)
+
 
 ## PIN IDENTIFICATION
 
@@ -111,6 +108,8 @@ Description of pins and their designation:
 |         |5V      |POWER SUPPLY: 5V|
 |         |GND     | GROUND |
 
+
+
          
 ## ANALOG READOUT PORT CONFIGURATION
 
@@ -126,6 +125,8 @@ Description of pins and their designation:
 |24       |A5      | 0|
 
 ## PROGRAMMING LANGUAGE V
+
+
 
 The descriptive functions contained in the API as inputs or outputs that perform analog-to-digital conversion:
 
@@ -152,6 +153,7 @@ NAME               | DESCRIPTION
 
 
 ## The following table will present equivalences between the native functions of the compiler in contrast to those implemented in the Aixt project, with the central idea being to redefine these functions and offer standardized support.
+
 
 
 DEFINITION AIXT	 | DEFINITION ARDUINO
