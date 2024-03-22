@@ -54,7 +54,7 @@ Las funciones que contiene la API entradas o salidas digitales, conversor analog
 
 name                                | description
 ------------------------------------|------------------------------------------------------
-`pin__setup(PPIN_NAME, PIN_MODE)`   | Configura `PIN_NAME` en `PIN_MODE`
+`pin__setup(PIN_NAME, PIN_MODE)`   | Configura `PIN_NAME` en `PIN_MODE`
 `pin__high(PIN_NAME)`               | Encender `PIN_NAME`
 `pin__low(PIN_NAME)`                | Apagar `PIN_NAME`
 `pin__write(PIN_NAME,VAL)`          | Escribe `VAL` en `PIN_NAME`
