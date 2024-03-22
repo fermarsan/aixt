@@ -8,6 +8,8 @@ Implementation of Aixt to support the ATtiny88 card.
 
 * This microcontroller is available with low power consumption through MSSP and 10-bit ADC. The instruction code of this microcontroller can be stored through SRAM - 512 bytes and EEPROM - 64 bytes, manufactured by Micro Ship Tecnologic.
 
+*  Device designed for embedded applications. It is based on the 8-bit AVR architecture and features a wide range of integrated peripherals, including GPIO ports, serial communication interfaces, timers and analog-to-digital converters. The MH-AT-tiny88 is suitable for a variety of applications, from basic control systems to portable devices and IoT sensors due to its combination of compact size, low power consumption and versatile functionality.
+
 ## THE FUNCTIONS:
 
 * The ATtiny88 microcontroller performs several functions on a single integrated circuit. Some pins of the microcontroller are available with the ability to use the above function. Some of the main functions of this microcontroller include timers, SPI communication, I2C communication, BOD (Brown Out Reset), interrupt and ADC. This ATtiny88 microcontroller includes different memories such as FLASH, EEPROM and SRAM.
@@ -61,6 +63,7 @@ Implementation of Aixt to support the ATtiny88 card.
 * Operating voltage: 2.7- 5.5V. 
 * Automotive temperature range: -40°C to +125°C. 
 
+## CONFIGURATION OF PINS AND THEIR RESPECTIVE FUNCTIONS
 
 ![Alt text](picture/MH-ATtiny88.jpg)
 
@@ -152,7 +155,7 @@ NAME               | DESCRIPTION
 
 
 
-## The following table will present equivalences between the native functions of the compiler in contrast to those implemented in the Aixt project, with the central idea being to redefine these functions and offer standardized support.
+* The following table will present equivalences between the native functions of the compiler in contrast to those implemented in the Aixt project, with the central idea being to redefine these functions and offer standardized support.
 
 
 
