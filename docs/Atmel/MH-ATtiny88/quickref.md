@@ -1,6 +1,6 @@
-#  **QUICK GUIDE MH-ATTINY88**
+#                                                                    **QUICK GUIDE MH-ATTINY88**
 
-Implementation of Aixt to support the ATtiny88 card.
+Implementation of Aixt to support the MH-ATtiny88 card.
 
 ## SUMMARY 
 
@@ -71,7 +71,7 @@ Implementation of Aixt to support the ATtiny88 card.
 Retrieved from: [ATtiny88 data sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/atmel-9157-automotive-microcontrollers-attiny88_datasheet.pdf)
 
 ## DATA SHEET
-[ATtiny88](https://ww1.microchip.com/downloads/en/DeviceDoc/atmel-9157-automotive-microcontrollers-attiny88_datasheet.pdf)
+[MH-ATtiny88](https://ww1.microchip.com/downloads/en/DeviceDoc/atmel-9157-automotive-microcontrollers-attiny88_datasheet.pdf)
 
 
 ## PIN IDENTIFICATION
@@ -97,14 +97,14 @@ Description of pins and their designation:
 |14       |D14     |DIGITAL PIN|
 |15       |D15     |DIGITAL PIN|
 |16       |D16     |DIGITAL PIN|
-|17       |D17,A6  |DIGITAL PIN, analog-to-digital converter|
-|18       |D18,A7  |DIGITAL PIN, analog-to-digital converter|
-|19       |D19,A0  |DIGITAL PIN, analog-to-digital converter|
-|20       |D20,A1  |DIGITAL PIN, analog-to-digital converter|
-|21       |D21,A2  |DIGITAL PIN, analog-to-digital converter|
-|22       |D22,A3  |DIGITAL PIN, analog-to-digital converter|
-|23       |D23,A4  |DIGITAL PIN, analog-to-digital converter,SDA|
-|24       |D24,A5  |DIGITAL PIN, analog-to-digital converter,SCL|
+|17       |D17, A6  |DIGITAL PIN, analog-to-digital converter|
+|18       |D18, A7  |DIGITAL PIN, analog-to-digital converter|
+|19       |D19, A0  |DIGITAL PIN, analog-to-digital converter|
+|20       |D20, A1  |DIGITAL PIN, analog-to-digital converter|
+|21       |D21, A2  |DIGITAL PIN, analog-to-digital converter|
+|22       |D22, A3  |DIGITAL PIN, analog-to-digital converter|
+|23       |D23, A4  |DIGITAL PIN, analog-to-digital converter,SDA|
+|24       |D24, A5  |DIGITAL PIN, analog-to-digital converter,SCL|
 |25       |D25     |DIGITAL PIN|
 |         |RST     |RESET|
 |         |VIN     |POWER SUPPLY: VIN 7-12V|
@@ -161,30 +161,30 @@ NAME               | DESCRIPTION
 
 DEFINITION AIXT	 | DEFINITION ARDUINO
 -----------------|-----------------------------
-`adc__read(PIN_NAME)`|    	analogRead(PIN_NAME)
-`pin__high(PIN_NAME)`| 		digitalWrite(PIN_NAME, HIGH)
-`pin__low(PIN_NAME)`|        	digitalWrite(PIN_NAME, LOW)
-`pin__output`| 				OUTPUT
-`pin__input`|	INPUT
+`adc__read(PIN_NAME)`|    	`analogRead(PIN_NAME)`
+`pin__high(PIN_NAME)`| 		`digitalWrite(PIN_NAME, HIGH)`
+`pin__low(PIN_NAME)`|        	`digitalWrite(PIN_NAME, LOW)`
+`pin__output`| 				`OUTPUT`
+`pin__input`|	`INPUT`
 `pin__input_pullup	INPUT_PULLUP`|
-`pin__read(PIN_NAME)`|   	digitalRead(PIN_NAME)
-`pin__setup(PIN_NAME, MODE)`|        	pinMode(PIN_NAME, MODE)
-`pin__write(PIN_NAME, VALUE)`|  	digitalWrite(PIN_NAME, VALUE)
-`pwm__write(PIN, VALUE)`|   	analogWrite(PIN, VALUE)
-`time__sleep_ms(MS)`|  	delay(MS)
-`time__sleep_us(US) `|  	delayMicroseconds(US)
-`time__sleep(S)`|	delay(S*1000)
-`uart__any_0()`|		Serial.available()
-`uart__any_1()`|		Serial1.available()
-`uart__any_x(UART_NUMBER)	uart__any ## UART_NUMBER ##`| serial.available()
-`uart__print_0(MESSAGE)`|		Serial.print(MESSAGE)
-`uart__print_1(MESSAGE)`|		Serial1.print(MESSAGE)
-`uart__println_0(MESSAGE)`|		Serial.println(MESSAGE)
-`uart__println_1(MESSAGE)`|		Serial1.println(MESSAGE)
-`uart__read_0()`|		Serial.read()
-`uart__read_1()`|		Serial1.read()
-`uart__setup(BAUD_RATE)`|   	Serial.begin(BAUD_RATE)
-    *Table of equivalences between functions
+`pin__read(PIN_NAME)`|   	`digitalRead(PIN_NAME)`
+`pin__setup(PIN_NAME, MODE)`|        	`pinMode(PIN_NAME, MODE)`
+`pin__write(PIN_NAME, VALUE)`|  	`digitalWrite(PIN_NAME, VALUE)`
+`pwm__write(PIN, VALUE)`|   	`analogWrite(PIN, VALUE)`
+`time__sleep_ms(MS)`|  	`delay(MS)`
+`time__sleep_us(US) `|  	`delayMicroseconds(US)`
+`time__sleep(S)`|	`delay(S*1000)`
+`uart__any_0()`|		`Serial.available()`
+`uart__any_1()`|		`Serial1.available()`
+`uart__any_x(UART_NUMBER)	uart__any ## UART_NUMBER ##`| `serial.available()`
+`uart__print_0(MESSAGE)`|		`Serial.print(MESSAGE)`
+`uart__print_1(MESSAGE)`|		`Serial1.print(MESSAGE)`
+`uart__println_0(MESSAGE)`|		`Serial.println(MESSAGE)`
+`uart__println_1(MESSAGE)`|		`Serial1.println(MESSAGE)`
+`uart__read_0()`|		`Serial.read()`
+`uart__read_1()`|		`Serial1.read()`
+`uart__setup(BAUD_RATE)`|   	`Serial.begin(BAUD_RATE)`
+  `  *Table of equivalences between functions`
 
 
 
@@ -198,16 +198,16 @@ Addition of V language examples which can be implemented in the Aixt project for
 Flashing of one LED in an infinite cycle with time delay:
 
 ```go
-import time { sleep_ms }  // import the time module from the API
+import time { sleep_ms }  			// import the time module from the API
 import pin				        // import the pin module from the API
 
-pin.setup(1, pin.output)  // configures pin number 1 as output 
+pin.setup(1, pin.output)  			// configures pin number 1 as output 
 
-for {                     //main loop of the code 
+for {                     			//main loop of the code 
 	pin.high(1)			        //pin high
-	sleep_ms(500)	  	      //delay in seconds 
+	sleep_ms(500)	  	      		//delay in seconds 
 	pin.low(1)			        //pin low
-	sleep_ms(500)		        //delay in seconds
+	sleep_ms(500)		       		 //delay in seconds
 }
 ```
 ### DIGITAL READOUT
@@ -215,8 +215,8 @@ for {                     //main loop of the code
 Example of digital readout, led sequence:
 
 ```go
-import time {sleep_ms}          // import the sleep_ms function of the time module 
-import pin 			                // Import the pin module in its entirety
+import time {sleep_ms}        			  // import the sleep_ms function of the time module 
+import pin 			               	 // Import the pin module in its entirety
 
 pin.setup(14, pin.output)    	// Set pin #14 as output
 pin.setup(15, pin.output)    	// Set pin #15 as output
@@ -226,21 +226,21 @@ for{
     pin.high(14)  		  // output 14 high   
     sleep_ms(2000) 		  // delay of 2000 ms
     pin.low(14)   		  // output 14 low
-    pin.high(15)     		// output 15 high
+    pin.high(15)     		  // output 15 high
     sleep_ms(2000) 		  // delay of 2000 ms 	
-    pin.low(15)   	  	// output 15 low
-    pin.high(16)     		// output 16 high 
-    sleep_ms(2000)   		// retardo de 2000 ms
-    pin.low(16) 		    // output 15 baja
+    pin.low(15)   	  	  // output 15 low
+    pin.high(16)     		  // output 16 high 
+    sleep_ms(2000)   		  // retardo de 2000 ms
+    pin.low(16) 		  // output 15 baja
 }
 ```
 ### ANALOG AND DIGITAL READOUT
 
 In this example we will test the analog and digital readings through the flashing of a LED that depends on the variation of a variable resistor:
 ```go
-import pin                            // Importa el módulo pin en su totalidad
-import adc                            // Importa el módulo adc en su totalidad
-import pwm                            // Importa el módulo pwm en su totalidad
+import pin                            // Import the pin module in its entirety
+import adc                            // Import the adc module in its entirety
+import pwm                            // Import the pwm module in its entirety
 
 __global (
     brillo = 0                        // crea una variable global
@@ -248,9 +248,9 @@ __global (
    
 
 
-for{                                    // crea el ciclo
-  brillo=adc.read(-5)                    //lee la entrada anologa digital
-    pwm.write(3,brillo)                   //escribe la salida pwm
+for{                                    // creates the cycle
+  brillo=adc.read(-5)                    //read digital anologa entry
+    pwm.write(3,brillo)                   //write the pwm output
 }
 
 ```
