@@ -278,9 +278,9 @@ for {                   //for loop that executes the main code
 		uart.print(button)
 	}
 }
-
+```
 
 
 * Next you can see an explanatory video of transcompilation or translation from the Aixt project, this video is about the pulse width modulation or PWM test, where the luminous flux of a LED light emitting diode is varied, by means of the variation of a variable resistor or potentiometer. The pins are read and written with analog-digital function.
 
-* Link Youtube : [ATtiny88 test PWM-ADC](https://www.youtube.com/channel/UChFCW_7gNIY3-bw78cH5-KA)
+ Link Youtube : [ATtiny88 test PWM-ADC](https://www.youtube.com/channel/UChFCW_7gNIY3-bw78cH5-KA)
