@@ -3,7 +3,6 @@
 // Board = ESP32-C3FH4
 // Backend = arduino
 
-#define time__sleep_ms(TIME)      delay(TIME)
 #define pin__output    OUTPUT
 #define pin__input     INPUT
 #define pin__high(PIN_NAME)    digitalWrite(PIN_NAME, HIGH)
@@ -11,43 +10,49 @@
 #define pin__read(PIN_NAME)     digitalWrite(PIN_NAME)
 #define pin__setup(PIN_NAME, MODE)      pinMode(PIN_NAME, MODE)
 #define pin__write(PIN_NAME, VALUE)     digitalWrite(PIN_NAME, VALUE)
+#define adc__read(PIN_NAME)     analogRead(PIN_NAME)
+#define pwm__write(PIN, VALUE)	analogWrite(PIN, VALUE)
+#define time__sleep(TIME)      delay(TIME*1000)
+#define time__sleep_ms(TIME)      delay(TIME)
+#define time__sleep_us(TIME)      delayMicroseconds(TIME)
 
 void main__init();
 
-void time__init();
-
 void pin__init();
 
-void main__init() {
-	time__init();
-	pin__init();
-	
-}
+void adc__init();
 
-void time__init() {
+void pwm__init();
+
+void time__init();
+
+int32_t volumen = 0;
+
+void main__init() {
+	pin__init();
+	adc__init();
+	pwm__init();
+	time__init();
+	
 }
 
 void pin__init() {
 }
 
+void adc__init() {
+}
+
+void pwm__init() {
+}
+
+void time__init() {
+}
+
 void setup() {
 	main__init();
-	pin__setup(3, pin__output);
-	pin__setup(4, pin__output);
-	pin__setup(6, pin__output);
 }
 
 void loop() {
-	pin__high(3);
-	time__sleep_ms(250);
-	pin__high(4);
-	time__sleep_ms(250);
-	pin__high(5);
-	time__sleep_ms(250);
-	pin__low(3);
-	time__sleep_ms(250);
-	pin__low(4);
-	time__sleep_ms(250);
-	pin__low(5);
-	time__sleep_ms(250);
+	volumen = adc__read(3);
+	pwm__write(7, volumen);
 }

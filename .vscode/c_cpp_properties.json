@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/ports/Ai-Thinker/Ai-WB2-32S-Kit/example/blinking",
+                "${workspaceFolder}/ports/Ai-Thinker/Ai-WB2-32S-Kit/example/pwm",
+                "${workspaceFolder}/ports/Ai-Thinker/Ai-WB2-32S-Kit/example/uart"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ]
+        }
+    ],
+    "version": 4
+}

@@ -1,9 +1,10 @@
 {
     "aixt_linux":   ".",
     "aixt_windows": ".",
-    "device":       "PIC16F886",
+    "device":       "ESP32-C3FH4",
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",
-    }
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }

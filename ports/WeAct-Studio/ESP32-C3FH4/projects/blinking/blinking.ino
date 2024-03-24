@@ -32,22 +32,12 @@ void pin__init() {
 
 void setup() {
 	main__init();
-	pin__setup(3, pin__output);
-	pin__setup(4, pin__output);
-	pin__setup(6, pin__output);
+	pin__setup(1, pin__output);
 }
 
 void loop() {
-	pin__high(3);
-	time__sleep_ms(250);
-	pin__high(4);
-	time__sleep_ms(250);
-	pin__high(5);
-	time__sleep_ms(250);
-	pin__low(3);
-	time__sleep_ms(250);
-	pin__low(4);
-	time__sleep_ms(250);
-	pin__low(5);
-	time__sleep_ms(250);
+	pin__high(1);
+	time__sleep_ms(1000);
+	pin__low(1);
+	time__sleep_ms(1000);
 }

@@ -10,6 +10,7 @@ pin.setup(3, pin.output)
 pin.setup(4, pin.output)
 uart.setup(9600)
 
+
 for {
     val=adc.read(8)
     uart.println(val)    
