@@ -1,4 +1,4 @@
-# ** QUICK GUIDE ESP32-C3FH4
+#  QUICK GUIDE ESP32-C3FH4
 
 This is an Aixt implementation to provide support for the ESP32-C3FH4 board.
 
@@ -21,7 +21,7 @@ This is an Aixt implementation to provide support for the ESP32-C3FH4 board.
 
 * With low power consumption, ESP32-C3FH4 is an ideal choice for IoT (internet of thing) devices in the following areas; smart homes, industrial automation, healthcare, consumer electronics, smart agriculture, POS machines, service robots, audio devices, low-power IoT data loggers, low-power IoT sensor hubs.
 
-## SSPECS
+## SPECS
 
 * 32-bit RIsC-V single-core processor, up to 160Mhz.
 * CoreMark score: 
