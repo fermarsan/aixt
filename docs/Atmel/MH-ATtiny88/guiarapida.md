@@ -251,4 +251,4 @@ for {                   //crea el ciclo
 }
 ```
 A continuación, puedes ver un video explicativo de la transcompilación o traducción del proyecto Aixt. Este video trata sobre la prueba de modulación de ancho de pulso o PWM, donde se varía el flujo luminoso de un LED (diodo emisor de luz) mediante la variación de un potenciómetro o resistor variable. Los pines se leen y escriben con función analógico-digital.
- Link Youtube : [ATtiny88 test PWM-ADC](https://www.youtube.com/channel/UChFCW_7gNIY3-bw78cH5-KA)
+ Link Youtube : [ATtiny88 test PWM-ADC](https://youtu.be/aViNecpmvjw)
