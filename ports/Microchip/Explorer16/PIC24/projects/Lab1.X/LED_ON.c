@@ -1,14 +1,12 @@
 /*
- * File:   blinking_c.c
- * Author: fercho
- *
- * Created on March 15, 2024, 5:12 PM
+ * File:   LED_ON.c
+ * Author: Fernando Martínez Santa
+ * 
+ * Created on March 21, 2024, 4:49 PM
  */
 
 
 #include "xc.h"
-
-
 
 #define FCY 8000000UL
 
@@ -26,16 +24,12 @@
 #pragma config GCP = OFF
 #pragma config JTAGEN = OFF
 
-#include <libpic30.h>
-
 int main(void) {
-    TRISAbits.TRISA0 = 0;   // puerto A0 como salida
     
-    while(0 == 0) {
-        LATAbits.LATA0 = 1;     // enciende el LED
-        __delay_ms(500);
-        LATAbits.LATA0 = 0;     // enciende el LED
-        __delay_ms(500);
+    TRISAbits.TRISA0 = 0;   // configura PA0 como salida
+    
+    while(1) {
+        LATAbits.LATA0 = 1;     // enciende el LED de PA0
     }
     
     return 0;
