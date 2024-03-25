@@ -5,9 +5,10 @@
 
 #define pin__output    OUTPUT
 #define pin__input     INPUT
+#define pin__input_pullup  	INPUT_PULLUP
 #define pin__high(PIN_NAME)    digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)      digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)     digitalWrite(PIN_NAME)
+#define pin__read(PIN_NAME)     digitalRead(PIN_NAME)
 #define pin__setup(PIN_NAME, MODE)      pinMode(PIN_NAME, MODE)
 #define pin__write(PIN_NAME, VALUE)     digitalWrite(PIN_NAME, VALUE)
 #define adc__read(PIN_NAME)     analogRead(PIN_NAME)
