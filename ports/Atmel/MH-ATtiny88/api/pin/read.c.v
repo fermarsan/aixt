@@ -6,4 +6,4 @@
 
 module pin 
 
-#define pin_read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)

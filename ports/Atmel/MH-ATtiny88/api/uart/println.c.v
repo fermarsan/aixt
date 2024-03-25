@@ -7,7 +7,7 @@
 module uart 
 
 #define uart__println_0(MESSAGE)	Serial.println(MESSAGE)
-
+#define uart__print(MESSAGE)        Serial.print(MESSAGE)
 #define uart__println_1(MESSAGE)	Serial1.println(MESSAGE)
 
 #define uart__println_x(UART_NUMBER, MESSAGE)		uart__println_ ## UART_NUMBER (MESSAGE) 			
