@@ -1,4 +1,4 @@
-# **GUÍA RÁPIDA MH-ATTINY88
+# GUÍA RÁPIDA MH-ATTINY88
 Implementación de Aixt para soportar la tarjeta MH-ATtiny88.
 
 ## RESUMEN
