@@ -3,8 +3,7 @@ import pin
 
 pin.setup(3, pin.output)    
 pin.setup(4, pin.output)    
-pin.setup(6, pin.output)  
-
+pin.setup(5, pin.output)    
 
 for{
     pin.high(3)     
