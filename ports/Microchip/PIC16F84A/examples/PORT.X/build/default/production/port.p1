@@ -1,0 +1,111 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"50 port.c
+[v _port__init `(v ~T0 @X0 0 e? ]
+"52
+[v _time__init `(v ~T0 @X0 0 e? ]
+[p mainexit ]
+"498 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f84a.h
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"210
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
+[v __delay `JF36 ~T0 @X0 0 e ]
+[p i __delay ]
+"54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f84a.h
+[; <" INDF equ 00h ;# ">
+"61
+[; <" TMR0 equ 01h ;# ">
+"68
+[; <" PCL equ 02h ;# ">
+"75
+[; <" STATUS equ 03h ;# ">
+"161
+[; <" FSR equ 04h ;# ">
+"168
+[; <" PORTA equ 05h ;# ">
+"212
+[; <" PORTB equ 06h ;# ">
+"274
+[; <" EEDATA equ 08h ;# ">
+"281
+[; <" EEADR equ 09h ;# ">
+"288
+[; <" PCLATH equ 0Ah ;# ">
+"308
+[; <" INTCON equ 0Bh ;# ">
+"386
+[; <" OPTION_REG equ 081h ;# ">
+"456
+[; <" TRISA equ 085h ;# ">
+"500
+[; <" TRISB equ 086h ;# ">
+"562
+[; <" EECON1 equ 088h ;# ">
+"606
+[; <" EECON2 equ 089h ;# ">
+"11 port.c
+[p x FOSC  =  HS         ]
+"12
+[p x WDTE  =  OFF        ]
+"13
+[p x PWRTE  =  OFF       ]
+"14
+[p x CP  =  OFF          ]
+"54
+[v _main__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _main__init ]
+[f ]
+"55
+[e ( _port__init ..  ]
+"56
+[e ( _time__init ..  ]
+"58
+[e :UE 24 ]
+}
+"60
+[v _port__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _port__init ]
+[f ]
+"61
+[e :UE 25 ]
+}
+"63
+[v _time__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _time__init ]
+[f ]
+"64
+[e :UE 26 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"66
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"67
+[e ( _main__init ..  ]
+"68
+[e = _TRISB -> -> 0 `i `uc ]
+"69
+[e :U 29 ]
+{
+"70
+[e = _PORTB -> -> 85 `i `uc ]
+"71
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"72
+[e = _PORTB -> -> 170 `i `uc ]
+"73
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"74
+}
+[e :U 28 ]
+[e $U 29  ]
+[e :U 30 ]
+"75
+[e :UE 27 ]
+}

@@ -1,4 +1,4 @@
-/ Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: pwm setup.c.v
 // Author: Luis Alfredo Pinto Medina and Fernando Martínez Santa
 // Date: 2024
@@ -8,6 +8,22 @@
 
 module pwm
 
+// Función para configurar el PWM
+fn setup() {
+
+    PR2 = 0x3E
+    CCPR2L = 0  
+    TRISCbits.TRISC1 = 0
+    T2CON = 0b00000011  
+    CCP2CON = 0b00001100  
+    TMR2 = 0  
+    T2CONbits.TMR2ON = 1             
+} 
+
+
+
+
+/*
 #define pwm__setup(pin1, pin2) \
     PR2 = 0x3E;                        /* Valor del período del PWM */ \
     CCPR##pin1##L = 0;                 /* Inicializa el registro CCP en 0 dependiendo el CCP que configure el usuario*/ \
@@ -16,3 +32,4 @@ module pwm
     CCP##pin1##CON = 0b00001100;       /* Configura el registro CCP en modo PWM dependiendo el CCP que configure el usuario*/ \
     TMR2 = 0;                          /* Inicializa el Timer 2 en 0 */ \
     T2CONbits.TMR2ON = 1;              /* Enciende el Timer 2 */
+*/
