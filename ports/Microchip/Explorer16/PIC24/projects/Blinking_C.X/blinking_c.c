@@ -13,10 +13,10 @@
 #define FCY 8000000UL
 
 #pragma config POSCMOD = HS
-#pragma config OSCIOFNC = ON
+#pragma config OSCIOFNC = OFF
 #pragma config FCKSM = CSDCMD
-#pragma config FNOSC = PRI
-#pragma config IESO = ON
+#pragma config FNOSC = PRIPLL
+#pragma config IESO = OFF
 #pragma config WDTPS = PS32768
 #pragma config FWPSA = PR128
 #pragma config WINDIS = ON

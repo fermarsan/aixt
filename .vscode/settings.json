@@ -1,7 +1,11 @@
 {
     "aixt_linux":   ".",
     "aixt_windows": ".",
-    "device":       "PIC16F676",
+<<<<<<< HEAD
+    "device":       "PIC16F886",
+=======
+    "device":       "NXT",
+>>>>>>> develop
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",
