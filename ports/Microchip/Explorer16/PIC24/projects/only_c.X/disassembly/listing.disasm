@@ -1,0 +1,55 @@
+Disassembly Listing for only_c
+Generated From:
+/home/fercho/aixt/ports/Microchip/Explorer16/PIC24/projects/only_c.X/dist/default/debug/only_c.X.debug.elf
+Mar 15, 2024 4:47:12 PM
+
+---  /home/fercho/aixt/ports/Microchip/Explorer16/PIC24/projects/only_c.X/main.c  -----------------------
+1:                 /*
+2:                  * File:   main.c
+3:                  * Author: fercho
+4:                  *
+5:                  * Created on March 15, 2024, 1:06 PM${aixt_path}/.template/${device}.v
+6:                  */
+7:                 
+8:                 
+9:                 #include "xc.h"
+10:                
+11:                int A;
+12:                
+13:                int B[] = {1,2,3,4,5};
+14:                
+15:                int main(void) {
+0002CE  FA0002     LNK #0x2
+16:                    A = 0xFACA;
+0002D0  2FACA0     MOV #0xFACA, W0
+0002D2  884000     MOV W0, A
+17:                    A = 0x9876;
+0002D4  298760     MOV #0x9876, W0
+0002D6  884000     MOV W0, A
+18:                    
+19:                    for(int i=0; i<5; i++) {
+0002D8  EB0000     CLR W0
+0002DA  780F00     MOV W0, [W14]
+0002DC  37000C     BRA .L2
+0002F4  E80F1E     INC [W14], [W14]
+0002F6  78001E     MOV [W14], W0
+0002F8  500FE4     SUB W0, #0x4, [W15]
+0002FA  34FFF1     BRA LE, .L3
+20:                        B[i] = B[i] + 10;
+0002DE  78001E     MOV [W14], W0
+0002E0  400080     ADD W0, W0, W1
+0002E2  208020     MOV #0x802, W0
+0002E4  408000     ADD W1, W0, W0
+0002E6  780010     MOV [W0], W0
+0002E8  4000EA     ADD W0, #0xA, W1
+0002EA  78001E     MOV [W14], W0
+0002EC  400100     ADD W0, W0, W2
+0002EE  208020     MOV #0x802, W0
+0002F0  410000     ADD W2, W0, W0
+0002F2  780801     MOV W1, [W0]
+21:                    }
+22:                    return 0;
+0002FC  EB0000     CLR W0
+23:                }
+0002FE  FA8000     ULNK
+000300  060000     RETURN

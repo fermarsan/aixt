@@ -10,13 +10,16 @@ module main
 #include <stdint.h>
 #include <stdbool.h>
 
+// ----------  if setup.c.v doesn't found  ----------
+// #ifndef __setup__
+
 #define FCY 8000000UL
 
-#pragma config POSCMOD = XT
-#pragma config OSCIOFNC = ON
+#pragma config POSCMOD = HS
+#pragma config OSCIOFNC = OFF
 #pragma config FCKSM = CSDCMD
-#pragma config FNOSC = PRI
-#pragma config IESO = ON
+#pragma config FNOSC = PRIPLL
+#pragma config IESO = OFF
 #pragma config WDTPS = PS32768
 #pragma config FWPSA = PR128
 #pragma config WINDIS = ON
@@ -26,6 +29,8 @@ module main
 #pragma config GCP = OFF
 #pragma config JTAGEN = OFF
 
+// #endif
+// --------------------------------------------------
 
 #define led3    a0  // Onboard LEDs            
 #define led4    a1        
@@ -43,29 +48,29 @@ module main
 
 #define pot     b5_i  // Onboard potentiometer
 
-#define TRISa		TRISA	// port setup name equivalents
-#define TRISb		TRISB
-#define TRISc		TRISC
-#define TRISd		TRISD
-#define TRISe		TRISE
-#define TRISf		TRISF
-#define TRISg		TRISG
+#define TRISa	TRISA	// port setup name equivalents
+#define TRISb	TRISB
+#define TRISc	TRISC
+#define TRISd	TRISD
+#define TRISe	TRISE
+#define TRISf	TRISF
+#define TRISg	TRISG
 
-#define PORTa		PORTA	// port in name equivalents
-#define PORTb		PORTB
-#define PORTc		PORTC
-#define PORTd		PORTD
-#define PORTe		PORTE
-#define PORTf		PORTF
-#define PORTg		PORTG
+#define PORTa	PORTA	// port in name equivalents
+#define PORTb	PORTB
+#define PORTc	PORTC
+#define PORTd	PORTD
+#define PORTe	PORTE
+#define PORTf	PORTF
+#define PORTg	PORTG
 
-#define LATa		LATA	// port out name equivalents
-#define LATb		LATB
-#define LATc		LATC
-#define LATd		LATD
-#define LATe		LATE
-#define LATf		LATF
-#define LATg		LATG
+#define LATa	LATA	// port out name equivalents
+#define LATb	LATB
+#define LATc	LATC
+#define LATd	LATD
+#define LATe	LATE
+#define LATf	LATF
+#define LATg	LATG
 
 #define a0_s    TRISAbits.TRISA0    // pin configuration pits
 #define a1_s    TRISAbits.TRISA1 
@@ -429,7 +434,7 @@ fn init () {
 	AD1CSSL = 0           	// no scanning required
 	AD1CON2 = 0           	// use MUXA, AVss and AVdd are used as Vref+/-
 	AD1CON3 = 0x1F02      	// Tsamp = 32 x Tad; Tad=125ns
-	AD1CON1bits.ADON = 1  // turn on the ADC
+	AD1CON1bits.ADON = 1  	// turn on the ADC
 	
 	TRISA = 0xff00        	// select the PORTA pins as outputs to drive the LEDs
 

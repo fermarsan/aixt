@@ -1,13 +1,13 @@
 # Guia Rápida para PIC16F886
 ## Referencia del PIC16 utilizado de la marca MICROCHIP
-- PIC16F886
+- PIC16F886  
 
 **NOTA:** Este microcontrolador PIC16F cuenta con salidas digitales, entradas digitales, ADC, PWM y comunicación serial.
 
 ## Nombres de los Pines
 Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
-### Nombres de los pines del PIC16F873A
+### Nombres de los pines del PIC16F886
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:------:|---|---|---|---|---|---|---|---|
 | **A**  | a0| a1| a2| a3| a4| a5| - | - |
@@ -52,55 +52,75 @@ Luego, para facilitar la implementación (y no generar código inncesario) de es
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales, conversor analogico a digital, modulación pwm y comunicación serial.
 
-name                             | description
----------------------------------|------------------------------------------------------
-`pin_high(pin)`                  | Encender `pin`
-`pin_low(pin)`                   | Apagar `pin`
-`pin_write(pin, val)`            | Escribe `val` en `pin`
-`pin_read(pin)`                  | lee `pin`
-`adc_setup()`                    | Configura el `adc` 
-`adc_read(channel)`              | Configura el canal `channel` del `adc`
-`adc_reading()`                  | Alamacena el valor del `adc`
-`pwm_setup(pin1, pin2)`          | Configura el resgitro `pin1` y la salida en `pin2`
-`pwm_write(duty, pin)`           | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
-`uart_setup()`                   | Configura el `uart`
-`print(menssage)`                | Configura el `menssage` y lo `print`
-`sleep(time)`                    | Retardo en `seg`
-`sleep_us(time)`                 | Retardo en `microseg`
-`sleep_ms(time)`                 | Retardo en `miliseg`
+name                                | description
+------------------------------------|------------------------------------------------------
+`pin__setup(PIN_NAME, PIN_MODE)`   | Configura `PIN_NAME` en `PIN_MODE`
+`pin__high(PIN_NAME)`               | Encender `PIN_NAME`
+`pin__low(PIN_NAME)`                | Apagar `PIN_NAME`
+`pin__write(PIN_NAME,VAL)`          | Escribe `VAL` en `PIN_NAME`
+`pin__read(PIN_NAME)`               | lee `PIN_NAME`
+`pin__digital(PIN)`                 | Configura I/0 digitales `PIN_NAME`
+`pin (PIN)`                         | Configura `PIN_OUTPUT` o `PIN_INPUT`
+`port`                              | Inicializa `port`
+`port__read(PORT_NAME)`             | Lee `PORT_NAME`
+`port__setup(PORT_NAME, VALUE)`     | Configura `PORT_NAME` asigna valor `VALUE`
+`port__write(PORT_NAME, VALUE)`     | Escribe `PORT_NAME` en `VALUE`
+`adc__setup()`                      | Configura el `adc` 
+`adc__read(channel)`                | Configura el canal `channel` del `adc`
+`adc`                               | Inicializa `adc`
+`pwm__setup()`                      | Configura el resgitro `pwm`
+`pwm__write(duty)`                  | Calcula el `duty` del `pwm` 
+`pwm`                               | Inicializa `pwm`
+`uart__setup()`                     | Configura el `uart`
+`uart__read()`                      | Lee los datos del `uart`
+`uart__write()`                     | Escribe los datos del `uart`
+`uart`                              | Inicializa el `uart`
+`time__sleep(time)`                 | Retardo en `seg`
+`time__sleep_us(time)`              | Retardo en `microseg`
+`time__sleep_ms(time)`              | Retardo en `miliseg`
+`time`                              | Inicializa el `time`
+
+### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v 
 
 ## Tiempo
-```go
+
+```v
+
 sleep(5)	// Tiempo de 5 segundos
-sleep_us(10)	// Tiempo de 10 microsegundos
-sleep_ms(500)	// Tiempo de 500 milisegundos
+sleep__us(10)	// Tiempo de 10 microsegundos
+sleep__ms(500)	// Tiempo de 500 milisegundos
 
 ```
 
 ## Configuración de pines 
-```go
-pin_setup(a5_s, out)      // Función para configurar el pin como salida 
-pin_setup(b7_s, out)      // Función para configurar el pin como salida
-pin_setup(a0_s, input)    // Función para configurar el pin como entrada
-pin_setup(c4_s, input)    // Función para configurar el pin como entrada
 
-pin_high(a5)    // Función para encender el pin           
-pin_low(a5)     // Función para apagar el pin
+```v
 
-pin_write(a2, 0)  // Función sobre escribir el pin
-pin_write(a2, 1)  // Función sobre escribir el pin
+pin.setup(a5, pin.output)      // Función para configurar el pin como salida 
+pin.setup(b7, pin.output)      // Función para configurar el pin como salida
+pin.setup(a0, pin.input)    // Función para configurar el pin como entrada
+pin.setup(c4, pin.input)    // Función para configurar el pin como entrada
+
+pin.high(a5)    // Función para encender el pin           
+pin.low(a5)     // Función para apagar el pin
+
+pin.write(a2, 0)  // Función sobre escribir el pin
+pin.write(a2, 1)  // Función sobre escribir el pin
+
+pin.read(b4)      // Función para leer el pin
+pin.read(c7)      // Función para leer el pin
 
 ```
 
 Ejemplo de prender y apagar un led:
 
-```go
+```v
       
-while (1) {
+for {
 
-    pin_high(c7);
+    pin.high(c7);
     sleep_us(500);
-    pin_low(c7);
+    pin.low(c7);
     sleep_us(500);
 
 }
@@ -108,67 +128,95 @@ while (1) {
 ```
 Ejemplo de prender y apagar un led con una entrada digital:
 
-```go
+```v
 
-while(1){
+pin.digital();
+
+for {
     
     if(b4 == 1){        // Condición si encuentra un 1 en el pin c2
         
-        pin_high(a4);
-        pin_high(a5);
+        pin.high(a4);
+        pin.high(a5);
     }
     
     else if(b5 == 1){   // Condición si encuentra un 1 en el pin c4
         
-        pin_low(a4);
-        pin_low(a5);
+        pin.low(a4);
+        pin.low(a5);
     }
 
 }
         
 ```
+## Configuración del port
+
+```v
+
+port.setup(b, ob00000000)      // Función para configurar el puerto como salida 
+
+```
+
+Ejemplo de prender y apagar un puerto del microcontrolador:
+
+```v
+      
+for {
+        
+    port.write(b,0b01010101);
+    sleep_ms(500);
+    port.write(b,0b10101010);
+    sleep_ms(500);      
+        
+}
+
+```
+
 ## Configuración del ADC
-```go
-adc_setup()     // Inicializa el ADC
-adc_read(0)     // Escoge el pin del canal analogico
-adc_reading();  // Almacena el valor del ADC en una función
+
+```v
+
+adc.setup()     // Iicializa el ADC
+adc.read(0)     // Escoge el pin denl canal analogico
 
 ```
 
 Ejemplo de prender y apagar leds dependiendo del valor del ADC:
-```go
+
+```v
+
 unsigned int adc_result;  // Declaración de variable para almacenar el valor del ADC
         
-while(1){
+for {
             
-    adc_result = adc_reading(); // Almacena el valor del ADC
+    adc_result = adc.read(0) ; // Almacena el valor del ADC
     
     if ( adc_result >= 1020 ){
         
-        pin_high(b0);
-        pin_high(b1);
-        pin_high(b2);           
+        pin.high(b0);
+        pin.high(b1);
+        pin.high(b2);           
     }
     
     else if ( adc_result >= 820 ){
         
-        pin_high(b0);
-        pin_high(b1);
-        pin_low(b2);
+        pin.high(b0);
+        pin.high(b1);
+        pin.low(b2);
     }
     
     else if ( adc_result >= 620 ){
         
-        pin_high(b0);
-        pin_low(b1);
-        pin_low(b2);   
+        pin.high(b0);
+        pin.low(b1);
+        pin.low(b2);   
     }
         
     else {
         
-        pin_low(b0);
-        pin_low(b1);
-        pin_low(b2);      
+        pin.low(b0);
+        pin.low(b1);
+        pin.low(b2);      
     }
 
 }
@@ -176,84 +224,69 @@ while(1){
 ```
 
 ## Configuración del PWM
-```go
-pwm_setup()     // Inicializa el pwm
-pwm_write()     // Calcula el ciclo de trabajo 
+
+```v
+
+pwm.setup()     // Inicializa el pwm
+pwm.write()     // Calcula el ciclo de trabajo 
 
 ```
 Ejemplo de variar la intensidad de un led:
 
-```go
- while(1){
+```v
+
+for {
     
-        adc_read(2);  // Escoge el canal analogico AN2
-        adc = adc_reading();  // Almacena el valor del ADC
+    adc = adc.read(0);  // Almacena el valor del ADC
         
-        pwm_write(adc,2);  // Realiza el calculo del Duty y lo guarda en CCP2
+    pwm.write(adc);  // Realiza el calculo del Duty y lo guarda en CCP2
         
-    }
+}
 
 ```
 
-## Configuración del UART transmision de datos
-```go
-uart_setup()     // Inicializa la comunicación serial
-print()          // Alamacena los caracteres,revisa que no haya ningún caracter nulo
+## Configuración del UART Transmisión
 
+```v
 
-```
-Ejemplo de variar el valor del ADC y visualizarlo en un mensaje:
-
-```go
-
-while(1){
-        
-    adc_read(0);
-              
-    adc = adc_reading();
-         
-    sprintf(caracteres, "ADC CH0: %u\r\n", adc); // Cambia el formato del ADC
-    print(caracteres);   // Imprime el mensaje
-    __delay_ms(200);     // Tiempo para no saturar la ventana de mensajes 
-    
-    }
-
+uart.setup()     // Inicializa la comunicación serial
 
 ```
+Ejemplo enviar un caracter y visualizarlo en un mensaje:
 
-## Configuración del UART recepcion de  de datos
-```go
-uart_setup()   // Inicializa la comunicación serial
-uart_input()   // Valida si hay datos recibidos retorna un 1 si no hay datos recibidos un 0
-uart_read()    // Almacena los datos recibidos que envia el otro dispositivo
+```v
 
-```
-Ejemplo de variar el valor del ADC y visualizarlo en un mensaje:
-
-```go
-char datos;   // variable que alacena los caracteres de recepcion
-while(1){
-        
-        if(uart_input ()> 0){
-                       
-            datos = uart_read();
-        
-        }
-        
-        switch (datos){
+for {
             
-            case 'a':
-                
-                pin_high(c0);
-                print("led1: Encendido\r\n");
-                break;  
-                
-            case 'b':
-                
-                pin_low(c0);
-                print("led1: Apagado\r\n");
-                break;
-        }
+    uart.write(0x33);
+	sleep_ms(500);
+	uart.write(0x99);
+	sleep_ms(500);
+    
+}
+
+```
+
+## Configuración del UART Recepción
+
+```v
+
+uart.setup()     // Inicializa la comunicación serial
+
+```
+Ejemplo prender y apagar un el puerto del micro enviando un caracteres desde el PC:
+
+```v
+
+port.setup(b, 0b00000000);
+port.write(b, 0b00000000);
+pin.setup(c7, pin.input);
+uart.setup();
+
+for {
+
+    port.read(b) = uart.read();
+
 }
 
 ```

@@ -9,3 +9,7 @@
 module uart
 
 #include <xc.h>
+
+fn init() {
+    
+}

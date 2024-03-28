@@ -1,0 +1,36 @@
+### HEXMate logfile and output summary ###
+
+### Command-line arguments ###
+ C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1hp4.\driver_tmp_3.o
+ -Odist/default/production\PORT.X.production.hex
+ -logfile=dist/default/production\PORT.X.production.hxl
+ -addressing=2
+
+### Memory Usage ###
+ Input file ranges:
+  0h - 3h		(C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1hp4.\driver_tmp_3.o)
+  F8Ah - FFFh		(C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1hp4.\driver_tmp_3.o)
+  400Eh - 400Fh		(C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1hp4.\driver_tmp_3.o)
+ Unused ranges:
+  4h - F89h
+  1000h - 400Dh
+
+### Hex Memory Map ###
+ Legend:
+  -- = Unused memory
+  H1 = Input file             (C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1hp4.\driver_tmp_3.o)
+----------------------------------------------------------
+         | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+----------------------------------------------------------
+00000000 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
+----------------------------------------------------------
+00000F80 | -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1
+00000F90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000FA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000FB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000FC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000FD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000FE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000FF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+----------------------------------------------------------
+00004000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1

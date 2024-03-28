@@ -1,0 +1,343 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/debug\startup.o
+end_init CODE 0 0 0 3 2 1
+config CONFIG 4 2007 2007 2 2 1
+$dist/default/debug\ADC.X.debug.o
+cinit CODE 0 7FC 7FC 4 2 1
+text1 CODE 0 737 737 B 2 1
+text2 CODE 0 736 736 1 2 1
+text3 CODE 0 735 735 1 2 1
+text4 CODE 0 742 742 17 2 1
+maintext CODE 0 759 759 A3 2 1
+cstackCOMMON COMMON 1 70 70 5 1 1
+config CONFIG 4 2007 2007 2 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 20-6F 1
+RAM A0-EF 1
+RAM 110-16F 1
+RAM 190-1EF 1
+BANK0 20-6F 1
+BANK1 A0-EF 1
+BANK2 110-16F 1
+BANK3 190-1EF 1
+CONST 3-734 2
+CONST 800-1FFF 2
+ENTRY 3-734 2
+ENTRY 800-1FFF 2
+IDLOC 2000-2003 2
+CODE 3-734 2
+CODE 800-1FFF 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-10F 1
+SFR3 180-18F 1
+COMMON 75-7D 1
+EEDATA 2100-21FF 2
+STRCODE 3-734 2
+STRCODE 800-1FFF 2
+STRING 3-734 2
+STRING 800-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/debug\startup.o
+0 end_init CODE >78:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\dist/default/debug\startup.s
+$dist/default/debug\ADC.X.debug.o
+7FC cinit CODE >434:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\dist/default/debug\ADC.X.debug.s
+7FC cinit CODE >437:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\dist/default/debug\ADC.X.debug.s
+7FC cinit CODE >443:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\dist/default/debug\ADC.X.debug.s
+7FC cinit CODE >445:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\dist/default/debug\ADC.X.debug.s
+7FD cinit CODE >446:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\dist/default/debug\ADC.X.debug.s
+742 text4 CODE >106:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+742 text4 CODE >107:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+74D text4 CODE >108:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+74E text4 CODE >109:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+74E text4 CODE >110:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+752 text4 CODE >111:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+758 text4 CODE >112:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+735 text3 CODE >103:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+735 text3 CODE >104:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+736 text2 CODE >100:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+736 text2 CODE >101:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+737 text1 CODE >94:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+737 text1 CODE >95:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+73C text1 CODE >96:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+741 text1 CODE >98:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+759 maintext CODE >114:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+759 maintext CODE >115:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+75E maintext CODE >116:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+75E maintext CODE >117:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+761 maintext CODE >118:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+762 maintext CODE >119:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+763 maintext CODE >120:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+764 maintext CODE >121:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+765 maintext CODE >122:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+766 maintext CODE >123:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+769 maintext CODE >124:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+76A maintext CODE >125:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+76B maintext CODE >126:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+76C maintext CODE >127:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+76D maintext CODE >128:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+76E maintext CODE >129:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+777 maintext CODE >131:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+784 maintext CODE >132:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+787 maintext CODE >132:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+789 maintext CODE >132:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+78D maintext CODE >133:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+790 maintext CODE >134:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+791 maintext CODE >135:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+792 maintext CODE >136:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+793 maintext CODE >137:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+794 maintext CODE >138:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+795 maintext CODE >139:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+796 maintext CODE >140:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+799 maintext CODE >140:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+79B maintext CODE >140:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+79F maintext CODE >141:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7A2 maintext CODE >142:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7A3 maintext CODE >143:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7A4 maintext CODE >144:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7A5 maintext CODE >145:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7A6 maintext CODE >146:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7A7 maintext CODE >147:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7A8 maintext CODE >148:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7AB maintext CODE >148:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7AD maintext CODE >148:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7B1 maintext CODE >149:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7B4 maintext CODE >150:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7B5 maintext CODE >151:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7B6 maintext CODE >152:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7B7 maintext CODE >153:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7B8 maintext CODE >154:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7B9 maintext CODE >155:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7BA maintext CODE >156:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7BD maintext CODE >156:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7BF maintext CODE >156:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7C3 maintext CODE >157:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7C6 maintext CODE >158:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7C7 maintext CODE >159:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7C8 maintext CODE >160:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7C9 maintext CODE >161:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7CA maintext CODE >162:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7CB maintext CODE >163:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7CC maintext CODE >164:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7CF maintext CODE >164:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7D1 maintext CODE >164:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7D5 maintext CODE >165:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7D8 maintext CODE >166:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7D9 maintext CODE >167:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7DA maintext CODE >168:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7DB maintext CODE >169:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7DC maintext CODE >170:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7DD maintext CODE >171:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7DE maintext CODE >172:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7E1 maintext CODE >172:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7E3 maintext CODE >172:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7E7 maintext CODE >173:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7EA maintext CODE >174:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7EB maintext CODE >175:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7EC maintext CODE >176:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7ED maintext CODE >177:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7EE maintext CODE >178:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7EF maintext CODE >179:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7F0 maintext CODE >180:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7F0 maintext CODE >181:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7F3 maintext CODE >182:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7F4 maintext CODE >183:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7F5 maintext CODE >184:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7F6 maintext CODE >185:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+7F7 maintext CODE >186:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\ADC.X\adc.c
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 2 0 ABS 0 - dist/default/debug\ADC.X.debug.o
+__Hspace_0 800 0 ABS 0 - -
+__Hspace_1 75 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 4010 0 ABS 0 - -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__L__absolute__ 0 0 ABS 0 __absolute__ -
+main@a 73 0 COMMON 1 cstackCOMMON dist/default/debug\ADC.X.debug.o
+__Hstrings 0 0 ABS 0 strings -
+___sp 0 0 STACK 2 stack dist/default/debug\startup.o
+_main EB2 0 CODE 0 maintext dist/default/debug\ADC.X.debug.o
+btemp 7E 0 ABS 0 - dist/default/debug\ADC.X.debug.o
+start 0 0 CODE 0 init dist/default/debug\startup.o
+__Hpowerup 0 0 CODE 0 powerup -
+intlevel0 0 0 ENTRY 0 functab dist/default/debug\startup.o
+intlevel1 0 0 ENTRY 0 functab dist/default/debug\startup.o
+intlevel2 0 0 ENTRY 0 functab dist/default/debug\startup.o
+intlevel3 0 0 ENTRY 0 functab dist/default/debug\startup.o
+intlevel4 0 0 ENTRY 0 functab dist/default/debug\startup.o
+intlevel5 0 0 ENTRY 0 functab dist/default/debug\startup.o
+_main__init E6E 0 CODE 0 text1 dist/default/debug\ADC.X.debug.o
+wtemp0 7E 0 ABS 0 - dist/default/debug\ADC.X.debug.o
+__Hfunctab 0 0 ENTRY 0 functab -
+__Hclrtext 0 0 ABS 0 clrtext -
+_ADCON0 1F 0 ABS 0 - dist/default/debug\ADC.X.debug.o
+_ADCON1 9F 0 ABS 0 - dist/default/debug\ADC.X.debug.o
+_ADRESH 1E 0 ABS 0 - dist/default/debug\ADC.X.debug.o
+_ADRESL 9E 0 ABS 0 - dist/default/debug\ADC.X.debug.o
+__Lmaintext 0 0 ABS 0 maintext -
+__end_of_main__init E84 0 CODE 0 text1 dist/default/debug\ADC.X.debug.o
+___stackhi 0 0 ABS 0 - dist/default/debug\startup.o
+___stacklo 0 0 ABS 0 - dist/default/debug\startup.o
+start_initialization FF8 0 CODE 0 cinit dist/default/debug\ADC.X.debug.o
+?_adc__read 70 0 COMMON 1 cstackCOMMON dist/default/debug\ADC.X.debug.o
+_TRISCbits 87 0 ABS 0 - dist/default/debug\ADC.X.debug.o
+___int_sp 0 0 STACK 2 stack dist/default/debug\startup.o
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Hcinit 1000 0 CODE 0 cinit -
+__Hstack 0 0 STACK 2 stack -
+__Hmaintext 0 0 ABS 0 maintext -
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 4012 0 CONFIG 4 config -
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Lbank3 0 0 ABS 0 bank3 -
+__Lcinit FF8 0 CODE 0 cinit -
+__Lstack 0 0 STACK 2 stack -
+_PORTCbits 7 0 ABS 0 - dist/default/debug\ADC.X.debug.o
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 0 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Linit 0 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Ltext 0 0 ABS 0 text -
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__S0 800 0 ABS 0 - -
+__S1 75 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__end_of_pin__init E6E 0 CODE 0 text2 dist/default/debug\ADC.X.debug.o
+_pin__init E6C 0 CODE 0 text2 dist/default/debug\ADC.X.debug.o
+__Lintentry 0 0 CODE 0 intentry -
+reset_vec 0 0 CODE 0 reset_vec dist/default/debug\startup.o
+__pmaintext EB2 0 CODE 0 maintext dist/default/debug\ADC.X.debug.o
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 4 config -
+_ADCON0bits 1F 0 ABS 0 - dist/default/debug\ADC.X.debug.o
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__Lend_init 0 0 CODE 0 end_init -
+adc__read@channel 70 0 COMMON 1 cstackCOMMON dist/default/debug\ADC.X.debug.o
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+end_of_initialization FF8 0 CODE 0 cinit dist/default/debug\ADC.X.debug.o
+__Hintentry 0 0 CODE 0 intentry -
+__end_of_adc__init E6C 0 CODE 0 text3 dist/default/debug\ADC.X.debug.o
+__end_of_adc__read EB2 0 CODE 0 text4 dist/default/debug\ADC.X.debug.o
+__Lstrings 0 0 ABS 0 strings -
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__ptext1 E6E 0 CODE 0 text1 dist/default/debug\ADC.X.debug.o
+__ptext2 E6C 0 CODE 0 text2 dist/default/debug\ADC.X.debug.o
+__ptext3 E6A 0 CODE 0 text3 dist/default/debug\ADC.X.debug.o
+__ptext4 E84 0 CODE 0 text4 dist/default/debug\ADC.X.debug.o
+_adc__init E6A 0 CODE 0 text3 dist/default/debug\ADC.X.debug.o
+_adc__read E84 0 CODE 0 text4 dist/default/debug\ADC.X.debug.o
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__H__absolute__ 0 0 ABS 0 __absolute__ -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__end_of__initialization FF8 0 CODE 0 cinit dist/default/debug\ADC.X.debug.o
+__Lfunctab 0 0 ENTRY 0 functab -
+__Lclrtext 0 0 ABS 0 clrtext -
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/debug\ADC.X.debug.o
+__Hend_init 6 0 CODE 0 end_init -
+__end_of_main FF8 0 CODE 0 maintext dist/default/debug\ADC.X.debug.o
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__initialization FF8 0 CODE 0 cinit dist/default/debug\ADC.X.debug.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 7FC FF8 4 2
+text1 0 737 E6E B 2
+text2 0 736 E6C 1 2
+text3 0 735 E6A 1 2
+text4 0 742 E84 17 2
+maintext 0 759 EB2 A3 2
+cstackCOMMON 1 70 70 5 1
+reset_vec 0 0 0 3 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

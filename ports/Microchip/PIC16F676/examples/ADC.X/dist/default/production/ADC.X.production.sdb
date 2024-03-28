@@ -1,0 +1,105 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F676 ]
+[d frameptr 0 ]
+"64 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\ADC.X\adc.c
+[v _main__init main__init `(v  1 e 1 0 ]
+"70
+[v _adc__init adc__init `(v  1 e 1 0 ]
+"73
+[v _adc__read adc__read `(ui  1 e 2 0 ]
+"81
+[v _pin__init pin__init `(v  1 e 1 0 ]
+"84
+[v _main main `(v  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+[s S93 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+]
+"231 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h
+[u S100 . 1 `S93 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES100  1 e 1 @7 ]
+"557
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"564
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+[s S30 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :3:2 
+`uc 1 . 1 0 :1:5 
+`uc 1 VCFG 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"594
+[s S37 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+]
+[s S43 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S46 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[u S49 . 1 `S30 1 . 1 0 `S37 1 . 1 0 `S43 1 . 1 0 `S46 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES49  1 e 1 @31 ]
+[s S76 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+]
+"796
+[u S83 . 1 `S76 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES83  1 e 1 @135 ]
+"973
+[v _ANSEL ANSEL `VEuc  1 e 1 @145 ]
+"1371
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"1378
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"84 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\ADC.X\adc.c
+[v _main main `(v  1 e 1 0 ]
+{
+"86
+[v main@x x `ui  1 a 2 4 ]
+"161
+} 0
+"64
+[v _main__init main__init `(v  1 e 1 0 ]
+{
+"68
+} 0
+"81
+[v _pin__init pin__init `(v  1 e 1 0 ]
+{
+"82
+} 0
+"70
+[v _adc__init adc__init `(v  1 e 1 0 ]
+{
+"71
+} 0
+"73
+[v _adc__read adc__read `(ui  1 e 2 0 ]
+{
+[v adc__read@channel channel `uc  1 a 1 wreg ]
+[v adc__read@channel channel `uc  1 a 1 wreg ]
+[v adc__read@channel channel `uc  1 a 1 3 ]
+"79
+} 0

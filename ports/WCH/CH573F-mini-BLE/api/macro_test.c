@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define pin__out GPIO_ModeOut_PP_5mA
+#define pin__output GPIO_ModeOut_PP_5mA
 
 #define a11 A, 11
 
@@ -19,12 +19,12 @@
 
 int main() 
 {
-    printf(pin__setup(a11, pin__out));
+    printf(pin__setup(a11, pin__output));
     printf(pin__high(a11));
     return 0;
 }
 
-// #include "CH58x_common.h"                                
+// #include "CH57x_common.h"                                
 
 // int main(void) {                                
 

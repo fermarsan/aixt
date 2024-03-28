@@ -8,7 +8,7 @@
 Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 
-### Nombres de los pines del PIC16F84A
+### Nombres de los pines del PIC16F84A 
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:------:|---|---|---|---|---|---|---|---|
 | **A**  | a0| a1| a2| a3| a4|---|---|---|
@@ -24,80 +24,112 @@ Luego, para facilitar la implementación (y no generar código inncesario) de es
 - `a5_s` Nombre del bit para configurar el `a5` pin como entrada o salida 
 - `a5`   Nombre del bit para leer el pin como entrada o salida `a5`
 
-
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales.
 
-name                    | description
-------------------------|------------------------------
-`pin_high(pin)`         | Encender `pin`
-`pin_low(pin)`          | Apagar `pin`
-`pin_write(pin, val)`   | Escribe `val` en `pin`
-`pin_read(pin)`         | lee `pin`
-`sleep(time)`           | Retardo en `seg`
-`sleep_us(time)`        | Retardo en `microseg`
-`sleep_ms(time)`        | Retardo en `miliseg`
+name                                  | description
+--------------------------------------|------------------------------
+`pin__setup(PIN_NAME, PIN_MODE)`     | Configura `PIN_NAME` en `PIN_MODE`
+`pin__high(PIN_NAME)`                 | Encender `PIN_NAME`
+`pin__low(PIN_NAME)`                  | Apagar `PIN_NAME`
+`pin__write(PIN_NAME,VAL)`            | Escribe `VAL` en `PIN_NAME`
+`pin__read(PIN_NAME)`                 | lee `PIN_NAME`
+`pin (PIN)`                           | Configura `PIN_OUTPUT` o `PIN_INPUT`
+`port`                                | Inicializa `port`
+`port__read(PORT_NAME)`               | Lee `PORT_NAME`
+`port__setup(PORT_NAME, VALUE)`       | Configura `PORT_NAME` asigna valor `VALUE`
+`port__write(PORT_NAME, VALUE)`       | Escribe `PORT_NAME` en `VALUE`
+`time__sleep(time)`                   | Retardo en `seg`
+`time__sleep_us(time)`                | Retardo en `microseg`
+`time__sleep_ms(time)`                | Retardo en `miliseg`
+`time`                                | Inicializa el `time`
+
+### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v 
 
 ## Tiempo
-```go
-sleep(5)	// Tiempo de 5 segundos
-sleep_us(10)	// Tiempo de 10 microsegundos
-sleep_ms(500)	// Tiempo de 500 milisegundos
+
+```v
+
+time__sleep(5)	// Tiempo de 5 segundos
+time__sleep_us(10)	// Tiempo de 10 microsegundos
+time__sleep_ms(500)	// Tiempo de 500 milisegundos
 
 ```
 
 ## Configuración de pines 
-```go
-pin_setup(a4_s, out)      // Función para configurar el pin como salida 
-pin_setup(b2_s, out)      // Función para configurar el pin como salida
-pin_setup(a2_s, input)    // Función para configurar el pin como entrada
-pin_setup(b4_s, input)    // Función para configurar el pin como entrada
 
-pin_high(a4)    // Función para encender el pin           
-pin_low(a4)     // Función para apagar el pin
+```v
 
-pin_write(a2, 0)  // Función sobre escribir el pin
-pin_write(a2, 1)  // Función sobre escribir el pin
+pin.setup(a4, output)      // Función para configurar el pin como salida 
+pin.setup(b2, output)      // Función para configurar el pin como salida
+pin.setup(a2, input)    // Función para configurar el pin como entrada
+pin.setup(b4, input)    // Función para configurar el pin como entrada
 
-pin_read(a1)  // Función para leer el pin
-pin_read(a1)  // Función para leer el pin
+pin.high(a4)    // Función para encender el pin           
+pin.low(a4)     // Función para apagar el pin
+
+pin.write(a2, 0)  // Función sobre escribir el pin
+pin.write(a2, 1)  // Función sobre escribir el pin
+
+pin.read(a1)  // Función para leer el pin
+pin.read(a1)  // Función para leer el pin
 
 ```
 
 Ejemplo de prender y apagar un led:
 
-```go
+```v
       
-while (1) {
+for {
 
-    pin_high(b1);
-    sleep_us(500);
-    pin_low(b1);
-    sleep_us(500);
+    pin.high(b1);
+    sleep__us(500);
+    pin.low(b1);
+    sleep__us(500);
 
 }
 
 ```
 Ejemplo de prender y apagar un led con una entrada digital:
 
-```go
+```v
 
-ANSEL = 0b00000000; // Todas los pin son I/O digitales
-
-while(1){
+for {
     
     if(b2 == 1){        // Condición si encuentra un 1 en el pin b2
         
-        pin_high(b1);
-        pin_high(b0);
+        pin.high(b1);
+        pin.high(b0);
     }
     
     else if(b4 == 1){   // Condición si encuentra un 1 en el pin b4
         
-        pin_low(b1);
-        pin_low(b0);
+        pin.low(b1);
+        pin.low(b0);
     }
 
 }
         
+```
+## Configuración del port
+
+```v
+
+port.setup(a, ob000000)      // Función para configurar el puerto como salida 
+
+```
+
+Ejemplo de prender y apagar un puerto del microcontrolador:
+
+```v
+      
+while(1){
+        
+    port.write(a,0b110101);
+    time__sleep_ms(500);
+    port.write(a,0b001010);
+    time__sleep_ms(500);      
+        
+}
+
 ```

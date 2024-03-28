@@ -1,0 +1,247 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"84 port.c
+[v _port__init `(v ~T0 @X0 0 e? ]
+"86
+[v _time__init `(v ~T0 @X0 0 e? ]
+[p mainexit ]
+"1399 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f886.h
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"228
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
+[v __delay `JF36 ~T0 @X0 0 e ]
+[p i __delay ]
+"54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f886.h
+[; <" INDF equ 00h ;# ">
+"61
+[; <" TMR0 equ 01h ;# ">
+"68
+[; <" PCL equ 02h ;# ">
+"75
+[; <" STATUS equ 03h ;# ">
+"161
+[; <" FSR equ 04h ;# ">
+"168
+[; <" PORTA equ 05h ;# ">
+"230
+[; <" PORTB equ 06h ;# ">
+"292
+[; <" PORTC equ 07h ;# ">
+"354
+[; <" PORTE equ 09h ;# ">
+"375
+[; <" PCLATH equ 0Ah ;# ">
+"382
+[; <" INTCON equ 0Bh ;# ">
+"460
+[; <" PIR1 equ 0Ch ;# ">
+"516
+[; <" PIR2 equ 0Dh ;# ">
+"573
+[; <" TMR1 equ 0Eh ;# ">
+"580
+[; <" TMR1L equ 0Eh ;# ">
+"587
+[; <" TMR1H equ 0Fh ;# ">
+"594
+[; <" T1CON equ 010h ;# ">
+"688
+[; <" TMR2 equ 011h ;# ">
+"695
+[; <" T2CON equ 012h ;# ">
+"766
+[; <" SSPBUF equ 013h ;# ">
+"773
+[; <" SSPCON equ 014h ;# ">
+"843
+[; <" CCPR1 equ 015h ;# ">
+"850
+[; <" CCPR1L equ 015h ;# ">
+"857
+[; <" CCPR1H equ 016h ;# ">
+"864
+[; <" CCP1CON equ 017h ;# ">
+"961
+[; <" RCSTA equ 018h ;# ">
+"1056
+[; <" TXREG equ 019h ;# ">
+"1063
+[; <" RCREG equ 01Ah ;# ">
+"1070
+[; <" CCPR2 equ 01Bh ;# ">
+"1077
+[; <" CCPR2L equ 01Bh ;# ">
+"1084
+[; <" CCPR2H equ 01Ch ;# ">
+"1091
+[; <" CCP2CON equ 01Dh ;# ">
+"1161
+[; <" ADRESH equ 01Eh ;# ">
+"1168
+[; <" ADCON0 equ 01Fh ;# ">
+"1269
+[; <" OPTION_REG equ 081h ;# ">
+"1339
+[; <" TRISA equ 085h ;# ">
+"1401
+[; <" TRISB equ 086h ;# ">
+"1463
+[; <" TRISC equ 087h ;# ">
+"1525
+[; <" TRISE equ 089h ;# ">
+"1546
+[; <" PIE1 equ 08Ch ;# ">
+"1602
+[; <" PIE2 equ 08Dh ;# ">
+"1659
+[; <" PCON equ 08Eh ;# ">
+"1706
+[; <" OSCCON equ 08Fh ;# ">
+"1771
+[; <" OSCTUNE equ 090h ;# ">
+"1823
+[; <" SSPCON2 equ 091h ;# ">
+"1885
+[; <" PR2 equ 092h ;# ">
+"1892
+[; <" SSPADD equ 093h ;# ">
+"1899
+[; <" SSPMSK equ 093h ;# ">
+"1904
+[; <" MSK equ 093h ;# ">
+"2021
+[; <" SSPSTAT equ 094h ;# ">
+"2190
+[; <" WPUB equ 095h ;# ">
+"2260
+[; <" IOCB equ 096h ;# ">
+"2330
+[; <" VRCON equ 097h ;# ">
+"2400
+[; <" TXSTA equ 098h ;# ">
+"2486
+[; <" SPBRG equ 099h ;# ">
+"2548
+[; <" SPBRGH equ 09Ah ;# ">
+"2618
+[; <" PWM1CON equ 09Bh ;# ">
+"2688
+[; <" ECCPAS equ 09Ch ;# ">
+"2770
+[; <" PSTRCON equ 09Dh ;# ">
+"2814
+[; <" ADRESL equ 09Eh ;# ">
+"2821
+[; <" ADCON1 equ 09Fh ;# ">
+"2855
+[; <" WDTCON equ 0105h ;# ">
+"2908
+[; <" CM1CON0 equ 0107h ;# ">
+"2973
+[; <" CM2CON0 equ 0108h ;# ">
+"3038
+[; <" CM2CON1 equ 0109h ;# ">
+"3089
+[; <" EEDATA equ 010Ch ;# ">
+"3094
+[; <" EEDAT equ 010Ch ;# ">
+"3101
+[; <" EEADR equ 010Dh ;# ">
+"3108
+[; <" EEDATH equ 010Eh ;# ">
+"3115
+[; <" EEADRH equ 010Fh ;# ">
+"3122
+[; <" SRCON equ 0185h ;# ">
+"3179
+[; <" BAUDCTL equ 0187h ;# ">
+"3231
+[; <" ANSEL equ 0188h ;# ">
+"3275
+[; <" ANSELH equ 0189h ;# ">
+"3325
+[; <" EECON1 equ 018Ch ;# ">
+"3370
+[; <" EECON2 equ 018Dh ;# ">
+"11 port.c
+[p x FOSC  =  HS         ]
+"12
+[p x WDTE  =  OFF        ]
+"13
+[p x PWRTE  =  OFF       ]
+"14
+[p x MCLRE  =  OFF       ]
+"15
+[p x CP  =  OFF          ]
+"16
+[p x CPD  =  OFF         ]
+"17
+[p x BOREN  =  OFF       ]
+"18
+[p x IESO  =  OFF        ]
+"19
+[p x FCMEN  =  OFF       ]
+"20
+[p x LVP  =  OFF          ]
+"21
+[p x BOR4V  =  BOR40V    ]
+"22
+[p x WRT  =  OFF         ]
+"88
+[v _main__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _main__init ]
+[f ]
+"89
+[e ( _port__init ..  ]
+"90
+[e ( _time__init ..  ]
+"92
+[e :UE 135 ]
+}
+"94
+[v _port__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _port__init ]
+[f ]
+"95
+[e :UE 136 ]
+}
+"97
+[v _time__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _time__init ]
+[f ]
+"98
+[e :UE 137 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"100
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"101
+[e ( _main__init ..  ]
+"102
+[e = _TRISB -> -> 0 `i `uc ]
+"103
+[e :U 140 ]
+{
+"104
+[e = _PORTB -> -> 85 `i `uc ]
+"105
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"106
+[e = _PORTB -> -> 170 `i `uc ]
+"107
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"108
+}
+[e :U 139 ]
+[e $U 140  ]
+[e :U 141 ]
+"109
+[e :UE 138 ]
+}

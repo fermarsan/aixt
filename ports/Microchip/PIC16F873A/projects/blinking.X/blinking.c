@@ -11,7 +11,7 @@ void main(void) {
     
     ADCON1bits.PCFG = 0b00000110;  // Se defien todos los pines como I/O digitales
     
-    pin_setup(b4, out);
+    pin__setup(b4, out);
     
     pin_write(b4, 0);
     
