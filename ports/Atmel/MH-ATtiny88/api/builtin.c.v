@@ -1,5 +1,5 @@
 // Project Nme : Aixt project : http://gitlab.com/fermansan/aixt-project.git
-// File Name: builtin.c
+// File Name: builtin.c.v
 // Author: Fernando Martinez Santa - Arley Junco - Luis Quevedo 
 // Date: 2024
 // License : MIT
@@ -8,6 +8,10 @@
 //           (PC port)
 
 module main
+
+fn init () {
+
+}
 
 //#define led		0
 
@@ -51,6 +55,3 @@ module main
 
 //}  
 
-fn init () {
-
-}

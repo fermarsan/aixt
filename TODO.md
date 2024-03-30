@@ -19,6 +19,7 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
 - [ ] setup template files
+- [ ] relocate generated code for function definitions #bug
    
 ### Done ✓
 

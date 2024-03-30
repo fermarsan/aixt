@@ -1,0 +1,1 @@
+# Aqui pondremos los escenarios de prueba para la funcionalidad de Entredas y Salidas Digitales

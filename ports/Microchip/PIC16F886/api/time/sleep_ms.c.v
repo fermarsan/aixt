@@ -9,4 +9,4 @@
 
 module time
 
-#define time__sleep_ms(TIME)    __delay_s(TIME)  // implementing by a macro for saving memory
+#define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory

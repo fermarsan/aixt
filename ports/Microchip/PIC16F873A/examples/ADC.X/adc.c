@@ -68,6 +68,7 @@
 #define c7    PORTCbits.RC7
 #define pin__output 0   // pin direction
 #define pin__input  1
+#define pin__digital()   ADCON1bits.PCFG = 0b00000110
 #define pin__high(PIN_NAME)  PIN_NAME = 1
 #define pin__low(PIN_NAME)   PIN_NAME = 0
 #define pin__read(PIN_NAME)  PIN_NAME

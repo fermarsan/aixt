@@ -106,7 +106,6 @@ void main(void) {
 			pin__high(c3);
 			pin__high(c4);
 			pin__high(c5);
-			x--;
 		}
 		else if(x >= 820) {
 			pin__high(c0);
@@ -115,7 +114,6 @@ void main(void) {
 			pin__high(c3);
 			pin__high(c4);
 			pin__low(c5);
-			x--;
 		}
 		else if(x >= 620) {
 			pin__high(c0);
