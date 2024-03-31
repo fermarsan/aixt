@@ -1,8 +1,8 @@
 ports/**/projects/** linguist-vendored=true
-# ports/**/api/**/*.c linguist-vendored=true
+ports/**/api/**/*.c linguist-vendored=true
 # ports/**/**/projects/** linguist-vendored=true
 # ports/*/projects/*.X/** linguist-vendored=true
-# *.i linguist-vendored=true
+*.i linguist-vendored=true
 
 # assets/** linguist-documentation=true
 *Makefile* linguist-vendored=true
