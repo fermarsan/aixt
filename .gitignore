@@ -1,10 +1,6 @@
-ports/**/projects/*.X/build/
-ports/**/projects/*.X/dist/
+ports/**/projects/*.X/build/**
+ports/**/projects/*.X/dist/**
 ports/**/projects/*.c
 ports/**/projects/*.ino
 ports/**/projects/*.nxc
 ports/M0sense/projects/Natives/
-ports/Microchip/Explorer16/PIC24/projects/Lab1.X/build/
-ports/Microchip/Explorer16/PIC24/projects/Lab1.X/dist/
-ports/Microchip/Explorer16/PIC24/projects/Blinking.X/build/
-ports/Microchip/Explorer16/PIC24/projects/Blinking.X/dist/

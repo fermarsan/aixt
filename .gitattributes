@@ -1,5 +1,4 @@
 ports/**/projects/** linguist-vendored=true
-ports/**/**/projects/** linguist-vendored=true
 # ports/**/projects/*.X/** linguist-vendored=true
 # ports/**/projects/*.cydsn/** linguist-vendored=true
 # ports/**/projects/**/*.h linguist-vendored=true
@@ -11,7 +10,7 @@ ports/**/**/projects/** linguist-vendored=true
 *Makefile* linguist-vendored=true
 # *.mk linguist-vendored=true
 *.i linguist-vendored=true
-# *codegentemp* linguist-vendored=true
+*codegentemp* linguist-vendored=true
 *.v linguist-language=v
 v.mod linguist-language=v
 *.aixt linguist-language=v
