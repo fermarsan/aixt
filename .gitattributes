@@ -1,5 +1,6 @@
 ports/**/projects/** linguist-vendored=true
 ports/**/projects/**[[:space:]]** linguist-vendored=true
+ports/**/projects/**/*.h linguist-vendored=true
 # ports/**/**/projects/** linguist-vendored=true
 # ports/*/projects/*.X/** linguist-vendored=true
 
