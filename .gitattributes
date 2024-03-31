@@ -1,8 +1,8 @@
 ports/**/projects/** linguist-vendored=true
 ports/**/projects/*.X/** linguist-vendored=true
 ports/**/projects/*.cydsn/** linguist-vendored=true
-ports/**/projects/**/*.h linguist-vendored=true
-ports/**/projects/**/*.c linguist-vendored=true
+# ports/**/projects/**/*.h linguist-vendored=true
+# ports/**/projects/**/*.c linguist-vendored=true
 # ports/**/**/projects/** linguist-vendored=true
 # ports/*/projects/*.X/** linguist-vendored=true
 
