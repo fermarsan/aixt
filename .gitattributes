@@ -4,7 +4,7 @@ ports/*/projects/** linguist-vendored=true
 # *.i linguist-vendored=true
 
 # assets/** linguist-documentation=true
-# *Makefile* linguist-vendored=true
+*Makefile* linguist-vendored=true
 # *.mk linguist-vendored=true
 # *codegentemp* linguist-vendored=true
 # *.v linguist-language=v
