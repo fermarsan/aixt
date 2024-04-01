@@ -8,10 +8,8 @@
 //              (PC port) 
 module uart
 
-<<<<<<< HEAD
+
 fn init() {
 
 }
-=======
 
->>>>>>> eb738258f8b308832f65c20f9d5f8c2af4249322

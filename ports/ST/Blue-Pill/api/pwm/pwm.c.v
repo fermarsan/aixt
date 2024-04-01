@@ -4,7 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: PWM functions (Blue Pill_STM32F103C)
+// // Description: PWM functions (Blue-Pill)
 //              (PC port) 
 
 module pwm

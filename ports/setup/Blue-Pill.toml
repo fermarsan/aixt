@@ -3,18 +3,18 @@
 # Date = 2022-2024
 # License = MIT
 #
-# Description = This is the setup file for the STM32F103C
+# Description = This is the setup file for the Blue-Pill
 #               port of Aixt project 
-port =    "STM32F103C"
-device =  "2ATPO-AIWB2"
-board =   "STM32F103C"
+port =    "Blue-Pill"
+device =  "Blue-Pill"
+board =   "Blue-Pill"
 backend = "arduino"
 
 cc_linux =   "xc16"
-cc_windows = "C:\Program Files\Arduino IDE"
+cc_windows = "C:\\Program Files\\Arduino IDE.exe"
 cc_flags =   "-o"
 
-path = "ST\Blue-Pill\STM"
+path = "ST/Blue-Pill"
 
 fixed_size_arrays  = "true"
 array_default_len  = 20
@@ -54,7 +54,8 @@ api_modules = [
     "pin",
     "pwm",
     "uart",
-    "time"
+    "time",
+    "adc"
 ]
 
 [aliases]

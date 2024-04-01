@@ -4,17 +4,17 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: PIN functions (Blue Pill_STM32F103C)
+// // Description: PIN functions (Blue-Pill)
 //              (PC port) 
 
-#define pin_setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
 
-#define pin_high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
 
-#define pin_low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
 
 #define out OUTPUT
 
-#define in INPUT_PULLUP
+#define in INPUT__PULLUP
 
 #define pin_read(PIN_NAME)   digitalRead(PIN_NAME)
