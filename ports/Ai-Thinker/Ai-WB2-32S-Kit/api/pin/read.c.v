@@ -5,7 +5,6 @@
 // License: MIT
 //
 // // Description: READ functions (Ai_Thinker_Ai-WB2-32S-Kit)
-//              (PC port) 
 
 module pin
 
