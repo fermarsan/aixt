@@ -1,0 +1,7 @@
+set(TARGET_REQUIRED_LIBS usb_stack shell usb_stdio)
+set(TARGET_REQUIRED_LIBS freertos ${TARGET_REQUIRED_LIBS})
+set(BSP_COMMON_DIR ${CMAKE_SOURCE_DIR}/bsp/bsp_common)
+set(TARGET_REQUIRED_PRIVATE_INCLUDE ${CMAKE_CURRENT_LIST_DIR})
+set(TARGET_REQUIRED_SRCS    ${CMAKE_CURRENT_LIST_DIR}/FreeRTOS_port.c)
+set(mains main.c)
+generate_bin()
