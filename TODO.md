@@ -20,6 +20,7 @@ Tasks to do in Aixt
 - [ ] Implement string interpolation
 - [ ] setup template files
 - [ ] relocate generated code for function definitions #bug
+- [ ] add to the docs the difference of V and C preprocessor
    
 ### Done ✓
 
