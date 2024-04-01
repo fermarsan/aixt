@@ -12,8 +12,7 @@
 #define pin__setup_(port, pin, ...) "GPIO" #port "_ModeCfg(GPIO_Pin_" #pin ", " #__VA_ARGS__ ")\n"
 
 #define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
-
-
+   
 // #define pin__high(a11)     GPIOA_SetBits(GPIO_Pin_11)
 // #define pin__low(a11)      GPIOA_ResetBits(GPIO_Pin_11)
 

@@ -14,3 +14,4 @@ module pin
 // in macro defines the pin input mode
 #define pin__input     GPIO_ModeIN_PD 	     
 //Tambien esta el modo GPIO_ModeIN_PU y GPIO_ModeIN_Floating
+ 

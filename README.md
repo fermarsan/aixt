@@ -96,27 +96,40 @@ functions               | only one return value             | multiple return va
 ### Example with `main` function
 
 ```v
-/* Turning ON the onboard LED 10 for the Explorer16 board
-with a PIC24FJ microcontroller (XC16 compiler)*/
-import pin
+/* Turning ON by 5.5 seconds the onboard LED 10 in the Explorer16 
+board with a PIC24FJ microcontroller (XC16 compiler) */
+import time { sleep_ms }
+import pin { high, low }
 
 fn main() {
-    pin.high(led10)    //turn ON the LED 10 (PORTA7)
+    high(led10)    //turn ON the LED 10 (PORTA7)
+    sleep_ms(5500)
+    low(led10)
 }
 ```
 
 ### Example without `main` function (Script mode)
 
 ```v
-// Blinking LED on the Explorer16 (PIC24FJ, using XC16 compiler)
-import time { sleep_ms }
+// Blinking LEDs on the Seeeduino XIAO-SAM21 board (Arduino backend)
+import time
 import pin
 
-for {   //infinite loop
-    pin.high(led10)     // LED 10 blinking
-    sleep_ms(500)
-    pin.low(led10)
-    sleep_ms(500)
+pin.setup(2, pin.output)
+pin.setup(3, pin.output)
+
+for i in 0 .. 10 { // 10 times
+	pin.high(2)
+	time.sleep_ms(250)
+	pin.low(2)
+	time.sleep_ms(250)
+}
+
+for {
+	pin.high(3)
+	time.sleep(1)
+	pin.low(3)
+	time.sleep(2)
 }
 ```
 

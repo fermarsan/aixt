@@ -7,6 +7,6 @@ module pin
 
 #define a8 A, 8
 
-#define pin__high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
+#define pin__setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
 
-#define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
+#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
