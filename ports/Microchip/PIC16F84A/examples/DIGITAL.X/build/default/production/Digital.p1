@@ -1,0 +1,141 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"53 Digital.c
+[v _pin__init `(v ~T0 @X0 0 e? ]
+[p mainexit ]
+"504 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f84a.h
+[s S20 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S20 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"503
+[u S19 `S20 1 ]
+[n S19 . . ]
+"515
+[v _TRISBbits `VS19 ~T0 @X0 0 e@134 ]
+"216
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"215
+[u S7 `S8 1 ]
+[n S7 . . ]
+"227
+[v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
+"54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f84a.h
+[; <" INDF equ 00h ;# ">
+"61
+[; <" TMR0 equ 01h ;# ">
+"68
+[; <" PCL equ 02h ;# ">
+"75
+[; <" STATUS equ 03h ;# ">
+"161
+[; <" FSR equ 04h ;# ">
+"168
+[; <" PORTA equ 05h ;# ">
+"212
+[; <" PORTB equ 06h ;# ">
+"274
+[; <" EEDATA equ 08h ;# ">
+"281
+[; <" EEADR equ 09h ;# ">
+"288
+[; <" PCLATH equ 0Ah ;# ">
+"308
+[; <" INTCON equ 0Bh ;# ">
+"386
+[; <" OPTION_REG equ 081h ;# ">
+"456
+[; <" TRISA equ 085h ;# ">
+"500
+[; <" TRISB equ 086h ;# ">
+"562
+[; <" EECON1 equ 088h ;# ">
+"606
+[; <" EECON2 equ 089h ;# ">
+"11 Digital.c
+[p x FOSC  =  HS         ]
+"12
+[p x WDTE  =  OFF        ]
+"13
+[p x PWRTE  =  OFF       ]
+"14
+[p x CP  =  OFF          ]
+"55
+[v _main__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _main__init ]
+[f ]
+"56
+[e ( _pin__init ..  ]
+"58
+[e :UE 24 ]
+}
+"60
+[v _pin__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _pin__init ]
+[f ]
+"61
+[e :UE 25 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"63
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"64
+[e ( _main__init ..  ]
+"65
+[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
+"66
+[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
+"67
+[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
+"68
+[e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
+"69
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+"70
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+"71
+[v _x `uc ~T0 @X0 1 a ]
+[e = _x -> -> 0 `i `uc ]
+"72
+[v _x1 `uc ~T0 @X0 1 a ]
+[e = _x1 -> -> 0 `i `uc ]
+"73
+[e :U 28 ]
+{
+"74
+[e = _x . . _PORTBbits 0 2 ]
+"75
+[e = _x1 . . _PORTBbits 0 4 ]
+"76
+[e $ ! == -> _x `i -> 1 `i 30  ]
+{
+"77
+[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
+"78
+[e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
+"79
+}
+[e $U 31  ]
+"80
+[e :U 30 ]
+[e $ ! == -> _x1 `i -> 1 `i 32  ]
+{
+"81
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+"82
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+"83
+}
+[e :U 32 ]
+[e :U 31 ]
+"84
+}
+[e :U 27 ]
+[e $U 28  ]
+[e :U 29 ]
+"85
+[e :UE 26 ]
+}

@@ -1,0 +1,283 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/production\startup.o
+end_init CODE 0 0 0 3 2 1
+config CONFIG 4 2007 2007 2 2 1
+$dist/default/production\UART_TX.X.production.o
+cinit CODE 0 7FC 7FC 4 2 1
+text1 CODE 0 79D 79D 6 2 1
+text2 CODE 0 7B3 7B3 12 2 1
+text3 CODE 0 7A3 7A3 10 2 1
+text4 CODE 0 79C 79C 1 2 1
+text5 CODE 0 79B 79B 1 2 1
+text6 CODE 0 79A 79A 1 2 1
+maintext CODE 0 7C5 7C5 37 2 1
+cstackCOMMON COMMON 1 70 70 4 1 1
+config CONFIG 4 2007 2007 2 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 20-6F 1
+RAM A0-EF 1
+RAM 110-16F 1
+RAM 190-1EF 1
+BANK0 20-6F 1
+BANK1 A0-EF 1
+BANK2 110-16F 1
+BANK3 190-1EF 1
+CONST 3-799 2
+CONST 800-1FFF 2
+ENTRY 3-799 2
+ENTRY 800-1FFF 2
+IDLOC 2000-2003 2
+CODE 3-799 2
+CODE 800-1FFF 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-10F 1
+SFR3 180-18F 1
+COMMON 74-7D 1
+EEDATA 2100-21FF 2
+STRCODE 3-799 2
+STRCODE 800-1FFF 2
+STRING 3-799 2
+STRING 800-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\startup.o
+0 end_init CODE >78:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\dist/default/production\startup.s
+$dist/default/production\UART_TX.X.production.o
+7FC cinit CODE >434:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\dist/default/production\UART_TX.X.production.s
+7FC cinit CODE >437:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\dist/default/production\UART_TX.X.production.s
+7FC cinit CODE >443:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\dist/default/production\UART_TX.X.production.s
+7FC cinit CODE >445:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\dist/default/production\UART_TX.X.production.s
+7FD cinit CODE >446:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\dist/default/production\UART_TX.X.production.s
+79A text6 CODE >108:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+79A text6 CODE >109:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+79B text5 CODE >133:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+79B text5 CODE >134:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+79C text4 CODE >111:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+79C text4 CODE >112:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7A3 text3 CODE >101:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7A3 text3 CODE >102:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7A8 text3 CODE >103:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7AD text3 CODE >104:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7B2 text3 CODE >106:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7B3 text2 CODE >118:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7B3 text2 CODE >119:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7B7 text2 CODE >120:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7B8 text2 CODE >121:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7B9 text2 CODE >122:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7BC text2 CODE >123:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7BF text2 CODE >124:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7C0 text2 CODE >125:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7C3 text2 CODE >126:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7C4 text2 CODE >127:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+79D text1 CODE >129:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+79E text1 CODE >130:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7A2 text1 CODE >131:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7C5 maintext CODE >136:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7C5 maintext CODE >137:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7CA maintext CODE >138:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7CD maintext CODE >139:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7D2 maintext CODE >141:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7D8 maintext CODE >142:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7E5 maintext CODE >143:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+7EB maintext CODE >144:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F886\example\UART_TX.X\uart_tx.c
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 2 0 ABS 0 - dist/default/production\UART_TX.X.production.o
+__end_of_time__init F38 0 CODE 0 text5 dist/default/production\UART_TX.X.production.o
+__Hspace_0 800 0 ABS 0 - -
+__Hspace_1 74 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 4010 0 ABS 0 - -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__L__absolute__ 0 0 ABS 0 __absolute__ -
+__Hstrings 0 0 ABS 0 strings -
+___sp 0 0 STACK 2 stack dist/default/production\startup.o
+_main F8A 0 CODE 0 maintext dist/default/production\UART_TX.X.production.o
+btemp 7E 0 ABS 0 - dist/default/production\UART_TX.X.production.o
+start 0 0 CODE 0 init dist/default/production\startup.o
+__Hpowerup 0 0 CODE 0 powerup -
+intlevel0 0 0 ENTRY 0 functab dist/default/production\startup.o
+intlevel1 0 0 ENTRY 0 functab dist/default/production\startup.o
+intlevel2 0 0 ENTRY 0 functab dist/default/production\startup.o
+intlevel3 0 0 ENTRY 0 functab dist/default/production\startup.o
+intlevel4 0 0 ENTRY 0 functab dist/default/production\startup.o
+intlevel5 0 0 ENTRY 0 functab dist/default/production\startup.o
+_main__init F46 0 CODE 0 text3 dist/default/production\UART_TX.X.production.o
+wtemp0 7E 0 ABS 0 - dist/default/production\UART_TX.X.production.o
+__Hfunctab 0 0 ENTRY 0 functab -
+__Hclrtext 0 0 ABS 0 clrtext -
+__Lmaintext 0 0 ABS 0 maintext -
+__end_of_main__init F66 0 CODE 0 text3 dist/default/production\UART_TX.X.production.o
+___stackhi 0 0 ABS 0 - dist/default/production\startup.o
+___stacklo 0 0 ABS 0 - dist/default/production\startup.o
+start_initialization FF8 0 CODE 0 cinit dist/default/production\UART_TX.X.production.o
+_TRISCbits 87 0 ABS 0 - dist/default/production\UART_TX.X.production.o
+_uart__init F38 0 CODE 0 text4 dist/default/production\UART_TX.X.production.o
+_uart__setup F66 0 CODE 0 text2 dist/default/production\UART_TX.X.production.o
+_uart__write F3A 0 CODE 0 text1 dist/default/production\UART_TX.X.production.o
+___int_sp 0 0 STACK 2 stack dist/default/production\startup.o
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Hcinit 1000 0 CODE 0 cinit -
+__Hstack 0 0 STACK 2 stack -
+__Hmaintext 0 0 ABS 0 maintext -
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 4012 0 CONFIG 4 config -
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Lbank3 0 0 ABS 0 bank3 -
+__Lcinit FF8 0 CODE 0 cinit -
+__Lstack 0 0 STACK 2 stack -
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 0 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Linit 0 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Ltext 0 0 ABS 0 text -
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__S0 800 0 ABS 0 - -
+__S1 74 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__end_of_pin__init F36 0 CODE 0 text6 dist/default/production\UART_TX.X.production.o
+__end_of_uart__init F3A 0 CODE 0 text4 dist/default/production\UART_TX.X.production.o
+_pin__init F34 0 CODE 0 text6 dist/default/production\UART_TX.X.production.o
+__Lintentry 0 0 CODE 0 intentry -
+reset_vec 0 0 CODE 0 reset_vec dist/default/production\startup.o
+_RCSTAbits 18 0 ABS 0 - dist/default/production\UART_TX.X.production.o
+__pmaintext F8A 0 CODE 0 maintext dist/default/production\UART_TX.X.production.o
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 4 config -
+uart__write@data 70 0 COMMON 1 cstackCOMMON dist/default/production\UART_TX.X.production.o
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__Lend_init 0 0 CODE 0 end_init -
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+end_of_initialization FF8 0 CODE 0 cinit dist/default/production\UART_TX.X.production.o
+__Hintentry 0 0 CODE 0 intentry -
+__Lstrings 0 0 ABS 0 strings -
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__ptext1 F3A 0 CODE 0 text1 dist/default/production\UART_TX.X.production.o
+__ptext2 F66 0 CODE 0 text2 dist/default/production\UART_TX.X.production.o
+__ptext3 F46 0 CODE 0 text3 dist/default/production\UART_TX.X.production.o
+__ptext4 F38 0 CODE 0 text4 dist/default/production\UART_TX.X.production.o
+__ptext5 F36 0 CODE 0 text5 dist/default/production\UART_TX.X.production.o
+__ptext6 F34 0 CODE 0 text6 dist/default/production\UART_TX.X.production.o
+__end_of_uart__setup F8A 0 CODE 0 text2 dist/default/production\UART_TX.X.production.o
+__end_of_uart__write F46 0 CODE 0 text1 dist/default/production\UART_TX.X.production.o
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__H__absolute__ 0 0 ABS 0 __absolute__ -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__end_of__initialization FF8 0 CODE 0 cinit dist/default/production\UART_TX.X.production.o
+__Lfunctab 0 0 ENTRY 0 functab -
+__Lclrtext 0 0 ABS 0 clrtext -
+_time__init F36 0 CODE 0 text5 dist/default/production\UART_TX.X.production.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\UART_TX.X.production.o
+_TXSTAbits 98 0 ABS 0 - dist/default/production\UART_TX.X.production.o
+__Hend_init 6 0 CODE 0 end_init -
+__end_of_main FF8 0 CODE 0 maintext dist/default/production\UART_TX.X.production.o
+_RCREG 1A 0 ABS 0 - dist/default/production\UART_TX.X.production.o
+_SPBRG 99 0 ABS 0 - dist/default/production\UART_TX.X.production.o
+_TXREG 19 0 ABS 0 - dist/default/production\UART_TX.X.production.o
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__initialization FF8 0 CODE 0 cinit dist/default/production\UART_TX.X.production.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 7FC FF8 4 2
+text1 0 79D F3A 6 2
+text2 0 7B3 F66 12 2
+text3 0 7A3 F46 10 2
+text4 0 79C F38 1 2
+text5 0 79B F36 1 2
+text6 0 79A F34 1 2
+maintext 0 7C5 F8A 37 2
+cstackCOMMON 1 70 70 4 1
+reset_vec 0 0 0 3 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

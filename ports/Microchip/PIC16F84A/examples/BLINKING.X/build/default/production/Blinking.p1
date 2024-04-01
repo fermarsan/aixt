@@ -1,0 +1,145 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"54 Blinking.c
+[v _time__init `(v ~T0 @X0 0 e? ]
+"56
+[v _pin__init `(v ~T0 @X0 0 e? ]
+[p mainexit ]
+"504 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f84a.h
+[s S20 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S20 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"503
+[u S19 `S20 1 ]
+[n S19 . . ]
+"515
+[v _TRISBbits `VS19 ~T0 @X0 0 e@134 ]
+"216
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"215
+[u S7 `S8 1 ]
+[n S7 . . ]
+"227
+[v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
+[v __delay `JF36 ~T0 @X0 0 e ]
+[p i __delay ]
+"54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f84a.h
+[; <" INDF equ 00h ;# ">
+"61
+[; <" TMR0 equ 01h ;# ">
+"68
+[; <" PCL equ 02h ;# ">
+"75
+[; <" STATUS equ 03h ;# ">
+"161
+[; <" FSR equ 04h ;# ">
+"168
+[; <" PORTA equ 05h ;# ">
+"212
+[; <" PORTB equ 06h ;# ">
+"274
+[; <" EEDATA equ 08h ;# ">
+"281
+[; <" EEADR equ 09h ;# ">
+"288
+[; <" PCLATH equ 0Ah ;# ">
+"308
+[; <" INTCON equ 0Bh ;# ">
+"386
+[; <" OPTION_REG equ 081h ;# ">
+"456
+[; <" TRISA equ 085h ;# ">
+"500
+[; <" TRISB equ 086h ;# ">
+"562
+[; <" EECON1 equ 088h ;# ">
+"606
+[; <" EECON2 equ 089h ;# ">
+"11 Blinking.c
+[p x FOSC  =  HS         ]
+"12
+[p x WDTE  =  OFF        ]
+"13
+[p x PWRTE  =  OFF       ]
+"14
+[p x CP  =  OFF          ]
+"58
+[v _main__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _main__init ]
+[f ]
+"59
+[e ( _time__init ..  ]
+"60
+[e ( _pin__init ..  ]
+"62
+[e :UE 24 ]
+}
+"64
+[v _time__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _time__init ]
+[f ]
+"65
+[e :UE 25 ]
+}
+"67
+[v _pin__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _pin__init ]
+[f ]
+"68
+[e :UE 26 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"70
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"71
+[e ( _main__init ..  ]
+"72
+[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
+"73
+[e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
+"74
+[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
+"75
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+"76
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+"77
+[e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
+"78
+[e :U 29 ]
+{
+"79
+[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
+"80
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"81
+[e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
+"82
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"83
+[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
+"84
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"85
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+"86
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+"87
+[e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
+"88
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"89
+}
+[e :U 28 ]
+[e $U 29  ]
+[e :U 30 ]
+"90
+[e :UE 27 ]
+}
