@@ -1,0 +1,25 @@
+ports/Cypress/CY8CKIT-049-42XX/projects/** linguist-vendored=true
+ports/Cypress/CY8CKIT-145-40XX/projects/** linguist-vendored=true
+ports/Microchip/Explorer16/PIC24/projects/** linguist-vendored=true
+ports/Microchip/Explorer16/dsPIC33/projects/** linguist-vendored=true
+ports/Microchip/PIC16F84A/projects/** linguist-vendored=true
+ports/Microchip/PIC16F628A/projects/** linguist-vendored=true
+ports/Microchip/PIC16F676/projects/** linguist-vendored=true
+ports/Microchip/PIC16F873A/projects/** linguist-vendored=true
+ports/Microchip/PIC16F886/projects/** linguist-vendored=true
+ports/Microchip/PIC18F452/projects/** linguist-vendored=true
+ports/Microchip/PIC18F2550/projects/** linguist-vendored=true
+ports/Raspberry-Pi/Raspberry-Pi-Pico/projects/** linguist-vendored=true
+ports/Ai-Thinker/Ai-WB2-32S-Kit/projects/** linguist-vendored=true
+
+ports/Microchip/PIC16F676/projects/ADC.X/build/default/debug/** linguist-vendored=true
+ports/Microchip/PIC16F873A/projects/PWM.X/build/default/debug/** linguist-vendored=true
+
+ports/M0sense/projects/** linguist-vendored=true
+assets/** linguist-documentation=true
+*Makefile* linguist-vendored=true
+*codegentemp* linguist-vendored=true
+*.v linguist-language=v
+v.mod linguist-language=v
+*.aixt linguist-language=v
+*.vsh linguist-language=v
