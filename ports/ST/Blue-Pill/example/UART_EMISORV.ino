@@ -95,7 +95,7 @@ void setup() {
 }
 
 void loop() {
-	dato == analogRead(p5);
+	dato = analogRead(p5);
 	delay(100);
 	uart__println(dato);
 	if((dato <= 400)) {
