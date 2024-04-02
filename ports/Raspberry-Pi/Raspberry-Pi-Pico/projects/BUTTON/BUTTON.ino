@@ -7,15 +7,15 @@ boolean b0n;
 void setup() {
 
 pin_setup(led, out);
-pin_setup(boton, in);
+pin_setup(gp11, in);
  }
 
 void loop() {
   
-if (pin_read(boton));
+if (pin_read(gp11));
 {
 sleep_ms(50);
-while(pin_read(boton));
+while(pin_read(gp11));
 sleep_ms(50);
 b0n = ! b0n;
 

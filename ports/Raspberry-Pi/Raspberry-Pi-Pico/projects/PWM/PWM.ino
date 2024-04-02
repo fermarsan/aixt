@@ -7,13 +7,13 @@ int BRILLO;
 
 void setup() {
 
-pin_setup(led5, out);
+pin_setup(gp10, out);
 
  }
 
 void loop() {
 
-BRILLO = adc_read(POT1)/4;
-pwm_write(led5, BRILLO);
+BRILLO = adc_read(gp28)/4;
+pwm_write(gp10, BRILLO);
 
 }

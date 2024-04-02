@@ -6,35 +6,35 @@ int val;
 
 void setup() {
 
-pin_setup(led1, out);
-pin_setup(led2, out);
-pin_setup(led3, out);
-pin_setup(led4, out);
+pin_setup(gp13, out);
+pin_setup(gp14, out);
+pin_setup(gp15, out);
+pin_setup(gp16, out);
  }
 
 void loop() {
 
-val=adc_read(pot);
+val=adc_read(gp27);
   
 if (val>=0,val<255) {
-pin_high(led1);
-pin_low(led2);
-pin_low(led3);
-pin_low(led4);
+pin_high(gp13);
+pin_low(gp14);
+pin_low(gp15);
+pin_low(gp16);
 }
 
 if (val>=255,val<511) {
-pin_low(led1);
-pin_high(led2);
-pin_low(led3);
-pin_low(led4);
+pin_low(gp13);
+pin_high(gp14);
+pin_low(gp15);
+pin_low(gp16);
 }
 
 if (val>=511,val<767) {
-pin_low(led1);
-pin_low(led2);
-pin_high(led3);
-pin_low(led4);
+pin_low(gp13);
+pin_low(gp14);
+pin_high(gp15);
+pin_low(gp16);
 }
 
 if (val>=767,val<1023) {
