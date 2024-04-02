@@ -5,7 +5,6 @@
 // License: MIT
 //
 // // Description: Serial Port UART functions (Ai-Thinker_Ai-WB2-32S-Kit)
-//              (PC port) 
 
 import time {sleep_ms}
 import pin
