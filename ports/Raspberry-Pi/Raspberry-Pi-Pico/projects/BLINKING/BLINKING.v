@@ -2,7 +2,7 @@ import time {sleep}
 import pin
 
 
-pin.setup(led, pin.output);
+pin.setup(led, pin.output)
 
 
 for {
