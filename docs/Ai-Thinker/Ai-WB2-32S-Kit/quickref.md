@@ -65,44 +65,44 @@ For each of these modules, you will have a file in .c.v format with the same nam
 ### Output port configuration
 To activate the port to use
 ```go
-pin.setup(PIN_NAME, pin.out)
+pin.setup(pin_name, pin.output)
 ```
-* *Example: If you want to activate the port 17;  `pin.setup(17, pin.out)`.*
+* *Example: If you want to activate the port 17;  `pin.setup(io17, pin.output)`.*
 To activate the port to use
 ```go
-pin.high(PIN_NAME)
+pin.high(pin_name)
 ```
-* *Example: If you want to activate the port 17;  `pin.high(17)`.*
+* *Example: If you want to activate the port 17;  `pin.high(io17)`.*
 
 To disable the port being used
 ```go
-pin.low(PIN_NAME)
+pin.low(pin_name)
 ```
-* *Example: If you want to disable the port 17;  `pin.low(17)`.*
+* *Example: If you want to disable the port 17;  `pin.low(io17)`.*
 
 To disable or enable the port to be used
 
 ```go
-pin.write(PIN_NAME, VALUE)
+pin.write(pin_name, VALUE)
 ```
-* *Example: If you want to disable port 17 `pin.write(17, 1)`, and if you want to activate  `pin.write(17, 0)`.*
+* *Example: If you want to disable port 17 `pin.write(io17, 1)`, and if you want to activate  `pin.write(io17, 0)`.*
 
 ### Input port detection
 
 If you need to know what state an entry port is in:
 ```go
-x = pin.read(PIN_NAME)
+x = pin.read(pin_name)
 ```
 
-* *Example: If you want to detect the VALUE of port 3; `x = pin.read(3)`, and `x` will take the VALUE of 0 or 1, depending on which port is active or disabled.*
+* *Example: If you want to detect the VALUE of port 3; `x = pin.read(io3)`, and `x` will take the VALUE of 0 or 1, depending on which port is active or disabled.*
 
 ### Pulse Width Modulation (PWM outputs)
 
 To configure some PWM
 ```go
-pin.setup(PIN_NAME, pin.out)
+pin.setup(pin_name, pin.output)
 ```
-* *Example: in pwm you set the PWM to use `pin.setup(17, pin.out)`*
+* *Example: in pwm you set the PWM to use `pin.setup(io17, pin.output)`*
 
 
 To configure the duty cycle of a modulator
@@ -110,12 +110,12 @@ To configure the duty cycle of a modulator
 Everything is implemented within a for, with a counter up to the desired cycles
 
 ```go
-pwm.write(PIN_NAME, pin.out)
+pwm.write(pin_name, pin.output)
 ```
 * *Example: in pwm you set the PWM to use* 
 ```go
 for {
-    pwm.write(17, val)
+    pwm.write(io17, val)
     sleep_ms(250)
     val=val+10
     if val==250{
@@ -139,11 +139,11 @@ uart.setup(BAUD_RATE)
 ### Serial transmitting
 
 ```v
-uart.print(MESSAGE)      // print a string to the default UART
+uart.print(message)      // print a string to the default UART
 ```
 * *Example: This is used as `uart.print(Uart for AIXT)`*
 ```v
-uart.println(MESSAGE)    // print a string plus a line-new character to the default UART
+uart.println(message)    // print a string plus a line-new character to the default UART
 ```
 * *Example: This is used as `uart.println(Command received)`*
 ```v
@@ -155,7 +155,7 @@ uart__read // receives binary data (in Bytes) to UART
 ```
 * *Example: This is used as `uart.read()`*
 ```v
-uart.write(MESSAGE)    // send binary data (in Bytes) to second UART
+uart.write(message)    // send binary data (in Bytes) to second UART
 ```
 * *Example: This is used as `uart.write()`*
 
@@ -165,15 +165,15 @@ uart.write(MESSAGE)    // send binary data (in Bytes) to second UART
 
     * In each expression, the time VALUE is put inside the parentheses.
 ```go
-time.sleep(S) //Seconds
+time.sleep(s) //Seconds
 ```
 * *Example: This is used as `time.sleep(2)`*
 ```go
-time.sleep_ms(MS) //Milliseconds
+time.sleep_ms(ms) //Milliseconds
 ```
 * *Example: This is used as `time.sleep_ms(500)`*
 ```go
-time.sleep_us(US) //Microseconds
+time.sleep_us(us) //Microseconds
 ```
  *Example: This is used as `time.sleep_us(5000)`*
 
@@ -186,12 +186,12 @@ For the development of the program, some examples of the codes in v languages 鈥
 import pin
 import time {sleep_ms}
 
-pin.setup(14, pin.out)
+pin.setup(io14, pin.output)
 
 for {   //infinite loop
-    pin.high(14)
+    pin.high(io14)
     sleep_ms(500)
-    pin.low(14)
+    pin.low(io14)
     sleep_ms(500)
 }
 ```
@@ -203,10 +203,10 @@ import pwm
 
 __global val = 0
 
-pin.setup(17, pin.out)
+pin.setup(io17, pin.output)
 
 for {
-    pwm.write(17, val)
+    pwm.write(io17, val)
     sleep_ms(250)
     val=val+10
     if val==250{
@@ -222,21 +222,21 @@ import uart
 
 
   uart.setup(115200)
-  pin.setup(4,pin.out)
-  pin.setup(5,pin.out)
-  pin.setup(12,pin.out)
+  pin.setup(io4,pin.output)
+  pin.setup(io5,pin.output)
+  pin.setup(io12,pin.output)
 
 for {
-  uart.println_0("\r\n Este programa realiza unas funciones establecidas:")
-  uart.println_0("\r\n Oprimiendo la letra A, activa la salida  del pin GPIO4.")
-  uart.println_0("\r\n Oprimiendo la letra B, activa la salida  del pin GPIO5.")
-  uart.println_0("\r\n El piloto (led) Rojo indica que esta esperando instrucciones.")
-  uart.println_0("\r\n Esperando instrucciones: \r\n")
+  uart.println("\r\n Este programa realiza unas funciones establecidas:")
+  uart.println("\r\n Oprimiendo la letra A, activa la salida  del pin GPIO4.")
+  uart.println("\r\n Oprimiendo la letra B, activa la salida  del pin GPIO5.")
+  uart.println("\r\n El piloto (led) Rojo indica que esta esperando instrucciones.")
+  uart.println("\r\n Esperando instrucciones: \r\n")
 
-  pin.high(12)
+  pin.high(io12)
   sleep_ms(500)
 
-  pin.low(12)
+  pin.low(io12)
   sleep_ms(500)
   x:=0
   x=uart.available()
@@ -245,32 +245,32 @@ for {
 	command = uart.read_0()
 
     if command==`A` {
-        uart.println_0("\r\n Comando A recibido. \r\n")
-        uart.println_0("\r\n Realizando acci贸n A. \r\n")
-        pin.high(4)
+        uart.println("\r\n Comando A recibido. \r\n")
+        uart.println("\r\n Realizando acci贸n A. \r\n")
+        pin.high(io4)
         sleep_ms(5000)
 
-        pin.low(4)
+        pin.low(io4)
         sleep_ms(1000)
-        uart.println_0("\r\n Proceso A finalizado. \r\n")
+        uart.println("\r\n Proceso A finalizado. \r\n")
 	}
 
       if command==`B` {
-        uart.println_0("\r\n Comando B recibido. \r\n")
-        uart.println_0("\r\n Realizando acci贸n B. \r\n")
-        pin.high(5)
+        uart.println("\r\n Comando B recibido. \r\n")
+        uart.println("\r\n Realizando acci贸n B. \r\n")
+        pin.high(io5)
         sleep_ms(5000)
 
-        pin.low(5)
+        pin.low(io5)
         sleep_ms(1000)
-        uart.println_0("\r\n Proceso B finalizado. \r\n")
+        uart.println("\r\n Proceso B finalizado. \r\n")
 	  }
 
       else {
-        pin.high(12)
+        pin.high(io12)
         sleep_ms(1000)
 
-        pin.low(12)
+        pin.low(io12)
         sleep_ms(1000)
       
     }
@@ -278,4 +278,5 @@ for {
 }
 ```
 ## Informative video
-Informative video on the development of the AIXT project, with the device [Video-I-WB2-32S-KIT](https://youtu.be/BRSWZXQ2mLY)
+Informative video on the development of the AIXT project, with the device
+https://youtu.be/BRSWZXQ2mLY
