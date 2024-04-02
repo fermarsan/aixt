@@ -1,17 +1,15 @@
 import time {sleep}
 import pin
 
-void setup() {
 
-  pin_setup(led, out);
+pin.setup(led, pin.output);
 
-}
 
-void loop() {
+for {
   
-  pin_low(led);
-  sleep(2);                  
+  pin.low(led)
+  sleep(2)                 
 
-  pin_high(led);
-  sleep(2);             
+  pin.high(led)
+  sleep(2)             
 }
