@@ -8,7 +8,7 @@
 
 module main
 
-#define __pin_names {    // enumerated type for the pin names
+enum __pin_names {    // enumerated type for the pin names
     io11=11
     io14=14
     io17=17
