@@ -19,11 +19,22 @@
                     "${config:device}",
                     "${file}"
                 ]
+<<<<<<< HEAD
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+=======
             },
             "problemMatcher": [
                 "$tsc"
             ],
             "group": "build",
+>>>>>>> e2001e18f72232dc1682e8a0f1e8f9ed11a0959c
             "presentation": {
                 "showReuseMessage": false
             }

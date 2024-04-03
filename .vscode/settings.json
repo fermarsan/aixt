@@ -1,9 +1,10 @@
 {
     "aixt_linux":   ".",
     "aixt_windows": ".",
-    "device":       "NXT",
+    "device":       "Blue-Pill",
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",
-    }
+    },
+    "cmake.sourceDirectory": "C:/repositorio_aixt/aixt/ports/M0sense/projects/Converter_C_aixt/blink/blink_baremetal"
 }

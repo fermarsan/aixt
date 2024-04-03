@@ -1,0 +1,5 @@
+module adc
+
+fn init() {
+	
+}
