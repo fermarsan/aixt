@@ -4,3 +4,8 @@
 // Description: PWM functions (WCH-CH573F)
 
 module pwm
+
+
+fn init() {
+
+}

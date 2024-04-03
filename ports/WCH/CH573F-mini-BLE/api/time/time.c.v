@@ -5,5 +5,8 @@
 
 module time
 
-#include "CH58x_common.h"
+#include "CH57x_common.h"
 
+fn init() {
+
+}
