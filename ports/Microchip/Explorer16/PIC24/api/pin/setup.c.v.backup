@@ -5,11 +5,11 @@
 module pin
 
 // setup macro configures a pin's input/output mode. This is expanded in this way:
-//   pin.setup(a7, pin.input)
+//   pin.setup(a7, pin.in)
 //     |
-//	   +-->	pin.setup(A, 7, 1)
+//	   +-->	a7_s = pin_in
 //	          |
-//            +-->	TRISAbits.TRISA7 = 1
-#define pin__setup_(PORT, PIN, ...)   TRIS##PORT##bits.TRIS##PORT##PIN = __VA_ARGS__
-
-#define pin__setup(NAME, MODE)  pin__setup_(NAME, MODE)
+//	          +-->	a7_s = 1
+//                    |
+//                    +-->	TRISAbits.TRISA7 = 1
+#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
