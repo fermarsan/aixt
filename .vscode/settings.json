@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
     "aixt_linux":   ".",
     "aixt_windows": ".",
     "device":       "NXT",
+=======
+    "aixt_linux":   "../../../../..",
+    "aixt_windows": "..\\..\\..\\..\\..",
+    "device":       "Explorer16-PIC24",
+>>>>>>> develop
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",
