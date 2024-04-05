@@ -16,8 +16,15 @@
                             "${config:device}",
                             "${file}" ],
             },
-            "problemMatcher": ["$tsc"],
-            "group": "build",
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+
             "presentation": {
             "showReuseMessage": false
             }
