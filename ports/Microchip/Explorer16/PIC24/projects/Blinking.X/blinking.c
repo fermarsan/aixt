@@ -20,7 +20,7 @@
 #pragma config GWRP = OFF
 #pragma config GCP = OFF
 #pragma config JTAGEN = OFF
-#define led3    A, 0  // Onboard LEDs
+#define led3    A, 0	// Onboard LEDs
 #define led4    A, 1
 #define led5    A, 2
 #define led6    A, 3
@@ -28,32 +28,16 @@
 #define led8    A, 5
 #define led9    A, 6
 #define led10   A, 7
-#define sw3     d6_i  // Onboard switchs
-#define sw4     d13_i
-#define sw5     a7_i
-#define sw6     d7_i
-#define pot     b5_i  // Onboard potentiometer
-#define TRISa	TRISA	// port setup name equivalents
-#define TRISb	TRISB
-#define TRISc	TRISC
-#define TRISd	TRISD
-#define TRISe	TRISE
-#define TRISf	TRISF
-#define TRISg	TRISG
-#define PORTa	PORTA	// port in name equivalents
-#define PORTb	PORTB
-#define PORTc	PORTC
-#define PORTd	PORTD
-#define PORTe	PORTE
-#define PORTf	PORTF
-#define PORTg	PORTG
-#define LATa	LATA	// port out name equivalents
-#define LATb	LATB
-#define LATc	LATC
-#define LATd	LATD
-#define LATe	LATE
-#define LATf	LATF
-#define LATg	LATG
+#define sw3     D, 6	// Onboard switchs
+#define sw4     D, 13
+#define sw5     A, 7
+#define sw6     D, 7
+#define pot     B, 5	// Onboard potentiometer
+#include <libpic30.h>
+#define time__sleep_ms(TIME)    __delay_ms(TIME)
+#include <p24FJ128GA010.h>
+#define pin__output		0
+#define pin__input		1
 #define a0      A, 0      // pin names
 #define a1      A, 1
 #define a2      A, 2
@@ -139,17 +123,16 @@
 #define g13     G, 13
 #define g14     G, 14
 #define g15     G, 15
-#include <libpic30.h>
-#define time__sleep_ms(TIME)    __delay_ms(TIME)
-#include <p24FJ128GA010.h>
-#define pin__output		0
-#define pin__input		1
-#define pin__write(PIN_NAME, VALUE) PIN_NAME = VALUE
-#define pin__high(PIN_NAME)  PIN_NAME = 1
-#define pin__setup_(PORT, PIN, ...)   TRIS##PORT##bits.TRIS##PORT##PIN = __VA_ARGS__
-#define pin__setup(NAME, MODE)  pin__setup_(NAME, MODE)
-#define pin__read(PIN_NAME)  PIN_NAME ## _i
-#define pin__low(PIN_NAME)   PIN_NAME = 0
+#define pin__write_(PORT_NAME, PIN, VALUE)   LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = VALUE
+#define pin__write(PIN_NAME, VALUE)  pin__write_(PIN_NAME, VALUE)
+#define pin__high_(PORT_NAME, PIN)   LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = 1
+#define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
+#define pin__setup_(PORT_NAME, PIN, MODE)   TRIS ## PORT_NAME ## bits.TRIS ## PORT_NAME ## PIN = MODE
+#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
+#define pin__read_(PORT_NAME, PIN)	PORT ## PORT_NAME ## bits.PORT ## PORT_NAME ## PIN
+#define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
+#define pin__low_(PORT_NAME, PIN)   LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = 1
+#define pin__low(PIN_NAME)  pin__low_(PIN_NAME)
 
 void main__init();
 
@@ -164,10 +147,10 @@ void main__init() {
 	AD1CON3 = 0x1F02;
 	AD1CON1bits.ADON = 1;
 	TRISA = 0xff00;
-	// d6_s = 1;
-	// d13_s = 1;
-	// d7_s = 1;
-	// b5_s = 1;
+	TRISDbits.TRISD6 = 1;
+	TRISDbits.TRISD13 = 1;
+	TRISDbits.TRISD7 = 1;
+	TRISBbits.TRISB5 = 1;
 	time__init();
 	pin__init();
 	
@@ -178,11 +161,16 @@ void time__init() {
 
 void pin__init() {
 }
+const int32_t t1 = 500;
 
 int main(void ) {
 	main__init();
 	pin__setup(a0, pin__output);
 	while(true) {
+		pin__high(a0);
+		time__sleep_ms(t1);
+		pin__low(a0);
+		time__sleep_ms(t1);
 	}
 	return 0;
 }

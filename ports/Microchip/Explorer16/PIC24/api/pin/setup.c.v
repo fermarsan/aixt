@@ -10,6 +10,6 @@ module pin
 //	   +-->	pin.setup(A, 7, 1)
 //	          |
 //            +-->	TRISAbits.TRISA7 = 1
-#define pin__setup_(PORT, PIN, ...)   TRIS##PORT##bits.TRIS##PORT##PIN = __VA_ARGS__
+#define pin__setup_(PORT_NAME, PIN, MODE)   TRIS ## PORT_NAME ## bits.TRIS ## PORT_NAME ## PIN = MODE
 
-#define pin__setup(NAME, MODE)  pin__setup_(NAME, MODE)
+#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
