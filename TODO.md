@@ -22,6 +22,7 @@ Tasks to do in Aixt
 - [ ] relocate generated code for function definitions #bug
 - [ ] add to the docs the difference of V and C preprocessor
 - [ ] allow inline c code with the `C.function()` syntax "with body".  
+- [ ] change all the Aixt source code to `aixt/src` folder
    
 ### Done ✓
 
