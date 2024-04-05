@@ -5,21 +5,17 @@
             "label": "Aixt: Transpile",
             "type": "shell",
             "windows": {
-                "command": [
-                    "v run ${config:aixt_windows}",
-                    "transpile",
-                    "${config:device}",
-                    "${file}"
-                ]
+                "command": [ "v run ${config:aixt_windows}",
+                            "transpile",
+                            "${config:device}",
+                            "${file}" ],
             },
             "linux": {
-                "command": [
-                    "v run ${config:aixt_linux}",
-                    "transpile",
-                    "${config:device}",
-                    "${file}"
-                ]
-<<<<<<< HEAD
+                "command": [ "v run ${config:aixt_linux}",
+                            "transpile",
+                            "${config:device}",
+                            "${file}" ],
+            },
             },
             "problemMatcher": [
                 "$tsc"
@@ -28,210 +24,137 @@
                 "kind": "build",
                 "isDefault": true
             },
-=======
-<<<<<<< HEAD
-            },
-            "problemMatcher": [
-                "$tsc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-=======
-            },
-            "problemMatcher": [
-                "$tsc"
-            ],
-            "group": "build",
->>>>>>> e2001e18f72232dc1682e8a0f1e8f9ed11a0959c
->>>>>>> d4993b91b137dd499e1bd8c91cce3c82d74f8e77
+
             "presentation": {
-                "showReuseMessage": false
+            "showReuseMessage": false
             }
         },
         {
             "label": "Aixt: Compile",
             "type": "shell",
             "windows": {
-                "command": [
-                    "v run ${config:aixt_windows}",
-                    "compile",
-                    "${config:device}",
-                    "${file}"
-                ]
+                "command": [ "v run ${config:aixt_windows}",
+                            "compile",
+                            "${config:device}",
+                            "${file}" ],
             },
             "linux": {
-                "command": [
-                    "v run ${config:aixt_linux}",
-                    "compile",
-                    "${config:device}",
-                    "${file}"
-                ]
+                "command": [ "v run ${config:aixt_linux}",
+                            "compile",
+                            "${config:device}",
+                            "${file}" ],
             },
-            "problemMatcher": [
-                "$tsc"
-            ],
+            "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {
-                "showReuseMessage": false
+            "showReuseMessage": false
             }
         },
         {
             "label": "Aixt: Build",
             "type": "shell",
             "windows": {
-                "command": [
-                    "v run ${config:aixt_windows}",
-                    "build",
-                    "${config:device}",
-                    "${file}"
-                ]
+                "command": [ "v run ${config:aixt_windows}",
+                            "build",
+                            "${config:device}",
+                            "${file}" ],
             },
             "linux": {
-                "command": [
-                    "v run ${config:aixt_linux}",
-                    "build",
-                    "${config:device}",
-                    "${file}"
-                ]
+                "command": [ "v run ${config:aixt_linux}",
+                            "build",
+                            "${config:device}",
+                            "${file}" ],
             },
-            "problemMatcher": [
-                "$tsc"
-            ],
+            "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {
-                "showReuseMessage": false
+            "showReuseMessage": false
             }
         },
         {
             "label": "Aixt: Clean",
             "type": "shell",
             "windows": {
-                "command": [
-                    "v run ${config:aixt_windows}",
-                    "clean",
-                    "${config:device}",
-                    "${file}"
-                ]
+                "command": [ "v run ${config:aixt_windows}",
+                            "clean",
+                            "${config:device}",
+                            "${file}" ],
             },
             "linux": {
-                "command": [
-                    "v run ${config:aixt_linux}",
-                    "clean",
-                    "${config:device}",
-                    "${file}"
-                ]
+                "command": [ "v run ${config:aixt_linux}",
+                            "clean",
+                            "${config:device}",
+                            "${file}" ],
             },
-            "problemMatcher": [
-                "$tsc"
-            ],
+            "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {
-                "showReuseMessage": false
+            "showReuseMessage": false
             }
         },
         {
             "label": "Aixt: Run",
             "type": "shell",
             "windows": {
-                "command": [
-                    "${fileDirname}\\${fileBasenameNoExtension}.exe"
-                ]
+                "command": [ "${fileDirname}\\${fileBasenameNoExtension}.exe" ],
             },
             "linux": {
-                "command": [
-                    "${fileDirname}/${fileBasenameNoExtension}"
-                ]
+                "command": [ "${fileDirname}/${fileBasenameNoExtension}" ],
             },
-            "problemMatcher": [
-                "$tsc"
-            ],
+            "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {
-                "showReuseMessage": false
-            }
+            "showReuseMessage": false
+            }  
         },
         {
             "label": "Aixt: Build & Run",
             "group": "build",
             "dependsOrder": "sequence",
-            "dependsOn": [
-                "Aixt: Build",
-                "Aixt: Run"
-            ]
+            "dependsOn": ["Aixt: Build", "Aixt: Run"]
         },
         {
             "label": "Aixt: New Project",
             "type": "shell",
             "windows": {
-                "command": [
-                    "v run ${config:aixt_windows}",
-                    "new_project",
-                    "${input:dirName}",
-                    "${input:projectName}",
-                    "${input:device}"
-                ]
+                "command": [ "v run ${config:aixt_windows}",
+                            "new_project",
+                            "${input:dirName}",
+                            "${input:projectName}",
+                            "${input:device}" ],
             },
             "linux": {
-                "command": [
-                    "v run ${config:aixt_linux}",
-                    "new_project",
-                    "${input:dirName}",
-                    "${input:projectName}",
-                    "${input:device}"
-                ]
+                "command": [ "v run ${config:aixt_linux}",
+                            "new_project",
+                            "${input:dirName}",
+                            "${input:projectName}",
+                            "${input:device}" ],
             },
-            "problemMatcher": [
-                "$tsc"
-            ],
+            "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {
-                "showReuseMessage": false
+            "showReuseMessage": false
             }
-        },
-        {
-            "type": "cppbuild",
-            "label": "C/C++: gcc.exe build active file",
-            "command": "C:\\MinGW\\bin\\gcc.exe",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "Task generated by Debugger."
         }
     ],
     "inputs": [
-        {
-            "type": "promptString",
-            "id": "projectName",
-            "description": "Project name.",
-            "default": "project"
-        },
-        {
-            "type": "promptString",
-            "id": "dirName",
-            "description": "Directory name.",
-            "default": "."
-        },
-        {
-            "type": "promptString",
-            "id": "device",
-            "description": "Device or Board name.",
-            "default": "Emulator"
-        }
+      {
+        "type": "promptString",
+        "id": "projectName",
+        "description": "Project name.",
+        "default": "project"
+      },
+      {
+        "type": "promptString",
+        "id": "dirName",
+        "description": "Directory name.",
+        "default": "."
+      },
+      {
+        "type": "promptString",
+        "id": "device",
+        "description": "Device or Board name.",
+        "default": "Emulator"
+      }
     ]
 }

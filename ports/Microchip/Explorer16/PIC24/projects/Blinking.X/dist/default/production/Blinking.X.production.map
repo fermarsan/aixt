@@ -235,16 +235,16 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000        0xa6c
+.debug_info       0x000000        0xa66
  *(.debug_info)
- .debug_info      0x000000        0x9df build/default/production/blinking.o
- .debug_info      0x0009df         0x8d /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
+ .debug_info      0x000000        0x9d9 build/default/production/blinking.o
+ .debug_info      0x0009d9         0x8d /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x106
+.debug_abbrev     0x000000        0x117
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xf2 build/default/production/blinking.o
- .debug_abbrev    0x0000f2         0x14 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
+ .debug_abbrev    0x000000        0x103 build/default/production/blinking.o
+ .debug_abbrev    0x000103         0x14 /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(umuldi3.XX_o)
 
 .debug_line       0x000000        0x162
  *(.debug_line)
