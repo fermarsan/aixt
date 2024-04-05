@@ -90,7 +90,10 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 			out += ' {\n'
 		}
 		for st in node.stmts {
-			out += gen.ast_node(st)
+			out += match node.language {
+				.c		{ st.str() + '\n' }		// for C.functions() 
+				else	{ gen.ast_node(st) } 	// for regular functions
+			}
 		}
 		
 		out += if node.name == 'main.init' {

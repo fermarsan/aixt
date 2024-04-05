@@ -10,6 +10,7 @@ fn (mut gen Gen) err_war_check() {
 	msg_exceptions := [ // V error message exceptions in Aixt
 		'is immutable, declare it with `mut`',
 		'expected `#define`',
+		// 'interop functions cannot have a body',
 		'unknown function:',
 		'has no constant or function',
 		'returns 0 value(s)',
