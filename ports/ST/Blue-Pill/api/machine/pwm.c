@@ -4,7 +4,9 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: PWM functions (Blue Pill_STM32F103C)
+// // Description: PWM functions (Blue-Pill)
 //              (PC port) 
 
-#define pwm_write(PIN_NAME, MODE)   analogWrite(PIN_NAME, MODE)
+#define pwm__write(PIN_NAME, MODE)   pwmWrite(PIN_NAME, MODE)
+
+#define pwm__map(MODE, VALUE,VALUE1,VALUE2,VALUE3)   map(MODE, VALUE,VALUE1,VALUE2,VALUE3)

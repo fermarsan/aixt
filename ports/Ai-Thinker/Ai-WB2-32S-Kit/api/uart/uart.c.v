@@ -5,7 +5,6 @@
 // License: MIT
 //
 // // Description: SLEEP_ms functions (Ai_Thinker_Ai-WB2-32S-Kit)
-//              (PC port) 
 
 module uart
 

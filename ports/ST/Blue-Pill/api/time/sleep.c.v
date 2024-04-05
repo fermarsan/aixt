@@ -4,7 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: SLEEP functions (Blue Pill_STM32F103C)
+// // Description: SLEEP functions (Blue-Pill)
 //              (PC port) 
 
 module time

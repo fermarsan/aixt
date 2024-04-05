@@ -4,7 +4,11 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: ADC functions (Blue Pill_STM32F103C)
+// // Description: ADC functions (Blue-Pill)
 //              (PC port) 
 
-#define adc_read(PIN_NAME)   analogRead(PIN_NAME)
+#define adc__read(PIN_NAME)   analogRead(PIN_NAME)
+
+
+
+

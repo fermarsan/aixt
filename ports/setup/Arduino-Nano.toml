@@ -1,0 +1,61 @@
+# Project Name = Aixt, https =//github.com/fermarsan/aixt.git
+# Author = Fabián A. Rojas Acosta, Alberto Pinzón Valero and Fernando Martínez Santa
+# Date = 2024
+# License = MIT
+#
+# Description = This is the setup file for the Arduino Nano - ATmega328P
+#               port of Aixt project 
+port =    "Arduino-Nano"
+device =  "ATmega328P"
+board =   "Arduino Nano"
+backend = "arduino"
+
+cc_linux =   ""
+cc_windows = "C:\Program Files\Arduino IDE\Arduino IDE.exe"
+cc_flags =   "-o"
+
+path = "Atmel/Arduino-Nano"
+
+fixed_size_arrays =  "true"
+array_default_len  = 20
+
+fixed_size_strings = "true"
+string_default_len = 80
+
+void =  "void"
+bool =  "bool"
+
+i8 =    "int8_t"  #"signed char"
+i16 =   "int16_t"  #"int"
+int =   "int32_t"  #"long"  
+i64 =   "=== NOT SUPPORTED ==="  
+isize = "int8_t"
+int_literal = "int8_t"
+
+u8 =    "uint8_t"  #"unsigned char"
+u16 =   "uint16_t"  #"unsigned int"
+u32 =   "uint32_t"  #"unsigned long"
+u64 =   "=== NOT SUPPORTED ==="
+usize = "int8_t"
+
+f32 = "float"
+f64 = "=== NOT SUPPORTED ==="
+float_literal = "float"
+
+rune =  "char"
+string = "char []"
+
+mutex = "=== NOT SUPPORTED ==="
+
+main_ret_type = "int"
+main_params =   "void"   
+
+api_modules = [
+    "pin",
+    "adc",
+    "pwm",
+    "uart",
+    "time"
+]
+
+[aliases]
