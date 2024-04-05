@@ -10,7 +10,7 @@ This Aixt implementation that supports the card  Blue Pill STM32F103C
 *Image taken from the device datasheet*
 
 ## Datasheet
-[AIR32F103C](https://wiki.luatos.com/_static/bom/Air32F103.html)
+[AIR32F103C](https://wiki.luatos.org/chips/air32f103/mcu.html)
 To program the card STM32F103C, the ST must be connected,therefore, it is recommended to see the datasheet:
 [ST LINK-V2](https://www.waveshare.com/wiki/ST-LINK/V2_(mini))
 
@@ -27,7 +27,7 @@ No.| Name     | Function
 6  |PA1       | USART2_RTS/ADC12_IN1/TIM2_CH2/TIM5_CH2
 7  |PB9       | PWM
 8  |PB8       | TIM4_CH
-9  |3.3       | INPUT 3.3V BLUE PILL AIR32F103C 
+9  |3.3V      | INPUT 3.3V BLUE PILL AIR32F103C 
 10 |GND       | GROUND CARD BLUE PILL AIR32F103C
 11 |PA2       | USART2_TX/ADC12_IN2/TIM2_CH3/TIM5_CH3
 12 |PA3       | USART2_RX/ADC12_IN3/TIM2_CH4/TIM5_CH4
@@ -51,7 +51,7 @@ No.| Name     | Function
 30 |PA10      | UART 0_RX
 
 
-31 |PA09      | UART 0_TX
+31 |PA9       | UART 0_TX
 32 |GND       | GROUND CARD BLUE PILL AIR32F103C
 33 |PB6       | I2C1_SCL/TIM4_CH
 34 |PB7       | I2C1_SDA/TIM4_CH
@@ -61,7 +61,6 @@ No.| Name     | Function
 38 |GND       | GROUND CARD BLUE PILL AIR32F103C
 39 |PB13      | SPI2_SCK/USART3_CTS/TIM1_CH1N
 40 |PB12      | SPI2_NSS/I2C2_SMBA/USART3_CK/TIM1_BKIN
-PB00          | 
 3.3V          | ELECTRICAL POWER SUPPLY 3.3V BLUE PILL AIR32F103C
 PB14          | ISPI2_MISO/USART3_RTS/TIM1_CH2N
 PB13          | ISPI2_MISO/USART3_RTS/TIM1_CH1N

@@ -5,7 +5,10 @@
 
 module pin
 
-#include "CH58x_common.h"
+#include "CH57x_common.h"
+
+//Existe el puerto A pines (4,5,8,9 10...15) y el puerto B pines (4,7,10...15,22,23)
+#define a8 A, 8
 
 // out macro defines the pin output mode
 #define pin__output    GPIO_ModeOut_PP_5mA      
@@ -15,3 +18,6 @@ module pin
 #define pin__input     GPIO_ModeIN_PD 	     
 //Tambien esta el modo GPIO_ModeIN_PU y GPIO_ModeIN_Floating
  
+ fn init() {
+
+}

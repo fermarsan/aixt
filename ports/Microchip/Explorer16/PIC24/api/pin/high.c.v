@@ -7,12 +7,13 @@ module pin
 // high macro sets an output pin. This is expanded in this way:
 //   pin.high(b2)
 //     |
-//	   +-->	b2 = 1
+//	   +-->	pin.high(B, 2)
 //	          |
 //	          +-->	PORTBbits.PORTB2 = 1	// PIC16	
 // 	          		LATBbits.LATB2 = 1		// (PIC18, PIC24, dsPIC33)
-#define pin__high(PIN_NAME)  PIN_NAME = 1
+#define pin__high_(PORT_NAME, PIN)   LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = 1
 
+#define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
 
 
 

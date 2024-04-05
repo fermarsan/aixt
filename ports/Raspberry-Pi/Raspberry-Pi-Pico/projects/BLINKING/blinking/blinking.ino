@@ -3,8 +3,12 @@
 // Board = Raspberry Pi Pico
 // Backend = arduino
 
+<<<<<<< HEAD:ports/Ai-Thinker/Ai-WB2-32S-Kit/example/pwm/pwm.ino
+#define time__sleep_ms(MS)    delay(MS)
+=======
 #define led     gp25
 #define time__sleep(S)    delay(S*1000)
+>>>>>>> e2001e18f72232dc1682e8a0f1e8f9ed11a0959c:ports/Raspberry-Pi/Raspberry-Pi-Pico/projects/BLINKING/blinking/blinking.ino
 #define pin__output		OUTPUT
 #define pin__input		INPUT
 #define pin__in_pullup	INPUT_PULLUP
@@ -34,7 +38,11 @@ void pin__init() {
 
 void setup() {
 	main__init();
+<<<<<<< HEAD:ports/Ai-Thinker/Ai-WB2-32S-Kit/example/pwm/pwm.ino
+	pin__setup(17, pin__output);
+=======
 	pin__setup(led, pin__output);
+>>>>>>> e2001e18f72232dc1682e8a0f1e8f9ed11a0959c:ports/Raspberry-Pi/Raspberry-Pi-Pico/projects/BLINKING/blinking/blinking.ino
 }
 
 void loop() {

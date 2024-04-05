@@ -1,0 +1,1466 @@
+
+blinking_CH573F.elf:     file format elf32-littleriscv
+blinking_CH573F.elf
+architecture: riscv:rv32, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
+         filesz 0x00000004 memsz 0x00000004 flags r-x
+    LOAD off    0x00001800 vaddr 0x20003800 paddr 0x00000004 align 2**12
+         filesz 0x00000654 memsz 0x00000654 flags r-x
+    LOAD off    0x00002658 vaddr 0x00000658 paddr 0x00000658 align 2**12
+         filesz 0x000001a0 memsz 0x000001a0 flags r-x
+    LOAD off    0x00002e54 vaddr 0x20003e54 paddr 0x000007f8 align 2**12
+         filesz 0x00000000 memsz 0x000001ac flags rw-
+
+Sections:
+Idx Name            Size      VMA       LMA       File off  Algn  Flags
+  0 .init           00000004  00000000  00000000  00001000  2**1  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .highcodelalign 00000000  00000004  00000004  000027f8  2**0  CONTENTS
+  2 .highcode       00000654  20003800  00000004  00001800  2**1  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .text           000001a0  00000658  00000658  00002658  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  4 .fini           00000000  000007f8  000007f8  000027f8  2**0  CONTENTS, ALLOC, LOAD, CODE
+  5 .dalign         000001ac  20003e54  000007f8  00002e54  2**0  ALLOC
+  6 .dlalign        00000000  000007f8  000007f8  000027f8  2**0  CONTENTS
+  7 .data           00000000  20004000  20004000  000027f8  2**0  CONTENTS, ALLOC, LOAD, DATA
+  8 .bss            00000000  20004000  000009a4  00000000  2**0  ALLOC
+  9 .stack          00000000  20008000  20008000  000027f8  2**0  CONTENTS
+ 10 .debug_info     00002d9a  00000000  00000000  000027f8  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_abbrev   0000085f  00000000  00000000  00005592  2**0  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_aranges  00000130  00000000  00000000  00005df8  2**3  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges   00000110  00000000  00000000  00005f28  2**3  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_line     00001a87  00000000  00000000  00006038  2**0  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_str      00000c78  00000000  00000000  00007abf  2**0  CONTENTS, READONLY, DEBUGGING
+ 16 .comment        00000033  00000000  00000000  00008737  2**0  CONTENTS, READONLY
+ 17 .debug_frame    000001dc  00000000  00000000  0000876c  2**2  CONTENTS, READONLY, DEBUGGING
+ 18 .debug_loc      000005ec  00000000  00000000  00008948  2**0  CONTENTS, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    d  .init	00000000 .init
+00000004 l    d  .highcodelalign	00000000 .highcodelalign
+20003800 l    d  .highcode	00000000 .highcode
+00000658 l    d  .text	00000000 .text
+000007f8 l    d  .fini	00000000 .fini
+20003e54 l    d  .dalign	00000000 .dalign
+000007f8 l    d  .dlalign	00000000 .dlalign
+20004000 l    d  .data	00000000 .data
+20004000 l    d  .bss	00000000 .bss
+20008000 l    d  .stack	00000000 .stack
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    df *ABS*	00000000 ./Startup/startup_CH573.o
+20003800 l       .highcode	00000000 _vector_base
+00000000 l    df *ABS*	00000000 CH57x_sys.c
+00000000 l    df *ABS*	00000000 ISP573.c
+20003a76 l       .highcode	00000000 .loop18
+20003a84 l       .highcode	00000000 .loop29
+20003a92 l       .highcode	00000000 .loop40
+20003d12 l       .highcode	00000000 .loop401
+00000000 l    df *ABS*	00000000 Main.c
+00000000 l    df *ABS*	00000000 CH57x_gpio.c
+20003a92 g     F .highcode	0000000e FLASH_ROM_OUT
+20004800 g       .data	00000000 __global_pointer$
+20003a2e g     F .highcode	0000000e mDelayuS
+200039f0  w    F .highcode	0000003e HardFault_Handler
+2000389c  w      .highcode	00000000 GPIOB_IRQHandler
+2000389a  w      .highcode	00000000 GPIOA_IRQHandler
+20003894  w      .highcode	00000000 SysTick_Handler
+20003890  w      .highcode	00000000 NMI_Handler
+200038ac  w      .highcode	00000000 UART1_IRQHandler
+20004000 g       .bss	00000000 _sbss
+20003a84 g     F .highcode	0000000e FLASH_ROM_IN
+200038aa  w      .highcode	00000000 UART0_IRQHandler
+00000004 g       .init	00000000 _einit
+200038a0  w      .highcode	00000000 BB_IRQHandler
+20003b20 g     F .highcode	00000332 FLASH_EEPROM_CMD
+20003898  w      .highcode	00000000 TMR0_IRQHandler
+20003a64 g     F .highcode	00000012 FLASH_ROM_BEG
+20003a3c g     F .highcode	00000028 mDelaymS
+20003aa0 g     F .highcode	00000048 FLASH_ROM_ADDR
+200038ae  w      .highcode	00000000 RTC_IRQHandler
+20004000 g       .bss	00000000 _ebss
+20003ae8 g     F .highcode	00000038 FLASH_ROM_WAIT
+200038b6  w      .highcode	00000000 UART2_IRQHandler
+200038b2  w      .highcode	00000000 PWMX_IRQHandler
+00000000 g       .init	00000000 _start
+200038b0  w      .highcode	00000000 ADC_IRQHandler
+20003800 g       .highcode	00000000 _highcode_vma_start
+200038a8  w      .highcode	00000000 TMR2_IRQHandler
+20004000 g       .data	00000000 _data_vma
+200038bc g     F .highcode	000000fc SetSysClock
+200038a4  w      .highcode	00000000 USB_IRQHandler
+000006fe g     F .text	00000044 main
+00000004 g       .highcodelalign	00000000 _highcode_lma
+200038a2  w      .highcode	00000000 LLE_IRQHandler
+00000000 g       .init	00000000 _sinit
+200038ba  w      .highcode	00000000 WDOG_BAT_IRQHandler
+200038b4  w      .highcode	00000000 TMR3_IRQHandler
+20008000 g       .stack	00000000 _eusrstack
+20003896  w      .highcode	00000000 SW_Handler
+00000742 g     F .text	000000a2 GPIOA_ModeCfg
+20004000 g       .data	00000000 _edata
+2000389e  w      .highcode	00000000 SPI0_IRQHandler
+20003e54 g       .highcode	00000000 _highcode_vma_end
+000007f8 g       .dlalign	00000000 _data_lma
+00000658  w      .text	00000000 handle_reset
+200038b8  w      .highcode	00000000 UART3_IRQHandler
+20003a76 g     F .highcode	0000000e FLASH_ROM_END
+200038a6  w      .highcode	00000000 TMR1_IRQHandler
+200039b8 g     F .highcode	00000038 SYS_ResetExecute
+
+
+
+Disassembly of section .init:
+
+00000000 <_sinit>:
+_start():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:15
+
+	.section	.init,"ax",@progbits
+	.global	_start
+	.align	1
+_start:
+	j	handle_reset
+   0:	6580006f          	j	658 <handle_reset>
+
+Disassembly of section .highcode:
+
+20003800 <_highcode_vma_start>:
+	...
+_vector_base():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:23
+    .align  1
+_vector_base:
+    .option norvc;
+    .word   0
+    .word   0
+        j   NMI_Handler                 /* NMI Handler */
+20003808:	0880006f          	j	20003890 <NMI_Handler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:24
+        j   HardFault_Handler           /* Hard Fault Handler */
+2000380c:	1e40006f          	j	200039f0 <HardFault_Handler>
+	...
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:33
+    .word   0
+    .word   0
+    .word   0
+    .word   0
+    .word   0
+        j   SysTick_Handler            /* SysTick Handler */
+20003830:	0640006f          	j	20003894 <SysTick_Handler>
+20003834:	0000                	unimp
+20003836:	0000                	unimp
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:35
+    .word   0
+        j   SW_Handler                 /* SW Handler */
+20003838:	05e0006f          	j	20003896 <SW_Handler>
+2000383c:	0000                	unimp
+2000383e:	0000                	unimp
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:38
+    .word   0
+    /* External Interrupts */
+        j   TMR0_IRQHandler            /* 0:  TMR0 */
+20003840:	0580006f          	j	20003898 <TMR0_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:39
+        j   GPIOA_IRQHandler           /* GPIOA */
+20003844:	0560006f          	j	2000389a <GPIOA_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:40
+        j   GPIOB_IRQHandler           /* GPIOB */
+20003848:	0540006f          	j	2000389c <GPIOB_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:41
+        j   SPI0_IRQHandler            /* SPI0 */
+2000384c:	0520006f          	j	2000389e <SPI0_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:42
+        j   BB_IRQHandler              /* BLEB */
+20003850:	0500006f          	j	200038a0 <BB_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:43
+        j   LLE_IRQHandler             /* BLEL */
+20003854:	04e0006f          	j	200038a2 <LLE_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:44
+        j   USB_IRQHandler             /* USB */
+20003858:	04c0006f          	j	200038a4 <USB_IRQHandler>
+2000385c:	0000                	unimp
+2000385e:	0000                	unimp
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:46
+        .word   0
+        j   TMR1_IRQHandler            /* TMR1 */
+20003860:	0460006f          	j	200038a6 <TMR1_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:47
+        j   TMR2_IRQHandler            /* TMR2 */
+20003864:	0440006f          	j	200038a8 <TMR2_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:48
+        j   UART0_IRQHandler           /* UART0 */
+20003868:	0420006f          	j	200038aa <UART0_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:49
+        j   UART1_IRQHandler           /* UART1 */
+2000386c:	0400006f          	j	200038ac <UART1_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:50
+        j   RTC_IRQHandler             /* RTC */
+20003870:	03e0006f          	j	200038ae <RTC_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:51
+        j   ADC_IRQHandler             /* ADC */
+20003874:	03c0006f          	j	200038b0 <ADC_IRQHandler>
+20003878:	0000                	unimp
+2000387a:	0000                	unimp
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:53
+        .word   0
+        j   PWMX_IRQHandler            /* PWMX */
+2000387c:	0360006f          	j	200038b2 <PWMX_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:54
+        j   TMR3_IRQHandler            /* TMR3 */
+20003880:	0340006f          	j	200038b4 <TMR3_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:55
+        j   UART2_IRQHandler           /* UART2 */
+20003884:	0320006f          	j	200038b6 <UART2_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:56
+        j   UART3_IRQHandler           /* UART3 */
+20003888:	0300006f          	j	200038b8 <UART3_IRQHandler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:57
+        j   WDOG_BAT_IRQHandler        /* WDOG_BAT */
+2000388c:	02e0006f          	j	200038ba <WDOG_BAT_IRQHandler>
+
+20003890 <NMI_Handler>:
+NMI_Handler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:85
+    .weak   TMR3_IRQHandler
+    .weak   UART2_IRQHandler
+    .weak   UART3_IRQHandler
+    .weak   WDOG_BAT_IRQHandler
+
+NMI_Handler:  1:  j 1b
+20003890:	a001                	j	20003890 <NMI_Handler>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:86
+HardFault_Handler:  1:  j 1b
+20003892:	a001                	j	20003892 <NMI_Handler+0x2>
+
+20003894 <SysTick_Handler>:
+SysTick_Handler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:87
+SysTick_Handler:  1:  j 1b
+20003894:	a001                	j	20003894 <SysTick_Handler>
+
+20003896 <SW_Handler>:
+SW_Handler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:88
+SW_Handler:  1:  j 1b
+20003896:	a001                	j	20003896 <SW_Handler>
+
+20003898 <TMR0_IRQHandler>:
+TMR0_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:89
+TMR0_IRQHandler:  1:  j 1b
+20003898:	a001                	j	20003898 <TMR0_IRQHandler>
+
+2000389a <GPIOA_IRQHandler>:
+GPIOA_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:90
+GPIOA_IRQHandler:  1:  j 1b
+2000389a:	a001                	j	2000389a <GPIOA_IRQHandler>
+
+2000389c <GPIOB_IRQHandler>:
+GPIOB_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:91
+GPIOB_IRQHandler:  1:  j 1b
+2000389c:	a001                	j	2000389c <GPIOB_IRQHandler>
+
+2000389e <SPI0_IRQHandler>:
+SPI0_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:92
+SPI0_IRQHandler:  1:  j 1b
+2000389e:	a001                	j	2000389e <SPI0_IRQHandler>
+
+200038a0 <BB_IRQHandler>:
+BB_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:93
+BB_IRQHandler:  1:  j 1b
+200038a0:	a001                	j	200038a0 <BB_IRQHandler>
+
+200038a2 <LLE_IRQHandler>:
+LLE_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:94
+LLE_IRQHandler:  1:  j 1b
+200038a2:	a001                	j	200038a2 <LLE_IRQHandler>
+
+200038a4 <USB_IRQHandler>:
+USB_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:95
+USB_IRQHandler:  1:  j 1b
+200038a4:	a001                	j	200038a4 <USB_IRQHandler>
+
+200038a6 <TMR1_IRQHandler>:
+TMR1_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:96
+TMR1_IRQHandler:  1:  j 1b
+200038a6:	a001                	j	200038a6 <TMR1_IRQHandler>
+
+200038a8 <TMR2_IRQHandler>:
+TMR2_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:97
+TMR2_IRQHandler:  1:  j 1b
+200038a8:	a001                	j	200038a8 <TMR2_IRQHandler>
+
+200038aa <UART0_IRQHandler>:
+UART0_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:98
+UART0_IRQHandler:  1:  j 1b
+200038aa:	a001                	j	200038aa <UART0_IRQHandler>
+
+200038ac <UART1_IRQHandler>:
+UART1_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:99
+UART1_IRQHandler:  1:  j 1b
+200038ac:	a001                	j	200038ac <UART1_IRQHandler>
+
+200038ae <RTC_IRQHandler>:
+RTC_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:100
+RTC_IRQHandler:  1:  j 1b
+200038ae:	a001                	j	200038ae <RTC_IRQHandler>
+
+200038b0 <ADC_IRQHandler>:
+ADC_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:101
+ADC_IRQHandler:  1:  j 1b
+200038b0:	a001                	j	200038b0 <ADC_IRQHandler>
+
+200038b2 <PWMX_IRQHandler>:
+PWMX_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:102
+PWMX_IRQHandler:  1:  j 1b
+200038b2:	a001                	j	200038b2 <PWMX_IRQHandler>
+
+200038b4 <TMR3_IRQHandler>:
+TMR3_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:103
+TMR3_IRQHandler:  1:  j 1b
+200038b4:	a001                	j	200038b4 <TMR3_IRQHandler>
+
+200038b6 <UART2_IRQHandler>:
+UART2_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:104
+UART2_IRQHandler:  1:  j 1b
+200038b6:	a001                	j	200038b6 <UART2_IRQHandler>
+
+200038b8 <UART3_IRQHandler>:
+UART3_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:105
+UART3_IRQHandler:  1:  j 1b
+200038b8:	a001                	j	200038b8 <UART3_IRQHandler>
+
+200038ba <WDOG_BAT_IRQHandler>:
+WDOG_BAT_IRQHandler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:106
+WDOG_BAT_IRQHandler:  1:  j 1b
+200038ba:	a001                	j	200038ba <WDOG_BAT_IRQHandler>
+
+200038bc <SetSysClock>:
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:171
+void mDelaymS(uint16_t t);
+
+/* Safe access */
+ __attribute__((always_inline)) static inline void sys_safe_access_enable(void)
+{
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG1;
+200038bc:	400017b7          	lui	a5,0x40001
+200038c0:	05700693          	li	a3,87
+200038c4:	04d78023          	sb	a3,64(a5) # 40001040 <_eusrstack+0x1fff9040>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG2;
+200038c8:	fa800713          	li	a4,-88
+200038cc:	04e78023          	sb	a4,64(a5)
+SetSysClock():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:27
+__attribute__((section(".highcode")))
+void SetSysClock(SYS_CLKTypeDef sc)
+{
+    uint32_t i;
+    sys_safe_access_enable();
+    R8_PLL_CONFIG &= ~(1 << 5); //
+200038d0:	04b7c603          	lbu	a2,75(a5)
+200038d4:	0df67613          	andi	a2,a2,223
+200038d8:	04c785a3          	sb	a2,75(a5)
+sys_safe_access_disable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:177
+}
+
+__attribute__((always_inline)) static inline void sys_safe_access_disable(void)
+{
+    R8_SAFE_ACCESS_SIG = 0;
+200038dc:	04078023          	sb	zero,64(a5)
+SetSysClock():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:29
+    sys_safe_access_disable();
+    if(sc & 0x20)
+200038e0:	02057613          	andi	a2,a0,32
+200038e4:	c62d                	beqz	a2,2000394e <SetSysClock+0x92>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:31
+    { // HSE div
+        if(!(R8_HFCK_PWR_CTRL & RB_CLK_XT32M_PON))
+200038e6:	00a7c603          	lbu	a2,10(a5)
+200038ea:	8a11                	andi	a2,a2,4
+200038ec:	e20d                	bnez	a2,2000390e <SetSysClock+0x52>
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:171
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG1;
+200038ee:	04d78023          	sb	a3,64(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG2;
+200038f2:	04e78023          	sb	a4,64(a5)
+SetSysClock():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:34
+        {
+            sys_safe_access_enable();
+            R8_HFCK_PWR_CTRL |= RB_CLK_XT32M_PON; // HSE power on
+200038f6:	00a7c703          	lbu	a4,10(a5)
+200038fa:	00476713          	ori	a4,a4,4
+200038fe:	00e78523          	sb	a4,10(a5)
+20003902:	4b000793          	li	a5,1200
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:37 (discriminator 3)
+            for(i = 0; i < 1200; i++)
+            {
+                __nop();
+20003906:	0001                	nop
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:38 (discriminator 3)
+                __nop();
+20003908:	0001                	nop
+2000390a:	17fd                	addi	a5,a5,-1
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:35 (discriminator 3)
+            for(i = 0; i < 1200; i++)
+2000390c:	ffed                	bnez	a5,20003906 <SetSysClock+0x4a>
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:171
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG1;
+2000390e:	400017b7          	lui	a5,0x40001
+20003912:	05700693          	li	a3,87
+20003916:	04d78023          	sb	a3,64(a5) # 40001040 <_eusrstack+0x1fff9040>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG2;
+2000391a:	fa800713          	li	a4,-88
+2000391e:	04e78023          	sb	a4,64(a5)
+SetSysClock():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:43
+            }
+        }
+
+        sys_safe_access_enable();
+        R16_CLK_SYS_CFG = (0 << 6) | (sc & 0x1f);
+20003922:	897d                	andi	a0,a0,31
+20003924:	00a79423          	sh	a0,8(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:44
+        __nop();
+20003928:	0001                	nop
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:45
+        __nop();
+2000392a:	0001                	nop
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:46
+        __nop();
+2000392c:	0001                	nop
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:47
+        __nop();
+2000392e:	0001                	nop
+sys_safe_access_disable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:177
+    R8_SAFE_ACCESS_SIG = 0;
+20003930:	04078023          	sb	zero,64(a5)
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:171
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG1;
+20003934:	04d78023          	sb	a3,64(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG2;
+20003938:	04e78023          	sb	a4,64(a5)
+SetSysClock():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:50
+        sys_safe_access_disable();
+        sys_safe_access_enable();
+        R8_FLASH_CFG = 0X51;
+2000393c:	05100693          	li	a3,81
+20003940:	40002737          	lui	a4,0x40002
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:74
+        __nop();
+        __nop();
+        __nop();
+        sys_safe_access_disable();
+        sys_safe_access_enable();
+        R8_FLASH_CFG = 0X53;
+20003944:	80d703a3          	sb	a3,-2041(a4) # 40001807 <_eusrstack+0x1fff9807>
+sys_safe_access_disable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:177
+    R8_SAFE_ACCESS_SIG = 0;
+20003948:	04078023          	sb	zero,64(a5)
+SetSysClock():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:77
+        sys_safe_access_disable();
+    }
+}
+2000394c:	8082                	ret
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:54
+    else if(sc & 0x40)
+2000394e:	04057613          	andi	a2,a0,64
+20003952:	de6d                	beqz	a2,2000394c <SetSysClock+0x90>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:56
+        if(!(R8_HFCK_PWR_CTRL & RB_CLK_PLL_PON))
+20003954:	00a7c603          	lbu	a2,10(a5)
+20003958:	8a41                	andi	a2,a2,16
+2000395a:	e20d                	bnez	a2,2000397c <SetSysClock+0xc0>
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:171
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG1;
+2000395c:	04d78023          	sb	a3,64(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG2;
+20003960:	04e78023          	sb	a4,64(a5)
+SetSysClock():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:59
+            R8_HFCK_PWR_CTRL |= RB_CLK_PLL_PON; // PLL power on
+20003964:	00a7c703          	lbu	a4,10(a5)
+20003968:	01076713          	ori	a4,a4,16
+2000396c:	00e78523          	sb	a4,10(a5)
+20003970:	7d000793          	li	a5,2000
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:62 (discriminator 3)
+                __nop();
+20003974:	0001                	nop
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:63 (discriminator 3)
+                __nop();
+20003976:	0001                	nop
+20003978:	17fd                	addi	a5,a5,-1
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:60 (discriminator 3)
+            for(i = 0; i < 2000; i++)
+2000397a:	ffed                	bnez	a5,20003974 <SetSysClock+0xb8>
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:171
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG1;
+2000397c:	400017b7          	lui	a5,0x40001
+20003980:	05700693          	li	a3,87
+20003984:	04d78023          	sb	a3,64(a5) # 40001040 <_eusrstack+0x1fff9040>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG2;
+20003988:	fa800713          	li	a4,-88
+SetSysClock():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:67
+        R16_CLK_SYS_CFG = (1 << 6) | (sc & 0x1f);
+2000398c:	897d                	andi	a0,a0,31
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+2000398e:	04e78023          	sb	a4,64(a5)
+SetSysClock():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:67
+20003992:	04056513          	ori	a0,a0,64
+20003996:	00a79423          	sh	a0,8(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:68
+        __nop();
+2000399a:	0001                	nop
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:69
+        __nop();
+2000399c:	0001                	nop
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:70
+        __nop();
+2000399e:	0001                	nop
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:71
+        __nop();
+200039a0:	0001                	nop
+sys_safe_access_disable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:177
+    R8_SAFE_ACCESS_SIG = 0;
+200039a2:	04078023          	sb	zero,64(a5)
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:171
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG1;
+200039a6:	04d78023          	sb	a3,64(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG2;
+200039aa:	04e78023          	sb	a4,64(a5)
+SetSysClock():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:74
+        R8_FLASH_CFG = 0X53;
+200039ae:	05300693          	li	a3,83
+200039b2:	40002737          	lui	a4,0x40002
+200039b6:	b779                	j	20003944 <SetSysClock+0x88>
+
+200039b8 <SYS_ResetExecute>:
+SYS_ResetExecute():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:139
+ *
+ * @return  none
+ */
+__attribute__((section(".highcode")))
+void SYS_ResetExecute(void)
+{
+200039b8:	1141                	addi	sp,sp,-16
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:140
+    FLASH_ROM_SW_RESET();
+200039ba:	4681                	li	a3,0
+200039bc:	4601                	li	a2,0
+200039be:	4581                	li	a1,0
+200039c0:	4511                	li	a0,4
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:139
+{
+200039c2:	c606                	sw	ra,12(sp)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:140
+    FLASH_ROM_SW_RESET();
+200039c4:	2ab1                	jal	20003b20 <FLASH_EEPROM_CMD>
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:171
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG1;
+200039c6:	400017b7          	lui	a5,0x40001
+200039ca:	05700713          	li	a4,87
+200039ce:	04e78023          	sb	a4,64(a5) # 40001040 <_eusrstack+0x1fff9040>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG2;
+200039d2:	fa800713          	li	a4,-88
+200039d6:	04e78023          	sb	a4,64(a5)
+SYS_ResetExecute():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:142
+    sys_safe_access_enable();
+    R8_RST_WDOG_CTRL |= RB_SOFTWARE_RESET;
+200039da:	0467c703          	lbu	a4,70(a5)
+200039de:	00176713          	ori	a4,a4,1
+200039e2:	04e78323          	sb	a4,70(a5)
+sys_safe_access_disable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:177
+    R8_SAFE_ACCESS_SIG = 0;
+200039e6:	04078023          	sb	zero,64(a5)
+SYS_ResetExecute():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:144
+    sys_safe_access_disable();
+}
+200039ea:	40b2                	lw	ra,12(sp)
+200039ec:	0141                	addi	sp,sp,16
+200039ee:	8082                	ret
+
+200039f0 <HardFault_Handler>:
+HardFault_Handler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:278
+__attribute__((interrupt("WCH-Interrupt-fast")))
+__attribute__((section(".highcode")))
+__attribute__((weak))
+void HardFault_Handler(void)
+{
+    FLASH_ROM_SW_RESET();
+200039f0:	4681                	li	a3,0
+200039f2:	4601                	li	a2,0
+200039f4:	4581                	li	a1,0
+200039f6:	4511                	li	a0,4
+200039f8:	2225                	jal	20003b20 <FLASH_EEPROM_CMD>
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:171
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG1;
+200039fa:	400017b7          	lui	a5,0x40001
+200039fe:	05700693          	li	a3,87
+20003a02:	04d78023          	sb	a3,64(a5) # 40001040 <_eusrstack+0x1fff9040>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG2;
+20003a06:	fa800713          	li	a4,-88
+20003a0a:	04e78023          	sb	a4,64(a5)
+HardFault_Handler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:280
+    sys_safe_access_enable();
+    R16_INT32K_TUNE = 0xFFFF;
+20003a0e:	567d                	li	a2,-1
+20003a10:	02c79623          	sh	a2,44(a5)
+sys_safe_access_enable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:171
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG1;
+20003a14:	04d78023          	sb	a3,64(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:172
+    R8_SAFE_ACCESS_SIG = SAFE_ACCESS_SIG2;
+20003a18:	04e78023          	sb	a4,64(a5)
+HardFault_Handler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:282
+    sys_safe_access_enable();
+    R8_RST_WDOG_CTRL |= RB_SOFTWARE_RESET;
+20003a1c:	0467c703          	lbu	a4,70(a5)
+20003a20:	00176713          	ori	a4,a4,1
+20003a24:	04e78323          	sb	a4,70(a5)
+sys_safe_access_disable():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\inc/CH57x_sys.h:177
+    R8_SAFE_ACCESS_SIG = 0;
+20003a28:	04078023          	sb	zero,64(a5)
+HardFault_Handler():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:284 (discriminator 1)
+    sys_safe_access_disable();
+    while(1);
+20003a2c:	a001                	j	20003a2c <HardFault_Handler+0x3c>
+
+20003a2e <mDelayuS>:
+mDelayuS():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:301
+__attribute__((section(".highcode")))
+void mDelayuS(uint16_t t)
+{
+    uint32_t i;
+#if(FREQ_SYS == 60000000)
+    i = t * 15;
+20003a2e:	47bd                	li	a5,15
+20003a30:	02f50533          	mul	a0,a0,a5
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:323 (discriminator 1)
+#elif(FREQ_SYS == 1000000)
+    i = t >> 2;
+#endif
+    do
+    {
+        __nop();
+20003a34:	0001                	nop
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:324 (discriminator 1)
+    } while(--i);
+20003a36:	157d                	addi	a0,a0,-1
+20003a38:	fd75                	bnez	a0,20003a34 <mDelayuS+0x6>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:325
+}
+20003a3a:	8082                	ret
+
+20003a3c <mDelaymS>:
+mDelaymS():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:338
+ *
+ * @return  none
+ */
+__attribute__((section(".highcode")))
+void mDelaymS(uint16_t t)
+{
+20003a3c:	1141                	addi	sp,sp,-16
+20003a3e:	c422                	sw	s0,8(sp)
+20003a40:	c226                	sw	s1,4(sp)
+20003a42:	c606                	sw	ra,12(sp)
+20003a44:	84aa                	mv	s1,a0
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:341
+    uint16_t i;
+
+    for(i = 0; i < t; i++)
+20003a46:	4401                	li	s0,0
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:341 (discriminator 1)
+20003a48:	00941763          	bne	s0,s1,20003a56 <mDelaymS+0x1a>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:345
+    {
+        mDelayuS(1000);
+    }
+}
+20003a4c:	40b2                	lw	ra,12(sp)
+20003a4e:	4422                	lw	s0,8(sp)
+20003a50:	4492                	lw	s1,4(sp)
+20003a52:	0141                	addi	sp,sp,16
+20003a54:	8082                	ret
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:341 (discriminator 3)
+    for(i = 0; i < t; i++)
+20003a56:	0405                	addi	s0,s0,1
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:343 (discriminator 3)
+        mDelayuS(1000);
+20003a58:	3e800513          	li	a0,1000
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:341 (discriminator 3)
+    for(i = 0; i < t; i++)
+20003a5c:	0442                	slli	s0,s0,0x10
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:343 (discriminator 3)
+        mDelayuS(1000);
+20003a5e:	3fc1                	jal	20003a2e <mDelayuS>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_sys.c:341 (discriminator 3)
+    for(i = 0; i < t; i++)
+20003a60:	8041                	srli	s0,s0,0x10
+20003a62:	b7dd                	j	20003a48 <mDelaymS+0xc>
+
+20003a64 <FLASH_ROM_BEG>:
+FLASH_ROM_BEG():
+20003a64:	80040323          	sb	zero,-2042(s0)
+20003a68:	4715                	li	a4,5
+20003a6a:	80e40323          	sb	a4,-2042(s0)
+20003a6e:	0001                	nop
+20003a70:	80a40223          	sb	a0,-2044(s0)
+20003a74:	8082                	ret
+
+20003a76 <FLASH_ROM_END>:
+FLASH_ROM_END():
+20003a76:	80640783          	lb	a5,-2042(s0)
+20003a7a:	fe07cee3          	bltz	a5,20003a76 <FLASH_ROM_END>
+20003a7e:	80040323          	sb	zero,-2042(s0)
+20003a82:	8082                	ret
+
+20003a84 <FLASH_ROM_IN>:
+FLASH_ROM_IN():
+20003a84:	80640783          	lb	a5,-2042(s0)
+20003a88:	fe07cee3          	bltz	a5,20003a84 <FLASH_ROM_IN>
+20003a8c:	80444503          	lbu	a0,-2044(s0)
+20003a90:	8082                	ret
+
+20003a92 <FLASH_ROM_OUT>:
+FLASH_ROM_OUT():
+20003a92:	80640783          	lb	a5,-2042(s0)
+20003a96:	fe07cee3          	bltz	a5,20003a92 <FLASH_ROM_OUT>
+20003a9a:	80a40223          	sb	a0,-2044(s0)
+20003a9e:	8082                	ret
+
+20003aa0 <FLASH_ROM_ADDR>:
+FLASH_ROM_ADDR():
+20003aa0:	1141                	addi	sp,sp,-16
+20003aa2:	c426                	sw	s1,8(sp)
+20003aa4:	c24a                	sw	s2,4(sp)
+20003aa6:	c04e                	sw	s3,0(sp)
+20003aa8:	c606                	sw	ra,12(sp)
+20003aaa:	0bf57713          	andi	a4,a0,191
+20003aae:	47ad                	li	a5,11
+20003ab0:	89aa                	mv	s3,a0
+20003ab2:	892e                	mv	s2,a1
+20003ab4:	4495                	li	s1,5
+20003ab6:	00f70663          	beq	a4,a5,20003ac2 <FLASH_ROM_ADDR+0x22>
+20003aba:	4519                	li	a0,6
+20003abc:	3765                	jal	20003a64 <FLASH_ROM_BEG>
+20003abe:	3f65                	jal	20003a76 <FLASH_ROM_END>
+20003ac0:	448d                	li	s1,3
+20003ac2:	854e                	mv	a0,s3
+20003ac4:	3745                	jal	20003a64 <FLASH_ROM_BEG>
+20003ac6:	59fd                	li	s3,-1
+20003ac8:	14fd                	addi	s1,s1,-1
+20003aca:	01349863          	bne	s1,s3,20003ada <FLASH_ROM_ADDR+0x3a>
+20003ace:	40b2                	lw	ra,12(sp)
+20003ad0:	44a2                	lw	s1,8(sp)
+20003ad2:	4912                	lw	s2,4(sp)
+20003ad4:	4982                	lw	s3,0(sp)
+20003ad6:	0141                	addi	sp,sp,16
+20003ad8:	8082                	ret
+20003ada:	01095513          	srli	a0,s2,0x10
+20003ade:	0ff57513          	andi	a0,a0,255
+20003ae2:	3f45                	jal	20003a92 <FLASH_ROM_OUT>
+20003ae4:	0922                	slli	s2,s2,0x8
+20003ae6:	b7cd                	j	20003ac8 <FLASH_ROM_ADDR+0x28>
+
+20003ae8 <FLASH_ROM_WAIT>:
+FLASH_ROM_WAIT():
+20003ae8:	1101                	addi	sp,sp,-32
+20003aea:	cc26                	sw	s1,24(sp)
+20003aec:	ce06                	sw	ra,28(sp)
+20003aee:	000804b7          	lui	s1,0x80
+20003af2:	3751                	jal	20003a76 <FLASH_ROM_END>
+20003af4:	4515                	li	a0,5
+20003af6:	37bd                	jal	20003a64 <FLASH_ROM_BEG>
+20003af8:	3771                	jal	20003a84 <FLASH_ROM_IN>
+20003afa:	3769                	jal	20003a84 <FLASH_ROM_IN>
+20003afc:	c62a                	sw	a0,12(sp)
+20003afe:	3fa5                	jal	20003a76 <FLASH_ROM_END>
+20003b00:	4532                	lw	a0,12(sp)
+20003b02:	00157793          	andi	a5,a0,1
+20003b06:	eb89                	bnez	a5,20003b18 <FLASH_ROM_WAIT+0x30>
+20003b08:	00156513          	ori	a0,a0,1
+20003b0c:	0ff57513          	andi	a0,a0,255
+20003b10:	40f2                	lw	ra,28(sp)
+20003b12:	44e2                	lw	s1,24(sp)
+20003b14:	6105                	addi	sp,sp,32
+20003b16:	8082                	ret
+20003b18:	14fd                	addi	s1,s1,-1
+20003b1a:	fce9                	bnez	s1,20003af4 <FLASH_ROM_WAIT+0xc>
+20003b1c:	4501                	li	a0,0
+20003b1e:	bfcd                	j	20003b10 <FLASH_ROM_WAIT+0x28>
+
+20003b20 <FLASH_EEPROM_CMD>:
+FLASH_EEPROM_CMD():
+20003b20:	7139                	addi	sp,sp,-64
+20003b22:	dc26                	sw	s1,56(sp)
+20003b24:	da4a                	sw	s2,52(sp)
+20003b26:	d84e                	sw	s3,48(sp)
+20003b28:	d652                	sw	s4,44(sp)
+20003b2a:	d456                	sw	s5,40(sp)
+20003b2c:	d25a                	sw	s6,36(sp)
+20003b2e:	d05e                	sw	s7,32(sp)
+20003b30:	de06                	sw	ra,60(sp)
+20003b32:	ce62                	sw	s8,28(sp)
+20003b34:	cc66                	sw	s9,24(sp)
+20003b36:	e000e7b7          	lui	a5,0xe000e
+20003b3a:	577d                	li	a4,-1
+20003b3c:	0007aa83          	lw	s5,0(a5) # e000e000 <_eusrstack+0xc0006000>
+20003b40:	c622                	sw	s0,12(sp)
+20003b42:	0047aa03          	lw	s4,4(a5)
+20003b46:	18e7a023          	sw	a4,384(a5)
+20003b4a:	18e7a223          	sw	a4,388(a5)
+20003b4e:	400017b7          	lui	a5,0x40001
+20003b52:	05700713          	li	a4,87
+20003b56:	04e78023          	sb	a4,64(a5) # 40001040 <_eusrstack+0x1fff9040>
+20003b5a:	fa800713          	li	a4,-88
+20003b5e:	04e78023          	sb	a4,64(a5)
+20003b62:	0447c783          	lbu	a5,68(a5)
+20003b66:	ff750b93          	addi	s7,a0,-9
+20003b6a:	84b6                	mv	s1,a3
+20003b6c:	07e2                	slli	a5,a5,0x18
+20003b6e:	0ffbfb93          	andi	s7,s7,255
+20003b72:	4685                	li	a3,1
+20003b74:	89aa                	mv	s3,a0
+20003b76:	8b2e                	mv	s6,a1
+20003b78:	8932                	mv	s2,a2
+20003b7a:	40002437          	lui	s0,0x40002
+20003b7e:	87e1                	srai	a5,a5,0x18
+20003b80:	5701                	li	a4,-32
+20003b82:	0176fa63          	bgeu	a3,s7,20003b96 <FLASH_EEPROM_CMD+0x76>
+20003b86:	00d50863          	beq	a0,a3,20003b96 <FLASH_EEPROM_CMD+0x76>
+20003b8a:	4689                	li	a3,2
+20003b8c:	02000713          	li	a4,32
+20003b90:	00d51363          	bne	a0,a3,20003b96 <FLASH_EEPROM_CMD+0x76>
+20003b94:	5701                	li	a4,-32
+20003b96:	8fd9                	or	a5,a5,a4
+20003b98:	0ff7f793          	andi	a5,a5,255
+20003b9c:	40001cb7          	lui	s9,0x40001
+20003ba0:	04fc8223          	sb	a5,68(s9) # 40001044 <_eusrstack+0x1fff9044>
+20003ba4:	4711                	li	a4,4
+20003ba6:	80e40323          	sb	a4,-2042(s0) # 40001806 <_eusrstack+0x1fff9806>
+20003baa:	0ff00513          	li	a0,255
+20003bae:	3d5d                	jal	20003a64 <FLASH_ROM_BEG>
+20003bb0:	4c09                	li	s8,2
+20003bb2:	35d1                	jal	20003a76 <FLASH_ROM_END>
+20003bb4:	117c6963          	bltu	s8,s7,20003cc6 <FLASH_EEPROM_CMD+0x1a6>
+20003bb8:	000707b7          	lui	a5,0x70
+20003bbc:	9b3e                	add	s6,s6,a5
+20003bbe:	00078737          	lui	a4,0x78
+20003bc2:	5579                	li	a0,-2
+20003bc4:	02eb7e63          	bgeu	s6,a4,20003c00 <FLASH_EEPROM_CMD+0xe0>
+20003bc8:	009b07b3          	add	a5,s6,s1
+20003bcc:	02f76a63          	bltu	a4,a5,20003c00 <FLASH_EEPROM_CMD+0xe0>
+20003bd0:	47a9                	li	a5,10
+20003bd2:	06f99963          	bne	s3,a5,20003c44 <FLASH_EEPROM_CMD+0x124>
+20003bd6:	e489                	bnez	s1,20003be0 <FLASH_EEPROM_CMD+0xc0>
+20003bd8:	4481                	li	s1,0
+20003bda:	3d71                	jal	20003a76 <FLASH_ROM_END>
+20003bdc:	8526                	mv	a0,s1
+20003bde:	a00d                	j	20003c00 <FLASH_EEPROM_CMD+0xe0>
+20003be0:	85da                	mv	a1,s6
+20003be2:	4509                	li	a0,2
+20003be4:	3d75                	jal	20003aa0 <FLASH_ROM_ADDR>
+20003be6:	0905                	addi	s2,s2,1
+20003be8:	fff94503          	lbu	a0,-1(s2)
+20003bec:	14fd                	addi	s1,s1,-1
+20003bee:	0b05                	addi	s6,s6,1
+20003bf0:	354d                	jal	20003a92 <FLASH_ROM_OUT>
+20003bf2:	c481                	beqz	s1,20003bfa <FLASH_EEPROM_CMD+0xda>
+20003bf4:	0ffb7793          	andi	a5,s6,255
+20003bf8:	f7fd                	bnez	a5,20003be6 <FLASH_EEPROM_CMD+0xc6>
+20003bfa:	35fd                	jal	20003ae8 <FLASH_ROM_WAIT>
+20003bfc:	fd69                	bnez	a0,20003bd6 <FLASH_EEPROM_CMD+0xb6>
+20003bfe:	557d                	li	a0,-1
+20003c00:	400017b7          	lui	a5,0x40001
+20003c04:	05700713          	li	a4,87
+20003c08:	04e78023          	sb	a4,64(a5) # 40001040 <_eusrstack+0x1fff9040>
+20003c0c:	fa800713          	li	a4,-88
+20003c10:	04e78023          	sb	a4,64(a5)
+20003c14:	0447c703          	lbu	a4,68(a5)
+20003c18:	8b41                	andi	a4,a4,16
+20003c1a:	04e78223          	sb	a4,68(a5)
+20003c1e:	50f2                	lw	ra,60(sp)
+20003c20:	e000e7b7          	lui	a5,0xe000e
+20003c24:	1157a023          	sw	s5,256(a5) # e000e100 <_eusrstack+0xc0006100>
+20003c28:	1147a223          	sw	s4,260(a5)
+20003c2c:	54e2                	lw	s1,56(sp)
+20003c2e:	4432                	lw	s0,12(sp)
+20003c30:	5952                	lw	s2,52(sp)
+20003c32:	59c2                	lw	s3,48(sp)
+20003c34:	5a32                	lw	s4,44(sp)
+20003c36:	5aa2                	lw	s5,40(sp)
+20003c38:	5b12                	lw	s6,36(sp)
+20003c3a:	5b82                	lw	s7,32(sp)
+20003c3c:	4c72                	lw	s8,28(sp)
+20003c3e:	4ce2                	lw	s9,24(sp)
+20003c40:	6121                	addi	sp,sp,64
+20003c42:	8082                	ret
+20003c44:	47a5                	li	a5,9
+20003c46:	06f99563          	bne	s3,a5,20003cb0 <FLASH_EEPROM_CMD+0x190>
+20003c4a:	6985                	lui	s3,0x1
+20003c4c:	0ff00913          	li	s2,255
+20003c50:	009906b3          	add	a3,s2,s1
+20003c54:	012b74b3          	and	s1,s6,s2
+20003c58:	94b6                	add	s1,s1,a3
+20003c5a:	fff94913          	not	s2,s2
+20003c5e:	009974b3          	and	s1,s2,s1
+20003c62:	6b85                	lui	s7,0x1
+20003c64:	01697933          	and	s2,s2,s6
+20003c68:	6b41                	lui	s6,0x10
+20003c6a:	fff98793          	addi	a5,s3,-1 # fff <_data_lma+0x807>
+20003c6e:	0127f7b3          	and	a5,a5,s2
+20003c72:	e399                	bnez	a5,20003c78 <FLASH_EEPROM_CMD+0x158>
+20003c74:	0134fc63          	bgeu	s1,s3,20003c8c <FLASH_EEPROM_CMD+0x16c>
+20003c78:	0049d993          	srli	s3,s3,0x4
+20003c7c:	47c1                	li	a5,16
+20003c7e:	ff37e6e3          	bltu	a5,s3,20003c6a <FLASH_EEPROM_CMD+0x14a>
+20003c82:	bf99                	j	20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003c84:	6905                	lui	s2,0x1
+20003c86:	69c1                	lui	s3,0x10
+20003c88:	197d                	addi	s2,s2,-1
+20003c8a:	b7d9                	j	20003c50 <FLASH_EEPROM_CMD+0x130>
+20003c8c:	0d800513          	li	a0,216
+20003c90:	01698863          	beq	s3,s6,20003ca0 <FLASH_EEPROM_CMD+0x180>
+20003c94:	02000513          	li	a0,32
+20003c98:	01798463          	beq	s3,s7,20003ca0 <FLASH_EEPROM_CMD+0x180>
+20003c9c:	08100513          	li	a0,129
+20003ca0:	85ca                	mv	a1,s2
+20003ca2:	3bfd                	jal	20003aa0 <FLASH_ROM_ADDR>
+20003ca4:	3591                	jal	20003ae8 <FLASH_ROM_WAIT>
+20003ca6:	dd21                	beqz	a0,20003bfe <FLASH_EEPROM_CMD+0xde>
+20003ca8:	994e                	add	s2,s2,s3
+20003caa:	413484b3          	sub	s1,s1,s3
+20003cae:	b7d9                	j	20003c74 <FLASH_EEPROM_CMD+0x154>
+20003cb0:	85da                	mv	a1,s6
+20003cb2:	452d                	li	a0,11
+20003cb4:	33f5                	jal	20003aa0 <FLASH_ROM_ADDR>
+20003cb6:	94ca                	add	s1,s1,s2
+20003cb8:	f29900e3          	beq	s2,s1,20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003cbc:	0905                	addi	s2,s2,1
+20003cbe:	33d9                	jal	20003a84 <FLASH_ROM_IN>
+20003cc0:	fea90fa3          	sb	a0,-1(s2) # fff <_data_lma+0x807>
+20003cc4:	bfd5                	j	20003cb8 <FLASH_EEPROM_CMD+0x198>
+20003cc6:	fff98793          	addi	a5,s3,-1 # ffff <_data_lma+0xf807>
+20003cca:	0ff7f793          	andi	a5,a5,255
+20003cce:	08fc6c63          	bltu	s8,a5,20003d66 <.loop401+0x54>
+20003cd2:	045cc703          	lbu	a4,69(s9)
+20003cd6:	000807b7          	lui	a5,0x80
+20003cda:	02077713          	andi	a4,a4,32
+20003cde:	e319                	bnez	a4,20003ce4 <FLASH_EEPROM_CMD+0x1c4>
+20003ce0:	000787b7          	lui	a5,0x78
+20003ce4:	5579                	li	a0,-2
+20003ce6:	f0fb7de3          	bgeu	s6,a5,20003c00 <FLASH_EEPROM_CMD+0xe0>
+20003cea:	009b0733          	add	a4,s6,s1
+20003cee:	f0e7e9e3          	bltu	a5,a4,20003c00 <FLASH_EEPROM_CMD+0xe0>
+20003cf2:	4789                	li	a5,2
+20003cf4:	04f99063          	bne	s3,a5,20003d34 <.loop401+0x22>
+20003cf8:	8089                	srli	s1,s1,0x2
+20003cfa:	49d5                	li	s3,21
+20003cfc:	ec048ee3          	beqz	s1,20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003d00:	85da                	mv	a1,s6
+20003d02:	4509                	li	a0,2
+20003d04:	3b71                	jal	20003aa0 <FLASH_ROM_ADDR>
+20003d06:	0911                	addi	s2,s2,4
+20003d08:	ffc92703          	lw	a4,-4(s2)
+20003d0c:	4791                	li	a5,4
+20003d0e:	80e42023          	sw	a4,-2048(s0)
+
+20003d12 <.loop401>:
+20003d12:	80640703          	lb	a4,-2042(s0)
+20003d16:	fe074ee3          	bltz	a4,20003d12 <.loop401>
+20003d1a:	81340323          	sb	s3,-2042(s0)
+20003d1e:	17fd                	addi	a5,a5,-1
+20003d20:	fbed                	bnez	a5,20003d12 <.loop401>
+20003d22:	14fd                	addi	s1,s1,-1
+20003d24:	0b11                	addi	s6,s6,4
+20003d26:	c481                	beqz	s1,20003d2e <.loop401+0x1c>
+20003d28:	0ffb7793          	andi	a5,s6,255
+20003d2c:	ffe9                	bnez	a5,20003d06 <FLASH_EEPROM_CMD+0x1e6>
+20003d2e:	3b6d                	jal	20003ae8 <FLASH_ROM_WAIT>
+20003d30:	f571                	bnez	a0,20003cfc <FLASH_EEPROM_CMD+0x1dc>
+20003d32:	b5f1                	j	20003bfe <FLASH_EEPROM_CMD+0xde>
+20003d34:	4785                	li	a5,1
+20003d36:	f4f987e3          	beq	s3,a5,20003c84 <FLASH_EEPROM_CMD+0x164>
+20003d3a:	85da                	mv	a1,s6
+20003d3c:	452d                	li	a0,11
+20003d3e:	338d                	jal	20003aa0 <FLASH_ROM_ADDR>
+20003d40:	fff48993          	addi	s3,s1,-1 # 7ffff <_data_lma+0x7f807>
+20003d44:	e8048ae3          	beqz	s1,20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003d48:	3b35                	jal	20003a84 <FLASH_ROM_IN>
+20003d4a:	0039f793          	andi	a5,s3,3
+20003d4e:	eb91                	bnez	a5,20003d62 <.loop401+0x50>
+20003d50:	80042683          	lw	a3,-2048(s0)
+20003d54:	00092703          	lw	a4,0(s2)
+20003d58:	00490793          	addi	a5,s2,4
+20003d5c:	e6e69fe3          	bne	a3,a4,20003bda <FLASH_EEPROM_CMD+0xba>
+20003d60:	893e                	mv	s2,a5
+20003d62:	84ce                	mv	s1,s3
+20003d64:	bff1                	j	20003d40 <.loop401+0x2e>
+20003d66:	47b5                	li	a5,13
+20003d68:	00f99663          	bne	s3,a5,20003d74 <.loop401+0x62>
+20003d6c:	0b900513          	li	a0,185
+20003d70:	39d5                	jal	20003a64 <FLASH_ROM_BEG>
+20003d72:	b59d                	j	20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003d74:	47b1                	li	a5,12
+20003d76:	0ab00513          	li	a0,171
+20003d7a:	fef98be3          	beq	s3,a5,20003d70 <.loop401+0x5e>
+20003d7e:	4799                	li	a5,6
+20003d80:	02f99e63          	bne	s3,a5,20003dbc <.loop401+0xaa>
+20003d84:	85da                	mv	a1,s6
+20003d86:	452d                	li	a0,11
+20003d88:	3b21                	jal	20003aa0 <FLASH_ROM_ADDR>
+20003d8a:	4481                	li	s1,0
+20003d8c:	4b8d                	li	s7,3
+20003d8e:	49a1                	li	s3,8
+20003d90:	39d5                	jal	20003a84 <FLASH_ROM_IN>
+20003d92:	01749663          	bne	s1,s7,20003d9e <.loop401+0x8c>
+20003d96:	80042783          	lw	a5,-2048(s0)
+20003d9a:	00f92023          	sw	a5,0(s2)
+20003d9e:	0485                	addi	s1,s1,1
+20003da0:	ff3498e3          	bne	s1,s3,20003d90 <.loop401+0x7e>
+20003da4:	80042783          	lw	a5,-2048(s0)
+20003da8:	012b1713          	slli	a4,s6,0x12
+20003dac:	00075563          	bgez	a4,20003db6 <.loop401+0xa4>
+20003db0:	00f91223          	sh	a5,4(s2)
+20003db4:	b515                	j	20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003db6:	00f92223          	sw	a5,4(s2)
+20003dba:	bd39                	j	20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003dbc:	479d                	li	a5,7
+20003dbe:	02f99963          	bne	s3,a5,20003df0 <.loop401+0xde>
+20003dc2:	4581                	li	a1,0
+20003dc4:	04b00513          	li	a0,75
+20003dc8:	39e1                	jal	20003aa0 <FLASH_ROM_ADDR>
+20003dca:	44bd                	li	s1,15
+20003dcc:	00092023          	sw	zero,0(s2)
+20003dd0:	00092223          	sw	zero,4(s2)
+20003dd4:	59fd                	li	s3,-1
+20003dd6:	317d                	jal	20003a84 <FLASH_ROM_IN>
+20003dd8:	0074f793          	andi	a5,s1,7
+20003ddc:	97ca                	add	a5,a5,s2
+20003dde:	0007c703          	lbu	a4,0(a5) # 78000 <_data_lma+0x77808>
+20003de2:	14fd                	addi	s1,s1,-1
+20003de4:	8d39                	xor	a0,a0,a4
+20003de6:	00a78023          	sb	a0,0(a5)
+20003dea:	ff3496e3          	bne	s1,s3,20003dd6 <.loop401+0xc4>
+20003dee:	b3ed                	j	20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003df0:	47a1                	li	a5,8
+20003df2:	04f99263          	bne	s3,a5,20003e36 <.loop401+0x124>
+20003df6:	39cd                	jal	20003ae8 <FLASH_ROM_WAIT>
+20003df8:	4481                	li	s1,0
+20003dfa:	000b0d63          	beqz	s6,20003e14 <.loop401+0x102>
+20003dfe:	478d                	li	a5,3
+20003e00:	03c00493          	li	s1,60
+20003e04:	00fb0863          	beq	s6,a5,20003e14 <.loop401+0x102>
+20003e08:	05000493          	li	s1,80
+20003e0c:	018b0463          	beq	s6,s8,20003e14 <.loop401+0x102>
+20003e10:	04400493          	li	s1,68
+20003e14:	07c57513          	andi	a0,a0,124
+20003e18:	dc9500e3          	beq	a0,s1,20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003e1c:	4519                	li	a0,6
+20003e1e:	3199                	jal	20003a64 <FLASH_ROM_BEG>
+20003e20:	3999                	jal	20003a76 <FLASH_ROM_END>
+20003e22:	4505                	li	a0,1
+20003e24:	3181                	jal	20003a64 <FLASH_ROM_BEG>
+20003e26:	8526                	mv	a0,s1
+20003e28:	31ad                	jal	20003a92 <FLASH_ROM_OUT>
+20003e2a:	4509                	li	a0,2
+20003e2c:	319d                	jal	20003a92 <FLASH_ROM_OUT>
+20003e2e:	396d                	jal	20003ae8 <FLASH_ROM_WAIT>
+20003e30:	da0514e3          	bnez	a0,20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003e34:	b3e9                	j	20003bfe <FLASH_EEPROM_CMD+0xde>
+20003e36:	4791                	li	a5,4
+20003e38:	00f99963          	bne	s3,a5,20003e4a <.loop401+0x138>
+20003e3c:	06600513          	li	a0,102
+20003e40:	3115                	jal	20003a64 <FLASH_ROM_BEG>
+20003e42:	3915                	jal	20003a76 <FLASH_ROM_END>
+20003e44:	09900513          	li	a0,153
+20003e48:	b725                	j	20003d70 <.loop401+0x5e>
+20003e4a:	d80987e3          	beqz	s3,20003bd8 <FLASH_EEPROM_CMD+0xb8>
+20003e4e:	54f1                	li	s1,-4
+20003e50:	b369                	j	20003bda <FLASH_EEPROM_CMD+0xba>
+	...
+
+Disassembly of section .text:
+
+00000658 <handle_reset>:
+handle_reset():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:114
+	.weak	handle_reset
+	.align	1
+handle_reset:
+.option push 
+.option	norelax 
+	la gp, __global_pointer$
+ 658:	20004197          	auipc	gp,0x20004
+ 65c:	1a818193          	addi	gp,gp,424 # 20004800 <__global_pointer$>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:117
+.option	pop 
+1:
+	la sp, _eusrstack 
+ 660:	20008117          	auipc	sp,0x20008
+ 664:	9a010113          	addi	sp,sp,-1632 # 20008000 <_eusrstack>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:121
+
+/* Load highcode code  section from flash to RAM */
+2:
+    la a0, _highcode_lma
+ 668:	00400513          	li	a0,4
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:122
+    la a1, _highcode_vma_start
+ 66c:	20003597          	auipc	a1,0x20003
+ 670:	19458593          	addi	a1,a1,404 # 20003800 <_highcode_vma_start>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:123
+    la a2, _highcode_vma_end
+ 674:	20003617          	auipc	a2,0x20003
+ 678:	7e060613          	addi	a2,a2,2016 # 20003e54 <_highcode_vma_end>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:124
+    bgeu a1, a2, 2f
+ 67c:	00c5fa63          	bgeu	a1,a2,690 <handle_reset+0x38>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:126
+1:
+    lw t0, (a0)
+ 680:	00052283          	lw	t0,0(a0)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:127
+    sw t0, (a1)
+ 684:	0055a023          	sw	t0,0(a1)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:128
+    addi a0, a0, 4
+ 688:	0511                	addi	a0,a0,4
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:129
+    addi a1, a1, 4
+ 68a:	0591                	addi	a1,a1,4
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:130
+    bltu a1, a2, 1b
+ 68c:	fec5eae3          	bltu	a1,a2,680 <handle_reset+0x28>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:134
+
+/* Load data section from flash to RAM */
+2:
+	la a0, _data_lma
+ 690:	7f800513          	li	a0,2040
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:135
+	la a1, _data_vma
+ 694:	20004597          	auipc	a1,0x20004
+ 698:	96c58593          	addi	a1,a1,-1684 # 20004000 <_data_vma>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:136
+	la a2, _edata
+ 69c:	20004617          	auipc	a2,0x20004
+ 6a0:	96460613          	addi	a2,a2,-1692 # 20004000 <_data_vma>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:137
+	bgeu a1, a2, 2f
+ 6a4:	00c5fa63          	bgeu	a1,a2,6b8 <handle_reset+0x60>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:139
+1:
+	lw t0, (a0)
+ 6a8:	00052283          	lw	t0,0(a0)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:140
+	sw t0, (a1)
+ 6ac:	0055a023          	sw	t0,0(a1)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:141
+	addi a0, a0, 4
+ 6b0:	0511                	addi	a0,a0,4
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:142
+	addi a1, a1, 4
+ 6b2:	0591                	addi	a1,a1,4
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:143
+	bltu a1, a2, 1b
+ 6b4:	fec5eae3          	bltu	a1,a2,6a8 <handle_reset+0x50>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:146
+2:
+	/* clear bss section */
+	la a0, _sbss
+ 6b8:	20004517          	auipc	a0,0x20004
+ 6bc:	94850513          	addi	a0,a0,-1720 # 20004000 <_data_vma>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:147
+	la a1, _ebss
+ 6c0:	20004597          	auipc	a1,0x20004
+ 6c4:	94058593          	addi	a1,a1,-1728 # 20004000 <_data_vma>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:148
+	bgeu a0, a1, 2f
+ 6c8:	00b57763          	bgeu	a0,a1,6d6 <handle_reset+0x7e>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:150
+1:
+	sw zero, (a0)
+ 6cc:	00052023          	sw	zero,0(a0)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:151
+	addi a0, a0, 4
+ 6d0:	0511                	addi	a0,a0,4
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:152
+	bltu a0, a1, 1b
+ 6d2:	feb56de3          	bltu	a0,a1,6cc <handle_reset+0x74>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:154
+2:
+    li t0, 0x88
+ 6d6:	08800293          	li	t0,136
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:155
+    csrs mstatus, t0
+ 6da:	3002a073          	csrs	mstatus,t0
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:156
+	la t0, _vector_base
+ 6de:	20003297          	auipc	t0,0x20003
+ 6e2:	12228293          	addi	t0,t0,290 # 20003800 <_highcode_vma_start>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:157
+    ori t0, t0, 1
+ 6e6:	0012e293          	ori	t0,t0,1
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:158
+	csrw mtvec, t0
+ 6ea:	30529073          	csrw	mtvec,t0
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:159
+	la t0, main
+ 6ee:	00000297          	auipc	t0,0x0
+ 6f2:	01028293          	addi	t0,t0,16 # 6fe <main>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:160
+	csrw mepc, t0
+ 6f6:	34129073          	csrw	mepc,t0
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../Startup/startup_CH573.S:167
+	/* enable vector relocation
+	li t0, 0xE000ED14
+	li t1, 1
+	sw t1, 0(t0)*/
+	
+	mret
+ 6fa:	30200073          	mret
+
+000006fe <main>:
+main():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:37
+}
+
+void pin__init() {
+}
+
+int main(void) {
+ 6fe:	1141                	addi	sp,sp,-16
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:39
+	main__init();
+	pin__setup(a8, pin__output);
+ 700:	458d                	li	a1,3
+ 702:	10000513          	li	a0,256
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:37
+int main(void) {
+ 706:	c422                	sw	s0,8(sp)
+ 708:	c606                	sw	ra,12(sp)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:41
+	while(true) {
+		pin__high(a8);
+ 70a:	40001437          	lui	s0,0x40001
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:39
+	pin__setup(a8, pin__output);
+ 70e:	2815                	jal	742 <GPIOA_ModeCfg>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:41 (discriminator 1)
+		pin__high(a8);
+ 710:	0a842783          	lw	a5,168(s0) # 400010a8 <_eusrstack+0x1fff90a8>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:42 (discriminator 1)
+		time__sleep_ms(1500);
+ 714:	5dc00513          	li	a0,1500
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:41 (discriminator 1)
+		pin__high(a8);
+ 718:	1007e793          	ori	a5,a5,256
+ 71c:	0af42423          	sw	a5,168(s0)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:42 (discriminator 1)
+		time__sleep_ms(1500);
+ 720:	20003097          	auipc	ra,0x20003
+ 724:	31c080e7          	jalr	796(ra) # 20003a3c <mDelaymS>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:43 (discriminator 1)
+		pin__low(a8);
+ 728:	0ac42783          	lw	a5,172(s0)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:44 (discriminator 1)
+		time__sleep_ms(1500);
+ 72c:	5dc00513          	li	a0,1500
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:43 (discriminator 1)
+		pin__low(a8);
+ 730:	1007e793          	ori	a5,a5,256
+ 734:	0af42623          	sw	a5,172(s0)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:44 (discriminator 1)
+		time__sleep_ms(1500);
+ 738:	20003097          	auipc	ra,0x20003
+ 73c:	304080e7          	jalr	772(ra) # 20003a3c <mDelaymS>
+ 740:	bfc1                	j	710 <main+0x12>
+
+00000742 <GPIOA_ModeCfg>:
+GPIOA_ModeCfg():
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:25
+ *
+ * @return  none
+ */
+void GPIOA_ModeCfg(uint32_t pin, GPIOModeTypeDef mode)
+{
+    switch(mode)
+ 742:	4791                	li	a5,4
+ 744:	02b7ec63          	bltu	a5,a1,77c <GPIOA_ModeCfg+0x3a>
+ 748:	7e400713          	li	a4,2020
+ 74c:	058a                	slli	a1,a1,0x2
+ 74e:	95ba                	add	a1,a1,a4
+ 750:	419c                	lw	a5,0(a1)
+ 752:	97ba                	add	a5,a5,a4
+ 754:	8782                	jr	a5
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:28
+    {
+        case GPIO_ModeIN_Floating:
+            R32_PA_PD_DRV &= ~pin;
+ 756:	400017b7          	lui	a5,0x40001
+ 75a:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
+ 75e:	fff54513          	not	a0,a0
+ 762:	8f69                	and	a4,a4,a0
+ 764:	0ae7aa23          	sw	a4,180(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:29
+            R32_PA_PU &= ~pin;
+ 768:	0b07a703          	lw	a4,176(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:41
+            R32_PA_DIR &= ~pin;
+            break;
+
+        case GPIO_ModeIN_PD:
+            R32_PA_PD_DRV |= pin;
+            R32_PA_PU &= ~pin;
+ 76c:	8f69                	and	a4,a4,a0
+ 76e:	0ae7a823          	sw	a4,176(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:42
+            R32_PA_DIR &= ~pin;
+ 772:	0a07a703          	lw	a4,160(a5)
+ 776:	8d79                	and	a0,a0,a4
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:52
+            R32_PA_DIR |= pin;
+            break;
+
+        case GPIO_ModeOut_PP_20mA:
+            R32_PA_PD_DRV |= pin;
+            R32_PA_DIR |= pin;
+ 778:	0aa7a023          	sw	a0,160(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:58
+            break;
+
+        default:
+            break;
+    }
+}
+ 77c:	8082                	ret
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:34
+            R32_PA_PD_DRV &= ~pin;
+ 77e:	400017b7          	lui	a5,0x40001
+ 782:	0b47a683          	lw	a3,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
+ 786:	fff54713          	not	a4,a0
+ 78a:	8ef9                	and	a3,a3,a4
+ 78c:	0ad7aa23          	sw	a3,180(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:35
+            R32_PA_PU |= pin;
+ 790:	0b07a683          	lw	a3,176(a5)
+ 794:	8d55                	or	a0,a0,a3
+ 796:	0aa7a823          	sw	a0,176(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:36
+            R32_PA_DIR &= ~pin;
+ 79a:	0a07a683          	lw	a3,160(a5)
+ 79e:	8f75                	and	a4,a4,a3
+ 7a0:	0ae7a023          	sw	a4,160(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:37
+            break;
+ 7a4:	8082                	ret
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:40
+            R32_PA_PD_DRV |= pin;
+ 7a6:	400017b7          	lui	a5,0x40001
+ 7aa:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
+ 7ae:	8f49                	or	a4,a4,a0
+ 7b0:	0ae7aa23          	sw	a4,180(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:41
+            R32_PA_PU &= ~pin;
+ 7b4:	0b07a703          	lw	a4,176(a5)
+ 7b8:	fff54513          	not	a0,a0
+ 7bc:	bf45                	j	76c <GPIOA_ModeCfg+0x2a>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:46
+            R32_PA_PD_DRV &= ~pin;
+ 7be:	400017b7          	lui	a5,0x40001
+ 7c2:	0b47a683          	lw	a3,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
+ 7c6:	fff54713          	not	a4,a0
+ 7ca:	8f75                	and	a4,a4,a3
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:51
+            R32_PA_PD_DRV |= pin;
+ 7cc:	0ae7aa23          	sw	a4,180(a5)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:52
+            R32_PA_DIR |= pin;
+ 7d0:	0a07a703          	lw	a4,160(a5)
+ 7d4:	8d59                	or	a0,a0,a4
+ 7d6:	b74d                	j	778 <GPIOA_ModeCfg+0x36>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:51
+            R32_PA_PD_DRV |= pin;
+ 7d8:	400017b7          	lui	a5,0x40001
+ 7dc:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
+ 7e0:	8f49                	or	a4,a4,a0
+ 7e2:	b7ed                	j	7cc <GPIOA_ModeCfg+0x8a>
+ 7e4:	ff72                	fsw	ft8,188(sp)
+ 7e6:	ffff                	0xffff
+ 7e8:	ff9a                	fsw	ft6,252(sp)
+ 7ea:	ffff                	0xffff
+ 7ec:	ffc2                	fsw	fa6,252(sp)
+ 7ee:	ffff                	0xffff
+ 7f0:	ffda                	fsw	fs6,252(sp)
+ 7f2:	ffff                	0xffff
+ 7f4:	fff4                	fsw	fa3,124(a5)
+ 7f6:	ffff                	0xffff
