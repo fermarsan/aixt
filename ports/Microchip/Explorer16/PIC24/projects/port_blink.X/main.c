@@ -67,16 +67,26 @@ void port__init();
 void time__init();
 
 void main__init() {
-	AD1PCFG = 0xFFDF;
-	AD1CSSL = 0;
-	AD1CON2 = 0;
-	AD1CON3 = 0x1F02;
-	AD1CON1bits.ADON = 1;
-	TRISA = 0xff00;
-	TRISDbits.TRISD6 = 1;
-	TRISDbits.TRISD13 = 1;
-	TRISDbits.TRISD7 = 1;
-	TRISBbits.TRISB5 = 1;
+	AD1PCFG = 0xFFDF
+	[unhandled stmt str type: v.ast.SemicolonStmt ]
+	AD1CSSL = 0
+	[unhandled stmt str type: v.ast.SemicolonStmt ]
+	AD1CON2 = 0
+	[unhandled stmt str type: v.ast.SemicolonStmt ]
+	AD1CON3 = 0x1F02
+	[unhandled stmt str type: v.ast.SemicolonStmt ]
+	.ADON = 1
+	[unhandled stmt str type: v.ast.SemicolonStmt ]
+	TRISA = 0xff00
+	[unhandled stmt str type: v.ast.SemicolonStmt ]
+	.TRISD6 = 1
+	[unhandled stmt str type: v.ast.SemicolonStmt ]
+	.TRISD13 = 1
+	[unhandled stmt str type: v.ast.SemicolonStmt ]
+	.TRISD7 = 1
+	[unhandled stmt str type: v.ast.SemicolonStmt ]
+	.TRISB5 = 1
+	[unhandled stmt str type: v.ast.SemicolonStmt ]
 	port__init();
 	time__init();
 	
