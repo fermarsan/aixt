@@ -52,6 +52,10 @@ fn (mut gen Gen) stmt(node ast.Stmt) string {
 		ast.HashStmt {
 			return gen.hash_stmt(node)
 		}
+		ast.AsmStmt {
+			return gen.asm_stmt(node)
+		}
+		
 		else { panic('\n\n***** Transpiler error *****:\nUndefined statement.\n') }
 	}
 }

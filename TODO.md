@@ -11,8 +11,9 @@ Tasks to do in Aixt
 - [ ] Update the Aixt executable path #bug
 - [ ] dynamic memory definition
 - [ ] generates documentation from code
-- [ ] Give support to transpile multi-file folders (`aixt.v`)
 - [ ] API auto-import option
+- [ ] Implements inline assembly
+
 
 ### In Progress
 
@@ -25,6 +26,8 @@ Tasks to do in Aixt
    
 ### Done ✓
 
+
+- [x] Give support to transpile multi-file folders (`aixt.v`)
 - [x] change all the Aixt source code to `aixt/src` folder
 - [x] improve (get short) PIC24 API macros
 - [x] `module.ident` issue SOLVED
