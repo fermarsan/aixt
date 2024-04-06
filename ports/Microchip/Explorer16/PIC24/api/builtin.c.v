@@ -48,7 +48,6 @@ module main
 
 #define pot     B, 5	// Onboard potentiometer
 
-@[literal]	// (inline C code for XC16 compiler)
 fn init() {
 	// initialization function 
 	AD1PCFG = 0xFFDF;     // Analog inputs for Explorer16 POT and TSENS
