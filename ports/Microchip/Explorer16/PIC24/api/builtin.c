@@ -4,11 +4,12 @@
 // License: MIT
 //
 // Description: Builtin definitions (Explorer16-PIC24 port)
-module main
-
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
+
+// ----------  if setup.c.v doesn't found  ----------
+// #ifndef __setup__
 
 #define FCY 8000000UL
 
@@ -26,6 +27,9 @@ module main
 #pragma config GCP = OFF
 #pragma config JTAGEN = OFF
 
+// #endif
+// --------------------------------------------------
+
 #define led3    A, 0	// Onboard LEDs            
 #define led4    A, 1        
 #define led5    A, 2        
@@ -42,10 +46,8 @@ module main
 
 #define pot     B, 5	// Onboard potentiometer
 
-fn init() {
-	backend_code("
-	// initialization function 
-	AD1PCFG = 0xFFDF;     	// Analog inputs for Explorer16 POT and TSENS
+main__init() {
+	AD1PCFG = 0xFFDF;     // Analog inputs for Explorer16 POT and TSENS
 	AD1CSSL = 0;           	// no scanning required
 	AD1CON2 = 0;           	// use MUXA, AVss and AVdd are used as Vref+/-
 	AD1CON3 = 0x1F02;      	// Tsamp = 32 x Tad; Tad=125ns
@@ -56,6 +58,5 @@ fn init() {
 	TRISDbits.TRISD6 =  1;	// inputs switches
 	TRISDbits.TRISD13 = 1;	 
 	TRISDbits.TRISD7 =  1;	 
-	TRISBbits.TRISB5 =  1;	// potentiometer
-	")
+	TRISBbits.TRISB5 =  1;	// potentiometer'
 }

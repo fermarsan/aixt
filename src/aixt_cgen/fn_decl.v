@@ -68,13 +68,8 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 	} else {
 		gen.cur_fn = node.name
 		println('## fn name: ${node.name} ##')
-		mut literal_attr := false
 		for a in node.attrs {
-			if a.name == 'literal' {
-				literal_attr = true		// literal attribute flag
-			} else {
 				out += '${a.name} '
-			}
 		}
 		// println('##########${gen.table.type_symbols[node.return_type].str()}##########')
 		out += '${gen.setup.value(gen.table.type_symbols[node.return_type].str()).string()} ' // return type
@@ -94,12 +89,9 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 			gen.definitions << out + ';\n'	// generates the function's prototype
 			out += ' {\n'
 		}
+		// println("+++++++++++++++\n${node.stmts}\n+++++++++++++++")
 		for st in node.stmts {
-			out += if literal_attr {
-				st.str() + '\n'		// for literal functions (inline backend code)
-			} else {
-				gen.ast_node(st)  	// for regular functions
-			}
+			out += gen.ast_node(st)  	
 		}
 		
 		out += if node.name == 'main.init' {
