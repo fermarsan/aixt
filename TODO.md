@@ -22,13 +22,9 @@ Tasks to do in Aixt
 - [ ] setup template files
 - [ ] relocate generated code for function definitions #bug
 - [ ] add to the docs the difference of V and C preprocessor
-- [ ] change all the API to 'pure V' to mixed V & C.
    
 ### Done ✓
 
-
+- [x] change all the API from 'pure V' to mixed V & C.
 - [x] Give support to transpile multi-file folders (`aixt.v`)
 - [x] change all the Aixt source code to `aixt/src` folder
-- [x] improve (get short) PIC24 API macros
-- [x] `module.ident` issue SOLVED
-- [x] Issue .exe extension in Emulator on Windows SOLVED

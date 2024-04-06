@@ -1,4 +1,4 @@
-init() {
+void init() {
 	AD1PCFG = 0xFFDF;     	// Analog inputs for Explorer16 POT and TSENS
 	AD1CSSL = 0;           	// no scanning required
 	AD1CON2 = 0;           	// use MUXA, AVss and AVdd are used as Vref+/-

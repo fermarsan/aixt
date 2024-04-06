@@ -32,7 +32,7 @@
 #define sw4     D, 13
 #define sw5     A, 7
 #define sw6     D, 7
-#define pot     B, 5	// Onboard potentiometer
+#define pot     B, 5	// Onboard potentiometer'
 #include <libpic30.h>
 #define time__sleep_ms(TIME)    __delay_ms(TIME)
 #include <p24FJ128GA010.h>
@@ -141,16 +141,6 @@ void time__init();
 void pin__init();
 
 void main__init() {
-	AD1PCFG = 0xFFDF;
-	AD1CSSL = 0;
-	AD1CON2 = 0;
-	AD1CON3 = 0x1F02;
-	AD1CON1bits.ADON = 1;
-	TRISA = 0xff00;
-	TRISDbits.TRISD6 = 1;
-	TRISDbits.TRISD13 = 1;
-	TRISDbits.TRISD7 = 1;
-	TRISBbits.TRISB5 = 1;
 	time__init();
 	pin__init();
 	
