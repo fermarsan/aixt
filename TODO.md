@@ -22,7 +22,7 @@ Tasks to do in Aixt
 - [ ] setup template files
 - [ ] relocate generated code for function definitions #bug
 - [ ] add to the docs the difference of V and C preprocessor
-- [ ] Implement function for inserting literal backend code
+- [ ] change all the API to 'pure V' to mixed V & C.
    
 ### Done ✓
 

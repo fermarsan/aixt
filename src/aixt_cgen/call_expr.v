@@ -8,6 +8,9 @@ import v.ast
 
 // call_expr is the code generation function for function calling expressions.
 fn (mut gen Gen) call_expr(node ast.CallExpr) string {
+	if node.name.all_before_last('.') == 'literal_backend_code' {	// detect the literal code insertion function
+		return (node.args[0].expr as ast.StringLiteral).val
+	}
 	// fn_name := node.name.replace('.', '__')	// remove the parent function name
 	mut fn_name := node.name.all_before_last('.')	// only the module name
 	fn_name = if node.name.contains('.') {
