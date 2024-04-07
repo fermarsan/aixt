@@ -19,26 +19,10 @@ __global (
     duty__ = [0, 0]
 )
 
-pub fn print(duty int) {
-    for i__ := 1; i__ <= 50; i__++ {
-        if i__ <= duty/2 {
-            printf('|')
-        } else {
-            printf('_')
-        }
-    }
-    printf('\n')
-}
+pub fn C.print(duty int)
 
-pub fn update() {
-    system(CLEAR_SCREEN)
-    printf(' Aixt virtual PWM outputs\n')
-    printf('\t\t\t\t    PWM 0 :  %ld %%\n', duty__[0])
-    pwm__print(duty__[0])
-    printf('\t\t\t\t    PWM 1 :  %ld %%\n', duty__[1])
-    pwm__print(duty__[1])
-}
+pub fn C.update()
 
 fn init() {
-    update()
+    pwm.update()
 }

@@ -75,8 +75,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 			.c {				// for C.functions()
 				c_file_path := node.file.all_before_last('/') + '/${node.short_name}.c'
 				mut c_code := os.read_file(c_file_path) or { '' }
-				c_code = c_code.replace('${node.short_name}(', '${module_short_name}__${node.short_name}(')
-				out += c_code.replace('\n\t', '\n')
+				out += c_code.replace('${node.short_name}(', '${module_short_name}__${node.short_name}(')
 				out += '\n'
 				if node.short_name == 'init' && node.mod == 'main' {
 					gen.init_cmds += 'main__init();\n'	// call the module initialization function
