@@ -10,10 +10,8 @@ module pwm
 #include <stdlib.h>
 
 // PWM_names is the enumerated type for the PWM names
-enum PWM_names {
-    pwm_0 = 0
-    pwm_1   
-}
+#define		pwm__out_0		0
+#define		pwm__out_1		1
 
 __global (
     duty__ = [0, 0]
