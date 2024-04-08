@@ -1,13 +1,16 @@
-import time {sleep_ms}
+import pwm
 import pin
+import adc
 
-BRILLO := 0
+__global (
+  val = 0
+)
 
-pin_setup(gp10, output)
+pin.setup(gp10, pin.output)
 
 for {
 
-BRILLO = adc_read(gp28)/4
-pwm_write(gp10, BRILLO)
+val = adc.read(gp28)
+pwm.write(gp10, val)
 
 }

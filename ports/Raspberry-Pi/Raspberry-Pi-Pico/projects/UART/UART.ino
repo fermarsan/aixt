@@ -24,6 +24,7 @@
 #define uart__read_x(UART_NUMBER)	uart__read_ ## UART_NUMBER ## .read()
 #define SEL_UART_READ(_0, _1, MACRO_NAME, ...) MACRO_NAME
 #define uart__read(...) SEL_UART_READ(_0 __VA_OPT__(,) __VA_ARGS__, uart__read_x, uart__read_0)(__VA_ARGS__)
+#define uart__setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
 #define uart__setup_0(BAUD_RATE)					Serial.begin(BAUD_RATE)
 #define uart__setup_1(BAUD_RATE)					Serial1.begin(BAUD_RATE)
 #define uart__setup_x(UART_NUMBER, BAUD_RATE)		uart__setup_ ## UART_NUMBER (BAUD_RATE)
@@ -33,6 +34,8 @@
 void main__init();
 
 void uart__init();
+
+int32_t a = 0;
 
 enum main____pin_names {
 	gp0,
@@ -77,12 +80,12 @@ void uart__init() {
 
 void setup() {
 	main__init();
-	Serial__static__begin(9600);
+	uart__setup(9600);
 }
 
 void loop() {
-	if((Serial__static__available())) {
-		a = Serial__static__read();
-		Serial__static__println(a);
+	if(uart__any()) {
+		a = uart__read();
+		uart__println(a);
 	}
 }

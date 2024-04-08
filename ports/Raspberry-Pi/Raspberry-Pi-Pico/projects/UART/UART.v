@@ -1,12 +1,14 @@
 import uart
 
-  Serial.begin(9600)
+ __global (
+    a = 0
+ )
+
+uart.setup(9600)
 
 for {
-  
-  if(Serial.available())
-  {
-    a = Serial.read()
-    Serial.println(a)
-  }
+	if uart.any() {
+		a = uart.read()
+		uart.println(a)
+	}
 }
