@@ -7,13 +7,13 @@
 // // Description: UART functions (Blue Pill_STM32F103C)
 //              (PC port) 
 
-#define uart0_setup(baud_rate)   Serial.begin(baud_rate)
-#define uart_setup(baud_rate)   Serial.begin(baud_rate)
+#define uart0__setup(baud_rate)   Serial.begin(baud_rate)
+#define uart__setup(baud_rate)   Serial.begin(baud_rate)
 
-#define uart0_ready()  Serial.available()
-#define uart_ready()   Serial.available()
+#define uart0__ready()  Serial.available()
+#define uart__ready()   Serial.available()
 
-#define uart0_read()   Serial.read()
-#define uart_read()   Serial.read()
+#define uart0__read()   Serial.read()
+#define uart__read()   Serial.read()
 
 #define println(message)   Serial.println(message)

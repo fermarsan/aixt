@@ -1,12 +1,12 @@
 # Project Name = Aixt, https =//github.com/fermarsan/aixt.git
-# Author = Fernando Martinez Santa - Julian Camilo Guzman Zambrano - Juan Pablo Gonzalez Penagos
+# Author = Fernando Martínez Santa - Julian Camilo Guzman Zambrano - Juan Pablo Gonzalez Penagos
 # Date = 2022-2024
 # License = MIT
 #
 # Description = This is the setup file for the AIR32F103
 #               port of Aixt project 
 port =    "AIR32F103"
-device =  "2ATPO-AIWB2"
+device =  "AIR32F103"
 board =   "AIR32F103"
 backend = "arduino"
 
@@ -14,7 +14,7 @@ cc_linux =   "xc16"
 cc_windows = "C:\\Program Files\\Arduino IDE.exe"
 cc_flags =   "-o"
 
-path = "AIR32F103"
+path = "Luatos/AIR32F103"
 
 fixed_size_arrays  = "true"
 array_default_len  = 20
@@ -54,7 +54,8 @@ api_modules = [
     "pin",
     "pwm",
     "uart",
-    "time"
+    "time",
+    "adc"
 ]
 
 [aliases]

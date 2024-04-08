@@ -5,7 +5,7 @@
 // License: MIT
 //
 // Description: Builtin definitions
-//              (PC port) 
+
 module main
 
 enum __pin_names {    // enumerated type for the pin names
