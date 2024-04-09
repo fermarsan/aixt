@@ -4,7 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: V.MOD functions (Ai_Thinker_Ai-WB2-32S-Kit)
+// // Description:Aixt pin management module for Ai-WB2-32S-Kit (Ai_Thinker_Ai-WB2-32S-Kit)
 
 Module {
 	name:	'pin'

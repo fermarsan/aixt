@@ -4,7 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: TIME functions (Ai_Thinker_Ai-WB2-32S-Kit)
+// // Description: time functions (Ai_Thinker_Ai-WB2-32S-Kit)
 
 module time
 
