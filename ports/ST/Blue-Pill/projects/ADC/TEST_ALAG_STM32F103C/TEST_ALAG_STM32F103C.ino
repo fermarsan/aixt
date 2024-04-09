@@ -1,6 +1,6 @@
 
-int pinA = PA5;  // Pin para el LED A
-int pinB = PA6;  // Pin para el LED B
+int pinA = PB10;  // Pin para el LED A
+int pinB = PB1;  // Pin para el LED B
 int pinc = PA4;  // Pin para el LED C
 
 void setup() {
@@ -11,7 +11,7 @@ void setup() {
 
 void loop() {
  
-  if (500<=analogRead(pinc)) {
+  if (400<=analogRead(pinc)) {
   digitalWrite(pinA, HIGH);
   digitalWrite(pinB, LOW);
   delay (100);
@@ -21,8 +21,7 @@ void loop() {
   digitalWrite(pinA, LOW);
   delay (100);
  }
-  Serial.println(9600);//velocidad en baudios soportado   
- //por la tarjeta
+ 
 }
 
 

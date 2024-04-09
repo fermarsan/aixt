@@ -66,12 +66,12 @@ void pin__init() {
 
 void setup() {
 	main__init();
-	pin__setup(P25, pin__output);
+	pin__setup(p25, pin__output);
 }
 
 void loop() {
-	pin__high(P25);
+	pin__high(p25);
 	time__sleep_ms(1000);
-	pin__low(P25);
+	pin__low(p25);
 	time__sleep_ms(1000);
 }
