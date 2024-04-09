@@ -4,3 +4,8 @@
 // Description: ADC functions (WCH-CH573F)
 
 module adc
+
+
+fn init() {
+
+}
