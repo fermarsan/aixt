@@ -4,7 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: PIN functions (Ai_Thinker_Ai-WB2-32S-Kit)
+// // Description: pin functions (Ai_Thinker_Ai-WB2-32S-Kit)
 
 module pin
 

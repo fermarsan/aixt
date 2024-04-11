@@ -1,6 +1,7 @@
 module uart
 
 
+
 #define uart__any_0()	Serial.available()
 
 #define uart__any_1()	Serial1.available()

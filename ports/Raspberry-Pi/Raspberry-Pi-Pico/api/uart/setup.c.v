@@ -1,5 +1,6 @@
 module uart
 
+#define uart__setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
 
 #define uart__setup_0(BAUD_RATE)					Serial.begin(BAUD_RATE)
 

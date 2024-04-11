@@ -4,7 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: READ functions (Ai_Thinker_Ai-WB2-32S-Kit)
+// // Description: read functions (Ai_Thinker_Ai-WB2-32S-Kit)
 
 module pin
 
