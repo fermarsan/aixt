@@ -21,15 +21,11 @@ Tasks to do in Aixt
 - [ ] setup template files
 - [ ] relocate generated code for function definitions #bug
 - [ ] add to the docs the difference of V and C preprocessor
-- [ ] improve (get short) PIC24 API macros
+- [ ] allow inline c code with the `C.function()` syntax "with body".  
+- [ ] change all the Aixt source code to `aixt/src` folder
    
 ### Done ✓
 
-
+- [x] improve (get short) PIC24 API macros
 - [x] `module.ident` issue SOLVED
 - [x] Issue .exe extension in Emulator on Windows SOLVED
-- [x] Emulator issue on Windows, in `time` module SOLVED
-- [x] Windows gen.files more than gen.source paths SOLVED
-- [x] Printing improved messages for debugging
-- [x] support enum fields (`enum_name.enum_field`)
-- [x] Add `void` type to C void functions

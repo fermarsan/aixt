@@ -8,3 +8,6 @@
 //              (PC port) 
 
 module adc
+fn init(){
+	
+}

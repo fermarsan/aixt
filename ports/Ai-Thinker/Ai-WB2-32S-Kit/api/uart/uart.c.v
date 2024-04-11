@@ -4,7 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: SLEEP_ms functions (Ai_Thinker_Ai-WB2-32S-Kit)
+// // Description: fn init() functions (Ai_Thinker_Ai-WB2-32S-Kit)
 
 module uart
 

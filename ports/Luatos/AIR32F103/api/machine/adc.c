@@ -7,4 +7,4 @@
 // // Description: ADC functions (Blue Pill_STM32F103C)
 //              (PC port) 
 
-#define adc_read(PIN_NAME)   analogRead(PIN_NAME)
+#define adc__read(PIN_NAME)   analogRead(PIN_NAME)
