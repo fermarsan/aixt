@@ -1,0 +1,358 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"81 pwm.c
+[v _adc__init `(v ~T0 @X0 0 e? ]
+"85
+[v _pwm__init `(v ~T0 @X0 0 e? ]
+"1172 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f886.h
+[s S43 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
+[n S43 . ADON GO_nDONE CHS ADCS ]
+"1178
+[s S44 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S44 . . GO CHS0 CHS1 CHS2 CHS3 ADCS0 ADCS1 ]
+"1188
+[s S45 :1 `uc 1 :1 `uc 1 ]
+[n S45 . . nDONE ]
+"1192
+[s S46 :1 `uc 1 :1 `uc 1 ]
+[n S46 . . GO_DONE ]
+"1171
+[u S42 `S43 1 `S44 1 `S45 1 `S46 1 ]
+[n S42 . . . . . ]
+"1197
+[v _ADCON0bits `VS42 ~T0 @X0 0 e@31 ]
+"1159
+[v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
+"2812
+[v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
+"1883
+[v _PR2 `Vuc ~T0 @X0 0 e@146 ]
+"1075
+[v _CCPR2L `Vuc ~T0 @X0 0 e@27 ]
+"1467
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1466
+[u S54 `S55 1 ]
+[n S54 . . ]
+"1478
+[v _TRISCbits `VS54 ~T0 @X0 0 e@135 ]
+"693
+[v _T2CON `Vuc ~T0 @X0 0 e@18 ]
+"1089
+[v _CCP2CON `Vuc ~T0 @X0 0 e@29 ]
+"686
+[v _TMR2 `Vuc ~T0 @X0 0 e@17 ]
+"699
+[s S25 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S25 . T2CKPS TMR2ON TOUTPS ]
+"704
+[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S26 . T2CKPS0 T2CKPS1 . TOUTPS0 TOUTPS1 TOUTPS2 TOUTPS3 ]
+"698
+[u S24 `S25 1 `S26 1 ]
+[n S24 . . . ]
+"714
+[v _T2CONbits `VS24 ~T0 @X0 0 e@18 ]
+[p mainexit ]
+"2819
+[v _ADCON1 `Vuc ~T0 @X0 0 e@159 ]
+"1166
+[v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
+"54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f886.h
+[; <" INDF equ 00h ;# ">
+"61
+[; <" TMR0 equ 01h ;# ">
+"68
+[; <" PCL equ 02h ;# ">
+"75
+[; <" STATUS equ 03h ;# ">
+"161
+[; <" FSR equ 04h ;# ">
+"168
+[; <" PORTA equ 05h ;# ">
+"230
+[; <" PORTB equ 06h ;# ">
+"292
+[; <" PORTC equ 07h ;# ">
+"354
+[; <" PORTE equ 09h ;# ">
+"375
+[; <" PCLATH equ 0Ah ;# ">
+"382
+[; <" INTCON equ 0Bh ;# ">
+"460
+[; <" PIR1 equ 0Ch ;# ">
+"516
+[; <" PIR2 equ 0Dh ;# ">
+"573
+[; <" TMR1 equ 0Eh ;# ">
+"580
+[; <" TMR1L equ 0Eh ;# ">
+"587
+[; <" TMR1H equ 0Fh ;# ">
+"594
+[; <" T1CON equ 010h ;# ">
+"688
+[; <" TMR2 equ 011h ;# ">
+"695
+[; <" T2CON equ 012h ;# ">
+"766
+[; <" SSPBUF equ 013h ;# ">
+"773
+[; <" SSPCON equ 014h ;# ">
+"843
+[; <" CCPR1 equ 015h ;# ">
+"850
+[; <" CCPR1L equ 015h ;# ">
+"857
+[; <" CCPR1H equ 016h ;# ">
+"864
+[; <" CCP1CON equ 017h ;# ">
+"961
+[; <" RCSTA equ 018h ;# ">
+"1056
+[; <" TXREG equ 019h ;# ">
+"1063
+[; <" RCREG equ 01Ah ;# ">
+"1070
+[; <" CCPR2 equ 01Bh ;# ">
+"1077
+[; <" CCPR2L equ 01Bh ;# ">
+"1084
+[; <" CCPR2H equ 01Ch ;# ">
+"1091
+[; <" CCP2CON equ 01Dh ;# ">
+"1161
+[; <" ADRESH equ 01Eh ;# ">
+"1168
+[; <" ADCON0 equ 01Fh ;# ">
+"1269
+[; <" OPTION_REG equ 081h ;# ">
+"1339
+[; <" TRISA equ 085h ;# ">
+"1401
+[; <" TRISB equ 086h ;# ">
+"1463
+[; <" TRISC equ 087h ;# ">
+"1525
+[; <" TRISE equ 089h ;# ">
+"1546
+[; <" PIE1 equ 08Ch ;# ">
+"1602
+[; <" PIE2 equ 08Dh ;# ">
+"1659
+[; <" PCON equ 08Eh ;# ">
+"1706
+[; <" OSCCON equ 08Fh ;# ">
+"1771
+[; <" OSCTUNE equ 090h ;# ">
+"1823
+[; <" SSPCON2 equ 091h ;# ">
+"1885
+[; <" PR2 equ 092h ;# ">
+"1892
+[; <" SSPADD equ 093h ;# ">
+"1899
+[; <" SSPMSK equ 093h ;# ">
+"1904
+[; <" MSK equ 093h ;# ">
+"2021
+[; <" SSPSTAT equ 094h ;# ">
+"2190
+[; <" WPUB equ 095h ;# ">
+"2260
+[; <" IOCB equ 096h ;# ">
+"2330
+[; <" VRCON equ 097h ;# ">
+"2400
+[; <" TXSTA equ 098h ;# ">
+"2486
+[; <" SPBRG equ 099h ;# ">
+"2548
+[; <" SPBRGH equ 09Ah ;# ">
+"2618
+[; <" PWM1CON equ 09Bh ;# ">
+"2688
+[; <" ECCPAS equ 09Ch ;# ">
+"2770
+[; <" PSTRCON equ 09Dh ;# ">
+"2814
+[; <" ADRESL equ 09Eh ;# ">
+"2821
+[; <" ADCON1 equ 09Fh ;# ">
+"2855
+[; <" WDTCON equ 0105h ;# ">
+"2908
+[; <" CM1CON0 equ 0107h ;# ">
+"2973
+[; <" CM2CON0 equ 0108h ;# ">
+"3038
+[; <" CM2CON1 equ 0109h ;# ">
+"3089
+[; <" EEDATA equ 010Ch ;# ">
+"3094
+[; <" EEDAT equ 010Ch ;# ">
+"3101
+[; <" EEADR equ 010Dh ;# ">
+"3108
+[; <" EEDATH equ 010Eh ;# ">
+"3115
+[; <" EEADRH equ 010Fh ;# ">
+"3122
+[; <" SRCON equ 0185h ;# ">
+"3179
+[; <" BAUDCTL equ 0187h ;# ">
+"3231
+[; <" ANSEL equ 0188h ;# ">
+"3275
+[; <" ANSELH equ 0189h ;# ">
+"3325
+[; <" EECON1 equ 018Ch ;# ">
+"3370
+[; <" EECON2 equ 018Dh ;# ">
+"11 pwm.c
+[p x FOSC  =  HS         ]
+"12
+[p x WDTE  =  OFF        ]
+"13
+[p x PWRTE  =  OFF       ]
+"14
+[p x MCLRE  =  OFF       ]
+"15
+[p x CP  =  OFF          ]
+"16
+[p x CPD  =  OFF         ]
+"17
+[p x BOREN  =  OFF       ]
+"18
+[p x IESO  =  OFF        ]
+"19
+[p x FCMEN  =  OFF       ]
+"20
+[p x LVP  =  OFF          ]
+"21
+[p x BOR4V  =  BOR40V    ]
+"22
+[p x WRT  =  OFF         ]
+"91
+[v _main__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _main__init ]
+[f ]
+"92
+[e ( _adc__init ..  ]
+"93
+[e ( _pwm__init ..  ]
+"95
+[e :UE 135 ]
+}
+"97
+[v _adc__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _adc__init ]
+[f ]
+"98
+[e :UE 136 ]
+}
+"100
+[v _adc__read `(us ~T0 @X0 1 ef1`us ]
+{
+[e :U _adc__read ]
+[v _channel `us ~T0 @X0 1 r1 ]
+[f ]
+"101
+[e = . . _ADCON0bits 0 2 -> _channel `uc ]
+"102
+[e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]
+"103
+[e $U 138  ]
+[e :U 139 ]
+{
+"104
+}
+[e :U 138 ]
+"103
+[e $ == -> . . _ADCON0bits 3 1 `i -> 1 `i 139  ]
+[e :U 140 ]
+"105
+[e ) -> | << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+[e $UE 137  ]
+"106
+[e :UE 137 ]
+}
+"108
+[v _pwm__init `(v ~T0 @X0 1 ef ]
+{
+[e :U _pwm__init ]
+[f ]
+"109
+[e :UE 141 ]
+}
+"111
+[v _pwm__setup `(v ~T0 @X0 1 ef ]
+{
+[e :U _pwm__setup ]
+[f ]
+"112
+[e = _PR2 -> -> 62 `i `uc ]
+"113
+[e = _CCPR2L -> -> 0 `i `uc ]
+"114
+[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+"115
+[e = _T2CON -> -> 3 `i `uc ]
+"116
+[e = _CCP2CON -> -> 12 `i `uc ]
+"117
+[e = _TMR2 -> -> 0 `i `uc ]
+"118
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+"119
+[e :UE 142 ]
+}
+"121
+[v _pwm__write `(v ~T0 @X0 1 ef1`us ]
+{
+[e :U _pwm__write ]
+[v _duty `us ~T0 @X0 1 r1 ]
+[f ]
+"122
+[v _pwm `us ~T0 @X0 1 a ]
+[e = _pwm -> + / * - -> _duty `ui -> -> 0 `i `ui -> - -> 60 `i -> 0 `i `ui -> - -> 256 `i -> 0 `i `ui -> -> 0 `i `ui `us ]
+"123
+[e = _CCPR2L -> >> -> _pwm `ui -> 2 `i `uc ]
+"124
+[e :UE 143 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"126
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"127
+[e ( _main__init ..  ]
+"128
+[e = _ADCON1 -> -> 128 `i `uc ]
+[e = _ADCON0 -> -> 200 `i `uc ]
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+"129
+[e ( _pwm__setup ..  ]
+"130
+[e :U 146 ]
+{
+"131
+[v _x `us ~T0 @X0 1 a ]
+[e = _x -> -> 0 `i `us ]
+"132
+[e = _x ( _adc__read (1 -> -> 0 `i `us ]
+"133
+[e ( _pwm__write (1 _x ]
+"134
+}
+[e :U 145 ]
+[e $U 146  ]
+[e :U 147 ]
+"135
+[e :UE 144 ]
+}

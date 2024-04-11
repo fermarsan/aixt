@@ -1,0 +1,650 @@
+
+
+Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
+                                                                                               Tue Mar 19 07:27:03 2024
+
+Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
+     1                           	processor	16F873A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     6                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	maintext,global,class=CODE,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,merge=1,delta=2
+     9                           	psect	text2,local,class=CODE,merge=1,delta=2
+    10                           	psect	text3,local,class=CODE,merge=1,delta=2
+    11                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    12                           	dabs	1,0x7E,2
+    13     0000                     
+    14                           ; Generated 22/03/2023 GMT
+    15                           ; 
+    16                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    17                           ; All rights reserved.
+    18                           ; 
+    19                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    20                           ; 
+    21                           ; Redistribution and use in source and binary forms, with or without modification, are
+    22                           ; permitted provided that the following conditions are met:
+    23                           ; 
+    24                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    25                           ;        conditions and the following disclaimer.
+    26                           ; 
+    27                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    28                           ;        of conditions and the following disclaimer in the documentation and/or other
+    29                           ;        materials provided with the distribution. Publication is not required when
+    30                           ;        this file is used in an embedded application.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    43                           ; 
+    44                           ; 
+    45                           ; Code-generator required, PIC16F873A Definitions
+    46                           ; 
+    47                           ; SFR Addresses
+    48     0000                     	;# 
+    49     0001                     	;# 
+    50     0002                     	;# 
+    51     0003                     	;# 
+    52     0004                     	;# 
+    53     0005                     	;# 
+    54     0006                     	;# 
+    55     0007                     	;# 
+    56     000A                     	;# 
+    57     000B                     	;# 
+    58     000C                     	;# 
+    59     000D                     	;# 
+    60     000E                     	;# 
+    61     000E                     	;# 
+    62     000F                     	;# 
+    63     0010                     	;# 
+    64     0011                     	;# 
+    65     0012                     	;# 
+    66     0013                     	;# 
+    67     0014                     	;# 
+    68     0015                     	;# 
+    69     0015                     	;# 
+    70     0016                     	;# 
+    71     0017                     	;# 
+    72     0018                     	;# 
+    73     0019                     	;# 
+    74     001A                     	;# 
+    75     001B                     	;# 
+    76     001B                     	;# 
+    77     001C                     	;# 
+    78     001D                     	;# 
+    79     001E                     	;# 
+    80     001F                     	;# 
+    81     0081                     	;# 
+    82     0085                     	;# 
+    83     0086                     	;# 
+    84     0087                     	;# 
+    85     008C                     	;# 
+    86     008D                     	;# 
+    87     008E                     	;# 
+    88     0091                     	;# 
+    89     0092                     	;# 
+    90     0093                     	;# 
+    91     0094                     	;# 
+    92     0098                     	;# 
+    93     0099                     	;# 
+    94     009C                     	;# 
+    95     009D                     	;# 
+    96     009E                     	;# 
+    97     009F                     	;# 
+    98     010C                     	;# 
+    99     010D                     	;# 
+   100     010E                     	;# 
+   101     010F                     	;# 
+   102     018C                     	;# 
+   103     018D                     	;# 
+   104     0000                     	;# 
+   105     0001                     	;# 
+   106     0002                     	;# 
+   107     0003                     	;# 
+   108     0004                     	;# 
+   109     0005                     	;# 
+   110     0006                     	;# 
+   111     0007                     	;# 
+   112     000A                     	;# 
+   113     000B                     	;# 
+   114     000C                     	;# 
+   115     000D                     	;# 
+   116     000E                     	;# 
+   117     000E                     	;# 
+   118     000F                     	;# 
+   119     0010                     	;# 
+   120     0011                     	;# 
+   121     0012                     	;# 
+   122     0013                     	;# 
+   123     0014                     	;# 
+   124     0015                     	;# 
+   125     0015                     	;# 
+   126     0016                     	;# 
+   127     0017                     	;# 
+   128     0018                     	;# 
+   129     0019                     	;# 
+   130     001A                     	;# 
+   131     001B                     	;# 
+   132     001B                     	;# 
+   133     001C                     	;# 
+   134     001D                     	;# 
+   135     001E                     	;# 
+   136     001F                     	;# 
+   137     0081                     	;# 
+   138     0085                     	;# 
+   139     0086                     	;# 
+   140     0087                     	;# 
+   141     008C                     	;# 
+   142     008D                     	;# 
+   143     008E                     	;# 
+   144     0091                     	;# 
+   145     0092                     	;# 
+   146     0093                     	;# 
+   147     0094                     	;# 
+   148     0098                     	;# 
+   149     0099                     	;# 
+   150     009C                     	;# 
+   151     009D                     	;# 
+   152     009E                     	;# 
+   153     009F                     	;# 
+   154     010C                     	;# 
+   155     010D                     	;# 
+   156     010E                     	;# 
+   157     010F                     	;# 
+   158     018C                     	;# 
+   159     018D                     	;# 
+   160     0006                     _PORTBbits	set	6
+   161     0086                     _TRISBbits	set	134
+   162                           
+   163                           	psect	cinit
+   164     07FD                     start_initialization:	
+   165                           ; #config settings
+   166                           
+   167     07FD                     __initialization:
+   168     07FD                     end_of_initialization:	
+   169                           ;End of C runtime variable initialization code
+   170                           
+   171     07FD                     __end_of__initialization:
+   172     07FD  0183               	clrf	3
+   173     07FE  118A  2FA8         	ljmp	_main	;jump to C main() function
+   174                           
+   175                           	psect	cstackCOMMON
+   176     0000                     __pcstackCOMMON:
+   177     0000                     ??_pin__init:
+   178     0000                     ??_time__init:	
+   179                           ; 1 bytes @ 0x0
+   180                           
+   181     0000                     ??_main__init:	
+   182                           ; 1 bytes @ 0x0
+   183                           
+   184                           
+   185                           	psect	cstackBANK0
+   186     0020                     __pcstackBANK0:	
+   187                           ; 1 bytes @ 0x0
+   188                           
+   189     0020                     ?_pin__init:
+   190     0020                     ?_time__init:	
+   191                           ; 1 bytes @ 0x0
+   192                           
+   193     0020                     ?_main__init:	
+   194                           ; 1 bytes @ 0x0
+   195                           
+   196     0020                     ?_main:	
+   197                           ; 1 bytes @ 0x0
+   198                           
+   199     0020                     ??_main:	
+   200                           ; 1 bytes @ 0x0
+   201                           
+   202                           
+   203                           ; 1 bytes @ 0x0
+   204     0020                     	ds	3
+   205                           
+   206                           	psect	maintext
+   207     07A8                     __pmaintext:	
+   208 ;;
+   209 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   210 ;;
+   211 ;; *************** function _main *****************
+   212 ;; Defined at:
+   213 ;;		line 96 in file "Blinking.c"
+   214 ;; Parameters:    Size  Location     Type
+   215 ;;		None
+   216 ;; Auto vars:     Size  Location     Type
+   217 ;;		None
+   218 ;; Return value:  Size  Location     Type
+   219 ;;                  1    wreg      void 
+   220 ;; Registers used:
+   221 ;;		wreg, status,2, status,0, pclath, cstack
+   222 ;; Tracked objects:
+   223 ;;		On entry : B00/0
+   224 ;;		On exit  : 0/0
+   225 ;;		Unchanged: 0/0
+   226 ;; Data sizes:     COMMON   BANK0   BANK1
+   227 ;;      Params:         0       0       0
+   228 ;;      Locals:         0       0       0
+   229 ;;      Temps:          0       3       0
+   230 ;;      Totals:         0       3       0
+   231 ;;Total ram usage:        3 bytes
+   232 ;; Hardware stack levels required when called: 2
+   233 ;; This function calls:
+   234 ;;		_main__init
+   235 ;; This function is called by:
+   236 ;;		Startup code after reset
+   237 ;; This function uses a non-reentrant model
+   238 ;;
+   239                           
+   240     07A8                     _main:	
+   241                           ;psect for function _main
+   242                           
+   243     07A8                     l651:	
+   244                           ;incstack = 0
+   245                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   246                           
+   247                           
+   248                           ;Blinking.c: 97:  main__init();
+   249     07A8  118A  27A1  118A   	fcall	_main__init
+   250     07AB                     l653:
+   251                           
+   252                           ;Blinking.c: 98:  TRISBbits.TRISB4 = 0;
+   253     07AB  1683               	bsf	3,5	;RP0=1, select bank1
+   254     07AC  1303               	bcf	3,6	;RP1=0, select bank1
+   255     07AD  1206               	bcf	6,4	;volatile
+   256     07AE                     l655:
+   257                           
+   258                           ;Blinking.c: 99:  TRISBbits.TRISB5 = 0;
+   259     07AE  1286               	bcf	6,5	;volatile
+   260     07AF                     l657:
+   261                           
+   262                           ;Blinking.c: 100:  TRISBbits.TRISB6 = 0;
+   263     07AF  1306               	bcf	6,6	;volatile
+   264     07B0                     l659:
+   265                           
+   266                           ;Blinking.c: 102:   PORTBbits.RB4 = 1;
+   267     07B0  1283               	bcf	3,5	;RP0=0, select bank0
+   268     07B1  1303               	bcf	3,6	;RP1=0, select bank0
+   269     07B2  1606               	bsf	6,4	;volatile
+   270     07B3                     l661:
+   271                           
+   272                           ;Blinking.c: 103:   _delay((unsigned long)((500)*(8000000/4000.0)));
+   273     07B3  3006               	movlw	6
+   274     07B4  1283               	bcf	3,5	;RP0=0, select bank0
+   275     07B5  1303               	bcf	3,6	;RP1=0, select bank0
+   276     07B6  00A2               	movwf	??_main+2
+   277     07B7  3013               	movlw	19
+   278     07B8  00A1               	movwf	??_main+1
+   279     07B9  30AD               	movlw	173
+   280     07BA  00A0               	movwf	??_main
+   281     07BB                     u17:
+   282     07BB  0BA0               	decfsz	??_main,f
+   283     07BC  2FBB               	goto	u17
+   284     07BD  0BA1               	decfsz	??_main+1,f
+   285     07BE  2FBB               	goto	u17
+   286     07BF  0BA2               	decfsz	??_main+2,f
+   287     07C0  2FBB               	goto	u17
+   288     07C1  0000               	nop
+   289     07C2                     l663:
+   290                           
+   291                           ;Blinking.c: 104:   PORTBbits.RB5 = 1;
+   292     07C2  1283               	bcf	3,5	;RP0=0, select bank0
+   293     07C3  1303               	bcf	3,6	;RP1=0, select bank0
+   294     07C4  1686               	bsf	6,5	;volatile
+   295     07C5                     l665:
+   296                           
+   297                           ;Blinking.c: 105:   _delay((unsigned long)((500)*(8000000/4000.0)));
+   298     07C5  3006               	movlw	6
+   299     07C6  1283               	bcf	3,5	;RP0=0, select bank0
+   300     07C7  1303               	bcf	3,6	;RP1=0, select bank0
+   301     07C8  00A2               	movwf	??_main+2
+   302     07C9  3013               	movlw	19
+   303     07CA  00A1               	movwf	??_main+1
+   304     07CB  30AD               	movlw	173
+   305     07CC  00A0               	movwf	??_main
+   306     07CD                     u27:
+   307     07CD  0BA0               	decfsz	??_main,f
+   308     07CE  2FCD               	goto	u27
+   309     07CF  0BA1               	decfsz	??_main+1,f
+   310     07D0  2FCD               	goto	u27
+   311     07D1  0BA2               	decfsz	??_main+2,f
+   312     07D2  2FCD               	goto	u27
+   313     07D3  0000               	nop
+   314     07D4                     l667:
+   315                           
+   316                           ;Blinking.c: 106:   PORTBbits.RB6 = 1;
+   317     07D4  1283               	bcf	3,5	;RP0=0, select bank0
+   318     07D5  1303               	bcf	3,6	;RP1=0, select bank0
+   319     07D6  1706               	bsf	6,6	;volatile
+   320     07D7                     l669:
+   321                           
+   322                           ;Blinking.c: 107:   _delay((unsigned long)((500)*(8000000/4000.0)));
+   323     07D7  3006               	movlw	6
+   324     07D8  1283               	bcf	3,5	;RP0=0, select bank0
+   325     07D9  1303               	bcf	3,6	;RP1=0, select bank0
+   326     07DA  00A2               	movwf	??_main+2
+   327     07DB  3013               	movlw	19
+   328     07DC  00A1               	movwf	??_main+1
+   329     07DD  30AD               	movlw	173
+   330     07DE  00A0               	movwf	??_main
+   331     07DF                     u37:
+   332     07DF  0BA0               	decfsz	??_main,f
+   333     07E0  2FDF               	goto	u37
+   334     07E1  0BA1               	decfsz	??_main+1,f
+   335     07E2  2FDF               	goto	u37
+   336     07E3  0BA2               	decfsz	??_main+2,f
+   337     07E4  2FDF               	goto	u37
+   338     07E5  0000               	nop
+   339     07E6                     l671:
+   340                           
+   341                           ;Blinking.c: 108:   PORTBbits.RB4 = 0;
+   342     07E6  1283               	bcf	3,5	;RP0=0, select bank0
+   343     07E7  1303               	bcf	3,6	;RP1=0, select bank0
+   344     07E8  1206               	bcf	6,4	;volatile
+   345     07E9                     l673:
+   346                           
+   347                           ;Blinking.c: 109:   PORTBbits.RB5 = 0;
+   348     07E9  1286               	bcf	6,5	;volatile
+   349     07EA                     l675:
+   350                           
+   351                           ;Blinking.c: 110:   PORTBbits.RB6 = 0;
+   352     07EA  1306               	bcf	6,6	;volatile
+   353     07EB                     l677:
+   354                           
+   355                           ;Blinking.c: 111:   _delay((unsigned long)((500)*(8000000/4000.0)));
+   356     07EB  3006               	movlw	6
+   357     07EC  1283               	bcf	3,5	;RP0=0, select bank0
+   358     07ED  1303               	bcf	3,6	;RP1=0, select bank0
+   359     07EE  00A2               	movwf	??_main+2
+   360     07EF  3013               	movlw	19
+   361     07F0  00A1               	movwf	??_main+1
+   362     07F1  30AD               	movlw	173
+   363     07F2  00A0               	movwf	??_main
+   364     07F3                     u47:
+   365     07F3  0BA0               	decfsz	??_main,f
+   366     07F4  2FF3               	goto	u47
+   367     07F5  0BA1               	decfsz	??_main+1,f
+   368     07F6  2FF3               	goto	u47
+   369     07F7  0BA2               	decfsz	??_main+2,f
+   370     07F8  2FF3               	goto	u47
+   371     07F9  0000               	nop
+   372     07FA  2FB0               	goto	l659
+   373     07FB  118A  2800         	ljmp	start
+   374     07FD                     __end_of_main:
+   375                           
+   376                           	psect	text1
+   377     07A1                     __ptext1:	
+   378 ;; *************** function _main__init *****************
+   379 ;; Defined at:
+   380 ;;		line 84 in file "Blinking.c"
+   381 ;; Parameters:    Size  Location     Type
+   382 ;;		None
+   383 ;; Auto vars:     Size  Location     Type
+   384 ;;		None
+   385 ;; Return value:  Size  Location     Type
+   386 ;;                  1    wreg      void 
+   387 ;; Registers used:
+   388 ;;		status,2, status,0, pclath, cstack
+   389 ;; Tracked objects:
+   390 ;;		On entry : 0/0
+   391 ;;		On exit  : 0/0
+   392 ;;		Unchanged: 0/0
+   393 ;; Data sizes:     COMMON   BANK0   BANK1
+   394 ;;      Params:         0       0       0
+   395 ;;      Locals:         0       0       0
+   396 ;;      Temps:          0       0       0
+   397 ;;      Totals:         0       0       0
+   398 ;;Total ram usage:        0 bytes
+   399 ;; Hardware stack levels used: 1
+   400 ;; Hardware stack levels required when called: 1
+   401 ;; This function calls:
+   402 ;;		_pin__init
+   403 ;;		_time__init
+   404 ;; This function is called by:
+   405 ;;		_main
+   406 ;; This function uses a non-reentrant model
+   407 ;;
+   408                           
+   409     07A1                     _main__init:	
+   410                           ;psect for function _main__init
+   411                           
+   412     07A1                     l649:	
+   413                           ;incstack = 0
+   414                           ; Regs used in _main__init: [status,2+status,0+pclath+cstack]
+   415                           
+   416                           
+   417                           ;Blinking.c: 85:  pin__init();
+   418     07A1  118A  279F  118A   	fcall	_pin__init
+   419                           
+   420                           ;Blinking.c: 86:  time__init();
+   421     07A4  118A  27A0  118A   	fcall	_time__init
+   422     07A7                     l13:
+   423     07A7  0008               	return
+   424     07A8                     __end_of_main__init:
+   425                           
+   426                           	psect	text2
+   427     07A0                     __ptext2:	
+   428 ;; *************** function _time__init *****************
+   429 ;; Defined at:
+   430 ;;		line 93 in file "Blinking.c"
+   431 ;; Parameters:    Size  Location     Type
+   432 ;;		None
+   433 ;; Auto vars:     Size  Location     Type
+   434 ;;		None
+   435 ;; Return value:  Size  Location     Type
+   436 ;;                  1    wreg      void 
+   437 ;; Registers used:
+   438 ;;		None
+   439 ;; Tracked objects:
+   440 ;;		On entry : 0/0
+   441 ;;		On exit  : 0/0
+   442 ;;		Unchanged: 0/0
+   443 ;; Data sizes:     COMMON   BANK0   BANK1
+   444 ;;      Params:         0       0       0
+   445 ;;      Locals:         0       0       0
+   446 ;;      Temps:          0       0       0
+   447 ;;      Totals:         0       0       0
+   448 ;;Total ram usage:        0 bytes
+   449 ;; Hardware stack levels used: 1
+   450 ;; This function calls:
+   451 ;;		Nothing
+   452 ;; This function is called by:
+   453 ;;		_main__init
+   454 ;; This function uses a non-reentrant model
+   455 ;;
+   456                           
+   457     07A0                     _time__init:	
+   458                           ;psect for function _time__init
+   459                           
+   460     07A0                     l19:	
+   461                           ;incstack = 0
+   462                           ; Regs used in _time__init: []
+   463                           
+   464     07A0  0008               	return
+   465     07A1                     __end_of_time__init:
+   466                           
+   467                           	psect	text3
+   468     079F                     __ptext3:	
+   469 ;; *************** function _pin__init *****************
+   470 ;; Defined at:
+   471 ;;		line 90 in file "Blinking.c"
+   472 ;; Parameters:    Size  Location     Type
+   473 ;;		None
+   474 ;; Auto vars:     Size  Location     Type
+   475 ;;		None
+   476 ;; Return value:  Size  Location     Type
+   477 ;;                  1    wreg      void 
+   478 ;; Registers used:
+   479 ;;		None
+   480 ;; Tracked objects:
+   481 ;;		On entry : 0/0
+   482 ;;		On exit  : 0/0
+   483 ;;		Unchanged: 0/0
+   484 ;; Data sizes:     COMMON   BANK0   BANK1
+   485 ;;      Params:         0       0       0
+   486 ;;      Locals:         0       0       0
+   487 ;;      Temps:          0       0       0
+   488 ;;      Totals:         0       0       0
+   489 ;;Total ram usage:        0 bytes
+   490 ;; Hardware stack levels used: 1
+   491 ;; This function calls:
+   492 ;;		Nothing
+   493 ;; This function is called by:
+   494 ;;		_main__init
+   495 ;; This function uses a non-reentrant model
+   496 ;;
+   497                           
+   498     079F                     _pin__init:	
+   499                           ;psect for function _pin__init
+   500                           
+   501     079F                     l16:	
+   502                           ;incstack = 0
+   503                           ; Regs used in _pin__init: []
+   504                           
+   505     079F  0008               	return
+   506     07A0                     __end_of_pin__init:
+   507     007E                     btemp	set	126	;btemp
+   508     007E                     wtemp0	set	126
+   509                           
+   510                           	psect	config
+   511                           
+   512                           ;Config register CONFIG @ 0x2007
+   513                           ;	Oscillator Selection bits
+   514                           ;	FOSC = HS, HS oscillator
+   515                           ;	Watchdog Timer Enable bit
+   516                           ;	WDTE = OFF, WDT disabled
+   517                           ;	Power-up Timer Enable bit
+   518                           ;	PWRTE = OFF, PWRT disabled
+   519                           ;	Brown-out Reset Enable bit
+   520                           ;	BOREN = OFF, BOR disabled
+   521                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+   522                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+   523                           ;	Data EEPROM Memory Code Protection bit
+   524                           ;	CPD = OFF, Data EEPROM code protection off
+   525                           ;	Flash Program Memory Write Enable bits
+   526                           ;	WRT = OFF, Write protection off; all program memory may be written to by EECON control
+   527                           ;	In-Circuit Debugger Mode bit
+   528                           ;	DEBUG = 0x1, unprogrammed default
+   529                           ;	Flash Program Memory Code Protection bit
+   530                           ;	CP = OFF, Code protection off
+   531     2007                     	org	8199
+   532     2007  3F3A               	dw	16186
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            94      3       3
+    BANK1            94      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 3     3      0       0
+                                              0 BANK0      3     3      0
+                         _main__init
+ ---------------------------------------------------------------------------------
+ (1) _main__init                                           0     0      0       0
+                          _pin__init
+                         _time__init
+ ---------------------------------------------------------------------------------
+ (2) _time__init                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _pin__init                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _main__init
+     _pin__init
+     _time__init
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              80      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BITBANK0            5E      0       0       3        0.0%
+BANK0               5E      3       3       4        3.2%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BITBANK1            5E      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BANK1               5E      0       0       6        0.0%
+ABS                  0      0       0       7        0.0%
+DATA                 0      0       0       8        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
+Symbol Table                                                                                   Tue Mar 19 07:27:03 2024
+
+                     l13 07A7                       l16 079F                       l19 07A0  
+                     u17 07BB                       u27 07CD                       u37 07DF  
+                     u47 07F3                      l651 07A8                      l661 07B3  
+                    l653 07AB                      l671 07E6                      l663 07C2  
+                    l655 07AE                      l649 07A1                      l673 07E9  
+                    l665 07C5                      l657 07AF                      l675 07EA  
+                    l667 07D4                      l659 07B0                      l677 07EB  
+                    l669 07D7                     _main 07A8                     btemp 007E  
+                   start 0000                    ?_main 0020                    status 0003  
+                  wtemp0 007E          __initialization 07FD             __end_of_main 07FD  
+                 ??_main 0020  __end_of__initialization 07FD           __pcstackCOMMON 0000  
+             __pmaintext 07A8               _main__init 07A1                  __ptext1 07A1  
+                __ptext2 07A0                  __ptext3 079F        __end_of_pin__init 07A0  
+   end_of_initialization 07FD               _time__init 07A0                _PORTBbits 0006  
+              _TRISBbits 0086              ?_main__init 0020      start_initialization 07FD  
+            ?_time__init 0020                ___latbits 0001            __pcstackBANK0 0020  
+              _pin__init 079F             ??_main__init 0000               ?_pin__init 0020  
+     __end_of_main__init 07A8             ??_time__init 0000       __end_of_time__init 07A1  
+            ??_pin__init 0000  

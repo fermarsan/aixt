@@ -35,25 +35,33 @@ Cuenta con ocho pines analogicas que se encuentran distribuidas entre en el puer
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales y para realizar una conversión analogico a digital.
 
-name                              | description
-----------------------------------|----------------------------------------------
-`pin__high(pin)`                  | Encender `pin`
-`pin__low(pin)`                   | Apagar `pin`
-`pin__write(pin, val)`            | Escribe `val` en `pin`
-`pin__read(pin)`                  | lee `pin`
-`port`                            | Configura `port`
-`port__read(PORT_NAME)`           | Lee `PORT_NAME`
-`port__setup(PORT_NAME, VALUE)`   | Configura `PORT_NAME` asigna valor `VALUE`
-`pin__read(PORT_NAME, VALUE)`     | Escribe `PORT_NAME` en `VALUE`
-`adc__setup()`                    | Configura el `adc` 
-`adc__read(channel)`              | Configura el canal `channel` del `adc`
-`time__sleep(time)`               | Retardo en `seg`
-`time__sleep_us(time)`            | Retardo en `microseg`
-`time__sleep_ms(time)`            | Retardo en `miliseg`
+name                                  | description
+--------------------------------------|----------------------------------------------
+`pin__setup(PIN_NAME, PIN_MODE)`     | Configura `PIN_NAME` en `PIN_MODE`
+`pin__high(PIN_NAME)`                 | Encender `PIN_NAME`
+`pin__low(PIN_NAME)`                  | Apagar `PIN_NAME`
+`pin__write(PIN_NAME,VAL)`            | Escribe `VAL` en `PIN_NAME`
+`pin__read(PIN_NAME)`                 | lee `PIN_NAME`
+`pin__digital(PIN)`                   | Configura I/0 digitales `PIN_NAME`
+`pin (PIN)`                           | Configura `PIN_OUTPUT` o `PIN_INPUT`
+`port`                                | Inicializa `port`
+`port__read(PORT_NAME)`               | Lee `PORT_NAME`
+`port__setup(PORT_NAME, VALUE)`       | Configura `PORT_NAME` asigna valor `VALUE`
+`port__write(PORT_NAME, VALUE)`       | Escribe `PORT_NAME` en `VALUE`
+`adc__setup()`                        | Configura el `adc` 
+`adc__read(channel)`                  | Configura el canal `channel` del `adc`
+`adc`                                 | Inicializa `adc` 
+`time__sleep(time)`                   | Retardo en `seg`
+`time__sleep_us(time)`                | Retardo en `microseg`
+`time__sleep_ms(time)`                | Retardo en `miliseg`
+`time`                                | Inicializa el `time`
+
+### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v 
 
 ## Tiempo
 
-```go
+```v
+
 time__sleep(5)	// Tiempo de 5 segundos
 time__sleep_us(10)	// Tiempo de 10 microsegundos
 time__sleep_ms(500)	// Tiempo de 500 milisegundos
@@ -62,55 +70,56 @@ time__sleep_ms(500)	// Tiempo de 500 milisegundos
 
 ## Configuración de pines 
 
-```go
-pin__setup(a5, out)      // Función para configurar el pin como salida 
-pin__setup(c2, out)      // Función para configurar el pin como salida
-pin__setup(a2, input)    // Función para configurar el pin como entrada
-pin__setup(c4, input)    // Función para configurar el pin como entrada
+```v
 
-pin__high(a5)    // Función para encender el pin           
-pin__low(a5)     // Función para apagar el pin
+pin.setup(a5, pin.output)      // Función para configurar el pin como salida 
+pin.setup(c2, pin.output)      // Función para configurar el pin como salida
+pin.setup(a2, pin.input)    // Función para configurar el pin como entrada
+pin.setup(c4, pin.input)    // Función para configurar el pin como entrada
 
-pin__write(a2, 0)  // Función sobre escribir el pin
-pin__write(a2, 1)  // Función sobre escribir el pin
+pin.high(a5)    // Función para encender el pin           
+pin.low(a5)     // Función para apagar el pin
 
-pin__read(a4)      // Función para leer el pin
-pin__read(c3)      // Función para leer el pin
+pin.write(a2, 0)  // Función sobre escribir el pin
+pin.write(a2, 1)  // Función sobre escribir el pin
+
+pin.read(a4)      // Función para leer el pin
+pin.read(c3)      // Función para leer el pin
 
 ```
 
 Ejemplo de prender y apagar un led:
 
-```go
+```v
       
-while (1) {
+for {
 
-    pin__high(c1);
-    time__sleep_us(500);
-    pin__low(c1);
-    time__sleep_us(500);
+    pin.high(c1);
+    sleep_us(500);
+    pin.low(c1);
+    sleep_us(500);
 
 }
 
 ```
 Ejemplo de prender y apagar un led con una entrada digital:
 
-```go
+```v
 
-ANSEL = 0b00000000; // Todas los pin son I/O digitales
+pin.digital(); // Todas los pin son I/O digitales
 
-while(1){
+for {
     
     if(c2 == 1){        // Condición si encuentra un 1 en el pin c2
         
-        pin__high(c1);
-        pin__high(c0);
+        pin.high(c1);
+        pin.high(c0);
     }
     
     else if(c4 == 1){   // Condición si encuentra un 1 en el pin c4
         
-        pin__low(c1);
-        pin__low(c0);
+        pin.low(c1);
+        pin.low(c0);
     }
 
 }
@@ -119,22 +128,22 @@ while(1){
 
 ## Configuración del port
 
-```go
+```v
 
-port__setup(a, ob000000)      // Función para configurar el puerto como salida 
+port.setup(a, ob000000)      // Función para configurar el puerto como salida 
 
 ```
 
 Ejemplo de prender y apagar un puerto del microcontrolador:
 
-```go
+```v
       
-while(1){
+for {
         
-    port__write(a,0b010101);
-    time__sleep_ms(500);
-    port__write(a,0b101010);
-    time__sleep_ms(500);      
+    port.write(a,0b010101);
+    sleep_ms(500);
+    port.write(a,0b101010);
+    sleep_ms(500);      
         
 }
 
@@ -142,49 +151,49 @@ while(1){
 
 ## Configuración del ADC
 
-```go
+```v
 
-adc__setup()     // Inicializa el ADC
-adc__read(0)     // Escoge el pin del canal analogico
+adc.setup()     // Inicializa el ADC
+adc.read(0)     // Escoge el pin del canal analogico
 
 ```
 
 Ejemplo de prender y apagar leds dependiendo del valor del ADC:
 
-```go
+```v
 
 unsigned int adc_result;  // Declaración de variable para almacenar el valor del ADC
         
-while(1){
+for {
             
-    adc_result = adc__read(0); // Almacena el valor del ADC
+    adc_result = adc.read(0); // Almacena el valor del ADC
     
     if ( adc_result >= 1020 ){
         
-        pin__high(c0);
-        pin__high(c1);
-        pin__high(c2);           
+        pin.high(c0);
+        pin.high(c1);
+        pin.high(c2);           
     }
     
     else if ( adc_result >= 820 ){
         
-        pin__high(c0);
-        pin__high(c1);
-        pin__low(c2);
+        pin.high(c0);
+        pin.high(c1);
+        pin.low(c2);
     }
     
     else if ( adc_result >= 620 ){
         
-        pin__high(c0);
-        pin__low(c1);
-        pin__low(c2);   
+        pin.high(c0);
+        pin.low(c1);
+        pin.low(c2);   
     }
         
     else {
         
-        pin__low(c0);
-        pin__low(c1);
-        pin__low(c2);      
+        pin.low(c0);
+        pin.low(c1);
+        pin.low(c2);      
     }
 
 }

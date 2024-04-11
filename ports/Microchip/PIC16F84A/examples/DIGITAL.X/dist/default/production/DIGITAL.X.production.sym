@@ -1,0 +1,140 @@
+__S0 400 0 ABS 0
+__S1 E 0 ABS 0
+__S3 0 0 ABS 0
+__Hintentry 0 0 CODE 0
+__Lintentry 0 0 CODE 0
+_main 3DC 0 CODE 0
+___sp 0 0 STACK 2
+btemp 4E 0 ABS 0
+start 0 0 CODE 0
+reset_vec 0 0 CODE 0
+wtemp0 4E 0 ABS 0
+__Hconfig 2008 0 CONFIG 4
+__Lconfig 0 0 CONFIG 4
+main@x C 0 BANK0 1
+__Hram 0 0 ABS 0
+__Lram 0 0 ABS 0
+__Hfunctab 0 0 ENTRY 0
+__Lfunctab 0 0 ENTRY 0
+__Hcommon 0 0 ABS 0
+__Lcommon 0 0 ABS 0
+__Heeprom_data 0 0 EEDATA 3
+__Leeprom_data 0 0 EEDATA 3
+___int_sp 0 0 STACK 2
+main@x1 D 0 BANK0 1
+__Habs1 0 0 ABS 0
+__Labs1 0 0 ABS 0
+__Hsfr0 0 0 ABS 0
+__Lsfr0 0 0 ABS 0
+__Hsfr1 0 0 ABS 0
+__Lsfr1 0 0 ABS 0
+___stackhi 0 0 ABS 0
+__Hcode 0 0 ABS 0
+__Lcode 0 0 ABS 0
+__HcstackBANK0 0 0 ABS 0
+__LcstackBANK0 0 0 ABS 0
+__pcstackBANK0 C 0 BANK0 1
+__Hinit 0 0 CODE 0
+__Linit 0 0 CODE 0
+__end_of_main 3FE 0 CODE 0
+__Htext 0 0 ABS 0
+__Ltext 0 0 ABS 0
+end_of_initialization 3FE 0 CODE 0
+___stacklo 0 0 ABS 0
+_TRISBbits 86 0 ABS 0
+_PORTBbits 6 0 ABS 0
+__Hstrings 0 0 ABS 0
+__Lstrings 0 0 ABS 0
+_pin__init 3D9 0 CODE 0
+__Hbank0 0 0 ABS 0
+__Lbank0 0 0 ABS 0
+__Hbank1 0 0 BANK1 1
+__Lbank1 0 0 BANK1 1
+___latbits 0 0 ABS 0
+__Hpowerup 0 0 CODE 0
+__Lpowerup 0 0 CODE 0
+__ptext1 3DA 0 CODE 0
+__ptext2 3D9 0 CODE 0
+__Hclrtext 0 0 ABS 0
+__Lclrtext 0 0 ABS 0
+__end_of__initialization 3FE 0 CODE 0
+__H__absolute__ 0 0 ABS 0
+__L__absolute__ 0 0 ABS 0
+__Hstack 0 0 STACK 2
+__Lstack 0 0 STACK 2
+__Hspace_0 400 0 ABS 0
+__Lspace_0 0 0 ABS 0
+__end_of_pin__init 3DA 0 CODE 0
+__end_of_main__init 3DC 0 CODE 0
+__Hspace_1 E 0 ABS 0
+__Lspace_1 0 0 ABS 0
+__Hspace_2 0 0 ABS 0
+__Lspace_2 0 0 ABS 0
+__Hcinit 400 0 CODE 0
+__Lcinit 3FE 0 CODE 0
+__Hspace_3 0 0 ABS 0
+__Lspace_3 0 0 ABS 0
+__Hspace_4 400F 0 ABS 0
+__Lspace_4 0 0 ABS 0
+_main__init 3DA 0 CODE 0
+__Hend_init 1 0 CODE 0
+__Lend_init 0 0 CODE 0
+__Hreset_vec 0 0 CODE 0
+__Lreset_vec 0 0 CODE 0
+intlevel0 0 0 ENTRY 0
+intlevel1 0 0 ENTRY 0
+intlevel2 0 0 ENTRY 0
+intlevel3 0 0 ENTRY 0
+intlevel4 0 0 ENTRY 0
+intlevel5 0 0 ENTRY 0
+__HcstackCOMMON 0 0 ABS 0
+__LcstackCOMMON 0 0 ABS 0
+__pcstackCOMMON 0 0 COMMON 1
+start_initialization 3FE 0 CODE 0
+__Hmaintext 0 0 ABS 0
+__Lmaintext 0 0 ABS 0
+__pmaintext 3DC 0 CODE 0
+__initialization 3FE 0 CODE 0
+%segments
+reset_vec 0 1 CODE 0 0
+cinit 7FC 7FF CODE 7FC 0
+cstackBANK0 C D BANK0 C 1
+maintext 7B8 7FB CODE 7B8 0
+text1 7B4 7B7 CODE 7B4 0
+text2 7B2 7B3 CODE 7B2 0
+%locals
+dist/default/production\startup.o
+dist/default/production\startup.s
+78 0 0 CODE 0
+dist/default/production\DIGITAL.X.production.o
+dist/default/production\DIGITAL.X.production.s
+174 3FE 0 CODE 0
+177 3FE 0 CODE 0
+183 3FE 0 CODE 0
+185 3FE 0 CODE 0
+186 3FF 0 CODE 0
+Digital.c
+63 3DC 0 CODE 0
+64 3DC 0 CODE 0
+65 3DD 0 CODE 0
+66 3DF 0 CODE 0
+67 3E0 0 CODE 0
+68 3E1 0 CODE 0
+69 3E2 0 CODE 0
+70 3E4 0 CODE 0
+71 3E5 0 CODE 0
+72 3E5 0 CODE 0
+74 3E5 0 CODE 0
+75 3E9 0 CODE 0
+76 3ED 0 CODE 0
+77 3F2 0 CODE 0
+78 3F3 0 CODE 0
+79 3F4 0 CODE 0
+80 3F5 0 CODE 0
+81 3FA 0 CODE 0
+82 3FB 0 CODE 0
+55 3DA 0 CODE 0
+56 3DA 0 CODE 0
+58 3DB 0 CODE 0
+60 3D9 0 CODE 0
+61 3D9 0 CODE 0

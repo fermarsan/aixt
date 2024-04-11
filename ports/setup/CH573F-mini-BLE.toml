@@ -1,0 +1,62 @@
+# Project Name = Aixt, https =//github.com/fermarsan/aixt.git
+# Author = Fernando Martínez Santa y Cristian Garzon 
+# Date = 2023-2024
+# License = MIT
+#
+# Description = This is the setup file for the WCH (with CH573F-mini-BLE)
+#               port of Aixt project 
+port =    "CH573F-mini-BLE"
+device =  "CH573F"
+board =   "device"
+backend = "c"
+
+cc_linux =   "xc16"
+cc_windows = "xc16.exe"
+cc_flags =   "-o"
+
+path = "WCH/CH573F-mini-BLE"
+
+fixed_size_arrays  = "true"
+array_default_len  = 20
+
+fixed_size_strings = "true"
+string_default_len = 80
+
+void =  "void"
+bool =  "bool"  
+
+i8 =    "int8_t"
+i16 =   "int16_t"
+int =   "int32_t"
+i64 =   "int64_t"
+isize = "int32_t"
+int_literal = "int32_t"
+
+u8 =    "uint8_t"
+u16 =   "uint16_t"
+u32 =   "uint32_t"
+u64 =   "uint64_t"
+usize = "uint32_t"
+
+f32 = "float"
+f64 = "=== NOT SUPPORTED ==="
+float_literal = "=== NOT SUPPORTED ==="
+
+rune =  "char"
+string = "char []"
+
+mutex = "=== NOT SUPPORTED ==="
+
+main_ret_type = "int"
+main_params =   "void"
+
+api_modules = [
+    "pin",
+    "port",
+    "adc",
+    "pwm",
+    #"uart",
+    "time"
+]
+
+[aliases]

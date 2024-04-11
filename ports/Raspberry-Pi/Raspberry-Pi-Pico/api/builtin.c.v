@@ -10,7 +10,6 @@ module main
 
 #define led     gp25
 
-// #define a0  A0
 
 enum __pin_names {    // enumerated type for the pin names
     gp0    

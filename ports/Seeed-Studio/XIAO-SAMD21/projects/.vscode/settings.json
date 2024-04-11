@@ -1,7 +1,7 @@
 {
-    "aixt_linux":   ".",
-    "aixt_windows": ".",
-    "device":       "NXT",
+    "aixt_linux":   "../../../..",
+    "aixt_windows": "..\\..\\..\\..",
+    "device":       "XIAO-SAM21",
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",

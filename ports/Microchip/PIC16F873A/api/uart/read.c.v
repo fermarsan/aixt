@@ -10,6 +10,12 @@
 
 module uart
 
+fn read() rune{
+  return RCREG
+}
+
+
+/*
 fn uart__read() u16    // Almacena los datos recibidos 
 {
     for(PIR1bits.RCIF == 0) {}  // Pregunta si hay datos recibidos  
@@ -21,3 +27,4 @@ fn uart__read() u16    // Almacena los datos recibidos
     PIR1bits.RCIF = 0    // Reinicia para que no hayan errores
     return RCREG         // Retorna los caracteres recibidos 
 }
+*/

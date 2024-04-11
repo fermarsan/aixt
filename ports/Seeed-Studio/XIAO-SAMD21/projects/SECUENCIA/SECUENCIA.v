@@ -19,4 +19,3 @@ for{
     pin.low(5)      
     sleep_ms(250)   
 }
-

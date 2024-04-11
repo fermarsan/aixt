@@ -1,0 +1,60 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F676 ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"59 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+[v _main__init main__init `(v  1 e 1 0 ]
+"64
+[v _pin__init pin__init `(v  1 e 1 0 ]
+"67
+[v _main main `(v  1 e 1 0 ]
+[s S43 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+]
+"231 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f676.h
+[u S50 . 1 `S43 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES50  1 e 1 @7 ]
+[s S26 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+]
+"796
+[u S33 . 1 `S26 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES33  1 e 1 @135 ]
+"973
+[v _ANSEL ANSEL `VEuc  1 e 1 @145 ]
+"67 C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+[v _main main `(v  1 e 1 0 ]
+{
+"75
+[v main@x1 x1 `uc  1 a 1 1 ]
+"74
+[v main@x x `uc  1 a 1 0 ]
+"89
+} 0
+"59
+[v _main__init main__init `(v  1 e 1 0 ]
+{
+"62
+} 0
+"64
+[v _pin__init pin__init `(v  1 e 1 0 ]
+{
+"65
+} 0

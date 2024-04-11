@@ -4,8 +4,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// // Description: PWM functions (Ai_Thinker_Ai-WB2-32S-Kit)
-//              (PC port) 
+// // Description: pwm functions (Ai_Thinker_Ai-WB2-32S-Kit)
 
 module pwm
 
