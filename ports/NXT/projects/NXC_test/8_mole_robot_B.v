@@ -9,31 +9,27 @@ const t_avoid = 1500
 const pow = 50
 
 fn straight(power int, time int) {
-	motor.forward(a, power)
-	motor.reverse(b, power)
+	motor.forward(a, power); motor.reverse(b, power)
 	sleep_ms(time)
 }
 
 fn spin(power int, time int) {
-	motor.forward(a, power)
-	motor.forward(b, power)
+	motor.forward(ab, power)
 	sleep_ms(time)
 }
 
-fn _stop(time int) {
+fn stop_(time int) {
 	motor.off(ab)
 	sleep_ms(time)
 }
 
 sensor.set_touch(i3)
 
-// a := 0
-
 for {
 	straight(pow, t_move)
 
 	if sensor.read(s3) == 1 { // if touch
-		_stop(t_stop)
+		stop_(t_stop)
 		straight(-pow, t_avoid) // reverse
 		spin(pow, t_avoid)
 	}
