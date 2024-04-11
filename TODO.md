@@ -20,12 +20,10 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
 - [ ] setup template files
-- [ ] relocate generated code for function definitions #bug
-- [ ] add to the docs the difference of V and C preprocessor
    
 
 ### Done ✓
 
+- [x] add to the docs the difference of V and C preprocessor
+- [x] relocate generated code for function definitions #bug
 - [x] Issue: empty array initialization
-- [x] Eliminate empty init functions
-- [x] Issue: auto include main.init()
