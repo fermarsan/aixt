@@ -54,6 +54,7 @@ main_ret_type = ""
 main_params = "" 
 
 api_modules = [
+  "array",
   "button",
   "file",
   "i2c",
@@ -66,7 +67,7 @@ api_modules = [
   "rune",
   "sensor",
   "sound",
-  "string"
+  "string",
 ]
 
 [aliases]

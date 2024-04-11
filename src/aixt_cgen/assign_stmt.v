@@ -28,8 +28,10 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					array_len := (node.right[i] as ast.ArrayInit).exprs.len
 					if  array_len != 0 {
 						out += '${array_len}] = ${gen.ast_node(node.right[i])};\n'
+					} else if gen.setup.value('fixed_size_arrays').bool() {
+						out += '${gen.setup.value('array_default_len').int()}];\n'	// port with fixed-size arrays
 					} else {
-						out += '];\n'	// empty array
+						out += '];\n'	// port with dynamic-size arrays
 					}
 				}
 				'string' {

@@ -77,9 +77,3 @@ module file
 #define 	eof 			EOF
 #define 	nil				NULL
 #define		end_of_file		EOF
-
-
-
-fn init() {
-
-}

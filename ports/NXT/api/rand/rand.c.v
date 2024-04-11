@@ -7,7 +7,3 @@ module rand
 #define     rand__sys_random_number(...)  SysRandomNumber(__VA_ARGS__)
 #define     rand__sys_random_ex(...)      SysRandomEx(__VA_ARGS__)
 
-
-fn init() {
-
-}

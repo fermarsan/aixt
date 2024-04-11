@@ -414,9 +414,3 @@ module comm
 #define     comm__sys_comm_hs_write(...)               SysCommHSWrite(__VA_ARGS__)           
 #define     comm__sys_comm_bt_on_off(...)              SysCommBTOnOff(__VA_ARGS__)           
 #define     comm__sys_comm_bt_connection(...)          SysCommBTConnection(__VA_ARGS__)      
-
-
-
-fn init() {
-
-}

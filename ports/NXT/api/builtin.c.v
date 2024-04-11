@@ -3,16 +3,7 @@ module main
 
 // #################### NXC Command module ####################
 
-// Constants for use with the NXC ArrayOp function and the NBC arrop statement. 
-#define 	oparr_sum    	OPARR_SUM    
-#define 	oparr_mean   	OPARR_MEAN   
-#define 	oparr_sumsqr 	OPARR_SUMSQR 
-#define 	oparr_std    	OPARR_STD    
-#define 	oparr_min    	OPARR_MIN    
-#define 	oparr_max    	OPARR_MAX    
-#define 	oparr_sort   	OPARR_SORT   
-#define 	oparr_toupper	OPARR_TOUPPER
-#define 	oparr_tolower	OPARR_TOLOWER
+
 
 // Constant offsets into the Command module IOMAP structure. 
 #define 	offset_format_string  	CommandOffsetFormatString   
@@ -207,11 +198,20 @@ module main
 #define 	clump_suspend	CLUMP_SUSPEND  
 #define 	clump_done   	CLUMP_DONE     
 
-// 
+// Constants that are part of the NXT firmware's Command module
 #define 	stat_msg_empty_mailbox	STAT_MSG_EMPTY_MAILBOX
 #define 	stat_comm_pending     	STAT_COMM_PENDING     
 #define 	pool_max_size         	POOL_MAX_SIZE         
-#define 	no_err                	NO_ERR                
+#define 	no_err                	NO_ERR      
+
+// Logical comparison operators for use in BranchTest and BranchComp
+#define 	lt   	LT   	
+#define 	gt   	GT   	
+#define 	lteq   	LTEQ   	
+#define 	gteq   	GTEQ   	
+#define 	eq   	EQ   	
+#define 	neq   	NEQ   	
+
 
 // Functions for accessing and modifying Command module features. 
 #define     current_tick(...)                  CurrentTick(__VA_ARGS__) 
