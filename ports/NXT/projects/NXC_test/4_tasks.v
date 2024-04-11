@@ -1,6 +1,7 @@
 import motor
 import sensor
 
+@[mutex]
 __global (
 	move_mutex mutex // initialization value is necesary but will be ingnored
 )
