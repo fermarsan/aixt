@@ -29,7 +29,3 @@ module port
 #define LATe	LATE
 #define LATf	LATF
 #define LATg	LATG
-
-fn init() {
-	
-}

@@ -22,11 +22,10 @@ Tasks to do in Aixt
 - [ ] setup template files
 - [ ] relocate generated code for function definitions #bug
 - [ ] add to the docs the difference of V and C preprocessor
-- [ ] Issue: empty array initialization
    
 
 ### Done ✓
 
+- [x] Issue: empty array initialization
 - [x] Eliminate empty init functions
 - [x] Issue: auto include main.init()
-- [x] Implement SemicolonStmt

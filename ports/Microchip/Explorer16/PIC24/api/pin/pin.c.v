@@ -132,7 +132,3 @@ module pin
 #define g13     G, 13
 #define g14     G, 14
 #define g15     G, 15
-
-fn init() {
-	
-}
