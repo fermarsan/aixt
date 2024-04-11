@@ -1,6 +1,6 @@
 module rand
 
-// cstdlib.c
+//cstdlib.c
 #define     rand__abort(...)              abort(__VA_ARGS__)
 #define     rand__srand(...)              srand(__VA_ARGS__)
 #define     rand__rand(...)               rand(__VA_ARGS__)

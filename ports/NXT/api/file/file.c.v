@@ -75,7 +75,7 @@ module file
 
 // Constants that are part of the NXT firmware's Loader module. 
 #define 	eof 			EOF
-#define 	nxtl			NULL
+#define 	nil				NULL
 #define		end_of_file		EOF
 
 

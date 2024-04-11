@@ -12,12 +12,14 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) string {
 	// 	return (node.args[0].expr as ast.StringLiteral).val
 	// }
 	// fn_name := node.name.replace('.', '__')	// remove the parent function name
-	println("+++++++++++++++\n${node.name}\n+++++++++++++++")
-	println("+++++++++++++++\n${node.mod}\n+++++++++++++++")
-	println("+++++++++++++++\n${node.mod.all_after_last('.')}\n+++++++++++++++")
+	// println("+++++++++++++++\n${node.name}\n+++++++++++++++")
+	// println("+++++++++++++++\n${node.mod}\n+++++++++++++++")
+	// println("+++++++++++++++\n${node.mod.all_after_last('.')}\n+++++++++++++++")
 	// mut fn_name := node.name.all_before_last('.')	// only the module name
 	fn_name := if node.name.contains('.') {
 		node.name.replace('.', '__')
+	} else if node.mod.all_after_last('.') == 'main' && gen.setup.value('backend').string() == 'nxc' {
+		'${node.name.all_after_last('.')}'
 	} else {
 		'${node.mod.all_after_last('.')}__${node.name.all_after_last('.')}'
 	}

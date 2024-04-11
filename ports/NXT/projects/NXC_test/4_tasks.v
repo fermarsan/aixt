@@ -1,3 +1,10 @@
+import motor
+import sensor
+
+__global (
+	move_mutex mutex // initialization value is necesary but will be ingnored
+)
+
 @[task]
 fn move_square() {
 	for {
@@ -24,7 +31,6 @@ fn check_sensors() {
 	}
 }
 
-move_mutex := mutex('') // initialization value is necesary but will be ingnored
 
 precedes(move_square, check_sensors)
 sensor.set_touch(i1)
