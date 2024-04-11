@@ -22,7 +22,3 @@ module io
 
 #define 	io__getc(...)   		fgetc(__VA_ARGS__)
 #define 	io__putc(...)   		fputc(__VA_ARGS__)
-
-fn init() {
-
-}

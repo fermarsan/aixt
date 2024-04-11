@@ -172,9 +172,3 @@ import lcd
 #define     lcd__set_text_lines_center_flags(...)   SetDisplayTextLinesCenterFlags(__VA_ARGS__)
 #define     lcd__set_update_mask(...)               SetDisplayUpdateMask(__VA_ARGS__)
 #define     lcd__set_contrast(...)                  SetDisplayContrast(__VA_ARGS__)
-
-
-
-fn init() {
-
-}

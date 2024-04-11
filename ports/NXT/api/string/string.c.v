@@ -34,8 +34,3 @@ import string
 #define     string__address_of(...)          addressOf(__VA_ARGS__)
 #define     string__reladdress_of(...)       reladdressOf(__VA_ARGS__)
 #define     string__address_of_ex(...)       addressOfEx(__VA_ARGS__)
-
-
-fn init() {
-
-}

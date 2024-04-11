@@ -48,8 +48,3 @@ module math
 #define     math__labs(...)               labs(__VA_ARGS__)
 #define     math__div(...)                div(__VA_ARGS__)
 #define     math__ldiv(...)               ldiv(__VA_ARGS__)
-
-
-fn init() {
-	
-}

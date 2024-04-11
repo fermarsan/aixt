@@ -14,8 +14,3 @@ import rune
 #define     rune__is_xdigit(...) isxdigit(__VA_ARGS__)
 #define     rune__to_upper(...)  toupper(__VA_ARGS__)
 #define     rune__to_lower(...)  tolower(__VA_ARGS__)
-
-
-fn init() {
-
-}

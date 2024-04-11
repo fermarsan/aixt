@@ -290,8 +290,3 @@ module sensor
 #define		sensor__read_e_meter(...) 			ReadSensorEMeter(__VA_ARGS__) 
 #define		sensor__configure_temperature(...) 	ConfigureTemperatureSensor(__VA_ARGS__) 
 #define		sensor__read_temperature(...)		SensorTemperature(__VA_ARGS__)
-
-
-fn init() {
-
-}

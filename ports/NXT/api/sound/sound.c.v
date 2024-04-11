@@ -124,8 +124,3 @@ module sound
 #define     sound__sys_set_state(...)    SysSoundSetState(__VA_ARGS__)
 #define     sound__play(...)             PlaySound(__VA_ARGS__)
 #define     sound__play_tones(...)       PlayTones(__VA_ARGS__)
-
-
-fn init() {
-
-}

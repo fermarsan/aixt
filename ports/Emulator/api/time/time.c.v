@@ -10,7 +10,3 @@ module time
 #else
 #include <windows.h>
 #endif
-
-fn init() {
-
-}

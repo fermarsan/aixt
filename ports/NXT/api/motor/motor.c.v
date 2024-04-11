@@ -180,7 +180,3 @@ module motor	// NXC Output
 #define     pos_reg_set_angle(...)        	     PosRegSetAngle(__VA_ARGS__)             
 #define     pos_reg_add_angle(...)        	     PosRegAddAngle(__VA_ARGS__)                
 #define     pos_reg_set_max(...)          	     PosRegSetMax(__VA_ARGS__)             
-
-fn init() {
-
-}

@@ -311,8 +311,3 @@ module main
 #define     power_down(...)              PowerDown(__VA_ARGS__)
 #define     sleep_now(...)               SleepNow(__VA_ARGS__)
 #define     reboot_in_firmware_mode(...) RebootInFirmwareMode(__VA_ARGS__)
-
-
-fn init() {
-	
-}

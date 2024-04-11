@@ -23,11 +23,10 @@ Tasks to do in Aixt
 - [ ] relocate generated code for function definitions #bug
 - [ ] add to the docs the difference of V and C preprocessor
 - [ ] Issue: empty array initialization
-- [ ] Eliminate empty init functions
-
    
+
 ### Done ✓
 
+- [x] Eliminate empty init functions
 - [x] Issue: auto include main.init()
 - [x] Implement SemicolonStmt
-- [x] NXC mutex issue
