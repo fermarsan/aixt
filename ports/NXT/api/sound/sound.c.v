@@ -7,9 +7,9 @@ module sound
 #define 	offset_duration     		SoundOffsetDuration       
 #define 	offset_sample_rate   		SoundOffsetSampleRate     
 #define 	offset_sound_filename		SoundOffsetSoundFilename  
-#define 	offset_flags        		SoundOffsetFlags          
+#define 	sound__offset_flags        	SoundOffsetFlags          
 #define 	offset_state        		SoundOffsetState          
-#define 	offset_mode         		SoundOffsetMode           
+#define 	sound__offset_mode         	SoundOffsetMode           
 #define 	offset_volume       		SoundOffsetVolume         
 
 // Constants defining miscellaneous sound module aspects. 
