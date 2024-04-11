@@ -32,7 +32,7 @@
 #define sw4     D, 13
 #define sw5     A, 7
 #define sw6     D, 7
-#define pot     B, 5	// Onboard potentiometer
+#define pot     B, 5	// Onboard potentiometer'
 #define TRISa	TRISA	// port setup name equivalents
 #define TRISb	TRISB
 #define TRISc	TRISC
@@ -60,26 +60,18 @@
 #include <libpic30.h>
 #define time__sleep_ms(TIME)    __delay_ms(TIME)
 
-void main__init();
-
-void port__init();
-
-void time__init();
-
 void main__init() {
-	AD1PCFG = 0xFFDF;
-	AD1CSSL = 0;
-	AD1CON2 = 0;
-	AD1CON3 = 0x1F02;
-	AD1CON1bits.ADON = 1;
-	TRISA = 0xff00;
-	TRISDbits.TRISD6 = 1;
-	TRISDbits.TRISD13 = 1;
-	TRISDbits.TRISD7 = 1;
-	TRISBbits.TRISB5 = 1;
-	port__init();
-	time__init();
+		AD1PCFG = 0xFFDF;     	// Analog inputs for Explorer16 POT and TSENS
+		AD1CSSL = 0;           	// no scanning required
+		AD1CON2 = 0;           	// use MUXA, AVss and AVdd are used as Vref+/-
+		AD1CON3 = 0x1F02;      	// Tsamp = 32 x Tad; Tad=125ns
+		AD1CON1bits.ADON = 1;  	// turn on the ADC
 	
+		TRISA = 0xff00;        	// select the PORTA pins as outputs to drive the LEDs
+		TRISDbits.TRISD6 =  1;	// inputs switches
+		TRISDbits.TRISD13 = 1;	 
+		TRISDbits.TRISD7 =  1;	 
+		TRISBbits.TRISB5 =  1;	// potentiometer
 }
 
 void port__init() {
@@ -90,6 +82,9 @@ void time__init() {
 
 int main(void ) {
 	main__init();
+	port__init();
+	time__init();
+	
 	while(true) {
 		port__write(a, 0b11111111);
 		time__sleep_ms(200);

@@ -4,7 +4,7 @@ const turn_time = 360
 
 move_time := 200
 
-for n in 1..50 {
+for _ in 1..50 {
 	motor.forward(ac, 75)
 	sleep_ms(move_time)
 	motor.reverse(c, 75)

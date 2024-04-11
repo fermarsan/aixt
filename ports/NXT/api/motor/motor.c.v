@@ -28,8 +28,8 @@ module motor	// NXC Output
 #define     offset_rotation_count       OutputOffsetRotationCount        
 #define     offset_tacho_limit          OutputOffsetTachoLimit        
 #define     offset_motor_rpm            OutputOffsetMotorRPM           
-#define     offset_flags                OutputOffsetFlags                
-#define     offset_mode                 OutputOffsetMode                
+#define     output_offset_flags         OutputOffsetFlags                
+#define     motor__offset_mode          OutputOffsetMode                
 #define     offset_speed                OutputOffsetSpeed                
 #define     offset_actual_speed         OutputOffsetActualSpeed                
 #define     offset_reg_p_parameter      OutputOffsetRegPParameter        

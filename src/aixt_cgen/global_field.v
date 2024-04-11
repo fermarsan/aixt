@@ -11,6 +11,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) string {
 	// print('\n\n##########(${node})##########\n\n')
 	mut out := ''
 	mut var_kind := gen.table.type_kind(node.typ).str()
+	// print('\n\n##########(${node.typ})##########\n\n')
 	// print('\n\n##########(${var_kind})##########\n\n')
 	// print('\n\n##########(${node.expr})##########\n\n')
 	match node.expr {

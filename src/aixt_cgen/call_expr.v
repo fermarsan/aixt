@@ -8,13 +8,27 @@ import v.ast
 
 // call_expr is the code generation function for function calling expressions.
 fn (mut gen Gen) call_expr(node ast.CallExpr) string {
+	// if node.name.all_before_last('.') == 'literal_backend_code' {	// detect the literal code insertion function
+	// 	return (node.args[0].expr as ast.StringLiteral).val
+	// }
 	// fn_name := node.name.replace('.', '__')	// remove the parent function name
-	mut fn_name := node.name.all_before_last('.')	// only the module name
-	fn_name = if node.name.contains('.') {
-		'${fn_name.all_after_last('.')}__${node.name.all_after_last('.')}'
+	// println("+++++++++++++++\n${node.name}\n+++++++++++++++")
+	// println("+++++++++++++++\n${node.mod}\n+++++++++++++++")
+	// println("+++++++++++++++\n${node.mod.all_after_last('.')}\n+++++++++++++++")
+	// mut fn_name := node.name.all_before_last('.')	// only the module name
+	fn_name := if node.name.contains('.') {
+		node.name.replace('.', '__')
+	} else if node.mod.all_after_last('.') == 'main' && gen.setup.value('backend').string() == 'nxc' {
+		'${node.name.all_after_last('.')}'
 	} else {
-		fn_name
+		'${node.mod.all_after_last('.')}__${node.name.all_after_last('.')}'
 	}
+	// mut fn_name := node.name.all_before_last('.')	// only the module name
+	// fn_name = if node.name.contains('.') {
+	// 	'${fn_name.all_after_last('.')}__${node.name.all_after_last('.')}'
+	// } else {
+	// 	fn_name
+	// }
 	// fn_api_path := gen.setup.value('api_functions').as_map()[fn_name] or { '' }	// api path of function
 	// if fn_api_path.string() != '' {// self-including of api files
 	// 	file_path := '${gen.tr_path}/ports/${gen.setup.value('path').string()}/api/${fn_api_path.string()}.c.v\n'

@@ -1,4 +1,5 @@
 import motor
+import rand
 
 const(
 	move_time = 500
@@ -8,7 +9,7 @@ const(
 for {
 	motor.forward(ac, 75)
 	sleep_ms(move_time)
-	if random() >= 0 {
+	if rand.rand() >= 0 {
 		motor.reverse(c, 75)
 	} else {
 		motor.reverse(a, 75)

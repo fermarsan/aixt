@@ -1,4 +1,5 @@
 import sound
+import motor
 
 @[task]
 fn music() {

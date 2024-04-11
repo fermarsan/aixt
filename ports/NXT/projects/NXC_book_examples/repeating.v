@@ -5,7 +5,7 @@ const (
 	turn_time = 500
 )
 
-for n in 1..4 {
+for _ in 1..4 {
 	motor.forward(ac, 75)
 	sleep_ms(move_time)
 	motor.reverse(c, 75)

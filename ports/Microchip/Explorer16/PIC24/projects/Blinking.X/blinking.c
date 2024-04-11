@@ -32,7 +32,7 @@
 #define sw4     D, 13
 #define sw5     A, 7
 #define sw6     D, 7
-#define pot     B, 5	// Onboard potentiometer
+#define pot     B, 5	// Onboard potentiometer'
 #include <libpic30.h>
 #define time__sleep_ms(TIME)    __delay_ms(TIME)
 #include <p24FJ128GA010.h>
@@ -134,26 +134,18 @@
 #define pin__low_(PORT_NAME, PIN)   LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = 1
 #define pin__low(PIN_NAME)  pin__low_(PIN_NAME)
 
-void main__init();
-
-void time__init();
-
-void pin__init();
-
 void main__init() {
-	AD1PCFG = 0xFFDF;
-	AD1CSSL = 0;
-	AD1CON2 = 0;
-	AD1CON3 = 0x1F02;
-	AD1CON1bits.ADON = 1;
-	TRISA = 0xff00;
-	TRISDbits.TRISD6 = 1;
-	TRISDbits.TRISD13 = 1;
-	TRISDbits.TRISD7 = 1;
-	TRISBbits.TRISB5 = 1;
-	time__init();
-	pin__init();
+		AD1PCFG = 0xFFDF;     	// Analog inputs for Explorer16 POT and TSENS
+		AD1CSSL = 0;           	// no scanning required
+		AD1CON2 = 0;           	// use MUXA, AVss and AVdd are used as Vref+/-
+		AD1CON3 = 0x1F02;      	// Tsamp = 32 x Tad; Tad=125ns
+		AD1CON1bits.ADON = 1;  	// turn on the ADC
 	
+		TRISA = 0xff00;        	// select the PORTA pins as outputs to drive the LEDs
+		TRISDbits.TRISD6 =  1;	// inputs switches
+		TRISDbits.TRISD13 = 1;	 
+		TRISDbits.TRISD7 =  1;	 
+		TRISBbits.TRISB5 =  1;	// potentiometer
 }
 
 void time__init() {
@@ -165,6 +157,9 @@ const int32_t t1 = 500;
 
 int main(void ) {
 	main__init();
+	time__init();
+	pin__init();
+	
 	pin__setup(a0, pin__output);
 	while(true) {
 		pin__high(a0);

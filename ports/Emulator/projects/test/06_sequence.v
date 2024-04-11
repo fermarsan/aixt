@@ -1,7 +1,7 @@
 import time {sleep_ms}
 import pin
 
-sleep_ms(2000)
+sleep_ms(1500)
 
 for i in 0..5 {
 	pin.high(a)		// turn on

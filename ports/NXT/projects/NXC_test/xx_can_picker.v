@@ -1,3 +1,3 @@
 import motor
 
-motor.forward(bc)
+motor.forward(bc, 50)

@@ -14,6 +14,7 @@ fn (mut gen Gen) err_war_check() {
 		'has no constant or function',
 		'returns 0 value(s)',
 		'non-bool',
+		'mutex',
 	]
 
 	for j, mut file in gen.files {

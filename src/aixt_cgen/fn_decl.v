@@ -5,6 +5,7 @@
 // License: MIT
 module aixt_cgen
 
+import os
 import v.ast
 
 // fn_decl is the code generation function for the function declaration statement.
@@ -21,7 +22,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				// for c in gen.setup.value('initialization').array() {	// initialization lines
 				// 	out += '${c.string()}\n'    
 				// }
-				out += 'main__init();\n'	// initialization function	
+				out += '___initialization_block___\n'	// initialization function	
 				for st in node.stmts {	// inner statements
 					out += gen.ast_node(st)
 				}
@@ -36,7 +37,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				// for c in gen.setup.value('initialization').array() {	// initialization lines
 				// 	out += '${c.string()}\n'    
 				// }
-				out += 'main__init();\n'	// initialization function			
+				out += '___initialization_block___\n'	// initialization function			
 				for st in node.stmts {	// inner statements
 					out += gen.ast_node(st)
 				}
@@ -47,7 +48,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				// for c in gen.setup.value('initialization').array() {	// initialization lines
 				// 	out += '${c.string()}\n'    
 				// }		
-				out += 'main__init();\n'	// initialization function	
+				out += '___initialization_block___\n'	// initialization function	
 				for st in node.stmts {	// inner statements
 					 stmt_str := gen.ast_node(st)
 					 if stmt_str.starts_with('while(true) {\n') {
@@ -66,37 +67,58 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		}
 		out = if out[0] == ` ` { out[1..] } else { out }	// closing
 	} else {
-		gen.cur_fn = node.name
-		println('## fn name: ${node.name} ##')
-		for a in node.attrs {
-			out += '${a.name} '
-		}
-		// println('##########${gen.table.type_symbols[node.return_type].str()}##########')
-		out += '${gen.setup.value(gen.table.type_symbols[node.return_type].str()).string()} ' // return type
-		// out += '${node.name.replace('.', '__')}('
-		out += '${node.mod.all_after_last('.')}__${node.short_name}('
-		if node.params.len != 0 {
-			for pr in node.params {
-				out += '${gen.ast_node(pr)}, '
-				println(pr.name)
-				// var_name := '${gen.cur_fn}.${pr.name}'
+		// println('## fn name: ${node.name} ##')
+		// println("+++++++++++++++\n${node.short_name}\n+++++++++++++++")
+		// println("+++++++++++++++\n${node.mod}\n+++++++++++++++")
+		module_short_name := node.mod.all_after_last('.')
+		match node.language {
+			.c {				// for C.functions()
+				c_file_path := node.file.all_before_last('/') + '/${node.short_name}.c'
+				mut c_code := os.read_file(c_file_path) or { panic(err) }
+				out += c_code.replace('${node.short_name}(', '${module_short_name}__${node.short_name}(')
+				out += '\n'
+				if node.short_name == 'init' && node.mod == 'main' {
+					gen.init_cmds += 'main__init();\n'	// call the module initialization function
+				}
 			}
-			out = out#[..-2] + ')' 
-			gen.definitions << out + ';\n'	// generates the function's prototype
-			out += ' {\n'
-		} else {
-			out += ')' 
-			gen.definitions << out + ';\n'	// generates the function's prototype
-			out += ' {\n'
-		}
-		for st in node.stmts {
-			out += gen.ast_node(st)
-		}
-		
-		out += if node.name == 'main.init' {
-			'___initialization_block___\n}\n'
-		} else {
-			'}\n'
+			else {				//for regular functions
+				gen.cur_fn = node.name
+				mut nxc_task := false
+				for a in node.attrs {
+					out += '${a.name} '
+					if a.name == 'task' { 
+						nxc_task = true
+					}
+				}
+				// println('##########${gen.table.type_symbols[node.return_type].str()}##########')
+				out += if nxc_task {	// return type
+					'' 
+				} else {
+					gen.setup.value(gen.table.type_symbols[node.return_type].str()).string() + ' '
+				}
+				// out += '${node.name.replace('.', '__')}('
+				out += if nxc_task {
+					'${node.short_name}('
+				} else {
+					'${module_short_name}__${node.short_name}('
+				}
+				if node.params.len != 0 {
+					for pr in node.params {
+						out += '${gen.ast_node(pr)}, '
+					}
+					out = out#[..-2] + ')' 
+					// gen.definitions << out + ';\n'	// generates the function's prototype
+					out += ' {\n'
+				} else {
+					out += ')' 
+					// gen.definitions << out + ';\n'	// generates the function's prototype
+					out += ' {\n'
+				}
+				for st in node.stmts {
+					out += gen.ast_node(st)  	
+				}
+				out += '}\n'
+			}
 		}
 		out = if out[0] == ` ` { out[1..] } else { out }
 	}

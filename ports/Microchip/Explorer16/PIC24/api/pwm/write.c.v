@@ -8,6 +8,4 @@ module pwm
 
 
 
-fn write(duty u8) {
-	
-}
+fn C.write(duty u8)
