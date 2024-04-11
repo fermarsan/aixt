@@ -66,18 +66,18 @@ void adc__init() {
 
 void setup() {
 	main__init();
-	pin__setup(P5, pin__input);
-	pin__setup(P10, pin__output);
-	pin__setup(P11, pin__output);
+	pin__setup(p5, pin__input);
+	pin__setup(p10, pin__output);
+	pin__setup(p11, pin__output);
 }
 
 void loop() {
-	if(400 <= adc_read(P5)) {
-		pin__high(P10);
-		pin__low(P11);
+	if(400 <= adc__read(p5)) {
+		pin__high(p10);
+		pin__low(p11);
 	}
 	else {
-		pin__high(P11);
-		pin__low(P10);
+		pin__high(p11);
+		pin__low(p10);
 	}
 }

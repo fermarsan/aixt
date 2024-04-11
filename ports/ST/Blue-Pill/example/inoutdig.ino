@@ -65,12 +65,12 @@ void setup() {
 }
 
 void loop() {
-	if((pin__read(P1) == 1)) {
-		pin__high(P23);
-		pin__low(P24);
+	if((pin__read(p1) == 1)) {
+		pin__high(p23);
+		pin__low(p24);
 	}
 	else {
-		pin__high(P24);
-		pin__low(P23);
+		pin__high(p24);
+		pin__low(p23);
 	}
 }

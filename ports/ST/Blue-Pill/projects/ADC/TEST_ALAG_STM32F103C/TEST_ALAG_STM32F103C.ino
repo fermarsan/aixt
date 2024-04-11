@@ -12,8 +12,8 @@ int pinA = PA5;  // Pin para el LED A
 int pinB = PA6;  // Pin para el LED B
 =======
 
-int pinA = PA5;  // Pin para el LED A
-int pinB = PA6;  // Pin para el LED B
+int pinA = PB10;  // Pin para el LED A
+int pinB = PB1;  // Pin para el LED B
 int pinc = PA4;  // Pin para el LED C
 >>>>>>> d4993b91b137dd499e1bd8c91cce3c82d74f8e77
 
@@ -28,6 +28,9 @@ void setup() {
 
 void loop() {
  
+<<<<<<< HEAD:ports/ST/Blue-Pill/projects/ADC/TEST_ALAG_STM32F103C/TEST_ALAG_STM32F103C.ino
+  if (400<=analogRead(pinc)) {
+=======
 <<<<<<< HEAD
   analogRead(pinA);//salida PA4 conectada a un LED 
   analogRead(pinB);//salida PA5 conectada a un LED 
@@ -36,6 +39,7 @@ void loop() {
 }
 =======
   if (500<=analogRead(pinc)) {
+>>>>>>> 81843babddc9ac24b41b0fffc375102ccc219794:ports/ST/Blue-Pill/projects/ADC/TEST_ALAG_STM32F103C.ino
   digitalWrite(pinA, HIGH);
   digitalWrite(pinB, LOW);
   delay (100);
@@ -45,8 +49,7 @@ void loop() {
   digitalWrite(pinA, LOW);
   delay (100);
  }
-  Serial.println(9600);//velocidad en baudios soportado   
- //por la tarjeta
+ 
 }
 
 
