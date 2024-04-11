@@ -8,6 +8,7 @@ import v.ast
 
 // array_init is the code generation function for arrays initialization.
 fn (mut gen Gen) array_init(node ast.ArrayInit) string {
+	// println("+++++++++++++++\n${node}\n+++++++++++++++")
 	mut out := '{'
 	for ex in node.exprs {
 		out += '${gen.ast_node(ex)}, '

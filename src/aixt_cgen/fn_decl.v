@@ -71,15 +71,18 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		// println("+++++++++++++++\n${node.short_name}\n+++++++++++++++")
 		// println("+++++++++++++++\n${node.mod}\n+++++++++++++++")
 		module_short_name := node.mod.all_after_last('.')
+		if node.short_name == 'init' { // module initialization functions
+			gen.init_cmds += '${module_short_name}__init();\n'
+		}
 		match node.language {
 			.c {				// for C.functions()
 				c_file_path := node.file.all_before_last('/') + '/${node.short_name}.c'
 				mut c_code := os.read_file(c_file_path) or { panic(err) }
 				out += c_code.replace('${node.short_name}(', '${module_short_name}__${node.short_name}(')
 				out += '\n'
-				if node.short_name == 'init' && node.mod == 'main' {
-					gen.init_cmds += 'main__init();\n'	// call the module initialization function
-				}
+				// if node.short_name == 'init' && node.mod == 'main' {
+				// 	gen.init_cmds += 'main__init();\n'	// call the module initialization function
+				// }
 			}
 			else {				//for regular functions
 				gen.cur_fn = node.name
