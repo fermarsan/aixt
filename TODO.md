@@ -23,6 +23,8 @@ Tasks to do in Aixt
 - [ ] relocate generated code for function definitions #bug
 - [ ] add to the docs the difference of V and C preprocessor
 - [ ] Issue: empty array initialization
+- [ ] Eliminate empty init functions
+- [ ] Issue: auto include main.init()
 
    
 ### Done ✓
