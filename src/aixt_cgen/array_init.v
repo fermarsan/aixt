@@ -10,9 +10,11 @@ import v.ast
 fn (mut gen Gen) array_init(node ast.ArrayInit) string {
 	// println("+++++++++++++++\n${node}\n+++++++++++++++")
 	mut out := '{'
-	for ex in node.exprs {
-		out += '${gen.ast_node(ex)}, '
+	if node.exprs.len != 0 {
+		for ex in node.exprs {
+			out += '${gen.ast_node(ex)}, '
+		}
+		out = out#[..-2]
 	}
-	out = out#[..-2]
 	return out + '}'
 }
