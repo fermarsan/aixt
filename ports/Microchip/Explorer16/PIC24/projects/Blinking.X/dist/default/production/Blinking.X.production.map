@@ -116,9 +116,9 @@ External Symbols in Program Memory (by address):
                   0x000524                  ___umuldi3
                   0x000568                  _t1
                   0x00056c                  _main__init
-                  0x000590                  _time__init
-                  0x000596                  _pin__init
-                  0x00059c                  _main
+                  0x00058c                  _time__init
+                  0x000592                  _pin__init
+                  0x000598                  _main
                   0x0005e0                  ___delay32
 
 External Symbols in Program Memory (by name):
@@ -136,11 +136,11 @@ External Symbols in Program Memory (by name):
                   0x000252                  __data_init_standard
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00059c                  _main
+                  0x000598                  _main
                   0x00056c                  _main__init
-                  0x000596                  _pin__init
+                  0x000592                  _pin__init
                   0x000568                  _t1
-                  0x000590                  _time__init
+                  0x00058c                  _time__init
 
 Memory Configuration
 
@@ -896,9 +896,9 @@ __c30_signature
 .text             0x00056c         0x74
  .text            0x00056c         0x74 build/default/production/blinking.o
                   0x00056c                  _main__init
-                  0x000590                  _time__init
-                  0x000596                  _pin__init
-                  0x00059c                  _main
+                  0x00058c                  _time__init
+                  0x000592                  _pin__init
+                  0x000598                  _main
 
 .init.delay32     0x0005e0         0x1c
  .init.delay32    0x0005e0         0x1c /opt/microchip/xc16/v2.10/bin/bin/../../lib/libc99-pic30-elf.a(delay32.Meo)

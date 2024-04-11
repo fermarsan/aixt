@@ -39,6 +39,7 @@ pub mut:
 pub fn (mut gen Gen) gen(source_path string) string {
 	gen.init_output_file()
 
+	// println('++++++++++++++++\npath: ${gen.setup.value('path').string()}\n++++++++++++++++')
 	// gen.add_sources('${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api') //auto-inludes API
 	gen.source_paths << '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api/builtin.c.v'
 	gen.add_sources(source_path)

@@ -40,7 +40,8 @@ fn main() {
 					base_name = base_name.replace('.v', '')
 					println('setup file:\n\t${aixt_path}/ports/setup/${port}.toml\n')
 					// println(os.read_file('${aixt_path}/ports/setup/${port}.toml') or { 'file doesn\'t exist' } )
-					setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { return } // load the device's setup file
+					setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { panic(err) } // load the device's setup file
+					// println('++++++++++++++++\n${setup}\n++++++++++++++++')
 					match command {
 						'transpile', '-t' {
 							aixt_build.transpile_file(input_name, setup, aixt_path)
