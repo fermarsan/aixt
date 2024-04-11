@@ -624,7 +624,7 @@ void motor__init() {
 void sensor__init() {
 }
 
-task task  main__move_square() {
+task main__move_square() {
 	while(true) {
 		acquire(move_mutex);
 		motor__forward(ac, 75);
@@ -635,7 +635,7 @@ task task  main__move_square() {
 	}
 }
 
-task task  main__check_sensors() {
+task main__check_sensors() {
 	while(true) {
 		if(sensor__read(i1) == 1) {
 			acquire(move_mutex);

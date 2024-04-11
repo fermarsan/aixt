@@ -85,19 +85,14 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 				gen.cur_fn = node.name
 				mut nxc_task := false
 				for a in node.attrs {
-						out += '${a.name} '
-						if a.name == 'task' { 
-							nxc_task = true
-							println("+++++++++++++++\ntask\n+++++++++++++++")
-						}
+					out += '${a.name} '
+					if a.name == 'task' { 
+						nxc_task = true
+					}
 				}
-				if nxc_task {
-					out += 'task '
-				}
-
 				// println('##########${gen.table.type_symbols[node.return_type].str()}##########')
 				out += if nxc_task {	// return type
-					' ' 
+					'' 
 				} else {
 					gen.setup.value(gen.table.type_symbols[node.return_type].str()).string() + ' '
 				}
