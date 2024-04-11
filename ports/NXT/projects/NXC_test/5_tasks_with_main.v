@@ -1,10 +1,16 @@
+import sensor
+import motor
+
+@[mutex]
+__global move_mutex = 0	// initialization value is necesary but will be ingnored
+
 @[task]
 fn move_square() {
 	for {
 		acquire(move_mutex)
-		motor.forward(motors_ac, 75)
+		motor.forward(ac, 75)
 		sleep_ms(1000)
-		motor.reverse(motor_c, 75)
+		motor.reverse(c, 75)
 		sleep_ms(500)
 		release(move_mutex)
 	}
@@ -15,9 +21,9 @@ fn check_sensors() {
 	for {
 		if sensor.read(i1) == 1 {
 			acquire(move_mutex)
-			motor.reverse(motors_ac, 75)
+			motor.reverse(ac, 75)
 			sleep_ms(500)
-			motor.forward(motor_a, 75)
+			motor.forward(a, 75)
 			sleep_ms(500)
 			release(move_mutex)
 		}
@@ -26,7 +32,6 @@ fn check_sensors() {
 
 @[task]
 fn main() {
-	move_mutex := mutex('') // initialization value is necesary but will be ingnored
 
 	precedes(move_square, check_sensors)
 	sensor.set_touch(i1)

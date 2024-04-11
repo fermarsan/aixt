@@ -2,9 +2,7 @@ import motor
 import sensor
 
 @[mutex]
-__global (
-	move_mutex mutex // initialization value is necesary but will be ingnored
-)
+__global move_mutex = 0		// initialization value is necesary but will be ingnored
 
 @[task]
 fn move_square() {
@@ -12,7 +10,7 @@ fn move_square() {
 		acquire(move_mutex)
 		motor.forward(ac, 75)
 		sleep_ms(1000)
-		motor.reverse(motor_c, 75)
+		motor.reverse(c, 75)
 		sleep_ms(500)
 		release(move_mutex)
 	}
