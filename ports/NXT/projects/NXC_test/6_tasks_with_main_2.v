@@ -14,7 +14,7 @@ import motor
 
 @[task] fn check_sensors() {
     for {
-        if sensor_1 == 1 {
+        if sensor.read(i1) == 1 {
             acquire(move_mutex)
             motor.reverse(ac, 75); sleep_ms(500)
             motor.forward(a, 75); sleep_ms(500)
@@ -25,5 +25,5 @@ import motor
 
 @[task] fn main() {
 	precedes(move_square, check_sensors)
-	set_sensor_touch(in_1)
+	sensor.set_touch(i1)
 }

@@ -22,12 +22,11 @@ Tasks to do in Aixt
 - [ ] setup template files
 - [ ] relocate generated code for function definitions #bug
 - [ ] add to the docs the difference of V and C preprocessor
-- [ ] Implement SemicolonStmt
 
    
 ### Done ✓
 
-
+- [x] Implement SemicolonStmt
 - [x] NXC mutex issue
 - [x] NXC tasks + void issue
 - [x] change all the API from 'pure V' to mixed V & C.

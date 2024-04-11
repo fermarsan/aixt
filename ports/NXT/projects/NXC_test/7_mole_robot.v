@@ -20,21 +20,17 @@ fn spin(power int, time int) {
 	sleep_ms(time)
 }
 
-fn _stop(time int) {
+fn stop_(time int) {
 	motor.off(ab)
 	sleep_ms(time)
 }
 
 sensor.set_touch(i3)
 
-a := 0
-
 for {
 	straight(pow, t_move)
-
-	a = sensor(s3)
-	if a == 1 { // if touch
-		_stop(t_stop)
+	if sensor.read(i3) == 1 { // if touch
+		stop_(t_stop)
 		straight(-pow, t_avoid) // reverse
 		spin(pow, t_avoid)
 	}
