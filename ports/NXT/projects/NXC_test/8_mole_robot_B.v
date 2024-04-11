@@ -3,10 +3,12 @@
 import motor
 import sensor
 
-const t_move = 500
-const t_stop = 500
-const t_avoid = 1500
-const pow = 50
+const (
+	t_move = 500
+	t_stop = 500
+	t_avoid = 1500
+	pow = 50
+)
 
 fn straight(power int, time int) {
 	motor.forward(a, power); motor.reverse(b, power)
