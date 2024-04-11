@@ -31,5 +31,3 @@ Tasks to do in Aixt
 - [x] Issue: auto include main.init()
 - [x] Implement SemicolonStmt
 - [x] NXC mutex issue
-- [x] NXC tasks + void issue
-- [x] change all the API from 'pure V' to mixed V & C.
