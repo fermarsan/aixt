@@ -38,9 +38,9 @@ fn main() {
 					port, input_name := os.args[2], os.abs_path(os.args[3])	// port name and source path input
 					mut base_name := input_name.replace('.aixt', '') // input file base name
 					base_name = base_name.replace('.v', '')
-					println('setup file:\n\t${aixt_path}/ports/setup/${port}.toml\n')
-					// println(os.read_file('${aixt_path}/ports/setup/${port}.toml') or { 'file doesn\'t exist' } )
-					setup := toml.parse_file('${aixt_path}/ports/setup/${port}.toml') or { panic(err) } // load the device's setup file
+					println('setup file:\n\t${aixt_path}/setup/${port}.toml\n')
+					// println(os.read_file('${aixt_path}/setup/${port}.toml') or { 'file doesn\'t exist' } )
+					setup := toml.parse_file('${aixt_path}/setup/${port}.toml') or { panic(err) } // load the device's setup file
 					// println('++++++++++++++++\n${setup}\n++++++++++++++++')
 					match command {
 						'transpile', '-t' {

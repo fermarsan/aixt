@@ -4,7 +4,7 @@ import array
 aaa 	:= 0		
 bbb 	:= 0		
 ccc   	:= 0		
-values	:= []int	
+values	:= []int{}	
 
 
 aaa = 10
