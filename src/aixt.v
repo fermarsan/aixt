@@ -82,11 +82,11 @@ fn main() {
 							path, name := os.args[2], os.args[3]
 							device := os.args[4] or { 'Emulator' }
 							os.mkdir('${path}/${name}') or {}
-							os.cp('${aixt_path}/.template/main.v', '${path}/${name}/main.v') or {}
-							if os.exists('${aixt_path}/.template/${device}_setup.c.v') {
-								os.cp('${aixt_path}/.template/${device}_setup.c.v', 
-									  '${path}/${name}/setup.c.v') or {}
-							}
+							os.cp('${aixt_path}/.templates/main.v', '${path}/${name}/main.v') or {}
+							// if os.exists('${aixt_path}/.templates/${device}_setup.c.v') {
+							// 	os.cp('${aixt_path}/.templates/${device}_setup.c.v', 
+							// 		  '${path}/${name}/setup.c.v') or {}
+							// }
 							os.cp_all('${aixt_path}/.vscode/', '${path}/${name}/.vscode/', true) or {}
 							mut lines := os.read_file('${path}/${name}/.vscode/settings.json') or {''}
 							$if windows {
