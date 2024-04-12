@@ -17,11 +17,11 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
-- [ ] setup template files
    
 
 ### Done ✓
 
+- [x] setup template files
 - [x] Fix the function attributes #bug @fermarsan
 - [x] Update the Aixt executable path #bug
 - [x] Change the location of the folder containing the .TOML configuration files from aixt/ports/setup/ to aixt/setup/
