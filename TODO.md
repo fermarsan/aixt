@@ -4,11 +4,9 @@ Tasks to do in Aixt
 
 ### Todo
 
-- [ ] Fix the function attributes #bug @fermarsan
 - [ ] Implement structs #feat
     - [ ] support struct fields (`struct_name.struct_field`)
 - [ ] Implement variable swapping (by using temporal vars) #feat
-- [ ] Update the Aixt executable path #bug
 - [ ] dynamic memory definition
 - [ ] generates documentation from code
 - [ ] API auto-import option
@@ -24,8 +22,7 @@ Tasks to do in Aixt
 
 ### Done ✓
 
-
+- [x] Fix the function attributes #bug @fermarsan
+- [x] Update the Aixt executable path #bug
 - [x] Change the location of the folder containing the .TOML configuration files from aixt/ports/setup/ to aixt/setup/
-- [x] add to the docs the difference of V and C preprocessor
-- [x] relocate generated code for function definitions #bug
-- [x] Issue: empty array initialization
+
