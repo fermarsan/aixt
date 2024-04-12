@@ -148,8 +148,9 @@ The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API f
 
 First compile `aixt.v`: 
 ```
-cd aixt
-v aixt.v
+cd aixt/src
+v .
+cd src
 ```
 
 run it in a Linux-based system as:
