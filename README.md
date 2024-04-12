@@ -83,15 +83,16 @@ The transpiler is written in [_V_](https://vlang.io/) and uses _V's_ native comp
 
 **Aixt** programing language implements a subset of the [_V language_](https://vlang.io/). The main differences are show as follows:
 
-feature                       |V                                  | Aixt
-------------------------------|-----------------------------------|----------------------------------------
-variables                     | immutable by default              | mutable by default
-strings                       | dynamic-sized                     | dynamic-sized (only if supported)
-arrays                        | dynamic-sized                     | dynamic-sized (only if supported)
-default integers size         | 32 bits                           | depends on the device  
-structs                       | allow functions (object-oriented) | don't allow functions (only structured)
-functions                     | multiple return values            | only one return value
-C-style preprocessor commands | V specific and `#include`         | support any command starting with `#`
+feature                       | V                                   | Aixt
+------------------------------|-------------------------------------|---------------------------------------------
+variables                     | immutable by default                | mutable by default
+strings                       | dynamic-sized                       | dynamic-sized (only if supported)
+arrays                        | dynamic-sized                       | dynamic-sized (only if supported)
+default integers size         | 32 bits                             | depends on the device  
+structs                       | allow functions (object-oriented)   | don't allow functions (only structured)
+functions                     | multiple return values              | only one return value
+C-style preprocessor commands | only V specific ones and `#include` | support any command starting with `#`
+`C.functions()`               | explicit include de C file          | auto include `function.c` for `C.function()`
 
 
 ### Example with `main` function
