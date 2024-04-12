@@ -10,6 +10,6 @@ module pin
 //	   +-->	x = pin.read(A, 7)		
 //	          |
 //	          +-->	x = PORTAbits.PORTA7	// (PIC16, PIC18, PIC24, dsPIC33)
-#define pin__read_(PORT_NAME, PIN)	PORT ## PORT_NAME ## bits.PORT ## PORT_NAME ## PIN
+#define pin__read_(PORT_NAME, PIN)	PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN
 
 #define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
