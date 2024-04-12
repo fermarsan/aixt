@@ -20,11 +20,12 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
 - [ ] setup template files
-- [ ] Change the location of the folder containing the .TOML configuration files from aixt/ports/setup/ to aixt/setup/
    
 
 ### Done ✓
 
+
+- [x] Change the location of the folder containing the .TOML configuration files from aixt/ports/setup/ to aixt/setup/
 - [x] add to the docs the difference of V and C preprocessor
 - [x] relocate generated code for function definitions #bug
 - [x] Issue: empty array initialization
