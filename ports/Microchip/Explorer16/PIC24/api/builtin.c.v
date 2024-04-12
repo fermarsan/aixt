@@ -12,10 +12,10 @@ module main
 
 #define FCY 8000000UL
 
-#pragma config POSCMOD = HS
+#pragma config POSCMOD = NONE
 #pragma config OSCIOFNC = OFF
 #pragma config FCKSM = CSDCMD
-#pragma config FNOSC = PRIPLL
+#pragma config FNOSC = FRCPLL
 #pragma config IESO = OFF
 #pragma config WDTPS = PS32768
 #pragma config FWPSA = PR128
