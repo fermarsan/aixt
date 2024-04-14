@@ -10,7 +10,8 @@ Tasks to do in Aixt
 - [ ] dynamic memory definition
 - [ ] generates documentation from code
 - [ ] API auto-import option
-- [ ] Implements inline assembly
+- [ ] Implement inline assembly
+- [ ] Implement adc.setup() in Explorer16-PIC24
 
 
 ### In Progress
