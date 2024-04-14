@@ -1,21 +1,24 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: builtin.c.v
-// Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
+// Author: Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: Builtin definitions (PIC18F2550)
+// Description: Builtin definitions (PIC18F4550)
 
 module main
 
 #include <xc.h>
+#include <stdint.h>
+#include <stdbool.h>
 #include <stdio.h>
-#define _XTAL_FREQ 8000000
-#define true 1
+
+#define _XTAL_FREQ 20000000
+
 
 // CONFIG1L
-#pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
-#pragma config CPUDIV = OSC1_PLL2// System Clock Postscaler Selection bits ([Primary Oscillator Src: /1][96 MHz PLL Src: /2])
+#pragma config PLLDIV = 5         // 20 MHz PLL Prescaler Selection bits (Divide by 5 (20 MHz oscillator input))
+#pragma config CPUDIV = OSC1_PLL2 // 96MHz PLL Src: /2=48MHz, /3=32MHz, /6=16MHz, /12=8MHz, /24=4MHz, /48=2MHz
 #pragma config USBDIV = 1       // USB Clock Selection bit (used in Full-Speed USB mode only; UCFG:FSEN = 1) (USB clock source comes directly from the primary oscillator block with no postscale)
 
 // CONFIG1H
@@ -41,7 +44,7 @@ module main
 
 // CONFIG4L
 #pragma config STVREN = ON      // Stack Full/Underflow Reset Enable bit (Stack full/underflow will cause Reset)
-#pragma config LVP = ON         // Single-Supply ICSP Enable bit (Single-Supply ICSP enabled)
+#pragma config LVP = OFF        // Single-Supply ICSP Enable bit (Single-Supply ICSP enabled)
 #pragma config XINST = OFF      // Extended Instruction Set Enable bit (Instruction set extension and Indexed Addressing mode disabled (Legacy mode))
 
 // CONFIG5L
