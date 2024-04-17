@@ -4,7 +4,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: ADC management functions
+// Description: pin port management functions
 //              (PIC16F84A port)
 
 module port

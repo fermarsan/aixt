@@ -8,4 +8,6 @@
 
 module pin
 
-#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
+#define pin__setup_(PORT_NAME, PIN, MODE)   TRIS ## PORT_NAME ## bits.TRIS ## PORT_NAME ## PIN = MODE
+
+#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)

@@ -8,7 +8,3 @@
 //              (PIC16F886 port)
 
 module time
-
-fn init() {
-
-}

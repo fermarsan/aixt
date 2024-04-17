@@ -8,4 +8,6 @@
 
 module pin
 
-#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
+#define pin__write_(PORT_NAME, PIN, VALUE)   PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = VALUE
+
+#define pin__write(PIN_NAME, VALUE)  pin__write_(PIN_NAME, VALUE)

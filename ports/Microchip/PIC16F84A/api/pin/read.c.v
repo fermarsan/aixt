@@ -8,4 +8,6 @@
 
 module pin
 
-#define pin__read(PIN_NAME)  PIN_NAME
+#define pin__read_(PORT_NAME, PIN)	PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN
+
+#define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
