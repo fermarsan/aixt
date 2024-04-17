@@ -14,7 +14,8 @@ import toml
 
 // Gen is the struct that defines all the necessary data for the code generation
 pub struct Gen {
-mut:	
+pub mut:
+// mut:	
 	files 			[]&ast.File
 	table 			&ast.Table = unsafe { nil }
 	cur_scope		&ast.Scope = unsafe { nil }
@@ -29,7 +30,7 @@ mut:
 	cur_fn			string
 	file_count		int
 	level_cont		int
-pub mut:
+// pub mut:
 	pref  			&pref.Preferences = unsafe { nil }
 	setup 			toml.Doc
 }
@@ -51,11 +52,11 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 	// gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
 	
-	$if windows {
+	// $if windows {
 		gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
-	} $else {
-		gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
-	}
+	// } $else {
+	// 	gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
+	// }
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check_files(gen.files)

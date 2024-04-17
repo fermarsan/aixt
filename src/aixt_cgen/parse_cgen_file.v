@@ -16,11 +16,11 @@ import v.checker
 pub fn (mut gen Gen) parse_cgen_file(source_path string) string {
 	mut file := &ast.File(unsafe { nil })	// parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
 	
-	$if windows {
+	// $if windows {
 		file = parser.parse_file(source_path, mut gen.table, .skip_comments, gen.pref)
-	} $else {
-		file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
-	}
+	// } $else {
+	// 	file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
+	// }
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check(mut file)
