@@ -4,6 +4,7 @@ Tasks to do in Aixt
 
 ### Todo
 
+- [ ] Start a vscode extension for Aixt
 - [ ] Implement structs #feat
     - [ ] support struct fields (`struct_name.struct_field`)
 - [ ] Implement variable swapping (by using temporal vars) #feat
@@ -18,6 +19,8 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
+- [ ] Add AIXT_PATH variable to the .TOML file
+- [ ] Create the templates for the "new project" task
    
 
 ### Done ✓
@@ -25,5 +28,4 @@ Tasks to do in Aixt
 - [x] setup template files
 - [x] Fix the function attributes #bug @fermarsan
 - [x] Update the Aixt executable path #bug
-- [x] Change the location of the folder containing the .TOML configuration files from aixt/ports/setup/ to aixt/setup/
 
