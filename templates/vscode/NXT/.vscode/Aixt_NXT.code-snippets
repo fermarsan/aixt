@@ -1,0 +1,43 @@
+{
+	"Add Task": {
+		"prefix": "task",
+		"body": [ 
+			"@[task] fn $1 {",
+			"\t$2",
+			"}",
+		],
+		"description": "Add a new task function"
+	},
+	"Add Mutex": {
+		"prefix": "mutex",
+		"body": [ 
+			"@[mutex]",
+			"__global $1 = 0",
+		],
+		"description": "Add a new mutex var (shared resources semaphore)"
+	},
+	"Move forward time": {
+	  "prefix": "fwt",
+	  "body": [ 
+		  "motor.forward($1, $2)",
+		  "sleep($3)",
+	  ],
+	  "description": "Move forward for a specific time (seconds)"
+	},
+	"Move reverse time": {
+		"prefix": "rvt",
+		"body": [ 
+			"motor.reverse($1, $2)",
+			"sleep($3)",
+		],
+		"description": "Move reverse for a specific time (seconds)"
+	},
+	"Stop time": {
+		"prefix": "offt",
+		"body": [ 
+			"motor.off($1)",
+			"sleep($2)",
+		],
+		"description": "Stop for a specific time (seconds)"
+	},
+  }
