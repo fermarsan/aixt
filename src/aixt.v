@@ -90,7 +90,7 @@ fn main() {
 								os.mkdir('${path}/${name}') or { panic(err) }
 							}
 							os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
-							os.cp_all('${aixt_path}/templates/vscode/${device}/.vscode/', '${path}/${name}/.vscode/', true) or {
+							os.cp_all('${aixt_path}/templates/vscode/${device}/', '${path}/${name}/', true) or {
 								panic(err)
 							}						
 						}
