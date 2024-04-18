@@ -1,4 +1,4 @@
-TARGET = ./aixt.exe
+TARGET = ./aixt
 
 VC = v
 
