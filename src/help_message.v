@@ -13,16 +13,17 @@ Usage:
 
 Examples:
   aixt transpile NXC hello.aixt	Transpile the file `hello.aixt` and output it as
-	                            `hello.nxc`.
-  aixt build NXC hello.v        Transpile, compile and download `hello.v` to NXT
+	                              `hello.nxc`.
+  aixt build NXT hello.v        Transpile, compile and download `hello.v` to NXT
                                 Intelligent brick.
   aixt -t Arduino_Nano hello.v	Transpile the file `hello.v` and output it as
                                 `hello.c` or `hello.ino` (depending on the Backend).
-  aixt -c Emulator hello.aixt	Compile a previously transpiled `hello.c` (from
+  aixt -c Emulator hello.aixt	  Compile a previously transpiled `hello.c` (from
                                 `hello.aixt`) and output it as `hello` or `hello.exe`
   aixt clean NXC hello.aixt     Clean all the generated files `hello.*`
   aixt -h                       Print this help message
   aixt version                  Print the Aixt version number
+  aixt -np NXT /home proj1      Create the `proj1` NXT project in `/home`  
 
 aixt supports the following commands:
   transpile, -t                 Transpile to C an Aixt source file.
@@ -30,5 +31,6 @@ aixt supports the following commands:
   build, -b                     Build (transpile and compile) an Aixt program.
   clean, -cl                    Clean all the generated file (C and executables).
   help, --help, -h              Call this help
-  version                       Returns the Aixt version number'
+  version                       Returns the Aixt version number
+  new_project, -np              Create new project (main.v and editor setup files)'
 }
