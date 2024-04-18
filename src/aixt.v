@@ -17,19 +17,23 @@ fn main() {
 	if os.args.len < 2 {
 		println(help_message())
 	} else {
-		aixt_path := '${os.abs_path(os.dir(os.args[0]))}/..' // aixt base path (get out from `src` folder)
+		// aixt_path := '${os.abs_path(os.dir(os.args[0]))}/..' // aixt base path (get out from `src` folder)
+		aixt_path := '${os.abs_path(os.dir(os.args[0]))}/'
 		command := os.args[1] // command
 		match command {
 			'help', '--help', '-h' {
 				println(help_message())
 			}
 			'version' {	
-				lines := os.read_lines('v.mod') or {['']}
+				lines := os.read_lines('./src/v.mod') or {['']}
 				for line in lines {
 					if line.contains('version:') {
 						println('Aixt ${line.replace('\tversion:\t', '')}')
 					}
 				}
+			}
+			'symlink' {
+				aixt_symlink(aixt_path)
 			}
 			else {
 				if os.args.len < 4 {

@@ -26,6 +26,7 @@ Tasks to do in Aixt
 
 ### Done ✓
 
+- [x] Implement the `symlink` option on Linux
 - [x] Create `Makefile` for Windows
 - [x] Create `Makefile` for Linux
 - [x] setup template files
