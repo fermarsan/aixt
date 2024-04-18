@@ -1,3 +1,5 @@
+@echo off
+
 @REM set TARGET=aixt.exe
 
 @REM set VC=v
@@ -8,8 +10,10 @@
 
 @REM %VC% %SOURCE% %VFLAGS% %TARGET%
 
-if %1 == "clean" (
-    rm aixt.exe
+if "%~1"=="clean" (
+    del aixt.exe
+    echo aixt executable deleted
 ) else (
     v src -o aixt.exe
+    echo aixt executable created
 )
