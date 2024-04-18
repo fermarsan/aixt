@@ -25,6 +25,8 @@ Tasks to do in Aixt
 
 ### Done ✓
 
+
+- [x] Create the templates for the "new project" task, NXC tested
 - [x] Implement the `symlink` option on Linux and Windows
 - [x] Create `Makefile` for Windows
 - [x] Create `Makefile` for Linux
