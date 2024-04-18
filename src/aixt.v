@@ -18,7 +18,7 @@ fn main() {
 		println(help_message())
 	} else {
 		// aixt_path := '${os.abs_path(os.dir(os.args[0]))}/..' // aixt base path (get out from `src` folder)
-		aixt_path := os.executable().all_before_last('/aixt')
+		aixt_path := os.executable().all_before_last('.exe').all_before_last('/aixt')
 		println(aixt_path)
 		command := os.args[1] // command
 		match command {
