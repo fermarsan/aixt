@@ -1,9 +1,15 @@
-set TARGET=.\aixt.exe
+@REM set TARGET=aixt.exe
 
-set VC=v
+@REM set VC=v
 
-set VFLAGS=-o
+@REM set VFLAGS=-o
 
-set SOURCE=.\src
+@REM set SOURCE=src
 
-%VC% %VFLAGS% %TARGET% %SOURCE%
+@REM %VC% %SOURCE% %VFLAGS% %TARGET%
+
+if %1 == "clean" (
+    rm aixt.exe
+) else (
+    v src -o aixt.exe
+)
