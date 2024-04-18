@@ -19,8 +19,8 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
-- [ ] Add AIXT_PATH variable to the .TOML file
-   
+- [ ] Add `make_windows` option to .TOML file
+
 
 ### Done ✓
 
