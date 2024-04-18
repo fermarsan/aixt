@@ -20,12 +20,12 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
 - [ ] Add AIXT_PATH variable to the .TOML file
-- [ ] Create the templates for the "new project" task
+- [ ] Independent `main.v` template by port
    
 
 ### Done ✓
 
-
+- [x] Create the templates for the "new project" task, Explorer16-PIC24 tested
 - [x] Create the templates for the "new project" task, NXC tested
 - [x] Implement the `symlink` option on Linux and Windows
 - [x] Create `Makefile` for Windows

@@ -23,7 +23,7 @@
             }
         },
         {
-            "label": "Aixt: Compile & Download",
+            "label": "Aixt: Compile",
             "type": "shell",
             "windows": {
                 "command": [ "${config:aixt_windows}",
@@ -44,7 +44,7 @@
             }
         },
         {
-            "label": "Aixt: Build & Download",
+            "label": "Aixt: Build",
             "type": "shell",
             "windows": {
                 "command": [ "${config:aixt_windows}",
