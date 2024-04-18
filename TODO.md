@@ -22,11 +22,12 @@ Tasks to do in Aixt
 - [ ] Add AIXT_PATH variable to the .TOML file
 - [ ] Create the templates for the "new project" task
 - [ ] Implement the `symlink` option
-- [ ] Create `Makefile` for Windows and Linux
+- [ ] Create `Makefile` for Windows
    
 
 ### Done ✓
 
+- [x] Create `Makefile` for Linux
 - [x] setup template files
 - [x] Fix the function attributes #bug @fermarsan
 - [x] Update the Aixt executable path #bug
