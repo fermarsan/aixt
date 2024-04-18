@@ -21,6 +21,7 @@ Tasks to do in Aixt
 - [ ] Implement string interpolation
 - [ ] Add AIXT_PATH variable to the .TOML file
 - [ ] Create the templates for the "new project" task
+- [ ] Implement the `symlink` option
    
 
 ### Done ✓
