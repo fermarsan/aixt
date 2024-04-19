@@ -23,7 +23,7 @@ Examples:
   aixt clean NXC hello.aixt     Clean all the generated files `hello.*`
   aixt -h                       Print this help message
   aixt version                  Print the Aixt version number
-  aixt -np NXT /home proj1      Create the `proj1` NXT project in `/home`  
+  aixt -np NXT /home proj_1     Create the `proj_1` NXT project in `/home`  
 
 aixt supports the following commands:
   transpile, -t                 Transpile to C an Aixt source file.

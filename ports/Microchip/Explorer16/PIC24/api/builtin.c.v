@@ -13,11 +13,11 @@ module main
 #define FCY 32000000UL
 
 // CONFIG2
-#pragma config POSCMOD = NONE	//Primary Oscillator Select->Primary oscillator disabled
-#pragma config OSCIOFNC = OFF	//Primary Oscillator Output Function->OSC2/CLKO/RC15 functions as CLKO (FOSC/2)
-#pragma config FCKSM = CSDCMD	//Clock Switching and Monitor->Clock switching and Fail-Safe Clock Monitor are disabled
-#pragma config FNOSC = FRCPLL	//Oscillator Select->Fast RC Oscillator with PLL module (FRCPLL)
-#pragma config IESO = ON  		//Internal External Switch Over Mode->IESO mode (Two-Speed Start-up) enabled
+#pragma config POSCMOD = XT		//Primary Oscillator Select->XT Oscillator mode selected
+#pragma config OSCIOFNC = ON    //Primary Oscillator Output Function->OSC2/CLKO/RC15 functions as port I/O (RC15)
+#pragma config FCKSM = CSDCMD   //Clock Switching and Monitor->Clock switching and Fail-Safe Clock Monitor are disabled
+#pragma config FNOSC = PRIPLL   //Oscillator Select->Primary Oscillator with PLL module (HSPLL, ECPLL)
+#pragma config IESO = ON    	//Internal External Switch Over Mode->IESO mode (Two-Speed Start-up) enabled
 
 // CONFIG1
 #pragma config WDTPS = PS32768	//Watchdog Timer Postscaler->1:32768
@@ -28,7 +28,7 @@ module main
 #pragma config BKBUG = OFF    	//Background Debug->Device resets into Operational mode
 #pragma config GWRP = OFF    	//General Code Segment Write Protect->Writes to program memory are allowed
 #pragma config GCP = OFF    	//General Code Segment Code Protect->Code protection is disabled
-#pragma config JTAGEN = OFF     //JTAG Port Enable->JTAG port is disabled
+#pragma config JTAGEN = OFF    	//JTAG Port Enable->JTAG port is disabled
 
 #define led3    A, 0	// Onboard LEDs
 #define led4    A, 1

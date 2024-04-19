@@ -146,13 +146,13 @@ The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API f
 
 ## Using Aixt
 
-First compile `aixt.v`: 
+### Installing Aixt from source
 ```
-cd aixt/src
-v .
-cd src
+git clone https://github.com/fermarsan/aixt.git
+cd aixt
+make # make.bat on Windows
 ```
-
+### Running Aixt
 run it in a Linux-based system as:
 ```
 ./aixt <command> <device_or_board> <source_file>
