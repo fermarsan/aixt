@@ -28,6 +28,8 @@ For XC16 compiler:
 - **_Digispark Kickstarter_**: ATtiny85 "_arduino_ backend" **_WIP..._** 
 - **_MH-Tiny_**: ATtiny88 "_arduino_ backend" **_done (Delay, Digital I/O, ADC, PWM, UART)_**
 - **_Arduino nano_**: ATmega328p "_arduino_ backend" **_done (Delay, Digital I/O, ADC, PWM, UART)_** 
+
+## Seeed Studio
 - **_Seeed Studio XIAO SAMD21_**: ATSAMD21G18 (Cortex-M0+) "_arduino_ backend" **_done (Delay, Digital I/O, ADC, PWM, UART)_**
 
 ## Cypress
@@ -50,7 +52,7 @@ For PSoC Creator:
     - **_ESP32 DEVKITV1_**: ESP32 (LX6) "_arduino_ backend" **_WIP..._**
     - **_D1 R32_**: ESP32 (LX6) "_arduino_ backend" _WIP..._**
     - **_CORE-ESP32_**: ESP32-C3 (RV32) "_arduino_ backend" **_WIP..._**
-    - **_ESP32-C3FH4 Core Board_**: ESP32-C3 (RV32) "_arduino_ backend" **_done (Delay, Digital I/O, ADC, PWM, UART)_**
+    - **_ESP32-C3FH4 Core Board (WeAct Studio)_**: ESP32-C3 (RV32) "_arduino_ backend" **_done (Delay, Digital I/O, ADC, PWM, UART)_**
     - **_LILYGO T-Watch 2020 V1_**: ESP32 (LX6) "_arduino_ backend" **_WIP..._**  
 
 ## ST
@@ -82,4 +84,7 @@ For PSoC Creator:
 
 ## Sipeed
 - **_Sipeed M0sense_**: BL702 (RV32) "_arduino_ backend" **_WIP..._**
+
+## Ai-Thinker
+- **_Ai-WB2-32S-Kit_**: BL602 "_arduino_ backend" **_done (Delay, Digital I/O, PWM, UART)_**
   
