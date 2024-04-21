@@ -11,7 +11,7 @@
 For XC8 compiler:
 - **8-bit 16F family**
     - PIC16F84A     **_done (Delay, GPIO)_**
-    - PIC16F628A    **_done (Delay, GPIO, PWM, UART)_**
+    - PIC16F628A    **_WIP..._**
     - PIC16F676     **_done (Delay, GPIO, ADC)._**
     - PIC16F873A    **_done (Delay, GPIO, ADC, PWM, UART)_**
     - PIC16F886     **_done (Delay, GPIO, ADC, PWM, UART)_**
