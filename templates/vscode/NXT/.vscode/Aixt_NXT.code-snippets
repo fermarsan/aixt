@@ -2,8 +2,9 @@
 	"Add Task": {
 		"prefix": "task",
 		"body": [ 
-			"@[task] fn $1 {",
-			"\t$2",
+			"@[task]",
+			"fn $1() {",
+			"\t$0",
 			"}",
 		],
 		"description": "Add a new task function"
@@ -12,32 +13,78 @@
 		"prefix": "mutex",
 		"body": [ 
 			"@[mutex]",
-			"__global $1 = 0",
+			"__global ${1:_mutex} = 0",
 		],
 		"description": "Add a new mutex var (shared resources semaphore)"
 	},
+	"Move forward": {
+		"prefix": "forward",
+		"body": "motor.forward(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
+		"description": "Move forward"
+	},
 	"Move forward time": {
-	  "prefix": "fwt",
-	  "body": [ 
-		  "motor.forward($1, $2)",
-		  "sleep($3)",
-	  ],
-	  "description": "Move forward for a specific time (seconds)"
+		"prefix": "fwt",
+		"body": [ 
+			"motor.forward(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
+			"sleep_ms(${3:500})",
+		],
+		"description": "Move forward for a specific time (milliseconds)"
+	},
+	"Move reverse": {
+		"prefix": "reverse",
+		"body": "motor.reverse(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
+		"description": "Move reverse"
 	},
 	"Move reverse time": {
 		"prefix": "rvt",
 		"body": [ 
-			"motor.reverse($1, $2)",
-			"sleep($3)",
+			"motor.reverse(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
+			"sleep_ms(${3:500})",
 		],
-		"description": "Move reverse for a specific time (seconds)"
+		"description": "Move reverse for a specific time (milliseconds)"
 	},
-	"Stop time": {
+	"Stop motors": {
+		"prefix": "off",
+		"body": "motor.off(${1|a,b,c,ab,ac,bc,abc|})",
+		"description": "Stop motors"
+	},
+	"Stop motors time": {
 		"prefix": "offt",
 		"body": [ 
-			"motor.off($1)",
-			"sleep($2)",
+			"motor.off(${1|a,b,c,ab,ac,bc,abc|})",
+			"sleep_ms(${3:500})",
 		],
-		"description": "Stop for a specific time (seconds)"
+		"description": "Stop motors for a specific time (milliseconds)"
 	},
-  }
+	"Set sensor type": {
+		"prefix": "set",
+		"body": "sensor.set(${1|i1,i2,i3,i4|}, ${2|touch,light,sound,lowspeed,ultrasonic,e_meter,temperature,color_full,color_red,color_green,color_blue,color_none|})",
+		"description": "Set sensor type"
+	},
+	"Set sensor type functions": {
+		"prefix": "set_",
+		"body": "sensor.set_${1|touch,light,sound,lowspeed,ultrasonic,e_meter,temperature,color_full,color_red,color_green,color_blue,color_none|}(${2|i1,i2,i3,i4|})",
+		"description": "Set sensor type functions"
+	},
+	"Read sensor": {
+		"prefix": "read",
+		"body": "sensor.read(${1|s1,s2,s3,s4|})",
+		"description": "Read sensor"
+	},
+	"Acquire/Release mutex": {
+		"prefix": "acquire-release",
+		"body": [
+			"acquire(${1:_mutex})",
+			"",
+			"$0",
+			"",
+			"release(${1:_mutex})",
+		],
+		"description": "Acquire/Release mutex"
+	},
+	"Precedes task order": {
+		"prefix": "precedes",
+		"body": "precedes(${1:task_1}, ${2:task_2})",
+		"description": "Precedes task order"
+	},
+}
