@@ -1,5 +1,4 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: builtin.c.v
+// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Luis Alfredo Pinto Medina and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
@@ -9,7 +8,6 @@
 module main
 
 #include <xc.h>
-#include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -17,6 +15,5 @@ module main
 
 #pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
 #pragma config WDTE = OFF       // Watchdog Timer (WDT disabled)
-#pragma config PWRTE = OFF      // Power-up Timer Enable bit (Power-up Timer is disabled)
+#pragma config PWRTE = ON      // Power-up Timer Enable bit (Power-up Timer is disabled)
 #pragma config CP = OFF         // Code Protection bit (Code protection disabled)
-
