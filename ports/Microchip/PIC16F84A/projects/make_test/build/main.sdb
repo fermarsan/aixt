@@ -13,7 +13,7 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "40 /home/fercho/aixt/ports/Microchip/PIC16F84A/projects/make_test/main.c
 [v _main main `(v  1 e 1 0 ]
-[s S22 . 1 `uc 1 RB0 1 0 :1:0 
+[s S43 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -23,10 +23,22 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "227 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f84a.h
+[u S52 . 1 `S43 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES52  1 e 1 @6 ]
+[s S22 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"515
 [u S31 . 1 `S22 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES31  1 e 1 @6 ]
+[v _TRISBbits TRISBbits `VES31  1 e 1 @134 ]
 "40 /home/fercho/aixt/ports/Microchip/PIC16F84A/projects/make_test/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"46
+"47
 } 0

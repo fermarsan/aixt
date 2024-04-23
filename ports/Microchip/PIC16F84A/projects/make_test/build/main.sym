@@ -3,7 +3,7 @@ __S1 F 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-_main 3ED 0 CODE 0
+_main 3EB 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 4E 0 ABS 0
 start 0 0 CODE 0
@@ -46,6 +46,7 @@ __Ltext 0 0 ABS 0
 ___heap_lo 0 0 ABS 0
 end_of_initialization 3FE 0 CODE 0
 ___stacklo 0 0 ABS 0
+_TRISBbits 86 0 ABS 0
 _PORTBbits 6 0 ABS 0
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
@@ -91,23 +92,24 @@ start_initialization 3FE 0 CODE 0
 ___int_stack_lo 0 0 STACK 2
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__pmaintext 3ED 0 CODE 0
+__pmaintext 3EB 0 CODE 0
 __initialization 3FE 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
 cinit 7FC 7FF CODE 7FC 0
 cstackBANK0 C E BANK0 C 1
-maintext 7DA 7FB CODE 7DA 0
+maintext 7D6 7FB CODE 7D6 0
 %locals
 build/main.o
-/tmp/xcXKNbape/driver_tmp_1.s
-170 3FE 0 CODE 0
-173 3FE 0 CODE 0
-179 3FE 0 CODE 0
+/tmp/xcXCgeGkn/driver_tmp_1.s
+172 3FE 0 CODE 0
+175 3FE 0 CODE 0
 181 3FE 0 CODE 0
-182 3FF 0 CODE 0
+183 3FE 0 CODE 0
+184 3FF 0 CODE 0
 main.c
-40 3ED 0 CODE 0
-42 3ED 0 CODE 0
+40 3EB 0 CODE 0
+42 3EB 0 CODE 0
 43 3ED 0 CODE 0
-44 3EF 0 CODE 0
+44 3ED 0 CODE 0
+45 3EF 0 CODE 0

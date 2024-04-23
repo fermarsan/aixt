@@ -671,6 +671,7 @@ extern __bank0 __bit __timeout;
 # 40 "main.c"
 void main(void) {
 
+ TRISBbits.TRISB7 = 0;
  while(1) {
   PORTBbits.RB7 = 1;
   _delay((unsigned long)((500)*(4000000/4000.0)));

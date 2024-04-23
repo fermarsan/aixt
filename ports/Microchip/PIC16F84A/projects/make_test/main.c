@@ -39,6 +39,7 @@
 
 void main(void) {
 	
+	pin__setup(b7, pin__output);
 	while(true) {
 		pin__high(b7);
 		time__sleep_ms(500);
