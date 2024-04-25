@@ -1,18 +1,13 @@
-#include <xc.h>
+// Project Name:
+// Author: 
+// Date: 
 
-// Configuración del PIC
-__CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & CP_OFF);
+import time { sleep_ms }
+import pin
 
-#define _XTAL_FREQ 20000000 // Frecuencia de cristal de 20MHz
+pin.setup(b7, pin.output)
 
-void main() {
-    TRISB = 0b00000000; // Configura todos los pines del puerto B como salidas
-
-    while(1) {
-        PORTB = 0b10000000; // Enciende el LED conectado al pin RB0
-        __delay_ms(500); // Espera 500ms
-
-        PORTB = 0b00000000; // Apaga el LED
-        __delay_ms(500); // Espera 500ms
-    }
+for {
+	pin.high(b7)
+	sleep_ms(500)
 }
