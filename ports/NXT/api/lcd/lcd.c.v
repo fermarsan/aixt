@@ -1,4 +1,4 @@
-import lcd
+module lcd
 
 // #################### NXC Display module ####################
 
