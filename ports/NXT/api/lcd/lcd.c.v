@@ -36,14 +36,14 @@ module lcd
 #define 	offset_contrast                  DisplayOffsetContrast
 
 // Constants that are for use with the DisplayExecuteFunction system call. 
-#define 	erase_all      		DISPLAY_ERASE_ALL            
-#define 	pixel          		DISPLAY_PIXEL            
-#define 	horizontal_line		DISPLAY_HORIZONTAL_LINE            
-#define 	vertical_line  		DISPLAY_VERTICAL_LINE            
-#define 	char           		DISPLAY_CHAR            
-#define 	erase_line     		DISPLAY_ERASE_LINE            
-#define 	fill_region    		DISPLAY_FILL_REGION            
-#define 	frame          		DISPLAY_FRAME           
+#define 	lcd__erase_all      		DISPLAY_ERASE_ALL            
+#define 	lcd__pixel          		DISPLAY_PIXEL            
+#define 	lcd__horizontal_line		DISPLAY_HORIZONTAL_LINE            
+#define 	lcd__vertical_line  		DISPLAY_VERTICAL_LINE            
+#define 	lcd__char           		DISPLAY_CHAR            
+#define 	lcd__erase_line     		DISPLAY_ERASE_LINE            
+#define 	lcd__fill_region    		DISPLAY_FILL_REGION            
+#define 	lcd__frame          		DISPLAY_FRAME           
 
 
 // Constants that are for specifying drawing options in several display module API functions. 
@@ -125,7 +125,7 @@ module lcd
 #define 	stepicons				STEPICONS                                        
 
 // 
-#define     lcd__reset(...)                         ResetScreen(__VA_ARGS__)
+#define     lcd__reset()                            ResetScreen()
 #define     lcd__circle(...)                        CircleOut(__VA_ARGS__)
 #define     lcd__line(...)                          LineOut(__VA_ARGS__)
 #define     lcd__point(...)                         PointOut(__VA_ARGS__)
@@ -163,7 +163,7 @@ module lcd
 #define     lcd__sys_draw_polygon(...)              SysDrawPolygon(__VA_ARGS__)
 #define     lcd__sys_draw_ellipse(...)              SysDrawEllipse(__VA_ARGS__)
 #define     lcd__sys_draw_font(...)                 SysDrawFont(__VA_ARGS__)
-#define     lcd__clear(...)                         ClearScreen(__VA_ARGS__)
+#define     lcd__clear()                         	ClearScreen()
 #define     lcd__clear_line(...)                    ClearLine(__VA_ARGS__)
 #define     lcd__set_font(...)                      SetDisplayFont(__VA_ARGS__)
 #define     lcd__set_display(...)                   SetDisplayDisplay(__VA_ARGS__)

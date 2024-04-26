@@ -7,7 +7,7 @@ value := 0
 for {
 	lcd.clear()
 	value = sensor.read(i1)
-	lcd.print('S1 = ')
-	lcd.print_num(value)
+	lcd.print(1, 1, 'S1 = ')
+	lcd.print_num(6, 1, value)
 	sleep(1)
 }
