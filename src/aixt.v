@@ -89,8 +89,8 @@ fn main() {
 							if !os.exists('${path}/${name}') {
 								os.mkdir('${path}/${name}') or { panic(err) }
 							}
-							os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
-							os.cp_all('${aixt_path}/templates/vscode/${device}/', '${path}/${name}/', true) or {
+							// os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
+							os.cp_all('${aixt_path}/templates/project/${device}/', '${path}/${name}/', true) or {
 								panic(err)
 							}						
 						}
