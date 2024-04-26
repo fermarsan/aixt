@@ -19,6 +19,7 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement string interpolation
+- [ ] Improve the NXT lcd module (print, println)  
 - [ ] Add `make_windows` option to .TOML file
 
 

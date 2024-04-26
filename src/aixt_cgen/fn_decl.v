@@ -76,7 +76,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) string {
 		}
 		match node.language {
 			.c {				// for C.functions()
-				c_file_path := node.file.all_before_last('/') + '/${node.short_name}.c'
+				c_file_path := node.file.all_before_last('/').all_before_last('\\') + '/${node.short_name}.c'
 				mut c_code := os.read_file(c_file_path) or { panic(err) }
 				out += c_code.replace('${node.short_name}(', '${module_short_name}__${node.short_name}(')
 				out += '\n'
