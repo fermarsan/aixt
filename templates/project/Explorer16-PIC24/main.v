@@ -1,6 +1,7 @@
 // Project Name:
 // Author: 
 // Date: 
+// Explorer16-PIC24FJ128GA010 fosc = 32Mhz
 
 import time { sleep_ms }
 import pin
