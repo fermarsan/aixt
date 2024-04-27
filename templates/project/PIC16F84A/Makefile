@@ -2,13 +2,13 @@ XCVERSION = 2.46
 XC8 = /opt/microchip/xc8/v$(XCVERSION)
 CC = $(XC8)/bin/xc8-cc
 
-TARGET_NAME = main
-SRC = \
-	main.c \
-
-PART = pic16f84a
+PART ?= pic16f84a
 
 BUILD = build
+TARGET_NAME = main
+
+SRC = \
+	main.c \
 
 $(TARGET_NAME).hex: $(SRC)
 	mkdir -p $(BUILD)

@@ -10,7 +10,7 @@ module main
 #include <stdint.h>
 #include <stdbool.h>
 
-#define FCY 32000000UL
+#define FCY 16000000UL
 
 // CONFIG2
 #pragma config POSCMOD = XT		//Primary Oscillator Select->XT Oscillator mode selected
@@ -30,7 +30,7 @@ module main
 #pragma config GCP = OFF    	//General Code Segment Code Protect->Code protection is disabled
 #pragma config JTAGEN = OFF    	//JTAG Port Enable->JTAG port is disabled
 
-#define led3    A, 0	// Onboard LEDs
+#define led3    A, 0			// Onboard LEDs
 #define led4    A, 1
 #define led5    A, 2
 #define led6    A, 3
@@ -39,7 +39,7 @@ module main
 #define led9    A, 6
 #define led10   A, 7
 
-#define sw3     D, 6	// Onboard switchs
+#define sw3     D, 6			// Onboard switchs
 #define sw4     D, 13
 #define sw5     A, 7
 #define sw6     D, 7
