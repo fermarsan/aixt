@@ -18,7 +18,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut var_kind := ''
 	for i in 0 .. node.left.len {
 		var_kind = if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
-		println(',,,,,,,,,,,${var_kind},,,,,,,,,,,')
+		// println(',,,,,,,,,,,${var_kind},,,,,,,,,,,')
 
 		if node.op.str() == ':=' { // declaration-assignment
 			match var_kind {
@@ -36,17 +36,23 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					}
 				}
 				'string' {
-					if (node.right[i] as ast.StringLiteral).val.len != 0 { // Constant strings
-						out += 'char ${gen.ast_node(node.left[i])}[] = '
-						out += if node.right[i].type_name() == 'v.ast.CastExpr' {
-							'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
-						} else { 
-							'${gen.ast_node(node.right[i])};\n'
-						}
-					} else {	// Variable strings
-						len := gen.setup.value('string_default_len').int()
-						out += 'char ${gen.ast_node(node.left[i])}[${len}];\n'
-					}
+					// if (node.right[i] as ast.StringLiteral).val.len != 0 { // Constant strings
+					// 	out += 'char ${gen.ast_node(node.left[i])}[] = '
+					// 	out += if node.right[i].type_name() == 'v.ast.CastExpr' {
+					// 		'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
+					// 	} else { 
+					// 		'${gen.ast_node(node.right[i])};\n'
+					// 	}
+					// } else {	// Variable strings
+					// 	len := gen.setup.value('string_default_len').int()
+					// 	out += 'char ${gen.ast_node(node.left[i])}[${len}];\n'
+					// }					
+
+					len := gen.setup.value('string_default_len').int()
+					out += 'char ${gen.ast_node(node.left[i])}[${len}];\n'
+					gen.add_include('string.h')
+					out += 'strcpy(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+					
 				}
 				'enum' {
 					out += 'enum ${(node.right[i] as ast.EnumVal).enum_name.replace('.', '__')} '
