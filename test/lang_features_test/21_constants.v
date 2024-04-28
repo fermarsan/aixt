@@ -7,9 +7,10 @@ const (
 
 const repetitions = 10		// single constant
 const r = 1.76
+const msg = 'message 1'
 
 x := 0.0
 
-for i in 0..repetitions {
+for _ in 0..repetitions {
 	x += (e*r) + (pi/2)
 }

@@ -18,6 +18,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 	mut var_kind := ''
 	for i in 0 .. node.left.len {
 		var_kind = if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
+		println(',,,,,,,,,,,${var_kind},,,,,,,,,,,')
 
 		if node.op.str() == ':=' { // declaration-assignment
 			match var_kind {
