@@ -2,7 +2,7 @@
 
 ### It's counts with a Functional testing set as well as a Smoke testing set that you can found in its respective folder.
 
-#### the following table summarizes the number of test cases for each test type
+#### The following table summarizes the number of test cases for each test type
 
 | Testing Type           | Number of Test Cases |
 | -------------          | :-------------:      |

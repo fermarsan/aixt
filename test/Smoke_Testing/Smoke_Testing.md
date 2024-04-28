@@ -2,7 +2,7 @@
 
 **Smoke testing** are a type of functional testing that consists of a quick review of a software product to check if a new software build is ready for the next testing phase.
 
-#### the following table summarizes the number of test cases for each test type per Module
+#### The following table summarizes the number of test cases for Smoke Testing per Module
 
 | Testing Type             | Number of Test Cases |
 | -------------            | :-------------:      |
