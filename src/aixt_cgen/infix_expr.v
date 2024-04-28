@@ -8,6 +8,7 @@ import v.ast
 
 // infix_expr is the code generation function for 'infix' expressions (binary operations).
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
+	println('-------------${node.promoted_type}-------------')
 	if node.left_type == ast.string_type_idx || node.right_type == ast.string_type_idx {
 		match node.op.str() {
 			'==' {
@@ -20,7 +21,8 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
 			} 
 			'+' {
 				gen.add_include('string.h')
-				gen.add_definition('char __temp_str[${gen.setup.value('string_default_len').int()}];')
+				len := gen.setup.value('string_default_len').int()
+				gen.add_definition('char __temp_str[${len}];')
 				return 'strcat(strcpy(__temp_str, ${gen.ast_node(node.left)}), ${gen.ast_node(node.right)})'
 			} 
 			else {

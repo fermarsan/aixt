@@ -1,5 +1,7 @@
+import uart
+
 name := 'Fernando'
 height := 1.72
 weight := 89
 
-println('Mr. ${name} your IMC is ${weight / (height*height)}.')
+uart.println('Mr. ${name} your IMC is ${weight / (height*height)}.')

@@ -1,11 +1,10 @@
 
-fn add(x int, y int) int {
+fn add(x int, y int) f32 {
 	return x+y
 }
 
 fn main() {
 	a := 12
 	b := 45
-	c := 0
-	c = add(a,b)
+	c := add(a, b)
 }

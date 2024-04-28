@@ -49,7 +49,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 					// }					
 
 					len := gen.setup.value('string_default_len').int()
-					out += 'char ${gen.ast_node(node.left[i])}[${len}];\n'
+					out += 'char ${gen.ast_node(node.left[i])}[${len}] = "";\n'
 					gen.add_include('string.h')
 					out += 'strcpy(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
 					
