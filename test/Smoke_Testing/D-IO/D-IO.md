@@ -8,7 +8,6 @@ In the next table you would be able to find listed the Smoke test senarios that 
 | **CP-ESD-1**  | Blinking LED                 | -        | -          | -           | -             | -        | ExampleCode1 |
 | **CP-ESD-2**  | Turn on an LED with a Button | -        | -          | -           | -             | -        | ExampleCode2 |
 
-
 -   ExampleCode1
 ```
 import time
