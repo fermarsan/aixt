@@ -30,6 +30,6 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) string {
 	} else {
 		return '${gen.ast_node(node.left)} ${node.op} ${gen.ast_node(node.right)}'
 	}
-	println('XXXXXXXXXXXXX ${node.promoted_type} XXXXXXXXXXXXX')
+	// println('XXXXXXXXXXXXX ${node.promoted_type} XXXXXXXXXXXXX')
 	return ''
 }
