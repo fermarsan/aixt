@@ -22,11 +22,12 @@ Tasks to do in Aixt
 - [ ] Improve the NXT lcd module (print, println)  
 - [ ] Add `make_windows` option to .TOML file
 - [ ] Issue: path in windows
-- [ ] String declaration always with the same size
 
 
 ### Done ✓
 
+
+- [x] String declaration always with the same size
 - [x] Independent `main.v` template by port, NXT and Explorer16 tested
 - [x] Create the templates for the "new project" task, Explorer16-PIC24 tested
 - [x] Create the templates for the "new project" task, NXC tested
