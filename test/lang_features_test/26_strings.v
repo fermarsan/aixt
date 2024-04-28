@@ -1,30 +1,30 @@
 import uart
 
-var := ''
-var2 := ''
-str := 'constant'
-b1 := false
+msg1 := 'red'
+msg2 := 'green'
+msg3 := 'blue'
 
-var = str
-uart.println(var)
+msg1 = msg3
+uart.println(msg1)
 
-var += ' '
-var += str
-uart.println(var)
+msg2 += ' '
+msg2 += msg3
+uart.println(msg2)
 
-var2 = var + str
-uart.println(var2)
+msg2 = msg1 + msg3
+uart.println(msg2)
 
-b1 = var == var2
-if b1 {
+if msg1 == msg2 {
 	uart.println('true')
 } else {
 	uart.println('false')
 }
 
-var2 += ' ' + str
-uart.println(var2)
+msg2 += ' ' + msg3
+uart.println(msg2)
 
-if str == 'constant' {
+if msg3 == 'blue' {
 	uart.println('true')
+} else {
+	uart.println('false')
 }
