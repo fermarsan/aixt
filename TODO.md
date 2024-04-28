@@ -21,6 +21,7 @@ Tasks to do in Aixt
 - [ ] Implement string interpolation
 - [ ] Improve the NXT lcd module (print, println)  
 - [ ] Add `make_windows` option to .TOML file
+- [ ] Issue: path in windows
 
 
 ### Done ✓
