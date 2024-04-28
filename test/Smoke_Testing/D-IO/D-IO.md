@@ -5,7 +5,7 @@ In the next table you would be able to find listed the Smoke test senarios that 
 
 | ID            | Name                         | Scenario | Objectives | Description | Gherkin Steps | Steps    | Code Example |
 | ------------- | :------:                     | :------: | :------:   | :------:    | :------:      | :------: | :------:     |
-| **CP-ESD-1**  | Blinking LED                 | -        | -          | -           | -             | -        | ExampleCode1 |
+| **CP-ESD-1**  | Blinking LED                 | -        | -          | -           | **Given** I configure the Time and Pin modules on the microcontroller <br> **When** I run a for loop code to turn on and off within 500 ms diference <br> **Then** The led connected to the configured pin will turn on and off within 500 ms intervals             | -        | ExampleCode1 |
 | **CP-ESD-2**  | Turn on an LED with a Button | -        | -          | -           | -             | -        | ExampleCode2 |
 
 -   ExampleCode1
