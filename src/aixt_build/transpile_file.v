@@ -26,7 +26,9 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		init_cmds:			''
 		cur_fn: 			'main'
 		file_count: 		0
-		level_cont: 		0
+		level_count: 		0
+		movlines_count:		0
+
 		pref:	 			&pref.Preferences{}
 		setup: 				setup_file
 	}

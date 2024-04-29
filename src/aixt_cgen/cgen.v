@@ -29,7 +29,8 @@ pub mut:
 	init_cmds		string
 	cur_fn			string
 	file_count		int
-	level_cont		int
+	level_count		int
+	movlines_count	int
 // pub mut:
 	pref  			&pref.Preferences = unsafe { nil }
 	setup 			toml.Doc
@@ -84,6 +85,6 @@ pub fn (mut gen Gen) gen(source_path string) string {
 		gen.out = []
 	}
 	
-	gen.out_format()
+	gen.out_replacements()
 	return gen.out.join('\n')
 }

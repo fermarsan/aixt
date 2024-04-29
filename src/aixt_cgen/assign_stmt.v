@@ -9,7 +9,7 @@ import v.ast
 // assign_stmt is the code generation function for assignment statements.
 // This works for:
 // - declaration-assignments `:=`
-// - only assignments `:=`
+// - only assignments `=`
 // and
 // - cumulative-assignments `+=`, `-=`, etc. 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
@@ -50,7 +50,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 				else {
 					c_line += '${gen.setup.value(var_kind).string()} ${gen.ast_node(node.left[i]).join('')} = '
 					c_line += if node.right[i].type_name() == 'v.ast.CastExpr' {
-						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};'
+						'${gen.ast_node((node.right[i] as ast.CastExpr).expr).join('')};'
 					} else {
 						'${gen.ast_node(node.right[i]).join('')};'
 					}

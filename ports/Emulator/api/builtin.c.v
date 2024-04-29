@@ -7,6 +7,7 @@ module main
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #if defined(__linux) || defined(linux)
 #define CLEAR_SCREEN    "clear" // for Linux

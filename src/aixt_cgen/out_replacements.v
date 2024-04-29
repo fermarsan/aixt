@@ -4,8 +4,9 @@
 // License: MIT
 module aixt_cgen
 
-// out_format formats the output file.
-fn (mut gen Gen) out_format() {
+// out_replacements formats the output file.
+fn (mut gen Gen) out_replacements() {
+	gen.move_c_lines()	//lines pending for moving
 	gen.out = gen.out.map(it.replace('___preprocessor_block___', gen.c_preproc_cmds.join('\n')))
 	// gen.out = gen.out.map(it.replace('___includes_block___', gen.includes.join('')))
 	// gen.out = gen.out.map(it.replace('___macros_block___', gen.macros.join('')))
