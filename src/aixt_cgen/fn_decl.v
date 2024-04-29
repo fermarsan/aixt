@@ -64,7 +64,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 		// println("+++++++++++++++\n${node.mod}\n+++++++++++++++")
 		module_short_name := node.mod.all_after_last('.')
 		if node.short_name == 'init' { // module initialization functions
-			gen.init_cmds += '${module_short_name}__init();\n'
+			gen.init_cmds << '${module_short_name}__init();'
 		}
 		match node.language {
 			.c {				// for C.functions()

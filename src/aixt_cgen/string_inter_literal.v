@@ -11,7 +11,6 @@ import v.ast
 // str := 'Hello ${var_name}...'
 // ```
 fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
-	mut out := []string{}
 	mut c_line := ''
 
 	mut strs := node.vals.clone()	//reverse()
@@ -68,43 +67,8 @@ fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
 		c_line += '${ex.str()}, '
 	}
 	c_line = c_line#[..-2] + ');'
-	out << c_line + ' //___MOVE_BACK_1___'	
-	out << '__temp_str'
-	return out
-
-	// mut out := 'strcat(__temp_str, strcat(${strs.pop()}, '// first sub-string
-	// for exprs.len > 0 {
-	// 	out += 'strcat('
-	// 	cur_expr := exprs.pop()
-	// 	match cur_expr {
-	// 		ast.Ident { 
-	// 			match gen.find_type(cur_expr) {
-	// 				.i8, .i16, .i32, .int, .i64, .isize, .u8, .u16, .u32, .u64, .usize {
-	// 					gen.add_include('stdlib.h')
-	// 					out += 'itoa(${cur_expr as ast.Ident).name}, __temp_str, 10), '
-	// 				}
-	// 				.f32, .f64 {
-	// 					gen.add_include('stdlib.h')
-	// 					out += 'ftoa(${cur_expr as ast.Ident).name}, __temp_str, 10), '
-	// 				}
-	// 				.string {
-	// 					out += '${(cur_expr as ast.Ident).name}, '
-	// 				}
-	// 			}
-	// 			'(${})${(cur_expr as ast.Ident).name}, '
-	// 		}
-	// 		ast.CallExpr {
-	// 			'${(cur_expr as ast.CallExpr).name}, '
-	// 		}
-	// 		ast.InfixExpr {
-	// 			'${(cur_expr as ast.InfixExpr).left}, '
-	// 		}
-	// 		else {
-	// 			'none, '
-	// 		}
-	// 	}
-	// 	out += 'strcat(${strs.pop()}, '
-	// }
+	gen.to_insert_lines << c_line
+	c_line = '___TO_INSERT_${gen.to_insert_lines.len - 1}___'
 	
-	// return out //sprintf(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+	return [c_line + '__temp_str']
 }

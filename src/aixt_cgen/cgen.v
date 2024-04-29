@@ -26,11 +26,11 @@ pub mut:
 	// includes		[]string
 	// macros		[]string
 	definitions		[]string
-	init_cmds		string
+	init_cmds		[]string
+	to_insert_lines	[]string
 	cur_fn			string
 	file_count		int
 	level_count		int
-	movlines_count	int
 // pub mut:
 	pref  			&pref.Preferences = unsafe { nil }
 	setup 			toml.Doc

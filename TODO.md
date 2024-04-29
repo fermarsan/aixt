@@ -18,20 +18,16 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
-- [ ] Implement string interpolation
 - [ ] Improve the NXT lcd module (print, println)  
 - [ ] Add `make_windows` option to .TOML file
 - [ ] Issue: path in windows
-- [ ] Test new `gen.out` []string
 
 
 ### Done ✓
 
-
+- [x] Implement string interpolation
+- [x] Test new `gen.out` []string
 - [x] Change `gen.out` from string to []string
-- [x] String declaration always with the same size
-- [x] Independent `main.v` template by port, NXT and Explorer16 tested
-- [x] Create the templates for the "new project" task, Explorer16-PIC24 tested
-- [x] Create the templates for the "new project" task, NXC tested
+
 
 

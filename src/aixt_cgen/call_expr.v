@@ -18,13 +18,11 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) []string {
 	} else {
 		'${node.mod.all_after_last('.')}__${node.name.all_after_last('.')}'
 	}
-	mut out := ['${fn_name}(']
+	mut c_line := '${fn_name}('
 	if node.args.len != 0 {
 		for ar in node.args {
-			out << gen.ast_node(ar)
+			c_line += '${gen.ast_node(ar).join('')}, '
 		}
-		out << ');'	//	c_line = c_line#[..-2] + ')'
 	}
-	println(out)
-	return out
+	return [c_line#[..-2] + ');']
 }
