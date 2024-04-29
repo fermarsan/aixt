@@ -35,18 +35,17 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 					} else {
 						c_line += '];'	// port with dynamic-size arrays
 					}
-					out << c_line
 				}
 				'string' {
 					len := gen.setup.value('string_default_len').int()
 					out << 'char ${gen.ast_node(node.left[i]).join('')}[${len}] = "";'
 					gen.add_include('string.h')
-					out << 'strcpy(${gen.ast_node(node.left[i]).join('')}, ${gen.ast_node(node.right[i]).join('')});'
+					c_line +='strcpy(${gen.ast_node(node.left[i]).join('')}, ${gen.ast_node(node.right[i]).join('')});'
 				}
 				'enum' {
 					c_line += 'enum ${(node.right[i] as ast.EnumVal).enum_name.replace('.', '__')} '
 					c_line += '${gen.ast_node(node.left[i]).join('')} = '
-					out << c_line + '${gen.ast_node(node.right[i]).join('')};'
+					c_line += '${gen.ast_node(node.right[i]).join('')};'
 				}
 				else {
 					c_line += '${gen.setup.value(var_kind).string()} ${gen.ast_node(node.left[i]).join('')} = '
@@ -55,7 +54,6 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 					} else {
 						'${gen.ast_node(node.right[i]).join('')};'
 					}
-					out << c_line
 				}
 			}
 		} else { // for the rest of assignments
@@ -71,11 +69,11 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 							match node.op.str() {
 								'=' {
 									gen.add_include('string.h')
-									out << 'strcpy(${gen.ast_node(node.left[i]).join('')}, ${gen.ast_node(node.right[i]).join('')});'
+									c_line += 'strcpy(${gen.ast_node(node.left[i]).join('')}, ${gen.ast_node(node.right[i]).join('')});'
 								} 
 								'+=' {
 									gen.add_include('string.h')
-									out << 'strcat(${gen.ast_node(node.left[i]).join('')}, ${gen.ast_node(node.right[i]).join('')});'
+									c_line += 'strcat(${gen.ast_node(node.left[i]).join('')}, ${gen.ast_node(node.right[i]).join('')});'
 								}	
 								else {
 									panic('\n\nTranspiler Error:\n"${node.op.str()}" operator not supported for strings.\n')
@@ -83,15 +81,16 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 							}
 						}
 						else {
-							out << '${gen.ast_node(node.left[i]).join('')} ${node.op} ${gen.ast_node(node.right[i]).join('')};'
+							c_line += '${gen.ast_node(node.left[i]).join('')} ${node.op} ${gen.ast_node(node.right[i]).join('')};'
 						}
 					} 
 				} 
 				else {
-					out << '${gen.ast_node(node.left[i]).join('')} ${node.op} ${gen.ast_node(node.right[i]).join('')};'
+					c_line += '${gen.ast_node(node.left[i]).join('')} ${node.op} ${gen.ast_node(node.right[i]).join('')};'
 				}
 			}
 		}
 	} 
+	out << c_line
 	return out
 }
