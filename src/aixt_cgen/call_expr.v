@@ -7,15 +7,10 @@ module aixt_cgen
 import v.ast
 
 // call_expr is the code generation function for function calling expressions.
-fn (mut gen Gen) call_expr(node ast.CallExpr) string {
-	// if node.name.all_before_last('.') == 'literal_backend_code' {	// detect the literal code insertion function
-	// 	return (node.args[0].expr as ast.StringLiteral).val
-	// }
-	// fn_name := node.name.replace('.', '__')	// remove the parent function name
+fn (mut gen Gen) call_expr(node ast.CallExpr) []string {
 	// println("+++++++++++++++\n${node.name}\n+++++++++++++++")
 	// println("+++++++++++++++\n${node.mod}\n+++++++++++++++")
 	// println("+++++++++++++++\n${node.mod.all_after_last('.')}\n+++++++++++++++")
-	// mut fn_name := node.name.all_before_last('.')	// only the module name
 	fn_name := if node.name.contains('.') {
 		node.name.replace('.', '__')
 	} else if node.mod.all_after_last('.') == 'main' && gen.setup.value('backend').string() == 'nxc' {
@@ -23,32 +18,13 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) string {
 	} else {
 		'${node.mod.all_after_last('.')}__${node.name.all_after_last('.')}'
 	}
-	// mut fn_name := node.name.all_before_last('.')	// only the module name
-	// fn_name = if node.name.contains('.') {
-	// 	'${fn_name.all_after_last('.')}__${node.name.all_after_last('.')}'
-	// } else {
-	// 	fn_name
-	// }
-	// fn_api_path := gen.setup.value('api_functions').as_map()[fn_name] or { '' }	// api path of function
-	// if fn_api_path.string() != '' {// self-including of api files
-	// 	file_path := '${gen.tr_path}/ports/${gen.setup.value('path').string()}/api/${fn_api_path.string()}.c.v\n'
-    // 	// gen.incls += '#include "${file_path}.c"\n'
-    // 	if file_path !in gen.api_paths {
-	// 		gen.src_paths << file_path
-	// 		println(gen.api_paths)
-	// 		// parser.free()
-	// 		file := parser.parse_file(file_path, ast.new_table(), .skip_comments, gen.pref)
-
-	// 		// file := parser.parse_file(gen.src_paths[gen.src_paths.len-1], gen.table, .skip_comments, gen.pref)
-	// 		// gen.out += gen.ast_node(file)
-	// 	}
-	// }
-	mut out := '${fn_name}('
+	mut out := ['${fn_name}(']
 	if node.args.len != 0 {
 		for ar in node.args {
-			out += '${gen.ast_node(ar)}, '
+			out << gen.ast_node(ar)
 		}
-		out = out#[..-2]
+		out << ')'	//	c_line = c_line#[..-2] + ')'
 	}
-	return out + ')'
+	println(out)
+	return out
 }

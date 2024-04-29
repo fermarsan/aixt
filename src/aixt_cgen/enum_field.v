@@ -7,13 +7,13 @@ module aixt_cgen
 import v.ast
 
 // enum_field is code generation function for enum fields.
-fn (mut gen Gen) enum_field(node ast.EnumField) string {
+fn (mut gen Gen) enum_field(node ast.EnumField) []string {
 	match node.expr {
 		ast.EmptyExpr {
-			return '${node.name},\n'
+			return ['${node.name},']
 		} 
 		else {
-			return '${node.name} = ${gen.ast_node(node.expr)},\n'  // '${node.name} = ${node.expr},\n'
+			return ['${node.name} = ${gen.ast_node(node.expr).join('')},']  // '${node.name} = ${node.expr},\n'
 		}
 	}
 }

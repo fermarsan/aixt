@@ -7,9 +7,10 @@ module aixt_cgen
 import v.ast
 
 // asm_stmt is the code generation function for inline asm blocks.
-fn (mut gen Gen) asm_stmt(node ast.AsmStmt) string {
-	mut out := '{'
+fn (mut gen Gen) asm_stmt(node ast.AsmStmt) []string {
+	mut c_line := '{'
 	println("+++++++++++++++\n${node.clobbered}\n+++++++++++++++")
 	println("+++++++++++++++\n${node.templates}\n+++++++++++++++")
-	return out + '}'
+	c_line += '}'
+	return [c_line]
 }

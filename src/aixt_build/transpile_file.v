@@ -18,7 +18,7 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		cur_scope: 			&ast.Scope{}
 		transpiler_path:	aixt_path
 		source_paths: 		[]string{}
-		out: 				''
+		out: 				[]string{}
 		c_preproc_cmds:		[]string{}	
 		// includes: 		[]string{}	
 		// macros: 			[]string{}	

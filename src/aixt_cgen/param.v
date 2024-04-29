@@ -7,7 +7,7 @@ module aixt_cgen
 import v.ast
 
 // param is the code generation function for parameters.
-fn (mut gen Gen) param(node ast.Param) string {
+fn (mut gen Gen) param(node ast.Param) []string {
 	var_type := gen.setup.value(ast.new_table().type_symbols[node.typ].str())		
-	return '${var_type.string()} ${node.name}'
+	return ['${var_type.string()} ${node.name}']
 }

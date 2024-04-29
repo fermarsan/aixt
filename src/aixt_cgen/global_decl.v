@@ -7,17 +7,17 @@ module aixt_cgen
 import v.ast
 
 // global_decl is the code generation function for global declarations.
-fn (mut gen Gen) global_decl(node ast.GlobalDecl) string {
+fn (mut gen Gen) global_decl(node ast.GlobalDecl) []string {
 	// println('+++++++++++++++\n${node}\n+++++++++++++++')
-	mut out := ''
+	mut c_line := ''
 	for f in node.fields {
-		// out += '\n${gen.ast_node(f)}'
-		out += if node.attrs.len != 0 && node.attrs[0].name == 'mutex' {
-			'mutex ${f.name};\n'		// for NXC backend
+		// c_line += '\n${gen.ast_node(f)}'
+		c_line += if node.attrs.len != 0 && node.attrs[0].name == 'mutex' {
+			'mutex ${f.name};'		// for NXC backend
 		} else {
-			'\n${gen.ast_node(f)}'
+			'${gen.ast_node(f).join('')}'
 		}
 	}
-	gen.definitions << out
-	return ''
+	gen.definitions << c_line
+	return []
 }

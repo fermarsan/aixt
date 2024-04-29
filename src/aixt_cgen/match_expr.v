@@ -7,6 +7,6 @@ module aixt_cgen
 import v.ast
 
 // match_expr is the code generation function for 'match' expressions.
-fn (mut gen Gen) match_expr(node ast.MatchExpr) string {
-	return ''
+fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
+	return []
 }

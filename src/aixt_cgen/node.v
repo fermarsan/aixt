@@ -8,7 +8,7 @@ module aixt_cgen
 import v.ast
 
 // ast_node is the Code generation function for AST nodes.
-fn (mut gen Gen) ast_node(node ast.Node) string {
+fn (mut gen Gen) ast_node(node ast.Node) []string {
 	if node.type_name() == 'v.ast.File' {
 		println('')
 	}
@@ -42,7 +42,7 @@ fn (mut gen Gen) ast_node(node ast.Node) string {
 			return gen.param(node)
 		}
 		else {
-			return ''
+			return []
 		} //'Error: Not defined node.\n' }
 	}
 }

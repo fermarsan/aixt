@@ -10,7 +10,10 @@ import v.ast
 // ```v
 // str := 'Hello ${var_name}...'
 // ```
-fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) string {
+fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
+	mut out := []string{}
+	mut c_line := ''
+
 	mut strs := node.vals.clone()	//reverse()
 	mut exprs := node.exprs.clone()	//reverse()
 
@@ -56,17 +59,18 @@ fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) string {
 		}
 	}
 
-	gen.out += 'sprintf(__temp_str, "${strs[0]}'
+	c_line += 'sprintf(__temp_str, "${strs[0]}'
 	for i in 1 .. strs.len {
-		gen.out += "${placeholders[i-1]}${strs[i]}"
+		c_line += "${placeholders[i-1]}${strs[i]}"
 	}
-	gen.out += '", '
+	c_line += '", '
 	for ex in exprs {
-		gen.out += '${ex.str()}, '
+		c_line += '${ex.str()}, '
 	}
-	gen.out = gen.out#[..-2] + ');\n'
-	
-	return '__temp_str'
+	c_line = c_line#[..-2] + ');'
+	out << c_line + ' //___MOVE_BACK_1___'	
+	out << '__temp_str'
+	return out
 
 	// mut out := 'strcat(__temp_str, strcat(${strs.pop()}, '// first sub-string
 	// for exprs.len > 0 {
