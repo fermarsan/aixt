@@ -1,10 +1,3 @@
-
-fn add(x int, y int) f32 {
-	return x+y
-}
-
-fn main() {
-	a := 12
-	b := 45
-	c := add(a, b)
-}
+a := f32(10)
+b := a
+c := 10 / 21 * a

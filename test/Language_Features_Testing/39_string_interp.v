@@ -4,4 +4,5 @@ name := 'Fernando'
 height := 1.72
 weight := 89
 
-uart.println('Mr. ${name} your IMC is ${weight / (height*height)}.')
+uart.println('Mr. ${name} your IMC is high.')
+// uart.println('Mr. ${name} your IMC is ${weight / (height*height)}.')
