@@ -41,6 +41,8 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
 	if transpiled != '' {
+		// transpiled = out_format(transpiled)
+
 		for alias in c_gen.setup.value('aliases').as_map().keys() { // replace aliases in the transpiled code
 			transpiled = transpiled.replace(
 				alias,

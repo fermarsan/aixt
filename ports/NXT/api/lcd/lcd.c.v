@@ -1,5 +1,8 @@
 module lcd
 
+
+import string
+
 // #################### NXC Display module ####################
 
 // Constants that are for use with the display contrast API functions. 
@@ -130,12 +133,12 @@ module lcd
 #define     lcd__line(...)                          LineOut(__VA_ARGS__)
 #define     lcd__point(...)                         PointOut(__VA_ARGS__)
 #define     lcd__rect(...)                          RectOut(__VA_ARGS__)
-#define     lcd__print(...)                         TextOut(__VA_ARGS__)
-#define     lcd__print_num(...)                     NumOut(__VA_ARGS__)
+#define     lcd__text(...)	                        TextOut(__VA_ARGS__)
+#define     lcd__num(...)                     		NumOut(__VA_ARGS__)
 #define     lcd__ellipse(...)                       EllipseOut(__VA_ARGS__)
 #define     lcd__poly(...)                          PolyOut(__VA_ARGS__)
-#define     lcd__font_print(...)                    FontTextOut(__VA_ARGS__)
-#define     lcd__font_print_num(...)                FontNumOut(__VA_ARGS__)
+#define     lcd__font_text(...)                    	FontTextOut(__VA_ARGS__)
+#define     lcd__font_num(...)                		FontNumOut(__VA_ARGS__)
 #define     lcd__graphic(...)                       GraphicOut(__VA_ARGS__)
 #define     lcd__graphic_array(...)                 GraphicArrayOut(__VA_ARGS__)
 #define     lcd__graphic_ex(...)                    GraphicOutEx(__VA_ARGS__)
@@ -172,3 +175,38 @@ module lcd
 #define     lcd__set_text_lines_center_flags(...)   SetDisplayTextLinesCenterFlags(__VA_ARGS__)
 #define     lcd__set_update_mask(...)               SetDisplayUpdateMask(__VA_ARGS__)
 #define     lcd__set_contrast(...)                  SetDisplayContrast(__VA_ARGS__)
+
+// cursor variables
+__global (
+	cursor_x = u8(1)
+	cursor_y = u8(1)	
+)
+
+const (
+	x_max = 20
+	y_max = 8
+)
+
+@[inline]
+fn move_to(x u8, y u8) {
+	cursor_x := x
+	cursor_y := y
+}
+
+@[inline]
+fn print(msg string) {
+	lcd.text(cursor_x, cursor_y, msg)
+	cursor_x += string.len(msg)
+	if cursor_x > x_max {
+		cursor_x = x_max
+	}
+}
+
+@[inline]
+fn println(msg string) {
+	lcd.print(msg)
+	cursor_y++
+	if cursor_y > y_max {
+		cursor_y = y_max
+	}
+}

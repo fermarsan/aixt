@@ -23,6 +23,7 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) []string {
 		for ar in node.args {
 			c_line += '${gen.ast_node(ar).join('')}, '
 		}
+		c_line = c_line#[..-2]
 	}
-	return [c_line#[..-2] + ');']
+	return [c_line + ')']
 }

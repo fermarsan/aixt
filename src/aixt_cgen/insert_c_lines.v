@@ -6,7 +6,7 @@ module aixt_cgen
 
 // insert_c_lines inserts pending lines in output list
 fn (mut gen Gen) insert_c_lines() {
-	println('-------- ${gen.to_insert_lines} --------')
+	// println('-------- ${gen.to_insert_lines} --------')
 	for i, to_insert_line in gen.to_insert_lines {
 		mut insert_index := -1
 		for j, line in gen.out {

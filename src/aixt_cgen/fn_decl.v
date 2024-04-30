@@ -95,7 +95,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				}
 				if node.params.len != 0 {
 					for pr in node.params {
-						c_line += '${gen.ast_node(pr)}, '
+						c_line += '${gen.ast_node(pr).join('')}, '
 					}
 					c_line = c_line#[..-2] + ')' 
 					// gen.definitions << out + ';\n'	// generates the function's prototype

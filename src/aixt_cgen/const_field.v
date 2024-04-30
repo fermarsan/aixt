@@ -25,9 +25,9 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	// print('\n\n(${node.expr})\n\n')
 	if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
 		c_line += if gen.setup.value(var_kind).string() == 'char []' {
-			'const char ${node.name}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
+			'const char ${node.name}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')};\n'
 		} else {
-			'const ${gen.setup.value(var_kind).string()} ${node.name} = ${gen.ast_node((node.expr as ast.CastExpr).expr)};\n'
+			'const ${gen.setup.value(var_kind).string()} ${node.name} = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')};\n'
 		}								
 	} else {
 		var_kind = match var_kind {		// var literal kind standardization
@@ -36,9 +36,9 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 			else { var_kind }
 		}
 		c_line += if gen.setup.value(var_kind).string() == 'char []' {
-			'const char ${node.name}[] = ${gen.ast_node(node.expr)};\n'
+			'const char ${node.name}[] = ${gen.ast_node(node.expr).join('')};\n'
 		} else {
-			'const ${gen.setup.value(var_kind).string()} ${node.name} = ${gen.ast_node(node.expr)};\n'
+			'const ${gen.setup.value(var_kind).string()} ${node.name} = ${gen.ast_node(node.expr).join('')};\n'
 		}
 	}
 	
