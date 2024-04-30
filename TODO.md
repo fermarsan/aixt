@@ -24,9 +24,7 @@ Tasks to do in Aixt
 
 ### Done ✓
 
+- [x] only one template Makefile (Linux/Windows) for Explorer16-PIC24
 - [x] only one template Makefile (Linux/Windows) for PIC16F84A
 - [x] Improve the NXT lcd module (print, println)  
 - [x] Implement string interpolation
-
-
-

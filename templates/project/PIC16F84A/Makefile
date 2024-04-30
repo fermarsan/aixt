@@ -1,17 +1,17 @@
-XCVERSION = 2.46
+XCVERSION ?= 2.46
 
-BUILD = build
-TARGET_NAME = main
+BUILD ?= build
+TARGET_NAME ?= main
 
 ifeq ($(OS),Windows_NT)
 XC8 = C:\Program\ Files\Microchip\xc8\v$(XCVERSION)
 TARGET_PATH = $(BUILD)\$(TARGET_NAME)
+CC = $(XC8)\bin\xc8-cc
 else
 XC8 = /opt/microchip/xc8/v$(XCVERSION)
 TARGET_PATH = $(BUILD)/$(TARGET_NAME)
-endif
-
 CC = $(XC8)/bin/xc8-cc
+endif
 
 PART ?= pic16f84a
 
