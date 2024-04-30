@@ -24,10 +24,9 @@ Tasks to do in Aixt
 
 ### Done ✓
 
+- [x] only one template Makefile (Linux/Windows) for PIC16F84A
 - [x] Improve the NXT lcd module (print, println)  
 - [x] Implement string interpolation
-- [x] Test new `gen.out` []string
-- [x] Change `gen.out` from string to []string
 
 
 
