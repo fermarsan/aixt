@@ -38,12 +38,12 @@ else
 CFLAGS += -O1 -DNDEBUG
 endif
 
-LDFLAGS += --heap=0 -nostdlib -T 
+LDFLAGS += --heap=0 -nostdlib -T
 ifeq ($(OS),Windows_NT)
-LDFLAGS += $(XC16)\support\$(PARTFAMILY)\gld\p$(PART).gld -Map=$@.map --cref -p$(PART)
+LDFLAGS += $(XC16)\support\$(PARTFAMILY)\gld\p$(PART).gld -Map=$@.map --cref -p$(PART) --report-mem
 LIBS += -L$(XC16)\lib -L$(XC16)\lib\$(PARTFAMILY) -lc99 -lm -lc99-pic30
 else
-LDFLAGS += $(XC16)/support/$(PARTFAMILY)/gld/p$(PART).gld -Map=$@.map --cref -p$(PART)
+LDFLAGS += $(XC16)/support/$(PARTFAMILY)/gld/p$(PART).gld -Map=$@.map --cref -p$(PART) --report-mem
 LIBS += -L$(XC16)/lib -L$(XC16)/lib/$(PARTFAMILY) -lc99 -lm -lc99-pic30
 endif
 
