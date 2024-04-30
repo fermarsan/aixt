@@ -18,14 +18,13 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
-- [ ] Improve the NXT lcd module (print, println)  
-- [ ] Add `make_windows` option to .TOML file
 - [ ] Issue: path in windows
 - [ ] Format output file
 
 
 ### Done ✓
 
+- [x] Improve the NXT lcd module (print, println)  
 - [x] Implement string interpolation
 - [x] Test new `gen.out` []string
 - [x] Change `gen.out` from string to []string
