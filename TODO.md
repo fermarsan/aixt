@@ -18,12 +18,12 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
-- [ ] Issue: path in windows
 - [ ] Format output file
 
 
 ### Done ✓
 
+- [x] Issue: path in windows
 - [x] only one template Makefile (Linux/Windows) for Explorer16-PIC24
 - [x] only one template Makefile (Linux/Windows) for PIC16F84A
 - [x] Improve the NXT lcd module (print, println)  

@@ -37,10 +37,10 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 		}
 		else 		{ '' }
 	}
-
-	if os.exists('${path.all_before_last('/')}/Makefile') {	// through Makefile
+	// println('-------- ${os.dir(path)} --------')
+	if os.exists('${os.dir(path)}/Makefile') {	// through Makefile
 		// println('Makefile OK')
-		println(os.execute('make -C ${path.all_before_last('/')}').output)
+		println(os.execute('make -C ${os.dir(path)}').output)
 	} else {	// calling compiler directly
 		if os.is_dir(path) {
 			println(os.execute('${cc} ${path}/main${input_ext} ${flags} ${path}/main').output)
