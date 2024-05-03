@@ -8,20 +8,15 @@ module adc
 
 #include <p24FJ128GA010.h>
 
-
-#define	16mhz	16000000UL
-#define	8mhz	8000000UL
-#define	4mhz	4000000UL
-#define	3_2mhz	3200000UL
-#define	2mhz	2000000UL
-#define	1_6mhz	1600000UL
-#define	1mhz	1000000UL
-#define	800khz	800000UL
-#define	640khz	640000UL
-#define	500khz	500000UL
-#define	400khz	400000UL
-#define	320khz	320000UL
-#define	250khz	250000UL
+#define	500ksps		500000
+#define	250ksps		250000
+#define	200ksps		200000
+#define	125ksps		125000
+#define	100ksps		100000
+#define	 50ksps		50000
+#define	 40ksps		40000
+#define	 25ksps		25000
+#define	 20ksps		20000
 
 #define	an0 	0x1111111111111110		// analog pins
 #define	an1 	0x1111111111111101			
