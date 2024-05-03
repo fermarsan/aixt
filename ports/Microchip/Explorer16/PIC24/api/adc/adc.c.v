@@ -23,6 +23,23 @@ module adc
 #define	320khz	320000UL
 #define	250khz	250000UL
 
+#define	an0 	0x1111111111111110		// analog pins
+#define	an1 	0x1111111111111101			
+#define	an2 	0x1111111111111011			
+#define	an3 	0x1111111111110111			
+#define	an4 	0x1111111111101111			
+#define	an5 	0x1111111111011111			
+#define	an6 	0x1111111110111111			
+#define	an7 	0x1111111101111111			
+#define	an8 	0x1111111011111111			
+#define	an9 	0x1111110111111111			
+#define	an10	0x1111101111111111		
+#define	an11	0x1111011111111111		
+#define	an12	0x1110111111111111		
+#define	an13	0x1101111111111111		
+#define	an14	0x1011111111111111		
+#define	an15	0x0111111111111111
+
 enum analog_channels {
 	ch0 = 0			
 	ch1			
@@ -43,22 +60,5 @@ enum analog_channels {
 }
 
 #define pot		5	// Onboard potentiometer
-
-#define	an0 	0x1111111111111110		// analog pins
-#define	an1 	0x1111111111111101			
-#define	an2 	0x1111111111111011			
-#define	an3 	0x1111111111110111			
-#define	an4 	0x1111111111101111			
-#define	an5 	0x1111111111011111			
-#define	an6 	0x1111111110111111			
-#define	an7 	0x1111111101111111			
-#define	an8 	0x1111111011111111			
-#define	an9 	0x1111110111111111			
-#define	an10	0x1111101111111111		
-#define	an11	0x1111011111111111		
-#define	an12	0x1110111111111111		
-#define	an13	0x1101111111111111		
-#define	an14	0x1011111111111111		
-#define	an15	0x0111111111111111
 
 fn C.init()
