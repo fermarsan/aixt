@@ -188,25 +188,33 @@ const (
 )
 
 @[inline]
+fn into_range(num u8, max u8, min u8) {
+	if num > max {
+		return max
+	} else if num < min {
+		return min
+	} else {
+		return num
+	}
+}
+
+@[inline]
 fn move_to(x u8, y u8) {
-	cursor_x := x
-	cursor_y := y
+	cursor_x := lcd.into_range(x, x_max, 1)
+	cursor_y := lcd.into_range(y, y_max, 1)
 }
 
 @[inline]
 fn print(msg string) {
 	lcd.text(cursor_x, cursor_y, msg)
 	cursor_x += string.len(msg)
-	if cursor_x > x_max {
-		cursor_x = x_max
-	}
+	cursor_x = lcd.into_range(cursor_x, x_max, 1)
 }
 
 @[inline]
 fn println(msg string) {
 	lcd.print(msg)
 	cursor_y++
-	if cursor_y > y_max {
-		cursor_y = y_max
-	}
+	cursor_y = lcd.into_range(cursor_y, y_max, 1)
+	cursor_x = 1
 }

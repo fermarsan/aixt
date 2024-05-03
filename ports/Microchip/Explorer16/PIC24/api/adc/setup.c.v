@@ -6,7 +6,6 @@
 // Description: ADC functions (Explorer16-PIC24 port)
 module adc
 
-// #define adc__setup() AD1PCFG = 0xffdf; AD1CON1 = 0x00E0;  AD1CSSL = 0; AD1CON2 = 0; AD1CON3 = 0x1F02; AD1CON1bits.ADON = 1
+#define adc__setup(PINS, FREQ) AD1PCFG = PINS; AD1CON3bits.ADCS = (uint8_t)((FCY / freq) - 1) 
 
-
-fn C.setup() 
+// setup receive de tcy_mul parameter for multiplying the ADC base time (Tcy)

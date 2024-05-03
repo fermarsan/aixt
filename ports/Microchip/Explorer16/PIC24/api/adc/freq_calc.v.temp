@@ -1,0 +1,6 @@
+fcy := 16e6
+
+
+for i in 0 .. 64 {
+	println('\tFcy/${i+1} = ${fcy/(i+1)}')
+}
