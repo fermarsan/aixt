@@ -73,6 +73,9 @@ fn main() {
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}
 						'clean', '-cl' {
+							if os.exists('${os.dir(base_name)}/Makefile') {
+								println(os.execute('make -f ${os.dir(base_name)}/Makefile clean').output)
+							}
 							os.rm('${base_name}.c') or {} // clean c-type files
 							os.rm('${base_name}.nxc') or {}
 							os.rm('${base_name}.ino') or {}
