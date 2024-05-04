@@ -43,7 +43,7 @@ INC += -I $(XC16)/include
 INC += -I $(XC16)/support/$(PARTFAMILY)/h
 
 LDFLAGS += $(XC16)/support/$(PARTFAMILY)/gld/p$(PART).gld -Map=$@.map --cref -p $(PART) --report-mem
-LIBS += -L $(XC16)/lib -L$(XC16)/lib/$(PARTFAMILY) -lc99 -lm -lc99-pic30
+LIBS += -L $(XC16)/lib -L $(XC16)/lib/$(PARTFAMILY) -lc99 -lm -lc99-pic30
 
 OBJ = $(addprefix $(BUILD)/, $(SRC:.c=.o) )
 
