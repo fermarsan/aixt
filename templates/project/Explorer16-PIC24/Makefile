@@ -78,7 +78,6 @@ $(TARGET_PATH).hex: $(TARGET_PATH).elf
 $(TARGET_PATH).elf: $(OBJ)
 	@echo "Link $@"
 	$(Q)$(LD) $(LDFLAGS) -o $@ $^ $(LIBS)
-	$(Q)size $@
 
 $(OBJ): $(SRC)
 ifneq "$(wildcard $(BUILD) )" ""
