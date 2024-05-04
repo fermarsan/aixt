@@ -15,7 +15,7 @@ SRC = \
 
 ifeq ($(OS),Windows_NT)
 
-XC16_BASE = "C:\Program\ Files\Microchip\xc16\v"
+XC16_BASE = "C:\Program Files\Microchip\xc16\v"
 XC16 = $(XC16_BASE)$(XCVERSION)
 CROSS_COMPILE = $(XC16)\bin\xc16-
 
@@ -76,7 +76,7 @@ $(TARGET_PATH).hex: $(TARGET_PATH).elf
 	$(Q)$(CROSS_COMPILE)bin2hex $<
 
 $(TARGET_PATH).elf: $(OBJ)
-	@echo "LINK $@"
+	@echo "LINK $@""
 	$(Q)$(LD) $(LDFLAGS) -o $@ $^ $(LIBS)
 	$(Q)size $@
 
@@ -92,5 +92,5 @@ endif
 clean:
 ifneq "$(wildcard $(BUILD) )" ""
 	rm -fr $(BUILD)
-	@echo '$(BUILD) folder deleted'
+	@echo "$(BUILD) folder deleted"
 endif
