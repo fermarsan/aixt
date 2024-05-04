@@ -6,7 +6,7 @@ TARGET_NAME ?= firmware
 PART ?= 24FJ128GA010
 PARTFAMILY = PIC24F
 
-INC = -I .
+INC = -I.
 
 LDFLAGS = --heap=0 -nostdlib -T
 
@@ -15,17 +15,17 @@ SRC = \
 
 ifeq ($(OS),Windows_NT)
 
-XC16_BASE = C:\Program Files\Microchip\xc16\v
+XC16_BASE = "C:\Program Files\Microchip\xc16\v"
 XC16 = $(XC16_BASE)$(XCVERSION)
 CROSS_COMPILE = $(XC16)\bin\xc16-
 
 TARGET_PATH = $(BUILD)\$(TARGET_NAME)
 
-INC += -I "$(XC16)\include"
-INC += -I "$(XC16)\support\$(PARTFAMILY)/h"
+INC += -I $(XC16)\include
+INC += -I $(XC16)\support\$(PARTFAMILY)/h
 
-LDFLAGS += "$(XC16)\support\$(PARTFAMILY)\gld\p$(PART).gld" -Map=$@.map --cref -p$(PART) --report-mem
-LIBS += -L "$(XC16)\lib" -L "$(XC16)\lib\$(PARTFAMILY)" -lc99 -lm -lc99-pic30
+LDFLAGS += $(XC16)\support\$(PARTFAMILY)\gld\p$(PART).gld -Map=$@.map --cref -p$(PART) --report-mem
+LIBS = -L $(XC16)\lib -L $(XC16)\lib\$(PARTFAMILY) -lc99 -lm -lc99-pic30
 
 OBJ = $(addprefix $(BUILD)\, $(SRC:.c=.o) )
 
@@ -39,11 +39,11 @@ CROSS_COMPILE = $(XC16)/bin/xc16-
 
 TARGET_PATH = $(BUILD)/$(TARGET_NAME)
 
-INC += -I "$(XC16)/include"
-INC += -I "$(XC16)/support/$(PARTFAMILY)/h"
+INC += -I $(XC16)/include
+INC += -I $(XC16)/support/$(PARTFAMILY)/h
 
-LDFLAGS += "$(XC16)/support/$(PARTFAMILY)/gld/p$(PART).gld" -Map=$@.map --cref -p$(PART) --report-mem
-LIBS += -L "$(XC16)/lib" -L "$(XC16)/lib/$(PARTFAMILY)" -lc99 -lm -lc99-pic30
+LDFLAGS += $(XC16)/support/$(PARTFAMILY)/gld/p$(PART).gld -Map=$@.map --cref -p$(PART) --report-mem
+LIBS = -L $(XC16)/lib -L $(XC16)/lib/$(PARTFAMILY) -lc99 -lm -lc99-pic30
 
 OBJ = $(addprefix $(BUILD)/, $(SRC:.c=.o) )
 
@@ -51,8 +51,8 @@ MKDIR = mkdir -p
 
 endif
 
-CC = "$(CROSS_COMPILE)gcc"
-LD = "$(CROSS_COMPILE)ld"
+CC = $(CROSS_COMPILE)gcc
+LD = $(CROSS_COMPILE)ld
 
 CFLAGS_PIC16BIT = -mcpu=$(PART) -mlarge-code
 CFLAGS = $(INC) -Wall -Werror -std=gnu99 -nostdlib $(CFLAGS_PIC16BIT)
@@ -76,13 +76,13 @@ $(TARGET_PATH).hex: $(TARGET_PATH).elf
 	$(Q)$(CROSS_COMPILE)bin2hex $<
 
 $(TARGET_PATH).elf: $(OBJ)
-	@echo "LINK $@"
+	@echo "Link $@"
 	$(Q)$(LD) $(LDFLAGS) -o $@ $^ $(LIBS)
 	$(Q)size $@
 
 $(OBJ): $(SRC)
 ifneq "$(wildcard $(BUILD) )" ""
-	@echo "$(BUILD) folder already exists"
+  	@echo "$(BUILD) folder already exists"
 else
 	$(MKDIR) $(BUILD)
 	@echo "Create $(BUILD) folder"
@@ -92,5 +92,5 @@ endif
 clean:
 ifneq "$(wildcard $(BUILD) )" ""
 	rm -fr $(BUILD)
-	@echo "$(BUILD) folder deleted"
+	@echo "Delete $(BUILD) folder"
 endif

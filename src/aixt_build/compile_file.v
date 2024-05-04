@@ -39,9 +39,7 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 	}
 	// println('-------- ${os.dir(path)} --------')
 	if os.exists('${os.dir(path)}/Makefile') {	// through Makefile
-		// println('Makefile OK')
-		makefile_path := 'make -f ${os.dir(path)}' + $if windows {'\\'} $else {'/'} + 'Makefile'
-		println(os.execute(makefile_path).output)
+		println(os.execute('make -f ${os.dir(path)}/Makefile').output)
 		// println(os.execute('make').output)
 	} else {	// calling compiler directly
 		if os.is_dir(path) {
