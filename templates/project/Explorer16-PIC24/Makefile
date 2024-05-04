@@ -81,7 +81,7 @@ $(TARGET_PATH).elf: $(OBJ)
 
 $(OBJ): $(SRC)
 ifneq "$(wildcard $(BUILD) )" ""
-  	@echo "$(BUILD) folder already exists"
+	@echo "$(BUILD) folder already exists"
 else
 	$(MKDIR) $(BUILD)
 	@echo "Create $(BUILD) folder"
