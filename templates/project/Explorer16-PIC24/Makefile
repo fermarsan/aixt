@@ -76,7 +76,7 @@ $(TARGET_PATH).hex: $(TARGET_PATH).elf
 	$(Q)$(CROSS_COMPILE)bin2hex $<
 
 $(TARGET_PATH).elf: $(OBJ)
-	@echo "LINK $@""
+	@echo "LINK $@"
 	$(Q)$(LD) $(LDFLAGS) -o $@ $^ $(LIBS)
 	$(Q)size $@
 

@@ -35,13 +35,13 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 		'Emulator'	{
 			$if windows { '.exe' } $else { '' }
 		}
-		else 		{ '' }
+		else	{ '' }
 	}
 	// println('-------- ${os.dir(path)} --------')
 	if os.exists('${os.dir(path)}/Makefile') {	// through Makefile
 		// println('Makefile OK')
-		// println(os.execute('make -C ${os.dir(path)}').output)
-		println(os.execute('make').output)
+		println(os.execute('make -f ${os.dir(path)}/Makefile').output)
+		// println(os.execute('make').output)
 	} else {	// calling compiler directly
 		if os.is_dir(path) {
 			println(os.execute('${cc} ${path}/main${input_ext} ${flags} ${path}/main').output)
