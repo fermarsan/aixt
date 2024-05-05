@@ -166,7 +166,7 @@ import string
 #define     lcd__sys_draw_polygon(...)              SysDrawPolygon(__VA_ARGS__)
 #define     lcd__sys_draw_ellipse(...)              SysDrawEllipse(__VA_ARGS__)
 #define     lcd__sys_draw_font(...)                 SysDrawFont(__VA_ARGS__)
-#define     lcd__clear()                         	ClearScreen()
+#define     lcd__clear()                         	ClearScreen(); cursor_x = 0; cursor_y = 56;	
 #define     lcd__clear_line(...)                    ClearLine(__VA_ARGS__)
 #define     lcd__set_font(...)                      SetDisplayFont(__VA_ARGS__)
 #define     lcd__set_display(...)                   SetDisplayDisplay(__VA_ARGS__)
@@ -178,17 +178,17 @@ import string
 
 // cursor variables
 __global (
-	cursor_x = u8(1)
-	cursor_y = u8(1)	
+	cursor_x = i8(0)
+	cursor_y = i8(56)	
 )
 
 const (
-	x_max = 20
-	y_max = 8
+	x_max = i8(90)
+	y_max = i8(56)
 )
 
 @[inline]
-fn into_range(num u8, max u8, min u8) {
+fn into_range(num i8, max i8, min i8) i8 {
 	if num > max {
 		return max
 	} else if num < min {
@@ -199,22 +199,22 @@ fn into_range(num u8, max u8, min u8) {
 }
 
 @[inline]
-fn move_to(x u8, y u8) {
-	cursor_x := lcd.into_range(x, x_max, 1)
-	cursor_y := lcd.into_range(y, y_max, 1)
+fn move_to(x i8, y i8) {
+	cursor_x = lcd.into_range(x*6, x_max, 0)
+	cursor_y = lcd.into_range(56-(y*8), y_max, 0)
 }
 
 @[inline]
 fn print(msg string) {
 	lcd.text(cursor_x, cursor_y, msg)
-	cursor_x += string.len(msg)
-	cursor_x = lcd.into_range(cursor_x, x_max, 1)
+	cursor_x += string.len(msg)*6
+	cursor_x = lcd.into_range(cursor_x, x_max, 0)
 }
 
 @[inline]
 fn println(msg string) {
 	lcd.print(msg)
-	cursor_y++
-	cursor_y = lcd.into_range(cursor_y, y_max, 1)
-	cursor_x = 1
+	cursor_y -= 8
+	cursor_y = lcd.into_range(cursor_y, y_max, 0)
+	cursor_x = 0
 }
