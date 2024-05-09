@@ -197,7 +197,7 @@ fn into_range(num i8, max i8, min i8) i8 {
 		return num
 	}
 }
-
+twea
 @[inline]
 fn move_to(x i8, y i8) {
 	cursor_x = lcd.into_range(x*6, x_max, 0)
