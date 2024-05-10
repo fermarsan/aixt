@@ -18,15 +18,17 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		cur_scope: 			&ast.Scope{}
 		transpiler_path:	aixt_path
 		source_paths: 		[]string{}
-		out: 				''
+		out: 				[]string{}
 		c_preproc_cmds:		[]string{}	
 		// includes: 		[]string{}	
 		// macros: 			[]string{}	
 		definitions: 		[]string{}	
-		init_cmds:			''
+		init_cmds:			[]string{}	
+		to_insert_lines:	[]string{}
 		cur_fn: 			'main'
 		file_count: 		0
-		level_cont: 		0
+		level_count: 		0
+
 		pref:	 			&pref.Preferences{}
 		setup: 				setup_file
 	}
@@ -39,6 +41,8 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
 	if transpiled != '' {
+		// transpiled = out_format(transpiled)
+
 		for alias in c_gen.setup.value('aliases').as_map().keys() { // replace aliases in the transpiled code
 			transpiled = transpiled.replace(
 				alias,

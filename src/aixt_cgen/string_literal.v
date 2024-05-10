@@ -10,6 +10,6 @@ import v.ast
 // ```v
 // str := 'Aixt'
 // ```
-fn (mut gen Gen) string_literal(node ast.StringLiteral) string {
-	return '"${node.val}"'
+fn (mut gen Gen) string_literal(node ast.StringLiteral) []string {
+	return ['"${node.val}"']
 }

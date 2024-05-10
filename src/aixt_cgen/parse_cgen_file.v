@@ -13,7 +13,7 @@ import v.checker
 
 // parse_cgen_file, parces and generates code from a new source file
 // this is used mainly for modules
-pub fn (mut gen Gen) parse_cgen_file(source_path string) string {
+pub fn (mut gen Gen) parse_cgen_file(source_path string) []string {
 	mut file := &ast.File(unsafe { nil })	// parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
 	
 	// $if windows {
@@ -26,7 +26,7 @@ pub fn (mut gen Gen) parse_cgen_file(source_path string) string {
 	checker_.check(mut file)
 
 	println('\n===== Top-down node analysis =====')
-	gen.out += gen.ast_node(file) // starts from the main node (file)
+	gen.out << gen.ast_node(file) // starts from the main node (file)
 
 
 	// mut e_count := 0

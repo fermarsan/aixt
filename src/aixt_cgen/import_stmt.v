@@ -8,7 +8,7 @@ import os
 import v.ast
 
 // import_stmt is the code generation function for import statements.
-fn (mut gen Gen) import_stmt(node ast.Import) string {
+fn (mut gen Gen) import_stmt(node ast.Import) []string {
 	// println('${gen.setup.value('port').string()}')
 	module_short_name := node.mod.all_after_last('.')
 	port_path := gen.setup.value('path').string()
@@ -51,5 +51,5 @@ fn (mut gen Gen) import_stmt(node ast.Import) string {
 		}
 	}
 
-	return ''
+	return []
 }

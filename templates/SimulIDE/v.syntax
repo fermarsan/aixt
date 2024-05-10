@@ -1,0 +1,29 @@
+rules: data keyword1 keyword2 number preprocessor lineComment triLineComment multiLineComment htmlTag quotation function
+
+
+data-style: #A626A4 default true false
+data: u8 u16 u32 u64 i8 i16 int i64 byte f32 f64 usize isize rune string voidptr any const enum static struct union volatile bool none
+
+keyword1-style: #A626A4 default true false
+keyword1: unsafe sizeof __offsetof __global interface spawn shared select rlock lock pub atomic type typeof isreftype
+
+keyword2-style: #A626A4 default true false
+keyword2: fn for in if else is continue break match return true false mut or defer as asm assert go goto import module
+
+preprocessor-style: #986801 default true false
+preprocessor: "#.+[^\n]*"
+
+number-style: #A57819 default false false
+number: "\b[0-9]+\b" "0[bB][0-1]+" "0[xX][0-9a-fA-F]+"
+
+quotation-style: #50A14F default false false
+quotation: "\"(\\.|[^\"])*\"" "\'(\\.|[^\'])*\'"
+
+lineComment-style: #A0A1A7 default false true
+lineComment: "//[^\n]*"
+
+multiLineComment-style: #A0A1A7 default false true
+multiLineComment: "/\\*" "\\*/"
+
+function-style: #4078F2 default false true
+function: "\b[A-Za-z_][A-Za-z0-9_]*(?=\()"

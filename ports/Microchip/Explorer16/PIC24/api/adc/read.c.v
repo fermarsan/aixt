@@ -6,6 +6,7 @@
 // Description: ADC functions (Explorer16-PIC24 port)
 module adc
 
-// #define adc__read(CHANNEL) ({ AD1CHS = CHANNEL; AD1CON1bits.SAMP = 1; while (!AD1CON1bits.DONE); ADC1BUF0; })
+
+#include <libpic30.h>
 
 fn C.read(channel u8) u16 

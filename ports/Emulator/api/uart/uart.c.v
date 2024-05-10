@@ -7,7 +7,7 @@
 module uart
 
 #include <stdio.h>
-#include <stdlib.h>
+// #include <stdlib.h>
 #include <string.h>
 
 // #define OUT = os__input(IN) 

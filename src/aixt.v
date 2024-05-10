@@ -73,6 +73,9 @@ fn main() {
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}
 						'clean', '-cl' {
+							if os.exists('${os.dir(base_name)}/Makefile') {
+								println(os.execute('make -f ${os.dir(base_name)}/Makefile clean').output)
+							}
 							os.rm('${base_name}.c') or {} // clean c-type files
 							os.rm('${base_name}.nxc') or {}
 							os.rm('${base_name}.ino') or {}
@@ -89,8 +92,8 @@ fn main() {
 							if !os.exists('${path}/${name}') {
 								os.mkdir('${path}/${name}') or { panic(err) }
 							}
-							os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
-							os.cp_all('${aixt_path}/templates/vscode/${device}/', '${path}/${name}/', true) or {
+							// os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
+							os.cp_all('${aixt_path}/templates/project/${device}/', '${path}/${name}/', true) or {
 								panic(err)
 							}						
 						}

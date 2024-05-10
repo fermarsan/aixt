@@ -6,9 +6,13 @@
 //
 // Description: Port management functions
 //              (PIC16F873A port)
-
 module port
 
-fn init() {
-    
-}
+
+#define TRISa		TRISA	// port setup name equivalents
+#define TRISb		TRISB
+#define TRISc		TRISC
+
+#define PORTa		PORTA	// port in name equivalents
+#define PORTb		PORTB 
+#define PORTc		PORTC  

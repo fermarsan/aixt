@@ -10,10 +10,10 @@ import v.ast
 // ```v
 // a := 10
 // ```
-fn (mut gen Gen) integer_literal(node ast.IntegerLiteral) string {
+fn (mut gen Gen) integer_literal(node ast.IntegerLiteral) []string {
 	return if node.str().contains('0o') { // if it is an octal literal
-		node.val.int().str() // turn it into decimal
+		[node.val.int().str()] // turn it into decimal
 	} else {
-		node.val
+		[node.val]
 	}
 }

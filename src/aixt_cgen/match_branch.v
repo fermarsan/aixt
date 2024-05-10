@@ -7,6 +7,6 @@ module aixt_cgen
 import v.ast
 
 // match_branch is the code generation function for 'match' branches.
-fn (mut gen Gen) match_branch(node ast.MatchBranch) string { // statements match branch expressions
-	return ''
+fn (mut gen Gen) match_branch(node ast.MatchBranch) []string { // statements match branch expressions
+	return []
 }
