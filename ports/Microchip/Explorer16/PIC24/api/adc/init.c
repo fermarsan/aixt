@@ -1,5 +1,5 @@
-inline void init() {// setup function
-    AD1PCFG = 0xFFFF;//0xffdf;   // Analog inputs for Explorer16 POT and TSENS
+void init() {// setup function
+    AD1PCFG = 0xffdf;   // Analog inputs for Explorer16 POT and TSENS
     AD1CON1 = 0x80E4;   // ASAM enabled; ADSIDL disabled; DONE disabled; FORM Absolute decimal result, unsigned, right-justified; SAMP disabled; SSRC Internal counter ends sampling and starts conversion; ADON enabled; 
     AD1CON2 = 0x0000;   // CSCNA disabled; VCFG0 AVDD; VCFG1 AVSS; ALTS disabled; BUFM disabled; SMPI Generates interrupt after completion of every sample/conversion operation; 
     AD1CON3 = 0x1F00;   // SAMC 31; ADRC FOSC/2; ADCS 0;
