@@ -1,1 +1,0 @@
-fn C.setup_2(baud_rate u32)

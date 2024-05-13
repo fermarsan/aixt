@@ -1,1 +1,0 @@
-fn C.write_2(data u8)
