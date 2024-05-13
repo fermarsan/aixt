@@ -12,7 +12,7 @@ Tasks to do in Aixt
 - [ ] generates documentation from code
 - [ ] API auto-import option
 - [ ] Implement inline assembly
-- [ ] Implement adc.setup() in Explorer16-PIC24
+- [ ] Implement uart.input() in Explorer16-PIC24
 
 
 ### In Progress
@@ -23,6 +23,7 @@ Tasks to do in Aixt
 
 ### Done ✓
 
+- [x] Implement adc.setup() in Explorer16-PIC24
 - [x] Issue: path in windows
 - [x] only one template Makefile (Linux/Windows) for Explorer16-PIC24
 - [x] only one template Makefile (Linux/Windows) for PIC16F84A
