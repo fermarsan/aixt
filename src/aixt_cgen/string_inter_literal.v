@@ -31,14 +31,14 @@ fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
 		placeholders << match ex {
 			ast.Ident { 
 				match gen.find_type(ex) {
-					.i8		{ '%hh' }
-					.i16	{ '%h' }
+					.i8		{ '%d' }	//hh' }
+					.i16	{ '%d' }	//h' }
 					.i32	{ '%d' }
 					.int	{ '%d' }
 					.i64	{ '%l' }
 					.isize	{ '%d' }
-					.u8		{ '%hhu' }
-					.u16	{ '%hu' }
+					.u8		{ '%u' }	//hhu' }
+					.u16	{ '%u' }	//hu' }
 					.u32	{ '%u' }
 					.u64	{ '%lu' }
 					.usize	{ '%u' }
@@ -68,8 +68,17 @@ fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
 		c_line += "${placeholders[i-1]}${strs[i]}"
 	}
 	c_line += '", '
-	for ex in exprs {
-		c_line += '${ex.str()}, '
+	for i in 0 .. exprs.len {
+		casting := match placeholders[i] {
+			'%d'  	{ '(int)' }
+			'%u'  	{ '(unsigned int)' }
+			'%l'  	{ '(long int)' }
+			'%lu' 	{ '(unsigned long int)' }
+			'%f'  	{ '(float)' }
+			'%lf' 	{ '(double)' }
+			else	{ '' }
+		}
+		c_line += '${casting}${exprs[i].str()}, '
 	}
 	c_line = c_line#[..-2] + ');'
 	gen.to_insert_lines << c_line

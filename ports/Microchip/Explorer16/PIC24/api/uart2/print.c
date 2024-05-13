@@ -1,5 +1,5 @@
 void print(char* msg){
-    while(*msg != NULL){
+    while(*msg != '\0'){
         uart2__write(*msg);
         msg++;
     }

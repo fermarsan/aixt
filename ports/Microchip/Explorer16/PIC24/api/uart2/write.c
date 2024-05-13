@@ -1,4 +1,4 @@
-void write(uint8_t data){
+void write(char data){
     while(U2STAbits.UTXBF == 1){}
-    U2TXREG = data;    // Write the data byte to the USART.
+    U2TXREG = (uint8_t)data;    // Write the data byte to the USART.
 }
