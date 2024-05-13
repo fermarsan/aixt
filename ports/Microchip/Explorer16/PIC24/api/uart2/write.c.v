@@ -1,3 +1,3 @@
 module uart2
 
-fn C.write(data u8)
+#define	uart2__write(DATA)  while(U2STAbits.UTXBF == 1){}  U2TXREG = data;
