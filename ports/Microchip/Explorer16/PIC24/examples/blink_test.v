@@ -1,8 +1,8 @@
 import time {sleep_ms}
 import pin
 
-pin.setup(b3_s, pin.out)
-pin.setup(a6_s, pin.in)
+pin.setup(b3, pin.output)
+pin.setup(a6, pin.input)
 
 x := 0
 
@@ -13,6 +13,6 @@ for {
 	sleep_ms(500)
 
 	x = pin.read(a6)	// PIC16
-	x = pin.read(a6_i)	// PIC18
+	x = pin.read(a6)	// PIC18
 }
 

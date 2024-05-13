@@ -7,8 +7,4 @@
 //              (Explorer16-PIC24 port)
 module time
 
-#include <libpic30.h>
-
-fn init() {
-	
-}
+#include <libpic30.h> 

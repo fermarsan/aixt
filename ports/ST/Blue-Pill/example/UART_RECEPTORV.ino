@@ -59,6 +59,8 @@ enum main____pin_names {
 	p24 = PB9,
 	p25 = PC13,
 	recibe_dato,
+	dato,
+	envia_dato,
 };
 
 void main__init() {

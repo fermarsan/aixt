@@ -1,4 +1,4 @@
-import string
+module string
 
 // cstring.h
 #define     string__to_num(...)              StrToNum(__VA_ARGS__)
@@ -35,7 +35,8 @@ import string
 #define     string__reladdress_of(...)       reladdressOf(__VA_ARGS__)
 #define     string__address_of_ex(...)       addressOfEx(__VA_ARGS__)
 
-
-fn init() {
-
-}
+// Functions for use with NXC array types.
+#define		string__upper_case(...) 	UpperCase(__VA_ARGS__) 
+#define		string__lower_case(...) 	LowerCase(__VA_ARGS__) 
+#define		string__upper_case_ex(...) 	UpperCaseEx(__VA_ARGS__) 
+#define		string__lower_case_ex(...) 	LowerCaseEx(__VA_ARGS__) 

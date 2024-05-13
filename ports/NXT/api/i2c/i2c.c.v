@@ -32,8 +32,3 @@ module i2c
 #define		i2c__vendor_id(...) 		I2CVendorId(__VA_ARGS__) 
 #define		i2c__device_id(...) 		I2CDeviceId(__VA_ARGS__) 
 #define		i2c__send_command(...)		I2CSendCommand(__VA_ARGS__)
-
-
-fn init() {
-
-}

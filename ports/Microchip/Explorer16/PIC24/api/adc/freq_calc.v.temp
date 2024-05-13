@@ -1,0 +1,8 @@
+import math { round_sig }
+
+fcy := 16e6
+
+for i in 0 .. 64 {
+	// println('\tFcy/${i+1} = ${round(fcy/(i+1))},\t ADCf = ${round((fcy/(i+1))/16)}')
+	println('#define\tksps_${round_sig((fcy/(i+1))/16, 0)}\t${i+1}')
+}

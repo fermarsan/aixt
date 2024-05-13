@@ -1,10 +1,11 @@
-import time { sleep }
+import time { sleep_ms }
 import pwm
 
-pwm.duty(pwm_1, 100)
+pwm.write(1, 100)
 
 for i in 1..100 {
-    sleep(1)
-    pwm.duty(pwm_0, i)
-    pwm.duty(pwm_1, 100-i)
+    sleep_ms(500)
+    pwm.write(0, i)
+    pwm.write(1, 100-i)
 }
+

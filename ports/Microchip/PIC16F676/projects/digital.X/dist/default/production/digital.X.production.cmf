@@ -11,12 +11,15 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
-end_init CODE 0 0 0 1 2 1
-config CONFIG 4 2007 2007 1 2 1
 $dist/default/production\digital.X.production.o
 cinit CODE 0 3FD 3FD 2 2 1
-maintext CODE 0 3E5 3E5 18 2 1
+text1 CODE 0 3D7 3D7 2 2 1
+text2 CODE 0 3D6 3D6 1 2 1
+maintext CODE 0 3D9 3D9 24 2 1
+cstackBANK0 BANK0 1 20 20 2 1 1
+config CONFIG 4 2007 2007 1 2 1
+$C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
+end_init CODE 0 0 0 1 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -24,17 +27,17 @@ config CONFIG 4 2007 2007 1 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 20-5D 1
-BANK0 20-5D 1
-CONST 1-3E4 2
-ENTRY 1-3E4 2
+RAM 22-5D 1
+BANK0 22-5D 1
+CONST 1-3D5 2
+ENTRY 1-3D5 2
 IDLOC 2000-2003 2
-CODE 1-3E4 2
+CODE 1-3D5 2
 SFR0 0-1F 1
 SFR1 80-DD 1
 EEDATA 2100-217F 2
-STRCODE 1-3E4 2
-STRING 1-3E4 2
+STRCODE 1-3D5 2
+STRING 1-3D5 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -49,26 +52,35 @@ STRING 1-3E4 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\digital.X.production.o
-3FD cinit CODE >257:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_1.s
-3FD cinit CODE >260:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_1.s
-3FD cinit CODE >266:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_1.s
-3FD cinit CODE >268:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_1.s
-3FE cinit CODE >269:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_1.s
-3E5 maintext CODE >14:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3E5 maintext CODE >16:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3E7 maintext CODE >18:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3E8 maintext CODE >19:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3E9 maintext CODE >20:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3EA maintext CODE >21:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3EB maintext CODE >23:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3ED maintext CODE >24:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3EE maintext CODE >28:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3F2 maintext CODE >30:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3F3 maintext CODE >31:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3F4 maintext CODE >32:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3F5 maintext CODE >34:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3F9 maintext CODE >36:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
-3FA maintext CODE >37:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\projects\digital.X\digital.c
+3FD cinit CODE >259:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_1.s
+3FD cinit CODE >262:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_1.s
+3FD cinit CODE >268:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_1.s
+3FD cinit CODE >270:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_1.s
+3FE cinit CODE >271:C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_1.s
+3D6 text2 CODE >64:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3D6 text2 CODE >65:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3D7 text1 CODE >59:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3D7 text1 CODE >60:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3D8 text1 CODE >62:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3D9 maintext CODE >67:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3D9 maintext CODE >68:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3DA maintext CODE >69:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3DC maintext CODE >70:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3DD maintext CODE >71:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3DE maintext CODE >72:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3DF maintext CODE >73:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3E1 maintext CODE >74:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3E1 maintext CODE >75:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3E1 maintext CODE >76:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3E3 maintext CODE >78:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3E8 maintext CODE >79:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3EC maintext CODE >80:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3F1 maintext CODE >81:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3F2 maintext CODE >82:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3F3 maintext CODE >83:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3F4 maintext CODE >84:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3F9 maintext CODE >85:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
+3FA maintext CODE >86:C:\Users\WINDOWS10\proyectorepositorio\aixt-PIC16-Cesar-Alejandro-Roa-Acosta\ports\Microchip\PIC16F676\examples\digital.X\digital.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -89,28 +101,31 @@ __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
+main@x 20 0 BANK0 1 cstackBANK0 dist/default/production\digital.X.production.o
 __Hstrings 7FE 0 ABS 0 strings -
-___sp 7FE 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
-_main 7CA 0 CODE 0 maintext dist/default/production\digital.X.production.o
+___sp 7FE 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
+_main 7B2 0 CODE 0 maintext dist/default/production\digital.X.production.o
 btemp 5E 0 ABS 0 - dist/default/production\digital.X.production.o
-start 0 0 CODE 0 init C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
+start 0 0 CODE 0 init C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
+_main__init 7AE 0 CODE 0 text1 dist/default/production\digital.X.production.o
 wtemp0 5E 0 ABS 0 - dist/default/production\digital.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 7FE 0 ABS 0 clrtext -
 __Lmaintext 7FE 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
-___stacklo 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
+__end_of_main__init 7B2 0 CODE 0 text1 dist/default/production\digital.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
+___stacklo 0 0 ABS 0 - C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
 start_initialization 7FA 0 CODE 0 cinit dist/default/production\digital.X.production.o
 _TRISCbits 87 0 ABS 0 - dist/default/production\digital.X.production.o
-__pcstackBANK0 0 0 BANK0 1 cstackBANK0 dist/default/production\digital.X.production.o
-___int_sp 7FE 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\digital.X.production.o
+___int_sp 7FE 0 STACK 2 stack C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
 __Hbank0 7FE 0 ABS 0 bank0 -
 __Hbank1 7FE 0 BANK1 1 bank1 -
 __Hcinit 7FE 0 CODE 0 cinit -
@@ -138,20 +153,23 @@ __Ltext 7FE 0 ABS 0 text -
 __LcstackBANK0 7FE 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 7FE 0 ABS 0 cstackCOMMON -
 __S0 3FF 0 ABS 0 - -
-__S1 0 0 ABS 0 - -
+__S1 22 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
+__end_of_pin__init 7AE 0 CODE 0 text2 dist/default/production\digital.X.production.o
 __Hosccal 7FE 0 CODE 0 osccal -
+_pin__init 7AC 0 CODE 0 text2 dist/default/production\digital.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
-__pmaintext 7CA 0 CODE 0 maintext dist/default/production\digital.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
+__pmaintext 7B2 0 CODE 0 maintext dist/default/production\digital.X.production.o
 __Lcommon 7FE 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-___osccal_val 7FE 0 CODE 0 osccal C:\Users\WINDOW~1\AppData\Local\Temp\xcAs1bno.\driver_tmp_12.o
+___osccal_val 7FE 0 CODE 0 osccal C:\Users\WINDOW~1\AppData\Local\Temp\xcAs5vvs.\driver_tmp_12.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
+main@x1 21 0 BANK0 1 cstackBANK0 dist/default/production\digital.X.production.o
 __HcstackBANK0 7FE 0 ABS 0 cstackBANK0 -
 __Lend_init 0 0 CODE 0 end_init -
 __LcstackCOMMON 7FE 0 ABS 0 cstackCOMMON -
@@ -160,6 +178,8 @@ __Hintentry 0 0 CODE 0 intentry -
 __Losccal 7FE 0 CODE 0 osccal -
 __Lstrings 7FE 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
+__ptext1 7AE 0 CODE 0 text1 dist/default/production\digital.X.production.o
+__ptext2 7AC 0 CODE 0 text2 dist/default/production\digital.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __H__absolute__ 0 0 ABS 0 __absolute__ -
@@ -200,7 +220,10 @@ __initialization 7FA 0 CODE 0 cinit dist/default/production\digital.X.production
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 3FD 7FA 2 2
-maintext 0 3E5 7CA 18 2
+text1 0 3D7 7AE 2 2
+text2 0 3D6 7AC 1 2
+maintext 0 3D9 7B2 24 2
+cstackBANK0 1 20 20 2 1
 reset_vec 0 0 0 1 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

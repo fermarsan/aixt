@@ -9,8 +9,3 @@ module pwm
 #define		pwm__out_1		1
 #define		pwm__out_2		2
 #define		pwm__out_1_2	3
-
-
-fn init() {
-
-}

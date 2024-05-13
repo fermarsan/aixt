@@ -10,11 +10,3 @@ module time
 #else
 #include <windows.h>
 #endif
-
-// __global (
-// 	start_time i64
-// )
-
-fn init() {
-
-}

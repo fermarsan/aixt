@@ -1,5 +1,4 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: write.c.v
+// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Cesar Alejandro Roa Acosta and Fernando Martínez Santa
 // Date: 2024
 // License: MIT

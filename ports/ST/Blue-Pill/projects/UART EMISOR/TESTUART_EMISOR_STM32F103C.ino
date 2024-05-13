@@ -8,6 +8,19 @@
 //              (PC port) 
 
 
+<<<<<<< HEAD
+void setup() {
+    pinMode(PA4, INPUT_ANALOG);//Entrada analogica asociada al PWM
+   
+    pinMode(PA6, PWM);//Salida analogica del PWM    
+}
+void loop() {
+    int sensorValue = analogRead(PA4);//Variacion del PWM
+    int ledFadeValue = map(sensorValue, 4095, 0, 4095, 0);
+    //Amplitud del PWM
+    pwmWrite(PA6, PWM);//Salida del PWM
+  
+=======
 long Dato; //Dato como entero
 char EnviaDato; //creacion enviar dato como Char
 
@@ -31,4 +44,5 @@ void loop() {
  else {//valores mayores a  700
   Serial.write('3');//Envia dato 3 a AIR32
   }
+>>>>>>> d4993b91b137dd499e1bd8c91cce3c82d74f8e77
 }

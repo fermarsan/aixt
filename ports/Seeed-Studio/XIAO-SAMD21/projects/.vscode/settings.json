@@ -1,9 +1,8 @@
 {
-    "aixt_linux":   "../../../..",
-    "aixt_windows": "..\\..\\..\\..",
-    "device":       "XIAO-SAM21",
+    "aixt_linux":   "../../../../src",
+    "aixt_windows": "..\\..\\..\\..\\src",
+    "device":       "XIAO-SAMD21",
     "files.associations": {
         "*.aixt": "v",
-        "*.nxc": "c",
     }
 }

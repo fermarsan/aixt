@@ -4,31 +4,29 @@ Tasks to do in Aixt
 
 ### Todo
 
-- [ ] Fix the function attributes #bug @fermarsan
+- [ ] Start a vscode extension for Aixt
 - [ ] Implement structs #feat
     - [ ] support struct fields (`struct_name.struct_field`)
 - [ ] Implement variable swapping (by using temporal vars) #feat
-- [ ] Update the Aixt executable path #bug
 - [ ] dynamic memory definition
 - [ ] generates documentation from code
-- [ ] Give support to transpile multi-file folders (`aixt.v`)
 - [ ] API auto-import option
+- [ ] Implement inline assembly
+- [ ] Implement uart.input() in Explorer16-PIC24
+- [ ] Auto-detection of function return value (for assignments)
+
 
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
-- [ ] Implement string interpolation
-- [ ] setup template files
-- [ ] relocate generated code for function definitions #bug
-- [ ] add to the docs the difference of V and C preprocessor
-   
+- [ ] Format output file
+
+
 ### Done ✓
 
-
-- [x] `module.ident` issue SOLVED
-- [x] Issue .exe extension in Emulator on Windows SOLVED
-- [x] Emulator issue on Windows, in `time` module SOLVED
-- [x] Windows gen.files more than gen.source paths SOLVED
-- [x] Printing improved messages for debugging
-- [x] support enum fields (`enum_name.enum_field`)
-- [x] Add `void` type to C void functions
+- [x] Implement adc.setup() in Explorer16-PIC24
+- [x] Issue: path in windows
+- [x] only one template Makefile (Linux/Windows) for Explorer16-PIC24
+- [x] only one template Makefile (Linux/Windows) for PIC16F84A
+- [x] Improve the NXT lcd module (print, println)  
+- [x] Implement string interpolation

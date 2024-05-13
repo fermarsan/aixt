@@ -2,7 +2,7 @@ import motor
 import sensor
 
 sensor.set_type(i1, type_touch)
-sensor.set_mode(i1, type_pulse)
+sensor.set_mode(i1, mode_pulse)
 
 for {
 	sensor.clear(i1)

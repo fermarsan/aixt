@@ -47,9 +47,3 @@ module button
 #define     button__set_short_release_count(...)    SetButtonShortReleaseCount(__VA_ARGS__)
 #define     button__set_state(...)                  SetButtonState(__VA_ARGS__)
 #define     button__sys_read(...)                   SysReadButton(__VA_ARGS__)
-
-
-
-fn init() {
-
-}

@@ -32,12 +32,12 @@
 #define pin__in_pulldown	GPIO_ModeIN_PD
 #define pin__high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
 #define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
-#define pin__low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
-#define pin__low(PIN_NAME)  pin__low_(PIN_NAME)
-#define pin__read_(port, ...) GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
-#define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
 #define pin__setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
 #define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
+#define pin__read_(port, ...) GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
+#define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
+#define pin__low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
+#define pin__low(PIN_NAME)  pin__low_(PIN_NAME)
 
 void main__init();
 

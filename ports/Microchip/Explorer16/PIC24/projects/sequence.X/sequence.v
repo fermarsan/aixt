@@ -2,7 +2,7 @@ import time {sleep_ms}
 import port
 
 const sequence = [
-	0b00000000,
+	u8(0b00000000),
 	0b00000001,
 	0b00000011,
 	0b00000111,

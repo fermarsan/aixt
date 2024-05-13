@@ -1,14 +1,9 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: time.c.v
+// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Luis Alfredo Pinto Medina and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: seconds delay function
-//              (PIC16F886 port)
+// Description: delay functions
+//              (PIC16F84A port)
 
 module time
-
-fn init() {
-
-}

@@ -82,8 +82,3 @@ module lowspeed
 #define		sys_comm_ls_read(...) 			SysCommLSRead(__VA_ARGS__) 
 #define		sys_comm_ls_check_status(...) 	SysCommLSCheckStatus(__VA_ARGS__) 
 #define		sys_comm_ls_write_ex(...)		SysCommLSWriteEx(__VA_ARGS__)
-
-
-fn init() {
-
-}
