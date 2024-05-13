@@ -9,7 +9,8 @@
 
 #define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
 
-#define pin__setup_(port, pin, ...) "GPIO" #port "_ModeCfg(GPIO_Pin_" #pin ", " #__VA_ARGS__ ")\n"
+//#define pin__setup_(port, pin, ...) "GPIO" #port "_ModeCfg(GPIO_Pin_" #pin ", " #__VA_ARGS__ ")\n"
+#define pin__setup_(port, pin, ...) "PWMX_ACTOUT(CH_PWM" #port ", " #__VA_ARGS__ ")\n"
 
 #define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
 
@@ -19,7 +20,8 @@
 
 int main() 
 {
-    printf(pin__setup(a11, pin__output));
+    //printf(pin__setup(a11, pin__output));
+    printf(pin__setup(4, 10));
     printf(pin__high(a11));
     return 0;
 }

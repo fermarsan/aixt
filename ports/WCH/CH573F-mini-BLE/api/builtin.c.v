@@ -4,5 +4,5 @@ module main
 #define true 1
 
 fn init() {
-	// SetSysClock(CLK_SOURCE_PLL_60MHz)
+	//SetSysClock(CLK_SOURCE_PLL_60MHz)
 }

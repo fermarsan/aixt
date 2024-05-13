@@ -5,7 +5,6 @@
 
 module port
 
+#define port__write_(PORT, BITS) GPIO##PORT##_SetBits(BITS)
 
-//GPIOB_ModeCfg(GPIO_Pin_All, GPIO_ModeOut_PP_5mA);    Activa los pines del puerto A en el modo de salida o tambien se puede en modo de entrada 
-
-#define port__write(PORT, BITS) GPIO##PORT##_SetBits(BITS)
+#define port__write(PORT, BITS)  port__write_(PORT, BITS)
