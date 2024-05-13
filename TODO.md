@@ -13,6 +13,7 @@ Tasks to do in Aixt
 - [ ] API auto-import option
 - [ ] Implement inline assembly
 - [ ] Implement uart.input() in Explorer16-PIC24
+- [ ] Auto-detection of function return value (for assignments)
 
 
 ### In Progress
