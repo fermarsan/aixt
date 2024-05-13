@@ -11,17 +11,17 @@
 	},
 	"Generic setup function": {
 		"prefix": "setup",
-		"body": "${1|pin,port,adc,pwm|}.setup($2)",
+		"body": "${1|pin,port,adc,pwm,uart,uart2,sw_uart|}.setup($2)",
 		"description": "Generic module setup function"
 	},
 	"Generic read function": {
 		"prefix": "read",
-		"body": "${1|pin,port,adc|}.read($2)",
+		"body": "${1|pin,port,adc,uart,uart2,sw_uart|}.read($2)",
 		"description": "Generic module reading function"
 	},
 	"Generic write function": {
 		"prefix": "write",
-		"body": "${1|pin,port,pwm|}.write($2)",
+		"body": "${1|pin,port,pwm,uart,uart2,sw_uart|}.write($2)",
 		"description": "Generic module writing function"
 	},
 	"Print string": {
