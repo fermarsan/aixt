@@ -30,8 +30,8 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 		}
 		// out = out.replace(node.val_var, '${gen.ast_node(node.cond)}[${temp_name}]')
 	} else { // in a range
-		c_line += 'for(int ${node.val_var}=${gen.ast_node(node.cond)}; '
-		out << c_line + '${node.val_var}<${gen.ast_node(node.high)}; ${node.val_var}++) {'
+		c_line += 'for(int ${node.val_var}=${gen.ast_node(node.cond).join('')}; '
+		out << c_line + '${node.val_var}<${gen.ast_node(node.high).join('')}; ${node.val_var}++) {'
 		for st in node.stmts {
 			out << gen.ast_node(st)
 		}
