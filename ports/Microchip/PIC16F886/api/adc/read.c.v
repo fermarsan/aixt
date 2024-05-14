@@ -1,6 +1,5 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: read.c.v
-// Author: Luis Alfredo Pinto Medina and Fernando Martínez Santa
+// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
+// Author: Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
