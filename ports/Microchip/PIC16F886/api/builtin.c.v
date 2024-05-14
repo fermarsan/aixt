@@ -11,6 +11,7 @@ module main
 #include <xc.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 #define _XTAL_FREQ 10000000
 
