@@ -21,15 +21,16 @@ pub mut:
 	cur_scope		&ast.Scope = unsafe { nil }
 	transpiler_path	string
 	source_paths	[]string
-	out   			string
+	out   			[]string
 	c_preproc_cmds	[]string	
 	// includes		[]string
 	// macros		[]string
 	definitions		[]string
-	init_cmds		string
+	init_cmds		[]string
+	to_insert_lines	[]string
 	cur_fn			string
 	file_count		int
-	level_cont		int
+	level_count		int
 // pub mut:
 	pref  			&pref.Preferences = unsafe { nil }
 	setup 			toml.Doc
@@ -69,7 +70,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	println('\n===== Top-down node analysis =====')
 	for i, file in gen.files {	// source folder
 		gen.file_count = i
-		gen.out += gen.ast_node(file) // starts from the main node (file)
+		gen.out << gen.ast_node(file) // starts from the main node (file)
 	}
 	
 	gen.sym_table_print()
@@ -81,9 +82,9 @@ pub fn (mut gen Gen) gen(source_path string) string {
 		e_count += if i != 0 { file.errors.len } else { 0 }
 	}
 	if e_count != 0 {	// clear out stream if any error exist
-		gen.out = ''
+		gen.out = []
 	}
 	
-	gen.out_format()
-	return gen.out
+	gen.out_replacements()
+	return gen.out.join('\n')
 }

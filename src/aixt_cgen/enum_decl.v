@@ -7,13 +7,12 @@ module aixt_cgen
 import v.ast
 
 // enum_decl is code generation function for enum declarations.
-fn (mut gen Gen) enum_decl(node ast.EnumDecl) string {
-	mut out := 'enum ${node.name.replace('.', '__')} {\n'
+fn (mut gen Gen) enum_decl(node ast.EnumDecl) []string {
+	mut out := ['enum ${node.name.replace('.', '__')} {']
 	// println("+++++++++++++++\n${node.name}\n+++++++++++++++")
 	for f in node.fields {
-		out += '${gen.ast_node(f)}'
+		out << gen.ast_node(f)
 	}
-	out += '};\n'
-	println('')
+	out << '};'
 	return out
 }

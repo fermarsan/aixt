@@ -7,11 +7,11 @@ module aixt_cgen
 import v.ast
 
 // ast_file is the function for ast.File code generation.
-fn (mut gen Gen) ast_file(node ast.File) string {
+fn (mut gen Gen) ast_file(node ast.File) []string {
 	println(node.path)
-	mut out := ''
+	mut out := []string{}
 	for st in node.stmts {
-		out += gen.ast_node(st)
+		out << gen.ast_node(st)
 	}
 	return out
 }

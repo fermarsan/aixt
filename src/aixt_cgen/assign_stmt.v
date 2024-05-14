@@ -9,55 +9,50 @@ import v.ast
 // assign_stmt is the code generation function for assignment statements.
 // This works for:
 // - declaration-assignments `:=`
-// - only assignments `:=`
+// - only assignments `=`
 // and
 // - cumulative-assignments `+=`, `-=`, etc. 
-fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
+fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	// println('############# ${node} #############')	
-	mut out := ''
+	mut out := []string{}
+	mut c_line := ''
 	mut var_kind := ''
 	for i in 0 .. node.left.len {
 		var_kind = if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
+		// println(',,,,,,,,,,,${var_kind},,,,,,,,,,,')
 
 		if node.op.str() == ':=' { // declaration-assignment
 			match var_kind {
 				'array' {
 					var_kind = gen.table.type_kind((node.right[i] as ast.ArrayInit).elem_type).str()
-					out += '${gen.setup.value(var_kind).string()} ' // array's element type
-					out += '${gen.ast_node(node.left[i])}['
+					c_line += '${gen.setup.value(var_kind).string()} ' // array's element type
+					c_line += '${gen.ast_node(node.left[i]).join('')}['
 					array_len := (node.right[i] as ast.ArrayInit).exprs.len
 					if  array_len != 0 {
-						out += '${array_len}] = ${gen.ast_node(node.right[i])};\n'
+						c_line += '${array_len}] = ${gen.ast_node(node.right[i]).join('')};'
 					} else if gen.setup.value('fixed_size_arrays').bool() {
-						out += '${gen.setup.value('array_default_len').int()}];\n'	// port with fixed-size arrays
+						c_line += '${gen.setup.value('array_default_len').int()}];'	// port with fixed-size arrays
 					} else {
-						out += '];\n'	// port with dynamic-size arrays
+						c_line += '];'	// port with dynamic-size arrays
 					}
 				}
 				'string' {
-					if (node.right[i] as ast.StringLiteral).val.len != 0 { // Constant strings
-						out += 'char ${gen.ast_node(node.left[i])}[] = '
-						out += if node.right[i].type_name() == 'v.ast.CastExpr' {
-							'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
-						} else { 
-							'${gen.ast_node(node.right[i])};\n'
-						}
-					} else {	// Variable strings
-						len := gen.setup.value('string_default_len').int()
-						out += 'char ${gen.ast_node(node.left[i])}[${len}];\n'
-					}
+					len := gen.setup.value('string_default_len').int()
+					out << 'char ${gen.ast_node(node.left[i]).join('')}[${len}] = "";'
+					gen.add_include('string.h')
+					c_line +='strcpy(${gen.ast_node(node.left[i]).join('')}, ${gen.ast_node(node.right[i]).join('')});'
 				}
 				'enum' {
-					out += 'enum ${(node.right[i] as ast.EnumVal).enum_name.replace('.', '__')} '
-					out += '${gen.ast_node(node.left[i])} = '
-					out += '${gen.ast_node(node.right[i])};\n'
+					c_line += 'enum ${(node.right[i] as ast.EnumVal).enum_name.replace('.', '__')} '
+					c_line += '${gen.ast_node(node.left[i]).join('')} = '
+					c_line += '${gen.ast_node(node.right[i]).join('')};'
 				}
 				else {
-					out += '${gen.setup.value(var_kind).string()} ${gen.ast_node(node.left[i])} = '
-					out += if node.right[i].type_name() == 'v.ast.CastExpr' {
-						'${gen.ast_node((node.right[i] as ast.CastExpr).expr)};\n'
+					c_line += '${gen.setup.value(var_kind).string()} ${gen.ast_node(node.left[i]).join('')} = '
+					c_line += if node.right[i].type_name() == 'v.ast.CastExpr' {
+						'${gen.ast_node((node.right[i] as ast.CastExpr).expr).join('')};'
 					} else {
-						'${gen.ast_node(node.right[i])};\n'
+						'${gen.ast_node(node.right[i]).join('')};'
 					}
 				}
 			}
@@ -74,11 +69,11 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 							match node.op.str() {
 								'=' {
 									gen.add_include('string.h')
-									out += 'strcpy(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+									c_line += 'strcpy(${gen.ast_node(node.left[i]).join('')}, ${gen.ast_node(node.right[i]).join('')});'
 								} 
 								'+=' {
 									gen.add_include('string.h')
-									out += 'strcat(${gen.ast_node(node.left[i])}, ${gen.ast_node(node.right[i])});\n'
+									c_line += 'strcat(${gen.ast_node(node.left[i]).join('')}, ${gen.ast_node(node.right[i]).join('')});'
 								}	
 								else {
 									panic('\n\nTranspiler Error:\n"${node.op.str()}" operator not supported for strings.\n')
@@ -86,15 +81,16 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 							}
 						}
 						else {
-							out += '${gen.ast_node(node.left[i])} ${node.op} ${gen.ast_node(node.right[i])};\n'
+							c_line += '${gen.ast_node(node.left[i]).join('')} ${node.op} ${gen.ast_node(node.right[i]).join('')};'
 						}
 					} 
 				} 
 				else {
-					out += '${gen.ast_node(node.left[i])} ${node.op} ${gen.ast_node(node.right[i])};\n'
+					c_line += '${gen.ast_node(node.left[i]).join('')} ${node.op} ${gen.ast_node(node.right[i]).join('')};'
 				}
 			}
 		}
 	} 
+	out << c_line
 	return out
 }

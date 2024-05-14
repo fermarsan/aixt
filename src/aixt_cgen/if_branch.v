@@ -7,10 +7,10 @@ module aixt_cgen
 import v.ast
 
 // if_branch is the code generation function for 'if' branches.
-fn (mut gen Gen) if_branch(node ast.IfBranch) string { // statements block of "if" and "else" expressions
-	mut out := ''
+fn (mut gen Gen) if_branch(node ast.IfBranch) []string { // statements block of "if" and "else" expressions
+	mut out := []string{}
 	for st in node.stmts {
-		out += gen.ast_node(st)
+		out << gen.ast_node(st)
 	}
 	return out
 }

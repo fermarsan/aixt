@@ -1,4 +1,4 @@
-import rune
+module rune
 
 // ctype.h
 #define     rune__is_upper(...)  isupper(__VA_ARGS__)

@@ -1,4 +1,4 @@
-import string
+module string
 
 // cstring.h
 #define     string__to_num(...)              StrToNum(__VA_ARGS__)

@@ -12,7 +12,7 @@ backend = "nxc"
 
 cc_linux = "/home/fercho/aixt/ports/NXT/nbc-linux"
 cc_windows = "c:\\aixt\\ports\\NXT\\nbc-windows.exe"
-cc_flags = " -T=NXT -S=usb -d"
+cc_flags = " -T=NXT -S=usb -d"  #" -EF -T=NXT -S=usb -d"
 
 path = "NXT"
 
@@ -20,7 +20,7 @@ fixed_size_arrays = "true"
 array_default_len = 20
 
 fixed_size_strings = "true"
-string_default_len = 80
+string_default_len = 25
 
 void = "void"
 bool = "bool"

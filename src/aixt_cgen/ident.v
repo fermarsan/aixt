@@ -7,7 +7,7 @@ module aixt_cgen
 import v.ast
 
 // ident is the code generation function for identifiers.
-fn (mut gen Gen) ident(node ast.Ident) string {
+fn (mut gen Gen) ident(node ast.Ident) []string {
 	// println('\n${node.mod} -- ${node.name}') //  -- ${node.scope.parent}')
 	// return node.name.replace('.', '__')
 	// return if node.mod == 'main' {
@@ -15,5 +15,5 @@ fn (mut gen Gen) ident(node ast.Ident) string {
 	// } else {
 	// 	'${node.mod}__${node.name}'
 	// }
-	return '${node.name.all_after('main.').replace('.', '__')}'
+	return ['${node.name.all_after('main.').replace('.', '__')}']
 }

@@ -12,20 +12,21 @@ Tasks to do in Aixt
 - [ ] generates documentation from code
 - [ ] API auto-import option
 - [ ] Implement inline assembly
-- [ ] Implement adc.setup() in Explorer16-PIC24
+- [ ] Implement uart.input() in Explorer16-PIC24
+- [ ] Auto-detection of function return value (for assignments)
 
 
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
-- [ ] Implement string interpolation
-- [ ] Add `make_windows` option to .TOML file
+- [ ] Format output file
 
 
 ### Done ✓
 
-- [x] Independent `main.v` template by port, NXT and Explorer16 tested
-- [x] Create the templates for the "new project" task, Explorer16-PIC24 tested
-- [x] Create the templates for the "new project" task, NXC tested
-
-
+- [x] Implement adc.setup() in Explorer16-PIC24
+- [x] Issue: path in windows
+- [x] only one template Makefile (Linux/Windows) for Explorer16-PIC24
+- [x] only one template Makefile (Linux/Windows) for PIC16F84A
+- [x] Improve the NXT lcd module (print, println)  
+- [x] Implement string interpolation

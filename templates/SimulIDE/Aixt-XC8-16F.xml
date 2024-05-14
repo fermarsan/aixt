@@ -1,0 +1,10 @@
+<!DOCTYPE SimulIDE>
+
+<compiler name="Aixt_xc8" type="aixt10" syntax="v" buildPath="build" >
+    
+    <step 
+        command="aixt"
+        arguments=" build $device $filePath"
+    />
+    
+</compiler>

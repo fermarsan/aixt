@@ -7,7 +7,7 @@ module aixt_cgen
 import v.ast
 
 // expr is the code generation function for expressions.
-fn (mut gen Gen) expr(node ast.Expr) string {
+fn (mut gen Gen) expr(node ast.Expr) []string {
 	println('${node.type_name().after('v.ast.')}:\t\t${node}')
 	match node {
 		ast.IfExpr { // basic shape of an "if" expression
@@ -66,8 +66,10 @@ fn (mut gen Gen) expr(node ast.Expr) string {
 			return gen.enum_val(node)
 		}
 		ast.EmptyExpr {
-			return ''
+			return []
 		}
-		else { panic('\n\n***** Transpiler error *****:\nUndefined expression.\n') }
+		else { 
+			panic('\n\n***** Transpiler error *****:\nUndefined expression.\n') 
+		}
 	}		
 }

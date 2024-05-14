@@ -4,20 +4,14 @@
 // License: MIT
 module aixt_cgen
 
-import v.ast
-
-// symbol_table prints the symbol table os a specific scope
-fn (mut gen Gen) symbol_table(scope ast.Scope) string {
-	mut msg := ''
-	// println('+'.repeat(25))
-	for key, val in scope.objects {
-		// msg += '${val.name.after_char(`.`)} -- ${gen.kind_and_type(val)}\n'
-		msg += '${key} -- ${gen.kind_and_type(val)}\n'
-		// println(val)
+// sym_table_print prints the table of all symbols.
+fn (mut gen Gen) sym_table_print() {
+	println('\n===== Symbol table =====')
+	println(' ==== global scope ==== ')
+	print(gen.symbol_table(gen.table.global_scope))
+	println(' ======= scope ======== ')
+	for file in gen.files {
+		println('${file.mod.name}:')
+		print(gen.symbol_table(file.scope))
 	}
-	// println('-'.repeat(25))
-	for child in scope.children {
-		msg += gen.symbol_table(child) 
-	}
-	return msg
 }

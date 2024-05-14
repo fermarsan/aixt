@@ -7,14 +7,14 @@ module aixt_cgen
 import v.ast
 
 // array_init is the code generation function for arrays initialization.
-fn (mut gen Gen) array_init(node ast.ArrayInit) string {
+fn (mut gen Gen) array_init(node ast.ArrayInit) []string {
 	// println("+++++++++++++++\n${node}\n+++++++++++++++")
-	mut out := '{'
+	mut c_line := '{'
 	if node.exprs.len != 0 {
 		for ex in node.exprs {
-			out += '${gen.ast_node(ex)}, '
+			c_line += '${gen.ast_node(ex).join(', ')}'
 		}
-		out = out#[..-2]
+		c_line = c_line#[..-2] + '}'
 	}
-	return out + '}'
+	return [c_line]
 }

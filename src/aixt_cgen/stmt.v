@@ -7,11 +7,11 @@ module aixt_cgen
 import v.ast
 
 // stmt is the code generation function for statements.
-fn (mut gen Gen) stmt(node ast.Stmt) string {
+fn (mut gen Gen) stmt(node ast.Stmt) []string {
 	println('${node.type_name().after('v.ast.')}:\t\t${node}')
 	match node {
 		ast.Module {
-			return ''
+			return []
 		}
 		ast.Import {
 			return gen.import_stmt(node)
@@ -56,7 +56,7 @@ fn (mut gen Gen) stmt(node ast.Stmt) string {
 			return gen.asm_stmt(node)
 		}
 		ast.SemicolonStmt {
-			return ''
+			return []
 		}
 		
 		else { panic('\n\n***** Transpiler error *****:\nUndefined statement.\n') }

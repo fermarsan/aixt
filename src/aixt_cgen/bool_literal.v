@@ -10,6 +10,6 @@ import v.ast
 // ```v
 // a := true
 // ```
-fn (mut gen Gen) bool_literal(node ast.BoolLiteral) string {
-	return node.val.str()
+fn (mut gen Gen) bool_literal(node ast.BoolLiteral) []string {
+	return [node.val.str()]
 }

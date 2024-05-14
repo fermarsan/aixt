@@ -7,10 +7,10 @@ module aixt_cgen
 import v.ast
 
 // const_decl is the code generation function for constant declarations.
-fn (mut gen Gen) const_decl(node ast.ConstDecl) string {
-	mut out := ''
+fn (mut gen Gen) const_decl(node ast.ConstDecl) []string {
+	mut out := []string{}
 	for f in node.fields {
-		out += '${gen.ast_node(f)}'
+		out << gen.ast_node(f)
 	}
 	return out
 }
