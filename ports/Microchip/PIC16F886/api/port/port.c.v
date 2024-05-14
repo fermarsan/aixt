@@ -1,14 +1,16 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: port.c.v
+// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Luis Alfredo Pinto Medina and Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
-// Description: ADC management functions
-//              (PIC16F886 port)
+// Description: Pin-port functions (PIC16F886 port)
 
 module port
 
-fn init() {
-    
-}
+#define TRISa	TRISA	// port setup name equivalents
+#define TRISb	TRISB
+#define TRISc	TRISC
+
+#define PORTa	PORTA	// port in name equivalents
+#define PORTb	PORTB
+#define PORTc	PORTC
