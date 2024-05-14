@@ -1,0 +1,67 @@
+{
+	"Sleep functions": {
+		"prefix": "sleep",
+		"body": "${1|sleep,sleep_ms,sleep_us|}($2)",
+		"description": "Sleep functions"
+	},
+	"Time functions": {
+		"prefix": "time.",
+		"body": "time.${1|sleep,sleep_ms,sleep_us|}($2)",
+		"description": "Sleep functions with time prefix"
+	},
+	"Generic setup function": {
+		"prefix": "setup",
+		"body": "${1|pin,port,adc,pwm,uart|}.setup($2)",
+		"description": "Generic module setup function"
+	},
+	"Generic read function": {
+		"prefix": "read",
+		"body": "${1|pin,port,adc,uart|}.read($2)",
+		"description": "Generic module reading function"
+	},
+	"Generic write function": {
+		"prefix": "write",
+		"body": "${1|pin,port,pwm,uart|}.write($2)",
+		"description": "Generic module writing function"
+	},
+	"Print string": {
+		"prefix": "print",
+		"body": "${1|uart,sw_uart|}.print($2)",
+		"description": "Print string to an UART"
+	},
+	"Print string + line new": {
+		"prefix": "println",
+		"body": "${1|uart,sw_uart|}.println($2)",
+		"description": "Print string + line new to an UART"
+	},
+	"Input string": {
+		"prefix": "input",
+		"body": "${1|uart,sw_uart|}.input()",
+		"description": "Capture string from an UART"
+	},
+	"Pin high": {
+		"prefix": "high",
+		"body": "pin.high($1)",
+		"description": "Put high level to a pin"
+	},
+	"Pin low": {
+		"prefix": "low",
+		"body": "pin.low($1)",
+		"description": "Put low level to a pin"
+	},
+	"Pin toggle": {
+		"prefix": "toggle",
+		"body": "pin.toggle($1)",
+		"description": "Toggle level of a pin"
+	},
+	"Pin moode": {
+		"prefix": "pinm",
+		"body": "pin.${1|input,output|}",
+		"description": "Pin mode"
+	},
+	"ADC frequency": {
+		"prefix": "f_",
+		"body": "f_${1|30ksps_1mhz,30ksps_4mhz,18ksps_8mhz,21ksps_10mhz,24ksps_12mhz,30ksps_16mhz,34ksps_20mhz,18Ksps_irc|}",
+		"description": "ADC frequency"
+	},
+  }
