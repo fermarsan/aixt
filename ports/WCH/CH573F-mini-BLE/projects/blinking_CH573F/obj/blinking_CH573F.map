@@ -34,7 +34,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_adc.o
  .bss           0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_adc.o
  .text.ADC_DataCalib_Rough
-                0x0000000000000000       0x84 ./StdPeriphDriver/CH57x_adc.o
+                0x0000000000000000       0x94 ./StdPeriphDriver/CH57x_adc.o
  .text.ADC_ExtSingleChSampInit
                 0x0000000000000000       0x24 ./StdPeriphDriver/CH57x_adc.o
  .text.ADC_ExtDiffChSampInit
@@ -55,21 +55,21 @@ Discarded input sections
                 0x0000000000000000       0x42 ./StdPeriphDriver/CH57x_adc.o
  .text.adc_to_temperature_celsius
                 0x0000000000000000       0x24 ./StdPeriphDriver/CH57x_adc.o
- .debug_info    0x0000000000000000      0xed2 ./StdPeriphDriver/CH57x_adc.o
+ .debug_info    0x0000000000000000      0xee2 ./StdPeriphDriver/CH57x_adc.o
  .debug_abbrev  0x0000000000000000      0x2cf ./StdPeriphDriver/CH57x_adc.o
- .debug_loc     0x0000000000000000      0x1f2 ./StdPeriphDriver/CH57x_adc.o
+ .debug_loc     0x0000000000000000      0x211 ./StdPeriphDriver/CH57x_adc.o
  .debug_aranges
                 0x0000000000000000       0x70 ./StdPeriphDriver/CH57x_adc.o
  .debug_ranges  0x0000000000000000       0x60 ./StdPeriphDriver/CH57x_adc.o
- .debug_line    0x0000000000000000      0x902 ./StdPeriphDriver/CH57x_adc.o
- .debug_str     0x0000000000000000      0xa15 ./StdPeriphDriver/CH57x_adc.o
+ .debug_line    0x0000000000000000      0x93a ./StdPeriphDriver/CH57x_adc.o
+ .debug_str     0x0000000000000000      0xa1a ./StdPeriphDriver/CH57x_adc.o
  .comment       0x0000000000000000       0x34 ./StdPeriphDriver/CH57x_adc.o
  .debug_frame   0x0000000000000000       0xc0 ./StdPeriphDriver/CH57x_adc.o
  .text          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_clk.o
  .data          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_clk.o
  .bss           0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_clk.o
  .text.LClk32K_Select
-                0x0000000000000000       0x34 ./StdPeriphDriver/CH57x_clk.o
+                0x0000000000000000       0x32 ./StdPeriphDriver/CH57x_clk.o
  .text.HSECFG_Current
                 0x0000000000000000       0x2a ./StdPeriphDriver/CH57x_clk.o
  .text.HSECFG_Capacitance
@@ -79,10 +79,10 @@ Discarded input sections
  .text.LSECFG_Capacitance
                 0x0000000000000000       0x2c ./StdPeriphDriver/CH57x_clk.o
  .text.Calibration_LSI_FLASH
-                0x0000000000000000      0x2ac ./StdPeriphDriver/CH57x_clk.o
+                0x0000000000000000      0x296 ./StdPeriphDriver/CH57x_clk.o
  .highcode      0x0000000000000000       0x4a ./StdPeriphDriver/CH57x_clk.o
  .text.Calibration_LSI_RAM
-                0x0000000000000000      0x266 ./StdPeriphDriver/CH57x_clk.o
+                0x0000000000000000      0x254 ./StdPeriphDriver/CH57x_clk.o
  .text.LSI_SetTune_FLASH
                 0x0000000000000000       0x26 ./StdPeriphDriver/CH57x_clk.o
  .text.LSI_SetTune_RAM
@@ -92,13 +92,13 @@ Discarded input sections
  .text.RTC_GetTime
                 0x0000000000000000      0x15c ./StdPeriphDriver/CH57x_clk.o
  .text.RTC_SetCycle32k
-                0x0000000000000000       0x5a ./StdPeriphDriver/CH57x_clk.o
+                0x0000000000000000       0x52 ./StdPeriphDriver/CH57x_clk.o
  .text.RTC_GetCycle32k
                 0x0000000000000000       0x18 ./StdPeriphDriver/CH57x_clk.o
  .text.RTC_TMRFunCfg
-                0x0000000000000000       0x40 ./StdPeriphDriver/CH57x_clk.o
+                0x0000000000000000       0x38 ./StdPeriphDriver/CH57x_clk.o
  .text.RTC_TRIGFunCfg
-                0x0000000000000000       0x48 ./StdPeriphDriver/CH57x_clk.o
+                0x0000000000000000       0x40 ./StdPeriphDriver/CH57x_clk.o
  .text.RTC_ModeFunDisable
                 0x0000000000000000       0x38 ./StdPeriphDriver/CH57x_clk.o
  .text.RTC_GetITFlag
@@ -113,14 +113,14 @@ Discarded input sections
                 0x0000000000000000        0x2 ./StdPeriphDriver/CH57x_clk.o
  .sbss.Int32K_Tune_RAM
                 0x0000000000000000        0x2 ./StdPeriphDriver/CH57x_clk.o
- .debug_info    0x0000000000000000     0x167b ./StdPeriphDriver/CH57x_clk.o
- .debug_abbrev  0x0000000000000000      0x3bf ./StdPeriphDriver/CH57x_clk.o
- .debug_loc     0x0000000000000000      0xb65 ./StdPeriphDriver/CH57x_clk.o
+ .debug_info    0x0000000000000000     0x13e5 ./StdPeriphDriver/CH57x_clk.o
+ .debug_abbrev  0x0000000000000000      0x39e ./StdPeriphDriver/CH57x_clk.o
+ .debug_loc     0x0000000000000000      0xb67 ./StdPeriphDriver/CH57x_clk.o
  .debug_aranges
                 0x0000000000000000       0xb0 ./StdPeriphDriver/CH57x_clk.o
- .debug_ranges  0x0000000000000000      0x198 ./StdPeriphDriver/CH57x_clk.o
- .debug_line    0x0000000000000000     0x1d7a ./StdPeriphDriver/CH57x_clk.o
- .debug_str     0x0000000000000000      0xc15 ./StdPeriphDriver/CH57x_clk.o
+ .debug_ranges  0x0000000000000000       0xa0 ./StdPeriphDriver/CH57x_clk.o
+ .debug_line    0x0000000000000000     0x1afb ./StdPeriphDriver/CH57x_clk.o
+ .debug_str     0x0000000000000000      0xbe6 ./StdPeriphDriver/CH57x_clk.o
  .comment       0x0000000000000000       0x34 ./StdPeriphDriver/CH57x_clk.o
  .debug_frame   0x0000000000000000      0x204 ./StdPeriphDriver/CH57x_clk.o
  .text          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_flash.o
@@ -157,28 +157,28 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_pwr.o
  .bss           0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_pwr.o
  .text.PWR_DCDCCfg
-                0x0000000000000000       0x7c ./StdPeriphDriver/CH57x_pwr.o
+                0x0000000000000000       0x88 ./StdPeriphDriver/CH57x_pwr.o
  .text.PWR_UnitModCfg
-                0x0000000000000000       0x5c ./StdPeriphDriver/CH57x_pwr.o
+                0x0000000000000000       0x5a ./StdPeriphDriver/CH57x_pwr.o
  .text.PWR_PeriphClkCfg
                 0x0000000000000000       0x2e ./StdPeriphDriver/CH57x_pwr.o
  .text.PWR_PeriphWakeUpCfg
-                0x0000000000000000       0x78 ./StdPeriphDriver/CH57x_pwr.o
+                0x0000000000000000       0x70 ./StdPeriphDriver/CH57x_pwr.o
  .text.PowerMonitor
-                0x0000000000000000       0x94 ./StdPeriphDriver/CH57x_pwr.o
- .highcode      0x0000000000000000      0x2dc ./StdPeriphDriver/CH57x_pwr.o
- .sdata2.CSWTCH.10
+                0x0000000000000000       0x96 ./StdPeriphDriver/CH57x_pwr.o
+ .highcode      0x0000000000000000      0x2a2 ./StdPeriphDriver/CH57x_pwr.o
+ .sdata2.CSWTCH.6
                 0x0000000000000000        0x4 ./StdPeriphDriver/CH57x_pwr.o
- .debug_info    0x0000000000000000     0x1531 ./StdPeriphDriver/CH57x_pwr.o
- .debug_abbrev  0x0000000000000000      0x369 ./StdPeriphDriver/CH57x_pwr.o
- .debug_loc     0x0000000000000000      0x2f7 ./StdPeriphDriver/CH57x_pwr.o
+ .debug_info    0x0000000000000000     0x1269 ./StdPeriphDriver/CH57x_pwr.o
+ .debug_abbrev  0x0000000000000000      0x345 ./StdPeriphDriver/CH57x_pwr.o
+ .debug_loc     0x0000000000000000      0x1fc ./StdPeriphDriver/CH57x_pwr.o
  .debug_aranges
                 0x0000000000000000       0x60 ./StdPeriphDriver/CH57x_pwr.o
- .debug_ranges  0x0000000000000000       0xa8 ./StdPeriphDriver/CH57x_pwr.o
- .debug_line    0x0000000000000000     0x11b7 ./StdPeriphDriver/CH57x_pwr.o
- .debug_str     0x0000000000000000      0xbcd ./StdPeriphDriver/CH57x_pwr.o
+ .debug_ranges  0x0000000000000000       0x70 ./StdPeriphDriver/CH57x_pwr.o
+ .debug_line    0x0000000000000000      0xe41 ./StdPeriphDriver/CH57x_pwr.o
+ .debug_str     0x0000000000000000      0xb7b ./StdPeriphDriver/CH57x_pwr.o
  .comment       0x0000000000000000       0x34 ./StdPeriphDriver/CH57x_pwr.o
- .debug_frame   0x0000000000000000      0x110 ./StdPeriphDriver/CH57x_pwr.o
+ .debug_frame   0x0000000000000000      0x10c ./StdPeriphDriver/CH57x_pwr.o
  .text          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_sys.o
  .data          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_sys.o
  .bss           0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_sys.o
@@ -193,9 +193,9 @@ Discarded input sections
  .text.SYS_GetSysTickCnt
                 0x0000000000000000        0xa ./StdPeriphDriver/CH57x_sys.o
  .text.WWDG_ITCfg
-                0x0000000000000000       0x34 ./StdPeriphDriver/CH57x_sys.o
+                0x0000000000000000       0x32 ./StdPeriphDriver/CH57x_sys.o
  .text.WWDG_ResetCfg
-                0x0000000000000000       0x34 ./StdPeriphDriver/CH57x_sys.o
+                0x0000000000000000       0x32 ./StdPeriphDriver/CH57x_sys.o
  .text.WWDG_ClearFlag
                 0x0000000000000000       0x26 ./StdPeriphDriver/CH57x_sys.o
  .text._write   0x0000000000000000       0x28 ./StdPeriphDriver/CH57x_sys.o
@@ -259,6 +259,18 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./RVMSIS/core_riscv.o
  .data          0x0000000000000000        0x0 ./RVMSIS/core_riscv.o
  .bss           0x0000000000000000        0x0 ./RVMSIS/core_riscv.o
+ .text.__get_FFLAGS
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__set_FFLAGS
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__get_FRM
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__set_FRM
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__get_FCSR
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__set_FCSR
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
  .text.__get_MSTATUS
                 0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
  .text.__set_MSTATUS
@@ -266,6 +278,10 @@ Discarded input sections
  .text.__get_MISA
                 0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
  .text.__set_MISA
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__get_MIE
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__set_MIE
                 0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
  .text.__get_MTVEC
                 0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
@@ -287,6 +303,26 @@ Discarded input sections
                 0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
  .text.__set_MTVAL
                 0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__get_MIP
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__set_MIP
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__get_MCYCLE
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__set_MCYCLE
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__get_MCYCLEH
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__set_MCYCLEH
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__get_MINSTRET
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__set_MINSTRET
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__get_MINSTRETH
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
+ .text.__set_MINSTRETH
+                0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
  .text.__get_MVENDORID
                 0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
  .text.__get_MARCHID
@@ -295,17 +331,15 @@ Discarded input sections
                 0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
  .text.__get_MHARTID
                 0x0000000000000000        0x6 ./RVMSIS/core_riscv.o
- .text.__get_SP
-                0x0000000000000000        0x4 ./RVMSIS/core_riscv.o
- .debug_info    0x0000000000000000      0x375 ./RVMSIS/core_riscv.o
- .debug_abbrev  0x0000000000000000       0xe0 ./RVMSIS/core_riscv.o
+ .debug_info    0x0000000000000000      0x624 ./RVMSIS/core_riscv.o
+ .debug_abbrev  0x0000000000000000      0x10d ./RVMSIS/core_riscv.o
  .debug_aranges
-                0x0000000000000000       0xb0 ./RVMSIS/core_riscv.o
- .debug_ranges  0x0000000000000000       0xa0 ./RVMSIS/core_riscv.o
- .debug_line    0x0000000000000000      0x448 ./RVMSIS/core_riscv.o
- .debug_str     0x0000000000000000      0x2c8 ./RVMSIS/core_riscv.o
+                0x0000000000000000      0x138 ./RVMSIS/core_riscv.o
+ .debug_ranges  0x0000000000000000      0x128 ./RVMSIS/core_riscv.o
+ .debug_line    0x0000000000000000      0x70b ./RVMSIS/core_riscv.o
+ .debug_str     0x0000000000000000      0x39f ./RVMSIS/core_riscv.o
  .comment       0x0000000000000000       0x34 ./RVMSIS/core_riscv.o
- .debug_frame   0x0000000000000000      0x140 ./RVMSIS/core_riscv.o
+ .debug_frame   0x0000000000000000      0x250 ./RVMSIS/core_riscv.o
  .text          0x0000000000000000        0x0 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\libISP573.a(ISP573.o)
  .data          0x0000000000000000        0x0 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\libISP573.a(ISP573.o)
  .bss           0x0000000000000000        0x0 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\libISP573.a(ISP573.o)
@@ -411,7 +445,7 @@ END GROUP
                 0x0000000000000004                . = ALIGN (0x4)
                 0x0000000000000004                PROVIDE (_highcode_lma = .)
 
-.highcode       0x0000000020003800      0x654 load address 0x0000000000000004
+.highcode       0x0000000020003800      0x64c load address 0x0000000000000004
                 0x0000000020003800                . = ALIGN (0x4)
                 0x0000000020003800                PROVIDE (_highcode_vma_start = .)
  *(.vector)
@@ -441,73 +475,73 @@ END GROUP
                 0x00000000200038b8                UART3_IRQHandler
                 0x00000000200038ba                WDOG_BAT_IRQHandler
  *(.highcode)
- .highcode      0x00000000200038bc      0x1a8 ./StdPeriphDriver/CH57x_sys.o
+ .highcode      0x00000000200038bc      0x1a0 ./StdPeriphDriver/CH57x_sys.o
                 0x00000000200038bc                SetSysClock
                 0x00000000200039b8                SYS_ResetExecute
                 0x00000000200039f0                HardFault_Handler
-                0x0000000020003a2e                mDelayuS
-                0x0000000020003a3c                mDelaymS
- .highcode      0x0000000020003a64      0x3ee C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\libISP573.a(ISP573.o)
-                0x0000000020003a64                FLASH_ROM_BEG
-                0x0000000020003a76                FLASH_ROM_END
-                0x0000000020003a84                FLASH_ROM_IN
-                0x0000000020003a92                FLASH_ROM_OUT
-                0x0000000020003aa0                FLASH_ROM_ADDR
-                0x0000000020003ae8                FLASH_ROM_WAIT
-                0x0000000020003b20                FLASH_EEPROM_CMD
+                0x0000000020003a26                mDelayuS
+                0x0000000020003a34                mDelaymS
+ .highcode      0x0000000020003a5c      0x3ee C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\StdPeriphDriver\libISP573.a(ISP573.o)
+                0x0000000020003a5c                FLASH_ROM_BEG
+                0x0000000020003a6e                FLASH_ROM_END
+                0x0000000020003a7c                FLASH_ROM_IN
+                0x0000000020003a8a                FLASH_ROM_OUT
+                0x0000000020003a98                FLASH_ROM_ADDR
+                0x0000000020003ae0                FLASH_ROM_WAIT
+                0x0000000020003b18                FLASH_EEPROM_CMD
  *(.highcode.*)
-                0x0000000020003e54                . = ALIGN (0x4)
- *fill*         0x0000000020003e52        0x2 
-                0x0000000020003e54                PROVIDE (_highcode_vma_end = .)
+                0x0000000020003e4c                . = ALIGN (0x4)
+ *fill*         0x0000000020003e4a        0x2 
+                0x0000000020003e4c                PROVIDE (_highcode_vma_end = .)
 
-.text           0x0000000000000658      0x1a0
-                0x0000000000000658                . = ALIGN (0x4)
+.text           0x0000000000000650      0x1a0
+                0x0000000000000650                . = ALIGN (0x4)
  *(SORT_NONE(.handle_reset))
- .handle_reset  0x0000000000000658       0xa6 ./Startup/startup_CH573.o
-                0x0000000000000658                handle_reset
+ .handle_reset  0x0000000000000650       0xa6 ./Startup/startup_CH573.o
+                0x0000000000000650                handle_reset
  *(.text)
  *(.text.*)
  .text.startup.main
-                0x00000000000006fe       0x44 ./src/Main.o
-                0x00000000000006fe                main
+                0x00000000000006f6       0x44 ./src/Main.o
+                0x00000000000006f6                main
  .text.GPIOA_ModeCfg
-                0x0000000000000742       0xa2 ./StdPeriphDriver/CH57x_gpio.o
-                0x0000000000000742                GPIOA_ModeCfg
+                0x000000000000073a       0xa2 ./StdPeriphDriver/CH57x_gpio.o
+                0x000000000000073a                GPIOA_ModeCfg
  *(.rodata)
  *(.rodata*)
- *fill*         0x00000000000007e4        0x0 
+ *fill*         0x00000000000007dc        0x0 
  .rodata.GPIOA_ModeCfg
-                0x00000000000007e4       0x14 ./StdPeriphDriver/CH57x_gpio.o
+                0x00000000000007dc       0x14 ./StdPeriphDriver/CH57x_gpio.o
  *(.sdata2.*)
  *(.glue_7)
  *(.glue_7t)
  *(.gnu.linkonce.t.*)
-                0x00000000000007f8                . = ALIGN (0x4)
+                0x00000000000007f0                . = ALIGN (0x4)
 
-.rela.dyn       0x00000000000007f8        0x0
- .rela.init     0x00000000000007f8        0x0 ./src/Main.o
- .rela.vector   0x00000000000007f8        0x0 ./src/Main.o
+.rela.dyn       0x00000000000007f0        0x0
+ .rela.init     0x00000000000007f0        0x0 ./src/Main.o
+ .rela.vector   0x00000000000007f0        0x0 ./src/Main.o
  .rela.handle_reset
-                0x00000000000007f8        0x0 ./src/Main.o
+                0x00000000000007f0        0x0 ./src/Main.o
 
-.fini           0x00000000000007f8        0x0
+.fini           0x00000000000007f0        0x0
  *(SORT_NONE(.fini))
-                0x00000000000007f8                . = ALIGN (0x4)
+                0x00000000000007f0                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_etext = .)
                 [!provide]                        PROVIDE (_eitcm = .)
 
-.preinit_array  0x00000000000007f8        0x0
+.preinit_array  0x00000000000007f0        0x0
                 [!provide]                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x00000000000007f8        0x0
+.init_array     0x00000000000007f0        0x0
                 [!provide]                        PROVIDE (__init_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
  *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
                 [!provide]                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x00000000000007f8        0x0
+.fini_array     0x00000000000007f0        0x0
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
  *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
@@ -527,15 +561,15 @@ END GROUP
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
 
-.dalign         0x0000000020003e54      0x1ac load address 0x00000000000007f8
+.dalign         0x0000000020003e4c      0x1b4 load address 0x00000000000007f0
                 0x0000000020004000                . = (ORIGIN (RAM) + MAX (0x800, SIZEOF (.highcode)))
- *fill*         0x0000000020003e54      0x1ac 
+ *fill*         0x0000000020003e4c      0x1b4 
 
-.dlalign        0x00000000000007f8        0x0
-                0x00000000000007f8                . = ALIGN (0x4)
-                0x00000000000007f8                PROVIDE (_data_lma = .)
+.dlalign        0x00000000000007f0        0x0
+                0x00000000000007f0                . = ALIGN (0x4)
+                0x00000000000007f0                PROVIDE (_data_lma = .)
 
-.data           0x0000000020004000        0x0 load address 0x00000000000007f8
+.data           0x0000000020004000        0x0 load address 0x00000000000007f0
                 0x0000000020004000                . = ALIGN (0x4)
                 0x0000000020004000                PROVIDE (_data_vma = .)
  *(.gnu.linkonce.r.*)
@@ -554,7 +588,7 @@ END GROUP
                 0x0000000020004000                . = ALIGN (0x4)
                 0x0000000020004000                PROVIDE (_edata = .)
 
-.bss            0x0000000020004000        0x0 load address 0x00000000000007f8
+.bss            0x0000000020004000        0x0 load address 0x00000000000007f0
                 0x0000000020004000                . = ALIGN (0x4)
                 0x0000000020004000                PROVIDE (_sbss = .)
  *(.sbss*)
@@ -572,17 +606,17 @@ END GROUP
                 0x0000000020008000                PROVIDE (_eusrstack = .)
 OUTPUT(blinking_CH573F.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000     0x2d9a
- .debug_info    0x0000000000000000      0xc6c ./src/Main.o
- .debug_info    0x0000000000000c6c      0xdae ./StdPeriphDriver/CH57x_gpio.o
- .debug_info    0x0000000000001a1a     0x135e ./StdPeriphDriver/CH57x_sys.o
- .debug_info    0x0000000000002d78       0x22 ./Startup/startup_CH573.o
+.debug_info     0x0000000000000000     0x2bfc
+ .debug_info    0x0000000000000000      0xc6a ./src/Main.o
+ .debug_info    0x0000000000000c6a      0xdae ./StdPeriphDriver/CH57x_gpio.o
+ .debug_info    0x0000000000001a18     0x11c2 ./StdPeriphDriver/CH57x_sys.o
+ .debug_info    0x0000000000002bda       0x22 ./Startup/startup_CH573.o
 
-.debug_abbrev   0x0000000000000000      0x85f
+.debug_abbrev   0x0000000000000000      0x824
  .debug_abbrev  0x0000000000000000      0x253 ./src/Main.o
  .debug_abbrev  0x0000000000000253      0x268 ./StdPeriphDriver/CH57x_gpio.o
- .debug_abbrev  0x00000000000004bb      0x392 ./StdPeriphDriver/CH57x_sys.o
- .debug_abbrev  0x000000000000084d       0x12 ./Startup/startup_CH573.o
+ .debug_abbrev  0x00000000000004bb      0x357 ./StdPeriphDriver/CH57x_sys.o
+ .debug_abbrev  0x0000000000000812       0x12 ./Startup/startup_CH573.o
 
 .debug_aranges  0x0000000000000000      0x130
  .debug_aranges
@@ -594,26 +628,26 @@ OUTPUT(blinking_CH573F.elf elf32-littleriscv)
  .debug_aranges
                 0x00000000000000f8       0x38 ./Startup/startup_CH573.o
 
-.debug_ranges   0x0000000000000000      0x110
+.debug_ranges   0x0000000000000000       0xf8
  .debug_ranges  0x0000000000000000       0x18 ./src/Main.o
  .debug_ranges  0x0000000000000018       0x38 ./StdPeriphDriver/CH57x_gpio.o
- .debug_ranges  0x0000000000000050       0x90 ./StdPeriphDriver/CH57x_sys.o
- .debug_ranges  0x00000000000000e0       0x30 ./Startup/startup_CH573.o
+ .debug_ranges  0x0000000000000050       0x78 ./StdPeriphDriver/CH57x_sys.o
+ .debug_ranges  0x00000000000000c8       0x30 ./Startup/startup_CH573.o
 
-.debug_line     0x0000000000000000     0x1a87
+.debug_line     0x0000000000000000     0x1933
  .debug_line    0x0000000000000000      0x35e ./src/Main.o
  .debug_line    0x000000000000035e      0x7af ./StdPeriphDriver/CH57x_gpio.o
- .debug_line    0x0000000000000b0d      0xd3b ./StdPeriphDriver/CH57x_sys.o
- .debug_line    0x0000000000001848      0x23f ./Startup/startup_CH573.o
+ .debug_line    0x0000000000000b0d      0xbe7 ./StdPeriphDriver/CH57x_sys.o
+ .debug_line    0x00000000000016f4      0x23f ./Startup/startup_CH573.o
 
-.debug_str      0x0000000000000000      0xc78
+.debug_str      0x0000000000000000      0xc44
  .debug_str     0x0000000000000000      0x78f ./src/Main.o
                                         0x805 (size before relaxing)
  .debug_str     0x000000000000078f      0x11a ./StdPeriphDriver/CH57x_gpio.o
                                         0x8ec (size before relaxing)
- .debug_str     0x00000000000008a9      0x3a8 ./StdPeriphDriver/CH57x_sys.o
-                                        0xb56 (size before relaxing)
- .debug_str     0x0000000000000c51       0x27 ./Startup/startup_CH573.o
+ .debug_str     0x00000000000008a9      0x374 ./StdPeriphDriver/CH57x_sys.o
+                                        0xb22 (size before relaxing)
+ .debug_str     0x0000000000000c1d       0x27 ./Startup/startup_CH573.o
                                          0x7c (size before relaxing)
 
 .comment        0x0000000000000000       0x33
@@ -628,6 +662,6 @@ OUTPUT(blinking_CH573F.elf elf32-littleriscv)
  .debug_frame   0x0000000000000058       0x70 ./StdPeriphDriver/CH57x_gpio.o
  .debug_frame   0x00000000000000c8      0x114 ./StdPeriphDriver/CH57x_sys.o
 
-.debug_loc      0x0000000000000000      0x5ec
+.debug_loc      0x0000000000000000      0x5b0
  .debug_loc     0x0000000000000000      0x361 ./StdPeriphDriver/CH57x_gpio.o
- .debug_loc     0x0000000000000361      0x28b ./StdPeriphDriver/CH57x_sys.o
+ .debug_loc     0x0000000000000361      0x24f ./StdPeriphDriver/CH57x_sys.o

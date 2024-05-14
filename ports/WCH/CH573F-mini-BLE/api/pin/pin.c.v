@@ -5,18 +5,36 @@
 
 module pin
 
-#include "CH57x_common.h"
-
-//Existe el puerto A pines (4,5,8,9 10...15) y el puerto B pines (4,7,10...15,22,23)
-#define a8 A, 8
+#define a4  A, 4
+#define a5  A, 5
+#define a8  A, 8
+#define a9  A, 9
+#define a10 A, 10
+#define a11 A, 11
+#define a12 A, 12
+#define a13 A, 13
+#define a14 A, 14
+#define a15 A, 15
+#define b4  B, 4
+#define b7  B, 7
+#define b10 B, 10
+#define b11 B, 11
+#define b12 B, 12
+#define b13 B, 13
+#define b14 B, 14
+#define b15 B, 15
+#define b22 B, 22
+#define b23 B, 23
 
 // out macro defines the pin output mode
-#define pin__output    GPIO_ModeOut_PP_5mA      
+#define pin__output    		GPIO_ModeOut_PP_5mA      
 //Tambien esta el modo GPIO_ModeOut_PP_20mA
 
 // in macro defines the pin input mode
-#define pin__input     GPIO_ModeIN_PD 	     
-//Tambien esta el modo GPIO_ModeIN_PU y GPIO_ModeIN_Floating
+#define pin__input     		GPIO_ModeIN_Floating
+#define pin__in_pullup		GPIO_ModeIN_PU
+#define pin__in_pulldown	GPIO_ModeIN_PD
+
  
  fn init() {
 
