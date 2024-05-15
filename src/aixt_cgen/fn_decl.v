@@ -106,10 +106,10 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 							c_line += '${gen.ast_node(pr).join('')}, '
 						}
 						c_line = c_line#[..-2] + ')' 
-						// gen.definitions << out + ';\n'	// generates the function's prototype
+						gen.definitions << c_line + ';\n'	// generates the function's prototype
 					} else {
 						c_line += ')' 
-						// gen.definitions << out + ';\n'	// generates the function's prototype
+						gen.definitions << c_line + ';\n'	// generates the function's prototype
 					}
 					out << '${c_line} {'
 					for st in node.stmts {
