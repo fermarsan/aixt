@@ -10,9 +10,9 @@ module irq
 #define	irq__external_rising()	OPTION_REGbits.INTEDG = 1
 #define	irq__external_falling()	OPTION_REGbits.INTEDG = 0
 
-#define irq_external(FN_NAME)	void irq_external(void)
+#define irq_external(FN_NAME)	void isr_external(void)
 
 // timer 0 interrupt
-#define irq_timer0(FN_NAME)		void irq_timer0(void)
+#define irq_timer0(FN_NAME)		void isr_timer0(void)
 
 fn C.isr()
