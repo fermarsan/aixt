@@ -24,6 +24,11 @@
 		"body": "${1|pin,port,pwm,uart|}.write($2)",
 		"description": "Generic module writing function"
 	},
+	"aixt.snippet.read_byte": {
+		"prefix": "read_B",
+		"body": "adc.read_byte($1)",
+		"description": "ADC byte reading function"
+	},
 	"aixt.snippet.print": {
 		"prefix": "print",
 		"body": "${1|uart,sw_uart|}.print($2)",
@@ -61,7 +66,7 @@
 	},
 	"aixt.snippet.port_pin_mode": {
 		"prefix": "portm",
-		"body": "port.${1|all_input,all_output|}",
+		"body": "port.${1|all_inputs,all_outputs|}",
 		"description": "Port pin mode constants"
 	},
 	"aixt.snippet.ADC_frequency": {
