@@ -14,3 +14,7 @@ module port
 #define PORTa	PORTA	// port in name equivalents
 #define PORTb	PORTB
 #define PORTc	PORTC
+
+#define	port__all_inputs	0xFF	// port mode constants
+#define	port__all_outputs	0x00
+
