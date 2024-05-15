@@ -5,8 +5,4 @@
 
 module uart
 
-#define uart__write(TX) UART0_SendString(Tx, sizeof(Tx));
-
-fn write() {
-	//UART0_SendString(TxBuff, sizeof(TxBuff));
-}
+#define	uart__write(DATA)	UTXREG = R8_UART0_THR;
