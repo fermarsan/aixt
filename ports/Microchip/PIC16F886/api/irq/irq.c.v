@@ -12,7 +12,9 @@ module irq
 
 #define irq_external(FN_NAME)	void isr_external(void)
 
+// #define irq_uart_rx(FN_NAME)	void isr_external(void)
+
 // timer 0 interrupt
 #define irq_timer0(FN_NAME)		void isr_timer0(void)
 
-fn C.isr()
+fn C.global_isr()

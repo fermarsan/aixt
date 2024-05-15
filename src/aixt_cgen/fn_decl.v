@@ -85,7 +85,13 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 					}
 				}
 				if irq {
+					gen.definitions << '#define ${c_line#[..-1]}_isr_exists'
 					c_line = '${c_line#[..-1]}(${node.short_name})'
+					gen.definitions << '${c_line} {'
+					for st in node.stmts {
+						gen.definitions << gen.ast_node(st)  	
+					}
+					gen.definitions << '}'
 				} else {
 					// println('##########${gen.table.type_symbols[node.return_type].str()}##########')
 					if nxc_task {
@@ -105,12 +111,12 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 						c_line += ')' 
 						// gen.definitions << out + ';\n'	// generates the function's prototype
 					}
+					out << '${c_line} {'
+					for st in node.stmts {
+						out << gen.ast_node(st)  	
+					}
+					out << '}'
 				}
-				out << '${c_line} {'
-				for st in node.stmts {
-					out << gen.ast_node(st)  	
-				}
-				out << '}'
 			}
 		}
 		// out = if out[0] == ` ` { out[1..] } else { out }
