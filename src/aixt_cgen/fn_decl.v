@@ -70,7 +70,11 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			.c {				// for C.functions()
 				c_file_path := os.dir(node.file) + '/${node.short_name}.c'
 				mut c_code := os.read_file(c_file_path) or { panic(err) }
-				out << c_code.replace('${node.short_name}(', '${module_short_name}__${node.short_name}(')
+				c_code = c_code.replace('${node.short_name}(', '${module_short_name}__${node.short_name}(')
+				if !c_code.contains('#define') {
+					gen.definitions << c_code.all_before('{') + ';'		// generates the function's prototype
+				}
+				out << c_code
 			}
 			else {				//for regular functions
 				gen.cur_fn = node.name
