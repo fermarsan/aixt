@@ -634,11 +634,11 @@ OUTPUT(blinking_CH573F.elf elf32-littleriscv)
  .debug_ranges  0x0000000000000050       0x78 ./StdPeriphDriver/CH57x_sys.o
  .debug_ranges  0x00000000000000c8       0x30 ./Startup/startup_CH573.o
 
-.debug_line     0x0000000000000000     0x1933
- .debug_line    0x0000000000000000      0x35e ./src/Main.o
- .debug_line    0x000000000000035e      0x7af ./StdPeriphDriver/CH57x_gpio.o
- .debug_line    0x0000000000000b0d      0xbe7 ./StdPeriphDriver/CH57x_sys.o
- .debug_line    0x00000000000016f4      0x23f ./Startup/startup_CH573.o
+.debug_line     0x0000000000000000     0x190e
+ .debug_line    0x0000000000000000      0x339 ./src/Main.o
+ .debug_line    0x0000000000000339      0x7af ./StdPeriphDriver/CH57x_gpio.o
+ .debug_line    0x0000000000000ae8      0xbe7 ./StdPeriphDriver/CH57x_sys.o
+ .debug_line    0x00000000000016cf      0x23f ./Startup/startup_CH573.o
 
 .debug_str      0x0000000000000000      0xc44
  .debug_str     0x0000000000000000      0x78f ./src/Main.o
