@@ -8,6 +8,8 @@
 
 module main
 
+// import sys
+
 #include <xc.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -24,8 +26,18 @@ module main
 #pragma config BOREN = OFF      // Brown Out Reset Selection bits (BOR disabled)
 #pragma config IESO = OFF       // Internal External Switchover bit (Internal/External Switchover mode is disabled)
 #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enabled bit (Fail-Safe Clock Monitor is disabled)
-#pragma config LVP = OFF         // Low Voltage Programming Enable bit (RB3/PGM pin has PGM function, low voltage programming enabled)
+#pragma config LVP = OFF		// Low Voltage Programming Enable bit (RB3/PGM pin has PGM function, low voltage programming enabled)
 
 // CONFIG2
 #pragma config BOR4V = BOR40V   // Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
+
+// // interrupt macros
+// #define irq_enable()	GIE = 1	
+// #define irq_disable()	GIE = 0
+
+// #define	irq_external_enable()	INTE = 1
+// #define	irq_external_clear()	INTF = 0
+// #define	irq_external_rising()	INTEDG = 1
+// #define	irq_external_falling()	INTEDG = 0
+// #define irq_external(FN_NAME)	void __interrupt(irq(INT),high_priority) FN_NAME(void)

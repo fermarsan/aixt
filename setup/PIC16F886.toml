@@ -51,12 +51,13 @@ main_ret_type = "void"
 main_params =   "void" 
 
 api_modules = [
+    "irq",
     "pin",
     "port",
     "adc",
     "pwm",
     "uart",
-    "time"
+    "time",
 ]
 
 [aliases]
