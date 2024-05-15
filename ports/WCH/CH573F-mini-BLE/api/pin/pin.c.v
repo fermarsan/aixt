@@ -34,8 +34,3 @@ module pin
 #define pin__input     		GPIO_ModeIN_Floating
 #define pin__in_pullup		GPIO_ModeIN_PU
 #define pin__in_pulldown	GPIO_ModeIN_PD
-
- 
- fn init() {
-
-}

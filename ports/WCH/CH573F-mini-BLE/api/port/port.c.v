@@ -17,10 +17,6 @@ module port
 #define port__in_pulldown	GPIO_ModeIN_PD
 //Tambien esta el modo GPIO_ModeIN_PU y GPIO_ModeIN_Floating
 
-fn init() {
-
-}
-
 /*
 Pines del puerto A y puerto B en BITS 
 GPIO_Pin_4      (0x00000010)

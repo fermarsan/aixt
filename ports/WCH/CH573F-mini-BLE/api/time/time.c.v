@@ -4,7 +4,3 @@
 // Description: TIME functions (WCH-CH573F)
 
 module time
-
-fn init() {
-
-}
