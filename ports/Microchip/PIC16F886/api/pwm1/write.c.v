@@ -6,7 +6,7 @@
 //
 // Description: Pin management functions (PIC16F886 port)
 
-module pwm
+module pwm1
 
 // Función para el ciclo de trabajo
 fn write(duty u16) {

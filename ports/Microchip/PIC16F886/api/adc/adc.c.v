@@ -43,14 +43,14 @@ enum analog_channels {
 }
 
 // ADC frequency
-#define f_30ksps_1mhz	0	// VREF 3.0v
-#define f_30ksps_4mhz	1	// VREF 3.0v 
-#define f_18ksps_8mhz	2	// VREF full range
-#define f_21ksps_10mhz	2	// VREF full range
-#define f_24ksps_12mhz	2	// VREF 3.0v
-#define f_30ksps_16mhz	2	// VREF 3.0v
-#define f_34ksps_20mhz	2	// VREF 3.0v
-#define f_18Ksps_irc	3	// sleep mode FOSC > 1Mhz
+#define adc__30ksps_1mhz	0	// VREF 3.0v
+#define adc__30ksps_4mhz	1	// VREF 3.0v 
+#define adc__18ksps_8mhz	2	// VREF full range
+#define adc__21ksps_10mhz	2	// VREF full range
+#define adc__24ksps_12mhz	2	// VREF 3.0v
+#define adc__30ksps_16mhz	2	// VREF 3.0v
+#define adc__34ksps_20mhz	2	// VREF 3.0v
+#define adc__18Ksps_irc		3	// sleep mode FOSC > 1Mhz
 
 // ADC conversion bits
 #define	nbits_8		0
