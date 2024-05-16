@@ -281,12 +281,12 @@ module sensor
 // #define 	temp_reg_thigh    	TEMP_REG_THIGH   
 
 // Functions for accessing and modifying low speed module features. 
-#define		sensor__read_ultrasonic(...) 				SensorUS(__VA_ARGS__) 
-#define		sensor__read_ultrasonic0(...) 				SensorUS0(__VA_ARGS__) 
-#define		sensor__us_wait(...) 				SensorUSWait(__VA_ARGS__) 
-#define		sensor__read_us_ex(...) 			ReadSensorUSEx(__VA_ARGS__) 
-#define		sensor__read_us_ex0(...) 			ReadSensorUSEx0(__VA_ARGS__) 
-#define		sensor__read_us_ex_wait(...) 		ReadSensorUSExWait(__VA_ARGS__) 
-#define		sensor__read_e_meter(...) 			ReadSensorEMeter(__VA_ARGS__) 
-#define		sensor__configure_temperature(...) 	ConfigureTemperatureSensor(__VA_ARGS__) 
-#define		sensor__read_temperature(...)		SensorTemperature(__VA_ARGS__)
+#define		sensor__read_ultrasonic(...) 			SensorUS(__VA_ARGS__) 
+#define		sensor__read_ultrasonic0(...) 			SensorUS0(__VA_ARGS__) 
+#define		sensor__us_wait(...) 					SensorUSWait(__VA_ARGS__) 
+#define		sensor__read_ultrasonic_ex(...) 		ReadSensorUSEx(__VA_ARGS__) 
+#define		sensor__read_ultrasonic_ex0(...) 		ReadSensorUSEx0(__VA_ARGS__) 
+#define		sensor__read_ultrasonic_ex_wait(...)	ReadSensorUSExWait(__VA_ARGS__) 
+#define		sensor__read_e_meter(...) 				ReadSensorEMeter(__VA_ARGS__) 
+#define		sensor__configure_temperature(...) 		ConfigureTemperatureSensor(__VA_ARGS__) 
+#define		sensor__read_temperature(...)			SensorTemperature(__VA_ARGS__)
