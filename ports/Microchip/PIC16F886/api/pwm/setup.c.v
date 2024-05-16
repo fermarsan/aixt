@@ -8,7 +8,8 @@
 module pwm1
 
 // Función para configurar el PWM
-fn setup() {
+fn setup(channel u8, freq u8, mode u8) 
+{
     PR2 = 199;
     CCPR2L = 0;  
     TRISCbits.TRISC1 = 0;
