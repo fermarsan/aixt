@@ -10,7 +10,7 @@ SRC = \
 
 ifeq ($(OS),Windows_NT)
 
-XC8_BASE = "C:\Program Files\Microchip\xc8\v"
+XC8_BASE = "C:\Microchip\xc8\v"
 XC8 = $(XC8_BASE)$(XCVERSION)
 CC = $(XC8)\bin\xc8-cc
 
