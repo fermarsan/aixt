@@ -49,9 +49,19 @@
 		"body": "pin.low($1)",
 		"description": "Put low level to a pin"
 	},
+	"aixt.snippet.toggle": {
+		"prefix": "toggle",
+		"body": "pin.toggle($1)",
+		"description": "Pin toggle level function"
+	},
 	"Pin moode": {
-		"prefix": "pinm",
+		"prefix": "pin.mode",
 		"body": "pin.${1|input,output|}",
 		"description": "Pin mode"
+	},
+	"aixt.snippet.ADC_input_enable": {
+		"prefix": "adc.in",
+		"body": "adc.${1|in0,in1,in2,in3,in4,in5,in6,in7,in8,in9,in10,in11,in12,in13,in14,in15|}",
+		"description": "ADC conversion bits constant"
 	},
   }

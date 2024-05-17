@@ -15,5 +15,3 @@ module pin
 
 #define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
 
-
-
