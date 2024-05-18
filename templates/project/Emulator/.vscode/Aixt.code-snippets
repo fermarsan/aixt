@@ -1,52 +1,62 @@
 {
-	"Sleep functions": {
+	"aixt.snippet.sleep": {
 		"prefix": "sleep",
-		"body": "${1|sleep,sleep_ms,sleep_us|}($2)",
+		"body": "${1|sleep,sleep_ms|}($2)",
 		"description": "Sleep functions"
 	},
-	"Time functions": {
+	"aixt.snippet.time": {
 		"prefix": "time.",
-		"body": "time.${1|sleep,sleep_ms,sleep_us|}($2)",
+		"body": "time.${1|sleep,sleep_ms|}($2)",
 		"description": "Sleep functions with time prefix"
 	},
-	"Generic setup function": {
+	"aixt.snippet.setup": {
 		"prefix": "setup",
-		"body": "${1|pin,port,adc,pwm|}.setup($2)",
+		"body": "${1|pin,adc,pwm,uart,uart1,uart2|}.setup($2)",
 		"description": "Generic module setup function"
 	},
-	"Generic read function": {
+	"aixt.snippet.read": {
 		"prefix": "read",
-		"body": "${1|pin,port,adc|}.read($2)",
+		"body": "${1|pin,adc,uart,uart1,uart2|}.read($2)",
 		"description": "Generic module reading function"
 	},
-	"Generic write function": {
+	"aixt.snippet.write": {
 		"prefix": "write",
-		"body": "${1|pin,port,pwm|}.write($2)",
+		"body": "${1|pin,pwm,uart,uart1,uart2|}.write($2)",
 		"description": "Generic module writing function"
 	},
-	"print string": {
+	"aixt.snippet.print": {
 		"prefix": "print",
-		"body": "${1|uart,uart2,sw_uart|}.print($2)",
+		"body": "${1|uart,uart1,uart2|}.print($2)",
 		"description": "Print string to an UART"
 	},
-	"print string + line new": {
+	"aixt.snippet.println": {
 		"prefix": "println",
-		"body": "${1|uart,uart2,sw_uart|}.println($2)",
+		"body": "${1|uart,uart1,uart2|}.println($2)",
 		"description": "Print string + line new to an UART"
 	},
-	"input string": {
+	"aixt.snippet.input": {
 		"prefix": "input",
-		"body": "${1|uart,uart2,sw_uart|}.input()",
+		"body": "${1|uart,uart1,uart2|}.input()",
 		"description": "Print string + line new to an UART"
 	},
-	"pin high": {
+	"aixt.snippet.high": {
 		"prefix": "high",
 		"body": "pin.high($1)",
-		"description": "put high level to a pin"
+		"description": "Put high level to a pin"
 	},
-	"pin low": {
+	"aixt.snippet.low": {
 		"prefix": "low",
 		"body": "pin.low($1)",
-		"description": "put low level to a pin"
+		"description": "Put low level to a pin"
+	},
+	"aixt.snippet.toggle": {
+		"prefix": "toggle",
+		"body": "pin.toggle($1)",
+		"description": "Pin toggle level function of a pin"
+	},
+	"aixt.snippet.pin_moode": {
+		"prefix": "pin.mode",
+		"body": "pin.${1|input,output|}",
+		"description": "Pin mode"
 	},
   }
