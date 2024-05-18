@@ -22,6 +22,7 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Format output file
 - [ ] Issue: for-each on const array
+- [ ] Issue: out from single string to string array. Needs to change all files
 
 
 ### Done ✓
