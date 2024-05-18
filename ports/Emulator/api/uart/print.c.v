@@ -4,4 +4,4 @@
 // License: MIT
 module uart
 
-#define uart__print(MESSAGE)	printf("\033[1;32m");	printf("%s", MESSAGE)	// in green
+#define uart__print(MESSAGE)		printf("\033[1;32m");	printf("%s", MESSAGE)	// in green

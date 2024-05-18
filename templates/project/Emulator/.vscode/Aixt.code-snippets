@@ -1,62 +1,52 @@
 {
-	"aixt.snippet.sleep": {
+	"snippet.aixt.sleep": {
 		"prefix": "sleep",
 		"body": "${1|sleep,sleep_ms|}($2)",
 		"description": "Sleep functions"
 	},
-	"aixt.snippet.time": {
+	"snippet.aixt.time": {
 		"prefix": "time.",
 		"body": "time.${1|sleep,sleep_ms|}($2)",
 		"description": "Sleep functions with time prefix"
 	},
-	"aixt.snippet.setup": {
-		"prefix": "setup",
-		"body": "${1|pin,adc,pwm,uart,uart1,uart2|}.setup($2)",
-		"description": "Generic module setup function"
-	},
-	"aixt.snippet.read": {
+	"snippet.aixt.read": {
 		"prefix": "read",
-		"body": "${1|pin,adc,uart,uart1,uart2|}.read($2)",
+		"body": "${1|pin,adc|}.read($2)",
 		"description": "Generic module reading function"
 	},
-	"aixt.snippet.write": {
+	"snippet.aixt.write": {
 		"prefix": "write",
-		"body": "${1|pin,pwm,uart,uart1,uart2|}.write($2)",
+		"body": "${1|pin,pwm|}.write($2)",
 		"description": "Generic module writing function"
 	},
-	"aixt.snippet.print": {
+	"snippet.aixt.print": {
 		"prefix": "print",
 		"body": "${1|uart,uart1,uart2|}.print($2)",
 		"description": "Print string to an UART"
 	},
-	"aixt.snippet.println": {
+	"snippet.aixt.println": {
 		"prefix": "println",
 		"body": "${1|uart,uart1,uart2|}.println($2)",
 		"description": "Print string + line new to an UART"
 	},
-	"aixt.snippet.input": {
+	"snippet.aixt.input": {
 		"prefix": "input",
 		"body": "${1|uart,uart1,uart2|}.input()",
 		"description": "Print string + line new to an UART"
 	},
-	"aixt.snippet.high": {
+	"snippet.aixt.high": {
 		"prefix": "high",
 		"body": "pin.high($1)",
 		"description": "Put high level to a pin"
 	},
-	"aixt.snippet.low": {
+	"snippet.aixt.low": {
 		"prefix": "low",
 		"body": "pin.low($1)",
 		"description": "Put low level to a pin"
 	},
-	"aixt.snippet.toggle": {
+	"snippet.aixt.toggle": {
 		"prefix": "toggle",
 		"body": "pin.toggle($1)",
 		"description": "Pin toggle level function of a pin"
 	},
-	"aixt.snippet.pin_moode": {
-		"prefix": "pin.mode",
-		"body": "pin.${1|input,output|}",
-		"description": "Pin mode"
-	},
-  }
+}
