@@ -21,6 +21,7 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Format output file
+- [ ] Issue: for-each on const array
 
 
 ### Done ✓
