@@ -12,9 +12,10 @@ fn (mut gen Gen) array_init(node ast.ArrayInit) []string {
 	mut c_line := '{'
 	if node.exprs.len != 0 {
 		for ex in node.exprs {
-			c_line += '${gen.ast_node(ex).join(', ')}'
+			c_line += '${gen.ast_node(ex).join('')}, '
 		}
 		c_line = c_line#[..-2] + '}'
 	}
+	// println("+++++++++++++++\n${c_line}\n+++++++++++++++")
 	return [c_line]
 }
