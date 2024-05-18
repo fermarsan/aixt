@@ -2,6 +2,8 @@
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-module uart
+module uart1
 
-#define uart__print(MESSAGE)	printf("\033[1;32m");	printf("%s", MESSAGE)	// in green
+#define uart1__print(MESSAGE)		printf("\033[1;31m");	printf("%s", MESSAGE)	// in red
+
+
