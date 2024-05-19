@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: input and printing functions.
-module uart
+module uart2
 
 #include <stdio.h>
 // #include <stdlib.h>

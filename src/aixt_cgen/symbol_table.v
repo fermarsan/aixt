@@ -6,7 +6,7 @@ module aixt_cgen
 
 import v.ast
 
-// symbol_table prints the symbol table os a specific scope
+// symbol_table prints recursively the symbol table os a specific scope
 fn (mut gen Gen) symbol_table(scope ast.Scope) string {
 	mut msg := ''
 	// println('+'.repeat(25))

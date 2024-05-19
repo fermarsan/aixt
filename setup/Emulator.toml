@@ -53,7 +53,9 @@ api_modules = [
     "adc",
     "pwm",
     "uart",
-    "time"
+    "uart1",
+    "uart2",
+    "time",
 ]
 
 [aliases]

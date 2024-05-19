@@ -8,9 +8,5 @@ module uart
 
 #include <stdio.h>
 #include <string.h>
-
-__global(
-	__temp_str = ''
-)
-
+	
 fn C.init()

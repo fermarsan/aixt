@@ -91,7 +91,7 @@
             "windows": {
                 "command": [ "${config:aixt_windows}",
                             "new_project",
-                            "${config:device}",
+                            "${input:deviceList}",
                             "${input:dirName}",
                             "${input:projectName}",
                         ],
@@ -99,8 +99,8 @@
             "linux": {
                 "command": [ "${config:aixt_linux}",
                             "new_project",
-                            "${config:device}",
-                            "${input:dirName}",
+                            "${input:deviceList}",
+                            "${input:openDialog}",
                             "${input:projectName}",
                          ],
             },
@@ -122,7 +122,27 @@
         "type": "promptString",
         "id": "dirName",
         "description": "Directory name.",
-        "default": "."
+        "default": "${userHome}"
       },
+      {
+        "type": "pickString", 
+        "id": "deviceList", 
+        "description": "Device ID.",
+        "options": [
+                    "NXT",
+                    "Explorer16-PIC24",
+                    "PIC16F886",
+                    "Emulator",
+                ]
+      },
+      {
+        "id": "openDialog",
+        "type": "command",
+        "command": "extension.commandvariable.file.openDialog",
+        "args": {
+          "canSelect": "folders",
+          "defaultUri": "${workspaceFolder}",
+        }
+      }
     ]
 }
