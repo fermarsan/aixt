@@ -24,11 +24,11 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Format output file
 - [ ] Issue: out from single string to string array. Needs to change all files
-- [ ] Issue: for-each on const array
 
 
 ### Done ✓
 
+- [x] Issue: for-in on const array
 - [x] Interrupt request functions
 - [x] Implement adc.setup() in Explorer16-PIC24
 - [x] Issue: path in windows

@@ -15,24 +15,9 @@ fn (mut gen Gen) find_type(node ast.Expr) ast.Kind {
 		ast.Ident {
 			// ident_name := '${(node as ast.Ident).mod}.${(node as ast.Ident).name}'
 			ident_name := (node as ast.Ident).name
-			// println('=============== ${ident_name} ===============')
-			
-			// find in the global scope
-			mut obj := gen.find_object(ident_name, gen.table.global_scope) or {
-				ast.Var { name: '__not_found__' } 
-			}
-
-			// find in the rest of files
-			if obj.name == '__not_found__' {
-				for file in gen.files {
-					obj = gen.find_object(ident_name, file.scope) or { continue } 
-					break
-				}
-			}
-			if obj.name == '__not_found__' {
+			obj := gen.find_obj_all_scopes(ident_name) or {
 				panic('Identifier "${ident_name}" not found.') 
 			}
-
 			// println('=============== ${obj} ===============')
 			expr_type = obj.typ
 		}
