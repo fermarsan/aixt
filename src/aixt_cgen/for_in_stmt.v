@@ -10,7 +10,13 @@ import v.ast
 fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 	mut out := []string{}
 	mut c_line := ''
-	if node.kind.str() == 'array' {	// node.high.type_name() == 'v.ast.EmptyExpr' { // in an array
+	if node.is_range { // in a range
+		c_line += 'for(int ${node.val_var}=${gen.ast_node(node.cond).join('')}; '
+		out << c_line + '${node.val_var}<${gen.ast_node(node.high).join('')}; ${node.val_var}++) {'
+		for st in node.stmts {
+			out << gen.ast_node(st)
+		}
+	} else if node.kind.str() == 'array' {	// node.high.type_name() == 'v.ast.EmptyExpr' { // in an array
 	// println('=============== ${node} ===============')
 		gen.level_count++
 		index_name := '__t${gen.level_count}'	// temporal variables (indexes) by levels
@@ -32,13 +38,7 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 		for st in node.stmts {
 			out << gen.ast_node(st)
 		}
-	} else { // in a range
-		c_line += 'for(int ${node.val_var}=${gen.ast_node(node.cond).join('')}; '
-		out << c_line + '${node.val_var}<${gen.ast_node(node.high).join('')}; ${node.val_var}++) {'
-		for st in node.stmts {
-			out << gen.ast_node(st)
-		}
-	}
+	} 
 	gen.level_count--
 	out << '}'
 	return out
