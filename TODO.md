@@ -17,6 +17,7 @@ Tasks to do in Aixt
 - [ ] Use $tmpl and template files for the different backends 
 - [ ] Auto-detection of function return value (for assignments)
 - [ ] Support for arrays and strings initialized inside "for" statement
+- [ ] enum declaration issue
 
 
 ### In Progress
