@@ -13,18 +13,18 @@ Tasks to do in Aixt
 - [ ] generates documentation from code
 - [ ] API auto-import option
 - [ ] Implement inline assembly
-- [ ] Implement uart.input() in Explorer16-PIC24
+- [ ] Implement uart.input() 
+- [ ] Use $tmpl and template files for the different backends 
 - [ ] Auto-detection of function return value (for assignments)
 - [ ] Support for arrays and strings initialized inside "for" statement
-- [ ] Use $tmpl and template files for the different backends 
 
 
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Format output file
-- [ ] Issue: for-each on const array
 - [ ] Issue: out from single string to string array. Needs to change all files
+- [ ] Issue: for-each on const array
 
 
 ### Done ✓
