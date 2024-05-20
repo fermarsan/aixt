@@ -5,7 +5,7 @@
 		"description": "Sleep functions"
 	},
 	"aixt.snippet.time": {
-		"prefix": "time.",
+		"prefix": "time",
 		"body": "time.${1|sleep,sleep_ms,sleep_us|}($2)",
 		"description": "Sleep functions with time prefix"
 	},
@@ -24,23 +24,23 @@
 		"body": "${1|pin,port,pwm,uart|}.write($2)",
 		"description": "Generic module writing function"
 	},
-	"aixt.snippet.read_byte": {
-		"prefix": "read_B",
+	"aixt.snippet.ADC_read_byte": {
+		"prefix": "read_b",
 		"body": "adc.read_byte($1)",
 		"description": "ADC byte reading function"
 	},
 	"aixt.snippet.print": {
-		"prefix": "print",
+		"prefix": "print_u",
 		"body": "${1|uart,sw_uart|}.print($2)",
 		"description": "UART printing string function"
 	},
 	"aixt.snippet.println": {
-		"prefix": "println",
+		"prefix": "println_u",
 		"body": "${1|uart,sw_uart|}.println($2)",
 		"description": "UART printing string + line new function"
 	},
 	"aixt.snippet.input": {
-		"prefix": "input",
+		"prefix": "input_u",
 		"body": "${1|uart,sw_uart|}.input()",
 		"description": "UART capturing string function"
 	},
@@ -60,23 +60,28 @@
 		"description": "Pin toggle level function"
 	},
 	"aixt.snippet.pin_mode": {
-		"prefix": "pinm",
+		"prefix": "mode_pin",
 		"body": "pin.${1|input,output|}",
 		"description": "Pin mode constants"
 	},
 	"aixt.snippet.port_pin_mode": {
-		"prefix": "portm",
+		"prefix": "mode_port",
 		"body": "port.${1|all_inputs,all_outputs|}",
 		"description": "Port pin mode constants"
 	},
 	"aixt.snippet.ADC_frequency": {
-		"prefix": "f_",
-		"body": "f_${1|30ksps_1mhz,30ksps_4mhz,18ksps_8mhz,21ksps_10mhz,24ksps_12mhz,30ksps_16mhz,34ksps_20mhz,18Ksps_irc|}",
-		"description": "ADC frequency constant"
+		"prefix": "freq_adc",
+		"body": "adc.${1|f_30ksps_1mhz,f_30ksps_4mhz,f_18ksps_8mhz,f_21ksps_10mhz,f_24ksps_12mhz,f_30ksps_16mhz,f_34ksps_20mhz,f_18ksps_irc|}",
+		"description": "ADC frequency constants: \n(30ksps, 4Mhz ,VREF 3.0v)  \\n(18ksps, 8Mhz ,VREF full range) (21ksps, 10Mhz ,VREF full range) (24ksps, 12Mhz ,VREF 3.0v) (30ksps, 16Mhz ,VREF 3.0v) (34ksps, 20Mhz ,VREF 3.0v) (18ksps, internal RC, sleep mode FOSC > 1Mhz)"
 	},
 	"aixt.snippet.ADC_n_bits": {
-		"prefix": "nbits",
-		"body": "nbits_${1|8,10|}",
-		"description": "ADC conversion bits constant"
+		"prefix": "nbits_adc",
+		"body": "adc.${1|bits_8,bits_10|}",
+		"description": "ADC conversion bits constants"
+	},
+	"aixt.snippet.ADC_input_enable": {
+		"prefix": "in_adc",
+		"body": "adc.${1|in0,in1,in2,in3,in4,in5,in6,in7,in8,in9,in10,in11,in12,in13,in14,in15|}",
+		"description": "ADC input enabling constants"
 	},
   }

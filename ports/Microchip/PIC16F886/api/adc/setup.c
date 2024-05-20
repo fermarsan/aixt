@@ -1,5 +1,5 @@
 
-#define setup(PINS, NBITS, FAD) \
+#define setup(PINS, FAD, NBITS) \
     /* analog pins setup */ \
     ANSEL = (uint8_t)~PINS;         \
     ANSELH = (uint8_t)(~PINS>>8);   \

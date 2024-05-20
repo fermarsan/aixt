@@ -6,4 +6,4 @@
 // Description: ADC management functions (PIC16F886 port)
 module adc
 
-fn C.setup(pins u16, nbits u8, fad u8)
+fn C.setup(pins u16, fad u8, nbits u8)

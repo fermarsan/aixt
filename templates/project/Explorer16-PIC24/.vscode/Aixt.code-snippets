@@ -1,50 +1,50 @@
 {
-	"Sleep functions": {
+	"aixt.snippet.sleep": {
 		"prefix": "sleep",
 		"body": "${1|sleep,sleep_ms,sleep_us|}($2)",
 		"description": "Sleep functions"
 	},
-	"Time functions": {
-		"prefix": "time.",
+	"aixt.snippet.time": {
+		"prefix": "time",
 		"body": "time.${1|sleep,sleep_ms,sleep_us|}($2)",
 		"description": "Sleep functions with time prefix"
 	},
-	"Generic setup function": {
+	"aixt.snippet.setup": {
 		"prefix": "setup",
 		"body": "${1|pin,port,adc,pwm,uart,uart2,sw_uart|}.setup($2)",
 		"description": "Generic module setup function"
 	},
-	"Generic read function": {
+	"aixt.snippet.read": {
 		"prefix": "read",
 		"body": "${1|pin,port,adc,uart,uart2,sw_uart|}.read($2)",
 		"description": "Generic module reading function"
 	},
-	"Generic write function": {
+	"aixt.snippet.write": {
 		"prefix": "write",
 		"body": "${1|pin,port,pwm,uart,uart2,sw_uart|}.write($2)",
 		"description": "Generic module writing function"
 	},
-	"Print string": {
-		"prefix": "print",
+	"aixt.snippet.print": {
+		"prefix": "print_u",
 		"body": "${1|uart,uart2,sw_uart|}.print($2)",
 		"description": "Print string to an UART"
 	},
-	"Print string + line new": {
-		"prefix": "println",
+	"aixt.snippet.println": {
+		"prefix": "println_u",
 		"body": "${1|uart,uart2,sw_uart|}.println($2)",
 		"description": "Print string + line new to an UART"
 	},
-	"Input string": {
-		"prefix": "input",
+	"aixt.snippet.input": {
+		"prefix": "input_u",
 		"body": "${1|uart,uart2,sw_uart|}.input()",
 		"description": "Print string + line new to an UART"
 	},
-	"Pin high": {
+	"aixt.snippet.high": {
 		"prefix": "high",
 		"body": "pin.high($1)",
 		"description": "Put high level to a pin"
 	},
-	"Pin low": {
+	"aixt.snippet.low": {
 		"prefix": "low",
 		"body": "pin.low($1)",
 		"description": "Put low level to a pin"
@@ -54,10 +54,15 @@
 		"body": "pin.toggle($1)",
 		"description": "Pin toggle level function"
 	},
-	"Pin moode": {
+	"aixt.snippet.pin_mode": {
 		"prefix": "pin.mode",
 		"body": "pin.${1|input,output|}",
 		"description": "Pin mode"
+	},
+	"aixt.snippet.port_pin_mode": {
+		"prefix": "port.mode",
+		"body": "port.${1|all_inputs,all_outputs|}",
+		"description": "Port pin mode constants"
 	},
 	"aixt.snippet.ADC_input_enable": {
 		"prefix": "adc.in",
