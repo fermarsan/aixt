@@ -43,6 +43,9 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 		for st in node.stmts {
 			out << gen.ast_node(st)
 		}
+		// if node.val_is_mut {
+		// 	out << '${gen.ast_node(node.cond).join('')}[${index_name}] = ${node.val_var};'	// write the element by index
+		// } 
 	} 
 	gen.level_count--
 	out << '}'
