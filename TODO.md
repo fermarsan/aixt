@@ -18,17 +18,19 @@ Tasks to do in Aixt
 - [ ] Auto-detection of function return value (for assignments)
 - [ ] Support for arrays and strings initialized inside "for" statement
 - [ ] enum declaration issue
+- [ ] make groups of PIC microcontrollers families 
 
 
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Format output file
-- [ ] Issue: out from single string to string array. Needs to change all files
+- [ ] Change all API constants
 
 
 ### Done ✓
 
+- [x] Issue: out from single string to string array. Needs to change all files
 - [x] Issue: for-in on const array
 - [x] Interrupt request functions
 - [x] Implement adc.setup() in Explorer16-PIC24
