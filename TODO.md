@@ -16,6 +16,7 @@ Tasks to do in Aixt
 - [ ] Implement uart.input() in Explorer16-PIC24
 - [ ] Auto-detection of function return value (for assignments)
 - [ ] Support for arrays and strings initialized inside "for" statement
+- [ ] Use $tmpl and template files for the different backends 
 
 
 ### In Progress
