@@ -187,7 +187,7 @@ const (
 	y_max = i8(56)
 )
 
-@[inline]
+// @[inline]
 fn into_range(num i8, max i8, min i8) i8 {
 	if num > max {
 		return max
@@ -198,20 +198,20 @@ fn into_range(num i8, max i8, min i8) i8 {
 	}
 }
 
-@[inline]
+// @[inline]
 fn move_to(x i8, y i8) {
 	cursor_x = lcd.into_range(x*6, x_max, 0)
 	cursor_y = lcd.into_range(56-(y*8), y_max, 0)
 }
 
-@[inline]
+// @[inline]
 fn print(msg string) {
 	lcd.text(cursor_x, cursor_y, msg)
 	cursor_x += string.len(msg)*6
 	cursor_x = lcd.into_range(cursor_x, x_max, 0)
 }
 
-@[inline]
+// @[inline]
 fn println(msg string) {
 	lcd.print(msg)
 	cursor_y -= 8
