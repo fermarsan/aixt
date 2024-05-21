@@ -1,70 +1,26 @@
-# Escenarios de prueba para la funcionalidad de conversor AC/DC 
+# Smoke Testing for ADC module
 
-## Lectura de datos:
--**ID:** CP-ADC-01
+In the next table you would be able to find listed the Smoke test senarios that you can follow in order to get the Smoke Testing Certification for the ADC module.
+  
 
--**Feature:** Lectura de Datos
+| ID            | Name              | Scenario                               | Objectives 															                  | Description 																																																													| Gherkin Steps 																																										            	 | Steps    																																																																																																																																																												  | Expected results   																																									| Code Example |
+| ------------- | :------:          | :------:                               | :------:   																	   		  | :------:    																																																													| :------:                                                                                                                                                                                               | :------: 																																																																																																																																																										          | :------:           																																									| :------:     |
+| **CP-ADC-1**  | ADC Configuration | ADC data conversion and output to ports| 1.Ensure the integrity and reliability of the information collected during pre-testing.| The test focuses on verifying that the ADC conversion is performed correctly and that the data is displayed on the output ports as expected. Repeating the read and output every 10 milliseconds allows to verify the correct operation of the system over time.| **Given** that the ADC and port modules are initialized and configured correctly. <br>**When** the ADC conversion is started. <br>**Then**, the ADC reading is stored and displayed on the output port.| Step 1: Initial configuration of the ADC and port modules. <br>Configure the ADC and ports B and C as outputs. <br>Clear ports B and C. <br>Step 2: Start ADC conversion. <br>Start ADC reading. <br>Store the value of the reading in the variable ""value"". <br>Step 3: Display the data on the output ports. <br>Write to port B the value of the lower part of ""value"". <br>Write to port C the value of the high part of ""value"". <br>Wait 10 milliseconds before repeating the process. <br>These steps describe in detail the actions to be performed in the proposed scenario, from initial setup to displaying the data on the output ports. | 1.Correct ADC Configuration. <br>2.Reliable ADC Readings. <br>3.Accurate Data Display on Output Port. <br>4.Continuous and Timely Data Acquisition. <br>5.Overall System Stability. | ExampleCode1 |
 
--**Scenario:** Lectura exitosa de datos desde un sensor digital
 
--**Gherkin:** *Given* que el sensor digital está correctamente conectado al sistema de lectura
-*And* el sistema de lectura está operativo
-*When* se inicia la lectura de datos desde el sensor
-*Then* se espera que los datos sean leídos con precisión
-*And* se registren correctamente en el sistema de procesamiento
-
-**Descripción:**Estos pasos establecen un escenario de prueba claro y conciso para verificar la lectura exitosa de datos desde un sensor digital, asegurando que la lectura se realice con precisión y que los datos sean procesados adecuadamente en el sistema designado.
-
-**Pasos:**
-Lectura de los diferentes convertidores analógico-digitales (ADC)
-1. Ejecutar la función adc1_read() y adc2_read().
-2. Comparar el valor devuelto con el valor esperado (en este caso, 23 y 56).
-
-### ADC
-```v
-val1, val2 := 0, 0
-val1 = adc1_read()       // read de ADC 1
-val2 = adc2_read()       // read de ADC 2
+-   ExampleCode1
 ```
-terminal output:
+    adc.setup()                   // CONFIGURE PORT B AS OUTPUT
+    port.setup(b, port.output)    // CONFIGURE PORT C AS OUTPUT
+    port.setup(c, port.output)    // CLEAN PORT B
+    port.write(b, 0x00)    // CLEAN THE PORT C
+    port.write(c, 0x00) 
+    for
+    {
+        adc.read(0)
+        valor := adc.reading()
+        port.write(b, valor & 0xFF)                   // Shows the lower part data on port B
+        port.write(c, (valor>>8) & 0x03 )            // Shows the high part data on port C
+        time.sleep_ms(10)
+    }
 ```
-Aixt virtual ADC input     ADC 1 : 23
-```
-```
-Aixt virtual ADC input     ADC 2 : 56
-```
-
-## Prueba de Lectura de Valores Simultáneos:
-
--**ID:** CP-ADC-02
-
--**Feature:** Lectura de Valores Simultáneos de ADC.
-
--**Scenario:** Lectura de Valores Simultáneos
-
--**Gherkin:** *Given* que se inicia la lectura de ADC 1 y ADC 2
-    *When* se realiza la lectura simultánea de ambos ADC
-    *Then* se verifica que los valores leídos de ADC 1 y ADC 2 son correctos
-
-**Descripción:** Comprobar si es posible leer valores de ambos ADC simultáneamente y sin interferencias.
-
-**Pasos:**
-1. Ejecutar las lecturas de ADC 1 y ADC 2 de forma concurrente.
-2. Verificar que los valores leídos no se vean afectados por la lectura simultánea.
-
-
-Tabla de Pruebas Exhaustivas:
-
-||Prueba de Lectura de ADC 1|| Prueba de Lectura de ADC 2|| Prueba de Lectura de Valores Simultáneos ||
-||:-----------------------:||:------------------------:||:----------------------------------------:||
-||0||0||0||
-||0||1||0||
-||1||0||0||
-||1||1||1||
-## Transmisión de datos:
-
-
-## Salida de Voltaje DC:
-
-
-

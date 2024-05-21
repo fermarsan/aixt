@@ -1,70 +1,36 @@
-# Escenarios de prueba para la funcionalidad de conversor AC/DC 
+# Functional Testing for ADC module
 
-## Lectura de datos:
--**ID:** CP-ADC-01
+In the next table you would be able to find listed the Functional test senarios that you can follow in order to get the Functional Testing Certification for the ADC module.
 
--**Feature:** Lectura de Datos
+| ID            | Name                                  | Scenario 					    				| Objectives    																							    																	     | Description 																																																                                                                   												| Gherkin Steps 																																																                         | Steps    																																																																																																																																																																																																																																																																																																																		| Expected results 																																																												  | Code Example |
+| ------------- | :------:                              | :------: 							     		| :------:   																																										     | :------: 				   																																													       																										| :------:      																																																                         | :------: 																																																																																																																																																																																																																																																																																																																		| :------: 	   																																																													  | :------:     |
+| **CP-ADC-2**  | Turn on an LED depends on ADC reading | Activating LEDs based on analog sensor reading| 1.Check that the system responds correctly to the value read from the ADC. <br>2.check that the values read from the ADC are stable and accurate, without large fluctuations or errors.| The code is expected to perform the conversion accurately and the output pins are expected to activate correctly according to the ADC values. The variable 'adc_result' must contain the correctly converted digital value.The output pins should reflect the expected state according to the conditions set in the code.| **Given** an analog input value. <br>**When** the conversion to digital is performed. <br>**Then** the digital value is stored in the variable 'adc_result'. And the output LEDs are activated according to the value of 'adc_result'. | 1.Test Environment Preparation:Configure the test environment with the necessary hardware for code execution, ensure that you have access to the ADC, output pins and reference values for comparisons. <br>2.Test Case Definition: Create test cases covering different ranges of ADC values for each code condition (>= 1020, >= 820, >= 620, and < 620). <br>3. Test Execution:Execute the code with the test values defined in the test case and verify that the output pins are activated correctly according to the conditions set in the code. <br>4.Verification of Results:Check that the output pins are in the expected state for each ADC value, record and analyze the results obtained during the execution of the tests. <br>5.Coverage Analysis:Evaluate the coverage of the tests performed to ensure that all possible paths in the code have been tested. <br>6.Documentation of Results:Document the results of the tests performed, including success cases and possible failures encountered and identify areas of improvement or possible adjustments to the code to optimize its performance. <br>7.Iteration and Continuous Improvement:in case of finding bugs, make corrections in the code and repeat the tests to validate the modifications made.| 1.**System Response to ADC Value**: The output LEDs should activate according to the ADC value, with all conditions met accurately.<br>2.**Verify Stability**: The values read from the ADC should be consistent and reliable, reflecting the true analog input.| ExampleCode1 |
+  
+-   ExampleCode1
 
--**Scenario:** Lectura exitosa de datos desde un sensor digital
-
--**Gherkin:** *Given* que el sensor digital está correctamente conectado al sistema de lectura
-*And* el sistema de lectura está operativo
-*When* se inicia la lectura de datos desde el sensor
-*Then* se espera que los datos sean leídos con precisión
-*And* se registren correctamente en el sistema de procesamiento
-
-**Descripción:**Estos pasos establecen un escenario de prueba claro y conciso para verificar la lectura exitosa de datos desde un sensor digital, asegurando que la lectura se realice con precisión y que los datos sean procesados adecuadamente en el sistema designado.
-
-**Pasos:**
-Lectura de los diferentes convertidores analógico-digitales (ADC)
-1. Ejecutar la función adc1_read() y adc2_read().
-2. Comparar el valor devuelto con el valor esperado (en este caso, 23 y 56).
-
-### ADC
-```v
-val1, val2 := 0, 0
-val1 = adc1_read()       // read de ADC 1
-val2 = adc2_read()       // read de ADC 2
 ```
-terminal output:
+unsigned int adc_result;  // Variable declaration to store the ADC value    
+for {      
+    adc_result = adc.read(0); // Stores the ADC value
+    if ( adc_result >= 1020 ){
+        pin.high(c0);
+        pin.high(c1);
+        pin.high(c2);          
+    }
+    else if ( adc_result >= 820 ){     
+        pin.high(c0);
+        pin.high(c1);
+        pin.low(c2);
+    }   
+    else if ( adc_result >= 620 ){     
+        pin.high(c0);
+        pin.low(c1);
+        pin.low(c2);  
+    }       
+    else {       
+        pin.low(c0);
+        pin.low(c1);
+        pin.low(c2);     
+    }
+}
 ```
-Aixt virtual ADC input     ADC 1 : 23
-```
-```
-Aixt virtual ADC input     ADC 2 : 56
-```
-
-## Prueba de Lectura de Valores Simultáneos:
-
--**ID:** CP-ADC-02
-
--**Feature:** Lectura de Valores Simultáneos de ADC.
-
--**Scenario:** Lectura de Valores Simultáneos
-
--**Gherkin:** *Given* que se inicia la lectura de ADC 1 y ADC 2
-    *When* se realiza la lectura simultánea de ambos ADC
-    *Then* se verifica que los valores leídos de ADC 1 y ADC 2 son correctos
-
-**Descripción:** Comprobar si es posible leer valores de ambos ADC simultáneamente y sin interferencias.
-
-**Pasos:**
-1. Ejecutar las lecturas de ADC 1 y ADC 2 de forma concurrente.
-2. Verificar que los valores leídos no se vean afectados por la lectura simultánea.
-
-
-Tabla de Pruebas Exhaustivas:
-
-||Prueba de Lectura de ADC 1|| Prueba de Lectura de ADC 2|| Prueba de Lectura de Valores Simultáneos ||
-||:-----------------------:||:------------------------:||:----------------------------------------:||
-||0||0||0||
-||0||1||0||
-||1||0||0||
-||1||1||1||
-## Transmisión de datos:
-
-
-## Salida de Voltaje DC:
-
-
-

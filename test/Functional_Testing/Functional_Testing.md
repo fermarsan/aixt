@@ -8,6 +8,6 @@ The following table summarizes the number of test cases for Functional Testing p
 | Testing Type             | Number of Test Cases |
 | -------------            | :-------------:      |
 | **D-IO**                 | 1                    |
-| **ADC Conversor**        | -                    |
-| **PWM**                  | -                    |
+| **ADC Conversor**        | 1                    |
+| **PWM**                  | 1                    |
 | **Serial Communitacion** | 1                    |

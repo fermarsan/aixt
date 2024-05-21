@@ -6,5 +6,5 @@ The following table summarizes the number of test cases for each test type.
 
 | Testing Type           | Number of Test Cases |
 | -------------          | :-------------:      |
-| **Smoke Testing**      | 4                    |
-| **Functional Testing** | 2                    |
+| **Smoke Testing**      | 6                    |
+| **Functional Testing** | 4                    |

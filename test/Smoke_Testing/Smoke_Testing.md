@@ -7,6 +7,6 @@ The following table summarizes the number of test cases for Smoke Testing per Mo
 | Testing Type             | Number of Test Cases |
 | -------------            | :-------------:      |
 | **D-IO**                 | 2                    |
-| **ADC Conversor**        | -                    |
-| **PWM**                  | -                    |
+| **ADC Conversor**        | 1                    |
+| **PWM**                  | 1                    |
 | **Serial Communitacion** | 2                    |
