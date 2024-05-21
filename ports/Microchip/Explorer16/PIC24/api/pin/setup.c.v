@@ -5,7 +5,7 @@
 module pin
 
 // setup macro configures a pin's input/output mode. This is expanded in this way:
-//   pin.setup(a7, pin.input)
+//   pin.setup(pin.a7, pin.input)
 //     |
 //	   +-->	pin.setup(A, 7, 1)
 //	          |

@@ -8,7 +8,8 @@ module adc
 
 #include <p24FJ128GA010.h>
 
-#define	adc__in0 	0b1111111111111110		// analog inputs
+// ADC analog pins 
+#define	adc__in0 	0b1111111111111110		
 #define	adc__in1 	0b1111111111111101			
 #define	adc__in2 	0b1111111111111011			
 #define	adc__in3 	0b1111111111110111			
@@ -25,6 +26,25 @@ module adc
 #define	adc__in14	0b1011111111111111		
 #define	adc__in15	0b0111111111111111
 
-#define pot		5	// Onboard potentiometer
+// ADC input channels
+#define	adc__ch0 	0 		
+#define	adc__ch1 	1 			
+#define	adc__ch2 	2 			
+#define	adc__ch3 	3 			
+#define	adc__ch4 	4 			
+#define	adc__ch5 	5 			
+#define	adc__ch6 	6 			
+#define	adc__ch7 	7 			
+#define	adc__ch8 	8 			
+#define	adc__ch9 	9 			
+#define	adc__ch10	10		
+#define	adc__ch11	11		
+#define	adc__ch12	12		
+#define	adc__ch13	13		
+#define	adc__ch14	14		
+#define	adc__ch15	15
+
+// Onboard potentiometer
+#define pot		5	
 
 fn C.init()

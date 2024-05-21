@@ -5,7 +5,7 @@
 module pin
 
 // high macro sets an output pin. This is expanded in this way:
-//   pin.high(b2)
+//   pin.high(pin.b2)
 //     |
 //	   +-->	pin.high(B, 2)
 //	          |

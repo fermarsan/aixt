@@ -35,3 +35,5 @@ module pin
 #define pin__c5      C, 5 
 #define pin__c6      C, 6 
 #define pin__c7      C, 7  
+
+#define pin__e3      E, 3 
