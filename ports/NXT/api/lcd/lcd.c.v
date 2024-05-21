@@ -1,7 +1,7 @@
 module lcd
 
 
-import string
+import str
 
 // #################### NXC Display module ####################
 
@@ -207,7 +207,7 @@ fn move_to(x i8, y i8) {
 // @[inline]
 fn print(msg string) {
 	lcd.text(cursor_x, cursor_y, msg)
-	cursor_x += string.len(msg)*6
+	cursor_x += str.len(msg)*6
 	cursor_x = lcd.into_range(cursor_x, x_max, 0)
 }
 
