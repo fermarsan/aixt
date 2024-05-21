@@ -14,6 +14,16 @@ __global (
     input__ = 0
 )
 
+// pin names
+#define pin__a  0
+#define pin__b  1
+#define pin__c  2
+#define pin__d  3
+#define pin__w  4
+#define pin__x  5
+#define pin__y  6
+#define pin__z  7
+
 // pin_update prints the pins table in the command line
 pub fn C.update()
 

@@ -15,17 +15,5 @@ module main
 #define CLEAR_SCREEN    "cls"   // for Windows
 #endif 
 
-// Pin_names is the enumerated type for the pin names
-enum Pin_names {
-    a = 0   
-    b
-    c
-    d
-    w
-    x
-    y
-    z
-}
-
 // init function call setup or initialization code
 fn C.init()

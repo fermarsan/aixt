@@ -9,3 +9,6 @@ module adc
 __global (
     value__ = 0
 )
+
+#define adc__ch0    0
+#define adc__ch1    1

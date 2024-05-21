@@ -13,6 +13,9 @@ __global (
     duty__ = [0, 0]
 )
 
+#define pwm__ch0    0
+#define pwm__ch1    1
+
 pub fn C.print(duty int)
 
 pub fn C.update()
