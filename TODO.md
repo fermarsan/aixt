@@ -19,6 +19,7 @@ Tasks to do in Aixt
 - [ ] Support for arrays and strings initialized inside "for" statement
 - [ ] enum declaration issue
 - [ ] make groups of PIC microcontrollers families 
+- [ ] change "set" by "setup" in sensor module (NXT port)
 
 
 ### In Progress
