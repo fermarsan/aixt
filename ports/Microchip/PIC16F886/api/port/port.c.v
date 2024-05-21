@@ -7,14 +7,17 @@
 
 module port
 
-#define TRISa	TRISA	// port setup name equivalents
-#define TRISb	TRISB
-#define TRISc	TRISC
-
-#define PORTa	PORTA	// port in name equivalents
-#define PORTb	PORTB
-#define PORTc	PORTC
+#define port__a		A	// port name constants
+#define port__b		B
+#define port__c		C
 
 #define	port__all_inputs	0xFF	// port mode constants
 #define	port__all_outputs	0x00
 
+#define TRISport__a		TRISA	// port setup name equivalents
+#define TRISport__b		TRISB
+#define TRISport__c		TRISC
+
+#define PORTport__a		PORTA	// port name equivalents
+#define PORTport__b		PORTB
+#define PORTport__c		PORTC
