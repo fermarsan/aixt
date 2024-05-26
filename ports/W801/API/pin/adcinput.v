@@ -4,9 +4,9 @@
 // Date: 2023-2024
 // License: MIT
 //
-// // Description: HIGH functions (W801)
+// // Description: adc functions (W801)
 //              (PC port) 
 
 module pin
 
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define ADC__INPUT   ANALOG_INPUT
