@@ -1,12 +1,12 @@
 // Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: sleep.c.v
+// File Name: setup.c.v
 // Author: Fernando Martínez Santa - Johann Escobar Guzmán - Daniel Andrés Vásquez Gómez
 // Date: 2023-2024
 // License: MIT
 //
-// // Description: SLEEP functions (W801)
+// // Description: out functions (W801)
 //              (PC port) 
 
-module time
+module pin
 
-#define time__sleep(S)    delay(S*1000)
+#define PWM__OUT  PWM_OUT
