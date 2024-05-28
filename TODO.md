@@ -20,7 +20,6 @@ Tasks to do in Aixt
 - [ ] enum declaration issue
 - [ ] make groups of PIC microcontrollers families 
 - [ ] change "set" by "setup" in sensor module (NXT port)
-- [ ] Issue: 'inline' in function prototypes
 
 
 ### In Progress
