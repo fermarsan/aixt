@@ -20,6 +20,7 @@ pub mut:
 	table 			&ast.Table = unsafe { nil }
 	cur_scope		&ast.Scope = unsafe { nil }
 	transpiler_path	string
+	imports			[]string
 	source_paths	[]string
 	out   			[]string
 	c_preproc_cmds	[]string	

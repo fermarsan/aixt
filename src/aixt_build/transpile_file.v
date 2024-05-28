@@ -17,6 +17,7 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		table: 				ast.new_table()
 		cur_scope: 			&ast.Scope{}
 		transpiler_path:	aixt_path
+		imports: 			[]string{}
 		source_paths: 		[]string{}
 		out: 				[]string{}
 		c_preproc_cmds:		[]string{}	
