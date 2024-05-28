@@ -11,7 +11,7 @@ import v.ast
 fn (mut gen Gen) import_stmt(node ast.Import) []string {
 	if node.mod !in gen.imports {
 		gen.imports << node.mod
-		println('############# ${gen.imports} #############')
+		// println('############# ${gen.imports} #############')
 		module_short_name := node.mod.all_after_last('.')
 		port_path := gen.setup.value('path').string()
 		api_modules := gen.setup.value('api_modules').array().as_strings()

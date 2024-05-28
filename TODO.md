@@ -31,6 +31,7 @@ Tasks to do in Aixt
 
 ### Done ✓
 
+- [x] Issue: Ident names including module and function name or scope position
 - [x] Issue: out from single string to string array. Needs to change all files
 - [x] Issue: for-in on const array
 - [x] Interrupt request functions
