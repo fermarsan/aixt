@@ -6,8 +6,8 @@ import pin
 #include	<stdlib.h>		// for itoa()
 
  // define serial pins tx and rx
-#define sw_uart__tx	B, 0	// Tx : PORTB0
-#define sw_uart__rx 	B, 1	// Rx : PORTB1
+#define sw_uart__tx     F, 5    //B, 0	// Tx : PORTB0
+#define sw_uart__rx 	F, 4    //B, 1	// Rx : PORTB1
 
 #define sw_uart__delay_for (2*16/FCY)		//extra delay on 14us write
 #define sw_uart__delay_for_read (2*18/FCY) //extra delay on read 10us

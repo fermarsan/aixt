@@ -8,12 +8,19 @@ import v.ast
 
 // ident is the code generation function for identifiers.
 fn (mut gen Gen) ident(node ast.Ident) []string {
-	// println('\n${node.mod} -- ${node.name}') //  -- ${node.scope.parent}')
-	// return node.name.replace('.', '__')
+	println('\n${node.mod} #### ${gen.table.cur_fn.name} #### ${node.name}\n') //  -- ${node.scope.parent}')
+	// println('################## ${node.scope.parent} ##################')
+	return if node.name.contains('.') {
+		['${node.name.replace('.', '__')}']	
+	} else {
+		['${node.mod}__${node.name}']
+	}
 	// return if node.mod == 'main' {
-	// 	'${node.name}'	
+	// 	['${node.name}']	
 	// } else {
-	// 	'${node.mod}__${node.name}'
+	// 	['${node.mod}__${node.name}']
 	// }
-	return ['${node.name.all_after('main.').replace('.', '__')}']
+	// return ['${node.name.all_after('main.').replace('.', '__')}']
+	// return ['${node.mod}__${gen.cur_fn}__${node.name}']
+	// return ['${node.mod}_${node.scope.start_pos}_${node.scope.end_pos}__${node.name}']
 }
