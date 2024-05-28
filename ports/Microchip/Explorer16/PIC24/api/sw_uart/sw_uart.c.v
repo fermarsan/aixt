@@ -24,10 +24,10 @@ __global (
 )
 
 fn init() {
-    pin.high(sw_uart.tx);
-    pin.high(sw_uart.rx);
-    pin.setup(sw_uart.tx, pin.output);
-    pin.setup(sw_uart.rx, pin.input);
-    pin.high(sw_uart.tx);
-    time.sleep_us(sw_uart.bitperiod);
+    pin.high(sw_uart__tx);
+    pin.high(sw_uart__rx);
+    pin.setup(sw_uart__tx, pin.output);
+    pin.setup(sw_uart__rx, pin.input);
+    pin.high(sw_uart__tx);
+    time.sleep_us(sw_uart__bitperiod);
 }
