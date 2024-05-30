@@ -1,0 +1,31 @@
+void bitperiod() {
+    __delay32(1e6/115200); // 115200
+	// switch(sw_uart__baudrate) {
+    //     case sw_uart__baud_300:
+    //         __delay32(53333);
+    //     case sw_uart__baud_1200:
+    //         __delay32(13333);
+    //     case sw_uart__baud_2400:
+    //         __delay32(6667);
+    //     case sw_uart__baud_4800:
+    //         __delay32(3333);
+    //     case sw_uart__baud_9600:
+    //         __delay32(1667);
+    //     case sw_uart__baud_19200:
+    //         __delay32(800);
+    //     case sw_uart__baud_38400:
+    //         __delay32(417);
+    //     case sw_uart__baud_57600:
+    //         __delay32(278);
+    //     case sw_uart__baud_74880:
+    //         __delay32(214);
+    //     case sw_uart__baud_115200:
+    //         __delay32(139);
+    //     case sw_uart__baud_230400:
+    //         __delay32(69);
+    //     case sw_uart__baud_250000:
+    //         __delay32(64);
+    //     default:                // 19200
+    //         __delay32(833);     
+    // }
+}
