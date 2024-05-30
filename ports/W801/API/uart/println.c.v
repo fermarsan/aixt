@@ -1,10 +1,10 @@
 // Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
 // File Name: println.c.v
-// Author: Fernando Martínez Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
-// Date: 2022-2024
+// Author: Fernando Martínez Santa - Johann Escobar Guzmán - Daniel Andrés Vásquez Gómez
+// Date: 2023-2024
 // License: MIT
 //
-// // Description: SLEEP_ms functions (Ai_Thinker_Ai-WB2-32S-Kit)
+// // Description: SLEEP_ms functions (W801)
 //              (PC port) 
 
 module uart
