@@ -9,21 +9,4 @@
 
 module uart
 
-fn write(data u8){
-    TXREG=data
-}
-
-
-
-
-
-/*
-#define print(menssage)      \
-    {                         \
-        char caracter; \
-        for (int i = 0; (caracter = (menssage)[i]); ++i) { /* Revisa que no haya un caracter nulo y lo va almacenando */ \ 
-            while (!TXIF);  /* Pausa la ejecución del programa hasta que el UART este listo */ \
-            TXREG = caracter; \
-        }                       \
-    }   
-*/
+#define uart__write(DATA)   while (TRMT == 0);    TXREG = DATA

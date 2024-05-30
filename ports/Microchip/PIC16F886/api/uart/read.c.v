@@ -9,9 +9,7 @@
 
 module uart
 
-fn read() rune{
-  return RCREG
-}
+fn C.read() u8
 
 
 /*
