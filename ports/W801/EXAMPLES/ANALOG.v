@@ -9,7 +9,7 @@ pin__low(a3);
 
 
 
-void for{
+for{
 
 if (250>=adc__read(a1)){
 pin__high(a2);
