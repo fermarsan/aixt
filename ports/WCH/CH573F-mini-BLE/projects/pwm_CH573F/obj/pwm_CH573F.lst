@@ -11,39 +11,39 @@ Program Header:
     LOAD off    0x00001800 vaddr 0x20003800 paddr 0x00000004 align 2**12
          filesz 0x00000654 memsz 0x00000654 flags r-x
     LOAD off    0x00002658 vaddr 0x00000658 paddr 0x00000658 align 2**12
-         filesz 0x000001fc memsz 0x000001fc flags r-x
-    LOAD off    0x00002e54 vaddr 0x20003e54 paddr 0x00000854 align 2**12
+         filesz 0x00000210 memsz 0x00000210 flags r-x
+    LOAD off    0x00002e54 vaddr 0x20003e54 paddr 0x00000868 align 2**12
          filesz 0x00000000 memsz 0x000001ac flags rw-
 
 Sections:
 Idx Name            Size      VMA       LMA       File off  Algn  Flags
   0 .init           00000004  00000000  00000000  00001000  2**1  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .highcodelalign 00000000  00000004  00000004  00002854  2**0  CONTENTS
+  1 .highcodelalign 00000000  00000004  00000004  00002868  2**0  CONTENTS
   2 .highcode       00000654  20003800  00000004  00001800  2**1  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .text           000001fc  00000658  00000658  00002658  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  4 .fini           00000000  00000854  00000854  00002854  2**0  CONTENTS, ALLOC, LOAD, CODE
-  5 .dalign         000001ac  20003e54  00000854  00002e54  2**0  ALLOC
-  6 .dlalign        00000000  00000854  00000854  00002854  2**0  CONTENTS
-  7 .data           00000000  20004000  20004000  00002854  2**0  CONTENTS, ALLOC, LOAD, DATA
-  8 .bss            00000000  20004000  00000a00  00000000  2**0  ALLOC
-  9 .stack          00000000  20008000  20008000  00002854  2**0  CONTENTS
- 10 .debug_info     00003af2  00000000  00000000  00002854  2**0  CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev   00000aaf  00000000  00000000  00006346  2**0  CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc      0000077b  00000000  00000000  00006df5  2**0  CONTENTS, READONLY, DEBUGGING
- 13 .debug_aranges  00000160  00000000  00000000  00007570  2**3  CONTENTS, READONLY, DEBUGGING
- 14 .debug_ranges   00000130  00000000  00000000  000076d0  2**3  CONTENTS, READONLY, DEBUGGING
- 15 .debug_line     0000203e  00000000  00000000  00007800  2**0  CONTENTS, READONLY, DEBUGGING
- 16 .debug_str      00000d7e  00000000  00000000  0000983e  2**0  CONTENTS, READONLY, DEBUGGING
- 17 .comment        00000033  00000000  00000000  0000a5bc  2**0  CONTENTS, READONLY
- 18 .debug_frame    00000230  00000000  00000000  0000a5f0  2**2  CONTENTS, READONLY, DEBUGGING
+  3 .text           00000210  00000658  00000658  00002658  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  4 .fini           00000000  00000868  00000868  00002868  2**0  CONTENTS, ALLOC, LOAD, CODE
+  5 .dalign         000001ac  20003e54  00000868  00002e54  2**0  ALLOC
+  6 .dlalign        00000000  00000868  00000868  00002868  2**0  CONTENTS
+  7 .data           00000000  20004000  20004000  00002868  2**0  CONTENTS, ALLOC, LOAD, DATA
+  8 .bss            00000000  20004000  00000a14  00000000  2**0  ALLOC
+  9 .stack          00000000  20008000  20008000  00002868  2**0  CONTENTS
+ 10 .debug_info     00003af6  00000000  00000000  00002868  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_abbrev   00000a8e  00000000  00000000  0000635e  2**0  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc      00000771  00000000  00000000  00006dec  2**0  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_aranges  00000158  00000000  00000000  00007560  2**3  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_ranges   00000128  00000000  00000000  000076b8  2**3  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_line     00001fd2  00000000  00000000  000077e0  2**0  CONTENTS, READONLY, DEBUGGING
+ 16 .debug_str      00000d54  00000000  00000000  000097b2  2**0  CONTENTS, READONLY, DEBUGGING
+ 17 .comment        00000033  00000000  00000000  0000a506  2**0  CONTENTS, READONLY
+ 18 .debug_frame    000001ec  00000000  00000000  0000a53c  2**2  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .init	00000000 .init
 00000004 l    d  .highcodelalign	00000000 .highcodelalign
 20003800 l    d  .highcode	00000000 .highcode
 00000658 l    d  .text	00000000 .text
-00000854 l    d  .fini	00000000 .fini
+00000868 l    d  .fini	00000000 .fini
 20003e54 l    d  .dalign	00000000 .dalign
-00000854 l    d  .dlalign	00000000 .dlalign
+00000868 l    d  .dlalign	00000000 .dlalign
 20004000 l    d  .data	00000000 .data
 20004000 l    d  .bss	00000000 .bss
 20008000 l    d  .stack	00000000 .stack
@@ -98,20 +98,20 @@ SYMBOL TABLE:
 20004000 g       .data	00000000 _data_vma
 200038bc g     F .highcode	000000fc SetSysClock
 200038a4  w      .highcode	00000000 USB_IRQHandler
-00000702 g     F .text	00000038 main
+00000702 g     F .text	0000004c main
 00000004 g       .highcodelalign	00000000 _highcode_lma
 200038a2  w      .highcode	00000000 LLE_IRQHandler
 00000000 g       .init	00000000 _sinit
-000007e0 g     F .text	0000005e PWMX_ACTOUT
+000007f4 g     F .text	0000005e PWMX_ACTOUT
 200038ba  w      .highcode	00000000 WDOG_BAT_IRQHandler
 200038b4  w      .highcode	00000000 TMR3_IRQHandler
 20008000 g       .stack	00000000 _eusrstack
 20003896  w      .highcode	00000000 SW_Handler
-0000073a g     F .text	000000a6 GPIOA_ModeCfg
+0000074e g     F .text	000000a6 GPIOA_ModeCfg
 20004000 g       .data	00000000 _edata
 2000389e  w      .highcode	00000000 SPI0_IRQHandler
 20003e54 g       .highcode	00000000 _highcode_vma_end
-00000854 g       .dlalign	00000000 _data_lma
+00000868 g       .dlalign	00000000 _data_lma
 00000658  w      .text	00000000 handle_reset
 200038b8  w      .highcode	00000000 UART3_IRQHandler
 20003a76 g     F .highcode	0000000e FLASH_ROM_END
@@ -977,7 +977,7 @@ FLASH_EEPROM_CMD():
 20003c62:	6b85                	lui	s7,0x1
 20003c64:	01697933          	and	s2,s2,s6
 20003c68:	6b41                	lui	s6,0x10
-20003c6a:	fff98793          	addi	a5,s3,-1 # fff <_data_lma+0x7ab>
+20003c6a:	fff98793          	addi	a5,s3,-1 # fff <_data_lma+0x797>
 20003c6e:	0127f7b3          	and	a5,a5,s2
 20003c72:	e399                	bnez	a5,20003c78 <FLASH_EEPROM_CMD+0x158>
 20003c74:	0134fc63          	bgeu	s1,s3,20003c8c <FLASH_EEPROM_CMD+0x16c>
@@ -1008,9 +1008,9 @@ FLASH_EEPROM_CMD():
 20003cb8:	f29900e3          	beq	s2,s1,20003bd8 <FLASH_EEPROM_CMD+0xb8>
 20003cbc:	0905                	addi	s2,s2,1
 20003cbe:	33d9                	jal	20003a84 <FLASH_ROM_IN>
-20003cc0:	fea90fa3          	sb	a0,-1(s2) # fff <_data_lma+0x7ab>
+20003cc0:	fea90fa3          	sb	a0,-1(s2) # fff <_data_lma+0x797>
 20003cc4:	bfd5                	j	20003cb8 <FLASH_EEPROM_CMD+0x198>
-20003cc6:	fff98793          	addi	a5,s3,-1 # ffff <_data_lma+0xf7ab>
+20003cc6:	fff98793          	addi	a5,s3,-1 # ffff <_data_lma+0xf797>
 20003cca:	0ff7f793          	andi	a5,a5,255
 20003cce:	08fc6c63          	bltu	s8,a5,20003d66 <.loop401+0x54>
 20003cd2:	045cc703          	lbu	a4,69(s9)
@@ -1054,7 +1054,7 @@ FLASH_EEPROM_CMD():
 20003d3a:	85da                	mv	a1,s6
 20003d3c:	452d                	li	a0,11
 20003d3e:	338d                	jal	20003aa0 <FLASH_ROM_ADDR>
-20003d40:	fff48993          	addi	s3,s1,-1 # 7ffff <_data_lma+0x7f7ab>
+20003d40:	fff48993          	addi	s3,s1,-1 # 7ffff <_data_lma+0x7f797>
 20003d44:	e8048ae3          	beqz	s1,20003bd8 <FLASH_EEPROM_CMD+0xb8>
 20003d48:	3b35                	jal	20003a84 <FLASH_ROM_IN>
 20003d4a:	0039f793          	andi	a5,s3,3
@@ -1107,7 +1107,7 @@ FLASH_EEPROM_CMD():
 20003dd6:	317d                	jal	20003a84 <FLASH_ROM_IN>
 20003dd8:	0074f793          	andi	a5,s1,7
 20003ddc:	97ca                	add	a5,a5,s2
-20003dde:	0007c703          	lbu	a4,0(a5) # 78000 <_data_lma+0x777ac>
+20003dde:	0007c703          	lbu	a4,0(a5) # 78000 <_data_lma+0x77798>
 20003de2:	14fd                	addi	s1,s1,-1
 20003de4:	8d39                	xor	a0,a0,a4
 20003de6:	00a78023          	sb	a0,0(a5)
@@ -1208,7 +1208,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/
 2:
 	la a0, _data_lma
  690:	00000517          	auipc	a0,0x0
- 694:	1c450513          	addi	a0,a0,452 # 854 <_data_lma>
+ 694:	1d850513          	addi	a0,a0,472 # 868 <_data_lma>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../Startup/startup_CH573.S:135
 	la a1, _data_vma
  698:	20004597          	auipc	a1,0x20004
@@ -1294,63 +1294,63 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/
 
 00000702 <main>:
 main():
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:61
-}
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:43
 
-void pwm__init() {
-}
+
+
+
 
 int main(void) {
  702:	1141                	addi	sp,sp,-16
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:63
-	main__init();
-	pin__setup(a12, pin__output);
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:45
+
+pin__setup(a12, pin__output);
  704:	458d                	li	a1,3
  706:	6505                	lui	a0,0x1
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:61
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:43
 int main(void) {
- 708:	c422                	sw	s0,8(sp)
- 70a:	c226                	sw	s1,4(sp)
- 70c:	c606                	sw	ra,12(sp)
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:64
-	int32_t value = 0;
- 70e:	4401                	li	s0,0
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:63
-	pin__setup(a12, pin__output);
- 710:	202d                	jal	73a <GPIOA_ModeCfg>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:69
-	while(true) {
-		pwm__write(4, value, High_Level, ENABLE);
-		time__sleep_ms(300);
-		value = value + 50;
-		if(value > 250) {
- 712:	0fa00493          	li	s1,250
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:66
-		pwm__write(4, value, High_Level, ENABLE);
- 716:	0ff47593          	andi	a1,s0,255
- 71a:	4685                	li	a3,1
- 71c:	4601                	li	a2,0
- 71e:	4505                	li	a0,1
- 720:	20c1                	jal	7e0 <PWMX_ACTOUT>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:67
-		time__sleep_ms(300);
- 722:	12c00513          	li	a0,300
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:68
-		value = value + 50;
- 726:	03240413          	addi	s0,s0,50
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:67
-		time__sleep_ms(300);
- 72a:	20003097          	auipc	ra,0x20003
- 72e:	312080e7          	jalr	786(ra) # 20003a3c <mDelaymS>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:69
-		if(value > 250) {
- 732:	fe84d2e3          	bge	s1,s0,716 <main+0x14>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:70
-			value = 0;
- 736:	4401                	li	s0,0
- 738:	bff9                	j	716 <main+0x14>
+ 708:	c606                	sw	ra,12(sp)
+ 70a:	c422                	sw	s0,8(sp)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:45
+pin__setup(a12, pin__output);
+ 70c:	2089                	jal	74e <GPIOA_ModeCfg>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:43
+int main(void) {
+ 70e:	03200413          	li	s0,50
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:48
+int32_t value = 50;
+while(true) {
+pwm__write(4, value);
+ 712:	0ff47593          	andi	a1,s0,255
+ 716:	4685                	li	a3,1
+ 718:	4601                	li	a2,0
+ 71a:	4505                	li	a0,1
+ 71c:	28e1                	jal	7f4 <PWMX_ACTOUT>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:50
+value = value + 50;
+time__sleep_ms(300);
+ 71e:	12c00513          	li	a0,300
+ 722:	20003097          	auipc	ra,0x20003
+ 726:	31a080e7          	jalr	794(ra) # 20003a3c <mDelaymS>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:49
+value = value + 50;
+ 72a:	03240413          	addi	s0,s0,50
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:51
+if(value > 250) {pwm__off(4);time__sleep_ms(300);value = 50;};
+ 72e:	12c00793          	li	a5,300
+ 732:	fef410e3          	bne	s0,a5,712 <main+0x10>
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:51 (discriminator 1)
+ 736:	4681                	li	a3,0
+ 738:	4601                	li	a2,0
+ 73a:	4581                	li	a1,0
+ 73c:	4505                	li	a0,1
+ 73e:	285d                	jal	7f4 <PWMX_ACTOUT>
+ 740:	12c00513          	li	a0,300
+ 744:	20003097          	auipc	ra,0x20003
+ 748:	2f8080e7          	jalr	760(ra) # 20003a3c <mDelaymS>
+ 74c:	b7c9                	j	70e <main+0xc>
 
-0000073a <GPIOA_ModeCfg>:
+0000074e <GPIOA_ModeCfg>:
 GPIOA_ModeCfg():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:25
  *
@@ -1359,27 +1359,27 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/
 void GPIOA_ModeCfg(uint32_t pin, GPIOModeTypeDef mode)
 {
     switch(mode)
- 73a:	4791                	li	a5,4
- 73c:	02b7ee63          	bltu	a5,a1,778 <GPIOA_ModeCfg+0x3e>
- 740:	00000717          	auipc	a4,0x0
- 744:	10070713          	addi	a4,a4,256 # 840 <PWMX_ACTOUT+0x60>
- 748:	058a                	slli	a1,a1,0x2
- 74a:	95ba                	add	a1,a1,a4
- 74c:	419c                	lw	a5,0(a1)
- 74e:	97ba                	add	a5,a5,a4
- 750:	8782                	jr	a5
+ 74e:	4791                	li	a5,4
+ 750:	02b7ee63          	bltu	a5,a1,78c <GPIOA_ModeCfg+0x3e>
+ 754:	00000717          	auipc	a4,0x0
+ 758:	10070713          	addi	a4,a4,256 # 854 <PWMX_ACTOUT+0x60>
+ 75c:	058a                	slli	a1,a1,0x2
+ 75e:	95ba                	add	a1,a1,a4
+ 760:	419c                	lw	a5,0(a1)
+ 762:	97ba                	add	a5,a5,a4
+ 764:	8782                	jr	a5
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:28
     {
         case GPIO_ModeIN_Floating:
             R32_PA_PD_DRV &= ~pin;
- 752:	400017b7          	lui	a5,0x40001
- 756:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
- 75a:	fff54513          	not	a0,a0
- 75e:	8f69                	and	a4,a4,a0
- 760:	0ae7aa23          	sw	a4,180(a5)
+ 766:	400017b7          	lui	a5,0x40001
+ 76a:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
+ 76e:	fff54513          	not	a0,a0
+ 772:	8f69                	and	a4,a4,a0
+ 774:	0ae7aa23          	sw	a4,180(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:29
             R32_PA_PU &= ~pin;
- 764:	0b07a703          	lw	a4,176(a5)
+ 778:	0b07a703          	lw	a4,176(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:41
             R32_PA_DIR &= ~pin;
             break;
@@ -1387,12 +1387,12 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/
         case GPIO_ModeIN_PD:
             R32_PA_PD_DRV |= pin;
             R32_PA_PU &= ~pin;
- 768:	8f69                	and	a4,a4,a0
- 76a:	0ae7a823          	sw	a4,176(a5)
+ 77c:	8f69                	and	a4,a4,a0
+ 77e:	0ae7a823          	sw	a4,176(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:42
             R32_PA_DIR &= ~pin;
- 76e:	0a07a703          	lw	a4,160(a5)
- 772:	8d79                	and	a0,a0,a4
+ 782:	0a07a703          	lw	a4,160(a5)
+ 786:	8d79                	and	a0,a0,a4
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:52
             R32_PA_DIR |= pin;
             break;
@@ -1400,7 +1400,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/
         case GPIO_ModeOut_PP_20mA:
             R32_PA_PD_DRV |= pin;
             R32_PA_DIR |= pin;
- 774:	0aa7a023          	sw	a0,160(a5)
+ 788:	0aa7a023          	sw	a0,160(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:58
             break;
 
@@ -1408,60 +1408,60 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/
             break;
     }
 }
- 778:	8082                	ret
+ 78c:	8082                	ret
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:34
             R32_PA_PD_DRV &= ~pin;
- 77a:	400017b7          	lui	a5,0x40001
- 77e:	0b47a683          	lw	a3,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
- 782:	fff54713          	not	a4,a0
- 786:	8ef9                	and	a3,a3,a4
- 788:	0ad7aa23          	sw	a3,180(a5)
+ 78e:	400017b7          	lui	a5,0x40001
+ 792:	0b47a683          	lw	a3,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
+ 796:	fff54713          	not	a4,a0
+ 79a:	8ef9                	and	a3,a3,a4
+ 79c:	0ad7aa23          	sw	a3,180(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:35
             R32_PA_PU |= pin;
- 78c:	0b07a683          	lw	a3,176(a5)
- 790:	8d55                	or	a0,a0,a3
- 792:	0aa7a823          	sw	a0,176(a5)
+ 7a0:	0b07a683          	lw	a3,176(a5)
+ 7a4:	8d55                	or	a0,a0,a3
+ 7a6:	0aa7a823          	sw	a0,176(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:36
             R32_PA_DIR &= ~pin;
- 796:	0a07a683          	lw	a3,160(a5)
- 79a:	8f75                	and	a4,a4,a3
- 79c:	0ae7a023          	sw	a4,160(a5)
+ 7aa:	0a07a683          	lw	a3,160(a5)
+ 7ae:	8f75                	and	a4,a4,a3
+ 7b0:	0ae7a023          	sw	a4,160(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:37
             break;
- 7a0:	8082                	ret
+ 7b4:	8082                	ret
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:40
             R32_PA_PD_DRV |= pin;
- 7a2:	400017b7          	lui	a5,0x40001
- 7a6:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
- 7aa:	8f49                	or	a4,a4,a0
- 7ac:	0ae7aa23          	sw	a4,180(a5)
+ 7b6:	400017b7          	lui	a5,0x40001
+ 7ba:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
+ 7be:	8f49                	or	a4,a4,a0
+ 7c0:	0ae7aa23          	sw	a4,180(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:41
             R32_PA_PU &= ~pin;
- 7b0:	0b07a703          	lw	a4,176(a5)
- 7b4:	fff54513          	not	a0,a0
- 7b8:	bf45                	j	768 <GPIOA_ModeCfg+0x2e>
+ 7c4:	0b07a703          	lw	a4,176(a5)
+ 7c8:	fff54513          	not	a0,a0
+ 7cc:	bf45                	j	77c <GPIOA_ModeCfg+0x2e>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:46
             R32_PA_PD_DRV &= ~pin;
- 7ba:	400017b7          	lui	a5,0x40001
- 7be:	0b47a683          	lw	a3,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
- 7c2:	fff54713          	not	a4,a0
- 7c6:	8f75                	and	a4,a4,a3
+ 7ce:	400017b7          	lui	a5,0x40001
+ 7d2:	0b47a683          	lw	a3,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
+ 7d6:	fff54713          	not	a4,a0
+ 7da:	8f75                	and	a4,a4,a3
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:51
             R32_PA_PD_DRV |= pin;
- 7c8:	0ae7aa23          	sw	a4,180(a5)
+ 7dc:	0ae7aa23          	sw	a4,180(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:52
             R32_PA_DIR |= pin;
- 7cc:	0a07a703          	lw	a4,160(a5)
- 7d0:	8d59                	or	a0,a0,a4
- 7d2:	b74d                	j	774 <GPIOA_ModeCfg+0x3a>
+ 7e0:	0a07a703          	lw	a4,160(a5)
+ 7e4:	8d59                	or	a0,a0,a4
+ 7e6:	b74d                	j	788 <GPIOA_ModeCfg+0x3a>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_gpio.c:51
             R32_PA_PD_DRV |= pin;
- 7d4:	400017b7          	lui	a5,0x40001
- 7d8:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
- 7dc:	8f49                	or	a4,a4,a0
- 7de:	b7ed                	j	7c8 <GPIOA_ModeCfg+0x8e>
+ 7e8:	400017b7          	lui	a5,0x40001
+ 7ec:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
+ 7f0:	8f49                	or	a4,a4,a0
+ 7f2:	b7ed                	j	7dc <GPIOA_ModeCfg+0x8e>
 
-000007e0 <PWMX_ACTOUT>:
+000007f4 <PWMX_ACTOUT>:
 PWMX_ACTOUT():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:79
  */
@@ -1470,14 +1470,14 @@ void PWMX_ACTOUT(uint8_t ch, uint8_t da, PWMX_PolarTypeDef pr, FunctionalState s
     uint8_t i;
 
     if(s == DISABLE)
- 7e0:	ea99                	bnez	a3,7f6 <PWMX_ACTOUT+0x16>
+ 7f4:	ea99                	bnez	a3,80a <PWMX_ACTOUT+0x16>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:81
     {
         R8_PWM_OUT_EN &= ~(ch);
- 7e2:	400057b7          	lui	a5,0x40005
- 7e6:	0007c703          	lbu	a4,0(a5) # 40005000 <_eusrstack+0x1fffd000>
- 7ea:	fff54513          	not	a0,a0
- 7ee:	8d79                	and	a0,a0,a4
+ 7f6:	400057b7          	lui	a5,0x40005
+ 7fa:	0007c703          	lbu	a4,0(a5) # 40005000 <_eusrstack+0x1fffd000>
+ 7fe:	fff54513          	not	a0,a0
+ 802:	8d79                	and	a0,a0,a4
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:93
             if((ch >> i) & 1)
             {
@@ -1485,60 +1485,60 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/
             }
         }
         R8_PWM_OUT_EN |= (ch);
- 7f0:	00a78023          	sb	a0,0(a5)
+ 804:	00a78023          	sb	a0,0(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:95
     }
 }
- 7f4:	8082                	ret
+ 808:	8082                	ret
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:85
         (pr) ? (R8_PWM_POLAR |= (ch)) : (R8_PWM_POLAR &= ~(ch));
- 7f6:	40005737          	lui	a4,0x40005
- 7fa:	ce05                	beqz	a2,832 <PWMX_ACTOUT+0x52>
+ 80a:	40005737          	lui	a4,0x40005
+ 80e:	ce05                	beqz	a2,846 <PWMX_ACTOUT+0x52>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:85 (discriminator 1)
- 7fc:	00174783          	lbu	a5,1(a4) # 40005001 <_eusrstack+0x1fffd001>
- 800:	8fc9                	or	a5,a5,a0
- 802:	00f700a3          	sb	a5,1(a4)
- 806:	40005737          	lui	a4,0x40005
+ 810:	00174783          	lbu	a5,1(a4) # 40005001 <_eusrstack+0x1fffd001>
+ 814:	8fc9                	or	a5,a5,a0
+ 816:	00f700a3          	sb	a5,1(a4)
+ 81a:	40005737          	lui	a4,0x40005
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:76 (discriminator 1)
 {
- 80a:	4781                	li	a5,0
- 80c:	0711                	addi	a4,a4,4
+ 81e:	4781                	li	a5,0
+ 820:	0711                	addi	a4,a4,4
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:86 (discriminator 1)
         for(i = 0; i < 8; i++)
- 80e:	4621                	li	a2,8
+ 822:	4621                	li	a2,8
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:88
             if((ch >> i) & 1)
- 810:	40f556b3          	sra	a3,a0,a5
- 814:	8a85                	andi	a3,a3,1
- 816:	c689                	beqz	a3,820 <PWMX_ACTOUT+0x40>
+ 824:	40f556b3          	sra	a3,a0,a5
+ 828:	8a85                	andi	a3,a3,1
+ 82a:	c689                	beqz	a3,834 <PWMX_ACTOUT+0x40>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:90
                 *((volatile uint8_t *)((&R8_PWM4_DATA) + i)) = da;
- 818:	00e786b3          	add	a3,a5,a4
- 81c:	00b68023          	sb	a1,0(a3)
- 820:	0785                	addi	a5,a5,1
+ 82c:	00e786b3          	add	a3,a5,a4
+ 830:	00b68023          	sb	a1,0(a3)
+ 834:	0785                	addi	a5,a5,1
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:86 (discriminator 2)
         for(i = 0; i < 8; i++)
- 822:	fec797e3          	bne	a5,a2,810 <PWMX_ACTOUT+0x30>
+ 836:	fec797e3          	bne	a5,a2,824 <PWMX_ACTOUT+0x30>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:93
         R8_PWM_OUT_EN |= (ch);
- 826:	400057b7          	lui	a5,0x40005
- 82a:	0007c703          	lbu	a4,0(a5) # 40005000 <_eusrstack+0x1fffd000>
- 82e:	8d59                	or	a0,a0,a4
- 830:	b7c1                	j	7f0 <PWMX_ACTOUT+0x10>
+ 83a:	400057b7          	lui	a5,0x40005
+ 83e:	0007c703          	lbu	a4,0(a5) # 40005000 <_eusrstack+0x1fffd000>
+ 842:	8d59                	or	a0,a0,a4
+ 844:	b7c1                	j	804 <PWMX_ACTOUT+0x10>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../StdPeriphDriver/CH57x_pwm.c:85 (discriminator 2)
         (pr) ? (R8_PWM_POLAR |= (ch)) : (R8_PWM_POLAR &= ~(ch));
- 832:	00174683          	lbu	a3,1(a4) # 40005001 <_eusrstack+0x1fffd001>
- 836:	fff54793          	not	a5,a0
- 83a:	8ff5                	and	a5,a5,a3
- 83c:	b7d9                	j	802 <PWMX_ACTOUT+0x22>
- 83e:	0000                	unimp
- 840:	ff12                	fsw	ft4,188(sp)
- 842:	ffff                	0xffff
- 844:	ff3a                	fsw	fa4,188(sp)
- 846:	ffff                	0xffff
- 848:	ff62                	fsw	fs8,188(sp)
- 84a:	ffff                	0xffff
- 84c:	ff7a                	fsw	ft10,188(sp)
- 84e:	ffff                	0xffff
- 850:	ff94                	fsw	fa3,56(a5)
- 852:	ffff                	0xffff
+ 846:	00174683          	lbu	a3,1(a4) # 40005001 <_eusrstack+0x1fffd001>
+ 84a:	fff54793          	not	a5,a0
+ 84e:	8ff5                	and	a5,a5,a3
+ 850:	b7d9                	j	816 <PWMX_ACTOUT+0x22>
+ 852:	0000                	unimp
+ 854:	ff12                	fsw	ft4,188(sp)
+ 856:	ffff                	0xffff
+ 858:	ff3a                	fsw	fa4,188(sp)
+ 85a:	ffff                	0xffff
+ 85c:	ff62                	fsw	fs8,188(sp)
+ 85e:	ffff                	0xffff
+ 860:	ff7a                	fsw	ft10,188(sp)
+ 862:	ffff                	0xffff
+ 864:	ff94                	fsw	fa3,56(a5)
+ 866:	ffff                	0xffff

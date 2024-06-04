@@ -43,12 +43,8 @@
 #define pin__toggle(PIN_NAME)  pin__toggle_(PIN_NAME)
 
 
-
-
-
 void main__init() {
 }
-
 
 int main(void) {
 main__init();
