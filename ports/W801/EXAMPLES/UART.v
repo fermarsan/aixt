@@ -1,6 +1,6 @@
-inport uart
-inport pin
-module time {sleep_ms}
+import uart
+import pin
+import time {sleep_ms}
 
   uart__setup_0(115200);
   pinMode(pin1, pin__output);
@@ -11,9 +11,9 @@ for {
 	uart__println_0("\r\n Oprimiendo la letra Q, activa la salida  del pin1.");
 
   if (uart__available() > 0) {
-    char command = uart__read_0();
+    char = uart__read_0();
 
-    switch(command) {  
+    switch(char) {  
        case 'Q':
          pin__high(pin1);
          time__sleep_ms(4000); 

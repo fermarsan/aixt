@@ -1,5 +1,5 @@
-module pwm
-module time {sleep_ms}
+import pwm
+import time {sleep_ms}
 
   for (int i = 0; i < 3; i++) pin__setup(pwm_pin[i], PWM__OUT);
 

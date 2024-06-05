@@ -1,5 +1,5 @@
-module pin
-module time {sleep_ms}
+import pin
+import time {sleep_ms}
   // put your setup code here, to run once:
 pin__setup(a1,pin__input);  
 pin__setup(a2,pin__output);
