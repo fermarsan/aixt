@@ -13,7 +13,7 @@ fn (mut gen Gen) ident(node ast.Ident) []string {
 	return if node.name.contains('.') {
 		['${node.name.replace('.', '__')}']	
 	} else {
-		['${node.mod}__${node.name}']
+		['${node.name}']	//['${node.mod}__${node.name}']
 	}
 	// return if node.mod == 'main' {
 	// 	['${node.name}']	
