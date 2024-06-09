@@ -22,11 +22,14 @@ a1 = PB21
 a2 = PB22
 a3 = PB23
 a4 = PB24
+a5 = PB0
+a6 = PB1
+
+
 
 pin1 = PB21
 pin2 = PB22
 
-i = 0
 }
 
 fn init() {

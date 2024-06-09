@@ -9,4 +9,4 @@
 
 module pin
 
-#define ADC__INPUT   ANALOG_INPUT
+#define adc__INPUT   ANALOG_INPUT

@@ -1,32 +1,42 @@
-import uart
-import pin
 import time {sleep_ms}
+import pin
+import uart
 
-  uart__setup_0(115200);
-  pinMode(pin1, pin__output);
-  pinMode(pin2, pin__output);
+
+
+  uart.setup_0(9600)
+  pin.setup(pin1, pin.output)
+  pin.setup(pin2, pin.output)
 
 for {
- 	uart__println_0("\r\n Comunicacion UART tarjeta W801-PC:");
-	uart__println_0("\r\n Oprimiendo la letra Q, activa la salida  del pin1.");
+ 	uart.println_0("\r\n Comunicacion UART tarjeta W801-PC:")
+	uart.println_0("\r\n Oprimiendo la letra Q, activa la salida  del pin1.")
 
-  if (uart__available() > 0) {
-    char = uart__read_0();
+pin.high(pin2)
+  sleep_ms(250)
 
-    switch(char) {  
-       case 'Q':
-         pin__high(pin1);
-         time__sleep_ms(4000); 
-         pin__low(pin1);
-         time__sleep_ms(1000);
-	break;
+  pin.low(pin2)
+  sleep_ms(250)
+  x:=0
+  x=uart.any()
 
-       default:
-          pin__high(pin2);
-          time__sleep_ms(4000);
-          pin__low(pin2);
-          time__sleep_ms(1000); 
-        break;
+  if (uart.available() > 0) {
+    command := ` `
+    command = uart.read_0()
+
+     {  
+       if  command == 'Q' {
+         pin.high(pin1)
+         time.sleep_ms(2000)
+         pin.low(pin1)
+         time.sleep_ms(500)}
+	
+       else{
+          pin.high(pin2)
+          time.sleep_ms(500)
+          pin.low(pin2)
+          time.sleep_ms(500)
+        }
     }
   }
 }

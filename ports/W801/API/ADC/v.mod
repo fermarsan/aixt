@@ -8,8 +8,8 @@
 //              (PC port) 
 
 Module {
-	name:	'pin'
-	description:	'Aixt pin management module for W801.'
+	name:	'adc'
+	description:	'Aixt adc management module for W801.'
 	version:	'0.0.1'
 	license:	'MIT'
 	dependencies:	[]
