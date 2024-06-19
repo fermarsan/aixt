@@ -1,7 +1,7 @@
 {
-    "aixt_linux":   "aixt",
-    "aixt_windows": "aixt",
-    "device":       "Emulator",
+    "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
+    "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
+    "device":       "W801",
     "files.associations": {
         "*.aixt": "v",
     }

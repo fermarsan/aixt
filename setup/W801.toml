@@ -1,5 +1,5 @@
-# Project Name = Aixt, https =//github.com/fermarsan/aixt.git
-# Author = Fernando Martínez Santa - Julian Camilo Guzman Zambrano - Juan Pablo Gonzalez Penagos
+# Project Name = Aixt, https://github.com/fermarsan/aixt.git
+# Author = Fernando Martínez Santa - Johann Escobar Guzmán - Daniel Andrés Vásquez Gómez
 # Date = 2022-2024
 # License = MIT
 #
@@ -11,7 +11,7 @@ board =   "W801"
 backend = "arduino"
 
 cc_linux =   "xc16"
-cc_windows = "C:\Program Files\Arduino IDE"
+cc_windows = "C:\\Program Files\\arduino.exe"
 cc_flags =   "-o"
 
 path = "W801"
