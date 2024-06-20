@@ -6,14 +6,21 @@
 
 #include "CH57x_common.h"
 #define true 1
-#define uart__any() R8_UART0_RFC
+#define uart__println(MSG)		uart__print(MSG);  uart__write('\n');  uart__write('\r')
+#define uart__any()  R8_UART0_RFC
 #define	uart__write(DATA)	R8_UART0_THR = DATA
 
+void uart__print(char* msg);
+uint8_t uart__read(void);
+void uart__setup(uint32_t baud_rate);
 
 
 
-
-void main__init() {
+void uart__print(char* msg){
+    while(*msg != '\0'){
+        uart__write(*msg);
+        msg++;
+    }
 }
 
 
@@ -37,7 +44,7 @@ void uart__setup(uint32_t baud_rate){
 
 
 int main(void) {
-main__init();
+
 char input = ' ';
 uart__setup(115200);
 while(true) {

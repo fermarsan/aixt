@@ -27,15 +27,15 @@ Idx Name            Size      VMA       LMA       File off  Algn  Flags
   7 .data           00000000  20004000  20004000  000028ac  2**0  CONTENTS, ALLOC, LOAD, DATA
   8 .bss            00000000  20004000  00000a60  00000000  2**0  ALLOC
   9 .stack          00000000  20008000  20008000  000028ac  2**0  CONTENTS
- 10 .debug_info     00003a0f  00000000  00000000  000028ac  2**0  CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev   00000b36  00000000  00000000  000062bb  2**0  CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc      000007de  00000000  00000000  00006df1  2**0  CONTENTS, READONLY, DEBUGGING
- 13 .debug_aranges  00000190  00000000  00000000  000075d0  2**3  CONTENTS, READONLY, DEBUGGING
- 14 .debug_ranges   00000148  00000000  00000000  00007760  2**3  CONTENTS, READONLY, DEBUGGING
- 15 .debug_line     00001ff2  00000000  00000000  000078a8  2**0  CONTENTS, READONLY, DEBUGGING
- 16 .debug_str      00000d38  00000000  00000000  0000989a  2**0  CONTENTS, READONLY, DEBUGGING
- 17 .comment        00000033  00000000  00000000  0000a5d2  2**0  CONTENTS, READONLY
- 18 .debug_frame    00000284  00000000  00000000  0000a608  2**2  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_info     00003a1e  00000000  00000000  000028ac  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_abbrev   00000b26  00000000  00000000  000062ca  2**0  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc      000007fc  00000000  00000000  00006df0  2**0  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_aranges  00000190  00000000  00000000  000075f0  2**3  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_ranges   00000148  00000000  00000000  00007780  2**3  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_line     0000201f  00000000  00000000  000078c8  2**0  CONTENTS, READONLY, DEBUGGING
+ 16 .debug_str      00000d39  00000000  00000000  000098e7  2**0  CONTENTS, READONLY, DEBUGGING
+ 17 .comment        00000033  00000000  00000000  0000a620  2**0  CONTENTS, READONLY
+ 18 .debug_frame    00000284  00000000  00000000  0000a654  2**2  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .init	00000000 .init
 00000004 l    d  .highcodelalign	00000000 .highcodelalign
@@ -1242,8 +1242,8 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\ob
 
 000006fa <uart__read>:
 uart__read():
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:21
-void main__init() {
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:28
+    }
 }
 
 
@@ -1251,108 +1251,108 @@ uint8_t uart__read(void){
     while(!(R8_UART0_RFC == 1)){}
  6fa:	400037b7          	lui	a5,0x40003
  6fe:	4685                	li	a3,1
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:21 (discriminator 1)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:28 (discriminator 1)
  700:	00a7c703          	lbu	a4,10(a5) # 4000300a <_eusrstack+0x1fffb00a>
  704:	fee69ee3          	bne	a3,a4,700 <uart__read+0x6>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:22
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:29
     return R8_UART0_RBR; 
  708:	0087c503          	lbu	a0,8(a5)
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:23
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:30
 }
  70c:	8082                	ret
 
 0000070e <uart__setup>:
 uart__setup():
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:26
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:33
 
 
 void uart__setup(uint32_t baud_rate){
  70e:	1141                	addi	sp,sp,-16
  710:	c606                	sw	ra,12(sp)
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:27
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:34
     UART0_BaudRateCfg(baud_rate);
  712:	2a99                	jal	868 <UART0_BaudRateCfg>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:28
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:35
     R8_UART0_FCR = (2 << 6) | RB_FCR_TX_FIFO_CLR | RB_FCR_RX_FIFO_CLR | RB_FCR_FIFO_EN;
  714:	400037b7          	lui	a5,0x40003
  718:	f8700713          	li	a4,-121
  71c:	00e78123          	sb	a4,2(a5) # 40003002 <_eusrstack+0x1fffb002>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:29
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:36
     R8_UART0_LCR = RB_LCR_WORD_SZ;
  720:	470d                	li	a4,3
  722:	00e781a3          	sb	a4,3(a5)
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:30
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:37
     R8_UART0_IER = RB_IER_TXD_EN;
  726:	04000713          	li	a4,64
  72a:	00e780a3          	sb	a4,1(a5)
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:31
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:38
     R8_UART0_DIV = 1;
  72e:	4705                	li	a4,1
  730:	00e78723          	sb	a4,14(a5)
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:33
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:40
 
     GPIOB_SetBits(GPIO_Pin_7);
  734:	40001737          	lui	a4,0x40001
  738:	0c872783          	lw	a5,200(a4) # 400010c8 <_eusrstack+0x1fff90c8>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:34
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:41
     GPIOB_ModeCfg(GPIO_Pin_4, GPIO_ModeIN_PU);   //RX
  73c:	4585                	li	a1,1
  73e:	4541                	li	a0,16
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:33
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:40
     GPIOB_SetBits(GPIO_Pin_7);
  740:	0807e793          	ori	a5,a5,128
  744:	0cf72423          	sw	a5,200(a4)
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:34
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:41
     GPIOB_ModeCfg(GPIO_Pin_4, GPIO_ModeIN_PU);   //RX
  748:	2825                	jal	780 <GPIOB_ModeCfg>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:36
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:43
     GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_5mA);  //TX
 }
  74a:	40b2                	lw	ra,12(sp)
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:35
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:42
     GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_5mA);  //TX
  74c:	458d                	li	a1,3
  74e:	08000513          	li	a0,128
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:36
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:43
 }
  752:	0141                	addi	sp,sp,16
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:35
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:42
     GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_5mA);  //TX
  754:	a035                	j	780 <GPIOB_ModeCfg>
 
 00000756 <main>:
 main():
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:42
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:49
 
 
 int main(void) {
-main__init();
+
 char input = ' ';
 uart__setup(115200);
  756:	6571                	lui	a0,0x1c
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:39
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:46
 int main(void) {
  758:	1141                	addi	sp,sp,-16
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:42
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:49
 uart__setup(115200);
  75a:	20050513          	addi	a0,a0,512 # 1c200 <_data_lma+0x1b954>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:39
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:46
 int main(void) {
  75e:	c422                	sw	s0,8(sp)
  760:	c606                	sw	ra,12(sp)
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:44
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:51
 while(true) {
 if(uart__any()) {input = uart__read();uart__write((uint8_t)(input) + 1);};
  762:	40003437          	lui	s0,0x40003
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:42
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:49
 uart__setup(115200);
  766:	3765                	jal	70e <uart__setup>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:44
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:51
 if(uart__any()) {input = uart__read();uart__write((uint8_t)(input) + 1);};
  768:	00a44783          	lbu	a5,10(s0) # 4000300a <_eusrstack+0x1fffb00a>
  76c:	0ff7f793          	andi	a5,a5,255
  770:	dfe5                	beqz	a5,768 <main+0x12>
-C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:44 (discriminator 1)
+C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:51 (discriminator 1)
  772:	3761                	jal	6fa <uart__read>
  774:	0505                	addi	a0,a0,1
  776:	0ff57513          	andi	a0,a0,255

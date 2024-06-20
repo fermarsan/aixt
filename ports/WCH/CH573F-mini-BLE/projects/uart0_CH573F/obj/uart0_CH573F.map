@@ -24,8 +24,8 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./src/Main.o
  .data          0x0000000000000000        0x0 ./src/Main.o
  .bss           0x0000000000000000        0x0 ./src/Main.o
- .text.main__init
-                0x0000000000000000        0x2 ./src/Main.o
+ .text.uart__print
+                0x0000000000000000       0x18 ./src/Main.o
  .text          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_adc.o
  .data          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_adc.o
  .bss           0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_adc.o
@@ -599,25 +599,25 @@ END GROUP
                 0x0000000020008000                PROVIDE (_eusrstack = .)
 OUTPUT(uart0_CH573F.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000     0x3a0f
- .debug_info    0x0000000000000000      0xcf7 ./src/Main.o
- .debug_info    0x0000000000000cf7      0xdae ./StdPeriphDriver/CH57x_gpio.o
- .debug_info    0x0000000000001aa5     0x11c2 ./StdPeriphDriver/CH57x_sys.o
- .debug_info    0x0000000000002c67      0xd86 ./StdPeriphDriver/CH57x_uart0.o
- .debug_info    0x00000000000039ed       0x22 ./Startup/startup_CH573.o
+.debug_info     0x0000000000000000     0x3a1e
+ .debug_info    0x0000000000000000      0xd06 ./src/Main.o
+ .debug_info    0x0000000000000d06      0xdae ./StdPeriphDriver/CH57x_gpio.o
+ .debug_info    0x0000000000001ab4     0x11c2 ./StdPeriphDriver/CH57x_sys.o
+ .debug_info    0x0000000000002c76      0xd86 ./StdPeriphDriver/CH57x_uart0.o
+ .debug_info    0x00000000000039fc       0x22 ./Startup/startup_CH573.o
 
-.debug_abbrev   0x0000000000000000      0xb36
- .debug_abbrev  0x0000000000000000      0x2bb ./src/Main.o
- .debug_abbrev  0x00000000000002bb      0x268 ./StdPeriphDriver/CH57x_gpio.o
- .debug_abbrev  0x0000000000000523      0x357 ./StdPeriphDriver/CH57x_sys.o
- .debug_abbrev  0x000000000000087a      0x2aa ./StdPeriphDriver/CH57x_uart0.o
- .debug_abbrev  0x0000000000000b24       0x12 ./Startup/startup_CH573.o
+.debug_abbrev   0x0000000000000000      0xb26
+ .debug_abbrev  0x0000000000000000      0x2ab ./src/Main.o
+ .debug_abbrev  0x00000000000002ab      0x268 ./StdPeriphDriver/CH57x_gpio.o
+ .debug_abbrev  0x0000000000000513      0x357 ./StdPeriphDriver/CH57x_sys.o
+ .debug_abbrev  0x000000000000086a      0x2aa ./StdPeriphDriver/CH57x_uart0.o
+ .debug_abbrev  0x0000000000000b14       0x12 ./Startup/startup_CH573.o
 
-.debug_loc      0x0000000000000000      0x7de
- .debug_loc     0x0000000000000000       0x41 ./src/Main.o
- .debug_loc     0x0000000000000041      0x361 ./StdPeriphDriver/CH57x_gpio.o
- .debug_loc     0x00000000000003a2      0x24f ./StdPeriphDriver/CH57x_sys.o
- .debug_loc     0x00000000000005f1      0x1ed ./StdPeriphDriver/CH57x_uart0.o
+.debug_loc      0x0000000000000000      0x7fc
+ .debug_loc     0x0000000000000000       0x5f ./src/Main.o
+ .debug_loc     0x000000000000005f      0x361 ./StdPeriphDriver/CH57x_gpio.o
+ .debug_loc     0x00000000000003c0      0x24f ./StdPeriphDriver/CH57x_sys.o
+ .debug_loc     0x000000000000060f      0x1ed ./StdPeriphDriver/CH57x_uart0.o
 
 .debug_aranges  0x0000000000000000      0x190
  .debug_aranges
@@ -638,23 +638,23 @@ OUTPUT(uart0_CH573F.elf elf32-littleriscv)
  .debug_ranges  0x00000000000000d8       0x40 ./StdPeriphDriver/CH57x_uart0.o
  .debug_ranges  0x0000000000000118       0x30 ./Startup/startup_CH573.o
 
-.debug_line     0x0000000000000000     0x1ff2
- .debug_line    0x0000000000000000      0x43d ./src/Main.o
- .debug_line    0x000000000000043d      0x7a9 ./StdPeriphDriver/CH57x_gpio.o
- .debug_line    0x0000000000000be6      0xbe1 ./StdPeriphDriver/CH57x_sys.o
- .debug_line    0x00000000000017c7      0x5ec ./StdPeriphDriver/CH57x_uart0.o
- .debug_line    0x0000000000001db3      0x23f ./Startup/startup_CH573.o
+.debug_line     0x0000000000000000     0x201f
+ .debug_line    0x0000000000000000      0x46a ./src/Main.o
+ .debug_line    0x000000000000046a      0x7a9 ./StdPeriphDriver/CH57x_gpio.o
+ .debug_line    0x0000000000000c13      0xbe1 ./StdPeriphDriver/CH57x_sys.o
+ .debug_line    0x00000000000017f4      0x5ec ./StdPeriphDriver/CH57x_uart0.o
+ .debug_line    0x0000000000001de0      0x23f ./Startup/startup_CH573.o
 
-.debug_str      0x0000000000000000      0xd38
- .debug_str     0x0000000000000000      0x7b4 ./src/Main.o
-                                        0x839 (size before relaxing)
- .debug_str     0x00000000000007b4      0x10f ./StdPeriphDriver/CH57x_gpio.o
+.debug_str      0x0000000000000000      0xd39
+ .debug_str     0x0000000000000000      0x7b5 ./src/Main.o
+                                        0x83a (size before relaxing)
+ .debug_str     0x00000000000007b5      0x10f ./StdPeriphDriver/CH57x_gpio.o
                                         0x8e9 (size before relaxing)
- .debug_str     0x00000000000008c3      0x375 ./StdPeriphDriver/CH57x_sys.o
+ .debug_str     0x00000000000008c4      0x375 ./StdPeriphDriver/CH57x_sys.o
                                         0xb1f (size before relaxing)
- .debug_str     0x0000000000000c38       0xd9 ./StdPeriphDriver/CH57x_uart0.o
+ .debug_str     0x0000000000000c39       0xd9 ./StdPeriphDriver/CH57x_uart0.o
                                         0x88e (size before relaxing)
- .debug_str     0x0000000000000d11       0x27 ./Startup/startup_CH573.o
+ .debug_str     0x0000000000000d12       0x27 ./Startup/startup_CH573.o
                                          0x79 (size before relaxing)
 
 .comment        0x0000000000000000       0x33
