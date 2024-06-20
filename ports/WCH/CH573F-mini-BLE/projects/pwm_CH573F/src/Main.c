@@ -3,6 +3,7 @@
 // Board = device
 // Backend = c
 
+
 #include "CH57x_common.h"
 #define true 1
 #define time__sleep_ms(TIME)    DelayMs(TIME)
@@ -32,43 +33,22 @@
 #define pin__in_pulldown	GPIO_ModeIN_PD
 #define pin__setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
 #define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
-#define pwm__write(channel, value, type, state)	PWMX_ACTOUT(CH_PWM##channel, value, type, state)
+#define pwm__off(channel, ...)	PWMX_ACTOUT(CH_PWM##channel, 0, High_Level, DISABLE)
+#define pwm__write(channel, value, ...)	PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
 
-void main__init();
 
-void time__init();
 
-void pin__init();
 
-void pwm__init();
-
-void main__init() {
-	time__init();
-	pin__init();
-	pwm__init();
-	
-}
-
-void time__init() {
-}
-
-void pin__init() {
-}
-
-void pwm__init() {
-}
 
 int main(void) {
-	main__init();
-	pin__setup(a12, pin__output);
-	int32_t value = 0;
-	while(true) {
-		pwm__write(4, value, High_Level, ENABLE);
-		time__sleep_ms(300);
-		value = value + 50;
-		if(value > 250) {
-			value = 0;
-		}
-	}
-	return 0;
+
+pin__setup(a12, pin__output);
+int32_t value = 50;
+while(true) {
+pwm__write(4, value);
+value = value + 50;
+time__sleep_ms(300);
+if(value > 250) {pwm__off(4);time__sleep_ms(300);value = 50;};
+}
+return 0;
 }

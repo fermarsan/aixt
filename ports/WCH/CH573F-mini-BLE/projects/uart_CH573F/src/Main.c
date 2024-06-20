@@ -3,9 +3,13 @@
 // Board = device
 // Backend = c
 
+
 #include "CH57x_common.h"
 #define true 1
 #define time__sleep_ms(TIME)    DelayMs(TIME)
+#define uart__println(MSG)		uart__print(MSG);  uart__write('\n');  uart__write('\r')
+#define uart__any()  R8_UART0_RFC
+#define	uart__write(DATA)	R8_UART0_THR = DATA
 #define a4  A, 4
 #define a5  A, 5
 #define a8  A, 8
@@ -38,35 +42,54 @@
 #define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
 #define pin__setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
 #define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
+#define pin__toggle_(port, ...) GPIO##port##_InverseBits(GPIO_Pin_##__VA_ARGS__)
+#define pin__toggle(PIN_NAME)  pin__toggle_(PIN_NAME)
 
-void main__init();
+void uart__print(char* msg);
+uint8_t uart__read(void);
+void uart__setup(uint32_t baud_rate);
 
-void time__init();
 
-void pin__init();
 
-void main__init() {
-	time__init();
-	pin__init();
-	
+void uart__print(char* msg){
+    while(*msg != '\0'){
+        uart__write(*msg);
+        msg++;
+    }
 }
 
-void time__init() {
+
+uint8_t uart__read(void){
+    while(!(R8_UART0_RFC == 1)){}
+    return R8_UART0_RBR; 
 }
 
-void pin__init() {
+
+void uart__setup(uint32_t baud_rate){
+    UART0_BaudRateCfg(baud_rate);
+    R8_UART0_FCR = (2 << 6) | RB_FCR_TX_FIFO_CLR | RB_FCR_RX_FIFO_CLR | RB_FCR_FIFO_EN;
+    R8_UART0_LCR = RB_LCR_WORD_SZ;
+    R8_UART0_IER = RB_IER_TXD_EN;
+    R8_UART0_DIV = 1;
+
+    GPIOB_SetBits(GPIO_Pin_7);
+    GPIOB_ModeCfg(GPIO_Pin_4, GPIO_ModeIN_PU);   //RX
+    GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_5mA);  //TX
 }
+
+//char TxBuff = ' ';
 
 int main(void) {
-	main__init();
-	pin__high(b7);
-	pin__setup(b4, pin__in_pullup);
-	pin__setup(b7, pin__output);
-	uart__setup();
-	while(true) {
-		uart__write(TxBuff);
-		time__sleep_ms(2000);
-		uart__read();
-	}
-	return 0;
+
+pin__high(b7);
+pin__setup(b4, pin__in_pullup);
+pin__setup(b7, pin__output);
+uart__setup(115200);
+while(true) {
+TxBuff = uart__read();
+uart__write(TxBuff);
+time__sleep_ms(2000);
+
+}
+return 0;
 }

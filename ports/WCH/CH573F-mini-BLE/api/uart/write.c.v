@@ -5,4 +5,4 @@
 
 module uart
 
-#define	uart__write(DATA)	UTXREG = R8_UART0_THR;
+#define	uart__write(DATA)	R8_UART0_THR = DATA

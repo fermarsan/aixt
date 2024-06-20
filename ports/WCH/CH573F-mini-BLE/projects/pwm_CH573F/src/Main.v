@@ -4,13 +4,15 @@ import pwm
 
 pin.setup(a12, pin.output) 
 
-value := 0
+value := 50
 
 for {
-    pwm.write(4, value, High_Level, ENABLE)
+    pwm.write(4, value)
+    value = value + 50
     sleep_ms(300)
-    value=value+50
-    if value>250 {
-        value=0        
+    if value > 250 {
+        pwm.off(4)  
+        sleep_ms(300)
+        value = 50 
     }
 }
