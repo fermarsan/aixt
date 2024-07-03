@@ -1,7 +1,13 @@
-module pwm
-module time {sleep_ms}
+import pwm
+import time {sleep_ms}
 
-  for (int i = 0; i < 3; i++) pin__setup(pwm_pin[i], PWM__OUT);
+
+int m[3] = { 0 }, d[3] = { DUTY.MIN, (DUTY.MIN + DUTY.MAX) / 2, DUTY.MAX - 1 };
+
+int32_t pwm.pin[3] = { led1, led2, led3 };
+
+
+  for (int i = 0; i < 3; i++) pin.setup(pwm.pin[i], PWM.OUT);
 
 
 for {
@@ -9,13 +15,13 @@ for {
   for (int i = 0; i < 3; i++) {
     if (m[i] == 0)  // Increasing
     {
-      pwm__write(pwm_pin[i], d[i]++);
-      if (d[i] == DUTY_MAX) m[i] = 1;
+      pwm.write(pwm.pin[i], d[i]++);
+      if (d[i] == DUTY.MAX) m[i] = 1;
     } else  // Decreasing
     {
-      pwm__write(pwm_pin[i], d[i]--);
-      if (d[i] == DUTY_MIN) m[i] = 0;
+      pwm.write(pwm.pin[i], d[i]--);
+      if (d[i] == DUTY.MIN) m[i] = 0;
     }
   }
-time__sleep_ms(5);  
+time.sleep_ms(5);  
 }
