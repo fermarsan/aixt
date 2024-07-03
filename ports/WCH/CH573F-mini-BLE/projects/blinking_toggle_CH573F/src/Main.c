@@ -46,15 +46,11 @@
 
 
 
-void main__init() {
-}
-
-
 int main(void) {
-main__init();
-pin__setup(a8, pin__output);
+
+pin__setup(main__a8, pin__output);
 while(true) {
-pin__toggle(a8);
+pin__toggle(main__a8);
 time__sleep_ms(150);
 }
 return 0;

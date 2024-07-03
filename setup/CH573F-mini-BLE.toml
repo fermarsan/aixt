@@ -55,8 +55,12 @@ api_modules = [
     "port",
     "adc",
     "pwm",
-    #"uart",
-    "time"
+    "uart",
+    "uart1",
+    "uart2",
+    "uart3",
+    "time",
+    "irq"
 ]
 
 [aliases]
