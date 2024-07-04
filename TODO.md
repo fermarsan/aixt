@@ -22,7 +22,6 @@ Tasks to do in Aixt
 - [ ] change "set" by "setup" in sensor module (NXT port)
 - [ ] Issue: Ident names including module and function name or scope position (for all ports)
 - [ ] implements maps
-- [ ] Allow by default mutable variables
 
 
 ### In Progress
@@ -30,10 +29,11 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Format output file
 - [ ] Change all API constants
+- [ ] Allow by default mutable variables
+- [ ] New C variable and function naming (like Vlang)
 
 
 ### Done ✓
-
 
 - [x] Issue: out from single string to string array. Needs to change all files
 - [x] Issue: for-in on const array
