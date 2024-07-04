@@ -8,7 +8,7 @@ module aixt_cgen
 // This defines a list of error exceptions (allowed in Aixt but not in V)
 fn (mut gen Gen) err_war_check() {
 	msg_exceptions := [ // V error message exceptions in Aixt
-		'is immutable, declare it with `mut`',
+		// 'is immutable, declare it with `mut`',
 		'expected `#define`',
 		'unknown function:',
 		'has no constant or function',
