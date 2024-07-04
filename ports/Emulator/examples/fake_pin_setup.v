@@ -1,3 +1,3 @@
-import pin {setup}
+import pin
 
-setup(D6, 0)
+pin.setup(D6, 0)
