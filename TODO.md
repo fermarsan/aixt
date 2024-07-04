@@ -22,6 +22,7 @@ Tasks to do in Aixt
 - [ ] change "set" by "setup" in sensor module (NXT port)
 - [ ] Issue: Ident names including module and function name or scope position (for all ports)
 - [ ] implements maps
+- [ ] Allow by default mutable variables
 
 
 ### In Progress
