@@ -12,7 +12,7 @@ fn (mut gen Gen) err_war_check() {
 		'expected `#define`',
 		'unknown function:',
 		'has no constant or function',
-		'returns 0 value(s)',
+		'returns 0 value',
 		'non-bool',
 		'mutex',
 	]

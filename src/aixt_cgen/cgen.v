@@ -55,9 +55,14 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
 	
 	// $if windows {
-		gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
+	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
 	// } $else {
 	// 	gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
+	// }
+
+
+	// for name, fnx in gen.table.fns {
+	// 	println('${fnx.mod}\t${name}\t${fnx.return_type}\t')
 	// }
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
@@ -77,6 +82,11 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.sym_table_print()
 	gen.err_war_check()
 	gen.err_war_print()
+
+	for name, fnx in gen.table.fns {
+		println('${fnx.mod}\t${name}\t${fnx.return_type}\t')
+	}
+	// println(gen.table.used_fns)
 
 	mut e_count := 0
 	for i, file in gen.files {

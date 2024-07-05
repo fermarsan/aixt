@@ -7,7 +7,7 @@
 module adc
 
 __global (
-    value__ = 0
+    adc__value = 0
 )
 
 #define adc__ch0    0

@@ -30,7 +30,7 @@ Tasks to do in Aixt
 - [ ] Format output file
 - [ ] Change all API constants
 - [ ] Allow by default mutable variables
-- [ ] New C variable and function naming (like Vlang)
+- [ ] Change preprocessor commands and C including code
 
 
 ### Done ✓

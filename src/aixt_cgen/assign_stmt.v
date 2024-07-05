@@ -19,7 +19,8 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	mut var_kind := ''
 	for i in 0 .. node.left.len {
 		var_kind = if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
-		// println(',,,,,,,,,,,${var_kind},,,,,,,,,,,')
+		println(',,,,,,,,,,,${var_kind},,,,,,,,,,,')
+		// println(',,,,,,,,,,,${node.left_types[i]},,,,,,,,,,,')
 
 		if node.op.str() == ':=' { // declaration-assignment
 			match var_kind {
@@ -94,3 +95,21 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	out << c_line
 	return out
 }
+
+
+// fn (mut gen Gen) get_type(node ast.Stmt) string {
+// 	return match node {
+// 		ast.Ident {
+
+// 		}
+// 		ast.Fn {
+
+// 		}
+// 		ast.InfixExpr {
+
+// 		}
+// 		else {
+
+// 		}
+// 	}
+// }
