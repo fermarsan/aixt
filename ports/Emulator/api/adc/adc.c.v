@@ -6,9 +6,8 @@
 // Description: This is a module to emulate ADC inputs in console.
 module adc
 
+#include "adc.c"
+
 __global (
     adc__value = 0
 )
-
-#define adc__ch0    0
-#define adc__ch1    1
