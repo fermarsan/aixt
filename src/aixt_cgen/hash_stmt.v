@@ -12,7 +12,7 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
 	// println('########### ${node.ct_conds} ###########')
 	if node.kind == 'include' {
 		if node.val.contains('<') && node.val.contains('>') {	// if it is a standard header
-			if node.val !in gen.c_preproc_cmds {
+			if '#${node.val}' !in gen.c_preproc_cmds {
 				gen.c_preproc_cmds << '#${node.val}'
 			}
 		} else {	// if it is a custom header
