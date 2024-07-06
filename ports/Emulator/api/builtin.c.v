@@ -9,11 +9,9 @@ module main
 #include <stdio.h>
 #include <stdlib.h>
 
-#if defined(__linux) || defined(linux)
-#define CLEAR_SCREEN    "clear" // for Linux
-#else
-#define CLEAR_SCREEN    "cls"   // for Windows
-#endif 
+#include "builtin.c"
 
 // init function call setup or initialization code
-fn C.init()
+pub fn init() {
+    C.printf('\033[1;37m')    // white bold text in terminal
+}

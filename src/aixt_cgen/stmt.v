@@ -11,7 +11,7 @@ fn (mut gen Gen) stmt(node ast.Stmt) []string {
 	println('${node.type_name().after('v.ast.')}:\t\t${node}')
 	match node {
 		ast.Module {
-			return []
+			return gen.module_stmt(node)
 		}
 		ast.Import {
 			return gen.import_stmt(node)

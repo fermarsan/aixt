@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-int adc_read(int channel) {
+int adc__read(int channel) {
     system(CLEAR_SCREEN);
     printf(" Aixt virtual ADC input     ADC %ld : ", channel);
     scanf("%ld", &adc__value);

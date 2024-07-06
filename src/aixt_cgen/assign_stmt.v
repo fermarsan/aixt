@@ -14,19 +14,24 @@ import v.ast
 // - cumulative-assignments `+=`, `-=`, etc. 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	// println('############# ${node} #############')	
+	for name, fnx in gen.table.fns {
+		println('${fnx.mod}\t${name}\t${fnx.return_type}\t')
+	}
 	mut out := []string{}
 	mut c_line := ''
-	mut var_kind := ''
+	// for typ in node.left_types {
+	// 	println(',,,,,,,,,,,left: ${typ},,,,,,,,,,,')
+	// }	
+	// for typ in node.right_types {
+	// 	println(',,,,,,,,,,,right: ${typ},,,,,,,,,,,')
+	// }
 	for i in 0 .. node.left.len {
-		var_kind = if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
-		println(',,,,,,,,,,,${var_kind},,,,,,,,,,,')
-		// println(',,,,,,,,,,,${node.left_types[i]},,,,,,,,,,,')
-
+		var_kind := if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
 		if node.op.str() == ':=' { // declaration-assignment
 			match var_kind {
 				'array' {
-					var_kind = gen.table.type_kind((node.right[i] as ast.ArrayInit).elem_type).str()
-					c_line += '${gen.setup.value(var_kind).string()} ' // array's element type
+					var_type := gen.table.type_kind((node.right[i] as ast.ArrayInit).elem_type).str()
+					c_line += '${gen.setup.value(var_type).string()} ' // array's element type
 					c_line += '${gen.ast_node(node.left[i]).join('')}['
 					array_len := (node.right[i] as ast.ArrayInit).exprs.len
 					if  array_len != 0 {
@@ -96,8 +101,52 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	return out
 }
 
+// fn (mut gen Gen) declare_assign(node ast.AssignStmt) []string {
+// 	mut out := []string{}
+// 	mut c_line := ''
+// 	for i in 0 .. node.right.len {
+// 		expr_type := node.right[i].get_pure_type()
+// 		gen.table.type_kind(node.right_types[i]).str()
+// 		// var_kind := if node.left_types.len != 0 { gen.table.type_kind(node.right_types[i]).str() } else { '' }
 
-// fn (mut gen Gen) get_type(node ast.Stmt) string {
+// 		match  {
+// 			ast.ArrayInit {
+// 				var_type := gen.table.type_kind((node.right[i] as ast.ArrayInit).elem_type).str()
+// 				c_line += '${gen.setup.value(var_type).string()} ' // array's element type
+// 				c_line += '${gen.ast_node(node.left[i]).join('')}['
+// 				array_len := (node.right[i] as ast.ArrayInit).exprs.len
+// 				if  array_len != 0 {
+// 					c_line += '${array_len}] = ${gen.ast_node(node.right[i]).join('')};'
+// 				} else if gen.setup.value('fixed_size_arrays').bool() {
+// 					c_line += '${gen.setup.value('array_default_len').int()}];'	// port with fixed-size arrays
+// 				} else {
+// 					c_line += '];'	// port with dynamic-size arrays
+// 				}
+// 			}
+// 			'string' {
+// 				len := gen.setup.value('string_default_len').int()
+// 				out << 'char ${gen.ast_node(node.left[i]).join('')}[${len}] = "";'
+// 				gen.add_include('string.h')
+// 				c_line +='strcpy(${gen.ast_node(node.left[i]).join('')}, ${gen.ast_node(node.right[i]).join('')});'
+// 			}
+// 			'enum' {
+// 				c_line += 'enum ${(node.right[i] as ast.EnumVal).enum_name.replace('.', '__')} '
+// 				c_line += '${gen.ast_node(node.left[i]).join('')} = '
+// 				c_line += '${gen.ast_node(node.right[i]).join('')};'
+// 			}
+// 			else {
+// 				c_line += '${gen.setup.value(var_kind).string()} ${gen.ast_node(node.left[i]).join('')} = '
+// 				c_line += if node.right[i].type_name() == 'v.ast.CastExpr' {
+// 					'${gen.ast_node((node.right[i] as ast.CastExpr).expr).join('')};'
+// 				} else {
+// 					'${gen.ast_node(node.right[i]).join('')};'
+// 				}
+// 			}
+// 		}
+
+// }
+
+// fn (mut gen Gen) get_type(node ast.Expr) ast.Type {
 // 	return match node {
 // 		ast.Ident {
 

@@ -43,7 +43,6 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.init_output_file()
 
 	// println('++++++++++++++++\npath: ${gen.setup.value('path').string()}\n++++++++++++++++')
-	// gen.add_sources('${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api') //auto-inludes API
 	gen.source_paths << '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api/builtin.c.v'
 	gen.add_sources(source_path)
 
@@ -52,21 +51,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 		println('\t${source}')
 	}
 
-	// gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
-	
-	// $if windows {
-	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
-	// } $else {
-	// 	gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
-	// }
-
-
-	// for name, fnx in gen.table.fns {
-	// 	println('${fnx.mod}\t${name}\t${fnx.return_type}\t')
-	// }
-
-	mut checker_ := checker.new_checker(gen.table, gen.pref)
-	checker_.check_files(gen.files)
+	gen.parse_check_files()		// parse and check all the source files
 
 	// solve issue in Windows
 	if gen.files.len > gen.source_paths.len {
@@ -83,13 +68,23 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.err_war_check()
 	gen.err_war_print()
 
-	for name, fnx in gen.table.fns {
-		println('${fnx.mod}\t${name}\t${fnx.return_type}\t')
-	}
+	// for name, fnx in gen.table.fns {
+	// 	println('-----function: ${name}\t${fnx.mod}\t${fnx.return_type}')
+	// }
+	// for imp in gen.table.imports {
+	// 	println('-----import: ${imp}')
+	// }
+	// for mod in gen.table.modules {
+	// 	println('-----module: ${mod}')
+	// }
+	// for name, idx in gen.table.type_idxs {
+	// 	println('${idx}\t${name}')
+	// }
 	// println(gen.table.used_fns)
 
 	mut e_count := 0
 	for i, file in gen.files {
+		// println('-----file: ${file.path}\t${file.mod}')
 		e_count += if i != 0 { file.errors.len } else { 0 }
 	}
 	if e_count != 0 {	// clear out stream if any error exist
@@ -98,4 +93,10 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	
 	gen.out_replacements()
 	return gen.out.join('\n')
+}
+
+pub fn (mut gen Gen) parse_check_files() {
+	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
+	mut checker_ := checker.new_checker(gen.table, gen.pref)
+	checker_.check_files(gen.files)
 }

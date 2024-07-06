@@ -8,8 +8,9 @@ import v.ast
 
 // call_expr is the code generation function for function calling expressions.
 fn (mut gen Gen) call_expr(node ast.CallExpr) []string {
-	// println("+++++++++++++++\n${node.name}\n+++++++++++++++")
 	// println("+++++++++++++++\n${node.mod}\n+++++++++++++++")
+	// println("+++++++++++++++\n${node.name}\n+++++++++++++++")
+	// println("+++++++++++++++\n${node.return_type}\n+++++++++++++++")
 	// println("+++++++++++++++\n${node.mod.all_after_last('.')}\n+++++++++++++++")
 	fn_name := if node.name.contains('.') {
 		node.name.replace('.', '__')
