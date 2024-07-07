@@ -8,8 +8,6 @@ module aixt_cgen
 
 import v.ast
 import v.pref
-import v.parser
-import v.checker
 import toml
 
 // Gen is the struct that defines all the necessary data for the code generation
@@ -59,7 +57,8 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	}
 
 	println('\n===== Top-down node analysis =====')
-	for i, file in gen.files {	// source folder
+	temp_files := gen.files
+	for i, file in temp_files {	// source folder
 		gen.file_count = i
 		gen.out << gen.ast_node(file) // starts from the main node (file)
 	}
@@ -95,8 +94,3 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	return gen.out.join('\n')
 }
 
-pub fn (mut gen Gen) parse_check_files() {
-	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
-	mut checker_ := checker.new_checker(gen.table, gen.pref)
-	checker_.check_files(gen.files)
-}

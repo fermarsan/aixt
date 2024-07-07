@@ -14,9 +14,9 @@ import v.ast
 // - cumulative-assignments `+=`, `-=`, etc. 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	// println('############# ${node} #############')	
-	for name, fnx in gen.table.fns {
-		println('${fnx.mod}\t${name}\t${fnx.return_type}\t')
-	}
+	// for name, fnx in gen.table.fns {
+	// 	println('${fnx.mod}\t${name}\t${fnx.return_type}\t')
+	// }
 	mut out := []string{}
 	mut c_line := ''
 	// for typ in node.left_types {

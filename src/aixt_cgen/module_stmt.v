@@ -8,5 +8,5 @@ import v.ast
 
 // module_stmt is the code generation function for modules definition.
 fn (mut gen Gen) module_stmt(node ast.Module) []string {
-	return ['// ${node.name} module']
+	return []	// ['// ${node.name} module']
 }

@@ -18,25 +18,24 @@ fn (mut gen Gen) import_stmt(node ast.Import) []string {
 
 		if module_short_name in api_modules {	// API modules
 			// if module_short_name !in gen.table.imports {	// avoid repeats importing
-				module_path := '${gen.transpiler_path}/ports/${port_path}/api/${module_short_name}'	
-				gen.parse_cgen_file('${module_path}/${module_short_name}.c.v')	// parse `module_name.c.v` first
-				// gen.init_cmds += '${module_short_name}__init();\n'	// call the module initialization function
-				if node.syms.len == 0 {	// if import all the module
-					file_paths := os.ls('${module_path}') or { [] }
-					// println('############# ${file_paths} #############')
-					for file_path in file_paths {
-						if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
-							if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v`
-								gen.parse_cgen_file(os.abs_path('${module_path}/${file_path}'))
-							}
-						}
-					}
-				} else {	// if import specific module components
-					for s in node.syms {
-						gen.parse_cgen_file(os.abs_path('${module_path}/${s.name}.c.v'))
+			module_path := '${gen.transpiler_path}/ports/${port_path}/api/${module_short_name}'	
+			gen.parse_module_file('${module_path}/${module_short_name}.c.v')	// parse `module_name.c.v` first
+			// gen.init_cmds += '${module_short_name}__init();\n'	// call the module initialization function
+			if node.syms.len == 0 {	// if import all the module
+				file_paths := os.ls('${module_path}') or { [] }
+				println('############# ${file_paths} #############')
+				for file_path in file_paths {
+					if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
+						if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v`
+							gen.parse_module_file(os.abs_path('${module_path}/${file_path}'))
+						}			
 					}
 				}
-				
+			} else {	// if import specific module components
+				for s in node.syms {
+					gen.parse_module_file(os.abs_path('${module_path}/${s.name}.c.v'))
+				}
+			}
 			// }
 		} else {	// Custom modules
 			module_path := '${node.mod.replace('.', '/')}'
@@ -46,12 +45,12 @@ fn (mut gen Gen) import_stmt(node ast.Import) []string {
 				// println(file_paths)
 				for file_path in file_paths {
 					if file_path.ends_with('.v') { // || file_path.ends_with('.aixt') {
-						gen.parse_cgen_file(os.abs_path('${module_path}/${file_path}'))
+						gen.parse_module_file(os.abs_path('${module_path}/${file_path}'))
 					}
 				}
 			} else {
 				for s in node.syms {
-					gen.parse_cgen_file(os.abs_path('${module_path}/${s.name}.v'))
+					gen.parse_module_file(os.abs_path('${module_path}/${s.name}.v'))
 				}
 			}
 		}
