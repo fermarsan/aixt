@@ -13,6 +13,14 @@ module uart
 
 #define uart__println_1(MESSAGE)	Serial1.println(MESSAGE)
 
+#define uart__println_2(MESSAGE)	Serial2.println(MESSAGE)
+
+#define uart__println_3(MESSAGE)	Serial3.println(MESSAGE)
+
+#define uart__println_4(MESSAGE)	Serial4.println(MESSAGE)
+
+#define uart__println_5(MESSAGE)	Serial5.println(MESSAGE)
+
 #define uart__println_x(UART_NUMBER, MESSAGE)		uart__println_ ## UART_NUMBER (MESSAGE) 			
 
 // macro with 1 or 2 arguments

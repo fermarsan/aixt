@@ -4,13 +4,13 @@ import uart
 
 
 
-  uart.setup_0(9600)
+  uart.setup(0, 9600)
   pin.setup(pin1, pin.output)
   pin.setup(pin2, pin.output)
 
 for {
- 	uart.println_0("\r\n Comunicacion UART tarjeta W801-PC:")
-	uart.println_0("\r\n Oprimiendo la letra Q, activa la salida  del pin1.")
+ 	uart.println(0, '\r\n Comunicacion UART tarjeta W801-PC:')
+	uart.println(0, '\r\n Oprimiendo la letra Q, activa la salida  del pin1.')
 
 pin.high(pin2)
   sleep_ms(250)
@@ -22,10 +22,10 @@ pin.high(pin2)
 
   if (uart.available() > 0) {
     command := ` `
-    command = uart.read_0()
+    command = uart.read(0)
 
-     {  
-       if  command == 'Q' {
+       
+       if  command == `Q` {
          pin.high(pin1)
          time.sleep_ms(2000)
          pin.low(pin1)
@@ -37,6 +37,6 @@ pin.high(pin2)
           pin.low(pin2)
           time.sleep_ms(500)
         }
-    }
+    
   }
 }
