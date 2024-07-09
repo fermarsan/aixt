@@ -8,3 +8,5 @@ The following table summarizes the number of test cases for each test type.
 | -------------          | :-------------:      |
 | **Smoke Testing**      | 6                    |
 | **Functional Testing** | 4                    |
+
+Smoke test cases should be passed before to run the functional test cases.

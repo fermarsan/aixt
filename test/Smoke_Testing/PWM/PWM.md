@@ -9,9 +9,11 @@ In the next table you would be able to find listed the Smoke test senarios that 
 
 
 -   ExampleCode1
-```
- while(1){   
-        adc := adc_read(3)  // Stores the ADC value
-        pwm_write(adc)  // Calculates the duty cycle and sets it in the PWM module CCP1.       
-    }
+```v
+while
+true
+{
+	adc := adc_read(3) // Stores the ADC value
+	pwm_write(adc) // Calculates the duty cycle and sets it in the PWM module CCP1.
+}
 ```

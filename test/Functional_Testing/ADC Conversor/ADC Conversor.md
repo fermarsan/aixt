@@ -8,29 +8,26 @@ In the next table you would be able to find listed the Functional test senarios 
   
 -   ExampleCode1
 
-```
-unsigned int adc_result;  // Variable declaration to store the ADC value    
-for {      
-    adc_result = adc.read(0); // Stores the ADC value
-    if ( adc_result >= 1020 ){
-        pin.high(c0);
-        pin.high(c1);
-        pin.high(c2);          
-    }
-    else if ( adc_result >= 820 ){     
-        pin.high(c0);
-        pin.high(c1);
-        pin.low(c2);
-    }   
-    else if ( adc_result >= 620 ){     
-        pin.high(c0);
-        pin.low(c1);
-        pin.low(c2);  
-    }       
-    else {       
-        pin.low(c0);
-        pin.low(c1);
-        pin.low(c2);     
-    }
+```v
+mut adc_result := 0				// Variable declaration to store the ADC value
+for {
+	adc_result = adc.read(0) 	// Stores the ADC value
+	if (adc_result >= 1020) {
+		pin.high(c0)
+		pin.high(c1)
+		pin.high(c2)
+	} else if (adc_result >= 820) {
+		pin.high(c0)
+		pin.high(c1)
+		pin.low(c2)
+	} else if (adc_result >= 620) {
+		pin.high(c0)
+		pin.low(c1)
+		pin.low(c2)
+	} else {
+		pin.low(c0)
+		pin.low(c1)
+		pin.low(c2)
+	}
 }
 ```

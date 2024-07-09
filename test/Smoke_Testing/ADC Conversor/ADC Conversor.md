@@ -9,18 +9,20 @@ In the next table you would be able to find listed the Smoke test senarios that 
 
 
 -   ExampleCode1
-```
-    adc.setup()                   // CONFIGURE PORT B AS OUTPUT
-    port.setup(b, port.output)    // CONFIGURE PORT C AS OUTPUT
-    port.setup(c, port.output)    // CLEAN PORT B
-    port.write(b, 0x00)    // CLEAN THE PORT C
-    port.write(c, 0x00) 
-    for
-    {
-        adc.read(0)
-        valor := adc.reading()
-        port.write(b, valor & 0xFF)                   // Shows the lower part data on port B
-        port.write(c, (valor>>8) & 0x03 )            // Shows the high part data on port C
-        time.sleep_ms(10)
-    }
+```v
+import time
+
+adc.setup()					// CONFIGURE PORT B AS OUTPUT
+port.setup(b, port.output)	// CONFIGURE PORT C AS OUTPUT
+port.setup(c, port.output)	// CLEAN PORT B
+port.write(b, 0x00)			// CLEAN THE PORT C
+port.write(c, 0x00)
+
+for {
+	adc.read(0)
+	value := adc.reading()
+	port.write(b, value & 0xFF) 		// Shows the lower part data on port B
+	port.write(c, (value >> 8) & 0x03) 	// Shows the high part data on port C
+	time.sleep_ms(10)
+}
 ```
