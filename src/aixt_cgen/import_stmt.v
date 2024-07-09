@@ -23,7 +23,7 @@ fn (mut gen Gen) import_stmt(node ast.Import) []string {
 			// gen.init_cmds += '${module_short_name}__init();\n'	// call the module initialization function
 			if node.syms.len == 0 {	// if import all the module
 				file_paths := os.ls('${module_path}') or { [] }
-				println('############# ${file_paths} #############')
+				// println('############# ${file_paths} #############')
 				for file_path in file_paths {
 					if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
 						if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v`

@@ -19,14 +19,15 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	// }
 	mut out := []string{}
 	mut c_line := ''
-	// for typ in node.left_types {
-	// 	println(',,,,,,,,,,,left: ${typ},,,,,,,,,,,')
-	// }	
-	// for typ in node.right_types {
-	// 	println(',,,,,,,,,,,right: ${typ},,,,,,,,,,,')
-	// }
+	for typ in node.left {
+		println(',,,,,,,,,,,left: ${typ},,,,,,,,,,,')
+	}	
+	for typ in node.right {
+		println(',,,,,,,,,,,right: ${typ},,,,,,,,,,,')
+	}
 	for i in 0 .. node.left.len {
 		var_kind := if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
+			// println(',,,,,,,,,,,var_kind: ${node.left_types[i]} ${node.right_types[i]},,,,,,,,,,,')
 		if node.op.str() == ':=' { // declaration-assignment
 			match var_kind {
 				'array' {
