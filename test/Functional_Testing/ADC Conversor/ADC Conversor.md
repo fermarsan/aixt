@@ -1,6 +1,6 @@
-# Functional Testing for ADC module
+# Functional Testing for ADC Module
 
-In the next table you would be able to find listed the Functional test senarios that you can follow in order to get the Functional Testing Certification for the ADC module.
+The table below lists the Functional test scenarios for the ADC module. Follow these to complete the Functional Testing Certification for this module.
 
 | ID            | Name                                  | Scenario 					    				| Objectives    																							    																	     | Description 																																																                                                                   												| Gherkin Steps 																																																                         | Steps    																																																																																																																																																																																																																																																																																																																		| Expected results 																																																												  | Code Example |
 | ------------- | :------:                              | :------: 							     		| :------:   																																										     | :------: 				   																																													       																										| :------:      																																																                         | :------: 																																																																																																																																																																																																																																																																																																																		| :------: 	   																																																													  | :------:     |
@@ -9,9 +9,13 @@ In the next table you would be able to find listed the Functional test senarios 
 -   ExampleCode1
 
 ```v
-mut adc_result := 0				// Variable declaration to store the ADC value
+import pin
+import adc
+
+adc.setup()
+
 for {
-	adc_result = adc.read(0) 	// Stores the ADC value
+	adc_result := adc.read(0) 	// Stores the ADC value
 	if (adc_result >= 1020) {
 		pin.high(c0)
 		pin.high(c1)
