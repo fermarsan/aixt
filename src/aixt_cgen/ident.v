@@ -10,7 +10,7 @@ import v.ast
 fn (mut gen Gen) ident(node ast.Ident) []string {
 	// println('\n${node.mod} #### ${gen.table.cur_fn.name} #### ${node.name}\n') //  -- ${node.scope.parent}')
 	// println('################## ${node.scope.parent} ##################')
-	println('################## ${node} ##################')
+	// println('################## ${node} ##################')
 	return if node.name.contains('.') {
 		['${node.name.replace('.', '__')}']	
 	} else {

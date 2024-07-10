@@ -30,6 +30,7 @@ pub mut:
 	cur_fn			string
 	file_count		int
 	level_count		int
+	code_gen		bool
 // pub mut:
 	pref  			&pref.Preferences = unsafe { nil }
 	setup 			toml.Doc
@@ -38,27 +39,32 @@ pub mut:
 // gen is the main function of the code generation.
 // It receives the source path (file or folder), and return a string with the generated code.
 pub fn (mut gen Gen) gen(source_path string) string {
+	// gen.init_output_file()
+
+	// // println('++++++++++++++++\npath: ${gen.setup.value('path').string()}\n++++++++++++++++')
+	// gen.source_paths << '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api/builtin.c.v'
+	// gen.add_sources(source_path)
+
+	// println('main source files:')	//  print source files
+	// for source in gen.source_paths {
+	// 	println('\t${source}')
+	// }
+
+	println('~'.repeat(50))
+	gen.find_all_source_files(source_path)
+	println('~'.repeat(50))
+
+	gen.parse_and_check_files()		// parse and check all the source files
+
 	gen.init_output_file()
 
-	// println('++++++++++++++++\npath: ${gen.setup.value('path').string()}\n++++++++++++++++')
-	gen.source_paths << '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api/builtin.c.v'
-	gen.add_sources(source_path)
-
-	println('main source files:')	//  print source files
-	for source in gen.source_paths {
-		println('\t${source}')
-	}
-
-	gen.parse_check_files()		// parse and check all the source files
-
 	// solve issue in Windows
-	if gen.files.len > gen.source_paths.len {
-		gen.files.pop()
-	}
+	// if gen.files.len > gen.source_paths.len {
+	// 	gen.files.pop()
+	// }
 
-	println('\n===== Top-down node analysis =====')
-	temp_files := gen.files
-	for i, file in temp_files {	// source folder
+	println('\n===== Top-down node analysis (Code generation) =====')
+	for i, file in gen.files {	// source folder
 		gen.file_count = i
 		gen.out << gen.ast_node(file) // starts from the main node (file)
 	}
@@ -94,30 +100,22 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	return gen.out.join('\n')
 }
 
-// pub fn (mut gen Gen) find_all_source_files(source_path string) string {
-// 	// main module builtin source file
-// 	gen.source_paths << '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api/builtin.c.v'
-// 	// main source folder
-// 	gen.add_sources(source_path)
+pub fn (mut gen Gen) find_all_source_files(source_path string) {
+	// main module builtin source file
+	port_path := gen.setup.value('path').string()
+	gen.source_paths << '${gen.transpiler_path}/ports/${port_path}/api/builtin.c.v'
 
-// 	println('main source files:')	//  print source files
-// 	for source in gen.source_paths {
-// 		println('\t${source}')
-// 	}
+	gen.add_sources(source_path)	// main source folder
+	gen.parse_and_check_files()
 
-// 	// gen.parse_check_files()		// parse and check all the source files
+	println('\n===== Top-down node analysis (Parsing) =====')
+	temp_files := gen.files
+	for file in temp_files {	// source folder
+		gen.ast_node(file)	// starts from the main node (file)
+	}
 
-// 	// // solve issue in Windows
-// 	// if gen.files.len > gen.source_paths.len {
-// 	// 	gen.files.pop()
-// 	// }
-
-// 	println('\n===== Top-down node analysis =====')
-// 	temp_files := gen.files
-// 	for i, file in temp_files {	// source folder
-// 		gen.file_count = i
-// 		gen.out << gen.ast_node(file) // starts from the main node (file)
-// 	}
-// }
-
-
+	println('main source files:')	//  print source files
+	for source in gen.source_paths {
+		println('\t${source}')
+	}
+}
