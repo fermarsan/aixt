@@ -7,7 +7,7 @@
 module aixt_cgen
 
 // import v.ast
-// import v.parser
+import v.parser
 // import v.checker
 // import v.pref
 
@@ -28,7 +28,7 @@ pub fn (mut gen Gen) parse_module_file(source_path string) []string {
 	// mut checker_ := checker.new_checker(gen.table, gen.pref)
 	// checker_.check(mut file)
 
-	gen.parse_and_check_files()		// parse and check all the source files
+	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
 
 	println('\n===== Top-down node analysis (module) =====')
 	gen.out << gen.ast_node(gen.files[gen.files.len-1]) // starts from the main node (file)
