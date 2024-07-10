@@ -9,18 +9,16 @@ In the next table you would be able to find listed the Functional test senarios 
 	  
 -   ExampleCode1
 
-```
+```v
 pin_setup(5, out)
-int util=0
+mut util := 0
 
 for {
-    pwm_write(5, util)
-    sleep_ms(250)
-    util=util+10
-    if (util==250){
-
-        util=0
-       
-    }
-    } 
+	pwm_write(5, util)
+	sleep_ms(250)
+	util = util + 10
+	if (util == 250) {
+		util = 0
+	}
+}
 ```
