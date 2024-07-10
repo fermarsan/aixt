@@ -43,5 +43,5 @@ pub fn (mut gen Gen) parse_module_file(source_path string) []string {
 	// }
 	
 	// gen.out_format()
-	return gen.out if gen.code_gen else []
+	return gen.out
 }

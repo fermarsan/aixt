@@ -31,10 +31,10 @@ Tasks to do in Aixt
 - [ ] Change all API constants
 - [ ] Allow by default mutable variables
 - [ ] Change preprocessor commands and C including code
-- [ ] Split parse and code generation in two rounds
 
 ### Done ✓
 
+- [x] Split parse and code generation in two rounds
 - [x] Issue: out from single string to string array. Needs to change all files
 - [x] Issue: for-in on const array
 - [x] Interrupt request functions

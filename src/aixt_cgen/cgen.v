@@ -61,6 +61,10 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check_files(gen.files)
 
+	gen.c_preproc_cmds = []string{}		
+	gen.definitions = []string{}	
+	gen.init_cmds =	[]string{}	
+
 	gen.init_output_file()
 
 	// solve issue in Windows
