@@ -31,7 +31,7 @@ Tasks to do in Aixt
 - [ ] Change all API constants
 - [ ] Allow by default mutable variables
 - [ ] Change preprocessor commands and C including code
-
+- [ ] Split parse and code generation in two rounds
 
 ### Done ✓
 

@@ -94,3 +94,30 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	return gen.out.join('\n')
 }
 
+// pub fn (mut gen Gen) find_all_source_files(source_path string) string {
+// 	// main module builtin source file
+// 	gen.source_paths << '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api/builtin.c.v'
+// 	// main source folder
+// 	gen.add_sources(source_path)
+
+// 	println('main source files:')	//  print source files
+// 	for source in gen.source_paths {
+// 		println('\t${source}')
+// 	}
+
+// 	// gen.parse_check_files()		// parse and check all the source files
+
+// 	// // solve issue in Windows
+// 	// if gen.files.len > gen.source_paths.len {
+// 	// 	gen.files.pop()
+// 	// }
+
+// 	println('\n===== Top-down node analysis =====')
+// 	temp_files := gen.files
+// 	for i, file in temp_files {	// source folder
+// 		gen.file_count = i
+// 		gen.out << gen.ast_node(file) // starts from the main node (file)
+// 	}
+// }
+
+

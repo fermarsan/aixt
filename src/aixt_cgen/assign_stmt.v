@@ -25,7 +25,8 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	for typ in node.right {
 		println(',,,,,,,,,,,right: ${typ},,,,,,,,,,,')
 	}
-	for i in 0 .. node.left.len {
+	for i in 0 .. node.right.len {
+		// right_type := node.right[i]
 		var_kind := if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
 			// println(',,,,,,,,,,,var_kind: ${node.left_types[i]} ${node.right_types[i]},,,,,,,,,,,')
 		if node.op.str() == ':=' { // declaration-assignment
