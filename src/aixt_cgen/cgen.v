@@ -52,9 +52,8 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// 	println('\t${source}')
 	// }
 
-	println('~'.repeat(50))
+	
 	gen.find_all_source_files(source_path)
-	println('~'.repeat(50))
 
 	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
 
@@ -109,26 +108,4 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	
 	gen.out_replacements()
 	return gen.out.join('\n')
-}
-
-pub fn (mut gen Gen) find_all_source_files(source_path string) {
-	// main module builtin source file
-	port_path := gen.setup.value('path').string()
-	gen.source_paths << '${gen.transpiler_path}/ports/${port_path}/api/builtin.c.v'
-
-	gen.add_sources(source_path)	// main source folder
-
-	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
-
-	println('\n===== Top-down node analysis (Parsing) =====')
-	gen.code_gen = false
-	temp_files := gen.files
-	for file in temp_files {	// source folder
-		gen.ast_node(file)	// starts from the main node (file)
-	}
-
-	println('main source files:')	//  print source files
-	for source in gen.source_paths {
-		println('\t${source}')
-	}
 }
