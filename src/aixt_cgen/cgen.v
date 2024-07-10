@@ -64,7 +64,9 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// }
 
 	println('\n===== Top-down node analysis (Code generation) =====')
-	for i, file in gen.files {	// source folder
+	gen.code_gen = true
+	temp_files := gen.files
+	for file in temp_files {	// source folder
 		gen.file_count = i
 		gen.out << gen.ast_node(file) // starts from the main node (file)
 	}
@@ -109,6 +111,7 @@ pub fn (mut gen Gen) find_all_source_files(source_path string) {
 	gen.parse_and_check_files()
 
 	println('\n===== Top-down node analysis (Parsing) =====')
+	gen.code_gen = false
 	temp_files := gen.files
 	for file in temp_files {	// source folder
 		gen.ast_node(file)	// starts from the main node (file)
