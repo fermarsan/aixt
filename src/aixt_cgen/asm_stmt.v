@@ -12,5 +12,5 @@ fn (mut gen Gen) asm_stmt(node ast.AsmStmt) []string {
 	// println("+++++++++++++++\n${node.clobbered}\n+++++++++++++++")
 	// println("+++++++++++++++\n${node.templates}\n+++++++++++++++")
 	c_line += '}'
-	return [c_line] if gen.code_gen else []
+	return [c_line]
 }

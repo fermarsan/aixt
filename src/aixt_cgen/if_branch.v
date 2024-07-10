@@ -12,5 +12,5 @@ fn (mut gen Gen) if_branch(node ast.IfBranch) []string { // statements block of 
 	for st in node.stmts {
 		out << gen.ast_node(st)
 	}
-	return out if gen.code_gen else []
+	return out
 }

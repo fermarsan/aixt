@@ -8,5 +8,5 @@ import v.ast
 
 // postfix_expr is the code generation function for postfix expressions.
 fn (mut gen Gen) postfix_expr(node ast.PostfixExpr) []string {
-	return ['${gen.ast_node(node.expr).join('')}${node.op}'] if gen.code_gen else []
+	return ['${gen.ast_node(node.expr).join('')}${node.op}']
 }

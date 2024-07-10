@@ -33,5 +33,5 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) []string {
 		}
 		c_line = c_line#[..-2]
 	}
-	return [c_line + ')'] if gen.code_gen else []
+	return [c_line + ')']
 }

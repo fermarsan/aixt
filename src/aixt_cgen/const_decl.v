@@ -12,5 +12,5 @@ fn (mut gen Gen) const_decl(node ast.ConstDecl) []string {
 	for f in node.fields {
 		out << gen.ast_node(f)
 	}
-	return out if gen.code_gen else []
+	return out
 }

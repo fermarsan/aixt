@@ -84,5 +84,5 @@ fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
 	gen.to_insert_lines << c_line
 	c_line = '___TO_INSERT_${gen.to_insert_lines.len - 1}___'
 	
-	return [c_line + '__temp_str'] if gen.code_gen else []
+	return [c_line + '__temp_str']
 }

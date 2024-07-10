@@ -100,7 +100,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 		}
 	} 
 	out << c_line
-	return out if gen.code_gen else []
+	return out
 }
 
 // fn (mut gen Gen) declare_assign(node ast.AssignStmt) []string {

@@ -22,5 +22,5 @@ fn (mut gen Gen) kind_and_type(object ast.ScopeObject) string {
 			'Asm Reg -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.`)}'
 		}
 	}
-	return msg if gen.code_gen else [] //.replace('&', '')
+	return msg	//.replace('&', '')
 }

@@ -11,5 +11,5 @@ import v.ast
 // a = 2.28718 
 // ```
 fn (mut gen Gen) float_literal(node ast.FloatLiteral) []string {
-	return [node.val] if gen.code_gen else []
+	return [node.val]
 }

@@ -30,5 +30,5 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" e
 			}
 		}
 	}
-	return out if gen.code_gen else []
+	return out
 }

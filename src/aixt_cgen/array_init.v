@@ -17,5 +17,5 @@ fn (mut gen Gen) array_init(node ast.ArrayInit) []string {
 		c_line = c_line#[..-2] + '}'
 	}
 	// println("+++++++++++++++\n${c_line}\n+++++++++++++++")
-	return [c_line] if gen.code_gen else []
+	return [c_line]
 }

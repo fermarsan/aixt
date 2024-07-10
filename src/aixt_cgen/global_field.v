@@ -43,5 +43,5 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 			}
 		}
 	}
-	return [c_line] if gen.code_gen else []
+	return [c_line]
 }
