@@ -9,5 +9,5 @@ import v.ast
 // index_expr is the code generation function for 'index' expressions (array indexation).
 fn (mut gen Gen) index_expr(node ast.IndexExpr) []string {
 	// Be careful, multiple indexing missing
-	return ['${gen.ast_node(node.left).join('')}[${gen.ast_node(node.index).join('')}]']
+	return ['${gen.ast_node(node.left).join('')}[${gen.ast_node(node.index).join('')}]'] if gen.code_gen else []
 }

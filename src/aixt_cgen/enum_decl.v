@@ -14,5 +14,5 @@ fn (mut gen Gen) enum_decl(node ast.EnumDecl) []string {
 		out << gen.ast_node(f)
 	}
 	out << '};'
-	return out
+	return out if gen.code_gen else []
 }

@@ -24,5 +24,5 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
 	} else {
 		panic('Hash statement #${node.val} not supported.')
 	}
-	return []
+	return [] if gen.code_gen else []
 }

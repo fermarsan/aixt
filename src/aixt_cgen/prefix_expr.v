@@ -8,5 +8,5 @@ import v.ast
 
 // prefix_expr is the code generation function for prefix expressions.
 fn (mut gen Gen) prefix_expr(node ast.PrefixExpr) []string {
-	return ['${node.op}${gen.ast_node(node.right).join('')}']
+	return ['${node.op}${gen.ast_node(node.right).join('')}'] if gen.code_gen else []
 }

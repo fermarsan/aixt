@@ -10,10 +10,10 @@ import v.ast
 fn (mut gen Gen) enum_field(node ast.EnumField) []string {
 	match node.expr {
 		ast.EmptyExpr {
-			return ['${node.name},']
+			return ['${node.name},'] if gen.code_gen else []
 		} 
 		else {
-			return ['${node.name} = ${gen.ast_node(node.expr).join('')},']  // '${node.name} = ${node.expr},\n'
+			return ['${node.name} = ${gen.ast_node(node.expr).join('')},']  if gen.code_gen else [] // '${node.name} = ${node.expr},\n'
 		}
 	}
 }

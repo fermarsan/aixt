@@ -11,5 +11,5 @@ import v.ast
 // str := 'Aixt'
 // ```
 fn (mut gen Gen) string_literal(node ast.StringLiteral) []string {
-	return ['"${node.val}"']
+	return ['"${node.val}"'] if gen.code_gen else []
 }

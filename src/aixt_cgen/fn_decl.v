@@ -127,5 +127,5 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 		}
 		// out = if out[0] == ` ` { out[1..] } else { out }
 	}
-	return out	
+	return out if gen.code_gen else []
 }

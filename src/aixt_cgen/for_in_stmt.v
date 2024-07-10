@@ -49,5 +49,5 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 	} 
 	gen.level_count--
 	out << '}'
-	return out
+	return out if gen.code_gen else []
 }

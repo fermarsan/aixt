@@ -11,5 +11,5 @@ import v.ast
 // a := true
 // ```
 fn (mut gen Gen) bool_literal(node ast.BoolLiteral) []string {
-	return [node.val.str()]
+	return [node.val.str()] if gen.code_gen else []
 }

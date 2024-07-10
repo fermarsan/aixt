@@ -19,12 +19,12 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	// }
 	mut out := []string{}
 	mut c_line := ''
-	for typ in node.left {
-		println(',,,,,,,,,,,left: ${typ},,,,,,,,,,,')
-	}	
-	for typ in node.right {
-		println(',,,,,,,,,,,right: ${typ},,,,,,,,,,,')
-	}
+	// for typ in node.left {
+	// 	println(',,,,,,,,,,,left: ${typ},,,,,,,,,,,')
+	// }	
+	// for typ in node.right {
+	// 	println(',,,,,,,,,,,right: ${typ},,,,,,,,,,,')
+	// }
 	for i in 0 .. node.right.len {
 		// right_type := node.right[i]
 		var_kind := if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
@@ -100,7 +100,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 		}
 	} 
 	out << c_line
-	return out
+	return out if gen.code_gen else []
 }
 
 // fn (mut gen Gen) declare_assign(node ast.AssignStmt) []string {

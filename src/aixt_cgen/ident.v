@@ -12,9 +12,9 @@ fn (mut gen Gen) ident(node ast.Ident) []string {
 	// println('################## ${node.scope.parent} ##################')
 	// println('################## ${node} ##################')
 	return if node.name.contains('.') {
-		['${node.name.replace('.', '__')}']	
+		['${node.name.replace('.', '__')}'] if gen.code_gen else []	
 	} else {
-		['${node.name}']	//['${node.mod}__${node.name}']
+		['${node.name}'] if gen.code_gen else []	//['${node.mod}__${node.name}']
 	}
 	// return if node.mod == 'main' {
 	// 	['${node.name}']	

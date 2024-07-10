@@ -14,5 +14,5 @@ fn (mut gen Gen) for_stmt(node ast.ForStmt) []string {
 		out << gen.ast_node(st)
 	}
 	out << '}'
-	return out
+	return out if gen.code_gen else []
 }

@@ -17,5 +17,5 @@ fn (mut gen Gen) for_c_stmt(node ast.ForCStmt) []string {
 	}
 	// println('${out}')
 	out << '}'
-	return out
+	return out if gen.code_gen else []
 }
