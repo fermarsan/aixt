@@ -27,13 +27,13 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
-- [ ] Format output file
 - [ ] Change all API constants
-- [ ] Allow by default mutable variables
-- [ ] Change preprocessor commands and C including code
 
 ### Done ✓
 
+- [x] Format output file
+- [x] Allow by default mutable variables
+- [x] Change preprocessor commands and C including code
 - [x] Split parse and code generation in two rounds
 - [x] Issue: out from single string to string array. Needs to change all files
 - [x] Issue: for-in on const array
