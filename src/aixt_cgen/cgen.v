@@ -107,5 +107,5 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	}
 	
 	gen.out_replacements()
-	return gen.out.join('\n')
+	return gen.out_join_and_format()
 }
