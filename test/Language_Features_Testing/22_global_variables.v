@@ -9,7 +9,7 @@ __global (
 	str1 = 'name'
 )
 
-a := 1
+mut a := 1
 x = 9
 y = 5
 

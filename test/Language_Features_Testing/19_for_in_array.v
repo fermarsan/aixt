@@ -1,7 +1,7 @@
 // "for" through array elements
 
-arr := [2, 4, 9, 7]
+mut arr := [2, 4, 9, 7]
 
-for a in arr {
+for mut a in arr {
 	a++
 }

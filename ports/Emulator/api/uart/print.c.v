@@ -4,4 +4,7 @@
 // License: MIT
 module uart
 
-#define uart__print(MESSAGE)		printf("\033[1;32m");	printf("%s", MESSAGE)	// in green
+pub fn print(msg string) {
+	C.printf('\033[1;32m')	// green
+    C.printf('%s', msg)
+}

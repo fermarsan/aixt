@@ -1,4 +1,6 @@
+import uart
+
 for i in 0..5 {
-	println('Hello')
+	uart.println('Hello')
 	sleep(1)
 }

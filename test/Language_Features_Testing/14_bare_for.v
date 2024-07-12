@@ -1,6 +1,6 @@
 // infinite loop using a bare "for"
 
-x := 0
+mut x := 0
 
 for {
 	x++

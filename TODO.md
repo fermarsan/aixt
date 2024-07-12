@@ -28,6 +28,19 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
+- [ ] "19_for_in_array.v" fails
+- [ ] "21_constants.v" fails
+- [ ] "23_attributes.v" fails
+- [ ] "26_strings.v" fails
+- [ ] "28_enum_declaration.v" fails
+- [ ] "29_types.v" fails
+- [ ] "30_println.v" fails
+- [ ] "31_globals_and_constants.v" fails 
+- [ ] "33_series_for_array.v" fails
+- [ ] "34_nested_for_array.v" fails
+- [ ] "36_println.v" fails
+- [ ] "39_string_interp.v" fails
+- [ ] "40_inline_asm.v" inline asm implementation
 
 ### Done ✓
 

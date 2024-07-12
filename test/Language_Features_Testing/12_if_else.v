@@ -1,7 +1,7 @@
 // "if" and "if-else" statements 
 
-a, b := 10, 1 
-l := true
+mut a, mut b := 10, 1 
+mut l := true
 
 if a <= b {
     l = true

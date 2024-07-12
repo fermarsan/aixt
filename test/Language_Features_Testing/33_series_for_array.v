@@ -1,10 +1,10 @@
-arr := [2, 4, 9, 7]
-arr2 := [9, 7, 2, 4, 7, 12]
+mut arr := [2, 4, 9, 7]
+mut arr2 := [9, 7, 2, 4, 7, 12]
 
-for a in arr {
+for mut a in arr {
 	a++
 }
 
-for b in arr2 {
+for mut b in arr2 {
 	b++
 }

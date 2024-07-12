@@ -1,10 +1,10 @@
 // array declaration and using
 
-a := [1,3,4,5,6]
+mut a := [1,3,4,5,6]
 
 a[0] = 2
 
-b := 3
+mut b := 3
 
 a[b] = 10
 

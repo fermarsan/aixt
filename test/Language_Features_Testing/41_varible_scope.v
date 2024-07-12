@@ -11,4 +11,4 @@ fn add(aaa int, bbb int) int {
 
 fn main() {
 	yyy := add(3,5)
-}6+
+}
