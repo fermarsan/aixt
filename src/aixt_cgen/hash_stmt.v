@@ -25,6 +25,8 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
 			// delete initial tabs	
 			mut re := regex.regex_opt('\n[ \t]+') or { panic(err) }
 			gen.definitions << re.replace(c_lines.join('\n'), '\n')
+			// add final new-line	
+			gen.definitions << '\n'
 		}
 	} else {
 		panic('Hash statement #${node.val} not supported.')
