@@ -17,4 +17,4 @@ const (
 	ce = 'message'
 )
 
-uart.println('ce')
+println('ce')

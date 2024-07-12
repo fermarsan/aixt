@@ -1,6 +1,7 @@
 import uart
+import time
 
 for i in 0..5 {
 	uart.println('Hello')
-	sleep(1)
+	time.sleep(1)
 }
