@@ -28,11 +28,11 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
-- [ ] Issue: duplicated function definition on output file (madule functions)
 - [ ] Issue: remove the module's name from the function parameters
 
 ### Done ✓
 
+- [x] Issue: duplicated function definition on output file (module functions)
 - [x] Format output file
 - [x] Allow by default mutable variables
 - [x] Change preprocessor commands and C including code
