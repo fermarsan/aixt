@@ -8,17 +8,31 @@ module pwm
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "pwm.c"
 
 __global (
-    duty__ = [0, 0]
+    pwm__duty = [0, 0]
 )
 
-#define pwm__ch0    0
-#define pwm__ch1    1
+pub fn print(duty int) {
+    for i in 1..51 {
+        if i <= duty/2 {
+            C.printf('|')
+        } else {
+            C.printf('_')
+        }
+    }
+    C.printf('\n')
+}
 
-pub fn C.print(duty int)
-
-pub fn C.update()
+pub fn update() {
+    C.system(clear_screen)
+    C.printf(' Aixt virtual PWM outputs\n')
+    C.printf('\t\t\t\t    PWM 0 :  %ld %%\n', pwm__duty[0])
+    pwm.print(pwm__duty[0])
+    C.printf('\t\t\t\t    PWM 1 :  %ld %%\n', pwm__duty[1])
+    pwm.print(pwm__duty[1])
+}
 
 fn init() {
     pwm.update()

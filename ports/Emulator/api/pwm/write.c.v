@@ -6,7 +6,7 @@
 // Description: This is a module to emulate a PWM output in console.
 module pwm
 
-fn write(channel int, duty int) {
-    duty__[channel] = duty
+pub fn write(channel int, duty int) {
+    pwm__duty[channel] = duty
     pwm.update()
 }
