@@ -9,7 +9,7 @@ module pin
 #include <stdio.h>
 #include <stdlib.h>
 #include "pin.c"
-#include "update.c"
+// #include "update.c"
 
 __global (
     pin__pins = [0, 0, 0, 0, 0, 0, 0, 0]   // virtual pin array
@@ -17,7 +17,29 @@ __global (
 )
 
 // pin_update prints the pins table in the command line
-pub fn update()
+pub fn update() {
+    C.system(clear_screen)
+    C.printf(' Aixt virtual pins     [#] = ON   [ ] = OFF\n')
+    C.printf(' _____ _____ _____ _____ _____ _____ _____ _____\n')
+    C.printf('|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |\n')
+    for i in 0..8 {
+        C.printf('| [')
+        if i <= 3 {
+            C.printf('\033[1;32m')    // green
+        } else {
+            C.printf('\033[1;31m')    // red
+        }
+        if pin__pins[i] == 0 {
+            C.printf(' ')
+        } else {
+            C.printf('#')
+        }
+        C.printf('\033[1;37m')    // white
+        C.printf('] ')
+    }
+    C.printf('|\n')
+    C.printf("'-----'-----'-----'-----'-----'-----'-----'-----'\n")
+}
 
 fn init() {
     pin.update()

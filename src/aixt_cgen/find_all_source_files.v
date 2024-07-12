@@ -25,7 +25,7 @@ pub fn (mut gen Gen) find_all_source_files(source_path string) {
 		gen.ast_node(file)	// starts from the main node (file)
 	}
 
-	println('main source files:')	//  print source files
+	println('\nmain source files:')	//  print source files
 	for source in gen.source_paths {
 		println('\t${source}')
 	}

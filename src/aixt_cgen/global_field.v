@@ -17,31 +17,31 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 	match node.expr {
 		ast.EmptyExpr {
 			c_line += if gen.setup.value(var_kind).string() == 'char []' {
-				'char ${node.name.replace('.', '__')}[];'
+				'char ${node.name.replace('.', '__')}[]'
 			} else {
-				'${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')};'
+				'${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')}'
 			}
 		}
 		ast.CastExpr {
 			c_line += if gen.setup.value(var_kind).string() == 'char []' {
-				'char ${node.name.replace('.', '__')}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')};'
+				'char ${node.name.replace('.', '__')}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')}'
 			} else {
-				'${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')} = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')};'
+				'${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')} = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')}'
 			}								
 		} 
 		ast.ArrayInit {
 			var_kind = gen.table.type_kind((node.expr as ast.ArrayInit).elem_type).str()
 			c_line += '${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')}[] = '
 			elems := node.expr.exprs.str().replace('[', '{').replace(']', '}')
-			c_line += '${elems};'
+			c_line += '${elems}'
 		}
 		else {
 			c_line += if gen.setup.value(var_kind).string() == 'char []' {
-				'char ${node.name.replace('.', '__')}[] = ${gen.ast_node(node.expr).join('')};'
+				'char ${node.name.replace('.', '__')}[] = ${gen.ast_node(node.expr).join('')}'
 			} else {
-				'${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')} = ${gen.ast_node(node.expr).join('')};'
+				'${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')} = ${gen.ast_node(node.expr).join('')}'
 			}
 		}
 	}
-	return [c_line]
+	return [c_line + ';\n']
 }
