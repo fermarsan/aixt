@@ -28,6 +28,8 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
+- [ ] Issue: duplicated function definition on output file (madule functions)
+- [ ] Issue: remove the module's name from the function parameters
 
 ### Done ✓
 
