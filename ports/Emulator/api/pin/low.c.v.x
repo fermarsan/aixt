@@ -4,8 +4,8 @@
 // License: MIT
 module pin
 
-// write puts a logic value to a specific pin
-pub fn write(name int, val int) {  
-    pins__[name] = val
+// pin_high puts a low value (logic 0) to a specific pin
+pub fn low(name int) {   
+    pin__pins[name] = 0
     pin.update()
 }
