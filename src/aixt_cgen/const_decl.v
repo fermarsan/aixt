@@ -8,9 +8,13 @@ import v.ast
 
 // const_decl is the code generation function for constant declarations.
 fn (mut gen Gen) const_decl(node ast.ConstDecl) []string {
-	mut out := []string{}
-	for f in node.fields {
-		out << gen.ast_node(f)
+	if gen.code_gen {
+		mut out := []string{}
+		for f in node.fields {
+			out << gen.ast_node(f)
+		}
+		return out
+	} else {
+		return ['']
 	}
-	return out
 }
