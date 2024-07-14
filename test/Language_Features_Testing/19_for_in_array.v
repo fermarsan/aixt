@@ -2,6 +2,7 @@
 
 mut arr := [2, 4, 9, 7]
 
-for a in arr {
+for  mut a in arr {
 	a++
+	b := a
 }

@@ -38,10 +38,10 @@ Tasks to do in Aixt
 - [ ] "34_nested_for_array.v" fails
 - [ ] "39_string_interp.v" fails
 - [ ] "40_inline_asm.v" inline asm implementation
-- [ ] Mutable indexes on for_in statements
 
 ### Done ✓
 
+- [x] Mutable indexes on for_in statements
 - [x] "36_println.v" fails
 - [x] "30_println.v" fails
 - [x] "26_strings.v" fails

@@ -16,7 +16,11 @@ fn (mut gen Gen) kind_and_type(object ast.ScopeObject) string {
 			'Global -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.`)}'
 		}
 		ast.Var {
-			'Variable -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.`)}'
+			if object.typ >= 0x10000 {	// if var is mutable
+				'Variable (mut) -- ${gen.table.type_symbols[object.typ ^ 0x10000].str()}'//.after_char(`.`)}'
+			} else {
+				'Variable -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.`)}'
+			}
 		}
 		else {
 			'Asm Reg -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.`)}'
