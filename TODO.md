@@ -28,7 +28,6 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
-- [ ] "23_attributes.v" fails
 - [ ] "29_types.v" fails
 - [ ] "33_series_for_array.v" fails
 - [ ] "34_nested_for_array.v" fails
@@ -38,6 +37,7 @@ Tasks to do in Aixt
 
 ### Done ✓
 
+- [x] "23_attributes.v" fails
 - [x] "28_enum_declaration.v" fails
 - [x] "31_globals_and_constants.v" fails 
 - [x] "21_constants.v" fails
