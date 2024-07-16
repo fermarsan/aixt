@@ -15,23 +15,17 @@ import v.parser
 // this is used mainly for modules
 pub fn (mut gen Gen) parse_module_file(source_path string) []string {
 	gen.source_paths << source_path
-	// mut file := &ast.File(unsafe { nil })	// parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
-	
 	// $if windows {
 	//	file = parser.parse_file(source_path, mut gen.table, .skip_comments, gen.pref)
 	// } $else {
 	// 	file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
 	// }
 
-	// file = parser.parse_file(source_path, mut gen.table, .skip_comments, gen.pref)
-
-	// mut checker_ := checker.new_checker(gen.table, gen.pref)
-	// checker_.check(mut file)
-
-	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
+	file := parser.parse_file(source_path, mut gen.table, .skip_comments, gen.pref)
+	gen.files << file
 
 	println('\n===== Top-down node analysis (module) =====')
-	gen.out << gen.ast_node(gen.files[gen.files.len-1]) // starts from the main node (file)
+	gen.out << gen.ast_node(file) // starts from the main node (file)
 
 
 	// mut e_count := 0

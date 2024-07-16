@@ -15,8 +15,13 @@ pub fn (mut gen Gen) find_all_source_files(source_path string) {
 	gen.source_paths << '${gen.transpiler_path}/ports/${port_path}/api/builtin.c.v'
 
 	gen.add_sources(source_path)	// main source folder
+	// println('${gen.source_paths}')
 
 	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
+
+	// for file in gen.files {
+	// 	println(file.path)
+	// }
 
 	println('\n===== Top-down node analysis (Parsing) =====')
 	gen.code_gen = false

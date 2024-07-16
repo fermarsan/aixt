@@ -11,7 +11,7 @@ fn (mut gen Gen) sym_table_print() {
 	print(gen.symbol_table(gen.table.global_scope))
 	println(' ======= scope ======== ')
 	for file in gen.files {
-		println('${file.mod.name}:')
+		println('${file.mod.name}:\t${file.path_base}\n')
 		print(gen.symbol_table(file.scope))
 	}
 }

@@ -9,7 +9,7 @@ module aixt_cgen
 import v.ast
 import v.pref
 import toml
-import v.parser
+// import v.parser
 import v.checker	
 
 // Gen is the struct that defines all the necessary data for the code generation
@@ -52,13 +52,18 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// 	println('\t${source}')
 	// }
 
-	
 	gen.find_all_source_files(source_path)
 
-	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
+	// for file in gen.files {
+	// 	println(file.path_base)
+	// }
+
+	// gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	checker_.check_files(gen.files)
+
+	// println('---------------------------- ${gen.table} -----------------------------------')
 
 	gen.c_preproc_cmds = []string{}		
 	gen.definitions = []string{}	
