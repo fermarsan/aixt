@@ -10,17 +10,12 @@ import v.ast
 fn (mut gen Gen) ident(node ast.Ident) []string {
 	// println('\n${node.mod} #### ${gen.table.cur_fn.name} #### ${node.name}\n') //  -- ${node.scope.parent}')
 	// println('################## ${node.scope.parent} ##################')
-	return if node.name.contains('.') {
-		['${node.name.replace('.', '__')}']	
+
+	return if node.mod == 'main' {
+		[node.name.replace('main.', '')]
 	} else {
-		['${node.name}']	//['${node.mod}__${node.name}']
+		[node.name.replace('.', '__')]
 	}
-	// return if node.mod == 'main' {
-	// 	['${node.name}']	
-	// } else {
-	// 	['${node.mod}__${node.name}']
-	// }
-	// return ['${node.name.all_after('main.').replace('.', '__')}']
-	// return ['${node.mod}__${gen.cur_fn}__${node.name}']
-	// return ['${node.mod}_${node.scope.start_pos}_${node.scope.end_pos}__${node.name}']
+
+	// return [node.name.replace('${node.mod}.', '')]
 }

@@ -21,7 +21,7 @@ import v.ast
 fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	mut c_line := ''
 	mut var_kind := gen.table.type_kind(node.typ).str()
-	// println('================== ${var_kind} ==================')
+	// println('================== ${node.name} ==================')
 	match var_kind {
 		'array' {
 			var_kind = gen.table.type_kind((node.expr as ast.ArrayInit).elem_type).str()
