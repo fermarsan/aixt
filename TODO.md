@@ -28,13 +28,10 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
-- [ ] "39_string_interp.v" fails
 - [ ] "40_inline_asm.v" inline asm implementation
 
 ### Done ✓
 
-- [x] "34_nested_for_array.v" fails
-- [x] "33_series_for_array.v" fails
 - [x] "29_types.v" fails
 - [x] Issue: inline declaration in prototypes 
 - [x] "19_for_in_array.v" fails
@@ -45,7 +42,10 @@ Tasks to do in Aixt
 - [x] "28_enum_declaration.v" fails
 - [x] "31_globals_and_constants.v" fails
 - [x] "30_println.v" fails
+- [x] "33_series_for_array.v" fails
+- [x] "34_nested_for_array.v" fails
 - [x] "36_println.v" fails
+- [x] "39_string_interp.v" fails
 - [x] Issue: remove the module's name from the function parameters
 - [x] Issue: duplicated function definition on output file (module functions)
 - [x] Format output file
