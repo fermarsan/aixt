@@ -2,26 +2,84 @@ import pwm
 import time {sleep_ms}
 
 
-int m[3] = { 0 }, d[3] = { DUTY.MIN, (DUTY.MIN + DUTY.MAX) / 2, DUTY.MAX - 1 };
+mut d := [ 0, (0 + 255) / 2, 255-1]
+mut m := [0,0,0]
 
-int32_t pwm.pin[3] = { led1, led2, led3 };
+pwm.pin[3] = led1
 
+pwm.pin[3] = led2
 
-  for (int i = 0; i < 3; i++) pin.setup(pwm.pin[i], PWM.OUT);
+pwm.pin[3] = led3
 
+  for i == 0 {
 
-for {
+    pin.setup(pwm.pin[i], PWM.OUT)
+    
+  }
+  
+  for i < 3 {
 
-  for (int i = 0; i < 3; i++) {
-    if (m[i] == 0)  // Increasing
+    pin.setup(pwm.pin[i], PWM.OUT)
+
+  }
+
+  for i++ {
+
+    pin.setup(pwm.pin[i], PWM.OUT)
+
+  }
+
+  for {
+
+   for  i == 0 {
+
+    if m[i] == 0  // Increasing
     {
-      pwm.write(pwm.pin[i], d[i]++);
-      if (d[i] == DUTY.MAX) m[i] = 1;
+      pwm.write(pwm.pin[i], d[i]++)
+      if d[i] == 255 {
+       m[i] == 1 
+      }
     } else  // Decreasing
     {
-      pwm.write(pwm.pin[i], d[i]--);
-      if (d[i] == DUTY.MIN) m[i] = 0;
+      pwm.write(pwm.pin[i], d[i]--)
+      if d[i] == 0 {
+       m[i] == 0
+      }
+    }
+  } 
+  
+   for i < 3 {
+
+    if m[i] == 0  // Increasing
+    {
+      pwm.write(pwm.pin[i], d[i]++)
+      if d[i] == 255 {
+       m[i] == 1
+      }
+    } else  // Decreasing
+    {
+      pwm.write(pwm.pin[i], d[i]--)
+      if d[i] == 0 {
+       m[i] == 0
+      }
     }
   }
-time.sleep_ms(5);  
+  
+   for i++ {
+
+    if m[i] == 0  // Increasing
+    {
+      pwm.write(pwm.pin[i], d[i]++)
+      if d[i] == 255 {
+       m[i] == 1
+      }
+    } else  // Decreasing
+    {
+      pwm.write(pwm.pin[i], d[i]--)
+      if d[i] == 0 {
+       m[i] == 0
+      }
+    }
+  }
+time.sleep_ms(5)
 }

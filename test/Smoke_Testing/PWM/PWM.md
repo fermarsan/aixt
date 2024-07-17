@@ -1,6 +1,6 @@
-# Smoke Testing for PWM module
+# Smoke Testing for PWM Module
 
-In the next table you would be able to find listed the Smoke test senarios that you can follow in order to get the Smoke Testing Certification for the PWM module.
+The table below lists the Smoke test scenarios for the PWM module. Follow these to complete the Smoke Testing Certification for this module.
   
 
 | ID            | Name                               | Scenario              | Objectives 																																																																																																																																																																																																																																											                  | Description 																																																																																																																										 | Gherkin Steps 																																																																																																										| Steps    																																																																																																																																																																																																																																																																													   | Code Example |
@@ -9,9 +9,12 @@ In the next table you would be able to find listed the Smoke test senarios that 
 
 
 -   ExampleCode1
-```
- while(1){   
-        adc := adc_read(3)  // Stores the ADC value
-        pwm_write(adc)  // Calculates the duty cycle and sets it in the PWM module CCP1.       
-    }
+```v
+import pwm // import the pwm module
+import adc // import the adc module
+
+for {
+	adc := adc_read(3) // Stores the ADC value
+	pwm.write(adc) // Calculates the duty cycle and sets it in the PWM module CCP1
+}
 ```

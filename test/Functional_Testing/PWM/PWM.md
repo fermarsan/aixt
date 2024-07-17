@@ -1,6 +1,6 @@
-# Functional Testing for PWM module
+# Functional Testing for PWM Module
 
-In the next table you would be able to find listed the Functional test senarios that you can follow in order to get the Functional Testing Certification for the PWM module.
+The table below lists the Functional test scenarios for the PWM module. Follow these to complete the Functional Testing Certification for this module.
   
 
 | ID            | Name       | Scenario 									| Objectives                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Description                                                                                                                                                                          | Gherkin Steps                                                                                                                                                                                                                                                                                                                                                              | Steps    																																																																			                                                                       | Expected results 																																																																																																																																																																																																																																																																		     | Code Example |
@@ -9,18 +9,20 @@ In the next table you would be able to find listed the Functional test senarios 
 	  
 -   ExampleCode1
 
-```
-pin_setup(5, out)
-int util=0
+```v
+import pin // import the pin module
+import pwm // import the pwm module
+import time // import the time module
+
+pin.setup(5, out)
+mut util := 0
 
 for {
-    pwm_write(5, util)
-    sleep_ms(250)
-    util=util+10
-    if (util==250){
-
-        util=0
-       
-    }
-    } 
+	pwm.write(5, util)
+	time.sleep_ms(250)
+	util = util + 10
+	if (util == 250) {
+		util = 0
+	}
+}
 ```

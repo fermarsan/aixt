@@ -1,9 +1,9 @@
-# This is the Functional test plan for Aixt project
+# Aixt Project Functional Test Plan
 
-### **Functional testing** is a black box type test based on the execution, review and feedback of previously designed software functionality, seeks to establish whether each application feature works as per the software requirements.
+### **Functional testing** verifies that each part of the software works correctly based on its designed functions and requirements.
 
 
-The following table summarizes the number of test cases for Functional Testing per Module
+Below is a summary of the number of test cases for Functional Testing per Module:
 
 | Testing Type             | Number of Test Cases |
 | -------------            | :-------------:      |
