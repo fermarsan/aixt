@@ -28,7 +28,6 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
-- [ ] "29_types.v" fails
 - [ ] "33_series_for_array.v" fails
 - [ ] "34_nested_for_array.v" fails
 - [ ] "39_string_interp.v" fails
@@ -36,16 +35,17 @@ Tasks to do in Aixt
 
 ### Done ✓
 
-- [x] Issue: inline declaration in prototypes
-- [x] "23_attributes.v" fails
-- [x] "28_enum_declaration.v" fails
-- [x] "31_globals_and_constants.v" fails 
-- [x] "21_constants.v" fails
+- [x] "29_types.v" fails
+- [x] Issue: inline declaration in prototypes 
 - [x] "19_for_in_array.v" fails
 - [x] Mutable indexes on for_in statements
-- [x] "36_println.v" fails
-- [x] "30_println.v" fails
+- [x] "21_constants.v" fails
+- [x] "23_attributes.v" fails
 - [x] "26_strings.v" fails
+- [x] "28_enum_declaration.v" fails
+- [x] "31_globals_and_constants.v" fails
+- [x] "30_println.v" fails
+- [x] "36_println.v" fails
 - [x] Issue: remove the module's name from the function parameters
 - [x] Issue: duplicated function definition on output file (module functions)
 - [x] Format output file
