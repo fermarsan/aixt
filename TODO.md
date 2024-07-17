@@ -28,12 +28,12 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
-- [ ] "34_nested_for_array.v" fails
 - [ ] "39_string_interp.v" fails
 - [ ] "40_inline_asm.v" inline asm implementation
 
 ### Done ✓
 
+- [x] "34_nested_for_array.v" fails
 - [x] "33_series_for_array.v" fails
 - [x] "29_types.v" fails
 - [x] Issue: inline declaration in prototypes 
