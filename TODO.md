@@ -13,6 +13,7 @@ Tasks to do in Aixt
 - [ ] generates documentation from code
 - [ ] API auto-import option
 - [ ] Implement inline assembly
+- [ ] "40_inline_asm.v" inline asm implementation
 - [ ] Implement uart.input()
 - [ ] Use $tmpl and template files for the different backends 
 - [ ] Auto-detection of function return value (for assignments)
@@ -28,7 +29,6 @@ Tasks to do in Aixt
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
-- [ ] "40_inline_asm.v" inline asm implementation
 
 ### Done ✓
 
