@@ -8,7 +8,7 @@ module uart
 
 #include <stdio.h>
 #include <string.h>
-	
+
 fn init() {
 	C.printf('\033[1;32m')	// print in green
 	C.printf(' Aixt virtual UART\n')

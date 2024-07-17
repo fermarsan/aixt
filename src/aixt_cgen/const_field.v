@@ -54,7 +54,7 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 			}
 		}
 	}
-	return if node.mod == 'main' {
+	return if c_line.contains('main.') {
 		[c_line.replace('main.', '')]
 	} else {
 		[c_line.replace('.', '__')]

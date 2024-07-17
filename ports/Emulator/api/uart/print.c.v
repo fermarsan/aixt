@@ -4,7 +4,17 @@
 // License: MIT
 module uart
 
-pub fn print(msg string) {
-	C.printf('\033[1;32m')	// green
+#include "print.c"
+
+pub fn print_x(uart_num int, msg string) {
+	if uart_num == 0 {
+		C.printf('\033[1;32m')	// green
+	} else if uart_num == 1 {
+		C.printf('\033[1;34m')	// blue
+	} else if uart_num == 2 {
+		C.printf('\033[1;31m')	// red
+	} else {
+		C.printf('\033[0m')		// white
+	}
     C.printf('%s', msg)
 }
