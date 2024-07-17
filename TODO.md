@@ -33,10 +33,10 @@ Tasks to do in Aixt
 - [ ] "34_nested_for_array.v" fails
 - [ ] "39_string_interp.v" fails
 - [ ] "40_inline_asm.v" inline asm implementation
-- [ ] Issue: inline declaration in prototypes
 
 ### Done ✓
 
+- [x] Issue: inline declaration in prototypes
 - [x] "23_attributes.v" fails
 - [x] "28_enum_declaration.v" fails
 - [x] "31_globals_and_constants.v" fails 
