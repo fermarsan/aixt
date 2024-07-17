@@ -1,9 +1,9 @@
 import time { sleep }
 import pin
 
-for i in 0..5 {
-	pin.high(a)
+for _ in 0..5 {
+	pin.high(pin.a)
 	sleep(1)
-	pin.low(a)
+	pin.low(pin.a)
 	sleep(1)
 }
