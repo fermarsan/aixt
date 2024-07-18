@@ -17,7 +17,7 @@ uart.setup() // Inicializa la comunicación serial
 
 for {
 	uart.write(0x33)
-	sleep_ms(500)
+	time.sleep_ms(500)
 	uart.write(0x99)
 	time.sleep_ms(500)
 }

@@ -12,9 +12,10 @@ The table below lists the Smoke test scenarios for the PWM module. Follow these 
 ```v
 import pwm // import the pwm module
 import adc // import the adc module
+adc.setup() 
 
 for {
-	adc := adc_read(3) // Stores the ADC value
-	pwm.write(adc) // Calculates the duty cycle and sets it in the PWM module CCP1
+	value := adc.read(3) // Stores the ADC value
+	pwm.write(value) // Calculates the duty cycle and sets it in the PWM module CCP1
 }
 ```
