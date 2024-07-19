@@ -4,7 +4,8 @@
 // License: MIT
 module uart2
 
-pub fn println(uart_num int, msg string) {
+@[inline]
+pub fn println(msg string) {
 	C.printf('\033[1;34m')	// blue
     C.printf('%s\n', msg)
 }

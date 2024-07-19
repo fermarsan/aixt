@@ -9,7 +9,14 @@ import v.ast
 // if_expr is the code generation function for 'if' expressions.
 fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" expression
 	mut out := []string{}
-	if node.is_expr { // in case of conditional assignment
+	if node.is_comptime {	// in case of compilation time
+		// println('------------------------ ${node.branches[0].cond.str()} ---------------------------')
+		match node.branches[0].cond.str() {
+			'linux'
+		}
+		// if node.branches[0].cond
+		// out << 'if(${gen.ast_node(node.branches[0].cond).join('')}) {'
+	} else if node.is_expr { // in case of conditional assignment
 		out << '(${gen.ast_node(node.branches[0].cond).join('')}) ? ${node.branches[0].stmts[0]} : ${node.branches[1].stmts[0]}'
 	} else {
 		out << 'if(${gen.ast_node(node.branches[0].cond).join('')}) {'
