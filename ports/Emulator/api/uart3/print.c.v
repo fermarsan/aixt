@@ -2,10 +2,9 @@
 // Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
-module uart
+module uart3
 
-@[inline]
-pub fn print(msg string) {
-	C.printf('\033[1;32m')	// green
+pub fn print(uart_num int, msg string) {
+	C.printf('\033[1;31m')	// red
     C.printf('%s', msg)
 }

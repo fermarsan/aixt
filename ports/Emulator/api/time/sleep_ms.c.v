@@ -4,4 +4,12 @@
 // License: MIT
 module time
 
-#include "sleep_ms.c"
+@[inline]
+pub fn sleep_ms(tms int) {
+	$if linux {
+		C.usleep(tms*1000)
+	} $else {
+		C.Sleep(tms)
+	}	
+}
+

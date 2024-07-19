@@ -10,6 +10,11 @@ module pwm
 #include <stdlib.h>
 #include "pwm.c"
 
+const (
+    ch0 = 0
+    ch1 = 1
+)
+
 __global (
     pwm__duty = [0, 0]
 )
@@ -26,7 +31,7 @@ pub fn print(duty int) {
 }
 
 pub fn update() {
-    C.system(clear_screen)
+    main.clear_screen()
     C.printf(' Aixt virtual PWM outputs\n')
     C.printf('\t\t\t\t    PWM 0 :  %ld %%\n', pwm__duty[0])
     pwm.print(pwm__duty[0])
