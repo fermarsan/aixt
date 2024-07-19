@@ -11,7 +11,6 @@ Tasks to do in Aixt
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] dynamic memory definition
 - [ ] generates documentation from code
-- [ ] API auto-import option
 - [ ] Implement inline assembly
 - [ ] "40_inline_asm.v" inline asm implementation
 - [ ] Implement uart.input()
@@ -32,6 +31,7 @@ Tasks to do in Aixt
 
 ### Done ✓
 
+- [x] API auto-import option (DISCARDED)
 - [x] "29_types.v" fails
 - [x] Issue: inline declaration in prototypes 
 - [x] "19_for_in_array.v" fails
