@@ -10,10 +10,10 @@ import v.ast
 fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" expression
 	mut out := []string{}
 	if node.is_comptime {	// in case of compilation time
-		// println('------------------------ ${node.branches[0].cond.str()} ---------------------------')
-		match node.branches[0].cond.str() {
-			'linux'
-		}
+		println('------------------------ ${node.branches[0].cond.str()} ---------------------------')
+		// match node.branches[0].cond.str() {
+		// 	'linux'
+		// }
 		// if node.branches[0].cond
 		// out << 'if(${gen.ast_node(node.branches[0].cond).join('')}) {'
 	} else if node.is_expr { // in case of conditional assignment
