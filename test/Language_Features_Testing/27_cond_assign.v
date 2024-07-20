@@ -5,4 +5,8 @@ mut b, c := 20.0, 30
 
 a = if b > c { b } else { c }
 
-if b > c { a = b } else { a = c }
+if a > c { 
+	b = a 
+} else { 
+	a = c 
+}
