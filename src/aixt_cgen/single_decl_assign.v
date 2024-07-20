@@ -9,9 +9,11 @@ import v.ast
 // single_decl_assign is the code generation function for single declaration-assignment statements.
 // This works for:
 // - declaration-assignments `:=`
-fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast.Expr) string {
+fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast.Expr) []string {
+	mut out := []string{}
 	mut c_line := ''
 	var_kind := gen.table.type_kind(left_type).str()
+	println('???????????????????? ${var_kind} ??????????????????????')
 	match var_kind {
 		'array' {
 			var_type := gen.table.type_kind((right as ast.ArrayInit).elem_type).str()
@@ -46,5 +48,6 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			}
 		}
 	}
-	return c_line
+	out << c_line
+	return out
 }

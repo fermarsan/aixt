@@ -5,16 +5,18 @@
 module aixt_cgen
 
 import v.ast
+import v.token
 
 // single_assign is the code generation function for single assignment statements.
 // This works for:
 // - only assignments `=`
 // and
 // - cumulative-assignments `+=`, `-=`, etc. 
-fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind, right ast.Expr) string {
+fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind, right ast.Expr) []string {
 	mut c_line := ''
 	var_kind := gen.table.type_kind(left_type).str()
-	match left {
+	left_expr := left
+	match left_expr {
 		ast.Ident {	// if it is a simple variable
 			match var_kind {
 				'array' {
@@ -46,5 +48,5 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 			c_line += '${gen.ast_node(left).join('')} ${op} ${gen.ast_node(right).join('')};'
 		}
 	}
-	return c_line
+	return [c_line]
 }

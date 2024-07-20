@@ -19,15 +19,16 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 		gen.cur_left = node.left[i]
 		gen.cur_left_type = node.left_types[i]
 		// var_kind := if node.left_types.len != 0 { gen.table.type_kind(node.left_types[i]).str() } else { '' }
-		out << match node.right[i] {
+		match node.right[i] {
 			ast.IfExpr {	// conditional assignment
-				gen.ast_node(right[i])
+				// gen.ast_node(node.left[i])
+				out << gen.ast_node(node.right[i])
 			}
 			else {			
-				if node.op.str() == ':=' { // declaration-assignment
-					gen.single_decl_assign(node.left[i], node.left_type[i], node.right[i])
+				out << if node.op.str() == ':=' { // declaration-assignment
+					gen.single_decl_assign(node.left[i], node.left_types[i], node.right[i])
 				} else { // for the rest of assignments
-					gen.single_assign(node.left[i], node.left_type[i], node.op, node.right[i])
+					gen.single_assign(node.left[i], node.left_types[i], node.op, node.right[i])
 				}
 			}
 		}

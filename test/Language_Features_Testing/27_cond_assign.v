@@ -1,6 +1,7 @@
-mut a, mut b, c := 10, 20, 30
+mut a := 10
+mut b, c := 20.0, 30
 
-b = c + a
+// b = c + a
 
 a = if b > c { b } else { c }
 
