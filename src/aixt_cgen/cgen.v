@@ -7,6 +7,7 @@
 module aixt_cgen
 
 import v.ast
+import v.token
 import v.pref
 import toml
 // import v.parser
@@ -19,6 +20,9 @@ pub mut:
 	files 			[]&ast.File
 	table 			&ast.Table = unsafe { nil }
 	cur_scope		&ast.Scope = unsafe { nil }
+	cur_left		ast.Expr
+	cur_left_type	ast.Type
+	cur_op			token.Kind
 	transpiler_path	string
 	imports			[]string
 	source_paths	[]string

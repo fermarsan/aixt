@@ -7,6 +7,7 @@ module aixt_build
 import os
 import toml
 import v.ast
+import v.token
 import v.pref
 import aixt_cgen
 
@@ -16,6 +17,9 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		files: 				[]&ast.File{}
 		table: 				ast.new_table()
 		cur_scope: 			&ast.Scope{}
+		cur_left:			ast.Nil{}
+		cur_left_type:		0
+		cur_op:				token.Kind.unknown
 		transpiler_path:	aixt_path
 		imports: 			[]string{}
 		source_paths: 		[]string{}
