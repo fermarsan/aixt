@@ -11,18 +11,16 @@ Tasks to do in Aixt
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] dynamic memory definition
 - [ ] generates documentation from code
-- [ ] API auto-import option
 - [ ] Implement inline assembly
 - [ ] "40_inline_asm.v" inline asm implementation
 - [ ] Implement uart.input()
 - [ ] Use $tmpl and template files for the different backends 
-- [ ] Auto-detection of function return value (for assignments)
 - [ ] Support for arrays and strings initialized inside "for" statement
-- [ ] enum declaration issue
 - [ ] make groups of PIC microcontrollers families 
 - [ ] change "set" by "setup" in sensor module (NXT port)
 - [ ] Issue: Ident names including module and function name or scope position (for all ports)
 - [ ] implements maps
+- [ ] Avoid macros in ports for functions implementation
 
 
 ### In Progress
@@ -32,6 +30,9 @@ Tasks to do in Aixt
 
 ### Done ✓
 
+- [x] enum declaration issue
+- [X] Auto-detection of function return value (for assignments)
+- [x] API auto-import option (DISCARDED)
 - [x] "29_types.v" fails
 - [x] Issue: inline declaration in prototypes 
 - [x] "19_for_in_array.v" fails

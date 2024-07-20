@@ -21,27 +21,16 @@
 
 #include <stdio.h>
 
-#define MY_MACRO(...) MY_MACRO_SELECT(__VA_ARGS__, _)
-
-#define MY_MACRO_SELECT(_1, _2, ...) MY_MACRO_IMPL(_1, _2)
-
-#define MY_MACRO_IMPL(name, greeting) \
-    _Generic((greeting), \
-        char*: MY_MACRO_TWO, \
-        default: MY_MACRO_ONE \
-    )(name, greeting)
-
-void MY_MACRO_ONE(char* name, char* greeting) {
-    printf("Calling function with one parameter: %s\n", name);
-}
-
-void MY_MACRO_TWO(char* name, char* greeting) {
-    printf("Calling function with two parameters: %s, %s\n", greeting, name);
-}
+// #define DEBUG  // Define DEBUG para habilitar la asignación condicional
 
 int main() {
-    MY_MACRO("Alice");
-    MY_MACRO("Bob", "Hello");
+    #ifdef DEBUG
+        int x = 100;
+    #else
+        int x = 200;
+    #endif
+
+    printf("El valor de x es: %d\n", x);
 
     return 0;
 }

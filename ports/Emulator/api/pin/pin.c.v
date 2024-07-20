@@ -8,8 +8,22 @@ module pin
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "pin.c"
-// #include "update.c"
+
+const (
+    a = 0
+    b = 1
+    c = 2
+    d = 3
+    w = 4
+    x = 5
+    y = 6
+    z = 7
+)
+
+// struct PinStruct {
+//     pins    []int{cap: 8}
+//     input   int
+// }
 
 __global (
     pin__pins = [0, 0, 0, 0, 0, 0, 0, 0]   // virtual pin array
@@ -18,7 +32,7 @@ __global (
 
 // pin_update prints the pins table in the command line
 pub fn update() {
-    C.system(clear_screen)
+    main.clear_screen()
     C.printf(' Aixt virtual pins     [#] = ON   [ ] = OFF\n')
     C.printf(' _____ _____ _____ _____ _____ _____ _____ _____\n')
     C.printf('|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |\n')
