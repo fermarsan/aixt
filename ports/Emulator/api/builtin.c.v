@@ -16,7 +16,7 @@ pub fn init() {
 
 // clear_screen function clears the screen depending on the OS
 pub fn clear_screen() {
-    $if linux {
+    $if windows {
         C.system('clear')
     } $else {
         C.system('cls')      
