@@ -11,7 +11,7 @@ module adc
 // receive as parameter the ADC channel 
 pub fn read(channel int) int {
     adc__value := 0
-    main.clear_screen()
+    C.system(clear_screen)
     C.printf(' Aixt virtual ADC input     ADC %ld : ', channel)
     C.scanf('%ld', &adc__value)
     return adc__value

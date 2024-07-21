@@ -31,7 +31,7 @@ pub fn print(duty int) {
 }
 
 pub fn update() {
-    main.clear_screen()
+    C.system(clear_screen)
     C.printf(' Aixt virtual PWM outputs\n')
     C.printf('\t\t\t\t    PWM 0 :  %ld %%\n', pwm__duty[0])
     pwm.print(pwm__duty[0])

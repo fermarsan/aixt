@@ -4,8 +4,5 @@
 // License: MIT
 module time
 
-$if linux {
-	#include <unistd.h>	
-} $else {
-	#include <windows.h>
-}
+#include "time.c"	
+

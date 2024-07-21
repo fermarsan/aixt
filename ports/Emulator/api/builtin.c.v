@@ -9,16 +9,9 @@ module main
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "builtin.c"
+
 // init function call setup or initialization code
 pub fn init() {
     C.printf('\033[1;37m')    // white bold text in terminal
-}
-
-// clear_screen function clears the screen depending on the OS
-pub fn clear_screen() {
-    $if windows {
-        C.system('clear')
-    } $else {
-        C.system('cls')      
-    }
 }
