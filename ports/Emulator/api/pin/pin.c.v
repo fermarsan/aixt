@@ -32,7 +32,11 @@ __global (
 
 // pin_update prints the pins table in the command line
 pub fn update() {
-    C.system(clear_screen)
+    $if linux {
+        C.system("clear")
+    } $else {
+        C.system("cls")
+    }
     C.printf(' Aixt virtual pins     [#] = ON   [ ] = OFF\n')
     C.printf(' _____ _____ _____ _____ _____ _____ _____ _____\n')
     C.printf('|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |\n')

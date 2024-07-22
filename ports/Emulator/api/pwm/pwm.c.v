@@ -30,7 +30,11 @@ pub fn print(duty int) {
 }
 
 pub fn update() {
-    C.system(clear_screen)
+    $if linux {
+        C.system("clear")
+    } $else {
+        C.system("cls")
+    }
     C.printf(' Aixt virtual PWM outputs\n')
     C.printf('\t\t\t\t    PWM 0 :  %ld %%\n', pwm__duty[0])
     pwm.print(pwm__duty[0])
