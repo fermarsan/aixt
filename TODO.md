@@ -30,6 +30,7 @@ Tasks to do in Aixt
 
 ### Done ✓
 
+- [x] conditional $if and $else implemented
 - [x] enum declaration issue
 - [X] Auto-detection of function return value (for assignments)
 - [x] API auto-import option (DISCARDED)
