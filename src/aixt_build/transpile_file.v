@@ -38,8 +38,23 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		setup: 				setup_file
 	}
 
+	// set de defines from the port's Toml file
+	mut defines := []string{}
+	for define in c_gen.setup.value('defines').array().as_strings() {
+		defines << ['-d', define]
+	}
+	$if windows {
+		defines << ['-d', 'on_windows']
+		defines << ['-d', 'on_linux=false']
+	} $else {
+		defines << ['-d', 'on_windows=false']
+		defines << ['-d', 'on_linux']
+	}
+	println('-------------------- ${defines} --------------------------')
+	c_gen.pref, _ = pref.parse_args_and_show_errors([], defines, true)
 	c_gen.pref.is_script = true
 	c_gen.pref.enable_globals = true
+	// println('##################### ${c_gen.pref.compile_values} ########################')
 	
 
 	// println('\n\n+++++++${path}++++++++\n\n')
@@ -68,4 +83,6 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		}
 		os.write_file(output_path, transpiled) or {}
 	}
+	// println('##################### ${c_gen.pref.compile_values} ########################')
+
 }

@@ -65,6 +65,9 @@ fn (mut gen Gen) expr(node ast.Expr) []string {
 		ast.EnumVal {
 			return gen.enum_val(node)
 		}
+		ast.ComptimeSelector {
+			return gen.comptime_selector(node)
+		}
 		ast.EmptyExpr {
 			return []
 		}

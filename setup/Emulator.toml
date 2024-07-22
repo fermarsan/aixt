@@ -16,6 +16,9 @@ cc_flags =   "-o"
 
 path = "Emulator"
 
+defines = [
+]
+
 fixed_size_arrays  = "true"
 array_default_len  = 20
 
