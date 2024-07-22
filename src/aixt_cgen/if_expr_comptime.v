@@ -11,7 +11,6 @@ fn (mut gen Gen) if_expr_comptime(node ast.IfExpr) []string { // basic shape of 
 	mut out := []string{}
 
 	if node.is_expr { // in case of conditional assignment
-		gen.cur_is_comptime = true
 		for i, br in node.branches {
 			if br.stmts.len > 0 { 
 				out << if br.cond.str().contains('[') {
@@ -27,7 +26,6 @@ fn (mut gen Gen) if_expr_comptime(node ast.IfExpr) []string { // basic shape of 
 		}
 	} else {
 		// println('?????????????????????????? ${node} ???????????????????????')
-		gen.cur_is_comptime = true
 		for i, br in node.branches {
 			if br.stmts.len > 0 {
 				out << if br.cond.str().contains('[') {
@@ -39,8 +37,6 @@ fn (mut gen Gen) if_expr_comptime(node ast.IfExpr) []string { // basic shape of 
 			}
 		}
 	}
-
-	gen.cur_is_comptime = false
 	return out
 }
 

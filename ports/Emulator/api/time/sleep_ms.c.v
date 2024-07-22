@@ -8,8 +8,8 @@ module time
 @[inline]
 pub fn sleep_ms(tms int) {
 	$if linux {
-		C.usleep(tms*1000);
+		C.usleep(tms*1000)
     } $else {
-        C.Sleep(tms);
+        C.Sleep(tms)
 	}
 }

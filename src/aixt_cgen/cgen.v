@@ -36,7 +36,6 @@ pub mut:
 	cur_fn			string
 	file_count		int
 	level_count		int
-	cur_is_comptime bool
 // pub mut:
 	pref  			&pref.Preferences = unsafe { nil }
 	setup 			toml.Doc
