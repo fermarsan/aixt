@@ -39,6 +39,7 @@ fn (mut gen Gen) out_join_and_format() string{
 		}
 	}
 	temp = temp.replace('\t}', '}')
+	temp = temp.replace('#endif;', '#endif')
 	out = temp + '\n'
 
 	return out

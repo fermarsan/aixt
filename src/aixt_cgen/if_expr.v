@@ -13,6 +13,7 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" e
 	if node.is_expr { // in case of conditional assignment
 		if node.is_comptime {	
 			println('${cond}')
+			gen.cur_is_comptime = true
 			out << match cond {
 				'on_linux' {
 					'#if defined(__linux) || defined(linux)'
@@ -137,7 +138,8 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" e
 	} else {
 		if node.is_comptime {
 			// println('?????????????????????????? ${node} ???????????????????????')
-				
+			
+			gen.cur_is_comptime = true
 			println('${cond}')
 			out << match cond {
 				'on_linux' {
@@ -180,5 +182,7 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" e
 			}
 		}
 	}
+
+	gen.cur_is_comptime = false
 	return out
 }

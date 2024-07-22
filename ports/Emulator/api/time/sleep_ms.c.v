@@ -4,10 +4,12 @@
 // License: MIT
 module time
 
-#include "sleep_ms.c"
-
 // sleep is a delay function in milliseconds for the Aixt PC port. 
 @[inline]
 pub fn sleep_ms(tms int) {
-	C.sleep_ms(tms)
+	$if on_linux {
+		C.usleep(tms*1000);
+    } $else {
+        C.Sleep(tms);
+	}
 }
