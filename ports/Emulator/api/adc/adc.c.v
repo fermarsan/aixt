@@ -6,7 +6,7 @@
 // Description: This is a module to emulate ADC inputs in console.
 module adc
 
-const (
+pub const (
     ch0 = 0   // adc channel
     ch1 = 1   // constants
 )

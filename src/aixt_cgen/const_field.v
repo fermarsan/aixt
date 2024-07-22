@@ -20,6 +20,7 @@ import v.ast
 // ```
 fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	mut c_line := ''
+	// println('================== ${node.name} ==================')
 	mut var_kind := gen.table.type_kind(node.typ).str()
 	// println('================== ${node.name} ==================')
 	match var_kind {
@@ -45,6 +46,7 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 					'const ${gen.setup.value(var_kind).string()} ${node.name} = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')};'
 				}								
 			} else {
+				// println('???????????????????????????????????????????? ${var_kind}')
 				var_kind = match var_kind {		// var literal kind standardization
 					'f64' { 'float_literal' }
 					'int' { 'int_literal' }

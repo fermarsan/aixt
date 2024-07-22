@@ -13,8 +13,6 @@ fn (mut gen Gen) ast_file(node ast.File) []string {
 	for st in node.stmts {
 		out << gen.ast_node(st)
 	}
-	if gen.code_gen {
-		println('(end) File -> ${node.path}\n')
-	} 
+	println('(end) File -> ${node.path}\n')
 	return out 
 }

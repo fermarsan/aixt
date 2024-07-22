@@ -9,7 +9,7 @@ module pin
 #include <stdio.h>
 #include <stdlib.h>
 
-const (
+pub const (
     a = 0
     b = 1
     c = 2

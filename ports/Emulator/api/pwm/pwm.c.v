@@ -8,9 +8,8 @@ module pwm
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "pwm.c"
 
-const (
+pub const (
     ch0 = 0
     ch1 = 1
 )

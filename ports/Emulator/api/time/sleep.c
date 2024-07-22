@@ -1,7 +1,7 @@
-inline void sleep_s(int ts) {
+void sleep_s(int ts) {
     #if defined(__linux) || defined(linux)
-        return sleep(ts)
+        sleep(ts);
     #else
-        return Sleep(ts*1000)     
+        Sleep(ts*1000);     
     #endif
 }

@@ -6,7 +6,7 @@ module aixt_cgen
 
 import regex
 
-// out_replacements formats the output file.
+// out_join_and_format formats the output file.
 fn (mut gen Gen) out_join_and_format() string{
 	mut re := regex.new()
 	mut temp := ''

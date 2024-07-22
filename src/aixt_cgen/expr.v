@@ -8,9 +8,7 @@ import v.ast
 
 // expr is the code generation function for expressions.
 fn (mut gen Gen) expr(node ast.Expr) []string {
-	if gen.code_gen {
-		println('${node.type_name().after('v.ast.')}:\t\t${node}')
-	}
+	println('${node.type_name().after('v.ast.')}:\t\t${node}')
 	match node {
 		ast.IfExpr { // basic shape of an "if" expression
 			return gen.if_expr(node)

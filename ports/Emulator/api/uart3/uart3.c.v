@@ -11,5 +11,5 @@ module uart3
 
 fn init() {
 	C.printf('\033[1;31m')	// print in red
-	C.printf(' Aixt virtual UART\n')
+	C.printf(' Aixt virtual UART 3\n')
 }

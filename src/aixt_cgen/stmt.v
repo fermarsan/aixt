@@ -8,9 +8,7 @@ import v.ast
 
 // stmt is the code generation function for statements.
 fn (mut gen Gen) stmt(node ast.Stmt) []string {
-	if gen.code_gen {
-		println('${node.type_name().after('v.ast.')}:\t\t${node}')
-	}
+	println('${node.type_name().after('v.ast.')}:\t\t${node}')
 	match node {
 		ast.Module {
 			return gen.module_stmt(node)

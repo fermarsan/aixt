@@ -1,13 +1,12 @@
 import uart
+import uart2
+import uart3
 
 uart.print('Hello...\t')
 uart.println('Default UART')
 
-uart.print(0, 'Hello...\t')
-uart.println(0, 'UART 0')
+uart2.print('Hello...\t')
+uart2.println('UART 2')
 
-uart.print(1, 'Hello...\t')
-uart.println(1, 'UART 1')
-
-uart.print(2, 'Hello...\t')
-uart.println(2, 'UART 2')
+uart3.print('Hello...\t')
+uart3.println('UART 3')
