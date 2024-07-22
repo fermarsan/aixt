@@ -25,11 +25,7 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 				gen.ast_node(node.right[i])
 			}
 			else {			
-				if node.op.str() == ':=' { // declaration-assignment
-					gen.single_decl_assign(node.left[i], node.left_types[i], node.right[i])
-				} else { // for the rest of assignments
-					gen.single_assign(node.left[i], node.left_types[i], node.op, node.right[i])
-				}
+				gen.single_assign(node.left[i], node.left_types[i], node.op, node.right[i])
 			}
 		}
 	}

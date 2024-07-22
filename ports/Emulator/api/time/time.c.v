@@ -4,7 +4,7 @@
 // License: MIT
 module time
 
-$if on_linux {
+$if linux {
 	#include <unistd.h>
 } $else {
 	#include <windows.h>

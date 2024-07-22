@@ -17,6 +17,7 @@ cc_flags =   "-o"
 path = "Emulator"
 
 defines = [
+    "flag_1",
 ]
 
 fixed_size_arrays  = "true"

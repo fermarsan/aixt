@@ -15,7 +15,7 @@ pub fn init() {
 }
 
 pub fn clear_screen() {
-    $if on_linux {
+    $if linux {
         C.system("clear")
     } $else {
         C.system("cls")
