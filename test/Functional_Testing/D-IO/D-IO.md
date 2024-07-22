@@ -16,6 +16,8 @@ pin.setup(2, pin.output) // Set pin #2 as output
 pin.setup(3, pin.output) // Set pin #3 as output
 pin.setup(4, pin.output) // Set pin #4 as output
 
+adc.setup()
+
 for { // Infinite loop
 	val := adc.read(8) // Store the analog reading of pin #8
 	if val >= 1000 { // Condition for the analog reading

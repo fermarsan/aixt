@@ -14,15 +14,15 @@ import pin // import the pin module
 import pwm // import the pwm module
 import time // import the time module
 
-pin.setup(5, out)
-mut util := 0
+pin.setup(5, pin.output)
+mut duty := 0
 
 for {
-	pwm.write(5, util)
+	pwm.write(5, duty)
 	time.sleep_ms(250)
-	util = util + 10
-	if (util == 250) {
-		util = 0
+	duty = duty + 10
+	if (duty == 250) {
+		duty = 0
 	}
 }
 ```

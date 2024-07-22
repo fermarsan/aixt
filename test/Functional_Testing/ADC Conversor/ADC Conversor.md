@@ -9,10 +9,14 @@ The table below lists the Functional test scenarios for the ADC module. Follow t
 -   ExampleCode1
 
 ```v
-import pin
 import adc
+import pin
 
 adc.setup()
+
+pin.setup(2, pin.output) // Set pin #2 as output
+pin.setup(3, pin.output) // Set pin #3 as output
+pin.setup(4, pin.output) // Set pin #4 as output
 
 for {
 	adc_result := adc.read(0) 	// Stores the ADC value
