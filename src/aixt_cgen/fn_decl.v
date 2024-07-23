@@ -14,50 +14,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 	mut out := ['\n']
 	mut c_line := ''
 	if node.is_main {	// main function
-		gen.cur_fn = 'main'
-		match gen.setup.value('backend').string() {
-			'c' {
-				c_line += '${gen.setup.value('main_ret_type').string()} '	// return type
-				c_line += 'main('	// main function 
-				out << c_line + '${gen.setup.value('main_params').string()}) {'	// parameters	
-				out << '___initialization_block___'	// initialization function	
-				for st in node.stmts {	// inner statements
-					out << gen.ast_node(st)
-				}
-				out << if gen.setup.value('main_ret_type').string() == 'int' {	// return value 
-					['return 0;', '}'] 
-				} else { 
-					['}']
-				}
-			}
-			'nxc' {
-				out << 'task main() {'	// main task
-				out << '___initialization_block___'	// initialization function			
-				for st in node.stmts {	// inner statements
-					out << gen.ast_node(st)
-				}
-				out << '}'
-			}
-			'arduino' {
-				out << 'void setup() {'	// setup function	
-				out << '___initialization_block___'	// initialization function	
-				for st in node.stmts {	// inner statements
-					stmt_str := '${gen.ast_node(st).join('')}'
-					if stmt_str.starts_with('while(true) {\n') {
-						out << ['}', '']	// close the setup function
-						out << stmt_str#[..-2].replace('while(true)', 'void loop()')	// loop function
-						break
-					} else {
-						out << stmt_str
-					}
-				}
-				out << '}'
-			}
-			else{
-				print('Invalid "Backend" in setup file.' )
-			}
-		}
-		// out = if out[0] == ` ` { out[1..] } else { out }	// closing
+		out << gen.fn_decl_main(node)
 	} else {		
 		if node.no_body == false // ignore function declaration without body
 		   && !node.name.contains('__static__from') {	// ignore enum init functions
@@ -103,7 +60,8 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 						if nxc_task {
 							c_line += '${node.short_name}('
 						} else {
-							c_line += gen.setup.value(gen.table.type_symbols[node.return_type].str()).string() + ' '
+							return_type := gen.setup.value(gen.table.type_symbols[node.return_type].str()).string()
+							c_line += return_type.replace('char []', 'char*') + ' '	// type
 							c_line += '${module_short_name}__${node.short_name}('
 						}
 						// out += '${node.name.replace('.', '__')}('
