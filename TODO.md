@@ -21,12 +21,15 @@ Tasks to do in Aixt
 - [ ] Issue: Ident names including module and function name or scope position (for all ports)
 - [ ] implements maps
 - [ ] Avoid macros in ports for functions implementation
+- [ ] Change the C generation using V text templates
 
 
 ### In Progress
 
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
+- [ ] Change arrays to  pure V
+- [ ] Change strings reaching to pure V
 
 ### Done ✓
 
