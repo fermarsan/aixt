@@ -1,0 +1,15 @@
+@c_preproc_cmds
+
+@definitions
+
+@init_cmds
+
+@for line in out 
+    @line
+@end
+
+@attrs @ret_val main(@params) {
+    @for stmt in stmts 
+        @stmt 
+    @end
+}
