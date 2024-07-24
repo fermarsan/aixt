@@ -25,7 +25,6 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			} else {
 				out << $tmpl('c_templates/decl_assign_array.c.tmpl')
 			}
-
 		}
 		'string' {
 			gen.add_include('string.h')
