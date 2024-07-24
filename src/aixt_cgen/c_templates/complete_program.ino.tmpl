@@ -2,20 +2,17 @@
 @preproc
 @end
 
-@for def in gen.definitions
-@def
-@end
-
 @for cmd in gen.init_cmds
 @cmd
 @end
+
+void setup() {
+    @for def in gen.definitions
+    @def
+    @end
+}
 
 @for line in gen.out 
 @line
 @end
 
-@attrs @ret_val main(@params) {
-    @for stmt in stmts 
-        @stmt 
-    @end
-}

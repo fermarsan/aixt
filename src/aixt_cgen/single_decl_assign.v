@@ -11,43 +11,42 @@ import v.ast
 // - declaration-assignments `:=`
 fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast.Expr) []string {
 	mut out := []string{}
-	mut c_line := ''
 	var_kind := gen.table.type_kind(left_type).str()
-	// println('???????????????????? ${var_kind} ??????????????????????')
-	match var_kind {
-		'array' {
-			var_type := gen.table.type_kind((right as ast.ArrayInit).elem_type).str()
-			c_line += '${gen.setup.value(var_type).string()} ' // array's element type
-			c_line += '${gen.ast_node(left).join('')}['
-			array_len := (right as ast.ArrayInit).exprs.len
-			if  array_len != 0 {
-				c_line += '${array_len}] = ${gen.ast_node(right).join('')};'
-			} else if gen.setup.value('fixed_size_arrays').bool() {
-				c_line += '${gen.setup.value('array_default_len').int()}];'	// port with fixed-size arrays
+	var_name := gen.ast_node(left).join('')
+	match var_kind {		
+		'array', 'array_fixed' {
+			array_init := (right as ast.ArrayInit)
+			var_type := gen.table.type_kind(array_init.elem_type).str()
+			var_c_type := gen.setup.value(var_type).string()
+			len := array_init.exprs.len
+			var_value := gen.ast_node(right).join('')
+			if array_init.is_fixed {
+				out << $tmpl('c_templates/decl_assign_array_fixed.c.tmpl')
 			} else {
-				c_line += '];'	// port with dynamic-size arrays
+				out << $tmpl('c_templates/decl_assign_array.c.tmpl')
 			}
+
 		}
 		'string' {
-			len := gen.setup.value('string_default_len').int()
-			out << 'char ${gen.ast_node(left).join('')}[${len}] = "";'
 			gen.add_include('string.h')
-			c_line +='strcpy(${gen.ast_node(left).join('')}, ${gen.ast_node(right).join('')});'
+			len := gen.setup.value('string_default_len').int()
+			var_value := gen.ast_node(right).join('')
+			out << $tmpl('c_templates/decl_assign_string.c.tmpl')
 		}
 		'enum' {
-			c_line += 'enum ${(right as ast.EnumVal).enum_name.replace('.', '__')} '
-			c_line += '${gen.ast_node(left).join('')} = '
-			c_line += '${gen.ast_node(right).join('')};'
+			var_c_type := 'enum ${(right as ast.EnumVal).enum_name.replace('.', '__')} '
+			var_value := gen.ast_node(right).join('')
+			out << $tmpl('c_templates/decl_assign.c.tmpl')
 		}
 		else {
-			c_line += '${gen.setup.value(var_kind).string()} ${gen.ast_node(left).join('')} = '
-			c_line += if right.type_name() == 'v.ast.CastExpr' {
-				'${gen.ast_node((right as ast.CastExpr).expr).join('')};'
+			var_c_type := gen.setup.value(var_kind).string()
+			var_value := if right.type_name() == 'v.ast.CastExpr' {
+				gen.ast_node((right as ast.CastExpr).expr).join('')
 			} else {
-				'${gen.ast_node(right).join('')};'
+				gen.ast_node(right).join('')
 			}
+			out << $tmpl('c_templates/decl_assign.c.tmpl')	// call the template
 		}
 	}
-	out << c_line
 	return out
 }
