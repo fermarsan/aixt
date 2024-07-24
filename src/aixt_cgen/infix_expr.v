@@ -8,28 +8,32 @@ import v.ast
 
 // infix_expr is the code generation function for 'infix' expressions (binary operations).
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) []string {
+	mut out := []string{}
+	left := gen.ast_node(node.left).join('')
+	right := gen.ast_node(node.right).join('')	
+	op := node.op
 	// println('-------------${node.promoted_type}-------------')
 	if node.left_type == ast.string_type_idx || node.right_type == ast.string_type_idx {
-		match node.op.str() {
+		gen.add_include('string.h')
+		match op.str() {
 			'==' {
-				gen.add_include('string.h')
-				return ['!strcmp(${gen.ast_node(node.left).join('')}, ${gen.ast_node(node.right).join('')})']
+				out << '!' + $tmpl('c_templates/comp_string.c.tmpl')#[..-1]
 			} 
 			'!=' {
-				gen.add_include('string.h')
-				return ['strcmp(${gen.ast_node(node.left).join('')}, ${gen.ast_node(node.right).join('')})']
+				out <<  $tmpl('c_templates/comp_string.c.tmpl')#[..-1]
 			} 
 			'+' {
-				gen.add_include('string.h')
 				len := gen.setup.value('string_default_len').int()
 				gen.add_definition('char __temp_str[${len}];')
-				return ['strcat(strcpy(__temp_str, ${gen.ast_node(node.left).join('')}), ${gen.ast_node(node.right).join('')})']
+				out << $tmpl('c_templates/concat_string.c.tmpl')#[..-1]
 			} 
 			else {
-				return []
+				panic('\n\nTranspiler Error:\n' +
+					  '"${op}" operator not supported for strings.\n')
 			}
 		}
 	} else {
-		return ['${gen.ast_node(node.left).join('')} ${node.op} ${gen.ast_node(node.right).join('')}']
+		out << $tmpl('c_templates/infix_expr.c.tmpl')#[..-1]
 	}
+	return out
 }

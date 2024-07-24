@@ -21,21 +21,21 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			len := array_init.exprs.len
 			var_value := gen.ast_node(right).join('')
 			if array_init.is_fixed {
-				out << $tmpl('c_templates/decl_assign_array_fixed.c.tmpl')
+				out << $tmpl('c_templates/decl_assign_array_fixed.c.tmpl')#[..-1]
 			} else {
-				out << $tmpl('c_templates/decl_assign_array.c.tmpl')
+				out << $tmpl('c_templates/decl_assign_array.c.tmpl')#[..-1]
 			}
 		}
 		'string' {
 			gen.add_include('string.h')
 			len := gen.setup.value('string_default_len').int()
 			var_value := gen.ast_node(right).join('')
-			out << $tmpl('c_templates/decl_assign_string.c.tmpl')
+			out << $tmpl('c_templates/decl_assign_string.c.tmpl')#[..-1]
 		}
 		'enum' {
 			var_c_type := 'enum ${(right as ast.EnumVal).enum_name.replace('.', '__')} '
 			var_value := gen.ast_node(right).join('')
-			out << $tmpl('c_templates/decl_assign.c.tmpl')
+			out << $tmpl('c_templates/decl_assign.c.tmpl')#[..-1]
 		}
 		else {
 			var_c_type := gen.setup.value(var_kind).string()
@@ -44,7 +44,7 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			} else {
 				gen.ast_node(right).join('')
 			}
-			out << $tmpl('c_templates/decl_assign.c.tmpl')
+			out << $tmpl('c_templates/decl_assign.c.tmpl')#[..-1]
 		}
 	}
 	return out

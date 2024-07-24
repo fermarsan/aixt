@@ -35,24 +35,24 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 						gen.add_include('string.h')
 						match op.str() {
 							'=' {
-								out << $tmpl('c_templates/assign_string.c.tmpl')
+								out << $tmpl('c_templates/assign_string.c.tmpl')#[..-1]
 							} 
 							'+=' {
-								out << $tmpl('c_templates/concat_string.c.tmpl')
+								out << $tmpl('c_templates/accumulate_string.c.tmpl')#[..-1]
 							}	
 							else {
 								panic('\n\nTranspiler Error:\n' +
-									  '"${op.str()}" operator not supported for strings.\n')
+									  '"${op}" operator not supported for strings.\n')
 							}
 						}
 					}
 					else {
-						out << $tmpl('c_templates/assign.c.tmpl')
+						out << $tmpl('c_templates/assign.c.tmpl')#[..-1]
 					}
 				} 
 			} 
 			else {
-				out << $tmpl('c_templates/assign.c.tmpl')
+				out << $tmpl('c_templates/assign.c.tmpl')#[..-1]
 			}
 		}
 	}
