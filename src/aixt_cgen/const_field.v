@@ -21,38 +21,38 @@ import v.ast
 fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	mut c_line := ''
 	// println('================== ${node.name} ==================')
-	mut var_kind := gen.table.type_kind(node.typ).str()
-	// println('================== ${node.name} ==================')
+	var_kind := gen.table.type_kind(node.typ).str()
+	var_name := node.name
 	match var_kind {
 		'array' {
-			var_kind = gen.table.type_kind((node.expr as ast.ArrayInit).elem_type).str()
-			c_line += 'const ${gen.setup.value(var_kind).string()} ' // array's element type
-			c_line += '${node.name}['
-			array_len := (node.expr as ast.ArrayInit).exprs.len
-			if  array_len != 0 {
-				c_line += '${array_len}] = ${gen.ast_node(node.expr).join('')};'
-			} else {
-				c_line += '];'
-			}
+			array_init := (node.expr as ast.ArrayInit)
+			var_type:= gen.table.type_kind(array_init.elem_type).str()
+			var_c_type := gen.setup.value(var_type).string()
+			len := array_init.exprs.len
+			var_value := gen.ast_node(node.expr).join('')
+			c_line = 'const ' + $tmpl('c_templates/decl_assign_array_fixed.c.tmpl')#[..-1]
 		}				
 		'string' {
-			c_line += 'const char ${node.name}[] = ${gen.ast_node(node.expr).join('')};'
+			var_value := gen.ast_node(node.expr).join('')
+			c_line = $tmpl('c_templates/decl_const_string.c.tmpl')#[..-1]
 		}
 		else {
 			if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
-				c_line += if gen.setup.value(var_kind).string() == 'char []' {
-					'const char ${node.name}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')};'
+				var_value := gen.ast_node((node.expr as ast.CastExpr).expr).join('')
+				if gen.setup.value(var_kind).string() == 'char []' {
+					c_line = $tmpl('c_templates/decl_const_string.c.tmpl')#[..-1]
 				} else {
-					'const ${gen.setup.value(var_kind).string()} ${node.name} = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')};'
+					var_c_type := gen.setup.value(var_kind).string()
+					c_line = 'const ' + $tmpl('c_templates/decl_assign.c.tmpl')#[..-1]
 				}								
 			} else {
-				// println('???????????????????????????????????????????? ${var_kind}')
-				var_kind = match var_kind {		// var literal kind standardization
-					'f64' { 'float_literal' }
-					'int' { 'int_literal' }
-					else { var_kind }
-				}
-				c_line += 'const ${gen.setup.value(var_kind).string()} ${node.name} = ${gen.ast_node(node.expr).join('')};'
+				var_value := gen.ast_node(node.expr).join('')
+				var_c_type := gen.setup.value(	match var_kind {		// var literal kind standardization
+													'f64' { 'float_literal' }
+													'int' { 'int_literal' }
+													else { var_kind }
+												} ).string()
+				c_line = 'const ' + $tmpl('c_templates/decl_assign.c.tmpl')#[..-1]
 			}
 		}
 	}
