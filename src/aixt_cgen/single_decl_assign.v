@@ -44,7 +44,7 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			} else {
 				gen.ast_node(right).join('')
 			}
-			out << $tmpl('c_templates/decl_assign.c.tmpl')	// call the template
+			out << $tmpl('c_templates/decl_assign.c.tmpl')
 		}
 	}
 	return out
