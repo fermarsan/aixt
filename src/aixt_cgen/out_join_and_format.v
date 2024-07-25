@@ -19,6 +19,8 @@ fn (mut gen Gen) out_join_and_format() string{
 	re.compile_opt('\n\n\n+') or { panic(err) }
 	out = re.replace(out, '\n\n')
 
+	// replace ' ;' by ';'
+
 	// add inner-block commands indentation 
 	for c in out {
 		match rune(c) {

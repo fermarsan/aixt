@@ -30,7 +30,8 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			gen.add_include('string.h')
 			len := gen.setup.value('string_default_len').int()
 			var_value := gen.ast_node(right).join('')
-			out << $tmpl('c_templates/decl_assign_string.c.tmpl')#[..-1]
+			out << $tmpl('c_templates/decl_string_fixed.c.tmpl')#[..-1]
+			out << $tmpl('c_templates/assign_string.c.tmpl')#[..-1]
 		}
 		'enum' {
 			var_c_type := 'enum ${(right as ast.EnumVal).enum_name.replace('.', '__')} '

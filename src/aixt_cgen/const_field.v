@@ -19,10 +19,14 @@ import v.ast
 // )
 // ```
 fn (mut gen Gen) const_field(node ast.ConstField) []string {
-	mut c_line := ''
+	mut out := []string{}
 	// println('================== ${node.name} ==================')
 	var_kind := gen.table.type_kind(node.typ).str()
-	var_name := node.name
+	var_name := if node.mod.str() == 'main' {
+		node.name.replace('main.', '')
+	} else {
+		node.name.replace('.', '__')
+	}
 	match var_kind {
 		'array' {
 			array_init := (node.expr as ast.ArrayInit)
@@ -30,20 +34,22 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 			var_c_type := gen.setup.value(var_type).string()
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
-			c_line = 'const ' + $tmpl('c_templates/decl_assign_array_fixed.c.tmpl')#[..-1]
+			out << 'const ' + $tmpl('c_templates/decl_assign_array_fixed.c.tmpl')#[..-1]
 		}				
 		'string' {
 			var_value := gen.ast_node(node.expr).join('')
-			c_line = $tmpl('c_templates/decl_const_string.c.tmpl')#[..-1]
+			len := ''
+			out << 'const ' + $tmpl('c_templates/decl_assign_string.c.tmpl')#[..-1]
 		}
 		else {
 			if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
 				var_value := gen.ast_node((node.expr as ast.CastExpr).expr).join('')
 				if gen.setup.value(var_kind).string() == 'char []' {
-					c_line = $tmpl('c_templates/decl_const_string.c.tmpl')#[..-1]
+					len := ''
+					out << 'const ' + $tmpl('c_templates/decl_assign_string.c.tmpl')#[..-1]
 				} else {
 					var_c_type := gen.setup.value(var_kind).string()
-					c_line = 'const ' + $tmpl('c_templates/decl_assign.c.tmpl')#[..-1]
+					out << 'const ' + $tmpl('c_templates/decl_assign.c.tmpl')#[..-1]
 				}								
 			} else {
 				var_value := gen.ast_node(node.expr).join('')
@@ -52,13 +58,9 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 													'int' { 'int_literal' }
 													else { var_kind }
 												} ).string()
-				c_line = 'const ' + $tmpl('c_templates/decl_assign.c.tmpl')#[..-1]
+				out << 'const ' + $tmpl('c_templates/decl_assign.c.tmpl')#[..-1]
 			}
 		}
 	}
-	return if c_line.contains('main.') {
-		[c_line.replace('main.', '')]
-	} else {
-		[c_line.replace('.', '__')]
-	}
+	return out
 }

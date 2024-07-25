@@ -8,40 +8,52 @@ import v.ast
 
 // global_field is the code generation function for global fields.
 fn (mut gen Gen) global_field(node ast.GlobalField) []string {
-	// print('\n\n##########(${node})##########\n\n')
-	mut c_line := ''
+	mut out := []string{}
 	mut var_kind := gen.table.type_kind(node.typ).str()
-	// print('\n\n##########(${node.typ})##########\n\n')
-	// print('\n\n##########(${var_kind})##########\n\n')
-	// print('\n\n##########(${node.expr})##########\n\n')
-	match node.expr {
+	var_name := node.name.replace('.', '__')
+	expr := node.expr
+	match expr {
 		ast.EmptyExpr {
-			c_line += if gen.setup.value(var_kind).string() == 'char []' {
-				'char ${node.name.replace('.', '__')}[]'
+			len := ''
+			var_c_type := gen.setup.value(var_kind).string()	
+			if var_c_type == 'char []' {
+				out << $tmpl('c_templates/decl_string_fixed.c.tmpl')
 			} else {
-				'${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')}'
+				out << $tmpl('c_templates/decl.c.tmpl')
 			}
 		}
 		ast.CastExpr {
-			c_line += if gen.setup.value(var_kind).string() == 'char []' {
-				'char ${node.name.replace('.', '__')}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')}'
+			var_value := gen.ast_node((node.expr as ast.CastExpr).expr).join('')
+			var_c_type := gen.setup.value(var_kind).string()
+			if var_c_type == 'char []' {
+				len := ''
+				out << $tmpl('c_templates/decl_assign_string.c.tmpl')
 			} else {
-				'${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')} = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')}'
+				out << $tmpl('c_templates/decl_assign.c.tmpl')
 			}								
-		} 
+		}
 		ast.ArrayInit {
-			var_kind = gen.table.type_kind((node.expr as ast.ArrayInit).elem_type).str()
-			c_line += '${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')}[] = '
-			elems := node.expr.exprs.str().replace('[', '{').replace(']', '}')
-			c_line += '${elems}'
+			array_init := (node.expr as ast.ArrayInit)
+			var_type:= gen.table.type_kind(array_init.elem_type).str()
+			var_c_type := gen.setup.value(var_type).string()
+			len := array_init.exprs.len
+			var_value := gen.ast_node(node.expr).join('')
+			if array_init.is_fixed {
+				out << $tmpl('c_templates/decl_assign_array_fixed.c.tmpl')
+			} else {
+				out << $tmpl('c_templates/decl_assign_array.c.tmpl')
+			}
 		}
 		else {
-			c_line += if gen.setup.value(var_kind).string() == 'char []' {
-				'char ${node.name.replace('.', '__')}[] = ${gen.ast_node(node.expr).join('')}'
+			var_value := gen.ast_node(node.expr).join('')
+			var_c_type := gen.setup.value(var_kind).string()
+			if var_c_type == 'char []' {
+				len := ''
+				out << $tmpl('c_templates/decl_assign_string.c.tmpl')
 			} else {
-				'${gen.setup.value(var_kind).string()} ${node.name.replace('.', '__')} = ${gen.ast_node(node.expr).join('')}'
+				out << $tmpl('c_templates/decl_assign.c.tmpl')
 			}
 		}
 	}
-	return [c_line + ';\n']
+	return out
 }
