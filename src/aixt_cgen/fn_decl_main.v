@@ -44,8 +44,9 @@ fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 			mut loop := ''
 			for st in node.stmts {	// inner statements
 				stmt_str := gen.ast_node(st).join('')
-				if stmt_str.starts_with('while(true) {\n') {
-					loop = stmt_str#[..-2].replace('while(true)', 'void loop()')	// loop block
+				println('-------------------------------------------\n${stmt_str}')
+				if stmt_str.contains('while(true) {') {
+					loop = stmt_str#[..-2].replace('while(true) {', 'void loop() {\n') + '\n}' 	// loop block
 				} else {
 					stmts << stmt_str
 				}

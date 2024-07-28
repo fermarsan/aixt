@@ -11,13 +11,10 @@ board =   "Arduino Nano"
 backend = "arduino"
 
 cc_linux =   ""
-cc_windows = "C:\Program Files\Arduino IDE\Arduino IDE.exe"
+cc_windows = "C:\\Program Files\\Arduino IDE\\Arduino IDE.exe"
 cc_flags =   "-o"
 
 path = "Atmel/Arduino-Nano"
-
-fixed_size_arrays =  "true"
-array_default_len  = 20
 
 fixed_size_strings = "true"
 string_default_len = 80
@@ -39,7 +36,7 @@ u64 =   "=== NOT SUPPORTED ==="
 usize = "int8_t"
 
 f32 = "float"
-f64 = "=== NOT SUPPORTED ==="
+f64 = "float"   #"=== NOT SUPPORTED ==="
 float_literal = "float"
 
 rune =  "char"
