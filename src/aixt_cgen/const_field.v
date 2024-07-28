@@ -34,22 +34,22 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 			var_c_type := gen.setup.value(var_type).string()
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
-			out << 'const ' + $tmpl('c_templates/decl_assign_array_fixed.c.tmpl')#[..-1]
+			out << 'const ' + $tmpl('c_templates/decl_assign_array_fixed.c')#[..-1]
 		}				
 		'string' {
 			var_value := gen.ast_node(node.expr).join('')
 			len := ''
-			out << 'const ' + $tmpl('c_templates/decl_assign_string.c.tmpl')#[..-1]
+			out << 'const ' + $tmpl('c_templates/decl_assign_string.c')#[..-1]
 		}
 		else {
 			if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
 				var_value := gen.ast_node((node.expr as ast.CastExpr).expr).join('')
 				if gen.setup.value(var_kind).string() == 'char []' {
 					len := ''
-					out << 'const ' + $tmpl('c_templates/decl_assign_string.c.tmpl')#[..-1]
+					out << 'const ' + $tmpl('c_templates/decl_assign_string.c')#[..-1]
 				} else {
 					var_c_type := gen.setup.value(var_kind).string()
-					out << 'const ' + $tmpl('c_templates/decl_assign.c.tmpl')#[..-1]
+					out << 'const ' + $tmpl('c_templates/decl_assign.c')#[..-1]
 				}								
 			} else {
 				var_value := gen.ast_node(node.expr).join('')
@@ -58,7 +58,7 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 													'int' { 'int_literal' }
 													else { var_kind }
 												} ).string()
-				out << 'const ' + $tmpl('c_templates/decl_assign.c.tmpl')#[..-1]
+				out << 'const ' + $tmpl('c_templates/decl_assign.c')#[..-1]
 			}
 		}
 	}

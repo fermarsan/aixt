@@ -1,40 +1,40 @@
 module sound
 
-// #################### NXC Sound module ####################
+// // #################### NXC Sound module ####################
 
-// Constant offsets into the Sound module IOMAP structure. 
-#define 	offset_freq         		SoundOffsetFreq           
-#define 	offset_duration     		SoundOffsetDuration       
-#define 	offset_sample_rate   		SoundOffsetSampleRate     
-#define 	offset_sound_filename		SoundOffsetSoundFilename  
-#define 	sound__offset_flags        	SoundOffsetFlags          
-#define 	offset_state        		SoundOffsetState          
-#define 	sound__offset_mode         	SoundOffsetMode           
-#define 	offset_volume       		SoundOffsetVolume         
+// // Constant offsets into the Sound module IOMAP structure. 
+// #define 	offset_freq         		SoundOffsetFreq           
+// #define 	offset_duration     		SoundOffsetDuration       
+// #define 	offset_sample_rate   		SoundOffsetSampleRate     
+// #define 	offset_sound_filename		SoundOffsetSoundFilename  
+// #define 	sound__offset_flags        	SoundOffsetFlags          
+// #define 	offset_state        		SoundOffsetState          
+// #define 	sound__offset_mode         	SoundOffsetMode           
+// #define 	offset_volume       		SoundOffsetVolume         
 
-// Constants defining miscellaneous sound module aspects. 
-#define 	frequency_min     	FREQUENCY_MIN     
-#define 	frequency_max     	FREQUENCY_MAX     
-#define 	samplerate_min    	SAMPLERATE_MIN    
-#define 	samplerate_default	SAMPLERATE_DEFAULT
-#define 	samplerate_max    	SAMPLERATE_MAX    
+// // Constants defining miscellaneous sound module aspects. 
+// #define 	frequency_min     	FREQUENCY_MIN     
+// #define 	frequency_max     	FREQUENCY_MAX     
+// #define 	samplerate_min    	SAMPLERATE_MIN    
+// #define 	samplerate_default	SAMPLERATE_DEFAULT
+// #define 	samplerate_max    	SAMPLERATE_MAX    
 
 
-// Constants for use with the sound__flags() function. 
-#define 	flags_idle   	SOUND_FLAGS_IDLE    
-#define 	flags_update 	SOUND_FLAGS_UPDATE    
-#define 	flags_running	SOUND_FLAGS_RUNNING    
+// // Constants for use with the sound__flags() function. 
+// #define 	flags_idle   	SOUND_FLAGS_IDLE    
+// #define 	flags_update 	SOUND_FLAGS_UPDATE    
+// #define 	flags_running	SOUND_FLAGS_RUNNING    
 
-// Constants for use with the sound__mode() function. 
-#define 	mode_once		SOUND_MODE_ONCE    
-#define 	mode_loop		SOUND_MODE_LOOP    
-#define 	mode_tone		SOUND_MODE_TONE   
+// // Constants for use with the sound__mode() function. 
+// #define 	mode_once		SOUND_MODE_ONCE    
+// #define 	mode_loop		SOUND_MODE_LOOP    
+// #define 	mode_tone		SOUND_MODE_TONE   
 
-// Constants for use with the sound__state() function. 
-#define 	state_idle	SOUND_STATE_IDLE    
-#define 	state_file	SOUND_STATE_FILE    
-#define 	state_tone	SOUND_STATE_TONE    
-#define 	state_stop	SOUND_STATE_STOP   
+// // Constants for use with the sound__state() function. 
+// #define 	state_idle	SOUND_STATE_IDLE    
+// #define 	state_file	SOUND_STATE_FILE    
+// #define 	state_tone	SOUND_STATE_TONE    
+// #define 	state_stop	SOUND_STATE_STOP   
 
 // Constants for use in the sound__play_tone() api function. 
 #define 	tone_c3		TONE_C3
@@ -99,28 +99,28 @@ module sound
 #define 	tone_b7		TONE_B7
 
 // Functions for accessing and modifying sound module features. 
-#define     sound__play_file(...)        PlayFile(__VA_ARGS__)
-#define     sound__play_file_ex(...)     PlayFileEx(__VA_ARGS__)
-#define     sound__play_tone(...)        PlayTone(__VA_ARGS__)
-#define     sound__play_tone_ex(...)     PlayToneEx(__VA_ARGS__)
-#define     sound__state(...)            SoundState(__VA_ARGS__)
-#define     sound__flags(...)            SoundFlags(__VA_ARGS__)
-#define     sound__stop(...)             StopSound(__VA_ARGS__)
-#define     sound__frequency(...)        SoundFrequency(__VA_ARGS__)
-#define     sound__duration(...)         SoundDuration(__VA_ARGS__)
-#define     sound__sample_rate(...)      SoundSampleRate(__VA_ARGS__)
-#define     sound__mode(...)             SoundMode(__VA_ARGS__)
-#define     sound__volume(...)           SoundVolume(__VA_ARGS__)
-#define     sound__set_duration(...)     SetSoundDuration(__VA_ARGS__)
-#define     sound__set_flags(...)        SetSoundFlags(__VA_ARGS__)
-#define     sound__set_frequency(...)    SetSoundFrequency(__VA_ARGS__)
-#define     sound__set_mode(...)         SetSoundMode(__VA_ARGS__)
-#define     sound__set_module_state(...) SetSoundModuleState(__VA_ARGS__)
-#define     sound__set_sample_rate(...)  SetSoundSampleRate(__VA_ARGS__)
-#define     sound__set_volume(...)       SetSoundVolume(__VA_ARGS__)
-#define     sound__sys_play_file(...)    SysSoundPlayFile(__VA_ARGS__)
-#define     sound__sys_play_tone(...)    SysSoundPlayTone(__VA_ARGS__)
-#define     sound__sys_get_state(...)    SysSoundGetState(__VA_ARGS__)
-#define     sound__sys_set_state(...)    SysSoundSetState(__VA_ARGS__)
-#define     sound__play(...)             PlaySound(__VA_ARGS__)
-#define     sound__play_tones(...)       PlayTones(__VA_ARGS__)
+@[inline] play_file() { return C.PlayFile() }
+@[inline] play_file_ex() { return C.PlayFileEx() }
+@[inline] play_tone() { return C.PlayTone() }
+@[inline] play_tone_ex() { return C.PlayToneEx() }
+@[inline] state() { return C.SoundState() }
+@[inline] flags() { return C.SoundFlags() }
+@[inline] stop() { return C.StopSound() }
+@[inline] frequency() { return C.SoundFrequency() }
+@[inline] duration() { return C.SoundDuration() }
+@[inline] sample_rate() { return C.SoundSampleRate() }
+@[inline] mode() { return C.SoundMode() }
+@[inline] volume() { return C.SoundVolume() }
+@[inline] set_duration() { return C.SetSoundDuration() }
+@[inline] set_flags() { return C.SetSoundFlags() }
+@[inline] set_frequency() { return C.SetSoundFrequency() }
+@[inline] set_mode() { return C.SetSoundMode() }
+@[inline] set_module_state() { return C.SetSoundModuleState() }
+@[inline] set_sample_rate() { return C.SetSoundSampleRate() }
+@[inline] set_volume() { return C.SetSoundVolume() }
+@[inline] sys_play_file() { return C.SysSoundPlayFile() }
+@[inline] sys_play_tone() { return C.SysSoundPlayTone() }
+@[inline] sys_get_state() { return C.SysSoundGetState() }
+@[inline] sys_set_state() { return C.SysSoundSetState() }
+@[inline] play() { return C.PlaySound() }
+@[inline] play_tones() { return C.PlayTones() }

@@ -12,45 +12,45 @@ import v.ast
 fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 	// println('------------------ ${node.name} ------------------------')
 	mut out := []string{}
-	mut c_line := ''
+	mut stmts := []string{}
+	name := 'main'
 	gen.cur_fn = 'main'
 	match gen.setup.value('backend').string() {
 		'c' {
-			c_line += '${gen.setup.value('main_ret_type').string()} '	// return type
-			c_line += 'main('	// main function 
-			out << c_line + '${gen.setup.value('main_params').string()}) {'	// parameters	
-			out << '___initialization_block___'	// initialization function	
+			attrs := ''
+			ret_type := gen.setup.value('main_ret_type').string()
+			params := gen.setup.value('main_params').string()
 			for st in node.stmts {	// inner statements
-				out << gen.ast_node(st)
+				stmts << gen.ast_node(st).join('')
 			}
-			out << if gen.setup.value('main_ret_type').string() == 'int' {	// return value 
-				['return 0;', '}'] 
+			ret_stmt := if ret_type == 'int' {	// return value 
+				'return 0;'
 			} else { 
-				['}']
+				''
 			}
+			out << $tmpl('c_templates/fn_decl.c')#[..-1]
 		}
 		'nxc' {
-			out << 'task main() {'	// main task
-			out << '___initialization_block___'	// initialization function			
+			attrs := 'task'
+			ret_type := ''
+			params := ''			
 			for st in node.stmts {	// inner statements
-				out << gen.ast_node(st)
+				stmts << gen.ast_node(st).join('')
 			}
-			out << '}'
+			ret_stmt := ''
+			out << $tmpl('c_templates/fn_decl.c')#[..-1]
 		}
 		'arduino' {
-			out << 'void setup() {'	// setup function	
-			out << '___initialization_block___'	// initialization function	
+			mut loop := ''
 			for st in node.stmts {	// inner statements
-				stmt_str := '${gen.ast_node(st).join('')}'
+				stmt_str := gen.ast_node(st).join('')
 				if stmt_str.starts_with('while(true) {\n') {
-					out << ['}', '']	// close the setup function
-					out << stmt_str#[..-2].replace('while(true)', 'void loop()')	// loop function
-					break
+					loop = stmt_str#[..-2].replace('while(true)', 'void loop()')	// loop block
 				} else {
-					out << stmt_str
+					stmts << stmt_str
 				}
 			}
-			out << '}'
+			out << $tmpl('c_templates/fn_main.ino')#[..-1]
 		}
 		else{
 			print('Invalid "Backend" in setup file.' )

@@ -17,9 +17,9 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 			len := ''
 			var_c_type := gen.setup.value(var_kind).string()	
 			if var_c_type == 'char []' {
-				out << $tmpl('c_templates/decl_string_fixed.c.tmpl')
+				out << $tmpl('c_templates/decl_string_fixed.c')
 			} else {
-				out << $tmpl('c_templates/decl.c.tmpl')
+				out << $tmpl('c_templates/decl.c')
 			}
 		}
 		ast.CastExpr {
@@ -27,9 +27,9 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 			var_c_type := gen.setup.value(var_kind).string()
 			if var_c_type == 'char []' {
 				len := ''
-				out << $tmpl('c_templates/decl_assign_string.c.tmpl')
+				out << $tmpl('c_templates/decl_assign_string.c')
 			} else {
-				out << $tmpl('c_templates/decl_assign.c.tmpl')
+				out << $tmpl('c_templates/decl_assign.c')
 			}								
 		}
 		ast.ArrayInit {
@@ -39,9 +39,9 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
 			if array_init.is_fixed {
-				out << $tmpl('c_templates/decl_assign_array_fixed.c.tmpl')
+				out << $tmpl('c_templates/decl_assign_array_fixed.c')
 			} else {
-				out << $tmpl('c_templates/decl_assign_array.c.tmpl')
+				out << $tmpl('c_templates/decl_assign_array.c')
 			}
 		}
 		else {
@@ -49,9 +49,9 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 			var_c_type := gen.setup.value(var_kind).string()
 			if var_c_type == 'char []' {
 				len := ''
-				out << $tmpl('c_templates/decl_assign_string.c.tmpl')
+				out << $tmpl('c_templates/decl_assign_string.c')
 			} else {
-				out << $tmpl('c_templates/decl_assign.c.tmpl')
+				out << $tmpl('c_templates/decl_assign.c')
 			}
 		}
 	}

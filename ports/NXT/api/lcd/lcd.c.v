@@ -128,53 +128,57 @@ import str
 // #define 	stepicons				STEPICONS                                        
 
 // 
-#define     lcd__reset()                            ResetScreen()
-#define     lcd__circle(...)                        CircleOut(__VA_ARGS__)
-#define     lcd__line(...)                          LineOut(__VA_ARGS__)
-#define     lcd__point(...)                         PointOut(__VA_ARGS__)
-#define     lcd__rect(...)                          RectOut(__VA_ARGS__)
-#define     lcd__text(...)	                        TextOut(__VA_ARGS__)
-#define     lcd__num(...)                     		NumOut(__VA_ARGS__)
-#define     lcd__ellipse(...)                       EllipseOut(__VA_ARGS__)
-#define     lcd__poly(...)                          PolyOut(__VA_ARGS__)
-#define     lcd__font_text(...)                    	FontTextOut(__VA_ARGS__)
-#define     lcd__font_num(...)                		FontNumOut(__VA_ARGS__)
-#define     lcd__graphic(...)                       GraphicOut(__VA_ARGS__)
-#define     lcd__graphic_array(...)                 GraphicArrayOut(__VA_ARGS__)
-#define     lcd__graphic_ex(...)                    GraphicOutEx(__VA_ARGS__)
-#define     lcd__graphic_array_ex(...)              GraphicArrayOutEx(__VA_ARGS__)
-#define     lcd__get_normal(...)                    GetDisplayNormal(__VA_ARGS__)
-#define     lcd__set_normal(...)                    SetDisplayNormal(__VA_ARGS__)
-#define     lcd__get_popup(...)                     GetDisplayPopup(__VA_ARGS__)
-#define     lcd__set_popup(...)                     SetDisplayPopup(__VA_ARGS__)
-#define     lcd__erase_mask(...)                    DisplayEraseMask(__VA_ARGS__)
-#define     lcd__update_mask(...)                   DisplayUpdateMask(__VA_ARGS__)
-#define     lcd__font(...)                          DisplayFont(__VA_ARGS__)
-#define     lcd__display(...)                       DisplayDisplay(__VA_ARGS__)
-#define     lcd__flags(...)                         DisplayFlags(__VA_ARGS__)
-#define     lcd__text_lines_center_flags(...)       DisplayTextLinesCenterFlags(__VA_ARGS__)
-#define     lcd__sys_draw_text(...)                 SysDrawText(__VA_ARGS__)
-#define     lcd__sys_draw_point(...)                SysDrawPoint(__VA_ARGS__)
-#define     lcd__sys_draw_line(...)                 SysDrawLine(__VA_ARGS__)
-#define     lcd__sys_draw_circle(...)               SysDrawCircle(__VA_ARGS__)
-#define     lcd__sys_draw_rect(...)                 SysDrawRect(__VA_ARGS__)
-#define     lcd__sys_draw_graphic(...)              SysDrawGraphic(__VA_ARGS__)
-#define     lcd__sys_set_mode(...)                  SysSetScreenMode(__VA_ARGS__)
-#define     lcd__sys_display_execute_function(...)  SysDisplayExecuteFunction(__VA_ARGS__)
-#define     lcd__contrast(...)                      DisplayContrast(__VA_ARGS__)
-#define     lcd__sys_draw_graphic_array(...)        SysDrawGraphicArray(__VA_ARGS__)
-#define     lcd__sys_draw_polygon(...)              SysDrawPolygon(__VA_ARGS__)
-#define     lcd__sys_draw_ellipse(...)              SysDrawEllipse(__VA_ARGS__)
-#define     lcd__sys_draw_font(...)                 SysDrawFont(__VA_ARGS__)
-#define     lcd__clear()                         	ClearScreen(); cursor_x = 0; cursor_y = 56;	
-#define     lcd__clear_line(...)                    ClearLine(__VA_ARGS__)
-#define     lcd__set_font(...)                      SetDisplayFont(__VA_ARGS__)
-#define     lcd__set_display(...)                   SetDisplayDisplay(__VA_ARGS__)
-#define     lcd__set_erase_mask(...)                SetDisplayEraseMask(__VA_ARGS__)
-#define     lcd__set_flags(...)                     SetDisplayFlags(__VA_ARGS__)
-#define     lcd__set_text_lines_center_flags(...)   SetDisplayTextLinesCenterFlags(__VA_ARGS__)
-#define     lcd__set_update_mask(...)               SetDisplayUpdateMask(__VA_ARGS__)
-#define     lcd__set_contrast(...)                  SetDisplayContrast(__VA_ARGS__)
+@[inline] reset() { C.ResetScreen() }
+@[inline] circle() { return C.CircleOut() }
+@[inline] line() { return C.LineOut() }
+@[inline] point() { return C.PointOut() }
+@[inline] rect() { return C.RectOut() }
+@[inline] text() { return C.TextOut() }
+@[inline] num() { return C.NumOut() }
+@[inline] ellipse() { return C.EllipseOut() }
+@[inline] poly() { return C.PolyOut() }
+// @[inline] font_text() { return C.FontTextOut() }
+// @[inline] font_num() { return C.FontNumOut() }
+@[inline] graphic() { return C.GraphicOut() }
+@[inline] graphic_array() { return C.GraphicArrayOut() }
+@[inline] graphic_ex() { return C.GraphicOutEx() }
+@[inline] graphic_array_ex() { return C.GraphicArrayOutEx() }
+@[inline] get_normal() { return C.GetDisplayNormal() }
+@[inline] set_normal() { return C.SetDisplayNormal() }
+@[inline] get_popup() { return C.GetDisplayPopup() }
+@[inline] set_popup() { return C.SetDisplayPopup() }
+@[inline] erase_mask() { return C.DisplayEraseMask() }
+@[inline] update_mask() { return C.DisplayUpdateMask() }
+@[inline] font() { return C.DisplayFont() }
+@[inline] display() { return C.DisplayDisplay() }
+@[inline] flags() { return C.DisplayFlags() }
+@[inline] text_lines_center_flags() { return C.DisplayTextLinesCenterFlags() }
+@[inline] sys_draw_text() { return C.SysDrawText() }
+@[inline] sys_draw_point() { return C.SysDrawPoint() }
+@[inline] sys_draw_line() { return C.SysDrawLine() }
+@[inline] sys_draw_circle() { return C.SysDrawCircle() }
+@[inline] sys_draw_rect() { return C.SysDrawRect() }
+@[inline] sys_draw_graphic() { return C.SysDrawGraphic() }
+@[inline] sys_set_mode() { return C.SysSetScreenMode() }
+@[inline] sys_display_execute_function() { return C.SysDisplayExecuteFunction() }
+@[inline] contrast() { return C.DisplayContrast() }
+@[inline] sys_draw_graphic_array() { return C.SysDrawGraphicArray() }
+@[inline] sys_draw_polygon() { return C.SysDrawPolygon() }
+@[inline] sys_draw_ellipse() { return C.SysDrawEllipse() }
+@[inline] sys_draw_font() { return C.SysDrawFont() }
+@[inline] clear() { 
+	C.ClearScreen()
+	cursor_x = 0
+	cursor_y = 56
+}
+@[inline] clear_line() { return C.ClearLine() }
+@[inline] set_font() { return C.SetDisplayFont() }
+@[inline] set_display() { return C.SetDisplayDisplay() }
+@[inline] set_erase_mask() { return C.SetDisplayEraseMask() }
+@[inline] set_flags() { return C.SetDisplayFlags() }
+@[inline] set_text_lines_center_flags() { return C.SetDisplayTextLinesCenterFlags() }
+@[inline] set_update_mask() { return C.SetDisplayUpdateMask() }
+@[inline] set_contrast() { return C.SetDisplayContrast() }
 
 // cursor variables
 __global (

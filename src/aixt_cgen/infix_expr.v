@@ -17,15 +17,15 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) []string {
 		gen.add_include('string.h')
 		match op.str() {
 			'==' {
-				out << '!' + $tmpl('c_templates/comp_string.c.tmpl')#[..-1]
+				out << '!' + $tmpl('c_templates/comp_string.c')#[..-1]
 			} 
 			'!=' {
-				out <<  $tmpl('c_templates/comp_string.c.tmpl')#[..-1]
+				out <<  $tmpl('c_templates/comp_string.c')#[..-1]
 			} 
 			'+' {
 				len := gen.setup.value('string_default_len').int()
 				gen.add_definition('char __temp_str[${len}];')
-				out << $tmpl('c_templates/concat_string.c.tmpl')#[..-1]
+				out << $tmpl('c_templates/concat_string.c')#[..-1]
 			} 
 			else {
 				panic('\n\nTranspiler Error:\n' +
@@ -33,7 +33,7 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) []string {
 			}
 		}
 	} else {
-		out << $tmpl('c_templates/infix_expr.c.tmpl')#[..-1]
+		out << $tmpl('c_templates/infix_expr.c')#[..-1]
 	}
 	return out
 }

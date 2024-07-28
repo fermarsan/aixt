@@ -1,42 +1,42 @@
 module str
 
 // cstring.h
-#define     str__to_num(...)              StrToNum(__VA_ARGS__)
-#define     str__str_len(...)             StrLen(__VA_ARGS__)
-#define     str__index(...)               StrIndex(__VA_ARGS__)
-#define     str__from_num(...)            NumToStr(__VA_ARGS__)
-#define     str__str_cat(...)             StrCat(__VA_ARGS__)
-#define     str__sub(...)                 SubStr(__VA_ARGS__)
-#define     str__flatten(...)             Flatten(__VA_ARGS__)
-#define     str__replace(...)             StrReplace(__VA_ARGS__)
-#define     str__format_num(...)          FormatNum(__VA_ARGS__)
-#define     str__format_val(...)          FormatVal(__VA_ARGS__)
-#define     str__flatten_var(...)         FlattenVar(__VA_ARGS__)
-#define     str__unflatten_var(...)       UnflattenVar(__VA_ARGS__)
-#define     str__pos(...)                 Pos(__VA_ARGS__)
-#define     str__byte_array_to(...)       ByteArrayToStr(__VA_ARGS__)
-#define     str__byte_array_to_ex(...)    ByteArrayToStrEx(__VA_ARGS__)
-#define     str__to_byte_array(...)       StrToByteArray(__VA_ARGS__)
-#define     str__copy(...)                Copy(__VA_ARGS__)
-#define     str__mid(...)                 MidStr(__VA_ARGS__)
-#define     str__right(...)               RightStr(__VA_ARGS__)
-#define     str__left(...)                LeftStr(__VA_ARGS__)
-#define     str__len(...)                 strlen(__VA_ARGS__)
-#define     str__cat(...)                 strcat(__VA_ARGS__)
-#define     str__n_cat(...)               strncat(__VA_ARGS__)
-#define     str__cpy(...)                 strcpy(__VA_ARGS__)
-#define     str__n_cpy(...)               strncpy(__VA_ARGS__)
-#define     str__cmp(...)                 strcmp(__VA_ARGS__)
-#define     str__n_cmp(...)               strncmp(__VA_ARGS__)
-#define     str__memcpy(...)              memcpy(__VA_ARGS__)
-#define     str__memmove(...)             memmove(__VA_ARGS__)
-#define     str__memcmp(...)              memcmp(__VA_ARGS__)
-#define     str__address_of(...)          addressOf(__VA_ARGS__)
-#define     str__reladdress_of(...)       reladdressOf(__VA_ARGS__)
-#define     str__address_of_ex(...)       addressOfEx(__VA_ARGS__)
+@[inline] to_num() { return C.StrToNum() }
+@[inline] str_len() { return C.StrLen() }
+@[inline] index() { return C.StrIndex() }
+@[inline] from_num() { return C.NumToStr() }
+@[inline] str_cat() { return C.StrCat() }
+@[inline] sub() { return C.SubStr() }
+@[inline] flatten() { return C.Flatten() }
+@[inline] replace() { return C.StrReplace() }
+@[inline] format_num() { return C.FormatNum() }
+@[inline] format_val() { return C.FormatVal() }
+@[inline] flatten_var() { return C.FlattenVar() }
+@[inline] unflatten_var() { return C.UnflattenVar() }
+@[inline] pos() { return C.Pos() }
+@[inline] byte_array_to() { return C.ByteArrayToStr() }
+@[inline] byte_array_to_ex() { return C.ByteArrayToStrEx() }
+@[inline] to_byte_array() { return C.StrToByteArray() }
+@[inline] copy() { return C.Copy() }
+@[inline] mid() { return C.MidStr() }
+@[inline] right() { return C.RightStr() }
+@[inline] left() { return C.LeftStr() }
+@[inline] len() { return C.strlen() }
+@[inline] cat() { return C.strcat() }
+@[inline] n_cat() { return C.strncat() }
+@[inline] cpy() { return C.strcpy() }
+@[inline] n_cpy() { return C.strncpy() }
+@[inline] cmp() { return C.strcmp() }
+@[inline] n_cmp() { return C.strncmp() }
+@[inline] memcpy() { return C.memcpy() }
+@[inline] memmove() { return C.memmove() }
+@[inline] memcmp() { return C.memcmp() }
+@[inline] address_of() { return C.addressOf() }
+@[inline] reladdress_of() { return C.reladdressOf() }
+@[inline] address_of_ex() { return C.addressOfEx() }
 
 // Functions for use with NXC array types.
-#define		str__upper_case(...) 	UpperCase(__VA_ARGS__) 
-#define		str__lower_case(...) 	LowerCase(__VA_ARGS__) 
-#define		str__upper_case_ex(...) 	UpperCaseEx(__VA_ARGS__) 
-#define		str__lower_case_ex(...) 	LowerCaseEx(__VA_ARGS__) 
+@[inline] upper_case() { return C.UpperCase() } 
+@[inline] lower_case() { return C.LowerCase() } 
+@[inline] upper_case_ex() { return C.UpperCaseEx() } 
+@[inline] lower_case_ex() { return C.LowerCaseEx() } 

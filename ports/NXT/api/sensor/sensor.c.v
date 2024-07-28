@@ -177,61 +177,61 @@ module sensor
 // #define 	invalid_data  	INPUT_INVALID_DATA 
 
 // Functions for accessing and modifying input module features. 
-#define		sensor__set_type(...)                		SetSensorType(__VA_ARGS__)                                                          
-#define		sensor__set_mode(...)          				SetSensorMode(__VA_ARGS__)                                                          
-#define		sensor__clear(...)            				ClearSensor(__VA_ARGS__)                                                          
-#define		sensor__reset(...)            				ResetSensor(__VA_ARGS__)                                                          
-#define		sensor__set(...)              				SetSensor(__VA_ARGS__)                                                          
-#define		sensor__set_touch(...)         				SetSensorTouch(__VA_ARGS__)                                                          
-#define		sensor__set_light(...)         				SetSensorLight(__VA_ARGS__)                                                          
-#define		sensor__set_sound(...)         				SetSensorSound(__VA_ARGS__)                                                          
-#define		sensor__set_lowspeed(...)      				SetSensorLowspeed(__VA_ARGS__)                                                          
-#define		sensor__set_ultrasonic(...)    				SetSensorUltrasonic(__VA_ARGS__)                                                          
-#define		sensor__set_e_meter(...)        			SetSensorEMeter(__VA_ARGS__)                                                          
-#define		sensor__set_temperature(...)   				SetSensorTemperature(__VA_ARGS__)                                                          
-#define		sensor__set_color_full(...)     			SetSensorColorFull(__VA_ARGS__)                                                          
-#define		sensor__set_color_red(...)      			SetSensorColorRed(__VA_ARGS__)                                                          
-#define		sensor__set_color_green(...)    			SetSensorColorGreen(__VA_ARGS__)                                                          
-#define		sensor__set_color_blue(...)     			SetSensorColorBlue(__VA_ARGS__)                                                          
-#define		sensor__set_color_none(...)     			SetSensorColorNone(__VA_ARGS__)                                                        
-#define		sensor__read(...)		                	Sensor(__VA_ARGS__)                                                          
-#define		sensor__boolean(...)            			SensorBoolean(__VA_ARGS__)                                                          
-#define		sensor__digi_pins_direction(...)        	SensorDigiPinsDirection(__VA_ARGS__)                                                          
-#define		sensor__digi_pins_output_level(...)      	SensorDigiPinsOutputLevel(__VA_ARGS__)                                                          
-#define		sensor__digi_pins_status(...)           	SensorDigiPinsStatus(__VA_ARGS__)                                                          
-#define		sensor__invalid(...)                  		SensorInvalid(__VA_ARGS__)                                                          
-#define		sensor__mode(...)                     		SensorMode(__VA_ARGS__)                                                          
-#define		sensor__normalized(...)               		SensorNormalized(__VA_ARGS__)                                                          
-#define		sensor__raw(...)                      		SensorRaw(__VA_ARGS__)                                                          
-#define		sensor__scaled(...)                   		SensorScaled(__VA_ARGS__)                                                          
-#define		sensor__type(...)                     		SensorType(__VA_ARGS__)                                                          
-#define		sensor__value(...)                    		SensorValue(__VA_ARGS__)                                                          
-#define		sensor__value_bool(...)                		SensorValueBool(__VA_ARGS__)                                                          
-#define		sensor__value_raw(...)                 		SensorValueRaw(__VA_ARGS__)                                                          
-#define		sensor__custom_active_status(...)       	CustomSensorActiveStatus(__VA_ARGS__)                                                          
-#define		sensor__custom_percent_full_scale(...)   	CustomSensorPercentFullScale(__VA_ARGS__)                                                          
-#define		sensor__custom_zero_offset(...)         	CustomSensorZeroOffset(__VA_ARGS__)                                                          
-#define		sensor__set_custom_active_status(...)    	SetCustomSensorActiveStatus(__VA_ARGS__)                                                          
-#define		sensor__set_custom_percent_full_scale(...)	SetCustomSensorPercentFullScale(__VA_ARGS__)                                                          
-#define		sensor__set_custom_zero_offset(...)      	SetCustomSensorZeroOffset(__VA_ARGS__)                                                          
-#define		sensor__set_boolean(...)               		SetSensorBoolean(__VA_ARGS__)                                                          
-#define		sensor__set_digi_pins_direction(...)     	SetSensorDigiPinsDirection(__VA_ARGS__)                                                          
-#define		sensor__set_digi_pins_output_level(...)   	SetSensorDigiPinsOutputLevel(__VA_ARGS__)                                                          
-#define		sensor__set_digi_pins_status(...)        	SetSensorDigiPinsStatus(__VA_ARGS__)                                                          
-#define		sensor__sys_color_read(...)             	SysColorSensorRead(__VA_ARGS__)                                                          
-#define		sensor__read_colors_ex(...)              	ReadSensorColorEx(__VA_ARGS__)                                                          
-#define		sensor__read_colors_raw(...)             	ReadSensorColorRaw(__VA_ARGS__)                                                         
-#define		sensor__read_color_raw(...)           		ColorSensorRaw(__VA_ARGS__)                                                          
-#define		sensor__read_color_value(...)         		ColorSensorValue(__VA_ARGS__)    
+@[inline] set_type() { return C.SetSensorType() }                                                          
+@[inline] set_mode() { return C.SetSensorMode() }                                                          
+@[inline] clear() { return C.ClearSensor() }                                                          
+@[inline] reset() { return C.ResetSensor() }                                                          
+@[inline] set() { return C.SetSensor() }                                                          
+@[inline] set_touch() { return C.SetSensorTouch() }                                                          
+@[inline] set_light() { return C.SetSensorLight() }                                                          
+@[inline] set_sound() { return C.SetSensorSound() }                                                          
+@[inline] set_lowspeed() { return C.SetSensorLowspeed() }                                                          
+@[inline] set_ultrasonic() { return C.SetSensorUltrasonic() }                                                          
+@[inline] set_e_meter() { return C.SetSensorEMeter() }                                                          
+@[inline] set_temperature() { return C.SetSensorTemperature() }                                                          
+@[inline] set_color_full() { return C.SetSensorColorFull() }                                                          
+@[inline] set_color_red() { return C.SetSensorColorRed() }                                                          
+@[inline] set_color_green() { return C.SetSensorColorGreen() }                                                          
+@[inline] set_color_blue() { return C.SetSensorColorBlue() }                                                          
+@[inline] set_color_none() { return C.SetSensorColorNone() }                                                        
+@[inline] read() { return C.Sensor() }                                                          
+@[inline] boolean() { return C.SensorBoolean() }                                                          
+@[inline] digi_pins_direction() { return C.SensorDigiPinsDirection() }                                                          
+@[inline] digi_pins_output_level() { return C.SensorDigiPinsOutputLevel() }                                                          
+@[inline] digi_pins_status() { return C.SensorDigiPinsStatus() }                                                          
+@[inline] invalid() { return C.SensorInvalid() }                                                          
+@[inline] mode() { return C.SensorMode() }                                                          
+@[inline] normalized() { return C.SensorNormalized() }                                                          
+@[inline] raw() { return C.SensorRaw() }                                                          
+@[inline] scaled() { return C.SensorScaled() }                                                          
+@[inline] type() { return C.SensorType() }                                                          
+@[inline] value() { return C.SensorValue() }                                                          
+@[inline] value_bool() { return C.SensorValueBool() }                                                          
+@[inline] value_raw() { return C.SensorValueRaw() }                                                          
+@[inline] custom_active_status() { return C.CustomSensorActiveStatus() }                                                          
+@[inline] custom_percent_full_scale() { return C.CustomSensorPercentFullScale() }                                                          
+@[inline] custom_zero_offset() { return C.CustomSensorZeroOffset() }                                                          
+@[inline] set_custom_active_status() { return C.SetCustomSensorActiveStatus() }                                                          
+@[inline] set_custom_percent_full_scale() { return C.SetCustomSensorPercentFullScale() }                                                          
+@[inline] set_custom_zero_offset() { return C.SetCustomSensorZeroOffset() }                                                          
+@[inline] set_boolean() { return C.SetSensorBoolean() }                                                          
+@[inline] set_digi_pins_direction() { return C.SetSensorDigiPinsDirection() }                                                          
+@[inline] set_digi_pins_output_level() { return C.SetSensorDigiPinsOutputLevel() }                                                          
+@[inline] set_digi_pins_status() { return C.SetSensorDigiPinsStatus() }                                                          
+@[inline] sys_color_read() { return C.SysColorSensorRead() }                                                          
+@[inline] read_colors_ex() { return C.ReadSensorColorEx() }                                                          
+@[inline] read_colors_raw() { return C.ReadSensorColorRaw() }                                                         
+@[inline] read_color_raw() { return C.ColorSensorRaw() }                                                          
+@[inline] read_color_value() { return C.ColorSensorValue() }    
 
-// #define		get_input(...)                   GetInput(__VA_ARGS__)       
-// #define		set_input(...)                   SetInput(__VA_ARGS__)       
-// #define		color_ad_raw(...)                ColorAdRaw(__VA_ARGS__)       
-// #define		color_boolean(...)               ColorBoolean(__VA_ARGS__)       
-// #define		color_calibration(...)           ColorCalibration(__VA_ARGS__)       
-// #define		color_calibration_state(...)     ColorCalibrationState(__VA_ARGS__)       
-// #define		color_cal_limits(...)            ColorCalLimits(__VA_ARGS__)
-// #define		sys_input_pin_function(...)      SysInputPinFunction(__VA_ARGS__) 
+// @[inline] get_input() { return C.GetInput() }       
+// @[inline] set_input() { return C.SetInput() }       
+// @[inline] color_ad_raw() { return C.ColorAdRaw() }       
+// @[inline] color_boolean() { return C.ColorBoolean() }       
+// @[inline] color_calibration() { return C.ColorCalibration() }       
+// @[inline] color_calibration_state() { return C.ColorCalibrationState() }       
+// @[inline] color_cal_limits() { return C.ColorCalLimits() }
+// @[inline] sys_input_pin_function() { return C.SysInputPinFunction() } 
 
 // #################### NXC LowSpeed module ####################
 
@@ -281,12 +281,12 @@ module sensor
 // #define 	temp_reg_thigh    	TEMP_REG_THIGH   
 
 // Functions for accessing and modifying low speed module features. 
-#define		sensor__read_ultrasonic(...) 			SensorUS(__VA_ARGS__) 
-#define		sensor__read_ultrasonic0(...) 			SensorUS0(__VA_ARGS__) 
-#define		sensor__us_wait(...) 					SensorUSWait(__VA_ARGS__) 
-#define		sensor__read_ultrasonic_ex(...) 		ReadSensorUSEx(__VA_ARGS__) 
-#define		sensor__read_ultrasonic_ex0(...) 		ReadSensorUSEx0(__VA_ARGS__) 
-#define		sensor__read_ultrasonic_ex_wait(...)	ReadSensorUSExWait(__VA_ARGS__) 
-#define		sensor__read_e_meter(...) 				ReadSensorEMeter(__VA_ARGS__) 
-#define		sensor__configure_temperature(...) 		ConfigureTemperatureSensor(__VA_ARGS__) 
-#define		sensor__read_temperature(...)			SensorTemperature(__VA_ARGS__)
+@[inline] sensor__read_ultrasonic() { return C.SensorUS() } 
+@[inline] sensor__read_ultrasonic0() { return C.SensorUS0() } 
+@[inline] sensor__us_wait() { return C.SensorUSWait() } 
+@[inline] sensor__read_ultrasonic_ex() { return C.ReadSensorUSEx() } 
+@[inline] sensor__read_ultrasonic_ex0() { return C.ReadSensorUSEx0() } 
+@[inline] sensor__read_ultrasonic_ex_wait() { return C.ReadSensorUSExWait() } 
+@[inline] sensor__read_e_meter() { return C.ReadSensorEMeter() } 
+@[inline] sensor__configure_temperature() { return C.ConfigureTemperatureSensor() } 
+@[inline] sensor__read_temperature() { return C.SensorTemperature() }

@@ -6,45 +6,45 @@ module math
 #define 	deg_to_rad			  DEGREES_PER_RADIAN
 
 // cmath.h
-#define     math__sqrt(...)               sqrt(__VA_ARGS__)
-#define     math__cos(...)                cos(__VA_ARGS__)
-#define     math__sin(...)                sin(__VA_ARGS__)
-#define     math__tan(...)                tan(__VA_ARGS__)
-#define     math__acos(...)               acos(__VA_ARGS__)
-#define     math__asin(...)               asin(__VA_ARGS__)
-#define     math__atan(...)               atan(__VA_ARGS__)
-#define     math__atan2(...)              atan2(__VA_ARGS__)
-#define     math__cosh(...)               cosh(__VA_ARGS__)
-#define     math__sinh(...)               sinh(__VA_ARGS__)
-#define     math__tanh(...)               tanh(__VA_ARGS__)
-#define     math__exp(...)                exp(__VA_ARGS__)
-#define     math__log(...)                log(__VA_ARGS__)
-#define     math__log10(...)              log10(__VA_ARGS__)
-#define     math__trunc(...)              trunc(__VA_ARGS__)
-#define     math__frac(...)               frac(__VA_ARGS__)
-#define     math__pow(...)                pow(__VA_ARGS__)
-#define     math__ceil(...)               ceil(__VA_ARGS__)
-#define     math__floor(...)              floor(__VA_ARGS__)
-#define     math__muldiv32(...)           muldiv32(__VA_ARGS__)
-#define     math__cosd(...)               cosd(__VA_ARGS__)
-#define     math__sind(...)               sind(__VA_ARGS__)
-#define     math__tand(...)               tand(__VA_ARGS__)
-#define     math__acosd(...)              acosd(__VA_ARGS__)
-#define     math__asind(...)              asind(__VA_ARGS__)
-#define     math__atand(...)              atand(__VA_ARGS__)
-#define     math__atan2d(...)             atan2d(__VA_ARGS__)
-#define     math__coshd(...)              coshd(__VA_ARGS__)
-#define     math__sinhd(...)              sinhd(__VA_ARGS__)
-#define     math__tanhd(...)              tanhd(__VA_ARGS__)
-#define     math__bcd2dec(...)            bcd2dec(__VA_ARGS__)
-#define     math__is_nan(...)             isNAN(__VA_ARGS__)
-#define     math__sign(...)               sign(__VA_ARGS__)
-#define     math__vector_cross(...)       VectorCross(__VA_ARGS__)
-#define     math__vector_dot(...)         VectorDot(__VA_ARGS__)
-#define     math__vector_normalize(...)   VectorNormalize(__VA_ARGS__)
+@[inline] sqrt() { return C.sqrt() }
+@[inline] cos() { return C.cos() }
+@[inline] sin() { return C.sin() }
+@[inline] tan() { return C.tan() }
+@[inline] acos() { return C.acos() }
+@[inline] asin() { return C.asin() }
+@[inline] atan() { return C.atan() }
+@[inline] atan2() { return C.atan2() }
+@[inline] cosh() { return C.cosh() }
+@[inline] sinh() { return C.sinh() }
+@[inline] tanh() { return C.tanh() }
+@[inline] exp() { return C.exp() }
+@[inline] log() { return C.log() }
+@[inline] log10() { return C.log10() }
+@[inline] trunc() { return C.trunc() }
+@[inline] frac() { return C.frac() }
+@[inline] pow() { return C.pow() }
+@[inline] ceil() { return C.ceil() }
+@[inline] floor() { return C.floor() }
+@[inline] muldiv32() { return C.muldiv32() }
+@[inline] cosd() { return C.cosd() }
+@[inline] sind() { return C.sind() }
+@[inline] tand() { return C.tand() }
+@[inline] acosd() { return C.acosd() }
+@[inline] asind() { return C.asind() }
+@[inline] atand() { return C.atand() }
+@[inline] atan2d() { return C.atan2d() }
+@[inline] coshd() { return C.coshd() }
+@[inline] sinhd() { return C.sinhd() }
+@[inline] tanhd() { return C.tanhd() }
+@[inline] bcd2dec() { return C.bcd2dec() }
+@[inline] is_nan() { return C.isNAN() }
+@[inline] sign() { return C.sign() }
+@[inline] vector_cross() { return C.VectorCross() }
+@[inline] vector_dot() { return C.VectorDot() }
+@[inline] vector_normalize() { return C.VectorNormalize() }
 
 // cstdlib.c
-#define     math__abs(...)                abs(__VA_ARGS__)
-#define     math__labs(...)               labs(__VA_ARGS__)
-#define     math__div(...)                div(__VA_ARGS__)
-#define     math__ldiv(...)               ldiv(__VA_ARGS__)
+@[inline] abs() { return C.abs() }
+@[inline] labs() { return C.labs() }
+@[inline] div() { return C.div() }
+@[inline] ldiv() { return C.ldiv() }

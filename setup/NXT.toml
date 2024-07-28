@@ -39,7 +39,7 @@ u64 = "=== NOT SUPPORTED ==="
 usize = "unsigned long"
 
 f32 = "float"
-f64 = "=== NOT SUPPORTED ==="
+f64 = "float" #"=== NOT SUPPORTED ==="
 float_literal = "float"
 
 rune = "char"

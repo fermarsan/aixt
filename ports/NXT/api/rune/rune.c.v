@@ -1,16 +1,16 @@
 module rune
 
 // ctype.h
-#define     rune__is_upper(...)  isupper(__VA_ARGS__)
-#define     rune__is_lower(...)  islower(__VA_ARGS__)
-#define     rune__is_alpha(...)  isalpha(__VA_ARGS__)
-#define     rune__is_digit(...)  isdigit(__VA_ARGS__)
-#define     rune__is_alnum(...)  isalnum(__VA_ARGS__)
-#define     rune__is_space(...)  isspace(__VA_ARGS__)
-#define     rune__is_cntrl(...)  iscntrl(__VA_ARGS__)
-#define     rune__is_print(...)  isprint(__VA_ARGS__)
-#define     rune__is_graph(...)  isgraph(__VA_ARGS__)
-#define     rune__is_punct(...)  ispunct(__VA_ARGS__)
-#define     rune__is_xdigit(...) isxdigit(__VA_ARGS__)
-#define     rune__to_upper(...)  toupper(__VA_ARGS__)
-#define     rune__to_lower(...)  tolower(__VA_ARGS__)
+@[inline] is_upper() { return C.isupper() }
+@[inline] is_lower() { return C.islower() }
+@[inline] is_alpha() { return C.isalpha() }
+@[inline] is_digit() { return C.isdigit() }
+@[inline] is_alnum() { return C.isalnum() }
+@[inline] is_space() { return C.isspace() }
+@[inline] is_cntrl() { return C.iscntrl() }
+@[inline] is_print() { return C.isprint() }
+@[inline] is_graph() { return C.isgraph() }
+@[inline] is_punct() { return C.ispunct() }
+@[inline] is_xdigit() { return C.isxdigit() }
+@[inline] to_upper() { return C.toupper() }
+@[inline] to_lower() { return C.tolower() }

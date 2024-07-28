@@ -1,9 +1,9 @@
 module rand
 
 //cstdlib.c
-#define     rand__srand(...)              srand(__VA_ARGS__)
-#define     rand__rand()               	  rand()
-#define     rand__random(...)             Random(__VA_ARGS__)
-#define     rand__sys_random_number(...)  SysRandomNumber(__VA_ARGS__)
-#define     rand__sys_random_ex(...)      SysRandomEx(__VA_ARGS__)
+@[inline] srand() { return C.srand() }
+@[inline] rand() { return C.rand() }
+@[inline] random() { return C.Random() }
+@[inline] sys_random_number() { return C.SysRandomNumber() }
+@[inline] sys_random_ex() { return C.SysRandomEx() }
 

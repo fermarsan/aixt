@@ -117,66 +117,66 @@ module motor	// NXC Output
 
 
 // Functions for accessing and modifying output module features. 
-#define     motor__set_pwn_freq(...)             SetMotorPwnFreq(__VA_ARGS__)                 
-#define     motor__set_regulation_time(...)      SetMotorRegulationTime(__VA_ARGS__)                 
-#define     motor__set_regulation_options(...)   SetMotorRegulationOptions(__VA_ARGS__)                 
-#define     motor__forward_sync_pid(...)         OnFwdSyncPID(__VA_ARGS__)                 
-#define     motor__forward_sync_ex_pid(...)      OnFwdSyncExPID(__VA_ARGS__)                 
-#define     motor__reverse_sync_pid(...)         OnRevSyncPID(__VA_ARGS__)                 
-#define     motor__reverse_sync_ex_pid(...)      OnRevSyncExPID(__VA_ARGS__)                 
-#define     motor__forward_reg_pid(...)          OnFwdRegPID(__VA_ARGS__)                 
-#define     motor__forward_reg_ex_pid(...)       OnFwdRegExPID(__VA_ARGS__)                 
-#define     motor__reverse_reg_pid(...)          OnRevRegPID(__VA_ARGS__)                 
-#define     motor__reverse_reg_ex_pid(...)       OnRevRegExPID(__VA_ARGS__)                 
-#define     motor__off(...)                      Off(__VA_ARGS__)                       
-#define     motor__off_ex(...)                   OffEx(__VA_ARGS__)                     
-#define     motor__coast(...)                    Coast(__VA_ARGS__)                     
-#define     motor__coast_ex(...)                 CoastEx(__VA_ARGS__)                   
-#define     motor__float(...)                    Float(__VA_ARGS__)                     
-#define     motor__forward(...)             	 OnFwd(__VA_ARGS__)                     
-#define     motor__forward_ex(...)               OnFwdEx(__VA_ARGS__)                   
-#define     motor__reverse(...)                  OnRev(__VA_ARGS__)                     
-#define     motor__reverse_ex(...)               OnRevEx(__VA_ARGS__)                   
-#define     motor__forward_reg(...)              OnFwdReg(__VA_ARGS__)                  
-#define     motor__forward_reg_ex(...)           OnFwdRegEx(__VA_ARGS__)                 
-#define     motor__reverse_reg(...)              OnRevReg(__VA_ARGS__)                  
-#define     motor__reverse_reg_ex(...)           OnRevRegEx(__VA_ARGS__)                 
-#define     motor__forward_sync(...)             OnFwdSync(__VA_ARGS__)                 
-#define     motor__forward_sync_ex(...)          OnFwdSyncEx(__VA_ARGS__)                 
-#define     motor__reverse_sync(...)             OnRevSync(__VA_ARGS__)                 
-#define     motor__reverse_sync_ex(...)          OnRevSyncEx(__VA_ARGS__)                 
-#define     motor__rotate(...)                   RotateMotor(__VA_ARGS__)                 
-#define     motor__rotate_pid(...)               RotateMotorPID(__VA_ARGS__)                 
-#define     motor__rotate_ex(...)                RotateMotorEx(__VA_ARGS__)                 
-#define     motor__rotate_ex_pid(...)            RotateMotorExPID(__VA_ARGS__)                 
-#define     motor__reset_tacho_count(...)        ResetTachoCount(__VA_ARGS__)                 
-#define     motor__reset_block_tacho_count(...)  ResetBlockTachoCount(__VA_ARGS__)                 
-#define     motor__reset_rotation_count(...)     ResetRotationCount(__VA_ARGS__)                 
-#define     motor__reset_all_tacho_counts(...)   ResetAllTachoCounts(__VA_ARGS__)               
-#define     motor__mode(...)                     MotorMode(__VA_ARGS__)                 
-#define     motor__power(...)                    MotorPower(__VA_ARGS__)                 
-#define     motor__actual_speed(...)             MotorActualSpeed(__VA_ARGS__)                 
-#define     motor__tacho_count(...)              MotorTachoCount(__VA_ARGS__)                 
-#define     motor__tacho_limit(...)              MotorTachoLimit(__VA_ARGS__)                 
-#define     motor__run_state(...)                MotorRunState(__VA_ARGS__)                 
-#define     motor__turn_ratio(...)               MotorTurnRatio(__VA_ARGS__)                 
-#define     motor__regulation(...)               MotorRegulation(__VA_ARGS__)                 
-#define     motor__overload(...)                 MotorOverload(__VA_ARGS__)                 
-#define     motor__reg_p_value(...)              MotorRegPValue(__VA_ARGS__)                 
-#define     motor__reg_i_value(...)              MotorRegIValue(__VA_ARGS__)                 
-#define     motor__reg_d_value(...)              MotorRegDValue(__VA_ARGS__)                 
-#define     motor__block_tacho_count(...)        MotorBlockTachoCount(__VA_ARGS__)                 
-#define     motor__rotation_count(...)           MotorRotationCount(__VA_ARGS__)                 
-#define     motor__output_options(...)           MotorOutputOptions(__VA_ARGS__)                 
-#define     motor__max_speed(...)                MotorMaxSpeed(__VA_ARGS__)                 
-#define     motor__max_acceleration(...)         MotorMaxAcceleration(__VA_ARGS__)                 
-#define     motor__pwn_freq(...)                 MotorPwnFreq(__VA_ARGS__)                 
-#define     motor__regulation_time(...)          MotorRegulationTime(__VA_ARGS__)                 
-#define     motor__regulation_options(...)       MotorRegulationOptions(__VA_ARGS__)
+@[inline] set_pwn_freq() { return C.SetMotorPwnFreq() }                 
+@[inline] set_regulation_time() { return C.SetMotorRegulationTime() }                 
+@[inline] set_regulation_options() { return C.SetMotorRegulationOptions() }                 
+@[inline] forward_sync_pid() { return C.OnFwdSyncPID() }                 
+@[inline] forward_sync_ex_pid() { return C.OnFwdSyncExPID() }                 
+@[inline] reverse_sync_pid() { return C.OnRevSyncPID() }                 
+@[inline] reverse_sync_ex_pid() { return C.OnRevSyncExPID() }                 
+@[inline] forward_reg_pid() { return C.OnFwdRegPID() }                 
+@[inline] forward_reg_ex_pid() { return C.OnFwdRegExPID() }                 
+@[inline] reverse_reg_pid() { return C.OnRevRegPID() }                 
+@[inline] reverse_reg_ex_pid() { return C.OnRevRegExPID() }                 
+@[inline] off() { return C.Off() }                       
+@[inline] off_ex() { return C.OffEx() }                     
+@[inline] coast() { return C.Coast() }                     
+@[inline] coast_ex() { return C.CoastEx() }                   
+@[inline] float() { return C.Float() }                     
+@[inline] forward() { return C.OnFwd() }                     
+@[inline] forward_ex() { return C.OnFwdEx() }                   
+@[inline] reverse() { return C.OnRev() }                     
+@[inline] reverse_ex() { return C.OnRevEx() }                   
+@[inline] forward_reg() { return C.OnFwdReg() }                  
+@[inline] forward_reg_ex() { return C.OnFwdRegEx() }                 
+@[inline] reverse_reg() { return C.OnRevReg() }                  
+@[inline] reverse_reg_ex() { return C.OnRevRegEx() }                 
+@[inline] forward_sync() { return C.OnFwdSync() }                 
+@[inline] forward_sync_ex() { return C.OnFwdSyncEx() }                 
+@[inline] reverse_sync() { return C.OnRevSync() }                 
+@[inline] reverse_sync_ex() { return C.OnRevSyncEx() }                 
+@[inline] rotate() { return C.RotateMotor() }                 
+@[inline] rotate_pid() { return C.RotateMotorPID() }                 
+@[inline] rotate_ex() { return C.RotateMotorEx() }                 
+@[inline] rotate_ex_pid() { return C.RotateMotorExPID() }                 
+@[inline] reset_tacho_count() { return C.ResetTachoCount() }                 
+@[inline] reset_block_tacho_count() { return C.ResetBlockTachoCount() }                 
+@[inline] reset_rotation_count() { return C.ResetRotationCount() }                 
+@[inline] reset_all_tacho_counts() { return C.ResetAllTachoCounts() }               
+@[inline] mode() { return C.MotorMode() }                 
+@[inline] power() { return C.MotorPower() }                 
+@[inline] actual_speed() { return C.MotorActualSpeed() }                 
+@[inline] tacho_count() { return C.MotorTachoCount() }                 
+@[inline] tacho_limit() { return C.MotorTachoLimit() }                 
+@[inline] run_state() { return C.MotorRunState() }                 
+@[inline] turn_ratio() { return C.MotorTurnRatio() }                 
+@[inline] regulation() { return C.MotorRegulation() }                 
+@[inline] overload() { return C.MotorOverload() }                 
+@[inline] reg_p_value() { return C.MotorRegPValue() }                 
+@[inline] reg_i_value() { return C.MotorRegIValue() }                 
+@[inline] reg_d_value() { return C.MotorRegDValue() }                 
+@[inline] block_tacho_count() { return C.MotorBlockTachoCount() }                 
+@[inline] rotation_count() { return C.MotorRotationCount() }                 
+@[inline] output_options() { return C.MotorOutputOptions() }                 
+@[inline] max_speed() { return C.MotorMaxSpeed() }                 
+@[inline] max_acceleration() { return C.MotorMaxAcceleration() }                 
+@[inline] pwn_freq() { return C.MotorPwnFreq() }                 
+@[inline] regulation_time() { return C.MotorRegulationTime() }                 
+@[inline] regulation_options() { return C.MotorRegulationOptions() }
 
-// #define     set_output(...)               	     SetOutput(__VA_ARGS__)    
-// #define     get_output(...)               	     GetOutput(__VA_ARGS__)      
-// #define     pos_reg_enable(...)           	     PosRegEnable(__VA_ARGS__)            
-// #define     pos_reg_set_angle(...)        	     PosRegSetAngle(__VA_ARGS__)             
-// #define     pos_reg_add_angle(...)        	     PosRegAddAngle(__VA_ARGS__)                
-// #define     pos_reg_set_max(...)          	     PosRegSetMax(__VA_ARGS__)             
+// @[inline] set_output() { return C.SetOutput() }    
+// @[inline] get_output() { return C.GetOutput() }      
+// @[inline] pos_reg_enable() { return C.PosRegEnable() }            
+// @[inline] pos_reg_set_angle() { return C.PosRegSetAngle() }             
+// @[inline] pos_reg_add_angle() { return C.PosRegAddAngle() }                
+// @[inline] pos_reg_set_max() { return C.PosRegSetMax() }             
