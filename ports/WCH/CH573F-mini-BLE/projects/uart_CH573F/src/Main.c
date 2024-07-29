@@ -77,7 +77,6 @@ void uart__setup(uint32_t baud_rate){
     GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_5mA);  //TX
 }
 
-//char TxBuff = ' ';
 
 int main(void) {
 

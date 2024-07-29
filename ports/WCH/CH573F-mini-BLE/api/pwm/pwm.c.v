@@ -10,6 +10,6 @@ module pwm
    CHANNEL 7  PIN B4 
    CHANNEL 9  PIN B7 
    CHANNEL 10 PIN B14
-   CHANNEL 11 PIN 23 */ 
+   CHANNEL 11 PIN B23 */ 
 
    

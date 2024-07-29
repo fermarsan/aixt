@@ -48,9 +48,9 @@
 
 int main(void) {
 
-pin__setup(main__a8, pin__output);
+pin__setup(a8, pin__output);
 while(true) {
-pin__toggle(main__a8);
+pin__toggle(a8);
 time__sleep_ms(150);
 }
 return 0;
