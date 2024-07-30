@@ -12,50 +12,35 @@ import v.ast
 fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 	// println('------------------ ${node.name} ------------------------')
 	mut out := []string{}
-	mut stmts := []string{}
-	name := 'main'
 	gen.cur_fn = 'main'
+	mut attrs := ''
+	mut ret_type := ''
+	mut name := 'main'
+	mut params := ''
+	mut stmts := []string{}
+	mut ret_stmt := ''
+	for st in node.stmts {	// inner statements
+		stmts << gen.ast_node(st).join('')
+	}
 	match gen.setup.value('backend').string() {
 		'c' {
-			attrs := ''
-			ret_type := gen.setup.value('main_ret_type').string()
-			params := gen.setup.value('main_params').string()
-			for st in node.stmts {	// inner statements
-				stmts << gen.ast_node(st).join('')
+			ret_type = gen.setup.value('main_ret_type').string()
+			params = gen.setup.value('main_params').string()
+			if ret_type == 'int' {	// return value 
+				ret_stmt = 'return 0;'
 			}
-			ret_stmt := if ret_type == 'int' {	// return value 
-				'return 0;'
-			} else { 
-				''
-			}
-			out << $tmpl('c_templates/fn_decl.c')#[..-1]
 		}
 		'nxc' {
-			attrs := 'task'
-			ret_type := ''
-			params := ''			
-			for st in node.stmts {	// inner statements
-				stmts << gen.ast_node(st).join('')
-			}
-			ret_stmt := ''
-			out << $tmpl('c_templates/fn_decl.c')#[..-1]
+			attrs = 'task'
 		}
 		'arduino' {
-			mut loop := ''
-			for st in node.stmts {	// inner statements
-				stmt_str := gen.ast_node(st).join('')
-				println('-------------------------------------------\n${stmt_str}')
-				if stmt_str.contains('while(true) {') {
-					loop = stmt_str#[..-2].replace('while(true) {', 'void loop() {\n') + '\n}' 	// loop block
-				} else {
-					stmts << stmt_str
-				}
-			}
-			out << $tmpl('c_templates/fn_main.ino')#[..-1]
+			ret_type = 'void'
+			name = 'setup'
 		}
 		else{
 			print('Invalid "Backend" in setup file.' )
 		}
 	}
+	out << $tmpl('c_templates/fn_decl.c')#[..-1]
 	return out	
 }

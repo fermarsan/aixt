@@ -49,10 +49,10 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			c_line = $tmpl('c_templates/decl_assign.c')#[..-1]
 		}
 	}
-	if gen.setup.value('backend').string() == 'arduino' {
-		gen.definitions << c_line
-	} else {
+	// if gen.setup.value('backend').string() == 'arduino' {
+	// 	gen.definitions << c_line
+	// } else {
 		out << c_line
-	}
+	// }
 	return out
 }
