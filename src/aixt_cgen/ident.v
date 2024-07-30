@@ -11,11 +11,17 @@ fn (mut gen Gen) ident(node ast.Ident) []string {
 	// println('\n${node.mod} #### ${gen.table.cur_fn.name} #### ${node.name}\n') //  -- ${node.scope.parent}')
 	// println('################## ${node.scope.parent} ##################')
 	// println('################## ${node.comptime} ##################')
-	return if node.name.contains('main.') {
-		[node.name.replace('main.', '')]
-	} else {
-		[node.name.replace('.', '__')]
+	match node.language {
+		.c {
+			return [node.name.replace('C.', '')]
+		}
+		else {
+			return if node.mod == 'main' {
+				[node.name.replace('main.', '')]
+			} else {
+				[node.name.replace('.', '__')]
+			}
+		}
 	}
-
 	// return [node.name.replace('${node.mod}.', '')]
 }
