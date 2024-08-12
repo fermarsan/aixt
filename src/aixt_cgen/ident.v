@@ -10,14 +10,16 @@ import v.ast
 fn (mut gen Gen) ident(node ast.Ident) []string {
 	// println('\n${node.mod} #### ${gen.table.cur_fn.name} #### ${node.name}\n') //  -- ${node.scope.parent}')
 	// println('################## ${node.scope.parent} ##################')
-	// println('################## ${node.comptime} ##################')
+	// println('################## ${node.name} ##################')
+	// println('################## ${node.mod} ##################')
+	// println('################## ${node.language} ##################')
 	match node.language {
 		.c {
 			return [node.name.replace('C.', '')]
 		}
 		else {
 			return if node.mod == 'main' {
-				[node.name.replace('main.', '')]
+				[node.name.replace('main.', '').replace('.', '__')]
 			} else {
 				[node.name.replace('.', '__')]
 			}

@@ -15,6 +15,7 @@ fn (mut gen Gen) err_war_check() {
 		'has no constant or function',
 		'cannot call a function that does not have a body',
 		'used as value in argument',
+		'` used as value',
 		'returns 0 value',
 		'non-bool',
 		'mutex',

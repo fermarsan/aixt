@@ -6,6 +6,3 @@
 // Description: Time module (Arduino Nano - ATmega328P port)
 module time
 
-fn init() { //  init function call setup or initialization code
-
-}

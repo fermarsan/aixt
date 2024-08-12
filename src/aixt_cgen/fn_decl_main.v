@@ -17,6 +17,7 @@ fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 	mut ret_type := ''
 	mut name := 'main'
 	mut params := ''
+	init_block := '__initialization_block__'
 	mut stmts := []string{}
 	mut ret_stmt := ''
 	for st in node.stmts {	// inner statements

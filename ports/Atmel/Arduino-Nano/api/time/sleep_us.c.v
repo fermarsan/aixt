@@ -4,5 +4,8 @@
 // License: MIT
 module time
 
-//Pauses the program for the amount of time (in microseconds) specified by the parameter
-#define time__sleep_us(TUS)  delayMicroseconds(TUS)
+// sleep is a delay function in microseconds for the Aixt PC port. 
+@[inline]
+pub fn sleep_us(tus int) {
+	C.delayMicroseconds(tus)
+}

@@ -24,6 +24,8 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 	}
 
 	flags := setup_file.value('cc_flags').string()
+	output_flag := setup_file.value('cc_output_flag').string()
+	input_flag := setup_file.value('cc_input_flag').string()
 
 	input_ext := match setup_file.value('backend').string() {
 		'nxc' 		{ '.nxc' }
@@ -39,13 +41,27 @@ pub fn compile_file(path string, setup_file toml.Doc) {
 	}
 	// println('-------- ${os.dir(path)} --------')
 	if os.exists('${os.dir(path)}/Makefile') {	// through Makefile
+	println('make -f ${os.dir(path)}/Makefile')
 		println(os.execute('make -f ${os.dir(path)}/Makefile').output)
 		// println(os.execute('make').output)
 	} else {	// calling compiler directly
+		mut command := '${cc} ${flags} '
 		if os.is_dir(path) {
-			println(os.execute('${cc} ${path}/main${input_ext} ${flags} ${path}/main').output)
+			command += if output_flag != '' {
+				'${output_flag} ${path}/main${output_ext} '
+			} else {
+				''
+			}
+			command += '${input_flag} ${path}/main'
 		} else {
-			println(os.execute('${cc} ${path}${input_ext} ${flags} ${path}${output_ext}').output)
+			command += if output_flag != '' {
+				'${output_flag} ${path}${output_ext} '
+			} else {
+				''
+			}
+			command += '${input_flag} ${path}${input_ext}'
 		}
+		println('${command}')
+		println(os.execute('${command}').output)
 	}
 }

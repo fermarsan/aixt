@@ -6,27 +6,7 @@
 // Description: Builtin definitions (Arduino Nano - ATmega328P port)
 module main
 
-// define analog pins
-// #define a0  A0  
-// #define a1  A1
-// #define a2  A2
-// #define a3  A3
-// #define a4  A4
-// #define a5  A5
-// #define a6  A6
-// #define a7  A7
-const (
-	a0 = C.A0  
-	a1 = C.A1
-	a2 = C.A2
-	a3 = C.A3
-	a4 = C.A4
-	a5 = C.A5
-	a6 = C.A6
-	a7 = C.A7
-)
-
-enum __pin_names { // enumerated type for digital pin names
+enum pin_names { // enumerated type for digital pin names
 	d0
 	d1
 	d2
@@ -47,8 +27,4 @@ enum __pin_names { // enumerated type for digital pin names
 	d17
 	d18
 	d19
-}
-
-fn init() { //  init function call setup or initialization code
-
 }

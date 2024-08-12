@@ -4,5 +4,8 @@
 // License: MIT
 module time
 
-//Pauses the program for the amount of time (in milliseconds) specified as parameter
-#define time__sleep_ms(TMS)  delay(TMS)
+// sleep is a delay function in milliseconds for the Aixt PC port. 
+@[inline]
+pub fn sleep_ms(tms int) {
+	C.delay(tms)
+}

@@ -1,6 +1,6 @@
 # Project Name: Aixt, https://github.com/fermarsan/aixt.git
 # Author: Fernando Martínez Santa
-# Date: 2023
+# Date: 2023-2024
 # License: MIT
 #
 # Description: Setup file for the Emulator port. It works on Linux and Windows 
@@ -12,7 +12,9 @@ backend = "c"
 
 cc_linux =   "gcc"
 cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"
-cc_flags =   "-o"
+cc_flags =   ""
+cc_output_flag = "-o"
+cc_input_flag = ""
 
 path = "Emulator"
 

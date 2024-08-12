@@ -1,5 +1,5 @@
 @attrs@ret_type @{name}(@params) {
-___initialization_block___
+@init_block
 @for stmt in stmts 
 @stmt 
 @end

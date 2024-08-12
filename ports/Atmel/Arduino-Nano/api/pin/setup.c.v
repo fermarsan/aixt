@@ -5,4 +5,7 @@
 module pin
 
 // setup configures a pin's input/output mode
-#define pin__setup(PIN_NAME, MODE)  pinMode(PIN_NAME, MODE)
+@[inline]
+pub fn setup(name int, mode int) {   
+    C.pinMode(name, mode)
+}
