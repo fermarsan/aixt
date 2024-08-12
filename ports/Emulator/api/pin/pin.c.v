@@ -9,17 +9,6 @@ module pin
 #include <stdio.h>
 #include <stdlib.h>
 
-pub const (
-    a = 0
-    b = 1
-    c = 2
-    d = 3
-    w = 4
-    x = 5
-    y = 6
-    z = 7
-)
-
 // struct PinStruct {
 //     pins    []int{cap: 8}
 //     input   int
