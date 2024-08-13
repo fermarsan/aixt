@@ -3,10 +3,10 @@
 // Date: 
 // CLI emulator (Windows, Lunix and Android-Termux) 
 
-import time { sleep_ms }
+import time
 import pin
 
 for {
 	pin.high(a)
-	sleep_ms(500)
+	time.sleep_ms(500)
 }

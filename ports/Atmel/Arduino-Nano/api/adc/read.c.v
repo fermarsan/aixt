@@ -5,4 +5,7 @@
 module adc
 
 //Reads the value from the specified analog pin
-#define adc__read(PIN_NAME)  analogRead(PIN_NAME)  
+@[inline]
+fn read(name int) int {
+	return C.analogRead(name)
+}

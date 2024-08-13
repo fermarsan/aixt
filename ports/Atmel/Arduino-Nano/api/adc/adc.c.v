@@ -6,6 +6,14 @@
 // Description: ADC functions (Arduino Nano - ATmega328P port)
 module adc
 
-fn init() { //  init function call setup or initialization code
 
-}
+pub const (
+	a0 = 14
+	a1 = 15
+	a2 = 16
+	a3 = 17
+	a4 = 18
+	a5 = 19
+	a6 = 20
+	a7 = 21
+)

@@ -5,4 +5,7 @@
 module uart
 
 // Reads incoming serial data
-#define uart__read()  Serial.read()
+@[inline]
+fn read() u8 {
+	return C.Serial.read()
+}

@@ -5,4 +5,7 @@
 module uart
 
 // Get the number of bytes (characters) available for reading from the serial port
-#define uart__any()  Serial.available()  
+@[inline]
+fn any() int {
+	return C.Serial.available()
+}
