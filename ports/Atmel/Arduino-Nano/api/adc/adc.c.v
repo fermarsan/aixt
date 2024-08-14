@@ -6,7 +6,6 @@
 // Description: ADC functions (Arduino Nano - ATmega328P port)
 module adc
 
-
 pub const (
 	a0 = 14
 	a1 = 15
