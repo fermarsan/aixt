@@ -9,4 +9,8 @@
 
 module pwm
 
-#define pwm__write(PIN_NAME, MODE)   analogWrite(PIN_NAME, MODE)
+//Writes an analog value (PWM wave) to a pin
+@[inline]
+fn write(name int, value int) {
+	C.analogWrite(name, value)
+}

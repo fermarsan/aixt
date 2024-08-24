@@ -9,4 +9,8 @@
 
 module pin
 
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
+//Reads the value from a specified digital pin, either HIGH or LOW
+@[inline]
+pub fn read(name int) int {
+	return C.digitalRead(name)
+}

@@ -9,4 +9,8 @@
 
 module pin
 
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+// write puts a logic value to a specific pin
+@[inline]
+pub fn write(name int, val int) {  
+    C.digitalWrite(name, val)
+}

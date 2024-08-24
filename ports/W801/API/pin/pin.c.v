@@ -9,10 +9,25 @@
 
 module pin
 
-#define pin__output		OUTPUT
-#define pin__input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
+pub const ( // enumerated type for digital pin names
+	led1 = C.LED_BUILTIN_1
+	led2 = C.LED_BUILTIN_2
+	led3 = C.LED_BUILTIN_3
+	led4 = C.LED_BUILTIN_4
+	led5 = C.LED_BUILTIN_5
+	led6 = C.LED_BUILTIN_6
+	led7 = C.LED_BUILTIN_7
+	a1 = C.PB21
+	a2 = C.PB22
+	a3 = C.PB23
+	a4 = C.PB24
+	a5 = C.PB0
+	a6 = C.PB1
+	pin1 = C.PB21
+	pin2 = C.	PB22
+)
 
-fn init() {
-
-}
+pub const (
+	output  = C.OUTPUT  
+    input   = C.INPUT  
+)

@@ -9,4 +9,8 @@
 
 module time
 
-#define time__sleep_us(US)    delayMicroseconds(US)
+// sleep is a delay function in microseconds for the Aixt PC port. 
+@[inline]
+pub fn sleep_us(tus int) {
+	C.delayMicroseconds(tus)
+}

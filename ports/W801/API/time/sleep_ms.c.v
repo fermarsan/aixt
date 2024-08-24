@@ -9,4 +9,8 @@
 
 module time
 
-#define time__sleep_ms(MS)    delay(MS)
+// sleep is a delay function in milliseconds for the Aixt PC port. 
+@[inline]
+pub fn sleep_ms(tms int) {
+	C.delay(tms)
+}

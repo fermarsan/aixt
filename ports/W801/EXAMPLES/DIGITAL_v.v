@@ -1,25 +1,23 @@
 import pin
 import time {sleep_ms}
   // put your setup code here, to run once:
-pin__setup(a1,pin__input);  
-pin__setup(a2,pin__output);
-pin__setup(a3,pin__output);
-pin__setup(a4,pin__output);
-
-
+pin.setup(a1,pin.input);  
+pin.setup(a2,pin.output);
+pin.setup(a3,pin.output);
+pin.setup(a4,pin.output);
 
 for {
   // put your main code here, to run repeatedly:
-if (pin__read(a1)==1){
-  pin__low(a2);
-  pin__high(a3);
-  pin__low(a4);
-  time__sleep_ms (100);
+if (pin.read(a1)==1){
+  pin.low(a2);
+  pin.high(a3);
+  pin.low(a4);
+  time.sleep_ms (100);
 }
-if (pin__read(a1)==0){
-  pin__high(a2);
-  pin__low(a3);
-  pin__high(a4);
-  time__sleep_ms (100); 
+if (pin.read(a1)==0){
+  pin.high(a2);
+  pin.low(a3);
+  pin.high(a4);
+  time.sleep_ms (100); 
 }
 }

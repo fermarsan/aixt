@@ -8,4 +8,25 @@
 //              (PC port) 
 
 module pin
-#define pwm.pin[PIN_NAME]  pwm_pin[PIN_NAME]
+pub const ( // enumerated type for digital pin names
+	led1 = C.LED_BUILTIN_1
+	led2 = C.LED_BUILTIN_2
+	led3 = C.LED_BUILTIN_3
+	led4 = C.LED_BUILTIN_4
+	led5 = C.LED_BUILTIN_5
+	led6 = C.LED_BUILTIN_6
+	led7 = C.LED_BUILTIN_7
+	a1 = C.PB21
+	a2 = C.PB22
+	a3 = C.PB23
+	a4 = C.PB24
+	a5 = C.PB0
+	a6 = C.PB1
+	pin1 = C.PB21
+	pin2 = C.	PB22
+)
+
+pub const (
+	output  = C.OUTPUT  
+    input   = C.INPUT  
+)

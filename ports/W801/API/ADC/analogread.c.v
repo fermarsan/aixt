@@ -9,4 +9,7 @@
 
 module adc
 
-#define adc__read(PIN_NAME)   analogRead(PIN_NAME)
+@[inline]
+fn read(name int) int {
+	return C.analogRead(name)
+}

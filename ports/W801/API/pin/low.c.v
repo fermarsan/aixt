@@ -9,4 +9,8 @@
 
 module pin
 
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+// pin_high puts a low value (logic 0) to a specific pin
+@[inline]
+pub fn low(name int) {   
+    C.digitalWrite(name, C.LOW)
+}

@@ -2,43 +2,43 @@
     import time {sleep_ms}
     import pin
   // initialize the digital pin as an output.
-  pin__setup(led1, pin__output);
-  pin__setup(led2, pin__output);
-  pin__setup(led3, pin__output);
-  pin__setup(led4, pin__output);
-  pin__setup(led5, pin__output);
-  pin__setup(led6, pin__output);
-  pin__setup(led7, pin__output);
+  pin.setup(led1, pin.output);
+  pin.setup(led2, pin.output);
+  pin.setup(led3, pin.output);
+  pin.setup(led4, pin.output);
+  pin.setup(led5, pin.output);
+  pin.setup(led6, pin.output);
+  pin.setup(led7, pin.output);
 
 
 // the loop routine runs over and over again forever:
 for {
-  pin__high(led1);   // turn the LED on (HIGH is the voltage level)
-  time__sleep_ms(1000);               // wait for a second
-  pin__low(led1);    // turn the LED off by making the voltage LOW
-  time__sleep_ms(1000);               // wait for a second
-  pin__high(led2);   // turn the LED on (HIGH is the voltage level)
-  time__sleep_ms(1000);               // wait for a second
-  pin__low(led2);    // turn the LED off by making the voltage LOW
-  time__sleep_ms(1000);               // wait for a second
-  pin__high(led3);   // turn the LED on (HIGH is the voltage level)
-  time__sleep_ms(1000);               // wait for a second
-  pin__low(led3);    // turn the LED off by making the voltage LOW
-  time__sleep_ms(1000);               // wait for a second
-  pin__high(led4);   // turn the LED on (HIGH is the voltage level)
-  time__sleep_ms(1000);               // wait for a second
-  pin__low(led4);    // turn the LED off by making the voltage LOW
-  time__sleep_ms(1000);               // wait for a second
-  pin__high(led5);   // turn the LED on (HIGH is the voltage level)
-  time__sleep_ms(1000);               // wait for a second
-  pin__low(led5);    // turn the LED off by making the voltage LOW
-  time__sleep_ms(1000);               // wait for a second
-  pin__high(led6);   // turn the LED on (HIGH is the voltage level)
-  time__sleep_ms(1000);               // wait for a second
-  pin__high(led6);    // turn the LED off by making the voltage LOW
-  time__sleep_ms(1000);               // wait for a second
-  pin__high(led7);   // turn the LED on (HIGH is the voltage level)
-  time__sleep_ms(1000);               // wait for a second
-  pin__high(led7);    // turn the LED off by making the voltage LOW
-  time__sleep_ms(1000);               // wait for a second
+  pin.high(led1);   // turn the LED on (HIGH is the voltage level)
+  time.sleep_ms(1000);               // wait for a second
+  pin.low(led1);    // turn the LED off by making the voltage LOW
+  time.sleep_ms(1000);               // wait for a second
+  pin.high(led2);   // turn the LED on (HIGH is the voltage level)
+  time.sleep_ms(1000);               // wait for a second
+  pin.low(led2);    // turn the LED off by making the voltage LOW
+  time.sleep_ms(1000);               // wait for a second
+  pin.high(led3);   // turn the LED on (HIGH is the voltage level)
+  time.sleep_ms(1000);               // wait for a second
+  pin.low(led3);    // turn the LED off by making the voltage LOW
+  time.sleep_ms(1000);               // wait for a second
+  pin.high(led4);   // turn the LED on (HIGH is the voltage level)
+  time.sleep_ms(1000);               // wait for a second
+  pin.low(led4);    // turn the LED off by making the voltage LOW
+  time.sleep_ms(1000);               // wait for a second
+  pin.high(led5);   // turn the LED on (HIGH is the voltage level)
+  time.sleep_ms(1000);               // wait for a second
+  pin.low(led5);    // turn the LED off by making the voltage LOW
+  time.sleep_ms(1000);               // wait for a second
+  pin.high(led6);   // turn the LED on (HIGH is the voltage level)
+  time.sleep_ms(1000);               // wait for a second
+  pin.high(led6);    // turn the LED off by making the voltage LOW
+  time.sleep_ms(1000);               // wait for a second
+  pin.high(led7);   // turn the LED on (HIGH is the voltage level)
+  time.sleep_ms(1000);               // wait for a second
+  pin.high(led7);    // turn the LED off by making the voltage LOW
+  time.leep_ms(1000);               // wait for a second
 }

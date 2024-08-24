@@ -2,8 +2,6 @@ import time {sleep_ms}
 import pin
 import uart
 
-
-
   uart.setup(0, 9600)
   pin.setup(pin1, pin.output)
   pin.setup(pin2, pin.output)
@@ -23,7 +21,6 @@ pin.high(pin2)
   if (uart.available() > 0) {
     command := ` `
     command = uart.read(0)
-
        
        if  command == `Q` {
          pin.high(pin1)

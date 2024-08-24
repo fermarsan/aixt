@@ -9,6 +9,14 @@
 
 module uart
 
-fn init() {
+#include <stdio.h>
+#include <string.h>
 
+__global (
+	uart__buffer = ''
+)
+
+fn init() {
+	C.printf('\033[1;32m')	// print in green
+	C.printf(' Aixt virtual UART\n')
 }

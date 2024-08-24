@@ -9,4 +9,4 @@
 
 module pin
 
-#define DUTY__MAX  DUTY_MAX
+#define DUTY__MAX  DUTY_MAX	
