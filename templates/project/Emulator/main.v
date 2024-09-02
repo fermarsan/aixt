@@ -1,7 +1,7 @@
 // Project Name:
 // Author: 
 // Date: 
-// CLI emulator (Windows, Lunix and Android-Termux) 
+// CLI emulator (Windows, Linux and Android-Termux) 
 
 import time
 import pin
