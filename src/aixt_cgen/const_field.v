@@ -31,7 +31,7 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 		'array' {
 			array_init := (node.expr as ast.ArrayInit)
 			var_type:= gen.table.type_kind(array_init.elem_type).str()
-			var_c_type := gen.setup.value(var_type).string()
+			var_c_type := gen.setup.compiler.value(var_type).string()
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
 			out << 'const ' + $tmpl('c_templates/decl_assign_array_fixed.c')#[..-1]
@@ -44,16 +44,16 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 		else {
 			if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
 				var_value := gen.ast_node((node.expr as ast.CastExpr).expr).join('')
-				if gen.setup.value(var_kind).string() == 'char []' {
+				if gen.setup.compiler.value(var_kind).string() == 'char []' {
 					len := ''
 					out << 'const ' + $tmpl('c_templates/decl_assign_string.c')#[..-1]
 				} else {
-					var_c_type := gen.setup.value(var_kind).string()
+					var_c_type := gen.setup.compiler.value(var_kind).string()
 					out << 'const ' + $tmpl('c_templates/decl_assign.c')#[..-1]
 				}								
 			} else {
 				var_value := gen.ast_node(node.expr).join('')
-				var_c_type := gen.setup.value(	match var_kind {		// var literal kind standardization
+				var_c_type := gen.setup.compiler.value(	match var_kind {		// var literal kind standardization
 													'f64' { 'float_literal' }
 													'int' { 'int_literal' }
 													else { var_kind }

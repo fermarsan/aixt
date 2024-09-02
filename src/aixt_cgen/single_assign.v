@@ -26,10 +26,10 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 			ast.Ident {	// if it is a simple variable
 				match var_kind {
 					'array' {
-						if gen.setup.value('fixed_size_arrays').bool() {
+						// if gen.setup.platform.value('fixed_size_arrays').bool() {
 							panic('\n\nTranspiler Error:\n' +
 								  'For now dynamic-size arrays are not allowed.\n')
-						}
+						// }
 					}
 					'string' {
 						gen.add_include('string.h')

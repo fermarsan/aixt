@@ -1,4 +1,4 @@
 import pin
 
-pin.low(pin.a)
+pin.high(a)
 

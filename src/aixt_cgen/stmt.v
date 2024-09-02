@@ -55,6 +55,9 @@ fn (mut gen Gen) stmt(node ast.Stmt) []string {
 		ast.AsmStmt {
 			return gen.asm_stmt(node)
 		}
+		ast.Block {
+			return gen.block(node)
+		}
 		ast.SemicolonStmt {
 			return []
 		}

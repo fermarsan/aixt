@@ -9,9 +9,9 @@ module aixt_cgen
 import v.ast
 import v.token
 import v.pref
-import toml
 import v.parser
-import v.checker	
+import v.checker
+import aixt_setup	
 
 // Gen is the struct that defines all the necessary data for the code generation
 pub struct Gen {
@@ -27,7 +27,8 @@ pub mut:
 	// imports			[]string
 	source_paths	[]string
 	out   			[]string
-	c_preproc_cmds	[]string	
+	c_preproc_cmds	[]string
+	api_mod_paths	map[string]string
 	// includes		[]string
 	// macros		[]string
 	definitions		[]string
@@ -38,20 +39,30 @@ pub mut:
 	level_count		int
 // pub mut:
 	pref  			&pref.Preferences = unsafe { nil }
-	setup 			toml.Doc
+	setup			aixt_setup.Setup
 }
 
 // gen is the main function of the code generation.
 // It receives the source path (file or folder), and return a string with the generated code.
 pub fn (mut gen Gen) gen(source_path string) string {
 
+	gen.load_mod_paths()
+
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 
-	port_path := gen.setup.value('path').string()
-	gen.source_paths << '${gen.transpiler_path}/ports/${port_path}/api/builtin.c.v'
+	api_paths := gen.setup.platform.value('api_paths').array().as_strings()
 
-	gen.add_sources(source_path)	// main source folder
+	// adds the builtin file first
+	gen.source_paths << '${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v'
 
+	gen.add_sources(source_path)
+
+	// for path in api_paths {
+	// 	gen.add_sources('${gen.transpiler_path}/ports/${path}/api')	// main source folder
+	// }
+	// for path in gen.source_paths {
+	// 	println('--- ${path} ---')
+	// }
 	// $if windows {
 	//	file = parser.parse_file(source_path, mut gen.table, .skip_comments, gen.pref)
 	// } $else {

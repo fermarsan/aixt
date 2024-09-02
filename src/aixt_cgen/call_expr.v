@@ -19,7 +19,7 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) []string {
 		else {
 			if node.name.contains('.') {
 				node.name.replace('.', '__')
-			} else if node.mod.all_after_last('.') == 'main' && gen.setup.value('backend').string() == 'nxc' {
+			} else if node.mod.all_after_last('.') == 'main' && gen.setup.platform.value('backend').string() == 'nxc' {
 				'${node.name.all_after_last('.')}'
 			} else {
 				'${node.mod.all_after_last('.')}__${node.name.all_after_last('.')}'

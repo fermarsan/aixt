@@ -1,0 +1,32 @@
+# Project Name: Aixt, https://github.com/fermarsan/aixt.git
+# Author: Fernado Martinez Santa
+# Date: 2024
+# License: MIT
+#
+# Description: Setup file for xc8 compiler
+
+void =  "void"
+bool =  "bool"
+
+i8 =    "signed char"
+i16 =   "signed short"
+int =   "long"
+i64 =   "=== NOT SUPPORTED ==="
+isize = "signed char"
+int_literal = "signed char"
+
+u8 =    "unsigned char"
+u16 =   "unsigned short"
+u32 =   "unsigned long"
+u64 =   "=== NOT SUPPORTED ==="
+usize = "unsigned char"
+
+f32 = "float"
+f64 = "=== NOT SUPPORTED ==="
+float_literal = "float"
+
+rune =  "char"
+string = "char []"
+
+main_ret_type = "void"
+main_params =   "void"   

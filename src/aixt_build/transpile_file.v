@@ -5,14 +5,14 @@
 module aixt_build
 
 import os
-import toml
 import v.ast
 import v.token
 import v.pref
+import aixt_setup
 import aixt_cgen
 
 // transpile_file transpiles an Aixt source code into C.
-pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
+pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 	mut c_gen := aixt_cgen.Gen{
 		files: 				[]&ast.File{}
 		table: 				ast.new_table()
@@ -25,6 +25,7 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		source_paths: 		[]string{}
 		out: 				[]string{}
 		c_preproc_cmds:		[]string{}	
+		api_mod_paths:		map[string]string{}
 		// includes: 		[]string{}	
 		// macros: 			[]string{}	
 		definitions: 		[]string{}	
@@ -33,17 +34,16 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 		cur_fn: 			'main'
 		file_count: 		0
 		level_count: 		0		
-
 		pref:	 			&pref.Preferences{}
-		setup: 				setup_file
+		setup:				setup
 	}
 
 	// set de defines from the port's Toml file
 	mut defines := ['']
-	for define in c_gen.setup.value('defines').array().as_strings() {
+	for define in c_gen.setup.platform.value('defines').array().as_strings() {
 		defines << ['-d', define]
 	}
-	println('-------------------- ${defines} --------------------------')
+	// println('-------------------- ${defines} --------------------------')
 	c_gen.pref, _ = pref.parse_args_and_show_errors([], defines, true)
 	c_gen.pref.is_script = true
 	c_gen.pref.enable_globals = true
@@ -54,14 +54,7 @@ pub fn transpile_file(path string, setup_file toml.Doc, aixt_path string) {
 	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
 	if transpiled != '' {
-		for alias in c_gen.setup.value('aliases').as_map().keys() { // replace aliases in the transpiled code
-			transpiled = transpiled.replace(
-				alias,
-				(c_gen.setup.value('aliases').as_map()[alias] or {''}).string()
-			)
-		}
-
-		output_ext := match c_gen.setup.value('backend').string() {
+		output_ext := match c_gen.setup.platform.value('backend').string() {
 			'nxc' 		{ '.nxc' }
 			'arduino'	{ '.ino' } 
 			else 		{ '.c' }
