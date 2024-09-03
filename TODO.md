@@ -28,7 +28,6 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
 - [ ] Change arrays to  pure V
-- [ ] Change the C generation using V text templates
 
 ### Done ✓
 
@@ -63,4 +62,5 @@ Tasks to do in Aixt
 - [x] Issue: path in windows
 - [x] Pass the compiler types form the general .toml file to a specific compiler .toml file
 - [x] Give the possibility to separate the API folder. This is useful for avoiding repeat code for similar devices.
-- [x] Create an inner struct for the setup files data   
+- [x] Create an inner struct for the setup files data
+- [x] Change the C generation using V text templates
