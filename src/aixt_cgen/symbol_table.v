@@ -9,6 +9,7 @@ import v.ast
 // symbol_table prints recursively the symbol table os a specific scope
 fn (mut gen Gen) symbol_table(scope ast.Scope) string {
 	mut msg := ''
+	// println('#######\n ${scope.objects} \n#######')
 	for key, val in scope.objects {
 		// msg += '${val.name.after_char(`.`)} -- ${gen.kind_and_type(val)}\n'
 		if val.name != 'input' {	// ignore 'input' var of enum declaration

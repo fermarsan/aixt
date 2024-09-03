@@ -71,6 +71,12 @@ fn (mut gen Gen) expr(node ast.Expr) []string {
 		ast.EmptyExpr {
 			return []
 		}
+		ast.UnsafeExpr {
+			return gen.unsafe_expr(node)
+		}
+		ast.NodeError {
+			panic('\n\n***** Transpiler error *****:\nNode error in pos: ${node.pos}.\n')
+		}
 		else { 
 			panic('\n\n***** Transpiler error *****:\nUndefined expression.\n') 
 		}

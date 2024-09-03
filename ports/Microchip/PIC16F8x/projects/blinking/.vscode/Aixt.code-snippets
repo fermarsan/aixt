@@ -1,0 +1,45 @@
+{
+	// time module
+	"snippet.aixt.time.sleep": {
+		"prefix": "tim",
+		"body": "time.${1|sleep,sleep_ms,sleep_us|}($2:10)",
+		"description": "Time functions"
+	},
+	// pin module
+	"snippet.aixt.pin.high": {
+		"prefix": "hi",
+		"body": "pin.high(${1|a,b|}${2|0,1,2,3,4,5,6,7|})",
+		"description": "Pin high level function"
+	},
+	"snippet.aixt.pin.low": {
+		"prefix": "lo",
+		"body": "pin.low(${1|a,b|}${2|0,1,2,3,4,5,6,7|})",
+		"description": "Pin low level function"
+	},
+	"snippet.aixt.pin.toggle": {
+		"prefix": "to",
+		"body": "pin.toggle(${1|a,b|}${2|0,1,2,3,4,5,6,7|})",
+		"description": "Pin toggle level function"
+	},
+	"snippet.aixt.pin.write": {
+		"prefix": "wr",
+		"body": "pin.write(${1|a,b|}${2|0,1,2,3,4,5,6,7|}, ${3:0})",
+		"description": "Pin writing function"
+	},
+	"snippet.aixt.pin.read": {
+		"prefix": "rd",
+		"body": "pin.read(${1|a,b|}${2|0,1,2,3,4,5,6,7|})",
+		"description": "pin reading function"
+	},
+	// port module
+	"snippet.aixt.port.read": {
+		"prefix": "rdp",
+		"body": "port.read(${1|a,b|})",
+		"description": "port reading function"
+	},
+	"snippet.aixt.port.write": {
+		"prefix": "wrp",
+		"body": "port.write(${1|a,b|}, ${2:0x00})",
+		"description": "port writing function"
+	},
+  }

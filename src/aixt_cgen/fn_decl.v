@@ -35,10 +35,10 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 					nxc_task = true
 				}
 			}
-			if nxc_task && gen.setup.value('backend').string() == 'nxc' {
+			if nxc_task && gen.setup.platform.value('backend').string() == 'nxc' {
 				name = '${node.short_name}'
 			} else {
-				ret_type = gen.setup.value(gen.table.type_symbols[node.return_type].str()).string()
+				ret_type = gen.setup.compiler.value(gen.table.type_symbols[node.return_type].str()).string()
 				ret_type = ret_type.replace('char []', 'char*') + ' '	// type
 				name = '${module_short_name}__${node.short_name}'
 			}

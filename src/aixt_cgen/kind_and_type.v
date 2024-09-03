@@ -13,7 +13,12 @@ fn (mut gen Gen) kind_and_type(object ast.ScopeObject) string {
 			'Constant -- ${gen.table.type_symbols[object.expr.get_pure_type()].str()}'//.after_char(`.`)}'
 		}
 		ast.GlobalField {
-			'Global -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.`)}'
+			// 'Global -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.`)}'
+			if object.typ >= 0x10000 {	// if var is mutable
+				'Global (ref) -- ${gen.table.type_symbols[object.typ ^ 0x10000].str()}'//.after_char(`.`)}'
+			} else {
+				'Global -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.`)}'
+			}
 		}
 		ast.Var {
 			if object.typ >= 0x10000 {	// if var is mutable

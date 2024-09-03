@@ -9,7 +9,7 @@ import v.ast
 // cast_expr is the code generation fucntion for casting expressions.
 fn (mut gen Gen) cast_expr(node ast.CastExpr) []string {
 	var_type := gen.table.type_kind(node.typ).str()
-	var_c_type := gen.setup.value(var_type).string()
+	var_c_type := gen.setup.compiler.value(var_type).string()
 	expr := gen.ast_node(node.expr).join('')
 	return ['(${var_c_type})(${expr})']
 }

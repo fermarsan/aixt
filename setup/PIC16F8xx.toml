@@ -1,0 +1,64 @@
+# Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+# File Name: PIC16F873A.toml
+# Author: Cesar Alejandro Roa Acosta and Fernado Martinez Santa
+# Date: 2024
+# License: MIT
+#
+# Description: Setup file for the PIC16F873A port. It works on Linux and Windows 
+#              PCs and on Android with Termux
+#              
+port =    "PIC16F873A" 
+device =  "PIC16F873A"
+board =   "Nothing"
+backend = "c"
+
+cc_linux =   "gcc"
+cc_windows = "c:\\Program Files\\Microchip\\xc8\\v2.41\\bin\\xc8.exe"
+cc_flags =   "-o"
+
+path = "Microchip/PIC16F873A"
+
+fixed_size_arrays  = "true"
+array_default_len  = 10
+
+fixed_size_strings = "true"
+string_default_len = 20
+
+void =  "void"
+bool =  "bool"
+
+i8 =    "signed char"
+i16 =   "signed short"
+int =   "long"
+i64 =   "=== NOT SUPPORTED ==="
+isize = "signed char"
+int_literal = "signed char"
+
+u8 =    "unsigned char"
+u16 =   "unsigned int"
+u32 =   "unsigned long"
+u64 =   "=== NOT SUPPORTED ==="
+usize = "unsigned char"
+
+f32 = "float"
+f64 = "=== NOT SUPPORTED ==="
+float_literal = "float"
+
+rune =  "char"
+string = "char []"
+
+mutex = "=== NOT SUPPORTED ==="
+
+main_ret_type = "void"
+main_params =   "void"   
+
+api_modules = [
+    "pin",
+    "port",
+    "adc",
+    "pwm",
+    "uart",
+    "time"
+]
+
+[aliases]

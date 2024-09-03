@@ -27,7 +27,7 @@
 		"description": "Pin writing function"
 	},
 	"snippet.aixt.pin.read": {
-		"prefix": "rdp",
+		"prefix": "rd",
 		"body": "pin.read(pin.${1|a,b,c,d,w,x,y,z|})",
 		"description": "pin reading function"
 	},
@@ -39,7 +39,7 @@
 	},
 	// pwm module
 	"snippet.aixt.pwm.write": {
-		"prefix": "wrp",
+		"prefix": "wrpw",
 		"body": "pwm.write(pwm.${1|ch0,ch1|}, ${2:50})",
 		"description": "PWM writing function"
 	},
@@ -65,7 +65,7 @@
 		"description": "UART character reading function"
 	},
 	"snippet.aixt.uart.input": {
-		"prefix": "inp",
+		"prefix": "inu",
 		"body": "${1|uart,uart1,uart2|}.input(${2:input : })",
 		"description": "UART capturing string function"
 	},

@@ -13,12 +13,10 @@ fn (mut gen Gen) import_stmt(node ast.Import) []string {
 	// 	gen.imports << node.mod
 		// println('############# ${gen.imports} #############')
 		module_short_name := node.mod.all_after_last('.')
-		port_path := gen.setup.value('path').string()
-		api_modules := gen.setup.value('api_modules').array().as_strings()
 
-		if module_short_name in api_modules {	// API modules
+		if module_short_name in gen.api_mod_paths {	// API modules
 			// if module_short_name !in gen.table.imports {	// avoid repeats importing
-			module_path := '${gen.transpiler_path}/ports/${port_path}/api/${module_short_name}'	
+			module_path := gen.api_mod_paths[module_short_name]	// '${gen.transpiler_path}/ports/${port_path}/api/${module_short_name}'	
 			gen.parse_module_file('${module_path}/${module_short_name}.c.v')	// parse `module_name.c.v` first
 			if node.syms.len == 0 {	// if import all the module
 				file_paths := os.ls('${module_path}') or { [] }

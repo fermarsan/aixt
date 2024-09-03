@@ -7,7 +7,7 @@ module main
 // Aixt transpiler
 
 import os
-import toml
+import aixt_setup
 import aixt_build
 
 // main function for Aixt transpiler.
@@ -40,12 +40,11 @@ fn main() {
 				if os.args.len < 4 {
 					println(help_message())
 				} else {
-					port, input_name := os.args[2], os.abs_path(os.args[3])	// port name and source path input
+					mut device, input_name := os.args[2], os.abs_path(os.args[3])	// device name and source path input
 					mut base_name := input_name.replace('.aixt', '') // input file base name
 					base_name = base_name.replace('.v', '')
-					println('setup file:\n\t${aixt_path}/setup/${port}.toml\n')
-					// println(os.read_file('${aixt_path}/setup/${port}.toml') or { 'file doesn\'t exist' } )
-					setup := toml.parse_file('${aixt_path}/setup/${port}.toml') or { panic(err) } // load the device's setup file
+					mut setup := aixt_setup.Setup{}
+					setup.init(device, aixt_path)
 					// println('++++++++++++++++\n${setup}\n++++++++++++++++')
 					match command {
 						'transpile', '-t' {
@@ -54,7 +53,7 @@ fn main() {
 						}
 						'compile', '-c' {
 							aixt_build.compile_file(base_name, setup)
-							ext := match setup.value('backend').string() {
+							ext := match setup.platform.value('backend').string() {
 								'nxc' 		{ 'nxc' }
 								'arduino' 	{ 'ino' }
 								else 		{ 'c' }
@@ -65,7 +64,7 @@ fn main() {
 							aixt_build.transpile_file(input_name, setup, aixt_path)
 							println('\n${input_name} transpiling finished.\n')
 							aixt_build.compile_file(base_name, setup)
-							ext := match setup.value('backend').string() {
+							ext := match setup.platform.value('backend').string() {
 								'nxc' { 'nxc' }
 								'arduino' { 'ino' }
 								else { 'c' }
@@ -87,13 +86,13 @@ fn main() {
 							println('Output files cleaned.')
 						}
 						'new_project', '-np' {
-							device, path := os.args[2], os.args[3]
+							path := os.args[3]
 							name := os.args[4] or { 'project' }
 							if !os.exists('${path}/${name}') {
 								os.mkdir('${path}/${name}') or { panic(err) }
 							}
 							// os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
-							os.cp_all('${aixt_path}/templates/project/${device}/', '${path}/${name}/', true) or {
+							os.cp_all('${aixt_path}/templates/project/${setup.platform.value("port").string()}/', '${path}/${name}/', true) or {
 								panic(err)
 							}						
 						}
@@ -106,4 +105,3 @@ fn main() {
 		}
 	}
 }
-

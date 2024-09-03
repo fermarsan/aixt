@@ -9,17 +9,6 @@ module main
 #include <stdio.h>
 #include <stdlib.h>
 
-enum pin_names { 
-    a = 0
-    b
-    c
-    d
-    w
-    x
-    y
-    z
-}
-
 // init function call setup or initialization code
 pub fn init() {
     C.printf('\033[1;37m')    // white bold text in terminal
