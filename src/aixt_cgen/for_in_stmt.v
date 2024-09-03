@@ -37,7 +37,7 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 			else { panic('Identifier "${node.cond.str()}" not found..') }
 		}
 		out << c_line + ' ${index_name}++) {' // increment
-		c_line = '${gen.setup.compiler.value(val_var_kind).string()} ${node.val_var} '	// var declaration
+		c_line = '${gen.setup.compiler_types[val_var_kind]} ${node.val_var} '	// var declaration
 		out << c_line + '= ${init_or_name}[${index_name}];'	// var reading
 		for st in node.stmts {
 			out << gen.ast_node(st).join('')

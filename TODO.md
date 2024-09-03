@@ -61,3 +61,6 @@ Tasks to do in Aixt
 - [x] Interrupt request functions
 - [x] Implement adc.setup() in Explorer16-PIC24
 - [x] Issue: path in windows
+- [x] Pass the compiler types form the general .toml file to a specific compiler .toml file
+- [x] Give the possibility to separate the API folder. This is useful for avoiding repeat code for similar devices.
+- [x] Create an inner struct for the setup files data   

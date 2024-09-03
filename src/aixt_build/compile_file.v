@@ -18,22 +18,22 @@ import aixt_setup
 pub fn compile_file(path string, setup aixt_setup.Setup) {
 
 	cc := $if windows { // C compiler depending on the OS
-		setup.platform.value('cc_windows').string()
+		setup.cc_windows
 	} $else {
-		setup.platform.value('cc_linux').string()
+		setup.cc_linux
 	}
 
-	flags := setup.platform.value('cc_flags').string()
-	output_flag := setup.platform.value('cc_output_flag').string()
-	input_flag := setup.platform.value('cc_input_flag').string()
+	flags := setup.cc_flags
+	output_flag := setup.cc_output_flag
+	input_flag := setup.cc_input_flag
 
-	input_ext := match setup.platform.value('backend').string() {
+	input_ext := match setup.backend {
 		'nxc' 		{ '.nxc' }
 		'arduino'	{ '.ino' } 
 		else 		{ '.c' }
 	}
 
-	output_ext := match setup.platform.value('port').string() {
+	output_ext := match setup.port {
 		'Emulator'	{
 			$if windows { '.exe' } $else { '' }
 		}

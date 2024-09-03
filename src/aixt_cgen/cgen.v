@@ -50,7 +50,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 
-	api_paths := gen.setup.platform.value('api_paths').array().as_strings()
+	api_paths := gen.setup.api_paths
 
 	// adds the builtin file first
 	gen.source_paths << '${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v'

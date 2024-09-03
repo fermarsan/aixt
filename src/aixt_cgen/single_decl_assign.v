@@ -18,7 +18,7 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 		'array', 'array_fixed' {
 			array_init := (right as ast.ArrayInit)
 			var_type := gen.table.type_kind(array_init.elem_type).str()
-			var_c_type := gen.setup.compiler.value(var_type).string()
+			var_c_type := gen.setup.compiler_types[var_type]
 			len := array_init.exprs.len
 			var_value := gen.ast_node(right).join('')
 			if array_init.is_fixed {
@@ -29,7 +29,7 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 		}
 		'string' {
 			gen.add_include('string.h')
-			len := gen.setup.platform.value('string_default_len').int()
+			len := gen.setup.string_default_len
 			var_value := gen.ast_node(right).join('')
 			c_line = $tmpl('c_templates/decl_string_fixed.c')#[..-1]
 			c_line += '\n' + $tmpl('c_templates/assign_string.c')#[..-1]
@@ -41,7 +41,7 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			c_line = $tmpl('c_templates/decl_assign.c')#[..-1]
 		}
 		else {
-			var_c_type := gen.setup.compiler.value(var_kind).string()
+			var_c_type := gen.setup.compiler_types[var_kind]
 			var_value := if right.type_name() == 'v.ast.CastExpr' {
 				gen.ast_node((right as ast.CastExpr).expr).join('')
 			} else {

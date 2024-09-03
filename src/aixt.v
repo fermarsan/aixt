@@ -43,8 +43,10 @@ fn main() {
 					mut device, input_name := os.args[2], os.abs_path(os.args[3])	// device name and source path input
 					mut base_name := input_name.replace('.aixt', '') // input file base name
 					base_name = base_name.replace('.v', '')
-					mut setup := aixt_setup.Setup{}
-					setup.init(device, aixt_path)
+					mut setup := aixt_setup.Setup{
+						compiler_types:	map[string]string{}
+					}
+					setup.load(device, aixt_path)
 					// println('++++++++++++++++\n${setup}\n++++++++++++++++')
 					match command {
 						'transpile', '-t' {
@@ -53,7 +55,7 @@ fn main() {
 						}
 						'compile', '-c' {
 							aixt_build.compile_file(base_name, setup)
-							ext := match setup.platform.value('backend').string() {
+							ext := match setup.backend {
 								'nxc' 		{ 'nxc' }
 								'arduino' 	{ 'ino' }
 								else 		{ 'c' }
@@ -64,7 +66,7 @@ fn main() {
 							aixt_build.transpile_file(input_name, setup, aixt_path)
 							println('\n${input_name} transpiling finished.\n')
 							aixt_build.compile_file(base_name, setup)
-							ext := match setup.platform.value('backend').string() {
+							ext := match setup.backend {
 								'nxc' { 'nxc' }
 								'arduino' { 'ino' }
 								else { 'c' }
@@ -92,7 +94,7 @@ fn main() {
 								os.mkdir('${path}/${name}') or { panic(err) }
 							}
 							// os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
-							os.cp_all('${aixt_path}/templates/project/${setup.platform.value("port").string()}/', '${path}/${name}/', true) or {
+							os.cp_all('${aixt_path}/templates/project/${setup.port}/', '${path}/${name}/', true) or {
 								panic(err)
 							}						
 						}

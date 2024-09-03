@@ -15,7 +15,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 	match expr {
 		ast.EmptyExpr {
 			len := ''
-			var_c_type := gen.setup.compiler.value(var_kind).string()	
+			var_c_type := gen.setup.compiler_types[var_kind]	
 			if var_c_type == 'char []' {
 				out << $tmpl('c_templates/decl_string_fixed.c')
 			} else {
@@ -24,7 +24,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 		}
 		ast.CastExpr {
 			var_value := gen.ast_node((node.expr as ast.CastExpr).expr).join('')
-			var_c_type := gen.setup.compiler.value(var_kind).string()
+			var_c_type := gen.setup.compiler_types[var_kind]
 			if var_c_type == 'char []' {
 				len := ''
 				out << $tmpl('c_templates/decl_assign_string.c')
@@ -35,7 +35,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 		ast.ArrayInit {
 			array_init := (node.expr as ast.ArrayInit)
 			var_type:= gen.table.type_kind(array_init.elem_type).str()
-			var_c_type := gen.setup.compiler.value(var_type).string()
+			var_c_type := gen.setup.compiler_types[var_type]
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
 			if array_init.is_fixed {
@@ -46,7 +46,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 		}
 		else {
 			var_value := gen.ast_node(node.expr).join('')
-			var_c_type := gen.setup.compiler.value(var_kind).string()
+			var_c_type := gen.setup.compiler_types[var_kind]
 			if var_c_type == 'char []' {
 				len := ''
 				out << $tmpl('c_templates/decl_assign_string.c')

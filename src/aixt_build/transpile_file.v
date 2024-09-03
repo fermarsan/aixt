@@ -40,7 +40,7 @@ pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 
 	// set de defines from the port's Toml file
 	mut defines := ['']
-	for define in c_gen.setup.platform.value('defines').array().as_strings() {
+	for define in c_gen.setup.v_defines {
 		defines << ['-d', define]
 	}
 	// println('-------------------- ${defines} --------------------------')
@@ -54,7 +54,7 @@ pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
 
 	if transpiled != '' {
-		output_ext := match c_gen.setup.platform.value('backend').string() {
+		output_ext := match c_gen.setup.backend {
 			'nxc' 		{ '.nxc' }
 			'arduino'	{ '.ino' } 
 			else 		{ '.c' }

@@ -23,10 +23,10 @@ fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 	for st in node.stmts {	// inner statements
 		stmts << gen.ast_node(st).join('')
 	}
-	match gen.setup.platform.value('backend').string() {
+	match gen.setup.backend {
 		'c' {
-			ret_type = gen.setup.compiler.value('main_ret_type').string()
-			params = gen.setup.compiler.value('main_params').string()
+			ret_type = gen.setup.main_ret_type
+			params = gen.setup.main_params
 			if ret_type == 'int' {	// return value 
 				ret_stmt = 'return 0;'
 			}

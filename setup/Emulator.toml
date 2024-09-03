@@ -15,14 +15,14 @@ cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"
 cc_flags =   ""
 cc_output_flag = "-o"
 cc_input_flag = ""
+makefile_flags = ""
 
 api_paths = [
     "Emulator"
 ]
 
-# defines = [
-#     "flag_1",
-# ]
+v_defines = [
+]
 
 string_default_len = 80
 array_default_len = 20

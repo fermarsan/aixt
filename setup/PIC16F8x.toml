@@ -21,7 +21,6 @@ api_paths = [
     "Microchip/PIC16F-generic",
 ]
 
-fixed_size_strings = "true"
 string_default_len = 20
 
 compiler_setup_path = "setup/xc8.toml"
