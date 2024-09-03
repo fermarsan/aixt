@@ -28,7 +28,6 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
 - [ ] Change arrays to  pure V
-- [ ] Issue: string Interpolation
 
 ### Done ✓
 
@@ -53,3 +52,4 @@ Tasks to do in Aixt
 - [x] Give the possibility to separate the API folder. This is useful for avoiding repeat code for similar devices.
 - [x] Create an inner struct for the setup files data
 - [x] Change the C generation using V text templates
+- [x] Issue: string Interpolation fails
