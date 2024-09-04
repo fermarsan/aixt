@@ -28,7 +28,6 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
 - [ ] Change arrays to  pure V
-- [ ] Enable implementing option (inline functions as a C macros). Useful for tiny memory devices.
 
 ### Done ✓
 
@@ -55,3 +54,4 @@ Tasks to do in Aixt
 - [x] Change the C generation using V text templates
 - [x] Issue: string Interpolation fails
 - [x] Reference variables supported
+- [x] Enable implementing option (inline functions as a C macros). Useful for tiny memory devices.
