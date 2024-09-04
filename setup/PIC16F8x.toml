@@ -27,6 +27,8 @@ api_paths = [
 v_defines = [
 ]
 
+inline_as_c_macro = true
+
 string_default_len = 20
 
 compiler_setup_path = "setup/xc8.toml"

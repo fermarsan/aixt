@@ -21,6 +21,7 @@ pub mut:
 	makefile_flags		string
 	api_paths			[]string
 	v_defines			[]string
+	inline_as_c_macro	bool
 	string_default_len	int
 	main_ret_type		string 
 	main_params  		string 

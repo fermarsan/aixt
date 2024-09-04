@@ -31,6 +31,7 @@ pub fn (mut stp Setup) load(device string, aixt_path string) {
 	stp.makefile_flags		= platform.value('makefile_flags').string()	
 	stp.api_paths			= platform.value('api_paths').array().as_strings()		
 	stp.v_defines			= platform.value('v_defines').array().as_strings()	
+	stp.inline_as_c_macro	= platform.value('inline_as_c_macro').bool()
 	stp.string_default_len	= platform.value('string_default_len').int()
 	
 	compiler_setup_path := platform.value('compiler_setup_path').string()
