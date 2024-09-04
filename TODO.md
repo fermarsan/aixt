@@ -28,6 +28,7 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
 - [ ] Change arrays to  pure V
+- [ ] Enable implementing option (inline functions as a C macros). Useful for tiny memory devices.
 
 ### Done ✓
 
