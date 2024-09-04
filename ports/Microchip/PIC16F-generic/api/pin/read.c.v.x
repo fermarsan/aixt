@@ -6,7 +6,10 @@
 // Description: Pin management functions (PIC16F8x port)
 module pin
 
-#include "high.c"
-
-// high puts a logic 1 to a pin
-pub fn high(name u8)
+// read function reads the logic value of a pin
+@[inline]
+pub fn read(name u8) u8 {
+	return unsafe {
+		u8(*(&C.PORTA + (name >> 3))  >>  (name - ((name >> 3) << 3))  &  u8(0x01))
+	}// *(&C.PORTA + (name / 8))  >>  (name % 8)  &  0x01
+}

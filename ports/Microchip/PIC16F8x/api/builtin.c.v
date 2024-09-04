@@ -12,7 +12,3 @@ module main
 #include <stdbool.h>
 
 #include "builtin.c"
-
-__global (
-	addr = &u8(0)
-)

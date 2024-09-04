@@ -10,12 +10,12 @@ module pin
 @[inline]
 pub fn setup(name u8, mode u8) {
 	unsafe { 
-		// addr = &C.TRISA + (name >> 3)  // &C.TRISA + (name / 8)		// base address plus shift
+		addr = &C.TRISA + (name >> 3)  // &C.TRISA + (name / 8)		// base address plus shift
 		if mode == input { // as input (1)
-			*(&C.TRISA + (name >> 3)) |= (u8(0x01) << (name - ((name >> 3) << 3)))
+			*addr |= (u8(0x01) << (name - ((name >> 3) << 3)))
 			// |=  (u8(0x01) << (name % 8))
 		} else { // as output (0)
-			*(&C.TRISA + (name >> 3)) &= ~(u8(0x01) << (name - ((name >> 3) << 3)))
+			*addr &= ~(u8(0x01) << (name - ((name >> 3) << 3)))
 			// &= ~(u8(0x01) << (name % 8))
 		}
 	}

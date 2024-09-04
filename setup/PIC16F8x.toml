@@ -14,11 +14,17 @@ backend =   "c"
 cc_linux =   "/opt/microchip/xc8/v2.46/bin/xc8"
 cc_windows = "C:\\Program Files\\Microchip\\xc8\\v2.46\\bin\\xc8.exe"
 cc_flags =   "-c"
+cc_output_flag = "-o"
+cc_input_flag = ""
+makefile_flags = ""
 
 api_paths = [
     "Microchip/PIC16F8x",
     "Microchip/xc8-generic",
     "Microchip/PIC16F-generic",
+]
+
+v_defines = [
 ]
 
 string_default_len = 20
