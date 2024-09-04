@@ -22,6 +22,7 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	mut out := []string{}
 	// println('================== ${node.name} ==================')
 	var_kind := gen.table.type_kind(node.typ).str()
+	ref := ''
 	var_name := if node.mod.str() == 'main' {
 		node.name.replace('main.', '')
 	} else {

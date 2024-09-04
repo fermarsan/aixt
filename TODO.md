@@ -53,3 +53,4 @@ Tasks to do in Aixt
 - [x] Create an inner struct for the setup files data
 - [x] Change the C generation using V text templates
 - [x] Issue: string Interpolation fails
+- [x] Reference variables supported

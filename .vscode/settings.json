@@ -1,7 +1,7 @@
 {
     "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
     "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
-    "device":       "Emulator",
+    "device":       "PIC16F8x",
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",

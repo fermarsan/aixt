@@ -8,8 +8,19 @@ import v.ast
 
 // global_field is the code generation function for global fields.
 fn (mut gen Gen) global_field(node ast.GlobalField) []string {
+	println(node)
 	mut out := []string{}
-	mut var_kind := gen.table.type_kind(node.typ).str()
+	var_kind := gen.table.type_kind(
+		if node.typ >= 0x10000 {	// reference variable
+			node.typ - 0x10000
+		} else {	// regular variable
+			node.typ
+		}).str()
+	ref := if node.typ >= 0x10000 {	// reference variable
+			'*'		
+		} else {	// regular variable
+			''	
+		}
 	var_name := node.name.replace('.', '__')
 	expr := node.expr
 	match expr {

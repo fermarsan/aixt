@@ -7,7 +7,7 @@
 module pin
 
 enum Pin_names as u8 {
-	a0 = u8(0)
+	a0 = 0
 	a1
 	a2
 	a3

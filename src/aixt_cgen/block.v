@@ -9,10 +9,14 @@ import v.ast
 // block is the code generation function for blocks.
 fn (mut gen Gen) block(node ast.Block) []string {
 	mut out := []string{}
-	out << '{'
+	if !node.is_unsafe {
+		out << '{'
+	}
 	for st in node.stmts {
 		out << gen.ast_node(st)
 	}
-	out << '}'
+	if !node.is_unsafe {
+		out << '}'
+	}
 	return out
 }

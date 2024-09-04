@@ -13,6 +13,7 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 	mut out := []string{}
 	mut c_line := ''
 	var_kind := gen.table.type_kind(left_type).str()
+	ref := ''
 	var_name := gen.ast_node(left).join('')
 	match var_kind {		
 		'array', 'array_fixed' {
