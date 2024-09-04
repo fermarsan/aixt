@@ -18,7 +18,7 @@ fn (mut gen Gen) ast_node(node ast.Node) []string {
 			return gen.ast_file(node)
 		}
 		ast.Stmt {
-			return gen.stmt(node)
+			return [ gen.stmt(node).join('\n') ]
 		}
 		ast.Expr {
 			return gen.expr(node)

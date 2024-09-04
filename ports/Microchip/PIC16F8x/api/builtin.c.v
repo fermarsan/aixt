@@ -15,5 +15,4 @@ module main
 
 __global (
 	addr = &u8(0)
-	addr2 = u8(10)
 )

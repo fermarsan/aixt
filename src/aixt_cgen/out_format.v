@@ -30,34 +30,42 @@ fn (mut gen Gen) out_format() string{
 	out = out.replace('___definitions_block___', gen.definitions.join('\n'))
 	out = out.replace('___initialization_block___', gen.init_cmds.join('\n'))
 
+	// println(out)
+
 	// delete multiple unnecessary new-line characteres
-	re.compile_opt('\n\n\n+') or { panic(err) }
-	out = re.replace(out, '\n\n')
+	// re.compile_opt('\n[ \t]*\n+') or { panic(err) }
+	// out = re.replace(out, '\n')
+
+	// re.compile_opt('[ \t]+') or { panic(err) }
+	// out = re.replace(out, '-')
 
 	// replace ' ;' by ';'
 
+	// println(out)
+
 	// add inner-block commands indentation 
-	for c in out {
-		match rune(c) {
-			`\n` {
-				temp += '\n' + '\t'.repeat(ind_count)
-			}
-			`{` {
-				ind_count++
-				temp += rune(c).str()
-			}
-			`}` {
-				ind_count--
-				temp += rune(c).str()
-			}
-			else {
-				temp += rune(c).str()
-			}
-		}
-	}
-	temp = temp.replace('\t}', '}')
-	temp = temp.replace('#endif;', '#endif')
-	out = temp + '\n'
+	// for c in out {
+	// 	match rune(c) {
+	// 		`\n` {
+	// 			temp += '\n' + '\t'.repeat(ind_count)
+	// 		}
+	// 		`{` {
+	// 			ind_count++
+	// 			temp += rune(c).str()
+	// 		}
+	// 		`}` {
+	// 			ind_count--
+	// 			temp += rune(c).str()
+	// 		}
+	// 		else {
+	// 			temp += rune(c).str()
+	// 		}
+	// 	}
+	// }
+	// temp = temp.replace('\t}', '}')
+	// temp = temp.replace('\t\n', '\n')
+	// temp = temp.replace('#endif;', '#endif')
+	// out = temp + '\n'
 
 	return out
 }

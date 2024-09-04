@@ -14,5 +14,5 @@ fn (mut gen Gen) ast_file(node ast.File) []string {
 		out << gen.ast_node(st)
 	}
 	println('(end) File -> ${node.path}\n')
-	return out 
+	return out
 }

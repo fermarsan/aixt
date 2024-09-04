@@ -12,7 +12,6 @@ fn (mut gen Gen) block(node ast.Block) []string {
 	out << '{'
 	for st in node.stmts {
 		out << gen.ast_node(st)
-		out << '\n'
 	}
 	out << '}'
 	return out

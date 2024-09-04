@@ -12,7 +12,6 @@ fn (mut gen Gen) for_stmt(node ast.ForStmt) []string {
 	out << 'while(' + if node.is_inf { 'true) {' } else { '${gen.ast_node(node.cond).join('')}) {' }
 	for st in node.stmts {
 		out << gen.ast_node(st)
-		out << '\n'
 	}
 	out << '}'
 	return out
