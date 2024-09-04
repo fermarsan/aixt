@@ -24,6 +24,8 @@ api_paths = [
 v_defines = [
 ]
 
+inline_as_c_macro = false
+
 string_default_len = 80
 
 compiler_setup_path = "setup/gcc-tcc.toml"
