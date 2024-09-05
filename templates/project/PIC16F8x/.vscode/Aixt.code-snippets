@@ -8,48 +8,48 @@
 	// pin module
 	"snippet.aixt.pin.setup": {
 		"prefix": "st",
-		"body": "pin.setup(${1|a,b|}${2|0,1,2,3,4,5,6,7|}, ${3|pin.input,pin.output|})",
+		"body": "pin.setup(${1|pin.a,pin.b|}${2|0,1,2,3,4,5,6,7|}, ${3|pin.input,pin.output|})",
 		"description": "Pin setup function"
 	},
 	"snippet.aixt.pin.high": {
 		"prefix": "hi",
-		"body": "pin.high(${1|a,b|}${2|0,1,2,3,4,5,6,7|})",
+		"body": "pin.high(${1|pin.a,pin.b|}${2|0,1,2,3,4,5,6,7|})",
 		"description": "Pin high level function"
 	},
 	"snippet.aixt.pin.low": {
 		"prefix": "lo",
-		"body": "pin.low(${1|a,b|}${2|0,1,2,3,4,5,6,7|})",
+		"body": "pin.low(${1|pin.a,pin.b|}${2|0,1,2,3,4,5,6,7|})",
 		"description": "Pin low level function"
 	},
 	"snippet.aixt.pin.toggle": {
 		"prefix": "to",
-		"body": "pin.toggle(${1|a,b|}${2|0,1,2,3,4,5,6,7|})",
+		"body": "pin.toggle(${1|pin.a,pin.b|}${2|0,1,2,3,4,5,6,7|})",
 		"description": "Pin toggle level function"
 	},
 	"snippet.aixt.pin.write": {
 		"prefix": "wr",
-		"body": "pin.write(${1|a,b|}${2|0,1,2,3,4,5,6,7|}, ${3:0})",
+		"body": "pin.write(${1|pin.a,pin.b|}${2|0,1,2,3,4,5,6,7|}, ${3:0})",
 		"description": "Pin writing function"
 	},
 	"snippet.aixt.pin.read": {
 		"prefix": "rd",
-		"body": "pin.read(${1|a,b|}${2|0,1,2,3,4,5,6,7|})",
+		"body": "pin.read(${1|pin.a,pin.b|}${2|0,1,2,3,4,5,6,7|})",
 		"description": "pin reading function"
 	},
 	// port module
 	"snippet.aixt.port.setup": {
 		"prefix": "stp",
-		"body": "port.setup(${1|a,b|}, ${2:0b00000000})",
+		"body": "port.setup(${1|port.a,port.b|}, ${2:0b00000000})",
 		"description": "8-bit port setup function"
 	},
 	"snippet.aixt.port.read": {
 		"prefix": "rdp",
-		"body": "port.read(${1|a,b|})",
+		"body": "port.read(${1|port.a,port.b|})",
 		"description": "8-bit port reading function"
 	},
 	"snippet.aixt.port.write": {
 		"prefix": "wrp",
-		"body": "port.write(${1|a,b|}, ${2:0x00})",
+		"body": "port.write(${1|port.a,port.b|}, ${2:0x00})",
 		"description": "8-bit port writing function"
 	},
   }
