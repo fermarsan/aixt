@@ -8,7 +8,7 @@ module pin
 
 // high puts a logic 1 to a pin
 @[inline]
-pub fn high(name int) {
+pub fn high(name u8) {
     unsafe {
 		*(&C.PORTA + (name >> 3)) |=  0x01 << (name - ((name >> 3) << 3))
 	}// *(&C.PORTA + (name / 8))  |=  0x01 << (name % 8)
