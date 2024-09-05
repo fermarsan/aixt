@@ -11,10 +11,10 @@ port =      "PIC16F8x"
 board =     "---"
 backend =   "c"
 
-cc_linux =   "/opt/microchip/xc8/v2.46/bin/xc8"
-cc_windows = "C:\\Program Files\\Microchip\\xc8\\v2.46\\bin\\xc8.exe"
-cc_flags =   "-c"
-cc_output_flag = "-o"
+cc_linux =   ""             # this port works by a Makefile
+cc_windows = ""
+cc_flags =   ""
+cc_output_flag = ""
 cc_input_flag = ""
 makefile_flags = "PART="
 
