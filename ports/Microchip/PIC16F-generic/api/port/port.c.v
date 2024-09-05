@@ -6,10 +6,10 @@
 // Description: Pin-port functions (PIC16F8x port)
 module port
 
-enum port__names as u8 {
+enum Port__names as u8 {
 	port__a = 0
-	port__b =
-	port__c =
-	port__d =
-	port__e = 
+	port__b
+	port__c
+	port__d
+	port__e 
 }

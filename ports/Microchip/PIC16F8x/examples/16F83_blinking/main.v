@@ -1,4 +1,4 @@
-// Project Name: Blinking LED on PORTB3
+// Project Name: Blinking
 // Author: Fernando M. Santa
 // Date: 05/09/2024
 // PIC16F83 fosc = 4Mhz

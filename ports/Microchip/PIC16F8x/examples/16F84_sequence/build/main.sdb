@@ -1,0 +1,38 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F84 ]
+[d frameptr 0 ]
+"40 /home/fercho/aixt/ports/Microchip/PIC16F8x/examples/16F84_sequence/main.c
+[e E376 port__Port__names `uc
+port__a 0
+port__b 1
+port__c 2
+port__d 3
+port__e 4
+]
+"10 /opt/microchip/xc8/v2.46/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 /opt/microchip/xc8/v2.46/pic/sources/c99/common/Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 /opt/microchip/xc8/v2.46/pic/sources/c99/pic/__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"39 /home/fercho/aixt/ports/Microchip/PIC16F8x/examples/16F84_sequence/main.c
+[v _main main `(v  1 e 1 0 ]
+"166 /opt/microchip/xc8/v2.46/pic/include/proc/pic16f84.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"454
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"37 /home/fercho/aixt/ports/Microchip/PIC16F8x/examples/16F84_sequence/main.c
+[v _sequence sequence `DC[8]uc  1 e 8 0 ]
+"39
+[v _main main `(v  1 e 1 0 ]
+{
+"43
+[v main@step step `uc  1 a 1 3 ]
+"42
+[v main@__i_1 __i_1 `i  1 a 2 4 ]
+"48
+} 0

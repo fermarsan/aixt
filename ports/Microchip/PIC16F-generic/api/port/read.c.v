@@ -10,6 +10,6 @@ module port
 @[inline]
 pub fn read(name u8) u8 {
 	unsafe {
-		return *(&C.PORTA + name)
+		return u8(*(&C.PORTA + name))
 	}	
 }
