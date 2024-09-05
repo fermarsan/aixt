@@ -8,7 +8,8 @@
 // Description: seconds delay function (PIC16F84A port)
 module time
 
-#include "sleep.c"
-
 // sleep function does a delay in seconds
-pub fn sleep(ts u16) 
+@[inline]
+pub fn sleep(ts u16) {
+	C.__delay_ms(ts << 10) // ts*1024
+}

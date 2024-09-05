@@ -51,14 +51,18 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			for st in node.stmts {
 				stmts << gen.ast_node(st).join('\n').split('\n')	// separate line by line
 			}
-			stmts <<  stmts.pop()#[..-1]	// remove the last ";"
 			if attrs.contains('inline') && gen.setup.inline_as_c_macro {	// if inline functions as macros is wanted
 				mut names := ''
 				for param in node.params {
 					names += '${param.name}, '
 				}
 				names = names#[..-2]
-				out << $tmpl('c_templates/fn_decl_as_macro.c')#[..-1].replace('return', '')
+				if stmts.len == 1 {
+					stmt := stmts.pop()#[..-1]	// remove the last ";"
+					out << $tmpl('c_templates/fn_decl_as_macro.c')#[..-1].replace('return', '')
+				} else {
+					out << $tmpl('c_templates/fn_decl_as_multi_macro.c')#[..-1].replace('return', '')
+				}
 			} else {
 				gen.definitions << $tmpl('c_templates/fn_prototype.c')#[..-1].replace('inline ', '')	// generates the function's prototype
 				out << $tmpl('c_templates/fn_decl.c')#[..-1]

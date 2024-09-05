@@ -8,7 +8,8 @@
 // Description: microseconds delay function (PIC16F84A port)
 module time
 
-#include "sleep_us.c"
-
 // sleep_us function does a delay in microseconds
-pub fn sleep_us(ts u16)
+@[inline]
+pub fn sleep_us(tus u16) {
+	C.__delay_us(tus)
+}

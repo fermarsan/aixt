@@ -10,8 +10,7 @@ module pin
 @[inline]
 pub fn write(name u8, value u8) {
 	unsafe {
-		// addr = &C.PORTA + (name >> 3) // &(C.PORTA) + (name / 8)
-		*(&C.PORTA + (name >> 3))  &=  (~(u8(0x01) << (name - ((name >> 3) << 3)))) // *addr &= (~((0x01) << (name % 8)))
-		*(&C.PORTA + (name >> 3))  |=  (value << (name - ((name >> 3) << 3))) // *addr |= (value << (name % 8))
+		*(&C.PORTA + (name >> 3))  &=  (~(0x01 << (name - ((name >> 3) << 3))))	// *(&C.PORTA + (name >> 3)) &= (~(0x01 << (name % 8)))
+		*(&C.PORTA + (name >> 3))  |=  (value << (name - ((name >> 3) << 3)))	// *(&C.PORTA + (name >> 3)) |= (value << (name % 8))
 	}
 }

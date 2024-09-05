@@ -8,7 +8,8 @@ module port
 
 // write function writes an 8 bit value on a port
 @[inline]
-pub fn write(name u8, value u8) {
-	addr = &(C.PORTA) + name
-	unsafe { *addr = value }	
+pub fn write(name u8, value u8) { 
+	unsafe {
+		*(&(C.PORTA) + name) = value
+	}	
 }

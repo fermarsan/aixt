@@ -49,5 +49,9 @@ enum Pin_names as u8 {
 	e7
 }
 
-const output = u8(0)
-const input = u8(1)
+enum Pin_modes as u8 {
+	output = 0
+	input
+}
+// const output = u8(0)
+// const input = u8(1)

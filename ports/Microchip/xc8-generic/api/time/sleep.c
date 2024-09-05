@@ -1,1 +1,0 @@
-#define time__sleep(TIME)    __delay_ms(TIME << 10) // TIME*1024

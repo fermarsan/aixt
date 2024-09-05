@@ -4,11 +4,10 @@
 // License: MIT
 //
 // Description: Pin-port functions (PIC16F8x port)
-
 module port
 
 enum port__names as u8 {
-	a = u8(0)
+	a = 0
 	b =
 	c =
 	d =

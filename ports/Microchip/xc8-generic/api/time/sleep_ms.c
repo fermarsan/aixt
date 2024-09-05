@@ -1,1 +1,0 @@
-#define time__sleep_ms(TIME)    __delay_ms(TIME)

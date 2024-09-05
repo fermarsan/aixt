@@ -30,22 +30,14 @@ fn (mut gen Gen) out_format() string{
 	out = out.replace('___definitions_block___', gen.definitions.join('\n'))
 	out = out.replace('___initialization_block___', gen.init_cmds.join('\n'))
 
-	// println(out)
-
 	// delete multiple unnecessary new-line characteres
 	re.compile_opt('\n\n+') or { panic(err) }
 	out = re.replace(out, '\n\n')
 
 	out = out.replace('\n\n}', '\n}')
 	out = out.replace('{\n\n', '{\n')
+	out = out.replace('\\\n\n', '\\\n')
 	out = out.replace('#endif;', '#endif')
-
-	// re.compile_opt('[ \t]+') or { panic(err) }
-	// out = re.replace(out, '-')
-
-	// replace ' ;' by ';'
-
-	// println(out)
 
 	// add inner-block commands indentation 
 	for c in out {
