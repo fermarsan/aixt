@@ -3,10 +3,11 @@ __S1 F 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-_main 1E9 0 CODE 0
+_main 1E4 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 2E 0 ABS 0
 start 0 0 CODE 0
+_TRISA 85 0 ABS 0
 _PORTA 5 0 ABS 0
 reset_vec 0 0 CODE 0
 wtemp0 2E 0 ABS 0
@@ -91,23 +92,24 @@ start_initialization 1FE 0 CODE 0
 ___int_stack_lo 0 0 STACK 2
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__pmaintext 1E9 0 CODE 0
+__pmaintext 1E4 0 CODE 0
 __initialization 1FE 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
 cinit 3FC 3FF CODE 3FC 0
 cstackBANK0 C E BANK0 C 1
-maintext 3D2 3FB CODE 3D2 0
+maintext 3C8 3FB CODE 3C8 0
 %locals
 build/main.o
-/tmp/xcXIOnijN/driver_tmp_1.s
-170 1FE 0 CODE 0
-173 1FE 0 CODE 0
-179 1FE 0 CODE 0
+/tmp/xcXicmiHG/driver_tmp_1.s
+172 1FE 0 CODE 0
+175 1FE 0 CODE 0
 181 1FE 0 CODE 0
-182 1FF 0 CODE 0
+183 1FE 0 CODE 0
+184 1FF 0 CODE 0
 main.c
-93 1E9 0 CODE 0
-94 1E9 0 CODE 0
-95 1E9 0 CODE 0
-96 1EF 0 CODE 0
+93 1E4 0 CODE 0
+94 1E4 0 CODE 0
+95 1EA 0 CODE 0
+96 1EA 0 CODE 0
+97 1EF 0 CODE 0

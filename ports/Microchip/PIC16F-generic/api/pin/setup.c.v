@@ -10,14 +10,12 @@ module pin
 @[inline]
 pub fn setup(name u8, mode u8) {
 	unsafe { 
-		// if mode == 0 { // as input (1)
-		// 	*(&C.TRISA + (name >> 3)) |= (0x01 << (name - ((name >> 3) << 3)))
-		// //  *(&C.TRISA + (name / 8))  |= (0x01 << (name % 8))
-		// } else { // as output (0)
-		// 	*(&C.TRISA + (name >> 3)) &= ~(0x01 << (name - ((name >> 3) << 3)))	
-		// //  *(&C.TRISA + (name / 8))  &= ~(0x01 << (name % 8))
-		// }
-			if mode == 0 { *(&C.TRISA + (name >> 3)) |= (0x01 << (name - ((name >> 3) << 3))) } 
-			else { *(&C.TRISA + (name >> 3)) &= ~(0x01 << (name - ((name >> 3) << 3))) }
+		if mode == 1 { // as input (1)
+			*(&C.TRISA + (name >> 3)) |= (0x01 << (name - ((name >> 3) << 3)))
+		//  *(&C.TRISA + (name / 8))  |= (0x01 << (name % 8))
+		} else { // as output (0)
+			*(&C.TRISA + (name >> 3)) &= ~(0x01 << (name - ((name >> 3) << 3)))	
+		//  *(&C.TRISA + (name / 8))  &= ~(0x01 << (name % 8))
+		}
 	}
 }

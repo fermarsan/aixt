@@ -3,7 +3,11 @@
 [d edition pro ]
 [d chip 16F83 ]
 [d frameptr 0 ]
-"95 /home/fercho/aixt/ports/Microchip/PIC16F8x/examples/16F83_blinking/main.c
+"94 /home/fercho/aixt/ports/Microchip/PIC16F8x/examples/16F83_blinking/main.c
+[e E417 pin__Pin_modes `uc
+pin__output 0
+pin__input 1
+]
 [e E376 pin__Pin_names `uc
 pin__a0 0
 pin__a1 1
@@ -58,8 +62,10 @@ pin__e7 39
 [v _main main `(v  1 e 1 0 ]
 "166 /opt/microchip/xc8/v2.46/pic/include/proc/pic16f83.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"454
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "93 /home/fercho/aixt/ports/Microchip/PIC16F8x/examples/16F83_blinking/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"98
+"99
 } 0

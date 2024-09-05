@@ -725,8 +725,9 @@ enum pin__Pin_modes {
 };
 # 93 "main.c"
 void main(void) {
+ if(pin__output == 1) { *(&TRISA + (pin__b4 >> 3)) |= (0x01 << (pin__b4 - ((pin__b4 >> 3) << 3))); } else { *(&TRISA + (pin__b4 >> 3)) &= ~(0x01 << (pin__b4 - ((pin__b4 >> 3) << 3))); };;
  while(1) {
-  *(&PORTA + (pin__b3 >> 3)) &= (~(0x01 << (pin__b3 - ((pin__b3 >> 3) << 3)))); *(&PORTA + (pin__b3 >> 3)) |= (1 << (pin__b3 - ((pin__b3 >> 3) << 3)));;
+  *(&PORTA + (pin__b4 >> 3)) ^= 0x01 << (pin__b4 - ((pin__b4 >> 3) << 3));
   _delay((unsigned long)((500)*(4000000/4000.0)));
  }
 }

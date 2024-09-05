@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Thu Sep  5 12:51:47 2024
+                                                                                               Thu Sep  5 13:13:24 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	16F83
@@ -88,117 +88,127 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
     74     0088                     	;# 
     75     0089                     	;# 
     76     0005                     _PORTA	set	5
-    77                           
-    78                           	psect	cinit
-    79     01FE                     start_initialization:	
-    80                           ; #config settings
-    81                           
-    82     01FE                     __initialization:
-    83     01FE                     end_of_initialization:	
-    84                           ;End of C runtime variable initialization code
-    85                           
-    86     01FE                     __end_of__initialization:
-    87     01FE  0183               	clrf	3
-    88     01FF  29E9               	ljmp	_main	;jump to C main() function
-    89                           
-    90                           	psect	cstackBANK0
-    91     000C                     __pcstackBANK0:
-    92     000C                     ?_main:
-    93     000C                     ??_main:	
-    94                           ; 1 bytes @ 0x0
-    95                           
+    77     0085                     _TRISA	set	133
+    78                           
+    79                           	psect	cinit
+    80     01FE                     start_initialization:	
+    81                           ; #config settings
+    82                           
+    83     01FE                     __initialization:
+    84     01FE                     end_of_initialization:	
+    85                           ;End of C runtime variable initialization code
+    86                           
+    87     01FE                     __end_of__initialization:
+    88     01FE  0183               	clrf	3
+    89     01FF  29E4               	ljmp	_main	;jump to C main() function
+    90                           
+    91                           	psect	cstackBANK0
+    92     000C                     __pcstackBANK0:
+    93     000C                     ?_main:
+    94     000C                     ??_main:	
+    95                           ; 1 bytes @ 0x0
     96                           
-    97                           ; 1 bytes @ 0x0
-    98     000C                     	ds	3
-    99                           
-   100                           	psect	maintext
-   101     01E9                     __pmaintext:	
-   102 ;;
-   103 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
-   104 ;;
-   105 ;; *************** function _main *****************
-   106 ;; Defined at:
-   107 ;;		line 93 in file "main.c"
-   108 ;; Parameters:    Size  Location     Type
-   109 ;;		None
-   110 ;; Auto vars:     Size  Location     Type
-   111 ;;		None
-   112 ;; Return value:  Size  Location     Type
-   113 ;;                  1    wreg      void 
-   114 ;; Registers used:
-   115 ;;		wreg, status,2, status,0
-   116 ;; Tracked objects:
-   117 ;;		On entry : B00/0
-   118 ;;		On exit  : 0/0
-   119 ;;		Unchanged: 0/0
-   120 ;; Data sizes:     COMMON   BANK0
-   121 ;;      Params:         0       0
-   122 ;;      Locals:         0       0
-   123 ;;      Temps:          0       3
-   124 ;;      Totals:         0       3
-   125 ;;Total ram usage:        3 bytes
-   126 ;; This function calls:
-   127 ;;		Nothing
-   128 ;; This function is called by:
-   129 ;;		Startup code after reset
-   130 ;; This function uses a non-reentrant model
-   131 ;;
-   132                           
-   133     01E9                     _main:	
-   134                           ;psect for function _main
-   135                           
-   136     01E9                     l9:	
-   137                           ;incstack = 0
-   138                           ; Regs used in _main: [wreg+status,2+status,0]
-   139                           ;main.c: 94:  while(1) {
+    97                           
+    98                           ; 1 bytes @ 0x0
+    99     000C                     	ds	3
+   100                           
+   101                           	psect	maintext
+   102     01E4                     __pmaintext:	
+   103 ;;
+   104 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   105 ;;
+   106 ;; *************** function _main *****************
+   107 ;; Defined at:
+   108 ;;		line 93 in file "main.c"
+   109 ;; Parameters:    Size  Location     Type
+   110 ;;		None
+   111 ;; Auto vars:     Size  Location     Type
+   112 ;;		None
+   113 ;; Return value:  Size  Location     Type
+   114 ;;                  1    wreg      void 
+   115 ;; Registers used:
+   116 ;;		wreg, status,2, status,0
+   117 ;; Tracked objects:
+   118 ;;		On entry : B00/0
+   119 ;;		On exit  : 0/0
+   120 ;;		Unchanged: 0/0
+   121 ;; Data sizes:     COMMON   BANK0
+   122 ;;      Params:         0       0
+   123 ;;      Locals:         0       0
+   124 ;;      Temps:          0       3
+   125 ;;      Totals:         0       3
+   126 ;;Total ram usage:        3 bytes
+   127 ;; This function calls:
+   128 ;;		Nothing
+   129 ;; This function is called by:
+   130 ;;		Startup code after reset
+   131 ;; This function uses a non-reentrant model
+   132 ;;
+   133                           
+   134     01E4                     _main:	
+   135                           ;psect for function _main
+   136                           
+   137     01E4                     l568:	
+   138                           ;incstack = 0
+   139                           ; Regs used in _main: [wreg+status,2+status,0]
    140                           
-   141     01E9                     l562:
-   142                           
-   143                           ;main.c: 95:   *(&PORTA + (pin__b3 >> 3)) &= (~(0x01 << (pin__b3 - ((pin__b3 >> 3) << 3)
-      +                          ))); *(&PORTA + (pin__b3 >> 3)) |= (1 << (pin__b3 - ((pin__b3 >> 3) << 3)));;
-   144     01E9  30F7               	movlw	247
-   145     01EA  1283               	bcf	3,5	;RP0=0, select bank0
-   146     01EB  008C               	movwf	??_main
-   147     01EC  080C               	movf	??_main,w
-   148     01ED  0586               	andwf	6,f	;volatile
-   149     01EE                     l564:
-   150     01EE  1586               	bsf	6,3	;volatile
-   151     01EF                     l566:
+   141     01E4                     l572:	
+   142                           ;main.c: 94:  if(pin__output == 1) { *(&TRISA + (pin__b4 >> 3)) |= (0x01 << (pin__b4 - (
+      +                          (pin__b4 >> 3) << 3))); } else { *(&TRISA + (pin__b4 >> 3)) &= ~(0x01 << (pin__b4 - ((pi
+      +                          n__b4 >> 3) << 3))); };;
+   143                           
+   144     01E4  30EF               	movlw	239
+   145     01E5  1283               	bcf	3,5	;RP0=0, select bank0
+   146     01E6  008C               	movwf	??_main
+   147     01E7  080C               	movf	??_main,w
+   148     01E8  1683               	bsf	3,5	;RP0=1, select bank1
+   149     01E9  0586               	andwf	6,f	;volatile
+   150     01EA                     l13:	
+   151                           ;main.c: 95:  while(1) {
    152                           
-   153                           ;main.c: 96:   _delay((unsigned long)((500)*(4000000/4000.0)));
-   154     01EF  3003               	movlw	3
-   155     01F0  008E               	movwf	??_main+2
-   156     01F1  308A               	movlw	138
-   157     01F2  008D               	movwf	??_main+1
-   158     01F3  3055               	movlw	85
-   159     01F4  008C               	movwf	??_main
-   160     01F5                     u17:
-   161     01F5  0B8C               	decfsz	??_main,f
-   162     01F6  29F5               	goto	u17
-   163     01F7  0B8D               	decfsz	??_main+1,f
-   164     01F8  29F5               	goto	u17
-   165     01F9  0B8E               	decfsz	??_main+2,f
-   166     01FA  29F5               	goto	u17
-   167     01FB  29FC               	nop2
-   168     01FC  29E9               	goto	l9
-   169     01FD  2800               	ljmp	start
-   170     01FE                     __end_of_main:
-   171     002E                     btemp	set	46	;btemp
-   172     002E                     wtemp0	set	46
-   173                           
-   174                           	psect	config
-   175                           
-   176                           ;Config register CONFIG @ 0x2007
-   177                           ;	Oscillator Selection bits
-   178                           ;	FOSC = HS, HS oscillator
-   179                           ;	Watchdog Timer
-   180                           ;	WDTE = OFF, WDT disabled
-   181                           ;	Power-up Timer Enable bit
-   182                           ;	PWRTE = ON, Power-up Timer is enabled
-   183                           ;	Code Protection bit
-   184                           ;	CP = OFF, Code protection disabled
-   185     2007                     	org	8199
-   186     2007  3FF2               	dw	16370
+   153                           
+   154                           ;main.c: 96:   *(&PORTA + (pin__b4 >> 3)) ^= 0x01 << (pin__b4 - ((pin__b4 >> 3) << 3));
+   155     01EA  3010               	movlw	16
+   156     01EB  1283               	bcf	3,5	;RP0=0, select bank0
+   157     01EC  008C               	movwf	??_main
+   158     01ED  080C               	movf	??_main,w
+   159     01EE  0686               	xorwf	6,f	;volatile
+   160     01EF                     l574:
+   161                           
+   162                           ;main.c: 97:   _delay((unsigned long)((500)*(4000000/4000.0)));
+   163     01EF  3003               	movlw	3
+   164     01F0  008E               	movwf	??_main+2
+   165     01F1  308A               	movlw	138
+   166     01F2  008D               	movwf	??_main+1
+   167     01F3  3055               	movlw	85
+   168     01F4  008C               	movwf	??_main
+   169     01F5                     u17:
+   170     01F5  0B8C               	decfsz	??_main,f
+   171     01F6  29F5               	goto	u17
+   172     01F7  0B8D               	decfsz	??_main+1,f
+   173     01F8  29F5               	goto	u17
+   174     01F9  0B8E               	decfsz	??_main+2,f
+   175     01FA  29F5               	goto	u17
+   176     01FB  29FC               	nop2
+   177     01FC  29EA               	goto	l13
+   178     01FD  2800               	ljmp	start
+   179     01FE                     __end_of_main:
+   180     002E                     btemp	set	46	;btemp
+   181     002E                     wtemp0	set	46
+   182                           
+   183                           	psect	config
+   184                           
+   185                           ;Config register CONFIG @ 0x2007
+   186                           ;	Oscillator Selection bits
+   187                           ;	FOSC = HS, HS oscillator
+   188                           ;	Watchdog Timer
+   189                           ;	WDTE = OFF, WDT disabled
+   190                           ;	Power-up Timer Enable bit
+   191                           ;	PWRTE = ON, Power-up Timer is enabled
+   192                           ;	Code Protection bit
+   193                           ;	CP = OFF, Code protection disabled
+   194     2007                     	org	8199
+   195     2007  3FF2               	dw	16370
 
 Data Sizes:
     Strings     0
@@ -259,12 +269,13 @@ DATA                 0      0       0       6        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Thu Sep  5 12:51:47 2024
+Symbol Table                                                                                   Thu Sep  5 13:13:24 2024
 
-                      l9 01E9                       u17 01F5                      l562 01E9  
-                    l564 01EE                      l566 01EF                     _main 01E9  
+                     l13 01EA                       u17 01F5                      l572 01E4  
+                    l574 01EF                      l568 01E4                     _main 01E4  
                    btemp 002E                     start 0000                    ?_main 000C  
-                  _PORTA 0005                    status 0003                    wtemp0 002E  
-        __initialization 01FE             __end_of_main 01FE                   ??_main 000C  
-__end_of__initialization 01FE               __pmaintext 01E9     end_of_initialization 01FE  
-    start_initialization 01FE                ___latbits 0000            __pcstackBANK0 000C  
+                  _PORTA 0005                    _TRISA 0085                    status 0003  
+                  wtemp0 002E          __initialization 01FE             __end_of_main 01FE  
+                 ??_main 000C  __end_of__initialization 01FE               __pmaintext 01E4  
+   end_of_initialization 01FE      start_initialization 01FE                ___latbits 0000  
+          __pcstackBANK0 000C  

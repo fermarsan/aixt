@@ -72,7 +72,7 @@ enum pin__Pin_modes {
 #define pin__high(name) *(&PORTA + (name >> 3)) |= 0x01 << (name - ((name >> 3) << 3))
 
 #define pin__setup(name, mode) \
-if(mode == 0) { \
+if(mode == 1) { \
 	*(&TRISA + (name >> 3)) |= (0x01 << (name - ((name >> 3) << 3))); \
 } \
 else  \
@@ -91,8 +91,9 @@ else  \
 // end #define
 
 void main(void) {
+	pin__setup(pin__b4, pin__output); 
 	while(true) {
-		pin__write(pin__b3, 1);
+		pin__toggle(pin__b4);
 		time__sleep_ms(500);
 	} 
 }

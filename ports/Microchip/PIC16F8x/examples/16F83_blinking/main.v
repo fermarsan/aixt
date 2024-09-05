@@ -1,14 +1,14 @@
-// Project Name:
-// Author: 
-// Date: 
-// PIC16F8x fosc = 4Mhz
+// Project Name: Blinking LED on PORTB3
+// Author: Fernando M. Santa
+// Date: 05/09/2024
+// PIC16F83 fosc = 4Mhz
 
 import time
 import pin
 
-// pin.setup(3, 1)
+pin.setup(pin.b4, pin.output)
 
 for {
-	pin.write(pin.b3, 1)
+	pin.toggle(pin.b4)
 	time.sleep_ms(500)
 }
