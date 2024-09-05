@@ -1,0 +1,65 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F83 ]
+[d frameptr 0 ]
+"95 /home/fercho/aixt/ports/Microchip/PIC16F8x/examples/16F83_blinking/main.c
+[e E376 pin__Pin_names `uc
+pin__a0 0
+pin__a1 1
+pin__a2 2
+pin__a3 3
+pin__a4 4
+pin__a5 5
+pin__a6 6
+pin__a7 7
+pin__b0 8
+pin__b1 9
+pin__b2 10
+pin__b3 11
+pin__b4 12
+pin__b5 13
+pin__b6 14
+pin__b7 15
+pin__c0 16
+pin__c1 17
+pin__c2 18
+pin__c3 19
+pin__c4 20
+pin__c5 21
+pin__c6 22
+pin__c7 23
+pin__d0 24
+pin__d1 25
+pin__d2 26
+pin__d3 27
+pin__d4 28
+pin__d5 29
+pin__d6 30
+pin__d7 31
+pin__e0 32
+pin__e1 33
+pin__e2 34
+pin__e3 35
+pin__e4 36
+pin__e5 37
+pin__e6 38
+pin__e7 39
+]
+"10 /opt/microchip/xc8/v2.46/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 /opt/microchip/xc8/v2.46/pic/sources/c99/common/Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 /opt/microchip/xc8/v2.46/pic/sources/c99/pic/__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"93 /home/fercho/aixt/ports/Microchip/PIC16F8x/examples/16F83_blinking/main.c
+[v _main main `(v  1 e 1 0 ]
+"166 /opt/microchip/xc8/v2.46/pic/include/proc/pic16f83.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"93 /home/fercho/aixt/ports/Microchip/PIC16F8x/examples/16F83_blinking/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"98
+} 0
