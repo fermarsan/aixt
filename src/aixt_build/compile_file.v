@@ -41,9 +41,9 @@ pub fn compile_file(path string, setup aixt_setup.Setup) {
 	}
 	// println('-------- ${os.dir(path)} --------')
 	if os.exists('${os.dir(path)}/Makefile') {	// through Makefile
-	println('make -f ${os.dir(path)}/Makefile')
-		println(os.execute('make -f ${os.dir(path)}/Makefile').output)
-		// println(os.execute('make -f ${os.dir(path)}/Makefile PART=${setup.device}').output)
+		println('make -f ${os.dir(path)}/Makefile ${setup.makefile_flags}${setup.device}')
+		// println(os.execute('make -f ${os.dir(path)}/Makefile').output)
+		println(os.execute('make -f ${os.dir(path)}/Makefile ${setup.makefile_flags}${setup.device}').output)
 		// println(os.execute('make').output)
 	} else {	// calling compiler directly
 		mut command := '${cc} ${flags} '

@@ -16,7 +16,7 @@ cc_windows = "C:\\Program Files\\Microchip\\xc8\\v2.46\\bin\\xc8.exe"
 cc_flags =   "-c"
 cc_output_flag = "-o"
 cc_input_flag = ""
-makefile_flags = ""
+makefile_flags = "PART="
 
 api_paths = [
     "Microchip/PIC16F8x",
