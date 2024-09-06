@@ -6,8 +6,8 @@
 import time
 import pin
 
-pin.setup(d13, pin.output)
+pin.setup(pin.d13, pin.output)
 
-pin.high(d13)
+pin.high(pin.d13)
 time.sleep_ms(500)
 
