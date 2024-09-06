@@ -1,6 +1,6 @@
 Module {
 	name:	'time'
-	description:	'Aixt timing module for Arduino Nano - ATmega328P'
+	description:	'Aixt timing module for Arduino devices'
 	version:	'0.0.2'
 	license:	'MIT'
 	dependencies:	[]
