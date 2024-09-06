@@ -1,7 +1,5 @@
 // Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// Authors: 
-//	- Luis Alfredo Pinto Medina
-//	- Fernando Martínez Santa
+// Author: Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
