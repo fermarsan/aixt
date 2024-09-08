@@ -4,8 +4,8 @@
 // License: MIT
 module uart
 
-// Get the number of bytes (characters) available for reading from the serial port
+// write function prints data to the serial port as human-readable ASCII text
 @[inline]
-fn any() int {
-	return C.Serial.available()
+fn write(char u8) {  
+	C.Serial.write(message)
 }
