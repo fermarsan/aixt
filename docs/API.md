@@ -3,7 +3,7 @@
 ## Digital I/O (Pins)
 ### Pin setup
 ```v
-pin_setup(pin_name, mode)
+pin.setup(pin_name, mode)
 ```
 - `pin_name` could change depending on the microcontroller.
 - `mode`:
@@ -12,17 +12,17 @@ pin_setup(pin_name, mode)
 
 ### Pin output
 ```v
-pin_high(pin_name)
+pin.high(pin_name)
 ```
 ```v
-pin_low(pin_name)
+pin.low(pin_name)
 ```
 ```v
-pin_toggle(pin_name)    
+pin.toggle(pin_name)    
 // not available for all devices
 ```
 ```v
-pin_write(pin_name, value)
+pin.write(pin_name, value)
 ```
 - `value` is an integer to be written in the pin
   - `0` or `low` 
@@ -31,9 +31,9 @@ pin_write(pin_name, value)
 
 ### Pin input
 ```v
-x = pin_read(pin_name)
+x = pin.read(pin_name)
 ```
-`pin_read` returns an integer (`0` or `1`)
+`pin.read` returns an integer (`0` or `1`)
 
 ## Analog to Digital Converter (ADC inputs)
 
@@ -41,12 +41,12 @@ The syntax for all the ADC functions is: `adcx_function_name()`, being `x` the i
 
 ### ADC setup
 ```v
-adc_setup(setup_value_1, setup_value_2, ... )   // equals to adc1_setup(...)
+adc.setup(setup_value_1, setup_value_2, ... )   // equals to adc1_setup(...)
 ```
 
 ### ADC reading
 ```v
-x = adc_read(channel)
+x = adc.read(channel)
 ```
 - `channel` is an identifying number of the ADC input
 ## Pulse Width Modulation (PWM outputs)
@@ -55,12 +55,12 @@ The syntax for all the PWM functions is: `pwmx_function_name()`, being `x` the i
 
 ### PWM setup
 ```v
-pwm1_setup(setup_value_1, setup_value_2, ... )  //or just pwm_setup(...)
+pwm1_setup(setup_value_1, setup_value_2, ... )  //or just pwm.setup(...)
 ```
 
 ### PWM duty cycle
 ```v
-pwm_write(duty)  //or pwm1_duty(duty)
+pwm.write(duty)  //or pwm1_duty(duty)
 ```
 
 - `duty` is the duty cycle in percentage (0 - 100)
@@ -72,7 +72,7 @@ The UART used to be the standard stream output, so the functions `print()`, `pri
 ### UART setup
 
 ```v
-uart_setup(baud_rate)   // the same of uart1_setup(baud_rate)
+uart.setup(baud_rate)   // the same of uart1_setup(baud_rate)
 ```
 - `baud_rate` configure the communication speed
 

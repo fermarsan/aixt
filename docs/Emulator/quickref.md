@@ -12,10 +12,10 @@ sleep_us(100)       // sleep for 100 microseconds
 
 ## Emulated pins
 ```v
-pin_high(a)         // turn ON the "a" pin 
-pin_low(y)          // turn OFF the "y" pin 
-pin_write(d, 1)     // write 1 on "d" pin
-pin_read(x)         // read "x" pin
+pin.high(a)         // turn ON the "a" pin 
+pin.low(y)          // turn OFF the "y" pin 
+pin.write(d, 1)     // write 1 on "d" pin
+pin.read(x)         // read "x" pin
 ```
 
 ### `pin` names
@@ -37,12 +37,12 @@ _**After calling a reading function**_
 #### Supported functions
 name                    | description
 ------------------------|---------------------
-`pin_high(pin)`         | Turn ON `pin`
-`pin_low(pin)`          | Turn OFF `pin`
-`pin_write(pin, val)`   | Write `val` in `pin`
-`pin_read(pin)`         | Read `pin`
+`pin.high(pin)`         | Turn ON `pin`
+`pin.low(pin)`          | Turn OFF `pin`
+`pin.write(pin, val)`   | Write `val` in `pin`
+`pin.read(pin)`         | Read `pin`
 
-_Note: when using `pin_read()` the user has to write the value in the terminal manually._
+_Note: when using `pin.read()` the user has to write the value in the terminal manually._
 
 ## PWM
 ```v

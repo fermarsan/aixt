@@ -89,34 +89,34 @@ void main(void) {
 
     // CONFIGURAMOS EL PUERTO B COMO SALIDA
 
-    pin_setup(b0_s, out);
-    pin_setup(b1_s, out);
-    pin_setup(b2_s, out);
-    pin_setup(b3_s, out);
-    pin_setup(b4_s, out);
-    pin_setup(b5_s, out);
-    pin_setup(b6_s, out);
-    pin_setup(b7_s, out);
+    pin.setup(b0_s, out);
+    pin.setup(b1_s, out);
+    pin.setup(b2_s, out);
+    pin.setup(b3_s, out);
+    pin.setup(b4_s, out);
+    pin.setup(b5_s, out);
+    pin.setup(b6_s, out);
+    pin.setup(b7_s, out);
 
     // LIMPIAMOS EL PUERTO B
 
-    pin_write(b0, 0);
-    pin_write(b1, 0);
-    pin_write(b2, 0);
-    pin_write(b3, 0);
-    pin_write(b4, 0);
-    pin_write(b5, 0);
-    pin_write(b6, 0);
-    pin_write(b7, 0);  
+    pin.write(b0, 0);
+    pin.write(b1, 0);
+    pin.write(b2, 0);
+    pin.write(b3, 0);
+    pin.write(b4, 0);
+    pin.write(b5, 0);
+    pin.write(b6, 0);
+    pin.write(b7, 0);  
    
    // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
-    pin_setup(c7_s,1); //;
+    pin.setup(c7_s,1); //;
 
    // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
-    uart_setup();               
+    uart.setup();               
 
      while (1) {
-         val=rx_read();   // port_write (b_o, val)
+         val=rx_read();   // port.write (b_o, val)
      }
     return;
 } 

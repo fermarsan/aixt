@@ -223,9 +223,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccN5TDRd.s 			page 1
   35:main.c        ****             
   36:main.c        ****     for(;;)
   37:main.c        ****     {
-  38:main.c        ****         //pin_high(led1);
+  38:main.c        ****         //pin.high(led1);
   39:main.c        ****         //sleep_ms(1000);
-  40:main.c        ****         //pin_low(led1);
+  40:main.c        ****         //pin.low(led1);
   41:main.c        ****         //sleep_ms(1000);
   42:main.c        ****         
   43:main.c        ****         pwm_duty(1, 0);

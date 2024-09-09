@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin-port functions (ATmega328p)
+// Description: Pin-port functions
 module port
 
 // setup configures bit by bit the pin mode of a 8 bit port

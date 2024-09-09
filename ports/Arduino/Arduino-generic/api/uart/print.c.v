@@ -4,7 +4,7 @@
 // License: MIT
 module uart
 
-// Prints data to the serial port as human-readable ASCII text
+// print function prints data to the serial port as human-readable ASCII text
 @[inline]
 pub fn print(message string) {  
 	C.Serial.print(message)

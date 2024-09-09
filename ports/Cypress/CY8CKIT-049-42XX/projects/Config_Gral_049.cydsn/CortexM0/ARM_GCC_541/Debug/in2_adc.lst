@@ -218,18 +218,18 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccgT0sW3.s 			page 1
   90              		.cfi_endproc
   91              	.LFE1:
   92              		.size	in2_adc_Write, .-in2_adc_Write
-  93              		.section	.text.in2_adc_Read,"ax",%progbits
+  93              		.section	.text.in2_adc.read,"ax",%progbits
   94              		.align	2
-  95              		.global	in2_adc_Read
+  95              		.global	in2_adc.read
   96              		.code	16
   97              		.thumb_func
-  98              		.type	in2_adc_Read, %function
-  99              	in2_adc_Read:
+  98              		.type	in2_adc.read, %function
+  99              	in2_adc.read:
  100              	.LFB2:
  117:Generated_Source\PSoC4/in2_adc.c **** 
  118:Generated_Source\PSoC4/in2_adc.c **** 
  119:Generated_Source\PSoC4/in2_adc.c **** /*******************************************************************************
- 120:Generated_Source\PSoC4/in2_adc.c **** * Function Name: in2_adc_Read
+ 120:Generated_Source\PSoC4/in2_adc.c **** * Function Name: in2_adc.read
  121:Generated_Source\PSoC4/in2_adc.c **** ****************************************************************************//**
  122:Generated_Source\PSoC4/in2_adc.c **** *
  123:Generated_Source\PSoC4/in2_adc.c **** * \brief Reads the associated physical port (pin status register) and masks 
@@ -246,9 +246,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccgT0sW3.s 			page 1
  131:Generated_Source\PSoC4/in2_adc.c **** *  The current value for the pins in the component as a right justified number.
  132:Generated_Source\PSoC4/in2_adc.c **** *
  133:Generated_Source\PSoC4/in2_adc.c **** * \funcusage
- 134:Generated_Source\PSoC4/in2_adc.c **** *  \snippet in2_adc_SUT.c usage_in2_adc_Read  
+ 134:Generated_Source\PSoC4/in2_adc.c **** *  \snippet in2_adc_SUT.c usage_in2_adc.read  
  135:Generated_Source\PSoC4/in2_adc.c **** *******************************************************************************/
- 136:Generated_Source\PSoC4/in2_adc.c **** uint8 in2_adc_Read(void)
+ 136:Generated_Source\PSoC4/in2_adc.c **** uint8 in2_adc.read(void)
  137:Generated_Source\PSoC4/in2_adc.c **** {
  101              		.loc 1 137 0
  102              		.cfi_startproc
@@ -272,19 +272,19 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccgT0sW3.s 			page 1
  118 000c 04020440 		.word	1074004484
  119              		.cfi_endproc
  120              	.LFE2:
- 121              		.size	in2_adc_Read, .-in2_adc_Read
- 122              		.section	.text.in2_adc_ReadDataReg,"ax",%progbits
+ 121              		.size	in2_adc.read, .-in2_adc.read
+ 122              		.section	.text.in2_adc.readDataReg,"ax",%progbits
  123              		.align	2
- 124              		.global	in2_adc_ReadDataReg
+ 124              		.global	in2_adc.readDataReg
  125              		.code	16
  126              		.thumb_func
- 127              		.type	in2_adc_ReadDataReg, %function
- 128              	in2_adc_ReadDataReg:
+ 127              		.type	in2_adc.readDataReg, %function
+ 128              	in2_adc.readDataReg:
  129              	.LFB3:
  140:Generated_Source\PSoC4/in2_adc.c **** 
  141:Generated_Source\PSoC4/in2_adc.c **** 
  142:Generated_Source\PSoC4/in2_adc.c **** /*******************************************************************************
- 143:Generated_Source\PSoC4/in2_adc.c **** * Function Name: in2_adc_ReadDataReg
+ 143:Generated_Source\PSoC4/in2_adc.c **** * Function Name: in2_adc.readDataReg
  144:Generated_Source\PSoC4/in2_adc.c **** ****************************************************************************//**
  145:Generated_Source\PSoC4/in2_adc.c **** *
  146:Generated_Source\PSoC4/in2_adc.c **** * \brief Reads the associated physical port's data output register and masks 
@@ -293,8 +293,8 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccgT0sW3.s 			page 1
  149:Generated_Source\PSoC4/in2_adc.c **** *
  150:Generated_Source\PSoC4/in2_adc.c **** * The data output register controls the signal applied to the physical pin in 
  151:Generated_Source\PSoC4/in2_adc.c **** * conjunction with the drive mode parameter. This is not the same as the 
- 152:Generated_Source\PSoC4/in2_adc.c **** * preferred in2_adc_Read() API because the 
- 153:Generated_Source\PSoC4/in2_adc.c **** * in2_adc_ReadDataReg() reads the data register instead of the status 
+ 152:Generated_Source\PSoC4/in2_adc.c **** * preferred in2_adc.read() API because the 
+ 153:Generated_Source\PSoC4/in2_adc.c **** * in2_adc.readDataReg() reads the data register instead of the status 
  154:Generated_Source\PSoC4/in2_adc.c **** * register. For output pins this is a useful function to determine the value 
  155:Generated_Source\PSoC4/in2_adc.c **** * just written to the pin.
  156:Generated_Source\PSoC4/in2_adc.c **** *
@@ -306,9 +306,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccgT0sW3.s 			page 1
  159:Generated_Source\PSoC4/in2_adc.c **** *  justified number for the component instance.
  160:Generated_Source\PSoC4/in2_adc.c **** *
  161:Generated_Source\PSoC4/in2_adc.c **** * \funcusage
- 162:Generated_Source\PSoC4/in2_adc.c **** *  \snippet in2_adc_SUT.c usage_in2_adc_ReadDataReg 
+ 162:Generated_Source\PSoC4/in2_adc.c **** *  \snippet in2_adc_SUT.c usage_in2_adc.readDataReg 
  163:Generated_Source\PSoC4/in2_adc.c **** *******************************************************************************/
- 164:Generated_Source\PSoC4/in2_adc.c **** uint8 in2_adc_ReadDataReg(void)
+ 164:Generated_Source\PSoC4/in2_adc.c **** uint8 in2_adc.readDataReg(void)
  165:Generated_Source\PSoC4/in2_adc.c **** {
  130              		.loc 1 165 0
  131              		.cfi_startproc
@@ -332,7 +332,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccgT0sW3.s 			page 1
  147 000c 00020440 		.word	1074004480
  148              		.cfi_endproc
  149              	.LFE3:
- 150              		.size	in2_adc_ReadDataReg, .-in2_adc_ReadDataReg
+ 150              		.size	in2_adc.readDataReg, .-in2_adc.readDataReg
  151              		.section	.text.in2_adc_SetInterruptMode,"ax",%progbits
  152              		.align	2
  153              		.global	in2_adc_SetInterruptMode
@@ -1029,7 +1029,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccgT0sW3.s 			page 1
  726 0017 72656733 		.ascii	"reg32\000"
  726      3200
  727              	.LASF20:
- 728 001d 696E325F 		.ascii	"in2_adc_Read\000"
+ 728 001d 696E325F 		.ascii	"in2_adc.read\000"
  728      6164635F 
  728      52656164 
  728      00
@@ -1179,7 +1179,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccgT0sW3.s 			page 1
  786      65642063 
  786      68617200 
  787              	.LASF21:
- 788 0264 696E325F 		.ascii	"in2_adc_ReadDataReg\000"
+ 788 0264 696E325F 		.ascii	"in2_adc.readDataReg\000"
  788      6164635F 
  788      52656164 
  788      44617461 

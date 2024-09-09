@@ -86,7 +86,7 @@ Discarded input sections
  .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_541\Debug\main.o
  .text.pwm_duty
                 0x00000000       0x40 .\CortexM0\ARM_GCC_541\Debug\main.o
- .text.adc_read
+ .text.adc.read
                 0x00000000       0x48 .\CortexM0\ARM_GCC_541\Debug\main.o
  .text.input    0x00000000        0x8 .\CortexM0\ARM_GCC_541\Debug\main.o
  .text.print    0x00000000        0x8 .\CortexM0\ARM_GCC_541\Debug\main.o

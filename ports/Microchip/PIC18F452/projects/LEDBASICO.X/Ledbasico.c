@@ -70,9 +70,9 @@
    TRISBbits.RB0 = 0;          //CONFIGURAMOS EL PIN B0 COMO SALIDA
     LATBbits.LB0  = 0;          //LIMPIAMOS EL BIT B0
     while(1){ 
-        LATBbits.LB0 = 1;       //PIN_HIGH
+        LATBbits.LB0 = 1;       //pin.high
           __delay_ms(1000);   
-        LATBbits.LB0 = 0;       //PIN_LOW
+        LATBbits.LB0 = 0;       //pin.low
           __delay_ms(1000);   
     }
   return;
@@ -81,12 +81,12 @@
 
 void main(void) {
     ADCON1bits.PCFG = 0x0F;     //TODAS LOS PINES COMO DIGITALES
-    pin_setup(b0_s, out);       //CONFIGURAMOS EL PIN B0 COMO SALIDA
-    pin_write(b0, 0);           //LIMPIAMOS EL BIT B0
+    pin.setup(b0_s, out);       //CONFIGURAMOS EL PIN B0 COMO SALIDA
+    pin.write(b0, 0);           //LIMPIAMOS EL BIT B0
     while(1){ 
-        pin_high(b0);       //PIN HIGH
+        pin.high(b0);       //PIN HIGH
           sleep_ms(1000);   
-        pin_low(b0);        //PIN LOW
+        pin.low(b0);        //PIN LOW
           sleep_ms(1000);   
     }
   return;

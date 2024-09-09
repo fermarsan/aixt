@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin-port functions (ATmega328p)
+// Description: Pin-port functions
 module port
 
 // write function writes an 8 bit value on a port

@@ -34,9 +34,9 @@ int main(void)
         
     for(;;)
     {
-        //pin_high(led1);
+        //pin.high(led1);
         //sleep_ms(300);
-        //pin_low(led1);
+        //pin.low(led1);
         //sleep_ms(300);
         
         //pwm_duty(4, 10);
@@ -60,7 +60,7 @@ int main(void)
         //pwm_duty(4, 100);
         //sleep_ms(2000);
         
-        //adc_read(1);  
+        //adc.read(1);  
     }
 }
 

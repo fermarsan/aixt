@@ -87,7 +87,7 @@ void main()
     ADCON2 = 0x97;                          // Configura el tiempo de adquisicion
     ADCON0bits.ADON = 1;                    // Habilita el conversor */
  
-    adc_setup();
+    adc.setup();
     
     /*PR2 = 0xC;                             // Valor del periodo
     CCPR1L = 0;                             // Inicia el CCP1 en 0
@@ -97,22 +97,22 @@ void main()
     TMR2 = 0;                               // Timer 2 en 0
     T2CONbits.TMR2ON = 1;                   // Timer 2 ON */
  
-    pwm_setup(1,2);
+    pwm.setup(1,2);
     
     while(1)
     {
         /* ADCON0bits.GO_DONE = 1;
         while(ADCON0bits.GO_DONE == 1); */
  
-        adc_read(0);
+        adc.read(0);
 
        /* int valor_adc = ADRES; */
  
-        int valor_adc = adc_reading();
+        int valor_adc = adc.reading();
 
         /*unsigned char valor_pwm = map(valor_adc, 0, 1023, 0, 50);
         CCPR1L = (valor_pwm >> 2); */
  
-        pwm_write(valor_adc,1);  
+        pwm.write(valor_adc,1);  
     }
 }

@@ -4,7 +4,7 @@
 // License: MIT
 module uart
 
-// Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
+// print function prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
 @[inline]
 pub fn println(message string) {  
 	C.Serial.println(message)

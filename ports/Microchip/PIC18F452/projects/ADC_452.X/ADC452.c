@@ -84,58 +84,58 @@
 
 void main(void) {
     
-    adc_setup();
+    adc.setup();
     
    // TRISB = 0x00;
    // Puerto b como salida
-    pin_setup(b0_s, out);
-    pin_setup(b1_s, out);
-    pin_setup(b2_s, out);
-    pin_setup(b3_s, out);
-    pin_setup(b4_s, out);
-    pin_setup(b5_s, out);
-    pin_setup(b6_s, out);
-    pin_setup(b7_s, out);
+    pin.setup(b0_s, out);
+    pin.setup(b1_s, out);
+    pin.setup(b2_s, out);
+    pin.setup(b3_s, out);
+    pin.setup(b4_s, out);
+    pin.setup(b5_s, out);
+    pin.setup(b6_s, out);
+    pin.setup(b7_s, out);
 
   // TRISC = 0x00; 
   //PUERTO C como salida
-    pin_setup(c0_s, out);
-    pin_setup(c1_s, out);
-    pin_setup(c2_s, out);
-    pin_setup(c3_s, out);
-    pin_setup(c4_s, out);
-    pin_setup(c5_s, out);
-    pin_setup(c6_s, out);
-    pin_setup(c7_s, out);
+    pin.setup(c0_s, out);
+    pin.setup(c1_s, out);
+    pin.setup(c2_s, out);
+    pin.setup(c3_s, out);
+    pin.setup(c4_s, out);
+    pin.setup(c5_s, out);
+    pin.setup(c6_s, out);
+    pin.setup(c7_s, out);
 
     //LATB = 0x00;
     // LIMPIAMOS EL PUERTO B
 
-    pin_write(b0, 0);
-    pin_write(b1, 0);
-    pin_write(b2, 0);
-    pin_write(b3, 0);
-    pin_write(b4, 0);
-    pin_write(b5, 0);
-    pin_write(b6, 0);
-    pin_write(b7, 0);
+    pin.write(b0, 0);
+    pin.write(b1, 0);
+    pin.write(b2, 0);
+    pin.write(b3, 0);
+    pin.write(b4, 0);
+    pin.write(b5, 0);
+    pin.write(b6, 0);
+    pin.write(b7, 0);
 
     //LATC = 0X00;
     // LIMPIAMOS EL PUERTO C
 
-    pin_write(c0, 0);
-    pin_write(c1, 0);
-    pin_write(c2, 0);
-    pin_write(c3, 0);
-    pin_write(c4, 0);
-    pin_write(c5, 0);
-    pin_write(c6, 0);
-    pin_write(c7, 0);
+    pin.write(c0, 0);
+    pin.write(c1, 0);
+    pin.write(c2, 0);
+    pin.write(c3, 0);
+    pin.write(c4, 0);
+    pin.write(c5, 0);
+    pin.write(c6, 0);
+    pin.write(c7, 0);
     
     while(1)
     {
-        adc_read(0);
-        valor = adc_reading();
+        adc.read(0);
+        valor = adc.reading();
         LATB = valor & 0xFF;                      // Muestra el dato de la parte baja en el puerto B
         LATC = (valor>>8) & 0x03;                      // Muestra el dato de la parte alta en el puerto C
         sleep_ms(10);

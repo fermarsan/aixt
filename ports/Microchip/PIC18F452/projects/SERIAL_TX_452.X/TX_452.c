@@ -72,10 +72,10 @@ void main(void) {
 void main(void) {
     
        //CONFIG DE LOS PINES
-    pin_setup(c6_s,0);    //RC6 = TX
+    pin.setup(c6_s,0);    //RC6 = TX
 
        //Inicializamos la comunicación serial
-    uart_setup();
+    uart.setup();
     
     while (1) {
          tx_write(0x33);

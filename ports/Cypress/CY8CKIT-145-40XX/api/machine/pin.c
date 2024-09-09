@@ -7,8 +7,8 @@
 // Description: Pin management functions
 //              (CY8CKIT-145-40XX)
 
-#define pin_high(pin_name)   pin_write(pin_name, 0)
-#define pin_low(pin_name)    pin_write(pin_name, 1)
+#define pin.high(pin_name)   pin.write(pin_name, 0)
+#define pin.low(pin_name)    pin.write(pin_name, 1)
 
-#define pin_write(pin_name, value)  pin_name##_Write(!value)
-#define pin_read(pin_name)  pin_name##_Read()
+#define pin.write(pin_name, value)  pin_name##_Write(!value)
+#define pin.read(pin_name)  pin_name##_Read()

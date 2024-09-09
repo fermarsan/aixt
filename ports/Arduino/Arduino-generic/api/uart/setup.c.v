@@ -4,7 +4,7 @@
 // License: MIT
 module uart
 
-// Sets the data rate in bits per second (baud) for serial data transmission
+// setup function sets the data rate in bits per second (baud) for serial data transmission
 @[inline]
 pub fn setup(baud_rate int) {
 	C.Serial.begin(baud_rate)

@@ -124,13 +124,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccLIFbgA.s 			page 1
   92              		.cfi_endproc
   93              	.LFE32:
   94              		.size	pwm_duty, .-pwm_duty
-  95              		.section	.text.adc_read,"ax",%progbits
+  95              		.section	.text.adc.read,"ax",%progbits
   96              		.align	2
-  97              		.global	adc_read
+  97              		.global	adc.read
   98              		.code	16
   99              		.thumb_func
- 100              		.type	adc_read, %function
- 101              	adc_read:
+ 100              		.type	adc.read, %function
+ 101              	adc.read:
  102              	.LFB33:
  103              		.file 2 "../../api/machine/adc.c"
    1:../../api/machine/adc.c **** // Project Name: Aixt, https://github.com/fermarsan/aixt.git
@@ -142,7 +142,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccLIFbgA.s 			page 1
    7:../../api/machine/adc.c **** // Description: This is a module to emulate ADC inputs in console.
    8:../../api/machine/adc.c **** //              (CY8CKIT-049-42XX)
    9:../../api/machine/adc.c **** 
-  10:../../api/machine/adc.c **** void adc_read(int channel) {
+  10:../../api/machine/adc.c **** void adc.read(int channel) {
  104              		.loc 2 10 0
  105              		.cfi_startproc
  106              		@ args = 0, pretend = 0, frame = 0
@@ -233,7 +233,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccLIFbgA.s 			page 1
  171 0044 10BD     		pop	{r4, pc}
  172              		.cfi_endproc
  173              	.LFE33:
- 174              		.size	adc_read, .-adc_read
+ 174              		.size	adc.read, .-adc.read
  175 0046 C046     		.section	.text.input,"ax",%progbits
  176              		.align	2
  177              		.global	input
@@ -1691,7 +1691,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccLIFbgA.s 			page 1
  1415      74797065 
  1415      00
  1416              	.LASF17:
- 1417 01fb 6164635F 		.ascii	"adc_read\000"
+ 1417 01fb 6164635F 		.ascii	"adc.read\000"
  1417      72656164 
  1417      00
  1418              	.LASF6:

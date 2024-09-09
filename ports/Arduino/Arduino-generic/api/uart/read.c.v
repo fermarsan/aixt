@@ -4,7 +4,7 @@
 // License: MIT
 module uart
 
-// Reads incoming serial data
+// read function reads incoming serial data
 @[inline]
 pub fn read() u8 {
 	return C.Serial.read()

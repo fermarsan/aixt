@@ -67,12 +67,12 @@ name                             | description
 `port__setup(port, mode)`        | Configura puertos I/O   `pin`
 `port__write(port, val)`         | Escribe `val` en `port`
 `port__read(port)`               | Lee `port`
-`adc_setup()`                    | Configura el `adc` 
-`adc_read(channel)`              | Configura el canal `channel` del `adc`
-`adc_reading()`                  | Alamacena el valor del `adc`
-`pwm_setup(pin1, pin2)`          | Configura el resgitro `pin1` y la salida en `pin2`
-`pwm_write(duty, pin)`           | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
-`uart_setup()`                   | Configura el `uart`
+`adc.setup()`                    | Configura el `adc` 
+`adc.read(channel)`              | Configura el canal `channel` del `adc`
+`adc.reading()`                  | Alamacena el valor del `adc`
+`pwm.setup(pin1, pin2)`          | Configura el resgitro `pin1` y la salida en `pin2`
+`pwm.write(duty, pin)`           | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
+`uart.setup()`                   | Configura el `uart`
 `uart__write()`                  | Configura el `TX`
 `uart__read()`                   | Configura el `RX`
 `sleep(time)`                    | Retardo en `seg`
@@ -114,14 +114,14 @@ while(1){
     
     if(a4 == 0){        // Condición si encuentra un 0 en el pin a4
         
-        pin_high(c0);
-        pin_high(c2);
+        pin.high(c0);
+        pin.high(c2);
     }
     
     else if(b2 == 1){   // Condición si encuentra un 1 en el pin b2
         
-        pin_low(a1);
-        pin_low(c2);
+        pin.low(a1);
+        pin.low(c2);
     }
 
 }
@@ -129,9 +129,9 @@ while(1){
 ```
 ## Configuración del ADC
 ```go
-adc_setup()     // Iicializa el ADC
-adc_read(0)     // Escoge el pin denl canal analogico
-adc_reading();  // Almacena el valor del ADC en una función
+adc.setup()     // Iicializa el ADC
+adc.read(0)     // Escoge el pin denl canal analogico
+adc.reading();  // Almacena el valor del ADC en una función
 
 ```
 
@@ -141,7 +141,7 @@ unsigned int adc_RTA;  // Declaración de variable para almacenar el valor del A
         
 while(1){
             
-    adc_RTA = adc_reading(); // Almacena el valor del ADC
+    adc_RTA = adc.reading(); // Almacena el valor del ADC
     
     if ( adc_RTA >= 1000 ){
         
@@ -152,23 +152,23 @@ while(1){
     
     else if ( adc_RTA >= 600 ){
         
-        pin_high(b5);
-        pin_high(b1);
-        pin_low(b3);
+        pin.high(b5);
+        pin.high(b1);
+        pin.low(b3);
     }
     
     else if ( adc_RTA >= 340 ){
         
-        pin_high(a0);
-        pin_low(a1);
-        pin_low(a2);   
+        pin.high(a0);
+        pin.low(a1);
+        pin.low(a2);   
     }
         
     else {
         
-        pin_low(c7);
-        pin_low(c6);
-        pin_low(c5);      
+        pin.low(c7);
+        pin.low(c6);
+        pin.low(c5);      
     }
 
 }
@@ -176,8 +176,8 @@ while(1){
 ```
 ## Configuración del PWM
 ```go
-pwm_setup()     // Inicializa el pwm
-pwm_write()     // Calcula el ciclo de trabajo 
+pwm.setup()     // Inicializa el pwm
+pwm.write()     // Calcula el ciclo de trabajo 
 
 ```
 Ejemplo de variar la intensidad de un led:
@@ -185,8 +185,8 @@ Ejemplo de variar la intensidad de un led:
 ```go
  while(1){
     
-        adc := adc_read(3)  // Almacena el valor del ADC
-        pwm_write(adc)  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1
+        adc := adc.read(3)  // Almacena el valor del ADC
+        pwm.write(adc)  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1
         
     }
 

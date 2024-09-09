@@ -215,18 +215,18 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccpuhqqP.s 			page 1
   87              		.cfi_endproc
   88              	.LFE1:
   89              		.size	in0_adc_Write, .-in0_adc_Write
-  90              		.section	.text.in0_adc_Read,"ax",%progbits
+  90              		.section	.text.in0_adc.read,"ax",%progbits
   91              		.align	2
-  92              		.global	in0_adc_Read
+  92              		.global	in0_adc.read
   93              		.code	16
   94              		.thumb_func
-  95              		.type	in0_adc_Read, %function
-  96              	in0_adc_Read:
+  95              		.type	in0_adc.read, %function
+  96              	in0_adc.read:
   97              	.LFB2:
  117:Generated_Source\PSoC4/in0_adc.c **** 
  118:Generated_Source\PSoC4/in0_adc.c **** 
  119:Generated_Source\PSoC4/in0_adc.c **** /*******************************************************************************
- 120:Generated_Source\PSoC4/in0_adc.c **** * Function Name: in0_adc_Read
+ 120:Generated_Source\PSoC4/in0_adc.c **** * Function Name: in0_adc.read
  121:Generated_Source\PSoC4/in0_adc.c **** ****************************************************************************//**
  122:Generated_Source\PSoC4/in0_adc.c **** *
  123:Generated_Source\PSoC4/in0_adc.c **** * \brief Reads the associated physical port (pin status register) and masks 
@@ -243,9 +243,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccpuhqqP.s 			page 1
 
  132:Generated_Source\PSoC4/in0_adc.c **** *
  133:Generated_Source\PSoC4/in0_adc.c **** * \funcusage
- 134:Generated_Source\PSoC4/in0_adc.c **** *  \snippet in0_adc_SUT.c usage_in0_adc_Read  
+ 134:Generated_Source\PSoC4/in0_adc.c **** *  \snippet in0_adc_SUT.c usage_in0_adc.read  
  135:Generated_Source\PSoC4/in0_adc.c **** *******************************************************************************/
- 136:Generated_Source\PSoC4/in0_adc.c **** uint8 in0_adc_Read(void)
+ 136:Generated_Source\PSoC4/in0_adc.c **** uint8 in0_adc.read(void)
  137:Generated_Source\PSoC4/in0_adc.c **** {
   98              		.loc 1 137 0
   99              		.cfi_startproc
@@ -268,19 +268,19 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccpuhqqP.s 			page 1
  114 000c 04020440 		.word	1074004484
  115              		.cfi_endproc
  116              	.LFE2:
- 117              		.size	in0_adc_Read, .-in0_adc_Read
- 118              		.section	.text.in0_adc_ReadDataReg,"ax",%progbits
+ 117              		.size	in0_adc.read, .-in0_adc.read
+ 118              		.section	.text.in0_adc.readDataReg,"ax",%progbits
  119              		.align	2
- 120              		.global	in0_adc_ReadDataReg
+ 120              		.global	in0_adc.readDataReg
  121              		.code	16
  122              		.thumb_func
- 123              		.type	in0_adc_ReadDataReg, %function
- 124              	in0_adc_ReadDataReg:
+ 123              		.type	in0_adc.readDataReg, %function
+ 124              	in0_adc.readDataReg:
  125              	.LFB3:
  140:Generated_Source\PSoC4/in0_adc.c **** 
  141:Generated_Source\PSoC4/in0_adc.c **** 
  142:Generated_Source\PSoC4/in0_adc.c **** /*******************************************************************************
- 143:Generated_Source\PSoC4/in0_adc.c **** * Function Name: in0_adc_ReadDataReg
+ 143:Generated_Source\PSoC4/in0_adc.c **** * Function Name: in0_adc.readDataReg
  144:Generated_Source\PSoC4/in0_adc.c **** ****************************************************************************//**
  145:Generated_Source\PSoC4/in0_adc.c **** *
  146:Generated_Source\PSoC4/in0_adc.c **** * \brief Reads the associated physical port's data output register and masks 
@@ -289,8 +289,8 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccpuhqqP.s 			page 1
  149:Generated_Source\PSoC4/in0_adc.c **** *
  150:Generated_Source\PSoC4/in0_adc.c **** * The data output register controls the signal applied to the physical pin in 
  151:Generated_Source\PSoC4/in0_adc.c **** * conjunction with the drive mode parameter. This is not the same as the 
- 152:Generated_Source\PSoC4/in0_adc.c **** * preferred in0_adc_Read() API because the 
- 153:Generated_Source\PSoC4/in0_adc.c **** * in0_adc_ReadDataReg() reads the data register instead of the status 
+ 152:Generated_Source\PSoC4/in0_adc.c **** * preferred in0_adc.read() API because the 
+ 153:Generated_Source\PSoC4/in0_adc.c **** * in0_adc.readDataReg() reads the data register instead of the status 
  154:Generated_Source\PSoC4/in0_adc.c **** * register. For output pins this is a useful function to determine the value 
  155:Generated_Source\PSoC4/in0_adc.c **** * just written to the pin.
  156:Generated_Source\PSoC4/in0_adc.c **** *
@@ -302,9 +302,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccpuhqqP.s 			page 1
 
 
  161:Generated_Source\PSoC4/in0_adc.c **** * \funcusage
- 162:Generated_Source\PSoC4/in0_adc.c **** *  \snippet in0_adc_SUT.c usage_in0_adc_ReadDataReg 
+ 162:Generated_Source\PSoC4/in0_adc.c **** *  \snippet in0_adc_SUT.c usage_in0_adc.readDataReg 
  163:Generated_Source\PSoC4/in0_adc.c **** *******************************************************************************/
- 164:Generated_Source\PSoC4/in0_adc.c **** uint8 in0_adc_ReadDataReg(void)
+ 164:Generated_Source\PSoC4/in0_adc.c **** uint8 in0_adc.readDataReg(void)
  165:Generated_Source\PSoC4/in0_adc.c **** {
  126              		.loc 1 165 0
  127              		.cfi_startproc
@@ -327,7 +327,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccpuhqqP.s 			page 1
  142 000c 00020440 		.word	1074004480
  143              		.cfi_endproc
  144              	.LFE3:
- 145              		.size	in0_adc_ReadDataReg, .-in0_adc_ReadDataReg
+ 145              		.size	in0_adc.readDataReg, .-in0_adc.readDataReg
  146              		.section	.text.in0_adc_SetInterruptMode,"ax",%progbits
  147              		.align	2
  148              		.global	in0_adc_SetInterruptMode
@@ -1001,7 +1001,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccpuhqqP.s 			page 1
  704 0006 76616C75 		.ascii	"value\000"
  704      6500
  705              	.LASF21:
- 706 000c 696E305F 		.ascii	"in0_adc_ReadDataReg\000"
+ 706 000c 696E305F 		.ascii	"in0_adc.readDataReg\000"
  706      6164635F 
  706      52656164 
  706      44617461 
@@ -1051,7 +1051,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccpuhqqP.s 			page 1
  722      65642069 
  722      6E7400
  723              	.LASF20:
- 724 00b0 696E305F 		.ascii	"in0_adc_Read\000"
+ 724 00b0 696E305F 		.ascii	"in0_adc.read\000"
  724      6164635F 
  724      52656164 
  724      00

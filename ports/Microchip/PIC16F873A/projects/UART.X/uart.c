@@ -14,14 +14,14 @@ char caracteres[];  // Variable para alamacenar la cadena de caracteres que se v
 
 void main(void) {
     
-    adc_setup();
-    uart_setup();
+    adc.setup();
+    uart.setup();
     
     while(1){
         
-        adc_read(0);
+        adc.read(0);
               
-        adc = adc_reading();
+        adc = adc.reading();
          
         sprintf(caracteres, "ADC CH0: %u\r\n", adc); // Almacena la cadena de caracteres en la variable caracteres
         print(caracteres);

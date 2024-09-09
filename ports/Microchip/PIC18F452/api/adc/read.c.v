@@ -1,10 +1,10 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// File Name: adc_read.c.v
+// File Name: adc.read.c.v
 // Author: Jan Carlo Peñuela Jurado and Fernando M. Santa
 // Date: 2024
 // License: MIT
 //
-// Description: ADC_READ
+// Description: adc.read
 //              (PIC18F452)
 module adc
 fn read(channel u8) int { 

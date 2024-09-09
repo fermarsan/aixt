@@ -7,7 +7,7 @@
 // Description: This is a module to emulate ADC inputs in console.
 //              (CY8CKIT-049-42XX)
 
-void adc_read(int channel) {
+void adc.read(int channel) {
     if (channel==1){
         amux_FastSelect(0);
     }

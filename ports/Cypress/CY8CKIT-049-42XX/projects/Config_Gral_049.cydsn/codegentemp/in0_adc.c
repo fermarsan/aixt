@@ -117,7 +117,7 @@ void in0_adc_Write(uint8 value)
 
 
 /*******************************************************************************
-* Function Name: in0_adc_Read
+* Function Name: in0_adc.read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void in0_adc_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet in0_adc_SUT.c usage_in0_adc_Read  
+*  \snippet in0_adc_SUT.c usage_in0_adc.read  
 *******************************************************************************/
-uint8 in0_adc_Read(void)
+uint8 in0_adc.read(void)
 {
     return (uint8)((in0_adc_PS & in0_adc_MASK) >> in0_adc_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: in0_adc_ReadDataReg
+* Function Name: in0_adc.readDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 in0_adc_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred in0_adc_Read() API because the 
-* in0_adc_ReadDataReg() reads the data register instead of the status 
+* preferred in0_adc.read() API because the 
+* in0_adc.readDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,9 +159,9 @@ uint8 in0_adc_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet in0_adc_SUT.c usage_in0_adc_ReadDataReg 
+*  \snippet in0_adc_SUT.c usage_in0_adc.readDataReg 
 *******************************************************************************/
-uint8 in0_adc_ReadDataReg(void)
+uint8 in0_adc.readDataReg(void)
 {
     return (uint8)((in0_adc_DR & in0_adc_MASK) >> in0_adc_SHIFT);
 }

@@ -103,20 +103,20 @@ This is an Aixt implementation to provide support for the ESP32-C3FH4 board.
 
 | Name                      | Description                                    |
 |---------------------------|------------------------------------------------|
-| `pin_setup(pin, mode)`    | Configure `pin` as `mode` (input, out)         |
-| `pin_high(pin)`           | Digital output high `pin`                      |
-| `pin_low(pin)`            | Digital output low `pin`                       | 
-| `pin_write(pin, val)`     | Write `val` to `pin`                           |
-| `pin_read(pin)`           | Digital read `pin`                             |
-| `adc_read(pin)`           | Analog read `pin` for `adc`                    |
-| `pwm_write(pin, val)`     | PWM output `pin` with duty cycle `val`         |
-| `uart_setup(baud_rate)`   | Serial Communication initiation at `Baud_rate` | 
+| `pin.setup(pin, mode)`    | Configure `pin` as `mode` (input, out)         |
+| `pin.high(pin)`           | Digital output high `pin`                      |
+| `pin.low(pin)`            | Digital output low `pin`                       | 
+| `pin.write(pin, val)`     | Write `val` to `pin`                           |
+| `pin.read(pin)`           | Digital read `pin`                             |
+| `adc.read(pin)`           | Analog read `pin` for `adc`                    |
+| `pwm.write(pin, val)`     | PWM output `pin` with duty cycle `val`         |
+| `uart.setup(baud_rate)`   | Serial Communication initiation at `Baud_rate` | 
 | `uart_any()`              | Get the number of byte to read                 |
-| `uart_read()`             | Serial Communication read                      |
-| `uart_println("message")` | Print `message` through Serial Communication   |
-| `time_sleep(time)`        | Time delay in `sec`                            |
-| `time_sleep_us(time)`     | Time delay in `microsec`                       |
-| `time_sleep_ms(time)`     | Time delay in `milisec`                        | 
+| `uart.read()`             | Serial Communication read                      |
+| `uart.println("message")` | Print `message` through Serial Communication   |
+| `time.sleep(time)`        | Time delay in `sec`                            |
+| `time.sleep_us(time)`     | Time delay in `microsec`                       |
+| `time.sleep_ms(time)`     | Time delay in `milisec`                        | 
 
 * Description and compilation example on YouTube: https://youtu.be/dbCGMkhsr1E 
 

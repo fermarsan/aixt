@@ -2,4 +2,4 @@
 
 
 
-pin_write(LED1, 1);
+pin.write(LED1, 1);

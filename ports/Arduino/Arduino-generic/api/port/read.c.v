@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin-port functions (ATmega328p)
+// Description: Pin-port functions
 module port
 
 // read function reads an 8 bit value from a port

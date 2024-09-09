@@ -35,15 +35,15 @@ Las funciones que contiene la API entradas o salidas digitales y para realizar u
 
 Nombre                  | Descripción
 ------------------------|------------------------------
-`pin_setup(pin, mode)`  | Configura `pin`como `mode` (input, out)
-`pin_high(pin)`         | Salida Digital en alto `pin`
-`pin_low(pin)`          | Salida Digital en bajo `pin`
-`pin_write(pin, val)`   | Escribe `val` en `pin`
-`pin_read(pin)`         | Entrada digital `pin`
-`adc_read(pin)`         | Lectura analogica `pin` para el `adc`
-`pwm_write(pin, val)`   | Salida `pin` y un ciclo util de `val`
-`uart_setup(baund_rate)`| Iniciación Comunicacón Serial a `Baund_rate`
-`uart_read()`           | Lectura de Comunicacón Serial a ``
+`pin.setup(pin, mode)`  | Configura `pin`como `mode` (input, out)
+`pin.high(pin)`         | Salida Digital en alto `pin`
+`pin.low(pin)`          | Salida Digital en bajo `pin`
+`pin.write(pin, val)`   | Escribe `val` en `pin`
+`pin.read(pin)`         | Entrada digital `pin`
+`adc.read(pin)`         | Lectura analogica `pin` para el `adc`
+`pwm.write(pin, val)`   | Salida `pin` y un ciclo util de `val`
+`uart.setup(baund_rate)`| Iniciación Comunicacón Serial a `Baund_rate`
+`uart.read()`           | Lectura de Comunicacón Serial a ``
 `println(message)`      | Imprime  `message` a traves Comunicacón Serial
 `sleep(time)`           | Retardo en `seg`
 `sleep_us(time)`        | Retardo en `microseg`
@@ -55,9 +55,9 @@ Nombre                  | Descripción
 pin_mode(5, out)
 
 for i in 0..10{   //10 veces
-    pin_high(5)
+    pin.high(5)
     sleep_ms(500)
-    pin_low(5)
+    pin.low(5)
     sleep_ms(500)
 }
 ```
@@ -66,36 +66,36 @@ for i in 0..10{   //10 veces
 
 ```go
 
-pin_setup(2, out)
-pin_setup(3, out)
-pin_setup(4, out)
+pin.setup(2, out)
+pin.setup(3, out)
+pin.setup(4, out)
 for {
-    if( adc_read(8)>=1017 ){
+    if( adc.read(8)>=1017 ){
 
-        pin_high(2)
-        pin_high(3)
-        pin_high(4)
+        pin.high(2)
+        pin.high(3)
+        pin.high(4)
 
     }
-    else if( adc_read(8)>=750 ){
+    else if( adc.read(8)>=750 ){
 
-        pin_high(2)
-        pin_high(3)
-        pin_low(4)
+        pin.high(2)
+        pin.high(3)
+        pin.low(4)
         
     }
-    else if( adc_read(8)>=480 ){
+    else if( adc.read(8)>=480 ){
 
-        pin_high(2)
-        pin_low(3)
-        pin_low(4)
+        pin.high(2)
+        pin.low(3)
+        pin.low(4)
         
     }
     else {
 
-        pin_low(2)
-        pin_low(3)
-        pin_low(4)
+        pin.low(2)
+        pin.low(3)
+        pin.low(4)
         
     }
     } 
@@ -104,11 +104,11 @@ for {
 #### Ejemplo salida PWM
 ```go
 
-pin_setup(5, out)
+pin.setup(5, out)
 int util=0
 
 for {
-    pwm_write(5, util)
+    pwm.write(5, util)
     sleep_ms(250)
     util=util+10
     if (util==250){
@@ -124,9 +124,9 @@ for {
 pin_mode(3, out)
 
 for {   //infinite loop
-    pin_high(5)
+    pin.high(5)
     sleep_ms(500)
-    pin_low(5)
+    pin.low(5)
     sleep_ms(500)
 }
 ```
@@ -135,43 +135,43 @@ for {   //infinite loop
 
 To activate the port to use
 ```go
-pin_high(pin_name)
+pin.high(pin_name)
 ```
-* *Example: If you want to activate the port IO17;  `pin_high(IO17)`.*
+* *Example: If you want to activate the port IO17;  `pin.high(IO17)`.*
 
 To disable the port being used
 ```go
-pin_low(pin_name)
+pin.low(pin_name)
 ```
-* *Example: If you want to disable the port IO17;  `pin_low(O17I)`.*
+* *Example: If you want to disable the port IO17;  `pin.low(O17I)`.*
 
 To disable or enable the port to be used
 
 ```go
-pin_write(pin_name, value)
+pin.write(pin_name, value)
 ```
-* *Example: If you want to disable port IO17 `pin_write(IO17, 1)`, and if you want to activate  `pin_write(IO17, 0)`.*
+* *Example: If you want to disable port IO17 `pin.write(IO17, 1)`, and if you want to activate  `pin.write(IO17, 0)`.*
 
 ### Input port detection
 
 If you need to know what state an entry port is in:
 ```go
-x = pin_read(pin_name)
+x = pin.read(pin_name)
 ```
 
-* *Example: If you want to detect the value of port IO3; `x = pin_read(IO17)`, and `x` will take the value of 0 or 1, depending on which port is active or disabled.*
+* *Example: If you want to detect the value of port IO3; `x = pin.read(IO17)`, and `x` will take the value of 0 or 1, depending on which port is active or disabled.*
 
 ### Analog to digital ports (ADC)
 
 To configure one of the analog ports
 ```go
-adc_setup(channel, setup_value_1, ... )
+adc.setup(channel, setup_value_1, ... )
 ```
 * *In channel the name of the analog port is entered, in setup_value_1 the value that will be given is said port.*
 
 To detect the analog port value
 ```go
-x = adc_read(channel)
+x = adc.read(channel)
 ```
 * *In `channel` the name of the analog port is entered, and `x` takes the value of said port..*
 
@@ -179,7 +179,7 @@ x = adc_read(channel)
 
 To configure some PWM
 ```go
-pwm_setup(setup_value_1, setup_value_2, ... )
+pwm.setup(setup_value_1, setup_value_2, ... )
 ```
 * *In pwm you set the PWM to use, and in setup_value_1 the value to which you want to configure said pwm.*
 
@@ -197,7 +197,7 @@ The UART used to be the standard stream output, so the functions `print()`, `pri
 #### UART setup
 
 ```v
-uart_setup(baud_rate)   // the same of uart1_setup(baud_rate)
+uart.setup(baud_rate)   // the same of uart1_setup(baud_rate)
 ```
 - `baud_rate` configure the communication speed
 
@@ -242,9 +242,9 @@ import time { sleep_ms }
 pin_mode(IO14, out)
 
 for {   //infinite loop
-    pin_high(IO14)
+    pin.high(IO14)
     sleep_ms(500)
-    pin_low(IO14)
+    pin.low(IO14)
     sleep_ms(500)
 }
 ```

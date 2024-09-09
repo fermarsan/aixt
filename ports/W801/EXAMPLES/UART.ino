@@ -22,8 +22,8 @@
 #define uart__print_0(MESSAGE)	Serial.print(MESSAGE)
 #define uart__print_1(MESSAGE)	Serial1.print(MESSAGE)
 #define uart__print_x(UART_NUMBER, MESSAGE)		uart__print_ ## UART_NUMBER (MESSAGE)
-#define SEL_UART_PRINT(_1, _2, MACRO_NAME, ...) MACRO_NAME
-#define uart__print(...) SEL_UART_PRINT(__VA_ARGS__, uart__print_x, uart__print_0)(__VA_ARGS__)
+#define SEL_uart.print(_1, _2, MACRO_NAME, ...) MACRO_NAME
+#define uart__print(...) SEL_uart.print(__VA_ARGS__, uart__print_x, uart__print_0)(__VA_ARGS__)
 #define uart__println_0(MESSAGE)	Serial.println(MESSAGE)
 #define uart__println_1(MESSAGE)	Serial1.println(MESSAGE)
 #define uart__println_2(MESSAGE)	Serial2.println(MESSAGE)
@@ -31,23 +31,23 @@
 #define uart__println_4(MESSAGE)	Serial4.println(MESSAGE)
 #define uart__println_5(MESSAGE)	Serial5.println(MESSAGE)
 #define uart__println_x(UART_NUMBER, MESSAGE)		uart__println_ ## UART_NUMBER (MESSAGE)
-#define SEL_UART_PRINTLN(_1, _2, MACRO_NAME, ...) MACRO_NAME
-#define uart__println(...) SEL_UART_PRINTLN(__VA_ARGS__, uart__println_x, uart__println_0)(__VA_ARGS__)
+#define SEL_uart.printLN(_1, _2, MACRO_NAME, ...) MACRO_NAME
+#define uart__println(...) SEL_uart.printLN(__VA_ARGS__, uart__println_x, uart__println_0)(__VA_ARGS__)
 #define uart__read_0()	Serial.read()
 #define uart__read_1()	Serial1.read()
 #define uart__read_x(UART_NUMBER)	uart__read_ ## UART_NUMBER ## .read()
-#define SEL_UART_READ(_0, _1, MACRO_NAME, ...) MACRO_NAME
-#define uart__read(...) SEL_UART_READ(_0 __VA_OPT__(,) __VA_ARGS__, uart__read_x, uart__read_0)(__VA_ARGS__)
+#define SEL_uart.read(_0, _1, MACRO_NAME, ...) MACRO_NAME
+#define uart__read(...) SEL_uart.read(_0 __VA_OPT__(,) __VA_ARGS__, uart__read_x, uart__read_0)(__VA_ARGS__)
 #define uart__ready_0()	Serial.ready()
 #define uart__ready_1()	Serial1.ready()
 #define uart__ready_x(UART_NUMBER)	uart__ready_ ## UART_NUMBER ## .ready()
-#define SEL_UART_READY(_0, _1, MACRO_NAME, ...) MACRO_NAME
-#define uart__read(...) SEL_UART_READY(_0 __VA_OPT__(,) __VA_ARGS__, uart__ready_x, uart__ready_0)(__VA_ARGS__)
+#define SEL_uart.readY(_0, _1, MACRO_NAME, ...) MACRO_NAME
+#define uart__read(...) SEL_uart.readY(_0 __VA_OPT__(,) __VA_ARGS__, uart__ready_x, uart__ready_0)(__VA_ARGS__)
 #define uart__setup_0(BAUD_RATE)					Serial.begin(BAUD_RATE)
 #define uart__setup_1(BAUD_RATE)					Serial1.begin(BAUD_RATE)
 #define uart__setup_x(UART_NUMBER, BAUD_RATE)		uart__setup_ ## UART_NUMBER (BAUD_RATE)
-#define SEL_UART_SETUP(_1, _2, MACRO_NAME, ...) MACRO_NAME
-#define uart__setup(...) SEL_UART_SETUP(__VA_ARGS__, uart__setup_x, uart__setup_0)(__VA_ARGS__)
+#define SEL_uart.setup(_1, _2, MACRO_NAME, ...) MACRO_NAME
+#define uart__setup(...) SEL_uart.setup(__VA_ARGS__, uart__setup_x, uart__setup_0)(__VA_ARGS__)
 
 void main__init();
 

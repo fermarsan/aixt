@@ -16,5 +16,5 @@ module uart
 
 // macro with 1 or 2 arguments
 
-#define SEL_UART_SETUP(_1, _2, MACRO_NAME, ...) MACRO_NAME
-#define uart__setup(...) SEL_UART_SETUP(__VA_ARGS__, uart__setup_x, uart__setup_0)(__VA_ARGS__)
+#define SEL_uart.setup(_1, _2, MACRO_NAME, ...) MACRO_NAME
+#define uart__setup(...) SEL_uart.setup(__VA_ARGS__, uart__setup_x, uart__setup_0)(__VA_ARGS__)
