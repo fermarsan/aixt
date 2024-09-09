@@ -61,7 +61,7 @@
 	// pwm module
 	"snippet.aixt.pwm.write": {
 		"prefix": "wrpw",
-		"body": "pwm.write(${1|pwm.a0,pwm.a1,pwm.a2,pwm.a3,pwm.a4,pwm.a5,pwm.a6,pwm.a7|}, ${2:50})",
+		"body": "pwm.write(${1|pin.d3,pin.d5,pin.d6,pin.d9,pin.d10,pin.d11|} ${2:50})",
 		"description": "PWM writing function"
 	},
 	// uart module

@@ -51,17 +51,6 @@ enum ADC_pin_names {
 	adc__a7
 }
 
-enum PWM_pin_names {
-	pwm__a0 = 14
-	pwm__a1
-	pwm__a2
-	pwm__a3
-	pwm__a4
-	pwm__a5
-	pwm__a6
-	pwm__a7
-}
-
 enum Port__names as u8 {
 	port__b = 0
 	port__c
