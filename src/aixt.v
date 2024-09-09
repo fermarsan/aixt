@@ -83,6 +83,9 @@ fn main() {
 							} $else {
 								os.rm('${base_name}') or {}
 							}
+							if os.exists('${os.dir(base_name)}/build/') {
+								os.rmdir_all('${os.dir(base_name)}/build/') or { panic(err) }
+							}
 							println('Output files cleaned.')
 						}
 						'new_project', '-np' {
@@ -101,7 +104,7 @@ fn main() {
 							if os.exists('${path}/${name}/Makefile') {	// adds the device name to de Makefile
 								mut makefile := os.read_file('${path}/${name}/Makefile') or { panic(err) }
 								makefile = makefile.replace('__device_name__', '${device}')
-								os.write('${path}/${name}/Makefile', makefile) or { panic(err) }
+								os.write_file('${path}/${name}/Makefile', makefile) or { panic(err) }
 							}
 						}
 						else {
