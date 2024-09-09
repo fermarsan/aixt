@@ -1,0 +1,77 @@
+{
+	// time module
+	"snippet.aixt.time.sleep": {
+		"prefix": "tim",
+		"body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:10})",
+		"description": "Time functions"
+	},
+	// pin module
+	"snippet.aixt.pin.setup": {
+		"prefix": "st",
+		"body": "pin.setup(${1|pin.d0,pin.d1,pin.d2,pin.d3,pin.d4,pin.d5,pin.d6,pin.d7,pin.d8,pin.d9,pin.d10,pin.d11,pin.d12,pin.d13,pin.d14,pin.d15,pin.d16,pin.d17,pin.d18,pin.d19,pin.d20,pin.d21|}, pin.${2|pin.input,pin.output,pin.in_pullup|})",
+		"description": "Pin setup level function"
+	},
+	"snippet.aixt.pin.high": {
+		"prefix": "hi",
+		"body": "pin.high(${1|pin.d0,pin.d1,pin.d2,pin.d3,pin.d4,pin.d5,pin.d6,pin.d7,pin.d8,pin.d9,pin.d10,pin.d11,pin.d12,pin.d13,pin.d14,pin.d15,pin.d16,pin.d17,pin.d18,pin.d19,pin.d20,pin.d21|})",
+		"description": "Pin high level function"
+	},
+	"snippet.aixt.pin.low": {
+		"prefix": "lo",
+		"body": "pin.low(${1|pin.d0,pin.d1,pin.d2,pin.d3,pin.d4,pin.d5,pin.d6,pin.d7,pin.d8,pin.d9,pin.d10,pin.d11,pin.d12,pin.d13,pin.d14,pin.d15,pin.d16,pin.d17,pin.d18,pin.d19,pin.d20,pin.d21|})",
+		"description": "Pin low level function"
+	},
+	// "snippet.aixt.pin.toggle": {
+	// 	"prefix": "to",
+	// 	"body": "pin.toggle(${1|pin.d0,pin.d1,pin.d2,pin.d3,pin.d4,pin.d5,pin.d6,pin.d7,pin.d8,pin.d9,pin.d10,pin.d11,pin.d12,pin.d13,pin.d14,pin.d15,pin.d16,pin.d17,pin.d18,pin.d19,pin.d20,pin.d21|})",
+	// 	"description": "Pin toggle level function"
+	// },
+	"snippet.aixt.pin.write": {
+		"prefix": "wr",
+		"body": "pin.write(${1|pin.d0,pin.d1,pin.d2,pin.d3,pin.d4,pin.d5,pin.d6,pin.d7,pin.d8,pin.d9,pin.d10,pin.d11,pin.d12,pin.d13,pin.d14,pin.d15,pin.d16,pin.d17,pin.d18,pin.d19,pin.d20,pin.d21|}, ${2:1})",
+		"description": "Pin writing function"
+	},
+	"snippet.aixt.pin.read": {
+		"prefix": "rd",
+		"body": "pin.read(${1|pin.d0,pin.d1,pin.d2,pin.d3,pin.d4,pin.d5,pin.d6,pin.d7,pin.d8,pin.d9,pin.d10,pin.d11,pin.d12,pin.d13,pin.d14,pin.d15,pin.d16,pin.d17,pin.d18,pin.d19,pin.d20,pin.d21|})",
+		"description": "pin reading function"
+	},
+	// adc module
+	"snippet.aixt.adc.read": {
+		"prefix": "rda",
+		"body": "adc.read(${1|pin.a0,pin.a1,pin.a2,pin.a3,pin.a4,pin.a5,pin.a6,pin.a7|})",
+		"description": "ADC reading function"
+	},
+	// pwm module
+	"snippet.aixt.pwm.write": {
+		"prefix": "wrpw",
+		"body": "pwm.write(pwm.${1|pin.a0,pin.a1,pin.a2,pin.a3,pin.a4,pin.a5,pin.a6,pin.a7|}, ${2:50})",
+		"description": "PWM writing function"
+	},
+	// uart module
+	"snippet.aixt.uart.write": {
+		"prefix": "wru",
+		"body": "${1|uart|}.write($2)",
+		"description": "UART character writing function"
+	},
+	"snippet.aixt.uart.print": {
+		"prefix": "pru",
+		"body": "${1|uart|}.print($2)",
+		"description": "UART printing string function"
+	},
+	"snippet.aixt.uart.println": {
+		"prefix": "prlu",
+		"body": "${1|uart|}.println($2)",
+		"description": "UART printing string + line new function"
+	},
+	"snippet.aixt.uart.read": {
+		"prefix": "rdu",
+		"body": "${1|uart|}.read()",
+		"description": "UART character reading function"
+	},
+	"snippet.aixt.uart.input": {
+		"prefix": "inu",
+		"body": "${1|uart|}.input(${2:message})",
+		"description": "UART capturing string function"
+	},
+  }

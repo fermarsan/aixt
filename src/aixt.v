@@ -43,9 +43,7 @@ fn main() {
 					mut device, input_name := os.args[2], os.abs_path(os.args[3])	// device name and source path input
 					mut base_name := input_name.replace('.aixt', '') // input file base name
 					base_name = base_name.replace('.v', '')
-					mut setup := aixt_setup.Setup{
-						compiler_types:	map[string]string{}
-					}
+					mut setup := aixt_setup.Setup{}
 					setup.load(device, aixt_path)
 					// println('++++++++++++++++\n${setup}\n++++++++++++++++')
 					match command {
@@ -96,7 +94,10 @@ fn main() {
 							// os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
 							os.cp_all('${aixt_path}/templates/project/${setup.port}/', '${path}/${name}/', true) or {
 								panic(err)
-							}						
+							}		
+							if setup.backend == 'arduino' {	// arduino-cli sketch name requirement
+								os.rename('${path}/${name}/main.v', '${path}/${name}/${name}.v') or { panic(err) }
+							}
 						}
 						else {
 							println('Invalid command.')

@@ -19,8 +19,8 @@ cc_input_flag = ""
 makefile_flags = ""
 
 api_paths = [
-    "Atmel/Arduino-Nano",
-    "Arduino-generic"
+    "Arduino/Arduino-Nano",
+    "Arduino/Arduino-generic"
 ]
 
 v_defines = [

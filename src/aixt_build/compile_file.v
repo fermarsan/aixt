@@ -47,21 +47,28 @@ pub fn compile_file(path string, setup aixt_setup.Setup) {
 		// println(os.execute('make').output)
 	} else {	// calling compiler directly
 		mut command := '${cc} ${flags} '
-		if os.is_dir(path) {
-			command += if output_flag != '' {
-				'${output_flag} ${path}/main${output_ext} '
-			} else {
-				''
-			}
-			command += '${input_flag} ${path}/main'
+		// if os.is_dir(path) {
+		// 	command += if output_flag != '' {
+		// 		'${output_flag} ${path}/main${output_ext} '
+		// 	} else {
+		// 		''
+		// 	}
+		// 	command += '${input_flag} ${path}/main'
+		// } else {
+		// 	command += if output_flag != '' {
+		// 		'${output_flag} ${path}${output_ext} '
+		// 	} else {
+		// 		''
+		// 	}
+		// 	command += '${input_flag} ${path}${input_ext}'
+		// }
+		command += if output_flag != '' {
+			'${output_flag} ${path}${output_ext} '
 		} else {
-			command += if output_flag != '' {
-				'${output_flag} ${path}${output_ext} '
-			} else {
-				''
-			}
-			command += '${input_flag} ${path}${input_ext}'
+			''
 		}
+		
+		command += '${input_flag} ${path}${input_ext}'
 		println('${command}')
 		println(os.execute('${command}').output)
 	}

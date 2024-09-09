@@ -30,6 +30,8 @@ enum Pin_names { // enumerated type for digital pin names
 	pin__d17 
 	pin__d18 
 	pin__d19 
+	pin__d20 
+	pin__d21 
 }
 
 enum Pin_modes {
