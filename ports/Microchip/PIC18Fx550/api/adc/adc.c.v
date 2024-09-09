@@ -1,6 +1,6 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: adc.c.v
-// Author: Andrés Felipe Fajardo Duarte and Fernando Martínez Santa
+// Author: Andrés Felipe Fajardo Duarte and Fernando M. Santa
 // Date: 2024
 // License: MIT
 //

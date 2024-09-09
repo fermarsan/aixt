@@ -1,7 +1,7 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
 //
-// Description: ADC functions (Arduino Nano - ATmega328P port)
+// Description: ADC functions
 module adc

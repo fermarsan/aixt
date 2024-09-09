@@ -1,5 +1,5 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Andrés Felipe Fajardo y Fernando Martínez Santa
+// Author: Andrés Felipe Fajardo y Fernando M. Santa
 // Date: 2024
 // License: MIT
 //

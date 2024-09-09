@@ -6,7 +6,7 @@
 
 <item itemtype="Ground" CircId="Ground-8" mainComp="false" Show_id="false" Show_Val="false" Pos="348,64" rotation="0" hflip="1" vflip="1" label="Ground-8" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="SwitchDip" CircId="SwitchDip-12" mainComp="false" Show_id="false" Show_Val="false" Pos="-96,-4" rotation="0" hflip="1" vflip="1" label="SwitchDip-12" idLabPos="-16,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Size="4" Exclusive="false" CommonPin="false" State="245" />
+<item itemtype="SwitchDip" CircId="SwitchDip-12" mainComp="false" Show_id="false" Show_Val="false" Pos="-96,-4" rotation="0" hflip="1" vflip="1" label="SwitchDip-12" idLabPos="-16,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Size="4" Exclusive="false" CommonPin="false" State="240" />
 
 <item itemtype="ResistorDip" CircId="ResistorDip-13" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-40,28" rotation="-90" hflip="1" vflip="1" label="ResistorDip-13" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" Resistance="10 kΩ" Size="4" PullUp="false" PuVolt="5 V" />
 
@@ -15,7 +15,7 @@
 <item itemtype="Rail" CircId="Rail-27" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-112,-56" rotation="90" hflip="1" vflip="1" label="Rail-27" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
 
 <item itemtype="Subcircuit" CircId="Uno-40" mainComp="false" Show_id="true" Show_Val="false" Pos="60,-116" rotation="0" hflip="1" vflip="1" label="Uno-40" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="Uno-UART_ADC/build/Uno-UART_ADC.ino.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
 </item>
 
 <item itemtype="Ground" CircId="Ground-41" mainComp="false" Show_id="false" Show_Val="false" Pos="308,-52" rotation="0" hflip="1" vflip="1" label="Ground-41" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />

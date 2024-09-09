@@ -1,5 +1,5 @@
 // Project Name: Segidor_Linea
-// Author: Fernando Martínez Santa
+// Author: Fernando M. Santa
 // Date: 02/05/2024
 
 import motor

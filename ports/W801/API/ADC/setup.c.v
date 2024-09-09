@@ -1,5 +1,5 @@
 // Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa - Johann Escobar Guzman - Daniel Andrés Vásquez Gómez
+// Author: Fernando M. Santa - Johann Escobar Guzman - Daniel Andrés Vásquez Gómez
 // Date: 2024
 // License: MIT
 //

@@ -1,6 +1,6 @@
 // Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
 // File Name: builtin.c.v
-// Author: Fernando Martínez Santa
+// Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
 //

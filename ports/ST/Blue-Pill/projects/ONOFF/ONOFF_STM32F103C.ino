@@ -1,6 +1,6 @@
 // Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
 // File Name: ONOFF_STM32F103C.ino
-// Author: Fernando Martínez Santa - Julián Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
+// Author: Fernando M. Santa - Julián Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
 // Date: 2022-2024
 // License: MIT
 //

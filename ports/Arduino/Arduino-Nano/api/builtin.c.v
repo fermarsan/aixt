@@ -2,7 +2,7 @@
 // Author: 
 //	- Fabián A. Rojas Acosta
 //	- Alberto Pinzón Valero
-//	- Fernando Martínez Santa
+//	- Fernando M. Santa
 // Date: 2024
 // License: MIT
 //

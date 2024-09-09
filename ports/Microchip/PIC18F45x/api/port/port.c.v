@@ -1,5 +1,5 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Jan Carlo Peñuela y Fernando Martínez Santa
+// Author: Jan Carlo Peñuela y Fernando M. Santa
 // Date: 2024
 // License: MIT
 //
