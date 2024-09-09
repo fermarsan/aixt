@@ -3,18 +3,18 @@
 <h1>Programming Framework for Microcontrollers</h1>
 </div>
 
-Aixt is a programming framework for microcontrollers which uses a modern language syntax based on [_V_](https://vlang.io/) and able to be used by low-resource devices. Aixt is composed by 3 main components:
+Aixt is a programming framework for microcontrollers which implements a subset of the [_V_](https://vlang.io/) programming language, and is able to be used by low-resource devices. Aixt is composed by 3 main components:
 
-- The **Aixt** programming language based on the [_V language_](https://vlang.io/) syntax.
-- The **Aixt to C Transpiler**, which translate the **Aixt** source code to _C_, for the specific _C_ compiler of each microcontroller.
-- The **Aixt API**, which makes the programming easy by standardizing the setup and I/O functions.  
+- The **Aixt's V** programming language which is a subset of the original [_V language_](https://vlang.io/).
+- The **V to C Transpiler**, which translate the **V** source code to _C_, for the specific _C_ compiler of each microcontroller.
+- The **Aixt API** (written in V), which makes the programming easy by standardizing the setup and I/O functions.  
 
 This diagram shows the Aixt blocks and their interactions:
 
 ```mermaid
 stateDiagram-v2
 
-    Aixt: Aixt (V-based)
+    Aixt: V
     state Aixt {
         source: Source code
 
@@ -39,7 +39,7 @@ stateDiagram-v2
         }
         
         state TOML {
-            setup: Setup file
+            setup: Setup files
         }
     }
 
@@ -68,45 +68,45 @@ stateDiagram-v2
     Compiler --> machine
 ```
 
-Aixt is designed as modular as possible to facilitate the incorporation of new devices and boards. This is mainly possible by using a configuration file (in TOML format) instead of creating new source code for each new device. That `.TOML` file contains the specific parameters of each device, board or compiler such as: variable types, initialization commands, compiler paths, etc.
+Aixt is designed to be as modular as possible to facilitate the incorporation of new devices and boards. This is mainly possible by using a configuration files (in TOML format) instead of creating new source code for each new device. That `.TOML` file contains the specific parameters of each device, board or compiler such as: variable types, initialization commands, compiler paths, etc.
 
 
 ## Aixt to C Transpiler
 
-The transpiler is written in [_V_](https://vlang.io/) and uses _V's_ native compiler facilities to transpile from _V_ to _C_. This is implemented in the folders `\aixt_build` and `\aixt_cgen`, and the main source code is the `aixt.v` file. It generates code for 3 different backends:
+The transpiler is written in [_V_](https://vlang.io/) and uses the _V's_ self native compiler in order to transpile from _V_ to _C_. This is implemented in the folder `src\` and the main source code is the `src\aixt.v` file. **Aixt** generates code for 3 different backends:
 - **c**: for the microcontroller native C compiler
 - **nxc**: for the NXC compiler (LEGO Mindstorms NXT)
-- **arduino**: for the Arduino IDE **WIP...**
+- **arduino**: for the Arduino CLI
 
 
-## Aixt Language
+## Aixt's V Language
 
-**Aixt** programing language implements a subset of the [_V language_](https://vlang.io/). The main differences are show as follows:
+**Aixt's V** programing language implements a subset of the [_V language_](https://vlang.io/). The main differences are show as follows:
 
-feature                       | V                                       | Aixt
+feature                       | V                                       | Aixt's V
 ------------------------------|-----------------------------------------|---------------------------------------------
-variables                     | immutable by default                    | mutable by default
 strings                       | dynamic-sized                           | dynamic-sized (only if supported)
 arrays                        | dynamic-sized                           | dynamic-sized (only if supported)
 default integers size         | 32 bits                                 | depends on the device  
 structs                       | allow functions (object-oriented)       | don't allow functions (only structured)
 functions                     | multiple return values                  | only one return value
-C-style preprocessor commands | only V specific ones and `#include`     | support any command starting with `#`
-`C.functions()`               | need to explicitly include the C file   | auto include `function.c` for `C.function()`
+`C.functions()`               | need to redefined in V                  | can call `function.c` directly, only including de C header
 
 
 ### Example with `main` function
 
 ```v
-/* Turning ON by 5.5 seconds the onboard LED 10 in the Explorer16 
-board with a PIC24FJ microcontroller (XC16 compiler) */
-import time { sleep_ms }
-import pin { high, low }
+/* Turning ON by 5.5 seconds the pin B7 on a 
+PIC16F84A microcontroller (XC8 compiler) */
+import time
+import pin 
 
 fn main() {
-    high(led10)    //turn ON the LED 10 (PORTA7)
-    sleep_ms(5500)
-    low(led10)
+    pin.setup(pin.b7, pin.output)
+
+    pin.high(pin.b7)    //turn ON the LED on PORTB7
+    time.sleep_ms(5500)
+    pin.low(pin.b7)
 }
 ```
 
@@ -117,20 +117,20 @@ fn main() {
 import time
 import pin
 
-pin.setup(2, pin.output)
-pin.setup(3, pin.output)
+pin.setup(pin.d2, pin.output)
+pin.setup(pin.d3, pin.output)
 
 for i in 0 .. 10 { // 10 times
-	pin.high(2)
+	pin.high(pin.d2)
 	time.sleep_ms(250)
-	pin.low(2)
+	pin.low(pin.d2)
 	time.sleep_ms(250)
 }
 
 for {
-	pin.high(3)
+	pin.high(pin.d3)
 	time.sleep(1)
-	pin.low(3)
+	pin.low(pin.d3)
 	time.sleep(2)
 }
 ```
@@ -152,6 +152,7 @@ git clone https://github.com/fermarsan/aixt.git
 cd aixt
 make # make.bat on Windows
 ```
+
 ### Running Aixt
 run it in a Linux-based system as:
 ```
@@ -160,6 +161,16 @@ run it in a Linux-based system as:
 or in Windows:
 ```
 aixt.exe <command> <device_or_board> <source_file>
+```
+
+### Generating a Symbolic Link
+run it in a Linux-based system as:
+```
+./aixt symlink
+```
+or in Windows:
+```
+aixt.exe symlink
 ```
 
 ### Running examples:
