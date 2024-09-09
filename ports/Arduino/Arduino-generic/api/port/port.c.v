@@ -5,9 +5,3 @@
 //
 // Description: Pin-port functions (ATmega328p)
 module port
-
-enum Port__names as u8 {
-	port__b = 0
-	port__c
-	port__d
-}

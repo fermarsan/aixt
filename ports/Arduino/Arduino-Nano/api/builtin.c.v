@@ -40,13 +40,30 @@ enum Pin_modes {
 	pin__in_pullup
 }
 
-enum Analog_pin_names {
-	a0 = 14
-	a1
-	a2
-	a3
-	a4
-	a5
-	a6
-	a7
+enum ADC_pin_names {
+	adc__a0 = 14
+	adc__a1
+	adc__a2
+	adc__a3
+	adc__a4
+	adc__a5
+	adc__a6
+	adc__a7
+}
+
+enum PWM_pin_names {
+	pwm__a0 = 14
+	pwm__a1
+	pwm__a2
+	pwm__a3
+	pwm__a4
+	pwm__a5
+	pwm__a6
+	pwm__a7
+}
+
+enum Port__names as u8 {
+	port__b = 0
+	port__c
+	port__d
 }
