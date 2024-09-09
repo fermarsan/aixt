@@ -1,6 +1,6 @@
-// Project Name:
-// Author: 
-// Date: 
+// Project Name: Logic inverter
+// Author: Fernando M. Santa
+// Date: 08/09/20
 // Arduino-Nano board
 
 import time
