@@ -1,4 +1,4 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // File Name: low.c.v
 // Author: Cesar Alejandro Roa Acosta and Fernando M. Santa
 // Date: 2024

@@ -1,4 +1,4 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
+// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // File Name: uart.c.v
 // Author: Luis Alfredo Pinto Medina and Fernando M. Santa
 // Date: 2024
