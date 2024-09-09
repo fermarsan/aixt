@@ -9,7 +9,7 @@ module aixt_cgen
 fn (mut gen Gen) err_war_check() {
 	msg_exceptions := [ // V error message exceptions in Aixt
 		// 'is immutable, declare it with `mut`',
-		'expected `#define`',
+		// 'expected `#define`',
 		'unknown function:',
 		'undefined ident:',
 		'has no constant or function',
@@ -19,6 +19,8 @@ fn (mut gen Gen) err_war_check() {
 		'returns 0 value',
 		'non-bool',
 		'mutex',
+		'mismatched types `void` and',
+		'on type `void`',
 	]
 
 	for j, mut file in gen.files {

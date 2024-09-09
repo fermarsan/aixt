@@ -7,10 +7,10 @@
 <item itemtype="Ground" CircId="Ground-8" mainComp="false" Show_id="false" Show_Val="false" Pos="-60,-4" rotation="0" hflip="1" vflip="1" label="Ground-8" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
 <item itemtype="Subcircuit" CircId="Nano-32" mainComp="false" Show_id="true" Show_Val="false" Pos="44,-124" rotation="0" hflip="1" vflip="1" label="Nano-32" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
-<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Program="Nano-ADC_LEDS/build/Nano-ADC_LEDS.ino.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
 </item>
 
-<item itemtype="Potentiometer" CircId="Potentiometer-53" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="148,-20" rotation="90" hflip="1" vflip="1" label="Potentiometer-53" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="10 kΩ" Value_Ohm="0 Ω" Slider="false" Scale="1" />
+<item itemtype="Potentiometer" CircId="Potentiometer-53" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="148,-20" rotation="90" hflip="1" vflip="1" label="Potentiometer-53" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="10 kΩ" Value_Ohm="10000 Ω" Slider="false" Scale="1" />
 
 <item itemtype="Ground" CircId="Ground-54" mainComp="false" Show_id="false" Show_Val="false" Pos="148,36" rotation="0" hflip="1" vflip="1" label="Ground-54" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 

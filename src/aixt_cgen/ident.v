@@ -5,14 +5,19 @@
 module aixt_cgen
 
 import v.ast
+// import v.checker
 
 // ident is the code generation function for identifiers.
 fn (mut gen Gen) ident(node ast.Ident) []string {
 	// println('\n${node.mod} #### ${gen.table.cur_fn.name} #### ${node.name}\n') //  -- ${node.scope.parent}')
 	// println('################## ${node.scope.parent} ##################')
+
+	// mut checker_ := checker.new_checker(gen.table, gen.pref)
+	// checker_.check_files(gen.files)
+
 	// println('################## ${node.name} ##################')
 	// println('################## ${node.mod} ##################')
-	// println('################## ${node.language} ##################')
+	// println('################## ${node.kind} ##################')
 	match node.language {
 		.c {
 			return [node.name.replace('C.', '')]
