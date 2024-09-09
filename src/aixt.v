@@ -98,6 +98,11 @@ fn main() {
 							if setup.backend == 'arduino' {	// arduino-cli sketch name requirement
 								os.rename('${path}/${name}/main.v', '${path}/${name}/${name}.v') or { panic(err) }
 							}
+							if os.exists('${path}/${name}/Makefile') {	// adds the device name to de Makefile
+								mut makefile := os.read_file('${path}/${name}/Makefile') or { panic(err) }
+								makefile = makefile.replace('__device_name__', '${device}')
+								os.write('${path}/${name}/Makefile', makefile) or { panic(err) }
+							}
 						}
 						else {
 							println('Invalid command.')
