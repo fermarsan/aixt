@@ -1,8 +1,5 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: 
-//	- Fabián A. Rojas Acosta
-//	- Alberto Pinzón Valero
-//	- Fernando Martínez Santa
+// Author: Fernando Martínez Santa
 // Date: 2024
 // License: MIT
 //
@@ -47,8 +44,12 @@ enum ADC_pin_names {
 	adc__a5
 }
 
-enum Port__names as u8 {
+enum Port__names {
 	port__b = 0
 	port__c
 	port__d
+}
+
+enum Builtin_names {
+	led0 = 13
 }
