@@ -90,7 +90,7 @@ arrays                        | dynamic-sized                           | dynami
 default integers size         | 32 bits                                 | depends on the device  
 structs                       | allow functions (object-oriented)       | don't allow functions (only structured)
 functions                     | multiple return values                  | only one return value
-`C.functions()`               | need to be redefined in V               | can be called directly, only including de corespondent C header
+`C.functions()`               | need to be redefined in V               | can be called directly, only including the corespondent C header
 
 
 ### Example with `main` function
