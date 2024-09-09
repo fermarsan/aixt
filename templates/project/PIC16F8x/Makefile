@@ -3,7 +3,7 @@ XCVERSION ?= 2.46
 BUILD ?= build
 TARGET_NAME ?= main
 
-PART ?= pic16f84a
+PART ?= __device_name__
 
 SRC = \
 	main.c \
