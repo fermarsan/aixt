@@ -11,7 +11,9 @@ pin.setup(pin.b3, pin.input)
 pin.setup(pin.b4, pin.output)
 
 for {
-	pin.write(pin.b4, ~pin.read(pin.b3))
-	time.sleep_ms(100)
+	if pin.read(pin.b3) == 1 {
+		pin.low(pin.b4)
+	} else {
+		pin.high(pin.b4)
+	}
 }
-
