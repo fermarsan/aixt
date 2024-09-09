@@ -6,6 +6,6 @@ module uart
 
 // write function sends a single byte to the serial port
 @[inline]
-pub fn write(char u8) {  
-	C.Serial.write(message)
+pub fn write(character u8) {  
+	C.Serial.write(character)
 }

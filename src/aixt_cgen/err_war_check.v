@@ -21,6 +21,8 @@ fn (mut gen Gen) err_war_check() {
 		'mutex',
 		'mismatched types `void` and',
 		'on type `void`',
+		'unknown method or field',
+		'expression does not return a value',
 	]
 
 	for j, mut file in gen.files {

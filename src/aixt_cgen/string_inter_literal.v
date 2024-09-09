@@ -83,6 +83,6 @@ fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
 	c_line = c_line#[..-2] + ');'
 	gen.to_insert_lines << c_line
 	c_line = '___TO_INSERT_${gen.to_insert_lines.len - 1}___'
-	println(gen.out)
+	// println(gen.out)
 	return [c_line + '__temp_str']
 }

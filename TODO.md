@@ -57,3 +57,6 @@ Tasks to do in Aixt
 - [x] Enable implementing option (inline functions as a C macros). Useful for tiny memory devices.
 - [x] Issue: Inline function as multiline C macro in PIC16F8x (SOLVED)
 - [x] Issue: "port" module on PIC16F8x (SOLVED) 
+- [x] Issue: Methods calling on arduino backend (SOLVED)
+- [x] Complete Arduino Nano API update
+- [x] UART arduino example 
