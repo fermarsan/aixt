@@ -6,7 +6,7 @@
 
 <item itemtype="Ground" CircId="Ground-8" mainComp="false" Show_id="false" Show_Val="false" Pos="212,36" rotation="0" hflip="1" vflip="1" label="Ground-8" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="SwitchDip" CircId="SwitchDip-12" mainComp="false" Show_id="false" Show_Val="false" Pos="-44,-4" rotation="0" hflip="1" vflip="1" label="SwitchDip-12" idLabPos="-16,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Size="4" Exclusive="false" CommonPin="false" State="241" />
+<item itemtype="SwitchDip" CircId="SwitchDip-12" mainComp="false" Show_id="false" Show_Val="false" Pos="-44,-4" rotation="0" hflip="1" vflip="1" label="SwitchDip-12" idLabPos="-16,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Size="4" Exclusive="false" CommonPin="false" State="245" />
 
 <item itemtype="ResistorDip" CircId="ResistorDip-13" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="12,28" rotation="-90" hflip="1" vflip="1" label="ResistorDip-13" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" Resistance="10 kΩ" Size="4" PullUp="false" PuVolt="5 V" />
 
@@ -15,7 +15,7 @@
 <item itemtype="Rail" CircId="Rail-27" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-60,-56" rotation="90" hflip="1" vflip="1" label="Rail-27" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
 
 <item itemtype="Subcircuit" CircId="Nano-32" mainComp="false" Show_id="true" Show_Val="false" Pos="32,-124" rotation="0" hflip="1" vflip="1" label="Nano-32" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
-<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Program="Nano-port_echo/build/Nano-port_echo.ino.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
 </item>
 
 <item itemtype="Node" CircId="Node-9" mainComp="false" Pos="212,4" />

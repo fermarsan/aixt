@@ -6,6 +6,6 @@ module uart
 
 // Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
 @[inline]
-fn println(message string) {  
+pub fn println(message string) {  
 	C.Serial.println(message)
 }
