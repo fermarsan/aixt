@@ -6,6 +6,6 @@ module pin
 
 // setup configures a pin's input/output mode
 @[inline]
-pub fn setup(name int, mode int) {   
+pub fn setup(name u8, mode u8) {   
     C.pinMode(name, mode)
 }

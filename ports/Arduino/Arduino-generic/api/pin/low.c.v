@@ -6,6 +6,6 @@ module pin
 
 // pin_high puts a low value (logic 0) to a specific pin
 @[inline]
-pub fn low(name int) {   
+pub fn low(name u8) {   
     C.digitalWrite(name, C.LOW)
 }

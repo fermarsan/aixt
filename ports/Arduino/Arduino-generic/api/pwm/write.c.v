@@ -6,7 +6,7 @@ module pwm
 
 //Writes an analog value (PWM wave) to a pin
 @[inline]
-pub fn write(name int, value int) {
+pub fn write(name u8, value u8) {
 	C.analogWrite(name, value)
 } 
 	

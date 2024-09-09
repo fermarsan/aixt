@@ -6,6 +6,6 @@ module pin
 
 // read function reads the value from a specified digital pin, either HIGH or LOW
 @[inline]
-pub fn read(name int) int {
+pub fn read(name u8) u8 {
 	return C.digitalRead(name)
 }
