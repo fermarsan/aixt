@@ -84,13 +84,13 @@ The transpiler is written in [_V_](https://vlang.io/) and uses the _V's_ self na
 **Aixt's V** programing language implements a subset of the [_V language_](https://vlang.io/). The main differences are show as follows:
 
 feature                       | V                                       | Aixt's V
-------------------------------|-----------------------------------------|---------------------------------------------
+------------------------------|-----------------------------------------|------------------------------------------------------------
 strings                       | dynamic-sized                           | dynamic-sized (only if supported)
 arrays                        | dynamic-sized                           | dynamic-sized (only if supported)
 default integers size         | 32 bits                                 | depends on the device  
 structs                       | allow functions (object-oriented)       | don't allow functions (only structured)
 functions                     | multiple return values                  | only one return value
-`C.functions()`               | need to redefined in V                  | can call `function.c` directly, only including de C header
+`C.functions()`               | need to be redefined in V               | can call `function.c` directly, only including de C header
 
 
 ### Example with `main` function
@@ -164,6 +164,8 @@ aixt.exe <command> <device_or_board> <source_file>
 ```
 
 ### Generating a Symbolic Link
+For running the command `aixt` from any folder in the file system you can create a symbolic link of it in this way:
+
 run it in a Linux-based system as:
 ```
 ./aixt symlink
