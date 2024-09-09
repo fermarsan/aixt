@@ -1,0 +1,30 @@
+# Project Name: Aixt, https =//github.com/fermarsan/aixt.git
+# Authors: Fernando Martínez Santa
+# Date: 2024
+# License: MIT
+#
+# Description: Setup file for the Arduino Uno - ATmega328P
+port =    "Arduino-Uno"
+board =   "Arduino Uno"
+backend = "arduino"
+
+cc_linux =   "arduino-cli"
+cc_windows = "arduino-cli.exe"
+cc_flags =   "compile -b arduino:avr:uno -v --output-dir ./build "
+cc_output_flag = ""
+cc_input_flag = ""
+makefile_flags = ""
+
+api_paths = [
+    "Arduino/Arduino-Uno",
+    "Arduino/Arduino-generic"
+]
+
+v_defines = [
+]
+
+inline_as_c_macro = false
+
+string_default_len = 50
+
+compiler_setup_path = "setup/arduino8.toml"

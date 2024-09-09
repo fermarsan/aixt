@@ -30,8 +30,6 @@ enum Pin_names { // enumerated type for digital pin names
 	pin__d17 
 	pin__d18 
 	pin__d19 
-	pin__d20 
-	pin__d21 
 }
 
 enum Pin_modes {
@@ -47,16 +45,10 @@ enum ADC_pin_names {
 	adc__a3
 	adc__a4
 	adc__a5
-	adc__a6
-	adc__a7
 }
 
-enum Port__names {
+enum Port__names as u8 {
 	port__b = 0
 	port__c
 	port__d
-}
-
-enum Builtin_names {
-	led0 = 13
 }
