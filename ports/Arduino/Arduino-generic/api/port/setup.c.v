@@ -10,6 +10,6 @@ module port
 @[inline]
 pub fn setup(name u8, mode u8) {
 	unsafe { 
-		*(&C.DDRB + (name*3)) = mode 
+		*(&C.DDRB + (name*3)) = ~mode 
 	}	
 }

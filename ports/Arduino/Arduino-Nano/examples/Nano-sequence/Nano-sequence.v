@@ -17,7 +17,7 @@ const sequence := [
 	0b1000,
 ]
 
-port.setup(port.c, ~0b11110000)
+port.setup(port.c, 0b11110000)
 
 for {
 	for step in sequence {
