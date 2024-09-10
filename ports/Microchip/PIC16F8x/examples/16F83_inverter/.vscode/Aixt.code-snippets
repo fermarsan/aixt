@@ -39,17 +39,17 @@
 	// port module
 	"snippet.aixt.port.setup": {
 		"prefix": "stp",
-		"body": "port.setup(${1|port.a,port.b|}, ${2:0b00000000})",
+		"body": "port.setup(${1|port.a,b|}, ${2:0b00000000})",
 		"description": "8-bit port setup function"
 	},
 	"snippet.aixt.port.read": {
 		"prefix": "rdp",
-		"body": "port.read(${1|port.a,port.b|})",
+		"body": "port.read(${1|port.a,b|})",
 		"description": "8-bit port reading function"
 	},
 	"snippet.aixt.port.write": {
 		"prefix": "wrp",
-		"body": "port.write(${1|port.a,port.b|}, ${2:0x00})",
+		"body": "port.write(${1|port.a,b|}, ${2:0x00})",
 		"description": "8-bit port writing function"
 	},
   }

@@ -1,5 +1,5 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
+// Author: Fernando Martínez Santa
 // Date: 2023-2024
 // License: MIT
 //
@@ -9,10 +9,10 @@ module pwm
 #include <stdio.h>
 #include <stdlib.h>
 
-pub const (
-    ch0 = 0
-    ch1 = 1
-)
+enum PWM_names {
+    pwm0 = 0
+    pwm1
+}
 
 __global (
     pwm__duty = [0, 0]

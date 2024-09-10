@@ -130,13 +130,13 @@ Ejemplo de prender y apagar un led con una entrada digital:
 
 for {
     
-    if(d4 == 0){        // Condición si encuentra un 0 en el pin d4
+    if(d4 == 0){        // Condición si encuentra un 0 en el d4
         
         pin.high(c3)
         pin.high(c5)
     }
     
-    else if(d2 == 1){   // Condición si encuentra un 1 en el pin d2
+    else if(d2 == 1){   // Condición si encuentra un 1 en el d2
         
         pin.low(a4)
         pin.low(a2)
@@ -224,7 +224,7 @@ Ejemplo de variar la intensidad de un led:
     port.write(b, port.output)
     
    
-   // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
+   // CONFIGURAMOS EL C7 PARA LA RECEPCIÓN DE DATOS
     pin.setup(c7,input)
 
    // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS

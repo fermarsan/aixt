@@ -96,17 +96,17 @@ functions                     | multiple return values                  | only o
 ### Example with `main` function
 
 ```v
-/* Turning ON by 5.5 seconds the pin B7 on a 
+/* Turning ON by 5.5 seconds the B7 on a 
 PIC16F84A microcontroller (XC8 compiler) */
 import time
 import pin 
 
 fn main() {
-    pin.setup(pin.b7, pin.output)
+    pin.setup(b7, pin.output)
 
-    pin.high(pin.b7)    //turn ON the LED on PORTB7
+    pin.high(b7)    //turn ON the LED on PORTB7
     time.sleep_ms(5500)
-    pin.low(pin.b7)
+    pin.low(b7)
 }
 ```
 
@@ -117,20 +117,20 @@ fn main() {
 import time
 import pin
 
-pin.setup(pin.d2, pin.output)
-pin.setup(pin.d3, pin.output)
+pin.setup(d2, pin.output)
+pin.setup(d3, pin.output)
 
 for i in 0 .. 10 { // 10 times
-	pin.high(pin.d2)
+	pin.high(d2)
 	time.sleep_ms(250)
-	pin.low(pin.d2)
+	pin.low(d2)
 	time.sleep_ms(250)
 }
 
 for {
-	pin.high(pin.d3)
+	pin.high(d3)
 	time.sleep(1)
-	pin.low(pin.d3)
+	pin.low(d3)
 	time.sleep(2)
 }
 ```

@@ -7,9 +7,9 @@
 module port
 
 enum Port__names as u8 {
-	port__a = 0
-	port__b
-	port__c
-	port__d
-	port__e 
+	a = 0
+	b
+	c
+	d
+	e 
 }

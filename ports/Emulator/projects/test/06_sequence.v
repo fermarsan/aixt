@@ -4,21 +4,21 @@ import pin
 sleep_ms(1500)
 
 for _ in 0..5 {
-	pin.high(pin.a)		// turn on
+	pin.high(a)		// turn on
 	sleep_ms(500)
-	pin.high(pin.c)
+	pin.high(c)
 	sleep_ms(500)
-	pin.high(pin.x)
+	pin.high(x)
 	sleep_ms(500)
-	pin.high(pin.z)
+	pin.high(z)
 	sleep_ms(500)
 
-	pin.low(pin.a)		// turn off
+	pin.low(a)		// turn off
 	sleep_ms(500)
-	pin.low(pin.c)
+	pin.low(c)
 	sleep_ms(500)
-	pin.low(pin.x)
+	pin.low(x)
 	sleep_ms(500)
-	pin.low(pin.z)
+	pin.low(z)
 	sleep_ms(500)
 }

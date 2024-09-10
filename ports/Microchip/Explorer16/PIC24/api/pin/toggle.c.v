@@ -5,7 +5,7 @@
 module pin
 
 // toggle macro sets an output pin. This is expanded in this way:
-//   pin.toggle(pin.b2)
+//   pin.toggle(b2)
 //     |
 //	   +-->	pin.toggle(B, 2)
 //	          |

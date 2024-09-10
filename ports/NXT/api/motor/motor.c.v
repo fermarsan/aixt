@@ -46,13 +46,16 @@ module motor	// NXC Output
 // #define     offset_regulation_options   OutputOffsetRegulationOptions
 
 // Output port constants are used when calling motor control API functions. 
-#define 	a	OUT_A  
-#define 	b	OUT_B  
-#define 	c	OUT_C  
-#define 	ab	OUT_AB 
-#define 	ac	OUT_AC 
-#define 	bc	OUT_BC 
-#define 	abc	OUT_ABC
+enum Motor_names {
+	a = 0x00
+	b	
+	c	
+	ab	
+	ac	
+	bc	
+	abc
+}
+
 
 // Use these constants to configure the desired mode for the specified motor                                              : coast, motoron, brake, or regulated.
 // Mode constants can be combined with bitwise OR. 

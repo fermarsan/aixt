@@ -5,7 +5,7 @@
 module pin
 
 /// write macro sets an output pin. This is expanded in this way:
-//   pin.write(pin.b2, val)
+//   pin.write(b2, val)
 //     |
 //	   +-->	pin.write(B, 2, val)
 //	          |

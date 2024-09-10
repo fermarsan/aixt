@@ -6,12 +6,12 @@
 import time
 import pin
 
-pin.setup(pin.d13, pin.output)
+pin.setup(d13, pin.output)
 
 for {
-	pin.high(pin.d13)
+	pin.high(d13)
 	time.sleep_ms(500)
-	pin.low(pin.d13)
+	pin.low(d13)
 	time.sleep_ms(500)
 }
 

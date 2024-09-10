@@ -5,8 +5,8 @@ import pin {
 }
 
 for _ in 0..5 {
-	high(pin.a)
+	high(a)
 	sleep(1)
-	low(pin.a)
+	low(a)
 	sleep(1)
 }

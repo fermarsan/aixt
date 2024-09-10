@@ -1,91 +1,11 @@
 module sensor	
 
-// #################### NXC Input module ####################
-
-// Constants for use with the color calibration functions. 
-// #define 	cal_point_0 	INPUT_CAL_POINT_0    
-// #define 	cal_point_1 	INPUT_CAL_POINT_1    
-// #define 	cal_point_2 	INPUT_CAL_POINT_2    
-// #define 	no_of_points	INPUT_NO_OF_POINTS   
-
-// Constants for use with the color calibration state function. 
-// #define 	sensorcal 	INPUT_SENSORCAL 
-// #define 	sensoroff 	INPUT_SENSOROFF 
-// #define 	runningcal	INPUT_RUNNINGCAL
-// #define 	startcal  	INPUT_STARTCAL  
-// #define 	resetcal  	INPUT_RESETCAL  
-
-// Constants for use with color sensor value arrays to index RGB and blank return values. 
-// #define 	red         	INPUT_RED         
-// #define 	green       	INPUT_GREEN       
-// #define 	blue        	INPUT_BLUE        
-// #define 	blank       	INPUT_BLANK       
-// #define 	no_of_colors	INPUT_NO_OF_COLORS
-
-// Constants for use with the ColorValue returned by the color sensor in full color mode. 
-// #define 	blackcolor 		INPUT_BLACKCOLOR 
-// #define 	bluecolor  		INPUT_BLUECOLOR  
-// #define 	greencolor 		INPUT_GREENCOLOR 
-// #define 	yellowcolor		INPUT_YELLOWCOLOR
-// #define 	redcolor   		INPUT_REDCOLOR   
-// #define 	whitecolor 		INPUT_WHITECOLOR 
-
-// Constants for use with the Input module's Pin function. 
-// #define 	pincmd_dir   	INPUT_PINCMD_DIR   
-// #define 	pincmd_set   	INPUT_PINCMD_SET   
-// #define 	pincmd_clear 	INPUT_PINCMD_CLEAR 
-// #define 	pincmd_read  	INPUT_PINCMD_READ  
-// #define 	pincmd_mask  	INPUT_PINCMD_MASK  
-// #define 	pincmd_wait  	INPUT_PINCMD_WAIT  
-// #define 	pindir_output	INPUT_PINDIR_OUTPUT
-// #define 	pindir_input 	INPUT_PINDIR_INPUT
-
-// Constants for use with set_input                                                      
-// #define 	type_field           	TypeField           
-// #define 	input_mode_field      	InputModeField      
-// #define 	raw_value_field       	RawValueField       
-// #define 	normalized_value_field	NormalizedValueField
-// #define 	scaled_value_field    	ScaledValueField    
-// #define 	invalid_data_field    	InvalidDataField    
-
-// Constant offsets into the Input module IOMAP structure. 
-// #define 	offset_custom_zero_offset     	InputOffsetCustomZeroOffset                                                      
-// #define 	offset_ad_raw                	InputOffsetADRaw                                                      
-// #define 	offset_sensor_raw            	InputOffsetSensorRaw                                                      
-// #define 	offset_sensor_value          	InputOffsetSensorValue                                                      
-// #define 	offset_sensor_type           	InputOffsetSensorType                                                      
-// #define 	offset_sensor_mode           	InputOffsetSensorMode                                                      
-// #define 	offset_sensor_boolean        	InputOffsetSensorBoolean                                                      
-// #define 	offset_digi_pins_dir          	InputOffsetDigiPinsDir                                                      
-// #define 	offset_digi_pins_in           	InputOffsetDigiPinsIn                                                      
-// #define 	offset_digi_pins_out          	InputOffsetDigiPinsOut                                                      
-// #define 	offset_custom_pct_full_scale   	InputOffsetCustomPctFullScale                                                      
-// #define 	offset_custom_active_status   	InputOffsetCustomActiveStatus                                                      
-// #define 	offset_invalid_data          	InputOffsetInvalidData                                                      
-// #define 	offset_color_calibration     	InputOffsetColorCalibration                                                      
-// #define 	offset_color_cal_limits       	InputOffsetColorCalLimits                                                      
-// #define 	offset_color_ad_raw           	InputOffsetColorADRaw                                                      
-// #define 	offset_color_sensor_raw       	InputOffsetColorSensorRaw                                                      
-// #define 	offset_color_sensor_value     	InputOffsetColorSensorValue                                                      
-// #define 	offset_color_boolean         	InputOffsetColorBoolean                                                      
-// #define 	offset_color_calibration_state	InputOffsetColorCalibrationState      
-
-// Input port constants are used when calling NXC sensor control API functions. 
-#define 	s1	S1
-#define 	s2	S2
-#define 	s3	S3
-#define 	s4	S4
-
-// Constants for use when directly controlling or reading a port's digital pin state. 
-// #define 	digi0	INPUT_DIGI0
-// #define 	digi1	INPUT_DIGI1
-
-// Input port constants are used when calling sensor control API functions.
-// These constants are intended for use in NBC. 
-#define 	i1	IN_1
-#define 	i2	IN_2
-#define 	i3	IN_3
-#define 	i4	IN_4
+enum Sensor_names {
+	s1 = 0
+	s2
+	s3
+	s4
+}
 
 // Use the combined sensor type and mode constants to configure both the sensor mode and type in a single function call. 
 #define 	sensor__touch   		SENSOR_TOUCH
@@ -177,61 +97,277 @@ module sensor
 // #define 	invalid_data  	INPUT_INVALID_DATA 
 
 // Functions for accessing and modifying input module features. 
-@[inline] set_type() { return C.SetSensorType() }                                                          
-@[inline] set_mode() { return C.SetSensorMode() }                                                          
-@[inline] clear() { return C.ClearSensor() }                                                          
-@[inline] reset() { return C.ResetSensor() }                                                          
-@[inline] set() { return C.SetSensor() }                                                          
-@[inline] set_touch() { return C.SetSensorTouch() }                                                          
-@[inline] set_light() { return C.SetSensorLight() }                                                          
-@[inline] set_sound() { return C.SetSensorSound() }                                                          
-@[inline] set_lowspeed() { return C.SetSensorLowspeed() }                                                          
-@[inline] set_ultrasonic() { return C.SetSensorUltrasonic() }                                                          
-@[inline] set_e_meter() { return C.SetSensorEMeter() }                                                          
-@[inline] set_temperature() { return C.SetSensorTemperature() }                                                          
-@[inline] set_color_full() { return C.SetSensorColorFull() }                                                          
-@[inline] set_color_red() { return C.SetSensorColorRed() }                                                          
-@[inline] set_color_green() { return C.SetSensorColorGreen() }                                                          
-@[inline] set_color_blue() { return C.SetSensorColorBlue() }                                                          
-@[inline] set_color_none() { return C.SetSensorColorNone() }                                                        
-@[inline] read() { return C.Sensor() }                                                          
-@[inline] boolean() { return C.SensorBoolean() }                                                          
-@[inline] digi_pins_direction() { return C.SensorDigiPinsDirection() }                                                          
-@[inline] digi_pins_output_level() { return C.SensorDigiPinsOutputLevel() }                                                          
-@[inline] digi_pins_status() { return C.SensorDigiPinsStatus() }                                                          
-@[inline] invalid() { return C.SensorInvalid() }                                                          
-@[inline] mode() { return C.SensorMode() }                                                          
-@[inline] normalized() { return C.SensorNormalized() }                                                          
-@[inline] raw() { return C.SensorRaw() }                                                          
-@[inline] scaled() { return C.SensorScaled() }                                                          
-@[inline] type() { return C.SensorType() }                                                          
-@[inline] value() { return C.SensorValue() }                                                          
-@[inline] value_bool() { return C.SensorValueBool() }                                                          
-@[inline] value_raw() { return C.SensorValueRaw() }                                                          
-@[inline] custom_active_status() { return C.CustomSensorActiveStatus() }                                                          
-@[inline] custom_percent_full_scale() { return C.CustomSensorPercentFullScale() }                                                          
-@[inline] custom_zero_offset() { return C.CustomSensorZeroOffset() }                                                          
-@[inline] set_custom_active_status() { return C.SetCustomSensorActiveStatus() }                                                          
-@[inline] set_custom_percent_full_scale() { return C.SetCustomSensorPercentFullScale() }                                                          
-@[inline] set_custom_zero_offset() { return C.SetCustomSensorZeroOffset() }                                                          
-@[inline] set_boolean() { return C.SetSensorBoolean() }                                                          
-@[inline] set_digi_pins_direction() { return C.SetSensorDigiPinsDirection() }                                                          
-@[inline] set_digi_pins_output_level() { return C.SetSensorDigiPinsOutputLevel() }                                                          
-@[inline] set_digi_pins_status() { return C.SetSensorDigiPinsStatus() }                                                          
-@[inline] sys_color_read() { return C.SysColorSensorRead() }                                                          
-@[inline] read_colors_ex() { return C.ReadSensorColorEx() }                                                          
-@[inline] read_colors_raw() { return C.ReadSensorColorRaw() }                                                         
-@[inline] read_color_raw() { return C.ColorSensorRaw() }                                                          
-@[inline] read_color_value() { return C.ColorSensorValue() }    
 
-// @[inline] get_input() { return C.GetInput() }       
-// @[inline] set_input() { return C.SetInput() }       
-// @[inline] color_ad_raw() { return C.ColorAdRaw() }       
-// @[inline] color_boolean() { return C.ColorBoolean() }       
-// @[inline] color_calibration() { return C.ColorCalibration() }       
-// @[inline] color_calibration_state() { return C.ColorCalibrationState() }       
-// @[inline] color_cal_limits() { return C.ColorCalLimits() }
-// @[inline] sys_input_pin_function() { return C.SysInputPinFunction() } 
+// @[inline]
+// pub fn set_type(port u8, typ u8) {
+// 	return C.SetSensorType(port, typ) 
+// }                                                          
+
+// @[inline]
+// pub fn set_mode() {
+// 	return C.SetSensorMode() 
+// }                                                          
+
+// @[inline]
+// pub fn clear() {
+// 	return C.ClearSensor() 
+// }                                                          
+
+// @[inline]
+// pub fn reset() {
+// 	return C.ResetSensor() 
+// }                                                          
+
+@[inline]
+pub fn setup() {
+	return C.SetSensor() 
+}                                                          
+
+@[inline]
+pub fn set_touch() {
+	return C.SetSensorTouch() 
+}                                                          
+
+@[inline]
+pub fn set_light() {
+	return C.SetSensorLight() 
+}                                                          
+
+@[inline]
+pub fn set_sound() {
+	return C.SetSensorSound() 
+}                                                          
+
+@[inline]
+pub fn set_lowspeed() {
+	return C.SetSensorLowspeed() 
+}                                                          
+
+@[inline]
+pub fn set_ultrasonic() {
+	return C.SetSensorUltrasonic() 
+}                                                          
+
+@[inline]
+pub fn set_e_meter() {
+	return C.SetSensorEMeter() 
+}                                                          
+
+@[inline]
+pub fn set_temperature() {
+	return C.SetSensorTemperature() 
+}                                                          
+
+@[inline]
+pub fn set_color_full() {
+	return C.SetSensorColorFull() 
+}                                                          
+
+@[inline]
+pub fn set_color_red() {
+	return C.SetSensorColorRed() 
+}                                                          
+
+@[inline]
+pub fn set_color_green() {
+	return C.SetSensorColorGreen() 
+}                                                          
+
+@[inline]
+pub fn set_color_blue() {
+	return C.SetSensorColorBlue() 
+}                                                          
+
+@[inline]
+pub fn set_color_none() {
+	return C.SetSensorColorNone() 
+}                                                        
+
+@[inline]
+pub fn read() {
+	return C.Sensor() 
+}                                                          
+
+@[inline]
+pub fn boolean() {
+	return C.SensorBoolean() 
+}                                                          
+
+@[inline]
+pub fn digi_pins_direction() {
+	return C.SensorDigiPinsDirection() 
+}                                                          
+
+@[inline]
+pub fn digi_pins_output_level() {
+	return C.SensorDigiPinsOutputLevel() 
+}                                                          
+
+@[inline]
+pub fn digi_pins_status() {
+	return C.SensorDigiPinsStatus() 
+}                                                          
+
+@[inline]
+pub fn invalid() {
+	return C.SensorInvalid() 
+}                                                          
+
+@[inline]
+pub fn mode() {
+	return C.SensorMode() 
+}                                                          
+
+@[inline]
+pub fn normalized() {
+	return C.SensorNormalized() 
+}                                                          
+
+@[inline]
+pub fn raw() {
+	return C.SensorRaw() 
+}                                                          
+
+@[inline]
+pub fn scaled() {
+	return C.SensorScaled() 
+}                                                          
+
+@[inline]
+pub fn type() {
+	return C.SensorType() 
+}                                                          
+
+@[inline]
+pub fn value() {
+	return C.SensorValue() 
+}                                                          
+
+@[inline]
+pub fn value_bool() {
+	return C.SensorValueBool() 
+}                                                          
+
+@[inline]
+pub fn value_raw() {
+	return C.SensorValueRaw() 
+}                                                          
+
+@[inline]
+pub fn custom_active_status() {
+	return C.CustomSensorActiveStatus() 
+}                                                          
+
+@[inline]
+pub fn custom_percent_full_scale() {
+	return C.CustomSensorPercentFullScale() 
+}                                                          
+
+@[inline]
+pub fn custom_zero_offset() {
+	return C.CustomSensorZeroOffset() 
+}                                                          
+
+@[inline]
+pub fn set_custom_active_status() {
+	return C.SetCustomSensorActiveStatus() 
+}                                                          
+
+@[inline]
+pub fn set_custom_percent_full_scale() {
+	return C.SetCustomSensorPercentFullScale() 
+}                                                          
+
+@[inline]
+pub fn set_custom_zero_offset() {
+	return C.SetCustomSensorZeroOffset() 
+}                                                          
+
+@[inline]
+pub fn set_boolean() {
+	return C.SetSensorBoolean() 
+}                                                          
+
+@[inline]
+pub fn set_digi_pins_direction() {
+	return C.SetSensorDigiPinsDirection() 
+}                                                          
+
+@[inline]
+pub fn set_digi_pins_output_level() {
+	return C.SetSensorDigiPinsOutputLevel() 
+}                                                          
+
+@[inline]
+pub fn set_digi_pins_status() {
+	return C.SetSensorDigiPinsStatus() 
+}                                                          
+
+@[inline]
+pub fn sys_color_read() {
+	return C.SysColorSensorRead() 
+}                                                          
+
+@[inline]
+pub fn read_colors_ex() {
+	return C.ReadSensorColorEx() 
+}                                                          
+
+@[inline]
+pub fn read_colors_raw() {
+	return C.ReadSensorColorRaw() 
+}                                                         
+
+@[inline]
+pub fn read_color_raw() {
+	return C.ColorSensorRaw() 
+}                                                          
+
+@[inline]
+pub fn read_color_value() {
+	return C.ColorSensorValue() 
+}    
+
+// 
+@[inline]
+pub fn get_input() {
+	return C.GetInput() 
+}       
+// 
+@[inline]
+pub fn set_input() {
+	return C.SetInput() 
+}       
+// 
+@[inline]
+pub fn color_ad_raw() {
+	return C.ColorAdRaw() 
+}       
+// 
+@[inline]
+pub fn color_boolean() {
+	return C.ColorBoolean() 
+}       
+// 
+@[inline]
+pub fn color_calibration() {
+	return C.ColorCalibration() 
+}       
+// 
+@[inline]
+pub fn color_calibration_state() {
+	return C.ColorCalibrationState() 
+}       
+// 
+@[inline]
+pub fn color_cal_limits() {
+	return C.ColorCalLimits() 
+}
+// 
+@[inline]
+pub fn sys_input_pin_function() {
+	return C.SysInputPinFunction() 
+} 
 
 // #################### NXC LowSpeed module ####################
 
@@ -281,12 +417,48 @@ module sensor
 // #define 	temp_reg_thigh    	TEMP_REG_THIGH   
 
 // Functions for accessing and modifying low speed module features. 
-@[inline] sensor__read_ultrasonic() { return C.SensorUS() } 
-@[inline] sensor__read_ultrasonic0() { return C.SensorUS0() } 
-@[inline] sensor__us_wait() { return C.SensorUSWait() } 
-@[inline] sensor__read_ultrasonic_ex() { return C.ReadSensorUSEx() } 
-@[inline] sensor__read_ultrasonic_ex0() { return C.ReadSensorUSEx0() } 
-@[inline] sensor__read_ultrasonic_ex_wait() { return C.ReadSensorUSExWait() } 
-@[inline] sensor__read_e_meter() { return C.ReadSensorEMeter() } 
-@[inline] sensor__configure_temperature() { return C.ConfigureTemperatureSensor() } 
-@[inline] sensor__read_temperature() { return C.SensorTemperature() }
+
+@[inline]
+pub fn sensor__read_ultrasonic() {
+	return C.SensorUS() 
+} 
+
+@[inline]
+pub fn sensor__read_ultrasonic0() {
+	return C.SensorUS0() 
+} 
+
+@[inline]
+pub fn sensor__us_wait() {
+	return C.SensorUSWait() 
+} 
+
+@[inline]
+pub fn sensor__read_ultrasonic_ex() {
+	return C.ReadSensorUSEx() 
+} 
+
+@[inline]
+pub fn sensor__read_ultrasonic_ex0() {
+	return C.ReadSensorUSEx0() 
+} 
+
+@[inline]
+pub fn sensor__read_ultrasonic_ex_wait() {
+	return C.ReadSensorUSExWait() 
+} 
+
+@[inline]
+pub fn sensor__read_e_meter() {
+	return C.ReadSensorEMeter() 
+} 
+
+@[inline]
+pub fn sensor__configure_temperature() {
+	return C.ConfigureTemperatureSensor() 
+} 
+
+@[inline]
+pub fn sensor__read_temperature() {
+	return C.SensorTemperature() 
+}

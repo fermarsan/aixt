@@ -2,8 +2,8 @@ import pin
 import time
 
 
-value := pin.read(pin.x)
+value := pin.read(x)
 
 time.sleep_ms(500)
 
-pin.write(pin.a, value)
+pin.write(a, value)

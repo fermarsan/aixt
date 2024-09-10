@@ -7,46 +7,46 @@
 module pin
 
 enum Pin_names as u8 {
-	pin__a0 = 0
-	pin__a1
-	pin__a2
-	pin__a3
-	pin__a4
-	pin__a5
-	pin__a6
-	pin__a7
-	pin__b0
-	pin__b1
-	pin__b2
-	pin__b3
-	pin__b4
-	pin__b5
-	pin__b6
-	pin__b7
-	pin__c0
-	pin__c1
-	pin__c2
-	pin__c3
-	pin__c4
-	pin__c5
-	pin__c6
-	pin__c7
-	pin__d0
-	pin__d1
-	pin__d2
-	pin__d3
-	pin__d4
-	pin__d5
-	pin__d6
-	pin__d7
-	pin__e0
-	pin__e1
-	pin__e2
-	pin__e3
-	pin__e4
-	pin__e5
-	pin__e6
-	pin__e7
+	a0 = 0
+	a1
+	a2
+	a3
+	a4
+	a5
+	a6
+	a7
+	b0
+	b1
+	b2
+	b3
+	b4
+	b5
+	b6
+	b7
+	c0
+	c1
+	c2
+	c3
+	c4
+	c5
+	c6
+	c7
+	d0
+	d1
+	d2
+	d3
+	d4
+	d5
+	d6
+	d7
+	e0
+	e1
+	e2
+	e3
+	e4
+	e5
+	e6
+	e7
 }
 
 enum Pin_modes as u8 {

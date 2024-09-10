@@ -60,3 +60,4 @@ Tasks to do in Aixt
 - [x] Issue: Methods calling on arduino backend (SOLVED)
 - [x] Complete Arduino Nano API update
 - [x] UART arduino example 
+- [x] Remove module's name from pin names

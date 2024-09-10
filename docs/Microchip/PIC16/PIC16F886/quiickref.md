@@ -134,13 +134,13 @@ pin.digital();
 
 for {
     
-    if(b4 == 1){        // Condición si encuentra un 1 en el pin c2
+    if(b4 == 1){        // Condición si encuentra un 1 en el c2
         
         pin.high(a4);
         pin.high(a5);
     }
     
-    else if(b5 == 1){   // Condición si encuentra un 1 en el pin c4
+    else if(b5 == 1){   // Condición si encuentra un 1 en el c4
         
         pin.low(a4);
         pin.low(a5);

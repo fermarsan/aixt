@@ -96,13 +96,13 @@ Ejemplo de prender y apagar un led con una entrada digital:
 
 for {
     
-    if(b2 == 1){        // Condición si encuentra un 1 en el pin b2
+    if(b2 == 1){        // Condición si encuentra un 1 en el b2
         
         pin.high(b1);
         pin.high(b0);
     }
     
-    else if(b4 == 1){   // Condición si encuentra un 1 en el pin b4
+    else if(b4 == 1){   // Condición si encuentra un 1 en el b4
         
         pin.low(b1);
         pin.low(b0);

@@ -2,8 +2,8 @@ import time
 import pin
 
 for _ in 0..5 {   //blinking the emulated pin x, 5 times
-    pin.high(pin.x)
+    pin.high(x)
     time.sleep_ms(500)
-    pin.low(pin.x)
+    pin.low(x)
     time.sleep_ms(500)
 }

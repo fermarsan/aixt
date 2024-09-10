@@ -7,10 +7,10 @@
 import time
 import port
 
-port.setup(port.a, 0b11111111)	// all inputs
-port.setup(port.b, 0b11110000)	// 4 LSBs outputs
+port.setup(a, 0b11111111)	// all inputs
+port.setup(b, 0b11110000)	// 4 LSBs outputs
 
 for {
-	port.write(port.b, port.read(port.a))
+	port.write(b, port.read(a))
 	time.sleep_ms(100)
 }

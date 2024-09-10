@@ -110,13 +110,13 @@ pin.digital(); // Todas los pin son I/O digitales
 
 for {
     
-    if(c2 == 1){        // Condición si encuentra un 1 en el pin c2
+    if(c2 == 1){        // Condición si encuentra un 1 en el c2
         
         pin.high(c1);
         pin.high(c0);
     }
     
-    else if(c4 == 1){   // Condición si encuentra un 1 en el pin c4
+    else if(c4 == 1){   // Condición si encuentra un 1 en el c4
         
         pin.low(c1);
         pin.low(c0);
