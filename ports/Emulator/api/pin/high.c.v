@@ -4,7 +4,7 @@
 // License: MIT
 module pin
 
-// pin.high puts a high value (logic 1) to a specific pin
+// high function puts a high value (logic 1) to a specific pin
 pub fn high(name int) {   
     pin__pins[name] = 1
     pin.update()

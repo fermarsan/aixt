@@ -10,7 +10,7 @@
 Module {
 	name:	'adc'
 	description:	'Aixt adc management module for W801.'
-	version:	'0.0.1'
+	version:	'0.1.0'
 	license:	'MIT'
 	dependencies:	[]
 }
