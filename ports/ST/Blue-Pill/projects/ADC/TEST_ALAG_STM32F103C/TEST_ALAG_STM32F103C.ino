@@ -1,6 +1,5 @@
 <<<<<<< HEAD
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: TESTINDIG.ino
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa - Julián Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
 // Date: 2022-2024
 // License: MIT

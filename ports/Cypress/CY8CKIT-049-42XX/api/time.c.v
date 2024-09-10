@@ -1,5 +1,5 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// File Name: time.c
+
 // Author: Javier Leon, Camilo Lucas and Fernando M. Santa
 // Date: 2023
 // License: MIT

@@ -1,5 +1,5 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// File Name: sleep_ms.c.v
+
 // Author: Jan Carlo Peñuela Jurado and Fernando M. Santa
 // Date: 2024
 // License: MIT
