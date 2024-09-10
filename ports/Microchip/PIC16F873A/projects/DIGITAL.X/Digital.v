@@ -1,9 +1,9 @@
 import pin
 
-pin.setup (c0, pin.output)
-pin.setup (c1, pin.output)
-pin.setup (a2, pin.input)
-pin.setup (a3, pin.input)
+pin.setup (c0, output)
+pin.setup (c1, output)
+pin.setup (a2, input)
+pin.setup (a3, input)
 
 pin.write(c0, 0)
 pin.write(c1, 0)

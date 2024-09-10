@@ -76,8 +76,8 @@ To configure the pin usage mode.
 ```go
 pin.setup(PIN_NAME, PIN_MODE)
 ```
-* *Example: If you want to activate pin 11 of port A as an output;  `pin.setup(a11, pin.output)`.*
-* *Example: If you want to activate pin 11 of port A as an input.;  `pin.setup(a11, pin.input)`.*
+* *Example: If you want to activate pin 11 of port A as an output;  `pin.setup(a11, output)`.*
+* *Example: If you want to activate pin 11 of port A as an input.;  `pin.setup(a11, input)`.*
 
 To activate the pin to use
 ```go
@@ -96,8 +96,8 @@ To configure the mode of one or all pins of the specific port.
 ```go
 port.setup(PORT, BITS, MODE)
 ```
-* *Example: If you want to activate pin 4 of port A as an output;  `pin.setup(a, 0x00000010, pin.output)`.*
-* *Example: If you want to activate all pins of port B as inputs;  `pin.setup(b, 0xFFFFFFFF, pin.input)`.*
+* *Example: If you want to activate pin 4 of port A as an output;  `pin.setup(a, 0x00000010, output)`.*
+* *Example: If you want to activate all pins of port B as inputs;  `pin.setup(b, 0xFFFFFFFF, input)`.*
 
 State port detection
 
@@ -182,7 +182,7 @@ Below are some code in V language, examples of the main functions that are trans
 import time { sleep_ms }
 import pin 
 
-pin.setup(a8, pin.output)
+pin.setup(a8, output)
 
 for {
     pin.high(a8)    
@@ -198,7 +198,7 @@ for {
 import time { sleep_ms }
 import pin 
 
-pin.setup(a8, pin.output)
+pin.setup(a8, output)
 
 for {
     pin.toggle(a8)    
@@ -225,7 +225,7 @@ import time { sleep_ms }
 import pin { setup }                         
 import pwm                           
 
-pin.setup(a12, pin.output) 
+pin.setup(a12, output) 
 
 value := 50
 
@@ -246,7 +246,7 @@ import pin { setup }
 import pwm      
 import adc
 
-pin.setup(a4, pin.input) 
+pin.setup(a4, input) 
 
 adc.setup(0)
 
@@ -262,8 +262,8 @@ import uart
 import pin 
 
 pin.high(b7)
-pin.setup(b4, pin.in_pullup) 
-pin.setup(b7, pin.output)
+pin.setup(b4, in_pullup) 
+pin.setup(b7, output)
 
 uart.setup(115200)
 

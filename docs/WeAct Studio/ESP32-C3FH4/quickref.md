@@ -130,7 +130,7 @@ This is an Aixt implementation to provide support for the ESP32-C3FH4 board.
 	import time { sleep_ms }  			// Import the time module
 	import pin 						 	// Import the pin module 
 
-	pin.setup(1, pin.output)  			// Set pin #1 as output
+	pin.setup(1, output)  			// Set pin #1 as output
 
 	for {
 		pin.high(1)  					// Output High
@@ -153,9 +153,9 @@ __global (
   val3 = 0 
 )
 
-pin.setup(1, pin.output)
-pin.setup(4, pin.output)
-pin.setup(10, pin.output)
+pin.setup(1, output)
+pin.setup(4, output)
+pin.setup(10, output)
 
 for {
     pwm.write(1, val1)
@@ -205,7 +205,7 @@ import uart
  	button=0              
  )
 
- pin.setup(4, pin.output)
+ pin.setup(4, output)
  uart.setup(9600)
 
 

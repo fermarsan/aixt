@@ -13,6 +13,6 @@ __global (
 	led=3
 )
 
-pin.setup(3,pin.input)
-pin.setup(6,pin.output)
+pin.setup(3,input)
+pin.setup(6,output)
 

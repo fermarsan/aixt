@@ -8,5 +8,5 @@ module adc
 
 enum ADC_names {
     an0 = 0
-    ch1      
+    an1      
 }

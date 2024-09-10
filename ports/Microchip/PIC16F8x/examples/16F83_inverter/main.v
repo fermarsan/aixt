@@ -7,8 +7,8 @@
 import time
 import pin
 
-pin.setup(b3, pin.input)
-pin.setup(b4, pin.output)
+pin.setup(b3, input)
+pin.setup(b4, output)
 
 for {
 	if pin.read(b3) == 1 {

@@ -6,8 +6,8 @@ __global (
     val = 0
     )
 
-pin.setup(3, pin.output)
-pin.setup(4, pin.output)
+pin.setup(3, output)
+pin.setup(4, output)
 uart.setup(9600)
 
 for {

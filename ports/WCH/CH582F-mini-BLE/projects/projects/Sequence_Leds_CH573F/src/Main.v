@@ -2,9 +2,9 @@
 import time {sleep_ms}
 import pin
 
-pin.setup(a13, pin.output) 
-pin.setup(a14, pin.output)
-pin.setup(a15, pin.output)
+pin.setup(a13, output) 
+pin.setup(a14, output)
+pin.setup(a15, output)
 
 for {
 	pin.high(a13)	// turn on and turn off the LEDs one by one

@@ -5,7 +5,7 @@ __global(
 	button=0
  )
 
- pin.setup(4, pin.output)
+ pin.setup(4, output)
  uart.setup(9600)
 
  for {

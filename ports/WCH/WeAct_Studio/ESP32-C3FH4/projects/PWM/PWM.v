@@ -8,9 +8,9 @@ __global(
 	val3 = 0
 )
 
-pin.setup(1, pin.output)
-pin.setup(4, pin.output)
-pin.setup(10, pin.output)
+pin.setup(1, output)
+pin.setup(4, output)
+pin.setup(10, output)
 
 for{ 
 	pwm.write(1, val1)

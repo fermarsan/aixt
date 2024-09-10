@@ -24,8 +24,8 @@ for {
 ```v
 import pin // Import the pin module
 
-pin.setup(3, pin.input) // Set pin #3 as input
-pin.setup(5, pin.output) // Set pin #5 as output
+pin.setup(3, input) // Set pin #3 as input
+pin.setup(5, output) // Set pin #5 as output
 for { // Infinite loop
 	reading := pin.read(3) // Store digital reading of pin #3
 	if reading == 1 { // Condition if reading value is 1 (High)

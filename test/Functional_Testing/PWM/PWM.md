@@ -14,7 +14,7 @@ import pin // import the pin module
 import pwm // import the pwm module
 import time // import the time module
 
-pin.setup(5, pin.output)
+pin.setup(5, output)
 mut duty := 0
 
 for {

@@ -50,6 +50,6 @@ enum Pin_names as u8 {
 }
 
 enum Pin_modes as u8 {
-	pin__output = 0
-	pin__input
+	output = 0
+	input
 }

@@ -46,8 +46,8 @@ import pin
 
 
 fn init() {
-    pin.setup(sw_uart.tx, pin.output)
-    pin.setup(sw_uart.rx, pin.input)
+    pin.setup(sw_uart.tx, output)
+    pin.setup(sw_uart.rx, input)
     pin.high(sw_uart.tx)
     time.sleep_cycles(sw_uart.bitperiod)
 }

@@ -11,9 +11,9 @@ import uart
 
 
   uart.setup(115200)
-  pin.setup(io4,pin.output)
-  pin.setup(io5,pin.output)
-  pin.setup(io12,pin.output)
+  pin.setup(io4,output)
+  pin.setup(io5,output)
+  pin.setup(io12,output)
 
 for {
   uart.println("\r\n Este programa realiza unas funciones establecidas:")

@@ -5,10 +5,10 @@ __global (
     val = 0
     )
 
-pin.setup(gp13, pin.output)
-pin.setup(gp14, pin.output)
-pin.setup(gp15, pin.output)
-pin.setup(gp16, pin.output)
+pin.setup(gp13, output)
+pin.setup(gp14, output)
+pin.setup(gp15, output)
+pin.setup(gp16, output)
 
 for {
 

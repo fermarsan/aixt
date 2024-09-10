@@ -72,10 +72,10 @@ time__sleep_ms(500)	// Tiempo de 500 milisegundos
 
 ```v
 
-pin.setup(a5, pin.output)      // Función para configurar el pin como salida 
-pin.setup(c2, pin.output)      // Función para configurar el pin como salida
-pin.setup(a2, pin.input)    // Función para configurar el pin como entrada
-pin.setup(c4, pin.input)    // Función para configurar el pin como entrada
+pin.setup(a5, output)      // Función para configurar el pin como salida 
+pin.setup(c2, output)      // Función para configurar el pin como salida
+pin.setup(a2, input)    // Función para configurar el pin como entrada
+pin.setup(c4, input)    // Función para configurar el pin como entrada
 
 pin.high(a5)    // Función para encender el pin           
 pin.low(a5)     // Función para apagar el pin

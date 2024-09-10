@@ -6,7 +6,7 @@ __global (
   val = 0
 )
 
-pin.setup(5, pin.output)
+pin.setup(5, output)
 
 for {
     pwm.write(5, val)

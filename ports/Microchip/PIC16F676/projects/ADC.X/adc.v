@@ -3,12 +3,12 @@ import pin
 
 x := u16 (0)
 
-pin.setup(c0, pin.output)
-pin.setup(c1, pin.output)
-pin.setup(c2, pin.output)
-pin.setup(c3, pin.output)
-pin.setup(c4, pin.output)
-pin.setup(c5, pin.output)
+pin.setup(c0, output)
+pin.setup(c1, output)
+pin.setup(c2, output)
+pin.setup(c3, output)
+pin.setup(c4, output)
+pin.setup(c5, output)
 
 pin.write(c0, 0)
 pin.write(c1, 0)

@@ -2,7 +2,7 @@ import pin { setup }
 import pwm      
 import adc
 
-pin.setup(a4, pin.input) 
+pin.setup(a4, input) 
 
 adc.setup(0)
 

@@ -6,7 +6,7 @@ import uart     // import the uart module
     lec = 0    // Create a global variable to store the reading from the serial port
  )
 
- pin.setup(3, pin.output)      // Set pin #3 as output
+ pin.setup(3, output)      // Set pin #3 as output
  uart.setup(9600)           // Set the baud rate to 9600
 
 for {

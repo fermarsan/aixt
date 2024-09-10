@@ -2,7 +2,7 @@ import time { sleep_ms }
 import pin
 
 const t1 = 500
-pin.setup(a0, pin.output)
+pin.setup(a0, output)
 
 for {
 	pin.high(a0)

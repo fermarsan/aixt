@@ -7,7 +7,7 @@ import time
 import pin
 import pwm
 
-pin.setup(d3, pin.output)
+pin.setup(d3, output)
 
 for {
 	for level in 0 .. 256 {

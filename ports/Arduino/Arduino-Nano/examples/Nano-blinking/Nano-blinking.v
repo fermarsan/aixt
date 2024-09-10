@@ -6,7 +6,7 @@
 import time
 import pin
 
-pin.setup(d13, pin.output)
+pin.setup(d13, output)
 
 for {
 	pin.high(d13)

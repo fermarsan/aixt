@@ -65,9 +65,9 @@ For each of these modules, you will have a file in .c.v format with the same nam
 ### Output port configuration
 To activate the port to use
 ```go
-pin.setup(pin_name, pin.output)
+pin.setup(pin_name, output)
 ```
-* *Example: If you want to activate the port 17;  `pin.setup(io17, pin.output)`.*
+* *Example: If you want to activate the port 17;  `pin.setup(io17, output)`.*
 To activate the port to use
 ```go
 pin.high(pin_name)
@@ -100,9 +100,9 @@ x = pin.read(pin_name)
 
 To configure some PWM
 ```go
-pin.setup(pin_name, pin.output)
+pin.setup(pin_name, output)
 ```
-* *Example: in pwm you set the PWM to use `pin.setup(io17, pin.output)`*
+* *Example: in pwm you set the PWM to use `pin.setup(io17, output)`*
 
 
 To configure the duty cycle of a modulator
@@ -110,7 +110,7 @@ To configure the duty cycle of a modulator
 Everything is implemented within a for, with a counter up to the desired cycles
 
 ```go
-pwm.write(pin_name, pin.output)
+pwm.write(pin_name, output)
 ```
 * *Example: in pwm you set the PWM to use* 
 ```go
@@ -186,7 +186,7 @@ For the development of the program, some examples of the codes in v languages â€
 import pin
 import time {sleep_ms}
 
-pin.setup(io14, pin.output)
+pin.setup(io14, output)
 
 for {   //infinite loop
     pin.high(io14)
@@ -203,7 +203,7 @@ import pwm
 
 __global val = 0
 
-pin.setup(io17, pin.output)
+pin.setup(io17, output)
 
 for {
     pwm.write(io17, val)
@@ -222,9 +222,9 @@ import uart
 
 
   uart.setup(115200)
-  pin.setup(io4,pin.output)
-  pin.setup(io5,pin.output)
-  pin.setup(io12,pin.output)
+  pin.setup(io4,output)
+  pin.setup(io5,output)
+  pin.setup(io12,output)
 
 for {
   uart.println("\r\n Este programa realiza unas funciones establecidas:")

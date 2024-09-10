@@ -35,9 +35,9 @@ enum Pin_names { // enumerated type for digital pin names
 }
 
 enum Pin_modes {
-	pin__input = 0
-	pin__output
-	pin__in_pullup
+	input = 0
+	output
+	in_pullup
 }
 
 enum ADC_pin_names {

@@ -8,9 +8,9 @@
 import time {sleep_ms}
 import pin
 
-pin.setup(a0, pin.output) 
-pin.setup(a1, pin.output)
-pin.setup(a2, pin.output)
+pin.setup(a0, output) 
+pin.setup(a1, output)
+pin.setup(a2, output)
 
 for {
 	pin.high(a0)	// turn on the LEDs one by one

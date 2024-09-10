@@ -6,7 +6,7 @@
 import time
 import pin
 
-pin.setup(b4, pin.output)
+pin.setup(b4, output)
 
 for {
 	pin.toggle(b4)

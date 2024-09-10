@@ -96,10 +96,10 @@ sleep__ms(500)	// Tiempo de 500 milisegundos
 
 ```v
 
-pin.setup(a5, pin.output)      // Función para configurar el pin como salida 
-pin.setup(b7, pin.output)      // Función para configurar el pin como salida
-pin.setup(a0, pin.input)    // Función para configurar el pin como entrada
-pin.setup(c4, pin.input)    // Función para configurar el pin como entrada
+pin.setup(a5, output)      // Función para configurar el pin como salida 
+pin.setup(b7, output)      // Función para configurar el pin como salida
+pin.setup(a0, input)    // Función para configurar el pin como entrada
+pin.setup(c4, input)    // Función para configurar el pin como entrada
 
 pin.high(a5)    // Función para encender el pin           
 pin.low(a5)     // Función para apagar el pin
@@ -280,7 +280,7 @@ Ejemplo prender y apagar un el puerto del micro enviando un caracteres desde el 
 
 port.setup(b, 0b00000000);
 port.write(b, 0b00000000);
-pin.setup(c7, pin.input);
+pin.setup(c7, input);
 uart.setup();
 
 for {

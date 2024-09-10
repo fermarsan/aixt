@@ -6,7 +6,7 @@
 import time
 import pin
 
-pin.setup(d8, pin.input)
+pin.setup(d8, input)
 
 for {
 	if pin.read(d8) == 1 {

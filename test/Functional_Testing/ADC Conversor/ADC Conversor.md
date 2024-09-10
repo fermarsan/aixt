@@ -14,9 +14,9 @@ import pin
 
 adc.setup()
 
-pin.setup(2, pin.output) // Set pin #2 as output
-pin.setup(3, pin.output) // Set pin #3 as output
-pin.setup(4, pin.output) // Set pin #4 as output
+pin.setup(2, output) // Set pin #2 as output
+pin.setup(3, output) // Set pin #3 as output
+pin.setup(4, output) // Set pin #4 as output
 
 for {
 	adc_result := adc.read(0) 	// Stores the ADC value

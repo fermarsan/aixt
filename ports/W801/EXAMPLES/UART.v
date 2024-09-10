@@ -5,8 +5,8 @@ import uart
 
 
   uart.setup(0, 9600)
-  pin.setup(pin1, pin.output)
-  pin.setup(pin2, pin.output)
+  pin.setup(pin1, output)
+  pin.setup(pin2, output)
 
 for {
  	uart.println(0, '\r\n Comunicacion UART tarjeta W801-PC:')

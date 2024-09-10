@@ -39,9 +39,9 @@ The functions contained in the API for digital input or output and for performin
 
 | Name                    | Description                                    | Examples                                 |
 |-------------------------|------------------------------------------------|------------------------------------------|
-| `pin.setup(pin, mode)`  | Configure `pin` as `mode` (input, out)         | **pin.setup**(5, pin.input) // Set pin 5 as input |
-| `pin.output`            | Parameter `mode` output configuration          | pin.setup(3, **pin.output**) // Set pin 3 as output |
-| `pin.input`             | Parameter `mode` input configuration           | pin.setup(7, **pin.input**) // Set pin 7 as input |
+| `pin.setup(pin, mode)`  | Configure `pin` as `mode` (input, out)         | **pin.setup**(5, input) // Set pin 5 as input |
+| `output`            | Parameter `mode` output configuration          | pin.setup(3, **output**) // Set pin 3 as output |
+| `input`             | Parameter `mode` input configuration           | pin.setup(7, **input**) // Set pin 7 as input |
 | `pin.high(pin)`         | Digital output high `pin`                      | **pin.high**(3) // Output high on pin 3 |
 | `pin.low(pin)`          | Digital output low `pin`                       | **pin.low**(3) // Output low on pin 3 |
 | `pin.write(pin, val)`   | Write `val` to `pin`                           | **pin.write**(3, 1) // Write 1 to pin 3 |
@@ -68,7 +68,7 @@ Next, an LED will be turned on and off 10 times.
 import time {sleep_ms}   // Import the sleep_ms function from the time module 
 import pin  // Import the pin module in its entirety
 
-pin.mode(5, pin.output)    // Set pin #5 as output
+pin.mode(5, output)    // Set pin #5 as output
 
 for i in 0..10{   // 10 times
     pin.high(5)     // Output high (Turn on the LED)
@@ -86,9 +86,9 @@ Next, a sequence of 3 LEDs will be shown.
 import time {sleep_ms} // Import the sleep_ms function
 import pin  // Import the pin module
 
-pin.setup(3, pin.output)    // Set pin #3 as output
-pin.setup(4, pin.output)    // Set pin #4 as output
-pin.setup(5, pin.output)    // Set pin #5 as output
+pin.setup(3, output)    // Set pin #3 as output
+pin.setup(4, output)    // Set pin #4 as output
+pin.setup(5, output)    // Set pin #5 as output
 
 for{
     pin.high(3)     // Output high
@@ -116,8 +116,8 @@ __global (
     reading = 0      // Create a global variable to store digital reading
 )    
 
-pin.setup(3, pin.input)     // Set pin #3 as input
-pin.setup(5, pin.output)       // Set pin #5 as output
+pin.setup(3, input)     // Set pin #3 as input
+pin.setup(5, output)       // Set pin #5 as output
 
 for{        // Infinite loop
     reading=pin.read(3)     // Store digital reading of pin #3
@@ -138,9 +138,9 @@ import adc  // import the adc module
 __global (
     val = 0      // Create a global variable to store the analog reading
 )     
-pin.setup(2, pin.output)   // Set pin #2 as output
-pin.setup(3, pin.output)   // Set pin #3 as output
-pin.setup(4, pin.output)   // Set pin #4 as output
+pin.setup(2, output)   // Set pin #2 as output
+pin.setup(3, output)   // Set pin #3 as output
+pin.setup(4, output)   // Set pin #4 as output
 
 
 for {       // Infinite loop
@@ -179,7 +179,7 @@ __global (
     val = 0        // Create a global variable to store a value corresponding to the luminous intensity
 )      
 
-pin.setup(5, pin.output)   // Set pin #5 as output
+pin.setup(5, output)   // Set pin #5 as output
 
 
 for {
@@ -203,7 +203,7 @@ import uart     // import the uart module
     lec = 0    // Create a global variable to store the reading from the serial port
  )
 
- pin.setup(3, pin.output)      // Set pin #3 as output
+ pin.setup(3, output)      // Set pin #3 as output
  uart.setup(9600)           // Set the baud rate to 9600
 
 for {

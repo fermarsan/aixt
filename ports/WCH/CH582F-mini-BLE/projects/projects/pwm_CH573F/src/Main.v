@@ -2,7 +2,7 @@ import time { sleep_ms }
 import pin { setup }                         
 import pwm                           
 
-pin.setup(a12, pin.output) 
+pin.setup(a12, output) 
 
 value := 50
 

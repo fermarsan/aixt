@@ -102,7 +102,7 @@ import time
 import pin 
 
 fn main() {
-    pin.setup(b7, pin.output)
+    pin.setup(b7, output)
 
     pin.high(b7)    //turn ON the LED on PORTB7
     time.sleep_ms(5500)
@@ -117,8 +117,8 @@ fn main() {
 import time
 import pin
 
-pin.setup(d2, pin.output)
-pin.setup(d3, pin.output)
+pin.setup(d2, output)
+pin.setup(d3, output)
 
 for i in 0 .. 10 { // 10 times
 	pin.high(d2)

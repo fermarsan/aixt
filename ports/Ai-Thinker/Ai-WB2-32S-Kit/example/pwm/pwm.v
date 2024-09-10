@@ -11,7 +11,7 @@ import pwm
 
 __global val = 0
 
-pin.setup(17, pin.output)
+pin.setup(17, output)
 
 for {
     pwm.write(17, val)

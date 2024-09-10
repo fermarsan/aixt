@@ -1,7 +1,7 @@
 import time { sleep_ms }
 import pin 
 
-pin.setup(a8, pin.output)
+pin.setup(a8, output)
 
 for {
     pin.high(a8)    //blinking port A bit 8

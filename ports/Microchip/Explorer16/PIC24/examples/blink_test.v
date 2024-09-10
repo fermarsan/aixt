@@ -1,8 +1,8 @@
 import time {sleep_ms}
 import pin
 
-pin.setup(b3, pin.output)
-pin.setup(a6, pin.input)
+pin.setup(b3, output)
+pin.setup(a6, input)
 
 x := 0
 

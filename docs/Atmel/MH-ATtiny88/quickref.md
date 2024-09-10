@@ -149,8 +149,8 @@ NAME               | DESCRIPTION
 `time.sleep(time)`             | delay in `S`
 `time.sleep_us(time)`          | delay in `uS`
 `time.sleep_ms(time)`          | delay in `mS`
-`pin.input`    | Parameter `mode` input configuration 
-`pin.output`    | Parameter `mode` output configuration 
+`input`    | Parameter `mode` input configuration 
+`output`    | Parameter `mode` output configuration 
 `uart.any()` |	Get the number of bytes to read
 
 
@@ -201,7 +201,7 @@ Flashing of one LED in an infinite cycle with time delay:
 import time { sleep_ms }  			// import the time module from the API
 import pin				        // import the pin module from the API
 
-pin.setup(1, pin.output)  			// configures pin number 1 as output 
+pin.setup(1, output)  			// configures pin number 1 as output 
 
 for {                     			//main loop of the code 
 	pin.high(1)			        //pin high
@@ -218,9 +218,9 @@ Example of digital readout, led sequence:
 import time {sleep_ms}        			  // import the sleep_ms function of the time module 
 import pin 			               	 // Import the pin module in its entirety
 
-pin.setup(14, pin.output)    	// Set pin #14 as output
-pin.setup(15, pin.output)    	// Set pin #15 as output
-pin.setup(16, pin.output)    	// Set pin #16 as output
+pin.setup(14, output)    	// Set pin #14 as output
+pin.setup(15, output)    	// Set pin #15 as output
+pin.setup(16, output)    	// Set pin #16 as output
 
 for{
     pin.high(14)  		  // output 14 high   
