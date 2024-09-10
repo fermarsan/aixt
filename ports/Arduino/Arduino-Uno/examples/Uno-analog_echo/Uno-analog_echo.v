@@ -11,7 +11,7 @@ import pwm
 pin.setup(d5, output)
 
 for {
-	value := adc.read(adc.a5)
+	value := adc.read(a5)
 	pwm.write(d5, u8(value/4))
 	time.sleep_ms(100)
 }

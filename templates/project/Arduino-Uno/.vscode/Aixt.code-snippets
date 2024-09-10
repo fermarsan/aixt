@@ -55,7 +55,7 @@
 	// adc module
 	"snippet.aixt.adc.read": {
 		"prefix": "rda",
-		"body": "adc.read(${1|adc.a0,adc.a1,adc.a2,adc.a3,adc.a4,adc.a5|})",
+		"body": "adc.read(${1|a0,a1,a2,a3,a4,a5|})",
 		"description": "ADC reading function"
 	},
 	// pwm module
