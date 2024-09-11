@@ -5,4 +5,4 @@
 
 module uart2
 
-#define uart2__any()  R8_UART2_RFC 
+#define uart2.any()  R8_UART2_RFC 

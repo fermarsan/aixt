@@ -5,4 +5,4 @@
 
 module uart2
 
-#define	uart2__write(DATA)	 R8_UART2_THR = DATA
+#define	uart2.write(DATA)	 R8_UART2_THR = DATA

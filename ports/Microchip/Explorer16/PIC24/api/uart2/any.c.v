@@ -1,3 +1,3 @@
 module uart2
 
-#define	uart2__any()	U2STAbits.URXDA
+#define	uart2.any()	U2STAbits.URXDA

@@ -5,4 +5,4 @@
 
 module uart3
 
-#define uart3__println(MSG)		uart3__print(MSG);  uart3__write('\n');  uart3__write('\r')
+#define uart3.println(MSG)		uart3.print(MSG);  uart3.write('\n');  uart3.write('\r')

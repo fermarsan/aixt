@@ -6,38 +6,38 @@
 
 #include "CH57x_common.h"
 #define true 1
-#define uart2__println(MSG)		uart2__print(MSG);  uart2__write('\n');  uart2__write('\r')
-#define uart2__any() R8_UART2_RFC
-#define	uart2__write(DATA)	R8_UART2_THR = DATA
+#define uart2.println(MSG)		uart2.print(MSG);  uart2.write('\n');  uart2.write('\r')
+#define uart2.any() R8_UART2_RFC
+#define	uart2.write(DATA)	R8_UART2_THR = DATA
 #define	irq__uart2_rx_enable()	UART2_ByteTrigCfg(UART2_7BYTE_TRIG);  UART2_INTCfg(ENABLE, RB_IER_RECV_RDY | RB_IER_LINE_STAT);  PFIC_EnableIRQ(UART0_IRQn)
 #define irq_uart2_rx(FN_NAME)	void isr_uart2_rx(void)
 
-void uart2__print(char* msg);
-uint8_t uart2__read(void);
-void uart2__setup(uint32_t baud_rate);
+void uart2.print(char* msg);
+uint8_t uart2.read(void);
+void uart2.setup(uint32_t baud_rate);
 char input = ' ';
 #define irq_uart2_rx_isr_exists
 irq_uart2_rx(uart2_eco) {
-input = uart2__read();
-uart2__write((uint8_t)(input) + 1);
+input = uart2.read();
+uart2.write((uint8_t)(input) + 1);
 }
 
 
 
-void uart2__print(char* msg){
+void uart2.print(char* msg){
     while(*msg != '\0'){
-        uart2__write(*msg);
+        uart2.write(*msg);
         msg++;
     }
 }
 
-uint8_t uart2__read(void){
+uint8_t uart2.read(void){
     while(!(R8_UART2_RFC == 1)){}
     return R8_UART2_RBR; 
 }
 
 
-void uart2__setup(uint32_t baud_rate){
+void uart2.setup(uint32_t baud_rate){
     UART2_BaudRateCfg(baud_rate);
     R8_UART2_FCR = (2 << 6) | RB_FCR_TX_FIFO_CLR | RB_FCR_RX_FIFO_CLR | RB_FCR_FIFO_EN;
     R8_UART2_LCR = RB_LCR_WORD_SZ;
@@ -66,7 +66,7 @@ void irq__global_isr(void) {
 
 int main(void) {
 
-uart2__setup(115200);
+uart2.setup(115200);
 irq__uart2_rx_enable();
 while(true) {
 }

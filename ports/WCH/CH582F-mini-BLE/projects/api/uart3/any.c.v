@@ -5,4 +5,4 @@
 
 module uart3
 
-#define uart3__any()  R8_UART3_RFC 
+#define uart3.any()  R8_UART3_RFC 

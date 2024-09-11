@@ -5,27 +5,27 @@
 
 #include "CH57x_common.h"
 #define true 1
-#define uart1__println(MSG)		uart1__print(MSG);  uart1__write('\n');  uart1__write('\r')
-#define uart1__any()  R8_UART1_RFC
-#define	uart1__write(DATA)	R8_UART1_THR = DATA
+#define uart1.println(MSG)		uart1.print(MSG);  uart1.write('\n');  uart1.write('\r')
+#define uart1.any()  R8_UART1_RFC
+#define	uart1.write(DATA)	R8_UART1_THR = DATA
 
-void uart1__print(char* msg);
-uint8_t uart1__read(void);
-void uart1__setup(uint32_t baud_rate);
+void uart1.print(char* msg);
+uint8_t uart1.read(void);
+void uart1.setup(uint32_t baud_rate);
 
-void uart1__print(char* msg){
+void uart1.print(char* msg){
     while(*msg != '\0'){
-        uart1__write(*msg);
+        uart1.write(*msg);
         msg++;
     }
 }
 
-uint8_t uart1__read(void){
+uint8_t uart1.read(void){
     while(!(R8_UART1_RFC == 1)){}
     return R8_UART1_RBR; 
 }
 
-void uart1__setup(uint32_t baud_rate){
+void uart1.setup(uint32_t baud_rate){
     UART1_BaudRateCfg(baud_rate);
     R8_UART1_FCR = (2 << 6) | RB_FCR_TX_FIFO_CLR | RB_FCR_RX_FIFO_CLR | RB_FCR_FIFO_EN;
     R8_UART1_LCR = RB_LCR_WORD_SZ;
@@ -40,9 +40,9 @@ void uart1__setup(uint32_t baud_rate){
 int main(void) {
 
 char input = ' ';
-uart1__setup(115200);
+uart1.setup(115200);
 while(true) {
-if(uart1__any()) {input = uart1__read();uart1__write((uint8_t)(input) + 1);};
+if(uart1.any()) {input = uart1.read();uart1.write((uint8_t)(input) + 1);};
 }
 return 0;
 }
