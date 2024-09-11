@@ -83,9 +83,9 @@ Ejemplo de prender y apagar un led:
 for {
 
     pin.high(b1);
-    sleep__us(500);
+    time.sleep_us(500);
     pin.low(b1);
-    sleep__us(500);
+    time.sleep_us(500);
 
 }
 

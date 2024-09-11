@@ -101,9 +101,9 @@ Ejemplo de prender y apagar un led:
       
 while (1) {
     pin.high(b4);
-    sleep__us(700);
+    time.sleep_us(700);
     pin.low(b4);
-    sleep__us(700);
+    time.sleep_us(700);
 }
 ```
 Ejemplo de prender y apagar un led con una entrada digital:

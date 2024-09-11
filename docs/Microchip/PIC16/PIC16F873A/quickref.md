@@ -87,8 +87,8 @@ name                                | description
 ```v
 
 sleep(5)	// Tiempo de 5 segundos
-sleep__us(10)	// Tiempo de 10 microsegundos
-sleep__ms(500)	// Tiempo de 500 milisegundos
+time.sleep_us(10)	// Tiempo de 10 microsegundos
+time.sleep_ms(500)	// Tiempo de 500 milisegundos
 
 ```
 
