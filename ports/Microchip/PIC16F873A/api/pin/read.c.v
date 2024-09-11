@@ -10,6 +10,6 @@
 module pin
 
 @[inline]
-pub fn pin.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 	C.PIN_NAME
 }

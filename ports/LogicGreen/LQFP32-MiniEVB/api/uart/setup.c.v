@@ -6,6 +6,6 @@ module uart
 
 // Sets the data rate in bits per second (baud) for serial data transmission
 @[inline]
-pub fn uart.setup(BAUD_RATE) {
+pub fn setup(BAUD_RATE) {
 	C.Serial.begin(BAUD_RATE)
 }

@@ -7,6 +7,6 @@
 module pin 
 
 @[inline]
-pub fn pwm.setup(PIN_NAME, MODE) {
+pub fn setup(PIN_NAME, MODE) {
 	C.pinMode(PIN_NAME, MODE)
 }

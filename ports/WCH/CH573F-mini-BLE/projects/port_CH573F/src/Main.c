@@ -12,23 +12,23 @@ const input = C.GPIO_ModeIN_Floating
 const in_pullup = C.GPIO_ModeIN_PU
 const in_pulldown = C.GPIO_ModeIN_PD
 @[inline]
-pub fn port.read(PORT) {
+pub fn read(PORT) {
 C.GPIO##PORT##_ReadPort()
 }
 @[inline]
-pub fn port.setup_(PORT, BITS, MODE) {
+pub fn setup_(PORT, BITS, MODE) {
 	C.GPIO##PORT##_ModeCfg(BITS, MODE)
 }
 @[inline]
-pub fn port.setup(PORT, BITS, MODE) {
+pub fn setup(PORT, BITS, MODE) {
 	C.port.setup_(PORT, BITS, MODE)
 }
 @[inline]
-pub fn port.write_(PORT, BITS) {
+pub fn write_(PORT, BITS) {
 	C.GPIO##PORT##_SetBits(BITS)
 }
 @[inline]
-pub fn port.write(PORT, BITS) {
+pub fn write(PORT, BITS) {
 	C.port.write_(PORT, BITS)
 }
 #define time.sleep_ms(TIME)    DelayMs(TIME)

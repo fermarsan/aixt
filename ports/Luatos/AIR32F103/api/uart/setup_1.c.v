@@ -9,6 +9,6 @@
 module uart
 
 @[inline]
-pub fn uart.setup_1(BAUD_RATE) {
+pub fn setup_1(BAUD_RATE) {
 	C.Serial1.begin(BAUD_RATE)
 }

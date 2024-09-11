@@ -135,23 +135,23 @@
 #define output 0   // pin mode (direction)
 #define input  1
 @[inline]
-pub fn pin.high(PIN_NAME) {
+pub fn high(PIN_NAME) {
 	C.PIN_NAME = 1          // LATBbits.LB0 = 1
 }
 @[inline]
-pub fn pin.low(PIN_NAME) {
+pub fn low(PIN_NAME) {
 	C.PIN_NAME = 0          // LATBbits.LB0 = 0
 }
 @[inline]
-pub fn pin.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 	C.PIN_NAME ##_i             // PORTBbits.RB0
 }
 @[inline]
-pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+pub fn setup(PIN_NAME, PIN_MODE) {
 	C.PIN_NAME ## _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
 }
 @[inline]
-pub fn pwm.write(PIN_NAME,VAL) {
+pub fn write(PIN_NAME,VAL) {
 	C.PIN_NAME = VAL    // LATBbits.LB0 = 0
 }
 #define time.sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory

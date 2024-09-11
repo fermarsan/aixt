@@ -6,11 +6,11 @@
 module pin
 
 @[inline]
-pub fn pwm.high_(port, ...) {
+pub fn high_(port, ...) {
 	C.GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
 }
 
 @[inline]
-pub fn pin.high(PIN_NAME) {
+pub fn high(PIN_NAME) {
 	C.pin.high_(PIN_NAME)
 }

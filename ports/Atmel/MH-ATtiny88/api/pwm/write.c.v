@@ -7,6 +7,6 @@
 module pwm
 
 @[inline]
-pub fn pwm.write(PIN, VALUE) {
+pub fn write(PIN, VALUE) {
 	C.analogWrite(PIN, VALUE)
 }

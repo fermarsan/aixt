@@ -11,11 +11,11 @@ module pin
 //	          |
 //            +-->	TRISAbits.TRISA7 = 1
 @[inline]
-pub fn pwm.setup_(PORT_NAME, PIN, MODE) {
+pub fn setup_(PORT_NAME, PIN, MODE) {
 	C.TRIS ## PORT_NAME ## bits.TRIS ## PORT_NAME ## PIN = MODE
 }
 
 @[inline]
-pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+pub fn setup(PIN_NAME, PIN_MODE) {
 	C.pin.setup_(PIN_NAME, PIN_MODE)
 }

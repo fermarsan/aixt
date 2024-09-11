@@ -8,31 +8,31 @@
 #define input		INPUT
 #define in_pullup	INPUT_PULLUP
 @[inline]
-pub fn pin.high(PIN_NAME) {
+pub fn high(PIN_NAME) {
 	C.digitalWrite(PIN_NAME, HIGH)
 }
 @[inline]
-pub fn pin.low(PIN_NAME) {
+pub fn low(PIN_NAME) {
 	C.digitalWrite(PIN_NAME, LOW)
 }
 @[inline]
-pub fn pin.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 	C.digitalRead(PIN_NAME)
 }
 @[inline]
-pub fn pwm.setup(PIN_NAME, MODE) {
+pub fn setup(PIN_NAME, MODE) {
 	C.pinMode(PIN_NAME, MODE)
 }
 @[inline]
-pub fn pwm.write(PIN_NAME, VALUE) {
+pub fn write(PIN_NAME, VALUE) {
 	C.digitalWrite(PIN_NAME, VALUE)
 }
 @[inline]
-pub fn uart.println(MESSAGE) {
+pub fn println(MESSAGE) {
 	C.Serial.println(MESSAGE)
 }
 @[inline]
-pub fn uart.println_1(MESSAGE) {
+pub fn println_1(MESSAGE) {
 	C.Serial1.println(MESSAGE)
 }
 @[inline]
@@ -52,19 +52,19 @@ pub fn read_1() {
 	C.Serial1.read()
 }
 @[inline]
-pub fn uart.setup(BAUD_RATE) {
+pub fn setup(BAUD_RATE) {
 	C.Serial.begin(BAUD_RATE)
 }
 @[inline]
-pub fn uart.setup_1(BAUD_RATE) {
+pub fn setup_1(BAUD_RATE) {
 	C.Serial1.begin(BAUD_RATE)
 }
 @[inline]
-pub fn uart.write(VALUE) {
+pub fn write(VALUE) {
 	C.Serial.write(VALUE)
 }
 @[inline]
-pub fn adc.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 C.analogRead(PIN_NAME)
 }
 

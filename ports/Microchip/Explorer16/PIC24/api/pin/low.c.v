@@ -12,11 +12,11 @@ module pin
 //	          +-->	PORTBbits.PORTB2 = 0	// PIC16	
 // 	          		LATBbits.LATB2 = 0		// (PIC18, PIC24, dsPIC33)
 @[inline]
-pub fn pwm.low_(PORT_NAME, PIN) {
+pub fn low_(PORT_NAME, PIN) {
 	C.LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = 0
 }
 
 @[inline]
-pub fn pin.low(PIN_NAME) {
+pub fn low(PIN_NAME) {
 	C.pin.low_(PIN_NAME)
 }

@@ -6,11 +6,11 @@
 module pin
 
 @[inline]
-pub fn pwm.setup_(port, pin, ...) {
+pub fn setup_(port, pin, ...) {
 	C.GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
 }
 
 @[inline]
-pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+pub fn setup(PIN_NAME, PIN_MODE) {
 	C.pin.setup_(PIN_NAME, PIN_MODE)
 }

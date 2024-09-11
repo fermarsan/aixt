@@ -7,6 +7,6 @@
 //              (PC port) 
 
 @[inline]
-pub fn adc.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 C.analogRead(PIN_NAME)
 }

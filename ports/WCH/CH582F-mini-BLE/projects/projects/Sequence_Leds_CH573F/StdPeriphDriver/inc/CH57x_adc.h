@@ -205,7 +205,7 @@ int adc_to_temperature_celsius(uint16_t adc_val);
  * @return  ADCת��ֵ
  */
 @[inline]
-pub fn adc.readConverValue() {
+pub fn readConverValue() {
 	C.(R16_ADC_DATA)
 }
 

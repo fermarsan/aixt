@@ -7,11 +7,11 @@
 module pin
 
 @[inline]
-pub fn pwm.high_(PORT_NAME, PIN) {
+pub fn high_(PORT_NAME, PIN) {
 	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = 1
 }
 
 @[inline]
-pub fn pin.high(PIN_NAME) {
+pub fn high(PIN_NAME) {
 	C.pin.high_(PIN_NAME)
 }

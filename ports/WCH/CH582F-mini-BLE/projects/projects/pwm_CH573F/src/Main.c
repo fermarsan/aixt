@@ -32,19 +32,19 @@
 #define in_pullup		GPIO_ModeIN_PU
 const in_pulldown = C.GPIO_ModeIN_PD
 @[inline]
-pub fn pwm.setup_(port, pin, ...) {
+pub fn setup_(port, pin, ...) {
 	C.GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
 }
 @[inline]
-pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+pub fn setup(PIN_NAME, PIN_MODE) {
 	C.pin.setup_(PIN_NAME, PIN_MODE)
 }
 @[inline]
-pub fn pwm.off(channel, ...) {
+pub fn off(channel, ...) {
 	C.PWMX_ACTOUT(CH_PWM##channel, 0, High_Level, DISABLE)
 }
 @[inline]
-pub fn pwm.write(channel, value, ...) {
+pub fn write(channel, value, ...) {
 	C.PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
 }
 

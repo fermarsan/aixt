@@ -98,7 +98,7 @@ For each of these modules, you will have a file in .c.v format with the same nam
 ### Output port configuration
 To activate the port to use
 ```go
-pin.setup(PIN_NAME, MODE)
+pin.setup(pin_name, mode)
 ```
 To activate the port to use
 ```go
@@ -174,10 +174,10 @@ uart.setup_1(BAUD_RATE)   // the same of uart.setup_1(BAUD_RATE)
 ### Serial transmitting
 
 ```v
-uart.print(MESSAGE)      // print a string to the default UART
+uart.print(message)      // print a string to the default UART
 ```
 ```v
-uart.println(MESSAGE)    // print a string plus a line-new character to the default UART
+uart.println(message)    // print a string plus a line-new character to the default UART
 ```
 ```v
 uart.ready // get everything ready for to UART

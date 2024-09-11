@@ -1,6 +1,6 @@
 
 module uart
 @[inline]
-pub fn uart.write(VALUE) {
+pub fn write(VALUE) {
 	C.Serial.write(VALUE)
 }

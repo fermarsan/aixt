@@ -74,7 +74,7 @@ The distribution will be by modules within the API according to the functions to
 To configure the pin usage mode.
 
 ```go
-pin.setup(PIN_NAME, PIN_MODE)
+pin.setup(pin_name, mode)
 ```
 * *Example: If you want to activate pin 11 of port A as an output;  `pin.setup(a11, output)`.*
 * *Example: If you want to activate pin 11 of port A as an input.;  `pin.setup(a11, input)`.*

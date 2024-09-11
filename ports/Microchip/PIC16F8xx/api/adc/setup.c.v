@@ -10,7 +10,7 @@
 module adc
 
 @[inline]
-pub fn adc.setup() {
+pub fn setup() {
 	C.ADCON1 = 0b10000000;  ADCON0 = 0b11001000;  ADCON0bits.ADON = 1;
 }
 
@@ -25,7 +25,7 @@ pub fn adc.setup() {
 
 
 /*@[inline]
-pub fn adc.setup() {
+pub fn setup() {
 	C.\
 }
     ADCON1 = 0b10000000 /* Ajusta todos los canales como analogicos */ \

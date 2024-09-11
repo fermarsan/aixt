@@ -20,7 +20,7 @@ fn write(duty u16) {
 /*
 // Función para el ciclo de trabajo
 @[inline]
-pub fn pwm.write(duty, pin) {
+pub fn write(duty, pin) {
 	C.\
 }
     { \

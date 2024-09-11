@@ -11,11 +11,11 @@ module pin
 //	          |
 //	          +-->	x = PORTAbits.PORTA7	// (PIC16, PIC18, PIC24, dsPIC33)
 @[inline]
-pub fn pwm.read_(PORT_NAME, PIN) {
+pub fn read_(PORT_NAME, PIN) {
 	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN
 }
 
 @[inline]
-pub fn pin.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 	C.pin.read_(PIN_NAME)
 }

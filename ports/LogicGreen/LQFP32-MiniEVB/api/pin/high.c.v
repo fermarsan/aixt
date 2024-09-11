@@ -6,6 +6,6 @@ module pin
 
 // high function puts a high value (logic 1) to a specific pin
 @[inline]
-pub fn pin.high(PIN_NAME) {
+pub fn high(PIN_NAME) {
 	C.digitalWrite(PIN_NAME, HIGH)
 }

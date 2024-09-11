@@ -24,7 +24,7 @@ fn setup(channel u8, freq u8, mode u8)
 
 /*
 @[inline]
-pub fn pwm.setup(pin1, pin2) {
+pub fn setup(pin1, pin2) {
 	C.\
 }
     PR2 = 0x3E;                        /* Valor del período del PWM */ \

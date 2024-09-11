@@ -6,7 +6,7 @@
 module port
 
 @[inline]
-pub fn port.read(PORT) {
+pub fn read(PORT) {
 C.GPIO##PORT##_ReadPort()
 }
 

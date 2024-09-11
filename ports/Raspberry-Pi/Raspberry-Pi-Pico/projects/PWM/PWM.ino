@@ -5,34 +5,34 @@
 
 #define led     gp25
 @[inline]
-pub fn pwm.write(PIN, VAL) {
+pub fn write(PIN, VAL) {
 	C.analogWrite(PIN, VAL)
 }
 #define output		OUTPUT
 #define input		INPUT
 #define in_pullup	INPUT_PULLUP
 @[inline]
-pub fn pin.high(PIN_NAME) {
+pub fn high(PIN_NAME) {
 	C.digitalWrite(PIN_NAME, HIGH)
 }
 @[inline]
-pub fn pin.low(PIN_NAME) {
+pub fn low(PIN_NAME) {
 	C.digitalWrite(PIN_NAME, LOW)
 }
 @[inline]
-pub fn pin.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 	C.digitalRead(PIN_NAME)
 }
 @[inline]
-pub fn pwm.setup(PIN_NAME, MODE) {
+pub fn setup(PIN_NAME, MODE) {
 	C.pinMode(PIN_NAME, MODE)
 }
 @[inline]
-pub fn pwm.write(PIN_NAME, VALUE) {
+pub fn write(PIN_NAME, VALUE) {
 	C.digitalWrite(PIN_NAME, VALUE)
 }
 @[inline]
-pub fn adc.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 C.analogRead(PIN_NAME)
 }
 

@@ -6,6 +6,6 @@ module uart
 
 // Reads incoming serial data
 @[inline]
-pub fn uart.read() {
+pub fn read() {
 	C.Serial.read()
 }

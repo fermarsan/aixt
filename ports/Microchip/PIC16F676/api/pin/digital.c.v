@@ -10,7 +10,7 @@
 module pin 
 
 @[inline]
-pub fn pwm.digital() {
+pub fn digital() {
 	C.ANSEL = 0
 }
 

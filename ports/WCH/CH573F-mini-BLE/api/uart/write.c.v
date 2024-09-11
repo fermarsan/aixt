@@ -6,6 +6,6 @@
 module uart
 
 @[inline]
-pub fn uart.write(DATA) {
+pub fn write(DATA) {
 	C.R8_UART0_THR = DATA
 }

@@ -6,6 +6,6 @@ module adc
 
 //Reads the value from the specified analog pin
 @[inline]
-pub fn adc.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 C.analogRead(PIN_NAME)  
 }

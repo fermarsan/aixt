@@ -5,92 +5,92 @@
 
 #define led     gp25
 @[inline]
-pub fn uart.any_0() {
+pub fn any_0() {
 	C.Serial.available()
 }
 @[inline]
-pub fn uart.any_1() {
+pub fn any_1() {
 	C.Serial1.available()
 }
 @[inline]
-pub fn uart.any_x(UART_NUMBER) {
+pub fn any_x(UART_NUMBER) {
 	C.uart.any_ ## UART_NUMBER ## .available()
 }
 #define SEL_UART_ANY(_0, _1, MACRO_NAME, ...) MACRO_NAME
 @[inline]
-pub fn uart.any(...) SEL_UART_ANY(_0 __VA_OPT__(,) {
+pub fn any(...) SEL_UART_ANY(_0 __VA_OPT__(,) {
 	C.__VA_ARGS__, uart.any_x, uart.any_0)(__VA_ARGS__)
 }
 @[inline]
-pub fn uart.print_0(MESSAGE) {
+pub fn print_0(MESSAGE) {
 	C.Serial.print(MESSAGE)
 }
 @[inline]
-pub fn uart.print_1(MESSAGE) {
+pub fn print_1(MESSAGE) {
 	C.Serial1.print(MESSAGE)
 }
 @[inline]
-pub fn uart.print_x(UART_NUMBER, MESSAGE) {
+pub fn print_x(UART_NUMBER, MESSAGE) {
 	C.uart.print_ ## UART_NUMBER (MESSAGE)
 }
 #define SEL_uart.print(_1, _2, MACRO_NAME, ...) MACRO_NAME
 @[inline]
-pub fn uart.print(...) {
+pub fn print(...) {
 	C.SEL_uart.print(__VA_ARGS__, uart.print_x, uart.print_0)(__VA_ARGS__)
 }
 @[inline]
-pub fn uart.println_0(MESSAGE) {
+pub fn println_0(MESSAGE) {
 	C.Serial.println(MESSAGE)
 }
 @[inline]
-pub fn uart.println_1(MESSAGE) {
+pub fn println_1(MESSAGE) {
 	C.Serial1.println(MESSAGE)
 }
 @[inline]
-pub fn uart.println_x(UART_NUMBER, MESSAGE) {
+pub fn println_x(UART_NUMBER, MESSAGE) {
 	C.uart.println_ ## UART_NUMBER (MESSAGE)
 }
 #define SEL_uart.printLN(_1, _2, MACRO_NAME, ...) MACRO_NAME
 @[inline]
-pub fn uart.println(...) {
+pub fn println(...) {
 	C.SEL_uart.printLN(__VA_ARGS__, uart.println_x, uart.println_0)(__VA_ARGS__)
 }
 @[inline]
-pub fn uart.read_0() {
+pub fn read_0() {
 	C.Serial.read()
 }
 @[inline]
-pub fn uart.read_1() {
+pub fn read_1() {
 	C.Serial1.read()
 }
 @[inline]
-pub fn uart.read_x(UART_NUMBER) {
+pub fn read_x(UART_NUMBER) {
 	C.uart.read_ ## UART_NUMBER ## .read()
 }
 #define SEL_uart.read(_0, _1, MACRO_NAME, ...) MACRO_NAME
 @[inline]
-pub fn uart.read(...) SEL_uart.read(_0 __VA_OPT__(,) {
+pub fn read(...) SEL_uart.read(_0 __VA_OPT__(,) {
 	C.__VA_ARGS__, uart.read_x, uart.read_0)(__VA_ARGS__)
 }
 @[inline]
-pub fn uart.setup(BAUD_RATE) {
+pub fn setup(BAUD_RATE) {
 	C.Serial.begin(BAUD_RATE)
 }
 @[inline]
-pub fn uart.setup_0(BAUD_RATE) {
+pub fn setup_0(BAUD_RATE) {
 	C.Serial.begin(BAUD_RATE)
 }
 @[inline]
-pub fn uart.setup_1(BAUD_RATE) {
+pub fn setup_1(BAUD_RATE) {
 	C.Serial1.begin(BAUD_RATE)
 }
 @[inline]
-pub fn uart.setup_x(UART_NUMBER, BAUD_RATE) {
+pub fn setup_x(UART_NUMBER, BAUD_RATE) {
 	C.uart.setup_ ## UART_NUMBER (BAUD_RATE)
 }
 #define SEL_uart.setup(_1, _2, MACRO_NAME, ...) MACRO_NAME
 @[inline]
-pub fn uart.setup(...) {
+pub fn setup(...) {
 	C.SEL_uart.setup(__VA_ARGS__, uart.setup_x, uart.setup_0)(__VA_ARGS__)
 }
 

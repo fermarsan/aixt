@@ -10,6 +10,6 @@
 module pin
 
 @[inline]
-pub fn pwm.digital() {
+pub fn digital() {
 	C.ADCON1bits.PCFG = 0b00000110
 }

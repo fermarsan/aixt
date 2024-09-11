@@ -10,6 +10,6 @@
 module pin
 
 @[inline]
-pub fn pwm.write(PIN_NAME,VAL) {
+pub fn write(PIN_NAME,VAL) {
 	C.PIN_NAME = VAL
 }

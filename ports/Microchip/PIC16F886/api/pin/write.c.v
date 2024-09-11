@@ -7,11 +7,11 @@
 module pin
 
 @[inline]
-pub fn pwm.write_(PORT_NAME, PIN, VALUE) {
+pub fn write_(PORT_NAME, PIN, VALUE) {
 	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = VALUE
 }
 
 @[inline]
-pub fn pwm.write(PIN_NAME, VALUE) {
+pub fn write(PIN_NAME, VALUE) {
 	C.pin.write_(PIN_NAME, VALUE)
 }

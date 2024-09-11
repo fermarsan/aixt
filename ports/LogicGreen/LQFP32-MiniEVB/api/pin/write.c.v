@@ -6,6 +6,6 @@ module pin
 
 //Write a HIGH or a LOW value to a digital pin
 @[inline]
-pub fn pwm.write(PIN_NAME, VALUE)  digitalWrite(PIN_NAME, VALUE) {
+pub fn write(PIN_NAME, VALUE)  digitalWrite(PIN_NAME, VALUE) {
 	C. 
 }

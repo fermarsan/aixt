@@ -9,6 +9,6 @@
 module pin
 
 @[inline]
-pub fn pin.low(PIN_NAME) {
+pub fn low(PIN_NAME) {
 	C.PIN_NAME = 0          // LATBbits.LB0 = 0
 }

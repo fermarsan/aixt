@@ -6,11 +6,11 @@
 module port
 
 @[inline]
-pub fn port.write_(PORT, BITS) {
+pub fn write_(PORT, BITS) {
 	C.GPIO##PORT##_SetBits(BITS)
 }
 
 @[inline]
-pub fn port.write(PORT, BITS) {
+pub fn write(PORT, BITS) {
 	C.port.write_(PORT, BITS)
 }

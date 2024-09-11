@@ -1,9 +1,9 @@
 @[inline]
-pub fn uart.println_1(MESSAGE) {
+pub fn println_1(MESSAGE) {
 	C.Serial1.println(MESSAGE)
 }
 @[inline]
-pub fn uart.println(MESSAGE) {
+pub fn println(MESSAGE) {
 	C.Serial.println(MESSAGE)
 }
 @[inline]
@@ -23,11 +23,11 @@ pub fn read() {
 	C.Serial.read()
 }
 @[inline]
-pub fn uart.setup_1(BAUD_RATE) {
+pub fn setup_1(BAUD_RATE) {
 	C.Serial1.begin(BAUD_RATE)
 }
 @[inline]
-pub fn uart.setup(BAUD_RATE) {
+pub fn setup(BAUD_RATE) {
 	C.Serial.begin(BAUD_RATE)
 }
 

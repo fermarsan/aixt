@@ -9,6 +9,6 @@ module pwm
 // There are two state of PWM ---> ENABLE or DISABLE 
 
 @[inline]
-pub fn pwm.write(channel, value, ...) {
+pub fn write(channel, value, ...) {
 	C.PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
 }

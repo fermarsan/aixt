@@ -7,10 +7,10 @@
 //              (PC port) 
 
 @[inline]
-pub fn pwm.write(PIN_NAME, MODE) {
+pub fn write(PIN_NAME, MODE) {
 	C.pwmWrite(PIN_NAME, MODE)
 }
 @[inline]
-pub fn pwm.map(MODE, VALUE,VALUE1,VALUE2,VALUE3) {
+pub fn map(MODE, VALUE,VALUE1,VALUE2,VALUE3) {
 	C.map(MODE, VALUE,VALUE1,VALUE2,VALUE3)
 }

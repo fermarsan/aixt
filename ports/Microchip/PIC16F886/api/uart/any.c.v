@@ -1,6 +1,6 @@
 module uart
 
 @[inline]
-pub fn uart.any() {
+pub fn any() {
 	C.RCIF
 }

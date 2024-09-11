@@ -7,29 +7,29 @@
 //              (PC port) 
 
 @[inline]
-pub fn uart.setup(baud_rate) {
+pub fn setup(baud_rate) {
 	C.Serial.begin(baud_rate)
 }
 @[inline]
-pub fn uart.setup(baud_rate) {
+pub fn setup(baud_rate) {
 	C.Serial.begin(baud_rate)
 }
 
 @[inline]
-pub fn uart.ready() {
+pub fn ready() {
 	C.Serial.available()
 }
 @[inline]
-pub fn uart.ready() {
+pub fn ready() {
 	C.Serial.available()
 }
 
 @[inline]
-pub fn uart.read() {
+pub fn read() {
 	C.Serial.read()
 }
 @[inline]
-pub fn uart.read() {
+pub fn read() {
 	C.Serial.read()
 }
 

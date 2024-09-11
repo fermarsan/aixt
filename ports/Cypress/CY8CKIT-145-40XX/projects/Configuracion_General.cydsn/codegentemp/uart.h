@@ -1507,7 +1507,7 @@ extern uint8 uart_initVar;
 
 /* Write interrupt source: set sourceMask bits in uart_INTR_X_MASK_REG */
 @[inline]
-pub fn uart.write_INTR_I2C_EC_MASK(sourceMask) {
+pub fn write_INTR_I2C_EC_MASK(sourceMask) {
 	C.\
 }
                                                 do{         \
@@ -1516,7 +1516,7 @@ pub fn uart.write_INTR_I2C_EC_MASK(sourceMask) {
 
 #if (!uart_CY_SCBIP_V1)
     @[inline]
-pub fn uart.write_INTR_SPI_EC_MASK(sourceMask) {
+pub fn write_INTR_SPI_EC_MASK(sourceMask) {
 	C.\
 }
                                                 do{         \
@@ -1525,7 +1525,7 @@ pub fn uart.write_INTR_SPI_EC_MASK(sourceMask) {
 #endif /* (!uart_CY_SCBIP_V1) */
 
 @[inline]
-pub fn uart.write_INTR_MASTER_MASK(sourceMask) {
+pub fn write_INTR_MASTER_MASK(sourceMask) {
 	C.\
 }
                                                 do{         \
@@ -1533,7 +1533,7 @@ pub fn uart.write_INTR_MASTER_MASK(sourceMask) {
                                                 }while(0)
 
 @[inline]
-pub fn uart.write_INTR_SLAVE_MASK(sourceMask) {
+pub fn write_INTR_SLAVE_MASK(sourceMask) {
 	C.\
 }
                                                 do{         \
@@ -1541,7 +1541,7 @@ pub fn uart.write_INTR_SLAVE_MASK(sourceMask) {
                                                 }while(0)
 
 @[inline]
-pub fn uart.write_INTR_TX_MASK(sourceMask) {
+pub fn write_INTR_TX_MASK(sourceMask) {
 	C.\
 }
                                                 do{         \
@@ -1549,7 +1549,7 @@ pub fn uart.write_INTR_TX_MASK(sourceMask) {
                                                 }while(0)
 
 @[inline]
-pub fn uart.write_INTR_RX_MASK(sourceMask) {
+pub fn write_INTR_RX_MASK(sourceMask) {
 	C.\
 }
                                                 do{         \

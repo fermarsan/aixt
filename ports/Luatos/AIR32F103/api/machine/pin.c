@@ -7,17 +7,17 @@
 //              (PC port) 
 
 @[inline]
-pub fn pwm.setup(PIN_NAME, MODE) {
+pub fn setup(PIN_NAME, MODE) {
 	C.pinMode(PIN_NAME, MODE)
 }
 
 @[inline]
-pub fn pin.high(PIN_NAME) {
+pub fn high(PIN_NAME) {
 	C.digitalWrite(PIN_NAME, HIGH)
 }
 
 @[inline]
-pub fn pin.low(PIN_NAME) {
+pub fn low(PIN_NAME) {
 	C.digitalWrite(PIN_NAME, LOW)
 }
 
@@ -26,6 +26,6 @@ pub fn pin.low(PIN_NAME) {
 #define input INPUT_PULLUP
 
 @[inline]
-pub fn pin.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 	C.digitalRead(PIN_NAME)
 }

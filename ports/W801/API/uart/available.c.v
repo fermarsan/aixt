@@ -9,6 +9,6 @@
 module uart
 
 @[inline]
-pub fn uart.available(MESSAGE) {
+pub fn available(MESSAGE) {
 	C.Serial.available(MESSAGE)
 }

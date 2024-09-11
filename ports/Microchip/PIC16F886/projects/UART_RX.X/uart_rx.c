@@ -75,41 +75,41 @@
 #define c6    PORTCbits.RC6
 #define c7    PORTCbits.RC7
 @[inline]
-pub fn port.read(PORT_NAME) {
+pub fn read(PORT_NAME) {
 C.PORT ## PORT_NAME
 }
 @[inline]
-pub fn port.setup(PORT_NAME, VALUE) {
+pub fn setup(PORT_NAME, VALUE) {
 	C.TRIS ## PORT_NAME = VALUE
 }
 @[inline]
-pub fn port.write(PORT_NAME, VALUE) {
+pub fn write(PORT_NAME, VALUE) {
 	C.PORT ## PORT_NAME = VALUE
 }
 #define output 0   // pin mode (direction)
 #define input  1
 @[inline]
-pub fn pwm.digital() {
+pub fn digital() {
 	C.ANSELH = 0; ANSEL = 0;
 }
 @[inline]
-pub fn pin.high(PIN_NAME) {
+pub fn high(PIN_NAME) {
 	C.PIN_NAME = 1
 }
 @[inline]
-pub fn pin.low(PIN_NAME) {
+pub fn low(PIN_NAME) {
 	C.PIN_NAME = 0
 }
 @[inline]
-pub fn pin.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 	C.PIN_NAME
 }
 @[inline]
-pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+pub fn setup(PIN_NAME, PIN_MODE) {
 	C.PIN_NAME ## _s = PIN_MODE
 }
 @[inline]
-pub fn pwm.write(PIN_NAME,VAL) {
+pub fn write(PIN_NAME,VAL) {
 	C.PIN_NAME = VAL
 }
 

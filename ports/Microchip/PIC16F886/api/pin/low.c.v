@@ -7,11 +7,11 @@
 module pin
 
 @[inline]
-pub fn pwm.low_(PORT_NAME, PIN) {
+pub fn low_(PORT_NAME, PIN) {
 	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = 0
 }
 
 @[inline]
-pub fn pin.low(PIN_NAME) {
+pub fn low(PIN_NAME) {
 	C.pin.low_(PIN_NAME)
 }

@@ -6,11 +6,11 @@
 module pin
 
 @[inline]
-pub fn pwm.read_(port, ...) {
+pub fn read_(port, ...) {
 	C.GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
 }
 
 @[inline]
-pub fn pin.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 	C.pin.read_(PIN_NAME)
 }

@@ -6,12 +6,12 @@
 module port
 
 @[inline]
-pub fn port.setup_(PORT, BITS, MODE) {
+pub fn setup_(PORT, BITS, MODE) {
 	C.GPIO##PORT##_ModeCfg(BITS, MODE)
 }
 
 @[inline]
-pub fn port.setup(PORT, BITS, MODE) {
+pub fn setup(PORT, BITS, MODE) {
 	C.port.setup_(PORT, BITS, MODE)
 }
 

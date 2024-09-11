@@ -9,6 +9,6 @@
 module uart
 
 @[inline]
-pub fn uart.println(MESSAGE) {
+pub fn println(MESSAGE) {
 	C.Serial.println(MESSAGE)
 }

@@ -12,11 +12,11 @@ module pin
 //	          +-->	PORTBbits.PORTB2 = val	// PIC16	
 // 	          		LATBbits.LATB2 = val	// (PIC18, PIC24, dsPIC33)
 @[inline]
-pub fn pwm.write_(PORT_NAME, PIN, VALUE) {
+pub fn write_(PORT_NAME, PIN, VALUE) {
 	C.LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = VALUE
 }
 
 @[inline]
-pub fn pwm.write(PIN_NAME, VALUE) {
+pub fn write(PIN_NAME, VALUE) {
 	C.pin.write_(PIN_NAME, VALUE)
 }

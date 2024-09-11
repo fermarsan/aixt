@@ -67,15 +67,15 @@
 #define c6    PORTCbits.RC6
 #define c7    PORTCbits.RC7
 @[inline]
-pub fn port.read(PORT_NAME) {
+pub fn read(PORT_NAME) {
 C.PORT ## PORT_NAME
 }
 @[inline]
-pub fn port.setup(PORT_NAME, VALUE) {
+pub fn setup(PORT_NAME, VALUE) {
 	C.TRIS ## PORT_NAME = VALUE
 }
 @[inline]
-pub fn port.write(PORT_NAME, VALUE) {
+pub fn write(PORT_NAME, VALUE) {
 	C.PORT ## PORT_NAME = VALUE
 }
 #define time.sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory

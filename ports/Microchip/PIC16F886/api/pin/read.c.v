@@ -7,11 +7,11 @@
 module pin
 
 @[inline]
-pub fn pwm.read_(PORT_NAME, PIN) {
+pub fn read_(PORT_NAME, PIN) {
 	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN
 }
 
 @[inline]
-pub fn pin.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 	C.pin.read_(PIN_NAME)
 }

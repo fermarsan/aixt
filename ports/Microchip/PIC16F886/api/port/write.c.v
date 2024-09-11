@@ -7,6 +7,6 @@
 module port
 
 @[inline]
-pub fn port.write(PORT_NAME, VALUE) {
+pub fn write(PORT_NAME, VALUE) {
 	C.PORT ## PORT_NAME = (uint8_t)VALUE
 }

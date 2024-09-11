@@ -6,6 +6,6 @@
 module uart
 
 @[inline]
-pub fn uart.any() {
+pub fn any() {
 	C.R8_UART0_RFC 
 }

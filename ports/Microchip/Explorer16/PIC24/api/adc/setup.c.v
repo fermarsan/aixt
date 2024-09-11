@@ -14,6 +14,6 @@ module adc
 // ADCS = ──────────── - 1
 //           FAD 
 @[inline]
-pub fn adc.setup(PINS, FAD)  AD1PCFG &= PINS;  AD1CON3bits.ADCS = (uint8_t)(((FCY>>8) / (int)(FAD)>>4) {
+pub fn setup(PINS, FAD)  AD1PCFG &= PINS;  AD1CON3bits.ADCS = (uint8_t)(((FCY>>8) / (int)(FAD)>>4) {
 	C.- 1) 
 }

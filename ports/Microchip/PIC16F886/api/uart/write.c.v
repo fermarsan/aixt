@@ -10,6 +10,6 @@
 module uart
 
 @[inline]
-pub fn uart.write(DATA) {
+pub fn write(DATA) {
 	C.while (TRMT == 0);    TXREG = DATA
 }

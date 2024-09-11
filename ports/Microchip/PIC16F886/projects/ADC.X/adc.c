@@ -77,27 +77,27 @@
 #define output 0   // pin mode (direction)
 #define input  1
 @[inline]
-pub fn pin.high(PIN_NAME) {
+pub fn high(PIN_NAME) {
 	C.PIN_NAME = 1
 }
 @[inline]
-pub fn pin.low(PIN_NAME) {
+pub fn low(PIN_NAME) {
 	C.PIN_NAME = 0
 }
 @[inline]
-pub fn pin.read(PIN_NAME) {
+pub fn read(PIN_NAME) {
 	C.PIN_NAME
 }
 @[inline]
-pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+pub fn setup(PIN_NAME, PIN_MODE) {
 	C.PIN_NAME ## _s = PIN_MODE
 }
 @[inline]
-pub fn pwm.write(PIN_NAME,VAL) {
+pub fn write(PIN_NAME,VAL) {
 	C.PIN_NAME = VAL
 }
 @[inline]
-pub fn adc.setup() {
+pub fn setup() {
 	C.ADCON1 = 0b10000000;  ADCON0 = 0b11001000;  ADCON0bits.ADON = 1;
 }
 

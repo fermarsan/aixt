@@ -10,15 +10,15 @@
 #define time.sleep(TIME)    DelayMs(TIME*1000)
 #define time.sleep_us(TIME)    DelayUs(TIME)
 @[inline]
-pub fn uart.println(MSG) {
+pub fn println(MSG) {
 	C.uart.print(MSG);  uart.write('\n');  uart.write('\r')
 }
 @[inline]
-pub fn uart.any() {
+pub fn any() {
 	C.R8_UART0_RFC
 }
 @[inline]
-pub fn uart.write(DATA) {
+pub fn write(DATA) {
 	C.R8_UART0_THR = DATA
 }
 #include <stdio.h>

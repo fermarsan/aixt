@@ -29,7 +29,7 @@ Las funciones que contiene la API entradas o salidas digitales.
 
 name                                  | description
 --------------------------------------|------------------------------
-`pin.setup(PIN_NAME, PIN_MODE)`     | Configura `PIN_NAME` en `PIN_MODE`
+`pin.setup(pin_name, mode)`     | Configura `PIN_NAME` en `PIN_MODE`
 `pin.high(PIN_NAME)`                 | Encender `PIN_NAME`
 `pin.low(PIN_NAME)`                  | Apagar `PIN_NAME`
 `pin.write(PIN_NAME,VAL)`            | Escribe `VAL` en `PIN_NAME`

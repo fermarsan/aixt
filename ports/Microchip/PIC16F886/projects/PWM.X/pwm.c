@@ -75,7 +75,7 @@
 #define c6    PORTCbits.RC6
 #define c7    PORTCbits.RC7
 @[inline]
-pub fn adc.setup() {
+pub fn setup() {
 	C.ADCON1 = 0b10000000;  ADCON0 = 0b11001000;  ADCON0bits.ADON = 1;
 }
 

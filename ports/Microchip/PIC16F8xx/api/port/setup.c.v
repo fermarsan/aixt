@@ -10,6 +10,6 @@
 module port
 
 @[inline]
-pub fn port.setup(PORT_NAME, VALUE) {
+pub fn setup(PORT_NAME, VALUE) {
 	C.TRIS ## PORT_NAME = VALUE
 }

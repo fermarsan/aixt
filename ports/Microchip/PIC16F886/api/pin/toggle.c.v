@@ -7,11 +7,11 @@
 module pin
 
 @[inline]
-pub fn pwm.toggle_(PORT_NAME, PIN) {
+pub fn toggle_(PORT_NAME, PIN) {
 	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN ^= 1
 }
 
 @[inline]
-pub fn pin.toggle(PIN_NAME) {
+pub fn toggle(PIN_NAME) {
 	C.pin.toggle_(PIN_NAME)
 }

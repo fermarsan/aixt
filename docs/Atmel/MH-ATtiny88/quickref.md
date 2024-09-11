@@ -168,7 +168,7 @@ DEFINITION AIXT	 | DEFINITION ARDUINO
 `input`|	`INPUT`
 `input_pullup	INPUT_PULLUP`|
 `pin.read(PIN_NAME)`|   	`digitalRead(PIN_NAME)`
-`pin.setup(PIN_NAME, MODE)`|        	`pinMode(PIN_NAME, MODE)`
+`pin.setup(pin_name, mode)`|        	`pinMode(PIN_NAME, MODE)`
 `pin.write(PIN_NAME, VALUE)`|  	`digitalWrite(PIN_NAME, VALUE)`
 `pwm.write(PIN, VALUE)`|   	`analogWrite(PIN, VALUE)`
 `time.sleep_ms(MS)`|  	`delay(MS)`

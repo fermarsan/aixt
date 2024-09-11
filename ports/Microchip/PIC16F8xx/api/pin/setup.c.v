@@ -10,7 +10,7 @@
 module pin
 
 @[inline]
-pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+pub fn setup(PIN_NAME, PIN_MODE) {
 	C.PIN_NAME ## _s = PIN_MODE
 }
 

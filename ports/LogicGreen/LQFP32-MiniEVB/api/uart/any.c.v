@@ -6,6 +6,6 @@ module uart
 
 // Get the number of bytes (characters) available for reading from the serial port
 @[inline]
-pub fn uart.any()  Serial.available() {
+pub fn any()  Serial.available() {
 	C. 
 }

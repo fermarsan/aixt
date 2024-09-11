@@ -6,7 +6,7 @@
 module adc
 
 @[inline]
-pub fn adc.setup(channel) {
+pub fn setup(channel) {
 C.ADC_ChannelCfg(channel)
 }
 

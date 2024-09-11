@@ -6,6 +6,6 @@
 module uart 
 
 @[inline]
-pub fn uart.println(MSG) {
+pub fn println(MSG) {
 	C.uart.print(MSG);  uart.write('\n');  uart.write('\r')
 }

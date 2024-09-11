@@ -20,7 +20,7 @@ fn write(duty u16) {
 
 /*
 @[inline]
-pub fn pwm.write(duty, pin) {
+pub fn write(duty, pin) {
 	C.\
 }
     { \
