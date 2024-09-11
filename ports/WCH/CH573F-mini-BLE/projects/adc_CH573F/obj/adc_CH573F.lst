@@ -88,7 +88,7 @@ SYMBOL TABLE:
 20003b18 g     F .highcode	00000332 FLASH_EEPROM_CMD
 20003898  w      .highcode	00000000 TMR0_IRQHandler
 20003a5c g     F .highcode	00000012 FLASH_ROM_BEG
-000006fa g     F .text	0000001e adc__read
+000006fa g     F .text	0000001e adc.read
 20003a34 g     F .highcode	00000028 mDelaymS
 20003a98 g     F .highcode	00000048 FLASH_ROM_ADDR
 200038ae  w      .highcode	00000000 RTC_IRQHandler
@@ -1244,15 +1244,15 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/
 	mret
  6f6:	30200073          	mret
 
-000006fa <adc__read>:
-adc__read():
+000006fa <adc.read>:
+adc.read():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:45
-void adc__read(uint8_t valor);
+void adc.read(uint8_t valor);
 
 
 uint16_t value;
 
-void adc__read(uint8_t valor){
+void adc.read(uint8_t valor){
  6fa:	1141                	addi	sp,sp,-16
  6fc:	c606                	sw	ra,12(sp)
  6fe:	c422                	sw	s0,8(sp)
@@ -1285,7 +1285,7 @@ int main(void) {
  718:	1141                	addi	sp,sp,-16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:53
 
-pin__setup(a4, input);
+pin.setup(a4, input);
  71a:	4581                	li	a1,0
  71c:	4541                	li	a0,16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:51
@@ -1293,22 +1293,22 @@ int main(void) {
  71e:	c422                	sw	s0,8(sp)
  720:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:53
-pin__setup(a4, input);
+pin.setup(a4, input);
  722:	28e9                	jal	7fc <GPIOA_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:54
-adc__setup(0);
+adc.setup(0);
  724:	400017b7          	lui	a5,0x40001
  728:	04078c23          	sb	zero,88(a5) # 40001058 <_eusrstack+0x1fff9058>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:56
 while(true) {
-adc__read(value);
+adc.read(value);
  72c:	20004417          	auipc	s0,0x20004
  730:	8d440413          	addi	s0,s0,-1836 # 20004000 <_data_vma>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:56 (discriminator 1)
  734:	00044503          	lbu	a0,0(s0)
- 738:	37c9                	jal	6fa <adc__read>
+ 738:	37c9                	jal	6fa <adc.read>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:57 (discriminator 1)
-pwm__write(4, value);
+pwm.write(4, value);
  73a:	00044583          	lbu	a1,0(s0)
  73e:	4685                	li	a3,1
  740:	4601                	li	a2,0

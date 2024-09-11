@@ -1,3 +1,3 @@
 
 module uart
-#define uart__Write(VALUE)  Serial.write(VALUE)
+#define uart.write(VALUE)  Serial.write(VALUE)

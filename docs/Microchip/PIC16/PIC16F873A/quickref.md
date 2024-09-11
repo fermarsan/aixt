@@ -54,26 +54,26 @@ Las funciones que contiene la API entradas o salidas digitales, conversor analog
 
 name                                | description
 ------------------------------------|------------------------------------------------------
-`pin__setup(PIN_NAME, PIN_MODE)`   | Configura `PIN_NAME` en `PIN_MODE`
-`pin__high(PIN_NAME)`               | Encender `PIN_NAME`
-`pin__low(PIN_NAME)`                | Apagar `PIN_NAME`
-`pin__write(PIN_NAME,VAL)`          | Escribe `VAL` en `PIN_NAME`
-`pin__read(PIN_NAME)`               | lee `PIN_NAME`
-`pin__digital(PIN)`                 | Configura I/0 digitales `PIN_NAME`
+`pin.setup(PIN_NAME, PIN_MODE)`   | Configura `PIN_NAME` en `PIN_MODE`
+`pin.high(PIN_NAME)`               | Encender `PIN_NAME`
+`pin.low(PIN_NAME)`                | Apagar `PIN_NAME`
+`pin.write(PIN_NAME,VAL)`          | Escribe `VAL` en `PIN_NAME`
+`pin.read(PIN_NAME)`               | lee `PIN_NAME`
+`pin.digital(PIN)`                 | Configura I/0 digitales `PIN_NAME`
 `pin (PIN)`                         | Configura `PIN_OUTPUT` o `PIN_INPUT`
 `port`                              | Inicializa `port`
-`port__read(PORT_NAME)`             | Lee `PORT_NAME`
-`port__setup(PORT_NAME, VALUE)`     | Configura `PORT_NAME` asigna valor `VALUE`
-`port__write(PORT_NAME, VALUE)`     | Escribe `PORT_NAME` en `VALUE`
-`adc__setup()`                      | Configura el `adc` 
-`adc__read(channel)`                | Configura el canal `channel` del `adc`
+`port.read(PORT_NAME)`             | Lee `PORT_NAME`
+`port.setup(PORT_NAME, VALUE)`     | Configura `PORT_NAME` asigna valor `VALUE`
+`port.write(PORT_NAME, VALUE)`     | Escribe `PORT_NAME` en `VALUE`
+`adc.setup()`                      | Configura el `adc` 
+`adc.read(channel)`                | Configura el canal `channel` del `adc`
 `adc`                               | Inicializa `adc`
-`pwm__setup()`                      | Configura el resgitro `pwm`
-`pwm__write(duty)`                  | Calcula el `duty` del `pwm` 
+`pwm.setup()`                      | Configura el resgitro `pwm`
+`pwm.write(duty)`                  | Calcula el `duty` del `pwm` 
 `pwm`                               | Inicializa `pwm`
-`uart__setup()`                     | Configura el `uart`
-`uart__read()`                      | Lee los datos del `uart`
-`uart__write()`                     | Escribe los datos del `uart`
+`uart.setup()`                     | Configura el `uart`
+`uart.read()`                      | Lee los datos del `uart`
+`uart.write()`                     | Escribe los datos del `uart`
 `uart`                              | Inicializa el `uart`
 `time__sleep(time)`                 | Retardo en `seg`
 `time__sleep_us(time)`              | Retardo en `microseg`

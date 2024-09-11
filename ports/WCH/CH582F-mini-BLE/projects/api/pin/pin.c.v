@@ -32,5 +32,5 @@ module pin
 
 // in macro defines the pin input mode
 #define input     		GPIO_ModeIN_Floating
-#define pin__in_pullup		GPIO_ModeIN_PU
-#define pin__in_pulldown	GPIO_ModeIN_PD
+#define in_pullup		GPIO_ModeIN_PU
+#define pin.in_pulldown	GPIO_ModeIN_PD

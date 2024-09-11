@@ -23,7 +23,7 @@ fn setup(channel u8, freq u8, mode u8)
 
 
 /*
-#define pwm__setup(pin1, pin2) \
+#define pwm.setup(pin1, pin2) \
     PR2 = 0x3E;                        /* Valor del período del PWM */ \
     CCPR##pin1##L = 0;                 /* Inicializa el registro CCP en 0 dependiendo el CCP que configure el usuario*/ \
     TRISCbits.TRISC##pin2 = 0;         /* Configura el Pin correspondiente como salida dependiendo el pin que configure el usuario */ \

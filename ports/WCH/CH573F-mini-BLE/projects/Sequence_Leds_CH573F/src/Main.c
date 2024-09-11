@@ -28,49 +28,49 @@
 #define b23 B, 23
 #define output    GPIO_ModeOut_PP_5mA
 #define input     GPIO_ModeIN_PD
-#define pin__high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
-#define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
-#define pin__low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
-#define pin__low(PIN_NAME)  pin__low_(PIN_NAME)
-#define pin__read_(port, ...) GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
-#define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
-#define pin__setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
-#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
+#define pin.high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
+#define pin.high(PIN_NAME)  pin.high_(PIN_NAME)
+#define pin.low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
+#define pin.low(PIN_NAME)  pin.low_(PIN_NAME)
+#define pin.read_(port, ...) GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
+#define pin.read(PIN_NAME)  pin.read_(PIN_NAME)
+#define pin.setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
+#define pin.setup(PIN_NAME, PIN_MODE)  pin.setup_(PIN_NAME, PIN_MODE)
 
 void main__init();
 
 void time__init();
 
-void pin__init();
+void pin.init();
 
 void main__init() {
 	time__init();
-	pin__init();
+	pin.init();
 	
 }
 
 void time__init() {
 }
 
-void pin__init() {
+void pin.init() {
 }
 
 int main(void) {
     SetSysClock(CLK_SOURCE_PLL_60MHz);
 	main__init();
-	pin__setup(a13, output);
-	pin__setup(a14, output);
-	pin__setup(a15, output);
+	pin.setup(a13, output);
+	pin.setup(a14, output);
+	pin.setup(a15, output);
 	while(true) {
-		pin__high(a13);
+		pin.high(a13);
 		time__sleep_ms(500);
-		pin__low(a13);
-		pin__high(a14);
+		pin.low(a13);
+		pin.high(a14);
 		time__sleep_ms(500);
-		pin__low(a14);
-		pin__high(a15);
+		pin.low(a14);
+		pin.high(a15);
 		time__sleep_ms(500);
-		pin__low(a15);
+		pin.low(a15);
 	}
 	return 0;
 }

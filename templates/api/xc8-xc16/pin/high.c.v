@@ -11,9 +11,9 @@ module pin
 //	          |
 //	          +-->	PORTBbits.PORTB2 = 1	// PIC16	
 // 	          		LATBbits.LATB2 = 1		// (PIC18, PIC24, dsPIC33)
-#define pin__high_(PORT_NAME, PIN)   LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = 1
+#define pin.high_(PORT_NAME, PIN)   LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = 1
 
-#define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
+#define pin.high(PIN_NAME)  pin.high_(PIN_NAME)
 
 
 

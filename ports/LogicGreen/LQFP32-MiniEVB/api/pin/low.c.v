@@ -5,4 +5,4 @@
 module pin
 
 // low function puts a low value (logic 0) to a specific pin
-#define pin__low(PIN_NAME)  digitalWrite(PIN_NAME, LOW)
+#define pin.low(PIN_NAME)  digitalWrite(PIN_NAME, LOW)

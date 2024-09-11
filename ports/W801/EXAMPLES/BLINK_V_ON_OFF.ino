@@ -7,18 +7,18 @@
 #define time__sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+#define in_pullup	INPUT_PULLUP
+#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
 
 void main__init();
 
 void time__init();
 
-void pin__init();
+void pin.init();
 
 
 enum main____pin_names {
@@ -47,27 +47,27 @@ void time__init() {
 }
 
 
-void pin__init() {
+void pin.init() {
 }
 
 
 void setup() {
 main__init();
 time__init();
-pin__init();
-main__pin__setup(main__led1, main__output);
+pin.init();
+main__pin.setup(main__led1, main__output);
 
-main__pin__setup(main__led2, main__output);
+main__pin.setup(main__led2, main__output);
 
-main__pin__setup(main__led3, main__output);
+main__pin.setup(main__led3, main__output);
 
-main__pin__setup(main__led4, main__output);
+main__pin.setup(main__led4, main__output);
 
-main__pin__setup(main__led5, main__output);
+main__pin.setup(main__led5, main__output);
 
-main__pin__setup(main__led6, main__output);
+main__pin.setup(main__led6, main__output);
 
-main__pin__setup(main__led7, main__output);
+main__pin.setup(main__led7, main__output);
 
-while(true) {main__pin__high(main__led1);main__time__sleep_ms(1000);main__pin__low(main__led1);main__time__sleep_ms(1000);main__pin__high(main__led2);main__time__sleep_ms(1000);main__pin__low(main__led2);main__time__sleep_ms(1000);main__pin__high(main__led3);main__time__sleep_ms(1000);main__pin__low(main__led3);main__time__sleep_ms(1000);main__pin__high(main__led4);main__time__sleep_ms(1000);main__pin__low(main__led4);main__time__sleep_ms(1000);main__pin__high(main__led5);main__time__sleep_ms(1000);main__pin__low(main__led5);main__time__sleep_ms(1000);main__pin__high(main__led6);main__time__sleep_ms(1000);main__pin__high(main__led6);main__time__sleep_ms(1000);main__pin__high(main__led7);main__time__sleep_ms(1000);main__pin__high(main__led7);main__time__sleep_ms(1000);}
+while(true) {main__pin.high(main__led1);main__time__sleep_ms(1000);main__pin.low(main__led1);main__time__sleep_ms(1000);main__pin.high(main__led2);main__time__sleep_ms(1000);main__pin.low(main__led2);main__time__sleep_ms(1000);main__pin.high(main__led3);main__time__sleep_ms(1000);main__pin.low(main__led3);main__time__sleep_ms(1000);main__pin.high(main__led4);main__time__sleep_ms(1000);main__pin.low(main__led4);main__time__sleep_ms(1000);main__pin.high(main__led5);main__time__sleep_ms(1000);main__pin.low(main__led5);main__time__sleep_ms(1000);main__pin.high(main__led6);main__time__sleep_ms(1000);main__pin.high(main__led6);main__time__sleep_ms(1000);main__pin.high(main__led7);main__time__sleep_ms(1000);main__pin.high(main__led7);main__time__sleep_ms(1000);}
 }

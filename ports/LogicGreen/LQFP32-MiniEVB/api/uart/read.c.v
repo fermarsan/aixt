@@ -5,4 +5,4 @@
 module uart
 
 // Reads incoming serial data
-#define uart__read()  Serial.read()
+#define uart.read()  Serial.read()

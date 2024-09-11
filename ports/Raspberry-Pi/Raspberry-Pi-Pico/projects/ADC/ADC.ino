@@ -6,19 +6,19 @@
 #define led     gp25
 #define output		OUTPUT
 #define input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
-#define adc__read(PIN_NAME)   analogRead(PIN_NAME)
+#define in_pullup	INPUT_PULLUP
+#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+#define adc.read(PIN_NAME)   analogRead(PIN_NAME)
 
 void main__init();
 
-void pin__init();
+void pin.init();
 
-void adc__init();
+void adc.init();
 
 int32_t val = 0;
 
@@ -56,49 +56,49 @@ enum main____pin_names {
 };
 
 void main__init() {
-	pin__init();
-	adc__init();
+	pin.init();
+	adc.init();
 	
 }
 
-void pin__init() {
+void pin.init() {
 }
 
-void adc__init() {
+void adc.init() {
 }
 
 void setup() {
 	main__init();
-	pin__setup(gp13, output);
-	pin__setup(gp14, output);
-	pin__setup(gp15, output);
-	pin__setup(gp16, output);
+	pin.setup(gp13, output);
+	pin.setup(gp14, output);
+	pin.setup(gp15, output);
+	pin.setup(gp16, output);
 }
 
 void loop() {
-	val = adc__read(gp27);
+	val = adc.read(gp27);
 	if(val >= 0 && val < 255) {
-		pin__high(gp13);
-		pin__low(gp14);
-		pin__low(gp15);
-		pin__low(gp16);
+		pin.high(gp13);
+		pin.low(gp14);
+		pin.low(gp15);
+		pin.low(gp16);
 	}
 	if(val >= 255 && val < 511) {
-		pin__low(gp13);
-		pin__high(gp14);
-		pin__low(gp15);
-		pin__low(gp16);
+		pin.low(gp13);
+		pin.high(gp14);
+		pin.low(gp15);
+		pin.low(gp16);
 	}
 	if(val >= 511 && val < 767) {
-		pin__low(gp13);
-		pin__low(gp14);
-		pin__high(gp15);
-		pin__low(gp16);
+		pin.low(gp13);
+		pin.low(gp14);
+		pin.high(gp15);
+		pin.low(gp16);
 	}
 	if(val >= 767 && val < 1023) {
-		pin__low(gp13);
-		pin__low(gp14);
-		pin__low(gp15);
-		pin__high(gp16);
+		pin.low(gp13);
+		pin.low(gp14);
+		pin.low(gp15);
+		pin.high(gp16);
 	}
 }

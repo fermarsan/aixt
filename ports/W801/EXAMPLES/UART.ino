@@ -7,55 +7,55 @@
 #define time__sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
-#define uart__any_0()	Serial.available()
-#define uart__any_1()	Serial1.available()
-#define uart__any_x(UART_NUMBER)	uart__any_ ## UART_NUMBER ## .available()
+#define in_pullup	INPUT_PULLUP
+#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+#define uart.any_0()	Serial.available()
+#define uart.any_1()	Serial1.available()
+#define uart.any_x(UART_NUMBER)	uart.any_ ## UART_NUMBER ## .available()
 #define SEL_UART_ANY(_0, _1, MACRO_NAME, ...) MACRO_NAME
-#define uart__any(...) SEL_UART_ANY(_0 __VA_OPT__(,) __VA_ARGS__, uart__any_x, uart__any_0)(__VA_ARGS__)
-#define uart__available(MESSAGE)	Serial.available(MESSAGE)
-#define uart__print_0(MESSAGE)	Serial.print(MESSAGE)
-#define uart__print_1(MESSAGE)	Serial1.print(MESSAGE)
-#define uart__print_x(UART_NUMBER, MESSAGE)		uart__print_ ## UART_NUMBER (MESSAGE)
+#define uart.any(...) SEL_UART_ANY(_0 __VA_OPT__(,) __VA_ARGS__, uart.any_x, uart.any_0)(__VA_ARGS__)
+#define uart.available(MESSAGE)	Serial.available(MESSAGE)
+#define uart.print_0(MESSAGE)	Serial.print(MESSAGE)
+#define uart.print_1(MESSAGE)	Serial1.print(MESSAGE)
+#define uart.print_x(UART_NUMBER, MESSAGE)		uart.print_ ## UART_NUMBER (MESSAGE)
 #define SEL_uart.print(_1, _2, MACRO_NAME, ...) MACRO_NAME
-#define uart__print(...) SEL_uart.print(__VA_ARGS__, uart__print_x, uart__print_0)(__VA_ARGS__)
-#define uart__println_0(MESSAGE)	Serial.println(MESSAGE)
-#define uart__println_1(MESSAGE)	Serial1.println(MESSAGE)
-#define uart__println_2(MESSAGE)	Serial2.println(MESSAGE)
-#define uart__println_3(MESSAGE)	Serial3.println(MESSAGE)
-#define uart__println_4(MESSAGE)	Serial4.println(MESSAGE)
-#define uart__println_5(MESSAGE)	Serial5.println(MESSAGE)
-#define uart__println_x(UART_NUMBER, MESSAGE)		uart__println_ ## UART_NUMBER (MESSAGE)
+#define uart.print(...) SEL_uart.print(__VA_ARGS__, uart.print_x, uart.print_0)(__VA_ARGS__)
+#define uart.println_0(MESSAGE)	Serial.println(MESSAGE)
+#define uart.println_1(MESSAGE)	Serial1.println(MESSAGE)
+#define uart.println_2(MESSAGE)	Serial2.println(MESSAGE)
+#define uart.println_3(MESSAGE)	Serial3.println(MESSAGE)
+#define uart.println_4(MESSAGE)	Serial4.println(MESSAGE)
+#define uart.println_5(MESSAGE)	Serial5.println(MESSAGE)
+#define uart.println_x(UART_NUMBER, MESSAGE)		uart.println_ ## UART_NUMBER (MESSAGE)
 #define SEL_uart.printLN(_1, _2, MACRO_NAME, ...) MACRO_NAME
-#define uart__println(...) SEL_uart.printLN(__VA_ARGS__, uart__println_x, uart__println_0)(__VA_ARGS__)
-#define uart__read_0()	Serial.read()
-#define uart__read_1()	Serial1.read()
-#define uart__read_x(UART_NUMBER)	uart__read_ ## UART_NUMBER ## .read()
+#define uart.println(...) SEL_uart.printLN(__VA_ARGS__, uart.println_x, uart.println_0)(__VA_ARGS__)
+#define uart.read_0()	Serial.read()
+#define uart.read_1()	Serial1.read()
+#define uart.read_x(UART_NUMBER)	uart.read_ ## UART_NUMBER ## .read()
 #define SEL_uart.read(_0, _1, MACRO_NAME, ...) MACRO_NAME
-#define uart__read(...) SEL_uart.read(_0 __VA_OPT__(,) __VA_ARGS__, uart__read_x, uart__read_0)(__VA_ARGS__)
-#define uart__ready_0()	Serial.ready()
-#define uart__ready_1()	Serial1.ready()
-#define uart__ready_x(UART_NUMBER)	uart__ready_ ## UART_NUMBER ## .ready()
+#define uart.read(...) SEL_uart.read(_0 __VA_OPT__(,) __VA_ARGS__, uart.read_x, uart.read_0)(__VA_ARGS__)
+#define uart.ready_0()	Serial.ready()
+#define uart.ready_1()	Serial1.ready()
+#define uart.ready_x(UART_NUMBER)	uart.ready_ ## UART_NUMBER ## .ready()
 #define SEL_uart.readY(_0, _1, MACRO_NAME, ...) MACRO_NAME
-#define uart__read(...) SEL_uart.readY(_0 __VA_OPT__(,) __VA_ARGS__, uart__ready_x, uart__ready_0)(__VA_ARGS__)
-#define uart__setup_0(BAUD_RATE)					Serial.begin(BAUD_RATE)
-#define uart__setup_1(BAUD_RATE)					Serial1.begin(BAUD_RATE)
-#define uart__setup_x(UART_NUMBER, BAUD_RATE)		uart__setup_ ## UART_NUMBER (BAUD_RATE)
+#define uart.read(...) SEL_uart.readY(_0 __VA_OPT__(,) __VA_ARGS__, uart.ready_x, uart.ready_0)(__VA_ARGS__)
+#define uart.setup_0(BAUD_RATE)					Serial.begin(BAUD_RATE)
+#define uart.setup_1(BAUD_RATE)					Serial1.begin(BAUD_RATE)
+#define uart.setup_x(UART_NUMBER, BAUD_RATE)		uart.setup_ ## UART_NUMBER (BAUD_RATE)
 #define SEL_uart.setup(_1, _2, MACRO_NAME, ...) MACRO_NAME
-#define uart__setup(...) SEL_uart.setup(__VA_ARGS__, uart__setup_x, uart__setup_0)(__VA_ARGS__)
+#define uart.setup(...) SEL_uart.setup(__VA_ARGS__, uart.setup_x, uart.setup_0)(__VA_ARGS__)
 
 void main__init();
 
 void time__init();
 
-void pin__init();
+void pin.init();
 
-void uart__init();
+void uart.init();
 
 
 enum main____pin_names {
@@ -85,21 +85,21 @@ void time__init() {
 }
 
 
-void pin__init() {
+void pin.init() {
 }
 
 
-void uart__init() {
+void uart.init() {
 }
 
 
 void setup() {
 main__init();
 time__init();
-pin__init();
-uart__init();
-uart__setup(0, 9600);
-pin__setup(pin1, output);
-pin__setup(pin2, output);
-while(true) {uart__println(0, "\r\n Comunicacion UART tarjeta W801-PC:");uart__println(0, "\r\n Oprimiendo la letra Q, activa la salida  del pin1.");pin__high(pin2);time__sleep_ms(250);pin__low(pin2);time__sleep_ms(250);int32_t x = 0;x = uart__any();if((uart__available() > 0)) {char command = ' ';command = uart__read(0);if(command == 'Q') {pin__high(pin1);time__sleep_ms(2000);pin__low(pin1);time__sleep_ms(500);}else {pin__high(pin2);time__sleep_ms(500);pin__low(pin2);time__sleep_ms(500);};};}
+pin.init();
+uart.init();
+uart.setup(0, 9600);
+pin.setup(pin1, output);
+pin.setup(pin2, output);
+while(true) {uart.println(0, "\r\n Comunicacion UART tarjeta W801-PC:");uart.println(0, "\r\n Oprimiendo la letra Q, activa la salida  del pin1.");pin.high(pin2);time__sleep_ms(250);pin.low(pin2);time__sleep_ms(250);int32_t x = 0;x = uart.any();if((uart.available() > 0)) {char command = ' ';command = uart.read(0);if(command == 'Q') {pin.high(pin1);time__sleep_ms(2000);pin.low(pin1);time__sleep_ms(500);}else {pin.high(pin2);time__sleep_ms(500);pin.low(pin2);time__sleep_ms(500);};};}
 }

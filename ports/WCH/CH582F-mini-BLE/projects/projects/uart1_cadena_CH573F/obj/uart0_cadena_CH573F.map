@@ -61,7 +61,7 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./src/Main.o
  .text.main__init
                 0x0000000000000000        0x2 ./src/Main.o
- .text.uart__read
+ .text.uart.read
                 0x0000000000000000       0x14 ./src/Main.o
  .text          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_adc.o
  .data          0x0000000000000000        0x0 ./StdPeriphDriver/CH57x_adc.o
@@ -575,12 +575,12 @@ END GROUP
                 0x0000000000000650                handle_reset
  *(.text)
  *(.text.*)
- .text.uart__print
+ .text.uart.print
                 0x00000000000006ee       0x18 ./src/Main.o
-                0x00000000000006ee                uart__print
- .text.uart__setup
+                0x00000000000006ee                uart.print
+ .text.uart.setup
                 0x0000000000000706       0x48 ./src/Main.o
-                0x0000000000000706                uart__setup
+                0x0000000000000706                uart.setup
  .text.startup.main
                 0x000000000000074e       0x64 ./src/Main.o
                 0x000000000000074e                main

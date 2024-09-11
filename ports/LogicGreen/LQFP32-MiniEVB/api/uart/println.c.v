@@ -5,4 +5,4 @@
 module uart
 
 // Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
-#define uart__println(MESSAGE)  Serial.println(MESSAGE)  
+#define uart.println(MESSAGE)  Serial.println(MESSAGE)  

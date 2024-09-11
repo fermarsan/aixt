@@ -7,6 +7,6 @@ module uart
 pub fn input(msg string) string {
     C.printf("\033[1;32m")	// print in green
     C.printf("%s ", msg)
-    C.scanf("%s", uart__buffer)
-    return uart__buffer
+    C.scanf("%s", uart.buffer)
+    return uart.buffer
 }

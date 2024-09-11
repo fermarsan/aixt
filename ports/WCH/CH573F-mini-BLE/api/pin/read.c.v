@@ -5,6 +5,6 @@
 
 module pin
 
-#define pin__read_(port, ...) GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
+#define pin.read_(port, ...) GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
 
-#define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
+#define pin.read(PIN_NAME)  pin.read_(PIN_NAME)

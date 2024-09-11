@@ -5,6 +5,6 @@
 
 module port
 
-#define port__write_(PORT, BITS) GPIO##PORT##_SetBits(BITS)
+#define port.write_(PORT, BITS) GPIO##PORT##_SetBits(BITS)
 
-#define port__write(PORT, BITS)  port__write_(PORT, BITS)
+#define port.write(PORT, BITS)  port.write_(PORT, BITS)

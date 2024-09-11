@@ -6,4 +6,4 @@
 // Description: Pin-port functions (PIC16F886 port)
 module port
 
-#define port__read(PORT_NAME)  PORT ## PORT_NAME
+#define port.read(PORT_NAME)  PORT ## PORT_NAME

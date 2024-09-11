@@ -15,9 +15,9 @@ pub fn read(name int) int {
 	C.printf(' Aixt virtual pins input	  pin %ld : ', name)
     C.scanf('%ld', &input_value)
 	if input_value == 0 {
-        pin__pins[name] = 0
+        pin.pins[name] = 0
     } else {
-        pin__pins[name] = 1
+        pin.pins[name] = 1
     }
     pin.update()
     return input_value

@@ -29,12 +29,12 @@
 #define b23 B, 23
 #define output    		GPIO_ModeOut_PP_5mA
 #define input     		GPIO_ModeIN_Floating
-#define pin__in_pullup		GPIO_ModeIN_PU
-#define pin__in_pulldown	GPIO_ModeIN_PD
-#define pin__setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
-#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
-#define pwm__off(channel, ...)	PWMX_ACTOUT(CH_PWM##channel, 0, High_Level, DISABLE)
-#define pwm__write(channel, value, ...)	PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
+#define in_pullup		GPIO_ModeIN_PU
+#define pin.in_pulldown	GPIO_ModeIN_PD
+#define pin.setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
+#define pin.setup(PIN_NAME, PIN_MODE)  pin.setup_(PIN_NAME, PIN_MODE)
+#define pwm.off(channel, ...)	PWMX_ACTOUT(CH_PWM##channel, 0, High_Level, DISABLE)
+#define pwm.write(channel, value, ...)	PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
 
 
 
@@ -42,13 +42,13 @@
 
 int main(void) {
 
-pin__setup(a12, output);
+pin.setup(a12, output);
 int32_t value = 50;
 while(true) {
-pwm__write(4, value);
+pwm.write(4, value);
 value = value + 50;
 time__sleep_ms(300);
-if(value > 250) {pwm__off(4);time__sleep_ms(300);value = 50;};
+if(value > 250) {pwm.off(4);time__sleep_ms(300);value = 50;};
 }
 return 0;
 }

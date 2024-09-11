@@ -7,4 +7,4 @@
 //              (PIC16F676 port)
 module port
 
-#define port__setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
+#define port.setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE

@@ -6,4 +6,4 @@
 
 module pwm
 
-#define pwm__write(PIN, VALUE)   analogWrite(PIN, VALUE)
+#define pwm.write(PIN, VALUE)   analogWrite(PIN, VALUE)

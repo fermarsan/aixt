@@ -43,24 +43,24 @@
 #define c3      PORTCbits.RC3
 #define c4      PORTCbits.RC4
 #define c5      PORTCbits.RC5
-#define port__read(PORT_NAME)  PORT ## PORT_NAME
-#define port__setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
-#define port__write(PORT_NAME, VALUE)  PORT ## PORT_NAME = VALUE
+#define port.read(PORT_NAME)  PORT ## PORT_NAME
+#define port.setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
+#define port.write(PORT_NAME, VALUE)  PORT ## PORT_NAME = VALUE
 #define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 
 void main__init();
 
-void port__init();
+void port.init();
 
 void time__init();
 
 void main__init() {
-	port__init();
+	port.init();
 	time__init();
 	
 }
 
-void port__init() {
+void port.init() {
 }
 
 void time__init() {
@@ -68,11 +68,11 @@ void time__init() {
 
 void main(void) {
 	main__init();
-	port__setup(c, 0b00000);
+	port.setup(c, 0b00000);
 	while(true) {
-		port__write(c, 0b010101);
+		port.write(c, 0b010101);
 		time__sleep_ms(500);
-		port__write(c, 0b101010);
+		port.write(c, 0b101010);
 		time__sleep_ms(500);
 	}
 }

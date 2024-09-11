@@ -11,7 +11,7 @@ pin.low(a6)
 
 for{
 
-if 250 >= adc__read(a1){
+if 250 >= adc.read(a1){
 pin.high(a5)
 pin.low(a6)
 }

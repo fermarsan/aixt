@@ -5,4 +5,4 @@
 module pin
 
 // high function puts a high value (logic 1) to a specific pin
-#define pin__high(PIN_NAME)  digitalWrite(PIN_NAME, HIGH)
+#define pin.high(PIN_NAME)  digitalWrite(PIN_NAME, HIGH)

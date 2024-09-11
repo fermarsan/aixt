@@ -5,6 +5,6 @@
 
 module port
 
-#define port__read(PORT) GPIO##PORT##_ReadPort()
+#define port.read(PORT) GPIO##PORT##_ReadPort()
 
 

@@ -9,5 +9,5 @@
 
 module pin 
 
-#define pin__digital()  ANSEL = 0
+#define pin.digital()  ANSEL = 0
 

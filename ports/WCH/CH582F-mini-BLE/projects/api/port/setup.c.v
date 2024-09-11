@@ -5,8 +5,8 @@
 
 module port
 
-#define port__setup_(PORT, BITS, MODE) GPIO##PORT##_ModeCfg(BITS, MODE)
+#define port.setup_(PORT, BITS, MODE) GPIO##PORT##_ModeCfg(BITS, MODE)
 
-#define port__setup(PORT, BITS, MODE)  port__setup_(PORT, BITS, MODE)
+#define port.setup(PORT, BITS, MODE)  port.setup_(PORT, BITS, MODE)
 
 	

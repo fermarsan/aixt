@@ -5,16 +5,16 @@
 
 #define output		OUTPUT
 #define input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+#define in_pullup	INPUT_PULLUP
+#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
 
 void main__init();
 
-void pin__init();
+void pin.init();
 
 enum main____pin_names {
 	rX = PA11,
@@ -50,27 +50,27 @@ enum main____pin_names {
 };
 
 void main__init() {
-	pin__init();
+	pin.init();
 	
 }
 
-void pin__init() {
+void pin.init() {
 }
 
 void setup() {
 	main__init();
-	pin__setup(P23, output);
-	pin__setup(P24, output);
-	pin__setup(P1, input);
+	pin.setup(P23, output);
+	pin.setup(P24, output);
+	pin.setup(P1, input);
 }
 
 void loop() {
-	if((pin__read(p1) == 1)) {
-		pin__high(p23);
-		pin__low(p24);
+	if((pin.read(p1) == 1)) {
+		pin.high(p23);
+		pin.low(p24);
 	}
 	else {
-		pin__high(p24);
-		pin__low(p23);
+		pin.high(p24);
+		pin.low(p23);
 	}
 }

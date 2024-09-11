@@ -1304,7 +1304,7 @@ int main(void) {
  702:	1141                	addi	sp,sp,-16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:45
 
-pin__setup(a12, output);
+pin.setup(a12, output);
  704:	458d                	li	a1,3
  706:	6505                	lui	a0,0x1
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:43
@@ -1312,7 +1312,7 @@ int main(void) {
  708:	c606                	sw	ra,12(sp)
  70a:	c422                	sw	s0,8(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:45
-pin__setup(a12, output);
+pin.setup(a12, output);
  70c:	2089                	jal	74e <GPIOA_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:43
 int main(void) {
@@ -1320,7 +1320,7 @@ int main(void) {
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:48
 int32_t value = 50;
 while(true) {
-pwm__write(4, value);
+pwm.write(4, value);
  712:	0ff47593          	andi	a1,s0,255
  716:	4685                	li	a3,1
  718:	4601                	li	a2,0
@@ -1336,7 +1336,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/
 value = value + 50;
  72a:	03240413          	addi	s0,s0,50
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:51
-if(value > 250) {pwm__off(4);time__sleep_ms(300);value = 50;};
+if(value > 250) {pwm.off(4);time__sleep_ms(300);value = 50;};
  72e:	12c00793          	li	a5,300
  732:	fef410e3          	bne	s0,a5,712 <main+0x10>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\pwm_CH573F\obj/../src/Main.c:51 (discriminator 1)

@@ -10,8 +10,8 @@ import pwm
     pin.setup(p7, PWM)//Salida analogica del PWM    
 
 
-    adc__read(p5)//Variacion del PWM
-    pwm__map(adc__read(p5), 4095, 0, 4095, 0)
+    adc.read(p5)//Variacion del PWM
+    pwm.map(adc.read(p5), 4095, 0, 4095, 0)
     //Amplitud del PWM
-    pwm__write(p7, PWM)//Salida del PWM
+    pwm.write(p7, PWM)//Salida del PWM
   

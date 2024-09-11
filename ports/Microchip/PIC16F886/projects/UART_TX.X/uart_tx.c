@@ -76,46 +76,46 @@
 #define c7    PORTCbits.RC7
 #define output 0   // pin mode (direction)
 #define input  1
-#define pin__digital()  ANSELH = 0; ANSEL = 0;
-#define pin__high(PIN_NAME)  PIN_NAME = 1
-#define pin__low(PIN_NAME)   PIN_NAME = 0
-#define pin__read(PIN_NAME)  PIN_NAME
-#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
-#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
+#define pin.digital()  ANSELH = 0; ANSEL = 0;
+#define pin.high(PIN_NAME)  PIN_NAME = 1
+#define pin.low(PIN_NAME)   PIN_NAME = 0
+#define pin.read(PIN_NAME)  PIN_NAME
+#define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
+#define pin.write(PIN_NAME,VAL) PIN_NAME = VAL
 #define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 
 void main__init();
 
-void pin__init();
+void pin.init();
 
-void uart__init();
+void uart.init();
 
-char uart__read();
+char uart.read();
 
-void uart__setup();
+void uart.setup();
 
-void uart__write(unsigned char data);
+void uart.write(unsigned char data);
 
 void time__init();
 
 void main__init() {
-	pin__init();
-	uart__init();
+	pin.init();
+	uart.init();
 	time__init();
 	
 }
 
-void pin__init() {
+void pin.init() {
 }
 
-void uart__init() {
+void uart.init() {
 }
 
-char uart__read() {
+char uart.read() {
 	return RCREG;
 }
 
-void uart__setup() {
+void uart.setup() {
 	SPBRG = ((_XTAL_FREQ / 9600) / 64) - 1;
 	TXSTAbits.BRGH = 0;
 	TXSTAbits.SYNC = 0;
@@ -126,7 +126,7 @@ void uart__setup() {
 	RCSTAbits.CREN = 1;
 }
 
-void uart__write(unsigned char data) {
+void uart.write(unsigned char data) {
 	TXREG = data;
 }
 
@@ -135,12 +135,12 @@ void time__init() {
 
 void main(void) {
 	main__init();
-	pin__setup(c6, output);
-	uart__setup();
+	pin.setup(c6, output);
+	uart.setup();
 	while(true) {
-		uart__write(0x33);
+		uart.write(0x33);
 		time__sleep_ms(500);
-		uart__write(0x99);
+		uart.write(0x99);
 		time__sleep_ms(500);
 	}
 }

@@ -8,4 +8,4 @@
 
 module pin
 
-#define pin__write(PIN_NAME,VAL)       PIN_NAME = VAL        // LATBbits.LB0 = 0
+#define pin.write(PIN_NAME,VAL)       PIN_NAME = VAL        // LATBbits.LB0 = 0

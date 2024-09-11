@@ -101,7 +101,7 @@ SYMBOL TABLE:
 20004000 g       .data	00000000 _data_vma
 200038bc g     F .highcode	000000fc SetSysClock
 200038a4  w      .highcode	00000000 USB_IRQHandler
-000006fa g     F .text	00000048 uart__setup
+000006fa g     F .text	00000048 uart.setup
 00000742 g     F .text	00000024 main
 00000004 g       .highcodelalign	00000000 _highcode_lma
 200038a2  w      .highcode	00000000 LLE_IRQHandler
@@ -1241,15 +1241,15 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interrupt
 	mret
  6f6:	30200073          	mret
 
-000006fa <uart__setup>:
-uart__setup():
+000006fa <uart.setup>:
+uart.setup():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interruption_CH573F\obj/../src/Main.c:40
     while(!(R8_UART0_RFC == 1)){}
     return R8_UART0_RBR; 
 }
 
 
-void uart__setup(uint32_t baud_rate){
+void uart.setup(uint32_t baud_rate){
  6fa:	1141                	addi	sp,sp,-16
  6fc:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interruption_CH573F\obj/../src/Main.c:41
@@ -1311,20 +1311,20 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interrupt
 
 int main(void) {
 
-uart__setup(115200);
+uart.setup(115200);
  742:	6571                	lui	a0,0x1c
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interruption_CH573F\obj/../src/Main.c:67
 int main(void) {
  744:	1141                	addi	sp,sp,-16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interruption_CH573F\obj/../src/Main.c:69
-uart__setup(115200);
+uart.setup(115200);
  746:	20050513          	addi	a0,a0,512 # 1c200 <_data_lma+0x1b928>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interruption_CH573F\obj/../src/Main.c:67
 int main(void) {
  74a:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interruption_CH573F\obj/../src/Main.c:69
-uart__setup(115200);
- 74c:	377d                	jal	6fa <uart__setup>
+uart.setup(115200);
+ 74c:	377d                	jal	6fa <uart.setup>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interruption_CH573F\obj/../src/Main.c:70
 irq__uart_rx_enable();
  74e:	450d                	li	a0,3
@@ -1502,7 +1502,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interrupt
 0000084e <UART0_BaudRateCfg>:
 UART0_BaudRateCfg():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_interruption_CH573F\obj/../StdPeriphDriver/CH57x_uart0.c:41
- * @param   baudrate    - ²¨ÌØÂÊ
+ * @param   baudrate    - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
  * @return  none
  */

@@ -11,43 +11,43 @@
 >>>>>>> e2001e18f72232dc1682e8a0f1e8f9ed11a0959c:ports/Raspberry-Pi/Raspberry-Pi-Pico/projects/BLINKING/blinking/blinking.ino
 #define output		OUTPUT
 #define input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+#define in_pullup	INPUT_PULLUP
+#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
 
 void main__init();
 
 void time__init();
 
-void pin__init();
+void pin.init();
 
 void main__init() {
 	time__init();
-	pin__init();
+	pin.init();
 	
 }
 
 void time__init() {
 }
 
-void pin__init() {
+void pin.init() {
 }
 
 void setup() {
 	main__init();
 <<<<<<< HEAD:ports/Ai-Thinker/Ai-WB2-32S-Kit/example/pwm/pwm.ino
-	pin__setup(17, output);
+	pin.setup(17, output);
 =======
-	pin__setup(led, output);
+	pin.setup(led, output);
 >>>>>>> e2001e18f72232dc1682e8a0f1e8f9ed11a0959c:ports/Raspberry-Pi/Raspberry-Pi-Pico/projects/BLINKING/blinking/blinking.ino
 }
 
 void loop() {
-	pin__low(led);
+	pin.low(led);
 	time__sleep(2);
-	pin__high(led);
+	pin.high(led);
 	time__sleep(2);
 }

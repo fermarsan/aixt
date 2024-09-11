@@ -68,35 +68,35 @@
 #define c7    PORTCbits.RC7
 #define output 0   // pin direction
 #define input  1
-#define pin__digital()   ADCON1bits.PCFG = 0b00000110
-#define pin__high(PIN_NAME)  PIN_NAME = 1
-#define pin__low(PIN_NAME)   PIN_NAME = 0
-#define pin__read(PIN_NAME)  PIN_NAME
-#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
-#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
-#define adc__setup()  ADCON1 = 0b10000000;  ADCON0 = 0b11001000;  ADCON0bits.ADON = 1;
+#define pin.digital()   ADCON1bits.PCFG = 0b00000110
+#define pin.high(PIN_NAME)  PIN_NAME = 1
+#define pin.low(PIN_NAME)   PIN_NAME = 0
+#define pin.read(PIN_NAME)  PIN_NAME
+#define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
+#define pin.write(PIN_NAME,VAL) PIN_NAME = VAL
+#define adc.setup()  ADCON1 = 0b10000000;  ADCON0 = 0b11001000;  ADCON0bits.ADON = 1;
 
 void main__init();
 
-void pin__init();
+void pin.init();
 
-void adc__init();
+void adc.init();
 
-unsigned int adc__read(unsigned int channel);
+unsigned int adc.read(unsigned int channel);
 
 void main__init() {
-	pin__init();
-	adc__init();
+	pin.init();
+	adc.init();
 	
 }
 
-void pin__init() {
+void pin.init() {
 }
 
-void adc__init() {
+void adc.init() {
 }
 
-unsigned int adc__read(unsigned int channel) {
+unsigned int adc.read(unsigned int channel) {
 	ADCON0bits.CHS = channel;
 	ADCON0bits.GO_DONE = 1;
 	while(ADCON0bits.GO_DONE == 1) {
@@ -107,76 +107,76 @@ unsigned int adc__read(unsigned int channel) {
 void main(void) {
 	main__init();
 	unsigned int a = 0;
-	pin__setup(c0, output);
-	pin__setup(c1, output);
-	pin__setup(c2, output);
-	pin__setup(c3, output);
-	pin__setup(c4, output);
-	pin__setup(c5, output);
-	pin__write(c0, 0);
-	pin__write(c1, 0);
-	pin__write(c2, 0);
-	pin__write(c3, 0);
-	pin__write(c4, 0);
-	pin__write(c5, 0);
-	adc__setup();
+	pin.setup(c0, output);
+	pin.setup(c1, output);
+	pin.setup(c2, output);
+	pin.setup(c3, output);
+	pin.setup(c4, output);
+	pin.setup(c5, output);
+	pin.write(c0, 0);
+	pin.write(c1, 0);
+	pin.write(c2, 0);
+	pin.write(c3, 0);
+	pin.write(c4, 0);
+	pin.write(c5, 0);
+	adc.setup();
 	while(true) {
-		a = adc__read(4);
+		a = adc.read(4);
 		if(a >= 1020) {
-			pin__high(c0);
-			pin__high(c1);
-			pin__high(c2);
-			pin__high(c3);
-			pin__high(c4);
-			pin__high(c5);
+			pin.high(c0);
+			pin.high(c1);
+			pin.high(c2);
+			pin.high(c3);
+			pin.high(c4);
+			pin.high(c5);
 		}
 		else if(a >= 820) {
-			pin__high(c0);
-			pin__high(c1);
-			pin__high(c2);
-			pin__high(c3);
-			pin__high(c4);
-			pin__low(c5);
+			pin.high(c0);
+			pin.high(c1);
+			pin.high(c2);
+			pin.high(c3);
+			pin.high(c4);
+			pin.low(c5);
 		}
 		else if(a >= 620) {
-			pin__high(c0);
-			pin__high(c1);
-			pin__high(c2);
-			pin__high(c3);
-			pin__low(c4);
-			pin__low(c5);
+			pin.high(c0);
+			pin.high(c1);
+			pin.high(c2);
+			pin.high(c3);
+			pin.low(c4);
+			pin.low(c5);
 		}
 		else if(a >= 420) {
-			pin__high(c0);
-			pin__high(c1);
-			pin__high(c2);
-			pin__low(c3);
-			pin__low(c4);
-			pin__low(c5);
+			pin.high(c0);
+			pin.high(c1);
+			pin.high(c2);
+			pin.low(c3);
+			pin.low(c4);
+			pin.low(c5);
 		}
 		else if(a >= 220) {
-			pin__high(c0);
-			pin__high(c1);
-			pin__low(c2);
-			pin__low(c3);
-			pin__low(c4);
-			pin__low(c5);
+			pin.high(c0);
+			pin.high(c1);
+			pin.low(c2);
+			pin.low(c3);
+			pin.low(c4);
+			pin.low(c5);
 		}
 		else if(a >= 120) {
-			pin__high(c0);
-			pin__low(c1);
-			pin__low(c2);
-			pin__low(c3);
-			pin__low(c4);
-			pin__low(c5);
+			pin.high(c0);
+			pin.low(c1);
+			pin.low(c2);
+			pin.low(c3);
+			pin.low(c4);
+			pin.low(c5);
 		}
 		else {
-			pin__low(c0);
-			pin__low(c1);
-			pin__low(c2);
-			pin__low(c3);
-			pin__low(c4);
-			pin__low(c5);
+			pin.low(c0);
+			pin.low(c1);
+			pin.low(c2);
+			pin.low(c3);
+			pin.low(c4);
+			pin.low(c5);
 		}
 	}
 }

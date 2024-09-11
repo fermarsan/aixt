@@ -9,4 +9,4 @@
 
 module uart
 
-#define uart__write(DATA)   while (TRMT == 0);    TXREG = DATA
+#define uart.write(DATA)   while (TRMT == 0);    TXREG = DATA

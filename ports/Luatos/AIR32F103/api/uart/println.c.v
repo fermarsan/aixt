@@ -8,4 +8,4 @@
 
 module uart
 
-#define uart__println(MESSAGE)   Serial.println(MESSAGE)
+#define uart.println(MESSAGE)   Serial.println(MESSAGE)

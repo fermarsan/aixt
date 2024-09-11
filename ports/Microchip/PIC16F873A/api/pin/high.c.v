@@ -9,4 +9,4 @@
 
 module pin
 
-#define pin__high(PIN_NAME)  PIN_NAME = 1
+#define pin.high(PIN_NAME)  PIN_NAME = 1

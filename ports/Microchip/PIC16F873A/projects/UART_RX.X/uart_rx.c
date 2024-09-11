@@ -66,49 +66,49 @@
 #define c5    PORTCbits.RC5
 #define c6    PORTCbits.RC6
 #define c7    PORTCbits.RC7
-#define port__read(PORT_NAME)  PORT ## PORT_NAME
-#define port__setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
-#define port__write(PORT_NAME, VALUE)  PORT ## PORT_NAME = VALUE
-#define uart__input() (PIR1bits.RCIF ? 1 : 0)  // Valida si hay datos recibidos retorna un 1 si no hay datos recibidos un 0
+#define port.read(PORT_NAME)  PORT ## PORT_NAME
+#define port.setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
+#define port.write(PORT_NAME, VALUE)  PORT ## PORT_NAME = VALUE
+#define uart.input() (PIR1bits.RCIF ? 1 : 0)  // Valida si hay datos recibidos retorna un 1 si no hay datos recibidos un 0
 #define output 0   // pin direction
 #define input  1
-#define pin__digital()   ADCON1bits.PCFG = 0b00000110
-#define pin__high(PIN_NAME)  PIN_NAME = 1
-#define pin__low(PIN_NAME)   PIN_NAME = 0
-#define pin__read(PIN_NAME)  PIN_NAME
-#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
-#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
+#define pin.digital()   ADCON1bits.PCFG = 0b00000110
+#define pin.high(PIN_NAME)  PIN_NAME = 1
+#define pin.low(PIN_NAME)   PIN_NAME = 0
+#define pin.read(PIN_NAME)  PIN_NAME
+#define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
+#define pin.write(PIN_NAME,VAL) PIN_NAME = VAL
 
 void main__init();
 
-void port__init();
+void port.init();
 
-void uart__init();
+void uart.init();
 
-char uart__read();
+char uart.read();
 
-void uart__setup();
+void uart.setup();
 
-void pin__init();
+void pin.init();
 
 void main__init() {
-	port__init();
-	uart__init();
-	pin__init();
+	port.init();
+	uart.init();
+	pin.init();
 	
 }
 
-void port__init() {
+void port.init() {
 }
 
-void uart__init() {
+void uart.init() {
 }
 
-char uart__read() {
+char uart.read() {
 	return RCREG;
 }
 
-void uart__setup() {
+void uart.setup() {
 	SPBRG = ((_XTAL_FREQ / 9600) / 64) - 1;
 	TXSTAbits.BRGH = 0;
 	TXSTAbits.SYNC = 0;
@@ -119,16 +119,16 @@ void uart__setup() {
 	RCSTAbits.CREN = 1;
 }
 
-void pin__init() {
+void pin.init() {
 }
 
 void main(void) {
 	main__init();
-	port__setup(b, 0b00000000);
-	port__write(b, 0b00000000);
-	pin__setup(c7, input);
-	uart__setup();
+	port.setup(b, 0b00000000);
+	port.write(b, 0b00000000);
+	pin.setup(c7, input);
+	uart.setup();
 	while(true) {
-		port__read(b) = uart__read();
+		port.read(b) = uart.read();
 	}
 }

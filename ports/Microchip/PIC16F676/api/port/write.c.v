@@ -7,4 +7,4 @@
 //              (PIC16F676 port)
 module port
 
-#define port__write(PORT_NAME, VALUE)  PORT ## PORT_NAME = VALUE
+#define port.write(PORT_NAME, VALUE)  PORT ## PORT_NAME = VALUE

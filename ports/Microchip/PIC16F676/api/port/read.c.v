@@ -7,4 +7,4 @@
 //              (PIC16F676 port)
 module port
 
-#define port__read(PORT_NAME)  PORT ## PORT_NAME
+#define port.read(PORT_NAME)  PORT ## PORT_NAME

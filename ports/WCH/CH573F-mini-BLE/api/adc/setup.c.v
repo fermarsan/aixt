@@ -5,5 +5,5 @@
 
 module adc
 
-#define adc__setup(channel)  ADC_ChannelCfg(channel)
+#define adc.setup(channel)  ADC_ChannelCfg(channel)
 

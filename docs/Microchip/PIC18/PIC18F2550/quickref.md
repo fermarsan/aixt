@@ -59,50 +59,50 @@ Las funciones que contiene la API entradas o salidas digitales, conversor analog
 
 name                             | description
 ---------------------------------|------------------------------------------------------
-`pin__high(pin)`                 | Modo alto `pin`
-`pin__low(pin)`                  | Modo bajo `pin`
-`pin__write(pin, val)`           | Escribe `val` en `pin`
-`pin__read(pin)`                 | Lee `pin`
-`pin__setup(pin, mode)`          | Configura pines I/O     `pin`
-`port__setup(port, mode)`        | Configura puertos I/O   `pin`
-`port__write(port, val)`         | Escribe `val` en `port`
-`port__read(port)`               | Lee `port`
+`pin.high(pin)`                 | Modo alto `pin`
+`pin.low(pin)`                  | Modo bajo `pin`
+`pin.write(pin, val)`           | Escribe `val` en `pin`
+`pin.read(pin)`                 | Lee `pin`
+`pin.setup(pin, mode)`          | Configura pines I/O     `pin`
+`port.setup(port, mode)`        | Configura puertos I/O   `pin`
+`port.write(port, val)`         | Escribe `val` en `port`
+`port.read(port)`               | Lee `port`
 `adc.setup()`                    | Configura el `adc` 
 `adc.read(channel)`              | Configura el canal `channel` del `adc`
 `adc.reading()`                  | Alamacena el valor del `adc`
 `pwm.setup(pin1, pin2)`          | Configura el resgitro `pin1` y la salida en `pin2`
 `pwm.write(duty, pin)`           | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
 `uart.setup()`                   | Configura el `uart`
-`uart__write()`                  | Configura el `TX`
-`uart__read()`                   | Configura el `RX`
+`uart.write()`                  | Configura el `TX`
+`uart.read()`                   | Configura el `RX`
 `sleep(time)`                    | Retardo en `seg`
 `sleep_us(time)`                 | Retardo en `microseg`
 `sleep_ms(time)`                 | Retardo en `miliseg`
 
 ## Configuración de pines 
 ```go
-pin__setup(b3, output)      // Función para configurar el pin como salida 
-pin__setup(a2, output)      // Función para configurar el pin como salida
-pin__setup(b2, input)    // Función para configurar el pin como entrada
-pin__setup(a1, input)    // Función para configurar el pin como entrada
+pin.setup(b3, output)      // Función para configurar el pin como salida 
+pin.setup(a2, output)      // Función para configurar el pin como salida
+pin.setup(b2, input)    // Función para configurar el pin como entrada
+pin.setup(a1, input)    // Función para configurar el pin como entrada
 
-pin__high(b3)    // Función para encender el pin           
-pin__low(b3)     // Función para apagar el pin
+pin.high(b3)    // Función para encender el pin           
+pin.low(b3)     // Función para apagar el pin
 
-pin__write(a4, 0)  // Función sobre escribir el pin
-pin__write(a4, 1)  // Función sobre escribir el pin
+pin.write(a4, 0)  // Función sobre escribir el pin
+pin.write(a4, 1)  // Función sobre escribir el pin
 
-pin__read(c4)      // Función para leer el pin
-pin__read(b0)      // Función para leer el pin
+pin.read(c4)      // Función para leer el pin
+pin.read(b0)      // Función para leer el pin
 ```
 Ejemplo de prender y apagar un led:
 
 ```go
       
 while (1) {
-    pin__high(b4);
+    pin.high(b4);
     sleep__us(700);
-    pin__low(b4);
+    pin.low(b4);
     sleep__us(700);
 }
 ```
@@ -145,9 +145,9 @@ while(1){
     
     if ( adc_RTA >= 1000 ){
         
-        pin__high(C4);
-        pin__high(C1);
-        pin__high(C2);           
+        pin.high(C4);
+        pin.high(C1);
+        pin.high(C2);           
     }
     
     else if ( adc_RTA >= 600 ){

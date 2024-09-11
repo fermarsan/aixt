@@ -63,22 +63,22 @@ Las funciones que contiene la API entradas o salidas digitales, conversor analog
 
 name                             | description
 ---------------------------------|------------------------------------------------------
-`pin__high(pin)`                 | Modo alto `pin`
-`pin__low(pin)`                  | Modo bajo `pin`
-`pin__write(pin, val)`           | Escribe `val` en `pin`
-`pin__read(pin)`                 | Lee `pin`
-`pin__setup(pin, mode)`          | Configura pines I/O     `pin`
-`port__setup(port, mode)`        | Configura puertos I/O   `pin`
-`port__write(port, val)`         | Escribe `val` en `port`
-`port__read(port)`               | Lee `port`
-`adc__setup()`                   | Configura el `adc` 
-`adc__read(channel)`             | Configura el canal `channel` del `adc`
-`adc__reading()`                 | Almacena el valor del `adc`
-`pwm__setup(pin1, pin2)`         | Configura el registro `pin1` y la salida en `pin2`
-`pwm__write(duty, pin)`          | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
-`uart__setup()`                  | Configura el `uart`
-`uart__write()`                  | Configura el `TX`
-`uart__read()`                   | Configura el `RX`
+`pin.high(pin)`                 | Modo alto `pin`
+`pin.low(pin)`                  | Modo bajo `pin`
+`pin.write(pin, val)`           | Escribe `val` en `pin`
+`pin.read(pin)`                 | Lee `pin`
+`pin.setup(pin, mode)`          | Configura pines I/O     `pin`
+`port.setup(port, mode)`        | Configura puertos I/O   `pin`
+`port.write(port, val)`         | Escribe `val` en `port`
+`port.read(port)`               | Lee `port`
+`adc.setup()`                   | Configura el `adc` 
+`adc.read(channel)`             | Configura el canal `channel` del `adc`
+`adc.reading()`                 | Almacena el valor del `adc`
+`pwm.setup(pin1, pin2)`         | Configura el registro `pin1` y la salida en `pin2`
+`pwm.write(duty, pin)`          | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
+`uart.setup()`                  | Configura el `uart`
+`uart.write()`                  | Configura el `TX`
+`uart.read()`                   | Configura el `RX`
 `time__sleep(TIME)`              | Retardo en `seg`
 `time__sleep_us(TIME)`           | Retardo en `microseg`
 `time__sleep_ms(TIME) `          | Retardo en `miliseg`

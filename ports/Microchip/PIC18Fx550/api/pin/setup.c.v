@@ -8,4 +8,4 @@
 
 module pin
 
-#define pin__setup(PIN_NAME, PIN_MODE)     PIN_NAME ## _s = PIN_MODE    // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+#define pin.setup(PIN_NAME, PIN_MODE)     PIN_NAME ## _s = PIN_MODE    // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;

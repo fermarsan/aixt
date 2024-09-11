@@ -26,7 +26,7 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./src/Main.o
  .text.main__init
                 0x0000000000000000        0x2 ./src/Main.o
- .text.port__init
+ .text.port.init
                 0x0000000000000000        0x2 ./src/Main.o
  .text.time__init
                 0x0000000000000000        0x2 ./src/Main.o

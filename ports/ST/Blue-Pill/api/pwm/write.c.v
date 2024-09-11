@@ -8,4 +8,4 @@
 
 module pwm
 
-#define pwm__write(PIN_NAME, MODE)   pwmWrite(PIN_NAME, MODE)
+#define pwm.write(PIN_NAME, MODE)   pwmWrite(PIN_NAME, MODE)

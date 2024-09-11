@@ -8,4 +8,4 @@
 
 module pin
 
-#define pin__low(PIN_NAME)             PIN_NAME = 0          // LATBbits.LB0 = 0
+#define pin.low(PIN_NAME)             PIN_NAME = 0          // LATBbits.LB0 = 0

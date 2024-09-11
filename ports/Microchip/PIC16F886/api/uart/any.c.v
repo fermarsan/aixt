@@ -1,3 +1,3 @@
 module uart
 
-#define	uart__any()		RCIF
+#define	uart.any()		RCIF

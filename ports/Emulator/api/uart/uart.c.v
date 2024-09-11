@@ -10,7 +10,7 @@ module uart
 #include <string.h>
 
 __global (
-	uart__buffer = ''
+	uart.buffer = ''
 )
 
 fn init() {

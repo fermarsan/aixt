@@ -135,28 +135,28 @@
 
 void main__init();
 
-void adc__init();
+void adc.init();
 
-long adc__read(unsigned char channel);
+long adc.read(unsigned char channel);
 
-void adc__setup();
+void adc.setup();
 
-void pwm__init();
+void pwm.init();
 
-void pwm__setup();
+void pwm.setup();
 
-void pwm__write(long duty);
+void pwm.write(long duty);
 
 void main__init() {
-	adc__init();
-	pwm__init();
+	adc.init();
+	pwm.init();
 	
 }
 
-void adc__init() {
+void adc.init() {
 }
 
-long adc__read(unsigned char channel) {
+long adc.read(unsigned char channel) {
 	ADCON0bits.CHS = channel;
 	ADCON0bits.GO_DONE = 1;
 	while((ADCON0bits.GO_DONE == 1)) {
@@ -164,16 +164,16 @@ long adc__read(unsigned char channel) {
 	return ADRES;
 }
 
-void adc__setup() {
+void adc.setup() {
 	ADCON1 = 0xC0;
 	ADCON0 = 0xC0;
 	ADCON0bits.ADON = 1;
 }
 
-void pwm__init() {
+void pwm.init() {
 }
 
-void pwm__setup() {
+void pwm.setup() {
 	PR2 = 0x0C;
 	CCPR1L = 0;
 	TRISCbits.TRISC2 = 0;
@@ -183,18 +183,18 @@ void pwm__setup() {
 	T2CONbits.TMR2ON = 1;
 }
 
-void pwm__write(long duty) {
+void pwm.write(long duty) {
 	long pwm = ((duty - 0) * (50 - 0) / (1023 - 0) + 0);
 	CCPR1L = pwm >> 2;
 }
 
 void main(void) {
 	main__init();
-	adc__setup();
-	pwm__setup();
+	adc.setup();
+	pwm.setup();
 	while(true) {
 		long valor_adc = 0;
-		valor_adc = adc__read(0);
-		pwm__write(valor_adc);
+		valor_adc = adc.read(0);
+		pwm.write(valor_adc);
 	}
 }

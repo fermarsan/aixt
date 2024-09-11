@@ -8,18 +8,18 @@ pin.setup(p23, output)
 pin.setup(p24, output)
 
  for{
-    pin__high(p15)
+    pin.high(p15)
 	time__sleep_ms(1000)
-	pin__low(p15)
-	time__sleep_ms(1000)
-
-	pin__high(p23)
-	time__sleep_ms(1000)
-	pin__low(p23)
+	pin.low(p15)
 	time__sleep_ms(1000)
 
-	pin__high(p24)
+	pin.high(p23)
 	time__sleep_ms(1000)
-	pin__low(p24)
+	pin.low(p23)
+	time__sleep_ms(1000)
+
+	pin.high(p24)
+	time__sleep_ms(1000)
+	pin.low(p24)
 	time__sleep_ms(1000)
 }  

@@ -4,24 +4,24 @@
 // Backend = arduino
 
 #define led     gp25
-#define pwm__write(PIN, VAL)	analogWrite(PIN, VAL)
+#define pwm.write(PIN, VAL)	analogWrite(PIN, VAL)
 #define output		OUTPUT
 #define input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
-#define adc__read(PIN_NAME)   analogRead(PIN_NAME)
+#define in_pullup	INPUT_PULLUP
+#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+#define adc.read(PIN_NAME)   analogRead(PIN_NAME)
 
 void main__init();
 
-void pwm__init();
+void pwm.init();
 
-void pin__init();
+void pin.init();
 
-void adc__init();
+void adc.init();
 
 int32_t val = 0;
 
@@ -59,27 +59,27 @@ enum main____pin_names {
 };
 
 void main__init() {
-	pwm__init();
-	pin__init();
-	adc__init();
+	pwm.init();
+	pin.init();
+	adc.init();
 	
 }
 
-void pwm__init() {
+void pwm.init() {
 }
 
-void pin__init() {
+void pin.init() {
 }
 
-void adc__init() {
+void adc.init() {
 }
 
 void setup() {
 	main__init();
-	pin__setup(gp10, output);
+	pin.setup(gp10, output);
 }
 
 void loop() {
-	val = adc__read(gp28);
-	pwm__write(gp10, val);
+	val = adc.read(gp28);
+	pwm.write(gp10, val);
 }

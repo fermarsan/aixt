@@ -12,4 +12,4 @@ module port
 //            |
 //	          +-->	x = PORTA
 
-#define port__read(PORT_NAME)  PORT ## PORT_NAME
+#define port.read(PORT_NAME)  PORT ## PORT_NAME

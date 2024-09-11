@@ -147,11 +147,11 @@ uart.println(message)    // print a string plus a line-new character to the defa
 ```
 * *Example: This is used as `uart.println(Command received)`*
 ```v
-uart__ready // get everything ready for to UART
+uart.ready // get everything ready for to UART
 ```
 * *Example: This is used as `uart.ready()`*
 ```v
-uart__read // receives binary data (in Bytes) to UART
+uart.read // receives binary data (in Bytes) to UART
 ```
 * *Example: This is used as `uart.read()`*
 ```v

@@ -6,25 +6,25 @@
 #define time__sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
-#define adc__read(PIN_NAME)   analogRead(PIN_NAME)
-#define pwm__map(MODE, VALUE,VALUE1,VALUE2,VALUE3)   map(MODE, VALUE,VALUE1,VALUE2,VALUE3)
-#define pwm__write(PIN_NAME, MODE)   pwmWrite(PIN_NAME, MODE)
+#define in_pullup	INPUT_PULLUP
+#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+#define adc.read(PIN_NAME)   analogRead(PIN_NAME)
+#define pwm.map(MODE, VALUE,VALUE1,VALUE2,VALUE3)   map(MODE, VALUE,VALUE1,VALUE2,VALUE3)
+#define pwm.write(PIN_NAME, MODE)   pwmWrite(PIN_NAME, MODE)
 
 void main__init();
 
 void time__init();
 
-void pin__init();
+void pin.init();
 
-void adc__init();
+void adc.init();
 
-void pwm__init();
+void pwm.init();
 
 enum main____pin_names {
 	rX = PA11,
@@ -61,22 +61,22 @@ enum main____pin_names {
 
 void main__init() {
 	time__init();
-	pin__init();
-	adc__init();
-	pwm__init();
+	pin.init();
+	adc.init();
+	pwm.init();
 	
 }
 
 void time__init() {
 }
 
-void pin__init() {
+void pin.init() {
 }
 
-void adc__init() {
+void adc.init() {
 }
 
-void pwm__init() {
+void pwm.init() {
 }
 
 void setup() {

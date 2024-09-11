@@ -100,12 +100,12 @@ SYMBOL TABLE:
 20004000 g       .data	00000000 _data_vma
 200038bc g     F .highcode	000000fc SetSysClock
 200038a4  w      .highcode	00000000 USB_IRQHandler
-0000070e g     F .text	00000048 uart__setup
+0000070e g     F .text	00000048 uart.setup
 00000756 g     F .text	0000002a main
 00000004 g       .highcodelalign	00000000 _highcode_lma
 200038a2  w      .highcode	00000000 LLE_IRQHandler
 00000000 g       .init	00000000 _sinit
-000006fa g     F .text	00000014 uart__read
+000006fa g     F .text	00000014 uart.read
 200038ba  w      .highcode	00000000 WDOG_BAT_IRQHandler
 200038b4  w      .highcode	00000000 TMR3_IRQHandler
 20008000 g       .stack	00000000 _eusrstack
@@ -1240,20 +1240,20 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\ob
 	mret
  6f6:	30200073          	mret
 
-000006fa <uart__read>:
-uart__read():
+000006fa <uart.read>:
+uart.read():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:28
     }
 }
 
 
-uint8_t uart__read(void){
+uint8_t uart.read(void){
     while(!(R8_UART0_RFC == 1)){}
  6fa:	400037b7          	lui	a5,0x40003
  6fe:	4685                	li	a3,1
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:28 (discriminator 1)
  700:	00a7c703          	lbu	a4,10(a5) # 4000300a <_eusrstack+0x1fffb00a>
- 704:	fee69ee3          	bne	a3,a4,700 <uart__read+0x6>
+ 704:	fee69ee3          	bne	a3,a4,700 <uart.read+0x6>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:29
     return R8_UART0_RBR; 
  708:	0087c503          	lbu	a0,8(a5)
@@ -1261,12 +1261,12 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\ob
 }
  70c:	8082                	ret
 
-0000070e <uart__setup>:
-uart__setup():
+0000070e <uart.setup>:
+uart.setup():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:33
 
 
-void uart__setup(uint32_t baud_rate){
+void uart.setup(uint32_t baud_rate){
  70e:	1141                	addi	sp,sp,-16
  710:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:34
@@ -1328,13 +1328,13 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\ob
 int main(void) {
 
 char input = ' ';
-uart__setup(115200);
+uart.setup(115200);
  756:	6571                	lui	a0,0x1c
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:46
 int main(void) {
  758:	1141                	addi	sp,sp,-16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:49
-uart__setup(115200);
+uart.setup(115200);
  75a:	20050513          	addi	a0,a0,512 # 1c200 <_data_lma+0x1b954>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:46
 int main(void) {
@@ -1342,18 +1342,18 @@ int main(void) {
  760:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:51
 while(true) {
-if(uart__any()) {input = uart__read();uart__write((uint8_t)(input) + 1);};
+if(uart.any()) {input = uart.read();uart.write((uint8_t)(input) + 1);};
  762:	40003437          	lui	s0,0x40003
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:49
-uart__setup(115200);
- 766:	3765                	jal	70e <uart__setup>
+uart.setup(115200);
+ 766:	3765                	jal	70e <uart.setup>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:51
-if(uart__any()) {input = uart__read();uart__write((uint8_t)(input) + 1);};
+if(uart.any()) {input = uart.read();uart.write((uint8_t)(input) + 1);};
  768:	00a44783          	lbu	a5,10(s0) # 4000300a <_eusrstack+0x1fffb00a>
  76c:	0ff7f793          	andi	a5,a5,255
  770:	dfe5                	beqz	a5,768 <main+0x12>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../src/Main.c:51 (discriminator 1)
- 772:	3761                	jal	6fa <uart__read>
+ 772:	3761                	jal	6fa <uart.read>
  774:	0505                	addi	a0,a0,1
  776:	0ff57513          	andi	a0,a0,255
  77a:	00a40423          	sb	a0,8(s0)
@@ -1512,7 +1512,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\ob
 00000868 <UART0_BaudRateCfg>:
 UART0_BaudRateCfg():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_CH573F\obj/../StdPeriphDriver/CH57x_uart0.c:41
- * @param   baudrate    - ²¨ÌØÂÊ
+ * @param   baudrate    - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
  * @return  none
  */

@@ -46,45 +46,45 @@
 #define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 #define output  0   // pin direction
 #define input   1
-#define pin__high(PIN_NAME)  PIN_NAME = 1
-#define pin__low(PIN_NAME)   PIN_NAME = 0
-#define pin__read(PIN_NAME)  PIN_NAME
-#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
-#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
+#define pin.high(PIN_NAME)  PIN_NAME = 1
+#define pin.low(PIN_NAME)   PIN_NAME = 0
+#define pin.read(PIN_NAME)  PIN_NAME
+#define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
+#define pin.write(PIN_NAME,VAL) PIN_NAME = VAL
 
 void main__init();
 
 void time__init();
 
-void pin__init();
+void pin.init();
 
 void main__init() {
 	time__init();
-	pin__init();
+	pin.init();
 	
 }
 
 void time__init() {
 }
 
-void pin__init() {
+void pin.init() {
 }
 
 void main(void) {
 	main__init();
-	pin__setup(c0, output);
-	pin__setup(c1, output);
-	pin__setup(c2, output);
+	pin.setup(c0, output);
+	pin.setup(c1, output);
+	pin.setup(c2, output);
 	while(true) {
-		pin__high(c0);
+		pin.high(c0);
 		time__sleep_ms(500);
-		pin__high(c1);
+		pin.high(c1);
 		time__sleep_ms(500);
-		pin__high(c2);
+		pin.high(c2);
 		time__sleep_ms(500);
-		pin__low(c0);
-		pin__low(c1);
-		pin__low(c2);
+		pin.low(c0);
+		pin.low(c1);
+		pin.low(c2);
 		time__sleep_ms(500);
 	}
 }

@@ -37,19 +37,19 @@ Las funciones que contiene la API entradas o salidas digitales y para realizar u
 
 name                                  | description
 --------------------------------------|----------------------------------------------
-`pin__setup(PIN_NAME, PIN_MODE)`     | Configura `PIN_NAME` en `PIN_MODE`
-`pin__high(PIN_NAME)`                 | Encender `PIN_NAME`
-`pin__low(PIN_NAME)`                  | Apagar `PIN_NAME`
-`pin__write(PIN_NAME,VAL)`            | Escribe `VAL` en `PIN_NAME`
-`pin__read(PIN_NAME)`                 | lee `PIN_NAME`
-`pin__digital(PIN)`                   | Configura I/0 digitales `PIN_NAME`
+`pin.setup(PIN_NAME, PIN_MODE)`     | Configura `PIN_NAME` en `PIN_MODE`
+`pin.high(PIN_NAME)`                 | Encender `PIN_NAME`
+`pin.low(PIN_NAME)`                  | Apagar `PIN_NAME`
+`pin.write(PIN_NAME,VAL)`            | Escribe `VAL` en `PIN_NAME`
+`pin.read(PIN_NAME)`                 | lee `PIN_NAME`
+`pin.digital(PIN)`                   | Configura I/0 digitales `PIN_NAME`
 `pin (PIN)`                           | Configura `PIN_OUTPUT` o `PIN_INPUT`
 `port`                                | Inicializa `port`
-`port__read(PORT_NAME)`               | Lee `PORT_NAME`
-`port__setup(PORT_NAME, VALUE)`       | Configura `PORT_NAME` asigna valor `VALUE`
-`port__write(PORT_NAME, VALUE)`       | Escribe `PORT_NAME` en `VALUE`
-`adc__setup()`                        | Configura el `adc` 
-`adc__read(channel)`                  | Configura el canal `channel` del `adc`
+`port.read(PORT_NAME)`               | Lee `PORT_NAME`
+`port.setup(PORT_NAME, VALUE)`       | Configura `PORT_NAME` asigna valor `VALUE`
+`port.write(PORT_NAME, VALUE)`       | Escribe `PORT_NAME` en `VALUE`
+`adc.setup()`                        | Configura el `adc` 
+`adc.read(channel)`                  | Configura el canal `channel` del `adc`
 `adc`                                 | Inicializa `adc` 
 `time__sleep(time)`                   | Retardo en `seg`
 `time__sleep_us(time)`                | Retardo en `microseg`

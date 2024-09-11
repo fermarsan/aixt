@@ -8,4 +8,4 @@
 
 module uart
 
-#define uart__read   Serial.read
+#define uart.read   Serial.read

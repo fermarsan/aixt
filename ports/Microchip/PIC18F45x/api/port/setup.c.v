@@ -12,4 +12,4 @@ module port
 //            |
 //	          +-->	TRISA = value
 
-#define port__setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
+#define port.setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE

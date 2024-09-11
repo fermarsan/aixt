@@ -9,4 +9,4 @@
 
 module pin
 
-#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
+#define pin.write(PIN_NAME,VAL) PIN_NAME = VAL

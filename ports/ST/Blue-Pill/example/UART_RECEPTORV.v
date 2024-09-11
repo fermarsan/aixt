@@ -4,34 +4,34 @@ import uart
 	recibe_dato := int (0)
 
 
-pin__setup(p5,output)
-pin__setup(p7,output)
-pin__setup(p6,output)
-uart__setup(9600)
+pin.setup(p5,output)
+pin.setup(p7,output)
+pin.setup(p6,output)
+uart.setup(9600)
 for {
-  if uart__ready()>0 {
+  if uart.ready()>0 {
 
-    recibe_dato = uart__read()
+    recibe_dato = uart.read()
     time__sleep_ms(100) 
   }
 if recibe_dato ==`1`{  
-	pin__high(p5)
-    pin__low(p7)
-    pin__low(p6)
+	pin.high(p5)
+    pin.low(p7)
+    pin.low(p6)
  }
 else if recibe_dato ==`2`{ 
-    pin__low(p5)
-    pin__high(p7)
-    pin__low(p6)
+    pin.low(p5)
+    pin.high(p7)
+    pin.low(p6)
 }
 else if recibe_dato ==`3`{ 
-    pin__low(p5)
-    pin__low(p7)
-    pin__high(p6)
+    pin.low(p5)
+    pin.low(p7)
+    pin.high(p6)
 }
 else {
-    pin__low(p5)
-    pin__low(p7)
-    pin__low(p7)
+    pin.low(p5)
+    pin.low(p7)
+    pin.low(p7)
   }
 }

@@ -9,12 +9,12 @@ pin.setup(P1, input)
 for {
   
  
-  if (pin__read(p1)==1){
-  pin__high(p23)
-	pin__low(p24)
+  if (pin.read(p1)==1){
+  pin.high(p23)
+	pin.low(p24)
   }
   else{
-  pin__high(p24)
-	pin__low(p23)
+  pin.high(p24)
+	pin.low(p23)
   }  
 }

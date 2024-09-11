@@ -1,3 +1,3 @@
 module adc
 
-#define adc__read(PIN_NAME)   analogRead(PIN_NAME)
+#define adc.read(PIN_NAME)   analogRead(PIN_NAME)

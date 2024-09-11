@@ -1,11 +1,11 @@
-#define uart__println_1(MESSAGE)   Serial1.println(MESSAGE)
-#define uart__println(MESSAGE)   Serial.println(MESSAGE)
-#define uart__read_1   Serial1.read
-#define uart__read   Serial.read
-#define uart__ready_1   Serial1.available
-#define uart__read   Serial.read
-#define uart__setup_1(BAUD_RATE)   Serial1.begin(BAUD_RATE)
-#define uart__setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
+#define uart.println_1(MESSAGE)   Serial1.println(MESSAGE)
+#define uart.println(MESSAGE)   Serial.println(MESSAGE)
+#define uart.read_1   Serial1.read
+#define uart.read   Serial.read
+#define uart.ready_1   Serial1.available
+#define uart.read   Serial.read
+#define uart.setup_1(BAUD_RATE)   Serial1.begin(BAUD_RATE)
+#define uart.setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
 
 
 

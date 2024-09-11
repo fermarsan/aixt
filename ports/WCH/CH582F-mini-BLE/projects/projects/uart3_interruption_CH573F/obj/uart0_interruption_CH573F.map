@@ -24,9 +24,9 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./src/Main.o
  .data          0x0000000000000000        0x0 ./src/Main.o
  .bss           0x0000000000000000        0x0 ./src/Main.o
- .text.uart__print
+ .text.uart.print
                 0x0000000000000000       0x18 ./src/Main.o
- .text.uart__read
+ .text.uart.read
                 0x0000000000000000       0x14 ./src/Main.o
  .text.isr_uart_rx
                 0x0000000000000000       0x28 ./src/Main.o
@@ -485,9 +485,9 @@ END GROUP
                 0x0000000000000650                handle_reset
  *(.text)
  *(.text.*)
- .text.uart__setup
+ .text.uart.setup
                 0x00000000000006fa       0x48 ./src/Main.o
-                0x00000000000006fa                uart__setup
+                0x00000000000006fa                uart.setup
  .text.startup.main
                 0x0000000000000742       0x24 ./src/Main.o
                 0x0000000000000742                main

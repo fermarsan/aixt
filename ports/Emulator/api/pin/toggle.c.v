@@ -6,6 +6,6 @@ module pin
 
 // toggle function toggles the logic value of a specific pin
 pub fn toggle(name int) {   
-    pin__pins[name] ^= int(1)
+    pin.pins[name] ^= int(1)
     pin.update()
 }

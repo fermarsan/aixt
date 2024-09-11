@@ -1,3 +1,3 @@
 module uart
 
-#define	uart__any()	U1STAbits.URXDA
+#define	uart.any()	U1STAbits.URXDA

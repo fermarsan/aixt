@@ -68,46 +68,46 @@
 #define c7    PORTCbits.RC7
 #define output 0   // pin direction
 #define input  1
-#define pin__digital()   ADCON1bits.PCFG = 0b00000110
-#define pin__high(PIN_NAME)  PIN_NAME = 1
-#define pin__low(PIN_NAME)   PIN_NAME = 0
-#define pin__read(PIN_NAME)  PIN_NAME
-#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
-#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
+#define pin.digital()   ADCON1bits.PCFG = 0b00000110
+#define pin.high(PIN_NAME)  PIN_NAME = 1
+#define pin.low(PIN_NAME)   PIN_NAME = 0
+#define pin.read(PIN_NAME)  PIN_NAME
+#define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
+#define pin.write(PIN_NAME,VAL) PIN_NAME = VAL
 
 void main__init();
 
-void pin__init();
+void pin.init();
 
 void main__init() {
-	pin__init();
+	pin.init();
 	
 }
 
-void pin__init() {
+void pin.init() {
 }
 
 void main(void) {
 	main__init();
-	pin__setup(c0, output);
-	pin__setup(c1, output);
-	pin__setup(a2, input);
-	pin__setup(a3, input);
-	pin__write(c0, 0);
-	pin__write(c1, 0);
-	pin__digital();
+	pin.setup(c0, output);
+	pin.setup(c1, output);
+	pin.setup(a2, input);
+	pin.setup(a3, input);
+	pin.write(c0, 0);
+	pin.write(c1, 0);
+	pin.digital();
 	unsigned char x = 0;
 	unsigned char x1 = 0;
 	while(true) {
-		x = pin__read(a2);
-		x1 = pin__read(a3);
+		x = pin.read(a2);
+		x1 = pin.read(a3);
 		if(x == 1) {
-			pin__high(c0);
-			pin__high(c1);
+			pin.high(c0);
+			pin.high(c1);
 		}
 		else if(x1 == 1) {
-			pin__low(c0);
-			pin__low(c1);
+			pin.low(c0);
+			pin.low(c1);
 		}
 	}
 }

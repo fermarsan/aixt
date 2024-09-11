@@ -66,30 +66,30 @@
 #define c5    PORTCbits.RC5
 #define c6    PORTCbits.RC6
 #define c7    PORTCbits.RC7
-#define adc__setup()  ADCON1 = 0b10000000;  ADCON0 = 0b11001000;  ADCON0bits.ADON = 1;
+#define adc.setup()  ADCON1 = 0b10000000;  ADCON0 = 0b11001000;  ADCON0bits.ADON = 1;
 
 void main__init();
 
-void adc__init();
+void adc.init();
 
-unsigned int adc__read(unsigned int channel);
+unsigned int adc.read(unsigned int channel);
 
-void pwm__init();
+void pwm.init();
 
-void pwm__setup();
+void pwm.setup();
 
-void pwm__write(unsigned int duty);
+void pwm.write(unsigned int duty);
 
 void main__init() {
-	adc__init();
-	pwm__init();
+	adc.init();
+	pwm.init();
 	
 }
 
-void adc__init() {
+void adc.init() {
 }
 
-unsigned int adc__read(unsigned int channel) {
+unsigned int adc.read(unsigned int channel) {
 	ADCON0bits.CHS = channel;
 	ADCON0bits.GO_DONE = 1;
 	while(ADCON0bits.GO_DONE == 1) {
@@ -97,10 +97,10 @@ unsigned int adc__read(unsigned int channel) {
 	return (ADRESH << 8) | ADRESL;
 }
 
-void pwm__init() {
+void pwm.init() {
 }
 
-void pwm__setup() {
+void pwm.setup() {
 	PR2 = 0x3E;
 	CCPR2L = 0;
 	TRISCbits.TRISC1 = 0;
@@ -110,18 +110,18 @@ void pwm__setup() {
 	T2CONbits.TMR2ON = 1;
 }
 
-void pwm__write(unsigned int duty) {
+void pwm.write(unsigned int duty) {
 	unsigned int pwm = ((duty - 0) * (60 - 0) / (256 - 0) + 0);
 	CCPR2L = (pwm >> 2);
 }
 
 void main(void) {
 	main__init();
-	adc__setup();
-	pwm__setup();
+	adc.setup();
+	pwm.setup();
 	while(true) {
 		unsigned int x = 0;
-		x = adc__read(0);
-		pwm__write(x);
+		x = adc.read(0);
+		pwm.write(x);
 	}
 }

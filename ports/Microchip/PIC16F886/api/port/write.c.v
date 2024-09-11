@@ -6,4 +6,4 @@
 // Description: Pin-port functions (PIC16F886 port)
 module port
 
-#define port__write(PORT_NAME, VALUE)  PORT ## PORT_NAME = (uint8_t)VALUE
+#define port.write(PORT_NAME, VALUE)  PORT ## PORT_NAME = (uint8_t)VALUE

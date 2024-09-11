@@ -1,3 +1,3 @@
 module pin
 
-#define pin__write(PIN, VALUE)	gpio_write(PIN, VALUE)
+#define pin.write(PIN, VALUE)	gpio_write(PIN, VALUE)

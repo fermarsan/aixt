@@ -6,32 +6,32 @@
 #define time__sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
-#define uart__println(MESSAGE)   Serial.println(MESSAGE)
-#define uart__println_1(MESSAGE)   Serial1.println(MESSAGE)
-#define uart__read   Serial.read
-#define uart__ready   Serial.available
-#define uart__ready_1   Serial1.available
-#define uart__read_1   Serial1.read
-#define uart__setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
-#define uart__setup_1(BAUD_RATE)   Serial1.begin(BAUD_RATE)
-#define uart__Write(VALUE)    Serial.write(VALUE)
-#define adc__read(PIN_NAME)   analogRead(PIN_NAME)
+#define in_pullup	INPUT_PULLUP
+#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+#define uart.println(MESSAGE)   Serial.println(MESSAGE)
+#define uart.println_1(MESSAGE)   Serial1.println(MESSAGE)
+#define uart.read   Serial.read
+#define uart.ready   Serial.available
+#define uart.ready_1   Serial1.available
+#define uart.read_1   Serial1.read
+#define uart.setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
+#define uart.setup_1(BAUD_RATE)   Serial1.begin(BAUD_RATE)
+#define uart.write(VALUE)    Serial.write(VALUE)
+#define adc.read(PIN_NAME)   analogRead(PIN_NAME)
 
 void main__init();
 
 void time__init();
 
-void pin__init();
+void pin.init();
 
-void uart__init();
+void uart.init();
 
-void adc__init();
+void adc.init();
 
 enum main____pin_names {
 	rX = PA11,
@@ -68,43 +68,43 @@ enum main____pin_names {
 
 void main__init() {
 	time__init();
-	pin__init();
-	uart__init();
-	adc__init();
+	pin.init();
+	uart.init();
+	adc.init();
 	
 }
 
 void time__init() {
 }
 
-void pin__init() {
+void pin.init() {
 }
 
-void uart__init() {
+void uart.init() {
 }
 
-void adc__init() {
+void adc.init() {
 }
 
 void setup() {
 	main__init();
 	int32_t dato = 0;
 	char envia_dato = ' ';
-	uart__setup(9600);
-	uart__println("Inicio de sketch - valores del potenciometro");
+	uart.setup(9600);
+	uart.println("Inicio de sketch - valores del potenciometro");
 }
 
 void loop() {
 	dato = analogRead(p5);
 	delay(100);
-	uart__println(dato);
+	uart.println(dato);
 	if((dato <= 400)) {
-		uart__Write("1");
+		uart.write("1");
 	}
 	else if((dato >= 400 && dato <= 700)) {
-		uart__Write("2");
+		uart.write("2");
 	}
 	else {
-		uart__Write("3");
+		uart.write("3");
 	}
 }

@@ -13,7 +13,7 @@ fn C.read() u8
 
 
 /*
-fn uart__read() u16      // Almacena los datos recibidos que envia el otro dispositivo
+fn uart.read() u16      // Almacena los datos recibidos que envia el otro dispositivo
 {
     for(PIR1bits.RCIF == 0) {}  // Pregunta si hay datos recibidos  
     if(RCSTAbits.OERR == 1)     // Verifica que no haya errores de desbordamiento

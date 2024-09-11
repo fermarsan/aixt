@@ -28,32 +28,32 @@
 #define b23 B, 23
 #define output    		GPIO_ModeOut_PP_5mA
 #define input     		GPIO_ModeIN_Floating
-#define pin__in_pullup		GPIO_ModeIN_PU
-#define pin__in_pulldown	GPIO_ModeIN_PD
-#define pin__setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
-#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
-#define pwm__off(channel, ...)	PWMX_ACTOUT(CH_PWM##channel, 0, High_Level, DISABLE)
-#define pwm__write(channel, value, ...)	PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
-#define adc__setup(channel)  ADC_ChannelCfg(channel)
+#define in_pullup		GPIO_ModeIN_PU
+#define pin.in_pulldown	GPIO_ModeIN_PD
+#define pin.setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
+#define pin.setup(PIN_NAME, PIN_MODE)  pin.setup_(PIN_NAME, PIN_MODE)
+#define pwm.off(channel, ...)	PWMX_ACTOUT(CH_PWM##channel, 0, High_Level, DISABLE)
+#define pwm.write(channel, value, ...)	PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
+#define adc.setup(channel)  ADC_ChannelCfg(channel)
 
 
-void adc__read(uint8_t valor);
+void adc.read(uint8_t valor);
 
 
 
 
-void adc__read(uint8_t valor){
+void adc.read(uint8_t valor){
     value = ADC_ExcutSingleConver() + ADC_DataCalib_Rough();
 }   
 
 
 int main(void) {
 
-pin__setup(a4, input);
-adc__setup(0);
+pin.setup(a4, input);
+adc.setup(0);
 while(true) {
-adc__read(value);
-pwm__write(4, value);
+adc.read(value);
+pwm.write(4, value);
 }
 return 0;
 }

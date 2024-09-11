@@ -7,18 +7,18 @@
 #define time__sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+#define in_pullup	INPUT_PULLUP
+#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
 
 void main__init();
 
 void time__init();
 
-void pin__init();
+void pin.init();
 
 enum main____pin_names {
 	gp0,
@@ -55,35 +55,35 @@ enum main____pin_names {
 
 void main__init() {
 	time__init();
-	pin__init();
+	pin.init();
 	
 }
 
 void time__init() {
 }
 
-void pin__init() {
+void pin.init() {
 }
 
 void setup() {
 	main__init();
-	pin__setup(led, output);
-	pin__setup(gp11, input);
+	pin.setup(led, output);
+	pin.setup(gp11, input);
 }
 
 void loop() {
 	bool b0n = false;
-	if(pin__read(gp11)) {
+	if(pin.read(gp11)) {
 		time__sleep_ms(50);
-		while(pin__read(gp11)) {
+		while(pin.read(gp11)) {
 		}
 		time__sleep_ms(50);
 		b0n = !b0n;
 		if(b0n) {
-			pin__high(led);
+			pin.high(led);
 		}
 		else {
-			pin__low(led);
+			pin.low(led);
 		}
 	}
 }

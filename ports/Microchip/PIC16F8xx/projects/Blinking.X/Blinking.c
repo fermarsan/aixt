@@ -69,27 +69,27 @@
 #define c7    PORTCbits.RC7
 #define output 0   // pin direction
 #define input  1
-#define pin__digital()   ADCON1bits.PCFG = 0b00000110
-#define pin__high(PIN_NAME)  PIN_NAME = 1
-#define pin__low(PIN_NAME)   PIN_NAME = 0
-#define pin__read(PIN_NAME)  PIN_NAME
-#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
-#define pin__write(PIN_NAME,VAL) PIN_NAME = VAL
+#define pin.digital()   ADCON1bits.PCFG = 0b00000110
+#define pin.high(PIN_NAME)  PIN_NAME = 1
+#define pin.low(PIN_NAME)   PIN_NAME = 0
+#define pin.read(PIN_NAME)  PIN_NAME
+#define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
+#define pin.write(PIN_NAME,VAL) PIN_NAME = VAL
 #define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 
 void main__init();
 
-void pin__init();
+void pin.init();
 
 void time__init();
 
 void main__init() {
-	pin__init();
+	pin.init();
 	time__init();
 	
 }
 
-void pin__init() {
+void pin.init() {
 }
 
 void time__init() {
@@ -97,19 +97,19 @@ void time__init() {
 
 void main(void) {
 	main__init();
-	pin__setup(b4, output);
-	pin__setup(b5, output);
-	pin__setup(b6, output);
+	pin.setup(b4, output);
+	pin.setup(b5, output);
+	pin.setup(b6, output);
 	while(true) {
-		pin__high(b4);
+		pin.high(b4);
 		time__sleep_ms(500);
-		pin__high(b5);
+		pin.high(b5);
 		time__sleep_ms(500);
-		pin__high(b6);
+		pin.high(b6);
 		time__sleep_ms(500);
-		pin__low(b4);
-		pin__low(b5);
-		pin__low(b6);
+		pin.low(b4);
+		pin.low(b5);
+		pin.low(b6);
 		time__sleep_ms(500);
 	}
 }

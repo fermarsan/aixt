@@ -133,9 +133,9 @@ SYMBOL TABLE:
 200038bc g     F .highcode	000000fc SetSysClock
 200038a4  w      .highcode	00000000 USB_IRQHandler
 20004074 g     O .bss	00000050 __temp_str
-00000706 g     F .text	00000048 uart__setup
+00000706 g     F .text	00000048 uart.setup
 0000132e g     F .text	00000002 __malloc_lock
-000006ee g     F .text	00000018 uart__print
+000006ee g     F .text	00000018 uart.print
 0000074e g     F .text	00000064 main
 000011ea g     F .text	000000ce _malloc_r
 00000004 g       .highcodelalign	00000000 _highcode_lma
@@ -1280,43 +1280,43 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH
 	mret
      6ea:	30200073          	mret
 
-000006ee <uart__print>:
-uart__print():
+000006ee <uart.print>:
+uart.print():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:27
 }
 
 
-void uart__print(char* msg){
+void uart.print(char* msg){
     while(*msg != '\0'){
-        uart__write(*msg);
+        uart.write(*msg);
      6ee:	40003737          	lui	a4,0x40003
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:26
     while(*msg != '\0'){
      6f2:	00050783          	lb	a5,0(a0)
-     6f6:	e391                	bnez	a5,6fa <uart__print+0xc>
+     6f6:	e391                	bnez	a5,6fa <uart.print+0xc>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:30
         msg++;
     }
 }
      6f8:	8082                	ret
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:27
-        uart__write(*msg);
+        uart.write(*msg);
      6fa:	0ff7f793          	andi	a5,a5,255
      6fe:	00f70423          	sb	a5,8(a4) # 40003008 <_eusrstack+0x1fffb008>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:28
         msg++;
      702:	0505                	addi	a0,a0,1
-     704:	b7fd                	j	6f2 <uart__print+0x4>
+     704:	b7fd                	j	6f2 <uart.print+0x4>
 
-00000706 <uart__setup>:
-uart__setup():
+00000706 <uart.setup>:
+uart.setup():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:39
     while(!(R8_UART0_RFC == 1)){}
     return R8_UART0_RBR; 
 }
 
 
-void uart__setup(uint32_t baud_rate){
+void uart.setup(uint32_t baud_rate){
      706:	1141                	addi	sp,sp,-16
      708:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:40
@@ -1377,13 +1377,13 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH
 
 int main(void) {
 main__init();
-uart__setup(115200);
+uart.setup(115200);
      74e:	6571                	lui	a0,0x1c
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:52
 int main(void) {
      750:	1101                	addi	sp,sp,-32
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:54
-uart__setup(115200);
+uart.setup(115200);
      752:	20050513          	addi	a0,a0,512 # 1c200 <_data_lma+0x1ae34>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:52
 int main(void) {
@@ -1399,11 +1399,11 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH
 uint8_t count = 0;
      766:	4401                	li	s0,0
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:54
-uart__setup(115200);
-     768:	3f79                	jal	706 <uart__setup>
+uart.setup(115200);
+     768:	3f79                	jal	706 <uart.setup>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:57
 while(true) {
-uart__print("counter");
+uart.print("counter");
      76a:	00001b17          	auipc	s6,0x1
      76e:	bfeb0b13          	addi	s6,s6,-1026 # 1368 <_sbrk+0x22>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:58
@@ -1412,14 +1412,14 @@ sprintf(__temp_str, " = %u...", (unsigned int)count);
      776:	bfea8a93          	addi	s5,s5,-1026 # 1370 <_sbrk+0x2a>
      77a:	81418913          	addi	s2,gp,-2028 # 20004074 <__temp_str>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:59
-uart__println(__temp_str);
+uart.println(__temp_str);
      77e:	400034b7          	lui	s1,0x40003
      782:	4a29                	li	s4,10
      784:	49b5                	li	s3,13
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:57 (discriminator 1)
-uart__print("counter");
+uart.print("counter");
      786:	855a                	mv	a0,s6
-     788:	379d                	jal	6ee <uart__print>
+     788:	379d                	jal	6ee <uart.print>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:58 (discriminator 1)
 sprintf(__temp_str, " = %u...", (unsigned int)count);
      78a:	8622                	mv	a2,s0
@@ -1427,9 +1427,9 @@ sprintf(__temp_str, " = %u...", (unsigned int)count);
      78e:	854a                	mv	a0,s2
      790:	2a2d                	jal	8ca <siprintf>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:59 (discriminator 1)
-uart__println(__temp_str);
+uart.println(__temp_str);
      792:	854a                	mv	a0,s2
-     794:	3fa9                	jal	6ee <uart__print>
+     794:	3fa9                	jal	6ee <uart.print>
      796:	01448423          	sb	s4,8(s1) # 40003008 <_eusrstack+0x1fffb008>
      79a:	01348423          	sb	s3,8(s1)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:60 (discriminator 1)
@@ -1600,7 +1600,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH
 0000089a <UART0_BaudRateCfg>:
 UART0_BaudRateCfg():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../StdPeriphDriver/CH57x_uart0.c:41
- * @param   baudrate    - ²¨ÌØÂÊ
+ * @param   baudrate    - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
  * @return  none
  */

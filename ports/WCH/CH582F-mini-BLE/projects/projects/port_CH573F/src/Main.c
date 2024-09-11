@@ -7,30 +7,30 @@
 #define true 1
 #define a A
 #define b B
-#define port__output    GPIO_ModeOut_PP_5mA
-#define port__input     	GPIO_ModeIN_Floating
-#define port__in_pullup		GPIO_ModeIN_PU
-#define port__in_pulldown	GPIO_ModeIN_PD
-#define port__read(PORT) GPIO##PORT##_ReadPort()
-#define port__setup_(PORT, BITS, MODE) GPIO##PORT##_ModeCfg(BITS, MODE)
-#define port__setup(PORT, BITS, MODE)  port__setup_(PORT, BITS, MODE)
-#define port__write_(PORT, BITS) GPIO##PORT##_SetBits(BITS)
-#define port__write(PORT, BITS)  port__write_(PORT, BITS)
+#define port.output    GPIO_ModeOut_PP_5mA
+#define port.input     	GPIO_ModeIN_Floating
+#define port.in_pullup		GPIO_ModeIN_PU
+#define port.in_pulldown	GPIO_ModeIN_PD
+#define port.read(PORT) GPIO##PORT##_ReadPort()
+#define port.setup_(PORT, BITS, MODE) GPIO##PORT##_ModeCfg(BITS, MODE)
+#define port.setup(PORT, BITS, MODE)  port.setup_(PORT, BITS, MODE)
+#define port.write_(PORT, BITS) GPIO##PORT##_SetBits(BITS)
+#define port.write(PORT, BITS)  port.write_(PORT, BITS)
 #define time__sleep_ms(TIME)    DelayMs(TIME)
 
 void main__init();
 
-void port__init();
+void port.init();
 
 void time__init();
 
 void main__init() {
-	port__init();
+	port.init();
 	time__init();
 	
 }
 
-void port__init() {
+void port.init() {
 }
 
 void time__init() {
@@ -40,12 +40,12 @@ int main(void) {
     SetSysClock(CLK_SOURCE_PLL_60MHz);
 
 	main__init();
-	port__setup(a, 0x00000800, port__output);
-	port__setup(b, 0xFFFFFFFF, port__output);
+	port.setup(a, 0x00000800, port.output);
+	port.setup(b, 0xFFFFFFFF, port.output);
 	while(true) {
-		port__write(a, 0x00000800);
+		port.write(a, 0x00000800);
 		time__sleep_ms(500);
-		port__write(b, 0x00000800);
+		port.write(b, 0x00000800);
 		time__sleep_ms(500);
 	}
 	return 0;

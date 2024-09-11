@@ -6,29 +6,29 @@
 #define time__sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
-#define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
-#define uart__println(MESSAGE)   Serial.println(MESSAGE)
-#define uart__println_1(MESSAGE)   Serial1.println(MESSAGE)
-#define uart__read   Serial.read
-#define uart__ready   Serial.available
-#define uart__ready_1   Serial1.available
-#define uart__read_1   Serial1.read
-#define uart__setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
-#define uart__setup_1(BAUD_RATE)   Serial1.begin(BAUD_RATE)
-#define uart__Write(VALUE)  Serial.write(VALUE)
+#define in_pullup	INPUT_PULLUP
+#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+#define uart.println(MESSAGE)   Serial.println(MESSAGE)
+#define uart.println_1(MESSAGE)   Serial1.println(MESSAGE)
+#define uart.read   Serial.read
+#define uart.ready   Serial.available
+#define uart.ready_1   Serial1.available
+#define uart.read_1   Serial1.read
+#define uart.setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
+#define uart.setup_1(BAUD_RATE)   Serial1.begin(BAUD_RATE)
+#define uart.write(VALUE)  Serial.write(VALUE)
 
 void main__init();
 
 void time__init();
 
-void pin__init();
+void pin.init();
 
-void uart__init();
+void uart.init();
 
 enum main____pin_names {
 	rx = PA9,
@@ -68,52 +68,52 @@ enum main____pin_names {
 
 void main__init() {
 	time__init();
-	pin__init();
-	uart__init();
+	pin.init();
+	uart.init();
 	
 }
 
 void time__init() {
 }
 
-void pin__init() {
+void pin.init() {
 }
 
-void uart__init() {
+void uart.init() {
 }
 
 void setup() {
 	main__init();
 	int32_t recibe_dato = 0;
-	pin__setup(p5, output);
-	pin__setup(p7, output);
-	pin__setup(p6, output);
-	uart__setup(9600);
+	pin.setup(p5, output);
+	pin.setup(p7, output);
+	pin.setup(p6, output);
+	uart.setup(9600);
 }
 
 void loop() {
-	if(uart__ready() > 0) {
-		recibe_dato == uart__read();
+	if(uart.ready() > 0) {
+		recibe_dato == uart.read();
 		time__sleep_ms(100);
 	}
 	if(recibe_dato == '1') {
-		pin__high(p5);
-		pin__low(p7);
-		pin__low(p6);
+		pin.high(p5);
+		pin.low(p7);
+		pin.low(p6);
 	}
 	else if(recibe_dato == '2') {
-		pin__low(p5);
-		pin__high(p7);
-		pin__low(p6);
+		pin.low(p5);
+		pin.high(p7);
+		pin.low(p6);
 	}
 	else if(recibe_dato == '3') {
-		pin__low(p5);
-		pin__low(p7);
-		pin__high(p6);
+		pin.low(p5);
+		pin.low(p7);
+		pin.high(p6);
 	}
 	else {
-		pin__low(p5);
-		pin__low(p7);
-		pin__low(p7);
+		pin.low(p5);
+		pin.low(p7);
+		pin.low(p7);
 	}
 }

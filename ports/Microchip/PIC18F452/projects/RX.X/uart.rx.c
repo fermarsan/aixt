@@ -132,51 +132,51 @@
 #define e0    TRISCbits.TRISE0
 #define e1    TRISCbits.TRISE1
 #define e2    TRISCbits.TRISE2
-#define port__output  0   // port mode (direction)
-#define port__input   1
-#define port__read(PORT_NAME)  PORT ## PORT_NAME
-#define port__setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
-#define port__write(PORT_NAME, VALUE)	LAT ## PORT_NAME = VALUE
+#define port.output  0   // port mode (direction)
+#define port.input   1
+#define port.read(PORT_NAME)  PORT ## PORT_NAME
+#define port.setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
+#define port.write(PORT_NAME, VALUE)	LAT ## PORT_NAME = VALUE
 #define output 0   // pin mode (direction)
 #define input  1
-#define pin__high(PIN_NAME)  PIN_NAME = 1          // LATBbits.LB0 = 1
-#define pin__low(PIN_NAME)   PIN_NAME = 0          // LATBbits.LB0 = 0
-#define pin__read(PIN_NAME)  PIN_NAME ##_i             // PORTBbits.RB0
-#define pin__setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
-#define pin__write(PIN_NAME,VAL)   PIN_NAME = VAL    // LATBbits.LB0 = 0
+#define pin.high(PIN_NAME)  PIN_NAME = 1          // LATBbits.LB0 = 1
+#define pin.low(PIN_NAME)   PIN_NAME = 0          // LATBbits.LB0 = 0
+#define pin.read(PIN_NAME)  PIN_NAME ##_i             // PORTBbits.RB0
+#define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+#define pin.write(PIN_NAME,VAL)   PIN_NAME = VAL    // LATBbits.LB0 = 0
 
 void main__init();
 
-void port__init();
+void port.init();
 
-void uart__init();
+void uart.init();
 
-char uart__read();
+char uart.read();
 
-void uart__setup();
+void uart.setup();
 
-void uart__write(char data);
+void uart.write(char data);
 
-void pin__init();
+void pin.init();
 
 void main__init() {
-	port__init();
-	uart__init();
-	pin__init();
+	port.init();
+	uart.init();
+	pin.init();
 	
 }
 
-void port__init() {
+void port.init() {
 }
 
-void uart__init() {
+void uart.init() {
 }
 
-char uart__read() {
+char uart.read() {
 	return RCREG;
 }
 
-void uart__setup() {
+void uart.setup() {
 	SPBRG = ((_XTAL_FREQ / 9600) / 64) - 1;
 	TXSTAbits.BRGH = 0;
 	TXSTAbits.SYNC = 0;
@@ -187,20 +187,20 @@ void uart__setup() {
 	RCSTAbits.CREN = 1;
 }
 
-void uart__write(char data) {
+void uart.write(char data) {
 	TXREG = data;
 }
 
-void pin__init() {
+void pin.init() {
 }
 
 void main(void) {
 	main__init();
-	port__setup(b, port__output);
-	port__write(b, 0b00000000);
-	pin__setup(c7, input);
-	uart__setup();
+	port.setup(b, port.output);
+	port.write(b, 0b00000000);
+	pin.setup(c7, input);
+	uart.setup();
 	while(true) {
-		port__read(b) = uart__read();
+		port.read(b) = uart.read();
 	}
 }

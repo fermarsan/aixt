@@ -8,4 +8,4 @@
 
 module uart
 
-#define uart__ready   Serial.available
+#define uart.ready   Serial.available

@@ -9,12 +9,12 @@ module port
 #define a A  
 #define b B  
 
-#define port__output    GPIO_ModeOut_PP_5mA      
+#define port.output    GPIO_ModeOut_PP_5mA      
 //Tambien esta el modo GPIO_ModeOut_PP_20mA
    
-#define port__input     	GPIO_ModeIN_Floating
-#define port__in_pullup		GPIO_ModeIN_PU
-#define port__in_pulldown	GPIO_ModeIN_PD
+#define port.input     	GPIO_ModeIN_Floating
+#define port.in_pullup		GPIO_ModeIN_PU
+#define port.in_pulldown	GPIO_ModeIN_PD
 //Tambien esta el modo GPIO_ModeIN_PU y GPIO_ModeIN_Floating
 
 /*

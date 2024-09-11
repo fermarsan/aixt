@@ -5,6 +5,6 @@
 
 module pin
 
-#define pin__low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
+#define pin.low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
 
-#define pin__low(PIN_NAME)  pin__low_(PIN_NAME)
+#define pin.low(PIN_NAME)  pin.low_(PIN_NAME)

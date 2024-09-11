@@ -29,16 +29,16 @@ Las funciones que contiene la API entradas o salidas digitales.
 
 name                                  | description
 --------------------------------------|------------------------------
-`pin__setup(PIN_NAME, PIN_MODE)`     | Configura `PIN_NAME` en `PIN_MODE`
-`pin__high(PIN_NAME)`                 | Encender `PIN_NAME`
-`pin__low(PIN_NAME)`                  | Apagar `PIN_NAME`
-`pin__write(PIN_NAME,VAL)`            | Escribe `VAL` en `PIN_NAME`
-`pin__read(PIN_NAME)`                 | lee `PIN_NAME`
+`pin.setup(PIN_NAME, PIN_MODE)`     | Configura `PIN_NAME` en `PIN_MODE`
+`pin.high(PIN_NAME)`                 | Encender `PIN_NAME`
+`pin.low(PIN_NAME)`                  | Apagar `PIN_NAME`
+`pin.write(PIN_NAME,VAL)`            | Escribe `VAL` en `PIN_NAME`
+`pin.read(PIN_NAME)`                 | lee `PIN_NAME`
 `pin (PIN)`                           | Configura `PIN_OUTPUT` o `PIN_INPUT`
 `port`                                | Inicializa `port`
-`port__read(PORT_NAME)`               | Lee `PORT_NAME`
-`port__setup(PORT_NAME, VALUE)`       | Configura `PORT_NAME` asigna valor `VALUE`
-`port__write(PORT_NAME, VALUE)`       | Escribe `PORT_NAME` en `VALUE`
+`port.read(PORT_NAME)`               | Lee `PORT_NAME`
+`port.setup(PORT_NAME, VALUE)`       | Configura `PORT_NAME` asigna valor `VALUE`
+`port.write(PORT_NAME, VALUE)`       | Escribe `PORT_NAME` en `VALUE`
 `time__sleep(time)`                   | Retardo en `seg`
 `time__sleep_us(time)`                | Retardo en `microseg`
 `time__sleep_ms(time)`                | Retardo en `miliseg`

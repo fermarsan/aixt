@@ -161,29 +161,29 @@ NAME               | DESCRIPTION
 
 DEFINITION AIXT	 | DEFINITION ARDUINO
 -----------------|-----------------------------
-`adc__read(PIN_NAME)`|    	`analogRead(PIN_NAME)`
-`pin__high(PIN_NAME)`| 		`digitalWrite(PIN_NAME, HIGH)`
-`pin__low(PIN_NAME)`|        	`digitalWrite(PIN_NAME, LOW)`
+`adc.read(PIN_NAME)`|    	`analogRead(PIN_NAME)`
+`pin.high(PIN_NAME)`| 		`digitalWrite(PIN_NAME, HIGH)`
+`pin.low(PIN_NAME)`|        	`digitalWrite(PIN_NAME, LOW)`
 `output`| 				`OUTPUT`
 `input`|	`INPUT`
 `input_pullup	INPUT_PULLUP`|
-`pin__read(PIN_NAME)`|   	`digitalRead(PIN_NAME)`
-`pin__setup(PIN_NAME, MODE)`|        	`pinMode(PIN_NAME, MODE)`
-`pin__write(PIN_NAME, VALUE)`|  	`digitalWrite(PIN_NAME, VALUE)`
-`pwm__write(PIN, VALUE)`|   	`analogWrite(PIN, VALUE)`
+`pin.read(PIN_NAME)`|   	`digitalRead(PIN_NAME)`
+`pin.setup(PIN_NAME, MODE)`|        	`pinMode(PIN_NAME, MODE)`
+`pin.write(PIN_NAME, VALUE)`|  	`digitalWrite(PIN_NAME, VALUE)`
+`pwm.write(PIN, VALUE)`|   	`analogWrite(PIN, VALUE)`
 `time__sleep_ms(MS)`|  	`delay(MS)`
 `time__sleep_us(US) `|  	`delayMicroseconds(US)`
 `time__sleep(S)`|	`delay(S*1000)`
-`uart__any_0()`|		`Serial.available()`
-`uart__any_1()`|		`Serial1.available()`
-`uart__any_x(UART_NUMBER)	uart__any ## UART_NUMBER ##`| `serial.available()`
-`uart__print_0(MESSAGE)`|		`Serial.print(MESSAGE)`
-`uart__print_1(MESSAGE)`|		`Serial1.print(MESSAGE)`
-`uart__println_0(MESSAGE)`|		`Serial.println(MESSAGE)`
-`uart__println_1(MESSAGE)`|		`Serial1.println(MESSAGE)`
-`uart__read_0()`|		`Serial.read()`
-`uart__read_1()`|		`Serial1.read()`
-`uart__setup(BAUD_RATE)`|   	`Serial.begin(BAUD_RATE)`
+`uart.any_0()`|		`Serial.available()`
+`uart.any_1()`|		`Serial1.available()`
+`uart.any_x(UART_NUMBER)	uart.any ## UART_NUMBER ##`| `serial.available()`
+`uart.print_0(MESSAGE)`|		`Serial.print(MESSAGE)`
+`uart.print_1(MESSAGE)`|		`Serial1.print(MESSAGE)`
+`uart.println_0(MESSAGE)`|		`Serial.println(MESSAGE)`
+`uart.println_1(MESSAGE)`|		`Serial1.println(MESSAGE)`
+`uart.read_0()`|		`Serial.read()`
+`uart.read_1()`|		`Serial1.read()`
+`uart.setup(BAUD_RATE)`|   	`Serial.begin(BAUD_RATE)`
   `  *Table of equivalences between functions`
 
 

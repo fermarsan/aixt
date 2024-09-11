@@ -9,4 +9,4 @@
 
 module pin
 
-#define pin__digital()   ADCON1bits.PCFG = 0b00000110
+#define pin.digital()   ADCON1bits.PCFG = 0b00000110

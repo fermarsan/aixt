@@ -7,9 +7,9 @@
 #include "CH57x_common.h"
 #define true 1
 #define time__sleep_ms(TIME)    DelayMs(TIME)
-#define uart__println(MSG)		uart__print(MSG);  uart__write('\n');  uart__write('\r')
-#define uart__any()  R8_UART0_RFC
-#define	uart__write(DATA)	R8_UART0_THR = DATA
+#define uart.println(MSG)		uart.print(MSG);  uart.write('\n');  uart.write('\r')
+#define uart.any()  R8_UART0_RFC
+#define	uart.write(DATA)	R8_UART0_THR = DATA
 #define a4  A, 4
 #define a5  A, 5
 #define a8  A, 8
@@ -32,40 +32,40 @@
 #define b23 B, 23
 #define output    		GPIO_ModeOut_PP_5mA
 #define input     		GPIO_ModeIN_Floating
-#define pin__in_pullup		GPIO_ModeIN_PU
-#define pin__in_pulldown	GPIO_ModeIN_PD
-#define pin__high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
-#define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
-#define pin__low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
-#define pin__low(PIN_NAME)  pin__low_(PIN_NAME)
-#define pin__read_(port, ...) GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
-#define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
-#define pin__setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
-#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
-#define pin__toggle_(port, ...) GPIO##port##_InverseBits(GPIO_Pin_##__VA_ARGS__)
-#define pin__toggle(PIN_NAME)  pin__toggle_(PIN_NAME)
+#define in_pullup		GPIO_ModeIN_PU
+#define pin.in_pulldown	GPIO_ModeIN_PD
+#define pin.high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
+#define pin.high(PIN_NAME)  pin.high_(PIN_NAME)
+#define pin.low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
+#define pin.low(PIN_NAME)  pin.low_(PIN_NAME)
+#define pin.read_(port, ...) GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
+#define pin.read(PIN_NAME)  pin.read_(PIN_NAME)
+#define pin.setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
+#define pin.setup(PIN_NAME, PIN_MODE)  pin.setup_(PIN_NAME, PIN_MODE)
+#define pin.toggle_(port, ...) GPIO##port##_InverseBits(GPIO_Pin_##__VA_ARGS__)
+#define pin.toggle(PIN_NAME)  pin.toggle_(PIN_NAME)
 
-void uart__print(char* msg);
-uint8_t uart__read(void);
-void uart__setup(uint32_t baud_rate);
+void uart.print(char* msg);
+uint8_t uart.read(void);
+void uart.setup(uint32_t baud_rate);
 
 
 
-void uart__print(char* msg){
+void uart.print(char* msg){
     while(*msg != '\0'){
-        uart__write(*msg);
+        uart.write(*msg);
         msg++;
     }
 }
 
 
-uint8_t uart__read(void){
+uint8_t uart.read(void){
     while(!(R8_UART0_RFC == 1)){}
     return R8_UART0_RBR; 
 }
 
 
-void uart__setup(uint32_t baud_rate){
+void uart.setup(uint32_t baud_rate){
     UART0_BaudRateCfg(baud_rate);
     R8_UART0_FCR = (2 << 6) | RB_FCR_TX_FIFO_CLR | RB_FCR_RX_FIFO_CLR | RB_FCR_FIFO_EN;
     R8_UART0_LCR = RB_LCR_WORD_SZ;
@@ -81,13 +81,13 @@ void uart__setup(uint32_t baud_rate){
 
 int main(void) {
 
-pin__high(b7);
-pin__setup(b4, pin__in_pullup);
-pin__setup(b7, output);
-uart__setup(115200);
+pin.high(b7);
+pin.setup(b4, in_pullup);
+pin.setup(b7, output);
+uart.setup(115200);
 while(true) {
-TxBuff = uart__read();
-uart__write(TxBuff);
+TxBuff = uart.read();
+uart.write(TxBuff);
 time__sleep_ms(2000);
 
 }

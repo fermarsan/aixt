@@ -9,7 +9,7 @@
 
 module adc
 
-#define adc__setup()  ADCON1 = 0b10000000;  ADCON0 = 0b11001000;  ADCON0bits.ADON = 1;
+#define adc.setup()  ADCON1 = 0b10000000;  ADCON0 = 0b11001000;  ADCON0bits.ADON = 1;
 
 /*fn setup() u16 {            
     ADCON1 = 0b10000000       /* Vref = VSS y GND, Configuracion de entradas analogicas */ 
@@ -21,7 +21,7 @@ module adc
 
 
 
-/*#define adc__setup() \
+/*#define adc.setup() \
     ADCON1 = 0b10000000 /* Ajusta todos los canales como analogicos */ \
     ADCON0 = 0b11001000 /* Ajusta todos las entradas como analogicos */\
     ADCON0bits.ADON = 1

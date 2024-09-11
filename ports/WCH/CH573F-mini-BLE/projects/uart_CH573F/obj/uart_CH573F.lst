@@ -102,12 +102,12 @@ SYMBOL TABLE:
 20004000 g       .data	00000000 _data_vma
 200038bc g     F .highcode	000000fc SetSysClock
 200038a4  w      .highcode	00000000 USB_IRQHandler
-00000702 g     F .text	00000048 uart__setup
+00000702 g     F .text	00000048 uart.setup
 0000074a g     F .text	0000004c main
 00000004 g       .highcodelalign	00000000 _highcode_lma
 200038a2  w      .highcode	00000000 LLE_IRQHandler
 00000000 g       .init	00000000 _sinit
-000006ee g     F .text	00000014 uart__read
+000006ee g     F .text	00000014 uart.read
 200038ba  w      .highcode	00000000 WDOG_BAT_IRQHandler
 200038b4  w      .highcode	00000000 TMR3_IRQHandler
 20008000 g       .stack	00000000 _eusrstack
@@ -1240,20 +1240,20 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj
 	mret
  6ea:	30200073          	mret
 
-000006ee <uart__read>:
-uart__read():
+000006ee <uart.read>:
+uart.read():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:63
     }
 }
 
 
-uint8_t uart__read(void){
+uint8_t uart.read(void){
     while(!(R8_UART0_RFC == 1)){}
  6ee:	400037b7          	lui	a5,0x40003
  6f2:	4685                	li	a3,1
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:63 (discriminator 1)
  6f4:	00a7c703          	lbu	a4,10(a5) # 4000300a <_eusrstack+0x1fffb00a>
- 6f8:	fee69ee3          	bne	a3,a4,6f4 <uart__read+0x6>
+ 6f8:	fee69ee3          	bne	a3,a4,6f4 <uart.read+0x6>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:64
     return R8_UART0_RBR; 
  6fc:	0087c503          	lbu	a0,8(a5)
@@ -1261,12 +1261,12 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj
 }
  700:	8082                	ret
 
-00000702 <uart__setup>:
-uart__setup():
+00000702 <uart.setup>:
+uart.setup():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:68
 
 
-void uart__setup(uint32_t baud_rate){
+void uart.setup(uint32_t baud_rate){
  702:	1141                	addi	sp,sp,-16
  704:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:69
@@ -1328,7 +1328,7 @@ char TxBuff = ' ';
 
 int main(void) {
 
-pin__high(b7);
+pin.high(b7);
  74a:	40001737          	lui	a4,0x40001
  74e:	0c872783          	lw	a5,200(a4) # 400010c8 <_eusrstack+0x1fff90c8>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:82
@@ -1336,39 +1336,39 @@ int main(void) {
  752:	1141                	addi	sp,sp,-16
  754:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:84
-pin__high(b7);
+pin.high(b7);
  756:	0807e793          	ori	a5,a5,128
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:82
 int main(void) {
  75a:	c422                	sw	s0,8(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:84
-pin__high(b7);
+pin.high(b7);
  75c:	0cf72423          	sw	a5,200(a4)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:85
-pin__setup(b4, pin__in_pullup);
+pin.setup(b4, in_pullup);
  760:	4585                	li	a1,1
  762:	4541                	li	a0,16
  764:	280d                	jal	796 <GPIOB_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:86
-pin__setup(b7, output);
+pin.setup(b7, output);
  766:	458d                	li	a1,3
  768:	08000513          	li	a0,128
  76c:	202d                	jal	796 <GPIOB_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:87
-uart__setup(115200);
+uart.setup(115200);
  76e:	6571                	lui	a0,0x1c
  770:	20050513          	addi	a0,a0,512 # 1c200 <_data_lma+0x1b93c>
- 774:	3779                	jal	702 <uart__setup>
+ 774:	3779                	jal	702 <uart.setup>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:90
 while(true) {
-uart__read();
-uart__write(TxBuff);
+uart.read();
+uart.write(TxBuff);
  776:	40003437          	lui	s0,0x40003
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:89 (discriminator 1)
-uart__read();
- 77a:	3f95                	jal	6ee <uart__read>
+uart.read();
+ 77a:	3f95                	jal	6ee <uart.read>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:90 (discriminator 1)
-uart__write(TxBuff);
+uart.write(TxBuff);
  77c:	20004797          	auipc	a5,0x20004
  780:	8847c783          	lbu	a5,-1916(a5) # 20004000 <TxBuff>
  784:	00f40423          	sb	a5,8(s0) # 40003008 <_eusrstack+0x1fffb008>

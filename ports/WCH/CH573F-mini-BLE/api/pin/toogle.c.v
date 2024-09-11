@@ -5,6 +5,6 @@
 
 module pin
 
-#define pin__toggle_(port, ...) GPIO##port##_InverseBits(GPIO_Pin_##__VA_ARGS__)
+#define pin.toggle_(port, ...) GPIO##port##_InverseBits(GPIO_Pin_##__VA_ARGS__)
 
-#define pin__toggle(PIN_NAME)  pin__toggle_(PIN_NAME)
+#define pin.toggle(PIN_NAME)  pin.toggle_(PIN_NAME)

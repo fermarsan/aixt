@@ -16,7 +16,7 @@ fn read() rune{
 
 
 /*
-fn uart__read() u16    // Almacena los datos recibidos 
+fn uart.read() u16    // Almacena los datos recibidos 
 {
     for(PIR1bits.RCIF == 0) {}  // Pregunta si hay datos recibidos  
     if(RCSTAbits.OERR == 1)     // Verifica que no haya errores 

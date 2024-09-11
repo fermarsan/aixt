@@ -11,4 +11,4 @@ module port
 //           LATb = 0x45			// (PIC18, PIC24, dsPIC33)
 //	          +-->	PORTB = 0x45	// PIC16
 //                  LATB = 0x45		// (PIC18, PIC24, dsPIC33)
-#define port__write(PORT_NAME, VALUE)	LAT ## PORT_NAME = VALUE
+#define port.write(PORT_NAME, VALUE)	LAT ## PORT_NAME = VALUE
