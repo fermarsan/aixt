@@ -30,11 +30,23 @@
 #define output    		GPIO_ModeOut_PP_5mA
 #define input     		GPIO_ModeIN_Floating
 #define in_pullup		GPIO_ModeIN_PU
-#define pin.in_pulldown	GPIO_ModeIN_PD
-#define pin.setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
-#define pin.setup(PIN_NAME, PIN_MODE)  pin.setup_(PIN_NAME, PIN_MODE)
-#define pwm.off(channel, ...)	PWMX_ACTOUT(CH_PWM##channel, 0, High_Level, DISABLE)
-#define pwm.write(channel, value, ...)	PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
+const in_pulldown = C.GPIO_ModeIN_PD
+@[inline]
+pub fn pwm.setup_(port, pin, ...) {
+	C.GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
+}
+@[inline]
+pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+	C.pin.setup_(PIN_NAME, PIN_MODE)
+}
+@[inline]
+pub fn pwm.off(channel, ...) {
+	C.PWMX_ACTOUT(CH_PWM##channel, 0, High_Level, DISABLE)
+}
+@[inline]
+pub fn pwm.write(channel, value, ...) {
+	C.PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
+}
 
 
 

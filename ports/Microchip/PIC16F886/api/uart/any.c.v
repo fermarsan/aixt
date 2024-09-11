@@ -1,3 +1,6 @@
 module uart
 
-#define	uart.any()		RCIF
+@[inline]
+pub fn uart.any() {
+	C.RCIF
+}

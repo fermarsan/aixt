@@ -8,4 +8,7 @@
 
 module uart
 
-#define uart.setup_1(BAUD_RATE)   Serial1.begin(BAUD_RATE)
+@[inline]
+pub fn uart.setup_1(BAUD_RATE) {
+	C.Serial1.begin(BAUD_RATE)
+}

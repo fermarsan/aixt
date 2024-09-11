@@ -9,5 +9,8 @@
 
 module pin 
 
-#define pin.digital()  ANSEL = 0
+@[inline]
+pub fn pwm.digital() {
+	C.ANSEL = 0
+}
 

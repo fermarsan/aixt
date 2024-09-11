@@ -5,4 +5,7 @@
 
 module uart2
 
-#define uart2.any()  R8_UART2_RFC 
+@[inline]
+pub fn uart2.any() {
+	C.R8_UART2_RFC 
+}

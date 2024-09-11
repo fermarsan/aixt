@@ -6,5 +6,11 @@
 // // Description: PWM functions (Blue Pill_STM32F103C)
 //              (PC port) 
 
-#define pwm.write(PIN_NAME, MODE)   pwmWrite(PIN_NAME, MODE)
-#define pwm.map(MODE, VALUE,VALUE1,VALUE2,VALUE3)   map(MODE, VALUE,VALUE1,VALUE2,VALUE3)
+@[inline]
+pub fn pwm.write(PIN_NAME, MODE) {
+	C.pwmWrite(PIN_NAME, MODE)
+}
+@[inline]
+pub fn pwm.map(MODE, VALUE,VALUE1,VALUE2,VALUE3) {
+	C.map(MODE, VALUE,VALUE1,VALUE2,VALUE3)
+}

@@ -6,4 +6,7 @@
 //
 // Description: READ (PIC18F452)
 module pin
-#define pin.read(PIN_NAME)  PIN_NAME ##_i             // PORTBbits.RB0 
+@[inline]
+pub fn pin.read(PIN_NAME) {
+	C.PIN_NAME ##_i             // PORTBbits.RB0 
+}

@@ -68,12 +68,30 @@
 #define c7    PORTCbits.RC7
 #define output 0   // pin direction
 #define input  1
-#define pin.digital()   ADCON1bits.PCFG = 0b00000110
-#define pin.high(PIN_NAME)  PIN_NAME = 1
-#define pin.low(PIN_NAME)   PIN_NAME = 0
-#define pin.read(PIN_NAME)  PIN_NAME
-#define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
-#define pin.write(PIN_NAME,VAL) PIN_NAME = VAL
+@[inline]
+pub fn pwm.digital() {
+	C.ADCON1bits.PCFG = 0b00000110
+}
+@[inline]
+pub fn pin.high(PIN_NAME) {
+	C.PIN_NAME = 1
+}
+@[inline]
+pub fn pin.low(PIN_NAME) {
+	C.PIN_NAME = 0
+}
+@[inline]
+pub fn pin.read(PIN_NAME) {
+	C.PIN_NAME
+}
+@[inline]
+pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+	C.PIN_NAME ## _s = PIN_MODE
+}
+@[inline]
+pub fn pwm.write(PIN_NAME,VAL) {
+	C.PIN_NAME = VAL
+}
 
 void main__init();
 

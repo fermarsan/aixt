@@ -12,4 +12,7 @@ module port
 //            |
 //	          +-->	PORTB = 0x45	// PIC16
 //                  LATB = 0x45		// (PIC18, PIC24, dsPIC33)
-#define port.write(PORT_NAME, VALUE)	LAT ## PORT_NAME = VALUE
+@[inline]
+pub fn port.write(PORT_NAME, VALUE) {
+	C.LAT ## PORT_NAME = VALUE
+}

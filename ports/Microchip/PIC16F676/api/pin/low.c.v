@@ -9,4 +9,7 @@
 
 module pin
 
-#define pin.low(PIN_NAME)   PIN_NAME = 0
+@[inline]
+pub fn pin.low(PIN_NAME) {
+	C.PIN_NAME = 0
+}

@@ -25,14 +25,14 @@ module adc
 // #define	adc.in15	0b0111111111111111
 
 // ADC frequency
-#define adc.f_30ksps_1mhz	0	// VREF 3.0v
-#define adc.f_30ksps_4mhz	1	// VREF 3.0v 
-#define adc.f_18ksps_8mhz	2	// VREF full range
-#define adc.f_21ksps_10mhz	2	// VREF full range
-#define adc.f_24ksps_12mhz	2	// VREF 3.0v
-#define adc.f_30ksps_16mhz	2	// VREF 3.0v
-#define adc.f_34ksps_20mhz	2	// VREF 3.0v
-#define adc.f_18ksps_irc	3	// sleep mode FOSC > 1Mhz
+const f_30ksps_1mhz = C.0	// VREF 3.0v
+const f_30ksps_4mhz = C.1	// VREF 3.0v 
+const f_18ksps_8mhz = C.2	// VREF full range
+const f_21ksps_10mhz = C.2	// VREF full range
+const f_24ksps_12mhz = C.2	// VREF 3.0v
+const f_30ksps_16mhz = C.2	// VREF 3.0v
+const f_34ksps_20mhz = C.2	// VREF 3.0v
+const f_18ksps_irc = C.3	// sleep mode FOSC > 1Mhz
 
 // ADC conversion bits
 #define	adc.bits_8		0

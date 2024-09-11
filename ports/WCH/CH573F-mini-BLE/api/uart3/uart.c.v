@@ -5,4 +5,7 @@
 
 module uart3
 
-#define uart3.println(MSG)		uart3.print(MSG);  uart3.write('\n');  uart3.write('\r')
+@[inline]
+pub fn uart3.println(MSG) {
+C.uart3.print(MSG);  uart3.write('\n');  uart3.write('\r')
+}

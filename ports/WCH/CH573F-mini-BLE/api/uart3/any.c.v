@@ -5,4 +5,7 @@
 
 module uart3
 
-#define uart3.any()  R8_UART3_RFC 
+@[inline]
+pub fn uart3.any() {
+	C.R8_UART3_RFC 
+}

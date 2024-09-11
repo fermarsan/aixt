@@ -1,3 +1,6 @@
 module pin
 
-#define pin.write(PIN, VALUE)	gpio_write(PIN, VALUE)
+@[inline]
+pub fn pwm.write(PIN, VALUE) {
+	C.gpio_write(PIN, VALUE)
+}

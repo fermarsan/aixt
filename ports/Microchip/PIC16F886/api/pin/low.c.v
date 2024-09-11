@@ -6,6 +6,12 @@
 // Description: Pin management functions (PIC16F886 port)
 module pin
 
-#define pin.low_(PORT_NAME, PIN)   PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = 0
+@[inline]
+pub fn pwm.low_(PORT_NAME, PIN) {
+	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = 0
+}
 
-#define pin.low(PIN_NAME)  pin.low_(PIN_NAME)
+@[inline]
+pub fn pin.low(PIN_NAME) {
+	C.pin.low_(PIN_NAME)
+}

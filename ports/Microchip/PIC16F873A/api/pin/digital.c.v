@@ -9,4 +9,7 @@
 
 module pin
 
-#define pin.digital()   ADCON1bits.PCFG = 0b00000110
+@[inline]
+pub fn pwm.digital() {
+	C.ADCON1bits.PCFG = 0b00000110
+}

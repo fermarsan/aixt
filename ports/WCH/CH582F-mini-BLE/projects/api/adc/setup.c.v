@@ -5,5 +5,8 @@
 
 module adc
 
-#define adc.setup(channel)  ADC_ChannelCfg(channel)
+@[inline]
+pub fn adc.setup(channel) {
+C.ADC_ChannelCfg(channel)
+}
 

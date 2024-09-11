@@ -8,4 +8,7 @@
 
 module pin
 
-#define pin.setup(PIN_NAME, PIN_MODE)     PIN_NAME ## _s = PIN_MODE    // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+@[inline]
+pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+	C.PIN_NAME ## _s = PIN_MODE    // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+}

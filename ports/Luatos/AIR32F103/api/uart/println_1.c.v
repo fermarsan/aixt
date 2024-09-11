@@ -8,4 +8,7 @@
 
 module uart
 
-#define uart.println_1(MESSAGE)   Serial1.println(MESSAGE)
+@[inline]
+pub fn uart.println_1(MESSAGE) {
+	C.Serial1.println(MESSAGE)
+}

@@ -19,7 +19,10 @@ fn write(duty u16) {
 
 /*
 // Función para el ciclo de trabajo
-#define pwm.write(duty, pin) \
+@[inline]
+pub fn pwm.write(duty, pin) {
+	C.\
+}
     { \
         unsigned int pwm \
         pwm = ((duty - 0) * (60 - 0) / (256 - 0) + 0) /* Calculando el ciclo de trabajo */ \

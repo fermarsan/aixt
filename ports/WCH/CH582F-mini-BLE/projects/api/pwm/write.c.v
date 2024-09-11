@@ -8,4 +8,7 @@ module pwm
 // There are two types of PWM ---> High_Level or Low_Level 
 // There are two state of PWM ---> ENABLE or DISABLE 
 
-#define pwm.write(channel, value, ...)	PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
+@[inline]
+pub fn pwm.write(channel, value, ...) {
+	C.PWMX_ACTOUT(CH_PWM##channel, value, High_Level, ENABLE)
+}

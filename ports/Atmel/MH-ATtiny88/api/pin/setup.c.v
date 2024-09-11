@@ -6,4 +6,7 @@
 
 module pin 
 
-#define pin.setup(PIN_NAME, MODE)        pinMode(PIN_NAME, MODE)
+@[inline]
+pub fn pwm.setup(PIN_NAME, MODE) {
+	C.pinMode(PIN_NAME, MODE)
+}

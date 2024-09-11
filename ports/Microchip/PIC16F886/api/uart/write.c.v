@@ -9,4 +9,7 @@
 
 module uart
 
-#define uart.write(DATA)   while (TRMT == 0);    TXREG = DATA
+@[inline]
+pub fn uart.write(DATA) {
+	C.while (TRMT == 0);    TXREG = DATA
+}

@@ -6,9 +6,18 @@
 
 #include "CH57x_common.h"
 #define true 1
-#define uart2.println(MSG)		uart2.print(MSG);  uart2.write('\n');  uart2.write('\r')
-#define uart2.any() R8_UART2_RFC
-#define	uart2.write(DATA)	R8_UART2_THR = DATA
+@[inline]
+pub fn uart2.println(MSG) {
+C.uart2.print(MSG);  uart2.write('\n');  uart2.write('\r')
+}
+@[inline]
+pub fn uart2.any() {
+	C.R8_UART2_RFC
+}
+@[inline]
+pub fn uart2.write(DATA) {
+C.R8_UART2_THR = DATA
+}
 #define	irq__uart2_rx_enable()	UART2_ByteTrigCfg(UART2_7BYTE_TRIG);  UART2_INTCfg(ENABLE, RB_IER_RECV_RDY | RB_IER_LINE_STAT);  PFIC_EnableIRQ(UART0_IRQn)
 #define irq_uart2_rx(FN_NAME)	void isr_uart2_rx(void)
 

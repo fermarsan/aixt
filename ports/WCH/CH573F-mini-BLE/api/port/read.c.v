@@ -5,6 +5,9 @@
 
 module port
 
-#define port.read(PORT) GPIO##PORT##_ReadPort()
+@[inline]
+pub fn port.read(PORT) {
+C.GPIO##PORT##_ReadPort()
+}
 
 

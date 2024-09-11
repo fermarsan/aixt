@@ -9,8 +9,8 @@ module port
 
 #include <xc.h>
 
-#define port.output  0   // port mode (direction)
-#define port.input   1
+const output = C.0   // port mode (direction)
+const input = C.1
 
 
 fn init() {

@@ -47,8 +47,14 @@ uint8  adc_intClock_GetFractionalDividerRegister(void);
 #define adc_intClock_Disable()                        adc_intClock_Stop()
 #define adc_intClock_SetDividerRegister(clkDivider, reset)  \
     adc_intClock_SetFractionalDividerRegister((clkDivider), 0u)
-#define adc_intClock_SetDivider(clkDivider)           adc_intClock_SetDividerRegister((clkDivider), 1u)
-#define adc_intClock_SetDividerValue(clkDivider)      adc_intClock_SetDividerRegister((clkDivider) - 1u, 1u)
+@[inline]
+pub fn adc.intClock_SetDivider(clkDivider) {
+C.adc_intClock_SetDividerRegister((clkDivider), 1u)
+}
+@[inline]
+pub fn adc.intClock_SetDividerValue(clkDivider) {
+C.adc_intClock_SetDividerRegister((clkDivider) - 1u, 1u)
+}
 
 
 /***************************************

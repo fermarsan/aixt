@@ -8,5 +8,8 @@ module pwm
 // There are two types of PWM ---> High_Level or Low_Level 
 // There are two state of PWM ---> ENABLE or DISABLE 
 
-#define pwm.off(channel, ...)	PWMX_ACTOUT(CH_PWM##channel, 0, High_Level, DISABLE)
+@[inline]
+pub fn pwm.off(channel, ...) {
+	C.PWMX_ACTOUT(CH_PWM##channel, 0, High_Level, DISABLE)
+}
 

@@ -8,4 +8,7 @@
 
 module uart
 
-#define uart.read_1   Serial1.read
+@[inline]
+pub fn read_1() {
+	C.Serial1.read()
+}

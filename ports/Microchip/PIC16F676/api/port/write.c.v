@@ -7,4 +7,7 @@
 //              (PIC16F676 port)
 module port
 
-#define port.write(PORT_NAME, VALUE)  PORT ## PORT_NAME = VALUE
+@[inline]
+pub fn port.write(PORT_NAME, VALUE) {
+	C.PORT ## PORT_NAME = VALUE
+}

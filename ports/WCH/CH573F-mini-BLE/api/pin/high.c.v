@@ -5,6 +5,12 @@
 
 module pin
 
-#define pin.high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
+@[inline]
+pub fn pwm.high_(port, ...) {
+	C.GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
+}
 
-#define pin.high(PIN_NAME)  pin.high_(PIN_NAME)
+@[inline]
+pub fn pin.high(PIN_NAME) {
+	C.pin.high_(PIN_NAME)
+}

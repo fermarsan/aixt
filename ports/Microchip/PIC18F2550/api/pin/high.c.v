@@ -8,4 +8,7 @@
 
 module pin
 
-#define pin.high(PIN_NAME)            PIN_NAME = 1          // LATBbits.LB0 = 1
+@[inline]
+pub fn pin.high(PIN_NAME) {
+	C.PIN_NAME = 1          // LATBbits.LB0 = 1
+}

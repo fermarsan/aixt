@@ -5,6 +5,12 @@
 
 module pin
 
-#define pin.low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
+@[inline]
+pub fn pwm.low_(port, ...) {
+	C.GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
+}
 
-#define pin.low(PIN_NAME)  pin.low_(PIN_NAME)
+@[inline]
+pub fn pin.low(PIN_NAME) {
+	C.pin.low_(PIN_NAME)
+}

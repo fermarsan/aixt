@@ -1,11 +1,35 @@
-#define uart.println_1(MESSAGE)   Serial1.println(MESSAGE)
-#define uart.println(MESSAGE)   Serial.println(MESSAGE)
-#define uart.read_1   Serial1.read
-#define uart.read   Serial.read
-#define uart.ready_1   Serial1.available
-#define uart.read   Serial.read
-#define uart.setup_1(BAUD_RATE)   Serial1.begin(BAUD_RATE)
-#define uart.setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
+@[inline]
+pub fn uart.println_1(MESSAGE) {
+	C.Serial1.println(MESSAGE)
+}
+@[inline]
+pub fn uart.println(MESSAGE) {
+	C.Serial.println(MESSAGE)
+}
+@[inline]
+pub fn read_1() {
+	C.Serial1.read()
+}
+@[inline]
+pub fn read() {
+	C.Serial.read()
+}
+@[inline]
+pub fn ready_1() {
+	C.Serial1.available()
+}
+@[inline]
+pub fn read() {
+	C.Serial.read()
+}
+@[inline]
+pub fn uart.setup_1(BAUD_RATE) {
+	C.Serial1.begin(BAUD_RATE)
+}
+@[inline]
+pub fn uart.setup(BAUD_RATE) {
+	C.Serial.begin(BAUD_RATE)
+}
 
 
 

@@ -5,4 +5,7 @@
 
 module uart3
 
-#define	uart3.write(DATA)	 R8_UART3_THR = DATA
+@[inline]
+pub fn uart3.write(DATA) {
+C.R8_UART3_THR = DATA
+}

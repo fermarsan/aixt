@@ -5,6 +5,12 @@
 
 module pin
 
-#define pin.read_(port, ...) GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
+@[inline]
+pub fn pwm.read_(port, ...) {
+	C.GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
+}
 
-#define pin.read(PIN_NAME)  pin.read_(PIN_NAME)
+@[inline]
+pub fn pin.read(PIN_NAME) {
+	C.pin.read_(PIN_NAME)
+}

@@ -8,4 +8,7 @@
 
 module uart
 
-#define uart.available(MESSAGE)	Serial.available(MESSAGE)
+@[inline]
+pub fn uart.available(MESSAGE) {
+	C.Serial.available(MESSAGE)
+}

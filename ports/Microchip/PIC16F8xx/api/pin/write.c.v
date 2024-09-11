@@ -9,4 +9,7 @@
 
 module pin
 
-#define pin.write(PIN_NAME,VAL) PIN_NAME = VAL
+@[inline]
+pub fn pwm.write(PIN_NAME,VAL) {
+	C.PIN_NAME = VAL
+}

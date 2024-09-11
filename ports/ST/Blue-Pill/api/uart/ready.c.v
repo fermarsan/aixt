@@ -8,4 +8,7 @@
 
 module uart
 
-#define uart.ready   Serial.available
+@[inline]
+pub fn ready() {
+	C.Serial.available()
+}

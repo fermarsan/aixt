@@ -8,4 +8,7 @@
 
 module pin
 
-#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+@[inline]
+pub fn pwm.write(PIN_NAME, VALUE) {
+	C.digitalWrite(PIN_NAME, VALUE)
+}

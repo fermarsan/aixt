@@ -7,9 +7,18 @@
 #include "CH57x_common.h"
 #define true 1
 #define time.sleep_ms(TIME)    DelayMs(TIME)
-#define uart.println(MSG)		uart.print(MSG);  uart.write('\n');  uart.write('\r')
-#define uart.any()  R8_UART0_RFC
-#define	uart.write(DATA)	R8_UART0_THR = DATA
+@[inline]
+pub fn uart.println(MSG) {
+	C.uart.print(MSG);  uart.write('\n');  uart.write('\r')
+}
+@[inline]
+pub fn uart.any() {
+	C.R8_UART0_RFC
+}
+@[inline]
+pub fn uart.write(DATA) {
+	C.R8_UART0_THR = DATA
+}
 #define a4  A, 4
 #define a5  A, 5
 #define a8  A, 8
@@ -33,17 +42,47 @@
 #define output    		GPIO_ModeOut_PP_5mA
 #define input     		GPIO_ModeIN_Floating
 #define in_pullup		GPIO_ModeIN_PU
-#define pin.in_pulldown	GPIO_ModeIN_PD
-#define pin.high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
-#define pin.high(PIN_NAME)  pin.high_(PIN_NAME)
-#define pin.low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
-#define pin.low(PIN_NAME)  pin.low_(PIN_NAME)
-#define pin.read_(port, ...) GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
-#define pin.read(PIN_NAME)  pin.read_(PIN_NAME)
-#define pin.setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
-#define pin.setup(PIN_NAME, PIN_MODE)  pin.setup_(PIN_NAME, PIN_MODE)
-#define pin.toggle_(port, ...) GPIO##port##_InverseBits(GPIO_Pin_##__VA_ARGS__)
-#define pin.toggle(PIN_NAME)  pin.toggle_(PIN_NAME)
+const in_pulldown = C.GPIO_ModeIN_PD
+@[inline]
+pub fn pwm.high_(port, ...) {
+	C.GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
+}
+@[inline]
+pub fn pin.high(PIN_NAME) {
+	C.pin.high_(PIN_NAME)
+}
+@[inline]
+pub fn pwm.low_(port, ...) {
+	C.GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
+}
+@[inline]
+pub fn pin.low(PIN_NAME) {
+	C.pin.low_(PIN_NAME)
+}
+@[inline]
+pub fn pwm.read_(port, ...) {
+	C.GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
+}
+@[inline]
+pub fn pin.read(PIN_NAME) {
+	C.pin.read_(PIN_NAME)
+}
+@[inline]
+pub fn pwm.setup_(port, pin, ...) {
+	C.GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
+}
+@[inline]
+pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+	C.pin.setup_(PIN_NAME, PIN_MODE)
+}
+@[inline]
+pub fn pwm.toggle_(port, ...) {
+	C.GPIO##port##_InverseBits(GPIO_Pin_##__VA_ARGS__)
+}
+@[inline]
+pub fn pin.toggle(PIN_NAME) {
+	C.pin.toggle_(PIN_NAME)
+}
 
 void uart.print(char* msg);
 uint8_t uart.read(void);

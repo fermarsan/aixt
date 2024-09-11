@@ -9,5 +9,8 @@
 
 module pin
 
-#define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
+@[inline]
+pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+	C.PIN_NAME ## _s = PIN_MODE
+}
 

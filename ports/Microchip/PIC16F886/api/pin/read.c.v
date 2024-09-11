@@ -6,6 +6,12 @@
 // Description: Pin management functions (PIC16F886 port)
 module pin
 
-#define pin.read_(PORT_NAME, PIN)	PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN
+@[inline]
+pub fn pwm.read_(PORT_NAME, PIN) {
+	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN
+}
 
-#define pin.read(PIN_NAME)  pin.read_(PIN_NAME)
+@[inline]
+pub fn pin.read(PIN_NAME) {
+	C.pin.read_(PIN_NAME)
+}

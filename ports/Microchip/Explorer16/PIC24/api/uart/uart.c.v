@@ -1,3 +1,6 @@
 module uart
 
-#define uart.println(MSG)		uart.print(MSG);  uart.write('\n');  uart.write('\r')
+@[inline]
+pub fn uart.println(MSG) {
+	C.uart.print(MSG);  uart.write('\n');  uart.write('\r')
+}

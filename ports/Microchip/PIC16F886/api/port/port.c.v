@@ -7,10 +7,10 @@
 
 module port
 
-#define port.a		A	// port name constants
-#define port.b		B
-#define port.c		C
-#define port.e		E
+const a = C.A	// port name constants
+const b = C.B
+const c = C.C
+const e = C.E
 
 #define	port.all_inputs	0xFF	// port mode constants
 #define	port.all_outputs	0x00

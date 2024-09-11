@@ -1506,34 +1506,52 @@ extern uint8 uart_initVar;
                                                          uart_RX_FIFO_SR_VALID)) ? (1u) : (0u))
 
 /* Write interrupt source: set sourceMask bits in uart_INTR_X_MASK_REG */
-#define uart.write_INTR_I2C_EC_MASK(sourceMask) \
+@[inline]
+pub fn uart.write_INTR_I2C_EC_MASK(sourceMask) {
+	C.\
+}
                                                 do{         \
                                                     uart_INTR_I2C_EC_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 
 #if (!uart_CY_SCBIP_V1)
-    #define uart.write_INTR_SPI_EC_MASK(sourceMask) \
+    @[inline]
+pub fn uart.write_INTR_SPI_EC_MASK(sourceMask) {
+	C.\
+}
                                                 do{         \
                                                     uart_INTR_SPI_EC_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 #endif /* (!uart_CY_SCBIP_V1) */
 
-#define uart.write_INTR_MASTER_MASK(sourceMask) \
+@[inline]
+pub fn uart.write_INTR_MASTER_MASK(sourceMask) {
+	C.\
+}
                                                 do{         \
                                                     uart_INTR_MASTER_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 
-#define uart.write_INTR_SLAVE_MASK(sourceMask)  \
+@[inline]
+pub fn uart.write_INTR_SLAVE_MASK(sourceMask) {
+	C.\
+}
                                                 do{         \
                                                     uart_INTR_SLAVE_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 
-#define uart.write_INTR_TX_MASK(sourceMask)     \
+@[inline]
+pub fn uart.write_INTR_TX_MASK(sourceMask) {
+	C.\
+}
                                                 do{         \
                                                     uart_INTR_TX_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 
-#define uart.write_INTR_RX_MASK(sourceMask)     \
+@[inline]
+pub fn uart.write_INTR_RX_MASK(sourceMask) {
+	C.\
+}
                                                 do{         \
                                                     uart_INTR_RX_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)

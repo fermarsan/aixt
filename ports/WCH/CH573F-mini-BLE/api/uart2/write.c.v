@@ -5,4 +5,7 @@
 
 module uart2
 
-#define	uart2.write(DATA)	 R8_UART2_THR = DATA
+@[inline]
+pub fn uart2.write(DATA) {
+C.R8_UART2_THR = DATA
+}

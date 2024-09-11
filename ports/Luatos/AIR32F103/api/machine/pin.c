@@ -6,14 +6,26 @@
 // // Description: PIN functions (Blue Pill_AIR32F103C)
 //              (PC port) 
 
-#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+@[inline]
+pub fn pwm.setup(PIN_NAME, MODE) {
+	C.pinMode(PIN_NAME, MODE)
+}
 
-#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
+@[inline]
+pub fn pin.high(PIN_NAME) {
+	C.digitalWrite(PIN_NAME, HIGH)
+}
 
-#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
+@[inline]
+pub fn pin.low(PIN_NAME) {
+	C.digitalWrite(PIN_NAME, LOW)
+}
 
 #define output OUTPUT
 
 #define input INPUT_PULLUP
 
-#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
+@[inline]
+pub fn pin.read(PIN_NAME) {
+	C.digitalRead(PIN_NAME)
+}

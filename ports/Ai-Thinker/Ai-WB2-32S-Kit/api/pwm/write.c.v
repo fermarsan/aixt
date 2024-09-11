@@ -7,4 +7,7 @@
 
 module pwm
 
-#define pwm.write(PIN_NAME, MODE)   analogWrite(PIN_NAME, MODE)
+@[inline]
+pub fn pwm.write(PIN_NAME, MODE) {
+	C.analogWrite(PIN_NAME, MODE)
+}

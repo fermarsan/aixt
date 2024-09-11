@@ -9,4 +9,7 @@
 
 module port
 
-#define port.setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
+@[inline]
+pub fn port.setup(PORT_NAME, VALUE) {
+	C.TRIS ## PORT_NAME = VALUE
+}

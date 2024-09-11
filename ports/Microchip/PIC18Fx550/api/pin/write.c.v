@@ -8,4 +8,7 @@
 
 module pin
 
-#define pin.write(PIN_NAME,VAL)       PIN_NAME = VAL        // LATBbits.LB0 = 0
+@[inline]
+pub fn pwm.write(PIN_NAME,VAL) {
+	C.PIN_NAME = VAL        // LATBbits.LB0 = 0
+}

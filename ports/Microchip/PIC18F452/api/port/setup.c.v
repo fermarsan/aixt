@@ -12,4 +12,7 @@ module port
 //            |
 //	          +-->	TRISA = value
 
-#define port.setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
+@[inline]
+pub fn port.setup(PORT_NAME, VALUE) {
+	C.TRIS ## PORT_NAME = VALUE
+}

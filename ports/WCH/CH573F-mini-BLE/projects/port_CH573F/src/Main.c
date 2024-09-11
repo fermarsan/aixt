@@ -7,15 +7,30 @@
 #define true 1
 #define a A
 #define b B
-#define port.output    GPIO_ModeOut_PP_5mA
-#define port.input     	GPIO_ModeIN_Floating
-#define port.in_pullup		GPIO_ModeIN_PU
-#define port.in_pulldown	GPIO_ModeIN_PD
-#define port.read(PORT) GPIO##PORT##_ReadPort()
-#define port.setup_(PORT, BITS, MODE) GPIO##PORT##_ModeCfg(BITS, MODE)
-#define port.setup(PORT, BITS, MODE)  port.setup_(PORT, BITS, MODE)
-#define port.write_(PORT, BITS) GPIO##PORT##_SetBits(BITS)
-#define port.write(PORT, BITS)  port.write_(PORT, BITS)
+const output = C.GPIO_ModeOut_PP_5mA
+const input = C.GPIO_ModeIN_Floating
+const in_pullup = C.GPIO_ModeIN_PU
+const in_pulldown = C.GPIO_ModeIN_PD
+@[inline]
+pub fn port.read(PORT) {
+C.GPIO##PORT##_ReadPort()
+}
+@[inline]
+pub fn port.setup_(PORT, BITS, MODE) {
+	C.GPIO##PORT##_ModeCfg(BITS, MODE)
+}
+@[inline]
+pub fn port.setup(PORT, BITS, MODE) {
+	C.port.setup_(PORT, BITS, MODE)
+}
+@[inline]
+pub fn port.write_(PORT, BITS) {
+	C.GPIO##PORT##_SetBits(BITS)
+}
+@[inline]
+pub fn port.write(PORT, BITS) {
+	C.port.write_(PORT, BITS)
+}
 #define time.sleep_ms(TIME)    DelayMs(TIME)
 
 void main__init();

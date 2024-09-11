@@ -9,9 +9,18 @@
 #define time.sleep_ms(TIME)    DelayMs(TIME)
 #define time.sleep(TIME)    DelayMs(TIME*1000)
 #define time.sleep_us(TIME)    DelayUs(TIME)
-#define uart.println(MSG)		uart.print(MSG);  uart.write('\n');  uart.write('\r')
-#define uart.any() R8_UART0_RFC
-#define	uart.write(DATA)	R8_UART0_THR = DATA
+@[inline]
+pub fn uart.println(MSG) {
+	C.uart.print(MSG);  uart.write('\n');  uart.write('\r')
+}
+@[inline]
+pub fn uart.any() {
+	C.R8_UART0_RFC
+}
+@[inline]
+pub fn uart.write(DATA) {
+	C.R8_UART0_THR = DATA
+}
 #include <stdio.h>
 
 char __temp_str[80];

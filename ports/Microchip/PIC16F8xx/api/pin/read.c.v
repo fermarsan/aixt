@@ -9,4 +9,7 @@
 
 module pin
 
-#define pin.read(PIN_NAME)  PIN_NAME
+@[inline]
+pub fn pin.read(PIN_NAME) {
+	C.PIN_NAME
+}

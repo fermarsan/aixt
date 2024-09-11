@@ -3,17 +3,41 @@
 // Board = AIR32F103
 // Backend = arduino
 
-#define adc.read(PIN_NAME)   analogRead(PIN_NAME)
+@[inline]
+pub fn adc.read(PIN_NAME) {
+C.analogRead(PIN_NAME)
+}
 #define output		OUTPUT
 #define input		INPUT
 #define in_pullup	INPUT_PULLUP
-#define pin.high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
-#define pin.low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
-#define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
-#define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
-#define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
-#define pwm.map(MODE, VALUE,VALUE1,VALUE2,VALUE3)   map(MODE, VALUE,VALUE1,VALUE2,VALUE3)
-#define pwm.write(PIN_NAME, MODE)   pwmWrite(PIN_NAME, MODE)
+@[inline]
+pub fn pin.high(PIN_NAME) {
+	C.digitalWrite(PIN_NAME, HIGH)
+}
+@[inline]
+pub fn pin.low(PIN_NAME) {
+	C.digitalWrite(PIN_NAME, LOW)
+}
+@[inline]
+pub fn pin.read(PIN_NAME) {
+	C.digitalRead(PIN_NAME)
+}
+@[inline]
+pub fn pwm.setup(PIN_NAME, MODE) {
+	C.pinMode(PIN_NAME, MODE)
+}
+@[inline]
+pub fn pwm.write(PIN_NAME, VALUE) {
+	C.digitalWrite(PIN_NAME, VALUE)
+}
+@[inline]
+pub fn pwm.map(MODE, VALUE,VALUE1,VALUE2,VALUE3) {
+	C.map(MODE, VALUE,VALUE1,VALUE2,VALUE3)
+}
+@[inline]
+pub fn pwm.write(PIN_NAME, MODE) {
+	C.pwmWrite(PIN_NAME, MODE)
+}
 
 void main__init();
 

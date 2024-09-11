@@ -5,9 +5,18 @@
 
 #include "CH57x_common.h"
 #define true 1
-#define uart1.println(MSG)		uart1.print(MSG);  uart1.write('\n');  uart1.write('\r')
-#define uart1.any()  R8_UART1_RFC
-#define	uart1.write(DATA)	R8_UART1_THR = DATA
+@[inline]
+pub fn uart1.println(MSG) {
+C.uart1.print(MSG);  uart1.write('\n');  uart1.write('\r')
+}
+@[inline]
+pub fn uart1.any() {
+	C.R8_UART1_RFC
+}
+@[inline]
+pub fn uart1.write(DATA) {
+C.R8_UART1_THR = DATA
+}
 
 void uart1.print(char* msg);
 uint8_t uart1.read(void);

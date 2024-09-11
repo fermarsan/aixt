@@ -10,4 +10,7 @@ module port
 //	   +-->	x = PORTa
 //            |
 //	          +-->	x = PORTA
-#define port.read(PORT_NAME)  PORT ## PORT_NAME
+@[inline]
+pub fn port.read(PORT_NAME) {
+C.PORT ## PORT_NAME
+}

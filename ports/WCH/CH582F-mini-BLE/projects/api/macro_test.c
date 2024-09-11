@@ -5,18 +5,39 @@
 
 #define a11 A, 11
 
-#define pin.high_(port, ...) "GPIO" #port "_SetBits(GPIO_Pin_" #__VA_ARGS__ ")\n"
+@[inline]
+pub fn pwm.high_(port, ...) {
+	C."GPIO" #port "_SetBits(GPIO_Pin_" #__VA_ARGS__ ")\n"
+}
 
-#define pin.high(PIN_NAME)  pin.high_(PIN_NAME)
+@[inline]
+pub fn pin.high(PIN_NAME) {
+	C.pin.high_(PIN_NAME)
+}
 
-//#define pin.setup_(port, pin, ...) "GPIO" #port "_ModeCfg(GPIO_Pin_" #pin ", " #__VA_ARGS__ ")\n"
-#define pin.setup_(port, pin, ...) "PWMX_ACTOUT(CH_PWM" #port ", " #__VA_ARGS__ ")\n"
+//@[inline]
+pub fn pwm.setup_(port, pin, ...) {
+	C."GPIO" #port "_ModeCfg(GPIO_Pin_" #pin ", " #__VA_ARGS__ ")\n"
+}
+@[inline]
+pub fn pwm.setup_(port, pin, ...) {
+	C."PWMX_ACTOUT(CH_PWM" #port ", " #__VA_ARGS__ ")\n"
+}
 
-#define pin.setup(PIN_NAME, PIN_MODE)  pin.setup_(PIN_NAME, PIN_MODE)
+@[inline]
+pub fn pwm.setup(PIN_NAME, PIN_MODE) {
+	C.pin.setup_(PIN_NAME, PIN_MODE)
+}
 
 
-// #define pin.high(a11)     GPIOA_SetBits(GPIO_Pin_11)
-// #define pin.low(a11)      GPIOA_ResetBits(GPIO_Pin_11)
+// @[inline]
+pub fn pin.high(a11) {
+	C.GPIOA_SetBits(GPIO_Pin_11)
+}
+// @[inline]
+pub fn pin.low(a11) {
+	C.GPIOA_ResetBits(GPIO_Pin_11)
+}
 
 int main() 
 {

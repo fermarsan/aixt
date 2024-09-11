@@ -5,6 +5,12 @@
 
 module port
 
-#define port.write_(PORT, BITS) GPIO##PORT##_SetBits(BITS)
+@[inline]
+pub fn port.write_(PORT, BITS) {
+	C.GPIO##PORT##_SetBits(BITS)
+}
 
-#define port.write(PORT, BITS)  port.write_(PORT, BITS)
+@[inline]
+pub fn port.write(PORT, BITS) {
+	C.port.write_(PORT, BITS)
+}

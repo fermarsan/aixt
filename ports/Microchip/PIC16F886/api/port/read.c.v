@@ -6,4 +6,7 @@
 // Description: Pin-port functions (PIC16F886 port)
 module port
 
-#define port.read(PORT_NAME)  PORT ## PORT_NAME
+@[inline]
+pub fn port.read(PORT_NAME) {
+C.PORT ## PORT_NAME
+}

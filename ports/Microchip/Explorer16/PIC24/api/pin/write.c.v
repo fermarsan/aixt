@@ -11,6 +11,12 @@ module pin
 //	          |
 //	          +-->	PORTBbits.PORTB2 = val	// PIC16	
 // 	          		LATBbits.LATB2 = val	// (PIC18, PIC24, dsPIC33)
-#define pin.write_(PORT_NAME, PIN, VALUE)   LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = VALUE
+@[inline]
+pub fn pwm.write_(PORT_NAME, PIN, VALUE) {
+	C.LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = VALUE
+}
 
-#define pin.write(PIN_NAME, VALUE)  pin.write_(PIN_NAME, VALUE)
+@[inline]
+pub fn pwm.write(PIN_NAME, VALUE) {
+	C.pin.write_(PIN_NAME, VALUE)
+}

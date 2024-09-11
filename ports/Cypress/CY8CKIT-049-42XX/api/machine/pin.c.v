@@ -7,8 +7,20 @@
 // Description: This is a module to emulate ADC inputs in console.
 //              (CY8CKIT-049-42XX)
 
-#define pin.high(pin_name)   pin.write(pin_name, 1)
-#define pin.low(pin_name)    pin.write(pin_name, 0)
+@[inline]
+pub fn pin.high(pin_name) {
+	C.pin.write(pin_name, 1)
+}
+@[inline]
+pub fn pin.low(pin_name) {
+	C.pin.write(pin_name, 0)
+}
 
-#define pin.write(pin_name, value)  pin_name##_Write(value)
-#define pin.read(pin_name)  pin_name##_Read()
+@[inline]
+pub fn pwm.write(pin_name, value) {
+	C.pin_name##_Write(value)
+}
+@[inline]
+pub fn pin.read(pin_name) {
+	C.pin_name##_Read()
+}
