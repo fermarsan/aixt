@@ -2,9 +2,9 @@ import pin
 
 
 
-pin.setup(p13, pin__output)
-pin.setup(p4, pin__output)
-pin.setup(p1, pin__input)
+pin.setup(p13, output)
+pin.setup(p4, output)
+pin.setup(p1, input)
   
 for {
   

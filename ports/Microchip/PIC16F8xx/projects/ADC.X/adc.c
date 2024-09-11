@@ -66,8 +66,8 @@
 #define c5    PORTCbits.RC5
 #define c6    PORTCbits.RC6
 #define c7    PORTCbits.RC7
-#define pin__output 0   // pin direction
-#define pin__input  1
+#define output 0   // pin direction
+#define input  1
 #define pin__digital()   ADCON1bits.PCFG = 0b00000110
 #define pin__high(PIN_NAME)  PIN_NAME = 1
 #define pin__low(PIN_NAME)   PIN_NAME = 0
@@ -107,12 +107,12 @@ unsigned int adc__read(unsigned int channel) {
 void main(void) {
 	main__init();
 	unsigned int a = 0;
-	pin__setup(c0, pin__output);
-	pin__setup(c1, pin__output);
-	pin__setup(c2, pin__output);
-	pin__setup(c3, pin__output);
-	pin__setup(c4, pin__output);
-	pin__setup(c5, pin__output);
+	pin__setup(c0, output);
+	pin__setup(c1, output);
+	pin__setup(c2, output);
+	pin__setup(c3, output);
+	pin__setup(c4, output);
+	pin__setup(c5, output);
 	pin__write(c0, 0);
 	pin__write(c1, 0);
 	pin__write(c2, 0);

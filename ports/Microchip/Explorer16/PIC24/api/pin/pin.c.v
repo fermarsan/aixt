@@ -9,10 +9,10 @@ module pin
 #include <p24FJ128GA010.h>
 
 // out macro defines the pin output mode
-#define pin__output		0
+#define output		0
 
 // in macro defines the pin input mode
-#define pin__input		1
+#define input		1
 
 #define pin__a0      A, 0      // pin names
 #define pin__a1      A, 1 

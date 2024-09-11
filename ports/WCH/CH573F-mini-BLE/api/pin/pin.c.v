@@ -27,10 +27,10 @@ module pin
 #define b23 B, 23
 
 // out macro defines the pin output mode
-#define pin__output    		GPIO_ModeOut_PP_5mA      
+#define output    		GPIO_ModeOut_PP_5mA      
 //Tambien esta el modo GPIO_ModeOut_PP_20mA
 
 // in macro defines the pin input mode
-#define pin__input     		GPIO_ModeIN_Floating
+#define input     		GPIO_ModeIN_Floating
 #define pin__in_pullup		GPIO_ModeIN_PU
 #define pin__in_pulldown	GPIO_ModeIN_PD

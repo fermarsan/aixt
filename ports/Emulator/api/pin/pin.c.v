@@ -11,7 +11,7 @@ module pin
 
 __global (
 	pin__pins  = [0, 0, 0, 0, 0, 0, 0, 0] // virtual pin array
-	pin__input_value = 0
+	input_value = 0
 )
 
 enum Pin_names { 

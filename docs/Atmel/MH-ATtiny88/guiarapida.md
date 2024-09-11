@@ -145,9 +145,9 @@ DEFINITION AIXT	 | DEFINITION ARDUINO
 `adc__read(PIN_NAME)`|    	`analogRead(PIN_NAME)`
 `pin__high(PIN_NAME)`| 		`digitalWrite(PIN_NAME, HIGH)`
 `pin__low(PIN_NAME)`|        	`digitalWrite(PIN_NAME, LOW)`
-`pin__output`| 				`OUTPUT`
-`pin__input`|	`INPUT`
-`pin__input_pullup	INPUT_PULLUP`|
+`output`| 				`OUTPUT`
+`input`|	`INPUT`
+`input_pullup	INPUT_PULLUP`|
 `pin__read(PIN_NAME)`|   	`digitalRead(PIN_NAME)`
 `pin__setup(PIN_NAME, MODE)`|        	`pinMode(PIN_NAME, MODE)`
 `pin__write(PIN_NAME, VALUE)`|  	`digitalWrite(PIN_NAME, VALUE)`

@@ -6,8 +6,8 @@
 // Description: Pin management functions (PIC16F886 port)
 module pin
 
-#define pin__output 0	// pin mode direction
-#define pin__input  1
+#define output 0	// pin mode direction
+#define input  1
 
 #define pin__a0      A, 0	// pin names
 #define pin__a1      A, 1 

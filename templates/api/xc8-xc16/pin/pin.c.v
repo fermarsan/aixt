@@ -9,10 +9,10 @@ module pin
 #include <pxxx.h>	// device header file
 
 // out macro defines the pin output mode
-#define pin__output		0
+#define output		0
 
 // in macro defines the pin input mode
-#define pin__input		1
+#define input		1
 
 #define a0      A, 0      // pin names
 #define a1      A, 1 

@@ -3,8 +3,8 @@
 // Board = AIR32F103
 // Backend = arduino
 
-#define pin__output		OUTPUT
-#define pin__input		INPUT
+#define output		OUTPUT
+#define input		INPUT
 #define pin__in_pullup	INPUT_PULLUP
 #define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
@@ -66,9 +66,9 @@ void adc__init() {
 
 void setup() {
 	main__init();
-	pin__setup(p14, pin__input);
-	pin__setup(p20, pin__output);
-	pin__setup(p9, pin__output);
+	pin__setup(p14, input);
+	pin__setup(p20, output);
+	pin__setup(p9, output);
 }
 
 void loop() {

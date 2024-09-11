@@ -1248,7 +1248,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F
 main__init();
 time__init();
 pin__init();
-pin__setup(a8, pin__output);
+pin__setup(a8, output);
  6f8:	458d                	li	a1,3
  6fa:	10000513          	li	a0,256
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:59
@@ -1260,7 +1260,7 @@ while(true) {
 pin__high(a8);
  702:	40001437          	lui	s0,0x40001
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:63
-pin__setup(a8, pin__output);
+pin__setup(a8, output);
  706:	2815                	jal	73a <GPIOA_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:65 (discriminator 1)
 pin__high(a8);

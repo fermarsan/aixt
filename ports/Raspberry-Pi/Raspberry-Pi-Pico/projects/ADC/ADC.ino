@@ -4,8 +4,8 @@
 // Backend = arduino
 
 #define led     gp25
-#define pin__output		OUTPUT
-#define pin__input		INPUT
+#define output		OUTPUT
+#define input		INPUT
 #define pin__in_pullup	INPUT_PULLUP
 #define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
@@ -69,10 +69,10 @@ void adc__init() {
 
 void setup() {
 	main__init();
-	pin__setup(gp13, pin__output);
-	pin__setup(gp14, pin__output);
-	pin__setup(gp15, pin__output);
-	pin__setup(gp16, pin__output);
+	pin__setup(gp13, output);
+	pin__setup(gp14, output);
+	pin__setup(gp15, output);
+	pin__setup(gp16, output);
 }
 
 void loop() {

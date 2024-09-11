@@ -5,8 +5,8 @@
 
 
 #define time__sleep_ms(MS)    delay(MS)
-#define pin__output		OUTPUT
-#define pin__input		INPUT
+#define output		OUTPUT
+#define input		INPUT
 #define pin__in_pullup	INPUT_PULLUP
 #define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
@@ -99,7 +99,7 @@ time__init();
 pin__init();
 uart__init();
 uart__setup(0, 9600);
-pin__setup(pin1, pin__output);
-pin__setup(pin2, pin__output);
+pin__setup(pin1, output);
+pin__setup(pin2, output);
 while(true) {uart__println(0, "\r\n Comunicacion UART tarjeta W801-PC:");uart__println(0, "\r\n Oprimiendo la letra Q, activa la salida  del pin1.");pin__high(pin2);time__sleep_ms(250);pin__low(pin2);time__sleep_ms(250);int32_t x = 0;x = uart__any();if((uart__available() > 0)) {char command = ' ';command = uart__read(0);if(command == 'Q') {pin__high(pin1);time__sleep_ms(2000);pin__low(pin1);time__sleep_ms(500);}else {pin__high(pin2);time__sleep_ms(500);pin__low(pin2);time__sleep_ms(500);};};}
 }

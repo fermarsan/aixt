@@ -26,8 +26,8 @@
 #define b15 B, 15
 #define b22 B, 22
 #define b23 B, 23
-#define pin__output    GPIO_ModeOut_PP_5mA
-#define pin__input     GPIO_ModeIN_PD
+#define output    GPIO_ModeOut_PP_5mA
+#define input     GPIO_ModeIN_PD
 #define pin__high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
 #define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
 #define pin__low_(port, ...) GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
@@ -58,9 +58,9 @@ void pin__init() {
 int main(void) {
     SetSysClock(CLK_SOURCE_PLL_60MHz);
 	main__init();
-	pin__setup(a13, pin__output);
-	pin__setup(a14, pin__output);
-	pin__setup(a15, pin__output);
+	pin__setup(a13, output);
+	pin__setup(a14, output);
+	pin__setup(a15, output);
 	while(true) {
 		pin__high(a13);
 		time__sleep_ms(500);

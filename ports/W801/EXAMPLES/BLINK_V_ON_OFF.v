@@ -2,13 +2,13 @@
     import time {sleep_ms}
     import pin
   // initialize the digital pin as an output.
-  pin__setup(led1, pin__output);
-  pin__setup(led2, pin__output);
-  pin__setup(led3, pin__output);
-  pin__setup(led4, pin__output);
-  pin__setup(led5, pin__output);
-  pin__setup(led6, pin__output);
-  pin__setup(led7, pin__output);
+  pin__setup(led1, output);
+  pin__setup(led2, output);
+  pin__setup(led3, output);
+  pin__setup(led4, output);
+  pin__setup(led5, output);
+  pin__setup(led6, output);
+  pin__setup(led7, output);
 
 
 // the loop routine runs over and over again forever:

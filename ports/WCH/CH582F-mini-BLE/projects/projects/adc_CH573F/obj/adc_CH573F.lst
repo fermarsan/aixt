@@ -1285,7 +1285,7 @@ int main(void) {
  718:	1141                	addi	sp,sp,-16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:53
 
-pin__setup(a4, pin__input);
+pin__setup(a4, input);
  71a:	4581                	li	a1,0
  71c:	4541                	li	a0,16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:51
@@ -1293,7 +1293,7 @@ int main(void) {
  71e:	c422                	sw	s0,8(sp)
  720:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:53
-pin__setup(a4, pin__input);
+pin__setup(a4, input);
  722:	28e9                	jal	7fc <GPIOA_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:54
 adc__setup(0);
@@ -1321,8 +1321,8 @@ ADC_DataCalib_Rough():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:29
     uint16_t i;
     uint32_t sum = 0;
-    uint8_t  ch = 0;   // ±¸·ÝÍ¨µÀ
-    uint8_t  ctrl = 0; // ±¸·Ý¿ØÖÆ¼Ä´æÆ÷
+    uint8_t  ch = 0;   // ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½
+    uint8_t  ctrl = 0; // ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Æ¼Ä´ï¿½ï¿½ï¿½
 
     ch = R8_ADC_CHANNEL;
  748:	400017b7          	lui	a5,0x40001
@@ -1331,7 +1331,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/
     ctrl = R8_ADC_CFG;
 
     R8_ADC_CFG = 0;
-    ADC_ChannelCfg(6);                                          // 6/7/10/11 ¿ÉÑ¡
+    ADC_ChannelCfg(6);                                          // 6/7/10/11 ï¿½ï¿½Ñ¡
  750:	4719                	li	a4,6
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:30
     ctrl = R8_ADC_CFG;
@@ -1340,10 +1340,10 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/
     R8_ADC_CFG = 0;
  756:	04078ca3          	sb	zero,89(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:33
-    ADC_ChannelCfg(6);                                          // 6/7/10/11 ¿ÉÑ¡
+    ADC_ChannelCfg(6);                                          // 6/7/10/11 ï¿½ï¿½Ñ¡
  75a:	04e78c23          	sb	a4,88(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:34
-    R8_ADC_CFG |= RB_ADC_OFS_TEST | RB_ADC_POWER_ON | (2 << 4); // ½øÈë²âÊÔÄ£Ê½
+    R8_ADC_CFG |= RB_ADC_OFS_TEST | RB_ADC_POWER_ON | (2 << 4); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
  75e:	0597c703          	lbu	a4,89(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:29
     ch = R8_ADC_CHANNEL;
@@ -1352,7 +1352,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/
     ctrl = R8_ADC_CFG;
  766:	0ff87813          	andi	a6,a6,255
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:34
-    R8_ADC_CFG |= RB_ADC_OFS_TEST | RB_ADC_POWER_ON | (2 << 4); // ½øÈë²âÊÔÄ£Ê½
+    R8_ADC_CFG |= RB_ADC_OFS_TEST | RB_ADC_POWER_ON | (2 << 4); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
  76a:	02976713          	ori	a4,a4,41
  76e:	04e78ca3          	sb	a4,89(a5)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:35
@@ -1405,14 +1405,14 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:44
     }
     sum = (sum + 8) >> 4;
-    R8_ADC_CFG &= ~RB_ADC_OFS_TEST; // ¹Ø±Õ²âÊÔÄ£Ê½
+    R8_ADC_CFG &= ~RB_ADC_OFS_TEST; // ï¿½Ø±Õ²ï¿½ï¿½ï¿½Ä£Ê½
  7b8:	05974683          	lbu	a3,89(a4)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:43
     sum = (sum + 8) >> 4;
  7bc:	07a1                	addi	a5,a5,8
  7be:	8391                	srli	a5,a5,0x4
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:44
-    R8_ADC_CFG &= ~RB_ADC_OFS_TEST; // ¹Ø±Õ²âÊÔÄ£Ê½
+    R8_ADC_CFG &= ~RB_ADC_OFS_TEST; // ï¿½Ø±Õ²ï¿½ï¿½ï¿½Ä£Ê½
  7c0:	0f76f693          	andi	a3,a3,247
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:48
 
@@ -1421,7 +1421,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/
     return (2048 - sum);
  7c4:	80050513          	addi	a0,a0,-2048
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:44
-    R8_ADC_CFG &= ~RB_ADC_OFS_TEST; // ¹Ø±Õ²âÊÔÄ£Ê½
+    R8_ADC_CFG &= ~RB_ADC_OFS_TEST; // ï¿½Ø±Õ²ï¿½ï¿½ï¿½Ä£Ê½
  7c8:	04d70ca3          	sb	a3,89(a4)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:48
     return (2048 - sum);
@@ -1444,7 +1444,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/
 ADC_ExcutSingleConver():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../StdPeriphDriver/CH57x_adc.c:142
  *
- * @return  ADC×ª»»ºóµÄÊý¾Ý
+ * @return  ADC×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 uint16_t ADC_ExcutSingleConver(void)
 {

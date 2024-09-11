@@ -44,8 +44,8 @@
 #define c4      PORTCbits.RC4
 #define c5      PORTCbits.RC5
 #define adc__setup()  ANSEL = 0b00000010;  ADCON0 = 0b10000000;  ADCON1 = 0b00110000;  ADCON0bits.ADON = 1
-#define pin__output  0   // pin direction
-#define pin__input   1
+#define output  0   // pin direction
+#define input   1
 #define pin__digital()  ANSEL = 0
 #define pin__high(PIN_NAME)  PIN_NAME = 1
 #define pin__low(PIN_NAME)   PIN_NAME = 0
@@ -84,12 +84,12 @@ void pin__init() {
 void main(void) {
 	main__init();
 	unsigned int x = 0;
-	pin__setup(c0, pin__output);
-	pin__setup(c1, pin__output);
-	pin__setup(c2, pin__output);
-	pin__setup(c3, pin__output);
-	pin__setup(c4, pin__output);
-	pin__setup(c5, pin__output);
+	pin__setup(c0, output);
+	pin__setup(c1, output);
+	pin__setup(c2, output);
+	pin__setup(c3, output);
+	pin__setup(c4, output);
+	pin__setup(c5, output);
 	pin__write(c0, 0);
 	pin__write(c1, 0);
 	pin__write(c2, 0);

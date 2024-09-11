@@ -137,8 +137,8 @@
 #define port__read(PORT_NAME)  PORT ## PORT_NAME
 #define port__setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
 #define port__write(PORT_NAME, VALUE)	LAT ## PORT_NAME = VALUE
-#define pin__output 0   // pin mode (direction)
-#define pin__input  1
+#define output 0   // pin mode (direction)
+#define input  1
 #define pin__high(PIN_NAME)  PIN_NAME = 1          // LATBbits.LB0 = 1
 #define pin__low(PIN_NAME)   PIN_NAME = 0          // LATBbits.LB0 = 0
 #define pin__read(PIN_NAME)  PIN_NAME ##_i             // PORTBbits.RB0
@@ -198,7 +198,7 @@ void main(void) {
 	main__init();
 	port__setup(b, port__output);
 	port__write(b, 0b00000000);
-	pin__setup(c7, pin__input);
+	pin__setup(c7, input);
 	uart__setup();
 	while(true) {
 		port__read(b) = uart__read();

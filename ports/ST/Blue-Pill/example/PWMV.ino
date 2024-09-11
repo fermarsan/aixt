@@ -4,8 +4,8 @@
 // Backend = arduino
 
 #define adc__read(PIN_NAME)   analogRead(PIN_NAME)
-#define pin__output		OUTPUT
-#define pin__input		INPUT
+#define output		OUTPUT
+#define input		INPUT
 #define pin__in_pullup	INPUT_PULLUP
 #define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
@@ -74,7 +74,7 @@ void pwm__init() {
 
 void setup() {
 	main__init();
-	pin__setup(p5, pin__input);
+	pin__setup(p5, input);
 	pin__setup(p7, PWM);
 	adc__read(p5);
 	pwm__map(adc__read(p5), 4095, 0, 4095, 0);

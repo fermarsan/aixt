@@ -27,8 +27,8 @@
 #define b15 B, 15
 #define b22 B, 22
 #define b23 B, 23
-#define pin__output    		GPIO_ModeOut_PP_5mA
-#define pin__input     		GPIO_ModeIN_Floating
+#define output    		GPIO_ModeOut_PP_5mA
+#define input     		GPIO_ModeIN_Floating
 #define pin__in_pullup		GPIO_ModeIN_PU
 #define pin__in_pulldown	GPIO_ModeIN_PD
 #define pin__high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
@@ -48,7 +48,7 @@
 
 int main(void) {
 
-pin__setup(a8, pin__output);
+pin__setup(a8, output);
 while(true) {
 pin__toggle(a8);
 time__sleep_ms(150);

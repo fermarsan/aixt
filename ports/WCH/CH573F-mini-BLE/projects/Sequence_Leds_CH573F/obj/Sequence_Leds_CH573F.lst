@@ -1316,17 +1316,17 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_C
  716:	1aa080e7          	jalr	426(ra) # 200038bc <SetSysClock>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:61
 	main__init();
-	pin__setup(a13, pin__output);
+	pin__setup(a13, output);
  71a:	458d                	li	a1,3
  71c:	6509                	lui	a0,0x2
  71e:	2049                	jal	7a0 <GPIOA_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:62
-	pin__setup(a14, pin__output);
+	pin__setup(a14, output);
  720:	458d                	li	a1,3
  722:	6511                	lui	a0,0x4
  724:	28b5                	jal	7a0 <GPIOA_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:63
-	pin__setup(a15, pin__output);
+	pin__setup(a15, output);
  726:	458d                	li	a1,3
  728:	6521                	lui	a0,0x8
  72a:	289d                	jal	7a0 <GPIOA_ModeCfg>

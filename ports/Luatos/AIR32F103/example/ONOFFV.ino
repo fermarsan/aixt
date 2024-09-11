@@ -4,8 +4,8 @@
 // Backend = arduino
 
 #define time__sleep_ms(MS)    delay(MS)
-#define pin__output		OUTPUT
-#define pin__input		INPUT
+#define output		OUTPUT
+#define input		INPUT
 #define pin__in_pullup	INPUT_PULLUP
 #define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
@@ -66,9 +66,9 @@ void pin__init() {
 
 void setup() {
 	main__init();
-	pin__setup(p15, pin__output);
-	pin__setup(p23, pin__output);
-	pin__setup(p24, pin__output);
+	pin__setup(p15, output);
+	pin__setup(p23, output);
+	pin__setup(p24, output);
 }
 
 void loop() {

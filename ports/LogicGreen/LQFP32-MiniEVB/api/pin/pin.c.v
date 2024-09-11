@@ -7,11 +7,11 @@
 module pin
 
 // in macro defines the pin input mode
-#define pin__input  INPUT
-#define pin__input_pullup  INPUT_PULLUP
+#define input  INPUT
+#define input_pullup  INPUT_PULLUP
 
 // out macro defines the pin output mode
-#define pin__output  OUTPUT
+#define output  OUTPUT
 
 fn init() { //  init function call setup or initialization code
 

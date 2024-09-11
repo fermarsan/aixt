@@ -1246,7 +1246,7 @@ int main(void) {
  6f6:	1141                	addi	sp,sp,-16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_toggle_CH573F\obj/../src/Main.c:51
 main__init();
-pin__setup(a8, pin__output);
+pin__setup(a8, output);
  6f8:	458d                	li	a1,3
  6fa:	10000513          	li	a0,256
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_toggle_CH573F\obj/../src/Main.c:49
@@ -1258,7 +1258,7 @@ while(true) {
 pin__toggle(a8);
  702:	40001437          	lui	s0,0x40001
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_toggle_CH573F\obj/../src/Main.c:51
-pin__setup(a8, pin__output);
+pin__setup(a8, output);
  706:	2831                	jal	722 <GPIOA_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_toggle_CH573F\obj/../src/Main.c:53 (discriminator 1)
 pin__toggle(a8);

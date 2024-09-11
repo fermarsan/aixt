@@ -132,8 +132,8 @@
 #define e0    TRISCbits.TRISE0
 #define e1    TRISCbits.TRISE1
 #define e2    TRISCbits.TRISE2
-#define pin__output 0   // pin mode (direction)
-#define pin__input  1
+#define output 0   // pin mode (direction)
+#define input  1
 #define pin__high(PIN_NAME)  PIN_NAME = 1          // LATBbits.LB0 = 1
 #define pin__low(PIN_NAME)   PIN_NAME = 0          // LATBbits.LB0 = 0
 #define pin__read(PIN_NAME)  PIN_NAME ##_i             // PORTBbits.RB0
@@ -192,7 +192,7 @@ void time__init() {
 
 void main(void) {
 	main__init();
-	pin__setup(c6, pin__output);
+	pin__setup(c6, output);
 	uart__setup();
 	while(true) {
 		uart__write(0x33);

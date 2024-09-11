@@ -1350,7 +1350,7 @@ pin__setup(b4, pin__in_pullup);
  762:	4541                	li	a0,16
  764:	280d                	jal	796 <GPIOB_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:86
-pin__setup(b7, pin__output);
+pin__setup(b7, output);
  766:	458d                	li	a1,3
  768:	08000513          	li	a0,128
  76c:	202d                	jal	796 <GPIOB_ModeCfg>
@@ -1532,7 +1532,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj
 0000087e <UART0_BaudRateCfg>:
 UART0_BaudRateCfg():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../StdPeriphDriver/CH57x_uart0.c:41
- * @param   baudrate    - ²¨ÌØÂÊ
+ * @param   baudrate    - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
  * @return  none
  */

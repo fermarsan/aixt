@@ -30,8 +30,8 @@
 #define b15 B, 15
 #define b22 B, 22
 #define b23 B, 23
-#define pin__output    		GPIO_ModeOut_PP_5mA
-#define pin__input     		GPIO_ModeIN_Floating
+#define output    		GPIO_ModeOut_PP_5mA
+#define input     		GPIO_ModeIN_Floating
 #define pin__in_pullup		GPIO_ModeIN_PU
 #define pin__in_pulldown	GPIO_ModeIN_PD
 #define pin__high_(port, ...) GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
@@ -82,7 +82,7 @@ int main(void) {
 
 pin__high(b7);
 pin__setup(b4, pin__in_pullup);
-pin__setup(b7, pin__output);
+pin__setup(b7, output);
 uart__setup(115200);
 while(true) {
 TxBuff = uart__read();

@@ -5,7 +5,7 @@ import pin
 import pwm
 
 
-    pin.setup(p5, pin__input)//Entrada analogica asociada al PWM
+    pin.setup(p5, input)//Entrada analogica asociada al PWM
    
     pin.setup(p7, PWM)//Salida analogica del PWM    
 

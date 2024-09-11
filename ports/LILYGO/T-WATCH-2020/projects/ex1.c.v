@@ -1,10 +1,9 @@
 #include "ex1.c"
 
-
-
 C.init()
 
-lv_obj_t *text = C.lv_label_create(C.lv_scr_act(), C.NULL)
+text := &C.lv_obj_t
+text = C.lv_label_create(C.lv_scr_act(), C.NULL)
 C.lv_label_set_text(text, "T-Watch")
 C.lv_obj_align(text, C.NULL, C.LV_ALIGN_CENTER, 0, 0)
 

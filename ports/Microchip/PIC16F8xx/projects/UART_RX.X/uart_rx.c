@@ -70,8 +70,8 @@
 #define port__setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
 #define port__write(PORT_NAME, VALUE)  PORT ## PORT_NAME = VALUE
 #define uart__input() (PIR1bits.RCIF ? 1 : 0)  // Valida si hay datos recibidos retorna un 1 si no hay datos recibidos un 0
-#define pin__output 0   // pin direction
-#define pin__input  1
+#define output 0   // pin direction
+#define input  1
 #define pin__digital()   ADCON1bits.PCFG = 0b00000110
 #define pin__high(PIN_NAME)  PIN_NAME = 1
 #define pin__low(PIN_NAME)   PIN_NAME = 0
@@ -126,7 +126,7 @@ void main(void) {
 	main__init();
 	port__setup(b, 0b00000000);
 	port__write(b, 0b00000000);
-	pin__setup(c7, pin__input);
+	pin__setup(c7, input);
 	uart__setup();
 	while(true) {
 		port__read(b) = uart__read();

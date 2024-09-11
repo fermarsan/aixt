@@ -4,9 +4,9 @@ import uart
 	recibe_dato := int (0)
 
 
-pin__setup(p5,pin__output)
-pin__setup(p7,pin__output)
-pin__setup(p6,pin__output)
+pin__setup(p5,output)
+pin__setup(p7,output)
+pin__setup(p6,output)
 uart__setup(9600)
 for {
   if uart__ready()>0 {

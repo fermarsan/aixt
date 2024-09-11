@@ -74,8 +74,8 @@
 #define c5    PORTCbits.RC5
 #define c6    PORTCbits.RC6
 #define c7    PORTCbits.RC7
-#define pin__output 0   // pin mode (direction)
-#define pin__input  1
+#define output 0   // pin mode (direction)
+#define input  1
 #define pin__digital()  ANSELH = 0; ANSEL = 0;
 #define pin__high(PIN_NAME)  PIN_NAME = 1
 #define pin__low(PIN_NAME)   PIN_NAME = 0
@@ -135,7 +135,7 @@ void time__init() {
 
 void main(void) {
 	main__init();
-	pin__setup(c6, pin__output);
+	pin__setup(c6, output);
 	uart__setup();
 	while(true) {
 		uart__write(0x33);

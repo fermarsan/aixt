@@ -5,8 +5,8 @@
 
 #define led     gp25
 #define pwm__write(PIN, VAL)	analogWrite(PIN, VAL)
-#define pin__output		OUTPUT
-#define pin__input		INPUT
+#define output		OUTPUT
+#define input		INPUT
 #define pin__in_pullup	INPUT_PULLUP
 #define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
@@ -76,7 +76,7 @@ void adc__init() {
 
 void setup() {
 	main__init();
-	pin__setup(gp10, pin__output);
+	pin__setup(gp10, output);
 }
 
 void loop() {

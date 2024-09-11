@@ -5,8 +5,8 @@
 
 
 #define time__sleep_ms(MS)    delay(MS)
-#define pin__output		OUTPUT
-#define pin__input		INPUT
+#define output		OUTPUT
+#define input		INPUT
 #define pin__in_pullup	INPUT_PULLUP
 #define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
@@ -55,19 +55,19 @@ void setup() {
 main__init();
 time__init();
 pin__init();
-main__pin__setup(main__led1, main__pin__output);
+main__pin__setup(main__led1, main__output);
 
-main__pin__setup(main__led2, main__pin__output);
+main__pin__setup(main__led2, main__output);
 
-main__pin__setup(main__led3, main__pin__output);
+main__pin__setup(main__led3, main__output);
 
-main__pin__setup(main__led4, main__pin__output);
+main__pin__setup(main__led4, main__output);
 
-main__pin__setup(main__led5, main__pin__output);
+main__pin__setup(main__led5, main__output);
 
-main__pin__setup(main__led6, main__pin__output);
+main__pin__setup(main__led6, main__output);
 
-main__pin__setup(main__led7, main__pin__output);
+main__pin__setup(main__led7, main__output);
 
 while(true) {main__pin__high(main__led1);main__time__sleep_ms(1000);main__pin__low(main__led1);main__time__sleep_ms(1000);main__pin__high(main__led2);main__time__sleep_ms(1000);main__pin__low(main__led2);main__time__sleep_ms(1000);main__pin__high(main__led3);main__time__sleep_ms(1000);main__pin__low(main__led3);main__time__sleep_ms(1000);main__pin__high(main__led4);main__time__sleep_ms(1000);main__pin__low(main__led4);main__time__sleep_ms(1000);main__pin__high(main__led5);main__time__sleep_ms(1000);main__pin__low(main__led5);main__time__sleep_ms(1000);main__pin__high(main__led6);main__time__sleep_ms(1000);main__pin__high(main__led6);main__time__sleep_ms(1000);main__pin__high(main__led7);main__time__sleep_ms(1000);main__pin__high(main__led7);main__time__sleep_ms(1000);}
 }

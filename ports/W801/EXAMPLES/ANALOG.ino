@@ -4,8 +4,8 @@
 // Backend = arduino
 
 
-#define pin__output		OUTPUT
-#define pin__input		INPUT
+#define output		OUTPUT
+#define input		INPUT
 #define pin__in_pullup	INPUT_PULLUP
 #define pin__high(PIN_NAME)   digitalWrite(PIN_NAME, HIGH)
 #define pin__low(PIN_NAME)   digitalWrite(PIN_NAME, LOW)
@@ -49,9 +49,9 @@ void pin__init() {
 void setup() {
 main__init();
 pin__init();
-pin__setup(main__a1, pin__input);
-pin__setup(main__a5, pin__output);
-pin__setup(main__a6, pin__output);
+pin__setup(main__a1, input);
+pin__setup(main__a5, output);
+pin__setup(main__a6, output);
 pin__low(main__a5);
 pin__low(main__a6);
 while(true) {if(250 >= main__adc__read(main__a1)) {pin__high(main__a5);pin__low(main__a6);}else {pin__low(main__a5);pin__high(main__a6);};}
