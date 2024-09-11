@@ -4,10 +4,10 @@
 // Backend = arduino
 
 <<<<<<< HEAD:ports/Ai-Thinker/Ai-WB2-32S-Kit/example/pwm/pwm.ino
-#define time__sleep_ms(MS)    delay(MS)
+#define time.sleep_ms(MS)    delay(MS)
 =======
 #define led     gp25
-#define time__sleep(S)    delay(S*1000)
+#define time.sleep(S)    delay(S*1000)
 >>>>>>> e2001e18f72232dc1682e8a0f1e8f9ed11a0959c:ports/Raspberry-Pi/Raspberry-Pi-Pico/projects/BLINKING/blinking/blinking.ino
 #define output		OUTPUT
 #define input		INPUT
@@ -20,17 +20,17 @@
 
 void main__init();
 
-void time__init();
+void time.init();
 
 void pin.init();
 
 void main__init() {
-	time__init();
+	time.init();
 	pin.init();
 	
 }
 
-void time__init() {
+void time.init() {
 }
 
 void pin.init() {
@@ -47,7 +47,7 @@ void setup() {
 
 void loop() {
 	pin.low(led);
-	time__sleep(2);
+	time.sleep(2);
 	pin.high(led);
-	time__sleep(2);
+	time.sleep(2);
 }

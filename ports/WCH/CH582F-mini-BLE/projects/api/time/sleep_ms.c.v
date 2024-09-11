@@ -5,5 +5,5 @@
 
 module time
 
-#define time__sleep_ms(TIME)    DelayMs(TIME)
+#define time.sleep_ms(TIME)    DelayMs(TIME)
 

@@ -9,4 +9,4 @@
 
 module time
 
-#define time__sleep(TIME)               delay_s(TIME*1000)
+#define time.sleep(TIME)               delay_s(TIME*1000)

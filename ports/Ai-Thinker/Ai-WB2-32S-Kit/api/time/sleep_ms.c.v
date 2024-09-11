@@ -7,4 +7,4 @@
 
 module time
 
-#define time__sleep_ms(MS)    delay(MS)
+#define time.sleep_ms(MS)    delay(MS)

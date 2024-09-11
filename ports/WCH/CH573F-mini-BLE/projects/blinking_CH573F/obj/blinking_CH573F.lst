@@ -1246,7 +1246,7 @@ int main(void) {
  6f6:	1141                	addi	sp,sp,-16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:63
 main__init();
-time__init();
+time.init();
 pin.init();
 pin.setup(a8, output);
  6f8:	458d                	li	a1,3
@@ -1266,28 +1266,28 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F
 pin.high(a8);
  708:	0a842783          	lw	a5,168(s0) # 400010a8 <_eusrstack+0x1fff90a8>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:66 (discriminator 1)
-time__sleep_ms(150);
+time.sleep_ms(150);
  70c:	09600513          	li	a0,150
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:65 (discriminator 1)
 pin.high(a8);
  710:	1007e793          	ori	a5,a5,256
  714:	0af42423          	sw	a5,168(s0)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:66 (discriminator 1)
-time__sleep_ms(150);
+time.sleep_ms(150);
  718:	20003097          	auipc	ra,0x20003
  71c:	31c080e7          	jalr	796(ra) # 20003a34 <mDelaymS>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:67 (discriminator 1)
 pin.low(a8);
  720:	0ac42783          	lw	a5,172(s0)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:68 (discriminator 1)
-time__sleep_ms(150);
+time.sleep_ms(150);
  724:	09600513          	li	a0,150
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:67 (discriminator 1)
 pin.low(a8);
  728:	1007e793          	ori	a5,a5,256
  72c:	0af42623          	sw	a5,172(s0)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\blinking_CH573F\obj/../src/Main.c:68 (discriminator 1)
-time__sleep_ms(150);
+time.sleep_ms(150);
  730:	20003097          	auipc	ra,0x20003
  734:	304080e7          	jalr	772(ra) # 20003a34 <mDelaymS>
  738:	bfc1                	j	708 <main+0x12>

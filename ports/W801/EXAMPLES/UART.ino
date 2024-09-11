@@ -4,7 +4,7 @@
 // Backend = arduino
 
 
-#define time__sleep_ms(MS)    delay(MS)
+#define time.sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
 #define in_pullup	INPUT_PULLUP
@@ -51,7 +51,7 @@
 
 void main__init();
 
-void time__init();
+void time.init();
 
 void pin.init();
 
@@ -81,7 +81,7 @@ void main__init() {
 }
 
 
-void time__init() {
+void time.init() {
 }
 
 
@@ -95,11 +95,11 @@ void uart.init() {
 
 void setup() {
 main__init();
-time__init();
+time.init();
 pin.init();
 uart.init();
 uart.setup(0, 9600);
 pin.setup(pin1, output);
 pin.setup(pin2, output);
-while(true) {uart.println(0, "\r\n Comunicacion UART tarjeta W801-PC:");uart.println(0, "\r\n Oprimiendo la letra Q, activa la salida  del pin1.");pin.high(pin2);time__sleep_ms(250);pin.low(pin2);time__sleep_ms(250);int32_t x = 0;x = uart.any();if((uart.available() > 0)) {char command = ' ';command = uart.read(0);if(command == 'Q') {pin.high(pin1);time__sleep_ms(2000);pin.low(pin1);time__sleep_ms(500);}else {pin.high(pin2);time__sleep_ms(500);pin.low(pin2);time__sleep_ms(500);};};}
+while(true) {uart.println(0, "\r\n Comunicacion UART tarjeta W801-PC:");uart.println(0, "\r\n Oprimiendo la letra Q, activa la salida  del pin1.");pin.high(pin2);time.sleep_ms(250);pin.low(pin2);time.sleep_ms(250);int32_t x = 0;x = uart.any();if((uart.available() > 0)) {char command = ' ';command = uart.read(0);if(command == 'Q') {pin.high(pin1);time.sleep_ms(2000);pin.low(pin1);time.sleep_ms(500);}else {pin.high(pin2);time.sleep_ms(500);pin.low(pin2);time.sleep_ms(500);};};}
 }

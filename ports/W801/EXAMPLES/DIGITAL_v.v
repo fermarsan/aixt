@@ -14,12 +14,12 @@ if (pin.read(a1)==1){
   pin.low(a2);
   pin.high(a3);
   pin.low(a4);
-  time__sleep_ms (100);
+  time.sleep_ms (100);
 }
 if (pin.read(a1)==0){
   pin.high(a2);
   pin.low(a3);
   pin.high(a4);
-  time__sleep_ms (100); 
+  time.sleep_ms (100); 
 }
 }

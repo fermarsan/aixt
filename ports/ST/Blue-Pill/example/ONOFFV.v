@@ -13,7 +13,7 @@ pin.setup(P25, output)
 
  for{
     pin.high(p25)
-	time__sleep_ms(1000)
+	time.sleep_ms(1000)
 	pin.low(p25)
-	time__sleep_ms(1000)
+	time.sleep_ms(1000)
 }  

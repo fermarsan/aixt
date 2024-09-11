@@ -46,24 +46,24 @@
 #define port.read(PORT_NAME)  PORT ## PORT_NAME
 #define port.setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
 #define port.write(PORT_NAME, VALUE)  PORT ## PORT_NAME = VALUE
-#define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
+#define time.sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 
 void main__init();
 
 void port.init();
 
-void time__init();
+void time.init();
 
 void main__init() {
 	port.init();
-	time__init();
+	time.init();
 	
 }
 
 void port.init() {
 }
 
-void time__init() {
+void time.init() {
 }
 
 void main(void) {
@@ -71,8 +71,8 @@ void main(void) {
 	port.setup(c, 0b00000);
 	while(true) {
 		port.write(c, 0b010101);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		port.write(c, 0b101010);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 	}
 }

@@ -9,4 +9,4 @@
 
 module time
 
-#define time__sleep_us(TIME)    __delay_us(TIME)
+#define time.sleep_us(TIME)    __delay_us(TIME)

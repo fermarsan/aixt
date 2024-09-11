@@ -6,7 +6,7 @@
 
 #include "CH57x_common.h"
 #define true 1
-#define time__sleep_ms(TIME)    DelayMs(TIME)
+#define time.sleep_ms(TIME)    DelayMs(TIME)
 #define a4  A, 4
 #define a5  A, 5
 #define a8  A, 8
@@ -47,8 +47,8 @@ int32_t value = 50;
 while(true) {
 pwm.write(4, value);
 value = value + 50;
-time__sleep_ms(300);
-if(value > 250) {pwm.off(4);time__sleep_ms(300);value = 50;};
+time.sleep_ms(300);
+if(value > 250) {pwm.off(4);time.sleep_ms(300);value = 50;};
 }
 return 0;
 }

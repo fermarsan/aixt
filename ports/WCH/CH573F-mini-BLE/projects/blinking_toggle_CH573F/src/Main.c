@@ -6,7 +6,7 @@
 
 #include "CH57x_common.h"
 #define true 1
-#define time__sleep_ms(TIME)    DelayMs(TIME)
+#define time.sleep_ms(TIME)    DelayMs(TIME)
 #define a4  A, 4
 #define a5  A, 5
 #define a8  A, 8
@@ -51,7 +51,7 @@ int main(void) {
 pin.setup(a8, output);
 while(true) {
 pin.toggle(a8);
-time__sleep_ms(150);
+time.sleep_ms(150);
 }
 return 0;
 }

@@ -139,7 +139,7 @@
 #define pin.read(PIN_NAME)  PIN_NAME ##_i             // PORTBbits.RB0
 #define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
 #define pin.write(PIN_NAME,VAL)   PIN_NAME = VAL    // LATBbits.LB0 = 0
-#define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
+#define time.sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 
 void main__init();
 
@@ -153,12 +153,12 @@ void uart.setup();
 
 void uart.write(char data);
 
-void time__init();
+void time.init();
 
 void main__init() {
 	pin.init();
 	uart.init();
-	time__init();
+	time.init();
 	
 }
 
@@ -187,7 +187,7 @@ void uart.write(char data) {
 	TXREG = data;
 }
 
-void time__init() {
+void time.init() {
 }
 
 void main(void) {
@@ -196,8 +196,8 @@ void main(void) {
 	uart.setup();
 	while(true) {
 		uart.write(0x33);
-		time__sleep_ms(1000);
+		time.sleep_ms(1000);
 		uart.write(0x99);
-		time__sleep_ms(1000);
+		time.sleep_ms(1000);
 	}
 }

@@ -5,4 +5,4 @@
 module time
 
 // sleep_us is a delay function in microseconds for the Aixt Explorer16-PIC24 port. 
-#define time__sleep_cycles(CYCLES)    __delay32(CYCLES)
+#define time.sleep_cycles(CYCLES)    __delay32(CYCLES)

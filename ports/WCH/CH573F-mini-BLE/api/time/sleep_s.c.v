@@ -7,5 +7,5 @@ module time
 
 // sleep_ms is a delay function in seconds (aproximation) for the (WCH-CH573F)
  
-#define time__sleep(TIME)    DelayMs(TIME*1000)
+#define time.sleep(TIME)    DelayMs(TIME*1000)
 

@@ -171,9 +171,9 @@ DEFINITION AIXT	 | DEFINITION ARDUINO
 `pin.setup(PIN_NAME, MODE)`|        	`pinMode(PIN_NAME, MODE)`
 `pin.write(PIN_NAME, VALUE)`|  	`digitalWrite(PIN_NAME, VALUE)`
 `pwm.write(PIN, VALUE)`|   	`analogWrite(PIN, VALUE)`
-`time__sleep_ms(MS)`|  	`delay(MS)`
-`time__sleep_us(US) `|  	`delayMicroseconds(US)`
-`time__sleep(S)`|	`delay(S*1000)`
+`time.sleep_ms(MS)`|  	`delay(MS)`
+`time.sleep_us(US) `|  	`delayMicroseconds(US)`
+`time.sleep(S)`|	`delay(S*1000)`
 `uart.any_0()`|		`Serial.available()`
 `uart.any_1()`|		`Serial1.available()`
 `uart.any_x(UART_NUMBER)	uart.any ## UART_NUMBER ##`| `serial.available()`

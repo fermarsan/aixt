@@ -9,17 +9,17 @@ pin.setup(p24, output)
 
  for{
     pin.high(p15)
-	time__sleep_ms(1000)
+	time.sleep_ms(1000)
 	pin.low(p15)
-	time__sleep_ms(1000)
+	time.sleep_ms(1000)
 
 	pin.high(p23)
-	time__sleep_ms(1000)
+	time.sleep_ms(1000)
 	pin.low(p23)
-	time__sleep_ms(1000)
+	time.sleep_ms(1000)
 
 	pin.high(p24)
-	time__sleep_ms(1000)
+	time.sleep_ms(1000)
 	pin.low(p24)
-	time__sleep_ms(1000)
+	time.sleep_ms(1000)
 }  

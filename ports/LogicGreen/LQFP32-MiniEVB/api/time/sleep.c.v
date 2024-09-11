@@ -5,4 +5,4 @@
 module time
 
 //Pauses the program for the amount of time (in seconds) specified as parameter
-#define time__sleep(TS)  delay(TS*1000)
+#define time.sleep(TS)  delay(TS*1000)

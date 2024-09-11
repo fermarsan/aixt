@@ -7,4 +7,4 @@
 //              (PIC16F676 port)
 module time
 
-#define time__sleep(TIME)    __delay_ms(TIME*1024)
+#define time.sleep(TIME)    __delay_ms(TIME*1024)

@@ -6,9 +6,9 @@
 
 #include "CH57x_common.h"
 #define true 1
-#define time__sleep_ms(TIME)    DelayMs(TIME)
-#define time__sleep(TIME)    DelayMs(TIME*1000)
-#define time__sleep_us(TIME)    DelayUs(TIME)
+#define time.sleep_ms(TIME)    DelayMs(TIME)
+#define time.sleep(TIME)    DelayMs(TIME*1000)
+#define time.sleep_us(TIME)    DelayUs(TIME)
 #define uart.println(MSG)		uart.print(MSG);  uart.write('\n');  uart.write('\r')
 #define uart.any() R8_UART0_RFC
 #define	uart.write(DATA)	R8_UART0_THR = DATA
@@ -58,7 +58,7 @@ uart.print("counter");
 sprintf(__temp_str, " = %u...", (unsigned int)count);
 uart.println(__temp_str);
 count++;
-time__sleep_ms(500);
+time.sleep_ms(500);
 }
 return 0;
 }

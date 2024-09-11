@@ -4,7 +4,7 @@
 // Backend = arduino
 
 
-#define time__sleep_ms(MS)    delay(MS)
+#define time.sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
 #define in_pullup	INPUT_PULLUP
@@ -16,7 +16,7 @@
 
 void main__init();
 
-void time__init();
+void time.init();
 
 void pin.init();
 
@@ -43,7 +43,7 @@ void main__init() {
 }
 
 
-void time__init() {
+void time.init() {
 }
 
 
@@ -53,7 +53,7 @@ void pin.init() {
 
 void setup() {
 main__init();
-time__init();
+time.init();
 pin.init();
 main__pin.setup(main__led1, main__output);
 
@@ -69,5 +69,5 @@ main__pin.setup(main__led6, main__output);
 
 main__pin.setup(main__led7, main__output);
 
-while(true) {main__pin.high(main__led1);main__time__sleep_ms(1000);main__pin.low(main__led1);main__time__sleep_ms(1000);main__pin.high(main__led2);main__time__sleep_ms(1000);main__pin.low(main__led2);main__time__sleep_ms(1000);main__pin.high(main__led3);main__time__sleep_ms(1000);main__pin.low(main__led3);main__time__sleep_ms(1000);main__pin.high(main__led4);main__time__sleep_ms(1000);main__pin.low(main__led4);main__time__sleep_ms(1000);main__pin.high(main__led5);main__time__sleep_ms(1000);main__pin.low(main__led5);main__time__sleep_ms(1000);main__pin.high(main__led6);main__time__sleep_ms(1000);main__pin.high(main__led6);main__time__sleep_ms(1000);main__pin.high(main__led7);main__time__sleep_ms(1000);main__pin.high(main__led7);main__time__sleep_ms(1000);}
+while(true) {main__pin.high(main__led1);main__time.sleep_ms(1000);main__pin.low(main__led1);main__time.sleep_ms(1000);main__pin.high(main__led2);main__time.sleep_ms(1000);main__pin.low(main__led2);main__time.sleep_ms(1000);main__pin.high(main__led3);main__time.sleep_ms(1000);main__pin.low(main__led3);main__time.sleep_ms(1000);main__pin.high(main__led4);main__time.sleep_ms(1000);main__pin.low(main__led4);main__time.sleep_ms(1000);main__pin.high(main__led5);main__time.sleep_ms(1000);main__pin.low(main__led5);main__time.sleep_ms(1000);main__pin.high(main__led6);main__time.sleep_ms(1000);main__pin.high(main__led6);main__time.sleep_ms(1000);main__pin.high(main__led7);main__time.sleep_ms(1000);main__pin.high(main__led7);main__time.sleep_ms(1000);}
 }

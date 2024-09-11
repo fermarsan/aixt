@@ -12,7 +12,7 @@ for {
   if uart.ready()>0 {
 
     recibe_dato = uart.read()
-    time__sleep_ms(100) 
+    time.sleep_ms(100) 
   }
 if recibe_dato ==`1`{  
 	pin.high(p5)

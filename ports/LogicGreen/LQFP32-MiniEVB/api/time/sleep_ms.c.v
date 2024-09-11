@@ -5,4 +5,4 @@
 module time
 
 //Pauses the program for the amount of time (in milliseconds) specified as parameter
-#define time__sleep_ms(TMS)  delay(TMS)
+#define time.sleep_ms(TMS)  delay(TMS)

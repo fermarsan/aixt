@@ -6,4 +6,4 @@
 // Description: milliseconds delay function (PIC16F886 port)
 module time
 
-#define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
+#define time.sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory

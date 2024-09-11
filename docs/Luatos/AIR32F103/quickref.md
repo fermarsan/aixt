@@ -211,13 +211,13 @@ uart.read_1 // receives binary data (in Bytes) to second UART
 
     * In each expression, the time VALUE is put inside the parentheses.
 ```go
-time__sleep(S) //Seconds
+time.sleep(S) //Seconds
 ```
 ```go
-time__sleep_ms(MS) //Milliseconds
+time.sleep_ms(MS) //Milliseconds
 ```
 ```go
-time__sleep_us(US) //Microseconds
+time.sleep_us(US) //Microseconds
 ```
 
 * Example flashing LED

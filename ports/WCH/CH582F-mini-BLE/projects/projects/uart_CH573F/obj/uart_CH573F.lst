@@ -1373,7 +1373,7 @@ uart.write(TxBuff);
  780:	8847c783          	lbu	a5,-1916(a5) # 20004000 <TxBuff>
  784:	00f40423          	sb	a5,8(s0) # 40003008 <_eusrstack+0x1fffb008>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:91 (discriminator 1)
-time__sleep_ms(2000);
+time.sleep_ms(2000);
  788:	7d000513          	li	a0,2000
  78c:	20003097          	auipc	ra,0x20003
  790:	2a8080e7          	jalr	680(ra) # 20003a34 <mDelaymS>

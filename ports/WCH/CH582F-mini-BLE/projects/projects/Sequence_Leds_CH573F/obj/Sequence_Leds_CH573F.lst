@@ -1336,12 +1336,12 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_C
  72c:	40001437          	lui	s0,0x40001
  730:	6989                	lui	s3,0x2
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:68
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		pin.low(a13);
 		pin.high(a14);
  732:	6911                	lui	s2,0x4
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:71
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		pin.low(a14);
 		pin.high(a15);
  734:	64a1                	lui	s1,0x8
@@ -1349,21 +1349,21 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_C
 		pin.high(a13);
  736:	0a842783          	lw	a5,168(s0) # 400010a8 <_eusrstack+0x1fff90a8>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:66 (discriminator 1)
-		time__sleep_ms(500);
+		time.sleep_ms(500);
  73a:	1f400513          	li	a0,500
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:65 (discriminator 1)
 		pin.high(a13);
  73e:	0137e7b3          	or	a5,a5,s3
  742:	0af42423          	sw	a5,168(s0)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:66 (discriminator 1)
-		time__sleep_ms(500);
+		time.sleep_ms(500);
  746:	20003097          	auipc	ra,0x20003
  74a:	2f6080e7          	jalr	758(ra) # 20003a3c <mDelaymS>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:67 (discriminator 1)
 		pin.low(a13);
  74e:	0ac42783          	lw	a5,172(s0)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:69 (discriminator 1)
-		time__sleep_ms(500);
+		time.sleep_ms(500);
  752:	1f400513          	li	a0,500
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:67 (discriminator 1)
 		pin.low(a13);
@@ -1375,14 +1375,14 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_C
  762:	0127e7b3          	or	a5,a5,s2
  766:	0af42423          	sw	a5,168(s0)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:69 (discriminator 1)
-		time__sleep_ms(500);
+		time.sleep_ms(500);
  76a:	20003097          	auipc	ra,0x20003
  76e:	2d2080e7          	jalr	722(ra) # 20003a3c <mDelaymS>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:70 (discriminator 1)
 		pin.low(a14);
  772:	0ac42783          	lw	a5,172(s0)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:72 (discriminator 1)
-		time__sleep_ms(500);
+		time.sleep_ms(500);
  776:	1f400513          	li	a0,500
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:70 (discriminator 1)
 		pin.low(a14);
@@ -1394,7 +1394,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_C
  786:	8fc5                	or	a5,a5,s1
  788:	0af42423          	sw	a5,168(s0)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:72 (discriminator 1)
-		time__sleep_ms(500);
+		time.sleep_ms(500);
  78c:	20003097          	auipc	ra,0x20003
  790:	2b0080e7          	jalr	688(ra) # 20003a3c <mDelaymS>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\Sequence_Leds_CH573F\obj/../src/Main.c:73 (discriminator 1)

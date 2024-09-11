@@ -79,9 +79,9 @@ name                             | description
 `uart.setup()`                  | Configura el `uart`
 `uart.write()`                  | Configura el `TX`
 `uart.read()`                   | Configura el `RX`
-`time__sleep(TIME)`              | Retardo en `seg`
-`time__sleep_us(TIME)`           | Retardo en `microseg`
-`time__sleep_ms(TIME) `          | Retardo en `miliseg`
+`time.sleep(TIME)`              | Retardo en `seg`
+`time.sleep_us(TIME)`           | Retardo en `microseg`
+`time.sleep_ms(TIME) `          | Retardo en `miliseg`
 
 ## Configuración de pines 
 ```go

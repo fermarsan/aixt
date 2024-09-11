@@ -12,13 +12,13 @@
 #define pin.read(PIN_NAME)   digitalRead(PIN_NAME)
 #define pin.setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
 #define pin.write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
-#define time__sleep_ms(MS)    delay(MS)
+#define time.sleep_ms(MS)    delay(MS)
 
 void main__init();
 
 void pin.init();
 
-void time__init();
+void time.init();
 
 
 enum main____pin_names {
@@ -47,14 +47,14 @@ void pin.init() {
 }
 
 
-void time__init() {
+void time.init() {
 }
 
 
 void setup() {
 main__init();
 pin.init();
-time__init();
+time.init();
 main__pin.setup(main__a1, main__input);
 
 main__pin.setup(main__a2, main__output);
@@ -63,5 +63,5 @@ main__pin.setup(main__a3, main__output);
 
 main__pin.setup(main__a4, main__output);
 
-while(true) {if((main__pin.read(main__a1) == 1)) {main__pin.low(main__a2);main__pin.high(main__a3);main__pin.low(main__a4);main__time__sleep_ms(100);};if((main__pin.read(main__a1) == 0)) {main__pin.high(main__a2);main__pin.low(main__a3);main__pin.high(main__a4);main__time__sleep_ms(100);};}
+while(true) {if((main__pin.read(main__a1) == 1)) {main__pin.low(main__a2);main__pin.high(main__a3);main__pin.low(main__a4);main__time.sleep_ms(100);};if((main__pin.read(main__a1) == 0)) {main__pin.high(main__a2);main__pin.low(main__a3);main__pin.high(main__a4);main__time.sleep_ms(100);};}
 }

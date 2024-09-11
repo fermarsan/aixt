@@ -1296,7 +1296,7 @@ main():
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:39
 }
 
-void time__init() {
+void time.init() {
 }
 
 int main(void) {
@@ -1336,28 +1336,28 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:46 (discriminator 1)
  72e:	0a84a783          	lw	a5,168(s1) # 400010a8 <_eusrstack+0x1fff90a8>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:47 (discriminator 1)
-		time__sleep_ms(500);
+		time.sleep_ms(500);
  732:	1f400513          	li	a0,500
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:46 (discriminator 1)
 		port.write(a, 0x00000800);
  736:	8fc1                	or	a5,a5,s0
  738:	0af4a423          	sw	a5,168(s1)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:47 (discriminator 1)
-		time__sleep_ms(500);
+		time.sleep_ms(500);
  73c:	20003097          	auipc	ra,0x20003
  740:	300080e7          	jalr	768(ra) # 20003a3c <mDelaymS>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:48 (discriminator 1)
 		port.write(b, 0x00000800);
  744:	0c84a783          	lw	a5,200(s1)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:49 (discriminator 1)
-		time__sleep_ms(500);
+		time.sleep_ms(500);
  748:	1f400513          	li	a0,500
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:48 (discriminator 1)
 		port.write(b, 0x00000800);
  74c:	8fc1                	or	a5,a5,s0
  74e:	0cf4a423          	sw	a5,200(s1)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:49 (discriminator 1)
-		time__sleep_ms(500);
+		time.sleep_ms(500);
  752:	20003097          	auipc	ra,0x20003
  756:	2ea080e7          	jalr	746(ra) # 20003a3c <mDelaymS>
  75a:	bfd1                	j	72e <main+0x2c>

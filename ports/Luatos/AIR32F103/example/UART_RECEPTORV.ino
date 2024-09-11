@@ -3,7 +3,7 @@
 // Board = AIR32F103
 // Backend = arduino
 
-#define time__sleep_ms(MS)    delay(MS)
+#define time.sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
 #define in_pullup	INPUT_PULLUP
@@ -24,7 +24,7 @@
 
 void main__init();
 
-void time__init();
+void time.init();
 
 void pin.init();
 
@@ -67,13 +67,13 @@ enum main____pin_names {
 };
 
 void main__init() {
-	time__init();
+	time.init();
 	pin.init();
 	uart.init();
 	
 }
 
-void time__init() {
+void time.init() {
 }
 
 void pin.init() {
@@ -94,7 +94,7 @@ void setup() {
 void loop() {
 	if(uart.ready() > 0) {
 		recibe_dato == uart.read();
-		time__sleep_ms(100);
+		time.sleep_ms(100);
 	}
 	if(recibe_dato == '1') {
 		pin.high(p5);

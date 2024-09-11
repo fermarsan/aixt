@@ -16,24 +16,24 @@
 #define port.setup(PORT, BITS, MODE)  port.setup_(PORT, BITS, MODE)
 #define port.write_(PORT, BITS) GPIO##PORT##_SetBits(BITS)
 #define port.write(PORT, BITS)  port.write_(PORT, BITS)
-#define time__sleep_ms(TIME)    DelayMs(TIME)
+#define time.sleep_ms(TIME)    DelayMs(TIME)
 
 void main__init();
 
 void port.init();
 
-void time__init();
+void time.init();
 
 void main__init() {
 	port.init();
-	time__init();
+	time.init();
 	
 }
 
 void port.init() {
 }
 
-void time__init() {
+void time.init() {
 }
 
 int main(void) {
@@ -44,9 +44,9 @@ int main(void) {
 	port.setup(b, 0xFFFFFFFF, port.output);
 	while(true) {
 		port.write(a, 0x00000800);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		port.write(b, 0x00000800);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 	}
 	return 0;
 }

@@ -81,24 +81,24 @@
 #define pin.read(PIN_NAME)  PIN_NAME
 #define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
 #define pin.write(PIN_NAME,VAL) PIN_NAME = VAL
-#define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
+#define time.sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 
 void main__init();
 
 void pin.init();
 
-void time__init();
+void time.init();
 
 void main__init() {
 	pin.init();
-	time__init();
+	time.init();
 	
 }
 
 void pin.init() {
 }
 
-void time__init() {
+void time.init() {
 }
 
 void main(void) {
@@ -108,14 +108,14 @@ void main(void) {
 	pin.setup(b6, output);
 	while(true) {
 		pin.high(b4);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		pin.high(b5);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		pin.high(b6);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		pin.low(b4);
 		pin.low(b5);
 		pin.low(b6);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 	}
 }

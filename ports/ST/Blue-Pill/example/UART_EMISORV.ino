@@ -3,7 +3,7 @@
 // Board = Blue-Pill
 // Backend = arduino
 
-#define time__sleep_ms(MS)    delay(MS)
+#define time.sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
 #define in_pullup	INPUT_PULLUP
@@ -25,7 +25,7 @@
 
 void main__init();
 
-void time__init();
+void time.init();
 
 void pin.init();
 
@@ -67,14 +67,14 @@ enum main____pin_names {
 };
 
 void main__init() {
-	time__init();
+	time.init();
 	pin.init();
 	uart.init();
 	adc.init();
 	
 }
 
-void time__init() {
+void time.init() {
 }
 
 void pin.init() {

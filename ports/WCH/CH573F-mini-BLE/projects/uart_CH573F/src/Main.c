@@ -6,7 +6,7 @@
 
 #include "CH57x_common.h"
 #define true 1
-#define time__sleep_ms(TIME)    DelayMs(TIME)
+#define time.sleep_ms(TIME)    DelayMs(TIME)
 #define uart.println(MSG)		uart.print(MSG);  uart.write('\n');  uart.write('\r')
 #define uart.any()  R8_UART0_RFC
 #define	uart.write(DATA)	R8_UART0_THR = DATA
@@ -87,7 +87,7 @@ uart.setup(115200);
 while(true) {
 TxBuff = uart.read();
 uart.write(TxBuff);
-time__sleep_ms(2000);
+time.sleep_ms(2000);
 
 }
 return 0;

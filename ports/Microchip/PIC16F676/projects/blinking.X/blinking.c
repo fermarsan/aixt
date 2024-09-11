@@ -43,7 +43,7 @@
 #define c3      PORTCbits.RC3
 #define c4      PORTCbits.RC4
 #define c5      PORTCbits.RC5
-#define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
+#define time.sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 #define output  0   // pin direction
 #define input   1
 #define pin.high(PIN_NAME)  PIN_NAME = 1
@@ -54,17 +54,17 @@
 
 void main__init();
 
-void time__init();
+void time.init();
 
 void pin.init();
 
 void main__init() {
-	time__init();
+	time.init();
 	pin.init();
 	
 }
 
-void time__init() {
+void time.init() {
 }
 
 void pin.init() {
@@ -77,14 +77,14 @@ void main(void) {
 	pin.setup(c2, output);
 	while(true) {
 		pin.high(c0);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		pin.high(c1);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		pin.high(c2);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		pin.low(c0);
 		pin.low(c1);
 		pin.low(c2);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 	}
 }

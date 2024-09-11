@@ -4,7 +4,7 @@
 // Backend = arduino
 
 #define led     gp25
-#define time__sleep_ms(MS)    delay(MS)
+#define time.sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
 #define in_pullup	INPUT_PULLUP
@@ -16,7 +16,7 @@
 
 void main__init();
 
-void time__init();
+void time.init();
 
 void pin.init();
 
@@ -54,12 +54,12 @@ enum main____pin_names {
 };
 
 void main__init() {
-	time__init();
+	time.init();
 	pin.init();
 	
 }
 
-void time__init() {
+void time.init() {
 }
 
 void pin.init() {
@@ -74,10 +74,10 @@ void setup() {
 void loop() {
 	bool b0n = false;
 	if(pin.read(gp11)) {
-		time__sleep_ms(50);
+		time.sleep_ms(50);
 		while(pin.read(gp11)) {
 		}
-		time__sleep_ms(50);
+		time.sleep_ms(50);
 		b0n = !b0n;
 		if(b0n) {
 			pin.high(led);

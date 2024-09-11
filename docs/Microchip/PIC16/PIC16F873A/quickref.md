@@ -75,9 +75,9 @@ name                                | description
 `uart.read()`                      | Lee los datos del `uart`
 `uart.write()`                     | Escribe los datos del `uart`
 `uart`                              | Inicializa el `uart`
-`time__sleep(time)`                 | Retardo en `seg`
-`time__sleep_us(time)`              | Retardo en `microseg`
-`time__sleep_ms(time)`              | Retardo en `miliseg`
+`time.sleep(time)`                 | Retardo en `seg`
+`time.sleep_us(time)`              | Retardo en `microseg`
+`time.sleep_ms(time)`              | Retardo en `miliseg`
 `time`                              | Inicializa el `time`
 
 ### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v 

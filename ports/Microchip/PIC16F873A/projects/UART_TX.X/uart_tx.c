@@ -74,7 +74,7 @@
 #define pin.read(PIN_NAME)  PIN_NAME
 #define pin.setup(PIN_NAME, PIN_MODE)   PIN_NAME ## _s = PIN_MODE
 #define pin.write(PIN_NAME,VAL) PIN_NAME = VAL
-#define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
+#define time.sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 
 void main__init();
 
@@ -88,12 +88,12 @@ void uart.setup();
 
 void uart.write(unsigned char data);
 
-void time__init();
+void time.init();
 
 void main__init() {
 	pin.init();
 	uart.init();
-	time__init();
+	time.init();
 	
 }
 
@@ -122,7 +122,7 @@ void uart.write(unsigned char data) {
 	TXREG = data;
 }
 
-void time__init() {
+void time.init() {
 }
 
 void main(void) {
@@ -131,8 +131,8 @@ void main(void) {
 	uart.setup();
 	while(true) {
 		uart.write(0x33);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 		uart.write(0x99);
-		time__sleep_ms(500);
+		time.sleep_ms(500);
 	}
 }

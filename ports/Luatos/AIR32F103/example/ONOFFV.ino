@@ -3,7 +3,7 @@
 // Board = AIR32F103
 // Backend = arduino
 
-#define time__sleep_ms(MS)    delay(MS)
+#define time.sleep_ms(MS)    delay(MS)
 #define output		OUTPUT
 #define input		INPUT
 #define in_pullup	INPUT_PULLUP
@@ -15,7 +15,7 @@
 
 void main__init();
 
-void time__init();
+void time.init();
 
 void pin.init();
 
@@ -53,12 +53,12 @@ enum main____pin_names {
 };
 
 void main__init() {
-	time__init();
+	time.init();
 	pin.init();
 	
 }
 
-void time__init() {
+void time.init() {
 }
 
 void pin.init() {
@@ -73,15 +73,15 @@ void setup() {
 
 void loop() {
 	pin.high(p15);
-	time__sleep_ms(1000);
+	time.sleep_ms(1000);
 	pin.low(p15);
-	time__sleep_ms(1000);
+	time.sleep_ms(1000);
 	pin.high(p23);
-	time__sleep_ms(1000);
+	time.sleep_ms(1000);
 	pin.low(p23);
-	time__sleep_ms(1000);
+	time.sleep_ms(1000);
 	pin.high(p24);
-	time__sleep_ms(1000);
+	time.sleep_ms(1000);
 	pin.low(p24);
-	time__sleep_ms(1000);
+	time.sleep_ms(1000);
 }

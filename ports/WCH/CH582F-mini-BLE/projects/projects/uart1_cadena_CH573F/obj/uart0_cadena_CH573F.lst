@@ -1436,13 +1436,13 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH
 count++;
      79e:	0405                	addi	s0,s0,1
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:61 (discriminator 1)
-time__sleep_ms(500);
+time.sleep_ms(500);
      7a0:	1f400513          	li	a0,500
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:60 (discriminator 1)
 count++;
      7a4:	0ff47413          	andi	s0,s0,255
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart0_cadena_CH573F\obj/../src/Main.c:61 (discriminator 1)
-time__sleep_ms(500);
+time.sleep_ms(500);
      7a8:	20003097          	auipc	ra,0x20003
      7ac:	28c080e7          	jalr	652(ra) # 20003a34 <mDelaymS>
      7b0:	bfd9                	j	786 <main+0x38>
