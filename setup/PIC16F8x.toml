@@ -15,7 +15,7 @@ cc_windows = ""
 cc_flags =   ""
 cc_output_flag = ""
 cc_input_flag = ""
-makefile_flags = "PART="
+makefile_flags = ""
 
 api_paths = [
     "Microchip/PIC16F8x",

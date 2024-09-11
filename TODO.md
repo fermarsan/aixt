@@ -31,33 +31,6 @@ Tasks to do in Aixt
 
 ### Done ✓
 
-- [x] conditional $if and $else implemented
-- [x] enum declaration issue
-- [X] Auto-detection of function return value (for assignments)
-- [x] API auto-import option (DISCARDED)
-- [x] Issue: inline declaration in prototypes 
-- [x] Mutable indexes on for_in statements
-- [x] Issue: remove the module's name from the function parameters
-- [x] Issue: duplicated function definition on output file (module functions)
-- [x] Format output file
-- [x] Allow by default mutable variables
-- [x] Change preprocessor commands and C including code
-- [x] Split parse and code generation in two rounds
-- [x] Issue: out from single string to string array. Needs to change all files
-- [x] Issue: for-in on const array
-- [x] Interrupt request functions
-- [x] Implement adc.setup() in Explorer16-PIC24
-- [x] Issue: path in windows
-- [x] Pass the compiler types form the general .toml file to a specific compiler .toml file
-- [x] Give the possibility to separate the API folder. This is useful for avoiding repeat code for similar devices.
-- [x] Create an inner struct for the setup files data
-- [x] Change the C generation using V text templates
-- [x] Issue: string Interpolation fails
-- [x] Reference variables supported
-- [x] Enable implementing option (inline functions as a C macros). Useful for tiny memory devices.
-- [x] Issue: Inline function as multiline C macro in PIC16F8x (SOLVED)
-- [x] Issue: "port" module on PIC16F8x (SOLVED) 
-- [x] Issue: Methods calling on arduino backend (SOLVED)
 - [x] Complete Arduino Nano API update
 - [x] UART arduino example 
 - [x] Remove module's name from pin names
