@@ -7,6 +7,6 @@
 module pwm
 
 pub fn write(channel int, duty int) {
-    pwm.duty[channel] = duty
+    pwm__duty[channel] = duty
     pwm.update()
 }

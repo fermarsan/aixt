@@ -10,7 +10,7 @@ module pin
 #include <stdlib.h>
 
 __global (
-	pin.pins  = [0, 0, 0, 0, 0, 0, 0, 0] // virtual pin array
+	pin__pins  = [0, 0, 0, 0, 0, 0, 0, 0] // virtual pin array
 	input_value = 0
 )
 
@@ -42,7 +42,7 @@ pub fn update() {
 		} else {
 			C.printf('\033[1;31m') // red
 		}
-		if pin.pins[i] == 0 {
+		if pin__pins[i] == 0 {
 			C.printf(' ')
 		} else {
 			C.printf('#')

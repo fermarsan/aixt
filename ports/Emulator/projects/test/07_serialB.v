@@ -2,8 +2,8 @@ import time { sleep_ms }
 import uart
 
 for _ in 0..5 {
-    uart.print(0, "Welcome ")	// 0 uart
-    uart.print(1, "to Aixt ")	// 1 uart
-    uart.println(2, "project!")	// 2 uart
+    uart.print("Welcome ")	// 0 uart
+    uart2.print("to Aixt ")	// 1 uart
+    uart3.println("project!")	// 2 uart
     sleep_ms(1500)
 }

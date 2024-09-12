@@ -34,3 +34,4 @@ Tasks to do in Aixt
 - [x] Complete Arduino Nano API update
 - [x] UART arduino example 
 - [x] Remove module's name from pin names
+- [x] Issue: after changing name functions in Emulator port (SOLVED)

@@ -153,7 +153,7 @@ pwm.setup(SETUP_VALUE, setup_VALUE_1, ... )
 
 To configure the duty cycle of a modulator
 ```go
-pwm.duty(duty)
+pwm.write(duty)
 ```
 * *In PWM the pwm to be used is set, and in `duty` the VALUE of the cycle (from 0 to 100) in percentage.*
 

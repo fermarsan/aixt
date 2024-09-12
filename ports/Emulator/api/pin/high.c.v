@@ -6,6 +6,6 @@ module pin
 
 // high function puts a high value (logic 1) to a specific pin
 pub fn high(name int) {   
-    pin.pins[name] = 1
+    pin__pins[name] = 1
     pin.update()
 }

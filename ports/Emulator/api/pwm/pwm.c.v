@@ -15,7 +15,7 @@ enum PWM_names {
 }
 
 __global (
-    pwm.duty = [0, 0]
+    pwm__duty = [0, 0]
 )
 
 pub fn print(duty int) {
@@ -36,10 +36,10 @@ pub fn update() {
         C.system("cls")
     }
     C.printf(' Aixt virtual PWM outputs\n')
-    C.printf('\t\t\t\t    PWM 0 :  %ld %%\n', pwm.duty[0])
-    pwm.print(pwm.duty[0])
-    C.printf('\t\t\t\t    PWM 1 :  %ld %%\n', pwm.duty[1])
-    pwm.print(pwm.duty[1])
+    C.printf('\t\t\t\t    PWM 0 :  %ld %%\n', pwm__duty[0])
+    pwm.print(pwm__duty[0])
+    C.printf('\t\t\t\t    PWM 1 :  %ld %%\n', pwm__duty[1])
+    pwm.print(pwm__duty[1])
 }
 
 fn init() {
