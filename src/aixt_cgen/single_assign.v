@@ -16,6 +16,7 @@ import v.token
 fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind, right ast.Expr) []string {
 	mut out := []string{}
 	var_kind := gen.table.type_kind(left_type).str()
+	var_c_type := gen.setup.compiler_types[var_kind]
 	var_name := gen.ast_node(left).join('')
 	var_value := gen.ast_node(right).join('')
 	left_expr := left

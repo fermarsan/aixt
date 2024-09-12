@@ -12,6 +12,8 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) []string {
 	left := gen.ast_node(node.left).join('')
 	right := gen.ast_node(node.right).join('')	
 	op := node.op
+	// println('-------------${node.left_type}-------------')
+	// println('-------------${node.right_type}-------------')
 	// println('-------------${node.promoted_type}-------------')
 	if node.left_type == ast.string_type_idx || node.right_type == ast.string_type_idx {
 		gen.add_include('string.h')
