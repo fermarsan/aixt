@@ -22,20 +22,11 @@ fn (mut gen Gen) init_output_file() {
 	// gen.out += '\n___includes_block___\n'
 	// gen.out += '\n___macros_block___\n' 
 	gen.out << '\n___definitions_block___\n'
- 
-    // for h in gen.setup.value('includes').array() {	// append the header files
-	// 	if h.string() != '' {
-    //     	gen.add_include(h.string())
-	// 	}
-	// }
-    // for c in gen.setup.value('configuration').array() {	// append the configuration lines
-	// 	if c.string() != '' {
-    // 	    gen.macros << '${gen.setup.value('config_operator').string()} ${c.string()}\n'    
-	// 	}
-	// }
-    // for m in gen.setup.value('macros').array() {	// append the macros
-	// 	if m.string() != '' {
-	// 		gen.macros << '#define ${m.string()}\n'
-	// 	}
-	// }
+
+	for v_type, c_type in gen.setup.compiler_types {
+		if c_type != v_type {
+			gen.out << 'typedef ${c_type} ${v_type};'
+		}
+	} 
+
 }
