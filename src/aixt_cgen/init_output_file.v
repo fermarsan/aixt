@@ -23,10 +23,10 @@ fn (mut gen Gen) init_output_file() {
 	// gen.out += '\n___macros_block___\n' 
 	gen.out << '\n___definitions_block___\n'
 
-	for v_type, c_type in gen.setup.compiler_types {
-		if c_type != v_type {
-			gen.out << 'typedef ${c_type} ${v_type};'
-		}
-	} 
+	// for v_type, c_type in gen.setup.compiler_types {
+	// 	if c_type != v_type {
+	// 		gen.out << 'typedef ${c_type} ${v_type};'
+	// 	}
+	// } 
 
 }

@@ -23,11 +23,12 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	// println('================== ${node.name} ==================')
 	var_kind := gen.table.type_kind(node.typ).str()
 	ref := ''
-	var_name := if node.mod.str() == 'main' {
-		node.name.replace('main.', '')
-	} else {
-		node.name.replace('.', '__')
-	}
+	// var_name := if node.mod.str() == 'main' {
+	// 	node.name.replace('main.', '')
+	// } else {
+	// 	node.name.replace('.', '__')
+	// }
+	var_name := '_const_${node.name.replace('.', '__')}'
 	match var_kind {
 		'array' {
 			array_init := (node.expr as ast.ArrayInit)
