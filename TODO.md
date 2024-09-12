@@ -28,6 +28,7 @@ Tasks to do in Aixt
 - [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Change all API constants
 - [ ] Change arrays to  pure V
+- [ ] Standardize (with original V) the identifier names in the generated C code 
 
 ### Done ✓
 
