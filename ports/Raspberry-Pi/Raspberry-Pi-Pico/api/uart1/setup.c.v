@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
-module uart
+module uart1
 
 // setup function sets the data rate in bits per second (baud) for serial data transmission
 @[inline]

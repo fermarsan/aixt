@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
-module uart
+module uart1
 
 // read function reads incoming serial data
 @[inline]

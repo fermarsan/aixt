@@ -1,4 +1,0 @@
-module adc
-fn init(){
-
-}

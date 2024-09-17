@@ -7,11 +7,9 @@
 //              (PC port) 
 module main
 
-#define led     gp25
 
-
-enum __pin_names {    // enumerated type for the pin names
-    gp0    
+enum Pin_names {    // enumerated type for the pin names
+    gp0 = 0    
     gp1
     gp2
     gp3
@@ -43,6 +41,6 @@ enum __pin_names {    // enumerated type for the pin names
     gp29
 }
 
-fn init() {
-
+enum Builtin_names {
+	led0 = 25
 }

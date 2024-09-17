@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
-module uart
+module uart1
 
 // print function prints data to the serial port as human-readable ASCII text
 @[inline]
