@@ -1,7 +1,7 @@
 // Project Name:
 // Author: 
 // Date: 
-// Arduino-Nano board
+// Arduino Nano board
 
 import time
 import pin

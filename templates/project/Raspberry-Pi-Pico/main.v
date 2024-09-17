@@ -1,13 +1,13 @@
 // Project Name:
 // Author: 
 // Date: 
-// Arduino Uno board
+// Raspberry Pi Pico board
 
 import time
 import pin
 
-pin.setup(d13, output)
+pin.setup(gp25, output)
 
-pin.high(d13)
+pin.high(gp25)
 time.sleep_ms(500)
 

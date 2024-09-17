@@ -1,7 +1,7 @@
 {
     "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
     "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
-    "device":       "PIC16F84A",
+    "device":       "Arduino-Nano",
     "files.associations": {
         "*.aixt": "v",
     }
