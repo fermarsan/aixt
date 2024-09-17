@@ -9,7 +9,7 @@
 Module {
 	name:	'pin'
 	description:	'Aixt pin management module for STM32F103C.'
-	version:	'0.1.0'
+	version:	'0.1.1'
 	license:	'MIT'
 	dependencies:	[]
 }
