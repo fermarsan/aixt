@@ -23,7 +23,10 @@ pub fn compile_file(path string, setup aixt_setup.Setup) {
 		setup.cc_linux
 	}
 
-	flags := setup.cc_flags
+	mut flags := setup.cc_flags
+	flags.replace('@{file_no_extension}', '${path}')	
+
+
 	output_flag := setup.cc_output_flag
 	input_flag := setup.cc_input_flag
 
@@ -32,6 +35,7 @@ pub fn compile_file(path string, setup aixt_setup.Setup) {
 		'arduino'	{ '.ino' } 
 		else 		{ '.c' }
 	}
+	flags.replace('@{input_extension}', '${input_ext}')
 
 	output_ext := match setup.port {
 		'Emulator'	{
@@ -39,29 +43,18 @@ pub fn compile_file(path string, setup aixt_setup.Setup) {
 		}
 		else	{ '' }
 	}
+	flags.replace('@{output_extension}', '${output_ext}')
+
 	// println('-------- ${os.dir(path)} --------')
-	if os.exists('${os.dir(path)}/Makefile') {	// through Makefile
+	if os.exists('${os.dir(path)}/Makefile') {		// calling compiler through Makefile
+		mut make_flags := 
 		println('make -f ${os.dir(path)}/Makefile ${setup.makefile_flags}')
 		// println(os.execute('make -f ${os.dir(path)}/Makefile').output)
 		println(os.execute('make -f ${os.dir(path)}/Makefile ${setup.makefile_flags}').output)
 		// println(os.execute('make').output)
-	} else {	// calling compiler directly
+	} else {										// calling compiler directly
 		mut command := '${cc} ${flags} '
-		// if os.is_dir(path) {
-		// 	command += if output_flag != '' {
-		// 		'${output_flag} ${path}/main${output_ext} '
-		// 	} else {
-		// 		''
-		// 	}
-		// 	command += '${input_flag} ${path}/main'
-		// } else {
-		// 	command += if output_flag != '' {
-		// 		'${output_flag} ${path}${output_ext} '
-		// 	} else {
-		// 		''
-		// 	}
-		// 	command += '${input_flag} ${path}${input_ext}'
-		// }
+
 		command += if output_flag != '' {
 			'${output_flag} ${path}${output_ext} '
 		} else {
@@ -69,6 +62,13 @@ pub fn compile_file(path string, setup aixt_setup.Setup) {
 		}
 
 		command += '${input_flag} ${path}${input_ext}'
+
+		command -= match setup.backend {
+			'nxc' 		{ '.nxc' }
+			'arduino'	{ '.ino' } 
+			else 		{ '.c' }
+		}
+
 		println('${command}')
 		println(os.execute('${command}').output)
 	}

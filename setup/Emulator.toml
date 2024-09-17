@@ -12,8 +12,8 @@ backend = "c"
 
 cc_linux =   "gcc"
 cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"
-cc_flags =   ""
-cc_output_flag = "-o"
+cc_flags =   "-o @{file_no_extension}@{output_extension} @{file_no_extension}.c"
+cc_output_flag = ""
 cc_input_flag = ""
 makefile_flags = ""
 

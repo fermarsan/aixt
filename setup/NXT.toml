@@ -12,7 +12,7 @@ backend = "nxc"
 
 cc_linux = "/home/fercho/aixt/ports/NXT/nbc-linux"
 cc_windows = "c:\\aixt\\ports\\NXT\\nbc-windows.exe"
-cc_flags = " -T=NXT -S=usb -d"  #" -EF -T=NXT -S=usb -d"
+cc_flags = " -T=NXT -S=usb -d @{file_no_extension}.nxc"  #" -EF -T=NXT -S=usb -d"
 
 path = "NXT"
 

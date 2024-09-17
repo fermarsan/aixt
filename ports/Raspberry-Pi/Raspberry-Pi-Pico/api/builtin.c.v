@@ -44,3 +44,20 @@ enum Pin_names {    // enumerated type for the pin names
 enum Builtin_names {
 	led0 = 25
 }
+
+enum Pin_modes {
+	input = 0
+	output
+	in_pullup
+}
+
+enum ADC_pin_names {
+	a0 = 14
+	a1
+	a2
+	a3
+	a4
+	a5
+	a6
+	a7
+}
