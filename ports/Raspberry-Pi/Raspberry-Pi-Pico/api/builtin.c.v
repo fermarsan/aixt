@@ -52,12 +52,7 @@ enum Pin_modes {
 }
 
 enum ADC_pin_names {
-	a0 = 14
-	a1
-	a2
-	a3
-	a4
-	a5
-	a6
-	a7
+	adc0 = 26
+	adc1
+	adc2
 }
