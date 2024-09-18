@@ -38,7 +38,6 @@ enum Pin_names {    // enumerated type for the pin names
     gp26
     gp27
     gp28
-    gp29
 }
 
 enum Builtin_names {
