@@ -36,4 +36,5 @@ Tasks to do in Aixt
 - [x] UART arduino example 
 - [x] Remove module's name from pin names
 - [x] Issue: after changing name functions in Emulator port (SOLVED)
-- [x] Compile option turned into more universal by using pseudo variables inside .toml files.
+- [x] Compile option turned into more universal by using pseudo variables inside .toml files
+- [x] Issue: RP Pico (Arduino backend) fails without loop() function (SOLVED)

@@ -20,6 +20,7 @@ fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 	init_block := '___initialization_block___'
 	mut stmts := []string{}
 	mut ret_stmt := ''
+	mut ending := ''
 	for st in node.stmts {	// inner statements
 		stmts << gen.ast_node(st).join('')
 	}
@@ -37,11 +38,13 @@ fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 		'arduino' {
 			ret_type = 'void'
 			name = 'setup'
+			ending = '\nvoid loop(){\n}'
 		}
 		else{
 			print('Invalid "Backend" in setup file.' )
 		}
 	}
 	out << $tmpl('c_templates/fn_decl.c')#[..-1]
+	out << ending
 	return out	
 }
