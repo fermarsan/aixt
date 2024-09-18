@@ -38,3 +38,4 @@ Tasks to do in Aixt
 - [x] Issue: after changing name functions in Emulator port (SOLVED)
 - [x] Compile option turned into more universal by using pseudo variables inside .toml files
 - [x] Issue: RP Pico (Arduino backend) fails without loop() function (SOLVED)
+- [x] API modules can be written in both `module` and `module_complement` folder

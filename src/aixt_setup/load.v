@@ -39,5 +39,5 @@ pub fn (mut stp Setup) load(device string, aixt_path string) {
 	stp.compiler_types		= compiler.value('compiler_types').as_map().as_strings()
 
 	println('setup files:\n\t${aixt_path}/setup/${stp.port}.toml')
-	println('\t${aixt_path}/${compiler_setup_path}')
+	println('\t${aixt_path}/${compiler_setup_path}\n')
 }

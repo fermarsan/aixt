@@ -19,7 +19,7 @@ fn (mut gen Gen) load_mod_paths() {
 		}
 	}
 	for item, dir in gen.api_mod_paths {
-		println('\t${item}: ${dir}')
+		println('  ${item}: ${dir}')
 	}
 }
 
