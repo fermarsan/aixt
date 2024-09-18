@@ -9,5 +9,5 @@ module adc
 // setup function sets the ADC resolution
 @[inline]
 pub fn setup(res u8) {
-	C.analogReadResolution(res);
+	C.analogReadResolution(res)
 }

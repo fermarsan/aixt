@@ -55,7 +55,7 @@
 	// adc module
 	"snippet.aixt.adc.setup": {
 		"prefix": "sta",
-		"body": "pin.setup(${1|12,10|})",
+		"body": "adc.setup(${1|12,10|})",
 		"description": "ADC setup resolution"
 	},
 	"snippet.aixt.adc.read": {

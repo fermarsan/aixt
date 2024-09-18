@@ -9,8 +9,8 @@
       "type": "wokwi-led",
       "id": "led1",
       "top": 54,
-      "left": -63,
-      "attrs": { "color": "red", "flip": "1" }
+      "left": -63.4,
+      "attrs": { "color": "red", "flip": "" }
     },
     {
       "type": "wokwi-resistor",
@@ -27,12 +27,12 @@
   "connections": [
     [ "pico:GP0", "$serialMonitor:RX", "", [] ],
     [ "pico:GP1", "$serialMonitor:TX", "", [] ],
-    [ "pico:GP7", "led1:C", "green", [ "h0" ] ],
-    [ "r1:1", "led1:A", "green", [ "h0" ] ],
     [ "r1:2", "gnd1:GND", "green", [ "h0" ] ],
     [ "pico:GP26", "pot1:SIG", "green", [ "h0" ] ],
     [ "pot1:GND", "vcc1:VCC", "black", [ "v19.2", "h-48" ] ],
-    [ "pot1:VCC", "gnd2:GND", "red", [ "v0" ] ]
+    [ "pot1:VCC", "gnd2:GND", "red", [ "v0" ] ],
+    [ "pico:GP7", "led1:A", "green", [ "h0" ] ],
+    [ "r1:1", "led1:C", "green", [ "h0" ] ]
   ],
   "dependencies": {}
 }
