@@ -23,12 +23,15 @@ pub fn compile_file(path string, setup aixt_setup.Setup) {
 		setup.cc_linux
 	}
 
-	mut flags := setup.cc_flags
+	mut flags := if os.exists('${os.dir(path)}/Makefile') {
+		setup.makefile_flags
+	} else {
+		setup.cc_flags
+	}
+
 	flags.replace('@{file_no_extension}', '${path}')	
-
-
-	output_flag := setup.cc_output_flag
-	input_flag := setup.cc_input_flag
+	flags.replace('@{file_dir_name}', '${os.dir(path)}')	
+	flags.replace('@{device}', '${setup.device}')
 
 	input_ext := match setup.backend {
 		'nxc' 		{ '.nxc' }
@@ -36,23 +39,22 @@ pub fn compile_file(path string, setup aixt_setup.Setup) {
 		else 		{ '.c' }
 	}
 	flags.replace('@{input_extension}', '${input_ext}')
-
+	
 	output_ext := match setup.port {
 		'Emulator'	{
 			$if windows { '.exe' } $else { '' }
 		}
 		else	{ '' }
 	}
-	flags.replace('@{output_extension}', '${output_ext}')
+	flags.replace('@{output_extension}', '${output_ext}')	
 
 	// println('-------- ${os.dir(path)} --------')
 	if os.exists('${os.dir(path)}/Makefile') {		// calling compiler through Makefile
-		mut make_flags := 
-		println('make -f ${os.dir(path)}/Makefile ${setup.makefile_flags}')
-		// println(os.execute('make -f ${os.dir(path)}/Makefile').output)
-		println(os.execute('make -f ${os.dir(path)}/Makefile ${setup.makefile_flags}').output)
-		// println(os.execute('make').output)
-	} else {										// calling compiler directly
+		mut flags := setup.makefile_flags
+		println('make -f ${os.dir(path)}/Makefile ${flags}')
+		println(os.execute('make -f ${os.dir(path)}/Makefile ${flags}').output)
+	} else {	
+		mut flags := setup.cc_flags								// calling compiler directly
 		mut command := '${cc} ${flags} '
 
 		command += if output_flag != '' {

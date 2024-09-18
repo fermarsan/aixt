@@ -15,10 +15,7 @@ pub mut:
 	backend 			string
 	cc_linux 			string
 	cc_windows 			string
-	cc_flags			string
-	cc_output_flag		string
-	cc_input_flag 		string	
-	makefile_flags		string
+	cc_make_flags		string
 	api_paths			[]string
 	v_defines			[]string
 	inline_as_c_macro	bool
