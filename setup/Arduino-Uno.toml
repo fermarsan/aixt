@@ -10,10 +10,7 @@ backend = "arduino"
 
 cc_linux =   "arduino-cli"
 cc_windows = "arduino-cli.exe"
-cc_flags =   "compile -b arduino:avr:uno -v --output-dir ./build "
-cc_output_flag = ""
-cc_input_flag = ""
-makefile_flags = ""
+cc_make_flags =   "compile -b arduino:avr:uno -v --output-dir @{file_dir_name}/build"
 
 api_paths = [
     "Arduino/Arduino-Uno",

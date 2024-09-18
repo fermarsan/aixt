@@ -29,7 +29,6 @@ Tasks to do in Aixt
 - [ ] Change all API constants
 - [ ] Change arrays to  pure V
 - [ ] Standardize (with original V) the identifier names in the generated C code
-- [ ] Compile option turned into more universal by using pseudo variables inside .toml files.
 
 ### Done ✓
 
@@ -37,3 +36,4 @@ Tasks to do in Aixt
 - [x] UART arduino example 
 - [x] Remove module's name from pin names
 - [x] Issue: after changing name functions in Emulator port (SOLVED)
+- [x] Compile option turned into more universal by using pseudo variables inside .toml files.

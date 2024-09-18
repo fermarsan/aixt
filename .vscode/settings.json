@@ -1,7 +1,7 @@
 {
     "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
     "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
-    "device":       "Raspberry-Pi-Pico", // "Arduino-Uno", // "PIC16F83", // "Emulator",
+    "device":       "PIC16F84", // "Emulator", // "Raspberry-Pi-Pico", // "Arduino-Uno",  
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",

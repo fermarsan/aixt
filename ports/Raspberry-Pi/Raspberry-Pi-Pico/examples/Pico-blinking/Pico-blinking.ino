@@ -80,6 +80,4 @@ void setup() {
 	} 
 }
 
-void loop(){}
-
 

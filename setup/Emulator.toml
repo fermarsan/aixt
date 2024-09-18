@@ -5,14 +5,13 @@
 #
 # Description: Setup file for the Emulator port. It works on Linux and Windows 
 #              PCs and on Android with Termux
-
 port =    "Emulator" 
 board =   "Linux, Windows and Android"
 backend = "c"
 
-cc_linux =   "gcc"
-cc_windows = "c:\\v\\thirdparty\\tcc\\tcc.exe"
-cc_make_flags =   "-o @{file_no_extension}@{output_extension} @{file_no_extension}.c"
+cc_linux =      "gcc"
+cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
+cc_make_flags = "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
 
 api_paths = [
     "Emulator"

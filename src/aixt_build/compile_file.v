@@ -23,55 +23,32 @@ pub fn compile_file(path string, setup aixt_setup.Setup) {
 		setup.cc_linux
 	}
 
-	mut flags := if os.exists('${os.dir(path)}/Makefile') {
-		setup.makefile_flags
-	} else {
-		setup.cc_flags
-	}
-
-	flags.replace('@{file_no_extension}', '${path}')	
-	flags.replace('@{file_dir_name}', '${os.dir(path)}')	
-	flags.replace('@{device}', '${setup.device}')
+	mut flags := setup.cc_make_flags
+	flags = flags.replace('@{file_no_ext}', '${path}')	
+	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')	
+	flags = flags.replace('@{device}', '${setup.device}')
 
 	input_ext := match setup.backend {
 		'nxc' 		{ '.nxc' }
 		'arduino'	{ '.ino' } 
 		else 		{ '.c' }
 	}
-	flags.replace('@{input_extension}', '${input_ext}')
-	
+	flags = flags.replace('@{input_ext}', '${input_ext}')
+
 	output_ext := match setup.port {
 		'Emulator'	{
 			$if windows { '.exe' } $else { '' }
 		}
 		else	{ '' }
 	}
-	flags.replace('@{output_extension}', '${output_ext}')	
+	flags = flags.replace('@{output_ext}', '${output_ext}')	
 
 	// println('-------- ${os.dir(path)} --------')
 	if os.exists('${os.dir(path)}/Makefile') {		// calling compiler through Makefile
-		mut flags := setup.makefile_flags
 		println('make -f ${os.dir(path)}/Makefile ${flags}')
 		println(os.execute('make -f ${os.dir(path)}/Makefile ${flags}').output)
-	} else {	
-		mut flags := setup.cc_flags								// calling compiler directly
-		mut command := '${cc} ${flags} '
-
-		command += if output_flag != '' {
-			'${output_flag} ${path}${output_ext} '
-		} else {
-			''
-		}
-
-		command += '${input_flag} ${path}${input_ext}'
-
-		command -= match setup.backend {
-			'nxc' 		{ '.nxc' }
-			'arduino'	{ '.ino' } 
-			else 		{ '.c' }
-		}
-
-		println('${command}')
-		println(os.execute('${command}').output)
+	} else {
+		println('${cc} ${flags}')
+		println(os.execute('${cc} ${flags}').output)
 	}
 }
