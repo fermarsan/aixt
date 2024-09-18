@@ -16,22 +16,31 @@ fn (mut gen Gen) import_stmt(node ast.Import) []string {
 
 		if module_short_name in gen.api_mod_paths {	// API modules
 			// if module_short_name !in gen.table.imports {	// avoid repeats importing
-			module_path := gen.api_mod_paths[module_short_name]	// '${gen.transpiler_path}/ports/${port_path}/api/${module_short_name}'	
-			gen.parse_module_file('${module_path}/${module_short_name}.c.v')	// parse `module_name.c.v` first
-			if node.syms.len == 0 {	// if import all the module
-				file_paths := os.ls('${module_path}') or { [] }
-				// println('############# ${file_paths} #############')
-				for file_path in file_paths {
-					if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
-						if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v`
-							gen.parse_module_file(os.abs_path('${module_path}/${file_path}'))
-						}			
+			mut module_paths := []string{}
+			module_paths << gen.api_mod_paths[module_short_name]	// '${gen.transpiler_path}/ports/${port_path}/api/${module_short_name}'
+			if '${module_short_name}_complement' in gen.api_mod_paths {
+				module_paths << gen.api_mod_paths['${module_short_name}_complement']
+			}
+			for module_path in module_paths {
+				if os.exists('${module_path}/${module_short_name}.c.v') {
+					gen.parse_module_file('${module_path}/${module_short_name}.c.v')	// parse `module_name.c.v` first
+				}
+				if node.syms.len == 0 {	// if import all the module
+					file_paths := os.ls('${module_path}') or { [] }
+					// println('############# ${file_paths} #############')
+					for file_path in file_paths {
+						if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
+							if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v`
+								gen.parse_module_file(os.abs_path('${module_path}/${file_path}'))
+							}			
+						}
+					}
+				} else {	// if import specific module components
+					for s in node.syms {
+						gen.parse_module_file(os.abs_path('${module_path}/${s.name}.c.v'))
 					}
 				}
-			} else {	// if import specific module components
-				for s in node.syms {
-					gen.parse_module_file(os.abs_path('${module_path}/${s.name}.c.v'))
-				}
+				
 			}
 			// }
 		} else {	// Custom modules
