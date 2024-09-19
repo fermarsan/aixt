@@ -4,7 +4,7 @@
 // License: MIT
 module uart1
 
-#include "pins.h"
+#include "pins.c"
 
 // pins function sets the tx and tx pins for the uart
 @[inline]

@@ -1,0 +1,8 @@
+{
+    "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
+    "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
+    "device":       "Raspberry-Pi-Pico",
+    "files.associations": {
+        "*.aixt": "v",
+    }
+}
