@@ -4,14 +4,14 @@
 // Raspberry Pi Pico board
 
 import time
-import uart1
+import uart
 import adc
 
-uart1.setup(9600)
+uart.setup(9600)
 adc.setup(12)
 
 for {
 	analog := adc.read(adc0)
-	uart1.println('ADC channel 0: ${analog}')
+	uart.println('ADC channel 0: ${analog}')
 	time.sleep_ms(500)
 }

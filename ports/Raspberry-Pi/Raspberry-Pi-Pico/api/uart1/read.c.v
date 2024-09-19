@@ -7,5 +7,5 @@ module uart1
 // read function reads incoming serial data
 @[inline]
 pub fn read() u8 {
-	return C.Serial1.read()
+	return C.Serial2.read()
 }

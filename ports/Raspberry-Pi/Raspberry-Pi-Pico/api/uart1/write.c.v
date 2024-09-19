@@ -7,5 +7,5 @@ module uart1
 // write function sends a single byte to the serial port
 @[inline]
 pub fn write(character u8) {  
-	C.Serial1.write(character)
+	C.Serial2.write(character)
 }
