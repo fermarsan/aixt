@@ -1,0 +1,5 @@
+## How to contribute?
+The `Aixt` to `V` transpiler performs general equivalences between both languages, but the specific characteristics of each microcontroller or `C` compilers, such as types or necessary header files, must be recorded in a setup file in `.toml` format. The main idea of using that setup file (`port_name.toml`) is to facilitate contributions (appending a new device or board) by simplifying the knowledge required on the part of the contributor. Each contributor has to code the API functions for the specific `C` compiler and also the setup file.
+
+Anyways, you can contribute in any other part of the Aixt project, all your contributions will be well received.
+<!-- Additionally, a Makefile needs to be created to run the transpiler and compiler tools in sequence. -->
