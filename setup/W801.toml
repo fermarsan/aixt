@@ -1,5 +1,8 @@
 # Project Name: Aixt, https://github.com/fermarsan/aixt.git
-#  Author = Fernando M. Santa - Johann Escobar Guzmán - Daniel Andrés Vásquez Gómez
+#  Authors:
+#   - Johann Escobar Guzmán 
+#   - Daniel Andrés Vásquez Gómez
+#   - Fernando M. Santa 
 #  Date: 2022-2024
 #  License: MIT
 #
@@ -19,7 +22,8 @@ makefile_flags = ""
 
 api_paths = [
     "W801",
-    "Arduino/Arduino-generic"
+    "Arduino/Arduino-generic",
+    "Arduino/Arduino-generic-UART",
 ]
 
 v_defines = [

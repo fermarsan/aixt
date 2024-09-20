@@ -14,7 +14,8 @@ cc_make_flags =   "compile -b esp32:esp32:esp32 -v --output-dir @{file_dir_name}
 
 api_paths = [
     "Espressif/ESP32-DevKitC",
-    "Arduino/Arduino-generic"
+    "Arduino/Arduino-generic",
+    "Arduino/Arduino-generic-UART",
 ]
 
 v_defines = [
