@@ -8,5 +8,5 @@ module port
 
 @[inline]
 pub fn read(PORT_NAME) {
-C.PORT ## PORT_NAME
+C.PORT ##  PORT_NAME
 }

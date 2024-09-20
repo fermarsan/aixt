@@ -42,7 +42,7 @@
 #define __CORE_CMFUNC_H
 
 
-/* ###########################  Core Function Access  ########################### */
+/* ###########################   Core Function Access  ###########################  */
 /** \ingroup  CMSIS_Core_FunctionInterface
     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
   @{

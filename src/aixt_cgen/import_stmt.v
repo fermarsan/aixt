@@ -11,7 +11,7 @@ import v.ast
 fn (mut gen Gen) import_stmt(node ast.Import) []string {
 	// if node.mod !in gen.imports {
 	// 	gen.imports << node.mod
-		// println('############# ${gen.imports} #############')
+		// println('#############  ${gen.imports} #############')
 		module_short_name := node.mod.all_after_last('.')
 
 		if module_short_name in gen.api_mod_paths {	// API modules
@@ -27,7 +27,7 @@ fn (mut gen Gen) import_stmt(node ast.Import) []string {
 				}
 				if node.syms.len == 0 {	// if import all the module
 					file_paths := os.ls('${module_path}') or { [] }
-					// println('############# ${file_paths} #############')
+					// println('#############  ${file_paths} #############')
 					for file_path in file_paths {
 						if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
 							if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v`
@@ -45,7 +45,7 @@ fn (mut gen Gen) import_stmt(node ast.Import) []string {
 			// }
 		} else {	// Custom modules
 			module_path := '${node.mod.replace('.', '/')}'
-			// println('############# ${module_short_name} #############')
+			// println('#############  ${module_short_name} #############')
 			if node.syms.len == 0 {
 				file_paths := os.ls('${module_path}') or { [] }
 				// println(file_paths)

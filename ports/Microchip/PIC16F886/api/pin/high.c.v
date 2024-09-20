@@ -8,7 +8,7 @@ module pin
 
 @[inline]
 pub fn high_(PORT_NAME, PIN) {
-	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = 1
+	C.PORT ##  PORT_NAME ##  bits.R ##  PORT_NAME ##  PIN = 1
 }
 
 @[inline]

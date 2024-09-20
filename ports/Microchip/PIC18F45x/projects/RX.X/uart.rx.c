@@ -136,15 +136,15 @@ const output = C.0   // port mode (direction)
 const input = C.1
 @[inline]
 pub fn read(PORT_NAME) {
-C.PORT ## PORT_NAME
+C.PORT ##  PORT_NAME
 }
 @[inline]
 pub fn setup(PORT_NAME, VALUE) {
-	C.TRIS ## PORT_NAME = VALUE
+	C.TRIS ##  PORT_NAME = VALUE
 }
 @[inline]
 pub fn write(PORT_NAME, VALUE) {
-	C.LAT ## PORT_NAME = VALUE
+	C.LAT ##  PORT_NAME = VALUE
 }
 #define output 0   // pin mode (direction)
 #define input  1
@@ -162,7 +162,7 @@ pub fn read(PIN_NAME) {
 }
 @[inline]
 pub fn setup(PIN_NAME, PIN_MODE) {
-	C.PIN_NAME ## _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+	C.PIN_NAME ##  _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
 }
 @[inline]
 pub fn write(PIN_NAME,VAL) {

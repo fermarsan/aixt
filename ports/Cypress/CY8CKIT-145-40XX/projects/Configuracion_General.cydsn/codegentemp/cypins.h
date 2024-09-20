@@ -311,11 +311,11 @@ The x is the port number, and the second argument is the pin number.
 /** @} group_pins */
 
 /* Defines function macros for mapping PSoC 4 per-pin functions to PSoC 3/5LP style functions  */
-#define CyPins_ReadPin(name)                (CY_SYS_PINS_READ_PIN       (name ## _PS, name ## _SHIFT))
-#define CyPins_SetPin(name)                 (CY_SYS_PINS_SET_PIN        (name ## _DR, name ## _SHIFT))
-#define CyPins_ClearPin(name)               (CY_SYS_PINS_CLEAR_PIN      (name ## _DR, name ## _SHIFT))
-#define CyPins_SetPinDriveMode(name, mode)  (CY_SYS_PINS_SET_DRIVE_MODE (name ## _PC, name ## _SHIFT, mode))
-#define CyPins_ReadPinDriveMode(name)       (CY_SYS_PINS_READ_DRIVE_MODE(name ## _PC, name ## _SHIFT))
+#define CyPins_ReadPin(name)                (CY_SYS_PINS_READ_PIN       (name ##  _PS, name ##  _SHIFT))
+#define CyPins_SetPin(name)                 (CY_SYS_PINS_SET_PIN        (name ##  _DR, name ##  _SHIFT))
+#define CyPins_ClearPin(name)               (CY_SYS_PINS_CLEAR_PIN      (name ##  _DR, name ##  _SHIFT))
+#define CyPins_SetPinDriveMode(name, mode)  (CY_SYS_PINS_SET_DRIVE_MODE (name ##  _PC, name ##  _SHIFT, mode))
+#define CyPins_ReadPinDriveMode(name)       (CY_SYS_PINS_READ_DRIVE_MODE(name ##  _PC, name ##  _SHIFT))
 
 
 #endif /* (CY_BOOT_CYPINS_H) */

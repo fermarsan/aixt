@@ -1,7 +1,7 @@
 module main
 
 
-// #################### NXC Command module ####################
+// ####################  NXC Command module ####################
 
 
 
@@ -299,7 +299,7 @@ module main
 // @[inline] strtoul() { return C.strtoul() }
 
 
-// #################### NXC IOCtrl module ####################
+// ####################  NXC IOCtrl module ####################
 
 // Constant offsets into the IOCtrl module IOMAP structure. 
 // #define 	io_ctrl_offset_power_on		IOCtrlOffsetPowerOn

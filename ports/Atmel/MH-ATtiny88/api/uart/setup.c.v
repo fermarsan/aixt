@@ -23,7 +23,7 @@ pub fn setup_1(BAUD_RATE) {
 }
 
 @[inline]
-pub fn setup_x(UART_NUMBER, BAUD_RATE)		uart.setup_ ## UART_NUMBER (BAUD_RATE) {
+pub fn setup_x(UART_NUMBER, BAUD_RATE)		uart.setup_ ##  UART_NUMBER (BAUD_RATE) {
 	C.	
 }
 

@@ -17,7 +17,7 @@ pub fn print_1(MESSAGE) {
 }
 
 @[inline]
-pub fn print_x(UART_NUMBER, MESSAGE)		uart.print_ ## UART_NUMBER (MESSAGE) {
+pub fn print_x(UART_NUMBER, MESSAGE)		uart.print_ ##  UART_NUMBER (MESSAGE) {
 	C.	
 }
 

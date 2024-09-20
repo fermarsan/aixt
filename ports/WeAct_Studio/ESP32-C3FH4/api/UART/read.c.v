@@ -18,7 +18,7 @@ pub fn read_1() {
 
 @[inline]
 pub fn read_x(UART_NUMBER) {
-	C.uart.read_ ## UART_NUMBER ## .read()
+	C.uart.read_ ##  UART_NUMBER ##  .read()
 }
 
 // macro with 0 or 1 arguments

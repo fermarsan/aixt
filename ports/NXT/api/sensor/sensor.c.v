@@ -369,7 +369,7 @@ pub fn sys_input_pin_function() {
 	return C.SysInputPinFunction() 
 } 
 
-// #################### NXC LowSpeed module ####################
+// ####################  NXC LowSpeed module ####################
 
 // Constants for use with the e-meter sensor. 
 // #define 	emeter_reg_vin   	EMETER_REG_VIN   

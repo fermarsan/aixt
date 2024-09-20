@@ -13,5 +13,5 @@ module port
 //                  LATB = 0x45		// (PIC18, PIC24, dsPIC33)
 @[inline]
 pub fn write(PORT_NAME, VALUE) {
-	C.LAT ## PORT_NAME = VALUE
+	C.LAT ##  PORT_NAME = VALUE
 }

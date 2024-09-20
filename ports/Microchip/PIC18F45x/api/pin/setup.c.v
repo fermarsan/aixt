@@ -9,7 +9,7 @@ module pin
 
 @[inline]
 pub fn setup(PIN_NAME, PIN_MODE) {
-	C.PIN_NAME ## _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+	C.PIN_NAME ##  _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
 }
 
 //#fn port.setup(PORT_NAME, MODE)   PORT_NAME = MODE

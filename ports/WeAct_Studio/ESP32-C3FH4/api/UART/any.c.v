@@ -17,7 +17,7 @@ pub fn any_1() {
 
 @[inline]
 pub fn any_x(UART_NUMBER) {
-	C.uart.any_ ## UART_NUMBER ## .available()
+	C.uart.any_ ##  UART_NUMBER ##  .available()
 }
 
 // macro with 0 or 1 arguments

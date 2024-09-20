@@ -148,7 +148,7 @@ pub fn read(PIN_NAME) {
 }
 @[inline]
 pub fn setup(PIN_NAME, PIN_MODE) {
-	C.PIN_NAME ## _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+	C.PIN_NAME ##  _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
 }
 @[inline]
 pub fn write(PIN_NAME,VAL) {

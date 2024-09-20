@@ -76,15 +76,15 @@
 #define c7    PORTCbits.RC7
 @[inline]
 pub fn read(PORT_NAME) {
-C.PORT ## PORT_NAME
+C.PORT ##  PORT_NAME
 }
 @[inline]
 pub fn setup(PORT_NAME, VALUE) {
-	C.TRIS ## PORT_NAME = VALUE
+	C.TRIS ##  PORT_NAME = VALUE
 }
 @[inline]
 pub fn write(PORT_NAME, VALUE) {
-	C.PORT ## PORT_NAME = VALUE
+	C.PORT ##  PORT_NAME = VALUE
 }
 #define output 0   // pin mode (direction)
 #define input  1
@@ -106,7 +106,7 @@ pub fn read(PIN_NAME) {
 }
 @[inline]
 pub fn setup(PIN_NAME, PIN_MODE) {
-	C.PIN_NAME ## _s = PIN_MODE
+	C.PIN_NAME ##  _s = PIN_MODE
 }
 @[inline]
 pub fn write(PIN_NAME,VAL) {

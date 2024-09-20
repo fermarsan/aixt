@@ -77,7 +77,7 @@
 #endif
 
 
-/* ###########################  Core Function Access  ########################### */
+/* ###########################   Core Function Access  ###########################  */
 /** \ingroup  CMSIS_Core_FunctionInterface
     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
   @{
@@ -353,7 +353,7 @@ __STATIC_INLINE void __set_FPSCR(uint32_t fpscr)
 /*@} end of CMSIS_Core_RegAccFunctions */
 
 
-/* ##########################  Core Instruction Access  ######################### */
+/* ##########################   Core Instruction Access  #########################  */
 /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
   Access to dedicated instructions
   @{
@@ -707,7 +707,7 @@ __attribute__((section(".rrx_text"))) __STATIC_INLINE __ASM uint32_t __RRX(uint3
 /*@}*/ /* end of group CMSIS_Core_InstructionInterface */
 
 
-/* ###################  Compiler specific Intrinsics  ########################### */
+/* ###################   Compiler specific Intrinsics  ###########################  */
 /** \defgroup CMSIS_SIMD_intrinsics CMSIS SIMD Intrinsics
   Access to dedicated SIMD instructions
   @{

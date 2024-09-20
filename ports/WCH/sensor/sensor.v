@@ -1,6 +1,6 @@
 module sensor	
 
-// #################### NXC Input module ####################
+// ####################  NXC Input module ####################
 
 // Constants for use with the color calibration functions. 
 #define 	cal_point_0 	INPUT_CAL_POINT_0    
@@ -233,7 +233,7 @@ module sensor
 #define		color_cal_limits(...)            ColorCalLimits(__VA_ARGS__)
 #define		sys_input_pin_function(...)      SysInputPinFunction(__VA_ARGS__) 
 
-// #################### NXC LowSpeed module ####################
+// ####################  NXC LowSpeed module ####################
 
 // Constants for use with the e-meter sensor. 
 #define 	emeter_reg_vin   	EMETER_REG_VIN   

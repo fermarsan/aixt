@@ -1,6 +1,6 @@
 module motor	// NXC Output
 
-// #################### NXC Output module ####################
+// ####################  NXC Output module ####################
 
 // Constants for use with set_output                                              
 // #define     update_flags_field      UpdateFlagsField                   
