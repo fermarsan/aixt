@@ -1,0 +1,103 @@
+{
+	// time module
+	"snippet.aixt.time.sleep": {
+		"prefix": "tim",
+		"body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:10})",
+		"description": "Time functions"
+	},
+	// pin module
+	"snippet.aixt.pin.setup": {
+		"prefix": "st",
+		"body": "pin.setup(${1:0}, ${2|input,output,in_pullup|})",
+		"description": "Pin setup level function"
+	},
+	"snippet.aixt.pin.high": {
+		"prefix": "hi",
+		"body": "pin.high(${1:0})",
+		"description": "Pin high level function"
+	},
+	"snippet.aixt.pin.low": {
+		"prefix": "lo",
+		"body": "pin.low(${1:0})",
+		"description": "Pin low level function"
+	},
+	// "snippet.aixt.pin.toggle": {
+	// 	"prefix": "to",
+	// 	"body": "pin.toggle(${1:0})",
+	// 	"description": "Pin toggle level function"
+	// },
+	"snippet.aixt.pin.write": {
+		"prefix": "wr",
+		"body": "pin.write(${1:0}, ${2:1})",
+		"description": "Pin writing function"
+	},
+	"snippet.aixt.pin.read": {
+		"prefix": "rd",
+		"body": "pin.read(${1:0})",
+		"description": "pin reading function"
+	},
+	// port module
+	"snippet.aixt.port.setup": {
+		"prefix": "stp",
+		"body": "port.setup(${1|b,c,d|}, ${2:0b00000000})",
+		"description": "8-bit port setup function"
+	},
+	"snippet.aixt.port.read": {
+		"prefix": "rdp",
+		"body": "port.read(${1|b,c,d|})",
+		"description": "8-bit port reading function"
+	},
+	"snippet.aixt.port.write": {
+		"prefix": "wrp",
+		"body": "port.write(${1|b,c,d|}, ${2:0x00})",
+		"description": "8-bit port writing function"
+	},
+	// adc module
+	"snippet.aixt.adc.setup": {
+		"prefix": "sta",
+		"body": "adc.setup(${1|12,10|})",
+		"description": "ADC setup resolution"
+	},
+	"snippet.aixt.adc.read": {
+		"prefix": "rda",
+		"body": "adc.read(${1:0})",
+		"description": "ADC reading function"
+	},
+	// pwm module
+	"snippet.aixt.pwm.write": {
+		"prefix": "wrpw",
+		"body": "pwm.write(${1:0}, ${2:50})",
+		"description": "PWM writing function"
+	},
+	// uart module
+	"snippet.aixt.uart.setup": {
+		"prefix": "stu",
+		"body": "${1|uart,uart1,uart2,uart3,uart4,uart5|}.setup(${2|300,600,1200,2400,4800,9600,14400,19200,28800,31250,38400,57600,115200|})",
+		"description": "UART character writing function"
+	},
+	"snippet.aixt.uart.write": {
+		"prefix": "wru",
+		"body": "${1|uart,uart1,uart2,uart3,uart4,uart5|}.write($2)",
+		"description": "UART character writing function"
+	},
+	"snippet.aixt.uart.print": {
+		"prefix": "pru",
+		"body": "${1|uart,uart1,uart2,uart3,uart4,uart5|}.print($2)",
+		"description": "UART printing string function"
+	},
+	"snippet.aixt.uart.println": {
+		"prefix": "prlu",
+		"body": "${1|uart,uart1,uart2,uart3,uart4,uart5|}.println($2)",
+		"description": "UART printing string + line new function"
+	},
+	"snippet.aixt.uart.read": {
+		"prefix": "rdu",
+		"body": "${1|uart,uart1,uart2,uart3,uart4,uart5|}.read()",
+		"description": "UART character reading function"
+	},
+	"snippet.aixt.uart.input": {
+		"prefix": "inu",
+		"body": "${1|uart,uart1,uart2,uart3,uart4,uart5|}.input(${2:message})",
+		"description": "UART capturing string function"
+	},
+  }
