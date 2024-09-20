@@ -7,8 +7,7 @@
 #               port of Aixt project
 
 port =    "ESP32-C3FH4"
-device =  "WeAct_Studio"
-board =   "ESP32-C3FH4"
+board =   "WeAct_Studio ESP32-C3FH4"
 backend = "arduino"
 
 cc_linux =   "-o"

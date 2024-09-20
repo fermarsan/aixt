@@ -275,7 +275,7 @@ time.sleep_us(US) //Microseconds
 import pin
 import time {sleep_ms}
 
-pin.setup(14, pin.out)
+pin.setup(14, output)
 
 for {   //infinite loop
     pin.high(14)

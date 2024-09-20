@@ -3,7 +3,7 @@ a PIC24FJ microcontroller (XC16 compiler)*/
 import pin
 import time
 
-pin.setup(a3, pin.out)
+pin.setup(a3, output)
 
 for {   //infinite loop
     pin.high(a3)     // LED 10 blinking

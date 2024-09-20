@@ -5,7 +5,7 @@ import pin
 pin.setup(p25, output)
 =======
 <<<<<<< HEAD
-pin.setup(P25, pin.out)
+pin.setup(P25, output)
 =======
 pin.setup(P25, output)
 >>>>>>> d4993b91b137dd499e1bd8c91cce3c82d74f8e77
