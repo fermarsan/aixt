@@ -1,4 +1,5 @@
-// Project Name: Aixt https://github.com/fermarsan/aixt.git
+// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
+// File Name: setup.c.v
 // Author: Fernando M. Santa - Johann Escobar Guzmán - Daniel Andrés Vásquez Gómez
 // Date: 2023-2024
 // License: MIT
@@ -8,7 +9,8 @@
 
 module pin
 
+// setup configures a pin's input/output mode
 @[inline]
-pub fn setup(PIN_NAME, MODE) {
-	C.pinMode(PIN_NAME, MODE)
+pub fn setup(name int, mode int) {   
+    C.pinMode(name, mode)
 }

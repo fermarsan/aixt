@@ -1,12 +1,10 @@
 import pin
 import time {sleep_ms}
   // put your setup code here, to run once:
-pin.setup(a1,input);  
-pin.setup(a2,output);
-pin.setup(a3,output);
-pin.setup(a4,output);
-
-
+pin.setup(a1,pin.input);  
+pin.setup(a2,pin.output);
+pin.setup(a3,pin.output);
+pin.setup(a4,pin.output);
 
 for {
   // put your main code here, to run repeatedly:

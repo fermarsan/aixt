@@ -3,7 +3,9 @@
 // Board = Arduino Uno
 // Backend = arduino
 
+void  time__sleep(int16_t ts);
 void  time__sleep_ms(int16_t tms);
+void  time__sleep_us(int16_t tus);
 void  pin__high(uint8_t name);
 void  pin__low(uint8_t name);
 uint8_t  pin__read(uint8_t name);
@@ -54,8 +56,16 @@ enum main__Builtin_names {
 	led0 = 13,
 };
 
+inline void  time__sleep(int16_t ts) {
+	delay(ts * 1000); 
+}
+
 inline void  time__sleep_ms(int16_t tms) {
 	delay(tms); 
+}
+
+inline void  time__sleep_us(int16_t tus) {
+	delayMicroseconds(tus); 
 }
 
 inline void  pin__high(uint8_t name) {
@@ -79,77 +89,9 @@ inline void  pin__write(uint8_t name, uint8_t val) {
 }
 
 void setup() {
-	pin__setup(led1, pin__output); 
-	 
-	pin__setup(led2, pin__output); 
-	 
-	pin__setup(led3, pin__output); 
-	 
-	pin__setup(led4, pin__output); 
-	 
-	pin__setup(led5, pin__output); 
-	 
-	pin__setup(led6, pin__output); 
-	 
-	pin__setup(led7, pin__output); 
-	 
-	while(true) {
-		pin__high(led1);
-		
-		time__sleep_ms(1000);
-		
-		pin__low(led1);
-		
-		time__sleep_ms(1000);
-		
-		pin__high(led2);
-		
-		time__sleep_ms(1000);
-		
-		pin__low(led2);
-		
-		time__sleep_ms(1000);
-		
-		pin__high(led3);
-		
-		time__sleep_ms(1000);
-		
-		pin__low(led3);
-		
-		time__sleep_ms(1000);
-		
-		pin__high(led4);
-		
-		time__sleep_ms(1000);
-		
-		pin__low(led4);
-		
-		time__sleep_ms(1000);
-		
-		pin__high(led5);
-		
-		time__sleep_ms(1000);
-		
-		pin__low(led5);
-		
-		time__sleep_ms(1000);
-		
-		pin__high(led6);
-		
-		time__sleep_ms(1000);
-		
-		pin__high(led6);
-		
-		time__sleep_ms(1000);
-		
-		pin__high(led7);
-		
-		time__sleep_ms(1000);
-		
-		pin__high(led7);
-		
-		time__leep_ms(1000);
-	} 
+	pin__setup(d13, pin__output); 
+	pin__high(d13); 
+	time__sleep_ms(500); 
 }
 
 

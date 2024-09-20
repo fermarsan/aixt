@@ -1,4 +1,5 @@
-// Project Name: Aixt https://github.com/fermarsan/aixt.git
+// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
+// File Name: builtin.c.v
 // Author: Fernando M. Santa - Johann Escobar Guzmán - Daniel Andrés Vásquez Gómez
 // Date: 2023-2024
 // License: MIT
@@ -7,30 +8,39 @@
 //              (PC port) 
 module main
 
-enum __pin_names {    // enumerated type for the pin names
+enum Pin_names { // enumerated type for digital pin names
+    
+	a1 = C.PB21
+	a2 = C.PB22
+	a3 = C.PB23
+	a4 = C.PB24
+	a5 = C.PB0
+	a6 = C.PB1
+	pin1 = C.PB21
+	pin2 = C.PB22
+}
 
-led1 = LED_BUILTIN_1
-led2 = LED_BUILTIN_2
-led3 = LED_BUILTIN_3
-led4 = LED_BUILTIN_4
-led5 = LED_BUILTIN_5
-led6 = LED_BUILTIN_6
-led7 = LED_BUILTIN_7
-
-a1 = PB21
-a2 = PB22
-a3 = PB23
-a4 = PB24
-a5 = PB0
-a6 = PB1
-
-
-
-pin1 = PB21
-pin2 = PB22
+enum Builtin_names {
+	led1 = 1
+	led2 
+	led3 
+	led4 
+	led5 
+	led6 
+	led7 
 
 }
 
-fn init() {
+enum Pin_modes {
+	output = C.OUTPUT  
+    input  = C.INPUT  
+}
 
+enum __global {
+	uart__buffer = ''
+}
+
+enum init() {
+	C.printf('\033[1;32m')	// print in green
+	C.printf(' Aixt virtual UART\n')
 }
