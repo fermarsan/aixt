@@ -1,0 +1,27 @@
+# Project Name: Aixt, https://github.com/fermarsan/aixt.git
+# Author: Fernando M. Santa
+# Date: 2023-2024
+# License: MIT
+#
+# Description: Setup file for the Emulator port. It works on Linux and Windows 
+#              PCs and on Android with Termux
+port =    "Emulator" 
+board =   "Linux, Windows and Android"
+backend = "c"
+
+cc_linux =      "gcc"
+cc_windows =    "c:\\v\\thirdparty\\tcc\\tcc.exe"
+cc_make_flags = "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
+
+api_paths = [
+    "Emulator"
+]
+
+v_defines = [
+]
+
+inline_as_c_macro = false
+
+string_default_len = 80
+
+compiler_setup_path = "setup/gcc-tcc.toml"

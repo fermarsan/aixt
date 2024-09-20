@@ -1,0 +1,34 @@
+# Project Name: Aixt, https =//github.com/fermarsan/aixt.git
+# Authors:
+#   - Fernando M. Santa
+#   - Fabián A. Rojas Acosta
+#   - Alberto Pinzón Valero
+# Date: 2024
+# License: MIT
+#
+# Description: Setup file for the Arduino Nano - ATmega328P
+port =    "Arduino-Nano"
+board =   "Arduino Nano"
+backend = "arduino"
+
+cc_linux =   "arduino-cli"
+cc_windows = "arduino-cli.exe"
+cc_make_flags =   "compile -b arduino:avr:nano -v --output-dir @{file_dir_name}/build"
+
+api_paths = [
+    "Arduino/Arduino-Nano",
+    "Arduino/Arduino-AVR",
+    "Arduino/Arduino-generic"
+]
+
+v_defines = [
+]
+
+inline_as_c_macro = true
+
+string_default_len = 50
+
+compiler_setup_path = "setup/arduino8.toml"
+
+
+
