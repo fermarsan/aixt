@@ -1,6 +1,6 @@
 module file
 
-// ####################  NXC Loader module ####################
+// #################### NXC Loader module ####################
 
 // // Constant offsets into the Loader module IOMAP structure. 
 // #define 	file__offset_p_func        		LoaderOffsetPFunc        

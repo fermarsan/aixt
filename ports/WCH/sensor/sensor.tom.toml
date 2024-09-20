@@ -1,26 +1,26 @@
 # NXC Input
 
-# Constants for use with the color calibration functions. 
+#  Constants for use with the color calibration functions. 
 "cal_point_0" 	= "INPUT_CAL_POINT_0"    
 "cal_point_1" 	= "INPUT_CAL_POINT_1"    
 "cal_point_2" 	= "INPUT_CAL_POINT_2"    
 "no_of_points"	= "INPUT_NO_OF_POINTS"   
 
-# Constants for use with the color calibration state function. 
+#  Constants for use with the color calibration state function. 
 "sensorcal" 	= "INPUT_SENSORCAL" 
 "sensoroff" 	= "INPUT_SENSOROFF" 
 "runningcal"	= "INPUT_RUNNINGCAL"
 "startcal"  	= "INPUT_STARTCAL"  
 "resetcal"  	= "INPUT_RESETCAL"  
 
-# Constants for use with color sensor value arrays to index RGB and blank return values. 
+#  Constants for use with color sensor value arrays to index RGB and blank return values. 
 "red"         	= "INPUT_RED"         
 "green"       	= "INPUT_GREEN"       
 "blue"        	= "INPUT_BLUE"        
 "blank"       	= "INPUT_BLANK"       
 "no_of_colors"	= "INPUT_NO_OF_COLORS"
 
-# Constants for use with the ColorValue returned by the color sensor in full color mode. 
+#  Constants for use with the ColorValue returned by the color sensor in full color mode. 
 "blackcolor" 		= "INPUT_BLACKCOLOR" 
 "bluecolor"  		= "INPUT_BLUECOLOR"  
 "greencolor" 		= "INPUT_GREENCOLOR" 
@@ -28,7 +28,7 @@
 "redcolor"   		= "INPUT_REDCOLOR"   
 "whitecolor" 		= "INPUT_WHITECOLOR" 
 
-# Constants for use with the Input module's Pin function. 
+#  Constants for use with the Input module's Pin function. 
 "pincmd_dir"   	= "INPUT_PINCMD_DIR"   
 "pincmd_set"   	= "INPUT_PINCMD_SET"   
 "pincmd_clear" 	= "INPUT_PINCMD_CLEAR" 
@@ -38,7 +38,7 @@
 "pindir_output"	= "INPUT_PINDIR_OUTPUT"
 "pindir_input" 	= "INPUT_PINDIR_INPUT"
 
-# Constants for use with set_input                                                      
+#  Constants for use with set_input                                                      
 "type_field"           	= "TypeField"           
 "input_mode_field"      	= "InputModeField"      
 "raw_value_field"       	= "RawValueField"       
@@ -46,7 +46,7 @@
 "scaled_value_field"    	= "ScaledValueField"    
 "invalid_data_field"    	= "InvalidDataField"    
 
-# Constant offsets into the Input module IOMAP structure. 
+#  Constant offsets into the Input module IOMAP structure. 
 "offset_custom_zero_offset"     	= "InputOffsetCustomZeroOffset"                                                      
 "offset_ad_raw"                	= "InputOffsetADRaw"                                                      
 "offset_sensor_raw"            	= "InputOffsetSensorRaw"                                                      
@@ -68,24 +68,24 @@
 "offset_color_boolean"         	= "InputOffsetColorBoolean"                                                      
 "offset_color_calibration_state"	= "InputOffsetColorCalibrationState"      
 
-# Input port constants are used when calling NXC sensor control API functions. 
+#  Input port constants are used when calling NXC sensor control API functions. 
 "s1"	= "S1"
 "s2"	= "S2"
 "s3"	= "S3"
 "s4"	= "S4"
 
-# Constants for use when directly controlling or reading a port's digital pin state. 
+#  Constants for use when directly controlling or reading a port's digital pin state. 
 "digi0"	= "INPUT_DIGI0"
 "digi1"	= "INPUT_DIGI1"
 
-# Input port constants are used when calling sensor control API functions.
-# These constants are intended for use in NBC. 
+#  Input port constants are used when calling sensor control API functions.
+#  These constants are intended for use in NBC. 
 "in_1"	= "IN_1"
 "in_2"	= "IN_2"
 "in_3"	= "IN_3"
 "in_4"	= "IN_4"
 
-# Use the combined sensor type and mode constants to configure both the sensor mode and type in a single function call. 
+#  Use the combined sensor type and mode constants to configure both the sensor mode and type in a single function call. 
 "touch"         = "_SENSOR_CFG"                                                         
 "light"         = "_SENSOR_CFG"                                                         
 "rotation"      = "_SENSOR_CFG"                                                         
@@ -103,8 +103,8 @@
 "colorblue"     = "_SENSOR_CFG"                                                         
 "colornone"     = "_SENSOR_CFG"                                                         
 
-# Use sensor mode constants to configure an input port for the desired sensor mode.
-# The constants are intended for use in NBC. 
+#  Use sensor mode constants to configure an input port for the desired sensor mode.
+#  The constants are intended for use in NBC. 
 "mode_raw"          	= "IN_MODE_RAW"          
 "mode_boolean"      	= "IN_MODE_BOOLEAN"      
 "mode_transitioncnt"	= "IN_MODE_TRANSITIONCNT"
@@ -116,8 +116,8 @@
 "mode_slopemask"    	= "IN_MODE_SLOPEMASK"    
 "mode_modemask"     	= "IN_MODE_MODEMASK"     
 
-# Use sensor type constants to configure an input port for a specific type of sensor.
-# These constants are intended for use in NBC. 
+#  Use sensor type constants to configure an input port for a specific type of sensor.
+#  These constants are intended for use in NBC. 
 "type_no_sensor"     	= "IN_TYPE_NO_SENSOR"     
 "type_switch"        	= "IN_TYPE_SWITCH"        
 "type_temperature"   	= "IN_TYPE_TEMPERATURE"   
@@ -138,7 +138,7 @@
 "type_colornone"     	= "IN_TYPE_COLORNONE"     
 "type_colorexit"     	= "IN_TYPE_COLOREXIT"    
 
-# Use sensor mode constants to configure an input port for the desired sensor mode.  
+#  Use sensor mode constants to configure an input port for the desired sensor mode.  
 "mode_raw"          = "IN_MODE_RAW"
 "mode_bool"         = "IN_MODE_BOOLEAN"
 "mode_edge"         = "IN_MODE_TRANSITIONCNT"
@@ -148,7 +148,7 @@
 "mode_fahrenheit"   = "IN_MODE_FAHRENHEIT"
 "mode_rotation"     = "IN_MODE_ANGLESTEP"
 
-# Use sensor type constants to configure an input port for a specific type of sensor. 
+#  Use sensor type constants to configure an input port for a specific type of sensor. 
 "type_none"          	= "IN_TYPE_NO_SENSOR"
 "type_touch"         	= "IN_TYPE_SWITCH"
 "type_temperature"   	= "IN_TYPE_TEMPERATURE"
@@ -168,13 +168,13 @@
 "type_colorblue"     	= "IN_TYPE_COLORBLUE"
 "type_colornone"     	= "IN_TYPE_COLORNONE"
 
-# 
+#  
 "custominactive"	= "INPUT_CUSTOMINACTIVE"
 "custom9v"      	= "INPUT_CUSTOM9V"      
 "customactive"  	= "INPUT_CUSTOMACTIVE"  
 "invalid_data"  	= "INPUT_INVALID_DATA"  
 
-# Functions for accessing and modifying input module features.
+#  Functions for accessing and modifying input module features.
 "sensor__set_type("                		    = "SetSensorType("                                                          
 "sensor__set_mode("          				= "SetSensorMode("                                                          
 "sensor__clear("            				= "ClearSensor("                                                          
@@ -296,7 +296,7 @@
 "htir2_reg_ac04"           =           "HTIR2_REG_AC04" 
 "htir2_reg_ac04"           =           "HTIR2_REG_AC05" 
 
-# HiTechinc PIR sensor Constants
+#  HiTechinc PIR sensor Constants
 
 "htpir_reg_deadband"       =           "HTPIR_REG_DEADBAND" 
 "htpir_reg_reading"        =           "HTPIR_REG_READING" 
@@ -362,7 +362,7 @@
 "digi_pin6"                =                 "DIGI_PIN6"
 "digi_pin7"                =                 "DIGI_PIN7"
 
-# Functions HiTechnic API Functions
+#  Functions HiTechnic API Functions
 
 "sensor__set_ht_gyro("                         =                  "SetSensorHTGyro("
 "sensor__set_ht_magnet("                       =                  "SetSensorHTMagnet("

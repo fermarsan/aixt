@@ -7,9 +7,9 @@
 
 module pin
 
-# define output 			OUTPUT
-# define input  			INPUT  
-# define input_pullup  	INPUT_PULLUP
+#  define output 			OUTPUT
+#  define input  			INPUT  
+#  define input_pullup  	INPUT_PULLUP
 
 fn init() {
 

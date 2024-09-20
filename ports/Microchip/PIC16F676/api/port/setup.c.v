@@ -9,5 +9,5 @@ module port
 
 @[inline]
 pub fn setup(PORT_NAME, VALUE) {
-	C.TRIS ##  PORT_NAME = VALUE
+	C.TRIS ## PORT_NAME = VALUE
 }

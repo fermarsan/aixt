@@ -67,25 +67,25 @@ void amux_FastSelect(uint8 channel) ;
 ***************************************/
 
 #if amux_MUXTYPE == amux_MUX_SINGLE
-# if !amux_ATMOSTONE
-#  define amux_Connect(channel) amux_Set(channel)
-# endif
-# define amux_Disconnect(channel) amux_Unset(channel)
+#  if !amux_ATMOSTONE
+#   define amux_Connect(channel) amux_Set(channel)
+#  endif
+#  define amux_Disconnect(channel) amux_Unset(channel)
 #else
-# if !amux_ATMOSTONE
+#  if !amux_ATMOSTONE
 void amux_Connect(uint8 channel) ;
-# endif
+#  endif
 void amux_Disconnect(uint8 channel) ;
 #endif
 
 #if amux_ATMOSTONE
-# define amux_Stop() amux_DisconnectAll()
-# define amux_Select(channel) amux_FastSelect(channel)
+#  define amux_Stop() amux_DisconnectAll()
+#  define amux_Select(channel) amux_FastSelect(channel)
 void amux_DisconnectAll(void) ;
 #else
-# define amux_Stop() amux_Start()
+#  define amux_Stop() amux_Start()
 void amux_Select(uint8 channel) ;
-# define amux_DisconnectAll() amux_Start()
+#  define amux_DisconnectAll() amux_Start()
 #endif
 
 #endif /* CY_AMUX_amux_H */

@@ -45,15 +45,15 @@
 #define c5      PORTCbits.RC5
 @[inline]
 pub fn read(PORT_NAME) {
-C.PORT ##  PORT_NAME
+C.PORT ## PORT_NAME
 }
 @[inline]
 pub fn setup(PORT_NAME, VALUE) {
-	C.TRIS ##  PORT_NAME = VALUE
+	C.TRIS ## PORT_NAME = VALUE
 }
 @[inline]
 pub fn write(PORT_NAME, VALUE) {
-	C.PORT ##  PORT_NAME = VALUE
+	C.PORT ## PORT_NAME = VALUE
 }
 #define time.sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
 

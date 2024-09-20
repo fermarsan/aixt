@@ -8,7 +8,7 @@ module pin
 
 @[inline]
 pub fn write_(PORT_NAME, PIN, VALUE) {
-	C.PORT ##  PORT_NAME ##  bits.R ##  PORT_NAME ##  PIN = VALUE
+	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = VALUE
 }
 
 @[inline]

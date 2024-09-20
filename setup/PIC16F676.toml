@@ -1,12 +1,12 @@
 # Project Name: Aixt, https://github.com/fermarsan/aixt.git
-# File Name: PIC16F676.toml
-# Author: Cesar Alejandro Roa Acosta and Fernado Martinez Santa
-# Date: 2024
-# License: MIT
+#  File Name: PIC16F676.toml
+#  Author: Cesar Alejandro Roa Acosta and Fernado Martinez Santa
+#  Date: 2024
+#  License: MIT
 #
-# Description: Setup file for the PIC16F676 port. It works on Linux and Windows 
-#              PCs and on Android with Termux
-#              
+#  Description: Setup file for the PIC16F676 port. It works on Linux and Windows 
+#               PCs and on Android with Termux
+#               
 port =    "PIC16F676" 
 device =  "PIC16F676"
 board =   "Nothing"

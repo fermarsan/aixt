@@ -8,7 +8,7 @@ module pin
 
 @[inline]
 pub fn setup_(PORT_NAME, PIN, MODE) {
-	C.TRIS ##  PORT_NAME ##  bits.TRIS ##  PORT_NAME ##  PIN = MODE
+	C.TRIS ## PORT_NAME ## bits.TRIS ## PORT_NAME ## PIN = MODE
 }
 
 @[inline]

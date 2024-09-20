@@ -13,7 +13,7 @@ module pin
 // 	          		LATBbits.LATB2 = val	// (PIC18, PIC24, dsPIC33)
 @[inline]
 pub fn write_(PORT_NAME, PIN, VALUE) {
-	C.LAT ##  PORT_NAME ##  bits.LAT ##  PORT_NAME ##  PIN = VALUE
+	C.LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = VALUE
 }
 
 @[inline]

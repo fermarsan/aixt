@@ -1,6 +1,6 @@
 module sound
 
-// // ####################  NXC Sound module ####################
+// // #################### NXC Sound module ####################
 
 // // Constant offsets into the Sound module IOMAP structure. 
 // #define 	offset_freq         		SoundOffsetFreq           

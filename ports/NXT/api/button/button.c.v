@@ -1,6 +1,6 @@
 module button
 
-// ####################  NXC Button module ####################
+// #################### NXC Button module ####################
 
 // Constant offsets into the Button module IOMAP structure. 
 // #define 	offset_pressed_cnt		ButtonOffsetPressedCnt  

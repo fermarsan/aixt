@@ -9,5 +9,5 @@ module pin
 
 @[inline]
 pub fn setup(PIN_NAME, PIN_MODE) {
-	C.PIN_NAME ##  _s = PIN_MODE
+	C.PIN_NAME ## _s = PIN_MODE
 }

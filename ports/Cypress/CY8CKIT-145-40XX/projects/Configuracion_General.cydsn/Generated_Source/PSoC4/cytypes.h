@@ -1032,8 +1032,8 @@ ignore the transfer and Hard Fault exception will be generated.
     *
     *******************************************************************************/
     #define CY_GET_FIELD_MASK(regSize, bitFieldName) \
-        ((((uint ##  regSize) 0xFFFFFFFFu << ((uint32)(regSize) - bitFieldName ##  __SIZE - bitFieldName ##  __OFFSET)) >>\
-         ((uint32)(regSize) - bitFieldName ##  __SIZE)) << bitFieldName ##  __OFFSET)
+        ((((uint ## regSize) 0xFFFFFFFFu << ((uint32)(regSize) - bitFieldName ## __SIZE - bitFieldName ## __OFFSET)) >>\
+         ((uint32)(regSize) - bitFieldName ## __SIZE)) << bitFieldName ## __OFFSET)
 
 
     /*******************************************************************************
@@ -1065,7 +1065,7 @@ ignore the transfer and Hard Fault exception will be generated.
     *
     *******************************************************************************/
     #define CY_GET_REG8_FIELD(registerName, bitFieldName) \
-         ((CY_GET_REG8((registerName)) >> bitFieldName ##  __OFFSET) & (~(0xFFu << bitFieldName ##  __SIZE)))
+         ((CY_GET_REG8((registerName)) >> bitFieldName ## __OFFSET) & (~(0xFFu << bitFieldName ## __SIZE)))
 
 
     /*******************************************************************************
@@ -1098,7 +1098,7 @@ ignore the transfer and Hard Fault exception will be generated.
     #define CY_SET_REG8_FIELD(registerName, bitFieldName, value) \
         CY_SET_REG8((registerName), \
         ((CY_GET_REG8((registerName))                 & ~CY_GET_FIELD_MASK(8, bitFieldName)) | \
-        (((uint8)(value) << bitFieldName ##  __OFFSET) &  CY_GET_FIELD_MASK(8, bitFieldName))))
+        (((uint8)(value) << bitFieldName ## __OFFSET) &  CY_GET_FIELD_MASK(8, bitFieldName))))
 
 
     /*******************************************************************************
@@ -1159,7 +1159,7 @@ ignore the transfer and Hard Fault exception will be generated.
     *
     *******************************************************************************/
     #define CY_GET_REG16_FIELD(registerName, bitFieldName) \
-         ((CY_GET_REG16((registerName)) >> bitFieldName ##  __OFFSET) & (~(0xFFFFu << bitFieldName ##  __SIZE)))
+         ((CY_GET_REG16((registerName)) >> bitFieldName ## __OFFSET) & (~(0xFFFFu << bitFieldName ## __SIZE)))
 
 
     /*******************************************************************************
@@ -1192,7 +1192,7 @@ ignore the transfer and Hard Fault exception will be generated.
     #define CY_SET_REG16_FIELD(registerName, bitFieldName, value) \
         CY_SET_REG16((registerName), \
         ((CY_GET_REG16((registerName))                 & ~CY_GET_FIELD_MASK(16, bitFieldName)) | \
-        (((uint16)(value) << bitFieldName ##  __OFFSET) &  CY_GET_FIELD_MASK(16, bitFieldName))))
+        (((uint16)(value) << bitFieldName ## __OFFSET) &  CY_GET_FIELD_MASK(16, bitFieldName))))
 
 
     /*******************************************************************************
@@ -1253,7 +1253,7 @@ ignore the transfer and Hard Fault exception will be generated.
     *
     *******************************************************************************/
     #define CY_GET_REG32_FIELD(registerName, bitFieldName) \
-          ((CY_GET_REG32((registerName)) >> bitFieldName ##  __OFFSET) & (~(0xFFFFFFFFu << bitFieldName ##  __SIZE)))
+          ((CY_GET_REG32((registerName)) >> bitFieldName ## __OFFSET) & (~(0xFFFFFFFFu << bitFieldName ## __SIZE)))
 
 
     /*******************************************************************************
@@ -1287,7 +1287,7 @@ ignore the transfer and Hard Fault exception will be generated.
     #define CY_SET_REG32_FIELD(registerName, bitFieldName, value) \
         CY_SET_REG32((registerName), \
         ((CY_GET_REG32((registerName))                 & ~CY_GET_FIELD_MASK(32, bitFieldName)) | \
-        (((uint32)(value) << bitFieldName ##  __OFFSET) &  CY_GET_FIELD_MASK(32, bitFieldName))))
+        (((uint32)(value) << bitFieldName ## __OFFSET) &  CY_GET_FIELD_MASK(32, bitFieldName))))
 
 
     /*******************************************************************************
@@ -1349,7 +1349,7 @@ ignore the transfer and Hard Fault exception will be generated.
     *
     *******************************************************************************/
     #define CY_GET_FIELD(regValue, bitFieldName) \
-        (((regValue) >> bitFieldName ##  __OFFSET) & (~(0xFFFFFFFFu << bitFieldName ##  __SIZE)))
+        (((regValue) >> bitFieldName ## __OFFSET) & (~(0xFFFFFFFFu << bitFieldName ## __SIZE)))
 
 
     /*******************************************************************************
@@ -1380,8 +1380,8 @@ ignore the transfer and Hard Fault exception will be generated.
     *******************************************************************************/
     #define CY_SET_FIELD(regValue, bitFieldName, value) \
         ((regValue) = \
-        ((((uint32)(value) & (~(0xFFFFFFu << bitFieldName ##  __SIZE))) << bitFieldName ##  __OFFSET)) | \
-        ((uint32)(regValue) & (((~(0xFFu << bitFieldName ##  __SIZE))) << bitFieldName ##  __OFFSET)))
+        ((((uint32)(value) & (~(0xFFFFFFu << bitFieldName ## __SIZE))) << bitFieldName ## __OFFSET)) | \
+        ((uint32)(regValue) & (((~(0xFFu << bitFieldName ## __SIZE))) << bitFieldName ## __OFFSET)))
 
 #endif  /* (CY_PSOC4) */
 

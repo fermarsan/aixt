@@ -508,7 +508,7 @@ typedef struct
   \param[in] value  Value of the bit field. This parameter is interpreted as an uint32_t type.
   \return           Masked and shifted value.
 */
-#define _VAL2FLD(field, value)    (((uint32_t)(value) << field ##  _Pos) & field ##  _Msk)
+#define _VAL2FLD(field, value)    (((uint32_t)(value) << field ## _Pos) & field ## _Msk)
 
 /**
   \brief     Mask and shift a register value to extract a bit filed value.
@@ -516,7 +516,7 @@ typedef struct
   \param[in] value  Value of register. This parameter is interpreted as an uint32_t type.
   \return           Masked and shifted bit field value.
 */
-#define _FLD2VAL(field, value)    (((uint32_t)(value) & field ##  _Msk) >> field ##  _Pos)
+#define _FLD2VAL(field, value)    (((uint32_t)(value) & field ## _Msk) >> field ## _Pos)
 
 /*@} end of group CMSIS_core_bitfield */
 
@@ -556,7 +556,7 @@ typedef struct
 
 
 
-/* ##########################    NVIC functions  ####################################  */
+/* ##########################   NVIC functions  #################################### */
 /**
   \ingroup  CMSIS_Core_FunctionInterface
   \defgroup CMSIS_Core_NVICFunctions NVIC Functions
@@ -741,7 +741,7 @@ __STATIC_INLINE void NVIC_SystemReset(void)
 /*@} end of CMSIS_Core_NVICFunctions */
 
 
-/* ##########################   FPU functions  ####################################  */
+/* ##########################  FPU functions  #################################### */
 /**
   \ingroup  CMSIS_Core_FunctionInterface
   \defgroup CMSIS_Core_FpuFunctions FPU Functions
@@ -767,7 +767,7 @@ __STATIC_INLINE uint32_t SCB_GetFPUType(void)
 
 
 
-/* ##################################     SysTick function  ############################################  */
+/* ##################################    SysTick function  ############################################ */
 /**
   \ingroup  CMSIS_Core_FunctionInterface
   \defgroup CMSIS_Core_SysTickFunctions SysTick Functions

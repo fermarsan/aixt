@@ -3,7 +3,7 @@ module lcd
 
 import str
 
-// ####################  NXC Display module ####################
+// #################### NXC Display module ####################
 
 // Constants that are for use with the display contrast API functions. 
 // #define 	lcd__contrast_default	DISPLAY_CONTRAST_DEFAULT

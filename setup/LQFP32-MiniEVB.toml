@@ -1,10 +1,10 @@
 # Project Name: Aixt, https =//github.com/fermarsan/aixt.git
-# Author = Fabián A. Rojas Acosta, Alberto Pinzón Valero and Fernando M. Santa
-# Date: 2024
-# License: MIT
+#  Author = Fabián A. Rojas Acosta, Alberto Pinzón Valero and Fernando M. Santa
+#  Date: 2024
+#  License: MIT
 #
-# Description: This is the setup file for the LQFP32 MiniEVB Nano - LGT8F328P
-#               port of Aixt project 
+#  Description: This is the setup file for the LQFP32 MiniEVB Nano - LGT8F328P
+#                port of Aixt project 
 port =    "LQFP32-MiniEVB"
 device =  "LGT8F328P"
 board =   "LQFP32 MiniEVB Nano"

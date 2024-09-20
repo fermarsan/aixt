@@ -8,7 +8,7 @@ module pin
 
 @[inline]
 pub fn read_(PORT_NAME, PIN) {
-	C.PORT ##  PORT_NAME ##  bits.R ##  PORT_NAME ##  PIN
+	C.PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN
 }
 
 @[inline]

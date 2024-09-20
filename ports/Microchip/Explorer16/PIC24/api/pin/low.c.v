@@ -13,7 +13,7 @@ module pin
 // 	          		LATBbits.LATB2 = 0		// (PIC18, PIC24, dsPIC33)
 @[inline]
 pub fn low_(PORT_NAME, PIN) {
-	C.LAT ##  PORT_NAME ##  bits.LAT ##  PORT_NAME ##  PIN = 0
+	C.LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = 0
 }
 
 @[inline]

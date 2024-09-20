@@ -1,12 +1,12 @@
 # Project Name: Aixt, https =//github.com/fermarsan/aixt.git
-# Authors:
-#   - Fernando M. Santa
-#   - Camilo Gutierrez
-# Date: 2024
-# License: MIT
+#  Authors:
+#    - Fernando M. Santa
+#    - Camilo Gutierrez
+#  Date: 2024
+#  License: MIT
 #
-# Description: Setup file for the Explorer16 (with PIC24)
-#               port of Aixt project 
+#  Description: Setup file for the Explorer16 (with PIC24)
+#                port of Aixt project 
 port =    "Raspberry-Pi-Pico"
 board =   "Raspberry Pi Pico"
 backend = "arduino"

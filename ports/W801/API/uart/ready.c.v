@@ -20,7 +20,7 @@ pub fn ready() u8 {
 
 #define uart__ready_1()	Serial1.ready()
 
-#define uart__ready_x(UART_NUMBER)	uart__ready_ ##  UART_NUMBER ##  .ready()
+#define uart__ready_x(UART_NUMBER)	uart__ready_ ## UART_NUMBER ## .ready()
 
 // macro with 0 or 1 arguments
 #define SEL_uart.readY(_0, _1, MACRO_NAME, ...) MACRO_NAME

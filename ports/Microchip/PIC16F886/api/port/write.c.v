@@ -8,5 +8,5 @@ module port
 
 @[inline]
 pub fn write(PORT_NAME, VALUE) {
-	C.PORT ##  PORT_NAME = (uint8_t)VALUE
+	C.PORT ## PORT_NAME = (uint8_t)VALUE
 }

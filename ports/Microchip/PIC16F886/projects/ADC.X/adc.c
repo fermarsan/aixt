@@ -90,7 +90,7 @@ pub fn read(PIN_NAME) {
 }
 @[inline]
 pub fn setup(PIN_NAME, PIN_MODE) {
-	C.PIN_NAME ##  _s = PIN_MODE
+	C.PIN_NAME ## _s = PIN_MODE
 }
 @[inline]
 pub fn write(PIN_NAME,VAL) {

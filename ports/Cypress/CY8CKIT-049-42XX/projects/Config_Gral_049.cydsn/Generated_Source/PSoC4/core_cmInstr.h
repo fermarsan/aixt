@@ -42,7 +42,7 @@
 #define __CORE_CMINSTR_H
 
 
-/* ##########################   Core Instruction Access  #########################  */
+/* ##########################  Core Instruction Access  ######################### */
 /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
   Access to dedicated instructions
   @{
