@@ -1,5 +1,4 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: setup.c.v
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
 // Authors:
 //	- Johann Escobar Guzmán
 //	- Daniel Andrés Vásquez Gómez
@@ -15,5 +14,5 @@ module uart2
 // Sets the data rate in bits per second (baud) for serial data transmission
 @[inline]
 pub fn setup(baud_rate int) {
-	C.Serial.begin(baud_rate)
+	C.Serial2.begin(baud_rate)
 }

@@ -1,5 +1,4 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: println.c.v
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
 // Authors:
 //	- Johann Escobar Guzmán
 //	- Daniel Andrés Vásquez Gómez

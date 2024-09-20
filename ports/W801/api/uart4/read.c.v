@@ -1,5 +1,4 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: read.c.v
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
 // Authors:
 //	- Johann Escobar Guzmán
 //	- Daniel Andrés Vásquez Gómez
@@ -15,5 +14,5 @@ module uart4
 // Reads incoming serial data
 @[inline]
 pub fn read() u8 {
-	return C.Serial.read()
+	return C.Serial4.read()
 }

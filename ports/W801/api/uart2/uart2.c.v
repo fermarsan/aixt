@@ -1,5 +1,4 @@
-module uart// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: any.c.v
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
 // Authors:
 //	- Johann Escobar Guzmán
 //	- Daniel Andrés Vásquez Gómez
@@ -10,10 +9,4 @@ module uart// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-proje
 // // Description: SLEEP_ms functions (W801)
 //              (PC port) 
 
-module uart4
-
-
-@[inline]
-pub fn any() int {
-	return C.Serial.available()
-}
+module uart2

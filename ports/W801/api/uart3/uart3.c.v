@@ -1,5 +1,4 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: uart.c.v
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
 // Authors:
 //	- Johann Escobar Guzmán
 //	- Daniel Andrés Vásquez Gómez
@@ -10,4 +9,4 @@
 // // Description: SLEEP_ms functions (W801)
 //              (PC port) 
 
-module uart4
+module uart3

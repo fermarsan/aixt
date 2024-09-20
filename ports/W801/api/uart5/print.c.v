@@ -1,5 +1,4 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: print.c.v
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
 // Authors:
 //	- Johann Escobar Guzmán
 //	- Daniel Andrés Vásquez Gómez
@@ -15,5 +14,5 @@ module uart5
 // Prints data to the serial port as human-readable ASCII text
 @[inline]
 pub fn print(message string) {  
-	C.Serial.print(message)
+	C.Serial5.print(message)
 }
