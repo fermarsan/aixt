@@ -23,14 +23,14 @@ fn (mut gen Gen) import_stmt(node ast.Import) []string {
 			}
 			for module_path in module_paths {
 				if os.exists('${module_path}/${module_short_name}.c.v') {
-					gen.parse_module_file('${module_path}/${module_short_name}.c.v')	// parse `module_name.c.v` first
+					gen.parse_module_file('${module_path}/${module_short_name}.c.v')	// parse `module_name.c.v`  first
 				}
 				if node.syms.len == 0 {	// if import all the module
 					file_paths := os.ls('${module_path}') or { [] }
 					// println('############# ${file_paths} #############')
 					for file_path in file_paths {
 						if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
-							if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v`
+							if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v` 
 								gen.parse_module_file(os.abs_path('${module_path}/${file_path}'))
 							}			
 						}

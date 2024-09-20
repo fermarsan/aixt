@@ -7,9 +7,9 @@ module aixt_cgen
 import v.ast
 
 // char_literal is the code generation function for character literals.
-// ```v
-// ch := `v`
-// ```
+// ``` v
+// ch := `v` 
+// ``` 
 fn (mut gen Gen) char_literal(node ast.CharLiteral) []string {
 	return ["'${node.val}'"]
 }

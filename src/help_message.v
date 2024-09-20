@@ -12,18 +12,18 @@ Usage:
   aixt command device input_file_name
 
 Examples:
-  aixt transpile NXC hello.aixt	Transpile the file `hello.aixt` and output it as
-	                              `hello.nxc`.
-  aixt build NXT hello.v        Transpile, compile and download `hello.v` to NXT
+  aixt transpile NXC hello.aixt	Transpile the file `hello.aixt`  and output it as
+	                              `hello.nxc` .
+  aixt build NXT hello.v        Transpile, compile and download `hello.v`  to NXT
                                 Intelligent brick.
-  aixt -t Arduino_Nano hello.v	Transpile the file `hello.v` and output it as
-                                `hello.c` or `hello.ino` (depending on the Backend).
-  aixt -c Emulator hello.aixt	  Compile a previously transpiled `hello.c` (from
-                                `hello.aixt`) and output it as `hello` or `hello.exe`
-  aixt clean NXC hello.aixt     Clean all the generated files `hello.*`
+  aixt -t Arduino_Nano hello.v	Transpile the file `hello.v`  and output it as
+                                `hello.c` or `hello.ino`  (depending on the Backend).
+  aixt -c Emulator hello.aixt	  Compile a previously transpiled `hello.c`  (from
+                                `hello.aixt`) and output it as `hello` or `hello.exe` 
+  aixt clean NXC hello.aixt     Clean all the generated files `hello.*` 
   aixt -h                       Print this help message
   aixt version                  Print the Aixt version number
-  aixt -np NXT /home proj_1     Create the `proj_1` NXT project in `/home`  
+  aixt -np NXT /home proj_1     Create the `proj_1` NXT project in `/home`   
 
 aixt supports the following commands:
   transpile, -t                 Transpile to C an Aixt source file.

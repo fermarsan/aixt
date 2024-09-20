@@ -56,12 +56,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNLySSs.s 			page 1
   26:Generated_Source\PSoC4/adc_IRQ.c **** /*******************************************************************************
   27:Generated_Source\PSoC4/adc_IRQ.c **** *  Place your includes, defines and code here 
   28:Generated_Source\PSoC4/adc_IRQ.c **** ********************************************************************************/
-  29:Generated_Source\PSoC4/adc_IRQ.c **** /* `#START adc_IRQ_intc` */
+  29:Generated_Source\PSoC4/adc_IRQ.c **** /* `#START adc_IRQ_intc`  */
   30:Generated_Source\PSoC4/adc_IRQ.c **** 
 ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNLySSs.s 			page 2
 
 
-  31:Generated_Source\PSoC4/adc_IRQ.c **** /* `#END` */
+  31:Generated_Source\PSoC4/adc_IRQ.c **** /* `#END`  */
   32:Generated_Source\PSoC4/adc_IRQ.c **** 
   33:Generated_Source\PSoC4/adc_IRQ.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
   34:Generated_Source\PSoC4/adc_IRQ.c **** 
@@ -207,9 +207,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccNLySSs.s 			page 1
  163:Generated_Source\PSoC4/adc_IRQ.c ****     #endif /* adc_IRQ_INTERRUPT_INTERRUPT_CALLBACK */ 
  164:Generated_Source\PSoC4/adc_IRQ.c **** 
  165:Generated_Source\PSoC4/adc_IRQ.c ****     /*  Place your Interrupt code here. */
- 166:Generated_Source\PSoC4/adc_IRQ.c ****     /* `#START adc_IRQ_Interrupt` */
+ 166:Generated_Source\PSoC4/adc_IRQ.c ****     /* `#START adc_IRQ_Interrupt`  */
  167:Generated_Source\PSoC4/adc_IRQ.c **** 
- 168:Generated_Source\PSoC4/adc_IRQ.c ****     /* `#END` */
+ 168:Generated_Source\PSoC4/adc_IRQ.c ****     /* `#END`  */
  169:Generated_Source\PSoC4/adc_IRQ.c **** }
   33              		.loc 1 169 0
   34              		@ sp needed

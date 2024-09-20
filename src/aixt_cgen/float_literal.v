@@ -7,9 +7,9 @@ module aixt_cgen
 import v.ast
 
 // float_literal is the code generation function for floating point literals.
-// ```v
+// ``` v
 // a = 2.28718 
-// ```
+// ``` 
 fn (mut gen Gen) float_literal(node ast.FloatLiteral) []string {
 	return [node.val]
 }

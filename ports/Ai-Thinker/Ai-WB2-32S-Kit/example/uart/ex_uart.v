@@ -30,10 +30,10 @@ for {
   x:=0
   x=uart.any()
   if  x> 0 {
-  command := ` `
+  command := ` ` 
 	command = uart.read()
 
-    if command==`A` {
+    if command==`A`  {
         uart.println("\r\n Comando A recibido. \r\n")
         uart.println("\r\n Realizando acción A. \r\n")
         pin.high(io4)
@@ -44,7 +44,7 @@ for {
         uart.println("\r\n Proceso A finalizado. \r\n")
 	}
 
-      if command==`B` {
+      if command==`B`  {
         uart.println("\r\n Comando B recibido. \r\n")
         uart.println("\r\n Realizando acción B. \r\n")
         pin.high(io5)

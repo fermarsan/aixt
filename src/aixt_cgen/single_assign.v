@@ -10,9 +10,9 @@ import v.token
 // single_assign is the code generation function for single assignment and declaration-assignment statements.
 // This works for:
 // - declaration-assignments `:=
-// - only assignments `=`
+// - only assignments `=` 
 // and
-// - cumulative-assignments `+=`, `-=`, etc. 
+// - cumulative-assignments `+=`, `-=` , etc. 
 fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind, right ast.Expr) []string {
 	mut out := []string{}
 	var_kind := gen.table.type_kind(left_type).str()

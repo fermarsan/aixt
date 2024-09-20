@@ -170,11 +170,11 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cckipRSg.s 			page 1
  135:Generated_Source\PSoC4/cyfitter_cfg.c ****     CY_CFG_Clock_Startup_ErrorCallback();
  136:Generated_Source\PSoC4/cyfitter_cfg.c **** #else
  137:Generated_Source\PSoC4/cyfitter_cfg.c ****     /*  If not using CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK, place your clock startup code here. */
- 138:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* `#START CyClockStartupError` */
+ 138:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* `#START CyClockStartupError`  */
  139:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  140:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  141:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 142:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* `#END` */
+ 142:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* `#END`  */
  143:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  144:Generated_Source\PSoC4/cyfitter_cfg.c ****     while(1) {}
  145:Generated_Source\PSoC4/cyfitter_cfg.c **** #endif /* CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK */

@@ -54,9 +54,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsJi13D.s 			page 1
   24:Generated_Source\PSoC4/adc_INT.c **** * - add user inlcude files, prototypes and variables between the following
   25:Generated_Source\PSoC4/adc_INT.c **** *   #START and #END tags
   26:Generated_Source\PSoC4/adc_INT.c **** ******************************************************************************/
-  27:Generated_Source\PSoC4/adc_INT.c **** /* `#START ADC_SYS_VAR`  */
+  27:Generated_Source\PSoC4/adc_INT.c **** /* `#START ADC_SYS_VAR`   */
   28:Generated_Source\PSoC4/adc_INT.c **** 
-  29:Generated_Source\PSoC4/adc_INT.c **** /* `#END`  */
+  29:Generated_Source\PSoC4/adc_INT.c **** /* `#END`   */
   30:Generated_Source\PSoC4/adc_INT.c **** 
 ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsJi13D.s 			page 2
 
@@ -106,9 +106,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccsJi13D.s 			page 1
   64:Generated_Source\PSoC4/adc_INT.c ****         *  Custom Code
   65:Generated_Source\PSoC4/adc_INT.c ****         *  - add user ISR code between the following #START and #END tags
   66:Generated_Source\PSoC4/adc_INT.c ****         *************************************************************************/
-  67:Generated_Source\PSoC4/adc_INT.c ****         /* `#START MAIN_ADC_ISR`  */
+  67:Generated_Source\PSoC4/adc_INT.c ****         /* `#START MAIN_ADC_ISR`   */
   68:Generated_Source\PSoC4/adc_INT.c **** 
-  69:Generated_Source\PSoC4/adc_INT.c ****         /* `#END`  */
+  69:Generated_Source\PSoC4/adc_INT.c ****         /* `#END`   */
   70:Generated_Source\PSoC4/adc_INT.c ****         
   71:Generated_Source\PSoC4/adc_INT.c ****         /* Clear handled interrupt */
   72:Generated_Source\PSoC4/adc_INT.c ****         adc_SAR_INTR_REG = intr_status;

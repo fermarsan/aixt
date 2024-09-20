@@ -202,11 +202,11 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccr0LJi0.s 			page 1
  136:Generated_Source\PSoC4/cyfitter_cfg.c ****     CY_CFG_Clock_Startup_ErrorCallback();
  137:Generated_Source\PSoC4/cyfitter_cfg.c **** #else
  138:Generated_Source\PSoC4/cyfitter_cfg.c ****     /*  If not using CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK, place your clock startup code here. */
- 139:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* `#START CyClockStartupError` */
+ 139:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* `#START CyClockStartupError`  */
  140:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  141:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  142:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 143:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* `#END` */
+ 143:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* `#END`  */
  144:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  145:Generated_Source\PSoC4/cyfitter_cfg.c ****     while(1) {}
  146:Generated_Source\PSoC4/cyfitter_cfg.c **** #endif /* CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK */

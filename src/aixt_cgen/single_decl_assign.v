@@ -8,7 +8,7 @@ import v.ast
 
 // single_decl_assign is the code generation function for single declaration-assignment statements.
 // This works for:
-// - declaration-assignments `:=`
+// - declaration-assignments `:=` 
 fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast.Expr) []string {
 	mut out := []string{}
 	mut c_line := ''

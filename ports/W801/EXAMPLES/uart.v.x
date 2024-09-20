@@ -19,10 +19,10 @@ pin.high(pin2)
   x=uart.any()
 
   if (uart.available() > 0) {
-    command := ` `
+    command := ` ` 
     command = uart.read(0)
        
-       if  command == `Q` {
+       if  command == `Q`  {
          pin.high(pin1)
          time.sleep_ms(2000)
          pin.low(pin1)

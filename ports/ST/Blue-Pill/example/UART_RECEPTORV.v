@@ -14,17 +14,17 @@ for {
     recibe_dato = uart.read()
     time.sleep_ms(100) 
   }
-if recibe_dato ==`1`{  
+if recibe_dato ==`1` {  
 	pin.high(p5)
     pin.low(p7)
     pin.low(p6)
  }
-else if recibe_dato ==`2`{ 
+else if recibe_dato ==`2` { 
     pin.low(p5)
     pin.high(p7)
     pin.low(p6)
 }
-else if recibe_dato ==`3`{ 
+else if recibe_dato ==`3` { 
     pin.low(p5)
     pin.low(p7)
     pin.high(p6)

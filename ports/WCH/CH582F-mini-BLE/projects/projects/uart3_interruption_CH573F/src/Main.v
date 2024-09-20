@@ -1,7 +1,7 @@
 import uart3
 import irq
 
-__global input = ` `
+__global input = ` ` 
 
 @[irq_uart3_rx]
 fn uart3_eco(){

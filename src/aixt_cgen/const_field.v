@@ -8,16 +8,16 @@ import v.ast
 
 // const_field is the code generation function for constant definitions.
 // This works for single definitions:
-// ```v
+// ``` v
 // const max_count = 20
-// ```
+// ``` 
 // and block definitions:
-// ```v
+// ``` v
 // const(
 // 	max = 50
 // 	min = 5
 // )
-// ```
+// ``` 
 fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	mut out := []string{}
 	// println('================== ${node.name} ==================')

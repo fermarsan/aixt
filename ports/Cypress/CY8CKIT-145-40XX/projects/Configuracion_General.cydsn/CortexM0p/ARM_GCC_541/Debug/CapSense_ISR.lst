@@ -56,12 +56,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccqqFmHg.s 			page 1
   26:Generated_Source\PSoC4/capsense_ISR.c **** /*******************************************************************************
   27:Generated_Source\PSoC4/capsense_ISR.c **** *  Place your includes, defines and code here 
   28:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************/
-  29:Generated_Source\PSoC4/capsense_ISR.c **** /* `#START capsense_ISR_intc` */
+  29:Generated_Source\PSoC4/capsense_ISR.c **** /* `#START capsense_ISR_intc`  */
   30:Generated_Source\PSoC4/capsense_ISR.c **** 
 ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccqqFmHg.s 			page 2
 
 
-  31:Generated_Source\PSoC4/capsense_ISR.c **** /* `#END` */
+  31:Generated_Source\PSoC4/capsense_ISR.c **** /* `#END`  */
   32:Generated_Source\PSoC4/capsense_ISR.c **** 
   33:Generated_Source\PSoC4/capsense_ISR.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
   34:Generated_Source\PSoC4/capsense_ISR.c **** 
@@ -207,9 +207,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccqqFmHg.s 			page 1
  163:Generated_Source\PSoC4/capsense_ISR.c ****     #endif /* capsense_ISR_INTERRUPT_INTERRUPT_CALLBACK */ 
  164:Generated_Source\PSoC4/capsense_ISR.c **** 
  165:Generated_Source\PSoC4/capsense_ISR.c ****     /*  Place your Interrupt code here. */
- 166:Generated_Source\PSoC4/capsense_ISR.c ****     /* `#START capsense_ISR_Interrupt` */
+ 166:Generated_Source\PSoC4/capsense_ISR.c ****     /* `#START capsense_ISR_Interrupt`  */
  167:Generated_Source\PSoC4/capsense_ISR.c **** 
- 168:Generated_Source\PSoC4/capsense_ISR.c ****     /* `#END` */
+ 168:Generated_Source\PSoC4/capsense_ISR.c ****     /* `#END`  */
  169:Generated_Source\PSoC4/capsense_ISR.c **** }
   33              		.loc 1 169 0
   34              		@ sp needed

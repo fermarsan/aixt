@@ -7,9 +7,9 @@ module aixt_cgen
 import v.ast
 
 // string_inter_literal is the code generation function for string literals with interpolation.
-// ```v
+// ``` v
 // str := 'Hello ${var_name}...'
-// ```
+// ``` 
 fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
 	mut c_line := ''
 

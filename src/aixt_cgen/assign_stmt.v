@@ -8,10 +8,10 @@ import v.ast
 
 // assign_stmt is the code generation function for assignment statements.
 // This works for:
-// - declaration-assignments `:=`
-// - only assignments `=`
+// - declaration-assignments `:=` 
+// - only assignments `=` 
 // and
-// - cumulative-assignments `+=`, `-=`, etc. 
+// - cumulative-assignments `+=`, `-=` , etc. 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	mut out := []string{}
 	gen.cur_op = node.op

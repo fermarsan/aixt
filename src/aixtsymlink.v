@@ -76,8 +76,8 @@ fn setup_symlink_unix(aixt_exe string) {
 fn setup_symlink_windows(aixt_exe string) {
 	$if windows {
 		// Create a symlink in a new local folder (.\.bin\.v.exe)
-		// Puts `v` in %PATH% without polluting it with anything else (like make.bat).
-		// This will make `v` available on cmd.exe, PowerShell, and MinGW(MSYS)/WSL/Cygwin
+		// Puts `v`  in %PATH% without polluting it with anything else (like make.bat).
+		// This will make `v`  available on cmd.exe, PowerShell, and MinGW(MSYS)/WSL/Cygwin
 		vdir := os.real_path(os.dir(aixt_exe))
 		vsymlinkdir := os.join_path(vdir, '.bin')
 		mut vsymlink := os.join_path(vsymlinkdir, 'aixt.exe')
@@ -149,12 +149,12 @@ fn setup_symlink_windows(aixt_exe string) {
 		send_setting_change_msg('Environment') or {
 			eprintln(err)
 			C.RegCloseKey(reg_sys_env_handle)
-			warn_and_exit('You might need to run this again to have the `v` command in your %PATH%')
+			warn_and_exit('You might need to run this again to have the `v`  command in your %PATH%')
 		}
 		C.RegCloseKey(reg_sys_env_handle)
 		println('Done.')
 		println('Note: Restart your shell/IDE to load the new %PATH%.')
-		println('After restarting your shell/IDE, give `v version` a try in another directory!')
+		println('After restarting your shell/IDE, give `v version`  a try in another directory!')
 	}
 }
 

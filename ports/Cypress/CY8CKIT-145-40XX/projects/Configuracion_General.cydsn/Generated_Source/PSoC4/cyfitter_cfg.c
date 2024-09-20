@@ -135,11 +135,11 @@ static void CyClockStartupError(uint8 errorCode)
     CY_CFG_Clock_Startup_ErrorCallback();
 #else
     /*  If not using CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK, place your clock startup code here. */
-    /* `#START CyClockStartupError` */
+    /* `#START CyClockStartupError`  */
 
 
 
-    /* `#END` */
+    /* `#END`  */
 
     while(1) {}
 #endif /* CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK */

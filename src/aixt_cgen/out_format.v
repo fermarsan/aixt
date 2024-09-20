@@ -42,14 +42,14 @@ fn (mut gen Gen) out_format() string{
 	// add inner-block commands indentation 
 	for c in out {
 		match rune(c) {
-			`\n` {
+			`\n`  {
 				temp += '\n' + '\t'.repeat(ind_count)
 			}
-			`{` {
+			`{`  {
 				ind_count++
 				temp += rune(c).str()
 			}
-			`}` {
+			`}`  {
 				ind_count--
 				temp += rune(c).str()
 			}

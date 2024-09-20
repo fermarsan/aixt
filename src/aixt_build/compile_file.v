@@ -9,12 +9,12 @@ import aixt_setup
 
 // compile_file calls the port's defined compiler to compile a previous transpiled Aixt source code.
 // example:
-// ```v
+// ``` v
 // aixt_build.compile_file('example.v', setup)
-// ```
-// Calls the compiler with `example.c` file, previously generated from `example.v`.
-// If inside the containing folder of `example.v` a `Makefile` exits, it calls the 
-// `make` command insted.
+// ``` 
+// Calls the compiler with `example.c` file, previously generated from `example.v` .
+// If inside the containing folder of `example.v` a `Makefile`  exits, it calls the 
+// `make`  command insted.
 pub fn compile_file(path string, setup aixt_setup.Setup) {
 
 	cc := $if windows { // C compiler depending on the OS

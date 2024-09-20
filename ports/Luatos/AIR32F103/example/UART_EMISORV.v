@@ -4,7 +4,7 @@ import uart
 import adc
 
 dato := int(0) 
-envia_dato := ` ` 
+envia_dato := ` `  
 uart.setup(9600)
 uart.println("Inicio de sketch - valores del potenciometro")
 for {
