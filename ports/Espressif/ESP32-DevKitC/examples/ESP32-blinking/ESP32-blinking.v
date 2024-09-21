@@ -6,11 +6,11 @@
 import time
 import pin
 
-pin.setup(io2, output)
+pin.setup(gpio2, output)
 
 for {
-	pin.high(io2)
+	pin.high(gpio2)
 	time.sleep_ms(500)
-	pin.low(io2)
+	pin.low(gpio2)
 	time.sleep_ms(500)
 }
