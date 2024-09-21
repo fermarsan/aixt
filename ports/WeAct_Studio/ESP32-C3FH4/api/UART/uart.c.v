@@ -1,6 +1,8 @@
-// Project Nme : Aixt project : http://gitlab.com/fermansan/aixt-project.git
-
-// Author: Farith Ochoa Leon, Felipe Cardozo and Fernando M. Santa
+// Project Name : Aixt: http://github.com/fermansan/aixt.git
+// Authors:
+//	- Farith Ochoa Leon
+//	- Felipe Cardozo
+//	- Fernando M. Santa
 // Date: 2024
 // License : MIT
 
