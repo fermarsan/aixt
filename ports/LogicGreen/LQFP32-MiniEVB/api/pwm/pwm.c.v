@@ -6,6 +6,3 @@
 // Description: PWM functions (LQFP32 MiniEVB Nano - LGT8F328P port)
 module pwm
 
-fn init() { //  init function call setup or initialization code
-
-}

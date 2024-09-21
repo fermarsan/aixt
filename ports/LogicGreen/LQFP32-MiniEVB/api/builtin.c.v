@@ -45,6 +45,3 @@ enum __pin_names { // enumerated type for digital pin names
 	d25 = 25
 }
 
-fn init() { //  init function call setup or initialization code
-
-}

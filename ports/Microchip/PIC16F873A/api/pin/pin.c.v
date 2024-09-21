@@ -12,6 +12,3 @@ module pin
 #define output 0   // pin direction
 #define input  1
 
-fn init() {
-    
-}

@@ -1,6 +1,4 @@
 module main
 
-fn init() {
 
-}
 

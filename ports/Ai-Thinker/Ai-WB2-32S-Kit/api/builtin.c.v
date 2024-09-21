@@ -19,6 +19,4 @@ enum __pin_names {    // enumerated type for the pin names
     io12=12
 }
 
-fn init() {
 
-}

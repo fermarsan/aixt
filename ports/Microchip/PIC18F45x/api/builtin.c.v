@@ -179,6 +179,3 @@ module main
 #define e1    TRISCbits.TRISE1 
 #define e2    TRISCbits.TRISE2 
 
-fn init() {
-	
-}

@@ -1,5 +1,3 @@
 module time
 
-fn init() {
 
-}

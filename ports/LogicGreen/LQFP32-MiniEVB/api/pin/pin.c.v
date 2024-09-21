@@ -13,6 +13,3 @@ module pin
 // out macro defines the pin output mode
 #define output  OUTPUT
 
-fn init() { //  init function call setup or initialization code
-
-}

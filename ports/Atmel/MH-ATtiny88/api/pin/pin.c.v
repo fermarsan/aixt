@@ -11,6 +11,3 @@ module pin
 #  define input  			INPUT  
 #  define input_pullup  	INPUT_PULLUP
 
-fn init() {
-
-}

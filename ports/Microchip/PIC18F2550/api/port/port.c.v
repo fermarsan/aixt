@@ -13,6 +13,3 @@ const output = C.0   // port mode (direction)
 const input = C.1
 
 
-fn init() {
-    
-}

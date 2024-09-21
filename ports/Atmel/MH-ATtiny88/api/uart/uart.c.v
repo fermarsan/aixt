@@ -9,6 +9,3 @@ module uart
 #define TX_PIN PD6
 #include "ATtinySerialOut.hpp"
 
-fn init() {
-	
-}

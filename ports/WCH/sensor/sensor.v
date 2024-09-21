@@ -564,6 +564,3 @@ module sensor
 #define     ht__scout_unmute_sound()                       HTScourUnmuteSound()
 
 
-fn init() {
-
-}

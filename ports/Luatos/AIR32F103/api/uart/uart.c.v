@@ -7,6 +7,3 @@
 //              (PC port) 
 module uart
 
-fn init() {
-
-}

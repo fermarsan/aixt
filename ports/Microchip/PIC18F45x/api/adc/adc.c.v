@@ -9,6 +9,3 @@
 module adc
 #include <xc.h>
 
-fn init() {
-    
-}

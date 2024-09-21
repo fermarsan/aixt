@@ -6,6 +6,3 @@
 
 module time
 
-fn init() {
-	
-}

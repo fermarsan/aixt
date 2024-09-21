@@ -6,6 +6,3 @@
 // Description: UART module (LQFP32 MiniEVB Nano - LGT8F328P port)
 module uart
 
-fn init() { //  init function call setup or initialization code
-
-}

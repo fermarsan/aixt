@@ -47,6 +47,4 @@ envia_dato
 
 
 
-fn init() {
 
-}

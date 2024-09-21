@@ -169,6 +169,3 @@ module main
 
 
 
-fn init() {
-    
-}

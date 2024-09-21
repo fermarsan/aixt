@@ -9,6 +9,3 @@
 
 module uart
 
-fn init() {
-    
-}

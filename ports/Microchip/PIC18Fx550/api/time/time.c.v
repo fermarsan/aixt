@@ -11,6 +11,3 @@ module time
 
 #include <xc.h>
 
-fn init() {
-    
-}

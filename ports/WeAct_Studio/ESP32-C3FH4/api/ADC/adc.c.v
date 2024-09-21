@@ -5,6 +5,3 @@
 
 module adc 
 
-fn init() {
-	
-}

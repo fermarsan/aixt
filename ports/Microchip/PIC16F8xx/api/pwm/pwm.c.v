@@ -9,6 +9,3 @@
 
 module pwm
 
-fn init() {
-    
-}

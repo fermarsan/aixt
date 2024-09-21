@@ -6,6 +6,3 @@
 // Description: Time module (LQFP32 MiniEVB Nano - LGT8F328P port)
 module time
 
-fn init() { //  init function call setup or initialization code
-
-}

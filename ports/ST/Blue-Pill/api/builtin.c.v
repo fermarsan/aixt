@@ -42,6 +42,4 @@ enum __pin_names {    // enumerated type for the pin names
 
 }
 
-fn init() {
 
-}

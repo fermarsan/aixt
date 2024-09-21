@@ -13,6 +13,3 @@ module pin
 #define output  0   // pin mode (direction)
 #define input   1
 
-fn init() {
-
-}
