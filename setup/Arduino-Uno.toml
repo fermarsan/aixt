@@ -15,8 +15,8 @@ cc_make_flags =   "compile -b arduino:avr:uno -v --output-dir @{file_dir_name}/b
 api_paths = [
     "Arduino/Arduino-Uno",
     "Arduino/Arduino-AVR",
-    "Arduino/Arduino-generic",
-    "Arduino/Arduino-generic-UART",
+    "Arduino/arduino-generic",
+    "Arduino/arduino-generic-UART",
 ]
 
 v_defines = [

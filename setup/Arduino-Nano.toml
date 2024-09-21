@@ -18,8 +18,8 @@ cc_make_flags =   "compile -b arduino:avr:nano -v --output-dir @{file_dir_name}/
 api_paths = [
     "Arduino/Arduino-Nano",
     "Arduino/Arduino-AVR",
-    "Arduino/Arduino-generic",
-    "Arduino/Arduino-generic-UART",
+    "Arduino/arduino-generic",
+    "Arduino/arduino-generic-UART",
 ]
 
 v_defines = [

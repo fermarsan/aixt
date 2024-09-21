@@ -17,8 +17,7 @@ cc_make_flags =   "compile -b arduino:mbed_rp2040:pico -v --output-dir @{file_di
 
 api_paths = [
     "Raspberry-Pi/Raspberry-Pi-Pico",
-    "Arduino/Arduino-generic",
-    "Arduino/Arduino-generic-UART",
+    "Arduino/arduino-generic",
 ]
 
 v_defines = [

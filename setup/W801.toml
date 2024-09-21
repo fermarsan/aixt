@@ -22,8 +22,8 @@ makefile_flags = ""
 
 api_paths = [
     "W801",
-    "Arduino/Arduino-generic",
-    "Arduino/Arduino-generic-UART",
+    "Arduino/arduino-generic",
+    "Arduino/arduino-generic-UART",
 ]
 
 v_defines = [
