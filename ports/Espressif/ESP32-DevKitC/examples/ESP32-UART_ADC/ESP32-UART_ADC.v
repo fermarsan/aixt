@@ -11,7 +11,7 @@ import adc
 uart.setup(9600)
 
 for {
-	analog := adc.read(a0)
-	uart.println('ADC channel 0: ${analog}')
+	analog := adc.read(adc2_4)
+	uart.println('ADC 2 channel 4: ${analog}')
 	time.sleep_ms(1000)
 }
