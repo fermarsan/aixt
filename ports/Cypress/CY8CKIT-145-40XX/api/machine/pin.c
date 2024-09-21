@@ -1,6 +1,8 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-
-// Author: Javier Leon, Camilo Lucas and Fernando M. Santa
+// Authors:
+//	- Javier Leon
+//	- Camilo Lucas
+//	- Fernando M. Santa
 // Date: 2023
 // License: MIT
 //
