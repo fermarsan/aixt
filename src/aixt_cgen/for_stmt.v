@@ -8,11 +8,10 @@ import v.ast
 
 // for_stmt is the code generation function for the bare 'for' statement.
 fn (mut gen Gen) for_stmt(node ast.ForStmt) []string {
-	mut out := []string{}
-	out << 'while(' + if node.is_inf { 'true) {' } else { '${gen.ast_node(node.cond).join('')}) {' }
+	cond := if node.is_inf { 'true' }  else { gen.ast_node(node.cond).join('') }
+	mut stmts := []string{}
 	for st in node.stmts {
-		out << gen.ast_node(st)
+		stmts << gen.ast_node(st)
 	}
-	out << '}'
-	return out
+	return [ $tmpl('c_templates/for.c')#[..-1] ]
 }
