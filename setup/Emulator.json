@@ -8,7 +8,7 @@
     "cc_make_flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c",
 
     "api_paths": [
-        "Emulator",
+        "Emulator"
     ],
     "v_defines": [
     ],
@@ -16,5 +16,5 @@
     "inline_as_c_macro": false,
     "string_default_len": 80,
     
-    "compiler_setup_path": "setup/gcc-tcc.json",
+    "compiler_setup_path": "setup/gcc-tcc.json"
 }
