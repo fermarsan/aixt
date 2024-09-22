@@ -28,7 +28,8 @@ Tasks to do in Aixt
 - [ ] Change all API constants
 - [ ] Change arrays to  pure V
 - [ ] Standardize (with original V) the identifier names in the generated C code
-- [ ] make groups of PIC microcontrollers families 
+- [ ] make groups of PIC microcontrollers families
+- [ ] Migrate setup files from toml to json
 
 ### Done ✓
 
