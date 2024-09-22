@@ -9,7 +9,7 @@ module aixt_setup
 // Setup is the struct load the setup files data
 pub struct Setup {
 pub mut:
-	device				string
+	device				string	@[skip]
 	port 				string
 	board 				string
 	backend 			string
@@ -20,6 +20,7 @@ pub mut:
 	v_defines			[]string
 	inline_as_c_macro	bool
 	string_default_len	int
+	compiler_setup_path string
 	main_ret_type		string 
 	main_params  		string 
 	compiler_types		map[string]string

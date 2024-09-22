@@ -1,0 +1,17 @@
+
+{
+"port": "NXT",
+"device": "Atmel AT91SAM7S256 + Atmel AVR ATmega48",
+"board": "LEGO Mindstorms NXT intelligent brick",
+"backend": "nxc",
+"cc_linux": "/home/fercho/aixt/ports/NXT/nbc-linux",
+"cc_windows": "c":\\aixt\\ports\\NXT\\nbc-windows.exe",
+"cc_flags": " -"T":NXT -"S":usb -d @{file_no_extension}.nxc"  }
+"api_paths": [
+    "NXT",
+],
+"v_defines": [
+],
+"inline_as_c_macro": true,
+"string_default_len": 50,
+"compiler_setup_path": "setup/nxc.toml",

@@ -5,39 +5,33 @@
 // Description: setup files loading for the device and the compiler
 module aixt_setup
 
-import toml
-
+import os
+import json
 
 // load function loads the setup files for the device and the compiler
 pub fn (mut stp Setup) load(device string, aixt_path string) {
-	eq_devices := toml.parse_file('${aixt_path}/setup/equivalent-devices.toml') or { panic(err) }
 
-	stp.device = device
-	stp.port = if device in eq_devices.value('devices').as_map() {
-		(eq_devices.value('devices').as_map()[device] or {''}).string()
+	eq_devices := json.decode(
+		map[string]string,
+		os.read_file('${aixt_path}/setup/equivalent-devices.json') or { panic(err) }
+	) or { panic(err) }
+	
+	port := if device in eq_devices {
+		eq_devices[device]
 	} else {
 		device
 	}
-	
-	platform := toml.parse_file('${aixt_path}/setup/${stp.port}.toml') or { panic(err) }
-	
-	stp.board 				= platform.value('board').string()
-	stp.backend 			= platform.value('backend').string()
-	stp.cc_linux 			= platform.value('cc_linux').string()
-	stp.cc_windows 			= platform.value('cc_windows').string()
-	stp.cc_make_flags		= platform.value('cc_make_flags').string()	
-	stp.api_paths			= platform.value('api_paths').array().as_strings()		
-	stp.v_defines			= platform.value('v_defines').array().as_strings()	
-	stp.inline_as_c_macro	= platform.value('inline_as_c_macro').bool()
-	stp.string_default_len	= platform.value('string_default_len').int()
-	
-	compiler_setup_path := platform.value('compiler_setup_path').string()
-	compiler := toml.parse_file('${aixt_path}/${compiler_setup_path}') or { panic(err) }
 
-	stp.main_ret_type		= compiler.value('main_ret_type').string() 
-	stp.main_params  		= compiler.value('main_params').string() 
-	stp.compiler_types		= compiler.value('compiler_types').as_map().as_strings()
+	dev_setup := os.read_file('${aixt_path}/setup/${port}.json') or { panic(err) }
+	setup := json.decode(Setup, dev_setup) or { panic(err) }
 
-	println('setup files:\n\t${aixt_path}/setup/${stp.port}.toml')
-	println('\t${aixt_path}/${compiler_setup_path}\n')
+	// println(setup)
+
+	comp_setup := os.read_file('${aixt_path}/${setup.compiler_setup_path}') or { panic(err) }
+	complete_setup :=  dev_setup.all_before_last('}') + ',\n' + comp_setup.all_after_first('{')
+	stp = json.decode(Setup, complete_setup)  or { panic(err) }
+	stp.device = device
+
+	println('setup files:\n\t${aixt_path}/setup/${stp.port}.json')
+	println('\t${aixt_path}/${stp.compiler_setup_path}\n')
 }

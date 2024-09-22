@@ -1,0 +1,23 @@
+{
+    "port":    "Arduino-Nano",
+    "board":   "Arduino Nano",
+    "backend": "arduino",
+
+    "cc_linux":   "arduino-cli",
+    "cc_windows": "arduino-cli.exe",
+    "cc_make_flags":   "compile -b arduino:avr:nano -v --output-dir @{file_dir_name}/build",
+
+    "api_paths": [
+        "Arduino/Arduino-Nano",
+        "Arduino/Arduino-AVR",
+        "Arduino/arduino-generic",
+        "Arduino/arduino-generic-UART"
+    ],
+    "v_defines": [
+    ],
+
+    "inline_as_c_macro": true,
+    "string_default_len": 50,
+
+    "compiler_setup_path": "setup/arduino8.toml"
+}
