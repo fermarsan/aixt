@@ -10,37 +10,36 @@ import v.ast
 fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" expression
 	mut out := []string{}
 	mut cond := gen.ast_node(node.branches[0].cond).join('')
+	mut stmts := []string{}
 	if node.is_comptime {
 		out = gen.if_expr_comptime(node)
 	} else {
 		if node.is_expr { // in case of conditional assignment
-			out << 'if(${cond}) {'
-			out << gen.single_assign(	gen.cur_left, 
+			stmts = gen.single_assign(	gen.cur_left, 
 										gen.cur_left_type, 
 										gen.cur_op, 
 										(node.branches[0].stmts[0] as ast.ExprStmt).expr	)
-			out << '}'
+			out << $tmpl('c_templates/if_block.c')#[..-1]							
 			for i, br in node.branches {
 				if i >= 1 {
-					out << 'else '
 					if br.cond.type_name().str() == 'unknown v.ast.Expr' { // only 'else'
-						out << '{'
-						out << gen.single_assign(	gen.cur_left, 
+						stmts = gen.single_assign(	gen.cur_left, 
 													gen.cur_left_type, 
 													gen.cur_op, 
 													(br.stmts[0] as ast.ExprStmt).expr	)
+						out << $tmpl('c_templates/else_block.c')#[..-1]
 					} else {	//'else if'
-						out << 'if(${gen.ast_node(br.cond).join('')}) {'
-						out << gen.single_assign(	gen.cur_left, 
+						cond = gen.ast_node(br.cond).join('')
+						stmts = gen.single_assign(	gen.cur_left, 
 													gen.cur_left_type, 
 													gen.cur_op, 
 													(br.stmts[0] as ast.ExprStmt).expr	) 
+						out << $tmpl('c_templates/else_if_block.c')#[..-1]
 					}
-					out << '}'
 				}
 			}
 		} else {
-			mut stmts := gen.ast_node(node.branches[0])
+			stmts = gen.ast_node(node.branches[0])
 			out << $tmpl('c_templates/if_block.c')#[..-1]
 			for i, br in node.branches {
 				if i >= 1 {
