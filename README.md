@@ -38,7 +38,7 @@ stateDiagram-v2
             Transpiler: Transpiler
         }
         
-        state TOML {
+        state json {
             setup: Setup files
         }
     }
@@ -68,7 +68,7 @@ stateDiagram-v2
     Compiler --> machine
 ```
 
-Aixt is designed to be as modular as possible to facilitate the incorporation of new devices and boards. This is mainly possible by using a configuration files (in TOML format) instead of creating new source code for each new device. That `.TOML` file contains the specific parameters of each device, board or compiler such as: variable types, initialization commands, compiler paths, etc.
+Aixt is designed to be as modular as possible to facilitate the incorporation of new devices and boards. This is mainly possible by using a configuration files (in _json_ format) instead of creating new source code for each new device. That `.json` file contains the specific parameters of each device, board or compiler such as: variable types, initialization commands, compiler paths, etc.
 
 
 ## Aixt to C Transpiler

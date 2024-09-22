@@ -1,0 +1,22 @@
+
+{
+    "port":    "Raspberry-Pi-Pico",
+    "board":   "Raspberry Pi Pico",
+    "backend": "arduino",
+
+    "cc_linux":   "arduino-cli",
+    "cc_windows": "arduino-cli.exe",
+    "cc_make_flags":   "compile -b arduino:mbed_rp2040:pico -v --output-dir @{file_dir_name}/build",
+
+    "api_paths": [
+        "Raspberry-Pi/Raspberry-Pi-Pico",
+        "Arduino/arduino-generic"
+    ],
+    "v_defines": [
+    ],
+    
+    "inline_as_c_macro": true,
+    "string_default_len": 50,
+    
+    "compiler_setup_path": "setup/arduino32.json"
+}

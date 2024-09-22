@@ -1,0 +1,26 @@
+{
+    "main_ret_type": "",
+    "main_params": "",
+    "compiler_types": 
+    {
+        "void": "void",
+        "bool": "bool",
+        "i8": "char",
+        "i16": "int",
+        "int": "long",
+        "i64": "=== NOT SUPPORTED ===",
+        "isize": "long",
+        "int_literal": "long",
+        "u8": "byte",
+        "u16": "unsigned int",
+        "u32": "unsigned long",
+        "u64": "=== NOT SUPPORTED ===",
+        "usize": "unsigned long",
+        "f32": "float",
+        "f64": "float",
+        "float_literal": "float",
+        "rune": "char",
+        "string": "string",
+        "mutex": "mutex"
+    }
+}
