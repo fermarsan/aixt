@@ -38,7 +38,7 @@ pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 		setup:				setup
 	}
 
-	// set de defines from the port's Toml file
+	// set de defines from the port's json file
 	mut defines := ['']
 	for define in c_gen.setup.v_defines {
 		defines << ['-d', define]

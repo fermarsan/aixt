@@ -1,0 +1,25 @@
+{   
+    "port":    "port or device name",
+    "board":   "board name",
+    "backend": "c / arduino / nxc",
+
+    "cc_linux":      "c compiler path on linux",
+    "cc_windows":    "c compiler path on windows",
+    "cc_make_flags": "c compiler or Makefile flags",
+
+    "api_paths": [
+        "API path 1 from aixt/ports",
+        "API path 2 from aixt/ports",
+        "API path 3 from aixt/ports"
+    ],
+
+
+    "v_defines": [
+    ],
+
+    "inline_as_c_macro": true,
+
+    "string_default_len": 50,
+
+    "compiler_setup_path": "setup/compiler_name.json"
+}
