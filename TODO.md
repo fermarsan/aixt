@@ -32,13 +32,6 @@ Tasks to do in Aixt
 
 ### Done ✓
 
-- [x] Complete Arduino Nano API update
-- [x] UART arduino example 
-- [x] Remove module's name from pin names
-- [x] Issue: after changing name functions in Emulator port (SOLVED)
-- [x] Compile option turned into more universal by using pseudo variables inside .toml files
-- [x] Issue: RP Pico (Arduino backend) fails without loop() function (SOLVED)
-- [x] API modules can be written in both `module` and `module_complement` folder
 - [x] APIs for Arduino Nano, Uno and RP Pico updated
 - [x] Generate C templates for most of the Aixt's V expression and statements
 - [x] Migrate setup files from toml to json
