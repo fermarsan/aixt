@@ -113,25 +113,18 @@ fn main() {
 ### Example without `main` function (Script mode)
 
 ```v
-// Blinking LEDs on the Seeeduino XIAO-SAM21 board (Arduino backend)
+// ADC value to serial port on Raspberry Pi Pico (Arduino backend)
 import time
-import pin
+import uart
+import adc
 
-pin.setup(d2, output)
-pin.setup(d3, output)
-
-for i in 0 .. 10 { // 10 times
-	pin.high(d2)
-	time.sleep_ms(250)
-	pin.low(d2)
-	time.sleep_ms(250)
-}
+uart.setup(9600)    // baud rate
+adc.setup(12)       // resolution
 
 for {
-	pin.high(d3)
-	time.sleep(1)
-	pin.low(d3)
-	time.sleep(2)
+	analog := adc.read(adc0)
+	uart.println('ADC channel 0: ${analog}') // use string interpolation
+	time.sleep_ms(500)
 }
 ```
 
