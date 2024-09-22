@@ -10,7 +10,7 @@ All the supported devices implement these modules:
 Some other devices like PIC16F and AT support pin-port management:
 - `port`: GPIO as multi-bit port
 
-## Emulator on Linux, Android (Termux) and Windows
+## Emulator for Linux, Android (Termux) and Windows
 - **_x64-based or AArch64-based device_**: x64 or AArch64 
 
 ## LEGO Mindstorms NXT
@@ -102,8 +102,8 @@ For PSoC Creator:
 
 # Devices updated API v0.1.1
 
-- Software Emulator   _(GCC-TCC)_
-- PIC16F8x family     _(XC8)_
+- Software Emulator for Linux, Android (Termux) and Windows     _(GCC-TCC)_
+- PIC16F8x family: PIC16F83, PIC16F83A, PIC16F84, PIC16F84A     _(XC8)_
 - Arduino Uno         _(arduino-cli)_
 - Arduino Nano        _(arduino-cli)_
 - ESP32-DevKitC       _(arduino-cli)_
