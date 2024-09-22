@@ -9,7 +9,7 @@ import v.ast
 // if_expr is the code generation function for 'if' expressions.
 fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" expression
 	mut out := []string{}
-	cond := gen.ast_node(node.branches[0].cond).join('')
+	mut cond := gen.ast_node(node.branches[0].cond).join('')
 	if node.is_comptime {
 		out = gen.if_expr_comptime(node)
 	} else {
@@ -40,20 +40,17 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" e
 				}
 			}
 		} else {
-			out << 'if(${cond}) {'
-			out << gen.ast_node(node.branches[0])
-			out << '}'
+			mut stmts := gen.ast_node(node.branches[0])
+			out << $tmpl('c_templates/if_block.c')#[..-1]
 			for i, br in node.branches {
 				if i >= 1 {
-					out << 'else '
 					if br.cond.type_name().str() == 'unknown v.ast.Expr' { // only 'else'
-						out << '{'
-						out << gen.ast_node(br)
-						out << '}'
+						stmts = gen.ast_node(br)
+						out << $tmpl('c_templates/else_block.c')#[..-1]
 					} else {	//'else if'
-						out << 'if(${gen.ast_node(br.cond).join('')}) {'
-						out << gen.ast_node(br)
-						out << '}' 
+						cond = gen.ast_node(br.cond).join('')
+						stmts = gen.ast_node(br)
+						out << $tmpl('c_templates/else_if_block.c')#[..-1]
 					}
 				}
 			}
