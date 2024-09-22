@@ -29,6 +29,7 @@ Tasks to do in Aixt
 - [ ] Change arrays to  pure V
 - [ ] Standardize (with original V) the identifier names in the generated C code
 - [ ] make groups of PIC microcontrollers families 
+- [ ] Generate C templates for most of the Aixt's V expression and statements
 
 ### Done ✓
 
