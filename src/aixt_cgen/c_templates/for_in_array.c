@@ -1,5 +1,7 @@
-for( int @index = @init_val ; @index < @max_val ; @index ++ ) {
+for( int @index_name = 0 ; @index_name < @len ; @index_name ++ ) {
+@typ @var_name = @{init_or_name}[@{index_name}];
 @for stmt in stmts 
 @stmt 
-@end  
+@end
+@mut_var_write
 }
