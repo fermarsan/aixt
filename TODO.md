@@ -29,7 +29,6 @@ Tasks to do in Aixt
 - [ ] Change arrays to  pure V
 - [ ] Standardize (with original V) the identifier names in the generated C code
 - [ ] make groups of PIC microcontrollers families 
-- [ ] Generate C templates for most of the Aixt's V expression and statements
 
 ### Done ✓
 
@@ -41,3 +40,4 @@ Tasks to do in Aixt
 - [x] Issue: RP Pico (Arduino backend) fails without loop() function (SOLVED)
 - [x] API modules can be written in both `module` and `module_complement` folder
 - [x] APIs for Arduino Nano, Uno and RP Pico updated
+- [x] Generate C templates for most of the Aixt's V expression and statements
