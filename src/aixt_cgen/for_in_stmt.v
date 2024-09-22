@@ -12,13 +12,14 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 	mut out := []string{}
 	mut c_line := ''
 	init_or_name := gen.ast_node(node.cond).join('')
+	mut stmts := []string{}
 	if node.is_range { // in a range
-		c_line += 'for(int ${node.val_var}=${init_or_name}; '	// initialization
-		c_line += '${node.val_var}<${gen.ast_node(node.high).join('')}; '	// limit value
-		out << c_line + '${node.val_var}++) {'	// increment
+		index := node.val_var
+		max_val := gen.ast_node(node.high).join('')
 		for st in node.stmts {
-			out << gen.ast_node(st).join('')
+			stmts << gen.ast_node(st).join('')
 		}
+		out << $tmpl('c_templates/for_in_range.c')#[..-1]
 	} else if node.kind.str() == 'array' {
 		gen.level_count++
 		index_name := '__i_${gen.level_count}'	// temporal variables (indexes) by levels
@@ -47,7 +48,7 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 		} 
 		gen.level_count--
 	} 
-	out << '}'
+	// out << '}'
 	return out
 }
 
