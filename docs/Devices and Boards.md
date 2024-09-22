@@ -1,11 +1,14 @@
 # Supported devices and boards
 
 All the supported devices implement these modules:
-- Delay
-- GPIO
-- ADC
-- PWM
-- UART
+- `time`: Delay functions
+- `pin`: GPIO
+- `adc`: ADC inputs
+- `pwm`: PWM outputs
+- `uart`: serial port
+
+Some other devices like PIC16F and AT support pin-port management:
+- `port`: GPIO as multi-bit port
 
 ## Emulator on Linux, Android (Termux) and Windows
 - **_x64-based or AArch64-based device_**: x64 or AArch64 
@@ -17,9 +20,9 @@ All the supported devices implement these modules:
 
 For XC8 compiler:
 - **8-bit 16F family**
-    - PIC16F84A     **_(only Delay, GPIO)_**
+    - PIC16F8x family   **_(only `time`, `pin`, `port`)_**
     - PIC16F628A    **_(WIP...)_**
-    - PIC16F676     **_(only Delay, GPIO, ADC)._**
+    - PIC16F676     **_(only `time`, `pin`, `adc`, `port`)._**
     - PIC16F873A    
     - PIC16F886     
 - **8-bit 18F family**
@@ -34,7 +37,8 @@ For XC16 compiler:
 ## Atmel (Microchip)
 - **_Digispark Kickstarter_**: ATtiny85 "_arduino_ backend" **_(WIP...)_** 
 - **_MH-Tiny_**: ATtiny88 "_arduino_ backend" 
-- **_Arduino nano_**: ATmega328p "_arduino_ backend"  
+- **_Arduino Uno_**: ATmega328p "_arduino_ backend"   
+- **_Arduino Nano_**: ATmega328p "_arduino_ backend"  
 
 ## Seeed Studio
 - **_Seeed Studio XIAO SAMD21_**: ATSAMD21G18 (Cortex-M0+) "_arduino_ backend" 
@@ -93,5 +97,14 @@ For PSoC Creator:
 - **_Sipeed M0sense_**: BL702 (RV32) "_arduino_ backend" **_(WIP...)_**
 
 ## Ai-Thinker
-- **_Ai-WB2-32S-Kit_**: BL602 "_arduino_ backend" **_(only Delay, GPIO, PWM, UART)_**
-  
+- **_Ai-WB2-32S-Kit_**: BL602 "_arduino_ backend" **_(only `time`, `pin`, `pwm`, `uart`)_**
+
+
+# Devices updated API v0.1.1
+
+- Software Emulator   _(GCC-TCC)_
+- PIC16F8x family     _(XC8)_
+- Arduino Uno         _(arduino-cli)_
+- Arduino Nano        _(arduino-cli)_
+- ESP32-DevKitC       _(arduino-cli)_
+- Raspberry Pi Pico   _(arduino-cli)_
