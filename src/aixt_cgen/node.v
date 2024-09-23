@@ -34,6 +34,9 @@ fn (mut gen Gen) ast_node(node ast.Node) []string {
 		}
 		ast.IfBranch { // statement block of "if" and "else" expressions
 			return gen.if_branch(node)
+		}		
+		ast.MatchBranch { // statement block of "if" and "else" expressions
+			return gen.match_branch(node)
 		}
 		ast.CallArg {
 			return gen.call_arg(node)
