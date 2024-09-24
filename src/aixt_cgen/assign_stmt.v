@@ -23,11 +23,15 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 			ast.IfExpr {	// conditional assignment
 				// gen.ast_node(node.left[i])
 				gen.ast_node(node.right[i])
-			}
-			else {			
+			} 
+			ast.MatchExpr {	// conditional assignment by a match expression 
+				// gen.ast_node(node.left[i])
+				gen.ast_node(node.right[i])
+			} else {			
 				gen.single_assign(node.left[i], node.left_types[i], node.op, node.right[i])
 			}
 		}
 	}
+	println('${out}')
 	return out
 }
