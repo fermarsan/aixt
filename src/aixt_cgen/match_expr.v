@@ -8,6 +8,7 @@ import v.ast
 
 // match_expr is the code generation function for 'match' expressions.
 fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
+	println('????????????????????\n${node}\n????????????????????')
 	mut out := []string{}
 	mut stmts := []string{}
 	if node.is_expr {
@@ -31,11 +32,19 @@ fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
 		out << assign
 		// println('${out}')
 	} else {
-		cond := node.cond
+		gen.cur_cond = node.cond
 		for br in node.branches {
 			stmts << gen.ast_node(br).join('')
 		}
-		out << $tmpl('c_templates/match.c')#[..-1]
+		match node.branches[0].exprs[0] {
+			ast.InfixExpr {
+				out << stmts	// match as nested if
+			}
+			else {
+				cond := node.cond
+				out << $tmpl('c_templates/match.c')#[..-1]
+			}
+		}
 	}
 	return out
 } 

@@ -20,6 +20,7 @@ pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 		cur_left:			ast.Nil{}
 		cur_left_type:		0
 		cur_op:				token.Kind.unknown
+		cur_cond:			ast.Nil{}
 		transpiler_path:	aixt_path
 		// imports: 			[]string{}
 		source_paths: 		[]string{}

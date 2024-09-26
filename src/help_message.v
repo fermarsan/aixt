@@ -4,6 +4,15 @@
 // License: MIT
 module main
 
+// help_message returns a string containing the help message for the Aixt tool
+//
+// The message includes:
+// - Usage instructions
+// - Examples of common commands
+// - List of supported commands and their descriptions
+//
+// This function is typically called when the user requests help or when
+// incorrect command usage is detected.
 // help_message is the help option message function
 fn help_message() string {
 	return 'aixt is a tool for managing Aixt source code (*.aixt or *.v).
@@ -19,11 +28,11 @@ Examples:
   aixt -t Arduino_Nano hello.v	Transpile the file `hello.v`  and output it as
                                 `hello.c` or `hello.ino`  (depending on the Backend).
   aixt -c Emulator hello.aixt	  Compile a previously transpiled `hello.c`  (from
-                                `hello.aixt`) and output it as `hello` or `hello.exe` 
-  aixt clean NXC hello.aixt     Clean all the generated files `hello.*` 
+                                `hello.aixt`) and output it as `hello` or `hello.exe`
+  aixt clean NXC hello.aixt     Clean all the generated files `hello.*`
   aixt -h                       Print this help message
   aixt version                  Print the Aixt version number
-  aixt -np NXT /home proj_1     Create the `proj_1` NXT project in `/home`   
+  aixt -np NXT /home proj_1     Create the `proj_1` NXT project in `/home`
 
 aixt supports the following commands:
   transpile, -t                 Transpile to C an Aixt source file.

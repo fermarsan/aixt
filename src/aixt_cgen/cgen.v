@@ -23,6 +23,7 @@ pub mut:
 	cur_left		ast.Expr
 	cur_left_type	ast.Type
 	cur_op			token.Kind
+	cur_cond		ast.Expr
 	transpiler_path	string
 	// imports			[]string
 	source_paths	[]string
