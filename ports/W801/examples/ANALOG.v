@@ -1,8 +1,8 @@
 import pin
-
-pin.setup(a1, pin.input)
-pin.setup(a5, pin.output)
-pin.setup(a6, pin.output)  
+import adc
+pin.setup(a1, input)
+pin.setup(a5, output)
+pin.setup(a6, output)  
 
 pin.low(a5)
 pin.low(a6)
@@ -11,7 +11,7 @@ pin.low(a6)
 
 for{
 
-if 250 >= adc__read(a1){
+if 250 >= adc.read(a1){
 pin.high(a5)
 pin.low(a6)
 }
