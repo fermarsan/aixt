@@ -12,26 +12,7 @@ fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
 	mut out := []string{}
 	mut stmts := []string{}
 	if node.is_expr { // if it is a match-assignment
-		mut total := ''
-		for br in node.branches.reverse() {
-			if br.is_else {
-				total += '(${gen.ast_node(br.stmts[0]).join('')#[..-1]})'
-			} else {
-				mut cond := ''
-				for ex in br.exprs {
-					cond += '${node.cond} == ${gen.ast_node(ex).join('')} || '
-				}
-				cond = cond#[..-4]
-				if_true := gen.ast_node(br.stmts[0]).join('')#[..-1]
-				if_false := total
-				total = $tmpl('c_templates/ternary_op.tmpl.c')#[..-1]
-			}
-		}
-		mut assign := gen.single_assign(gen.cur_left, gen.cur_left_type, gen.cur_op, ast.empty_expr).join('')
-		// println('${assign}')
-		assign = '${assign#[..-3]}( ${total} );'
-		out << assign
-		// println('${out}')
+		out = gen.match_assign(node)
 	} else { // the rest of match expressions
 		gen.cur_cond = node.cond
 		match node.branches[0].exprs[0] {
@@ -54,4 +35,40 @@ fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
 		}
 	}
 	return out
+}
+
+// match_assign is the code generation function for 'match' assignment expressions.
+fn (mut gen Gen) match_assign(node ast.MatchExpr) []string {
+	mut total := ''
+	node_cond := gen.ast_node(node.cond).join('')
+	for br in node.branches.reverse() {
+		if br.is_else {
+			total += '(${gen.ast_node(br.stmts[0]).join('')#[..-1]})'
+		} else {
+			mut cond := ''
+			for ex in br.exprs {
+				exp := gen.ast_node(ex).join('')
+				match ex {
+					ast.InfixExpr {	// comparisons: a < 5
+						cond += '(${exp}) == ${node_cond} || '
+					}
+					ast.RangeExpr {	// ranges: 0 ... 9
+						cond += '(${node_cond} >= ${gen.ast_node(ex.low).join('')} && ' +
+								'${node_cond} <= ${gen.ast_node(ex.high).join('')}) || '
+					}
+					else {	// literals or identifiers: 7
+						cond += '${node_cond} == ${exp} || '
+					}
+				}
+			}
+			cond = cond#[..-4]	// remove the last ' || '
+			if_true := gen.ast_node(br.stmts[0]).join('')#[..-1]
+			if_false := total
+			total = $tmpl('c_templates/ternary_op.tmpl.c')#[..-1]
+		}
+	}
+	mut assign := gen.single_assign(gen.cur_left, gen.cur_left_type, gen.cur_op, ast.empty_expr).join('')
+	// println('${assign}')
+	assign = '${assign#[..-3]}( ${total} );'
+	return [assign]
 }
