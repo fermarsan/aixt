@@ -2,13 +2,13 @@
     import time {sleep_ms}
     import pin
   // initialize the digital pin as an output.
-  pin.setup(led1, pin.output);
-  pin.setup(led2, pin.output);
-  pin.setup(led3, pin.output);
-  pin.setup(led4, pin.output);
-  pin.setup(led5, pin.output);
-  pin.setup(led6, pin.output);
-  pin.setup(led7, pin.output);
+  pin.setup(led1, output);
+  pin.setup(led2, output);
+  pin.setup(led3, output);
+  pin.setup(led4, output);
+  pin.setup(led5, output);
+  pin.setup(led6, output);
+  pin.setup(led7, output);
 
 
 // the loop routine runs over and over again forever:
@@ -40,5 +40,5 @@ for {
   pin.high(led7);   // turn the LED on (HIGH is the voltage level)
   time.sleep_ms(1000);               // wait for a second
   pin.high(led7);    // turn the LED off by making the voltage LOW
-  time.leep_ms(1000);               // wait for a second
+  time.sleep_ms(1000);               // wait for a second
 }
