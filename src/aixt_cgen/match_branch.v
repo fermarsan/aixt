@@ -18,6 +18,7 @@ fn (mut gen Gen) match_branch(node ast.MatchBranch) []string { // statements mat
     if node.is_else {
       out << $tmpl('c_templates/else_block.c')#[..-1]
     } else {
+		// for ex in node.exprs[0]
     	if node.exprs.len == 1 { // single expression match{
     		cond := '(${node.exprs[0].str()}) == ${gen.cur_cond}'
     		// println('$--- ${expr} ---')
