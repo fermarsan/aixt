@@ -16,7 +16,7 @@ fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
 	} else { // the rest of match expressions
 		gen.cur_cond = node.cond
 		match node.branches[0].exprs[0] {
-			ast.InfixExpr {
+			ast.InfixExpr, ast.RangeExpr {
 				mut temp := gen.match_as_nested_if	// save the current state
 				gen.match_as_nested_if = true
 				for br in node.branches {
