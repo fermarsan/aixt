@@ -44,7 +44,7 @@ fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 			print('Invalid "Backend" in setup file.' )
 		}
 	}
-	out << $tmpl('c_templates/fn_decl.c')#[..-1]
+	out << $tmpl('c_templates/fn_decl.tmpl.c')#[..-1]
 	out << ending
 	return out	
 }

@@ -1,1 +1,0 @@
-strcmp(@left, @right)

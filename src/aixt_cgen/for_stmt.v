@@ -13,5 +13,5 @@ fn (mut gen Gen) for_stmt(node ast.ForStmt) []string {
 	for st in node.stmts {
 		stmts << gen.ast_node(st)
 	}
-	return [ $tmpl('c_templates/for.c')#[..-1] ]
+	return [ $tmpl('c_templates/for.tmpl.c')#[..-1] ]
 }

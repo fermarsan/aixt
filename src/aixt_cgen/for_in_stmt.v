@@ -18,7 +18,7 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 		for st in node.stmts {
 			stmts << gen.ast_node(st).join('')
 		}
-		out << $tmpl('c_templates/for_in_range.c')#[..-1]
+		out << $tmpl('c_templates/for_in_range.tmpl.c')#[..-1]
 	} else if node.kind.str() == 'array' {
 		gen.level_count++
 		index_name := '__i_${gen.level_count}'	// temporal variables (indexes) by levels
@@ -42,9 +42,9 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 		}
 		mut mut_var_write := ''
 		if node.val_is_mut {
-			mut_var_write = $tmpl('c_templates/mut_var_in_array_write.c')#[..-1]	// var writing
+			mut_var_write = $tmpl('c_templates/mut_var_in_array_write.tmpl.c')#[..-1]	// var writing
 		}
-		out << $tmpl('c_templates/for_in_array.c')#[..-1] 
+		out << $tmpl('c_templates/for_in_array.tmpl.c')#[..-1] 
 		gen.level_count--
 	} 
 	return out

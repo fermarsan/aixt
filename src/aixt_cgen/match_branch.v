@@ -14,31 +14,28 @@ fn (mut gen Gen) match_branch(node ast.MatchBranch) []string { // statements mat
 	for st in node.stmts {
 		stmts << gen.ast_node(st).join('')
 	}
-  if gen.match_as_nested_if {
-    if node.is_else {
-      out << $tmpl('c_templates/else_block.c')#[..-1]
-    } else {
-		// for ex in node.exprs[0]
-    	if node.exprs.len == 1 { // single expression match{
-    		cond := '(${node.exprs[0].str()}) == ${gen.cur_cond}'
-    		// println('$--- ${expr} ---')
-    		out << $tmpl('c_templates/if_block.c')#[..-1]
-    	} else {
-     		panic('Multi-expression matches do not allowed...')
-    	}
-    }
-  } else { // regular match expressions
-    if node.is_else {
-      out << $tmpl('c_templates/match_else_branch.c')#[..-1]
-    } else {
-  		if node.exprs.len == 1 { // single expression match{
-  			expr := node.exprs[0].str()
-  			// println('$--- ${expr} ---')
-  			out << $tmpl('c_templates/match_branch.c')#[..-1]
-  		} else {
-  			panic('Multi-expression matches do not allowed...')
-  		}
-    }
-  }
+	if gen.match_as_nested_if {
+		if node.is_else {
+		out << $tmpl('c_templates/else_block.tmpl.c')#[..-1]
+		} else {
+			// for ex in node.exprs[0]
+			if node.exprs.len == 1 { // single expression match{
+				cond := '(${node.exprs[0].str()}) == ${gen.cur_cond}'
+				// println('$--- ${expr} ---')
+				out << $tmpl('c_templates/if_block.tmpl.c')#[..-1]
+			} else {
+				panic('Multi-expression matches do not allowed...')
+			}
+		}
+	} else { // regular match expressions
+		if node.is_else {
+		out << $tmpl('c_templates/match_else_branch.tmpl.c')#[..-1]
+		} else {
+			exprs := node.exprs.map(it.str())
+			// expr := node.exprs[0].str()
+			// println('$--- ${expr} ---')
+			out << $tmpl('c_templates/match_branch.tmpl.c')#[..-1]
+		}
+	}
 	return out
 }

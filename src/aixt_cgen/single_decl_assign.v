@@ -23,23 +23,23 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			len := array_init.exprs.len
 			var_value := gen.ast_node(right).join('')
 			if array_init.is_fixed {
-				c_line = $tmpl('c_templates/decl_assign_array_fixed.c')#[..-1]
+				c_line = $tmpl('c_templates/decl_assign_array_fixed.tmpl.c')#[..-1]
 			} else {
-				c_line = $tmpl('c_templates/decl_assign_array.c')#[..-1]
+				c_line = $tmpl('c_templates/decl_assign_array.tmpl.c')#[..-1]
 			}
 		}
 		'string' {
 			gen.add_include('string.h')
 			len := gen.setup.string_default_len
 			var_value := gen.ast_node(right).join('')
-			c_line = $tmpl('c_templates/decl_string_fixed.c')#[..-1]
-			c_line += '\n' + $tmpl('c_templates/assign_string.c')#[..-1]
+			c_line = $tmpl('c_templates/decl_string_fixed.tmpl.c')#[..-1]
+			c_line += '\n' + $tmpl('c_templates/assign_string.tmpl.c')#[..-1]
 			println('${c_line}')
 		}
 		'enum' {
 			var_c_type := 'enum ${(right as ast.EnumVal).enum_name.replace('.', '__')} '
 			var_value := gen.ast_node(right).join('')
-			c_line = $tmpl('c_templates/decl_assign.c')#[..-1]
+			c_line = $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
 		}
 		else {
 			var_c_type := gen.setup.compiler_types[var_kind]
@@ -48,7 +48,7 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			} else {
 				gen.ast_node(right).join('')
 			}
-			c_line = $tmpl('c_templates/decl_assign.c')#[..-1]
+			c_line = $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
 		}
 	}
 	// if gen.setup.value('backend').string() == 'arduino' {

@@ -25,7 +25,7 @@ fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
 				// cond := '${node.cond} == ${gen.ast_node(br.exprs[0]).join('')}'
 				if_true := gen.ast_node(br.stmts[0]).join('')#[..-1]
 				if_false := total
-				total = $tmpl('c_templates/ternary_op.c')#[..-1]
+				total = $tmpl('c_templates/ternary_op.tmpl.c')#[..-1]
 			}
 		}
 		mut assign := gen.single_assign(gen.cur_left, gen.cur_left_type, gen.cur_op, ast.empty_expr).join('')
@@ -39,18 +39,18 @@ fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
 			ast.InfixExpr {
 				mut temp := gen.match_as_nested_if	// save the current state
 				gen.match_as_nested_if = true
-  			for br in node.branches {
-  				stmts << gen.ast_node(br).join('')
-  			}
+				for br in node.branches {
+					stmts << gen.ast_node(br).join('')
+				}
 				out << stmts // match as nested if
 				gen.match_as_nested_if = temp
 			}
 			else {
 				cond := node.cond
 				for br in node.branches {
-  				stmts << gen.ast_node(br).join('')
-  			}
-				out << $tmpl('c_templates/match.c')#[..-1]
+					stmts << gen.ast_node(br).join('')
+				}
+				out << $tmpl('c_templates/match.tmpl.c')#[..-1]
 			}
 		}
 	}

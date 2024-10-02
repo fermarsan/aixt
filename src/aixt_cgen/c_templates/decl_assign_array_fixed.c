@@ -1,1 +1,0 @@
-@var_c_type @var_name[@len] = @var_value;

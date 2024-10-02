@@ -59,13 +59,13 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				names = names#[..-2]
 				if stmts.len == 1 {
 					stmt := stmts.pop()#[..-1]	// remove the last ";"
-					out << $tmpl('c_templates/fn_decl_as_macro.c')#[..-1].replace('return', '')
+					out << $tmpl('c_templates/fn_decl_as_macro.tmpl.c')#[..-1].replace('return', '')
 				} else {
-					out << $tmpl('c_templates/fn_decl_as_multi_macro.c')#[..-1].replace('return', '')
+					out << $tmpl('c_templates/fn_decl_as_multi_macro.tmpl.c')#[..-1].replace('return', '')
 				}
 			} else {
-				gen.definitions << $tmpl('c_templates/fn_prototype.c')#[..-1].replace('inline ', '')	// generates the function's prototype
-				out << $tmpl('c_templates/fn_decl.c')#[..-1]
+				gen.definitions << $tmpl('c_templates/fn_prototype.tmpl.c')#[..-1].replace('inline ', '')	// generates the function's prototype
+				out << $tmpl('c_templates/fn_decl.tmpl.c')#[..-1]
 			}
 		}
 	}

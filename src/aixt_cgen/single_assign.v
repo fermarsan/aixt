@@ -36,10 +36,10 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 						gen.add_include('string.h')
 						match op.str() {
 							'=' {
-								out << $tmpl('c_templates/assign_string.c')#[..-1]
+								out << $tmpl('c_templates/assign_string.tmpl.c')#[..-1]
 							} 
 							'+=' {
-								out << $tmpl('c_templates/accumulate_string.c')#[..-1]
+								out << $tmpl('c_templates/accumulate_string.tmpl.c')#[..-1]
 							}	
 							else {
 								panic('\n\nTranspiler Error:\n' +
@@ -48,12 +48,12 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 						}
 					}
 					else {
-						out << $tmpl('c_templates/assign.c')#[..-1]
+						out << $tmpl('c_templates/assign.tmpl.c')#[..-1]
 					}
 				} 
 			} 
 			else {
-				out << $tmpl('c_templates/assign.c')#[..-1]
+				out << $tmpl('c_templates/assign.tmpl.c')#[..-1]
 			}
 		}
 	}

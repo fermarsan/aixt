@@ -19,7 +19,7 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" e
 										gen.cur_left_type, 
 										gen.cur_op, 
 										(node.branches[0].stmts[0] as ast.ExprStmt).expr	)
-			out << $tmpl('c_templates/if_block.c')#[..-1]							
+			out << $tmpl('c_templates/if_block.tmpl.c')#[..-1]							
 			for i, br in node.branches {
 				if i >= 1 {
 					if br.cond.type_name().str() == 'unknown v.ast.Expr' { // only 'else'
@@ -27,29 +27,29 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" e
 													gen.cur_left_type, 
 													gen.cur_op, 
 													(br.stmts[0] as ast.ExprStmt).expr	)
-						out << $tmpl('c_templates/else_block.c')#[..-1]
+						out << $tmpl('c_templates/else_block.tmpl.c')#[..-1]
 					} else {	//'else if'
 						cond = gen.ast_node(br.cond).join('')
 						stmts = gen.single_assign(	gen.cur_left, 
 													gen.cur_left_type, 
 													gen.cur_op, 
 													(br.stmts[0] as ast.ExprStmt).expr	) 
-						out << $tmpl('c_templates/else_if_block.c')#[..-1]
+						out << $tmpl('c_templates/else_if_block.tmpl.c')#[..-1]
 					}
 				}
 			}
 		} else {
 			stmts = gen.ast_node(node.branches[0])
-			out << $tmpl('c_templates/if_block.c')#[..-1]
+			out << $tmpl('c_templates/if_block.tmpl.c')#[..-1]
 			for i, br in node.branches {
 				if i >= 1 {
 					if br.cond.type_name().str() == 'unknown v.ast.Expr' { // only 'else'
 						stmts = gen.ast_node(br)
-						out << $tmpl('c_templates/else_block.c')#[..-1]
+						out << $tmpl('c_templates/else_block.tmpl.c')#[..-1]
 					} else {	//'else if'
 						cond = gen.ast_node(br.cond).join('')
 						stmts = gen.ast_node(br)
-						out << $tmpl('c_templates/else_if_block.c')#[..-1]
+						out << $tmpl('c_templates/else_if_block.tmpl.c')#[..-1]
 					}
 				}
 			}
