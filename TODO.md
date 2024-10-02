@@ -21,7 +21,6 @@ Tasks to do in Aixt
 
 ### In Progress
 
-- [ ] Implement the `match` expression #feat @fermarsan
 - [ ] Implement structs #feat
     - [ ] support struct fields (`struct_name.struct_field`)
 - [ ] implement maps
@@ -35,3 +34,4 @@ Tasks to do in Aixt
 - [x] APIs for Arduino Nano, Uno and RP Pico updated
 - [x] Generate C templates for most of the Aixt's V expression and statements
 - [x] Migrate setup files from toml to json
+- [x] Implement the `match` expression #feat @fermarsan
