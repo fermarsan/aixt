@@ -18,22 +18,18 @@ fn (mut gen Gen) match_branch(node ast.MatchBranch) []string { // statements mat
 		if node.is_else {
 		out << $tmpl('c_templates/else_block.tmpl.c')#[..-1]
 		} else {
-			// for ex in node.exprs[0]
-			if node.exprs.len == 1 { // single expression match{
-				cond := '(${node.exprs[0].str()}) == ${gen.cur_cond}'
-				// println('$--- ${expr} ---')
-				out << $tmpl('c_templates/if_block.tmpl.c')#[..-1]
-			} else {
-				panic('Multi-expression matches do not allowed...')
+			mut cond := ''
+			for ex in node.exprs {
+				cond += '(${ex.str()}) == ${gen.cur_cond} || '
 			}
+			cond = cond#[..-4]
+			out << $tmpl('c_templates/if_block.tmpl.c')#[..-1]
 		}
 	} else { // regular match expressions
 		if node.is_else {
 		out << $tmpl('c_templates/match_else_branch.tmpl.c')#[..-1]
 		} else {
 			exprs := node.exprs.map(it.str())
-			// expr := node.exprs[0].str()
-			// println('$--- ${expr} ---')
 			out << $tmpl('c_templates/match_branch.tmpl.c')#[..-1]
 		}
 	}

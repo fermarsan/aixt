@@ -22,7 +22,6 @@ fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
 					cond += '${node.cond} == ${gen.ast_node(ex).join('')} || '
 				}
 				cond = cond#[..-4]
-				// cond := '${node.cond} == ${gen.ast_node(br.exprs[0]).join('')}'
 				if_true := gen.ast_node(br.stmts[0]).join('')#[..-1]
 				if_false := total
 				total = $tmpl('c_templates/ternary_op.tmpl.c')#[..-1]
