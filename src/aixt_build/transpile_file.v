@@ -14,29 +14,30 @@ import aixt_cgen
 // transpile_file transpiles an Aixt source code into C.
 pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 	mut c_gen := aixt_cgen.Gen{
-		files: 				[]&ast.File{}
-		table: 				ast.new_table()
-		cur_scope: 			&ast.Scope{}
-		cur_left:			ast.Nil{}
-		cur_left_type:		0
-		cur_op:				token.Kind.unknown
-		cur_cond:			ast.Nil{}
-		transpiler_path:	aixt_path
-		// imports: 			[]string{}
-		source_paths: 		[]string{}
-		out: 				[]string{}
-		c_preproc_cmds:		[]string{}	
-		api_mod_paths:		map[string]string{}
-		// includes: 		[]string{}	
-		// macros: 			[]string{}	
-		definitions: 		[]string{}	
-		init_cmds:			[]string{}	
-		to_insert_lines:	[]string{}
-		cur_fn: 			'main'
-		file_count: 		0
-		level_count: 		0		
-		pref:	 			&pref.Preferences{}
-		setup:				setup
+		files:              []&ast.File{}
+		table:              ast.new_table()
+		cur_scope: 			    &ast.Scope{}
+		cur_left:			      ast.Nil{}
+		cur_left_type:		  0
+		cur_op:				      token.Kind.unknown
+		cur_cond:			      ast.Nil{}
+		transpiler_path:	  aixt_path
+		// imports: 			   []string{}
+		source_paths: 		  []string{}
+		out: 				        []string{}
+		c_preproc_cmds:		  []string{}
+		api_mod_paths:		  map[string]string{}
+		// includes: 		     []string{}
+		// macros: 			     []string{}
+		definitions: 		    []string{}
+		init_cmds:			    []string{}
+		to_insert_lines:	  []string{}
+		cur_fn: 			      'main'
+		file_count: 		    0
+		level_count:        0
+		match_as_nested_if: false
+		pref:	 			        &pref.Preferences{}
+		setup:			       	setup
 	}
 
 	// set de defines from the port's json file
@@ -49,7 +50,7 @@ pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 	c_gen.pref.is_script = true
 	c_gen.pref.enable_globals = true
 	// println('##################### ${c_gen.pref.compile_values} ########################')
-	
+
 
 	// println('\n\n+++++++${path}++++++++\n\n')
 	mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
@@ -57,7 +58,7 @@ pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 	if transpiled != '' {
 		output_ext := match c_gen.setup.backend {
 			'nxc' 		{ '.nxc' }
-			'arduino'	{ '.ino' } 
+			'arduino'	{ '.ino' }
 			else 		{ '.c' }
 		}
 

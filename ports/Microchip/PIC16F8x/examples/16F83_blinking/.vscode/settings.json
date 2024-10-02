@@ -1,8 +1,5 @@
 {
-    "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
-    "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
-    "device":       "PIC16F83",
-    "files.associations": {
-        "*.aixt": "v",
-    }
+    "vscode_aixt.aixt_linux": "aixt",   // "/path/to/aixt/compiler/on/linux",
+    "vscode_aixt.aixt_windows": "aixt", // "C:\\path\\to\\aixt\\compiler\\on\\windows",
+    "vscode_aixt.device": "PIC16F83"    // "device_name"
 }
