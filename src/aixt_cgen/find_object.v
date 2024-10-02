@@ -17,3 +17,20 @@ fn (mut gen Gen) find_object(name string, scope ast.Scope) ?ast.ScopeObject {
 		return none
 	}
 }
+
+
+// find_obj_all_scopes recursively finds an object in all the scopes.
+fn (mut gen Gen) find_obj_all_scopes(name string) ?ast.ScopeObject {
+	// find in the global scope
+	mut obj := gen.find_object(name, gen.table.global_scope) or {
+		ast.Var { name: '__not_found__' } 
+	}
+	// find in the rest of file scopes
+	if obj.name == '__not_found__' {
+		for file in gen.files {
+			obj = gen.find_object(name, file.scope) or { continue } 
+			break
+		}
+	}
+	return if obj.name != '__not_found__' { obj } else { none }
+}

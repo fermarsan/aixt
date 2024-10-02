@@ -6,12 +6,12 @@
 // Description: This file contains the C code generation functions of the Aixt.
 module aixt_cgen
 
+import aixt_setup
 import v.ast
 import v.token
 import v.pref
 import v.parser
 import v.checker
-import aixt_setup
 
 // Gen is the struct that defines all the necessary data for the code generation
 pub struct Gen {
