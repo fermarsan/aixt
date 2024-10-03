@@ -1,22 +1,21 @@
-ports/**/projects/*.X/build/**
-ports/**/projects/*.X/dist/**
-ports/**/projects/*.c
-ports/**/projects/*.ino
-ports/**/projects/*.nxc
-ports/M0sense/projects/Natives/
-ports/Microchip/Explorer16/PIC24/projects/in_out_digital.X/build/
-ports/Microchip/Explorer16/PIC24/projects/in_out_digital.X/dist/
-ports/Microchip/Explorer16/PIC24/projects/ADC_LED.X/build/
-ports/Microchip/Explorer16/PIC24/projects/ADC_LED.X/dist/
-*.i
-*.mk
-*.ino
-*.inc
-*.d
-*.o
-*.xml
-*.hex
-*.elf
-*.bin
-*Makefile
-*makefile
+# ports/**/projects/*.X/build/**
+# ports/**/projects/*.X/dist/**
+# ports/**/projects/*.c
+# ports/**/projects/*.ino
+# ports/**/projects/*.nxc
+# ports/M0sense/projects/Natives/
+# ports/Microchip/Explorer16/PIC24/projects/in_out_digital.X/build/
+# ports/Microchip/Explorer16/PIC24/projects/in_out_digital.X/dist/
+# ports/Microchip/Explorer16/PIC24/projects/ADC_LED.X/build/
+# ports/Microchip/Explorer16/PIC24/projects/ADC_LED.X/dist/
+# *.i
+# *.mk
+# *.ino
+# *.inc
+# *.d
+# *.o
+# *.hex
+# *.elf
+# *.bin
+# *Makefile
+# *makefile

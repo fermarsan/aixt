@@ -1,5 +1,5 @@
-ports/**/projects/** linguist-vendored=true
-ports/**/codegentemp/** linguist-vendored=true
+# ports/**/projects/** linguist-vendored=true
+# ports/**/codegentemp/** linguist-vendored=true
 #  ports/**/projects/*.X/** linguist-vendored=true
 #  ports/**/projects/*.cydsn/** linguist-vendored=true
 #  ports/**/projects/**/*.h linguist-vendored=true
@@ -8,10 +8,19 @@ ports/**/codegentemp/** linguist-vendored=true
 #  ports/*/projects/*.X/** linguist-vendored=true
 
 #  assets/** linguist-documentation=true
-*Makefile* linguist-vendored=true
-#  *.mk linguist-vendored=true
-*.i linguist-vendored=true
+
+*.i linguist-ignore
+*.mk linguist-ignore
+*.ino linguist-ignore
+*.inc linguist-ignore
+*.d linguist-ignore
+*.o linguist-ignore
+*.hex linguist-ignore
+*.elf linguist-ignore
+*.bin linguist-ignore
+*Makefile linguist-ignore
+*makefile linguist-ignore
+
 *.v linguist-language=v
 *v.mod linguist-language=v
-*.aixt linguist-language=v
 *.vsh linguist-language=v
