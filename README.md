@@ -7,7 +7,7 @@ Aixt is a programming framework for microcontrollers which implements a subset o
 
 - The **Aixt's V** programming language which is a subset of the original [_V language_](https://vlang.io/).
 - The **V to C Transpiler**, which translate the **V** source code to _C_, for the specific _C_ compiler of each microcontroller.
-- The **Aixt API** (almost all written in V), which makes the programming easy by standardizing the setup and I/O functions.  
+- The **Aixt API** (almost all written in V), which makes the programming easy by standardizing the setup and I/O functions.
 
 This diagram shows the Aixt blocks and their interactions:
 
@@ -18,7 +18,7 @@ stateDiagram-v2
     state Aixt {
         source: Source code
 
-        API: Microcontroller API    
+        API: Microcontroller API
         state API {
             PICs: PIC
             ATM: AT
@@ -37,7 +37,7 @@ stateDiagram-v2
         state V {
             Transpiler: Transpiler
         }
-        
+
         state json {
             setup: Setup files
         }
@@ -87,7 +87,7 @@ feature                       | V                                       | Aixt's
 ------------------------------|-----------------------------------------|-----------------------------------------------------------------
 strings                       | dynamic-sized                           | dynamic-sized (only if supported)
 arrays                        | dynamic-sized                           | dynamic-sized (only if supported)
-default integers size         | 32 bits                                 | depends on the device  
+default integers size         | 32 bits                                 | depends on the device
 structs                       | allow functions (object-oriented)       | don't allow functions (only structured)
 functions                     | multiple return values                  | only one return value
 `C.functions()`               | need to be redefined in V               | can be called directly, only including the corespondent C header
@@ -96,10 +96,10 @@ functions                     | multiple return values                  | only o
 ### Example with `main` function
 
 ```v
-/* Turning ON by 5.5 seconds the B7 on a 
+/* Turning ON by 5.5 seconds the B7 on a
 PIC16F84A microcontroller (XC8 compiler) */
 import time
-import pin 
+import pin
 
 fn main() {
     pin.setup(b7, output)
@@ -121,7 +121,7 @@ import adc
 uart.setup(9600)    // baud rate
 adc.setup(12)       // resolution
 
-for {
+for { // infinite loop
 	analog := adc.read(adc0)
 	uart.println('ADC channel 0: ${analog}') // use string interpolation
 	time.sleep_ms(500)
