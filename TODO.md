@@ -28,8 +28,6 @@ Tasks to do in Aixt
 
 ### Done ✓
 
-- [x] APIs for Arduino Nano, Uno and RP Pico updated
-- [x] Generate C templates for most of the Aixt's V expression and statements
-- [x] Migrate setup files from toml to json
+- [x] Migrate setup files from `.toml` to `.json`
 - [x] Implement the `match` expression #feat @fermarsan
 - [x] Give support to `in` and `!in` operands on arrays
