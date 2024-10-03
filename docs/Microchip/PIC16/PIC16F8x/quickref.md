@@ -1,8 +1,12 @@
-# Quick Guide for PIC16F84A
-## Reference for the MICROCHIP PIC16 used
+# Quick reference for PIC16F8x family
+
+## Reference for the Microchip PIC16F8x devices
+- PIC16F83
+- PIC16F83A
+- PIC16F84
 - PIC16F84A
 
-**NOTE:** This PIC16F microcontroller only has digital outputs and digital inputs
+**NOTE:** This PIC16F8x microcontroller only has digital outputs and digital inputs
 
 ## Pin Names
 The pin names are named with a letter indicating the port and a number indicating the pin. For example, `a6` indicates pin 6 of port A. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
@@ -19,30 +23,26 @@ In the _PIC16_ microcontroller families, the port registers are divided into:
 - `TRIS` To configure each port pin
 - `PORT` To manage the pins as inputs or outputs
 
-Then, to facilitate the implementation (and not generate unnecessary code) of this _Aixt_ port, the name of each pin differs from its configuration, input and output as in the following example:
-
-- `a5_s` Bit name to configure the `a5` pin as input or output
-- `a5`   Bit name to read the pin as input or output `a5`
-
 ### Supported Functions
 The functions contained in the API are digital inputs or outputs.
 
 name                                  | description
 --------------------------------------|------------------------------
-`pin.setup(pin_name, mode)`     | Configures `PIN_NAME` in `PIN_MODE`
-`pin.high(PIN_NAME)`                 | Turn on `PIN_NAME`
-`pin.low(PIN_NAME)`                  | Turn off `PIN_NAME`
-`pin.write(PIN_NAME,VAL)`            | Write `VAL` to `PIN_NAME`
-`pin.read(PIN_NAME)`                 | Read `PIN_NAME`
-`pin (PIN)`                           | Configure `PIN_OUTPUT` or `PIN_INPUT`
-`port`                                | Initialize `port`
-`port.read(PORT_NAME)`               | Read `PORT_NAME`
-`port.setup(PORT_NAME, VALUE)`       | Configure `PORT_NAME` assign value `VALUE`
-`port.write(PORT_NAME, VALUE)`       | Write `PORT_NAME` to `VALUE`
-`time.sleep(time)`                   | Delay in `sec`
-`time.sleep_us(time)`                | Delay in `microsec`
-`time.sleep_ms(time)`                | Delay in `millisec`
-`time`                                | Initialize `time`
+`pin.setup(pin_name, mode)`           | configures `pin_name` in `pin_mode`
+`pin.high(pin_name)`                  | turn on `pin_name`
+`pin.low(pin_name)`                   | turn off `pin_name`
+`pin.toggle(pin_name)`                | toggle the state of `pin_name`
+`pin.write(pin_name,val)`             | write `val` to `pin_name`
+`pin.read(pin_name)`                  | read `pin_name`
+`pin (pin)`                           | configure `pin_output` or `pin_input`
+`port`                                | initialize `port`
+`port.read(port_name)`                | read `port_name`
+`port.setup(port_name, value)`        | configure `port_name` assign value `value`
+`port.write(port_name, value)`        | write `port_name` to `value`
+`time.sleep(time)`                    | delay in `sec`
+`time.sleep_us(time)`                 | delay in `microsec`
+`time.sleep_ms(time)`                 | delay in `millisec`
+`time`                                | initialize `time`
 
 ### Examples of the different API functions in _Aixt_ language
 
@@ -115,7 +115,7 @@ for {
 
 ```v
 
-port.setup(a, ob000000)      // Function to configure the port as output
+port.setup(a, 0b00000000)      // Function to configure the port as output
 
 ```
 
@@ -125,9 +125,9 @@ Example of turning on and off a port of the microcontroller:
 
 while(1){
 
-    port.write(a,0b110101);
+    port.write(a,0b00110101);
     time.sleep_ms(500);
-    port.write(a,0b001010);
+    port.write(a,0b00001010);
     time.sleep_ms(500);
 
 }
