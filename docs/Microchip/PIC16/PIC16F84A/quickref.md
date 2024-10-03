@@ -1,4 +1,138 @@
-# Guia Rápida para PIC16F84A
+# Quick Guide for PIC16F84A
+## Reference for the MICROCHIP PIC16 used
+- PIC16F84A
+
+**NOTE:** This PIC16F microcontroller only has digital outputs and digital inputs
+
+## Pin Names
+The pin names are named with a letter indicating the port and a number indicating the pin. For example, `a6` indicates pin 6 of port A. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
+
+
+### Pin names for PIC16F84A
+| Port | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|:----:|---|---|---|---|---|---|---|---|
+| **A**| a0| a1| a2| a3| a4|---|---|---|
+| **B**| b0| b1| b2| b3| b4| b5| b6| b7|
+
+In the _PIC16_ microcontroller families, the port registers are divided into:
+
+- `TRIS` To configure each port pin
+- `PORT` To manage the pins as inputs or outputs
+
+Then, to facilitate the implementation (and not generate unnecessary code) of this _Aixt_ port, the name of each pin differs from its configuration, input and output as in the following example:
+
+- `a5_s` Bit name to configure the `a5` pin as input or output
+- `a5`   Bit name to read the pin as input or output `a5`
+
+### Supported Functions
+The functions contained in the API are digital inputs or outputs.
+
+name                                  | description
+--------------------------------------|------------------------------
+`pin.setup(pin_name, mode)`     | Configures `PIN_NAME` in `PIN_MODE`
+`pin.high(PIN_NAME)`                 | Turn on `PIN_NAME`
+`pin.low(PIN_NAME)`                  | Turn off `PIN_NAME`
+`pin.write(PIN_NAME,VAL)`            | Write `VAL` to `PIN_NAME`
+`pin.read(PIN_NAME)`                 | Read `PIN_NAME`
+`pin (PIN)`                           | Configure `PIN_OUTPUT` or `PIN_INPUT`
+`port`                                | Initialize `port`
+`port.read(PORT_NAME)`               | Read `PORT_NAME`
+`port.setup(PORT_NAME, VALUE)`       | Configure `PORT_NAME` assign value `VALUE`
+`port.write(PORT_NAME, VALUE)`       | Write `PORT_NAME` to `VALUE`
+`time.sleep(time)`                   | Delay in `sec`
+`time.sleep_us(time)`                | Delay in `microsec`
+`time.sleep_ms(time)`                | Delay in `millisec`
+`time`                                | Initialize `time`
+
+### Examples of the different API functions in _Aixt_ language
+
+## Time
+
+```v
+
+time.sleep(5)	// Time of 5 seconds
+time.sleep_us(10)	// Time of 10 microseconds
+time.sleep_ms(500)	// Time of 500 milliseconds
+
+```
+
+## Pin Configuration
+
+```v
+
+pin.setup(a4, output)      // Function to configure the pin as output
+pin.setup(b2, output)      // Function to configure the pin as output
+pin.setup(a2, input)    // Function to configure the pin as input
+pin.setup(b4, input)    // Function to configure the pin as input
+
+pin.high(a4)    // Function to turn on the pin
+pin.low(a4)     // Function to turn off the pin
+
+pin.write(a2, 0)  // Function to write to the pin
+pin.write(a2, 1)  // Function to write to the pin
+
+pin.read(a1)  // Function to read the pin
+pin.read(a1)  // Function to read the pin
+
+```
+
+Example of turning an LED on and off:
+
+```v
+
+for {
+
+    pin.high(b1);
+    time.sleep_us(500);
+    pin.low(b1);
+    time.sleep_us(500);
+
+}
+
+```
+Example of turning an LED on and off with a digital input:
+
+```v
+
+for {
+
+    if(b2 == 1){        // Condition if it finds a 1 in b2
+
+        pin.high(b1);
+        pin.high(b0);
+    }
+
+    else if(b4 == 1){   // Condition if it finds a 1 in b4
+
+        pin.low(b1);
+        pin.low(b0);
+    }
+
+}
+
+```
+## Port Configuration
+
+```v
+
+port.setup(a, ob000000)      // Function to configure the port as output
+
+```
+
+Example of turning on and off a port of the microcontroller:
+
+```v
+
+while(1){
+
+    port.write(a,0b110101);
+    time.sleep_ms(500);
+    port.write(a,0b001010);
+    time.sleep_ms(500);
+
+}
+
+```# Guia Rápida para PIC16F84A
 ## Referencia del PIC16 utilizado de la marca MICROCHIP
 - PIC16F84A
 
@@ -8,20 +142,20 @@
 Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 
-### Nombres de los pines del PIC16F84A 
+### Nombres de los pines del PIC16F84A
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:------:|---|---|---|---|---|---|---|---|
 | **A**  | a0| a1| a2| a3| a4|---|---|---|
 | **B**  | b0| b1| b2| b3| b4| b5| b6| b7|
 
-En las familias de microcontroladores del _PIC16_, los registros del puerto se dividen en: 
+En las familias de microcontroladores del _PIC16_, los registros del puerto se dividen en:
 
 - `TRIS` Para configurar cada pin del puerto
 - `PORT` Para gestionar los pines como entradas o salidas
 
-Luego, para facilitar la implementación (y no generar código inncesario) de este port _Aixt_, el nombre de cada pin difiere de su configuración, entrada y salida como en el siguiente ejemplo: 
+Luego, para facilitar la implementación (y no generar código inncesario) de este port _Aixt_, el nombre de cada pin difiere de su configuración, entrada y salida como en el siguiente ejemplo:
 
-- `a5_s` Nombre del bit para configurar el `a5` pin como entrada o salida 
+- `a5_s` Nombre del bit para configurar el `a5` pin como entrada o salida
 - `a5`   Nombre del bit para leer el pin como entrada o salida `a5`
 
 ### Funciones soportadas
@@ -44,7 +178,7 @@ name                                  | description
 `time.sleep_ms(time)`                | Retardo en `miliseg`
 `time`                                | Inicializa el `time`
 
-### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v 
+### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v
 
 ## Tiempo
 
@@ -56,16 +190,16 @@ time.sleep_ms(500)	// Tiempo de 500 milisegundos
 
 ```
 
-## Configuración de pines 
+## Configuración de pines
 
 ```v
 
-pin.setup(a4, output)      // Función para configurar el pin como salida 
+pin.setup(a4, output)      // Función para configurar el pin como salida
 pin.setup(b2, output)      // Función para configurar el pin como salida
 pin.setup(a2, input)    // Función para configurar el pin como entrada
 pin.setup(b4, input)    // Función para configurar el pin como entrada
 
-pin.high(a4)    // Función para encender el pin           
+pin.high(a4)    // Función para encender el pin
 pin.low(a4)     // Función para apagar el pin
 
 pin.write(a2, 0)  // Función sobre escribir el pin
@@ -79,7 +213,7 @@ pin.read(a1)  // Función para leer el pin
 Ejemplo de prender y apagar un led:
 
 ```v
-      
+
 for {
 
     pin.high(b1);
@@ -95,41 +229,41 @@ Ejemplo de prender y apagar un led con una entrada digital:
 ```v
 
 for {
-    
+
     if(b2 == 1){        // Condición si encuentra un 1 en el b2
-        
+
         pin.high(b1);
         pin.high(b0);
     }
-    
+
     else if(b4 == 1){   // Condición si encuentra un 1 en el b4
-        
+
         pin.low(b1);
         pin.low(b0);
     }
 
 }
-        
+
 ```
 ## Configuración del port
 
 ```v
 
-port.setup(a, ob000000)      // Función para configurar el puerto como salida 
+port.setup(a, ob000000)      // Función para configurar el puerto como salida
 
 ```
 
 Ejemplo de prender y apagar un puerto del microcontrolador:
 
 ```v
-      
+
 while(1){
-        
+
     port.write(a,0b110101);
     time.sleep_ms(500);
     port.write(a,0b001010);
-    time.sleep_ms(500);      
-        
+    time.sleep_ms(500);
+
 }
 
 ```
