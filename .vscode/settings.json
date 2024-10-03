@@ -1,22 +1,9 @@
 {
     "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
     "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
-    "device":       "W801", // "ESP32-DevKitC", // "Raspberry-Pi-Pico", // "PIC16F84", // "Arduino-Uno",  
+    "device":       "Emulator", // "W801", // "ESP32-DevKitC", // "Raspberry-Pi-Pico", // "PIC16F84", // "Arduino-Uno",  
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",
-        "array": "c",
-        "chrono": "c",
-        "deque": "c",
-        "list": "c",
-        "string": "c",
-        "unordered_map": "c",
-        "vector": "c",
-        "string_view": "c",
-        "format": "c",
-        "initializer_list": "c",
-        "span": "c",
-        "text_encoding": "c",
-        "valarray": "c"
     }
 }

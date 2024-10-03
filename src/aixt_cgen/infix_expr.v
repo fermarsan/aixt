@@ -9,9 +9,11 @@ import v.ast
 // infix_expr is the code generation function for 'infix' expressions (binary operations).
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) []string {
 	mut out := []string{}
+	mut c_line := ''
 	left := gen.ast_node(node.left).join('')
 	right := gen.ast_node(node.right).join('')	
 	op := node.op
+	println('-------------${node.op}-------------')
 	// println('-------------${node.left_type}-------------')
 	// println('-------------${node.right_type}-------------')
 	// println('-------------${node.promoted_type}-------------')
@@ -34,6 +36,22 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) []string {
 					  '"${op}" operator not supported for strings.\n')
 			}
 		}
+	} else if op.str() == 'in' || op.str() == '!in' {
+		gen.add_definition('bool __temp_bool;')				
+		obj := gen.find_obj_all_scopes(right) or {
+			panic('Identifier "${right}" not found.')
+		}
+		len := match obj {	// limit value
+			ast.Var, ast.ConstField, ast.GlobalField { (obj.expr as ast.ArrayInit).exprs.len }
+			else { panic('Identifier "${right}" not found..') }
+		}
+		c_line = $tmpl('c_templates/in_operator.tmpl.c')#[..-1]
+		if op.str() == '!in' {
+			c_line += '\n__temp_bool = !__temp_bool;'
+		}
+		gen.to_insert_lines << c_line
+		c_line = '___TO_INSERT_${gen.to_insert_lines.len - 1}___'
+		out << c_line + '__temp_bool'
 	} else {
 		out << $tmpl('c_templates/infix_expr.tmpl.c')#[..-1]
 	}

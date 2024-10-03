@@ -25,7 +25,6 @@ Tasks to do in Aixt
 - [ ] Standardize (with original V) the identifier names in the generated C code
 - [ ] make groups of PIC microcontrollers families
 - [ ] Start a vscode extension for Aixt
-- [ ] Give support to `in` and `!in` operands on arrays
 
 ### Done ✓
 
@@ -33,3 +32,4 @@ Tasks to do in Aixt
 - [x] Generate C templates for most of the Aixt's V expression and statements
 - [x] Migrate setup files from toml to json
 - [x] Implement the `match` expression #feat @fermarsan
+- [x] Give support to `in` and `!in` operands on arrays
