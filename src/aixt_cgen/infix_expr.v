@@ -13,7 +13,7 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) []string {
 	left := gen.ast_node(node.left).join('')
 	right := gen.ast_node(node.right).join('')	
 	op := node.op
-	println('-------------${node.op}-------------')
+	// println('-------------${node.op}-------------')
 	// println('-------------${node.left_type}-------------')
 	// println('-------------${node.right_type}-------------')
 	// println('-------------${node.promoted_type}-------------')
