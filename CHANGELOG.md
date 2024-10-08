@@ -1,3 +1,10 @@
+## v0.1.5
+*8 Oct 2024*
+#### Changes
+- Give support to `in` and `!in` operands on arrays
+- Solve the issue of `else` statements shown from V v0.4.7 onwards
+
+
 ## v0.1.4
 *2 Oct 2024*
 #### New features
@@ -11,6 +18,7 @@ Differente versions of `match` statement were implemented:
   - With one or multiple *Infix* expressions (comparisons)
   - With one or multiple ranges
 The `match` statements for *enums* are not allowed yet.
+
 
 ## v0.1.3
 *28 Sep 2024*
