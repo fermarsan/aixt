@@ -31,3 +31,4 @@ Tasks to do in Aixt
 - [x] Migrate setup files from `.toml` to `.json`
 - [x] Implement the `match` expression #feat @fermarsan
 - [x] Give support to `in` and `!in` operands on arrays
+- [x] Issue: `else` statements fail from V 0.4.7. SOLVED: defining else branch condition as `ast.NodeError`
