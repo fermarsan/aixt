@@ -44,6 +44,9 @@ fn (mut gen Gen) ast_node(node ast.Node) []string {
 		ast.Param {
 			return gen.param(node)
 		}
+		ast.StructField {
+			return gen.struct_field(node)
+		}
 		else {
 			return []
 		} //'Error: Not defined node.\n' }

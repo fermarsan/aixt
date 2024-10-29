@@ -58,10 +58,12 @@ fn (mut gen Gen) stmt(node ast.Stmt) []string {
 		ast.Block {
 			return gen.block(node)
 		}
+		ast.StructDecl {
+			return gen.struct_decl(node)
+		}
 		ast.SemicolonStmt {
 			return []
 		}
-		
 		else { panic('\n\n***** Transpiler error *****:\nUndefined statement.\n') }
 	}
 }

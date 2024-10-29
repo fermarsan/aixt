@@ -34,6 +34,9 @@ fn (mut gen Gen) out_format() string{
 	re.compile_opt('\n\n+') or { panic(err) }
 	out = re.replace(out, '\n\n')
 
+	// re.compile_opt(';\n+') or { panic(err) }
+	// out = re.replace(out, ';\n')
+
 	out = out.replace('\n\n}', '\n}')
 	out = out.replace('{\n\n', '{\n')
 	out = out.replace('\\\n\n', '\\\n')
