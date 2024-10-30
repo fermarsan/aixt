@@ -26,6 +26,7 @@ Tasks to do in Aixt
 - [ ] make groups of PIC microcontrollers families
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
+- [ ] Add a typedef declaration for each compiler type in `.json` file (remove the necesity to do code replacements)
 
 ### Done ✓
 
