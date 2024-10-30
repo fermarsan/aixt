@@ -12,7 +12,7 @@ struct MyStruct {
 
 // z := MyStruct{3,4}
 
-text := lv.Obj_t{}
+// text := lv.Obj_t{}
 // text := &u8
 
 lv.label_create(lv.scr_act())

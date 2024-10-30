@@ -10,12 +10,12 @@ import v.ast
 fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 	// println(node)
 	mut out := []string{}
-	var_kind := gen.table.type_kind(
+	var_kind := gen.get_str_kind(
 		if node.typ >= 0x10000 {	// reference variable
 			node.typ - 0x10000
 		} else {	// regular variable
 			node.typ
-		}).str()
+		})
 	ref := if node.typ >= 0x10000 {	// reference variable
 			'*'		
 		} else {	// regular variable
@@ -26,12 +26,8 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 	match expr {
 		ast.EmptyExpr {
 			len := ''
-			var_c_type := if !var_kind.contains('.') {
-				gen.setup.compiler_types[var_kind]
-			} else {
-				var_kind
-			}	
-			if var_c_type == 'char []' {
+			var_type := var_kind
+			if var_type == 'string' {
 				out << $tmpl('c_templates/decl_string_fixed.tmpl.c')
 			} else {
 				out << $tmpl('c_templates/decl.tmpl.c')
@@ -39,12 +35,8 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 		}
 		ast.CastExpr {
 			var_value := gen.ast_node((node.expr as ast.CastExpr).expr).join('')
-			var_c_type := if !var_kind.contains('.') {
-				gen.setup.compiler_types[var_kind]
-			} else {
-				var_kind
-			}
-			if var_c_type == 'char []' {
+			var_type := var_kind
+			if var_type == 'string' {
 				len := ''
 				out << $tmpl('c_templates/decl_assign_string.tmpl.c')
 			} else {
@@ -53,12 +45,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 		}
 		ast.ArrayInit {
 			array_init := (node.expr as ast.ArrayInit)
-			var_type:= gen.table.type_kind(array_init.elem_type).str()
-			var_c_type := if !var_type.contains('.') {
-				gen.setup.compiler_types[var_type]
-			} else {
-				var_type
-			}
+			var_type:= gen.get_str_kind(array_init.elem_type)
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
 			if array_init.is_fixed {
@@ -69,12 +56,8 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 		}
 		else {
 			var_value := gen.ast_node(node.expr).join('')
-			var_c_type := if !var_kind.contains('.') {
-				gen.setup.compiler_types[var_kind]
-			} else {
-				var_kind
-			}
-			if var_c_type == 'char []' {
+			var_type := var_kind
+			if var_type == 'string' {
 				len := ''
 				out << $tmpl('c_templates/decl_assign_string.tmpl.c')
 			} else {

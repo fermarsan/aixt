@@ -15,13 +15,7 @@ import v.token
 // - cumulative-assignments `+=`, `-=` , etc. 
 fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind, right ast.Expr) []string {
 	mut out := []string{}
-	var_kind := gen.table.type_kind(left_type).str()
-	println('var_kind:			${var_kind}')
-	var_c_type := if !var_kind.contains('.') {
-		gen.setup.compiler_types[var_kind]
-	} else {
-		var_kind
-	}
+	var_type := gen.get_str_kind(left_type)
 	var_name := gen.ast_node(left).join('')
 	var_value := gen.ast_node(right).join('')
 	left_expr := left
@@ -30,7 +24,7 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 	} else {
 		match left_expr {
 			ast.Ident {	// if it is a simple variable
-				match var_kind {
+				match var_type {
 					'array' {
 						// if gen.setup.platform.value('fixed_size_arrays').bool() {
 							panic('\n\nTranspiler Error:\n' +
@@ -72,18 +66,13 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast.Expr) []string {
 	mut out := []string{}
 	mut c_line := ''
-	var_kind := gen.table.type_kind(left_type).str()
+	var_kind := gen.get_str_kind(left_type)
 	ref := ''
 	var_name := gen.ast_node(left).join('')
 	match var_kind {		
 		'array', 'array_fixed' {
 			array_init := (right as ast.ArrayInit)
-			var_type := gen.table.type_kind(array_init.elem_type).str()
-			var_c_type := if !var_type.contains('.') {
-				gen.setup.compiler_types[var_type]
-			} else {
-				var_type
-			}
+			var_type := gen.get_str_kind(array_init.elem_type)
 			len := array_init.exprs.len
 			var_value := gen.ast_node(right).join('')
 			if array_init.is_fixed {
@@ -101,16 +90,12 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			println('${c_line}')
 		}
 		'enum' {
-			var_c_type := 'enum ${(right as ast.EnumVal).enum_name.replace('.', '__')} '
+			var_type := 'enum ${(right as ast.EnumVal).enum_name.replace('.', '__')} '
 			var_value := gen.ast_node(right).join('')
 			c_line = $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
 		}
 		else {
-			var_c_type := if !var_kind.contains('.') {
-				gen.setup.compiler_types[var_kind]
-			} else {
-				var_kind
-			}
+			var_type := var_kind
 			var_value := if right.type_name() == 'v.ast.CastExpr' {
 				gen.ast_node((right as ast.CastExpr).expr).join('')
 			} else {

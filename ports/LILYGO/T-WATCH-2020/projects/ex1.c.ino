@@ -3,6 +3,21 @@
 // Board = ESP32-WROOM-32
 // Backend = arduino
 
+typedef int8_t i8;
+typedef int16_t i16;
+typedef int32_t i32;
+typedef int64_t i64;
+typedef int32_t isize;
+typedef int32_t int_literal;
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+typedef uint64_t u64;
+typedef uint32_t usize;
+typedef float f32;
+typedef double f64;
+typedef double float_literal;
+
 #define LILYGO_WATCH_2020_V1    //To use T-Watch2020, please uncomment this line
 #define LILYGO_WATCH_LVGL       //To use LVGL, you need to enable the macro LVGL
 
@@ -26,9 +41,9 @@ void ttgo__lvgl_begin(void) {
 	ttgo->lvgl_begin();
 }
 
-void  ttgo__start();
+  ttgo__start();
 
-void  ttgo__start() {
+  ttgo__start() {
 	ttgo__get_watch(); 
 	ttgo__begin(); 
 	ttgo__open_bl(); 
@@ -51,8 +66,8 @@ void  ttgo__start() {
 
  
 struct main__MyStruct {
-	int32_t x;
-	int32_t y;
+	i32 x;
+	i32 y;
 };
 
 void setup() {

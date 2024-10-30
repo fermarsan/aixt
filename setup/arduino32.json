@@ -3,8 +3,6 @@
     "main_params":   "",
     "compiler_types":
     {
-        "void":  "void",
-        "bool":  "bool",
         "i8":    "int8_t",
         "i16":   "int16_t",
         "int":   "int32_t",
@@ -18,8 +16,6 @@
         "usize": "uint32_t",
         "f32": "float",
         "f64": "double",
-        "float_literal": "double",
-        "rune":  "char",
-        "string": "char []"
+        "float_literal": "double"
     }
 }
