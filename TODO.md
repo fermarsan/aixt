@@ -25,7 +25,6 @@ Tasks to do in Aixt
 - [ ] Standardize (with original V) the identifier names in the generated C code
 - [ ] make groups of PIC microcontrollers families
 - [ ] Start a vscode extension for Aixt
-- [ ] Standardize the basic data types as V
 
 ### Done ✓
 
@@ -33,3 +32,4 @@ Tasks to do in Aixt
 - [x] Implement the `match` expression #feat @fermarsan
 - [x] Give support to `in` and `!in` operands on arrays
 - [x] Issue: `else` statements fail from V 0.4.7. SOLVED: defining else branch condition as `ast.NodeError`
+- [x] Standardize the basic data types as V
