@@ -1,15 +1,16 @@
-#include "ex1.c"
+import ttgo
+import lv
 
-C.init()
+ttgo.init()
 
-text := &C.lv_obj_t
-text = C.lv_label_create(C.lv_scr_act(), C.NULL)
-C.lv_label_set_text(text, "T-Watch")
-C.lv_obj_align(text, C.NULL, C.LV_ALIGN_CENTER, 0, 0)
+text := &obj_t{}
+text = lv.label_create(lv.scr_act())
+lv.label_set_text(text, "T-Watch")
+lv.obj_align(text, lv.align_center, 0, 0)
 
 for {
-    C.lv_task_handler()
-    C.delay(5)
+    lv.task_handler()
+    delay(5)
 }
 
 
@@ -31,24 +32,24 @@ for {
 // }
 
 
-#include "config.h"
+// #include "config.h"
 
-TTGOClass *ttgo;
+// TTGOClass *ttgo;
 
-void setup()
-{
-    ttgo = TTGOClass::getWatch();
-    ttgo->begin();
-    ttgo->openBL();
-    ttgo->lvgl_begin();
+// void setup()
+// {
+//     ttgo = TTGOClass::getWatch();
+//     ttgo->begin();
+//     ttgo->openBL();
+//     ttgo->lvgl_begin();
 
-    lv_obj_t *text = lv_label_create(lv_scr_act(), NULL);
-    lv_label_set_text(text, "T-Watch");
-    lv_obj_align(text, NULL, LV_ALIGN_CENTER, 0, 0);
-}
+//     lv_obj_t *text = lv_label_create(lv_scr_act(), NULL);
+//     lv_label_set_text(text, "T-Watch");
+//     lv_obj_align(text, NULL, LV_ALIGN_CENTER, 0, 0);
+// }
 
-void loop()
-{
-    lv_task_handler();
-    delay(5);
-}
+// void loop()
+// {
+//     lv_task_handler();
+//     delay(5);
+// }

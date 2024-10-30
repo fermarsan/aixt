@@ -6,10 +6,7 @@ module aixt_cgen
 
 import v.ast
 
-// struct_decl is the code generation function for string literals.
-// ``` v
-// str := 'Aixt'
-// ``` 
+// struct_decl is the code generation function for struct declaring
 fn (mut gen Gen) struct_decl(node ast.StructDecl) []string {
 	mut out := []string{}
 	match node.language {
