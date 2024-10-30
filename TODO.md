@@ -14,7 +14,6 @@ Tasks to do in Aixt
 - [ ] Support for arrays and strings initialized inside "for" statement
 - [ ] change "set" by "setup" in sensor module (NXT port)
 - [ ] Issue: Ident names including module and function name or scope position (for all ports)
-- [ ] Standardize the basic data types as V
 
 
 ### In Progress
@@ -26,6 +25,7 @@ Tasks to do in Aixt
 - [ ] Standardize (with original V) the identifier names in the generated C code
 - [ ] make groups of PIC microcontrollers families
 - [ ] Start a vscode extension for Aixt
+- [ ] Standardize the basic data types as V
 
 ### Done ✓
 
