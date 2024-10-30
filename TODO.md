@@ -14,6 +14,7 @@ Tasks to do in Aixt
 - [ ] Support for arrays and strings initialized inside "for" statement
 - [ ] change "set" by "setup" in sensor module (NXT port)
 - [ ] Issue: Ident names including module and function name or scope position (for all ports)
+- [ ] Standardize the basic data types as V
 
 
 ### In Progress
