@@ -32,8 +32,12 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	match var_kind {
 		'array' {
 			array_init := (node.expr as ast.ArrayInit)
-			var_type:= gen.table.type_kind(array_init.elem_type).str()
-			var_c_type := gen.setup.compiler_types[var_type]
+			var_type := gen.table.type_kind(array_init.elem_type).str()
+			var_c_type := if !var_type.contains('.') {
+				gen.setup.compiler_types[var_type]
+			} else {
+				var_type
+			}
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
 			out << 'const ' + $tmpl('c_templates/decl_assign_array_fixed.tmpl.c')#[..-1]
@@ -50,16 +54,24 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 					len := ''
 					out << 'const ' + $tmpl('c_templates/decl_assign_string.tmpl.c')#[..-1]
 				} else {
-					var_c_type := gen.setup.compiler_types[var_kind]
+					var_c_type := if !var_kind.contains('.') {
+						gen.setup.compiler_types[var_kind]
+					} else {
+						var_kind
+					}
 					out << 'const ' + $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
 				}								
 			} else {
 				var_value := gen.ast_node(node.expr).join('')
-				var_c_type := gen.setup.compiler_types[	match var_kind {		// var literal kind standardization
+				var_c_type := if !var_kind.contains('.') {
+					gen.setup.compiler_types[	match var_kind {		// var literal kind standardization
 													'f64' { 'float_literal' }
 													'int' { 'int_literal' }
 													else { var_kind }
 												}]
+				} else {
+					var_kind 
+				}
 				out << 'const ' + $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
 			}
 		}

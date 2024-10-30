@@ -19,6 +19,7 @@ fn (mut gen Gen) sym_table_print() {
 		print(gen.symbol_table(file.scope))
 	}
 	println('\n')
+	println('SYMBOL TABLE:\n${gen.table.type_symbols} len: ${gen.table.type_symbols.len}')
 }
 
 // symbol_table prints recursively the symbol table os a specific scope

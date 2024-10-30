@@ -49,9 +49,13 @@ void  ttgo__start() {
 
 #define lv__obj_align(obj, align, x, y) lv_obj_align(obj, NULL, align, x, y)
 
+ 
+struct main__MyStruct {
+	int32_t x;
+	int32_t y;
+};
+
 void setup() {
-	ttgo__start(); 
-	 text = ()(&u8); 
 	lv__label_create(lv__scr_act()); 
 	lv__label_set_text(text, "T-Watch"); 
 	lv__obj_align(text, lv__align_center, 0, 0); 

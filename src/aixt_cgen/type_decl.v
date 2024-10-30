@@ -9,7 +9,7 @@ import v.ast
 // type_decl is the code generation function for type declaration
 fn (mut gen Gen) type_decl(node ast.TypeDecl) []string {
 	mut out := []string{}
-	println(node)
+	// println(node)
 	// match node.language {
 	// 	.v {
 	// 		attrs := node.attrs.map(it.name).join(' ')

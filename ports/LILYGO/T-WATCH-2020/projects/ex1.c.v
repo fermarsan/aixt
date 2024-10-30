@@ -2,11 +2,18 @@ import ttgo
 import time
 import lv
 
+struct MyStruct {
+    x int
+    y int
+}
 
-ttgo.start()
 
-// text := &Obj_t{}
-text := &u8
+// ttgo.start()
+
+// z := MyStruct{3,4}
+
+text := lv.Obj_t{}
+// text := &u8
 
 lv.label_create(lv.scr_act())
 lv.label_set_text(text, "T-Watch")
