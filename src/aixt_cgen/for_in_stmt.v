@@ -23,11 +23,11 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 		gen.level_count++
 		index_name := '__i_${gen.level_count}'	// temporal variables (indexes) by levels
 
-		val_var_kind := gen.get_str_kind(	if node.val_is_mut {
-											node.val_type ^ 0x10000	// for mutable vars
-										} else {
-											node.val_type
-										} )
+		var_type := gen.get_str_type( if node.val_is_mut {
+									  	node.val_type ^ 0x10000	// for mutable vars
+									  } else {
+									  	node.val_type
+									  } )
 		obj := gen.find_obj_all_scopes(node.cond.str()) or {
 			panic('Identifier "${node.cond.str()}" not found.')
 		}
@@ -35,7 +35,7 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 			ast.Var, ast.ConstField, ast.GlobalField { (obj.expr as ast.ArrayInit).exprs.len }
 			else { panic('Identifier "${node.cond.str()}" not found..') }
 		}
-		typ := gen.setup.compiler_types[val_var_kind]
+		typ := gen.setup.compiler_types[var_type]
 		var_name := node.val_var
 		for st in node.stmts {
 			stmts << gen.ast_node(st).join('')

@@ -19,7 +19,6 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
 	for i in 0 .. node.right.len {
 		gen.cur_left = node.left[i]
 		gen.cur_left_type = node.left_types[i]
-		// var_kind := if node.left_types.len != 0 { gen.get_str_kind(node.left_types[i]) } else { '' }
 		out << match node.right[i] {
 			ast.IfExpr {	// conditional assignment
 				// gen.ast_node(node.left[i])

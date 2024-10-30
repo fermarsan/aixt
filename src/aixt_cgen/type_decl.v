@@ -10,8 +10,8 @@ import v.ast
 fn (mut gen Gen) type_decl(node ast.TypeDecl) []string {
 	mut out := []string{}
 	// println(node)
-	// match node.language {
-	// 	.v {
+	// match node {
+	// 	ast.AliasTypeDecl {
 	// 		attrs := node.attrs.map(it.name).join(' ')
 	// 		name := node.name.replace('.', '__')
 	// 		mut fields := []string{}

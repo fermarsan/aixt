@@ -58,23 +58,21 @@ void ttgo__lvgl_begin(void) {
 
 #define lv__scr_act()  lv_scr_act()
 
-#define lv__label_create(active_scr) lv_label_create(active_scr, NULL)
+#define lv__label_create(active_scr)  lv_label_create(active_scr, NULL)
 
 #define lv__label_set_text(label, msg) lv_label_set_text(label, msg)
 
 #define lv__obj_align(obj, align, x, y) lv_obj_align(obj, NULL, align, x, y)
 
- 
-struct main__MyStruct {
-	i32 x;
-	i32 y;
-};
+#define lv__task_handler() lv_task_handler()
 
 void setup() {
-	lv__label_create(lv__scr_act()); 
+	ttgo__start(); 
+	lv_obj_t text = (lv_obj_t)(lv__label_create(lv__scr_act())); 
 	lv__label_set_text(text, "T-Watch"); 
 	lv__obj_align(text, lv__align_center, 0, 0); 
 	while( true ) {
+		lv__task_handler(); 
 		time__sleep(5); 
 	} 
 }

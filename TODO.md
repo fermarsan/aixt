@@ -26,6 +26,7 @@ Tasks to do in Aixt
 - [ ] make groups of PIC microcontrollers families
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
+- [ ] Give support to "type" aliassing 
 
 ### Done ✓
 

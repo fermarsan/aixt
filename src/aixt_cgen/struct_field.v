@@ -9,7 +9,7 @@ import v.ast
 // struct_field is the code generation function for struct fields.
 fn (mut gen Gen) struct_field(node ast.StructField) []string {
 	mut out := []string{}
-	var_kind := gen.get_str_kind(
+	mut var_type := gen.get_str_type( 
 		if node.typ >= 0x10000 {	// reference variable
 			node.typ - 0x10000
 		} else {	// regular variable
@@ -25,7 +25,6 @@ fn (mut gen Gen) struct_field(node ast.StructField) []string {
 	match expr {
 		ast.EmptyExpr {
 			len := ''
-			var_type := var_kind
 			if var_type == 'string' {
 				out << $tmpl('c_templates/decl_string_fixed.tmpl.c')#[..-1]
 			} else {
@@ -34,7 +33,6 @@ fn (mut gen Gen) struct_field(node ast.StructField) []string {
 		}
 		ast.CastExpr {
 			var_value := gen.ast_node((node.default_expr as ast.CastExpr).expr).join('')
-			var_type := var_kind
 			if var_type == 'string' {
 				len := ''
 				out << $tmpl('c_templates/decl_assign_string.tmpl.c')#[..-1]
@@ -44,7 +42,7 @@ fn (mut gen Gen) struct_field(node ast.StructField) []string {
 		}
 		ast.ArrayInit {
 			array_init := (node.default_expr as ast.ArrayInit)
-			var_type:= gen.get_str_kind(array_init.elem_type)
+			var_type = gen.get_str_type(array_init.elem_type)
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.default_expr).join('')
 			if array_init.is_fixed {
@@ -55,7 +53,6 @@ fn (mut gen Gen) struct_field(node ast.StructField) []string {
 		}
 		else {
 			var_value := gen.ast_node(node.default_expr).join('')
-			var_type := var_kind
 			if var_type == 'string' {
 				len := ''
 				out << $tmpl('c_templates/decl_assign_string.tmpl.c')#[..-1]

@@ -21,18 +21,13 @@ import v.ast
 fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	mut out := []string{}
 	// println('================== ${node.name} ==================')
-	var_kind := gen.get_str_kind(node.typ)
+	mut var_type := gen.get_str_type(node.typ)
 	ref := ''
-	// var_name := if node.mod.str() == 'main' {
-	// 	node.name.replace('main.', '')
-	// } else {
-	// 	node.name.replace('.', '__')
-	// }
 	var_name := '_const_${node.name.replace('.', '__')}'
-	match var_kind {
+	match var_type {
 		'array' {
 			array_init := (node.expr as ast.ArrayInit)
-			var_type := gen.get_str_kind(array_init.elem_type)
+			var_type = gen.get_str_type(array_init.elem_type)
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
 			out << 'const ' + $tmpl('c_templates/decl_assign_array_fixed.tmpl.c')#[..-1]
@@ -45,16 +40,14 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 		else {
 			if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
 				var_value := gen.ast_node((node.expr as ast.CastExpr).expr).join('')
-				if gen.setup.compiler_types[var_kind] == 'char []' {
+				if var_type == 'string' {
 					len := ''
 					out << 'const ' + $tmpl('c_templates/decl_assign_string.tmpl.c')#[..-1]
 				} else {
-					var_type := var_kind
 					out << 'const ' + $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
 				}								
 			} else {
 				var_value := gen.ast_node(node.expr).join('')
-				var_type := var_kind 
 				out << 'const ' + $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
 			}
 		}
