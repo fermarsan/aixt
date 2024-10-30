@@ -1,16 +1,20 @@
 import ttgo
+import time
 import lv
 
-ttgo.init()
 
-text := &obj_t{}
-text = lv.label_create(lv.scr_act())
+ttgo.start()
+
+// text := &Obj_t{}
+text := &u8
+
+lv.label_create(lv.scr_act())
 lv.label_set_text(text, "T-Watch")
 lv.obj_align(text, lv.align_center, 0, 0)
 
 for {
-    lv.task_handler()
-    delay(5)
+    // lv.task_handler()
+    time.sleep(5)
 }
 
 

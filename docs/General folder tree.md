@@ -18,7 +18,7 @@ aixt/
     │   └── text-logo.svg
     ├── common_test
     │   ├── 00_one_line.v
-    │   ├── 01_declaring_and_types.v
+    │   ├── 01_declaration_and_types.v
     :   :
     │   ├── 29_types.v
     ├── CONTRIBUTING.md

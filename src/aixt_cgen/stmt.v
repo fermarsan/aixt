@@ -61,6 +61,9 @@ fn (mut gen Gen) stmt(node ast.Stmt) []string {
 		ast.StructDecl {
 			return gen.struct_decl(node)
 		}
+		ast.TypeDecl {
+			return gen.type_decl(node)
+		}
 		ast.SemicolonStmt {
 			return []
 		}
