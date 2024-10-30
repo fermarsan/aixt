@@ -17,8 +17,8 @@
         "u64":   "uint64_t",
         "usize": "uint8_t",
         "f32": "float",
-        "f64": "=== NOT SUPPORTED ===",
-        "float_literal": "float",
+        "f64": "double",
+        "float_literal": "double",
         "rune":  "char",
         "string": "char []"
     }
