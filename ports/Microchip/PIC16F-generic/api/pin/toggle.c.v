@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin management functions (PIC16F8x port)
+// Description: Pin management functions for 16F family
 module pin
 
 // toggle function toggles the logic value of a pin
