@@ -10,17 +10,7 @@ import v.ast
 fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 	// println(node)
 	mut out := []string{}
-	mut var_type := gen.get_str_type(
-		if node.typ >= 0x10000 {	// reference variable
-			node.typ - 0x10000
-		} else {	// regular variable
-			node.typ
-		})
-	ref := if node.typ >= 0x10000 {	// reference variable
-			'*'		
-		} else {	// regular variable
-			''	
-		}
+	mut ref, mut var_type := gen.get_str_c_type(node.typ)
 	var_name := node.name.replace('.', '__')
 	expr := node.expr
 	match expr {
@@ -43,7 +33,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 		}
 		ast.ArrayInit {
 			array_init := (node.expr as ast.ArrayInit)
-			var_type = gen.get_str_type(array_init.elem_type)
+			ref, var_type = gen.get_str_c_type(array_init.elem_type)
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
 			if array_init.is_fixed {

@@ -1,1 +1,1 @@
-@var_type @ref@var_name = (@var_type)(@var_value);
+@var_type @ref@var_name = (@var_type@ref)(@var_value);

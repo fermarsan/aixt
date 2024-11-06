@@ -41,9 +41,11 @@ void ttgo__lvgl_begin(void) {
 	ttgo->lvgl_begin();
 }
 
-  ttgo__start();
+void  ttgo__start();
 
-  ttgo__start() {
+#define lv__align_center    LV_ALIGN_CENTER
+
+void  ttgo__start() {
 	ttgo__get_watch(); 
 	ttgo__begin(); 
 	ttgo__open_bl(); 
@@ -68,7 +70,7 @@ void ttgo__lvgl_begin(void) {
 
 void setup() {
 	ttgo__start(); 
-	lv_obj_t text = (lv_obj_t)(lv__label_create(lv__scr_act())); 
+	lv_obj_t *text = (lv_obj_t*)(lv__label_create(lv__scr_act())); 
 	lv__label_set_text(text, "T-Watch"); 
 	lv__obj_align(text, lv__align_center, 0, 0); 
 	while( true ) {

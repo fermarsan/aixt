@@ -25,8 +25,7 @@ Tasks to do in Aixt
 - [ ] Standardize (with original V) the identifier names in the generated C code
 - [ ] make groups of PIC microcontrollers families
 - [ ] Start a vscode extension for Aixt
-- [ ] Give support to reference and dereference
-- [ ] Give support to "type" aliassing 
+- [ ] Give support to reference and dereference 
 
 ### Done ✓
 
@@ -36,3 +35,4 @@ Tasks to do in Aixt
 - [x] Issue: `else` statements fail from V 0.4.7. SOLVED: defining else branch condition as `ast.NodeError`
 - [x] Standardize the basic data types as V
 - [x] Add a typedef declaration for each compiler type in `.json` file (remove the necesity to do code replacements)
+- [x] Give support to "type" aliassing

@@ -1,5 +1,7 @@
 module lv
 
+#include "lv.c"
+
 struct C.lv_obj_t {
 }
 
@@ -11,7 +13,7 @@ pub fn scr_act() voidptr {
 }
 
 @[inline]
-pub fn label_create(active_scr voidptr) Obj_t{
+pub fn label_create(active_scr voidptr) &Obj_t{
 	return C.lv_label_create(active_scr, C.NULL)
 }
 

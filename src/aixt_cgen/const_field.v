@@ -21,13 +21,12 @@ import v.ast
 fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	mut out := []string{}
 	// println('================== ${node.name} ==================')
-	mut var_type := gen.get_str_type(node.typ)
-	ref := ''
+	mut ref, mut var_type := gen.get_str_c_type(node.typ)
 	var_name := '_const_${node.name.replace('.', '__')}'
 	match var_type {
 		'array' {
 			array_init := (node.expr as ast.ArrayInit)
-			var_type = gen.get_str_type(array_init.elem_type)
+			ref, var_type = gen.get_str_c_type(array_init.elem_type)
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
 			out << 'const ' + $tmpl('c_templates/decl_assign_array_fixed.tmpl.c')#[..-1]

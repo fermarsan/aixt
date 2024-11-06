@@ -12,7 +12,7 @@ import v.ast
 fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 	mut out := ['\n']
 	mut attrs := ''
-	mut ret_type := ''
+	mut ret, mut ret_type := '', ''
 	mut name := ''
 	mut params := ''
 	init_block := ''
@@ -38,8 +38,8 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			if nxc_task && gen.setup.backend == 'nxc' {
 				name = '${node.short_name}'
 			} else {
-				ret_type = gen.setup.compiler_types[ gen.table.type_symbols[node.return_type].str()]
-				ret_type = ret_type.replace('char []', 'char*') + ' '	// type
+				ret, ret_type = gen.get_str_c_type(node.return_type)
+				ret_type = ret + ret_type.replace('string', 'char*') + ' '	// type
 				name = '${module_short_name}__${node.short_name}'
 			}
 			if node.params.len != 0 {

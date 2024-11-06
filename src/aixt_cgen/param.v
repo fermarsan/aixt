@@ -8,10 +8,10 @@ import v.ast
 
 // param is the code generation function for parameters.
 fn (mut gen Gen) param(node ast.Param) []string {
-	var_type := gen.get_str_type(node.typ)		
+	ref, var_type := gen.get_str_c_type(node.typ)		
 	return if var_type == 'string' {
 		['char ${node.name}[]']		// for strings
 	} else {
-		['${var_type} ${node.name}']
+		['${ref}${var_type} ${node.name}']
 	}
 }

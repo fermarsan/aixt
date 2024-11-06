@@ -1,1 +1,1 @@
-@var_name @op (@var_type)(@var_value);
+@var_name @op (@var_type@ref)(@var_value);
