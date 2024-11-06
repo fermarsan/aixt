@@ -3,6 +3,6 @@
 // Date: 2024
 // License: MIT
 //
-// Description: delay functions (PIC16F8x port)
+// Description: delay functions for XC8 compiler
 
 module time

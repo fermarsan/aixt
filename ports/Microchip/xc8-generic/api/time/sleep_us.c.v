@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: microseconds delay function (PIC16F84A port)
+// Description: microseconds delay function for XC8 compiler
 module time
 
 // sleep_us function does a delay in microseconds
