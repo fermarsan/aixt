@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Uart management functions
-//              (PIC16F873A port)
+//              (PIC16F87x port)
 
 
 module uart

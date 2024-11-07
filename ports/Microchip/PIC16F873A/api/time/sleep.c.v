@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Seconds delay function
-//              (PIC16F873A port)
+//              (PIC16F87x port)
 
 module time
 
