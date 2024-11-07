@@ -9,9 +9,9 @@
 module pwm
 
 // Función para el ciclo de trabajo
-fn write(duty u16) {
-        pwm := ((duty - 0) * (60 - 0) / (256 - 0) + 0) 
-        CCPR2L = (pwm >> 2)  
+pub fn write(duty u16) {
+    pwm := ((duty - 0) * (60 - 0) / (256 - 0) + 0) 
+    C.CCPR2L = (pwm >> 2)  
 }
 
 

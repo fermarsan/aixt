@@ -8,8 +8,8 @@
 
 module adc
 
-[inline]
-fn read(channel u16) u16 {
+@[inline]
+pub fn read(channel u16) u16 {
     C.ADCON0bits.CHS = channel  // Assigns the ADC channel
     C.ADCON0bits.GO_DONE = 1    // Starts conversion
     for C.ADCON0bits.GO_DONE == 1 {}    // Waits for conversion to end

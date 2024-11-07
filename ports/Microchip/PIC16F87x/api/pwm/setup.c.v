@@ -9,15 +9,15 @@
 module pwm
 
 // Función para configurar el PWM
-fn setup() {
-
-    PR2 = 0x3E
-    CCPR2L = 0  
-    TRISCbits.TRISC1 = 0
-    T2CON = 0b00000011  
-    CCP2CON = 0b00001100  
-    TMR2 = 0  
-    T2CONbits.TMR2ON = 1             
+@[inline]
+pub fn setup() {
+    C.PR2 = 0x3E
+    C.CCPR2L = 0  
+    C.TRISCbits.TRISC1 = 0
+    C.T2CON = 0b00000011  
+    C.CCP2CON = 0b00001100  
+    C.TMR2 = 0  
+    C.T2CONbits.TMR2ON = 1             
 } 
   
 

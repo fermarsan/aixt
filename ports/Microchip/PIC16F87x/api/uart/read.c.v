@@ -9,8 +9,9 @@
 
 module uart
 
-fn read() rune{
-  return RCREG
+@[inline]
+pub fn read() rune{
+  return C.RCREG
 }
 
 

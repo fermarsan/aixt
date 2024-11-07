@@ -8,8 +8,9 @@
 
 module uart
 
-fn write(data u8){
-    TXREG=data
+@[inline]
+pub fn write(data u8){
+    C.TXREG=data
 }
 
 /*
