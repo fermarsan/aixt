@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin-port functions (PIC16F886 port)
+// Description: Pin-port functions (PIC16F88x port)
 
 module port
 

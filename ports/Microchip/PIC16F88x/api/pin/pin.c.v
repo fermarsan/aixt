@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin management functions (PIC16F886 port)
+// Description: Pin management functions (PIC16F88x port)
 module pin
 
 #define output 0	// pin mode direction

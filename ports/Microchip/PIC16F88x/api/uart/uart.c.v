@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions
-//              (PIC16F886 port)
+//              (PIC16F88x port)
 
 
 module uart

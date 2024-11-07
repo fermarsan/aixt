@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: ADC management functions (PIC16F886 port)
+// Description: ADC management functions (PIC16F88x port)
 module adc
 
 fn C.read_byte(channel u8) u8

@@ -3,6 +3,6 @@
 // Date: 2024
 // License: MIT
 //
-// Description: delay functions (PIC16F886 port)
+// Description: delay functions (PIC16F88x port)
 
 module time

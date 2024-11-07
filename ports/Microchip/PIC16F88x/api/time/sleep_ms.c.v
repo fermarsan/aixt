@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: milliseconds delay function (PIC16F886 port)
+// Description: milliseconds delay function (PIC16F88x port)
 module time
 
 #define time.sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory

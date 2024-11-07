@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Builtin definitions (PIC16F886 port)
+// Description: Builtin definitions (PIC16F88x port)
 
 module main
 

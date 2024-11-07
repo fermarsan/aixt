@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: PWM management functions (PIC16F886 port)
+// Description: PWM management functions (PIC16F88x port)
 module pwm
 
 #define	pwm.ch1		1
