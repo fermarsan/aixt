@@ -6,4 +6,10 @@
 // Description: ADC management functions (PIC16F88x port)
 module adc
 
-fn C.read_byte(channel u8) u8
+@[inline]
+pub fn read_byte(channel u8) u8 {    
+    C.ADCON0bits.CHS = channel  	/* assign the ADC channel */    
+    C.ADCON0bits.GO_DONE = 1     	/* start conversion */  
+    for ADCON0bits.GO_DONE == 1 {}	/* wait for the end of conversion */    
+    return ADRESH              		/* return the ADC value (8 bits) */  
+}

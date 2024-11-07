@@ -7,51 +7,60 @@
 module adc
 
 // ADC analog pins 
-#define	adc.in0 	0b1111111111111110		
-#define	adc.in1 	0b1111111111111101			
-#define	adc.in2 	0b1111111111111011			
-#define	adc.in3 	0b1111111111110111			
-#define	adc.in4 	0b1111111111101111			
-#define	adc.in5 	0b1111111111011111			
-#define	adc.in6 	0b1111111110111111			
-#define	adc.in7 	0b1111111101111111			
-#define	adc.in8 	0b1111111011111111			
-#define	adc.in9 	0b1111110111111111			
-#define	adc.in10	0b1111101111111111		
-// #define	adc.in11	0b1111011111111111		
-// #define	adc.in12	0b1110111111111111		
-// #define	adc.in13	0b1101111111111111		
-// #define	adc.in14	0b1011111111111111		
-// #define	adc.in15	0b0111111111111111
+enum ADC__names as u16 {
+	in0 	= 0b1111111111111110		
+	in1 	= 0b1111111111111101			
+	in2 	= 0b1111111111111011			
+	in3 	= 0b1111111111110111			
+	in4 	= 0b1111111111101111			
+	in5 	= 0b1111111111011111			
+	in6 	= 0b1111111110111111			
+	in7 	= 0b1111111101111111			
+	in8 	= 0b1111111011111111			
+	in9 	= 0b1111110111111111			
+	in10	= 0b1111101111111111
+	// in11	= 0b1111011111111111		
+	// in12	= 0b1110111111111111		
+	// in13	= 0b1101111111111111		
+	// in14	= 0b1011111111111111		
+	// in15	= 0b0111111111111111
+}		
+
 
 // ADC frequency
-const f_30ksps_1mhz = C.0	// VREF 3.0v
-const f_30ksps_4mhz = C.1	// VREF 3.0v 
-const f_18ksps_8mhz = C.2	// VREF full range
-const f_21ksps_10mhz = C.2	// VREF full range
-const f_24ksps_12mhz = C.2	// VREF 3.0v
-const f_30ksps_16mhz = C.2	// VREF 3.0v
-const f_34ksps_20mhz = C.2	// VREF 3.0v
-const f_18ksps_irc = C.3	// sleep mode FOSC > 1Mhz
+enum ADC__frequencies as u8 {
+	f_30ksps_1mhz	= 0	// VREF 3.0v
+	f_30ksps_4mhz	= 1	// VREF 3.0v 
+	f_18ksps_8mhz	= 2	// VREF full range
+	f_21ksps_10mhz 	= 2	// VREF full range
+	f_24ksps_12mhz 	= 2	// VREF 3.0v
+	f_30ksps_16mhz 	= 2	// VREF 3.0v
+	f_34ksps_20mhz 	= 2	// VREF 3.0v
+	f_18ksps_irc	= 3	// sleep mode FOSC > 1Mhz
+}
 
 // ADC conversion bits
-#define	adc.bits_8		0
-#define	adc.bits_10	1
+enum ADC__bits as u8 {
+	bits_8		= 0
+	bits_10		= 1
+}
 
 // ADC input channels
-#define	adc.ch0 	0 		
-#define	adc.ch1 	1 			
-#define	adc.ch2 	2 			
-#define	adc.ch3 	3 			
-#define	adc.ch4 	4 			
-#define	adc.ch5 	5 			
-#define	adc.ch6 	6 			
-#define	adc.ch7 	7 			
-#define	adc.ch8 	8 			
-#define	adc.ch9 	9 			
-#define	adc.ch10	10		
-// #define	adc.ch11	11		
-// #define	adc.ch12	12		
-// #define	adc.ch13	13		
-// #define	adc.ch14	14		
-// #define	adc.ch15	15
+enum ADC_channels as u8 {
+	ch0 	= 0 		
+	ch1 	 			
+	ch2 	 			
+	ch3 	 			
+	ch4 	 			
+	ch5 	 			
+	ch6 	 			
+	ch7 	 			
+	ch8 	 			
+	ch9 	 			
+	ch10			
+	// ch11		
+	// ch12		
+	// ch13		
+	// ch14		
+	// ch15
+}
