@@ -7,7 +7,7 @@
 module time
 
 // sleep_ms function does a delay in milliseconds
-@[inline]
+@[as_macro]
 pub fn sleep_ms(tms u16) {
 	C.__delay_ms(tms)
 }

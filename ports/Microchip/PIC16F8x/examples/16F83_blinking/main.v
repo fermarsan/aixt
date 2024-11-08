@@ -6,9 +6,9 @@
 import time
 import pin
 
-pin.setup(b4, output)
+pin.setup(pin.b4, pin.output)
 
 for {
-	pin.toggle(b4)
+	pin.toggle(pin.b4)
 	time.sleep_ms(500)
 }
