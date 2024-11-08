@@ -1,4 +1,4 @@
-XCVERSION ?= 2.46
+XCVERSION ?= 2.50
 
 BUILD ?= build
 TARGET_NAME ?= main

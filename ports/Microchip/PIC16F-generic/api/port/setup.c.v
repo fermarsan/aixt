@@ -3,11 +3,11 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin-port functions (PIC16F84A port)
+// Description: Pin-port functions (PIC16F8x port)
 module port
 
 // setup configures bit by bit the pin mode of a 8 bit port
-@[inline]
+@[as_macro]
 pub fn setup(name u8, mode u8) {
 	unsafe { 
 		*(&C.TRISA + name) = mode 

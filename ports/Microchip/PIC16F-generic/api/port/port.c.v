@@ -6,10 +6,9 @@
 // Description: Pin-port functions (PIC16F8x port)
 module port
 
-enum Port__names as u8 {
-	a = 0
-	b
-	c
-	d
-	e 
-}
+// port names
+@[as_macro]	pub const a = 0
+@[as_macro]	pub const b = 1
+@[as_macro]	pub const c = 2
+@[as_macro]	pub const d = 3
+@[as_macro]	pub const e = 4
