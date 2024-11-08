@@ -6,7 +6,6 @@
 // Description: This is a module to emulate ADC inputs in console.
 module adc
 
-enum ADC_names {
-    an0 = 0
-    an1      
-}
+// ADC cannel names
+pub const ch0 = 0 
+pub const ch1 = 1      
