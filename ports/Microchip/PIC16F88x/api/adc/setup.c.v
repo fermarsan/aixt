@@ -6,7 +6,7 @@
 // Description: ADC management functions (PIC16F88x port)
 module adc
 
-@[inline]
+@[as_macro]
 pub fn setup(pins u16, fad u8, nbits u8) {
     /* analog pins setup */
     C.ANSEL = (u8)~pins
