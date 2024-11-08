@@ -52,7 +52,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			for st in node.stmts {
 				stmts << gen.ast_node(st).join('\n').split('\n')	// separate line by line
 			}
-			if attrs.contains('inline') && gen.setup.inline_as_c_macro {	// if inline functions as macros is wanted
+			if attrs.contains('as_macro') {	// functions as macros
 				mut names := ''
 				for param in node.params {
 					names += '${param.name}, '
