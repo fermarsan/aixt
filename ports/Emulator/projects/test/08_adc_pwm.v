@@ -1,6 +1,6 @@
 import adc
 import pwm
 
-value := adc.read(an0)
+value := adc.read(adc.ch0)
 
-pwm.write(pwm1, value)
+pwm.write(pwm.ch1, value)

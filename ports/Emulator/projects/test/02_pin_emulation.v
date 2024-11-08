@@ -4,10 +4,10 @@ import time
 fn main() {
     pin.update()
     time.sleep_ms(2000)
-    pin.high(a)
-    pin.write(b, 1)
+    pin.high(pin.a)
+    pin.write(pin.b, 1)
     time.sleep(2)   
-    pin.low(a)
+    pin.low(pin.a)
     time.sleep(2)
-    pin.write(b, 0)
+    pin.write(pin.b, 0)
 }

@@ -1,5 +1,7 @@
 import time { sleep_ms }
 import uart
+import uart2
+import uart3
 
 for _ in 0..5 {
     uart.print("Welcome ")	// 0 uart

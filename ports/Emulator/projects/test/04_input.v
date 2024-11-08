@@ -1,6 +1,6 @@
-import os
+import uart
 
 var := ''
 var = input('Enter a string: ')
-print('Echo: ')
-println(var)
+uart.print('Echo: ')
+uart.println(var)
