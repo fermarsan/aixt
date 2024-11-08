@@ -8,6 +8,7 @@ import v.ast
 
 // block is the code generation function for blocks.
 fn (mut gen Gen) block(node ast.Block) []string {
+	// println('================== ${node} ==================')
 	mut out := []string{}
 	if !node.is_unsafe {
 		out << '{'

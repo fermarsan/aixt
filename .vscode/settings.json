@@ -1,7 +1,7 @@
 {
     "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
     "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
-    "device":       "Raspberry-Pi-Pico", // "T-WATCH-2020", // "Emulator", // "PIC16F84", // "W801", // "ESP32-DevKitC", // "Arduino-Uno",  
+    "device":       "Emulator", // "Raspberry-Pi-Pico", // "T-WATCH-2020", // "PIC16F84", // "W801", // "ESP32-DevKitC", // "Arduino-Uno",  
     "files.associations": {
     }
 }

@@ -8,6 +8,7 @@ import v.ast
 
 // infix_expr is the code generation function for 'infix' expressions (binary operations).
 fn (mut gen Gen) infix_expr(node ast.InfixExpr) []string {
+	// println('================== ${node} ==================')
 	mut out := []string{}
 	mut c_line := ''
 	left := gen.ast_node(node.left).join('')

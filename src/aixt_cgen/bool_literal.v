@@ -11,5 +11,6 @@ import v.ast
 // a := true
 // ``` 
 fn (mut gen Gen) bool_literal(node ast.BoolLiteral) []string {
+	// println('================== ${node} ==================')
 	return [node.val.str()]
 }

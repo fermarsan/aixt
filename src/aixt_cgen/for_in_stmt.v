@@ -9,6 +9,7 @@ import v.ast
 
 // for_in_stmt is the code generation function for the 'for in' statements.
 fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
+	// println('================== ${node} ==================')
 	mut out := []string{}
 	init_or_name := gen.ast_node(node.cond).join('')
 	mut stmts := []string{}

@@ -8,6 +8,7 @@ import v.ast
 
 // struct_field is the code generation function for struct fields.
 fn (mut gen Gen) struct_field(node ast.StructField) []string {
+	// println('================== ${node} ==================')
 	mut out := []string{}
 	mut ref, mut var_type := gen.get_str_c_type(node.typ)
 	var_name := node.name//.replace('.', '__')

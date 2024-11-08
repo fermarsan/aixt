@@ -8,6 +8,7 @@ import v.ast
 
 // global_field is the code generation function for global fields.
 fn (mut gen Gen) global_field(node ast.GlobalField) []string {
+	// println('================== ${node} ==================')
 	// println(node)
 	mut out := []string{}
 	mut ref, mut var_type := gen.get_str_c_type(node.typ)

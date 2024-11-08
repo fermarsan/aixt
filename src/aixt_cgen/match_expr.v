@@ -8,6 +8,7 @@ import v.ast
 
 // match_expr is the code generation function for 'match' expressions.
 fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
+	// println('================== ${node} ==================')
 	// println('????????????????????\n${node}\n????????????????????')
 	mut out := []string{}
 	mut stmts := []string{}
@@ -39,6 +40,7 @@ fn (mut gen Gen) match_expr(node ast.MatchExpr) []string {
 
 // match_assign is the code generation function for 'match' assignment expressions.
 fn (mut gen Gen) match_assign(node ast.MatchExpr) []string {
+	// println('================== ${node} ==================')
 	mut total := ''
 	node_cond := gen.ast_node(node.cond).join('')
 	for br in node.branches.reverse() {

@@ -8,6 +8,7 @@ import v.ast
 
 // struct_decl is the code generation function for struct declaration
 fn (mut gen Gen) struct_decl(node ast.StructDecl) []string {
+	// println('================== ${node} ==================')
 	mut out := []string{}
 	match node.language {
 		.v {

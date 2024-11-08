@@ -8,6 +8,7 @@ import v.ast
 
 // for_c_stmt is the code generation function for the c-style 'for' statements.
 fn (mut gen Gen) for_c_stmt(node ast.ForCStmt) []string {
+	// println('================== ${node} ==================')
 	init := gen.ast_node(node.init).join('')#[..-1]
 	cond := gen.ast_node(node.cond).join('')
 	inc := gen.ast_node(node.inc).join('')#[..-1]
