@@ -22,11 +22,9 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	// println('================== ${node} ==================')
 	mut out := []string{}
 	mut ref, mut var_type := gen.get_str_c_type(node.typ)
-
-	println('================== const: ${var_type} ===========')
 	var_name := '_const_${node.name.replace('.', '__')}'
-	as_macro := node.attrs.filter(it.name == 'as_macro').len != 0	// if as_macro attribute exists
-	if as_macro {
+	
+	if node.attrs.contains('as_macro') {
 		var_value := gen.ast_node(node.expr).join('')
 		out << $tmpl('c_templates/constant_as_macro.tmpl.c')#[..-1]
 	} else {
