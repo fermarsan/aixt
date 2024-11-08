@@ -25,7 +25,9 @@ Tasks to do in Aixt
 - [ ] Standardize (with original V) the identifier names in the generated C code
 - [ ] make groups of PIC microcontrollers families
 - [ ] Start a vscode extension for Aixt
-- [ ] Give support to reference and dereference 
+- [ ] Give support to reference and dereference
+- [ ] define API modules' parameters as constants
+- [ ] add a custom attribute for defining constants and functions as C macros in order to save memory in small devices
 
 ### Done ✓
 
