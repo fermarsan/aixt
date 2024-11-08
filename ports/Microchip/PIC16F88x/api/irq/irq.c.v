@@ -1,20 +1,55 @@
 module irq
 
 // global interrupts enable/disable
-#define irq__enable()	INTCONbits.GIE = 1	
-#define irq__disable()	INTCONbits.GIE = 0
+
+@[inline]
+pub fn enable()	{
+	C.INTCONbits.GIE = 1	
+}
+
+@[inline]
+pub fn disable() {
+	C.INTCONbits.GIE = 0
+}	
 
 // external interrupt
-#define	irq__external_enable()	INTCONbits.GIE = 1; INTCONbits.INTE = 1
-#define	irq__external_clear()	INTCONbits.INTF = 0
-#define	irq__external_rising()	OPTION_REGbits.INTEDG = 1
-#define	irq__external_falling()	OPTION_REGbits.INTEDG = 0
 
-#define irq_external(FN_NAME)	void isr_external(void)
+@[inline]
+pub fn external_enable() {
+	C.INTCONbits.GIE = 1
+	C.INTCONbits.INTE = 1
+}
 
-// #define irq_uart_rx(FN_NAME)	void isr_external(void)
 
+@[inline]
+pub fn external_clear()	{
+	C.INTCONbits.INTF = 0
+}
+
+@[inline]
+pub fn external_rising() {
+	C.OPTION_REGbits.INTEDG = 1
+}
+
+@[inline]
+pub fn external_falling() {
+	C.OPTION_REGbits.INTEDG = 0
+}
+
+@[inline]
+pub fn external(FN_NAME) {
+	void isr_external(void)
+
+// 
+@[inline]
+pub fn uart_rx(FN_NAME) {
+	isr_external()
+}
 // timer 0 interrupt
-#define irq_timer0(FN_NAME)		void isr_timer0(void)
+
+@[inline]
+pub fn timer0(FN_NAME) {
+	isr_timer0()
+}
 
 fn C.global_isr()
