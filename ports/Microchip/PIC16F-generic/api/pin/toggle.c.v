@@ -7,7 +7,7 @@
 module pin
 
 // toggle function toggles the logic value of a pin
-@[inline]
+@[as_macro]
 pub fn toggle(name u8) {
 	unsafe {
 		*(&C.PORTA + (name >> 3))  ^=  0x01 << (name - ((name >> 3) << 3))

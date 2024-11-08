@@ -21,9 +21,12 @@ fn (mut gen Gen) init_output_file() {
 	gen.out << '\n___preprocessor_block___' 
 
 	for v_type, c_type in gen.setup.compiler_types {	// type definitions
+		println('================== ${c_type} , ${v_type}==================')
 		if c_type != v_type {
 			gen.out << if v_type == 'int' {
 				'typedef ${c_type} i32;'
+			} else if c_type == 'NOT SUPPORTED' {
+				'// typedef ${c_type} ${v_type};'
 			} else {
 				'typedef ${c_type} ${v_type};'
 			}

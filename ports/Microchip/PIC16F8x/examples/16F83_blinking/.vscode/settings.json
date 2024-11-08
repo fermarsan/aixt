@@ -1,5 +1,5 @@
 {
-    "vscode_aixt.aixt_linux": "aixt",   // "/path/to/aixt/compiler/on/linux",
-    "vscode_aixt.aixt_windows": "aixt", // "C:\\path\\to\\aixt\\compiler\\on\\windows",
-    "vscode_aixt.device": "PIC16F83"    // "device_name"
+    "aixt_linux": "aixt",   // "/path/to/aixt/compiler/on/linux",
+    "aixt_windows": "aixt", // "C:\\path\\to\\aixt\\compiler\\on\\windows",
+    "device": "PIC16F83"    // "device_name"
 }

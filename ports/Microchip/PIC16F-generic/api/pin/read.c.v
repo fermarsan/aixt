@@ -7,7 +7,7 @@
 module pin
 
 // read function reads the logic value of a pin
-@[inline]
+@[as_macro]
 pub fn read(name u8) u8 {
 	unsafe {
 		return	u8( (*(&C.PORTA + (name >> 3))  >>  (name - ((name >> 3) << 3)))  &  0x01 )

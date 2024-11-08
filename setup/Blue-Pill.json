@@ -26,11 +26,11 @@
 "u64":   "uint64_t",
 "usize": "uint32_t",
 "f32": "float",
-"f64": "=== NOT SUPPORTED ===",
+"f64": "NOT SUPPORTED",
 "float_literal": "float",
 "rune":  "char",
 "string": "char []",
-"mutex": "=== NOT SUPPORTED ===",
+"mutex": "NOT SUPPORTED",
 "main_ret_type": "int",
 "main_params":   "void "
 }

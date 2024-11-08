@@ -7,7 +7,7 @@
 module pin
 
 // setup configures the mode of a pin
-@[inline]
+@[as_macro]
 pub fn setup(name u8, mode u8) {
 	unsafe { 
 		if mode == 1 { // as input (1)
