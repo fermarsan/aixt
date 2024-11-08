@@ -5,11 +5,11 @@
 //
 // Description: Pin management functions
 //              (PIC16F88x port)
-
-
 module uart
 
-@[inline]
-pub fn println(MSG) {
-	C.uart.print(MSG);  uart.write('\n');  uart.write('\r')
+@[as_macro]
+pub fn println(msg string) {
+	uart.print(msg)
+	uart.write('\n')
+	uart.write('\r')
 }

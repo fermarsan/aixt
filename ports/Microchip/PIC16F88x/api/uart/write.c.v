@@ -8,7 +8,8 @@
 
 module uart
 
-@[inline]
-pub fn write(DATA) {
-	C.while (TRMT == 0);    TXREG = DATA
+@[as_macro]
+pub fn write(ch u8) {
+	for C.TRMT == 0 {}
+	C.TXREG = ch
 }
