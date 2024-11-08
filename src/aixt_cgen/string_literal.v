@@ -11,6 +11,6 @@ import v.ast
 // str := 'Aixt'
 // ``` 
 fn (mut gen Gen) string_literal(node ast.StringLiteral) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	return ['"${node.val}"']
 }

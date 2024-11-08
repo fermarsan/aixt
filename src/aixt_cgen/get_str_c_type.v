@@ -14,10 +14,16 @@ fn (mut gen Gen) get_str_c_type(typ ast.Type) (string, string) {
 		'',  typ
 	}
 	println('\n\tKind:\t${gen.table.type_kind(typ2).str()}\tType:\t${gen.table.type_to_str(typ2)} ${ref}')
-	unalias_typ := if gen.table.type_kind(typ2).str() == 'alias' {	// if it is defined with "type"
-		gen.table.unaliased_type(typ2)
-	} else {	
-		typ2
+	unalias_typ := match gen.table.type_kind(typ2).str() {
+		'alias' {	// if it is defined with "type"
+			gen.table.unaliased_type(typ2)
+		} 
+		'array' {
+			gen.table.type_idxs['array']
+		}
+		else {	
+			typ2
+		}
 	}
 	println('\n\tUnalias type:\t${gen.table.type_to_str(unalias_typ)}')
 	// var_type := gen.table.type_to_str( 

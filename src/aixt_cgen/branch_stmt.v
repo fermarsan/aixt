@@ -8,6 +8,6 @@ import v.ast
 
 // branch_stmt is the code generation function for branch statements.
 fn (mut gen Gen) branch_stmt(node ast.BranchStmt) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	return ['${node.str()};']
 }

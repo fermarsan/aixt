@@ -8,7 +8,7 @@ import time
 import port
 
 const sequence := [
-	u8(0b0000),
+ u8(0b0000),
 	0b0001,
 	0b0011,
 	0b0111,

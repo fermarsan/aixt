@@ -11,7 +11,7 @@ import v.checker
 
 // import_stmt is the code generation function for import statements.
 fn (mut gen Gen) import_stmt(node ast.Import) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	// if node.mod !in gen.imports {
 	// 	gen.imports << node.mod
 		// println('############# ${gen.imports} #############')
@@ -70,7 +70,7 @@ fn (mut gen Gen) import_stmt(node ast.Import) []string {
 // parse_module_file, parces and generates code from a new source file
 // this is used mainly for modules
 pub fn (mut gen Gen) parse_module_file(source_path string) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	

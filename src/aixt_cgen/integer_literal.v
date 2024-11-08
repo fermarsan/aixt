@@ -11,7 +11,7 @@ import v.ast
 // a := 10
 // ``` 
 fn (mut gen Gen) integer_literal(node ast.IntegerLiteral) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	return if node.str().contains('0o') { // if it is an octal literal
 		[node.val.int().str()] // turn it into decimal
 	} else {

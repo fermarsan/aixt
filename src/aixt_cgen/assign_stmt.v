@@ -13,7 +13,7 @@ import v.ast
 // and
 // - cumulative-assignments `+=`, `-=` , etc. 
 fn (mut gen Gen) assign_stmt(node ast.AssignStmt) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	println('node:			${node}')	
 	mut out := []string{}
 	gen.cur_op = node.op

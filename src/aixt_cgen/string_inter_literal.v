@@ -11,7 +11,7 @@ import v.ast
 // str := 'Hello ${var_name}...'
 // ``` 
 fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut c_line := ''
 
 	mut strs := node.vals.clone()	//reverse()

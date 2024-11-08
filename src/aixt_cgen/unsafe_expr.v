@@ -8,6 +8,6 @@ import v.ast
 
 // unsafe_expr is the code generation function for unsafe blocks.
 fn (mut gen Gen) unsafe_expr(node ast.UnsafeExpr) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	return gen.ast_node(node.expr)
 }

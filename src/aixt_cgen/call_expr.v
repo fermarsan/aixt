@@ -8,7 +8,7 @@ import v.ast
 
 // call_expr is the code generation function for function calling expressions.
 fn (mut gen Gen) call_expr(node ast.CallExpr) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	// println("+++++++++++++++ ${node.name} +++++++++++++++")
 	// println("+++++++++++++++\n${node.language}\n+++++++++++++++")
 	// println("+++++++++++++++ ${node.name} +++++++++++++++")

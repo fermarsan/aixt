@@ -8,7 +8,7 @@ import v.ast
 
 // type_decl is the code generation function for type declaration
 fn (mut gen Gen) type_decl(node ast.TypeDecl) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
 	// println(node)
 	// match node {

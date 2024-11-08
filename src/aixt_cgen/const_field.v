@@ -19,7 +19,7 @@ import v.ast
 // )
 // ``` 
 fn (mut gen Gen) const_field(node ast.ConstField) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
 	mut ref, mut var_type := gen.get_str_c_type(node.typ)
 	var_name := '_const_${node.name.replace('.', '__')}'

@@ -8,7 +8,7 @@ import v.ast
 
 // global_decl is the code generation function for global declarations.
 fn (mut gen Gen) global_decl(node ast.GlobalDecl) []string {
-	// println('================== ${node} ==================')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 
 	mut c_line := ''
 	for f in node.fields {
