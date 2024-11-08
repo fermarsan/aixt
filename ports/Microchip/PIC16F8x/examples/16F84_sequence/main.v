@@ -23,6 +23,6 @@ port.setup(port.b, 0b11110000)
 for {
 	for step in sequence {
 		port.write(port.b, step)
-		time.sleep_ms(250)
+		time.sleep_ms(200)
 	}
 }
