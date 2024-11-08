@@ -8,15 +8,15 @@
 module pwm1
 
 // Función para configurar el PWM
-fn setup(channel u8, freq u8, mode u8) 
-{
-    PR2 = 199;
-    CCPR2L = 0;  
-    TRISCbits.TRISC1 = 0;
-    T2CON = 0b00000011;  
-    CCP2CON = 0b00001100;  
-    TMR2 = 0;  
-    T2CONbits.TMR2ON = 1;             
+@[as_macro]
+fn setup(channel u8, freq u8, mode u8) {
+    C.PR2 = 199
+    C.CCPR2L = 0  
+    C.TRISCbits.TRISC1 = 0
+    C.T2CON = 0b00000011  
+    C.CCP2CON = 0b00001100  
+    C.TMR2 = 0  
+    C.T2CONbits.TMR2ON = 1             
 } 
 
 
