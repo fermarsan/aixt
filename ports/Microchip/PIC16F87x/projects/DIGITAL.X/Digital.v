@@ -1,12 +1,12 @@
 import pin
 
-pin.setup (c0, output)
-pin.setup (c1, output)
-pin.setup (a2, input)
-pin.setup (a3, input)
+pin.setup (pin.c0, pin.output)
+pin.setup (pin.c1, pin.output)
+pin.setup (pin.a2, pin.input)
+pin.setup (pin.a3, pin.input)
 
-pin.write(c0, 0)
-pin.write(c1, 0)
+pin.write(pin.c0, 0)
+pin.write(pin.c1, 0)
 
 pin.digital()
 
@@ -15,20 +15,20 @@ x1 := u8(0)
 
 for{
 	
-	x = pin.read(a2)
-	x1 = pin.read(a3)
+	x = pin.read(pin.a2)
+	x1 = pin.read(pin.a3)
 
 	if x == 1 {
 
-		pin.high(c0)
-		pin.high(c1)
+		pin.high(pin.c0)
+		pin.high(pin.c1)
 		
 	}
 
 	else if x1 == 1 {
 
-		pin.low(c0)
-		pin.low(c1)
+		pin.low(pin.c0)
+		pin.low(pin.c1)
 		
 	}
 

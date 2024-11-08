@@ -8,7 +8,7 @@ import pin
 import pwm
 import adc
 
-pin.setup(gp7, output)
+pin.setup(gp7, pin.output)
 adc.setup(12)
 
 for {
@@ -21,7 +21,7 @@ for {
 // import pin
 // import pwm
 
-// pin.setup(gp7, output)
+// pin.setup(gp7, pin.output)
 // pwm.setup(5000, 65535, 16)
 
 // for {

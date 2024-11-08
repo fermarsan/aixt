@@ -40,11 +40,11 @@ void main(void) {
     ANSELH = 0b00000000;
     ANSEL  = 0b00000000;
     
-    pin.setup(c0_s,out);
-    pin.setup(c1_s,out);
+    pin.setup(pin.c0_s,out);
+    pin.setup(pin.c1_s,out);
     
-    pin.write(c0,0);
-    pin.write(c1,0);
+    pin.write(pin.c0,0);
+    pin.write(pin.c1,0);
     
     uart.setup();
 
@@ -60,25 +60,25 @@ void main(void) {
             
             case 'a':
                 
-                pin.high(c0);
+                pin.high(pin.c0);
                 print("led1: Encendido\r\n");
                 break;  
                 
             case 'b':
                 
-                pin.low(c0);
+                pin.low(pin.c0);
                 print("led1: Apagado\r\n");
                 break;
                 
             case 'q':
                 
-                pin.high(c1);
+                pin.high(pin.c1);
                 print("led1: Encendido\r\n");
                 break;  
                 
             case 'w':
                 
-                pin.low(c1);
+                pin.low(pin.c1);
                 print("led1: Apagado\r\n");
                 break;
         }

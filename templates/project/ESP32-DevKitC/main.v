@@ -6,7 +6,7 @@
 import time
 import pin
 
-pin.setup(2, output)
+pin.setup(2, pin.output)
 
 pin.high(2)
 time.sleep_ms(500)

@@ -5,9 +5,9 @@
 module pin
 
 // high macro sets an output pin. This is expanded in this way:
-//   pin.high(b2)
+//   pin.high(pin.b2)
 //     |
-//	   +-->	pin.high(B, 2)
+//	   +-->	pin.high(pin.B, 2)
 //	          |
 //	          +-->	PORTBbits.PORTB2 = 1	// PIC16	
 // 	          		LATBbits.LATB2 = 1		// (PIC18, PIC24, dsPIC33)

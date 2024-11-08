@@ -7,6 +7,6 @@ import time
 import pin
 
 for {
-	pin.high(a)
+	pin.high(pin.a)
 	time.sleep_ms(500)
 }

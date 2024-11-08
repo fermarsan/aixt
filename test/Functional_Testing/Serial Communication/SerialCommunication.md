@@ -12,7 +12,7 @@ The table below lists the Functional test scenarios for the Serial Communication
 import pin // import the pin module
 import uart // import the uart module
 
-pin.setup(3, output) // Set pin #3 as output
+pin.setup(3, pin.output) // Set pin #3 as output
 uart.setup(9600) // Set the baud rate to 9600
 
 for {

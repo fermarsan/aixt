@@ -123,7 +123,7 @@ uint32 capsense_FtMedian(uint32 x1, uint32 x2, uint32 x3);
 uint32 capsense_FtIIR1stOrder(uint32 input, uint32 prevOutput, uint32 n, uint32 shift);
 
 #if (capsense_POS_JITTER_FILTER_EN)
-    uint32 capsense_FtJitter(uint32 input, uint32 prevOutput);
+    uint32 capsense_FtJitter(uint32 input, pin.uint32 prevOutput);
 #endif /* capsense_POS_JITTER_FILTER_EN */
 
 void capsense_FtInitializeBaselineChannel(capsense_RAM_SNS_STRUCT *ptrSensor, uint32 wdType, uint32 channel);

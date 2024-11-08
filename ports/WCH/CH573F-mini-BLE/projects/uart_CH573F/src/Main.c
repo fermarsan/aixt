@@ -119,9 +119,9 @@ void uart.setup(uint32_t baud_rate){
 
 int main(void) {
 
-pin.high(b7);
-pin.setup(b4, in_pullup);
-pin.setup(b7, output);
+pin.high(pin.b7);
+pin.setup(pin.b4, in_pullup);
+pin.setup(pin.b7, pin.output)put);
 uart.setup(115200);
 while(true) {
 TxBuff = uart.read();

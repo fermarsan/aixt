@@ -12,11 +12,11 @@ void main(void) {
     
     ADCON1bits.PCFG = 0;   // Declara todos los pines como digitales 
     
-    pin.setup(b0,out);
-    pin.setup(b1,out);
+    pin.setup(pin.b0,out);
+    pin.setup(pin.b1,out);
     
-    pin.write(b0,0);
-    pin.write(b1,0);
+    pin.write(pin.b0,0);
+    pin.write(pin.b1,0);
     
     uart.setup();
 
@@ -32,25 +32,25 @@ void main(void) {
             
             case 'a':
                 
-                pin.high(b0);
+                pin.high(pin.b0);
                 print("led1: Encendido\r\n");
                 break;  
                 
             case 'b':
                 
-                pin.low(b0);
+                pin.low(pin.b0);
                 print("led1: Apagado\r\n");
                 break;
                 
             case 'q':
                 
-                pin.high(b1);
+                pin.high(pin.b1);
                 print("led2: Encendido\r\n");
                 break;  
                 
             case 'w':
                 
-                pin.low(b1);
+                pin.low(pin.b1);
                 print("led2: Apagado\r\n");
                 break;
         }

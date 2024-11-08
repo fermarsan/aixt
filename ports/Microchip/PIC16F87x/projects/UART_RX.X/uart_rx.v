@@ -2,12 +2,12 @@ import port
 import uart
 import pin 
 
-port.setup(b, 0b00000000)
-port.write(b, 0b00000000)
-pin.setup(c7, input)
+port.setup(port.b, 0b00000000)
+port.write(port.b, 0b00000000)
+pin.setup(pin.c7, pin.input)
 
 uart.setup()
 
 for {
-	port.read(b) = uart.read()
+	port.read(port.b) = uart.read()
 }

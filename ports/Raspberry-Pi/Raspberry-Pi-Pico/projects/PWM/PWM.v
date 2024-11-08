@@ -6,7 +6,7 @@ __global (
   val = 0
 )
 
-pin.setup(gp10, output)
+pin.setup(gp10, pin.output)
 
 for {
 

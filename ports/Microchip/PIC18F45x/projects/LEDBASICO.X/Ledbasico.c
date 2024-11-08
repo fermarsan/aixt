@@ -81,12 +81,12 @@
 
 void main(void) {
     ADCON1bits.PCFG = 0x0F;     //TODAS LOS PINES COMO DIGITALES
-    pin.setup(b0_s, out);       //CONFIGURAMOS EL PIN B0 COMO SALIDA
-    pin.write(b0, 0);           //LIMPIAMOS EL BIT B0
+    pin.setup(pin.b0_s, out);       //CONFIGURAMOS EL PIN B0 COMO SALIDA
+    pin.write(pin.b0, 0);           //LIMPIAMOS EL BIT B0
     while(1){ 
-        pin.high(b0);       //PIN HIGH
+        pin.high(pin.b0);       //PIN HIGH
           sleep_ms(1000);   
-        pin.low(b0);        //PIN LOW
+        pin.low(pin.b0);        //PIN LOW
           sleep_ms(1000);   
     }
   return;

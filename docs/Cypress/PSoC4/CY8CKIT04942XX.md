@@ -77,20 +77,20 @@ Para activar el puerto que va ha usar;
 ```go
 pin.high(pin_name)
 ```
-*Ejemplo: Si se desea activar el puerto do0;  `pin.high(do0)`.*
+*Ejemplo: Si se desea activar el puerto do0;  `pin.high(pin.do0)`.*
 
 Para desactivar el puerto que se está usando;
 ```go
 pin.low(pin_name)
 ```
-*Ejemplo: Si se desea desactivar el puerto do0;  `pin.low(do0)`.*
+*Ejemplo: Si se desea desactivar el puerto do0;  `pin.low(pin.do0)`.*
 
 Para desactivar o activar el puerto que se va ha usar;
 
 ```go
 pin.write(pin_name, value)
 ```
-*Ejemplo: Si se desea desactivar el puerto do0;  `pin.write(do0, 1)`, y si se desea activar;  `pin.write(do0, 0)`.*
+*Ejemplo: Si se desea desactivar el puerto do0;  `pin.write(do0, 1)`, y si se desea activar;  `pin.write(pin.do0, 0)`.*
 
 ### Detección puertos de entrada
 
@@ -99,7 +99,7 @@ Si se necesita saber en que estado esta un puerto de entrada:
 x = pin.read(pin_name)
 ```
 
-*Ejemplo: Si se desea detectar el valor del puerto di0; `x = pin.read(di0)`, y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
+*Ejemplo: Si se desea detectar el valor del puerto di0; `x = pin.read(pin.di0)`, y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
 
 ### Puertos análogos a digital (ADC)
 

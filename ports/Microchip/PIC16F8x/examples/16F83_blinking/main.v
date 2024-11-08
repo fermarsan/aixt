@@ -6,7 +6,7 @@
 import time
 import pin
 
-pin.setup(pin.b4, pin.output)
+pin.setup(pin.b4, pin.pin.output)
 
 for {
 	pin.toggle(pin.b4)

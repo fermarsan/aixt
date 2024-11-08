@@ -64,7 +64,7 @@ void adc.read(uint8_t valor){
 
 int main(void) {
 
-pin.setup(a4, input);
+pin.setup(pin.a4, pin.input);
 adc.setup(0);
 while(true) {
 adc.read(value);

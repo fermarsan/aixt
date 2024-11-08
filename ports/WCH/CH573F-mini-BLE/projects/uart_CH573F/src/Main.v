@@ -3,9 +3,9 @@ import uart
 import pin 
 
 
-pin.high(b7)
-pin.setup(b4, in_pullup) 
-pin.setup(b7, output)
+pin.high(pin.b7)
+pin.setup(pin.b4, in_pullup) 
+pin.setup(pin.b7, pin.output)
 
 //Inicializamos la comunicación serial
 uart.setup(115200)

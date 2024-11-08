@@ -2,8 +2,8 @@ import time { sleep }
 import pin
 
 for _ in 0..5 {
-	pin.high(a)
+	pin.high(pin.a)
 	sleep(1)
-	pin.low(a)
+	pin.low(pin.a)
 	sleep(1)
 }

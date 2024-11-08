@@ -54,7 +54,7 @@ pub fn write(channel, value, ...) {
 
 int main(void) {
 
-pin.setup(a12, output);
+pin.setup(pin.a12, pin.output);
 int32_t value = 50;
 while(true) {
 pwm.write(4, value);

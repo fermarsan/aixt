@@ -12,9 +12,9 @@ sleep_us(100)       // sleep for 100 microseconds
 
 ## Emulated pins
 ```v
-pin.high(a)         // turn ON the "a" pin 
+pin.high(pin.a)         // turn ON the "a" pin 
 pin.low(y)          // turn OFF the "y" pin 
-pin.write(d, 1)     // write 1 on "d" pin
+pin.write(pin.d, 1)     // write 1 on "d" pin
 pin.read(x)         // read "x" pin
 ```
 

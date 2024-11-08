@@ -5,9 +5,9 @@
 module pin
 
 // read macro reads the value of an input pin. This is expanded in this way:
-//   x = pin.read(a7)
+//   x = pin.read(pin.a7)
 //     |
-//	   +-->	x = pin.read(A, 7)		
+//	   +-->	x = pin.read(pin.A, 7)		
 //	          |
 //	          +-->	x = PORTAbits.PORTA7	// (PIC16, PIC18, PIC24, dsPIC33)
 @[inline]

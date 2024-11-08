@@ -72,19 +72,19 @@ time.sleep_ms(500)	// Tiempo de 500 milisegundos
 
 ```v
 
-pin.setup(a5, output)      // Función para configurar el pin como salida 
-pin.setup(c2, output)      // Función para configurar el pin como salida
-pin.setup(a2, input)    // Función para configurar el pin como entrada
-pin.setup(c4, input)    // Función para configurar el pin como entrada
+pin.setup(pin.a5, pin.output)      // Función para configurar el pin como salida 
+pin.setup(pin.c2, pin.output)      // Función para configurar el pin como salida
+pin.setup(pin.a2, pin.input)    // Función para configurar el pin como entrada
+pin.setup(pin.c4, pin.input)    // Función para configurar el pin como entrada
 
-pin.high(a5)    // Función para encender el pin           
-pin.low(a5)     // Función para apagar el pin
+pin.high(pin.a5)    // Función para encender el pin           
+pin.low(pin.a5)     // Función para apagar el pin
 
-pin.write(a2, 0)  // Función sobre escribir el pin
-pin.write(a2, 1)  // Función sobre escribir el pin
+pin.write(pin.a2, 0)  // Función sobre escribir el pin
+pin.write(pin.a2, 1)  // Función sobre escribir el pin
 
-pin.read(a4)      // Función para leer el pin
-pin.read(c3)      // Función para leer el pin
+pin.read(pin.a4)      // Función para leer el pin
+pin.read(pin.c3)      // Función para leer el pin
 
 ```
 
@@ -94,9 +94,9 @@ Ejemplo de prender y apagar un led:
       
 for {
 
-    pin.high(c1);
+    pin.high(pin.c1);
     sleep_us(500);
-    pin.low(c1);
+    pin.low(pin.c1);
     sleep_us(500);
 
 }
@@ -112,14 +112,14 @@ for {
     
     if(c2 == 1){        // Condición si encuentra un 1 en el c2
         
-        pin.high(c1);
-        pin.high(c0);
+        pin.high(pin.c1);
+        pin.high(pin.c0);
     }
     
     else if(c4 == 1){   // Condición si encuentra un 1 en el c4
         
-        pin.low(c1);
-        pin.low(c0);
+        pin.low(pin.c1);
+        pin.low(pin.c0);
     }
 
 }
@@ -130,7 +130,7 @@ for {
 
 ```v
 
-port.setup(a, ob000000)      // Función para configurar el puerto como salida 
+port.setup(port.a, ob000000)      // Función para configurar el puerto como salida 
 
 ```
 
@@ -140,9 +140,9 @@ Ejemplo de prender y apagar un puerto del microcontrolador:
       
 for {
         
-    port.write(a,0b010101);
+    port.write(port.a,0b010101);
     sleep_ms(500);
-    port.write(a,0b101010);
+    port.write(port.a,0b101010);
     sleep_ms(500);      
         
 }
@@ -170,30 +170,30 @@ for {
     
     if ( adc_result >= 1020 ){
         
-        pin.high(c0);
-        pin.high(c1);
-        pin.high(c2);           
+        pin.high(pin.c0);
+        pin.high(pin.c1);
+        pin.high(pin.c2);           
     }
     
     else if ( adc_result >= 820 ){
         
-        pin.high(c0);
-        pin.high(c1);
-        pin.low(c2);
+        pin.high(pin.c0);
+        pin.high(pin.c1);
+        pin.low(pin.c2);
     }
     
     else if ( adc_result >= 620 ){
         
-        pin.high(c0);
-        pin.low(c1);
-        pin.low(c2);   
+        pin.high(pin.c0);
+        pin.low(pin.c1);
+        pin.low(pin.c2);   
     }
         
     else {
         
-        pin.low(c0);
-        pin.low(c1);
-        pin.low(c2);      
+        pin.low(pin.c0);
+        pin.low(pin.c1);
+        pin.low(pin.c2);      
     }
 
 }

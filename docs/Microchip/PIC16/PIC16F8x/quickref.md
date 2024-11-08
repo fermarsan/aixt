@@ -60,19 +60,19 @@ time.sleep_ms(500)	// Time of 500 milliseconds
 
 ```v
 
-pin.setup(a4, output)      // Function to configure the pin as output
-pin.setup(b2, output)      // Function to configure the pin as output
-pin.setup(a2, input)    // Function to configure the pin as input
-pin.setup(b4, input)    // Function to configure the pin as input
+pin.setup(pin.a4, pin.output)      // Function to configure the pin as output
+pin.setup(pin.b2, pin.output)      // Function to configure the pin as output
+pin.setup(pin.a2, pin.input)    // Function to configure the pin as input
+pin.setup(pin.b4, pin.input)    // Function to configure the pin as input
 
-pin.high(a4)    // Function to turn on the pin
-pin.low(a4)     // Function to turn off the pin
+pin.high(pin.a4)    // Function to turn on the pin
+pin.low(pin.a4)     // Function to turn off the pin
 
-pin.write(a2, 0)  // Function to write to the pin
-pin.write(a2, 1)  // Function to write to the pin
+pin.write(pin.a2, 0)  // Function to write to the pin
+pin.write(pin.a2, 1)  // Function to write to the pin
 
-pin.read(a1)  // Function to read the pin
-pin.read(a1)  // Function to read the pin
+pin.read(pin.a1)  // Function to read the pin
+pin.read(pin.a1)  // Function to read the pin
 
 ```
 
@@ -82,9 +82,9 @@ Example of turning an LED on and off:
 
 for {
 
-    pin.high(b1);
+    pin.high(pin.b1);
     time.sleep_us(500);
-    pin.low(b1);
+    pin.low(pin.b1);
     time.sleep_us(500);
 
 }
@@ -98,14 +98,14 @@ for {
 
     if(b2 == 1){        // Condition if it finds a 1 in b2
 
-        pin.high(b1);
-        pin.high(b0);
+        pin.high(pin.b1);
+        pin.high(pin.b0);
     }
 
     else if(b4 == 1){   // Condition if it finds a 1 in b4
 
-        pin.low(b1);
-        pin.low(b0);
+        pin.low(pin.b1);
+        pin.low(pin.b0);
     }
 
 }
@@ -115,7 +115,7 @@ for {
 
 ```v
 
-port.setup(a, 0b00000000)      // Function to configure the port as output
+port.setup(port.a, 0b00000000)      // Function to configure the port as output
 
 ```
 
@@ -125,9 +125,9 @@ Example of turning on and off a port of the microcontroller:
 
 while(1){
 
-    port.write(a,0b00110101);
+    port.write(port.a,0b00110101);
     time.sleep_ms(500);
-    port.write(a,0b00001010);
+    port.write(port.a,0b00001010);
     time.sleep_ms(500);
 
 }

@@ -1,8 +1,8 @@
 import time
 import pin
 
-pin.setup(2, output)
-pin.setup(3, output)
+pin.setup(2, pin.output)
+pin.setup(3, pin.output)
 
 for _ in 0 .. 10 { // 10 times
 	pin.high(2)

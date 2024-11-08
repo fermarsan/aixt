@@ -1312,25 +1312,25 @@ int main(void) {
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:43
 
 	main__init();
-	port.setup(a, 0x00000800, port.output);
+	port.setup(port.a, pin.0x00000800, port.output);
  70e:	6405                	lui	s0,0x1
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:40
     SetSysClock(CLK_SOURCE_PLL_60MHz);
  710:	20003097          	auipc	ra,0x20003
  714:	1ac080e7          	jalr	428(ra) # 200038bc <SetSysClock>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:43
-	port.setup(a, 0x00000800, port.output);
+	port.setup(port.a, pin.0x00000800, port.output);
  718:	80040513          	addi	a0,s0,-2048 # 800 <GPIOA_ModeCfg+0xa4>
  71c:	458d                	li	a1,3
  71e:	283d                	jal	75c <GPIOA_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:44
-	port.setup(b, 0xFFFFFFFF, port.output);
+	port.setup(port.b, pin.0xFFFFFFFF, port.output);
  720:	458d                	li	a1,3
  722:	557d                	li	a0,-1
  724:	28f9                	jal	802 <GPIOB_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:46
 	while(true) {
-		port.write(a, 0x00000800);
+		port.write(port.a, 0x00000800);
  726:	400014b7          	lui	s1,0x40001
  72a:	80040413          	addi	s0,s0,-2048
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:46 (discriminator 1)
@@ -1339,7 +1339,7 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj
 		time.sleep_ms(500);
  732:	1f400513          	li	a0,500
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:46 (discriminator 1)
-		port.write(a, 0x00000800);
+		port.write(port.a, 0x00000800);
  736:	8fc1                	or	a5,a5,s0
  738:	0af4a423          	sw	a5,168(s1)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:47 (discriminator 1)
@@ -1347,13 +1347,13 @@ C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj
  73c:	20003097          	auipc	ra,0x20003
  740:	300080e7          	jalr	768(ra) # 20003a3c <mDelaymS>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:48 (discriminator 1)
-		port.write(b, 0x00000800);
+		port.write(port.b, 0x00000800);
  744:	0c84a783          	lw	a5,200(s1)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:49 (discriminator 1)
 		time.sleep_ms(500);
  748:	1f400513          	li	a0,500
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:48 (discriminator 1)
-		port.write(b, 0x00000800);
+		port.write(port.b, 0x00000800);
  74c:	8fc1                	or	a5,a5,s0
  74e:	0cf4a423          	sw	a5,200(s1)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\port_CH573F\obj/../src/Main.c:49 (discriminator 1)

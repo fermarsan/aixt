@@ -14,28 +14,28 @@ import pin
 
 adc.setup()
 
-pin.setup(2, output) // Set pin #2 as output
-pin.setup(3, output) // Set pin #3 as output
-pin.setup(4, output) // Set pin #4 as output
+pin.setup(2, pin.output) // Set pin #2 as output
+pin.setup(3, pin.output) // Set pin #3 as output
+pin.setup(4, pin.output) // Set pin #4 as output
 
 for {
 	adc_result := adc.read(0) 	// Stores the ADC value
 	if (adc_result >= 1020) {
-		pin.high(c0)
-		pin.high(c1)
-		pin.high(c2)
+		pin.high(pin.c0)
+		pin.high(pin.c1)
+		pin.high(pin.c2)
 	} else if (adc_result >= 820) {
-		pin.high(c0)
-		pin.high(c1)
-		pin.low(c2)
+		pin.high(pin.c0)
+		pin.high(pin.c1)
+		pin.low(pin.c2)
 	} else if (adc_result >= 620) {
-		pin.high(c0)
-		pin.low(c1)
-		pin.low(c2)
+		pin.high(pin.c0)
+		pin.low(pin.c1)
+		pin.low(pin.c2)
 	} else {
-		pin.low(c0)
-		pin.low(c1)
-		pin.low(c2)
+		pin.low(pin.c0)
+		pin.low(pin.c1)
+		pin.low(pin.c2)
 	}
 }
 ```

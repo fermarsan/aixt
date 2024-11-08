@@ -88,49 +88,49 @@ void main(void) {
     
    // TRISB = 0x00;
    // Puerto b como salida
-    pin.setup(b0_s, out);
-    pin.setup(b1_s, out);
-    pin.setup(b2_s, out);
-    pin.setup(b3_s, out);
-    pin.setup(b4_s, out);
-    pin.setup(b5_s, out);
-    pin.setup(b6_s, out);
-    pin.setup(b7_s, out);
+    pin.setup(pin.b0_s, out);
+    pin.setup(pin.b1_s, out);
+    pin.setup(pin.b2_s, out);
+    pin.setup(pin.b3_s, out);
+    pin.setup(pin.b4_s, out);
+    pin.setup(pin.b5_s, out);
+    pin.setup(pin.b6_s, out);
+    pin.setup(pin.b7_s, out);
 
   // TRISC = 0x00; 
   //PUERTO C como salida
-    pin.setup(c0_s, out);
-    pin.setup(c1_s, out);
-    pin.setup(c2_s, out);
-    pin.setup(c3_s, out);
-    pin.setup(c4_s, out);
-    pin.setup(c5_s, out);
-    pin.setup(c6_s, out);
-    pin.setup(c7_s, out);
+    pin.setup(pin.c0_s, out);
+    pin.setup(pin.c1_s, out);
+    pin.setup(pin.c2_s, out);
+    pin.setup(pin.c3_s, out);
+    pin.setup(pin.c4_s, out);
+    pin.setup(pin.c5_s, out);
+    pin.setup(pin.c6_s, out);
+    pin.setup(pin.c7_s, out);
 
     //LATB = 0x00;
     // LIMPIAMOS EL PUERTO B
 
-    pin.write(b0, 0);
-    pin.write(b1, 0);
-    pin.write(b2, 0);
-    pin.write(b3, 0);
-    pin.write(b4, 0);
-    pin.write(b5, 0);
-    pin.write(b6, 0);
-    pin.write(b7, 0);
+    pin.write(pin.b0, 0);
+    pin.write(pin.b1, 0);
+    pin.write(pin.b2, 0);
+    pin.write(pin.b3, 0);
+    pin.write(pin.b4, 0);
+    pin.write(pin.b5, 0);
+    pin.write(pin.b6, 0);
+    pin.write(pin.b7, 0);
 
     //LATC = 0X00;
     // LIMPIAMOS EL PUERTO C
 
-    pin.write(c0, 0);
-    pin.write(c1, 0);
-    pin.write(c2, 0);
-    pin.write(c3, 0);
-    pin.write(c4, 0);
-    pin.write(c5, 0);
-    pin.write(c6, 0);
-    pin.write(c7, 0);
+    pin.write(pin.c0, 0);
+    pin.write(pin.c1, 0);
+    pin.write(pin.c2, 0);
+    pin.write(pin.c3, 0);
+    pin.write(pin.c4, 0);
+    pin.write(pin.c5, 0);
+    pin.write(pin.c6, 0);
+    pin.write(pin.c7, 0);
     
     while(1)
     {

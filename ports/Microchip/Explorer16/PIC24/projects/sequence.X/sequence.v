@@ -17,8 +17,8 @@ const sequence = [
 
 for {
 	// for step in sequence {
-	// 	port.write(a, step)
+	// 	port.write(port.a, step)
 	for i in 0..12 {
-		port.write(a, sequence[i])
+		port.write(port.a, sequence[i])
 	}
 }

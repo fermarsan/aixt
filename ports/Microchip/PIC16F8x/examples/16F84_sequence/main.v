@@ -18,11 +18,11 @@ const sequence := [
 	0b1000,
 ]
 
-port.setup(b, 0b11110000)
+port.setup(port.b, 0b11110000)
 
 for {
 	for step in sequence {
-		port.write(b, step)
+		port.write(port.b, step)
 		time.sleep_ms(250)
 	}
 }

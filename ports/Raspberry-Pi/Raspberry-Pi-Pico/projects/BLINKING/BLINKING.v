@@ -1,7 +1,7 @@
 import time {sleep}
 import pin
 
-pin.setup(led, output)
+pin.setup(led, pin.output)
 
 for {
   

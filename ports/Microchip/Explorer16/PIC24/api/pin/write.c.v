@@ -5,9 +5,9 @@
 module pin
 
 /// write macro sets an output pin. This is expanded in this way:
-//   pin.write(b2, val)
+//   pin.write(pin.b2, val)
 //     |
-//	   +-->	pin.write(B, 2, val)
+//	   +-->	pin.write(pin.B, 2, val)
 //	          |
 //	          +-->	PORTBbits.PORTB2 = val	// PIC16	
 // 	          		LATBbits.LATB2 = val	// (PIC18, PIC24, dsPIC33)

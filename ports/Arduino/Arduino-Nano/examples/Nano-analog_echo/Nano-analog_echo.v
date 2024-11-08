@@ -8,7 +8,7 @@ import pin
 import adc
 import pwm
 
-pin.setup(d3, output)
+pin.setup(pin.d3, pin.output)
 
 for {
 	value := adc.read(a0)

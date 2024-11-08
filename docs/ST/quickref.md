@@ -73,8 +73,8 @@ const int intPIN = PA9; //entrada digital al led PA8
 void setup() {
   Serial.begin(9600);
   // put your setup code here, to run once:
-  pinMode(ledPIN1, OUTPUT);//led conectado a salida PA9
-  pinMode(intPIN, INPUT);//interruptor conectado a entrada PA8
+  pinMode(ledPIN1, pin.OUTput);//led conectado a salida PA9
+  pinMode(intPIN, pin.INput);//interruptor conectado a entrada PA8
 }
 void loop() {
   // put your main code here, to run repeatedly:
@@ -113,7 +113,7 @@ PWMOutESP32 pwm(10, 5000); //Resolution=10bits, Frequency=5000Hz
 
 void setup() {
   Serial.begin(115200);
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN, pin.OUTput);
 
   Serial.println("\nPWMOutESP32");
   Serial.println("Library for controlling ESP32 PWM outputs similar to use on Arduino");
@@ -275,7 +275,7 @@ time.sleep_us(US) //Microseconds
 import pin
 import time {sleep_ms}
 
-pin.setup(14, output)
+pin.setup(14, pin.output)
 
 for {   //infinite loop
     pin.high(14)

@@ -6,7 +6,7 @@
 import time
 import pin
 
-pin.setup(led0, output)
+pin.setup(led0, pin.output)
 
 for {
 	pin.high(led0)

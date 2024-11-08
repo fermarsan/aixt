@@ -6,7 +6,7 @@
 module port
 
 // setup macro configures a complete pin port input/output mode. This is expanded in this way:
-//   pin.setup(a, value)
+//   pin.setup(pin.a, value)
 //     |
 //	   +-->	TRISa = value
 //            |

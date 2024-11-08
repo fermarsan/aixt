@@ -76,28 +76,28 @@ To configure the pin usage mode.
 ```go
 pin.setup(pin_name, mode)
 ```
-* *Example: If you want to activate pin 11 of port A as an output;  `pin.setup(a11, output)`.*
-* *Example: If you want to activate pin 11 of port A as an input.;  `pin.setup(a11, input)`.*
+* *Example: If you want to activate pin 11 of port A as an output;  `pin.setup(pin.a11, pin.output)`.*
+* *Example: If you want to activate pin 11 of port A as an input.;  `pin.setup(pin.a11, pin.input)`.*
 
 To activate the pin to use
 ```go
 pin.high(PIN_NAME)
 ```
-* *Example: If you want to activate pin 7 of port B;  `pin.high(b7)`.*
+* *Example: If you want to activate pin 7 of port B;  `pin.high(pin.b7)`.*
 
 To disable the pin being used
 ```go
 pin.low(PIN_NAME)
 ```
-* *Example: If you want to disable pin 7 of port B;  `pin.low(b7)`.*
+* *Example: If you want to disable pin 7 of port B;  `pin.low(pin.b7)`.*
 
 ### Setup port configuration
 To configure the mode of one or all pins of the specific port.
 ```go
 port.setup(PORT, BITS, MODE)
 ```
-* *Example: If you want to activate pin 4 of port A as an output;  `pin.setup(a, 0x00000010, output)`.*
-* *Example: If you want to activate all pins of port B as inputs;  `pin.setup(b, 0xFFFFFFFF, input)`.*
+* *Example: If you want to activate pin 4 of port A as an output;  `pin.setup(pin.a, pin.0x00000010, output)`.*
+* *Example: If you want to activate all pins of port B as inputs;  `pin.setup(pin.b, pin.0xFFFFFFFF, input)`.*
 
 State port detection
 
@@ -105,14 +105,14 @@ If you need to know what state an entry port is in:
 ```go
 pin.read(PORT)
 ```
-* *Example: If you want to detect the VALUE of port A; `port.read(a)`*
+* *Example: If you want to detect the VALUE of port A; `port.read(port.a)`*
 
 To activate one pin o all pin to use
 ```go
 port.write(PORT, BITS)
 ```
-* *Example: If you want to activate pin 15 of port B as an output;  `port.write(b, 0x00000080)`.*
-* *Example: If you want to activate all pins of port B;  `port.write(a, 0xFFFFFFFF)`.*
+* *Example: If you want to activate pin 15 of port B as an output;  `port.write(port.b, 0x00000080)`.*
+* *Example: If you want to activate all pins of port B;  `port.write(port.a, 0xFFFFFFFF)`.*
 
 ### Pulse Width Modulation (PWM outputs)
 
@@ -182,12 +182,12 @@ Below are some code in V language, examples of the main functions that are trans
 import time { sleep_ms }
 import pin 
 
-pin.setup(a8, output)
+pin.setup(pin.a8, pin.output)
 
 for {
-    pin.high(a8)    
+    pin.high(pin.a8)    
     sleep_ms(150)
-    pin.low(a8)
+    pin.low(pin.a8)
     sleep_ms(150)
 }
 ```
@@ -198,10 +198,10 @@ for {
 import time { sleep_ms }
 import pin 
 
-pin.setup(a8, output)
+pin.setup(pin.a8, pin.output)
 
 for {
-    pin.toggle(a8)    
+    pin.toggle(pin.a8)    
     sleep_ms(150)
 }
 ```
@@ -210,12 +210,12 @@ for {
 import port
 import time {sleep_ms}
 
-port.setup(a, 0x00000800, port.output)
-port.setup(b, 0xFFFFFFFF, port.output)
+port.setup(port.a, pin.0x00000800, port.output)
+port.setup(port.b, pin.0xFFFFFFFF, port.output)
 for{
-	port.write(a,0x00000800)
+	port.write(port.a,0x00000800)
 	sleep_ms(1000)
-	port.write(b,0x00000800)
+	port.write(port.b,0x00000800)
 	sleep_ms(1000)
 }
 ```
@@ -225,7 +225,7 @@ import time { sleep_ms }
 import pin { setup }                         
 import pwm                           
 
-pin.setup(a12, output) 
+pin.setup(pin.a12, pin.output) 
 
 value := 50
 
@@ -246,7 +246,7 @@ import pin { setup }
 import pwm      
 import adc
 
-pin.setup(a4, input) 
+pin.setup(pin.a4, pin.input) 
 
 adc.setup(0)
 
@@ -261,9 +261,9 @@ import time {sleep_ms}
 import uart
 import pin 
 
-pin.high(b7)
-pin.setup(b4, in_pullup) 
-pin.setup(b7, output)
+pin.high(pin.b7)
+pin.setup(pin.b4, in_pullup) 
+pin.setup(pin.b7, pin.output)
 
 uart.setup(115200)
 

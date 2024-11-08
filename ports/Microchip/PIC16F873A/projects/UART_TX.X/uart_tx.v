@@ -3,7 +3,7 @@ import uart
 import time {sleep_ms}
 
 //CONFIG DE LOS PINES
-pin.setup(c6, output)       //RC6 = TX
+pin.setup(pin.c6, pin.output)       //RC6 = TX
 
 //Inicializamos la comunicación serial
 uart.setup()

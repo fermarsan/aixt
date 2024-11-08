@@ -153,7 +153,7 @@ void time.init() {
 
 void main(void) {
 	main__init();
-	pin.setup(c6, output);
+	pin.setup(pin.c6, pin.output);
 	uart.setup();
 	while(true) {
 		uart.write(0x33);

@@ -81,28 +81,28 @@ name                             | description
 
 ## Configuración de pines 
 ```go
-pin.setup(b3, output)      // Función para configurar el pin como salida 
-pin.setup(a2, output)      // Función para configurar el pin como salida
-pin.setup(b2, input)    // Función para configurar el pin como entrada
-pin.setup(a1, input)    // Función para configurar el pin como entrada
+pin.setup(pin.b3, pin.output)      // Función para configurar el pin como salida 
+pin.setup(pin.a2, pin.output)      // Función para configurar el pin como salida
+pin.setup(pin.b2, pin.input)    // Función para configurar el pin como entrada
+pin.setup(pin.a1, pin.input)    // Función para configurar el pin como entrada
 
-pin.high(b3)    // Función para encender el pin           
-pin.low(b3)     // Función para apagar el pin
+pin.high(pin.b3)    // Función para encender el pin           
+pin.low(pin.b3)     // Función para apagar el pin
 
-pin.write(a4, 0)  // Función sobre escribir el pin
-pin.write(a4, 1)  // Función sobre escribir el pin
+pin.write(pin.a4, 0)  // Función sobre escribir el pin
+pin.write(pin.a4, 1)  // Función sobre escribir el pin
 
-pin.read(c4)      // Función para leer el pin
-pin.read(b0)      // Función para leer el pin
+pin.read(pin.c4)      // Función para leer el pin
+pin.read(pin.b0)      // Función para leer el pin
 ```
 Ejemplo de prender y apagar un led:
 
 ```go
       
 while (1) {
-    pin.high(b4);
+    pin.high(pin.b4);
     time.sleep_us(700);
-    pin.low(b4);
+    pin.low(pin.b4);
     time.sleep_us(700);
 }
 ```
@@ -114,14 +114,14 @@ while(1){
     
     if(a4 == 0){        // Condición si encuentra un 0 en el a4
         
-        pin.high(c0);
-        pin.high(c2);
+        pin.high(pin.c0);
+        pin.high(pin.c2);
     }
     
     else if(b2 == 1){   // Condición si encuentra un 1 en el b2
         
-        pin.low(a1);
-        pin.low(c2);
+        pin.low(pin.a1);
+        pin.low(pin.c2);
     }
 
 }
@@ -145,30 +145,30 @@ while(1){
     
     if ( adc_RTA >= 1000 ){
         
-        pin.high(C4);
-        pin.high(C1);
-        pin.high(C2);           
+        pin.high(pin.C4);
+        pin.high(pin.C1);
+        pin.high(pin.C2);           
     }
     
     else if ( adc_RTA >= 600 ){
         
-        pin.high(b5);
-        pin.high(b1);
-        pin.low(b3);
+        pin.high(pin.b5);
+        pin.high(pin.b1);
+        pin.low(pin.b3);
     }
     
     else if ( adc_RTA >= 340 ){
         
-        pin.high(a0);
-        pin.low(a1);
-        pin.low(a2);   
+        pin.high(pin.a0);
+        pin.low(pin.a1);
+        pin.low(pin.a2);   
     }
         
     else {
         
-        pin.low(c7);
-        pin.low(c6);
-        pin.low(c5);      
+        pin.low(pin.c7);
+        pin.low(pin.c6);
+        pin.low(pin.c5);      
     }
 
 }
@@ -196,7 +196,7 @@ Ejemplo de variar la intensidad de un led:
 ```go
    
        //CONFIG DE LOS PINES
-    pin.setup(c6,output)   //RC6 = TX
+    pin.setup(pin.c6,output)   //RC6 = TX
 
        //Inicializamos la comunicación serial
     uart.setup()
@@ -214,21 +214,21 @@ Ejemplo de variar la intensidad de un led:
 
 ```go
 
-    port.setup(b, port.output)
+    port.setup(port.b, pin.port.output)
 
     // LIMPIAMOS EL PUERTO B
 
-    port.write(b, port.output)
+    port.write(port.b, pin.port.output)
     
    
    // CONFIGURAMOS EL C7 PARA LA RECEPCIÓN DE DATOS
-    pin.setup(c7,input)
+    pin.setup(pin.c7,input)
 
    // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
     uart.setup()             
 
      for {
-         port.write(b, uart.read())
+         port.write(port.b, uart.read())
      }
 ```
 

@@ -1328,7 +1328,7 @@ char TxBuff = ' ';
 
 int main(void) {
 
-pin.high(b7);
+pin.high(pin.b7);
  74a:	40001737          	lui	a4,0x40001
  74e:	0c872783          	lw	a5,200(a4) # 400010c8 <_eusrstack+0x1fff90c8>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:82
@@ -1336,21 +1336,21 @@ int main(void) {
  752:	1141                	addi	sp,sp,-16
  754:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:84
-pin.high(b7);
+pin.high(pin.b7);
  756:	0807e793          	ori	a5,a5,128
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:82
 int main(void) {
  75a:	c422                	sw	s0,8(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:84
-pin.high(b7);
+pin.high(pin.b7);
  75c:	0cf72423          	sw	a5,200(a4)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:85
-pin.setup(b4, in_pullup);
+pin.setup(pin.b4, in_pullup);
  760:	4585                	li	a1,1
  762:	4541                	li	a0,16
  764:	280d                	jal	796 <GPIOB_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\uart_CH573F\obj/../src/Main.c:86
-pin.setup(b7, output);
+pin.setup(pin.b7, pin.output);
  766:	458d                	li	a1,3
  768:	08000513          	li	a0,128
  76c:	202d                	jal	796 <GPIOB_ModeCfg>

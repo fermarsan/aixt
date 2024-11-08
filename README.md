@@ -102,11 +102,11 @@ import time
 import pin
 
 fn main() {
-    pin.setup(b7, output)
+    pin.setup(pin.pin.pin.b7, pin.output)
 
-    pin.high(b7)    //turn ON the LED on PORTB7
+    pin.high(pin.b7)    //turn ON the LED on PORTB7
     time.sleep_ms(5500)
-    pin.low(b7)
+    pin.low(pin.b7)
 }
 ```
 

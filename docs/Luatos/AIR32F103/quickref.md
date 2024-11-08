@@ -226,7 +226,7 @@ time.sleep_us(US) //Microseconds
 import pin
 import time {sleep_ms}
 
-pin.setup(14, output)
+pin.setup(14, pin.output)
 
 for {   //infinite loop
     pin.high(14)
@@ -244,8 +244,8 @@ const int intPIN = PA0; //entrada digital al led PA0
 void setup() {
      Serial.begin(9600);
      // put your setup code here, to run once:
-     pinMode(ledPIN1, OUTPUT);//led conectado a salida PA3
-      pinMode(intPIN, INPUT);//interruptor conectado a entrada PA0
+     pinMode(ledPIN1, pin.OUTput);//led conectado a salida PA3
+      pinMode(intPIN, pin.INput);//interruptor conectado a entrada PA0
 }
 void loop() {
   // put your main code here, to run repeatedly:
@@ -274,7 +274,7 @@ PWMOutESP32 pwm(10, 5000); //Resolution=10bits, Frequency=5000Hz
 
 void setup() {
   Serial.begin(115200);
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN, pin.OUTput);
 
   Serial.println("\nPWMOutESP32");
   Serial.println("Library for controlling ESP32 PWM outputs similar to use on Arduino");

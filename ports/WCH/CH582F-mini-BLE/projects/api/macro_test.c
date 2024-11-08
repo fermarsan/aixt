@@ -41,9 +41,9 @@ pub fn low(a11) {
 
 int main() 
 {
-    //printf(pin.setup(a11, output));
+    //printf(pin.setup(pin.a11, pin.output)put));
     printf(pin.setup(4, 10));
-    printf(pin.high(a11));
+    printf(pin.high(pin.a11));
     return 0;
 }
 

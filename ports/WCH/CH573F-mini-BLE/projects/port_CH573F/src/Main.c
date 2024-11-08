@@ -55,12 +55,12 @@ int main(void) {
     SetSysClock(CLK_SOURCE_PLL_60MHz);
 
 	main__init();
-	port.setup(a, 0x00000800, port.output);
-	port.setup(b, 0xFFFFFFFF, port.output);
+	port.setup(port.a, pin.0x00000800, port.output);
+	port.setup(port.b, pin.0xFFFFFFFF, port.output);
 	while(true) {
-		port.write(a, 0x00000800);
+		port.write(port.a, 0x00000800);
 		time.sleep_ms(500);
-		port.write(b, 0x00000800);
+		port.write(port.b, 0x00000800);
 		time.sleep_ms(500);
 	}
 	return 0;

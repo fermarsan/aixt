@@ -1895,7 +1895,7 @@ uint32 capsense_FtIIR1stOrder(uint32 input, uint32 prevOutput, uint32 n, uint32 
 *  Returns the filtered data.
 *
 *******************************************************************************/
-uint32 capsense_FtJitter(uint32 input, uint32 prevOutput)
+uint32 capsense_FtJitter(uint32 input, pin.uint32 prevOutput)
 {
     if (prevOutput > input)
     {

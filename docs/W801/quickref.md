@@ -195,8 +195,8 @@ const int pin2 = PB22;
 
 void setup() {
   Serial.begin(115200);
-  pinMode(pin1, OUTPUT);
-  pinMode(pin2, OUTPUT);
+  pinMode(pin1, pin.OUTput);
+  pinMode(pin2, pin.OUTput);
 }
 void loop() {
  	Serial.println("\r\n Comunicacion UART tarjeta W801-PC:");
@@ -355,7 +355,7 @@ time.sleep_us(US) //Microseconds
 import pin
 import time {sleep_ms}
 
-pin.setup(14, output)
+pin.setup(14, pin.output)
 
 for {   //infinite loop
     pin.high(14)

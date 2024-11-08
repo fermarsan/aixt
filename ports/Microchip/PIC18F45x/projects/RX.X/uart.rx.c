@@ -162,7 +162,7 @@ pub fn read(PIN_NAME) {
 }
 @[inline]
 pub fn setup(PIN_NAME, PIN_MODE) {
-	C.PIN_NAME ## _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+	C.PIN_NAME ## _s = PIN_MODE  // pin.setup(pin.b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
 }
 @[inline]
 pub fn write(PIN_NAME,VAL) {
@@ -220,11 +220,11 @@ void pin.init() {
 
 void main(void) {
 	main__init();
-	port.setup(b, port.output);
-	port.write(b, 0b00000000);
-	pin.setup(c7, input);
+	port.setup(port.b, pin.port.output);
+	port.write(port.b, 0b00000000);
+	pin.setup(pin.c7, pin.input);
 	uart.setup();
 	while(true) {
-		port.read(b) = uart.read();
+		port.read(port.b) = uart.read();
 	}
 }

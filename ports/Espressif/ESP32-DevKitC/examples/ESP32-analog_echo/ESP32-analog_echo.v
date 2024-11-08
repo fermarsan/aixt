@@ -9,7 +9,7 @@ import pin
 import adc
 import pwm
 
-pin.setup(gpio32, output)
+pin.setup(gpio32, pin.output)
 
 for {
 	value := adc.read(adc2_4)

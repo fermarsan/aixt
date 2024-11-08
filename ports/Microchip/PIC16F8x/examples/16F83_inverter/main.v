@@ -7,13 +7,13 @@
 import time
 import pin
 
-pin.setup(b3, input)
-pin.setup(b4, output)
+pin.setup(pin.b3, pin.input)
+pin.setup(pin.b4, pin.output)
 
 for {
-	if pin.read(b3) == 1 {
-		pin.low(b4)
+	if pin.read(pin.b3) == 1 {
+		pin.low(pin.b4)
 	} else {
-		pin.high(b4)
+		pin.high(pin.b4)
 	}
 }

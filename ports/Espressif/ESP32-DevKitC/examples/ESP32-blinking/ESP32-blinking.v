@@ -6,7 +6,7 @@
 import time
 import pin
 
-pin.setup(gpio2, output)
+pin.setup(gpio2, pin.output)
 
 for {
 	pin.high(gpio2)

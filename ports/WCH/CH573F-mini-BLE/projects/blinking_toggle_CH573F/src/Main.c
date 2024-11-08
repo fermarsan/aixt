@@ -78,9 +78,9 @@ pub fn toggle(PIN_NAME) {
 
 int main(void) {
 
-pin.setup(a8, output);
+pin.setup(pin.a8, pin.output);
 while(true) {
-pin.toggle(a8);
+pin.toggle(pin.a8);
 time.sleep_ms(150);
 }
 return 0;

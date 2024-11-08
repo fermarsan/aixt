@@ -1,8 +1,8 @@
 import time { sleep_ms }
 import pin
 
-pin.setup(led, output)
-pin.setup(gp11, input)
+pin.setup(led, pin.output)
+pin.setup(gp11, pin.input)
 
 for {
 	b0n := false

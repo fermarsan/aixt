@@ -5,9 +5,9 @@
 module pin
 
 /// low macro sets an output pin. This is expanded in this way:
-//   pin.low(b2)
+//   pin.low(pin.b2)
 //     |
-//	   +-->	pin.low(B, 2)
+//	   +-->	pin.low(pin.B, 2)
 //	          |
 //	          +-->	PORTBbits.PORTB2 = 0	// PIC16	
 // 	          		LATBbits.LATB2 = 0		// (PIC18, PIC24, dsPIC33)

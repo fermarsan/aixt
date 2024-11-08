@@ -3,4 +3,4 @@ import time
 
 
 time.sleep_ms(1000)
-pin.setup(b0, output)
+pin.setup(pin.b0, pin.output)

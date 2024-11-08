@@ -6,10 +6,10 @@
 import time
 import pin
 
-pin.setup(d8, input)
+pin.setup(pin.d8, pin.input)
 
 for {
-	if pin.read(d8) == 1 {
+	if pin.read(pin.d8) == 1 {
 		pin.low(led0)	// builtin LED
 	} else {
 		pin.high(led0)

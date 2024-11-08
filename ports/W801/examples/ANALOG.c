@@ -119,9 +119,9 @@ int main() {
 	main__init();
 	pin__init();
 	
-	pin__setup(a1, pin__input); 
-	pin__setup(a5, pin__output); 
-	pin__setup(a6, pin__output); 
+	pin__setup(a1, pin.pin__input); 
+	pin__setup(a5, pin.pin__output); 
+	pin__setup(a6, pin.pin__output); 
 	pin__low(a5); 
 	pin__low(a6); 
 	while( true ) {

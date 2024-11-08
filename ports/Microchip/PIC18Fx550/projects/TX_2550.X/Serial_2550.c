@@ -94,7 +94,7 @@ void main(void) {
 void main(void) {
     
        //CONFIG DE LOS PINES
-    pin.setup(c6_s,0);    //RC6 = TX
+    pin.setup(pin.c6_s,0);    //RC6 = TX
 
        //Inicializamos la comunicación serial
     uart.setup();

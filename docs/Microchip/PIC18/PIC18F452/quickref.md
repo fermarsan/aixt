@@ -85,32 +85,32 @@ name                             | description
 
 ## Configuración de pines 
 ```go
-pin.setup(d3, output)      // Función para configurar el pin como salida 
-pin.setup(a2, output)      // Función para configurar el pin como salida
-pin.setup(b5, input)    // Función para configurar el pin como entrada
-pin.setup(d1, input)    // Función para configurar el pin como entrada
+pin.setup(pin.d3, pin.output)      // Función para configurar el pin como salida 
+pin.setup(pin.a2, pin.output)      // Función para configurar el pin como salida
+pin.setup(pin.b5, pin.input)    // Función para configurar el pin como entrada
+pin.setup(pin.d1, pin.input)    // Función para configurar el pin como entrada
 
-pin.high(b3)    // Función para encender el pin           
-pin.low(b3)     // Función para apagar el pin
+pin.high(pin.b3)    // Función para encender el pin           
+pin.low(pin.b3)     // Función para apagar el pin
 
-pin.write(d1, 0)  // Función sobre escribir el pin
-pin.write(d1, 1)  // Función sobre escribir el pin
+pin.write(pin.d1, 0)  // Función sobre escribir el pin
+pin.write(pin.d1, 1)  // Función sobre escribir el pin
 
-pin.read(a4)      // Función para leer el pin
-pin.read(b3)      // Función para leer el pin
+pin.read(pin.a4)      // Función para leer el pin
+pin.read(pin.b3)      // Función para leer el pin
 
 ```
 ## Configuración de puertos
 ```go
 
-port.setup(d3, output)      // Función para configurar el pin como salida 
-port.setup(b5, input)    // Función para configurar el pin como entrada
+port.setup(port.d3, pin.output)      // Función para configurar el pin como salida 
+port.setup(port.b5, pin.input)    // Función para configurar el pin como entrada
 
-port.write(d1, 0b01010101)  // Función sobre escribir el pin
-port.write(d1, 0x00)  // Función sobre escribir el pin
+port.write(port.d1, 0b01010101)  // Función sobre escribir el pin
+port.write(port.d1, 0x00)  // Función sobre escribir el pin
 
-port.read(a4)      // Función para leer el pin
-port.read(b3)      // Función para leer el pin
+port.read(port.a4)      // Función para leer el pin
+port.read(port.b3)      // Función para leer el pin
 
 ```
 Ejemplo de prender y apagar un led:
@@ -118,9 +118,9 @@ Ejemplo de prender y apagar un led:
 ```go
       
 for {
-    pin.high(d4)
+    pin.high(pin.d4)
     time.sleep_ms(500)
-    pin.low(d4)
+    pin.low(pin.d4)
     time.sleep_ms(500)
 }
 ```
@@ -132,14 +132,14 @@ for {
     
     if(d4 == 0){        // Condición si encuentra un 0 en el d4
         
-        pin.high(c3)
-        pin.high(c5)
+        pin.high(pin.c3)
+        pin.high(pin.c5)
     }
     
     else if(d2 == 1){   // Condición si encuentra un 1 en el d2
         
-        pin.low(a4)
-        pin.low(a2)
+        pin.low(pin.a4)
+        pin.low(pin.a2)
     }
 
 }
@@ -152,27 +152,27 @@ for {
     
 // CONFIGURAMOS EL PUERTO B COMO SALIDA
 
-    port.setup(b, port.output)
+    port.setup(port.b, pin.port.output)
     
     // CONFIGURAMOS EL PUERTO C COMO SALIDA
 
-    port.setup(c, port.output)
+    port.setup(port.c, pin.port.output)
 
     // LIMPIAMOS EL PUERTO B
 
-    port.write(b, 0x00)
+    port.write(port.b, 0x00)
 
     // LIMPIAMOS EL PUERTO c
 
-    port.write(c, 0x00)
+    port.write(port.c, 0x00)
    
     for
     {
 
         adc.read(0)
         valor := adc.reading()
-        port.write(b, valor & 0xFF)                   // Muestra el dato de la parte baja en el puerto B
-        port.write(c, (valor>>8) & 0x03 )                 // Muestra el dato de la parte alta en el puerto C
+        port.write(port.b, valor & 0xFF)                   // Muestra el dato de la parte baja en el puerto B
+        port.write(port.c, (valor>>8) & 0x03 )                 // Muestra el dato de la parte alta en el puerto C
         time.sleep_ms(10)
     }
 
@@ -200,7 +200,7 @@ Ejemplo de variar la intensidad de un led:
 ```go
    
        //CONFIG DE LOS PINES
-    pin.setup(c6,output)   //RC6 = TX
+    pin.setup(pin.c6,output)   //RC6 = TX
 
        //Inicializamos la comunicación serial
     uart.setup()
@@ -217,21 +217,21 @@ Ejemplo de variar la intensidad de un led:
 
 ```go
 
-    port.setup(b, port.output)
+    port.setup(port.b, pin.port.output)
 
     // LIMPIAMOS EL PUERTO B
 
-    port.write(b, port.output)
+    port.write(port.b, pin.port.output)
     
    
    // CONFIGURAMOS EL C7 PARA LA RECEPCIÓN DE DATOS
-    pin.setup(c7,input)
+    pin.setup(pin.c7,input)
 
    // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
     uart.setup()             
 
      for {
-         port.write(b, uart.read())
+         port.write(port.b, uart.read())
      }
 
 

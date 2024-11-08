@@ -89,34 +89,34 @@ void main(void) {
 
     // CONFIGURAMOS EL PUERTO B COMO SALIDA
 
-    pin.setup(b0_s, out);
-    pin.setup(b1_s, out);
-    pin.setup(b2_s, out);
-    pin.setup(b3_s, out);
-    pin.setup(b4_s, out);
-    pin.setup(b5_s, out);
-    pin.setup(b6_s, out);
-    pin.setup(b7_s, out);
+    pin.setup(pin.b0_s, out);
+    pin.setup(pin.b1_s, out);
+    pin.setup(pin.b2_s, out);
+    pin.setup(pin.b3_s, out);
+    pin.setup(pin.b4_s, out);
+    pin.setup(pin.b5_s, out);
+    pin.setup(pin.b6_s, out);
+    pin.setup(pin.b7_s, out);
 
     // LIMPIAMOS EL PUERTO B
 
-    pin.write(b0, 0);
-    pin.write(b1, 0);
-    pin.write(b2, 0);
-    pin.write(b3, 0);
-    pin.write(b4, 0);
-    pin.write(b5, 0);
-    pin.write(b6, 0);
-    pin.write(b7, 0);  
+    pin.write(pin.b0, 0);
+    pin.write(pin.b1, 0);
+    pin.write(pin.b2, 0);
+    pin.write(pin.b3, 0);
+    pin.write(pin.b4, 0);
+    pin.write(pin.b5, 0);
+    pin.write(pin.b6, 0);
+    pin.write(pin.b7, 0);  
    
    // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
-    pin.setup(c7_s,1); //;
+    pin.setup(pin.c7_s,1); //;
 
    // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
     uart.setup();               
 
      while (1) {
-         val=rx_read();   // port.write (b_o, val)
+         val=rx_read();   // port.write (port.b_o, val)
      }
     return;
 } 

@@ -82,19 +82,19 @@ void pin.init() {
 int main(void) {
     SetSysClock(CLK_SOURCE_PLL_60MHz);
 	main__init();
-	pin.setup(a13, output);
-	pin.setup(a14, output);
-	pin.setup(a15, output);
+	pin.setup(pin.a13, pin.output);
+	pin.setup(pin.a14, pin.output);
+	pin.setup(pin.a15, pin.output);
 	while(true) {
-		pin.high(a13);
+		pin.high(pin.a13);
 		time.sleep_ms(500);
-		pin.low(a13);
-		pin.high(a14);
+		pin.low(pin.a13);
+		pin.high(pin.a14);
 		time.sleep_ms(500);
-		pin.low(a14);
-		pin.high(a15);
+		pin.low(pin.a14);
+		pin.high(pin.a15);
 		time.sleep_ms(500);
-		pin.low(a15);
+		pin.low(pin.a15);
 	}
 	return 0;
 }

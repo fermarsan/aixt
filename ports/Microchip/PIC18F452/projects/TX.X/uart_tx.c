@@ -148,7 +148,7 @@ pub fn read(PIN_NAME) {
 }
 @[inline]
 pub fn setup(PIN_NAME, PIN_MODE) {
-	C.PIN_NAME ## _s = PIN_MODE  // pin.setup(b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
+	C.PIN_NAME ## _s = PIN_MODE  // pin.setup(pin.b0_s, out);  -->  b0_s = out; --> TRISBbits.RB0 = 0;
 }
 @[inline]
 pub fn write(PIN_NAME,VAL) {
@@ -207,7 +207,7 @@ void time.init() {
 
 void main(void) {
 	main__init();
-	pin.setup(c6, output);
+	pin.setup(pin.c6, pin.output);
 	uart.setup();
 	while(true) {
 		uart.write(0x33);

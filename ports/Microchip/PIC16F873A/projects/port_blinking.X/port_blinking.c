@@ -9,13 +9,13 @@
 
 void main(void) {
     
-    port.setup(b,0b00000000);
+    port.setup(port.b,0b00000000);
     
     while(1) {
         
-        port.write(b,0b01010101);
+        port.write(port.b,0b01010101);
         sleep_ms(500);
-        port.write(b,0b10101010);
+        port.write(port.b,0b10101010);
         sleep_ms(500);      
         
     }

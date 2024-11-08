@@ -1,9 +1,9 @@
 import pin
 import adc
 
-pin.setup(p5, input)
-pin.setup(p10, output)
-pin.setup(p11, output)
+pin.setup(p5, pin.input)
+pin.setup(p10, pin.output)
+pin.setup(p11, pin.output)
 
 for {
 	if 400 <= adc.read(p5) {

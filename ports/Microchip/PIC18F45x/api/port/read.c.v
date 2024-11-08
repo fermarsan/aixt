@@ -6,7 +6,7 @@
 module port
 
 // read macro reads the value of a complete pin port. This is expanded in this way:
-//   x = port.read(a)
+//   x = port.read(port.a)
 //     |
 //	   +-->	x = PORTa
 //            |

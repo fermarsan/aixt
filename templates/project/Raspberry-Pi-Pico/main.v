@@ -6,7 +6,7 @@
 import time
 import pin
 
-pin.setup(gp25, output)
+pin.setup(gp25, pin.output)
 
 pin.high(gp25)
 time.sleep_ms(500)

@@ -84,11 +84,11 @@ int main(void) {
 main__init();
 time.init();
 pin.init();
-pin.setup(a8, output);
+pin.setup(pin.a8, pin.output);
 while(true) {
-pin.high(a8);
+pin.high(pin.a8);
 time.sleep_ms(150);
-pin.low(a8);
+pin.low(pin.a8);
 time.sleep_ms(150);
 }
 return 0;

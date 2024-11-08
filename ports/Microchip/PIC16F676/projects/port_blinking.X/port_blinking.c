@@ -7,13 +7,13 @@
 
 void main(void) {
     
-    port.setup(c,0b00000000);
+    port.setup(port.c,0b00000000);
     
     while(1){
         
-        port.write(c,0b010101);
+        port.write(port.c,0b010101);
         sleep_ms(500);
-        port.write(c,0b101010);
+        port.write(port.c,0b101010);
         sleep_ms(500);      
         
     }

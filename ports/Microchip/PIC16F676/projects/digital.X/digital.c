@@ -84,24 +84,24 @@ void pin.init() {
 
 void main(void) {
 	main__init();
-	pin.setup(c2, input);
-	pin.setup(c4, input);
-	pin.setup(c0, output);
-	pin.setup(c1, output);
-	pin.write(c0, 0);
+	pin.setup(pin.c2, pin.input);
+	pin.setup(pin.c4, pin.input);
+	pin.setup(pin.c0, pin.output);
+	pin.setup(pin.c1, pin.output);
+	pin.write(pin.c0, 0);
 	unsigned char x = 0;
 	unsigned char x1 = 0;
 	pin.digital();
 	while(true) {
-		x = pin.read(c2);
-		x1 = pin.read(c4);
+		x = pin.read(pin.c2);
+		x1 = pin.read(pin.c4);
 		if(x == 1) {
-			pin.high(c0);
-			pin.high(c1);
+			pin.high(pin.c0);
+			pin.high(pin.c1);
 		}
 		else if(x1 == 1) {
-			pin.low(c0);
-			pin.low(c1);
+			pin.low(pin.c0);
+			pin.low(pin.c1);
 		}
 	}
 }

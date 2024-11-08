@@ -5,9 +5,9 @@
 module pin
 
 // toggle macro sets an output pin. This is expanded in this way:
-//   pin.toggle(b2)
+//   pin.toggle(pin.b2)
 //     |
-//	   +-->	pin.toggle(B, 2)
+//	   +-->	pin.toggle(pin.B, 2)
 //	          |
 //	          +-->	PORTBbits.PORTB2 ^= 1	// PIC16	
 // 	          		LATBbits.LATB2 ^= 1		// (PIC18, PIC24, dsPIC33)

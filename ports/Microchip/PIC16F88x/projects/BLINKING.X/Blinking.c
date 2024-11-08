@@ -118,19 +118,19 @@ void time.init() {
 
 void main(void) {
 	main__init();
-	pin.setup(b4, output);
-	pin.setup(b5, output);
-	pin.setup(b6, output);
+	pin.setup(pin.b4, pin.output);
+	pin.setup(pin.b5, pin.output);
+	pin.setup(pin.b6, pin.output);
 	while(true) {
-		pin.high(b4);
+		pin.high(pin.b4);
 		time.sleep_ms(500);
-		pin.high(b5);
+		pin.high(pin.b5);
 		time.sleep_ms(500);
-		pin.high(b6);
+		pin.high(pin.b6);
 		time.sleep_ms(500);
-		pin.low(b4);
-		pin.low(b5);
-		pin.low(b6);
+		pin.low(pin.b4);
+		pin.low(pin.b5);
+		pin.low(pin.b6);
 		time.sleep_ms(500);
 	}
 }

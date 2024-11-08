@@ -1285,7 +1285,7 @@ int main(void) {
  718:	1141                	addi	sp,sp,-16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:53
 
-pin.setup(a4, input);
+pin.setup(pin.a4, pin.input);
  71a:	4581                	li	a1,0
  71c:	4541                	li	a0,16
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:51
@@ -1293,7 +1293,7 @@ int main(void) {
  71e:	c422                	sw	s0,8(sp)
  720:	c606                	sw	ra,12(sp)
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:53
-pin.setup(a4, input);
+pin.setup(pin.a4, pin.input);
  722:	28e9                	jal	7fc <GPIOA_ModeCfg>
 C:\Users\USER\repos\aixt_ccgg\ports\WCH\CH573F-mini-BLE\projects\adc_CH573F\obj/../src/Main.c:54
 adc.setup(0);

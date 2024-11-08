@@ -15,15 +15,15 @@ import adc
 import port
 
 adc.setup() 
-port.setup(b, port.output) // CONFIGURE PORT B AS OUTPUT
-port.setup(c, port.output) // CONFIGURE PORT C AS OUTPUT
-port.write(b, 0x00) // CLEAN PORT B
-port.write(c, 0x00) // CLEAN THE PORT C
+port.setup(port.b, pin.port.output) // CONFIGURE PORT B AS OUTPUT
+port.setup(port.c, pin.port.output) // CONFIGURE PORT C AS OUTPUT
+port.write(port.b, 0x00) // CLEAN PORT B
+port.write(port.c, 0x00) // CLEAN THE PORT C
 
 for {
 	value := adc.read(0) // Stores the ADC value
-	port.write(b, value & 0xFF) // Shows the lower part data on port B
-	port.write(c, (value >> 8) & 0x03) // Shows the high part data on port C
+	port.write(port.b, value & 0xFF) // Shows the lower part data on port B
+	port.write(port.c, (value >> 8) & 0x03) // Shows the high part data on port C
 	time.sleep_ms(10)
 }
 ```

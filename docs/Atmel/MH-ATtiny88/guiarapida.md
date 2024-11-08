@@ -179,7 +179,7 @@ Parpadeo de un LED en un ciclo infinito con retraso de tiempo:
 import time { sleep_ms }  			// importa (sleep_ms) del modulo time
 import pin				        // importa el modulo pin en su totalidad
 
-pin.setup(1, output)  			// configura el pin 1 como salida
+pin.setup(1, pin.output)  			// configura el pin 1 como salida
 for {                     			//crea el void loob
 	pin.high(1)			        //pin encendido
 	sleep_ms(500)	  	      		//retardo en milisegundos 
@@ -192,9 +192,9 @@ for {                     			//crea el void loob
 import time {sleep_ms}          //importa la funcion sleep_ms de el modulo time   
 import pin 			// Importa el módulo pin en su totalidad
 
-pin.setup(14, output)    	// Establece el pin #14 como salida
-pin.setup(15, output)    	// Establece el pin #15 como salida
-pin.setup(16, output)    	// Establece el pin #16 como salida
+pin.setup(14, pin.output)    	// Establece el pin #14 como salida
+pin.setup(15, pin.output)    	// Establece el pin #15 como salida
+pin.setup(16, pin.output)    	// Establece el pin #16 como salida
 
 for{
     pin.high(14)  		// salida 14 high   
