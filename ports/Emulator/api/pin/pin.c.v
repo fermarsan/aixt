@@ -9,21 +9,30 @@ module pin
 #include <stdio.h>
 #include <stdlib.h>
 
+// enum Pin_names { 
+//     a = 0
+//     b
+//     c
+//     d
+//     w
+//     x
+//     y
+//     z
+// }
+
+pub const a = 0
+pub const b = 1
+pub const c = 2
+pub const d = 3
+pub const w = 4
+pub const x = 5
+pub const y = 6
+pub const z = 7
+
 __global (
 	pin__pins  = [0, 0, 0, 0, 0, 0, 0, 0] // virtual pin array
 	input_value = 0
 )
-
-enum Pin_names { 
-    a = 0
-    b
-    c
-    d
-    w
-    x
-    y
-    z
-}
 
 // pin_update prints the pins table in the command line
 pub fn update() {

@@ -35,6 +35,6 @@ fn (mut gen Gen) get_str_c_type(typ ast.Type) (string, string) {
 	return if var_type == 'int' {	// replace 'int' by 'i32' to avoid compiler ambiguity
 		ref, 'i32'
 	} else {
-		ref, var_type.replace('C.', '')
+		ref, var_type.replace('C.', '').replace(' ', '_')
 	}
 }
