@@ -5,7 +5,6 @@
 module time
 
 // sleep is a delay function in seconds for the Aixt PC port. 
-@[inline]
 pub fn sleep(ts int) {
 	$if linux {
         C.sleep(ts)

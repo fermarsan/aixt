@@ -4,7 +4,6 @@
 // License: MIT
 module uart
 
-@[inline]
 pub fn print(msg string) {
 	C.printf('\033[1;32m')	// green
     C.printf('%s', msg)
