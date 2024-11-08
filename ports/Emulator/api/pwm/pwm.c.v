@@ -9,10 +9,10 @@ module pwm
 #include <stdio.h>
 #include <stdlib.h>
 
-enum PWM_names {
-    pwm0 = 0
-    pwm1
-}
+//PWM names
+pub const ch0 = 0
+pub const ch1 = 1
+
 
 __global (
     pwm__duty = [0, 0]
@@ -36,9 +36,9 @@ pub fn update() {
         C.system("cls")
     }
     C.printf(' Aixt virtual PWM outputs\n')
-    C.printf('\t\t\t\t    PWM 0 :  %ld %%\n', pwm__duty[0])
+    C.printf('\t\t\t\t    PWM 0 :  %d %%\n', pwm__duty[0])
     pwm.print(pwm__duty[0])
-    C.printf('\t\t\t\t    PWM 1 :  %ld %%\n', pwm__duty[1])
+    C.printf('\t\t\t\t    PWM 1 :  %d %%\n', pwm__duty[1])
     pwm.print(pwm__duty[1])
 }
 
