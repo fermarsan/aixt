@@ -7,7 +7,7 @@
 module port
 
 // write function writes an 8 bit value on a port
-@[inline]
+@[as_macro]
 pub fn write(name u8, value u8) { 
 	unsafe {
 		*(&C.PORTB + (name*3)) = value

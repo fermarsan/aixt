@@ -7,7 +7,7 @@
 module port
 
 // setup configures bit by bit the pin mode of a 8 bit port
-@[inline]
+@[as_macro]
 pub fn setup(name u8, mode u8) {
 	unsafe { 
 		*(&C.DDRB + (name*3)) = ~mode 

@@ -5,7 +5,7 @@
 module uart
 
 // print function prints data to the serial port as human-readable ASCII text
-@[inline]
+@[as_macro]
 pub fn print(message string) {  
 	C.Serial.print(message)
 }

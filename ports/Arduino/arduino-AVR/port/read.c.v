@@ -7,7 +7,7 @@
 module port
 
 // read function reads an 8 bit value from a port
-@[inline]
+@[as_macro]
 pub fn read(name u8) u8 {
 	unsafe {
 		return u8(*(&C.PINB + (name*3)))

@@ -11,7 +11,7 @@ port.setup(port.b, 0b11111111)	// all inputs
 port.setup(port.c, 0b11110000)	// 4 LSBs outputs
 
 for {
-	port.write(pin.c, port.read(port.b))
+	port.write(port.c, port.read(port.b))
 	time.sleep_ms(100)
 }
 

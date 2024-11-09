@@ -7,15 +7,15 @@ import time
 import pin
 import pwm
 
-pin.setup(pin.d3, pin.output)
+pin.setup(pwm.ch0, pin.output)
 
 for {
 	for level in 0 .. 256 {
-		pwm.write(d3, level)
+		pwm.write(pwm.ch0, level)
 		time.sleep_ms(5) 
 	}
 	for level in 0 .. 256 {
-		pwm.write(d3, 255-level)
+		pwm.write(pwm.ch0, 255-level)
 		time.sleep_ms(5) 
 	}
     time.sleep_ms(100)   

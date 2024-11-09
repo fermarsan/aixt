@@ -5,7 +5,7 @@
 module uart
 
 // read function reads incoming serial data
-@[inline]
+@[as_macro]
 pub fn read() u8 {
 	return C.Serial.read()
 }

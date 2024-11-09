@@ -5,7 +5,7 @@
 module adc
 
 //read function reads the value from the specified analog pin
-@[inline]
+@[as_macro]
 pub fn read(name u8) u16 {
 	return C.analogRead(name)
 }
