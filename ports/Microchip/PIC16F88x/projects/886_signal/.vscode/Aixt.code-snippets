@@ -1,0 +1,82 @@
+{
+	"aixt.snippet.sleep": {
+		"prefix": "sleep",
+		"body": "${1|sleep,sleep_ms,sleep_us|}($2)",
+		"description": "Sleep functions"
+	},
+	"aixt.snippet.time": {
+		"prefix": "time.",
+		"body": "time.${1|sleep,sleep_ms,sleep_us|}($2)",
+		"description": "Sleep functions with time prefix"
+	},
+	"aixt.snippet.setup": {
+		"prefix": "setup",
+		"body": "${1|pin,port,adc,pwm,uart|}.setup($2)",
+		"description": "Generic module setup function"
+	},
+	"aixt.snippet.read": {
+		"prefix": "read",
+		"body": "${1|pin,port,adc,uart|}.read($2)",
+		"description": "Generic module reading function"
+	},
+	"aixt.snippet.write": {
+		"prefix": "write",
+		"body": "${1|pin,port,pwm,uart|}.write($2)",
+		"description": "Generic module writing function"
+	},
+	"aixt.snippet.read_byte": {
+		"prefix": "read_B",
+		"body": "adc.read_byte($1)",
+		"description": "ADC byte reading function"
+	},
+	"aixt.snippet.print": {
+		"prefix": "print",
+		"body": "${1|uart,sw_uart|}.print($2)",
+		"description": "UART printing string function"
+	},
+	"aixt.snippet.println": {
+		"prefix": "println",
+		"body": "${1|uart,sw_uart|}.println($2)",
+		"description": "UART printing string + line new function"
+	},
+	"aixt.snippet.input": {
+		"prefix": "input",
+		"body": "${1|uart,sw_uart|}.input()",
+		"description": "UART capturing string function"
+	},
+	"aixt.snippet.high": {
+		"prefix": "high",
+		"body": "pin.high($1)",
+		"description": "Pin high level function"
+	},
+	"aixt.snippet.low": {
+		"prefix": "low",
+		"body": "pin.low($1)",
+		"description": "Pin low level function"
+	},
+	"aixt.snippet.toggle": {
+		"prefix": "toggle",
+		"body": "pin.toggle($1)",
+		"description": "Pin toggle level function"
+	},
+	"aixt.snippet.pin_mode": {
+		"prefix": "pinm",
+		"body": "pin.${1|input,output|}",
+		"description": "Pin mode constants"
+	},
+	"aixt.snippet.port_pin_mode": {
+		"prefix": "portm",
+		"body": "port.${1|all_inputs,all_outputs|}",
+		"description": "Port pin mode constants"
+	},
+	"aixt.snippet.ADC_frequency": {
+		"prefix": "f_",
+		"body": "f_${1|30ksps_1mhz,30ksps_4mhz,18ksps_8mhz,21ksps_10mhz,24ksps_12mhz,30ksps_16mhz,34ksps_20mhz,18Ksps_irc|}",
+		"description": "ADC frequency constant"
+	},
+	"aixt.snippet.ADC_n_bits": {
+		"prefix": "nbits",
+		"body": "nbits_${1|8,10|}",
+		"description": "ADC conversion bits constant"
+	},
+  }

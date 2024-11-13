@@ -1,0 +1,1 @@
+These files contains coding examples in _Aixt_ (_V_), for testing several features of the language.

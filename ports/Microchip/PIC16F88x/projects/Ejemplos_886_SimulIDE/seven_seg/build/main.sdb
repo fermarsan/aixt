@@ -1,0 +1,34 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F886 ]
+[d frameptr 0 ]
+"10 /opt/microchip/xc8/v2.46/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 /opt/microchip/xc8/v2.46/pic/sources/c99/common/Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 /opt/microchip/xc8/v2.46/pic/sources/c99/pic/__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"49 /home/fercho/aixt_testing/Ejemplos_886_SimulIDE/seven_seg/main.c
+[v _main main `(v  1 e 1 0 ]
+"166 /opt/microchip/xc8/v2.46/pic/include/proc/pic16f886.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"228
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"1337
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1399
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"49 /home/fercho/aixt_testing/Ejemplos_886_SimulIDE/seven_seg/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"51
+[v main@salidas salidas `[10]l  1 a 40 0 ]
+"52
+[v main@indice indice `l  1 a 4 40 ]
+"49
+[v main@F1682 F1682 `[10]l  1 s 40 F1682 ]
+"60
+} 0
