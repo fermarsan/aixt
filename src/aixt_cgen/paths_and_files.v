@@ -5,6 +5,7 @@
 module aixt_cgen
 
 import os
+import v.ast
 
 // load_mod_paths function detects all the modules in API folders
 fn (mut gen Gen) load_mod_paths() {
@@ -28,7 +29,7 @@ fn (mut gen Gen) load_mod_paths() {
 // add_sources recursively finds and adds all the source file paths in a given path
 fn (mut gen Gen) add_sources(global_path string) {
 	if os.is_file(global_path) {	// only one source code
-		if global_path.ends_with('.v') || global_path.ends_with('.aixt') {
+		if global_path.ends_with('.v') {	//|| global_path.ends_with('.aixt') {
 			gen.source_paths << global_path
 		}
 	} else {
@@ -37,4 +38,68 @@ fn (mut gen Gen) add_sources(global_path string) {
 			gen.add_sources('${global_path}/${path}')	// recursively find
 		}
 	}
+}
+
+
+// // find_imports recursively finds and adds all the source file paths from import commands
+// fn (mut gen Gen) find_imports(node ast.Node) []string {
+// 	mut out := []string{}
+// 	match node {
+// 		ast.File {
+// 			for st in node.Stmts
+// 			return gen.ast_file(node)
+// 		}
+// 		ast.Stmt {
+// 			return [ gen.stmt(node).join('\n') ]
+// 		}
+// 		else {
+// 			return []
+// 		} //'Error: Not defined node.\n' }
+// 	}
+// }
+
+
+// import_paths return the file paths of an specific module (import command)
+fn (mut gen Gen) import_paths(node ast.Import) []string {
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
+	mut out := []string{}
+	module_short_name := node.mod.all_after_last('.')
+	if module_short_name in gen.api_mod_paths {	// API modules
+		module_path := gen.api_mod_paths[module_short_name]
+		if os.exists('${module_path}/${module_short_name}.c.v') {
+			out << '${module_path}/${module_short_name}.c.v'	// adds `module_name.c.v`  first
+		}
+		if node.syms.len == 0 {	// if import all the module
+			file_paths := os.ls('${module_path}') or { [] }
+			// println('############# ${file_paths} #############')
+			for file_path in file_paths {
+				if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
+					if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v` 
+						out << os.abs_path('${module_path}/${file_path}')
+					}			
+				}
+			}
+		} else {	// if import specific module components
+			for s in node.syms {
+				out << os.abs_path('${module_path}/${s.name}.c.v')
+			}
+		}
+	} else {	// Custom modules
+		module_path := '${node.mod.replace('.', '/')}'
+		// println('############# ${module_short_name} #############')
+		if node.syms.len == 0 {
+			file_paths := os.ls('${module_path}') or { [] }
+			// println(file_paths)
+			for file_path in file_paths {
+				if file_path.ends_with('.v') { // || file_path.ends_with('.aixt') {
+					out << os.abs_path('${module_path}/${file_path}')
+				}
+			}
+		} else {
+			for s in node.syms {
+				out << os.abs_path('${module_path}/${s.name}.v')
+			}
+		}
+	}
+	return out
 }

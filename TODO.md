@@ -26,8 +26,6 @@ Tasks to do in Aixt
 - [ ] make groups of PIC microcontrollers families
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
-- [ ] define API modules' parameters as constants
-- [ ] add a custom attribute for defining constants and functions as C macros in order to save memory in small devices
 
 ### Done ✓
 
@@ -38,3 +36,6 @@ Tasks to do in Aixt
 - [x] Standardize the basic data types as V
 - [x] Add a typedef declaration for each compiler type in `.json` file (remove the necesity to do code replacements)
 - [x] Give support to "type" aliassing
+- [x] add a custom attribute for defining constants and functions as C macros in order to save memory in small devices
+- [x] define API modules' parameters as constants
+- [x] Divide the parsing files order in two rounds (the second one including the imported module's files)

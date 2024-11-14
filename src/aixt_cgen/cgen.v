@@ -70,8 +70,29 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// } $else {
 	// 	file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
 	// }
+
+	// first parse round
 	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
 	checker_.check_files(gen.files)
+	gen.err_war_print()
+
+	// find the import file paths
+	mut imp_paths := []string{}
+	for file in gen.files {	// source folder
+		for imp in file.imports {
+			imp_paths << gen.import_paths(imp)
+		}
+	}
+	gen.source_paths.insert(1, imp_paths)
+
+	// second parse round including imports
+	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
+	checker_.check_files(gen.files)
+	gen.err_war_print()
+
+	// println('>>>>>>>>>>>>>>>>>> ${gen.source_paths} <<<<<<<<<<<<<<<<<<')
+
+
 
 	gen.init_output_file()
 
@@ -83,6 +104,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	println('\n===== Top-down node analysis (Code generation) =====')
 	temp_files := gen.files
 	for i, file in temp_files {	// source folder
+		// println('>>>>>>>>>>>>>>>>>> ${file.imports} <<<<<<<<<<<<<<<<<<')
 		gen.file_count = i
 		gen.out << gen.ast_node(file) // starts from the main node (file)
 	}
