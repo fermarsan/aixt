@@ -10,15 +10,6 @@ import v.ast
 // ident is the code generation function for identifiers.
 fn (mut gen Gen) ident(node ast.Ident) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
-	// println('\n${node.mod} #### ${gen.table.cur_fn.name} #### ${node.name}\n') //  -- ${node.scope.parent}')
-	// println('################## ${node.scope.parent} ##################')
-
-	// mut checker_ := checker.new_checker(gen.table, gen.pref)
-	// checker_.check_files(gen.files)
-
-	// println('################## ${node.name} ##################')
-	// println('################## ${node.mod} ##################')
-	// println('################## ${node.kind} ##################')
 	match node.language {
 		.c {
 			return [node.name.replace('C.', '')]

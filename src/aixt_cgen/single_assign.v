@@ -22,6 +22,8 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 	left_expr := left
 	if op.str() == ':=' { // declaration-assignment
 		out = gen.single_decl_assign(left, left_type, right)
+	} else if left.str().contains('C.') {	// C variable assignment
+		out << $tmpl('c_templates/c_assign.tmpl.c')#[..-1]
 	} else {
 		match left_expr {
 			ast.Ident {	// if it is a simple variable

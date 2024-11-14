@@ -10,5 +10,10 @@ import v.ast
 // such as expr.field
 fn (mut gen Gen) selector_expr(node ast.SelectorExpr) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
-	return [node.expr.str()]
+	if node.expr.str().contains('C.') {
+		return ['${node.expr.str().replace('C.', '')}.${node.field_name}']
+	}
+	else {
+		return ['${node.expr}.${node.field_name}']
+	}
 }

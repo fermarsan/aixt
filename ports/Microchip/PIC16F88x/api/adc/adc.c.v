@@ -18,11 +18,11 @@ module adc
 @[as_macro] pub const in8 	= 0b1111111011111111			
 @[as_macro] pub const in9 	= 0b1111110111111111			
 @[as_macro] pub const in10	= 0b1111101111111111
-// @[as_macro] pub const in11	= 0b1111011111111111		
-// @[as_macro] pub const in12	= 0b1110111111111111		
-// @[as_macro] pub const in13	= 0b1101111111111111		
-// @[as_macro] pub const in14	= 0b1011111111111111		
-// @[as_macro] pub const in15	= 0b0111111111111111
+@[as_macro] pub const in11	= 0b1111011111111111		
+@[as_macro] pub const in12	= 0b1110111111111111		
+@[as_macro] pub const in13	= 0b1101111111111111		
+@[as_macro] pub const in14	= 0b1011111111111111		
+@[as_macro] pub const in15	= 0b0111111111111111
 
 
 // ADC frequency
@@ -52,8 +52,8 @@ module adc
 @[as_macro] pub const ch8 	= 8 			
 @[as_macro] pub const ch9 	= 9 			
 @[as_macro] pub const ch10	= 10		
-// @[as_macro] pub const ch11	= 11	
-// @[as_macro] pub const ch12	= 12	
-// @[as_macro] pub const ch13	= 13	
-// @[as_macro] pub const ch14	= 14	
-// @[as_macro] pub const ch15	= 15
+@[as_macro] pub const ch11	= 11	
+@[as_macro] pub const ch12	= 12	
+@[as_macro] pub const ch13	= 13	
+@[as_macro] pub const ch14	= 14	
+@[as_macro] pub const ch15	= 15

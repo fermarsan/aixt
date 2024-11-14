@@ -1,7 +1,0 @@
-import uart
-import time
-
-for _ in 0..5 {
-	uart.println('Hello')
-	time.sleep(1)
-}
