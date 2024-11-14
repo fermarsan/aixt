@@ -40,25 +40,6 @@ fn (mut gen Gen) add_sources(global_path string) {
 	}
 }
 
-
-// // find_imports recursively finds and adds all the source file paths from import commands
-// fn (mut gen Gen) find_imports(node ast.Node) []string {
-// 	mut out := []string{}
-// 	match node {
-// 		ast.File {
-// 			for st in node.Stmts
-// 			return gen.ast_file(node)
-// 		}
-// 		ast.Stmt {
-// 			return [ gen.stmt(node).join('\n') ]
-// 		}
-// 		else {
-// 			return []
-// 		} //'Error: Not defined node.\n' }
-// 	}
-// }
-
-
 // import_paths return the file paths of an specific module (import command)
 fn (mut gen Gen) import_paths(node ast.Import) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')

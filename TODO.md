@@ -34,7 +34,7 @@ Tasks to do in Aixt
 - [x] Give support to `in` and `!in` operands on arrays
 - [x] Issue: `else` statements fail from V 0.4.7. SOLVED: defining else branch condition as `ast.NodeError`
 - [x] Standardize the basic data types as V
-- [x] Add a typedef declaration for each compiler type in `.json` file (remove the necesity to do code replacements)
+- [x] Add a typedef declaration for each compiler type in `.json` file (remove the necessity to do code replacements)
 - [x] Give support to "type" aliassing
 - [x] add a custom attribute for defining constants and functions as C macros in order to save memory in small devices
 - [x] define API modules' parameters as constants

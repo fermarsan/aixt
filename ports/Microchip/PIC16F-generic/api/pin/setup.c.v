@@ -6,12 +6,16 @@
 // Description: Pin management functions for 16F family
 module pin
 
-#include "setup.c"
-
-fn C.PIN_SETUP(name u8, mode u8)
-
 // setup configures the mode of a pin
-// @[as_macro]
+@[as_macro]
 pub fn setup(name u8, mode u8) {
-	C.PIN_SETUP(name, mode)
+	unsafe { 
+		if mode == 1 { // as input (1)
+			*(&C.TRISA + (name >> 3)) |= (0x01 << (name - ((name >> 3) << 3)))
+		//  *(&C.TRISA + (name / 8))  |= (0x01 << (name % 8))
+		} else { // as output (0)
+			*(&C.TRISA + (name >> 3)) &= ~(0x01 << (name - ((name >> 3) << 3)))	
+		//  *(&C.TRISA + (name / 8))  &= ~(0x01 << (name % 8))
+		}
+	}
 }

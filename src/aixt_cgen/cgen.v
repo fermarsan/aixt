@@ -51,34 +51,19 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	gen.load_mod_paths()
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
-
 	api_paths := gen.setup.api_paths
 
 	// adds the builtin file first
 	gen.source_paths << '${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v'
-
 	gen.add_sources(source_path)
 
-	// for path in api_paths {
-	// 	gen.add_sources('${gen.transpiler_path}/ports/${path}/api')	// main source folder
-	// }
-	// for path in gen.source_paths {
-	// 	println('--- ${path} ---')
-	// }
-	// $if windows {
-	//	file = parser.parse_file(source_path, mut gen.table, .skip_comments, gen.pref)
-	// } $else {
-	// 	file = parser.parse_file(source_path, gen.table, .skip_comments, gen.pref)
-	// }
-
 	// first parse round
-	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
-	checker_.check_files(gen.files)
-	gen.err_war_print()
+	mut temp_table := ast.new_table()
+	temp_files := parser.parse_files(gen.source_paths, mut temp_table, gen.pref)
 
 	// find the import file paths
 	mut imp_paths := []string{}
-	for file in gen.files {	// source folder
+	for file in temp_files {	// source folder
 		for imp in file.imports {
 			imp_paths << gen.import_paths(imp)
 		}
@@ -88,7 +73,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// second parse round including imports
 	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
 	checker_.check_files(gen.files)
-	gen.err_war_print()
+	// gen.err_war_print()
 
 	// println('>>>>>>>>>>>>>>>>>> ${gen.source_paths} <<<<<<<<<<<<<<<<<<')
 
@@ -102,8 +87,8 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// }
 
 	println('\n===== Top-down node analysis (Code generation) =====')
-	temp_files := gen.files
-	for i, file in temp_files {	// source folder
+	temp_2_files := gen.files.clone()
+	for i, file in temp_2_files {	// source folder
 		// println('>>>>>>>>>>>>>>>>>> ${file.imports} <<<<<<<<<<<<<<<<<<')
 		gen.file_count = i
 		gen.out << gen.ast_node(file) // starts from the main node (file)

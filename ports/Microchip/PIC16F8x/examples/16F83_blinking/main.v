@@ -4,7 +4,7 @@
 // PIC16F83 fosc = 4Mhz
 
 import time
-import pin
+import pin 
 
 pin.setup(pin.b4, pin.output)
 
