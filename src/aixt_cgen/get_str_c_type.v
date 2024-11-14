@@ -13,7 +13,7 @@ fn (mut gen Gen) get_str_c_type(typ ast.Type) (string, string) {
 	} else {	// regular variable
 		'',  typ
 	}
-	println('\n\tKind:\t${gen.table.type_kind(typ2).str()}\tType:\t${gen.table.type_to_str(typ2)} ${ref}')
+	print('\tKind:\t${gen.table.type_kind(typ2).str()}\tType:\t${gen.table.type_to_str(typ2)} ${ref}')
 	unalias_typ := match gen.table.type_kind(typ2).str() {
 		'alias' {	// if it is defined with "type"
 			gen.table.unaliased_type(typ2)
@@ -25,7 +25,7 @@ fn (mut gen Gen) get_str_c_type(typ ast.Type) (string, string) {
 			typ2
 		}
 	}
-	println('\n\tUnalias type:\t${gen.table.type_to_str(unalias_typ)}')
+	println('\tUnalias type:\t${gen.table.type_to_str(unalias_typ)}')
 	// var_type := gen.table.type_to_str( 
 	// 	if unalias_typ >= 0x10000 {	// reference variable
 	// 		unalias_typ - 0x10000

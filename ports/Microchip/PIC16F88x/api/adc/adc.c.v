@@ -41,19 +41,19 @@ module adc
 
 // ADC input channels
 
-@[as_macro] pub const ch0 	= 0 		
-@[as_macro] pub const ch1 	= 1 			
-@[as_macro] pub const ch2 	= 2 			
-@[as_macro] pub const ch3 	= 3 			
-@[as_macro] pub const ch4 	= 4 			
-@[as_macro] pub const ch5 	= 5 			
-@[as_macro] pub const ch6 	= 6 			
-@[as_macro] pub const ch7 	= 7 			
-@[as_macro] pub const ch8 	= 8 			
-@[as_macro] pub const ch9 	= 9 			
-@[as_macro] pub const ch10	= 10		
-@[as_macro] pub const ch11	= 11	
-@[as_macro] pub const ch12	= 12	
-@[as_macro] pub const ch13	= 13	
-@[as_macro] pub const ch14	= 14	
-@[as_macro] pub const ch15	= 15
+@[as_macro] pub const ch0 	= u8( 0 )		
+@[as_macro] pub const ch1 	= u8( 1 )			
+@[as_macro] pub const ch2 	= u8( 2 )			
+@[as_macro] pub const ch3 	= u8( 3 )			
+@[as_macro] pub const ch4 	= u8( 4 )			
+@[as_macro] pub const ch5 	= u8( 5 )			
+@[as_macro] pub const ch6 	= u8( 6 )			
+@[as_macro] pub const ch7 	= u8( 7 )			
+@[as_macro] pub const ch8 	= u8( 8 )			
+@[as_macro] pub const ch9 	= u8( 9 )			
+@[as_macro] pub const ch10	= u8( 10 )		
+@[as_macro] pub const ch11	= u8( 11 )	
+@[as_macro] pub const ch12	= u8( 12 )	
+@[as_macro] pub const ch13	= u8( 13 )	
+@[as_macro] pub const ch14	= u8( 14 )	
+@[as_macro] pub const ch15	= u8( 15 )

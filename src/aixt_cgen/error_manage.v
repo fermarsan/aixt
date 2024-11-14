@@ -10,22 +10,22 @@ fn (mut gen Gen) err_war_check() {
 	msg_exceptions := [ // V error message exceptions in Aixt
 		// 'is immutable, declare it with `mut` ',
 		// 'expected `#define` ',
-		'unknown function:',
-		'undefined ident:',
-		'has no constant or function',
-		'cannot call a function that does not have a body',
-		'used as value in argument',
-		'` used as value',
-		'returns 0 value',
-		'non-bool',
+		// 'unknown function:',
+		// 'undefined ident:',
+		// 'has no constant or function',
+		// 'cannot call a function that does not have a body',
+		// 'used as value in argument',
+		// '` used as value',
+		// 'returns 0 value',
+		// 'non-bool',
 		'mutex',
-		'mismatched types `void`  and',
-		'on type `void` ',
-		'unknown method or field',
-		'expression does not return a value',
-		'expected `void`',
-		'`int` has no property `',
-		'unexpected symbol `int`',
+		// 'mismatched types `void`  and',
+		// 'on type `void` ',
+		// 'unknown method or field',
+		// 'expression does not return a value',
+		// 'expected `void`',
+		// '`int` has no property `',
+		// 'unexpected symbol `int`',
 	]
 
 	for j, mut file in gen.files {
@@ -59,13 +59,13 @@ fn (mut gen Gen) err_war_print() {
 	println('\n${w_count} warning(s), ${e_count} error(s)')
 	for file in gen.files {
 		for w in file.warnings {
-			println('warning: ${w.message}')
+			println('warning: ${w.message}\t(${file.path_base})')
 			// println('\t${w.details}')
 		}
 	}
 	for file in gen.files {
 		for e in file.errors {
-			println('error: ${e.message}')
+			println('error: ${e.message}\t(${file.path_base})')
 			// println('\t${e.details}')
 		}
 	}
