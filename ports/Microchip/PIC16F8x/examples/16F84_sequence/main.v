@@ -18,7 +18,7 @@ const sequence := [
 	0b1000,
 ]
 
-port.setup(port.b, 0b11110000)
+port.setup(port.b, 0b11110000)	// least 4 bit as outputs
 
 for {
 	for step in sequence {
