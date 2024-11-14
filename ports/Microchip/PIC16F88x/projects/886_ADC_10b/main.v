@@ -18,7 +18,7 @@ pin.setup(pin.a0, pin.input)	// adc input
 port.setup(port.b, port.all_outputs)
 port.setup(port.c, 0b11111100)		// C0 and C1 as outputs
 
-value := u16(0)
+mut value := u16(0)
 
 for {
 	value = adc.read(adc.ch0)

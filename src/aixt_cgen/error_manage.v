@@ -23,6 +23,9 @@ fn (mut gen Gen) err_war_check() {
 		'on type `void` ',
 		'unknown method or field',
 		'expression does not return a value',
+		'expected `void`',
+		'`int` has no property `',
+		'unexpected symbol `int`',
 	]
 
 	for j, mut file in gen.files {

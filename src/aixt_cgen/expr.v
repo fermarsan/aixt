@@ -78,6 +78,9 @@ fn (mut gen Gen) expr(node ast.Expr) []string {
 		ast.RangeExpr {
 			return gen.range_expr(node)
 		}
+		ast.SelectorExpr {
+			return gen.selector_expr(node)
+		}
 		ast.NodeError {
 			panic('\n\n***** Transpiler error *****:\nNode error in pos: ${node.pos}.\n')
 		}
