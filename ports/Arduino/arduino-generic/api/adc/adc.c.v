@@ -5,3 +5,5 @@
 //
 // Description: ADC functions
 module adc
+
+fn C.analogRead(name u8) u16
