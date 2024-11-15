@@ -17,3 +17,6 @@ module port
 // @[as_macro] pub const j = 7
 // @[as_macro] pub const k = 8
 // @[as_macro] pub const l = 9
+
+@[as_macro] pub const all_inputs = 0b11111111
+@[as_macro] pub const all_outputs = 0b00000000

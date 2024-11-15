@@ -7,7 +7,7 @@
 import time
 import port
 
-port.setup(port.b, 0b11111111)	// all inputs
+port.setup(port.b, port.all_inputs)	// all inputs
 port.setup(port.c, 0b11110000)	// 4 LSBs outputs
 
 for {
