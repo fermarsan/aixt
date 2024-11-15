@@ -32,6 +32,6 @@ pub fn (mut stp Setup) load(device string, aixt_path string) {
 	stp = json.decode(Setup, complete_setup)  or { panic(err) }
 	stp.device = device
 
-	println('setup files:\n\t${aixt_path}/setup/${stp.port}.json')
+	println('Setup files:\n\t${aixt_path}/setup/${stp.port}.json')
 	println('\t${aixt_path}/${stp.compiler_setup_path}\n')
 }

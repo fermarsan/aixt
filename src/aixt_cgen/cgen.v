@@ -20,23 +20,23 @@ pub mut:
 	files              []&ast.File
 	table              &ast.Table = unsafe { nil }
 	cur_scope          &ast.Scope = unsafe { nil }
-	cur_left		       ast.Expr
+	cur_left		   ast.Expr
 	cur_left_type      ast.Type
-	cur_op		         token.Kind
+	cur_op		       token.Kind
 	cur_cond           ast.Expr
 	transpiler_path    string
-	// imports			   []string
+	// imports			 []string
 	source_paths       []string
 	out                []string
 	c_preproc_cmds     []string
-	api_mod_paths      map[string]string
+	api_mod_paths      map[string][]string
 	// includes		     []string
-	// macros		       []string
+	// macros		     []string
 	definitions        []string
-	init_cmds	         []string
+	init_cmds	       []string
 	to_insert_lines    []string
 	cur_fn             string
-	file_count		     int
+	file_count		   int
 	level_count        int
 	match_as_nested_if bool
 // pub mut:
@@ -69,6 +69,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 		}
 	}
 	gen.source_paths.insert(1, imp_paths)
+	println('All files:\n${gen.source_paths.join('\n\t')}')
 
 	// second parse round including imports
 	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)

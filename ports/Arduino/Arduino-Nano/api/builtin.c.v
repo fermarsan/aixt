@@ -9,6 +9,6 @@
 // Description: Builtin definitions (Arduino Nano - ATmega328P port)
 module main
 
-enum Builtin_names {
-	led0 = 13
-}
+
+@[as_macro]	const led0 = 13
+

@@ -39,3 +39,4 @@ Tasks to do in Aixt
 - [x] add a custom attribute for defining constants and functions as C macros in order to save memory in small devices
 - [x] define API modules' parameters as constants
 - [x] Divide the parsing files order in two rounds (the second one including the imported module's files)
+- [x] Allow implementation of the same Module on multiple directories
