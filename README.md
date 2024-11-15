@@ -83,14 +83,15 @@ The transpiler is written in [_V_](https://vlang.io/) and uses the _V's_ self na
 
 **Aixt's V** programing language implements a subset of the [_V language_](https://vlang.io/). The main differences are show as follows:
 
-feature                       | V                                       | Aixt's V
-------------------------------|-----------------------------------------|-----------------------------------------------------------------
-strings                       | dynamic-sized                           | dynamic-sized (only if supported)
-arrays                        | dynamic-sized                           | dynamic-sized (only if supported)
-default integers size         | 32 bits                                 | depends on the device
-structs                       | allow functions (object-oriented)       | don't allow functions (only structured)
-functions                     | multiple return values                  | only one return value
-`C.functions()`               | need to be redefined in V               | can be called directly, only including the corespondent C header
+feature               | V                                 | Aixt's V
+----------------------|-----------------------------------|----------------------------------------------------------------------
+strings               | dynamic-sized                     | fixed-sized and dynamic-sized if supported
+arrays                | dynamic-sized                     | fixed-sized and dynamic-sized if supported
+default integers size | 32 bits                           | depends on the device
+structs               | allow functions (object-oriented) | do not allow functions (only structured programming)
+functions             | multiple return values            | only one return value
+text macros           | not allowed                       | allowed by using '@[as_macro]' attribute, for functions and constants
+`C` variables access  | not allowed                       | allowed by using 'C.var_name' syntax
 
 
 ### Example with `main` function
@@ -102,7 +103,7 @@ import time
 import pin
 
 fn main() {
-    pin.setup(pin.pin.pin.b7, pin.output)
+    pin.setup(pin.b7, pin.output)
 
     pin.high(pin.b7)    //turn ON the LED on PORTB7
     time.sleep_ms(5500)
