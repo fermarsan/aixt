@@ -7,5 +7,5 @@ module uart
 // setup function sets the data rate in bits per second (baud) for serial data transmission
 @[as_macro]
 pub fn setup(baud_rate int) {
-	C.Serial.begin(baud_rate)
+	C.SERIAL_BEGIN(baud_rate)
 }
