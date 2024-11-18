@@ -8,12 +8,12 @@ import pin
 import pwm
 import adc
 
-pin.setup(gp7, pin.output)
+pin.setup(pin.gp7, pin.output)
 adc.setup(12)
 
 for {
-	value := adc.read(adc0)
-	pwm.write(gp7, value/4)
+	value := adc.read(adc.ch0)
+	pwm.write(pin.gp7, u8(value/4))
 	time.sleep_ms(10)
 }
 
