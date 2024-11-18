@@ -7,5 +7,5 @@ module uart
 // any function gets the number of bytes (characters) available for reading
 @[inline]
 pub fn any() int {
-	return C.Serial1.available()
+	return C.SERIAL1_AVAILABLE()
 }

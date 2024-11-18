@@ -7,5 +7,5 @@ module usb_uart
 // print function prints data to the serial port as human-readable ASCII text
 @[inline]
 pub fn print(message string) {  
-	C.Serial.print(message)
+	C.SERIAL_PRINT(message)
 }

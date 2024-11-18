@@ -4,8 +4,8 @@
 // License: MIT
 module pin
 
-// write puts a logic value to a specific pin
-@[inline]
-pub fn write(name u8, val u8) {  
-    C.digitalWrite(name, val)
+// low puts a low value (logic 0) to a specific pin
+@[as_macro]
+pub fn low(name u8) {   
+    C.digitalWrite(name, C.LOW)
 }

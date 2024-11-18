@@ -7,5 +7,5 @@ module usb_uart
 // read function reads incoming serial data
 @[inline]
 pub fn read() u8 {
-	return C.Serial.read()
+	return C.SERIAL_READ()
 }

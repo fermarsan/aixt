@@ -5,7 +5,7 @@
 module time
 
 // sleep is a delay function in microseconds for Arduino devices
-@[as_macro]
+@[inline]
 pub fn sleep_us(tus int) {
 	C.delayMicroseconds(tus)
 }

@@ -5,7 +5,7 @@
 module pin
 
 // setup configures a pin's input/output mode
-@[as_macro]
+@[inline]
 pub fn setup(name u8, mode u8) {   
     C.pinMode(name, mode)
 }

@@ -2,10 +2,10 @@
 // Author: ernando Martínez Santa
 // Date: 2024
 // License: MIT
-module uart1
+module uart2
 
 // print function prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
 @[inline]
 pub fn println(message string) {  
-	C.Serial2.println(message)
+	C.SERIAL2_PRINTLN(message)
 }

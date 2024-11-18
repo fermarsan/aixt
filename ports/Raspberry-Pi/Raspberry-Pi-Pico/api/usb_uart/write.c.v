@@ -7,5 +7,5 @@ module usb_uart
 // write function sends a single byte to the serial port
 @[inline]
 pub fn write(character u8) {  
-	C.Serial.write(character)
+	C.SERIAL_WRITE(character)
 }

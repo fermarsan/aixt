@@ -5,7 +5,7 @@
 module pin
 
 // high puts a high value (logic 1) to a specific pin
-@[as_macro]
+@[inline]
 pub fn high(name u8) {   
     C.digitalWrite(name, C.HIGH)
 }

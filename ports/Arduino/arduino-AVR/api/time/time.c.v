@@ -3,7 +3,9 @@
 // Date: 2024
 // License: MIT
 //
-// Description: usb_uart module (Arduino Nano - ATmega328P port)
-module usb_uart
+// Description: Time module (Arduino devices)
+module time
 
 
+fn C.delay(tms int)
+fn C.delayMicroseconds(tus int)

@@ -2,10 +2,10 @@
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
-module uart1
+module uart2
 
-// write function sends a single byte to the serial port
+// read function reads incoming serial data
 @[inline]
-pub fn write(character u8) {  
-	C.Serial2.write(character)
+pub fn read() u8 {
+	return C.SERIAL2_READ()
 }

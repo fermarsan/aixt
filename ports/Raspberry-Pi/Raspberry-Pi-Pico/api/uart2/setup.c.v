@@ -2,10 +2,10 @@
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
-module uart1
+module uart2
 
 // setup function sets the data rate in bits per second (baud) for serial data transmission
 @[inline]
 pub fn setup(baud_rate int) {
-	C.Serial2.begin(baud_rate)
+	C.SERIAL2_BEGIN(baud_rate)
 }

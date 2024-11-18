@@ -2,10 +2,8 @@
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
-module uart
+//
+// Description: ADC functions
+module adc
 
-// read function reads incoming serial data
-@[inline]
-pub fn read() u8 {
-	return C.SERIAL1_READ()
-}
+fn C.analogRead(name u8) u16

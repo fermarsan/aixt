@@ -1,1 +1,0 @@
-#define uart1__pins(tx, rx)  UART Serial2(tx, rx, 0, 0)
