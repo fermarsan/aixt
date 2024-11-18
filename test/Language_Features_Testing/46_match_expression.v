@@ -4,7 +4,7 @@ a := 1
 
 match a {
 	2 {
-		uart.print('2')
+		uart.println('2')
 	}
 	3 {
 		uart.println('3')

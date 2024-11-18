@@ -92,6 +92,7 @@ structs               | allow functions (object-oriented) | do not allow functio
 functions             | multiple return values            | only one return value
 text macros           | not allowed                       | allowed by using '@[as_macro]' attribute, for functions and constants
 `C` variables access  | not allowed                       | allowed by using 'C.var_name' syntax
+global variables      | disabled by default               | enabled by default
 
 
 ### Example with `main` function
@@ -123,7 +124,7 @@ uart.setup(9600)    // baud rate
 adc.setup(12)       // resolution
 
 for { // infinite loop
-	analog := adc.read(adc0)
+	analog := adc.read(adc.ch0)
 	uart.println('ADC channel 0: ${analog}') // use string interpolation
 	time.sleep_ms(500)
 }

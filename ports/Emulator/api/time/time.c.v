@@ -4,8 +4,13 @@
 // License: MIT
 module time
 
+fn C.sleep(ts any)
+fn C.usleep(tms any)
+fn C.Sleep(ts any)
+
 $if linux {
 	#include <unistd.h>
 } $else {
 	#include <windows.h>
 }
+
