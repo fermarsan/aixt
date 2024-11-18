@@ -12,7 +12,7 @@ pin.setup(pin.d5, pin.output)
 
 for {
 	value := adc.read(adc.ch5)
-	pwm.write(d5, u8(value/4))
+	pwm.write(pin.d5, u8(value/4))
 	time.sleep_ms(100)
 }
 

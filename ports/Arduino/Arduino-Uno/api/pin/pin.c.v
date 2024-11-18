@@ -27,8 +27,6 @@ module pin
 @[as_macro] pub const d17 = 17
 @[as_macro] pub const d18 = 18
 @[as_macro] pub const d19 = 19
-@[as_macro] pub const d20 = 20
-@[as_macro] pub const d21 = 21
 
 // pin mode
 @[as_macro] pub const input		= 0
