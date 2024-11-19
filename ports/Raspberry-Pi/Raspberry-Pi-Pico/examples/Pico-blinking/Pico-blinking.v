@@ -10,9 +10,9 @@ pin.setup(led0, pin.output)
 
 for {
 	pin.high(led0)
-	time.sleep_ms(500)
+	time.sleep_ms(100)
 	pin.low(led0)
-	time.sleep_ms(500)
+	time.sleep_ms(100)
 }
 
 
