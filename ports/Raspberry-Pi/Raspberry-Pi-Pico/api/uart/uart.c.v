@@ -14,3 +14,4 @@ fn C.SERIAL1_READ() u8
 fn C.SERIAL1_PRINT(message string)
 fn C.SERIAL1_PRINTLN(message string)
 fn C.SERIAL1_AVAILABLE() int
+fn C.SERIAL1_PINS(tx_pin any, rx_pin any)

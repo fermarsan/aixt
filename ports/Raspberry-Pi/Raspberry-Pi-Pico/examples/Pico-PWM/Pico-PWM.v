@@ -6,13 +6,14 @@
 import time
 import pin
 import pwm
-import adc
+
+const duty_table = [u8(25), 60, 120, 180, 205]
 
 pin.setup(pin.gp7, pin.output)
-adc.setup(12)	// 12-bit resolution
 
 for {
-	value := adc.read(adc.ch0)
-	pwm.write(pin.gp7, u8(value>>4))
-	time.sleep_ms(10)
+	for duty in duty_table {
+		pwm.write(pin.gp7, duty)
+		time.sleep_ms(250)
+	}
 }

@@ -8,4 +8,4 @@ module uart
 @[inline]
 pub fn write(character u8) {  
 	C.SERIAL1_WRITE(character)
-}<
+}
