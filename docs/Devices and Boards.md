@@ -100,11 +100,11 @@ For PSoC Creator:
 - **_Ai-WB2-32S-Kit_**: BL602 "_arduino_ backend" **_(only `time`, `pin`, `pwm`, `uart`)_**
 
 
-# Devices updated API v0.1.1
+# Devices updated API v0.1.2
 
 - Software Emulator for Linux, Android (Termux) and Windows     _(GCC-TCC)_
 - PIC16F8x family: PIC16F83, PIC16F83A, PIC16F84, PIC16F84A     _(XC8)_
 - Arduino Uno         _(arduino-cli)_
 - Arduino Nano        _(arduino-cli)_
-- ESP32-DevKitC       _(arduino-cli)_
+<!-- - ESP32-DevKitC       _(arduino-cli)_ -->
 - Raspberry Pi Pico   _(arduino-cli)_

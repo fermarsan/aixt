@@ -1,4 +1,4 @@
-# Aixt language
+# Aixt's V language
 **Aixt** _V_ language is based on [The V programming language](https://vlang.io/).
 
 The _V_ grammar was taken from these sources (ordered by importance):
@@ -6,21 +6,24 @@ The _V_ grammar was taken from these sources (ordered by importance):
 - _V_ grammar definition in Antlr-v4:     [https://github.com/antlr/grammars-v4/blob/master/v/V.g4](https://github.com/antlr/grammars-v4/blob/master/v/V.g4)
 - _V_ grammar definition in lark:         [(https://github.com/Itay2805/Vork/blob/master/v.lark](https://github.com/Itay2805/Vork/blob/master/v.lark)
 
-#  Diferences between Aixt and V
-- By default all variables in **Aixt** are mutable, so `mut`  keyword is not supported
-- **Aixt** supports the semicolon `;`  by separating statements in the same line
-- As _V_, **Aixt** support function attributes like `[inline]`, but these attributes include others like `[task]`  which gives support to multitasking in the transpiling to _NXC_ language
+#  Diferences between Aixt's V and standard V
+<!-- - **Aixt** supports the semicolon `;` by separating statements in the same line -->
+- As _V_, **Aixt** support function attributes like `[inline]`, but these attributes include others like `[task]`  which gives support to multitasking in the transpiling to _NXC_ language and `[as_macro]` for implementing them as C macro (low-memory devices).
 - `mutex`  variables for giving support to multitasking in _NXC_ transcompiling
 
 The main differences between **Aixt** and **V**are show as follows:
 
-feature                 |V                                  | Aixt
-------------------------|-----------------------------------|----------------------------------------
-variables               |immutable by default               | mutable by default
-strings                 |dynamic-sized                      | fixed-sized
-arrays                  |dynamic-sized                      | fixed-sized
-default integers size   |32 bits                            | depends on the device  
-structs                 |allow functions (object-oriented)  | don't allow functions (only structured)
+feature               | V                                 | Aixt's V
+----------------------|-----------------------------------|----------------------------------------------------------------------
+strings               | dynamic-sized                     | fixed-sized and dynamic-sized if supported
+arrays                | dynamic-sized                     | fixed-sized and dynamic-sized if supported
+default integers size | 32 bits                           | depends on the device
+structs               | allow functions (object-oriented) | do not allow functions (only structured programming)
+functions             | multiple return values            | only one return value
+text macros           | not allowed                       | allowed by using '@[as_macro]' attribute, for functions and constants
+`C` variables access  | not allowed                       | allowed by using 'C.var_name' syntax
+global variables      | disabled by default               | enabled by default
+
 
 #  V's supported keywords
 The V's supported keywords are listed in bold text as follows.
@@ -32,7 +35,7 @@ The V's supported keywords are listed in bold text as follows.
 - **const**
 - defer
 - **else**
-- enum
+- **enum**
 - **false**
 - **fn**
 - **for**
@@ -45,12 +48,12 @@ The V's supported keywords are listed in bold text as follows.
 - is
 - isreftype
 - lock
-- match
-- module
-- mut
+- **match**
+- **module**
+- **mut**
 - none
 - or
-- pub
+- **pub**
 - **return**
 - rlock
 - select
@@ -58,18 +61,17 @@ The V's supported keywords are listed in bold text as follows.
 - sizeof
 - spawn
 - static
-- struct
+- **struct**
 - **true**
-- type
+- **type**
 - typeof
 - union
-- unsafe
+- **unsafe**
 - volatile
 - **__global**
 - __offsetof
 
-#  Aixt language features
-- Mutable variables by default
+#  Aixt's V language features
 - All variables are local by default
 - `__global`  keyword in case of needing global variables
 - Integer literals in binary, octal, hexadecimal and decimal notation
@@ -82,7 +84,7 @@ The V's supported keywords are listed in bold text as follows.
 - Variable casting in case of need to specify the variable type of number of bits
 - Function attributes using the syntax: 
 ``` v
-[attribute] 
+@[attribute] 
 fn <name>(<params>) {
     <statements>
 }``` 

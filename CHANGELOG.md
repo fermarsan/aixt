@@ -1,3 +1,25 @@
+## v0.1.7
+*21 Nov 2024*
+#### Devices Supported
+Devices updated to API v0.1.2
+- Software emulator
+- PIC16F8x family
+- Arduino Uno
+- Arduino Nano
+- Raspberry Pi Pico
+
+
+## v0.1.6
+*15 Nov 2024*
+#### New features:
+- Standardize the basic data types as V
+- Add a typedef declaration for each compiler type in .json file (remove the necessity to do code replacements)
+- Give support to "type" aliassing
+- Add a custom attribute for defining constants and functions as C macros in order to save memory in small devices
+- Define API modules' parameters as constants
+- Allow implementation of the same Module on multiple directories
+
+
 ## v0.1.5
 *8 Oct 2024*
 #### Changes

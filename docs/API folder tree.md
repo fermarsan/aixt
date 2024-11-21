@@ -1,4 +1,5 @@
-# **_Aixt_** API folder tree
+# **_Aixt_** API folder tree v0.1.2
+
 The _Aixt_ API for each microntroller port has to be located in the folder:
 ```
 aixt/ports/brand/microcontroller_or_board/api

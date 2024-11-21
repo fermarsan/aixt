@@ -1,14 +1,19 @@
-# **_Aixt_** Application Programming Interface
+# **_Aixt_** Application Programming Interface v0.1.2
 
 ## Digital I/O (Pins)
+requires:
+```v
+import pin
+```
+
 ### Pin setup
 ```v
 pin.setup(pin_name, mode)
 ```
-- `pin_name` could change depending on the microcontroller.
+- `pin_name` could change depending on the microcontroller for instance `pin.b7`, `pin.gp7`, etc.
 - `mode`:
-  - `in`
-  - `out`
+  - `pin.input`
+  - `pin.output`
 
 ### Pin output
 ```v
@@ -25,17 +30,22 @@ pin.toggle(pin_name)
 pin.write(pin_name, value)
 ```
 - `value` is an integer to be written in the pin
-  - `0` or `low` 
-  - `1` or `high`
+  - `0`
+  - `1`
 
 
 ### Pin input
 ```v
 x = pin.read(pin_name)
 ```
-`pin.read` returns an integer (`0` or `1`)
+`pin.read()` returns an integer (`0` or `1`)
 
 ## Analog to Digital Converter (ADC inputs)
+requires:
+```v
+import adc
+```
+
 
 The syntax for all the ADC functions is: `adcx_function_name()`, being `x` the identifying number in case of multiple ADCs. You can omit the `x` for referring to the first ADC or in the case of having only one.
 
@@ -48,24 +58,36 @@ adc.setup(setup_value_1, setup_value_2, ... )   // equals to adc1_setup(...)
 ```v
 x = adc.read(channel)
 ```
-- `channel` is an identifying number of the ADC input
-## Pulse Width Modulation (PWM outputs)
+- `channel` is an identifying number of the ADC input, for instance `adc.ch3`
 
-The syntax for all the PWM functions is: `pwmx_function_name()`, being `x` the identifying number in case of multiple PWM outputs. You can omit the `x` for referring to the first PWM output or in the case of having only one.
+
+## Pulse Width Modulation (PWM outputs)
+requires:
+```v
+import pwm
+```
+
+The syntax for all the PWM functions is: `pwm_function_name()`.
 
 ### PWM setup
 ```v
-pwm1_setup(setup_value_1, setup_value_2, ... )  //or just pwm.setup(...)
+pwm_setup(setup_value_1, setup_value_2, ... )  //or just pwm.setup(...)
 ```
 
 ### PWM duty cycle
 ```v
-pwm.write(duty)  //or pwm1_duty(duty)
+pwm.write(channel, duty)  //or pwm1_duty(duty)
 ```
 
-- `duty` is the duty cycle in percentage (0 - 100)
+- `duty` is the duty cycle (8-bit number in most of devices)
+- `channel` is th output or channel name, for instance `pwm.ch1`
+
 
 ## Serial communication (UART)
+requires:
+```v
+import uart
+```
 
 The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the specific documentation. The syntax for most of UART functions is: `uartx_function_name()`, being `x` the identifying number in case of multiple UARTs. You can omit the `x` for referring to the first or default UART, or in the case of having only one.  
 
@@ -89,27 +111,35 @@ str2 = uart1_read()    // read a single Byte from UART1
 
 ### Serial transmitting
 ```v
-print(message)      // print a string to the default UART
+uart.print(message)      // print a string to the default UART
 ```
 ```v
-println(message)    // print a string plus a line-new character to the default UART
+uart.println(message)    // print a string plus a line-new character to the default UART
 ```
 ```v
-uart2_print(message)    // print a string to the UART2
+uart2.print(message)    // print a string to the UART2
 ```
 ```v
-uart1_println(message)  // print a string plus a line-new character to the UART1
+uart3.println(message)  // print a string plus a line-new character to the UART3
 ```
 ```v
-uart2_write(message)    // send binary data (in Bytes) to UART2
+uart2.write(message)    // send binary data (in Bytes) to UART2
 ```
+
+
 ## Timming
+requires:
 ```v
-sleep(s)    // delay in seconds
+import time
+```
+
+
+```v
+time.sleep(s)    // delay in seconds
 ```
 ```v
-sleep_ms(ms)    // delay in milliseconds
+time.sleep_ms(ms)    // delay in milliseconds
 ```
 ```v
-sleep_us(us)    // delay in microseconds
+time.sleep_us(us)    // delay in microseconds
 ```
