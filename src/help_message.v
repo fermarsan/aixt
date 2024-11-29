@@ -15,10 +15,10 @@ module main
 // incorrect command usage is detected.
 // help_message is the help option message function
 fn help_message() string {
-	return 'aixt is a tool for managing Aixt source code (*.aixt or *.v).
+	return 'aixt is a tool for managing Aixt source code (*.v or *.aixt).
 
 Usage:
-  aixt command device input_file_name
+  aixt [command] [device] [input_file_name]
 
 Examples:
   aixt transpile NXC hello.aixt	Transpile the file `hello.aixt`  and output it as
@@ -40,6 +40,6 @@ aixt supports the following commands:
   build, -b                     Build (transpile and compile) an Aixt program.
   clean, -cl                    Clean all the generated file (C and executables).
   help, --help, -h              Call this help
-  version                       Returns the Aixt version number
+  version, --version, -v        Returns the Aixt version number
   new_project, -np              Create new project (main.v and editor setup files)'
 }

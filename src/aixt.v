@@ -25,7 +25,7 @@ fn main() {
 			'help', '--help', '-h' {
 				println(help_message())
 			}
-			'version' {	
+			'version', '--version', '-v' {	
 				lines := os.read_lines('./src/v.mod') or {['']}
 				for line in lines {
 					if line.contains('version:') {
