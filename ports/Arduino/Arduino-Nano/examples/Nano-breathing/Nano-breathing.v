@@ -1,7 +1,7 @@
-// Project Name: Blinking
+// Project Name: Breathing
 // Author: Fernando M. Santa
 // Date: 08/09/20
-// Arduino-Nano board
+// Arduino-Nano board breathing LED by PWM
 
 import time
 import pin
