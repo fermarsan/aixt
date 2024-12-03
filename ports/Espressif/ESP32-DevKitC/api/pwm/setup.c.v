@@ -8,10 +8,10 @@ module pwm
 
 // setup function configures de PWM hardware
 @[inline]
-pub fn setup(freq u32, range u32, res u8) {
-    // C.analogWriteFreq(freq) 
+pub fn setup(pin u8, freq u32, res u8) {
+    C.analogWriteFrequency(pin, freq)
     // C.analogWriteRange(range) 
-    C.analogWriteResolution(res)
-}
+    C.analogWriteResolution(pin, res)                                                                                                                  
+}                                                                                                                                                                                                                                                                                                        
 
 

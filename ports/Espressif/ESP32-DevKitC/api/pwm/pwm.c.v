@@ -6,6 +6,6 @@
 // Description: PWM functions (ESP32 port)
 module pwm
 
-fn C.analogWriteFreq(freq any) 
-fn C.analogWriteRange(range any) 
-fn C.analogWriteResolution(res any)
+fn C.analogWriteFrequency(pin any, freq any) 
+// fn C.analogWriteRange(range any) 
+fn C.analogWriteResolution(pin any, res any) 
