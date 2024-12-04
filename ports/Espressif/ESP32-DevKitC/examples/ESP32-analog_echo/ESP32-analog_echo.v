@@ -6,13 +6,13 @@
 
 import time
 import pin
-import adc
+import adc2
 import pwm
 
-pin.setup(gpio32, pin.output)
+pin.setup(pin.gpio32, pin.output)
 
 for {
-	value := adc.read(adc2_4)
-	pwm.write(gpio32, u8(value/4))
+	value := adc2.read(adc2.ch4)
+	pwm.write(pin.gpio32, u8(value/4))
 	time.sleep_ms(100)
 }

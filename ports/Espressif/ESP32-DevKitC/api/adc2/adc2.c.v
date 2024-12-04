@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: ADC functions
-module adc
+module adc2
 
 fn C.analogReadResolution(res any)	
 
