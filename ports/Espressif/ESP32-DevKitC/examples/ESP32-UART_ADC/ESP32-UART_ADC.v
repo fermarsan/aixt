@@ -6,12 +6,12 @@
 
 import time
 import uart
-import adc
+import adc2
 
 uart.setup(9600)
 
 for {
-	analog := adc.read(adc2_4)
+	analog := adc2.read(adc2.ch4)
 	uart.println('ADC 2 channel 4: ${analog}')
 	time.sleep_ms(1000)
 }
