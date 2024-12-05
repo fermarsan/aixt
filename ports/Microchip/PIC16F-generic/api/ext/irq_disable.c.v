@@ -8,7 +8,7 @@ module ext
 
 // irq_disable disables the external interrupt
 @[as_macro]
-fn irq_disable() {
+pub fn irq_disable() {
 	C.INTE = 0
 }
 

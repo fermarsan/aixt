@@ -4,9 +4,11 @@
 // License: MIT
 //
 // Description: External interrupts management functions for 16F family
-module ext_irq
+module ext
 
-#include "ext.c"
+// edge set the falling or rising edge of the external interrupt
+@[as_macro]
+pub fn edge(_edge any) {
+	C.INTEDG = _edge
+}
 
-@[as_macro] pub const rising =	1
-@[as_macro] pub const falling = 0

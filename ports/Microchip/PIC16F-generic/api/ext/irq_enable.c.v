@@ -8,7 +8,7 @@ module ext
 
 // irq_enable enables the external interrupt
 @[as_macro]
-fn irq_enable() {
+pub fn irq_enable() {
 	C.GIE = 1
 	C.INTE = 1
 }

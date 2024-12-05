@@ -64,6 +64,11 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				} else {
 					out << $tmpl('c_templates/fn_decl_as_multi_macro.tmpl.c')#[..-1].replace('return', '')
 				}
+			} else if attrs.contains('_isr') {	// functions as Interrupt Service Routines
+				isr_name := attrs.replace('_isr', '')
+				gen.init_cmds << 'ptr_${isr_name.replace(' ', '')}_isr = ${name};'
+				attrs = ''
+				out << $tmpl('c_templates/fn_decl.tmpl.c')#[..-1]
 			} else {
 				gen.definitions << $tmpl('c_templates/fn_prototype.tmpl.c')#[..-1].replace('inline ', '')	// generates the function's prototype
 				out << $tmpl('c_templates/fn_decl.tmpl.c')#[..-1]
