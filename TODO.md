@@ -36,3 +36,4 @@ Tasks to do in Aixt
 - [x] Update ESP32-DevKitC to the API 0.1.2
 - [x] Implement the basic structure of interrupts (attribute `@[XXXX_isr]`)
 - [x] Implement external interrupts on PIC16F8x microcontroller family.
+- [x] Implement the constant `cpu_freq` for changing the default cpu frequency defined on `.json` file. 

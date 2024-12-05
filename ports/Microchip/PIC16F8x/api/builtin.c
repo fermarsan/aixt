@@ -1,4 +1,5 @@
-#define _XTAL_FREQ 4000000
+
+#define _XTAL_FREQ _const_main__cpu_freq
 
 #pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
 #pragma config WDTE = OFF       // Watchdog Timer (WDT disabled)

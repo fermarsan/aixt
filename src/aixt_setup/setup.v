@@ -18,8 +18,8 @@ pub mut:
 	cc_make_flags		string
 	api_paths			[]string
 	v_defines			[]string
-	inline_as_c_macro	bool
-	string_default_len	int
+	default_cpu_freq	int
+	default_string_len	int
 	compiler_setup_path string
 	main_ret_type		string 
 	main_params  		string 

@@ -28,7 +28,7 @@ fn (mut gen Gen) infix_expr(node ast.InfixExpr) []string {
 				out <<  $tmpl('c_templates/comp_string.tmpl.c')#[..-1]
 			} 
 			'+' {
-				len := gen.setup.string_default_len
+				len := gen.setup.default_string_len
 				gen.add_definition('char __temp_str[${len}];')
 				out << $tmpl('c_templates/concat_string.tmpl.c')#[..-1]
 			} 

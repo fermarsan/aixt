@@ -11,7 +11,8 @@
     "fixed_size_arrays": "true",
     "array_default_len": 20,
     "fixed_size_strings": "true",
-    "string_default_len": 80,
+    "default_cpu_freq": 4000000,
+    "default_string_len": 80,
     "void":  "void",
     "bool":  "bool",
     "i8":    "int8_t"  

@@ -87,7 +87,7 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 		}
 		'string' {
 			gen.add_include('string.h')
-			len := gen.setup.string_default_len
+			len := gen.setup.default_string_len
 			var_value := gen.ast_node(right).join('')
 			c_line = $tmpl('c_templates/decl_string_fixed.tmpl.c')#[..-1]
 			c_line += '\n' + $tmpl('c_templates/assign_string.tmpl.c')#[..-1]
