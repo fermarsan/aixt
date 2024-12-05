@@ -22,7 +22,6 @@ Tasks to do in Aixt
     - [ ] support struct fields (`struct_name.struct_field`)
 - [ ] implement maps
 - [ ] Change arrays to pure V
-- [ ] make groups of PIC microcontrollers families
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 
@@ -32,6 +31,7 @@ Tasks to do in Aixt
 - [x] define API modules' parameters as constants
 - [x] Divide the parsing files order in two rounds (the second one including the imported module's files)
 - [x] Allow implementation of the same Module on multiple directories
+- [x] make groups of PIC microcontrollers families
 - [x] Standardize (with original V) the identifier names in the generated C code
 - [x] Update ESP32-DevKitC to the API 0.1.2
 - [x] Implement the basic structure of interrupts (attribute `@[XXXX_isr]`)
