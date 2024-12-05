@@ -8,7 +8,7 @@ import pin
 import ext
 
 @[ext_isr]
-fn toogle_led() {
+fn toggle_led() {
 	pin.toggle(pin.b4)	// changes the pin state
 }
 
