@@ -1,0 +1,73 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F83 ]
+[d frameptr 0 ]
+"5 /opt/microchip/xc8/v2.50/pic/sources/c99/common/aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"10 /opt/microchip/xc8/v2.50/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 /opt/microchip/xc8/v2.50/pic/sources/c99/common/Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 /opt/microchip/xc8/v2.50/pic/sources/c99/pic/__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"47 /home/fercho/git-projects/aixt/ports/Microchip/PIC16F8x/examples/16F83_blinking_timer0/main.c
+[v _Global_ISR Global_ISR `II(v  1 e 1 0 ]
+"164
+[v _main__blinking main__blinking `(v  1 e 1 0 ]
+"169
+[v _main main `(v  1 e 1 0 ]
+"59 /opt/microchip/xc8/v2.50/pic/include/proc/pic16f83.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"166
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"384
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"454
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"633
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"657
+[v _PSA PSA `VEb  1 e 0 @1035 ]
+"714
+[v _T0CS T0CS `VEb  1 e 0 @1037 ]
+"717
+[v _T0IE T0IE `VEb  1 e 0 @93 ]
+"720
+[v _T0IF T0IF `VEb  1 e 0 @90 ]
+"44 /home/fercho/git-projects/aixt/ports/Microchip/PIC16F8x/examples/16F83_blinking_timer0/main.c
+[v _ptr_timer0_isr ptr_timer0_isr `*.27(v  1 e 1 0 ]
+"65
+[v _timer0__prescaler timer0__prescaler `c  1 e 1 0 ]
+"66
+[v _timer0__initial timer0__initial `c  1 e 1 0 ]
+"169
+[v _main main `(v  1 e 1 0 ]
+{
+"177
+} 0
+"5 /opt/microchip/xc8/v2.50/pic/sources/c99/common/aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"10
+[v ___aldiv@quotient quotient `l  1 a 4 14 ]
+"11
+[v ___aldiv@sign sign `uc  1 a 1 13 ]
+[v ___aldiv@counter counter `uc  1 a 1 12 ]
+"5
+[v ___aldiv@divisor divisor `l  1 p 4 3 ]
+[v ___aldiv@dividend dividend `l  1 p 4 7 ]
+"41
+} 0
+"47 /home/fercho/git-projects/aixt/ports/Microchip/PIC16F8x/examples/16F83_blinking_timer0/main.c
+[v _Global_ISR Global_ISR `II(v  1 e 1 0 ]
+{
+"61
+} 0
+"164
+[v _main__blinking main__blinking `(v  1 e 1 0 ]
+{
+"167
+} 0

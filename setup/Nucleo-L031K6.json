@@ -1,0 +1,22 @@
+
+{
+    "port":    "Nucleo-L031K6",
+    "board":   "Nucleo-L031K6",
+    "backend": "arduino",
+
+    "cc_linux":   "arduino-cli",
+    "cc_windows": "arduino-cli.exe",
+    "cc_make_flags":   "compile -b STMicroelectronics:stm32:GenL0 -v --output-dir @{file_dir_name}/build",
+
+    "api_paths": [
+        "ST/Nucleo-L031K6",
+        "Arduino/arduino-generic"
+    ],
+    "v_defines": [
+    ],
+    
+    "default_cpu_freq": 24000000,
+    "default_string_len": 50,
+    
+    "compiler_setup_path": "setup/arduino32.json"
+}

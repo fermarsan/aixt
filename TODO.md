@@ -24,6 +24,7 @@ Tasks to do in Aixt
 - [ ] Change arrays to pure V
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
+- [ ] Implement Timer0 functions
 
 ### Done ✓
 

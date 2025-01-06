@@ -49,7 +49,7 @@ fn (mut gen Gen) ast_node(node ast.Node) []string {
 			return gen.struct_field(node)
 		}
 		else {
-			return []
+			return ['']
 		} //'Error: Not defined node.\n' }
 	}
 }

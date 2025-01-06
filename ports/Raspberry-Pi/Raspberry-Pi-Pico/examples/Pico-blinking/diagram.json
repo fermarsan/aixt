@@ -2,37 +2,7 @@
   "version": 1,
   "author": "Fernando Martinez Santa",
   "editor": "wokwi",
-  "parts": [
-    { "type": "wokwi-pi-pico", "id": "pico", "top": -3.15, "left": 3.6, "attrs": {} },
-    { "type": "wokwi-gnd", "id": "gnd1", "top": 192, "left": -58.2, "attrs": {} },
-    {
-      "type": "wokwi-led",
-      "id": "led1",
-      "top": 54,
-      "left": -63,
-      "attrs": { "color": "red", "flip": "1" }
-    },
-    {
-      "type": "wokwi-resistor",
-      "id": "r1",
-      "top": 139.2,
-      "left": -77.35,
-      "rotate": 90,
-      "attrs": { "value": "330" }
-    },
-    { "type": "wokwi-potentiometer", "id": "pot1", "top": -1.3, "left": 153.4, "attrs": {} },
-    { "type": "wokwi-gnd", "id": "gnd2", "top": 105.6, "left": 191.4, "attrs": {} },
-    { "type": "wokwi-vcc", "id": "vcc1", "top": 29.56, "left": 115.2, "attrs": {} }
-  ],
-  "connections": [
-    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
-    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
-    [ "pico:GP7", "led1:C", "green", [ "h0" ] ],
-    [ "r1:1", "led1:A", "green", [ "h0" ] ],
-    [ "r1:2", "gnd1:GND", "green", [ "h0" ] ],
-    [ "pico:GP26", "pot1:SIG", "green", [ "h0" ] ],
-    [ "pot1:GND", "vcc1:VCC", "black", [ "v19.2", "h-48" ] ],
-    [ "pot1:VCC", "gnd2:GND", "red", [ "v0" ] ]
-  ],
+  "parts": [ { "type": "wokwi-pi-pico", "id": "pico", "top": 0, "left": 0, "attrs": {} } ],
+  "connections": [ [ "pico:GP0", "$serialMonitor:RX", "", [] ], [ "pico:GP1", "$serialMonitor:TX", "", [] ] ],
   "dependencies": {}
 }
