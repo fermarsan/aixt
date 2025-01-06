@@ -26,6 +26,8 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement Timer0 functions
 - [ ] Update all of the project templates
+- [ ] Change Explorer16-PIC24 port name by "Exp16-PIC24"
+
 
 ### Done ✓
 
