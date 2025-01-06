@@ -26,7 +26,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement Timer0 functions
 - [ ] Update all of the project templates
-- [ ] Update the `Setup file.md` in `doc` folder
 
 ### Done ✓
 
@@ -42,3 +41,4 @@ Tasks to do in Aixt
 - [x] Implement the constant `cpu_freq` for changing the default cpu frequency defined on `.json` file.
 - [x] Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC 
 - [x] Change Raspberry-Pi-Pico port name by "RP-Pico"
+- [x] Update the `Setup file.md` in `doc` folder. (`Setup files.md` )
