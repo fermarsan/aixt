@@ -1,4 +1,4 @@
-// Project Name: Port echo
+// Project name: Port echo
 // Author: Fernando M. Santa
 // Date: 05/09/2024
 // Echo from the 4 LSBs of PORTA to the 4 LSBs of PORTB

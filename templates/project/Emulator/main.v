@@ -1,4 +1,4 @@
-// Project Name:
+// Project name:
 // Author: 
 // Date: 
 // CLI emulator (Windows, Linux and Android-Termux) 

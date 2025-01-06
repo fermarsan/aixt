@@ -1,4 +1,4 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt
+// Project name: Aixt project, https://github.com/fermarsan/aixt
 
 // Author: Yahir Gracia
 // Date: 2024

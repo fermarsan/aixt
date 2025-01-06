@@ -1,4 +1,4 @@
-// Project Name: ADC_External_DAC
+// Project name: ADC_External_DAC
 // Author: Fernando M. Santa
 // Date: 05/12/2024
 // Arduino-Nano board

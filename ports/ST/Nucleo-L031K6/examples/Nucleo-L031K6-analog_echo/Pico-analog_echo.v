@@ -1,4 +1,4 @@
-// Project Name: Analog echo
+// Project name: Analog echo
 // Author: Fernando M. Santa
 // Date: 17/09/2024
 // Raspberry Pi Pico board

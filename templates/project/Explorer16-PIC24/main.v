@@ -1,4 +1,4 @@
-// Project Name:
+// Project name:
 // Author: 
 // Date: 
 // Explorer16-PIC24FJ128GA010 fosc = 32Mhz (8Mhz + PLL)

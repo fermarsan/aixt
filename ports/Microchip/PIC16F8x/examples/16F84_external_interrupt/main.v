@@ -1,4 +1,4 @@
-// Project Name: External interrupt
+// Project name: External interrupt
 // Author: Fernando M. Santa
 // Date: 04/12/2024
 // Changing a LED state by using the external interrupt

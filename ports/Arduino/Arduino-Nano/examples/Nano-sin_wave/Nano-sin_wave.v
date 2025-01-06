@@ -1,4 +1,4 @@
-// Project Name: sin wave signal
+// Project name: sin wave signal
 // Author: Fernando M. Santa
 // Date: 29/11/2024
 // Arduino-Nano board

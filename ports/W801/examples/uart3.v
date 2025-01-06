@@ -1,4 +1,4 @@
-// Project Name: UART ADC
+// Project name: UART ADC
 // Author: Fernando M. Santa
 // Date: 08/09/2024
 // Arduino-Nano board

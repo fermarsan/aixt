@@ -1,4 +1,4 @@
-// Project Name: Aixt https://github.com/fermarsan/aixt.git
+// Project name: Aixt https://github.com/fermarsan/aixt.git
 // Authors:
 //	 - Julian Camilo Guzmán Zambrano
 //	 - Juan Pablo Gonzalez Penagos

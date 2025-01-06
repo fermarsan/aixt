@@ -1,4 +1,4 @@
-// Project Name: UARt-ADC		
+// Project name: UARt-ADC		
 // Author: Fernando M. Santa
 // Date: 19/09/2024
 // Raspberry Pi Pico board

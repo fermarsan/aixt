@@ -1,4 +1,4 @@
-// Project Name: W801
+// Project name: W801
 // Author: Fernando M. Santa
 // Date: 08/09/2024
 // Arduino-W801 board

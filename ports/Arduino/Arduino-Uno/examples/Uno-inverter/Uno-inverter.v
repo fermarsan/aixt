@@ -1,4 +1,4 @@
-// Project Name: Logic inverter
+// Project name: Logic inverter
 // Author: Fernando M. Santa
 // Date: 09/09/2024
 // Arduino-Uno board

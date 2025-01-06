@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: 
 //	- Fabián A. Rojas Acosta
 //	- Alberto Pinzón Valero

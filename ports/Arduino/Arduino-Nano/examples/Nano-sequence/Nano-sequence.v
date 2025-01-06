@@ -1,4 +1,4 @@
-// Project Name: 4-bit sequence (LSBs PORTC)
+// Project name: 4-bit sequence (LSBs PORTC)
 // Author: Fernando M. Santa
 // Date: 08/09/20
 // Arduino-Nano board

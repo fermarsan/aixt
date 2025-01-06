@@ -1,4 +1,4 @@
-// Project Name: Blinking
+// Project name: Blinking
 // Author: Fernando M. Santa
 // Date: 21/09/2024
 // ESP32-DevKitC board

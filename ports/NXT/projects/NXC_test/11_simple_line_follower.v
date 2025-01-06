@@ -1,4 +1,4 @@
-// Project Name: Segidor_Linea
+// Project name: Segidor_Linea
 // Author: Fernando M. Santa
 // Date: 02/05/2024
 
