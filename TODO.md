@@ -7,7 +7,6 @@ Tasks to do in Aixt
 
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] dynamic memory definition
-- [ ] generates documentation from code
 - [ ] Implement inline assembly
 - [ ] "40_inline_asm.v" inline asm implementation
 - [ ] Implement uart.input()
@@ -18,6 +17,7 @@ Tasks to do in Aixt
 
 ### In Progress
 
+- [ ] generates documentation from code
 - [ ] Implement structs #feat
     - [ ] support struct fields (`struct_name.struct_field`)
 - [ ] implement maps
