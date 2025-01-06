@@ -1,7 +1,7 @@
-// Project Name: Analog echo
+// Project name: PWM signal
 // Author: Fernando M. Santa
-// Date: 17/09/2024
-// Raspberry Pi Pico board
+// Date: 06/01/2025
+// Nucleo-L031K6
 
 import time
 import pin
@@ -9,11 +9,11 @@ import pwm
 
 const duty_table = [u8(25), 60, 120, 180, 205]
 
-pin.setup(pin.gp7, pin.output)
+pin.setup(pin.d3, pin.output)	// for PWM
 
 for {
 	for duty in duty_table {
-		pwm.write(pin.gp7, duty)
+		pwm.write(pin.d3, duty)
 		time.sleep_ms(250)
 	}
 }
