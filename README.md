@@ -22,6 +22,7 @@ stateDiagram-v2
         state API {
             PICs: PIC
             ATM: AT
+            STM
             ESP
             RP2040
             PSoC
@@ -51,7 +52,7 @@ stateDiagram-v2
     state Compiler {
         XC8
         XC16
-        Arduino
+        arduino_cli
         GCC
         others: ...
         nbc: nbc (NXC)
@@ -178,6 +179,14 @@ aixt.exe symlink
 ```
 ./aixt -b NXT ports/NXT/projects/1_motor_forward.v
 ```
+
+
+## Prerequisites
+
+- _The V programming language_ 0.4.8
+- _auduino-cli_ last version (for arduino backend devices only)
+- _specific C compiler_ depending on the device
+
 
 ## Project's name
 
