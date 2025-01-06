@@ -1,6 +1,6 @@
 
 {
-    "port":    "Raspberry-Pi-Pico",
+    "port":    "RP-Pico",
     "board":   "Raspberry Pi Pico",
     "backend": "arduino",
 
@@ -9,7 +9,7 @@
     "cc_make_flags":   "compile -b arduino:mbed_rp2040:pico -v --output-dir @{file_dir_name}/build",
 
     "api_paths": [
-        "Raspberry-Pi/Raspberry-Pi-Pico",
+        "Raspberry-Pi/RP-Pico",
         "Arduino/arduino-generic"
     ],
     "v_defines": [

@@ -26,7 +26,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement Timer0 functions
 - [ ] Update all of the project templates
-- [ ] Change Raspberry-Pi-Pico port name by "RP-Pico"
 
 ### Done ✓
 
@@ -41,3 +40,4 @@ Tasks to do in Aixt
 - [x] Implement external interrupts on PIC16F8x microcontroller family.
 - [x] Implement the constant `cpu_freq` for changing the default cpu frequency defined on `.json` file.
 - [x] Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC 
+- [x] Change Raspberry-Pi-Pico port name by "RP-Pico"
