@@ -42,3 +42,4 @@ Tasks to do in Aixt
 - [x] Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC 
 - [x] Change Raspberry-Pi-Pico port name by "RP-Pico"
 - [x] Update the `Setup file.md` in `doc` folder. (`Setup files.md` )
+- [x] Explorer 16 PIC24 setup files updated 
