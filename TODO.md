@@ -25,7 +25,6 @@ Tasks to do in Aixt
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement Timer0 functions
-- [ ] Update all of the project templates
 
 
 ### Done ✓
@@ -44,4 +43,4 @@ Tasks to do in Aixt
 - [x] Update the `Setup file.md` in `doc` folder. (`Setup files.md` )
 - [x] Explorer 16 PIC24 setup files updated 
 - [x] Change Exp16-PIC24 port name by "Exp16-PIC24"
-- [x] Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC, Exp16-PIC24
+- [x] Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC, Exp16-PIC24, PIC16F8x, PIC16F88x, RP-Pico, W801
