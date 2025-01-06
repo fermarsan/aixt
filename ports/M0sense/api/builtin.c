@@ -3,7 +3,7 @@
 // Date: 2022-2023
 // License: MIT
 //
-// Description: Builtin definitions (Explorer16-PIC24 port)
+// Description: Builtin definitions (Exp16-PIC24 port)
 #define led3    a0  // Onboard LEDs            
 #define led4    a1        
 #define led5    a2        

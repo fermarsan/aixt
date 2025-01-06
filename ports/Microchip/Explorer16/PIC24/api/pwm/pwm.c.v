@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: PWM functions (Explorer16-PIC24 port)
+// Description: PWM functions (Exp16-PIC24 port)
 module pwm
 
 #define		pwm.out_1		1

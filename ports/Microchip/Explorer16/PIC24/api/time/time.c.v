@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Milliseconds delay function
-//              (Explorer16-PIC24 port)
+//              (Exp16-PIC24 port)
 module time
 
 #include <libpic30.h> 

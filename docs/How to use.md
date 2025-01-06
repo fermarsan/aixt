@@ -11,7 +11,7 @@ Examples:
 v run aixt.v -t Emulator ports/PC/projects/blinking/blinking.v
 ```
 ```
-v run aixt.v -c Explorer16-PIC24 common_test/17_for_in_range.v
+v run aixt.v -c Exp16-PIC24 common_test/17_for_in_range.v
 ```
 
 ## Compile **Aixt**

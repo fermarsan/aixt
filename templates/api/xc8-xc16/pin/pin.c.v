@@ -3,7 +3,7 @@
 // Date: 
 // License: MIT
 //
-// Description: Pin management functions (Explorer16-PIC24 port)
+// Description: Pin management functions (Exp16-PIC24 port)
 module pin
 
 #include <pxxx.h>	// device header file

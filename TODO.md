@@ -26,7 +26,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement Timer0 functions
 - [ ] Update all of the project templates
-- [ ] Change Explorer16-PIC24 port name by "Exp16-PIC24"
 
 
 ### Done ✓
@@ -40,8 +39,9 @@ Tasks to do in Aixt
 - [x] Update ESP32-DevKitC to the API 0.1.2
 - [x] Implement the basic structure of interrupts (attribute `@[XXXX_isr]`)
 - [x] Implement external interrupts on PIC16F8x microcontroller family.
-- [x] Implement the constant `cpu_freq` for changing the default cpu frequency defined on `.json` file.
-- [x] Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC 
+- [x] Implement the constant `cpu_freq` for changing the default cpu frequency defined on `.json` file
 - [x] Change Raspberry-Pi-Pico port name by "RP-Pico"
 - [x] Update the `Setup file.md` in `doc` folder. (`Setup files.md` )
 - [x] Explorer 16 PIC24 setup files updated 
+- [x] Change Exp16-PIC24 port name by "Exp16-PIC24"
+- [x] Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC, Exp16-PIC24

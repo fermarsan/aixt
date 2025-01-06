@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin port management functions (Explorer16-PIC24 port)
+// Description: Pin port management functions (Exp16-PIC24 port)
 module port
 
 #define TRISport_a	TRISA	// port setup name equivalents

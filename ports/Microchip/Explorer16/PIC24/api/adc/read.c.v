@@ -3,7 +3,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// Description: ADC functions (Explorer16-PIC24 port)
+// Description: ADC functions (Exp16-PIC24 port)
 module adc
 
 

@@ -3,7 +3,7 @@
 // Date: 2022-2024
 // License: MIT
 //
-// Description: ADC setup (Explorer16-PIC24 port)
+// Description: ADC setup (Exp16-PIC24 port)
 module adc
 
 // setup receive the pins to be configured as analog and the sampling-converting frequency
