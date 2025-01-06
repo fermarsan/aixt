@@ -26,6 +26,7 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement Timer0 functions
 - [ ] Update all of the project templates
+- [ ] Update the `Setup file.md` in `doc` folder
 
 ### Done ✓
 
