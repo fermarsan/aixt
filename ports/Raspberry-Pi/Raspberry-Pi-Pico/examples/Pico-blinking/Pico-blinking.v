@@ -1,4 +1,4 @@
-// Project:	Name: On-board LED blinking
+// Project name: On-board LED blinking
 // Author:	Fernando M. Santa
 // Date:	17/09/2024
 // Raspberry Pi Pico board
@@ -14,5 +14,3 @@ for {
 	pin.low(led0)
 	time.sleep_ms(250)
 }
-
-
