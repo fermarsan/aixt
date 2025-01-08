@@ -10,21 +10,21 @@ import time
 @[as_macro] const t_avoid = 1500
 @[as_macro] const pow = 50
 
-fn straight(power int, time int) {
+fn straight(power i8, tim u32) {
 	motor.write(motor.a, power)
 	motor.write(motor.b, -power)	// reverse
-	time.sleep_ms(time)
+	time.sleep_ms(tim)
 }
 
-fn spin(power int, time int) {
+fn spin(power i8, tim u32) {
 	motor.write(motor.a, power)
 	motor.write(motor.b, power)
-	time.sleep_ms(time)
+	time.sleep_ms(tim)
 }
 
-fn stop_(time int) {
+fn stop_(tim u32) {
 	motor.off(motor.ab)
-	time.sleep_ms(time)
+	time.sleep_ms(tim)
 }
 
 

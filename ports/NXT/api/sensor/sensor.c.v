@@ -14,22 +14,22 @@ module sensor
 @[as_macro] pub const s4 = 3
 
 // Use the combined sensor type and mode constants to configure both the sensor mode and type in a single function call. 
-@[as_macro] pub const touch   		= C.SENSOR_TOUCH
-@[as_macro] pub const light   		= C.SENSOR_LIGHT
-@[as_macro] pub const rotation   	= C.SENSOR_ROTATION
-@[as_macro] pub const celsius   	= C.SENSOR_CELSIUS
-@[as_macro] pub const fahrenheit   	= C.SENSOR_FAHRENHEIT
-@[as_macro] pub const pulse   		= C.SENSOR_PULSE
-@[as_macro] pub const edge    		= C.SENSOR_EDGE
-@[as_macro] pub const nxtlight   	= C.SENSOR_NXTLIGHT
-@[as_macro] pub const sound   		= C.SENSOR_SOUND
-@[as_macro] pub const lowspeed_9v  	= C.SENSOR_LOWSPEED_9V
-@[as_macro] pub const lowspeed   	= C.SENSOR_LOWSPEED
-@[as_macro] pub const colorfull   	= C.SENSOR_COLORFULL
-@[as_macro] pub const colorred   	= C.SENSOR_COLORRED
-@[as_macro] pub const colorgreen   	= C.SENSOR_COLORGREEN
-@[as_macro] pub const colorblue   	= C.SENSOR_COLORBLUE
-@[as_macro] pub const colornone   	= C.SENSOR_COLORNONE
+@[as_macro] pub const touch   		= u16(C.SENSOR_TOUCH)
+@[as_macro] pub const light   		= u16(C.SENSOR_LIGHT)
+@[as_macro] pub const rotation   	= u16(C.SENSOR_ROTATION)
+@[as_macro] pub const celsius   	= u16(C.SENSOR_CELSIUS)
+@[as_macro] pub const fahrenheit   	= u16(C.SENSOR_FAHRENHEIT)
+@[as_macro] pub const pulse   		= u16(C.SENSOR_PULSE)
+@[as_macro] pub const edge    		= u16(C.SENSOR_EDGE)
+@[as_macro] pub const nxtlight   	= u16(C.SENSOR_NXTLIGHT)
+@[as_macro] pub const sound   		= u16(C.SENSOR_SOUND)
+@[as_macro] pub const lowspeed_9v  	= u16(C.SENSOR_LOWSPEED_9V)
+@[as_macro] pub const lowspeed   	= u16(C.SENSOR_LOWSPEED)
+@[as_macro] pub const colorfull   	= u16(C.SENSOR_COLORFULL)
+@[as_macro] pub const colorred   	= u16(C.SENSOR_COLORRED)
+@[as_macro] pub const colorgreen   	= u16(C.SENSOR_COLORGREEN)
+@[as_macro] pub const colorblue   	= u16(C.SENSOR_COLORBLUE)
+@[as_macro] pub const colornone   	= u16(C.SENSOR_COLORNONE)
 
 
 // Use sensor mode constants to configure an input port for the desired sensor mode.
@@ -91,7 +91,7 @@ fn C.ResetSensor(args ...any)
 
 
 @[as_macro]
-pub fn setup(port u8, config u32) {
+pub fn setup(port u8, config u16) {
 	C.SetSensor(port, config) 
 }                                                          
 

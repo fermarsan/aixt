@@ -3,9 +3,9 @@ import rand
 import time
 
 
-move_time := 1000
-turn_time := 500
-total_time := 0
+mut move_time := 1000
+mut turn_time := 500
+mut total_time := 0
 
 for total_time < 20000 {
 

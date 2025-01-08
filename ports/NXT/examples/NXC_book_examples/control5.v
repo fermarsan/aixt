@@ -4,7 +4,7 @@ import time
 
 const threshold = 40
 
-sensor.as_sound(sensor.s2)
+sensor.as_sound(sensor.s2, true)
 
 for {
 	for sensor.read(sensor.s2) <= threshold {}

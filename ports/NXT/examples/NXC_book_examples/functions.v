@@ -1,24 +1,24 @@
 import motor
 import time
 
-fn turn_right(s int, t int) {
+fn turn_right(s i8, t u16) {
 	motor.write(motor.a, s)
 	motor.write(motor.b, -s)
 	time.sleep_ms(t)
 }
 
-fn turn_left(s int, t int) {
+fn turn_left(s i8, t u16) {
 	motor.write(motor.a, -s)
 	motor.write(motor.b, s)
 	time.sleep_ms(t)
 }
 
-fn forwards(s int, t int) {
+fn forwards(s i8, t u16) {
 	motor.write(motor.ab, s)
 	time.sleep_ms(t)
 }
 
-fn backwards(s int, t int) {
+fn backwards(s i8, t u16) {
 	motor.write(motor.ab, -s)
 	time.sleep_ms(t)
 }

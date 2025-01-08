@@ -6,7 +6,7 @@ import time
 
 const limit = 40
 
-sensor.as_light(sensor.s1)
+sensor.as_light(sensor.s1, true)
 motor.write(motor.ab, 60)
 
 for {

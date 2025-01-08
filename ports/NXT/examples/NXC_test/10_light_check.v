@@ -3,7 +3,7 @@ import lcd
 import time
 
 
-sensor.as_light(sensor.s1)
+sensor.as_light(sensor.s1, true)
 
 for {
 	lcd.clear()

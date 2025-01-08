@@ -4,7 +4,7 @@ import time
 
 const near = 15
 
-sensor.as_lowspeed(sensor.s4)
+sensor.as_lowspeed(sensor.s4, true)
 
 for {
 	motor.write(motor.ac, 50)

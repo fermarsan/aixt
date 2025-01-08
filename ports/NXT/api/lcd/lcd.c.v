@@ -50,7 +50,9 @@ fn C.NumOut(args ...any) i8
 fn C.EllipseOut(args ...any) i8 
 fn C.DisplayContrast() u8 
 fn C.SetDisplayContrast(args ...any) u8 
-
+fn C.ClearScreen()
+fn C.ClearLine(args ...any) 
+fn C.StrLen(args ...any) u16
 
 
 
@@ -100,8 +102,8 @@ pub fn read_contrast() u8 {
 }
 
 @[as_macro] 
-pub fn setup_contrast(contrast u8) {
-	return C.SetDisplayContrast(contrast) 
+pub fn write_contrast(contrast u8) {
+	C.SetDisplayContrast(contrast) 
 }
 
 @[as_macro] 
@@ -113,7 +115,7 @@ pub fn clear() {
 
 @[as_macro] 
 pub fn clear_line(line u8) {
-	return C.ClearLine(line) 
+	C.ClearLine(line) 
 }
 
 pub fn into_range(num i8, max i8, min i8) i8 {
@@ -135,7 +137,7 @@ pub fn move_to(x i8, y i8) {
 
 pub fn print(msg string) {
 	lcd.write_text(cursor_x, cursor_y, msg)
-	cursor_x += C.StrLen(msg)*6
+	cursor_x += i8(C.StrLen(msg)*6)
 	cursor_x = lcd.into_range(cursor_x, x_max, 0)
 }
 
