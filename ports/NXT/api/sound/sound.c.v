@@ -72,33 +72,13 @@ module sound
 
 // Functions for accessing and modifying sound module features. 
 @[as_macro]
-pub fn play_file() {
-	return C.PlayFile() 
+pub fn play_file(filename string) i8 {
+	return C.PlayFile(filename) 
 }
 
 @[as_macro]
-pub fn play_file_ex() {
-	return C.PlayFileEx() 
-}
-
-@[as_macro]
-pub fn play_tone() {
-	return C.PlayTone() 
-}
-
-@[as_macro]
-pub fn play_tone_ex() {
-	return C.PlayToneEx() 
-}
-
-@[as_macro]
-pub fn state() {
-	return C.SoundState() 
-}
-
-@[as_macro]
-pub fn flags() {
-	return C.SoundFlags() 
+pub fn play_tone(frequency u16, duration u16) i8 {
+	return C.PlayTone(frequency, duration) 
 }
 
 @[as_macro]
@@ -107,72 +87,72 @@ pub fn stop() {
 }
 
 @[as_macro]
-pub fn frequency() {
+pub fn read_frequency() u16 {
 	return C.SoundFrequency() 
 }
 
 @[as_macro]
-pub fn duration() {
+pub fn read_duration() u16 {
 	return C.SoundDuration() 
 }
 
 @[as_macro]
-pub fn sample_rate() {
+pub fn read_sample_rate() u16 {
 	return C.SoundSampleRate() 
 }
 
 @[as_macro]
-pub fn mode() {
+pub fn read_mode() u8 {
 	return C.SoundMode() 
 }
 
 @[as_macro]
-pub fn volume() {
+pub fn read_volume() u8 {
 	return C.SoundVolume() 
 }
 
 @[as_macro]
-pub fn set_duration() {
-	return C.SetSoundDuration() 
+pub fn write_duration(args ...any) {
+	C.SetSoundDuration(args) 
 }
 
 @[as_macro]
-pub fn set_flags() {
-	return C.SetSoundFlags() 
+pub fn write_flags(args ...any) {
+	C.SetSoundFlags(args) 
 }
 
 @[as_macro]
-pub fn set_frequency() {
-	return C.SetSoundFrequency() 
+pub fn write_frequency(args ...any) {
+	C.SetSoundFrequency(args) 
 }
 
 @[as_macro]
-pub fn set_mode() {
-	return C.SetSoundMode() 
+pub fn write_mode(args ...any) {
+	C.SetSoundMode(args) 
 }
 
 @[as_macro]
-pub fn set_module_state() {
-	return C.SetSoundModuleState() 
+pub fn write_module_state(args ...any) {
+	C.SetSoundModuleState(args) 
 }
 
 @[as_macro]
-pub fn set_sample_rate() {
-	return C.SetSoundSampleRate() 
+pub fn write_sample_rate(args ...any) {
+	C.SetSoundSampleRate(args) 
 }
 
 @[as_macro]
-pub fn set_volume() {
-	return C.SetSoundVolume() 
+pub fn write_volume(args ...any) {
+	C.SetSoundVolume(args) 
 }
 
 @[as_macro]
-pub fn play() {
-	return C.PlaySound() 
+pub fn play(args ...any) {
+	C.PlaySound(args) 
 }
 
 @[as_macro]
-pub fn play_tones() {
-	return C.PlayTones() 
+pub fn play_tones(args ...any) {
+	C.PlayTones(args) 
 }
 

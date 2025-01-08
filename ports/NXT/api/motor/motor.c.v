@@ -16,8 +16,8 @@ module motor	// NXC Output
 @[as_macro] const bc  = 0x05	
 @[as_macro] const abc = 0x06
 
-// Use these constants to configure the desired regulation mode for the specified motor                                              : none, speed regulation, 
-// multi-motor synchronization, or position regulation                                               . 
+// Use these constants to configure the desired regulation mode for the specified motor          
+// multi-motor synchronization, or position regulation                               
 @[as_macro] const regmode_idle    = C.UT_REGMODE_IDLE  
 @[as_macro] const regmode_speed   = C.UT_REGMODE_SPEED 
 @[as_macro] const regmode_sync    = C.UT_REGMODE_SYNC  

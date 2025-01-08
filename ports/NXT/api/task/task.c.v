@@ -8,7 +8,7 @@
 module task
 
 @[as_macro]
-pub fn yield(task) {
+pub fn yield() {
 	C.Yield() 
 }
 
@@ -22,7 +22,7 @@ pub fn exit_to(new_task any) {
 	C.ExitTo(new_task) 
 }
 
-@[as_macro]
+@[as_macro] 
 pub fn precedes(tasks ...any) {
 	return C.Precedes(tasks) 
 }

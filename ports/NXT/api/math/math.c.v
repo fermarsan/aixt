@@ -9,8 +9,8 @@ module math
 
 // Miscellaneous NBC/NXC constants
 @[as_macro] pub const pi			= C.PI
-@[as_macro] pub const rad_to_deg	= C.RADIANS_PER_DEGREE
-@[as_macro] pub const deg_to_rad	= C.DEGREES_PER_RADIAN
+@[as_macro] pub const rad_per_deg	= C.RADIANS_PER_DEGREE
+@[as_macro] pub const deg_per_rad	= C.DEGREES_PER_RADIAN
 
 // cmath.h
 @[as_macro]

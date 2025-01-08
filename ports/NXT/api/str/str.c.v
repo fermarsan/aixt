@@ -29,16 +29,6 @@ pub fn replace(str string, idx u16, new string) string {
 }
 
 @[as_macro]
-pub fn format_num(fmt string, num any) string {
-	return C.FormatNum(fmt, num) 
-}
-
-@[as_macro]
-pub fn format_val(fmt string, val any) string {
-	return C.FormatVal(fmt, val) 
-}
-
-@[as_macro]
 pub fn pos(sub string, s string) i16 {
 	return C.Pos(sub, s) 
 }
