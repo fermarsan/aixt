@@ -182,9 +182,9 @@ import pin				        // importa el modulo pin en su totalidad
 pin.setup(1, pin.output)  			// configura el pin 1 como salida
 for {                     			//crea el void loob
 	pin.high(1)			        //pin encendido
-	sleep_ms(500)	  	      		//retardo en milisegundos 
+	time.sleep_ms(500)	  	      		//retardo en milisegundos 
 	pin.low(1)			        //pin apagado
-	sleep_ms(500)		       		 //retardo en milisegundos
+	time.sleep_ms(500)		       		 //retardo en milisegundos
 }
 ```
 ### Secuencia tipo semaforo

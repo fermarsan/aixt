@@ -5,9 +5,9 @@ This **Aixt** port works as an **NXC** language wrapper. Most of the name functi
 ```v
 forward(motor_a, 75)    
 forward(motor_c, 75)
-sleep(4000)          
+time.sleep(4000)          
 reverse(motors_ac, 75)  
-sleep(4000)
+time.sleep(4000)
 off(motors_ac)
 ```
 

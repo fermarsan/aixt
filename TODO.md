@@ -45,3 +45,4 @@ Tasks to do in Aixt
 - [x] Change Exp16-PIC24 port name by "Exp16-PIC24"
 - [x] Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC, Exp16-PIC24, PIC16F8x, PIC16F88x, RP-Pico, W801
 - [x] Nucleo-L031K6 project template created
+- [x] NXT port updated to API v0.1.2

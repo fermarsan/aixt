@@ -134,9 +134,9 @@ This is an Aixt implementation to provide support for the ESP32-C3FH4 board.
 
 	for {
 		pin.high(1)  					// Output High
-		sleep_ms(1000)  				// Delay for 1s
+		time.sleep_ms(1000)  				// Delay for 1s
 		pin.low(1)  					// Output Low 
-		sleep_ms(1000)  				// Delay for 1s 
+		time.sleep_ms(1000)  				// Delay for 1s 
 	}
 ```
 

@@ -5,9 +5,9 @@ pin(b0, pin_out)
 
 for {
 	pin.high(pin.b0)
-	sleep_ms(1000)
+	time.sleep_ms(1000)
 	pin.low(pin.b0)
-	sleep_ms(1000) 
-	sleep_ms(500) 
+	time.sleep_ms(1000) 
+	time.sleep_ms(500) 
 }
  

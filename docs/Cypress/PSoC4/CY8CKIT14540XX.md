@@ -150,19 +150,19 @@ Uso de tiempos;
 
 -Segundos
 ```go
-sleep(s)
+time.sleep(s)
 ```
 -milisegundos
 
 ```go
-sleep_ms(ms)
+time.sleep_ms(ms)
 ```
 
 
 -Microsegundos
 
 ```go
-sleep_us(us)
+time.sleep_us(us)
 ```
 *En cada expresión, el valor del tiempo se pone dentro del parentesis.*
 

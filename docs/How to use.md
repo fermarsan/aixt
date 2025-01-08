@@ -28,7 +28,7 @@ Examples:
 ./aixt -t Emulator common_test/02_casting.v
 ```
 ```
-./aixt -b NXT ports/NXT/projects/1_motor_forward.v
+./aixt -b NXT ports/NXT/projects/1_motor.write.v
 ```
 
 ## Aixt commands

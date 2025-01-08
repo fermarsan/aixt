@@ -8,5 +8,5 @@ import pin
 
 for {
 	pin.high(led10)
-	sleep_ms(500)
+	time.sleep_ms(500)
 }

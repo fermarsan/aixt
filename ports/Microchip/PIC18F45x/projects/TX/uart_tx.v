@@ -12,5 +12,5 @@ for {
     uart.write(0x33)
     sleep_ms(1000)
     uart.write(0x99)
-	sleep_ms(1000)
+	time.sleep_ms(1000)
 }

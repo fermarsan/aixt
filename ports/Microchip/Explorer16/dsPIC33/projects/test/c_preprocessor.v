@@ -2,4 +2,4 @@
 
 import time 
 
-sleep(delay)
+time.sleep(delay)

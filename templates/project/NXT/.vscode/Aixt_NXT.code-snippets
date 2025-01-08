@@ -40,15 +40,15 @@
 		"description": "Precedes task order"
 	},
 	// motor module
-	"snippet.aixt.motor.forward": {
-		"prefix": "motor.forward",
-		"body": "motor.forward(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
+	"snippet.aixt.motor.write": {
+		"prefix": "motor.write",
+		"body": "motor.write(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
 		"description": "Motor move forward"
 	},
-	"snippet.aixt.motor.forward_time": {
+	"snippet.aixt.motor.write_time": {
 		"prefix": "motor.ft",
 		"body": [ 
-			"motor.forward(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
+			"motor.write(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
 			"sleep_ms(${3:500})",
 		],
 		"description": "Motor move forward for a specific time (milliseconds)"
@@ -82,12 +82,12 @@
 	// sensor module
 	"snippet.aixt.sensor.set": {
 		"prefix": "sensor.set",
-		"body": "sensor.set(${1|i1,i2,i3,i4|}, ${2|touch,light,sound,lowspeed,ultrasonic,e_meter,temperature,color_full,color_red,color_green,color_blue,color_none|})",
+		"body": "sensor.setup(${1|i1,i2,i3,i4|}, ${2|touch,light,sound,lowspeed,ultrasonic,e_meter,temperature,color_full,color_red,color_green,color_blue,color_none|})",
 		"description": "Set sensor type"
 	},
-	"snippet.aixt.sensor.set_type": {
-		"prefix": "sensor.set_type",
-		"body": "sensor.set_${1|touch,light,sound,lowspeed,ultrasonic,e_meter,temperature,color_full,color_red,color_green,color_blue,color_none|}(${2|i1,i2,i3,i4|})",
+	"snippet.aixt.sensor.as_type": {
+		"prefix": "sensor.as_type",
+		"body": "sensor.as_${1|touch,light,sound,lowspeed,ultrasonic,e_meter,temperature,color_full,color_red,color_green,color_blue,color_none|}(${2|i1,i2,i3,i4|})",
 		"description": "Set sensor type functions"
 	},
 	"snippet.aixt.sensor.read": {

@@ -16,7 +16,7 @@ for{
 	pwm.write(1, val1)
 	pwm.write(4, val2)
 	pwm.write(10, val3)
-	sleep_ms(500)
+	time.sleep_ms(500)
 	val1=val1+50
 	val2=val2+25
 	val3=val3+25

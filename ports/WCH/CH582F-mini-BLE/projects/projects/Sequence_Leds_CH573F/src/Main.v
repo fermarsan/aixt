@@ -8,14 +8,14 @@ pin.setup(pin.a15, pin.output)
 
 for {
 	pin.high(pin.a13)	// turn on and turn off the LEDs one by one
-	sleep_ms(500)
+	time.sleep_ms(500)
 	pin.low(pin.a13)
 
 	pin.high(pin.a14)
-	sleep_ms(500)
+	time.sleep_ms(500)
 	pin.low(pin.a14)
 
 	pin.high(pin.a15)
-	sleep_ms(500)
+	time.sleep_ms(500)
 	pin.low(pin.a15)	
 }

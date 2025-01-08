@@ -1,123 +1,49 @@
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
+// Date: 2024-2025
+// License: MIT
+//
+// Description: Button module for NXT (NXC backend)
+
 module button
 
-// #################### NXC Button module ####################
 
-// Constant offsets into the Button module IOMAP structure. 
-// #define 	offset_pressed_cnt		ButtonOffsetPressedCnt  
-// #define 	offset_long_press_cnt	ButtonOffsetLongPressCnt
-// #define 	offset_short_rel_cnt	ButtonOffsetShortRelCnt
-// #define 	offset_long_rel_cnt		ButtonOffsetLongRelCnt
-// #define 	offset_rel_cnt			ButtonOffsetRelCnt
-// #define 	offset_state			ButtonOffsetState
-
-// Constants to specify which button to use with button module functions. 
-// #define 	btn1      		BTN1       
-// #define 	btn2      		BTN2       
-// #define 	btn3      		BTN3       
-// #define 	btn4      		BTN4       
-// #define 	btn_exit   		BTNEXIT     
-// #define 	btn_right  		BTNRIGHT     
-// #define 	btn_left   		BTNLEFT     
-// #define 	btn_center 		BTNCENTER     
-// #define 	no_btns			NO_OF_BTNS
-
-enum btns {
-	btn1=0       
-	btn2       
-	btn3       
-	btn4 
-	no_btns
-}
-
-
+// Constants that are part of the NXT firmware's Button module.
+@[as_macro] pub const btn1	  = 0       
+@[as_macro] pub const btn2	  = 1       
+@[as_macro] pub const btn3	  = 2       
+@[as_macro] pub const btn4	  = 3 
+@[as_macro] pub const no_btns = 4
+@[as_macro] pub const exit    = 0       
+@[as_macro] pub const right   = 1       
+@[as_macro] pub const left	  = 2       
+@[as_macro] pub const center  = 3 
 
 // Constants for use with the ButtonState() function.
-// The _EV values can be combined together using a bitwise OR operation. 
-// #define 	state_pressed_ev   			BTNSTATE_PRESSED_EV   
-// #define 	state_short_released_ev   	BTNSTATE_SHORT_RELEASED_EV   
-// #define 	state_long_pressed_ev   	BTNSTATE_LONG_PRESSED_EV   
-// #define 	state_long_released_ev   	BTNSTATE_LONG_RELEASED_EV   
-// #define 	state_pressed_state   		BTNSTATE_PRESSED_STATE   
-// #define 	state_none   				BTNSTATE_NONE   
+@[as_macro] pub const pressed   		= 0x01   
+@[as_macro] pub const short_released   	= 0x02   
+@[as_macro] pub const long_pressed   	= 0x04   
+@[as_macro] pub const long_released   	= 0x08   
+@[as_macro] pub const pressed_state   	= 0x80   
+@[as_macro] pub const _none   			= 0x10   
 
 // Functions for accessing and modifying Button module features. 
-@[inline]
-read(btn u8) bool {
+@[as_macro]
+pub fn read(btn u8) bool {
 	return C.ButtonPressed(btn, false) 
 }
 
-@[inline]
-read_count(btn u8btn u8) u8 {
-	return C.ButtonCount(btn, false) 
+@[as_macro]
+pub fn read_count(btn u8) u8 {
+	return C.ButtonPressCount(btn) 
 }
 
-// @[inline]
-// read_ex() {
-// 	return C.ReadButtonEx() 
-// }
+@[as_macro]
+pub fn read_state(btn u8) u8 {
+	return C.ButtonState(btn) 
+}
 
-// @[inline]
-// press_count(btn u8) {
-// 	return C.ButtonPressCount() 
-// }
-
-// @[inline]
-// long_press_count(btn u8) {
-// 	return C.ButtonLongPressCount() 
-// }
-
-// @[inline]
-// short_release_count(btn u8) {
-// 	return C.ButtonShortReleaseCount() 
-// }
-
-// @[inline]
-// long_release_count(btn u8) {
-// 	return C.ButtonLongReleaseCount() 
-// }
-
-// @[inline]
-// release_count(btn u8) {
-// 	return C.ButtonReleaseCount() 
-// }
-
-// @[inline]
-// state() {
-// 	return C.ButtonState() 
-// }
-
-// @[inline]
-// set_long_press_count() {
-// 	return C.SetButtonLongPressCount() 
-// }
-
-// @[inline]
-// set_long_release_count() {
-// 	return C.SetButtonLongReleaseCount() 
-// }
-
-@[inline]
-set_count(btn u8, n u8) {
+@[as_macro]
+pub fn set_count(btn u8, n u8) {
 	C.SetButtonPressCount(btn, n) 
 }
-
-// @[inline]
-// set_release_count() {
-// 	return C.SetButtonReleaseCount() 
-// }
-
-// @[inline]
-// set_short_release_count() {
-// 	return C.SetButtonShortReleaseCount() 
-// }
-
-// @[inline]
-// set_state() {
-// 	return C.SetButtonState() 
-// }
-
-// @[inline]
-// sys_read() {
-// 	return C.SysReadButton() 
-// }
-

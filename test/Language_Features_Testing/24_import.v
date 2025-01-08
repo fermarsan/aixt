@@ -6,6 +6,6 @@ import machine
 mut a := 0.0
 
 for {
-	sleep(1)
+	time.sleep(1)
 	a++
 }

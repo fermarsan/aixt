@@ -7,9 +7,9 @@ pin.setup(gp11, pin.input)
 for {
 	b0n := false
 	if pin.read(gp11) {
-		sleep_ms(50)
+		time.sleep_ms(50)
 		for pin.read(gp11){}
-		sleep_ms(50)
+		time.sleep_ms(50)
 		b0n = !b0n
 
 		if b0n {

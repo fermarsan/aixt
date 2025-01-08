@@ -58,9 +58,9 @@ Potentiometer	  | name	| pin
 
 ## Delay and timing
 ```v
-sleep(2)		  // sleep for 2 seconds
-sleep_us(1)		// sleep for 1 microsecond
-sleep_ms(500)	// sleep for 500 milliseconds
+time.sleep(2)		  // sleep for 2 seconds
+time.sleep_us(1)		// sleep for 1 microsecond
+time.sleep_ms(500)	// sleep for 500 milliseconds
 ```
 
 ## Pin and GPIO

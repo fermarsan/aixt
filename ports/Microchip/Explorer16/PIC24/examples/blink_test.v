@@ -8,9 +8,9 @@ x := 0
 
 for {
 	pin.high(pin.b3)
-	sleep_ms(500)
+	time.sleep_ms(500)
 	pin.low(pin.b3)
-	sleep_ms(500)
+	time.sleep_ms(500)
 
 	x = pin.read(pin.a6)	// PIC16
 	x = pin.read(pin.a6)	// PIC18

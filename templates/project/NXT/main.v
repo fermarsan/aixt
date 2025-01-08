@@ -4,6 +4,6 @@
 
 import motor
 
-motor.forward(ab, 50)
-sleep(2)
-motor.off(ab)
+motor.write(motor.ab, 50)
+time.sleep(2)
+motor.off(motor.ab)

@@ -131,6 +131,22 @@ for { // infinite loop
 }
 ```
 
+### Example for NXT robotics platform
+
+```v
+// "Drawing" an square with a differential platform (motors A and B)
+import motor
+import time
+
+for {
+	motor.write(motor.a, 50)
+	motor.write(motor.b, -50)	// reverse
+	time.sleep_ms(3000)
+	motor.write(motor.a, -50)	// reverse
+	time.sleep_ms(500)
+}
+```
+
 ## Aixt API
 
 The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API for all the ports includes at least functions for:
@@ -177,7 +193,7 @@ aixt.exe symlink
 ./aixt -t Emulator test.v
 ```
 ```
-./aixt -b NXT ports/NXT/projects/1_motor_forward.v
+./aixt -b NXT ports/NXT/projects/1_motor.write.v
 ```
 
 

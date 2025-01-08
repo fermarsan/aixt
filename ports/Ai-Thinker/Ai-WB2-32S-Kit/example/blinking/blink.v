@@ -12,7 +12,7 @@ pin.setup(1, pin.output)
 
 for {
 	pin.high(17)
-	sleep_ms(250)
+	time.sleep_ms(250)
 	pin.low(17)
-	sleep_ms(250)
+	time.sleep_ms(250)
 }

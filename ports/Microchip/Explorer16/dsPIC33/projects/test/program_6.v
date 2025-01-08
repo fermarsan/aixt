@@ -7,7 +7,7 @@ import machine
 pin(B0,out)
 
 pin.high(pin.B0)
-sleep_ms(t_on)
+time.sleep_ms(t_on)
 
 pin.low(pin.B0)
-sleep_ms(t_off)
+time.sleep_ms(t_off)
