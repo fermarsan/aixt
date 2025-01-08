@@ -2,8 +2,8 @@ import motor
 import sensor
 import time
 
-sensor.setup_type(sensor.s1, sensor.type_touch)
-sensor.setup_mode(sensor.s1, sensor.mode_pulse)
+sensor.write_type(sensor.s1, sensor.type_touch)
+sensor.write_mode(sensor.s1, sensor.mode_pulse)
 
 for {
 	sensor.clear(sensor.s1)

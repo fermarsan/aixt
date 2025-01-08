@@ -1,4 +1,33 @@
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
+// Date: 2024-2025
+// License: MIT
+//
+// Description: Array module for NXT (NXC backend)
+
 module array
+
+@[as_macro] pub const op_sum     = C.OPARR_SUM    
+@[as_macro] pub const op_mean    = C.OPARR_MEAN   
+@[as_macro] pub const op_sumsqr  = C.OPARR_SUMSQR 
+@[as_macro] pub const op_std     = C.OPARR_STD    
+@[as_macro] pub const op_min     = C.OPARR_MIN    
+@[as_macro] pub const op_max     = C.OPARR_MAX    
+@[as_macro] pub const op_sort    = C.OPARR_SORT   
+@[as_macro] pub const op_toupper = C.OPARR_TOUPPER
+@[as_macro] pub const op_tolower = C.OPARR_TOLOWER
+
+fn C.ArrayBuild(args ...any)
+fn C.ArrayLen(args ...any) u16
+fn C.ArraySubset(args ...any)
+fn C.ArraySum(args ...any) any
+fn C.ArrayMean(args ...any) any
+fn C.ArraySumSqr(args ...any) any
+fn C.ArrayStd(args ...any) any
+fn C.ArrayMin(args ...any) any
+fn C.ArrayMax(args ...any) any
+fn C.ArraySort(args ...any)
+fn C.ArrayOp(args ...any)
 
 // Functions for use with NXC array types.
 @[as_macro]

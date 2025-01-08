@@ -14,29 +14,44 @@ __global (
 	cursor_y = i8(56)	
 )
 
-const x_max = i8(90)
-const y_max = i8(56)
+pub const x_max = i8(90)
+pub const y_max = i8(56)
 
 // Line numbers for use with DrawText system function.  
-@[as_macro] const line8	= 0    
-@[as_macro] const line7	= 8    
-@[as_macro] const line6	= 16   
-@[as_macro] const line5	= 24   
-@[as_macro] const line4	= 32   
-@[as_macro] const line3	= 40   
-@[as_macro] const line2	= 48   
-@[as_macro] const line1	= 56   
+@[as_macro] pub const line8	= 0    
+@[as_macro] pub const line7	= 8    
+@[as_macro] pub const line6	= 16   
+@[as_macro] pub const line5	= 24   
+@[as_macro] pub const line4	= 32   
+@[as_macro] pub const line3	= 40   
+@[as_macro] pub const line2	= 48   
+@[as_macro] pub const line1	= 56   
 
 // Constants that are for use with getting/setting display data. 
-@[as_macro] const textline_1 = 0  
-@[as_macro] const textline_2 = 1  
-@[as_macro] const textline_3 = 2  
-@[as_macro] const textline_4 = 3  
-@[as_macro] const textline_5 = 4  
-@[as_macro] const textline_6 = 5  
-@[as_macro] const textline_7 = 6  
-@[as_macro] const textline_8 = 7  
-@[as_macro] const textlines  = 8  
+@[as_macro] pub const textline_1 = 0  
+@[as_macro] pub const textline_2 = 1  
+@[as_macro] pub const textline_3 = 2  
+@[as_macro] pub const textline_4 = 3  
+@[as_macro] pub const textline_5 = 4  
+@[as_macro] pub const textline_6 = 5  
+@[as_macro] pub const textline_7 = 6  
+@[as_macro] pub const textline_8 = 7  
+@[as_macro] pub const textlines  = 8  
+
+
+
+fn C.ResetScreen() 
+fn C.CircleOut(args ...any) i8 
+fn C.LineOut(args ...any) i8 
+fn C.PointOut(args ...any) i8 
+fn C.RectOut(args ...any) i8 
+fn C.TextOut(args ...any) i8 
+fn C.NumOut(args ...any) i8 
+fn C.EllipseOut(args ...any) i8 
+fn C.DisplayContrast() u8 
+fn C.SetDisplayContrast(args ...any) u8 
+
+
 
 
 @[as_macro] 

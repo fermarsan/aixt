@@ -7,6 +7,22 @@
 
 module rune
 
+fn C.isupper(c i16) i16
+fn C.islower(c i16) i16
+fn C.isalpha(c i16) i16
+fn C.isdigit(c i16) i16
+fn C.isalnum(c i16) i16
+fn C.isspace(c i16) i16
+fn C.iscntrl(c i16) i16
+fn C.isprint(c i16) i16
+fn C.isgraph(c i16) i16
+fn C.ispunct(c i16) i16
+fn C.isxdigit(c i16) i16
+fn C.toupper(c i16) i16
+fn C.tolower(c i16) i16 
+
+
+
 // ctype.h
 @[as_macro]
 pub fn is_upper(c i16) i16 {

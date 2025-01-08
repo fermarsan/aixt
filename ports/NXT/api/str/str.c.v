@@ -7,6 +7,23 @@
 
 module str
 
+
+fn C.StrToNum(args ...any) any
+fn C.StrIndex(args ...any) u8
+fn C.SubStr(args ...any) string
+fn C.StrReplace(args ...any) string
+fn C.Pos(args ...any) i16
+fn C.ByteArrayToStr(args ...any) string
+fn C.StrToByteArray(args ...any)
+fn C.Copy(args ...any) string
+fn C.MidStr(args ...any) string
+fn C.RightStr(args ...any) string
+fn C.LeftStr(args ...any) string
+fn C.strlen(args ...any) i16
+fn C.UpperCase(args ...any) string
+fn C.LowerCase(args ...any) string
+
+
 // cstring.h
 @[as_macro]
 pub fn to_num(str string) any {

@@ -8,20 +8,27 @@
 module motor	// NXC Output
 
 // Output port constants are used when calling motor control API functions. 
-@[as_macro] const a   = 0x00
-@[as_macro] const b   = 0x01	
-@[as_macro] const c   = 0x02	
-@[as_macro] const ab  = 0x03	
-@[as_macro] const ac  = 0x04	
-@[as_macro] const bc  = 0x05	
-@[as_macro] const abc = 0x06
+@[as_macro] pub const a   = 0x00
+@[as_macro] pub const b   = 0x01	
+@[as_macro] pub const c   = 0x02	
+@[as_macro] pub const ab  = 0x03	
+@[as_macro] pub const ac  = 0x04	
+@[as_macro] pub const bc  = 0x05	
+@[as_macro] pub const abc = 0x06
 
 // Use these constants to configure the desired regulation mode for the specified motor          
 // multi-motor synchronization, or position regulation                               
-@[as_macro] const regmode_idle    = C.UT_REGMODE_IDLE  
-@[as_macro] const regmode_speed   = C.UT_REGMODE_SPEED 
-@[as_macro] const regmode_sync    = C.UT_REGMODE_SYNC  
-@[as_macro] const regmode_pos     = C.UT_REGMODE_POS 
+@[as_macro] pub const regmode_idle    = C.UT_REGMODE_IDLE  
+@[as_macro] pub const regmode_speed   = C.UT_REGMODE_SPEED 
+@[as_macro] pub const regmode_sync    = C.UT_REGMODE_SYNC  
+@[as_macro] pub const regmode_pos     = C.UT_REGMODE_POS 
+
+fn C.Off(args ...any)
+fn C.Coast(args ...any)
+fn C.Float(args ...any)
+fn C.OnFwd(args ...any)
+fn C.RotateMotor(args ...any)
+fn C.RotateMotorPID(args ...any)
 
 @[as_macro] 
 pub fn off(outputs u8) {
@@ -40,7 +47,7 @@ pub fn float(outputs u8) {
                      
 @[as_macro] 
 pub fn write(outputs u8, pwr i8) {
-	C.OnFwd(output, pwr)
+	C.OnFwd(outputs, pwr)
 	// C.OnRev()
 }
              

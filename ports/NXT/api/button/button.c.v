@@ -27,6 +27,13 @@ module button
 @[as_macro] pub const pressed_state   	= 0x80   
 @[as_macro] pub const _none   			= 0x10   
 
+
+fn C.ButtonPressed(args ...any) bool
+fn C.ButtonPressCount(args ...any) u8
+fn C.ButtonState(args ...any) u8
+fn C.SetButtonPressCount(args ...any) 
+
+
 // Functions for accessing and modifying Button module features. 
 @[as_macro]
 pub fn read(btn u8) bool {
