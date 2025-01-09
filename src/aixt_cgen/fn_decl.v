@@ -54,7 +54,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			}
 			if attrs.contains('as_macro') {	// functions as macros
 				mut names := ''
-				println('>>>>>>>>>>>>>>>>>> ${node.is_variadic} <<<<<<<<<<<<<<<<<<')
+				// println('>>>>>>>>>>>>>>>>>> ${node.is_variadic} <<<<<<<<<<<<<<<<<<')
 				for param in node.params {
 					names += '${param.name}, '
 				}
