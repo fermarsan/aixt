@@ -225,7 +225,7 @@ pub fn rotate_pid(outputs u8, pwr i8, angle int, p u8, i u8, d u8) {
 }
                  
 @[as_macro] 
-pub fn rotate_rst(outputs u8, pwr i8, angle int, turnpct i8, sync bool, stop bool) {
+pub fn rotate_ex(outputs u8, pwr i8, angle int, turnpct i8, sync bool, stop bool) {
 	C.RotateMotorEx(outputs, pwr, angle, turnpct, sync, stop)
 }
                  

@@ -27,8 +27,13 @@ fn C.Off(args ...any)
 fn C.Coast(args ...any)
 fn C.Float(args ...any)
 fn C.OnFwd(args ...any)
+fn C.OnFwdReg(args ...any)
+fn C.OnFwdSync(args ...any)
 fn C.RotateMotor(args ...any)
+fn C.RotateMotorEx(args ...any)
 fn C.RotateMotorPID(args ...any)
+fn C.ResetTachoCount(args ...any)
+
 
 @[as_macro] 
 pub fn off(outputs u8) {
@@ -52,11 +57,33 @@ pub fn write(outputs u8, pwr i8) {
 }
              
 @[as_macro] 
+pub fn write_reg(outputs u8, pwr i8, regmode any) {
+	C.OnFwdReg(outputs, pwr, regmode)
+	// C.OnRevReg()
+}
+                 
+@[as_macro] 
+pub fn write_sync(outputs u8, pwr i8, turnpct i8) {
+	C.OnFwdSync(outputs, pwr, turnpct)
+	// C.OnRevSync()
+}
+
+@[as_macro] 
 pub fn rotate(outputs u8, pwr i8, angle int) {
 	C.RotateMotor(outputs, pwr, angle)
 }
                  
 @[as_macro] 
+pub fn rotate_ex(outputs u8, pwr i8, angle int, turnpct i8, sync bool, stop bool) {
+	C.RotateMotorEx(outputs, pwr, angle, turnpct, sync, stop)
+}
+                 
+@[as_macro] 
 pub fn rotate_pid(outputs u8, pwr i8, angle int, p u8, i u8, d u8) {
 	C.RotateMotorPID(outputs, pwr, angle, p, i, d)
+}
+
+@[as_macro] 
+pub fn reset_tacho_count(outputs u8) {
+	C.ResetTachoCount(outputs)
 }

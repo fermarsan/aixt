@@ -3,7 +3,7 @@ import time
 
 const turn_time = 360
 
-move_time := 200
+mut move_time := 200
 
 for _ in 1..50 {
 	motor.write(motor.ac, 75)

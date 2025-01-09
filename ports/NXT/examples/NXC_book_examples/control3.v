@@ -4,7 +4,7 @@ import time
 
 const threshold = 40
 
-sensor.as_light(sensor.s3, true)
+sensor.as_light(sensor.s3)
 motor.write(motor.ac, 75)
 
 for {

@@ -101,18 +101,18 @@ pub fn as_touch(port u8) {
 }                                                          
 
 @[as_macro]
-pub fn as_light(port u8, b_active bool) {
-	C.SetSensorLight(port, b_active) 
+pub fn as_light(args ...any) {
+	C.SetSensorLight(...args) 
 }                                                          
 
 @[as_macro]
-pub fn as_sound(port u8, bd_b_scaling bool ) {
-	C.SetSensorSound(port, bd_b_scaling) 
+pub fn as_sound(args ...any) {
+	C.SetSensorSound(...args) 
 }                                                          
 
 @[as_macro]
-pub fn as_lowspeed(port u8, bis_powered bool) {
-	C.SetSensorLowspeed(port, bis_powered) 
+pub fn as_lowspeed(args ...any) {
+	C.SetSensorLowspeed(...args) 
 }                                                          
 
 @[as_macro]

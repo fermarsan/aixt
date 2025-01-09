@@ -1,10 +1,10 @@
 import array
 
 
-aaa 	:= 0		
-bbb 	:= 0		
-ccc   	:= 0		
-values	:= []int{}	
+mut aaa 	:= 0		
+mut bbb 	:= 0		
+mut ccc   	:= 0		
+mut values	:= []int{}	
 
 
 aaa = 10

@@ -36,12 +36,12 @@ pub fn exit_to(new_task any) {
 
 @[as_macro] 
 pub fn precedes(tasks ...any) {
-	C.Precedes(tasks) 
+	C.Precedes(...tasks) 
 }
 
 @[as_macro]
 pub fn follows(tasks ...any) {
-	C.Follows(tasks) 
+	C.Follows(...tasks) 
 }
 
 @[as_macro]
@@ -55,11 +55,11 @@ pub fn release(m any) {
 }
 
 @[as_macro]
-pub fn start_task(task any) {
-	C.StartTask(task) 
+pub fn start_task(t any) {
+	C.StartTask(t) 
 }
 
 @[as_macro]
-pub fn stop_task(task any) {
-	C.StopTask(task) 
+pub fn stop_task(t any) {
+	C.StopTask(t) 
 }
