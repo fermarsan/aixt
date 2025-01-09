@@ -54,13 +54,16 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			}
 			if attrs.contains('as_macro') {	// functions as macros
 				mut names := ''
-				// println('>>>>>>>>>>>>>>>>>> ${node.is_variadic} <<<<<<<<<<<<<<<<<<')
 				for param in node.params {
 					names += '${param.name}, '
 				}
 				names = names#[..-2]
 				if stmts.len == 1 {
-					stmt := stmts.pop()#[..-1]	// remove the last ";"
+					mut stmt := stmts.pop()#[..-1]	// remove the last ";"
+					if node.is_variadic {	// variable number of arguments
+						stmt = stmt.replace('(${names})', '(__VA_ARGS__)')	
+						names = '...'		
+					}	
 					out << $tmpl('c_templates/fn_decl_as_macro.tmpl.c')#[..-1].replace('return', '')
 				} else {
 					out << $tmpl('c_templates/fn_decl_as_multi_macro.tmpl.c')#[..-1].replace('return', '')
