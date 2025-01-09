@@ -102,7 +102,7 @@ pub fn play_tone(frequency u16, duration u16) i8 {
 
 @[as_macro]
 pub fn stop() {
-	return C.StopSound() 
+	C.StopSound() 
 }
 
 @[as_macro]
