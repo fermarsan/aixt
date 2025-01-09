@@ -132,46 +132,46 @@ pub fn read_volume() u8 {
 
 @[as_macro]
 pub fn write_duration(args ...any) {
-	C.SetSoundDuration(args) 
+	C.SetSoundDuration(...args) 
 }
 
 @[as_macro]
 pub fn write_flags(args ...any) {
-	C.SetSoundFlags(args) 
+	C.SetSoundFlags(...args) 
 }
 
 @[as_macro]
 pub fn write_frequency(args ...any) {
-	C.SetSoundFrequency(args) 
+	C.SetSoundFrequency(...args) 
 }
 
 @[as_macro]
 pub fn write_mode(args ...any) {
-	C.SetSoundMode(args) 
+	C.SetSoundMode(...args) 
 }
 
 @[as_macro]
 pub fn write_module_state(args ...any) {
-	C.SetSoundModuleState(args) 
+	C.SetSoundModuleState(...args) 
 }
 
 @[as_macro]
 pub fn write_sample_rate(args ...any) {
-	C.SetSoundSampleRate(args) 
+	C.SetSoundSampleRate(...args) 
 }
 
 @[as_macro]
 pub fn write_volume(args ...any) {
-	C.SetSoundVolume(args) 
+	C.SetSoundVolume(...args) 
 }
 
 @[as_macro]
 pub fn play(args ...any) {
-	C.PlaySound(args) 
+	C.PlaySound(...args) 
 }
 
 @[as_macro]
 pub fn play_tones(args ...any) {
-	C.PlayTones(args) 
+	C.PlayTones(...args) 
 }
 

@@ -47,3 +47,4 @@ Tasks to do in Aixt
 - [x] Nucleo-L031K6 project template created
 - [x] NXT port updated to API v0.1.2
 - [x] Issue solved: Unpacking type layout (symbol table)
+- [x] Basic implementation of the "ArrayDecompose" expression 
