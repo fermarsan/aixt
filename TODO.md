@@ -49,3 +49,5 @@ Tasks to do in Aixt
 - [x] Issue solved: Unpacking type layout (symbol table)
 - [x] Basic implementation of the "ArrayDecompose" expression
 - [x] Functions '@[as_macro]' now allow variable number of arguments
+- [x] Arrays and fixed-arrays now supports initialization by `{init: value}` syntax
+- [x] Empty array declaring now allowed

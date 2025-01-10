@@ -77,9 +77,25 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 		'array', 'array_fixed' {
 			array_init := (right as ast.ArrayInit)
 			ref, var_type = gen.get_str_c_type(array_init.elem_type)
-			len := array_init.exprs.len
+			len := 	if array_init.has_cap { 
+						array_init.cap_expr
+					} else { 
+						if array_init.has_len { 
+							array_init.len_expr
+						} else {
+							if array_init.has_val {
+								ast.Expr(ast.IntegerLiteral{ 
+											val: array_init.exprs.len.str() 
+										})
+							} else {
+								array_init.exprs[0]
+							}
+						}
+					}
 			var_value := gen.ast_node(right).join('')
-			if array_init.is_fixed {
+			if var_value == '' {
+				c_line = $tmpl('c_templates/decl_assign_array_empty.tmpl.c')#[..-1]
+			} else if array_init.is_fixed {
 				c_line = $tmpl('c_templates/decl_assign_array_fixed.tmpl.c')#[..-1]
 			} else {
 				c_line = $tmpl('c_templates/decl_assign_array.tmpl.c')#[..-1]

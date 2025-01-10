@@ -13,7 +13,7 @@ ccc = bbb
 ccc /= 5 
 ccc -= 5 
 aaa = 10 * (ccc + 3)
-array.init(values, 0, 10)
+// array.init(values, 0, 10)
 values[0] = aaa
 values[1] = bbb
 values[2] = aaa*bbb
