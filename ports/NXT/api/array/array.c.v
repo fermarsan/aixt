@@ -28,6 +28,9 @@ fn C.ArrayMin(args ...any) any
 fn C.ArrayMax(args ...any) any
 fn C.ArraySort(args ...any)
 fn C.ArrayOp(args ...any)
+fn C.ArrayInit(args ...any)  
+fn C.ArrayIndex(args ...any)  
+fn C.ArrayReplace(args ...any)  
 
 // Functions for use with NXC array types.
 @[as_macro]
@@ -83,4 +86,19 @@ pub fn sort(args ...any) {
 @[as_macro]
 pub fn op(args ...any) {
 	C.ArrayOp(...args) 
+}
+
+@[as_macro]
+pub fn init(args ...any) { 
+	return C.ArrayInit(...args) 
+}
+
+@[as_macro]
+pub fn index(args ...any) { 
+	return C.ArrayIndex(...args) 
+}
+
+@[as_macro]
+pub fn replace(args ...any) { 
+	return C.ArrayReplace(...args) 
 }
