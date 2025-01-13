@@ -9,11 +9,11 @@ module adc
 fn C.analogReadResolution(res any)
 
 // adc channels
-pub const ch0 = A0
-pub const ch1 = A1
-pub const ch2 = A2
-pub const ch3 = A3
-pub const ch4 = A4
-pub const ch5 = A5
-pub const ch6 = A6
-pub const ch7 = A7
+pub const ch0 = u8(C.A0)
+pub const ch1 = u8(C.A1)
+pub const ch2 = u8(C.A2)
+pub const ch3 = u8(C.A3)
+pub const ch4 = u8(C.A4)
+pub const ch5 = u8(C.A5)
+pub const ch6 = u8(C.A6)
+pub const ch7 = u8(C.A7)

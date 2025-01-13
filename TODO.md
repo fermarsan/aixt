@@ -47,3 +47,6 @@ Tasks to do in Aixt
 - [x] NXT examples transpiled successfully  
 - [x] NXT button and LCD modules updated
 - [x] NXT snippets updated
+- [x] Change builtin LED name to `led_0`
+- [x] Nucleo-L031K6 examples transpiled successfully
+- [x] Issue: main constants and globals can be invoked omitting `main.` now.

@@ -10,5 +10,5 @@
 module main
 
 
-@[as_macro]	const led0 = 13
+@[as_macro]	const led_0 = 13
 
