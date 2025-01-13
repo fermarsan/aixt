@@ -36,21 +36,21 @@ fn C.SetButtonPressCount(args ...any)
 
 // Functions for accessing and modifying Button module features. 
 @[as_macro]
-pub fn read(btn u8) bool {
-	return C.ButtonPressed(btn, false) 
+pub fn read(args ..any) bool {
+	return C.ButtonPressed(...args) 
 }
 
 @[as_macro]
-pub fn read_count(btn u8) u8 {
-	return C.ButtonPressCount(btn) 
+pub fn read_count(args ..any) u8 {
+	return C.ButtonPressCount(...args) 
 }
 
 @[as_macro]
-pub fn read_state(btn u8) u8 {
-	return C.ButtonState(btn) 
+pub fn read_state(args ..any) u8 {
+	return C.ButtonState(...args) 
 }
 
 @[as_macro]
-pub fn set_count(btn u8, n u8) {
-	C.SetButtonPressCount(btn, n) 
+pub fn set_count(args ..any) {
+	C.SetButtonPressCount(...args) 
 }

@@ -1,4 +1,5 @@
 import motor
+import time
 
 const t_on = 1000
 const t_off = 500

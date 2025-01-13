@@ -7,86 +7,86 @@
 
 module rune
 
-fn C.isupper(c i16) i16
-fn C.islower(c i16) i16
-fn C.isalpha(c i16) i16
-fn C.isdigit(c i16) i16
-fn C.isalnum(c i16) i16
-fn C.isspace(c i16) i16
-fn C.iscntrl(c i16) i16
-fn C.isprint(c i16) i16
-fn C.isgraph(c i16) i16
-fn C.ispunct(c i16) i16
-fn C.isxdigit(c i16) i16
-fn C.toupper(c i16) i16
-fn C.tolower(c i16) i16 
+fn C.isupper(args ...any) i16
+fn C.islower(args ...any) i16
+fn C.isalpha(args ...any) i16
+fn C.isdigit(args ...any) i16
+fn C.isalnum(args ...any) i16
+fn C.isspace(args ...any) i16
+fn C.iscntrl(args ...any) i16
+fn C.isprint(args ...any) i16
+fn C.isgraph(args ...any) i16
+fn C.ispunct(args ...any) i16
+fn C.isxdigit(args ...any) i16
+fn C.toupper(args ...any) i16
+fn C.tolower(args ...any) i16 
 
 
 
 // ctype.h
 @[as_macro]
-pub fn is_upper(c i16) i16 {
-	return C.isupper(c) 
+pub fn is_upper(args ...any) i16 {
+	return C.isupper(...args) 
 }
 
 
 @[as_macro]
-pub fn is_lower(c i16) i16 {
-	return C.islower(c) 
+pub fn is_lower(args ...any) i16 {
+	return C.islower(...args) 
 }
 
 @[as_macro]
-pub fn is_alpha(c i16) i16 {
-	return C.isalpha(c) 
+pub fn is_alpha(args ...any) i16 {
+	return C.isalpha(...args) 
 }
 
 @[as_macro]
-pub fn is_digit(c i16) i16 {
-	return C.isdigit(c) 
+pub fn is_digit(args ...any) i16 {
+	return C.isdigit(...args) 
 }
 
 @[as_macro]
-pub fn is_alnum(c i16) i16 {
-	return C.isalnum(c) 
+pub fn is_alnum(args ...any) i16 {
+	return C.isalnum(...args) 
 }
 
 @[as_macro]
-pub fn is_space(c i16) i16 {
-	return C.isspace(c) 
+pub fn is_space(args ...any) i16 {
+	return C.isspace(...args) 
 }
 
 @[as_macro]
-pub fn is_cntrl(c i16) i16 {
-	return C.iscntrl(c) 
+pub fn is_cntrl(args ...any) i16 {
+	return C.iscntrl(...args) 
 }
 
 @[as_macro]
-pub fn is_print(c i16) i16 {
-	return C.isprint(c) 
+pub fn is_print(args ...any) i16 {
+	return C.isprint(...args) 
 }
 
 @[as_macro]
-pub fn is_graph(c i16) i16 {
-	return C.isgraph(c) 
+pub fn is_graph(args ...any) i16 {
+	return C.isgraph(...args) 
 }
 
 @[as_macro]
-pub fn is_punct(c i16) i16 {
-	return C.ispunct(c) 
+pub fn is_punct(args ...any) i16 {
+	return C.ispunct(...args) 
 }
 
 @[as_macro]
-pub fn is_xdigit(c i16) i16 {
-	return C.isxdigit(c) 
+pub fn is_xdigit(args ...any) i16 {
+	return C.isxdigit(...args) 
 }
 
 @[as_macro]
-pub fn to_upper(c i16) i16 {
-	return C.toupper(c) 
+pub fn to_upper(args ...any) i16 {
+	return C.toupper(...args) 
 }
 
 @[as_macro]
-pub fn to_lower(c i16) i16 {
-	return C.tolower(c) 
+pub fn to_lower(args ...any) i16 {
+	return C.tolower(...args) 
 }
 

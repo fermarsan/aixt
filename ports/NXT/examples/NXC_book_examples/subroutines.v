@@ -3,7 +3,7 @@ import time
 
 fn turn_around(pwr int) {
     motor.write(motor.c, -pwr)
-    sleep_ms(900)
+    time.sleep_ms(900)
     motor.write(motor.ac, pwr)
 }
 

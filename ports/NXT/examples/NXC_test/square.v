@@ -1,4 +1,5 @@
 import motor
+import time
 
 const t_fwd	 = 1000
 const t_turn = 500

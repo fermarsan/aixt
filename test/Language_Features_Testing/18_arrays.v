@@ -17,3 +17,4 @@ mut d := []u16{len: 10}
 mut e := [5]u16{init: 0}	// fixed size
 mut f := []int{len: 5, init: 1}
 mut g := []int{len: 5, cap: 10, init: 2}
+mut h := []int{len: 0}

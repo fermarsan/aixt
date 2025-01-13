@@ -17,20 +17,18 @@ fn (mut gen Gen) array_init(node ast.ArrayInit) []string {
 			c_line = gen.fill_init(node.init_expr, node.exprs[0])
 		}
 	} else {
-		// if gen.setup.backend == 'nxc' {
-			len := 	if node.has_cap { 
-						node.cap_expr
-				   	} else { 
-						if node.has_len { 
-							node.len_expr
-						} else {
-							ast.IntegerLiteral{ val: '0' }
-						}
+		len := 	if node.has_cap { 
+					node.cap_expr
+			   	} else { 
+					if node.has_len { 
+						node.len_expr
+					} else {
+						ast.Expr(ast.IntegerLiteral{ val: '0' })
 					}
-			if node.has_init {	// []int{len: 3, init: 0} or []int{cap: 3, init: 0} or []int{len: 3, cap: 3, init: 0}
-				c_line = gen.fill_init(node.init_expr, len)
-			} 
-		// }
+				}
+		if node.has_init {	// []int{len: 3, init: 0} or []int{cap: 3, init: 0} or []int{len: 3, cap: 3, init: 0}
+			c_line = gen.fill_init(node.init_expr, len)
+		} 
 	}
 	return [c_line]
 }

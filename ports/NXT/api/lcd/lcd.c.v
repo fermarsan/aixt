@@ -62,38 +62,38 @@ pub fn reset() {
 }
 
 @[as_macro] 
-pub fn circle(x i16, y i16, radius u8) i8 {
-	return C.CircleOut(x, y, radius, C.DRAW_OPT_NORMAL) 
+pub fn circle(args ...any) i8 {
+	return C.CircleOut(...args) 
 }
 
 @[as_macro] 
-pub fn line(x1 i16, y1 i16, x2 i16, y2 i16) i8 {
-	return C.LineOut(x1, y1, x2, y2, C.DRAW_OPT_NORMAL) 
+pub fn line(args ...any) i8 {
+	return C.LineOut(...args) 
 }
 
 @[as_macro] 
-pub fn point(x i16, y i16) i8 {
-	return C.PointOut(x, y, C.DRAW_OPT_NORMAL) 
+pub fn point(args ...any) i8 {
+	return C.PointOut(...args) 
 }
 
 @[as_macro] 
-pub fn rect(x i16, y i16, width i16, height i16) i8 {
-	return C.RectOut(x, y, width, height, C.DRAW_OPT_NORMAL) 
+pub fn rect(args ...any) i8 {
+	return C.RectOut(...args) 
 }
 
 @[as_macro] 
-pub fn write_text(x i16, y i16, str string) i8 {
-	return C.TextOut(x, y, str, C.DRAW_OPT_NORMAL) 
+pub fn write_text(args ...any) i8 {
+	return C.TextOut(...args) 
 }
 
 @[as_macro] 
-pub fn write_num(x i16, y i16, value any) i8 {
-	return C.NumOut(x, y, value, C.DRAW_OPT_NORMAL) 
+pub fn write_num(args ...any) i8 {
+	return C.NumOut(...args) 
 }
 
 @[as_macro] 
-pub fn ellipse(x i16, y i16, radius_x u8, radius_y u8) i8 {
-	return C.EllipseOut(x, y, radius_x, radius_y, C.DRAW_OPT_NORMAL) 
+pub fn ellipse(args ...any) i8 {
+	return C.EllipseOut(...args) 
 }
 
 @[as_macro] 
@@ -102,8 +102,8 @@ pub fn read_contrast() u8 {
 }
 
 @[as_macro] 
-pub fn write_contrast(contrast u8) {
-	C.SetDisplayContrast(contrast) 
+pub fn write_contrast(args ...any) {
+	C.SetDisplayContrast(...args) 
 }
 
 @[as_macro] 
@@ -114,8 +114,8 @@ pub fn clear() {
 }
 
 @[as_macro] 
-pub fn clear_line(line u8) {
-	C.ClearLine(line) 
+pub fn clear_line(args ...any) {
+	C.ClearLine(...args) 
 }
 
 pub fn into_range(num i8, max i8, min i8) i8 {

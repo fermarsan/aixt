@@ -14,36 +14,40 @@ module sensor
 @[as_macro] pub const s4 = 3
 
 // Use the combined sensor type and mode constants to configure both the sensor mode and type in a single function call. 
-@[as_macro] pub const touch   		= u16(C.SENSOR_TOUCH)
-@[as_macro] pub const light   		= u16(C.SENSOR_LIGHT)
-@[as_macro] pub const rotation   	= u16(C.SENSOR_ROTATION)
-@[as_macro] pub const celsius   	= u16(C.SENSOR_CELSIUS)
-@[as_macro] pub const fahrenheit   	= u16(C.SENSOR_FAHRENHEIT)
-@[as_macro] pub const pulse   		= u16(C.SENSOR_PULSE)
-@[as_macro] pub const edge    		= u16(C.SENSOR_EDGE)
-@[as_macro] pub const nxtlight   	= u16(C.SENSOR_NXTLIGHT)
-@[as_macro] pub const sound   		= u16(C.SENSOR_SOUND)
-@[as_macro] pub const lowspeed_9v  	= u16(C.SENSOR_LOWSPEED_9V)
-@[as_macro] pub const lowspeed   	= u16(C.SENSOR_LOWSPEED)
-@[as_macro] pub const colorfull   	= u16(C.SENSOR_COLORFULL)
-@[as_macro] pub const colorred   	= u16(C.SENSOR_COLORRED)
-@[as_macro] pub const colorgreen   	= u16(C.SENSOR_COLORGREEN)
-@[as_macro] pub const colorblue   	= u16(C.SENSOR_COLORBLUE)
-@[as_macro] pub const colornone   	= u16(C.SENSOR_COLORNONE)
+@[as_macro] pub const touch   		= C.SENSOR_TOUCH
+@[as_macro] pub const light   		= C.SENSOR_LIGHT
+@[as_macro] pub const rotation   	= C.SENSOR_ROTATION
+@[as_macro] pub const celsius   	= C.SENSOR_CELSIUS
+@[as_macro] pub const fahrenheit   	= C.SENSOR_FAHRENHEIT
+@[as_macro] pub const pulse   		= C.SENSOR_PULSE
+@[as_macro] pub const edge    		= C.SENSOR_EDGE
+@[as_macro] pub const nxt_light   	= C.SENSOR_NXTLIGHT
+@[as_macro] pub const sound   		= C.SENSOR_SOUND
+@[as_macro] pub const lows_peed_9v  = C.SENSOR_LOWSPEED_9V
+@[as_macro] pub const lows_peed   	= C.SENSOR_LOWSPEED
+@[as_macro] pub const color_full  	= C.SENSOR_COLORFULL
+@[as_macro] pub const color_red  	= C.SENSOR_COLORRED
+@[as_macro] pub const color_green  	= C.SENSOR_COLORGREEN
+@[as_macro] pub const color_blue  	= C.SENSOR_COLORBLUE
+@[as_macro] pub const color_none  	= C.SENSOR_COLORNONE
 
 
 // Use sensor mode constants to configure an input port for the desired sensor mode.
 // The constants are intended for use in NBC. 
-@[as_macro] pub const mode_raw          = C.IN_MODE_RAW
-@[as_macro] pub const mode_bool         = C.IN_MODE_BOOLEAN
-@[as_macro] pub const mode_edge         = C.IN_MODE_TRANSITIONCNT
-@[as_macro] pub const mode_pulse        = C.IN_MODE_PERIODCOUNTER
-@[as_macro] pub const mode_percent      = C.IN_MODE_PCTFULLSCALE
-@[as_macro] pub const mode_celsius      = C.IN_MODE_CELSIUS
-@[as_macro] pub const mode_fahrenheit   = C.IN_MODE_FAHRENHEIT
-@[as_macro] pub const mode_rotation     = C.IN_MODE_ANGLESTEP  
-@[as_macro] pub const mode_slopemask    = C.IN_MODE_SLOPEMASK    
-@[as_macro] pub const mode_modemask     = C.IN_MODE_MODEMASK    
+@[as_macro] pub const mode_raw          	= C.IN_MODE_RAW
+@[as_macro] pub const mode_bool         	= C.IN_MODE_BOOLEAN
+@[as_macro] pub const mode_edge         	= C.IN_MODE_TRANSITIONCNT
+@[as_macro] pub const mode_pulse        	= C.IN_MODE_PERIODCOUNTER
+@[as_macro] pub const mode_percent      	= C.IN_MODE_PCTFULLSCALE
+@[as_macro] pub const mode_celsius      	= C.IN_MODE_CELSIUS
+@[as_macro] pub const mode_fahrenheit   	= C.IN_MODE_FAHRENHEIT
+@[as_macro] pub const mode_rotation     	= C.IN_MODE_ANGLESTEP  
+@[as_macro] pub const mode_slope_mask   	= C.IN_MODE_SLOPEMASK    
+@[as_macro] pub const mode_mask     		= C.IN_MODE_MODEMASK    
+@[as_macro] pub const mode_transition_cnt	= C.IN_MODE_TRANSITIONCNT
+@[as_macro] pub const mode_period_counter	= C.IN_MODE_PERIODCOUNTER
+@[as_macro] pub const mode_pct_full_scale 	= C.IN_MODE_PCTFULLSCALE 
+@[as_macro] pub const mode_angle_step    	= C.IN_MODE_ANGLESTEP    
 
 // Use sensor mode constants to configure an input port for the desired sensor mode.  
 
@@ -59,15 +63,19 @@ module sensor
 @[as_macro] pub const type_sound_db      	= C.IN_TYPE_SOUND_DB
 @[as_macro] pub const type_sound_dba     	= C.IN_TYPE_SOUND_DBA
 @[as_macro] pub const type_custom        	= C.IN_TYPE_CUSTOM
-@[as_macro] pub const type_lowspeed      	= C.IN_TYPE_LOWSPEED
-@[as_macro] pub const type_lowspeed_9v   	= C.IN_TYPE_LOWSPEED_9V
-@[as_macro] pub const type_highspeed     	= C.IN_TYPE_HISPEED
-@[as_macro] pub const type_colorfull     	= C.IN_TYPE_COLORFULL
-@[as_macro] pub const type_colorred      	= C.IN_TYPE_COLORRED
-@[as_macro] pub const type_colorgreen    	= C.IN_TYPE_COLORGREEN
-@[as_macro] pub const type_colorblue     	= C.IN_TYPE_COLORBLUE
-@[as_macro] pub const type_colornone     	= C.IN_TYPE_COLORNONE   
-@[as_macro] pub const type_colorexit     	= C.IN_TYPE_COLOREXIT 
+@[as_macro] pub const type_low_speed      	= C.IN_TYPE_LOWSPEED
+@[as_macro] pub const type_low_speed_9v   	= C.IN_TYPE_LOWSPEED_9V
+@[as_macro] pub const type_high_speed     	= C.IN_TYPE_HISPEED
+@[as_macro] pub const type_color_full     	= C.IN_TYPE_COLORFULL
+@[as_macro] pub const type_color_red      	= C.IN_TYPE_COLORRED
+@[as_macro] pub const type_color_green    	= C.IN_TYPE_COLORGREEN
+@[as_macro] pub const type_color_blue     	= C.IN_TYPE_COLORBLUE
+@[as_macro] pub const type_color_none     	= C.IN_TYPE_COLORNONE   
+@[as_macro] pub const type_color_exit     	= C.IN_TYPE_COLOREXIT 
+
+
+
+
 
 
 fn C.SetSensor(args ...any)
@@ -87,17 +95,18 @@ fn C.ConfigureTemperatureSensor( args ...any)
 fn C.SensorTemperature(args ...any) f32
 fn C.SetSensorType(args ...any)
 fn C.SetSensorMode(args ...any)
+fn C.ClearSensor(args ...any) 
 fn C.ResetSensor(args ...any)
 
 
 @[as_macro]
-pub fn setup(port u8, config u16) {
-	C.SetSensor(port, config) 
+pub fn setup(args ...any) {
+	C.SetSensor(...args) 
 }                                                          
 
 @[as_macro]
-pub fn as_touch(port u8) {
-	C.SetSensorTouch(port) 
+pub fn as_touch(args ...any) {
+	C.SetSensorTouch(...args) 
 }                                                          
 
 @[as_macro]
@@ -116,69 +125,71 @@ pub fn as_lowspeed(args ...any) {
 }                                                          
 
 @[as_macro]
-pub fn as_ultrasonic(port u8) {
-	C.SetSensorUltrasonic(port)
+pub fn as_ultrasonic(args ...any) {
+	C.SetSensorUltrasonic(...args)
 }                                                          
-
-                                                        
-
+                                                    
 @[as_macro]
-pub fn as_temperature(port u8) {
-	C.SetSensorTemperature(port) 
-}                                                          
-
-@[as_macro]
-pub fn as_color_full(port u8) {
-	C.SetSensorColorFull(port) 
-}                                                          
-
-
-@[as_macro]
-pub fn read(port u8) u16 {
-	return C.Sensor(port) 
+pub fn as_temperature(args ...any) {
+	C.SetSensorTemperature(...args) 
 }                                                          
 
 @[as_macro]
-pub fn read_bool(port u8) bool {
-	return C.SensorBoolean(port) 
+pub fn as_color_full(args ...any) {
+	C.SetSensorColorFull(...args) 
+}                                                          
+
+@[as_macro]
+pub fn read(args ...any) u16 {
+	return C.Sensor(...args) 
+}                                                          
+
+@[as_macro]
+pub fn read_bool(args ...any) bool {
+	return C.SensorBoolean(...args) 
 }       
 
 @[as_macro]
-pub fn read_us(port u8) u8 {
-	return C.SensorUS(port) 
+pub fn read_us(args ...any) u8 {
+	return C.SensorUS(...args) 
 } 
 
 @[as_macro]
-pub fn read_us_now(port u8) u8 {
-	return C.SensorUS0(port) 
+pub fn read_us_now(args ...any) u8 {
+	return C.SensorUS0(...args) 
 } 
 
 @[as_macro]
-pub fn read_us_wait(port u8, wait u8) u8 {
-	return C.SensorUSWait(port, wait) 
+pub fn read_us_wait(args ...any) u8 {
+	return C.SensorUSWait(...args) 
 } 
 
 @[as_macro]
-pub fn setup_temperature(port u8, config u8) {
-	C.ConfigureTemperatureSensor(port, config) 
+pub fn setup_temperature(args ...any) {
+	C.ConfigureTemperatureSensor(...args) 
 } 
 
 @[as_macro]
-pub fn read_temperature(port u8) f32 {
-	return C.SensorTemperature(port) 
+pub fn read_temperature(args ...any) f32 {
+	return C.SensorTemperature(...args) 
 }
 
 @[as_macro]
-pub fn write_type(port u8, typ u8) {
-	C.SetSensorType(port, typ) 
+pub fn write_type(args ...any) {
+	C.SetSensorType(...args) 
 }                                                          
 
 @[as_macro]
-pub fn write_mode(port u8, mode u8) {
-	C.SetSensorMode(port, mode) 
+pub fn write_mode(args ...any) {
+	C.SetSensorMode(...args) 
 }  
 
 @[as_macro]
-pub fn reset(port u8) {
-	C.ResetSensor(port) 
+pub fn clear(args ...any) {
+	C.ClearSensor(...args) 
+}    
+
+@[as_macro]
+pub fn reset(args ...any) {
+	C.ResetSensor(...args) 
 }   

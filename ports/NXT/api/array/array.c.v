@@ -18,7 +18,7 @@ module array
 @[as_macro] pub const op_tolower = C.OPARR_TOLOWER
 
 fn C.ArrayBuild(args ...any)
-fn C.ArrayLen(args ...any) u16
+fn C.ArrayLen(arg any) u16
 fn C.ArraySubset(args ...any)
 fn C.ArraySum(args ...any) any
 fn C.ArrayMean(args ...any) any
@@ -49,32 +49,32 @@ pub fn subset(args ...any) {
 }
  
 @[as_macro]
-pub fn sum(args ...any) any {
+pub fn sum[T](args ...any) T {
 	return C.ArraySum(...args) 
 }
  
 @[as_macro]
-pub fn mean(args ...any) any {
+pub fn mean[T](args ...any) T {
 	return C.ArrayMean(...args) 
 }
  
 @[as_macro]
-pub fn sum_sqr(args ...any) any {
+pub fn sum_sqr[T](args ...any) T {
 	return C.ArraySumSqr(...args) 
 }
  
 @[as_macro]
-pub fn std(args ...any) any {
+pub fn std[T](args ...any) T {
 	return C.ArrayStd(...args) 
 }
  
 @[as_macro]
-pub fn min(args ...any) any {
+pub fn min[T](args ...any) T {
 	return C.ArrayMin(...args) 
 }
  
 @[as_macro]
-pub fn max(args ...any) any {
+pub fn max[T](args ...any) T {
 	return C.ArrayMax(...args) 
 }
  
@@ -90,15 +90,15 @@ pub fn op(args ...any) {
 
 @[as_macro]
 pub fn init(args ...any) { 
-	return C.ArrayInit(...args) 
+	C.ArrayInit(...args) 
 }
 
 @[as_macro]
 pub fn index(args ...any) { 
-	return C.ArrayIndex(...args) 
+	C.ArrayIndex(...args) 
 }
 
 @[as_macro]
 pub fn replace(args ...any) { 
-	return C.ArrayReplace(...args) 
+	C.ArrayReplace(...args) 
 }

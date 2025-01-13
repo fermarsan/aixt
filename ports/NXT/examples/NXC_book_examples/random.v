@@ -2,8 +2,8 @@ import motor
 import rand
 import time
 
-move_time := 0
-turn_time := 0
+mut move_time := 0
+mut turn_time := 0
 
 for {
 	move_time = rand.random(600)

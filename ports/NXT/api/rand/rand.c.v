@@ -7,14 +7,14 @@
 
 module rand
 
-fn C.srand(seed int) int 
+fn C.srand(args ...any) int 
 fn C.rand() u32 
-fn C.Random(n i16) i16
+fn C.Random(args ...any) i16
 
 //cstdlib.c
 @[as_macro]
-pub fn srand(seed int) int{
-	return C.srand(seed) 
+pub fn srand(args ...any) int{
+	return C.srand(...args) 
 }
 
 @[as_macro]
@@ -23,6 +23,6 @@ pub fn rand() u32 {
 }
 
 @[as_macro]
-pub fn random(n i16) i16 {
-	return C.Random(n) 
+pub fn random(args ...any) i16 {
+	return C.Random(...args) 
 }

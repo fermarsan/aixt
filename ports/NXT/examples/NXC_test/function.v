@@ -1,5 +1,6 @@
 import motor
 import sensor
+import time
 
 const t1 = 1000
 const t2 = 2000
@@ -10,6 +11,6 @@ fn add(x i16, y i16) i16 {
 	return x + y
 }
 
-motor.write(motors.ab, 50)
+motor.write(motor.ab, 50)
 time.sleep_ms(add(t1, t2))
-motor.off(motors.ab)
+motor.off(motor.ab)

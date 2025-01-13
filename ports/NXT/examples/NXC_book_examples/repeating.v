@@ -1,10 +1,8 @@
 import motor
 import time
 
-const (
-	move_time = 1000
-	turn_time = 500
-)
+const move_time = 1000
+const turn_time = 500
 
 for _ in 1..4 {
 	motor.write(motor.ac, 75)

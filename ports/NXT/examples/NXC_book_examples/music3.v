@@ -1,6 +1,7 @@
 import sound
 import motor
 import time
+import task
 
 @[task]
 fn music() {
@@ -28,5 +29,5 @@ fn movement() {
 
 @[task]
 fn main() {
-	precedes(music, movement)
+	task.precedes(music, movement)
 }

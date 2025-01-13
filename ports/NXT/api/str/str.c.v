@@ -26,72 +26,72 @@ fn C.LowerCase(args ...any) string
 
 // cstring.h
 @[as_macro]
-pub fn to_num(str string) any {
-	return C.StrToNum(str) 
+pub fn to_num[T](args ..any) T {
+	return C.StrToNum(...args) 
 }
 
 @[as_macro]
-pub fn index(str string, idx u16) u8 {
-	return C.StrIndex(str, idx) 
+pub fn index(args ..any) u8 {
+	return C.StrIndex(...args) 
 }
 
 @[as_macro]
-pub fn sub(str string, idx u16, len u16) string {
-	return C.SubStr(str, idx, len) 
+pub fn sub(args ..any) string {
+	return C.SubStr(...args) 
 }
 
 @[as_macro]
-pub fn replace(str string, idx u16, new string) string {
-	return C.StrReplace(str, idx, new) 
+pub fn replace(args ..any) string {
+	return C.StrReplace(...args) 
 }
 
 @[as_macro]
-pub fn pos(sub string, s string) i16 {
-	return C.Pos(sub, s) 
+pub fn pos(args ..any) i16 {
+	return C.Pos(...args) 
 }
 
 @[as_macro]
-pub fn from_byte_array(data []u8) string {
-	return C.ByteArrayToStr(data) 
+pub fn from_byte_array(args ..any) string {
+	return C.ByteArrayToStr(...args) 
 }
 
 @[as_macro]
-pub fn to_byte_array(str string, data &[]u8{}) {
-	C.StrToByteArray(str, data) 
+pub fn to_byte_array(args ..any) {
+	C.StrToByteArray(...args) 
 }
 
 @[as_macro]
-pub fn copy(str string, idx u16, len u16) string {
-	return C.Copy(str, idx, len) 
+pub fn copy(args ..any) string {
+	return C.Copy(...args) 
 }
 
 @[as_macro]
-pub fn mid(str string, idx u16, len u16) string {
-	return C.MidStr(str, idx, len) 
+pub fn mid(args ..any) string {
+	return C.MidStr(...args) 
 }
 
 @[as_macro]
-pub fn right(str string, size u16) string {
-	return C.RightStr(str, size) 
+pub fn right(args ..any) string {
+	return C.RightStr(...args) 
 }
 
 @[as_macro]
-pub fn left(str string, size u16) string {
-	return C.LeftStr(str, size) 
+pub fn left(args ..any) string {
+	return C.LeftStr(...args) 
 }
 
 @[as_macro]
-pub fn len(str string) i16 {
-	return C.strlen(str) 
+pub fn len(args ..any) i16 {
+	return C.strlen(...args) 
 }
 
 // Functions for use with NXC array types.
 @[as_macro]
-pub fn to_upper(src string) string {
-	return C.UpperCase(src) 
+pub fn to_upper(args ..any) string {
+	return C.UpperCase(...args) 
 }
  
 @[as_macro]
-pub fn to_lower(src string) string {
-	return C.LowerCase(src) 
+pub fn to_lower(args ..any) string {
+	return C.LowerCase(...args) 
 }

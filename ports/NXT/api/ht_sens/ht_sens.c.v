@@ -36,146 +36,146 @@ fn C.SensorHTPIR(args ...any) i8
 fn C.ReadSensorHTTouchMultiplexer(args ...any)
 
 @[as_macro]
-pub fn as_gyro(port u8) {
-	C.SetSensorHTGyro(port)
+pub fn as_gyro(args ..any) {
+	C.SetSensorHTGyro(...args)
 }
  
 @[as_macro]
-pub fn as_magnet(port u8) {
-	C.SetSensorHTMagnet(port)
+pub fn as_magnet(args ..any) {
+	C.SetSensorHTMagnet(...args)
 }
  
 @[as_macro]
-pub fn as_eopd(port u8, b_standard bool) {
-	C.SetSensorHTEOPD(port, b_standard)
+pub fn as_eopd(args ..any) {
+	C.SetSensorHTEOPD(...args)
 }
  
 @[as_macro]
-pub fn as_force(port u8) {
-	C.SetSensorHTForce(port)
-}
- 
- 
-@[as_macro]
-pub fn read_gyro(port u8, offset i16) i16 {
-	return C.SensorHTGyro(port, offset)
+pub fn as_force(args ..any) {
+	C.SetSensorHTForce(...args)
 }
  
  
 @[as_macro]
-pub fn read_magnet(port u8, offset i16) i16 {
-	return C.SensorHTMagnet(port, offset)
+pub fn read_gyro(args ..any) i16 {
+	return C.SensorHTGyro(...args)
 }
  
  
 @[as_macro]
-pub fn read_eopd(port u8) i16 {
-	return C.SensorHTEOPD(port)
+pub fn read_magnet(args ..any) i16 {
+	return C.SensorHTMagnet(...args)
 }
  
  
 @[as_macro]
-pub fn read_force(port u8) i16 {
-	return C.SensorHTForce(port)
+pub fn read_eopd(args ..any) i16 {
+	return C.SensorHTEOPD(...args)
 }
  
  
 @[as_macro]
-pub fn read_color_num(port u8) i16 {
-	return C.SensorHTColorNum(port)
+pub fn read_force(args ..any) i16 {
+	return C.SensorHTForce(...args)
 }
  
  
 @[as_macro]
-pub fn read_compass(port u8) i16 {
-	return C.SensorHTCompass(port)
+pub fn read_color_num(args ..any) i16 {
+	return C.SensorHTColorNum(...args)
+}
+ 
+ 
+@[as_macro]
+pub fn read_compass(args ..any) i16 {
+	return C.SensorHTCompass(...args)
 }
  
 @[as_macro]
-pub fn read_ir_seeker_dir(port u8) i16 {
-	return C.SensorHTIRSeekerDir(port)
-}
-
-@[as_macro]
-pub fn as_color(port u8, mode u8) i8 {
-	return C.SetHTColor2Mode(port, mode)
-}
- 
-@[as_macro]
-pub fn as_ir_seeker(port u8, mode u8) i8 {
-	return C.SetHTIRSeeker2Mode(port, mode)
-}
- 
-@[as_macro]
-pub fn read_accel(port u8, x &i16, y  &i16, z  &i16) bool {
-	return C.ReadSensorHTAccel(port, x, y, z)
-}
- 
-@[as_macro]
-pub fn read_color(port u8, color_num &u8,  red &u8, green &u8, blue &u8) bool {
-	return C.ReadSensorHTColor(port, color_num, red, green, blue)
-}
- 
-@[as_macro]
-pub fn read_ir_seeker(port u8, dir &u8, s1 &u8, s3 &u8, s5 &u8, s7 &u8, s9 &u8) bool {
-	return C.ReadSensorHTIRSeeker(port, dir, s1, s3, s5, s7, s9)
-}
- 
-@[as_macro]
-pub fn read_norm_color(port u8, idx &u8, red &u8, green &u8, blue &u8) bool {
-	return C.ReadSensorHTNormalizedColor(port, idx, red, green, blue)
-}
- 
-@[as_macro]
-pub fn read_raw_color(port u8, red &u16, green &u16, blue &u16) bool {
-	return C.ReadSensorHTRawColor(port, red, green, blue)
+pub fn read_ir_seeker_dir(args ..any) i16 {
+	return C.SensorHTIRSeekerDir(...args)
 }
 
- 
 @[as_macro]
-pub fn read_ir_receiver(port u8, pfdata &[]i8{}) bool {
-	return C.ReadSensorHTIRReceiver(port, pfdata)
+pub fn as_color(args ..any) i8 {
+	return C.SetHTColor2Mode(...args)
 }
  
 @[as_macro]
-pub fn reset_angle(port u8, mode u8) i8 {
-	return C.ResetSensorHTAngle(port, mode)
+pub fn as_ir_seeker(args ..any) i8 {
+	return C.SetHTIRSeeker2Mode(...args)
 }
  
 @[as_macro]
-pub fn read_angle(port u8, angle &i16, acc_angle &int, rpm &i16) bool {
-	return C.ReadSensorHTAngle(port, angle, acc_angle, rpm)
+pub fn read_accel(args ..any) bool {
+	return C.ReadSensorHTAccel(...args)
 }
  
 @[as_macro]
-pub fn reset_barometric(port u8) bool {
+pub fn read_color(args ..any) bool {
+	return C.ReadSensorHTColor(...args)
+}
+ 
+@[as_macro]
+pub fn read_ir_seeker(args ..any) bool {
+	return C.ReadSensorHTIRSeeker(...args)
+}
+ 
+@[as_macro]
+pub fn read_norm_color(args ..any) bool {
+	return C.ReadSensorHTNormalizedColor(...args)
+}
+ 
+@[as_macro]
+pub fn read_raw_color(args ..any) bool {
+	return C.ReadSensorHTRawColor(...args)
+}
+
+ 
+@[as_macro]
+pub fn read_ir_receiver(args ..any) bool {
+	return C.ReadSensorHTIRReceiver(...args)
+}
+ 
+@[as_macro]
+pub fn reset_angle(args ..any) i8 {
+	return C.ResetSensorHTAngle(...args)
+}
+ 
+@[as_macro]
+pub fn read_angle(args ..any) bool {
+	return C.ReadSensorHTAngle(...args)
+}
+ 
+@[as_macro]
+pub fn reset_barometric(args ..any) bool {
 	ResetHTBarometricCalibration(u8 port)
 }
  
 @[as_macro]
-pub fn setup_barometric(port u8) bool {
-	return C.SetHTBarometricCalibration(u8 port, unsigned i16 cal)
+pub fn setup_barometric(args ..any) bool {
+	return C.SetHTBarometricCalibration(...args)
 }
  
 @[as_macro]
-pub fn read_barometric(port u8, temp &i16, press &u16) bool {
-	return C.ReadSensorHTBarometric(port, temp, press)
+pub fn read_barometric(args ..any) bool {
+	return C.ReadSensorHTBarometric(...args)
 }
  
  
 @[as_macro]
-pub fn setup_pir_deadband(port u8, value u8) bool {
-	return C.SetSensorHTPIRDeadband(port, value)
+pub fn setup_pir_deadband(args ..any) bool {
+	return C.SetSensorHTPIRDeadband(...args)
 }
  
 @[as_macro]
-pub fn read_pir(port u8) i8 {
-	return C.SensorHTPIR(port)
+pub fn read_pir(args ..any) i8 {
+	return C.SensorHTPIR(...args)
 }
  
 @[as_macro]
-pub fn read_touch_mux(port u8, t1 &u8, t2 &u8, t3 &u8, t4 &u8) {
-	C.ReadSensorHTTouchMultiplexer(port, t1, t2, t3, t4)
+pub fn read_touch_mux(args ..any) {
+	C.ReadSensorHTTouchMultiplexer(...args)
 }
  
 

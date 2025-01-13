@@ -66,9 +66,9 @@ fn C.MotorRotationCount(args ...any) int
 fn C.MotorOutputOptions(args ...any) u8                 
 fn C.MotorMaxSpeed(args ...any) u8                 
 fn C.MotorMaxAcceleration(args ...any) u8                 
-fn C.MotorPwnFreq() u8                 
-fn C.MotorRegulationTime() u8                 
-fn C.MotorRegulationOptions() u8
+fn C.MotorPwnFreq(args ...any) u8                 
+fn C.MotorRegulationTime(args ...any) u8                 
+fn C.MotorRegulationOptions(args ...any) u8
 fn C.PosRegEnable(args ...any) 
 fn C.PosRegSetAngle(args ...any) 
 fn C.PosRegAddAngle(args ...any)
@@ -83,237 +83,237 @@ pub fn write_pwn_freq(args ...any) {
 }
                  
 @[as_macro] 
-pub fn write_reg_time(regu_time u8) {
-	C.SetMotorRegulationTime(regu_time)
+pub fn write_reg_time(args ...any) {
+	C.SetMotorRegulationTime(...args)
 }
 
 @[as_macro] 
-pub fn write_reg_options(regu_options u8) {
-	C.SetMotorRegulationOptions(regu_options)
+pub fn write_reg_options(args ...any) {
+	C.SetMotorRegulationOptions(...args)
 }
 
 @[as_macro] 
-pub fn write_sync_pid(outputs u8, pwr i8, turnpct i8, p u8, i u8, d u8) {
-	C.OnFwdSyncPID(outputs, pwr, turnpct, p, i, d)
-	// 	C.OnRevSyncPID(outputs, pwr, turnpct, p, i, d)
+pub fn write_sync_pid(args ...any) {
+	C.OnFwdSyncPID(...args)
+	// 	C.OnRevSyncPID(...args)
 }
     
 @[as_macro] 
-pub fn write_sync_ex_pid(outputs u8, pwr i8, turnpct i8, reset u8, p u8, i u8, d u8) {
-	C.OnFwdSyncExPID(outputs, pwr, turnpct, reset, p, i, d)
+pub fn write_sync_ex_pid(args ...any) {
+	C.OnFwdSyncExPID(...args)
 	// C.OnRevSyncExPID(outputs, pwr, turnpct, reset, p, i, d)
 }
          
 @[as_macro] 
-pub fn write_reg_pid(outputs u8, pwr i8, regmode u8, p u8, i u8, d u8) {
-	C.OnFwdRegPID(outputs, pwr, regmode, p, i, d)
+pub fn write_reg_pid(args ...any) {
+	C.OnFwdRegPID(...args)
 	// C.OnRevRegPID()
 }
                  
 @[as_macro] 
-pub fn write_reg_ex_pid(outputs u8, pwr i8, regmode u8, reset u8, p u8, i u8, d u8) {
-	C.OnFwdRegExPID(outputs, pwr, regmode, reset, p, i, d)
+pub fn write_reg_ex_pid(args ...any) {
+	C.OnFwdRegExPID(...args)
 	// C.OnRevRegExPID()
 }
 
 @[as_macro] 
-pub fn off(outputs u8) {
-	C.Off(outputs)
+pub fn off(args ...any) {
+	C.Off(...args)
 }
                      
 @[as_macro] 
-pub fn coast(outputs u8) {
-	C.Coast(outputs)
+pub fn coast(args ...any) {
+	C.Coast(...args)
 }
 
 @[as_macro] 
-pub fn off_ex(outputs u8, reset u8) {
-	C.OffEx(outputs, reset)
+pub fn off_ex(args ...any) {
+	C.OffEx(...args)
 }
                      
 @[as_macro] 
-pub fn coast_ex(outputs u8, reset u8) {
-	C.CoastEx(outputs, reset)
+pub fn coast_ex(args ...any) {
+	C.CoastEx(...args)
 }
 
 @[as_macro] 
-pub fn float(outputs u8) {
-	C.Float(outputs)
+pub fn float(args ...any) {
+	C.Float(...args)
 }
                      
 @[as_macro] 
-pub fn write(outputs u8) {
-	C.OnFwd(outputs)
+pub fn write(args ...any) {
+	C.OnFwd(...args)
 	// C.OnRev()
 }
                      
 @[as_macro] 
-pub fn write_ex(outputs u8, pwr i8, reset u8) {
-	C.OnFwdEx(outputs, pwr, reset)
+pub fn write_ex(args ...any) {
+	C.OnFwdEx(...args)
 	// C.OnRevEx()
 }
 
 @[as_macro] 
-pub fn write_reg(outputs u8, pwr i8, regmode u8) {
-	C.OnFwdReg(outputs, pwr, regmode)
+pub fn write_reg(args ...any) {
+	C.OnFwdReg(...args)
 	// C.OnRevReg()
 }
                   
 @[as_macro] 
-pub fn write_reg_ex(outputs u8, pwr i8, regmode u8, reset u8) {
-	C.OnFwdRegEx(outputs, pwr, regmode, reset)
+pub fn write_reg_ex(args ...any) {
+	C.OnFwdRegEx(...args)
 	// C.OnRevRegEx()
 }
                  
 @[as_macro] 
-pub fn write_sync(outputs u8, pwr i8, turnpct i8) {
-	C.OnFwdSync(outputs, pwr, turnpct)
+pub fn write_sync(args ...any) {
+	C.OnFwdSync(...args)
 	// C.OnRevSync()
 }
                  
 @[as_macro] 
-pub fn write_sync_ex(outputs u8, pwr i8, turnpct i8, reset u8) {
-	C.OnFwdSyncEx(outputs, pwr, turnpct, reset)
+pub fn write_sync_ex(args ...any) {
+	C.OnFwdSyncEx(...args)
 	// C.OnRevSyncEx()
 }
                  
 @[as_macro] 
-pub fn rotate(outputs u8, pwr i8, angle int) {
-	C.RotateMotor(outputs, pwr, angle)
+pub fn rotate(args ...any) {
+	C.RotateMotor(...args)
 }
                  
 @[as_macro] 
-pub fn rotate_pid(outputs u8, pwr i8, angle int, p u8, i u8, d u8) {
-	C.RotateMotorPID(outputs, pwr, angle, p, i, d)
+pub fn rotate_pid(args ...any) {
+	C.RotateMotorPID(...args)
 }
                  
 @[as_macro] 
-pub fn rotate_ex(outputs u8, pwr i8, angle int, turnpct i8, sync bool, stop bool) {
-	C.RotateMotorEx(outputs, pwr, angle, turnpct, sync, stop)
+pub fn rotate_ex(args ...any) {
+	C.RotateMotorEx(...args)
 }
                  
 @[as_macro] 
-pub fn rotate_ex_pid(outputs u8, pwr i8, angle int, turnpct i8, sync bool, stop bool, p u8, i u8, d u8) {
-	C.RotateMotorExPID(outputs, pwr, angle, turnpct, sync, stop, p, i, d)
+pub fn rotate_ex_pid(args ...any) {
+	C.RotateMotorExPID(...args)
 }
                  
 @[as_macro] 
-pub fn reset_tacho_count(outputs u8) {
-	C.ResetTachoCount(outputs)
+pub fn reset_tacho_count(args ...any) {
+	C.ResetTachoCount(...args)
 }
                  
 @[as_macro] 
-pub fn reset_block_tacho_count(outputs u8) {
-	C.ResetBlockTachoCount(outputs)
+pub fn reset_block_tacho_count(args ...any) {
+	C.ResetBlockTachoCount(...args)
 }
                  
 @[as_macro] 
-pub fn reset_rotation_count(outputs u8) {
-	C.ResetRotationCount(outputs)
+pub fn reset_rotation_count(args ...any) {
+	C.ResetRotationCount(...args)
 }
                  
 @[as_macro] 
-pub fn reset_all_tacho_counts(outputs u8) {
-	C.ResetAllTachoCounts(outputs)
+pub fn reset_all_tacho_counts(args ...any) {
+	C.ResetAllTachoCounts(...args)
 }
                
 @[as_macro] 
-pub fn read_mode(output u8) u8 {
-	return C.MotorMode(output)
+pub fn read_mode(args ...any) u8 {
+	return C.MotorMode(...args)
 }
                  
 @[as_macro] 
-pub fn read_power(output u8) i8 {
-	return C.MotorPower(output)
+pub fn read_power(args ...any) i8 {
+	return C.MotorPower(...args)
 }
                  
 @[as_macro] 
-pub fn read_actual_speed(output u8) u8 {
-	return C.MotorActualSpeed(output)
+pub fn read_actual_speed(args ...any) i8 {
+	return C.MotorActualSpeed(...args)
 }
                  
 @[as_macro] 
-pub fn read_tacho_count(output u8) int {
-	return C.MotorTachoCount(output)
+pub fn read_tacho_count(args ...any) int {
+	return C.MotorTachoCount(...args)
 }
                  
 @[as_macro] 
-pub fn read_tacho_limit(output u8) int {
-	return C.MotorTachoLimit(output)
+pub fn read_tacho_limit(args ...any) int {
+	return C.MotorTachoLimit(...args)
 }
                  
 @[as_macro] 
-pub fn read_run_state(output u8) u8 {
-	return C.MotorRunState(output)
+pub fn read_run_state(args ...any) u8 {
+	return C.MotorRunState(...args)
 }
                  
 @[as_macro] 
-pub fn read_turn_ratio(output u8) i8 {
-	return C.MotorTurnRatio(output)
+pub fn read_turn_ratio(args ...any) i8 {
+	return C.MotorTurnRatio(...args)
 }
                  
 @[as_macro] 
-pub fn read_regulation(output u8) u8 {
-	return C.MotorRegulation(output)
+pub fn read_regulation(args ...any) u8 {
+	return C.MotorRegulation(...args)
 }
                  
 @[as_macro] 
-pub fn overload(output u8) bool {
-	return C.MotorOverload(output)
+pub fn overload(args ...any) bool {
+	return C.MotorOverload(...args)
 }
                  
 @[as_macro] 
-pub fn read_reg_p(output u8) u8 {
-	return C.MotorRegPValue(output)
+pub fn read_reg_p(args ...any) u8 {
+	return C.MotorRegPValue(...args)
 }
                  
 @[as_macro] 
-pub fn read_reg_i(output u8) u8 {
-	return C.MotorRegIValue(output)
+pub fn read_reg_i(args ...any) u8 {
+	return C.MotorRegIValue(...args)
 }
                  
 @[as_macro] 
-pub fn read_reg_d(output u8) u8 {
-	return C.MotorRegDValue(output)
+pub fn read_reg_d(args ...any) u8 {
+	return C.MotorRegDValue(...args)
 }
                  
 @[as_macro] 
-pub fn read_block_tacho_count(output u8) int {
-	return C.MotorBlockTachoCount(output)
+pub fn read_block_tacho_count(args ...any) int {
+	return C.MotorBlockTachoCount(...args)
 }
                  
 @[as_macro] 
-pub fn read_rotation_count(output u8) int {
-	return C.MotorRotationCount(output)
+pub fn read_rotation_count(args ...any) int {
+	return C.MotorRotationCount(...args)
 }
                  
 @[as_macro] 
-pub fn read_output_options(output u8) u8 {
-	return C.MotorOutputOptions(output)
+pub fn read_output_options(args ...any) u8 {
+	return C.MotorOutputOptions(...args)
 }
                  
 @[as_macro] 
-pub fn read_max_speed(output u8) u8 {
-	return C.MotorMaxSpeed(output)
+pub fn read_max_speed(args ...any) u8 {
+	return C.MotorMaxSpeed(...args)
 }
                  
 @[as_macro] 
-pub fn read_max_accel(output u8) u8 {
-	return C.MotorMaxAcceleration(output)
+pub fn read_max_accel(args ...any) u8 {
+	return C.MotorMaxAcceleration(...args)
 }
                  
 @[as_macro] 
-pub fn read_pwn_freq() u8 {
+pub fn read_pwn_freq(args ...any) u8 {
 	return C.MotorPwnFreq()
 }
                  
 @[as_macro] 
-pub fn read_reg_time() u8 {
+pub fn read_reg_time(args ...any) u8 {
 	return C.MotorRegulationTime()
 }
                  
 @[as_macro] 
-pub fn read_reg_options() u8 {
+pub fn read_reg_options(args ...any) u8 {
 	return C.MotorRegulationOptions()
 }
 

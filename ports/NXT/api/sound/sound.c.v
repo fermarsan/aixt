@@ -72,6 +72,8 @@ module sound
 
 fn C.PlayFile(args ...any) i8
 fn C.PlayTone(args ...any) i8
+fn C.PlayFileEx(args ...any) i8
+fn C.PlayToneEx(args ...any) i8
 fn C.StopSound() 
 fn C.SoundFrequency() u16 
 fn C.SoundDuration() u16 
@@ -91,13 +93,23 @@ fn C.PlayTones(args ...any)
 
 // Functions for accessing and modifying sound module features. 
 @[as_macro]
-pub fn play_file(filename string) i8 {
-	return C.PlayFile(filename) 
+pub fn play_file(args ...any) i8 {
+	return C.PlayFile(...args) 
 }
 
 @[as_macro]
-pub fn play_tone(frequency u16, duration u16) i8 {
-	return C.PlayTone(frequency, duration) 
+pub fn play_tone(args ...any) i8 {
+	return C.PlayTone(...args) 
+}
+
+@[as_macro] 
+pub fn play_file_ex(args ...any) i8 { 
+	return C.PlayFileEx(...args)
+}
+
+@[as_macro] 
+pub fn play_tone_ex(args ...any) i8 { 
+	return C.PlayToneEx(...args)
 }
 
 @[as_macro]
