@@ -199,7 +199,7 @@ aixt.exe symlink
 
 ## Prerequisites
 
-- _The V programming language_ 0.4.8
+- _The V programming language_ 0.4.9
 - _auduino-cli_ last version (for arduino backend devices only)
 - _specific C compiler_ depending on the device
 
