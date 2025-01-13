@@ -29,28 +29,100 @@ module button
 
 
 fn C.ButtonPressed(args ...any) bool
+fn C.ButtonCount(args ...any) u8
+fn C.ReadButtonEx(args ...any) i8
 fn C.ButtonPressCount(args ...any) u8
+fn C.ButtonLongPressCount(args ...any) u8 
+fn C.ButtonShortReleaseCount(args ...any) u8 
+fn C.ButtonLongReleaseCount(args ...any) u8 
+fn C.ButtonReleaseCount(args ...any) u8 
 fn C.ButtonState(args ...any) u8
 fn C.SetButtonPressCount(args ...any) 
+fn C.SetButtonLongPressCount(args ...any) 
+fn C.SetButtonLongReleaseCount(args ...any) 
+fn C.SetButtonReleaseCount(args ...any) 
+fn C.SetButtonShortReleaseCount(args ...any) 
+fn C.SetButtonState(args ...any) 
+fn C.SysReadButton(args ...any) 
 
 
 // Functions for accessing and modifying Button module features. 
 @[as_macro]
-pub fn read(args ..any) bool {
+pub fn read(args ...any) bool {
 	return C.ButtonPressed(...args) 
 }
 
 @[as_macro]
-pub fn read_count(args ..any) u8 {
+pub fn read_count(args ...any) u8 {
+	return C.ButtonCount(...args) 
+}
+
+@[as_macro]
+pub fn read_ex(args ...any) i8 {
+	return C.ReadButtonEx(...args) 
+}
+
+@[as_macro]
+pub fn read_press(args ...any) u8 {
 	return C.ButtonPressCount(...args) 
 }
 
 @[as_macro]
-pub fn read_state(args ..any) u8 {
+pub fn read_long_press(args ...any) u8 {
+	return C.ButtonLongPressCount(...args) 
+}
+
+@[as_macro]
+pub fn read_short_release(args ...any) u8 {
+	return C.ButtonShortReleaseCount(...args) 
+}
+
+@[as_macro]
+pub fn read_long_release(args ...any) u8 {
+	return C.ButtonLongReleaseCount(...args) 
+}
+
+@[as_macro]
+pub fn read_release(args ...any) u8 {
+	return C.ButtonReleaseCount(...args) 
+}
+
+@[as_macro]
+pub fn read_state(args ...any) u8 {
 	return C.ButtonState(...args) 
 }
 
 @[as_macro]
-pub fn set_count(args ..any) {
-	C.SetButtonPressCount(...args) 
+pub fn write_long_press_cnt(args ...any) {
+	return C.SetButtonLongPressCount(...args) 
+}
+
+@[as_macro]
+pub fn write_long_release_cnt(args ...any) {
+	return C.SetButtonLongReleaseCount(...args) 
+}
+
+@[as_macro]
+pub fn write_cnt(args ...any) {
+	C.SetButtonPressCount(btn, n) 
+}
+
+@[as_macro]
+pub fn write_release_cnt(args ...any) {
+	return C.SetButtonReleaseCount(...args) 
+}
+
+@[as_macro]
+pub fn write_short_release_cnt(args ...any) {
+	return C.SetButtonShortReleaseCount(...args) 
+}
+
+@[as_macro]
+pub fn write_state(args ...any) {
+	return C.SetButtonState(...args) 
+}
+
+@[as_macro]
+pub fn read_sys(args ...any) {
+	return C.SysReadButton(...args) 
 }

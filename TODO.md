@@ -52,3 +52,5 @@ Tasks to do in Aixt
 - [x] Empty array declaring now allowed
 - [x] NXT port updated to API v0.1.2
 - [x] NXT examples transpiled successfully  
+- [x] NXT button and LCD modules updated
+- [x] NXT snippets updated

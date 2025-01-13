@@ -1,12 +1,93 @@
 {
-	// default module
-	"snippet.aixt.sleep": {
-		"prefix": "sleep",
-		"body": "${1|sleep,sleep_ms|}($2:10)",
-		"description": "Sleep functions"
+	// time module
+	"snippet.aixt.time.sleep": {
+		"prefix": "tim",
+		"body": "time.${1|sleep,sleep_ms|}(${2:10})",
+		"description": "Time functions"
 	},
+	// motor module
+	"snippet.aixt.motor.write": {
+		"prefix": "wr",
+		"body": "motor.write(motor.${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
+		"description": "Motor move forward"
+	},
+	"snippet.aixt.motor.write_time": {
+		"prefix": "wrt",
+		"body": [ 
+			"motor.write(motor.${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
+			"time.sleep_ms(${3:500})",
+		],
+		"description": "Motor move forward for a specific time (milliseconds)"
+	},
+	"snippet.aixt.motor.off": {
+		"prefix": "off",
+		"body": "motor.off(motor.${1|a,b,c,ab,ac,bc,abc|})",
+		"description": "Stop motor"
+	},
+	"snippet.aixt.motor.off_time": {
+		"prefix": "oft",
+		"body": [ 
+			"motor.off(motor.${1|a,b,c,ab,ac,bc,abc|})",
+			"sleep_ms(${3:500})",
+		],
+		"description": "Stop motors for a specific time (milliseconds)"
+	},
+	// sensor module
+	"snippet.aixt.sensor.set": {
+		"prefix": "st",
+		"body": "sensor.setup(sensor.${1|s1,s2,s3,s4|}, sensor.${2|touch,light,sound,lowspeed,ultrasonic,e_meter,temperature,color_full,color_red,color_green,color_blue,color_none|})",
+		"description": "Set sensor type"
+	},
+	"snippet.aixt.sensor.as_type": {
+		"prefix": "ast",
+		"body": "sensor.as_${1|touch,light,sound,lowspeed,ultrasonic,e_meter,temperature,color_full,color_red,color_green,color_blue,color_none|}(sensor.${2|s1,s2,s3,s4|})",
+		"description": "Set sensor type functions"
+	},
+	"snippet.aixt.sensor.read": {
+		"prefix": "rd",
+		"body": "sensor.read(sensor.${1|s1,s2,s3,s4|})",
+		"description": "Read sensor"
+	},	
+	// button module
+	"snippet.aixt.button.read": {
+		"prefix": "rdb",
+		"body": "button.read(button.${1|exit,right,left,center|})",
+		"description": "Read button"
+	},
+	"snippet.aixt.button.read_state": {
+		"prefix": "rdbs",
+		"body": "button.read_state(button.${1|exit,right,left,center|})",
+		"description": "Read button state"
+	},
+	// LCD module
+	"snippet.aixt.lcd.print": {
+		"prefix": "prs",
+		"body": "lcd.print($1)",
+		"description": "LCD printing string function"
+	},
+	"snippet.aixt.lcd.println": {
+		"prefix": "prls",
+		"body": "lcd.println($1)",
+		"description": "LCD printing string + line new function"
+	},
+	"snippet.aixt.lcd.clear": {
+		"prefix": "clr",
+		"body": "lcd.clear()",
+		"description": "LCD clear screen"
+	},
+	"snippet.aixt.lcd.clear_line": {
+		"prefix": "clrl",
+		"body": "lcd.clear_line(lcd.line_${1|1,2,3,4,5,6,7,8|})",
+		"description": "LCD clear line"
+	},
+	"snippet.aixt.lcd.move_to": {
+		"prefix": "mvt",
+		"body": "lcd.move_to(${1:0}, ${2:56})",
+		"description": "LCD move cursor"
+	},
+	// task module
 	"snippet.aixt.nxc.task": {
-		"prefix": "task",
+		"prefix": "tsk",
 		"body": [ 
 			"@[task]",
 			"fn $1() {",
@@ -16,7 +97,7 @@
 		"description": "Add a new task function"
 	},
 	"snippet.aixt.nxc.mutex": {
-		"prefix": "mutex",
+		"prefix": "mtx",
 		"body": [ 
 			"@[mutex]",
 			"__global ${1:_mutex} = 0",
@@ -24,7 +105,7 @@
 		"description": "Add a new mutex var (shared resources semaphore)"
 	},
 	"snippet.aixt.nxc.acq_rel_mutex": {
-		"prefix": "acq_rel_mutex",
+		"prefix": "aqrl",
 		"body": [
 			"acquire(${1:_mutex})",
 			"",
@@ -35,64 +116,13 @@
 		"description": "Acquire/Release mutex"
 	},
 	"snippet.aixt.nxc.precedes": {
-		"prefix": "precedes",
+		"prefix": "prc",
 		"body": "precedes(${1:task_1}, ${2:task_2})",
 		"description": "Precedes task order"
 	},
-	// motor module
-	"snippet.aixt.motor.write": {
-		"prefix": "motor.write",
-		"body": "motor.write(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
-		"description": "Motor move forward"
-	},
-	"snippet.aixt.motor.write_time": {
-		"prefix": "motor.ft",
-		"body": [ 
-			"motor.write(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
-			"sleep_ms(${3:500})",
-		],
-		"description": "Motor move forward for a specific time (milliseconds)"
-	},
-	"snippet.aixt.motor.reverse": {
-		"prefix": "motor.reverse",
-		"body": "motor.reverse(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
-		"description": "Motor move reverse"
-	},
-	"snippet.aixt.motor.reverse_time": {
-		"prefix": "motor.rt",
-		"body": [ 
-			"motor.reverse(${1|a,b,c,ab,ac,bc,abc|}, ${2:75})",
-			"sleep_ms(${3:500})",
-		],
-		"description": "Motor move reverse for a specific time (milliseconds)"
-	},
-	"snippet.aixt.motor.off": {
-		"prefix": "motor.off",
-		"body": "motor.off(${1|a,b,c,ab,ac,bc,abc|})",
-		"description": "Stop motor"
-	},
-	"snippet.aixt.motor.off_time": {
-		"prefix": "motor.ot",
-		"body": [ 
-			"motor.off(${1|a,b,c,ab,ac,bc,abc|})",
-			"sleep_ms(${3:500})",
-		],
-		"description": "Stop motors for a specific time (milliseconds)"
-	},
-	// sensor module
-	"snippet.aixt.sensor.set": {
-		"prefix": "sensor.set",
-		"body": "sensor.setup(${1|i1,i2,i3,i4|}, ${2|touch,light,sound,lowspeed,ultrasonic,e_meter,temperature,color_full,color_red,color_green,color_blue,color_none|})",
-		"description": "Set sensor type"
-	},
-	"snippet.aixt.sensor.as_type": {
-		"prefix": "sensor.as_type",
-		"body": "sensor.as_${1|touch,light,sound,lowspeed,ultrasonic,e_meter,temperature,color_full,color_red,color_green,color_blue,color_none|}(${2|i1,i2,i3,i4|})",
-		"description": "Set sensor type functions"
-	},
-	"snippet.aixt.sensor.read": {
-		"prefix": "sensor.read",
-		"body": "sensor.read(${1|s1,s2,s3,s4|})",
-		"description": "Read sensor"
+	"snippet.aixt.nxc.follows": {
+		"prefix": "flw",
+		"body": "follows(${1:task_1}, ${2:task_2})",
+		"description": "Follows task order"
 	},
 }

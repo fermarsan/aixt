@@ -2,8 +2,12 @@
 // Author: 
 // Date: 
 
+import time 
 import motor
+import sensor
 
-motor.write(motor.ab, 50)
-time.sleep(2)
-motor.off(motor.ab)
+for {
+	motor.write(motor.ab, 50)
+	time.sleep(2)
+	motor.off(motor.ab)
+}

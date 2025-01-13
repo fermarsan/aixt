@@ -18,25 +18,25 @@ pub const x_max = i8(90)
 pub const y_max = i8(56)
 
 // Line numbers for use with DrawText system function.  
-@[as_macro] pub const line8	= 0    
-@[as_macro] pub const line7	= 8    
-@[as_macro] pub const line6	= 16   
-@[as_macro] pub const line5	= 24   
-@[as_macro] pub const line4	= 32   
-@[as_macro] pub const line3	= 40   
-@[as_macro] pub const line2	= 48   
-@[as_macro] pub const line1	= 56   
+@[as_macro] pub const line_8	= 0    
+@[as_macro] pub const line_7	= 8    
+@[as_macro] pub const line_6	= 16   
+@[as_macro] pub const line_5	= 24   
+@[as_macro] pub const line_4	= 32   
+@[as_macro] pub const line_3	= 40   
+@[as_macro] pub const line_2	= 48   
+@[as_macro] pub const line_1	= 56   
 
 // Constants that are for use with getting/setting display data. 
-@[as_macro] pub const textline_1 = 0  
-@[as_macro] pub const textline_2 = 1  
-@[as_macro] pub const textline_3 = 2  
-@[as_macro] pub const textline_4 = 3  
-@[as_macro] pub const textline_5 = 4  
-@[as_macro] pub const textline_6 = 5  
-@[as_macro] pub const textline_7 = 6  
-@[as_macro] pub const textline_8 = 7  
-@[as_macro] pub const textlines  = 8  
+@[as_macro] pub const text_line_1 = 0  
+@[as_macro] pub const text_line_2 = 1  
+@[as_macro] pub const text_line_3 = 2  
+@[as_macro] pub const text_line_4 = 3  
+@[as_macro] pub const text_line_5 = 4  
+@[as_macro] pub const text_line_6 = 5  
+@[as_macro] pub const text_line_7 = 6  
+@[as_macro] pub const text_line_8 = 7  
+@[as_macro] pub const text_lines  = 8  
 
 
 
