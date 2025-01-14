@@ -1,7 +1,7 @@
 // Project name: UARt-ADC		
 // Author: Fernando M. Santa
-// Date: 19/09/2024
-// Raspberry Pi Pico board
+// Date: 14/01/2025
+// Blue-Pill board
 
 import time
 import uart
