@@ -3,7 +3,7 @@
 // Date: 2024-2015
 // License: MIT
 //
-// Description: ADC setup (XIAO-SAM21 port)
+// Description: ADC setup (XIAO-SAMD21 port)
 module adc
 
 // setup function sets the ADC resolution

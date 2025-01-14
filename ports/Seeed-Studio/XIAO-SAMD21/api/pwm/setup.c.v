@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: PWM setup (XIAO-SAM21 port)
+// Description: PWM setup (XIAO-SAMD21 port)
 module pwm
 
 // setup function configures de PWM hardware

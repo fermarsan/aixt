@@ -3,5 +3,5 @@
 // Date: 2022-2025
 // License: MIT
 //
-// Description: Builtin definitions (XIAO-SAM21 port) 
+// Description: Builtin definitions (XIAO-SAMD21 port) 
 module main

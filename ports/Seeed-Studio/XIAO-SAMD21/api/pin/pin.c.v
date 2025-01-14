@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin management XIAO-SAM21
+// Description: Pin management XIAO-SAMD21
 module pin
 
 // pin names

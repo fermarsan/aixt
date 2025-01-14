@@ -54,4 +54,5 @@ Tasks to do in Aixt
 - [x] Nucleo-L031K6 examples transpiled successfully
 - [x] Blue-Pill port updated to API v0.1.2
 - [x] Blue-Pill examples transpiled successfully
-- [x] XIAO-SAM21 port updated to API v0.1.2
+- [x] XIAO-SAMD21 port updated to API v0.1.2
+- [x] XIAO-SAMD21 examples transpiled successfully
