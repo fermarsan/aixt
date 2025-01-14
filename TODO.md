@@ -50,3 +50,4 @@ Tasks to do in Aixt
 - [x] Change builtin LED name to `led_0`
 - [x] Nucleo-L031K6 examples transpiled successfully
 - [x] Issue: main constants and globals can be invoked omitting `main.` now.
+- [x] Issue: array_init for non-fixed arrays fails

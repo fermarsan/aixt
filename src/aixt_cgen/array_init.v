@@ -8,7 +8,7 @@ import v.ast
 
 // array_init is the code generation function for arrays initialization.
 fn (mut gen Gen) array_init(node ast.ArrayInit) []string {
-	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
+	println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut c_line := ''
 	if node.is_fixed {
 		if node.has_val {	// [2,4,7,9]!
@@ -28,7 +28,9 @@ fn (mut gen Gen) array_init(node ast.ArrayInit) []string {
 				}
 		if node.has_init {	// []int{len: 3, init: 0} or []int{cap: 3, init: 0} or []int{len: 3, cap: 3, init: 0}
 			c_line = gen.fill_init(node.init_expr, len)
-		} 
+		} else {
+			c_line = gen.join_exprs(node.exprs)
+		}
 	}
 	return [c_line]
 }

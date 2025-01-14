@@ -9,7 +9,7 @@ import v.ast
 
 // ident is the code generation function for identifiers.
 fn (mut gen Gen) ident(node ast.Ident) []string {
-	println('>>>>>>>>>>>>>>>>>> ${node.name} <<<<<<<<<<<<<<<<<<')
+	// println('>>>>>>>>>>>>>>>>>> ${node.name} <<<<<<<<<<<<<<<<<<')
 	match node.language {
 		.c {
 			return [node.name.replace('C.', '')]
