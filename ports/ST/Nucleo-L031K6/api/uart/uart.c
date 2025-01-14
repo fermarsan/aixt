@@ -4,4 +4,4 @@
 #define SERIAL_PRINT(MESSAGE)      Serial.print(MESSAGE)
 #define SERIAL_PRINTLN(MESSAGE)    Serial.println(MESSAGE)
 #define SERIAL_AVAILABLE()         Serial.available()    
-#define SERIAL_PINS(tx, rx)        UART Serial(tx, rx, 0, 0)
+// #define SERIAL_PINS(tx, rx)        UART Serial(tx, rx, 0, 0)

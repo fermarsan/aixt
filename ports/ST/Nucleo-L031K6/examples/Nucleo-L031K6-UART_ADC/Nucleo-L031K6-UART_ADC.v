@@ -1,7 +1,7 @@
-// Project name: UARt-ADC		
+// Project name: UART-ADC		
 // Author: Fernando M. Santa
-// Date: 19/09/2024
-// Raspberry Pi Pico board
+// Date: 14/01/2025
+// Raspberry Nucleo-L031K6 board
 
 import time
 import uart
