@@ -40,7 +40,7 @@ Tasks to do in Aixt
 - [x] Nucleo-L031K6 project template created
 - [x] Issue solved: Unpacking type layout (symbol table)
 - [x] Basic implementation of the "ArrayDecompose" expression
-- [x] Functions '@[as_macro]' now allow variable number of arguments
+- [x] Functions `@[as_macro]` now allow variable number of arguments
 - [x] Arrays and fixed-arrays now supports initialization by `{init: value}` syntax
 - [x] Empty array declaring now allowed
 - [x] NXT port updated to API v0.1.2
@@ -51,3 +51,4 @@ Tasks to do in Aixt
 - [x] Nucleo-L031K6 examples transpiled successfully
 - [x] Issue: main constants and globals can be invoked omitting `main.` now.
 - [x] Issue: array_init for non-fixed arrays fails
+- [x] Blue-Pill config updated
