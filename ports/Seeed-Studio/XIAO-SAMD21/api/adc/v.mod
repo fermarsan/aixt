@@ -1,8 +1,7 @@
-
 Module {
 	name:	'adc'
-	description:	'Aixt pin management module for Seeeduino Xiao (samd21).'
-	version:	'0.1.1'
+	description:	'Aixt ADC module for Arduino devices' 
+	version:	'0.1.2'
 	license:	'MIT'
 	dependencies:	[]
 }

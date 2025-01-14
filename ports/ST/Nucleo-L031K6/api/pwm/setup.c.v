@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: PWM setup (Raspberry Pi Pico port)
+// Description: PWM setup (Nucleo-L031K6 port)
 module pwm
 
 // setup function configures de PWM hardware

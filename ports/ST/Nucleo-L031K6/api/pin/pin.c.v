@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin management functions Arduino devices
+// Description: Pin management Nucleo-L031K6
 module pin
 
 // pin names

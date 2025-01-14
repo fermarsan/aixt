@@ -3,7 +3,7 @@
 // Date: 2025
 // License: MIT
 //
-// Description: Pin management functions Arduino devices
+// Description: Pin management Blue-Pill
 module pin
 
 // pin names
