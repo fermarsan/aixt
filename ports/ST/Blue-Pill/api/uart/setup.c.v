@@ -1,17 +1,11 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Authors:
-//	 - Julian Camilo Guzmán Zambrano
-//	 - Juan Pablo Gonzalez Penagos
-//	 - Fernando M. Santa
-// Date: 2022-2024
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
+// Date: 2024
 // License: MIT
-//
-// // Description: SETUP functions (STM32F103C)
-//              (PC port) 
-
 module uart
 
+// setup function sets the data rate in bits per second (baud) for serial data transmission
 @[inline]
-pub fn setup(BAUD_RATE) {
-	C.Serial.begin(BAUD_RATE)
+pub fn setup(baud_rate int) {
+	C.SERIAL_BEGIN(baud_rate)
 }

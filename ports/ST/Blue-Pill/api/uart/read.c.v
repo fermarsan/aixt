@@ -1,17 +1,11 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Authors:
-//	 - Julian Camilo Guzmán Zambrano
-//	 - Juan Pablo Gonzalez Penagos
-//	 - Fernando M. Santa
-// Date: 2022-2024
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
+// Date: 2024
 // License: MIT
-//
-// // Description: READ functions (STM32F103C)
-//              (PC port) 
-
 module uart
 
+// read function reads incoming serial data
 @[inline]
-pub fn read() {
-	C.Serial.read()
+pub fn read() u8 {
+	return C.SERIAL_READ()
 }

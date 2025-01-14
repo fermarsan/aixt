@@ -52,3 +52,4 @@ Tasks to do in Aixt
 - [x] Issue: main constants and globals can be invoked omitting `main.` now.
 - [x] Issue: array_init for non-fixed arrays fails
 - [x] Blue-Pill config updated
+- [x] Blue-Pill start updating to API 0.1.2

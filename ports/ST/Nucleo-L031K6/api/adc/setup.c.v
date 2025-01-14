@@ -1,9 +1,9 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2024
+// Date: 2024-2015
 // License: MIT
 //
-// Description: ADC setup (Raspberry Pi Pico port)
+// Description: ADC setup (Nucleo-L031K6 port)
 module adc
 
 // setup function sets the ADC resolution

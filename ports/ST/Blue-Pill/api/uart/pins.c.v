@@ -4,8 +4,8 @@
 // License: MIT
 module uart
 
-// write function sends a single byte to the serial port
+// pins function sets the tx and tx pins for the uart
 @[inline]
-pub fn write(character u8) {  
-	C.SERIAL_WRITE(character)
+pub fn pins(tx_pin int, rx_pin int) {
+	C.SERIAL_PINS(tx_pin, rx_pin)
 }

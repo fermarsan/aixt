@@ -1,17 +1,11 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Authors:
-//	 - Julian Camilo Guzmán Zambrano
-//	 - Juan Pablo Gonzalez Penagos
-//	 - Fernando M. Santa
-// Date: 2022-2024
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: ernando Martínez Santa
+// Date: 2024
 // License: MIT
-//
-// // Description: PRINTLN functions (STM32F103C)
-//              (PC port) 
-
 module uart
 
+// print function prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
 @[inline]
-pub fn println(MESSAGE) {
-	C.Serial.println(MESSAGE)
+pub fn println(message string) {  
+	C.SERIAL_PRINTLN(message)
 }
