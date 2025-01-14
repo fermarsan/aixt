@@ -13,7 +13,7 @@ pin.setup(pin.d3, pin.output)	// for PWM
 
 for {
 	for duty in duty_table {
-		pwm.write(pin.d3, duty)
+		pwm.write(pin.d3, duty*256)
 		time.sleep_ms(250)
 	}
 }
