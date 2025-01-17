@@ -28,5 +28,3 @@ Tasks to do in Aixt
 
 
 ### Done ✓make
-
-- [x] Add `symlink` option to help command 

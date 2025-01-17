@@ -42,6 +42,7 @@ New Devices:
 - XIAO-SAMD21 port updated to API v0.1.2
 - XIAO-ESP-xx port created
 - Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC, Exp16-PIC24, PIC16F8x, PIC16F88x, RP-Pico, W801, Blue-Pill, Nucleo-L031K6, XIAO-ESP32-xx, XIAO-SAMD21, NXT
+- Add `symlink` option to help command 
 
 
 ## aixt0.1.8
