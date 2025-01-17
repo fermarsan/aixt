@@ -1,3 +1,49 @@
+## aixt0.1.9
+*17 Jan 2025*
+
+#### Devices Supported
+Devices updated to API aixt0.1.2:
+- Software emulator
+- Mindstorms NXT
+- PIC16F8x family
+- Arduino Uno
+- Arduino Nano
+- Raspberry Pi Pico
+- ESP32-DevkitC
+- PIC16F8x
+- Blue-Pill
+- XIAO-SAMD21
+New Devices:
+- Nucleo-L031K6
+- XIAO-ESP32-xx (C3, C6, S3)
+  
+#### New features:
+- Implement the basic structure of interrupts (attribute `@[XXXX_isr]`)
+- Implement external interrupts on PIC16F8x microcontroller family.
+- Implement the constant `cpu_freq` for changing the default cpu frequency defined on `.json` file
+- Basic implementation of the "ArrayDecompose" expression
+- Functions `@[as_macro]` now allow variable number of arguments
+- Arrays and fixed-arrays now supports initialization by `{init: value}` syntax
+- Empty array declaring now allowed
+
+#### Changes
+- Change Raspberry-Pi-Pico port name by "RP-Pico"
+- Update the `Setup file.md` in `doc` folder. (`Setup files.md` )
+- Explorer 16 PIC24 setup files updated 
+- Change Exp16-PIC24 port name by "Exp16-PIC24"
+- Nucleo-L031K6 project template created
+- Issue solved: Unpacking type layout (symbol table)
+- NXT port updated to API v0.1.2
+- NXT snippets updated
+- Change builtin LED name to `led_0`
+- Issue solved: main constants and globals can be invoked omitting `main.` now.
+- Issue solved: array_init for non-fixed arrays fails
+- Blue-Pill port updated to API v0.1.2
+- XIAO-SAMD21 port updated to API v0.1.2
+- XIAO-ESP-xx port created
+- Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC, Exp16-PIC24, PIC16F8x, PIC16F88x, RP-Pico, W801, Blue-Pill, Nucleo-L031K6, XIAO-ESP32-xx, XIAO-SAMD21, NXT
+
+
 ## aixt0.1.8
 *03 Dic 2024*
 #### Devices Supported
