@@ -1,6 +1,7 @@
 // Project name:
 // Author: 
 // Date: 
+// NXT Intelligent Brick
 
 import time 
 import motor

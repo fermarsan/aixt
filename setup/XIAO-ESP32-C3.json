@@ -1,14 +1,14 @@
 {
-    "port": "XIAO-SAMD21",
-    "board": "Seeed Studio XIAO SAMD21",
+    "port": "XIAO-ESP32-xx",
+    "board": "Seeed Studio XIAO ESP32-C3",
     "backend": "arduino",
 
     "cc_linux":   "arduino-cli",
     "cc_windows": "arduino-cli.exe",
-    "cc_make_flags":   "compile -b arduino:samd:nano_33_iot -v --output-dir @{file_dir_name}/build",
+    "cc_make_flags":   "compile -b esp32:esp32:XIAO_ESP32C3 -v --output-dir @{file_dir_name}/build",
 
     "api_paths": [
-        "Seeed-Studio/XIAO-SAMD21",
+        "Seeed-Studio/XIAO-ESP32-xx",
         "Arduino/arduino-generic",
         "Arduino/arduino-generic-UART"
     ],

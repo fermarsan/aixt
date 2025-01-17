@@ -36,7 +36,6 @@ Tasks to do in Aixt
 - [x] Update the `Setup file.md` in `doc` folder. (`Setup files.md` )
 - [x] Explorer 16 PIC24 setup files updated 
 - [x] Change Exp16-PIC24 port name by "Exp16-PIC24"
-- [x] Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC, Exp16-PIC24, PIC16F8x, PIC16F88x, RP-Pico, W801
 - [x] Nucleo-L031K6 project template created
 - [x] Issue solved: Unpacking type layout (symbol table)
 - [x] Basic implementation of the "ArrayDecompose" expression
@@ -56,3 +55,5 @@ Tasks to do in Aixt
 - [x] Blue-Pill examples transpiled successfully
 - [x] XIAO-SAMD21 port updated to API v0.1.2
 - [x] XIAO-SAMD21 examples transpiled successfully
+- [x] XIAO-ESP-xx port created
+- [x] Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC, Exp16-PIC24, PIC16F8x, PIC16F88x, RP-Pico, W801, Blue-Pill, Nucleo-L031K6, XIAO-ESP32-xx, XIAO-SAMD21, NXT
