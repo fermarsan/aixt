@@ -41,5 +41,6 @@ aixt supports the following commands:
   clean, -cl                    Clean all the generated file (C and executables).
   help, --help, -h              Call this help
   version, --version, -v        Returns the Aixt version number
-  new_project, -np              Create new project (main.v and editor setup files)'
+  new_project, -np              Create new project (main.v and editor setup files)
+  symlink, -s                   Create a symbolic link to the Aixt source file.'
 }
