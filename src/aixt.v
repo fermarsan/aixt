@@ -26,7 +26,7 @@ fn main() {
 				println(help_message())
 			}
 			'version', '--version', '-v' {	
-				lines := os.read_lines('./src/v.mod') or {['']}
+				lines := os.read_lines('${aixt_path}/src/v.mod') or {['']}
 				for line in lines {
 					if line.contains('version:') {
 						println('Aixt ${line.replace('\tversion:\t', '')}')

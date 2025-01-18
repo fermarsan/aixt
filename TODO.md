@@ -25,7 +25,8 @@ Tasks to do in Aixt
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement Timer0 functions
-- [ ] Issue: `version` command only works running from aixt's main folder
 
 
 ### Done ✓make
+
+- [x] Issue solved: `version` command only works running from aixt's main folder
