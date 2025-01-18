@@ -6,9 +6,9 @@
 // Description: External interrupts management functions for 16F family
 module ext
 
-// edge set the falling or rising edge of the external interrupt
+// setup set the falling or rising edge of the external interrupt
 @[as_macro]
-pub fn edge(_edge any) {
-	C.INTEDG = _edge
+pub fn setup(edge any) {
+	C.INTEDG = edge
 }
 

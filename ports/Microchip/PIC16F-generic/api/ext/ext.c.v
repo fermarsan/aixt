@@ -8,5 +8,5 @@ module ext
 
 #include "ext.c"
 
-@[as_macro] pub const rising =	1
+@[as_macro] pub const rising  = 1
 @[as_macro] pub const falling = 0

@@ -13,11 +13,11 @@ fn toggle_led() {
 }
 
 pin.setup(pin.b4, pin.output)	// as output
-pin.low(pin.b4)			// reset the pin
+pin.low(pin.b4)					// reset the pin
 
 pin.setup(pin.irq, pin.input)	// as input
-ext.edge(ext.falling)	// rising edge for external interrupt
-ext.irq_enable()		// enable the interrupt
+ext.setup(ext.falling)			// rising edge for external interrupt
+ext.irq_enable()				// enable the interrupt
 
 for {
 	// empty infinite loop
