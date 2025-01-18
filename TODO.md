@@ -11,7 +11,6 @@ Tasks to do in Aixt
 - [ ] "40_inline_asm.v" inline asm implementation
 - [ ] Implement uart.input()
 - [ ] Support for arrays and strings initialized inside "for" statement
-- [ ] change "set" by "setup" in sensor module (NXT port)
 - [ ] Issue: Ident names including module and function name or scope position (for all ports)
 
 
