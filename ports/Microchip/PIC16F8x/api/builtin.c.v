@@ -14,5 +14,3 @@ module main
 #include <stdbool.h>
 
 #include "builtin.c"
-
-

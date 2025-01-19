@@ -30,3 +30,4 @@ Tasks to do in Aixt
 
 - [x] Issue solved: `version` command only works running from aixt's main folder
 - [x] Update Microchip XC8 devices to xc8-v3.00
+- [x] New Timer0 example (PIC16F8x family) 

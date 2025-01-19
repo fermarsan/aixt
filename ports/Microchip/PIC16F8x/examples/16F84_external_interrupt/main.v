@@ -1,6 +1,6 @@
 // Project name: External interrupt
 // Author: Fernando M. Santa
-// Date: 04/12/2024
+// Date: 2024-2025
 // Changing a LED state by using the external interrupt
 // PIC16F84 fosc = 4Mhz
 
