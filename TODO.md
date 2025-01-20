@@ -25,7 +25,7 @@ Tasks to do in Aixt
 - [ ] Change arrays to pure V
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
-- [ ] Implement Timer0 functions
+- [ ] Implement a Libraries folder
 
 
 ### Done ✓make
@@ -33,6 +33,7 @@ Tasks to do in Aixt
 - [x] Issue solved: `version` command only works running from aixt's main folder
 - [x] Update Microchip XC8 devices to xc8-v3.00
 - [x] New Timer0 example (PIC16F8x family)
+- [x] Implement Timer0 functions
 - [x] New type `Mutex` implemented in NXT port (`@[mutex]` attribute deprecated) 
 - [x] New names for functions in NXT's `task` module
 - [x] NXT snippets file updated
