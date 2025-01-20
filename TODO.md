@@ -14,6 +14,7 @@ Tasks to do in Aixt
 - [ ] Issue: Ident names including module and function name or scope position (for all ports)
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
 - [ ] Implement an equivalent to Arduino's `millis()`
+- [ ] Implements sub-modules
 
 
 ### In Progress
