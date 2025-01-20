@@ -99,30 +99,29 @@
 	"snippet.aixt.nxc.mutex": {
 		"prefix": "mtx",
 		"body": [ 
-			"@[mutex]",
-			"__global ${1:_mutex} = 0",
+			"__global ${1:_mutex} = Mutex(0)",
 		],
 		"description": "Add a new mutex var (shared resources semaphore)"
 	},
-	"snippet.aixt.nxc.acq_rel_mutex": {
-		"prefix": "aqrl",
+	"snippet.aixt.nxc.lock_mutex_block": {
+		"prefix": "lck",
 		"body": [
-			"acquire(${1:_mutex})",
+			"task.mutex_lock(${1:_mutex})",
 			"",
 			"$0",
 			"",
-			"release(${1:_mutex})",
+			"task.mutex_unlock(${1:_mutex})",
 		],
 		"description": "Acquire/Release mutex"
 	},
-	"snippet.aixt.nxc.precedes": {
-		"prefix": "prc",
-		"body": "precedes(${1:task_1}, ${2:task_2})",
+	"snippet.aixt.nxc.priority": {
+		"prefix": "prty",
+		"body": "task.priority(${1:task_1}, ${2:task_2})",
 		"description": "Precedes task order"
 	},
-	"snippet.aixt.nxc.follows": {
-		"prefix": "flw",
-		"body": "follows(${1:task_1}, ${2:task_2})",
+	"snippet.aixt.nxc.inv_priority": {
+		"prefix": "iprty",
+		"body": "task.inv_priority(${1:task_1}, ${2:task_2})",
 		"description": "Follows task order"
 	},
 }

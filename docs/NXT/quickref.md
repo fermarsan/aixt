@@ -53,7 +53,7 @@ The **Aixt** port for **NXC** language suports _tasks_ by using attributes and s
 
 move_mutex := mutex('') //initialization value is necesary but will be ingnored
 
-precedes(move_square, check_sensors)
+task.priority(move_square, check_sensors)
 set_sensor_touch(in_1)
 ```
 

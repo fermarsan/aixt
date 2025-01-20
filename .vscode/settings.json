@@ -1,7 +1,7 @@
 {
     "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
     "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
-    "device":       "PIC16F84", // "XIAO-ESP32-xx", // "XIAO-SAMD21", // "Blue-Pill", // "Nucleo-L031K6", // "NXT", // "Emulator", // "RP-Pico", // "ESP32-DevKitC", // "Arduino-Nano", // "T-WATCH-2020", // "Arduino-Uno",  
+    "device":       "NXT", // "PIC16F84", // "XIAO-ESP32-xx", // "XIAO-SAMD21", // "Blue-Pill", // "Nucleo-L031K6", // "Emulator", // "RP-Pico", // "ESP32-DevKitC", // "Arduino-Nano", // "T-WATCH-2020", // "Arduino-Uno",  
     "files.associations": {
         "*.nxc": "c"
     }

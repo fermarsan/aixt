@@ -29,5 +29,5 @@ fn movement() {
 
 @[task]
 fn main() {
-	task.precedes(music, movement)
+	task.priority(music, movement)
 }

@@ -35,31 +35,31 @@ pub fn exit_to(new_task any) {
 }
 
 @[as_macro] 
-pub fn precedes(tasks ...any) {
+pub fn priority(tasks ...any) {
 	C.Precedes(...tasks) 
 }
 
 @[as_macro]
-pub fn follows(tasks ...any) {
+pub fn inv_priority(tasks ...any) {
 	C.Follows(...tasks) 
 }
 
 @[as_macro]
-pub fn acquire(m any) {
+pub fn mutex_lock(m any) {
 	C.Acquire(m) 
 }
 
 @[as_macro]
-pub fn release(m any) {
+pub fn mutex_unlock(m any) {
 	C.Release(m) 
 }
 
 @[as_macro]
-pub fn start_task(t any) {
+pub fn spawn(t any) {
 	C.StartTask(t) 
 }
 
 @[as_macro]
-pub fn stop_task(t any) {
+pub fn stop(t any) {
 	C.StopTask(t) 
 }
