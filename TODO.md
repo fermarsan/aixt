@@ -12,6 +12,8 @@ Tasks to do in Aixt
 - [ ] Implement uart.input()
 - [ ] Support for arrays and strings initialized inside "for" statement
 - [ ] Issue: Ident names including module and function name or scope position (for all ports)
+- [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
+- [ ] Implement an equivalent to Arduino's `millis()`
 
 
 ### In Progress
