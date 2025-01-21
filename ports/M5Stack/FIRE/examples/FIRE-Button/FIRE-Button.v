@@ -8,7 +8,6 @@ import button
 import power
 
 
-// init()        // Init M5Core.
 power.setup()   // Init Power module.
 lcd.text_color(lcd.yellow)  // Set the font color to yellow.  
 lcd.text_size(2)     	// Set the font size.
