@@ -25,7 +25,6 @@ fn C.M5_Btn_RELEASEDFOR(button any, ms u32)
 fn C.M5_Btn_LASTCHANGE(button any)
 
 
-
 @[as_macro]
 pub fn read(button any) {
 	C.M5_Btn_READ(button)	
