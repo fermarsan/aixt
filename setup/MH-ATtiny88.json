@@ -1,6 +1,8 @@
 
 "port":    "MH-ATtiny88",
-"device":  "Atmel",
+"device":		"Atmel",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
 "board":   "MH-ATtiny88",
 "backend": "arduino",
 "cc_linux":   "-o",

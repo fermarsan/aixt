@@ -5,7 +5,8 @@
 
     "cc_linux":      "gcc",
     "cc_windows":    "c:\\v\\thirdparty\\tcc\\tcc.exe",
-    "cc_make_flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c",
+    "cc_make_flags":	"-o @{file_no_ext}@{output_ext} @{file_no_ext}.c",
+	"flash_command":	"upload @{file_dir_name} -p /dev/ttyUSB0 -b esp32:esp32:esp32",
 
     "api_paths": [
         "Emulator"

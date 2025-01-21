@@ -1,21 +1,21 @@
 // Project name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2023-2024
+// Date: 2025
 // License: MIT
 module aixt_build
 
 import os
 import aixt_setup
 
-// compile_file calls the port's defined compiler to compile a previous transpiled Aixt source code.
+// download_file downloads (uploads) the binary file to the device.
 // example:
 // ``` v
-// aixt_build.compile_file('example.v', setup)
+// aixt_build.download_file('example.hex', setup)
 // ``` 
 // Calls the compiler with `example.c` file, previously generated from `example.v` .
 // If inside the containing folder of `example.v` a `Makefile`  exits, it calls the 
 // `make`  command instead.
-pub fn compile_file(path string, setup aixt_setup.Setup) {
+pub fn download_file(path string, setup aixt_setup.Setup) {
 
 	cc := $if windows { // C compiler depending on the OS
 		setup.cc_windows

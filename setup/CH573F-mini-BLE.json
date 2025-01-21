@@ -1,7 +1,9 @@
 
 {
 "port":    "CH573F-mini-BLE",
-"device":  "CH573F",
+"device":		"CH573F",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
 "board":   "device",
 "backend": "c",
 "cc_linux":   "xc16",

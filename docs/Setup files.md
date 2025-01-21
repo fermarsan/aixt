@@ -12,7 +12,8 @@ The setup files use the `.json` format due to its ubiquitous nature. The followi
 
     "cc_linux":      "",             
     "cc_windows":    "",
-    "cc_make_flags": "PART=@{device}",
+    "cc_make_flags":	"PART=@{device}",
+	"flash_command":	"upload @{file_dir_name} -p /dev/ttyUSB0 -b esp32:esp32:esp32",
 
     "api_paths": [
         "Microchip/PIC16F8x",

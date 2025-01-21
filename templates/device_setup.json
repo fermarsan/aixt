@@ -5,7 +5,8 @@
 
     "cc_linux":      "c compiler path on linux",
     "cc_windows":    "c compiler path on windows",
-    "cc_make_flags": "c compiler or Makefile flags",
+    "cc_make_flags":	"c compiler or Makefile flags",
+	"flash_command":	"upload @{file_dir_name} -p /dev/ttyUSB0 -b esp32:esp32:esp32",
 
     "api_paths": [
         "API path 1 from aixt/ports",

@@ -1,6 +1,8 @@
 
 "port": "CY8CKIT-049",
-"device": "CY8C4245AXI-483",
+"device":		"CY8C4245AXI-483",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
 "board": "CY8CKIT-049-42XX",
 "backend": "native",
 "cc_linux":      "",

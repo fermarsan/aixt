@@ -5,7 +5,8 @@
 
     "cc_linux":   "arduino-cli",
     "cc_windows": "arduino-cli.exe",
-    "cc_make_flags":   "compile -b esp32:esp32:esp32 -v --output-dir @{file_dir_name}/build",
+    "cc_make_flags":	  "compile -b esp32:esp32:esp32 -v --output-dir @{file_dir_name}/build",
+	"flash_command":	"upload @{file_dir_name} -p /dev/ttyUSB0 -b esp32:esp32:esp32",
 
     "api_paths": [
         "LILYGO/T-WATCH-2020"

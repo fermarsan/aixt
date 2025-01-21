@@ -40,3 +40,5 @@ Tasks to do in Aixt
 - [x] New type `Mutex` implemented in NXT port (`@[mutex]` attribute deprecated) 
 - [x] New names for functions in NXT's `task` module
 - [x] NXT snippets file updated
+- [x] `port` options added to all `settings.json` project files
+- [x] `flash_command` option added to all `setup.json` configuration files

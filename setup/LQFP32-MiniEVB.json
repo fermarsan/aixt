@@ -1,7 +1,9 @@
 
 {
 "port":    "LQFP32-MiniEVB",
-"device":  "LGT8F328P",
+"device":		"LGT8F328P",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
 "board":   "LQFP32 MiniEVB Nano",
 "backend": "arduino",
 "cc_linux":   "",

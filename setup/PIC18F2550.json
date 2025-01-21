@@ -1,7 +1,9 @@
 
 {
 "port":    "PIC18F2550",
-"device":  "PIC18F2550",
+"device":		"PIC18F2550",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
 "board":   "Nothing",
 "backend": "c",
 "cc_linux":   "gcc",

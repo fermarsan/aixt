@@ -1,7 +1,9 @@
 
 {
     "port":    "Ai-WB2-32S-Kit",
-    "device":  "2ATPO-AIWB2",
+    "device":		"2ATPO-AIWB2",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
     "board":   "Ai-WB2-32S-Kit",
     "backend": "arduino",
     "cc_linux":   "xc16",
