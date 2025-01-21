@@ -1,0 +1,24 @@
+
+{
+    "port":    "FIRE",
+    "board":   "M5Stack FIRE",
+    "backend": "arduino",
+
+    "cc_linux":   "arduino-cli",
+    "cc_windows": "arduino-cli.exe",
+    "cc_make_flags":   "compile -b m5stack:esp32:m5stack_fire -v --output-dir @{file_dir_name}/build",
+
+    "api_paths": [
+        "M5Stack/FIRE",
+        "M5Stack/M5Stack-generic",
+        "Arduino/arduino-generic",
+        "Arduino/arduino-generic-UART"
+    ],
+    "v_defines": [
+    ],
+
+    "default_cpu_freq": 240000000,
+    "default_string_len": 50,
+
+    "compiler_setup_path": "setup/arduino32.json"
+}
