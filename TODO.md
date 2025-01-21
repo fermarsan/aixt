@@ -28,7 +28,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement a Libraries folder
 - [ ] Create M5Stack port
-- [ ] Implement `download` option
 
 
 ### Done ✓make
@@ -42,3 +41,4 @@ Tasks to do in Aixt
 - [x] NXT snippets file updated
 - [x] `port` options added to all `settings.json` project files
 - [x] `flasher_linux`, `flasher_windows`, `flasher_flags` options added to all `setup.json` configuration files
+- [x] Implement `flash` option, to download the binary file to the device
