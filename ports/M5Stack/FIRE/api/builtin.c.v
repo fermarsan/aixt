@@ -1,6 +1,7 @@
 module main
 
-##include "builtin.c"
+#include <M5Stack.h>
+#include "builtin.c"
 
 @[as_macro]
 fn init() {

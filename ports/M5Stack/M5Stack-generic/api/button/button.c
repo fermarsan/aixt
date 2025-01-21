@@ -1,13 +1,30 @@
-#define btn_a   BtnA
-#define btn_b   BtnB
-#define btn_c   BtnC
-
-#define M5_BTN_READ(BUTTON)             M5.##BUTTON##.read(); // Must be called in loop(), or via update()                                      // Must be called in loop(), or via update()
-#define M5_BTN_ISPRESSED(BUTTON)        M5.##BUTTON##.isPressed();                        
-#define M5_BTN_ISRELEASED(BUTTON)       M5.##BUTTON##.isReleased();                        
-#define M5_BTN_WASPRESSED(BUTTON)       M5.##BUTTON##.wasPressed();                        
-#define M5_BTN_WASRELEASED(BUTTON)      M5.##BUTTON##.wasReleased();                        
-#define M5_BTN_WASRELEASEDFOR(BUTTON)   M5.##BUTTON##.wasreleasedFor()    
-#define M5_BTN_PRESSEDFOR(BUTTON, ms)   M5.##BUTTON##.pressedFor(ms);                                    
-#define M5_BTN_RELEASEDFOR(BUTTON, ms)  M5.##BUTTON##.releasedFor(ms);                                    
-#define M5_BTN_LASTCHANGE(BUTTON)       M5.##BUTTON##.lastChange();                        
+#define M5_BTNA_READ()                                  M5.BtnA.read() // Must be called in loop(), or via update() 
+#define M5_BTNA_ISPRESSED()                             M5.BtnA.isPressed()                        
+#define M5_BTNA_ISRELEASED()                            M5.BtnA.isReleased()                        
+#define M5_BTNA_WASPRESSED()                            M5.BtnA.wasPressed()                        
+#define M5_BTNA_WASRELEASED()                           M5.BtnA.wasReleased()                        
+#define M5_BTNA_WASRELEASEDFOR(ms)                      M5.BtnA.wasReleasefor(ms)    
+#define M5_BTNA_PRESSEDFOR(ms)                          M5.BtnA.pressedFor(ms)       
+#define M5_BTNA_PRESSEDFORCTIME(ms, continuous_time)    M5.BtnA.pressedFor(ms, continuous_time)                                  
+#define M5_BTNA_RELEASEDFOR(ms)                         M5.BtnA.releasedFor(ms)                                    
+#define M5_BTNA_LASTCHANGE()                            M5.BtnA.lastChange()                        
+#define M5_BTNB_READ()                                  M5.BtnB.read() // Must be called in loop(), or via update() 
+#define M5_BTNB_ISPRESSED()                             M5.BtnB.isPressed()                        
+#define M5_BTNB_ISRELEASED()                            M5.BtnB.isReleased()                        
+#define M5_BTNB_WASPRESSED()                            M5.BtnB.wasPressed()                        
+#define M5_BTNB_WASRELEASED()                           M5.BtnB.wasReleased()                        
+#define M5_BTNB_WASRELEASEDFOR(ms)                      M5.BtnB.wasReleasefor(ms)    
+#define M5_BTNB_PRESSEDFOR(ms)                          M5.BtnB.pressedFor(ms)       
+#define M5_BTNB_PRESSEDFORCTIME(ms, continuous_time)    M5.BtnB.pressedFor(ms, continuous_time)                                  
+#define M5_BTNB_RELEASEDFOR(ms)                         M5.BtnB.releasedFor(ms)                                    
+#define M5_BTNB_LASTCHANGE()                            M5.BtnB.lastChange()    
+#define M5_BTNC_READ()                                  M5.BtnC.read() // Must be called in loop(), or via update() 
+#define M5_BTNC_ISPRESSED()                             M5.BtnC.isPressed()                        
+#define M5_BTNC_ISRELEASED()                            M5.BtnC.isReleased()                        
+#define M5_BTNC_WASPRESSED()                            M5.BtnC.wasPressed()                        
+#define M5_BTNC_WASRELEASED()                           M5.BtnC.wasReleased()                        
+#define M5_BTNC_WASRELEASEDFOR(ms)                      M5.BtnC.wasReleasefor(ms)    
+#define M5_BTNC_PRESSEDFOR(ms)                          M5.BtnC.pressedFor(ms)       
+#define M5_BTNC_PRESSEDFORCTIME(ms, continuous_time)    M5.BtnC.pressedFor(ms, continuous_time)                                  
+#define M5_BTNC_RELEASEDFOR(ms)                         M5.BtnC.releasedFor(ms)                                    
+#define M5_BTNC_LASTCHANGE()                            M5.BtnC.lastChange()    

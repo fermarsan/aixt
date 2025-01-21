@@ -5,9 +5,7 @@
 
 import lcd 
 import button
-import sensor
-
-
+import power
 
 
 for {

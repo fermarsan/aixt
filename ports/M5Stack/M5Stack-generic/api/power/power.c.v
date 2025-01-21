@@ -38,7 +38,7 @@ fn C.M5_POWER_RESET()
 
 // init initializes the power module
 @[as_macro] 
-pub fn init() {
+pub fn setup() {
 	C.M5_POWER_BEGIN()
 }
 
