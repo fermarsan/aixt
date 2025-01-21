@@ -10,12 +10,10 @@ import aixt_setup
 // download_file downloads (uploads) the binary file to the device.
 // example:
 // ``` v
-// aixt_build.download_file('example.hex', setup)
+// aixt_build.download_file('example.hex', '/dev/ttyUSB0', setup)
 // ``` 
-// Calls the compiler with `example.c` file, previously generated from `example.v` .
-// If inside the containing folder of `example.v` a `Makefile`  exits, it calls the 
-// `make`  command instead.
-pub fn download_file(path string, setup aixt_setup.Setup) {
+// Calls the flashing tool to pass the binary file to the device
+pub fn download_file(path string, port string, setup aixt_setup.Setup) {
 
 	cc := $if windows { // C compiler depending on the OS
 		setup.cc_windows

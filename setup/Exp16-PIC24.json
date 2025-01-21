@@ -3,10 +3,13 @@
     "board":   "Explorer 16",
     "backend": "c",
 
-    "cc_linux":   "",
-    "cc_windows": "",
+    "cc_linux":			"",
+    "cc_windows":		"",
     "cc_make_flags":	"PART=@{device}",
-	"flash_command":	"upload @{file_dir_name} -p /dev/ttyUSB0 -b esp32:esp32:esp32",
+
+    "flasher_linux":    "arduino-cli",
+    "flasher_windows":  "arduino-cli.exe",
+	"flasher_flags":	"upload @{file_dir_name} -p /dev/ttyUSB0 -b esp32:esp32:esp32",
 
     "api_paths": [
         "Microchip/PIC24FJ128xxxxx",
