@@ -15,29 +15,32 @@ module main
 // incorrect command usage is detected.
 // help_message is the help option message function
 fn help_message() string {
-	return 'aixt is a tool for managing Aixt source code (*.v or *.aixt).
+	return 'aixt is a tool for managing Aixt source code (*.v).
 
 Usage:
   aixt [command] [device] [input_file_name]
 
 Examples:
-  aixt transpile NXC hello.aixt	Transpile the file `hello.aixt`  and output it as
-	                              `hello.nxc` .
-  aixt build NXT hello.v        Transpile, compile and download `hello.v`  to NXT
-                                Intelligent brick.
-  aixt -t Arduino_Nano hello.v	Transpile the file `hello.v`  and output it as
-                                `hello.c` or `hello.ino`  (depending on the Backend).
-  aixt -c Emulator hello.aixt	  Compile a previously transpiled `hello.c`  (from
-                                `hello.aixt`) and output it as `hello` or `hello.exe`
-  aixt clean NXC hello.aixt     Clean all the generated files `hello.*`
-  aixt -h                       Print this help message
-  aixt version                  Print the Aixt version number
-  aixt -np NXT /home proj_1     Create the `proj_1` NXT project in `/home`
+  aixt transpile NXC hello.v	     Transpile the file `hello.v`  and output it as
+	                                 `hello.nxc` .
+  aixt build NXT hello.v           Transpile, compile and download `hello.v`  to NXT
+                                   Intelligent brick.
+  aixt -t Arduino_Nano hello.v	   Transpile the file `hello.v`  and output it as
+                                   `hello.c` or `hello.ino`  (depending on the Backend).
+  aixt -c Emulator hello.v	       Compile a previously transpiled `hello.c`  (from
+                                   `hello.v`) and output it as `hello` or `hello.exe`
+  aixt clean NXC hello.v           Clean all the generated files `hello.*`
+  aixt -h                          Print this help message
+  aixt version                     Print the Aixt version number
+  aixt flash hello.v /dev/ttyUSB0  flash the device with the generate binary after 
+                                   transpile and compile `hello.v`
+  aixt -np NXT /home proj_1        Create the `proj_1` NXT project in `/home`
 
 aixt supports the following commands:
   transpile, -t                 Transpile to C an Aixt source file.
   compile, -c                   Compile the previosly generated C file.
   build, -b                     Build (transpile and compile) an Aixt program.
+  flash, -f                     Flash the device with the generated binary file 
   clean, -cl                    Clean all the generated file (C and executables).
   help, --help, -h              Call this help
   version, --version, -v        Returns the Aixt version number

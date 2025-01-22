@@ -42,3 +42,4 @@ Tasks to do in Aixt
 - [x] `port` options added to all `settings.json` project files
 - [x] `flasher_linux`, `flasher_windows`, `flasher_flags` options added to all `setup.json` configuration files
 - [x] Implement `flash` option, to download the binary file to the device
+- [x] Help message updated
