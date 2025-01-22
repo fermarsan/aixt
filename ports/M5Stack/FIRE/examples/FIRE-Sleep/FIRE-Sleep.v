@@ -11,31 +11,31 @@ import time
 
 
 power.setup()	// Init Power module
-power.wakeup_button(BUTTON_A_PIN)  // Set the screen wake-up button A
+power.wakeup_button(button.a_pin)  // Set the screen wake-up button A
 lcd.brightness(200)  // Set the screen brightness to 200 nits.
 lcd.text_size(2)  // Set the text size to 2.
 
 for {
     update()  // Read the press state of the key.  A, B, C 
-    c := power.is_resetby_power_sw()  // Determine if M5Core is started when powered on.
-    d := power.is_resetby_deepsleep()  // Determine if M5Core starts after deep sleep.
+    mut power_sw := ''
+    power_sw = if power.is_resetby_power_sw() { 'POWER-SW' } else { '' }   // started when powered on.
+    deepsleep_end := if power.is_resetby_deepsleep() { 'DeepSleep-end' } else { '' }    // starts after deep sleep.
 
-    lcd.println('<Sleep test>')  // The screen prints the formatted string and wraps the line.
-    lcd.printf('power-on triggered at:%s%s\n\n', (c) ? ('POWER-SW') : (''),
-                  (d) ? ('DeepSleep-end') : (''))
+    lcd.println('<Sleep test>')  // prints the formatted string and wraps the line.
+    lcd.println('power-on triggered at:${power_sw}${deepsleep_end}\n')
 
-    lcd.printf('Go lightSleep (5s or press buttonA wake up)\n')
+    lcd.println('Go lightSleep (5s or press buttonA wake up)')
     time.sleep(5)  // delay 5000ms.
     /*Restart after 10 seconds of light sleep and continue from the next line
     Calling this function power button will disable the power button to restore
     Please call power.set_power_boost_keep_on(false)*/
 
-    power.light_sleep(SLEEP_SEC(10))
-    lcd.printf('Go lightSleep (press buttonA wake up)\n')
+    power.light_sleep(power.sec(10))
+    lcd.println('Go lightSleep (press buttonA wake up)')
     time.sleep(5)
     power.light_sleep(0)
 
-    lcd.printf('resume.\n\nGo deepSleep (press buttonA wake up) ')
+    lcd.println('resume.\n\nGo deepSleep (press buttonA wake up) ')
     time.sleep(5)
     /*After waking up from deep sleep for 0 seconds, the CPU will restart and
     the program will be executed from the beginning

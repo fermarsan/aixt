@@ -10,6 +10,10 @@ module button	// M5Stack button module
 #include "button.c"
 
 
+pub const a_pin = u8(39)
+pub const b_pin = u8(38)
+pub const c_pin = u8(37)
+
 pub const a = u8(0)
 pub const b = u8(1)
 pub const c = u8(2)

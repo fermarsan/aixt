@@ -27,7 +27,7 @@ Tasks to do in Aixt
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement a Libraries folder
-- [ ] Create M5Stack port
+- [ ] Issue: Conditional assign fails with strings
 
 
 ### Done ✓make
@@ -43,6 +43,7 @@ Tasks to do in Aixt
 - [x] `flasher_linux`, `flasher_windows`, `flasher_flags` options added to all `setup.json` configuration files
 - [x] Implement `flash` option, to download the binary file to the device
 - [x] Help message updated
+- [x] Create M5Stack port
 - [x] `.aixt` extension is deprecated
 - [x] `Aixt: Flash` and `Aixt: Build & Flash` vscode tasks added to arduino-backend devices
 - [x] New example for `M5Stack` port 
