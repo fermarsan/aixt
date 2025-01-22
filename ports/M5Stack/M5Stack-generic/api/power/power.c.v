@@ -128,22 +128,22 @@ pub fn wakeup_button(button u8) {
 }
 
 @[as_macro]
-pub fn is_resetby_watchdog() bool {
+pub fn is_reset_by_watchdog() bool {
 	return C.M5_POWER_ISRESETBYWATCHDOG()
 }
 
 @[as_macro]
-pub fn is_resetby_deepsleep() bool {
+pub fn is_reset_by_deepsleep() bool {
 	return C.M5_POWER_ISRESETBYDEEPSLEEP()
 }
 
 @[as_macro]
-pub fn is_resetby_software() bool {
+pub fn is_reset_by_software() bool {
 	return C.M5_POWER_ISRESETBYSOFTWARE()
 }
 
 @[as_macro]
-pub fn is_resetby_power_sw() bool {
+pub fn is_reset_by_power_sw() bool {
 	return C.M5_POWER_ISRESETBYPOWERSW()
 }
 
