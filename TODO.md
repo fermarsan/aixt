@@ -27,7 +27,6 @@ Tasks to do in Aixt
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement a Libraries folder
-- [ ] Issue: Conditional declare/assign statement declares local variables
 
 ### Done ✓make
 
@@ -44,6 +43,7 @@ Tasks to do in Aixt
 - [x] Help message updated
 - [x] Create M5Stack port
 - [x] `.aixt` extension is deprecated
-- [x] `Aixt: Flash` and `Aixt: Build & Flash` vscode tasks added to arduino-backend devices
-- [x] New example for `M5Stack` port 
+- [x] `Aixt: Flash` and `Aixt: Build & Flash` vscode tasks added to arduino-backend devices 
 - [x] Issue solved: Conditional assign already works on V v0.4.9
+- [x] Issue: Conditional declare/assign statement already doesn't declare inner local variables
+- [x] 4 tested examples for the `M5Stack` port 
