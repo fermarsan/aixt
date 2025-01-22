@@ -44,6 +44,29 @@
             }
         },
         {
+            "label": "Aixt: Compile & Flash",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "flash",
+                            "${config:device}",
+                            "${file}",
+                            "${config:port_windows}" ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "compile",
+                            "${config:device}",
+                            "${file}",
+                            "${config:port_linux}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
             "label": "Aixt: Build",
             "type": "shell",
             "windows": {
@@ -58,6 +81,18 @@
                             "${config:device}",
                             "${file}" ],
             },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Build & Flash",
+            "dependsOn": [
+                "Aixt: Transpile",
+                "Aixt: Compile & Flash"
+            ],
             "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {

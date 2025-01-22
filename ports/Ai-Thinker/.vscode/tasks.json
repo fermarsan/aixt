@@ -1,26 +1,163 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "Aixt: Transpile",
             "type": "shell",
-            "command": "msbuild",
-            "args": [
-                // Ask msbuild to generate full paths for file names.
-                "/property:GenerateFullPaths=true",
-                "/t:build",
-                // Do not generate summary otherwise it leads to duplicate errors in Problems panel
-                "/consoleloggerparameters:NoSummary"
-            ],
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "transpile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "transpile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {
-                // Reveal the output only if unrecognized errors occur.
-                "reveal": "silent"
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Compile",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "compile",
+                            "${config:device}",
+                            "${file}" ],
             },
-            // Use the standard MS compiler pattern to detect errors, warnings and infos
-            "problemMatcher": "$msCompile"
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "compile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Compile & Flash",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "flash",
+                            "${config:device}",
+                            "${file}",
+                            "${config:port_windows}" ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "compile",
+                            "${config:device}",
+                            "${file}",
+                            "${config:port_linux}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Build",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "build",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "build",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Build & Flash",
+            "dependsOn": [
+                "Aixt: Transpile",
+                "Aixt: Compile & Flash"
+            ],
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Clean",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "clean",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "clean",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: New Project",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "new_project",
+                            "${config:device}",
+                            "${input:dirName}",
+                            "${input:projectName}",
+                        ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "new_project",
+                            "${config:device}",
+                            "${input:dirName}",
+                            "${input:projectName}",
+                         ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
         }
+    ],
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "projectName",
+        "description": "Project name.",
+        "default": "project"
+      },
+      {
+        "type": "promptString",
+        "id": "dirName",
+        "description": "Directory name.",
+        "default": "."
+      },
     ]
 }

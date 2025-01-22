@@ -44,3 +44,4 @@ Tasks to do in Aixt
 - [x] Implement `flash` option, to download the binary file to the device
 - [x] Help message updated
 - [x] `.aixt` extension is deprecated
+- [x] `Aixt: Compile & Flash` and `Aixt: Build & Flash` vscode tasks added to arduino-backend devices

@@ -5,13 +5,13 @@
             "label": "Aixt: Transpile",
             "type": "shell",
             "windows": {
-                "command": [ "v run ${config:aixt_windows}",
+                "command": [ "${config:aixt_windows}",
                             "transpile",
                             "${config:device}",
                             "${file}" ],
             },
             "linux": {
-                "command": [ "v run ${config:aixt_linux}",
+                "command": [ "${config:aixt_linux}",
                             "transpile",
                             "${config:device}",
                             "${file}" ],
@@ -26,16 +26,39 @@
             "label": "Aixt: Compile",
             "type": "shell",
             "windows": {
-                "command": [ "v run ${config:aixt_windows}",
+                "command": [ "${config:aixt_windows}",
                             "compile",
                             "${config:device}",
                             "${file}" ],
             },
             "linux": {
-                "command": [ "v run ${config:aixt_linux}",
+                "command": [ "${config:aixt_linux}",
                             "compile",
                             "${config:device}",
                             "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Compile & Flash",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "flash",
+                            "${config:device}",
+                            "${file}",
+                            "${config:port_windows}" ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "compile",
+                            "${config:device}",
+                            "${file}",
+                            "${config:port_linux}" ],
             },
             "problemMatcher": ["$tsc"],
             "group": "build",
@@ -47,17 +70,29 @@
             "label": "Aixt: Build",
             "type": "shell",
             "windows": {
-                "command": [ "v run ${config:aixt_windows}",
+                "command": [ "${config:aixt_windows}",
                             "build",
                             "${config:device}",
                             "${file}" ],
             },
             "linux": {
-                "command": [ "v run ${config:aixt_linux}",
+                "command": [ "${config:aixt_linux}",
                             "build",
                             "${config:device}",
                             "${file}" ],
             },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Build & Flash",
+            "dependsOn": [
+                "Aixt: Transpile",
+                "Aixt: Compile & Flash"
+            ],
             "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {
@@ -68,13 +103,13 @@
             "label": "Aixt: Clean",
             "type": "shell",
             "windows": {
-                "command": [ "v run ${config:aixt_windows}",
+                "command": [ "${config:aixt_windows}",
                             "clean",
                             "${config:device}",
                             "${file}" ],
             },
             "linux": {
-                "command": [ "v run ${config:aixt_linux}",
+                "command": [ "${config:aixt_linux}",
                             "clean",
                             "${config:device}",
                             "${file}" ],
@@ -86,42 +121,23 @@
             }
         },
         {
-            "label": "Aixt: Run",
-            "type": "shell",
-            "windows": {
-                "command": [ "${fileDirname}\\${fileBasenameNoExtension}.exe" ],
-            },
-            "linux": {
-                "command": [ "${fileDirname}/${fileBasenameNoExtension}" ],
-            },
-            "problemMatcher": ["$tsc"],
-            "group": "build",
-            "presentation": {
-            "showReuseMessage": false
-            }  
-        },
-        {
-            "label": "Aixt: Build & Run",
-            "group": "build",
-            "dependsOrder": "sequence",
-            "dependsOn": ["Aixt: Build", "Aixt: Run"]
-        },
-        {
             "label": "Aixt: New Project",
             "type": "shell",
             "windows": {
-                "command": [ "v run ${config:aixt_windows}",
+                "command": [ "${config:aixt_windows}",
                             "new_project",
+                            "${config:device}",
                             "${input:dirName}",
                             "${input:projectName}",
-                            "${input:device}" ],
+                        ],
             },
             "linux": {
-                "command": [ "v run ${config:aixt_linux}",
+                "command": [ "${config:aixt_linux}",
                             "new_project",
+                            "${config:device}",
                             "${input:dirName}",
                             "${input:projectName}",
-                            "${input:device}" ],
+                         ],
             },
             "problemMatcher": ["$tsc"],
             "group": "build",
@@ -143,11 +159,5 @@
         "description": "Directory name.",
         "default": "."
       },
-      {
-        "type": "promptString",
-        "id": "device",
-        "description": "Device or Board name.",
-        "default": "Emulator"
-      }
     ]
 }
