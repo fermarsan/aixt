@@ -56,7 +56,7 @@ fn (mut gen Gen) import_paths(node ast.Import) []string {
 				file_paths := os.ls('${module_path}') or { [] }
 				// println('############# ${file_paths} #############')
 				for file_path in file_paths {
-					if file_path.ends_with('.c.v') { /
+					if file_path.ends_with('.c.v') {
 						if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v` 
 							out << os.abs_path('${module_path}/${file_path}')
 						}			
