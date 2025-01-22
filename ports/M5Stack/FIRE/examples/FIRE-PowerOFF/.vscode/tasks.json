@@ -93,6 +93,7 @@
                 "Aixt: Build",
                 "Aixt: Flash"
             ],
+            "dependsOrder": "sequence",
             "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {

@@ -45,3 +45,4 @@ Tasks to do in Aixt
 - [x] Help message updated
 - [x] `.aixt` extension is deprecated
 - [x] `Aixt: Flash` and `Aixt: Build & Flash` vscode tasks added to arduino-backend devices
+- [x] New example for `M5Stack` port 

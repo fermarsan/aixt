@@ -167,6 +167,27 @@ pub fn reset() {
 	C.M5_POWER_RESET()
 }
 
+@[as_macro]
+pub fn msec(us u64) u64 {
+	return (u64(us) * u64(1000))
+}
+
+@[as_macro]
+pub fn sec(us u64) u64 {
+	return  (u64(us) * u64(1000000))
+}
+
+@[as_macro]
+pub fn min(us u64) u64 {
+	return  (u64(us) * u64(60) * u64(1000000))
+}
+
+@[as_macro]
+pub fn hr(us u64) u64 {
+	return   (u64(us) * u64(60) * u64(60) * u64(1000000))
+}
+
+
 
     
 	
