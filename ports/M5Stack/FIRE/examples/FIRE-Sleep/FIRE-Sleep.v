@@ -17,8 +17,7 @@ lcd.text_size(2)  // Set the text size to 2.
 
 for {
     update()  // Read the press state of the key.  A, B, C 
-    mut power_sw := ''
-    power_sw = if power.is_resetby_power_sw() { 'POWER-SW' } else { '' }   // started when powered on.
+    power_sw := if power.is_resetby_power_sw() { 'POWER-SW' } else { '' }   // started when powered on.
     deepsleep_end := if power.is_resetby_deepsleep() { 'DeepSleep-end' } else { '' }    // starts after deep sleep.
 
     lcd.println('<Sleep test>')  // prints the formatted string and wraps the line.

@@ -15,14 +15,17 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" e
 		out = gen.if_expr_comptime(node)
 	} else {
 		if node.is_expr { // in case of conditional assignment
+			// println('>>>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<<<')
 			stmts = gen.single_assign(	gen.cur_left, 
 										gen.cur_left_type, 
 										gen.cur_op, 
 										(node.branches[0].stmts[0] as ast.ExprStmt).expr	)
-			out << $tmpl('c_templates/if_block.tmpl.c')#[..-1]							
+			out << $tmpl('c_templates/if_block.tmpl.c')#[..-1]	
+			// println('>>>>>>>>>>>>>>>>>>>> ${out} <<<<<<<<<<<<<<<<<<<<')						
 			for i, br in node.branches {
 				if i >= 1 {
-					if br.cond.type_name().str() == 'unknown v.ast.Expr' { // only 'else'
+					// println('>>>>>>>>>>>>>>>>>>>> ${br.cond.type_name().str()} <<<<<<<<<<<<<<<<<<<<')	
+					if br.cond.type_name().str() == 'v.ast.NodeError' { // only 'else'
 						stmts = gen.single_assign(	gen.cur_left, 
 													gen.cur_left_type, 
 													gen.cur_op, 
@@ -67,6 +70,7 @@ fn (mut gen Gen) if_expr(node ast.IfExpr) []string { // basic shape of an "if" e
 			}
 		}
 	}
+	// println('>>>>>>>>>>>>>>>>>>>> ${out} <<<<<<<<<<<<<<<<<<<<')	
 	return out
 }
 
