@@ -31,7 +31,7 @@ fn (mut gen Gen) load_mod_paths() {
 // add_sources recursively finds and adds all the source file paths in a given path
 fn (mut gen Gen) add_sources(global_path string) {
 	if os.is_file(global_path) {	// only one source code
-		if global_path.ends_with('.v') {	//|| global_path.ends_with('.aixt') {
+		if global_path.ends_with('.v') {
 			gen.source_paths << global_path
 		}
 	} else {
@@ -56,7 +56,7 @@ fn (mut gen Gen) import_paths(node ast.Import) []string {
 				file_paths := os.ls('${module_path}') or { [] }
 				// println('############# ${file_paths} #############')
 				for file_path in file_paths {
-					if file_path.ends_with('.c.v') { // || file_path.ends_with('.aixt') {
+					if file_path.ends_with('.c.v') { /
 						if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v` 
 							out << os.abs_path('${module_path}/${file_path}')
 						}			
@@ -75,7 +75,7 @@ fn (mut gen Gen) import_paths(node ast.Import) []string {
 			file_paths := os.ls('${module_path}') or { [] }
 			// println(file_paths)
 			for file_path in file_paths {
-				if file_path.ends_with('.v') { // || file_path.ends_with('.aixt') {
+				if file_path.ends_with('.v') { 
 					out << os.abs_path('${module_path}/${file_path}')
 				}
 			}

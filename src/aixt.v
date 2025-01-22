@@ -41,8 +41,7 @@ fn main() {
 					println(help_message())
 				} else {
 					mut device, input_name := os.args[2], os.abs_path(os.args[3])	// device name and source path input
-					mut base_name := input_name.replace('.aixt', '') // input file base name
-					base_name = base_name.replace('.v', '')
+					base_name := input_name.replace('.v', '') // input file base name
 					mut setup := aixt_setup.Setup{}
 					setup.load(device, aixt_path)
 					// println('++++++++++++++++\n${setup}\n++++++++++++++++')

@@ -43,3 +43,4 @@ Tasks to do in Aixt
 - [x] `flasher_linux`, `flasher_windows`, `flasher_flags` options added to all `setup.json` configuration files
 - [x] Implement `flash` option, to download the binary file to the device
 - [x] Help message updated
+- [x] `.aixt` extension is deprecated
