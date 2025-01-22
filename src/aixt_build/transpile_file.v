@@ -65,7 +65,7 @@ pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 
 		mut output_path := ''
 		if os.is_file(path) {
-			output_path = output_path.replace('.v', output_ext)
+			output_path = path.replace('.v', output_ext)
 		} else {
 			output_path = '${path}/main${output_ext}'
 		}

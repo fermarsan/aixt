@@ -55,7 +55,7 @@
             },
             "linux": {
                 "command": [ "${config:aixt_linux}",
-                            "compile",
+                            "flash",
                             "${config:device}",
                             "${file}",
                             "${config:port_linux}" ],

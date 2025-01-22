@@ -18,7 +18,7 @@ pub mut:
 	cc_make_flags		string
 	flasher_linux 		string
 	flasher_windows 	string
-	flasher_make_flags	string
+	flasher_flags		string
 	api_paths			[]string
 	v_defines			[]string
 	default_cpu_freq	int

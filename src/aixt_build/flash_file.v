@@ -14,6 +14,7 @@ import aixt_setup
 // ``` 
 // Calls the flashing tool to pass the binary file to the device
 pub fn flash_file(path string, port string, setup aixt_setup.Setup) {
+	// println('>>>>>>>>>>>>>>>>>> Flashing by: ${port} <<<<<<<<<<<<<<<<<<')
 
 	flasher := $if windows { // flashing tool depending on the OS
 		setup.flasher_windows
@@ -21,7 +22,7 @@ pub fn flash_file(path string, port string, setup aixt_setup.Setup) {
 		setup.flasher_linux
 	}
 
-	mut flags := setup.cc_make_flags
+	mut flags := setup.flasher_flags
 	flags = flags.replace('@{file_no_ext}', '${path}')	
 	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')	
 	flags = flags.replace('@{device}', '${setup.device}')	

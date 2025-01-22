@@ -44,7 +44,7 @@
             }
         },
         {
-            "label": "Aixt: Compile & Flash",
+            "label": "Aixt: Flash",
             "type": "shell",
             "windows": {
                 "command": [ "${config:aixt_windows}",
@@ -55,7 +55,7 @@
             },
             "linux": {
                 "command": [ "${config:aixt_linux}",
-                            "compile",
+                            "flash",
                             "${config:device}",
                             "${file}",
                             "${config:port_linux}" ],
@@ -90,9 +90,10 @@
         {
             "label": "Aixt: Build & Flash",
             "dependsOn": [
-                "Aixt: Transpile",
-                "Aixt: Compile & Flash"
+                "Aixt: Build",
+                "Aixt: Flash"
             ],
+            "dependsOrder": "sequence",
             "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {
