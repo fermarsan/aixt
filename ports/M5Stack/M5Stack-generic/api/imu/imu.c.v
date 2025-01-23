@@ -26,7 +26,7 @@ fn C.M5_IMU_READFIFOCOUNT()
 fn C.M5_IMU_RESTFIFO()
 
 @[as_macro]
-pub fn init() int {
+pub fn setup() int {
 	return C.M5_IMU_INIT() 
 }
 
@@ -41,43 +41,43 @@ pub fn get_ares() {
 }
 
 @[as_macro]
-pub fn get_accel_adc() {
-	C.M5_IMU_GETACCELADC(ax &i16, ay &i16, az &i16)
+pub fn get_accel_adc(ax &i16, ay &i16, az &i16) {
+	C.M5_IMU_GETACCELADC(ax, ay, az)
 }
 
 @[as_macro]
-pub fn get_gyro_adc() {
-	C.M5_IMU_GETGYROADC(gx &i16, gy &i16, gz &i16)
+pub fn get_gyro_adc(gx &i16, gy &i16, gz &i16) {
+	C.M5_IMU_GETGYROADC(gx, gy, gz)
 }
 
 @[as_macro]
-pub fn get_temp_adc() {
-	C.M5_IMU_GETTEMPADC(t &i16)
+pub fn get_temp_adc(t &i16) {
+	C.M5_IMU_GETTEMPADC(t)
 }
 
 @[as_macro]
-pub fn get_accel_data() {
-	C.M5_IMU_GETACCELDATA(ax &f32, ay &f32, az &f32)
+pub fn get_accel_data(ax &f32, ay &f32, az &f32) {
+	C.M5_IMU_GETACCELDATA(ax, ay, az)
 }
 
 @[as_macro]
-pub fn get_gyro_data() {
-	C.M5_IMU_GETGYRODATA(gx &f32, gy &f32, gz &f32)
+pub fn get_gyro_data(gx &f32, gy &f32, gz &f32) {
+	C.M5_IMU_GETGYRODATA(gx, gy, gz)
 }
 
 @[as_macro]
-pub fn get_temp_data() {
-	C.M5_IMU_GETTEMPDATA(t &f32)
+pub fn get_temp_data(t &f32) {
+	C.M5_IMU_GETTEMPDATA(t)
 }
 
 @[as_macro]
-pub fn get_ahrs_data() {
-	C.M5_IMU_GETAHRSDATA(pitch &f32, roll &f32, yaw &f32)
+pub fn get_ahrs_data(pitch &f32, roll &f32, yaw &f32) {
+	C.M5_IMU_GETAHRSDATA(pitch, roll, yaw)
 }
 
 @[as_macro]
-pub fn fifo_enable() {
-	C.M5_IMU_SETFIFOENABLE(enable_flag bool)
+pub fn fifo_enable(enable_flag bool) {
+	C.M5_IMU_SETFIFOENABLE(enable_flag)
 }
 
 @[as_macro]
@@ -86,8 +86,8 @@ pub fn read_fifo() {
 }
 
 @[as_macro]
-pub fn read_fifo_buff() {
-	C.M5_IMU_READFIFOBUFF(data_buf &u8, length u16)
+pub fn read_fifo_buff(data_buf &u8, length u16) {
+	C.M5_IMU_READFIFOBUFF(data_buf, length)
 }
 
 @[as_macro]
