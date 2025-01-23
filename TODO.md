@@ -48,3 +48,4 @@ Tasks to do in Aixt
 - [x] Issue: Conditional declare/assign statement already doesn't declare inner local variables
 - [x] `random` module for arduino devices created
 - [x] 5 tested examples for the `M5Stack` port 
+- [x] IMU module created forthe `M5Stack` port 
