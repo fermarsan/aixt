@@ -4,7 +4,7 @@
 // M5Stack FIRE IoT development kit
 
 import lcd 
-import button
+import random
 import power
 import time
 
@@ -41,12 +41,12 @@ lcd.triangle(30, 30, 180, 100, 80, 150, lcd.yellow)  // Make a triangle wirefram
 time.sleep_ms(1000)
 lcd.fill_triangle(30, 30, 180, 100, 80, 150, lcd.yellow)	// Construct a triangle with (x1,y1) (x2,y2) (x3,y3) as its vertices
 
-
 for {
-    lcd.fill_triangle(random(lcd.width() - 1), random(lcd.height() - 1),
-                        random(lcd.width() - 1), random(lcd.height() - 1),
-                        random(lcd.width() - 1), random(lcd.height() - 1),
-                        random(0xfffe))
-
+    lcd.fill_triangle(	
+		random.rand(lcd.width() - 1), random.rand(lcd.height() - 1),
+        random.rand(lcd.width() - 1), random.rand(lcd.height() - 1),
+        random.rand(lcd.width() - 1), random.rand(lcd.height() - 1),
+        u32(random.rand(0xfffe))
+	)
     update()  // Read the press state of the key
 }

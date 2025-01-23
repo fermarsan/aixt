@@ -28,7 +28,6 @@ fn C.M5_BTNA_PRESSEDFOR(ms u32) bool
 fn C.M5_BTNA_RELEASEDFOR(ms u32) bool
 fn C.M5_BTNA_PRESSEDFORCTIME(ms u32, continuous_time u32) bool
 fn C.M5_BTNA_LASTCHANGE()
-
 fn C.M5_BTNB_READ()
 fn C.M5_BTNB_ISPRESSED() bool
 fn C.M5_BTNB_ISRELEASED() bool
@@ -39,7 +38,6 @@ fn C.M5_BTNB_PRESSEDFOR(ms u32) bool
 fn C.M5_BTNB_RELEASEDFOR(ms u32) bool
 fn C.M5_BTNB_PRESSEDFORCTIME(ms u32, continuous_time u32) bool
 fn C.M5_BTNB_LASTCHANGE()
-
 fn C.M5_BTNC_READ()
 fn C.M5_BTNC_ISPRESSED() bool
 fn C.M5_BTNC_ISRELEASED() bool

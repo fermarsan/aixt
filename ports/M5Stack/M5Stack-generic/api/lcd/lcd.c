@@ -27,3 +27,6 @@
 #define M5_LCD_DRAWJPGFILE(fs, path, x, y)                              M5.lcd.drawJpgFile(fs, path, x, y)
 #define M5_LCD_DRAWBMPFILE(fs, path, x, y)                              M5.lcd.drawBmpFile(fs, path, x, y)
 #define M5_LCD_CLEAR(color)                                             M5.Lcd.clear(color)
+#define M5_LCD_DRAWRECT(x, y, w, h, color)                              M5.Lcd.drawRect(x, y, w, h, color) 
+#define M5_LCD_WIDTH()                                                  M5.Lcd.width()
+#define M5_LCD_HEIGHT()                                                 M5.Lcd.height()

@@ -46,5 +46,5 @@ Tasks to do in Aixt
 - [x] `Aixt: Flash` and `Aixt: Build & Flash` vscode tasks added to arduino-backend devices 
 - [x] Issue solved: Conditional assign already works on V v0.4.9
 - [x] Issue: Conditional declare/assign statement already doesn't declare inner local variables
-- [x] 4 tested examples for the `M5Stack` port 
 - [x] `random` module for arduino devices created
+- [x] 5 tested examples for the `M5Stack` port 
