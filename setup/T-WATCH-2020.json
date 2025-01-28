@@ -12,12 +12,13 @@
 	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32",
 
     "api_paths": [
-        "LILYGO/T-WATCH-2020"
+        "LILYGO/T-WATCH-2020",
+        "Arduino/arduino-generic"
     ],
     "v_defines": [
     ],
 
-    "default_cpu_freq": 4000000,
+    "default_cpu_freq": 240000000,
     "default_string_len": 50,
 
     "compiler_setup_path": "setup/arduino32.json"
