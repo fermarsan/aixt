@@ -8,4 +8,6 @@ import ex_array
 
 my_array := [2, 7, 3, 1, 9]
 
-uart.println('The minimum of array is: ${ex_array.min(my_array, 4)}')
+minimum := ex_array.min(my_array, 5)
+
+uart.println('The minimum of array is: ${minimum}')
