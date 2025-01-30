@@ -28,6 +28,7 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement a Libraries folder
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
+- [ ] Implement libraries folder structure
 
 ### Done ✓make
 
