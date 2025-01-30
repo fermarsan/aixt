@@ -1,6 +1,6 @@
 # **_Aixt_** Libraries folder tree
 
-Libraries in **_Aixt_** are located in `lib` folder folllowing this folder tree:
+Libraries in **_Aixt_** are located in the `lib` folder following this folder tree:
 
 ```
 aixt/lib/

@@ -106,5 +106,5 @@ For PSoC Creator:
 - PIC16F8x family: PIC16F83, PIC16F83A, PIC16F84, PIC16F84A     _(XC8)_
 - Arduino Uno         _(arduino-cli)_
 - Arduino Nano        _(arduino-cli)_
-<!-- - ESP32-DevKitC       _(arduino-cli)_ -->
+- ESP32-DevKitC       _(arduino-cli)_
 - Raspberry Pi Pico   _(arduino-cli)_
