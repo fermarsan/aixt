@@ -29,6 +29,7 @@ Tasks to do in Aixt
 - [ ] Implement a Libraries folder
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Implement libraries folder structure
+- [ ] Issue: Calling function from array interpolations
 
 ### Done ✓make
 
