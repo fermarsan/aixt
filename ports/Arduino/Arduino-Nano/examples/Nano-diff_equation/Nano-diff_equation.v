@@ -1,12 +1,9 @@
-// Project name: Ecuación en Diferencias RC
-// Author: Yo
-// Date: 17/01/2025
-// Arduino Nano board
-
 import time
 import pin
 import port
 import adc
+
+// R = 100 Ohm, C = 10 uF, fs = 5000 Hz, Ts = 200us
 
 pin.setup(adc.ch0, pin.input)	// entrada
 port.setup(port.d, port.all_outputs)	// salidas
@@ -32,6 +29,5 @@ for {
 	// paso 5: garantizar el Ts
 	pin.high(pin.d8)
 	pin.low(pin.d8)
-	time.sleep_ms(19)
-	time.sleep_us(866)
+	// time.sleep_us(66)
 }

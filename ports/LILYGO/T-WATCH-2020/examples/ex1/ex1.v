@@ -1,8 +1,8 @@
-import ttgo
+import watch
 import time
 import lv
 
-ttgo.start()
+watch.start()
 
 text := lv.label_create(lv.scr_act())
 lv.label_set_text(text, "T-Watch")

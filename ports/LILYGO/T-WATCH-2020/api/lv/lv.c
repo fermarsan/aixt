@@ -1,1 +1,1 @@
-#define lv__align_center    LV_ALIGN_CENTER
+// #define lv__align_center    LV_ALIGN_CENTER
