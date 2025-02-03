@@ -28,6 +28,7 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
+- [ ] Pass arrays es function parameters
 
 ### Done ✓make
 
