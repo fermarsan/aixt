@@ -28,7 +28,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Issue: Array initialization fails the number of elements
 
 ### Done ✓make
 
@@ -53,3 +52,4 @@ Tasks to do in Aixt
 - [x] 6 tested examples for the `M5Stack` port 
 - [x] Implement the folder structure for libraries
 - [x] Implement an example library
+- [x] Issue: Array initialization fails the number of elements

@@ -27,7 +27,7 @@ fn (mut gen Gen) array_init(node ast.ArrayInit) []string {
 						ast.Expr(ast.IntegerLiteral{ val: node.exprs.len.str() })
 					}
 				}
-		println('>>>>>>>>>>>>>>>>>> len: ${len} <<<<<<<<<<<<<<<<<<')
+		// println('>>>>>>>>>>>>>>>>>> len: ${len} <<<<<<<<<<<<<<<<<<')
 		if node.has_init {	// []int{len: 3, init: 0} or []int{cap: 3, init: 0} or []int{len: 3, cap: 3, init: 0}
 			c_line = gen.fill_init(node.init_expr, len)
 		} else {

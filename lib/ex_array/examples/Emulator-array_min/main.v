@@ -6,7 +6,7 @@
 import uart
 import ex_array
 
-my_array := [2, 7, 3, 1, 9]
+my_array := [20, 7, 3, 1, 9]
 
 minimum := ex_array.min(my_array, 5)
 
