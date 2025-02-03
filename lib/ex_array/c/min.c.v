@@ -8,7 +8,6 @@
 module ex_array
 
 // min returns the minimum value of an array.
-@[as_macro]
 pub fn min(src []int, len_ u16) int {
 	mut minimum := src[0]
 	for i in 1..len_ {
