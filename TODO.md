@@ -28,7 +28,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Pass arrays es function parameters
 
 ### Done ✓make
 
@@ -54,3 +53,4 @@ Tasks to do in Aixt
 - [x] Implement the folder structure for libraries
 - [x] Implement an example library
 - [x] Issue: Array initialization fails the number of elements
+- [x] Pass arrays as function parameters

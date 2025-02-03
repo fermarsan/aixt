@@ -48,7 +48,7 @@ fn (mut gen Gen) import_paths(node ast.Import) []string {
 	mut out := []string{}
 	module_short_name := node.mod.all_after_last('.')
 	lib_mod_paths := os.ls('${gen.transpiler_path}/lib/') or { [] }
-	println('>>>>>>>>>>>>>>>>>> ${lib_mod_paths} <<<<<<<<<<<<<<<<<<')
+	// println('>>>>>>>>>>>>>>>>>> ${lib_mod_paths} <<<<<<<<<<<<<<<<<<')
 	if module_short_name in gen.api_mod_paths {	// API modules
 		for module_path in gen.api_mod_paths[module_short_name] {
 			if os.exists('${module_path}/${module_short_name}.c.v') {
