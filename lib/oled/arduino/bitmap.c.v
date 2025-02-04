@@ -1,8 +1,9 @@
 module oled 
 
 @[as_macro]
-pub fn drawbitmap(x,y,array_image,width,height u8,color int) {
+pub fn drawbitmap(x any , y any , array_image any , width any , height any , color any) {
 	C.DISPLAY_DRAWBITMAP(x,y,array_image,width,height,color)
+	C.DISPLAY_DISPLAY()
 }
 //display.drawBitmap(95, 35, circleArrows1, 32, 29, WHITE);
 
