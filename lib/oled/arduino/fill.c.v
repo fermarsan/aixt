@@ -1,11 +1,13 @@
 module oled
 
 @[as_macro]
-pub fn fillrect(x,y,width,height u8, color int)  {
+pub fn fillrect(x any , y any , width any , height any , color any)  {
 	C.DISPLAY_FILLRECT(x,y,width,height,color)
+	C.DISPLAY_DISPLAY()
 }
 
 @[as_macro]
-pub fn fillcircle(x,y,radio u8, color int)  {
+pub fn fillcircle(x any , y any , radio any , color any)  {
 	C.DISPLAY_FILLCIRCLE(x,y,radio,color)
+	C.DISPLAY_DISPLAY()
 }
