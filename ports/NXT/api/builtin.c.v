@@ -1,8 +1,8 @@
 module main
 
+type Mutex = int
 
 // #################### NXC Command module ####################
-
 
 
 // Constant offsets into the Command module IOMAP structure. 

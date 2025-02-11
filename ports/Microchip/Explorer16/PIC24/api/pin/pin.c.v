@@ -1,9 +1,9 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2022-2024
 // License: MIT
 //
-// Description: Pin management functions (Explorer16-PIC24 port)
+// Description: Pin management functions (Exp16-PIC24 port)
 module pin
 
 #include <p24FJ128GA010.h>

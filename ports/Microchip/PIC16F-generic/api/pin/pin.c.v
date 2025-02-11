@@ -1,4 +1,4 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
+// Project name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
@@ -48,6 +48,8 @@ module pin
 @[as_macro] pub const e6 = 38
 @[as_macro] pub const e7 = 39
 
+// IRQ (INT) pin
+@[as_macro] pub const irq = 8
 
 // pin modes as macros
 @[as_macro] pub const output = 0

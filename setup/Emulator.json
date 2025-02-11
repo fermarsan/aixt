@@ -3,9 +3,13 @@
     "board":   "Linux, Windows and Android",
     "backend": "c",
 
-    "cc_linux":      "gcc",
-    "cc_windows":    "c:\\v\\thirdparty\\tcc\\tcc.exe",
-    "cc_make_flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c",
+    "cc_linux":			"gcc",
+    "cc_windows":		"c:\\v\\thirdparty\\tcc\\tcc.exe",
+    "cc_make_flags":	"-o @{file_no_ext}@{output_ext} @{file_no_ext}.c",
+
+    "flasher_linux":    "",
+    "flasher_windows":  "",
+	"flasher_flags":	"",
 
     "api_paths": [
         "Emulator"
@@ -13,7 +17,8 @@
     "v_defines": [
     ],
 
-    "string_default_len": 120,
+    "default_cpu_freq": 4000000,
+    "default_string_len": 120,
     
     "compiler_setup_path": "setup/gcc-tcc.json"
 }

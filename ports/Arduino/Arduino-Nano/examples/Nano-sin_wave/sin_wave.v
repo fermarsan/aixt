@@ -7,7 +7,9 @@ f := 60.0	// Hz
 v_min := 0		// steps
 v_max := 255	// steps
 
-t := util.lin_space(0, 1/f, 51)		// 1 period
+samples := 100
+
+t := util.lin_space(0, 1/f, samples+1)		// 1 period
 y := t.map((math.sin(2*math.pi*f*it) + 1) * (v_max-v_min) / 2)	// sin wave: y = sin(2πft)
 
 // ploting the wave
@@ -41,4 +43,4 @@ for n in 1 .. y.len-1 {
 println('\n]')
 
 // sampling frequency
-println('// sampling frequency: ${(1/f)/50}')
+println('// sampling frequency: ${(1/f)/samples}')

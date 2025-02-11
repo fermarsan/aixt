@@ -6,7 +6,7 @@ import pin {
 
 for _ in 0..5 {
 	high(pin.a)
-	sleep(1)
+	time.sleep(1)
 	low(pin.a)
-	sleep(1)
+	time.sleep(1)
 }

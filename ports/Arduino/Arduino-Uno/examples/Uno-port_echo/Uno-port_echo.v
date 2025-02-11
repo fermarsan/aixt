@@ -1,4 +1,4 @@
-// Project Name: 4-bit echo
+// Project name: 4-bit echo
 // Author: Fernando M. Santa
 // Date: 09/09/2024
 // Arduino-Uno board

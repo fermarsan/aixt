@@ -1,4 +1,4 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
+// Project name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -36,6 +36,7 @@ pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 		file_count: 		0
 		level_count:        0
 		match_as_nested_if: false
+		cpu_freq_defined:	false
 		pref:	 			&pref.Preferences{}
 		setup:			    setup
 	}
@@ -64,8 +65,7 @@ pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 
 		mut output_path := ''
 		if os.is_file(path) {
-			output_path = path.replace('.aixt', output_ext)
-			output_path = output_path.replace('.v', output_ext)
+			output_path = path.replace('.v', output_ext)
 		} else {
 			output_path = '${path}/main${output_ext}'
 		}

@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
@@ -18,7 +18,7 @@ fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
 	mut exprs := node.exprs.clone()	//reverse()
 
 	// println('............. ${gen.setup.value('backend').str()} .............')	
-	len := gen.setup.string_default_len
+	len := gen.setup.default_string_len
 	if gen.setup.backend != 'nxc' {
 		gen.add_include('stdio.h')
 		gen.add_definition('char __temp_str[${len}];')

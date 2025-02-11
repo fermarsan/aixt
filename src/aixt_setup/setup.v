@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
@@ -16,10 +16,13 @@ pub mut:
 	cc_linux 			string
 	cc_windows 			string
 	cc_make_flags		string
+	flasher_linux 		string
+	flasher_windows 	string
+	flasher_flags		string
 	api_paths			[]string
 	v_defines			[]string
-	inline_as_c_macro	bool
-	string_default_len	int
+	default_cpu_freq	int
+	default_string_len	int
 	compiler_setup_path string
 	main_ret_type		string 
 	main_params  		string 

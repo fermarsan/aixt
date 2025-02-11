@@ -1,4 +1,4 @@
-// Project Name:
+// Project name:
 // Author: 
 // Date: 
 // ESP32-DevKitC board

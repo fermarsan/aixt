@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -80,6 +80,9 @@ fn (mut gen Gen) expr(node ast.Expr) []string {
 		}
 		ast.SelectorExpr {
 			return gen.selector_expr(node)
+		}
+		ast.ArrayDecompose {
+			return gen.array_decompose(node)
 		}
 		ast.NodeError {
 			panic('\n\n***** Transpiler error *****:\nNode error in pos: ${node.pos}.\n')

@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -27,6 +27,10 @@ fn (mut gen Gen) out_format() string{
 	out = out.replace('___preprocessor_block___', gen.c_preproc_cmds.join('\n'))
 	// out = out.replace('___includes_block___', gen.includes.join(''))
 	// out = out.replace('___macros_block___', gen.macros.join(''))
+	if !gen.cpu_freq_defined {
+		gen.definitions.insert(0, '#define _const_main__cpu_freq  ${gen.setup.default_cpu_freq}')
+	}
+	gen.definitions.insert(0, '#define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000')
 	out = out.replace('___definitions_block___', gen.definitions.join('\n'))
 	out = out.replace('___initialization_block___', gen.init_cmds.join('\n'))
 

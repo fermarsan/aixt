@@ -1,4 +1,4 @@
-// Project Name:
+// Project name:
 // Author: 
 // Date: 
 // PIC16F8x fosc = 4Mhz

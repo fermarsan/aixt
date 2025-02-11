@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -49,7 +49,7 @@ fn (mut gen Gen) ast_node(node ast.Node) []string {
 			return gen.struct_field(node)
 		}
 		else {
-			return []
+			return ['']
 		} //'Error: Not defined node.\n' }
 	}
 }

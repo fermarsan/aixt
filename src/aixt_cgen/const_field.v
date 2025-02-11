@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -22,6 +22,11 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
 	mut ref, mut var_type := gen.get_str_c_type(node.typ)
+
+	if node.name.contains('cpu_freq') {
+		gen.cpu_freq_defined = true
+	}
+
 	var_name := '_const_${node.name.replace('.', '__')}'
 	
 	if node.attrs.contains('as_macro') {

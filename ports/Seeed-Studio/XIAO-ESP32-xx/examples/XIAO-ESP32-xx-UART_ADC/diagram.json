@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "author": "Fernando Martinez Santa",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-pi-pico", "id": "pico", "top": -3.15, "left": 3.6, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -1.3, "left": 153.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 105.6, "left": 191.4, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 29.56, "left": 115.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP26", "pot1:SIG", "green", [ "h0" ] ],
+    [ "pot1:GND", "vcc1:VCC", "black", [ "v19.2", "h-48" ] ],
+    [ "pot1:VCC", "gnd2:GND", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

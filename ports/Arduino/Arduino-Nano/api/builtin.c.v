@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: 
 //	- Fabián A. Rojas Acosta
 //	- Alberto Pinzón Valero
@@ -10,5 +10,5 @@
 module main
 
 
-@[as_macro]	const led0 = 13
+@[as_macro]	const led_0 = 13
 

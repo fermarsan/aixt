@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -23,12 +23,7 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 	} else if node.kind.str() == 'array' {
 		gen.level_count++
 		index_name := '__i_${gen.level_count}'	// temporal variables (indexes) by levels
-
-		_, var_type := gen.get_str_c_type( if node.val_is_mut {
-									  	node.val_type ^ 0x10000	// for mutable vars
-									  } else {
-									  	node.val_type
-									  } )
+		_, var_type := gen.get_str_c_type(ast.idx_to_type(node.val_type.idx())) 
 		obj := gen.find_obj_all_scopes(node.cond.str()) or {
 			panic('Identifier "${node.cond.str()}" not found.')
 		}

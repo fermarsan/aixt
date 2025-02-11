@@ -5,7 +5,7 @@ pin.setup(1, pin.output)
 
 for {
 	pin.high(1)
-	sleep_ms(500)
+	time.sleep_ms(500)
 	pin.low(1)
-	sleep_ms(500)
+	time.sleep_ms(500)
 }

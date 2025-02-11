@@ -1,6 +1,6 @@
 # **_Aixt_** API folder tree v0.1.2
 
-The _Aixt_ API for each microntroller port has to be located in the folder:
+The _Aixt_ API for each microcontroller port has to be located in the folder:
 ```
 aixt/ports/brand/microcontroller_or_board/api
 ```
@@ -12,7 +12,7 @@ for instance:
 aixt/ports/Microchip/Explorer-16/PIC24/api
 ```
 ```
-aixt/ports//Emulator/api
+aixt/ports/Emulator/api
 ```
 All the API implementations have to follow this basic folder tree:
 

@@ -1,4 +1,4 @@
-// Project Name:
+// Project name:
 // Author:
 // Date:
 // Arduino-Nano board

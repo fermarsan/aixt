@@ -1,0 +1,1 @@
+#define RANDOMINRANGE(min, max)     random(min, max)

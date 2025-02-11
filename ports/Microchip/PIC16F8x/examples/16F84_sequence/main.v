@@ -1,4 +1,4 @@
-// Project Name: Sequence
+// Project name: Sequence
 // Author: Fernando M. Santa
 // Date: 05/09/2024
 // 4-bit LED sequence on LSBs of PORTB

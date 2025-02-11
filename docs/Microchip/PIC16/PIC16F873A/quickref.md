@@ -86,7 +86,7 @@ name                                | description
 
 ```v
 
-sleep(5)	// Tiempo de 5 segundos
+time.sleep(5)	// Tiempo de 5 segundos
 time.sleep_us(10)	// Tiempo de 10 microsegundos
 time.sleep_ms(500)	// Tiempo de 500 milisegundos
 
@@ -259,9 +259,9 @@ Ejemplo enviar un caracter y visualizarlo en un mensaje:
 for {
             
     uart.write(0x33);
-	sleep_ms(500);
+	time.sleep_ms(500);
 	uart.write(0x99);
-	sleep_ms(500);
+	time.sleep_ms(500);
     
 }
 

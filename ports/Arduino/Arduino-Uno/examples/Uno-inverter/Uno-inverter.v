@@ -1,4 +1,4 @@
-// Project Name: Logic inverter
+// Project name: Logic inverter
 // Author: Fernando M. Santa
 // Date: 09/09/2024
 // Arduino-Uno board
@@ -10,8 +10,8 @@ pin.setup(pin.d8, pin.input)
 
 for {
 	if pin.read(pin.d8) == 1 {
-		pin.low(led0)	// builtin LED
+		pin.low(led_0)	// builtin LED
 	} else {
-		pin.high(led0)
+		pin.high(led_0)
 	}
 }

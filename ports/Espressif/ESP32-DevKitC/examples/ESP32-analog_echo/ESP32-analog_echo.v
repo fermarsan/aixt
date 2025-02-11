@@ -1,4 +1,4 @@
-// Project Name: Analog echo
+// Project name: Analog echo
 // Author: Fernando M. Santa
 // Date: 21/09/2024
 // ESP32-DevKitC board

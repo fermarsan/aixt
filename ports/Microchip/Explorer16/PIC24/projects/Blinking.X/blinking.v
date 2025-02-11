@@ -6,7 +6,7 @@ pin.setup(pin.a0, pin.output)
 
 for {
 	pin.high(pin.a0)
-	sleep_ms(t1)
+	time.sleep_ms(t1)
 	pin.low(pin.a0)
-	sleep_ms(t1)
+	time.sleep_ms(t1)
 }

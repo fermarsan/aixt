@@ -1,4 +1,4 @@
-// Project Name: Inverter
+// Project name: Inverter
 // Author: Fernando M. Santa
 // Date: 05/09/2024
 // Inverted echo from PORTB3 to PORTB4

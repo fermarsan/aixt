@@ -1,4 +1,4 @@
-// Project Name: UART ADC
+// Project name: UART ADC
 // Author: Fernando M. Santa
 // Date: 21/09/2024
 // ESP32-DevKitC board

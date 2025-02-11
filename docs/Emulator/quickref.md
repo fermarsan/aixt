@@ -5,9 +5,9 @@ This software emulation works on _Linux_, _Windows_ and _Android (Termux)_.
 ## Delay
 Use the `time` module:
 ```v
-sleep(2)            // sleep for 2 seconds
-sleep_ms(50)        // sleep for 50 milliseconds
-sleep_us(100)       // sleep for 100 microseconds
+time.sleep(2)            // sleep for 2 seconds
+time.sleep_ms(50)        // sleep for 50 milliseconds
+time.sleep_us(100)       // sleep for 100 microseconds
 ```
 
 ## Emulated pins

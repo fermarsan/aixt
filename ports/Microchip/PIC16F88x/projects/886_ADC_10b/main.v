@@ -1,4 +1,4 @@
-// Project Name: 10-bit ADC
+// Project name: 10-bit ADC
 // Author: Fernando M. Santa
 // Date: 13/11/2024
 // PIC16F886 fosc = 10Mhz

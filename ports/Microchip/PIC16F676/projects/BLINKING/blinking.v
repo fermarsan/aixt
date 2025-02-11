@@ -8,17 +8,17 @@ pin.setup (pin.c2, pin.output)
 for{
 
 	pin.high (pin.c0)
-	sleep_ms(500)
+	time.sleep_ms(500)
 
 	pin.high (pin.c1)
-	sleep_ms(500)
+	time.sleep_ms(500)
 
 	pin.high (pin.c2)
-	sleep_ms(500)
+	time.sleep_ms(500)
 
 	pin.low(pin.c0)
 	pin.low(pin.c1)
 	pin.low(pin.c2)
-	sleep_ms(500)
+	time.sleep_ms(500)
 
 }

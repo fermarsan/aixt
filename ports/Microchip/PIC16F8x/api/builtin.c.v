@@ -1,4 +1,4 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
+// Project name: Aixt project, https://github.com/fermarsan/aixt.git
 // Authors: 
 //	- Luis Alfredo Pinto Medina
 //	- Fernando M. Santa

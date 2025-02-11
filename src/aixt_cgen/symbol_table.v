@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -42,27 +42,31 @@ fn (mut gen Gen) symbol_table(scope ast.Scope) string {
 
 // kind_and_type prints the kind and type of a identifier.
 fn (mut gen Gen) kind_and_type(object ast.ScopeObject) string {
-	mut msg := match object {
+	mut msg := ''
+	match object {
 		ast.ConstField {
-			'Constant -- ${gen.table.type_symbols[object.expr.get_pure_type()].str()}'//.after_char(`.` )}'
+			typ := ast.idx_to_type(object.expr.get_pure_type().idx())
+			msg = 'Constant -- ${gen.table.type_symbols[typ].str()}'//.after_char(`.` )}'
 		}
 		ast.GlobalField {
-			// 'Global -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.` )}'
-			if object.typ >= 0x10000 {	// if var is mutable
-				'Global (ref) -- ${gen.table.type_symbols[object.typ ^ 0x10000].str()}'//.after_char(`.` )}'
+			typ := ast.idx_to_type(object.typ.idx()) 
+			msg = if object.typ.nr_muls() != 0 {	// if var is a reference
+				'Global (ref) -- ${gen.table.type_symbols[typ].str()}'//.after_char(`.` )}'
 			} else {
-				'Global -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.` )}'
+				'Global -- ${gen.table.type_symbols[typ].str()}'//.after_char(`.` )}'
 			}
 		}
 		ast.Var {
-			if object.typ >= 0x10000 {	// if var is mutable
-				'Variable (mut) -- ${gen.table.type_symbols[object.typ ^ 0x10000].str()}'//.after_char(`.` )}'
+			typ := ast.idx_to_type(object.typ.idx()) 
+			msg = if object.is_mut {	// if var is mutable
+				'Variable (mut) -- ${gen.table.type_symbols[typ].str()}'//.after_char(`.` )}'
 			} else {
-				'Variable -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.` )}'
+				'Variable -- ${gen.table.type_symbols[typ].str()}'//.after_char(`.` )}'
 			}
 		}
 		else {
-			'Asm Reg -- ${gen.table.type_symbols[object.typ].str()}'//.after_char(`.` )}'
+			typ := ast.idx_to_type(object.typ.idx())
+			msg = 'Asm Reg -- ${gen.table.type_symbols[typ].str()}'//.after_char(`.` )}'
 		}
 	}
 	return msg	//.replace('&', '')

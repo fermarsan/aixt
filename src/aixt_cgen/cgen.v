@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -39,6 +39,7 @@ pub mut:
 	file_count		   int
 	level_count        int
 	match_as_nested_if bool
+	cpu_freq_defined   bool
 // pub mut:
 	pref               &pref.Preferences = unsafe { nil }
 	setup              aixt_setup.Setup

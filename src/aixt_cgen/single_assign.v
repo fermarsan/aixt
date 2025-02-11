@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
@@ -14,7 +14,7 @@ import v.token
 // and
 // - cumulative-assignments `+=`, `-=` , etc. 
 fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind, right ast.Expr) []string {
-	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
+	// println('>>>>>>>>>>>>>>>>>> ${right.str()} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
 	ref, var_type := gen.get_str_c_type(left_type)
 	var_name := gen.ast_node(left).join('')
@@ -76,36 +76,64 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 	match var_kind {		
 		'array', 'array_fixed' {
 			array_init := (right as ast.ArrayInit)
+			// println('>>>>>>>>>>>>>>>>>> ${array_init} <<<<<<<<<<<<<<<<<<')
 			ref, var_type = gen.get_str_c_type(array_init.elem_type)
-			len := array_init.exprs.len
-			var_value := gen.ast_node(right).join('')
-			if array_init.is_fixed {
-				c_line = $tmpl('c_templates/decl_assign_array_fixed.tmpl.c')#[..-1]
+			len := 	if array_init.has_cap { 
+						array_init.cap_expr
+					} else { 
+						if array_init.has_len { 
+							array_init.len_expr
+						} else {
+							ast.Expr(ast.IntegerLiteral{ 
+										val: array_init.exprs.len.str() 
+									})
+						}
+					}
+			if right.str() == 'ast.EmptyExpr' {	// declaration only
+				c_line = $tmpl('c_templates/decl_assign_array_empty.tmpl.c')#[..-1]
 			} else {
-				c_line = $tmpl('c_templates/decl_assign_array.tmpl.c')#[..-1]
+				var_value := gen.ast_node(right).join('')
+				if var_value == '' {
+					c_line = $tmpl('c_templates/decl_assign_array_empty.tmpl.c')#[..-1]
+				} else if array_init.is_fixed {
+					c_line = $tmpl('c_templates/decl_assign_array_fixed.tmpl.c')#[..-1]
+				} else {
+					c_line = $tmpl('c_templates/decl_assign_array.tmpl.c')#[..-1]
+				}
 			}
 		}
 		'string' {
 			gen.add_include('string.h')
-			len := gen.setup.string_default_len
-			var_value := gen.ast_node(right).join('')
-			c_line = $tmpl('c_templates/decl_string_fixed.tmpl.c')#[..-1]
-			c_line += '\n' + $tmpl('c_templates/assign_string.tmpl.c')#[..-1]
+			len := gen.setup.default_string_len
+			c_line = $tmpl('c_templates/decl_string_fixed.tmpl.c')#[..-1]	// first, the declaration
+			if right.str() != 'ast.EmptyExpr' {
+				var_value := gen.ast_node(right).join('')
+				c_line += '\n' + $tmpl('c_templates/assign_string.tmpl.c')#[..-1]
+			}
 			println('${c_line}')
 		}
 		'enum' {
 			ref = ''
-			var_type = 'enum ${(right as ast.EnumVal).enum_name.replace('.', '__')} '
-			var_value := gen.ast_node(right).join('')
-			c_line = $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
+			if right.str() == 'ast.EmptyExpr' {	// declaration only
+				c_line = $tmpl('c_templates/decl.tmpl.c')#[..-1]
+			} else {
+				var_type = 'enum ${(right as ast.EnumVal).enum_name.replace('.', '__')} '
+				var_value := gen.ast_node(right).join('')
+				c_line = $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
+			}
 		}
 		else {
-			var_value := if right.type_name() == 'v.ast.CastExpr' {
-				gen.ast_node((right as ast.CastExpr).expr).join('')
+			if right.str() == 'ast.EmptyExpr' {	// declaration only
+				// println('>>>>>>>>>>>>>>>>>> ${right.str()} <<<<<<<<<<<<<<<<<<')
+				c_line = $tmpl('c_templates/decl.tmpl.c')#[..-1]
 			} else {
-				gen.ast_node(right).join('')
+				var_value := if right.type_name() == 'v.ast.CastExpr' {
+					gen.ast_node((right as ast.CastExpr).expr).join('')
+				} else {
+					gen.ast_node(right).join('')
+				}
+				c_line = $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
 			}
-			c_line = $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
 		}
 	}
 	// if gen.setup.value('backend').string() == 'arduino' {

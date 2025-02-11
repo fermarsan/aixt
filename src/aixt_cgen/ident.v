@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -9,7 +9,7 @@ import v.ast
 
 // ident is the code generation function for identifiers.
 fn (mut gen Gen) ident(node ast.Ident) []string {
-	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
+	// println('>>>>>>>>>>>>>>>>>> ${node.name} <<<<<<<<<<<<<<<<<<')
 	match node.language {
 		.c {
 			return [node.name.replace('C.', '')]

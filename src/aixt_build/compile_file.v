@@ -1,4 +1,4 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
+// Project name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -14,7 +14,7 @@ import aixt_setup
 // ``` 
 // Calls the compiler with `example.c` file, previously generated from `example.v` .
 // If inside the containing folder of `example.v` a `Makefile`  exits, it calls the 
-// `make`  command insted.
+// `make`  command instead.
 pub fn compile_file(path string, setup aixt_setup.Setup) {
 
 	cc := $if windows { // C compiler depending on the OS

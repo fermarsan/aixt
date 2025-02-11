@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -26,7 +26,7 @@ fn main() {
 				println(help_message())
 			}
 			'version', '--version', '-v' {	
-				lines := os.read_lines('./src/v.mod') or {['']}
+				lines := os.read_lines('${aixt_path}/src/v.mod') or {['']}
 				for line in lines {
 					if line.contains('version:') {
 						println('Aixt ${line.replace('\tversion:\t', '')}')
@@ -41,8 +41,7 @@ fn main() {
 					println(help_message())
 				} else {
 					mut device, input_name := os.args[2], os.abs_path(os.args[3])	// device name and source path input
-					mut base_name := input_name.replace('.aixt', '') // input file base name
-					base_name = base_name.replace('.v', '')
+					base_name := input_name.replace('.v', '') // input file base name
 					mut setup := aixt_setup.Setup{}
 					setup.load(device, aixt_path)
 					// println('++++++++++++++++\n${setup}\n++++++++++++++++')
@@ -60,14 +59,25 @@ fn main() {
 							}
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}
+						'flash', '-f' {
+							port := os.args[4] or { 'Undefined flashing port.' }
+							ext := match setup.backend {
+								'nxc' 		{ '' }
+								'arduino' 	{ '' }
+								else 		{ 'hex' }
+							}
+							name := if ext == '' { base_name } else { '${base_name}.${ext}' }
+							aixt_build.flash_file(name, port, setup)
+							println('\n${name} flashing finished.\n')
+						}
 						'build', '-b' {
 							aixt_build.transpile_file(input_name, setup, aixt_path)
 							println('\n${input_name} transpiling finished.\n')
 							aixt_build.compile_file(base_name, setup)
 							ext := match setup.backend {
-								'nxc' { 'nxc' }
-								'arduino' { 'ino' }
-								else { 'c' }
+								'nxc' 		{ 'nxc' }
+								'arduino' 	{ 'ino' }
+								else 		{ 'c' }
 							}
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}

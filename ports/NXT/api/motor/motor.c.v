@@ -1,185 +1,338 @@
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
+// Date: 2024-2025
+// License: MIT
+//
+// Description: Motor module for NXT (NXC backend)
+
 module motor	// NXC Output
 
-// #################### NXC Output module ####################
-
-// Constants for use with set_output                                              
-// #define     update_flags_field      UpdateFlagsField                   
-// #define     output_mode_field       OutputModeField                    
-// #define     power_field             PowerField                         
-// #define     actual_speed_field      ActualSpeedField                   
-// #define     tacho_count_field       TachoCountField                    
-// #define     tacho_limit_field       TachoLimitField                    
-// #define     run_state_field         RunStateField                      
-// #define     turn_ratio_field        TurnRatioField                     
-// #define     reg_mode_field          RegModeField                       
-// #define     overload_field          OverloadField                      
-// #define     reg_p_value_field       RegPValueField                     
-// #define     reg_i_value_field       RegIValueField                     
-// #define     reg_d_value_field       RegDValueField                     
-// #define     block_tacho_count_field BlockTachoCountField            
-// #define     rotation_count_field    RotationCountField              
-// #define     output_options_field    OutputOptionsField              
-// #define     max_speed_field         MaxSpeedField                   
-// #define     max_acceleration_field  MaxAccelerationField
-
-// Constant offsets into the Output module IOMAP structure. 
-// #define     offset_tacho_count          OutputOffsetTachoCount        
-// #define     offset_block_tacho_count    OutputOffsetBlockTachoCount        
-// #define     offset_rotation_count       OutputOffsetRotationCount        
-// #define     offset_tacho_limit          OutputOffsetTachoLimit        
-// #define     offset_motor_rpm            OutputOffsetMotorRPM           
-// #define     output_offset_flags         OutputOffsetFlags                
-// #define     motor__offset_mode          OutputOffsetMode                
-// #define     offset_speed                OutputOffsetSpeed                
-// #define     offset_actual_speed         OutputOffsetActualSpeed                
-// #define     offset_reg_p_parameter      OutputOffsetRegPParameter        
-// #define     offset_reg_i_parameter      OutputOffsetRegIParameter        
-// #define     offset_reg_d_parameter      OutputOffsetRegDParameter        
-// #define     offset_run_state            OutputOffsetRunState           
-// #define     offset_reg_mode             OutputOffsetRegMode            
-// #define     offset_overloaded           OutputOffsetOverloaded        
-// #define     offset_sync_turn_parameter  OutputOffsetSyncTurnParameter        
-// #define     offset_options              OutputOffsetOptions           
-// #define     offset_max_speed            OutputOffsetMaxSpeed           
-// #define     offset_max_accel            OutputOffsetMaxAccel           
-// #define     offset_regulation_time      OutputOffsetRegulationTime            
-// #define     offset_regulation_options   OutputOffsetRegulationOptions
-
 // Output port constants are used when calling motor control API functions. 
-enum Motor_names {
-	a = 0x00
-	b	
-	c	
-	ab	
-	ac	
-	bc	
-	abc
+@[as_macro] pub const a   = 0x00
+@[as_macro] pub const b   = 0x01	
+@[as_macro] pub const c   = 0x02	
+@[as_macro] pub const ab  = 0x03	
+@[as_macro] pub const ac  = 0x04	
+@[as_macro] pub const bc  = 0x05	
+@[as_macro] pub const abc = 0x06
+
+// Use these constants to configure the desired regulation mode for the specified motor          
+// multi-motor synchronization, or position regulation                               
+@[as_macro] pub const regmode_idle    = C.UT_REGMODE_IDLE  
+@[as_macro] pub const regmode_speed   = C.UT_REGMODE_SPEED 
+@[as_macro] pub const regmode_sync    = C.UT_REGMODE_SYNC  
+@[as_macro] pub const regmode_pos     = C.UT_REGMODE_POS 
+
+fn C.SetMotorPwnFreq(args ...any)
+fn C.SetMotorRegulationTime(args ...any)
+fn C.SetMotorRegulationOptions(args ...any)
+fn C.OnFwdSyncPID(args ...any)    
+fn C.OnFwdSyncExPID(args ...any)         
+fn C.OnFwdRegPID(args ...any)                 
+fn C.OnFwdRegExPID(args ...any)
+fn C.Off(args ...any)
+fn C.Coast(args ...any)
+fn C.OffEx(args ...any)                     
+fn C.CoastEx(args ...any)
+fn C.Float(args ...any)
+fn C.OnFwd(args ...any)                     
+fn C.OnFwdEx(args ...any)
+fn C.OnFwdReg(args ...any)                  
+fn C.OnFwdRegEx(args ...any)                 
+fn C.OnFwdSync(args ...any)                 
+fn C.OnFwdSyncEx(args ...any)                 
+fn C.RotateMotor(args ...any)                
+fn C.RotateMotorPID(args ...any)                
+fn C.RotateMotorEx(args ...any)                
+fn C.RotateMotorExPID(args ...any)                
+fn C.ResetTachoCount(args ...any)                
+fn C.ResetBlockTachoCount(args ...any)                
+fn C.ResetRotationCount(args ...any)                
+fn C.ResetAllTachoCounts(args ...any)              
+fn C.MotorMode(args ...any) u8
+fn C.MotorPower(args ...any) i8              
+fn C.MotorActualSpeed(args ...any) i8                 
+fn C.MotorTachoCount(args ...any) int             
+fn C.MotorTachoLimit(args ...any) int             
+fn C.MotorRunState(args ...any) u8                
+fn C.MotorTurnRatio(args ...any) i8                
+fn C.MotorRegulation(args ...any) u8                
+fn C.MotorOverload(args ...any) bool                
+fn C.MotorRegPValue(args ...any) u8                
+fn C.MotorRegIValue(args ...any) u8                
+fn C.MotorRegDValue(args ...any) u8                
+fn C.MotorBlockTachoCount(args ...any) int                  
+fn C.MotorRotationCount(args ...any) int                 
+fn C.MotorOutputOptions(args ...any) u8                 
+fn C.MotorMaxSpeed(args ...any) u8                 
+fn C.MotorMaxAcceleration(args ...any) u8                 
+fn C.MotorPwnFreq(args ...any) u8                 
+fn C.MotorRegulationTime(args ...any) u8                 
+fn C.MotorRegulationOptions(args ...any) u8
+fn C.PosRegEnable(args ...any) 
+fn C.PosRegSetAngle(args ...any) 
+fn C.PosRegAddAngle(args ...any)
+fn C.PosRegSetMax(args ...any)
+
+
+
+
+@[as_macro] 
+pub fn write_pwn_freq(args ...any) {
+	C.SetMotorPwnFreq(...args)
+}
+                 
+@[as_macro] 
+pub fn write_reg_time(args ...any) {
+	C.SetMotorRegulationTime(...args)
 }
 
+@[as_macro] 
+pub fn write_reg_options(args ...any) {
+	C.SetMotorRegulationOptions(...args)
+}
 
-// Use these constants to configure the desired mode for the specified motor                                              : coast, motoron, brake, or regulated.
-// Mode constants can be combined with bitwise OR. 
-// #define     mode_coast      OUT_MODE_COAST       
-// #define     mode_motoron    OUT_MODE_MOTORON    
-// #define     mode_brake      OUT_MODE_BRAKE       
-// #define     mode_regulated  OUT_MODE_REGULATED   
-// #define     mode_regmethod  OUT_MODE_REGMETHOD
+@[as_macro] 
+pub fn write_sync_pid(args ...any) {
+	C.OnFwdSyncPID(...args)
+	// 	C.OnRevSyncPID(...args)
+}
+    
+@[as_macro] 
+pub fn write_sync_ex_pid(args ...any) {
+	C.OnFwdSyncExPID(...args)
+	// C.OnRevSyncExPID(outputs, pwr, turnpct, reset, p, i, d)
+}
+         
+@[as_macro] 
+pub fn write_reg_pid(args ...any) {
+	C.OnFwdRegPID(...args)
+	// C.OnRevRegPID()
+}
+                 
+@[as_macro] 
+pub fn write_reg_ex_pid(args ...any) {
+	C.OnFwdRegExPID(...args)
+	// C.OnRevRegExPID()
+}
 
-// Use these constants to configure the desired options for the specified motor                                              : hold at limit and ramp down to limit.
-// // Option constants can be combined with bitwise OR. 
-// #define 	option_holdatlimit    	OUT_OPTION_HOLDATLIMIT    
-// #define 	option_rampdowntolimit	OUT_OPTION_RAMPDOWNTOLIMIT
+@[as_macro] 
+pub fn off(args ...any) {
+	C.Off(...args)
+}
+                     
+@[as_macro] 
+pub fn coast(args ...any) {
+	C.Coast(...args)
+}
 
-// Use these constants to configure the desired regulation mode for the specified motor                                              : none, speed regulation, 
-// multi-motor synchronization, or position regulation                                               . 
-// #define 	regmode_idle    OUT_REGMODE_IDLE  
-// #define 	regmode_speed   OUT_REGMODE_SPEED 
-// #define 	regmode_sync    OUT_REGMODE_SYNC  
-// #define 	regmode_pos     OUT_REGMODE_POS 
+@[as_macro] 
+pub fn off_ex(args ...any) {
+	C.OffEx(...args)
+}
+                     
+@[as_macro] 
+pub fn coast_ex(args ...any) {
+	C.CoastEx(...args)
+}
 
-// Use these constants to configure the desired run state for the specified motor                                              : 
-// idle, rampup, running, rampdown, or hold. 
-// #define 	runstate_idle       OUT_RUNSTATE_IDLE       
-// #define 	runstate_rampup     OUT_RUNSTATE_RAMPUP     
-// #define 	runstate_running    OUT_RUNSTATE_RUNNING    
-// #define 	runstate_rampdown   OUT_RUNSTATE_RAMPDOWN   
-// #define 	runstate_hold       OUT_RUNSTATE_HOLD
+@[as_macro] 
+pub fn float(args ...any) {
+	C.Float(...args)
+}
+                     
+@[as_macro] 
+pub fn write(args ...any) {
+	C.OnFwd(...args)
+	// C.OnRev()
+}
+                     
+@[as_macro] 
+pub fn write_ex(args ...any) {
+	C.OnFwdEx(...args)
+	// C.OnRevEx()
+}
 
-// Use these constants to specify which motor values need to be updated.
-// Update flag constants can be combined with bitwise OR. 
-// #define 	uf_update_mode                  UF_UPDATE_MODE                   
-// #define 	uf_update_speed                 UF_UPDATE_SPEED                  
-// #define 	uf_update_tacho_limit           UF_UPDATE_TACHO_LIMIT            
-// #define 	uf_update_reset_count           UF_UPDATE_RESET_COUNT            
-// #define 	uf_update_pid_values            UF_UPDATE_PID_VALUES             
-// #define 	uf_update_reset_block_count     UF_UPDATE_RESET_BLOCK_COUNT      
-// #define 	uf_update_reset_rotation_count  UF_UPDATE_RESET_ROTATION_COUNT   
-// #define 	uf_pending_updates              UF_PENDING_UPDATES  
+@[as_macro] 
+pub fn write_reg(args ...any) {
+	C.OnFwdReg(...args)
+	// C.OnRevReg()
+}
+                  
+@[as_macro] 
+pub fn write_reg_ex(args ...any) {
+	C.OnFwdRegEx(...args)
+	// C.OnRevRegEx()
+}
+                 
+@[as_macro] 
+pub fn write_sync(args ...any) {
+	C.OnFwdSync(...args)
+	// C.OnRevSync()
+}
+                 
+@[as_macro] 
+pub fn write_sync_ex(args ...any) {
+	C.OnFwdSyncEx(...args)
+	// C.OnRevSyncEx()
+}
+                 
+@[as_macro] 
+pub fn rotate(args ...any) {
+	C.RotateMotor(...args)
+}
+                 
+@[as_macro] 
+pub fn rotate_pid(args ...any) {
+	C.RotateMotorPID(...args)
+}
+                 
+@[as_macro] 
+pub fn rotate_ex(args ...any) {
+	C.RotateMotorEx(...args)
+}
+                 
+@[as_macro] 
+pub fn rotate_ex_pid(args ...any) {
+	C.RotateMotorExPID(...args)
+}
+                 
+@[as_macro] 
+pub fn reset_tacho_count(args ...any) {
+	C.ResetTachoCount(...args)
+}
+                 
+@[as_macro] 
+pub fn reset_block_tacho_count(args ...any) {
+	C.ResetBlockTachoCount(...args)
+}
+                 
+@[as_macro] 
+pub fn reset_rotation_count(args ...any) {
+	C.ResetRotationCount(...args)
+}
+                 
+@[as_macro] 
+pub fn reset_all_tacho_counts(args ...any) {
+	C.ResetAllTachoCounts(...args)
+}
+               
+@[as_macro] 
+pub fn read_mode(args ...any) u8 {
+	return C.MotorMode(...args)
+}
+                 
+@[as_macro] 
+pub fn read_power(args ...any) i8 {
+	return C.MotorPower(...args)
+}
+                 
+@[as_macro] 
+pub fn read_actual_speed(args ...any) i8 {
+	return C.MotorActualSpeed(...args)
+}
+                 
+@[as_macro] 
+pub fn read_tacho_count(args ...any) int {
+	return C.MotorTachoCount(...args)
+}
+                 
+@[as_macro] 
+pub fn read_tacho_limit(args ...any) int {
+	return C.MotorTachoLimit(...args)
+}
+                 
+@[as_macro] 
+pub fn read_run_state(args ...any) u8 {
+	return C.MotorRunState(...args)
+}
+                 
+@[as_macro] 
+pub fn read_turn_ratio(args ...any) i8 {
+	return C.MotorTurnRatio(...args)
+}
+                 
+@[as_macro] 
+pub fn read_regulation(args ...any) u8 {
+	return C.MotorRegulation(...args)
+}
+                 
+@[as_macro] 
+pub fn overload(args ...any) bool {
+	return C.MotorOverload(...args)
+}
+                 
+@[as_macro] 
+pub fn read_reg_p(args ...any) u8 {
+	return C.MotorRegPValue(...args)
+}
+                 
+@[as_macro] 
+pub fn read_reg_i(args ...any) u8 {
+	return C.MotorRegIValue(...args)
+}
+                 
+@[as_macro] 
+pub fn read_reg_d(args ...any) u8 {
+	return C.MotorRegDValue(...args)
+}
+                 
+@[as_macro] 
+pub fn read_block_tacho_count(args ...any) int {
+	return C.MotorBlockTachoCount(...args)
+}
+                 
+@[as_macro] 
+pub fn read_rotation_count(args ...any) int {
+	return C.MotorRotationCount(...args)
+}
+                 
+@[as_macro] 
+pub fn read_output_options(args ...any) u8 {
+	return C.MotorOutputOptions(...args)
+}
+                 
+@[as_macro] 
+pub fn read_max_speed(args ...any) u8 {
+	return C.MotorMaxSpeed(...args)
+}
+                 
+@[as_macro] 
+pub fn read_max_accel(args ...any) u8 {
+	return C.MotorMaxAcceleration(...args)
+}
+                 
+@[as_macro] 
+pub fn read_pwn_freq(args ...any) u8 {
+	return C.MotorPwnFreq()
+}
+                 
+@[as_macro] 
+pub fn read_reg_time(args ...any) u8 {
+	return C.MotorRegulationTime()
+}
+                 
+@[as_macro] 
+pub fn read_reg_options(args ...any) u8 {
+	return C.MotorRegulationOptions()
+}
 
-// Use these constants to configure the desired options for position regulation. 
-// #define 	regoption_no_saturation		OUT_REGOPTION_NO_SATURATION 
+@[as_macro]
+pub fn enable_pos_reg(args ...any) {
+	C.PosRegEnable(...args)
+}
+ 
+@[as_macro]
+pub fn write_angle_pos_reg(args ...any) {
+	C.PosRegSetAngle(...args)
+}
+ 
+@[as_macro]
+pub fn add_angle_pos_reg(args ...any) {
+	C.PosRegAddAngle(...args)
+}
 
-// PID constants are for adjusting the Proportional, Integral, and Derivative motor controller parameters. 
-// #define 	pid_0   PID_0   
-// #define 	pid_1   PID_1   
-// #define 	pid_2   PID_2   
-// #define 	pid_3   PID_3   
-// #define 	pid_4   PID_4   
-// #define 	pid_5   PID_5   
-// #define 	pid_6   PID_6   
-// #define 	pid_7   PID_7   
-
-// Use these constants to specify which of the three tachometer counters should be reset.
-// Reset constants can be combined with bitwise OR. 
-// #define 	reset_none              RESET_NONE              
-// #define 	reset_count             RESET_COUNT             
-// #define 	reset_block_count       RESET_BLOCK_COUNT       
-// #define 	reset_rotation_count    RESET_ROTATION_COUNT    
-// #define 	reset_blockandtacho     RESET_BLOCKANDTACHO     
-// #define 	reset_all               RESET_ALL    
-
-
-// Functions for accessing and modifying output module features. 
-@[inline] set_pwn_freq() { return C.SetMotorPwnFreq() }                 
-@[inline] set_regulation_time() { return C.SetMotorRegulationTime() }                 
-@[inline] set_regulation_options() { return C.SetMotorRegulationOptions() }                 
-@[inline] forward_sync_pid() { return C.OnFwdSyncPID() }                 
-@[inline] forward_sync_ex_pid() { return C.OnFwdSyncExPID() }                 
-@[inline] reverse_sync_pid() { return C.OnRevSyncPID() }                 
-@[inline] reverse_sync_ex_pid() { return C.OnRevSyncExPID() }                 
-@[inline] forward_reg_pid() { return C.OnFwdRegPID() }                 
-@[inline] forward_reg_ex_pid() { return C.OnFwdRegExPID() }                 
-@[inline] reverse_reg_pid() { return C.OnRevRegPID() }                 
-@[inline] reverse_reg_ex_pid() { return C.OnRevRegExPID() }                 
-@[inline] off() { return C.Off() }                       
-@[inline] off_ex() { return C.OffEx() }                     
-@[inline] coast() { return C.Coast() }                     
-@[inline] coast_ex() { return C.CoastEx() }                   
-@[inline] float() { return C.Float() }                     
-@[inline] forward() { return C.OnFwd() }                     
-@[inline] forward_ex() { return C.OnFwdEx() }                   
-@[inline] reverse() { return C.OnRev() }                     
-@[inline] reverse_ex() { return C.OnRevEx() }                   
-@[inline] forward_reg() { return C.OnFwdReg() }                  
-@[inline] forward_reg_ex() { return C.OnFwdRegEx() }                 
-@[inline] reverse_reg() { return C.OnRevReg() }                  
-@[inline] reverse_reg_ex() { return C.OnRevRegEx() }                 
-@[inline] forward_sync() { return C.OnFwdSync() }                 
-@[inline] forward_sync_ex() { return C.OnFwdSyncEx() }                 
-@[inline] reverse_sync() { return C.OnRevSync() }                 
-@[inline] reverse_sync_ex() { return C.OnRevSyncEx() }                 
-@[inline] rotate() { return C.RotateMotor() }                 
-@[inline] rotate_pid() { return C.RotateMotorPID() }                 
-@[inline] rotate_ex() { return C.RotateMotorEx() }                 
-@[inline] rotate_ex_pid() { return C.RotateMotorExPID() }                 
-@[inline] reset_tacho_count() { return C.ResetTachoCount() }                 
-@[inline] reset_block_tacho_count() { return C.ResetBlockTachoCount() }                 
-@[inline] reset_rotation_count() { return C.ResetRotationCount() }                 
-@[inline] reset_all_tacho_counts() { return C.ResetAllTachoCounts() }               
-@[inline] mode() { return C.MotorMode() }                 
-@[inline] power() { return C.MotorPower() }                 
-@[inline] actual_speed() { return C.MotorActualSpeed() }                 
-@[inline] tacho_count() { return C.MotorTachoCount() }                 
-@[inline] tacho_limit() { return C.MotorTachoLimit() }                 
-@[inline] run_state() { return C.MotorRunState() }                 
-@[inline] turn_ratio() { return C.MotorTurnRatio() }                 
-@[inline] regulation() { return C.MotorRegulation() }                 
-@[inline] overload() { return C.MotorOverload() }                 
-@[inline] reg_p_value() { return C.MotorRegPValue() }                 
-@[inline] reg_i_value() { return C.MotorRegIValue() }                 
-@[inline] reg_d_value() { return C.MotorRegDValue() }                 
-@[inline] block_tacho_count() { return C.MotorBlockTachoCount() }                 
-@[inline] rotation_count() { return C.MotorRotationCount() }                 
-@[inline] output_options() { return C.MotorOutputOptions() }                 
-@[inline] max_speed() { return C.MotorMaxSpeed() }                 
-@[inline] max_acceleration() { return C.MotorMaxAcceleration() }                 
-@[inline] pwn_freq() { return C.MotorPwnFreq() }                 
-@[inline] regulation_time() { return C.MotorRegulationTime() }                 
-@[inline] regulation_options() { return C.MotorRegulationOptions() }
-
-// @[inline] set_output() { return C.SetOutput() }    
-// @[inline] get_output() { return C.GetOutput() }      
-// @[inline] pos_reg_enable() { return C.PosRegEnable() }            
-// @[inline] pos_reg_set_angle() { return C.PosRegSetAngle() }             
-// @[inline] pos_reg_add_angle() { return C.PosRegAddAngle() }                
-// @[inline] pos_reg_set_max() { return C.PosRegSetMax() }             
+@[as_macro]
+pub fn write_max_pos_reg(args ...any) {
+	C.PosRegSetMax(...args)
+}

@@ -1,7 +1,51 @@
-## aixt0.1.8
+## v0.1.9
+*17 Jan 2025*
+#### Devices Supported
+Devices updated to API v0.1.2:
+- Software emulator
+- Mindstorms NXT
+- PIC16F8x family
+- Arduino Uno
+- Arduino Nano
+- Raspberry Pi Pico
+- ESP32-DevkitC
+- PIC16F8x
+- Blue-Pill
+- XIAO-SAMD21
+New Devices:
+- Nucleo-L031K6
+- XIAO-ESP32-xx (C3, C6, S3)
+#### New features:
+- Implement the basic structure of interrupts (attribute `@[XXXX_isr]`)
+- Implement external interrupts on PIC16F8x microcontroller family.
+- Implement the constant `cpu_freq` for changing the default cpu frequency defined on `.json` file
+- Basic implementation of the "ArrayDecompose" expression
+- Functions `@[as_macro]` now allow variable number of arguments
+- Arrays and fixed-arrays now supports initialization by `{init: value}` syntax
+- Empty array declaring now allowed
+#### Changes
+- Change Raspberry-Pi-Pico port name by "RP-Pico"
+- Update the `Setup file.md` in `doc` folder. (`Setup files.md` )
+- Explorer 16 PIC24 setup files updated 
+- Change Exp16-PIC24 port name by "Exp16-PIC24"
+- Nucleo-L031K6 project template created
+- Issue solved: Unpacking type layout (symbol table)
+- NXT port updated to API v0.1.2
+- NXT snippets updated
+- Change builtin LED name to `led_0`
+- Issue solved: main constants and globals can be invoked omitting `main.` now.
+- Issue solved: array_init for non-fixed arrays fails
+- Blue-Pill port updated to API v0.1.2
+- XIAO-SAMD21 port updated to API v0.1.2
+- XIAO-ESP-xx port created
+- Templates updated: Arduino-Nano, Arduino-Uno, Emulator, ESP32-DevkitC, Exp16-PIC24, PIC16F8x, PIC16F88x, RP-Pico, W801, Blue-Pill, Nucleo-L031K6, XIAO-ESP32-xx, XIAO-SAMD21, NXT
+- Add `symlink` option to help command 
+
+
+## v0.1.8
 *03 Dic 2024*
 #### Devices Supported
-Devices updated to API aixt0.1.2
+Devices updated to API v0.1.2
 - Software emulator
 - PIC16F8x family
 - Arduino Uno
@@ -10,10 +54,10 @@ Devices updated to API aixt0.1.2
 - ESP32-DevKitC
 
 
-## aixt0.1.7
+## v0.1.7
 *21 Nov 2024*
 #### Devices Supported
-Devices updated to API aixt0.1.2
+Devices updated to API v0.1.2
 - Software emulator
 - PIC16F8x family
 - Arduino Uno
@@ -21,7 +65,7 @@ Devices updated to API aixt0.1.2
 - Raspberry Pi Pico
 
 
-## aixt0.1.6
+## v0.1.6
 *15 Nov 2024*
 #### New features:
 - Standardize the basic data types as V
@@ -32,14 +76,14 @@ Devices updated to API aixt0.1.2
 - Allow implementation of the same Module on multiple directories
 
 
-## aixt0.1.5
+## v0.1.5
 *8 Oct 2024*
 #### Changes
 - Give support to `in` and `!in` operands on arrays
-- Solve the issue of `else` statements shown from V aixt0.4.7 onwards
+- Solve the issue of `else` statements shown from V v0.4.7 onwards
 
 
-## aixt0.1.4
+## v0.1.4
 *2 Oct 2024*
 #### New features
 Differente versions of `match` statement were implemented:
@@ -54,16 +98,16 @@ Differente versions of `match` statement were implemented:
 The `match` statements for *enums* are not allowed yet.
 
 
-## aixt0.1.3
+## v0.1.3
 *28 Sep 2024*
 #### New features
 All the setup files were migrated from `.toml` to `.json`
 
 
-## aixt0.1.2
+## v0.1.2
 *27 Sep 2024*
 #### Devices Supported
-Devices updated to API aixt0.1.1
+Devices updated to API v0.1.1
 - Software emulator
 - PIC16F8x family
 - Arduino Uno
@@ -77,12 +121,12 @@ Devices updated to API aixt0.1.1
 - Generate C templates for most of the Aixt's V expression and statements using `$tmpl`
 
 
-## aixt0.1.1
+## v0.1.1
 *12 Sep 2024*
 Issue solved.
 
 
-## aixt0.1.0
+## v0.1.0
 *11 Sep 2024*
 #### Aixt V language
 Now Aixt V is closer to original V due to:
@@ -98,7 +142,7 @@ Now Aixt V is closer to original V due to:
 - All the variables are immutable by default. If a mutable variable is needed, the use of mut reserved word is imperative.
 - Variables can be declared/initialized by calling a function directly, so this two lines: `a := u16(0)` `a = adc.read(an5)` can be replaced by: `a := adc.read(an5)`
 #### API standardization
-(aixt0.1.0)
+(v0.1.0)
 The function names were standardized for these modules:
 - `pin`: individual pins
 - `port`: pin ports
@@ -120,13 +164,13 @@ Software emulator on Linux, Android (Termux) and Windows (x64-based or AArch64-b
 ##### Arduino boards
 - Arduino Uno
 - Arduino Nano
-*The rest of devices or boards have to be migrated from API aixt0.0.1*
+*The rest of devices or boards have to be migrated from API v0.0.1*
 
 
-## aixt0.0.1
+## v0.0.1
 *03 Jul 2024*
 #### Supported Modules:
-(API aixt0.0.1)
+(API v0.0.1)
 - ADC
 - PWM
 - GPIO

@@ -1,4 +1,4 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
@@ -26,7 +26,12 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
 			c_lines.prepend('\n')
 			// delete initial tabs	
 			mut re := regex.regex_opt('\n[ \t]+') or { panic(err) }
-			gen.definitions << re.replace(c_lines.join('\n'), '\n')
+			c_lines_2 := re.replace(c_lines.join('\n'), '\n')
+			if c_lines_2.contains('_IRQ_') {	// if there is an IRQ definition
+				gen.definitions.insert(0, c_lines_2)
+			} else {	
+				gen.definitions << re.replace(c_lines.join('\n'), '\n')
+			}
 			// add final new-line	
 			gen.definitions << '\n'
 		}

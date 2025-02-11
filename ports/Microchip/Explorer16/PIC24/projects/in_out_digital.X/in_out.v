@@ -7,7 +7,7 @@ pin.setup(pin.d6, pin.input)	// SW3
 for {
 	if pin.read(pin.d6) == 0 {
 		pin.high(pin.a0)
-		sleep(3)
+		time.sleep(3)
 		pin.low(pin.a0)
 	}
 }

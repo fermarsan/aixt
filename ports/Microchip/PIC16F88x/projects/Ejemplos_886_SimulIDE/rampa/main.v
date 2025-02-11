@@ -1,4 +1,4 @@
-// Project Name:
+// Project name:
 // Author: 
 // Date: 
 // PIC16F886 fosc = 10Mhz
@@ -12,7 +12,7 @@ contador := 0
 
 for {
 	port.write(port.b, contador)
-	sleep_ms(1)
+	time.sleep_ms(1)
 	contador++
 	if contador >= 256 {
 		contador = 0

@@ -224,13 +224,13 @@ uart2_write(message)    // send binary data (in Bytes) to UART2
 
     * In each expression, the time value is put inside the parentheses.
 ```go
-sleep(s) //Seconds
+time.sleep(s) //Seconds
 ```
 ```go
-sleep_ms(ms) //Milliseconds
+time.sleep_ms(ms) //Milliseconds
 ```
 ```go
-sleep_us(us) //Microseconds
+time.sleep_us(us) //Microseconds
 ```
 
 * Example flashing LED

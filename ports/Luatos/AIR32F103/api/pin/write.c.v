@@ -1,4 +1,4 @@
-// Project Name: Aixt https://github.com/fermarsan/aixt.git
+// Project name: Aixt https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa - Julián Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
 // Date: 2022-2024
 // License: MIT

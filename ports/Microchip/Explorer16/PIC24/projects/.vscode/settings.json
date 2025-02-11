@@ -1,7 +1,9 @@
 {
     "aixt_linux":   "../../../../../src",
     "aixt_windows": "..\\..\\..\\..\\..\\src",
-    "device":       "Explorer16-PIC24",
+    "device":		"Exp16-PIC24",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
     "files.associations": {
     }
 }

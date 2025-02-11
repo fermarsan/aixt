@@ -7,29 +7,50 @@ Tasks to do in Aixt
 
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] dynamic memory definition
-- [ ] generates documentation from code
 - [ ] Implement inline assembly
 - [ ] "40_inline_asm.v" inline asm implementation
 - [ ] Implement uart.input()
 - [ ] Support for arrays and strings initialized inside "for" statement
-- [ ] change "set" by "setup" in sensor module (NXT port)
 - [ ] Issue: Ident names including module and function name or scope position (for all ports)
+- [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
+- [ ] Implement an equivalent to Arduino's `millis()`
+- [ ] Implements sub-modules
 
 
 ### In Progress
 
+- [ ] generates documentation from code
 - [ ] Implement structs #feat
     - [ ] support struct fields (`struct_name.struct_field`)
 - [ ] implement maps
 - [ ] Change arrays to pure V
-- [ ] Standardize (with original V) the identifier names in the generated C code
-- [ ] make groups of PIC microcontrollers families
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
+- [ ] Implement float formatting on string interpolations (`${x:.2}`)
+- [ ] Issue: Calling function from array interpolations
 
-### Done ✓
+### Done ✓make
 
-- [x] add a custom attribute for defining constants and functions as C macros in order to save memory in small devices
-- [x] define API modules' parameters as constants
-- [x] Divide the parsing files order in two rounds (the second one including the imported module's files)
-- [x] Allow implementation of the same Module on multiple directories
+- [x] Issue solved: `version` command only works running from aixt's main folder
+- [x] Update Microchip XC8 devices to xc8-v3.00
+- [x] New Timer0 example (PIC16F8x family)
+- [x] Implement Timer0 functions
+- [x] New type `Mutex` implemented in NXT port (`@[mutex]` attribute deprecated) 
+- [x] New names for functions in NXT's `task` module
+- [x] NXT snippets file updated
+- [x] `port` options added to all `settings.json` project files
+- [x] `flasher_linux`, `flasher_windows`, `flasher_flags` options added to all `setup.json` configuration files
+- [x] Implement `flash` option, to download the binary file to the device
+- [x] Help message updated
+- [x] Create M5Stack port
+- [x] `.aixt` extension is deprecated
+- [x] `Aixt: Flash` and `Aixt: Build & Flash` vscode tasks added to arduino-backend devices 
+- [x] Issue solved: Conditional assign already works on V v0.4.9
+- [x] Issue: Conditional declare/assign statement already doesn't declare inner local variables
+- [x] `random` module for arduino devices created
+- [x] IMU module created for the `M5Stack` port 
+- [x] 6 tested examples for the `M5Stack` port 
+- [x] Implement the folder structure for libraries
+- [x] Implement an example library
+- [x] Issue: Array initialization fails the number of elements
+- [x] Pass arrays as function parameters
