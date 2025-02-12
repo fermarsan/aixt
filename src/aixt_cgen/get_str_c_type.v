@@ -35,9 +35,15 @@ fn (mut gen Gen) get_str_c_type(typ ast.Type) (string, string) {
 	// 		''	
 	// 	}
 	var_type := gen.table.type_to_str(unalias_typ)
-	return if var_type == 'int' {	// replace 'int' by 'i32' to avoid compiler ambiguity
-		ref, 'i32'
-	} else {
-		ref, var_type.replace('C.', '').replace(' ', '_')
+	return match var_type {
+		'int' {	// replace 'int' by 'i32' to avoid compiler ambiguity
+			ref, 'i32'
+		} 
+		'array' {	// transform `array_of_type` to pointer to `type`
+			'*', gen.table.type_to_str(typ2).replace('[]', '')
+		}
+		else {
+			ref, var_type.replace('C.', '').replace(' ', '_')
+		}
 	}
 }

@@ -76,19 +76,22 @@ The V's supported keywords are listed in bold text as follows.
 - `__global`  keyword in case of needing global variables
 - Integer literals in binary, octal, hexadecimal and decimal notation
 - Floating point, `rune`, `string`  and _boolean_ literals
-- Numeric literals include `_`  for better readability
+- Numeric literals can include `_`  for better readability
 - Declaration of signed and unsigned 8, 16, 32 and 64 bit integer variables (also `isize` and `usize` )
 - Declaration floating point variables of 32 and 64 bits including scientific notation
 - Multiple declaration and assignment in a single line
 - Declaration by default type inference for scalar and array variables
 - Variable casting in case of need to specify the variable type of number of bits
 - Function attributes using the syntax: 
+  
 ``` v
 @[attribute] 
 fn <name>(<params>) {
     <statements>
-}``` 
-- Loops with `for`  through arrays and integer ranges:
+}```
+
+- Loops with `for` through arrays and integer ranges:
+
 ``` v
 arr := [3,5,7,9]
 for a in arr {

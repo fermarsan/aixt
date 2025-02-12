@@ -47,6 +47,8 @@ fn (mut gen Gen) import_paths(node ast.Import) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
 	module_short_name := node.mod.all_after_last('.')
+	lib_mod_paths := os.ls('${gen.transpiler_path}/lib/') or { [] }
+	// println('>>>>>>>>>>>>>>>>>> ${lib_mod_paths} <<<<<<<<<<<<<<<<<<')
 	if module_short_name in gen.api_mod_paths {	// API modules
 		for module_path in gen.api_mod_paths[module_short_name] {
 			if os.exists('${module_path}/${module_short_name}.c.v') {
@@ -66,6 +68,44 @@ fn (mut gen Gen) import_paths(node ast.Import) []string {
 				for s in node.syms {
 					out << os.abs_path('${module_path}/${s.name}.c.v')
 				}
+			}
+		}
+	} else if module_short_name in lib_mod_paths {	// Library modules
+		lib_path := match gen.setup.backend {
+			'arduino' {
+				if os.exists('${gen.transpiler_path}/lib/${module_short_name}/arduino/') {
+					'${gen.transpiler_path}/lib/${module_short_name}/arduino/'
+				} else {
+					'${gen.transpiler_path}/lib/${module_short_name}/c'
+				}
+			}
+			'nxc' {
+				if os.exists('${gen.transpiler_path}/lib/${module_short_name}/nxc/') {
+					'${gen.transpiler_path}/lib/${module_short_name}/nxc/'
+				} else {
+					'${gen.transpiler_path}/lib/${module_short_name}/c'
+				}
+			}
+			else {
+				'${gen.transpiler_path}/lib/${module_short_name}/c'
+			}
+		}
+		if os.exists('${lib_path}/${module_short_name}.c.v') {
+			out << '${lib_path}/${module_short_name}.c.v'	// adds `module_name.c.v`  first
+		}
+		if node.syms.len == 0 {	// if import all the module
+			file_paths := os.ls('${lib_path}') or { [] }
+			// println('############# ${file_paths} #############')
+			for file_path in file_paths {
+				if file_path.ends_with('.c.v') {
+					if file_path != '${module_short_name}.c.v' {	// ommit `module_name.c.v` 
+						out << os.abs_path('${lib_path}/${file_path}')
+					}			
+				}
+			}
+		} else {	// if import specific module components
+			for s in node.syms {
+				out << os.abs_path('${lib_path}/${s.name}.c.v')
 			}
 		}
 	} else {	// Custom modules

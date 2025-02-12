@@ -26,8 +26,8 @@ Tasks to do in Aixt
 - [ ] Change arrays to pure V
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
-- [ ] Implement a Libraries folder
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
+- [ ] Issue: Calling function from array interpolations
 
 ### Done ✓make
 
@@ -50,3 +50,7 @@ Tasks to do in Aixt
 - [x] `random` module for arduino devices created
 - [x] IMU module created for the `M5Stack` port 
 - [x] 6 tested examples for the `M5Stack` port 
+- [x] Implement the folder structure for libraries
+- [x] Implement an example library
+- [x] Issue: Array initialization fails the number of elements
+- [x] Pass arrays as function parameters

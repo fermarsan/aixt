@@ -19,13 +19,15 @@ fn (mut gen Gen) array_init(node ast.ArrayInit) []string {
 	} else {
 		len := 	if node.has_cap { 
 					node.cap_expr
+					
 			   	} else { 
 					if node.has_len { 
 						node.len_expr
 					} else {
-						ast.Expr(ast.IntegerLiteral{ val: '0' })
+						ast.Expr(ast.IntegerLiteral{ val: node.exprs.len.str() })
 					}
 				}
+		// println('>>>>>>>>>>>>>>>>>> len: ${len} <<<<<<<<<<<<<<<<<<')
 		if node.has_init {	// []int{len: 3, init: 0} or []int{cap: 3, init: 0} or []int{len: 3, cap: 3, init: 0}
 			c_line = gen.fill_init(node.init_expr, len)
 		} else {

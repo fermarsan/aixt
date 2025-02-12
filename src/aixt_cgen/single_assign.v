@@ -76,6 +76,7 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 	match var_kind {		
 		'array', 'array_fixed' {
 			array_init := (right as ast.ArrayInit)
+			// println('>>>>>>>>>>>>>>>>>> ${array_init} <<<<<<<<<<<<<<<<<<')
 			ref, var_type = gen.get_str_c_type(array_init.elem_type)
 			len := 	if array_init.has_cap { 
 						array_init.cap_expr
@@ -83,13 +84,9 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 						if array_init.has_len { 
 							array_init.len_expr
 						} else {
-							if array_init.has_val {
-								ast.Expr(ast.IntegerLiteral{ 
-											val: array_init.exprs.len.str() 
-										})
-							} else {
-								array_init.exprs[0]
-							}
+							ast.Expr(ast.IntegerLiteral{ 
+										val: array_init.exprs.len.str() 
+									})
 						}
 					}
 			if right.str() == 'ast.EmptyExpr' {	// declaration only
