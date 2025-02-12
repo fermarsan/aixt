@@ -5,7 +5,7 @@
 
     "cc_linux":			"",             
     "cc_windows":		"",
-    "cc_make_flags":	"PART=@{device}",
+    "cc_make_flags":	"PART@{device}",
 
     "flasher_linux":    "",
     "flasher_windows":  "",
@@ -14,12 +14,16 @@
     "api_paths": [
         "Microchip/PIC16F88x",
         "Microchip/xc8-generic",
-        "Microchip/PIC16F-generic"
+        "Microchip/PIC16F-generic/PIC16F-core",
+        "Microchip/PIC16F-generic/PIC16F-Timer1",
+        "Microchip/PIC16F-generic/PIC16F-Timer2",
+        "Microchip/PIC16F-generic/PIC16F-adc",
+        "Microchip/PIC16F-generic/PIC16F-pwm"
     ],
     "v_defines": [
     ],
 
-    "default_cpu_freq": 4000000,
+    "default_cpu_freq": 2000000,
     "default_string_len": 20,
 
     "compiler_setup_path": "setup/xc8.json"
