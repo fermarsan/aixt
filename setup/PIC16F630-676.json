@@ -1,5 +1,5 @@
 {
-    "port":      "PIC16F8x",
+    "port":      "PIC16F630-676",
     "board":     "---",
     "backend":   "c",
 
@@ -12,14 +12,16 @@
 	"flasher_flags":	"",
 
     "api_paths": [
-        "Microchip/PIC16F8x",
+        "Microchip/PIC16F630-676",
         "Microchip/xc8-generic",
-        "Microchip/PIC12F-16F-generic/PIC16F-core"
+        "Microchip/PIC12F-16F-generic/PIC16F-core",
+        "Microchip/PIC12F-16F-generic/timer1",
+        "Microchip/PIC12F-16F-generic/adc"
     ],
     "v_defines": [
     ],
 
-    "default_cpu_freq": 10000000,
+    "default_cpu_freq": 20000000,
     "default_string_len": 20,
 
     "compiler_setup_path": "setup/xc8.json"
