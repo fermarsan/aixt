@@ -2,7 +2,6 @@
 
 ## Reference for the Microchip PIC16F8x devices
 - PIC16F83
-- PIC16F83A
 - PIC16F84
 - PIC16F84A
 
@@ -39,26 +38,63 @@ pin.write(pin.b2, pin.read(pin.a1)) // pin echo
 The pin names are named with a letter indicating the port and a number indicating the pin. For example, `a6` indicates pin 6 of port A. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 
-### Pin names for PIC16F84A
-| Port | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-|:----:|---|---|---|---|---|---|---|---|
-| **A**| a0| a1| a2| a3| a4|---|---|---|
-| **B**| b0| b1| b2| b3| b4| b5| b6| b7|
+### Pin names for PIC16F8x
+| Port | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+|:----:|-----|-----|-----|-----|-----|-----|-----|-----|
+| **A**| `a0`| `a1`| `a2`| `a3`| `a4`|-----|-----|-----|
+| **B**| `b0`| `b1`| `b2`| `b3`| `b4`| `b5`| `b6`| `b7`|
+
+
+## Pin port
+Use the `port` module:
+
+```v
+import port
+
+port.setup(port.b, port.all_outputs)
+port.setup(port.a, 0x00111111)  // port A bit 7 and 6 as outputs, the rest as inputs
+
+val := port.read(port.a)
+port.write(port.b, val) // port echo
+```
+
+
+### `port` names
+The port names are named with a letter indicating the port. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
+
+
+### Pin names for PIC16F8x
+| Port | Aixt name |
+|:----:|:---------:|
+| **A**| `a`       |
+| **B**| `b`       |
+
+
+## Timer 0
+Use the `timer0` module:
+
+```v
+import port
+
+port.setup(port.b, port.all_outputs)
+port.setup(port.a, 0x00111111)  // port A bit 7 and 6 as outputs, the rest as inputs
+
+val := port.read(port.a)
+port.write(port.b, val) // port echo
+```
 
 
 
-### Examples of the different API functions in _Aixt_ language
+## Examples
 
-## Time
-
+### Time
 ```v
 time.sleep(5)	// Time of 5 seconds
 time.sleep_us(10)	// Time of 10 microseconds
 time.sleep_ms(500)	// Time of 500 milliseconds
 ```
 
-## Pin Configuration
-
+### Pin Configuration
 ```v
 pin.setup(pin.a4, pin.output)      // Function to configure the pin as output
 pin.setup(pin.b2, pin.output)      // Function to configure the pin as output
@@ -75,8 +111,7 @@ pin.read(pin.a1)  // Function to read the pin
 pin.read(pin.a1)  // Function to read the pin
 ```
 
-Example of turning an LED on and off:
-
+### Example of turning an LED on and off:
 ```v
 for {
     pin.high(pin.b1);
@@ -86,8 +121,7 @@ for {
 }
 ```
 
-Example of turning a LED On and Off using a digital input:
-
+### Example of turning a LED On and Off using a digital input:
 ```v
 for {
     if pin.read(pin.b2) == 1 {        // Condition if it finds a 1 in b2
@@ -98,14 +132,13 @@ for {
 }
 
 ```
-## Port Configuration
 
+### Port Configuration
 ```v
 port.setup(port.a, 0b00000000)      // Function to configure the port as output
 ```
 
-Example of turning on and off a port of the microcontroller:
-
+### Example of turning on and off a port of the microcontroller:
 ```v
 for {
     port.write(port.a,0b00110101);
@@ -115,12 +148,11 @@ for {
 }
 ```
 
-
 ## Supported Functions
 The functions contained in the API are digital inputs or outputs.
 
 name                                  | description
---------------------------------------|------------------------------
+----------------------------------------|------------------------------
 `pin.setup(pin_name, mode)`           | configures `pin_name` in `pin_mode`
 `pin.high(pin_name)`                  | turn on `pin_name`
 `pin.low(pin_name)`                   | turn off `pin_name`
