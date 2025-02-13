@@ -22,7 +22,7 @@ import pin
 
 pin.high(pin.x)
 pin.low(pin.y)
-pin.write(pin.z, pin.read(pin.a))
+pin.write(pin.z, pin.read(pin.a))   // pin echo
 ```
 
 ### `pin` names
@@ -102,27 +102,22 @@ terminal output:
 Hello world!
 ```
 
-### Supported emulated UART functions
-name                    | description
-------------------------|---------------------in the terminal
-
-
 ### `uart.input()` function
 The input strings to be captured by the `input()` function having a fixed size of 30 characters.
 
 
 ## Supported functions
 name                        | description
-----------------------------|---------------------
-`time.sleep(time)`          | delay in `seconds`
-`time.sleep_us(time)`       | delay in `microseconds`
-`time.sleep_ms(time)`       | delay in `milliseconds`
+----------------------------|----------------------------------------------------------------
+`time.sleep(time)`          | delay in seconds
+`time.sleep_us(time)`       | delay in microseconds
+`time.sleep_ms(time)`       | delay in milliseconds
 `pin.high(pin)`             | Turn ON `pin`
 `pin.low(pin)`              | Turn OFF `pin`
 `pin.write(pin, val)`       | Write `val` in `pin`
 `pin.read(pin)`             | Read `pin`
-`pwm.write(channel, val)`   |  
-
+`pwm.write(channel, val)`   | Write `val` in the PWM `channel` (in the terminal)
+`adc.read(channel)`         | Read the ADC (by terminal) in `channel` and return that value 
 `uart.print(message)`       | Print the `message` in the terminal
 `uart.println(message)`     | Print the `message` plus a new line in the terminal
 `uart.input(message)`       | Print the `message` and return the string entered by the user
