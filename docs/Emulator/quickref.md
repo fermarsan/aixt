@@ -41,14 +41,6 @@ _**After calling a reading function**_
  Aixt virtual pins     Input z : 1
 ```
 
-### Supported pin management functions
-name                    | description
-------------------------|---------------------
-`pin.high(pin)`         | Turn ON `pin`
-`pin.low(pin)`          | Turn OFF `pin`
-`pin.write(pin, val)`   | Write `val` in `pin`
-`pin.read(pin)`         | Read `pin`
-
 _Note: when using `pin.read()` the user has to write the value in the terminal manually._
 
 
@@ -112,11 +104,31 @@ Hello world!
 
 ### Supported emulated UART functions
 name                    | description
-------------------------|---------------------
-`uart.print(message)`   | Print the `message` in the terminal
-`uart.println(message)` | Print the `message` plus a new line in the terminal
-`uart.input(message)`   | Print the `message` and return the strin entered by the user in the terminal
+------------------------|---------------------in the terminal
 
 
 ### `uart.input()` function
 The input strings to be captured by the `input()` function having a fixed size of 30 characters.
+
+
+## Supported functions
+name                        | description
+----------------------------|---------------------
+`time.sleep(time)`          | delay in `seconds`
+`time.sleep_us(time)`       | delay in `microseconds`
+`time.sleep_ms(time)`       | delay in `milliseconds`
+`pin.high(pin)`             | Turn ON `pin`
+`pin.low(pin)`              | Turn OFF `pin`
+`pin.write(pin, val)`       | Write `val` in `pin`
+`pin.read(pin)`             | Read `pin`
+`pwm.write(channel, val)`   |  
+
+`uart.print(message)`       | Print the `message` in the terminal
+`uart.println(message)`     | Print the `message` plus a new line in the terminal
+`uart.input(message)`       | Print the `message` and return the string entered by the user
+`uart2.print(message)`      | Print the `message` in the terminal
+`uart2.println(message)`    | Print the `message` plus a new line in the terminal
+`uart2.input(message)`      | Print the `message` and return the string entered by the user 
+`uart3.print(message)`      | Print the `message` in the terminal
+`uart3.println(message)`    | Print the `message` plus a new line in the terminal
+`uart3.input(message)`      | Print the `message` and return the string entered by the user  

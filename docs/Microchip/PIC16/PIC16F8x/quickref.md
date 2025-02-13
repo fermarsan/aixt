@@ -22,6 +22,16 @@ time.sleep_us(100)       // sleep for 100 microseconds
 
 
 ## Pins
+Use the `pin` module:
+
+```v
+import pin
+
+pin.setup(pin.a1, pin.input)
+pin.high(pin.b0)
+pin.low(pin.a3)
+pin.write(pin.b2, pin.read(pin.a1))
+```
 
 
 ### Pin Names
