@@ -13,9 +13,9 @@ time.sleep_us(100)       // sleep for 100 microseconds
 ## Emulated pins
 ```v
 pin.high(pin.a)         // turn ON the "a" pin 
-pin.low(y)          // turn OFF the "y" pin 
+pin.low(pin.y)          // turn OFF the "y" pin 
 pin.write(pin.d, 1)     // write 1 on "d" pin
-pin.read(x)         // read "x" pin
+pin.read(pin.x)         // read "x" pin
 ```
 
 ### `pin` names
@@ -46,8 +46,8 @@ _Note: when using `pin.read()` the user has to write the value in the terminal m
 
 ## PWM
 ```v
-pwm1_duty(40)       // set the duty cycle for PWM 1
-pwm2_duty(60)       // set the duty cycle for PWM 2
+pwm.write(pwm.ch0, 40)       // set the duty cycle for PWM channel 0
+pwm.write(pwm.ch1, 60)       // set the duty cycle for PWM channel 1
 ```
 
 terminal output:
@@ -62,8 +62,8 @@ terminal output:
 ## ADC
 ```v
 val1, val2 := 0, 0
-val1 = adc1_read()       // read de ADC 1
-val2 = adc2_read()       // read de ADC 2
+val1 = adc.read(ch0)       // read de ADC channel 0
+val2 = adc.read(ch1)       // read de ADC channel 1
 ```
 
 terminal output:
