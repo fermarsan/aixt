@@ -6,7 +6,7 @@
 - PIC16F84
 - PIC16F84A
 
-**NOTE:** This PIC16F8x microcontroller only has digital outputs and digital inputs
+**NOTE:** This PIC16F8x microcontrollers only has digital outputs and digital inputs
 
 
 ## Delay
@@ -30,11 +30,12 @@ import pin
 pin.setup(pin.a1, pin.input)
 pin.high(pin.b0)
 pin.low(pin.a3)
-pin.write(pin.b2, pin.read(pin.a1))
+pin.toggle(pin.b7)
+pin.write(pin.b2, pin.read(pin.a1)) // pin echo
 ```
 
 
-### Pin Names
+### `pin` names
 The pin names are named with a letter indicating the port and a number indicating the pin. For example, `a6` indicates pin 6 of port A. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 
@@ -44,26 +45,7 @@ The pin names are named with a letter indicating the port and a number indicatin
 | **A**| a0| a1| a2| a3| a4|---|---|---|
 | **B**| b0| b1| b2| b3| b4| b5| b6| b7|
 
-### Supported Functions
-The functions contained in the API are digital inputs or outputs.
 
-name                                  | description
---------------------------------------|------------------------------
-`pin.setup(pin_name, mode)`           | configures `pin_name` in `pin_mode`
-`pin.high(pin_name)`                  | turn on `pin_name`
-`pin.low(pin_name)`                   | turn off `pin_name`
-`pin.toggle(pin_name)`                | toggle the state of `pin_name`
-`pin.write(pin_name,val)`             | write `val` to `pin_name`
-`pin.read(pin_name)`                  | read `pin_name`
-`pin (pin)`                           | configure `pin_output` or `pin_input`
-`port`                                | initialize `port`
-`port.read(port_name)`                | read `port_name`
-`port.setup(port_name, value)`        | configure `port_name` assign value `value`
-`port.write(port_name, value)`        | write `port_name` to `value`
-`time.sleep(time)`                    | delay in `sec`
-`time.sleep_us(time)`                 | delay in `microsec`
-`time.sleep_ms(time)`                 | delay in `millisec`
-`time`                                | initialize `time`
 
 ### Examples of the different API functions in _Aixt_ language
 
@@ -132,3 +114,25 @@ for {
     time.sleep_ms(500);
 }
 ```
+
+
+## Supported Functions
+The functions contained in the API are digital inputs or outputs.
+
+name                                  | description
+--------------------------------------|------------------------------
+`pin.setup(pin_name, mode)`           | configures `pin_name` in `pin_mode`
+`pin.high(pin_name)`                  | turn on `pin_name`
+`pin.low(pin_name)`                   | turn off `pin_name`
+`pin.toggle(pin_name)`                | toggle the state of `pin_name`
+`pin.write(pin_name,val)`             | write `val` to `pin_name`
+`pin.read(pin_name)`                  | read `pin_name`
+`pin (pin)`                           | configure `pin_output` or `pin_input`
+`port`                                | initialize `port`
+`port.read(port_name)`                | read `port_name`
+`port.setup(port_name, value)`        | configure `port_name` assign value `value`
+`port.write(port_name, value)`        | write `port_name` to `value`
+`time.sleep(time)`                    | delay in `sec`
+`time.sleep_us(time)`                 | delay in `microsec`
+`time.sleep_ms(time)`                 | delay in `millisec`
+
