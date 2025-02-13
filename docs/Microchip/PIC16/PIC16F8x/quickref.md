@@ -18,11 +18,6 @@ The pin names are named with a letter indicating the port and a number indicatin
 | **A**| a0| a1| a2| a3| a4|---|---|---|
 | **B**| b0| b1| b2| b3| b4| b5| b6| b7|
 
-In the _PIC16_ microcontroller families, the port registers are divided into:
-
-- `TRIS` To configure each port pin
-- `PORT` To manage the pins as inputs or outputs
-
 ### Supported Functions
 The functions contained in the API are digital inputs or outputs.
 
@@ -49,17 +44,14 @@ name                                  | description
 ## Time
 
 ```v
-
 time.sleep(5)	// Time of 5 seconds
 time.sleep_us(10)	// Time of 10 microseconds
 time.sleep_ms(500)	// Time of 500 milliseconds
-
 ```
 
 ## Pin Configuration
 
 ```v
-
 pin.setup(pin.a4, pin.output)      // Function to configure the pin as output
 pin.setup(pin.b2, pin.output)      // Function to configure the pin as output
 pin.setup(pin.a2, pin.input)    // Function to configure the pin as input
@@ -73,63 +65,44 @@ pin.write(pin.a2, 1)  // Function to write to the pin
 
 pin.read(pin.a1)  // Function to read the pin
 pin.read(pin.a1)  // Function to read the pin
-
 ```
 
 Example of turning an LED on and off:
 
 ```v
-
 for {
-
     pin.high(pin.b1);
     time.sleep_us(500);
     pin.low(pin.b1);
     time.sleep_us(500);
-
 }
-
 ```
-Example of turning an LED on and off with a digital input:
+
+Example of turning a LED On and Off using a digital input:
 
 ```v
-
 for {
-
-    if(b2 == 1){        // Condition if it finds a 1 in b2
-
+    if pin.read(pin.b2) == 1 {        // Condition if it finds a 1 in b2
         pin.high(pin.b1);
-        pin.high(pin.b0);
-    }
-
-    else if(b4 == 1){   // Condition if it finds a 1 in b4
-
+    } else if pin.read(pin.b4) == 1 {   // Condition if it finds a 1 in b4
         pin.low(pin.b1);
-        pin.low(pin.b0);
     }
-
 }
 
 ```
 ## Port Configuration
 
 ```v
-
 port.setup(port.a, 0b00000000)      // Function to configure the port as output
-
 ```
 
 Example of turning on and off a port of the microcontroller:
 
 ```v
-
-while(1){
-
+for {
     port.write(port.a,0b00110101);
     time.sleep_ms(500);
     port.write(port.a,0b00001010);
     time.sleep_ms(500);
-
 }
-
 ```
