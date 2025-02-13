@@ -13,16 +13,16 @@ time.sleep_ms(50)        // sleep for 50 milliseconds
 time.sleep_us(100)       // sleep for 100 microseconds
 ```
 
+
 ## Emulated pins
 Use the `pin` module:
 
 ```v
 import pin
 
-pin.high(pin.a)         // turn ON the "a" pin 
-pin.low(pin.y)          // turn OFF the "y" pin 
-pin.write(pin.d, 1)     // write 1 on "d" pin
-pin.read(pin.x)         // read "x" pin
+pin.high(pin.x)
+pin.low(pin.y)
+pin.write(pin.z, pin.read(pin.a))
 ```
 
 ### `pin` names
@@ -41,7 +41,7 @@ _**After calling a reading function**_
  Aixt virtual pins     Input z : 1
 ```
 
-#### Supported functions
+### Supported pin management functions
 name                    | description
 ------------------------|---------------------
 `pin.high(pin)`         | Turn ON `pin`
@@ -50,6 +50,7 @@ name                    | description
 `pin.read(pin)`         | Read `pin`
 
 _Note: when using `pin.read()` the user has to write the value in the terminal manually._
+
 
 ## Emulated PWM
 Use the `pwm` module:
@@ -69,6 +70,7 @@ terminal output:
                                     PWM 1 :  60 %
 ||||||||||||||||||||||||||||||____________________
 ```
+
 
 ## Emulated ADC
 Use the `adc` module:
@@ -93,7 +95,6 @@ Aixt virtual ADC input     ADC 1 : 56
 ## Emulated UART (serial port)
 This software emulator has 3 virtual UARTs named `UART`, `UART2` and `UART3`.
 
-
 Use the `uart` or `uartx` module:
 
 ```v
@@ -109,7 +110,7 @@ terminal output:
 Hello world!
 ```
 
-#### Supported functions
+### Supported emulated UART functions
 name                    | description
 ------------------------|---------------------
 `uart.print(message)`   | Print the `message` in the terminal
@@ -117,5 +118,5 @@ name                    | description
 `uart.input(message)`   | Print the `message` and return the strin entered by the user in the terminal
 
 
-#### `uart.input()` function
+### `uart.input()` function
 The input strings to be captured by the `input()` function having a fixed size of 30 characters.

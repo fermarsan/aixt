@@ -1,4 +1,4 @@
-# Quick reference for PIC16F8x family
+# Quick reference for the PIC16F8x family
 
 ## Reference for the Microchip PIC16F8x devices
 - PIC16F83
@@ -8,7 +8,23 @@
 
 **NOTE:** This PIC16F8x microcontroller only has digital outputs and digital inputs
 
-## Pin Names
+
+## Delay
+Use the `time` module:
+
+```v
+import time
+
+time.sleep(2)            // sleep for 2 seconds
+time.sleep_ms(50)        // sleep for 50 milliseconds
+time.sleep_us(100)       // sleep for 100 microseconds
+```
+
+
+## Pins
+
+
+### Pin Names
 The pin names are named with a letter indicating the port and a number indicating the pin. For example, `a6` indicates pin 6 of port A. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 
