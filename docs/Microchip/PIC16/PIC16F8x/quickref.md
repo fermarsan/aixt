@@ -74,25 +74,29 @@ The port names are named with a letter indicating the port. All names in **Aixt*
 Use the `timer0` module:
 
 ```v
-import port
+import timer0
 
-port.setup(port.b, port.all_outputs)
-port.setup(port.a, 0x00111111)  // port A bit 7 and 6 as outputs, the rest as inputs
+timer0.setup(10_000)    // setup a time of 10ms
+.
+.
+.
+t1 := timer0.read()
+timer0.restart()
+```
 
-val := port.read(port.a)
-port.write(port.b, val) // port echo
+## External Interrupt
+Use the `ext` module:
+
+```v
+import ext
+
+ext.setup(ext.falling)	// rising edge for external interrupt
+ext.irq_enable()		// enable the interrupt
 ```
 
 
 
 ## Examples
-
-### Time
-```v
-time.sleep(5)	// Time of 5 seconds
-time.sleep_us(10)	// Time of 10 microseconds
-time.sleep_ms(500)	// Time of 500 milliseconds
-```
 
 ### Pin Configuration
 ```v
@@ -138,7 +142,7 @@ for {
 port.setup(port.a, 0b00000000)      // Function to configure the port as output
 ```
 
-### Example of turning on and off a port of the microcontroller:
+### Example of writing on a port of the microcontroller:
 ```v
 for {
     port.write(port.a,0b00110101);
@@ -152,7 +156,7 @@ for {
 The functions contained in the API are digital inputs or outputs.
 
 name                                  | description
-----------------------------------------|------------------------------
+--------------------------------------|------------------------------
 `pin.setup(pin_name, mode)`           | configures `pin_name` in `pin_mode`
 `pin.high(pin_name)`                  | turn on `pin_name`
 `pin.low(pin_name)`                   | turn off `pin_name`

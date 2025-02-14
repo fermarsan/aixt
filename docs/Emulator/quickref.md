@@ -108,7 +108,7 @@ The input strings to be captured by the `input()` function having a fixed size o
 
 ## Supported functions
 name                        | description
-----------------------------|----------------------------------------------------------------
+----------------------------|---------------------------------------------------------------
 `time.sleep(time)`          | delay in seconds
 `time.sleep_us(time)`       | delay in microseconds
 `time.sleep_ms(time)`       | delay in milliseconds
