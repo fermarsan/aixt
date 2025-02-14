@@ -153,14 +153,35 @@ for {
 ```
 
 ## Supported Functions
+name                        | description
+----------------------------|---------------------------------------------------------------
+`time.sleep(time)`          | delay in seconds
+`time.sleep_us(time)`       | delay in microseconds
+`time.sleep_ms(time)`       | delay in milliseconds
+`pin.setup(pin, mode)`      | configures `pin` as `mode`
+`pin.high(pin)`             | Turn On `pin`
+`pin.low(pin)`              | Turn Off `pin`
+`pin.toggle(pin)`           | toggle the state of `pin`
+`pin.write(pin, val)`       | Write `val` in `pin`
+`pin.read(pin)`             | Read `pin` and return this state
+`pwm.write(channel, val)`   | Write `val` in the PWM `channel` (in the terminal)
+`adc.read(channel)`         | Read the ADC (by terminal) in `channel` and return that value 
+`uart.print(message)`       | Print the `message` in the terminal
+`uart.println(message)`     | Print the `message` plus a new line in the terminal
+`uart.input(message)`       | Print the `message` and return the string entered by the user
+`uart2.print(message)`      | Print the `message` in the terminal
+`uart2.println(message)`    | Print the `message` plus a new line in the terminal
+`uart2.input(message)`      | Print the `message` and return the string entered by the user 
+`uart3.print(message)`      | Print the `message` in the terminal
+`uart3.println(message)`    | Print the `message` plus a new line in the terminal
+`uart3.input(message)`      | Print the `message` and return the string entered by the user  
+
+
 The functions contained in the API are digital inputs or outputs.
 
 name                                  | description
 --------------------------------------|------------------------------
-`pin.setup(pin_name, mode)`           | configures `pin_name` in `pin_mode`
-`pin.high(pin_name)`                  | turn on `pin_name`
-`pin.low(pin_name)`                   | turn off `pin_name`
-`pin.toggle(pin_name)`                | toggle the state of `pin_name`
+
 `pin.write(pin_name,val)`             | write `val` to `pin_name`
 `pin.read(pin_name)`                  | read `pin_name`
 `pin (pin)`                           | configure `pin_output` or `pin_input`
@@ -168,7 +189,4 @@ name                                  | description
 `port.read(port_name)`                | read `port_name`
 `port.setup(port_name, value)`        | configure `port_name` assign value `value`
 `port.write(port_name, value)`        | write `port_name` to `value`
-`time.sleep(time)`                    | delay in `sec`
-`time.sleep_us(time)`                 | delay in `microsec`
-`time.sleep_ms(time)`                 | delay in `millisec`
 

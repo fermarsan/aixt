@@ -115,7 +115,7 @@ name                        | description
 `pin.high(pin)`             | Turn ON `pin`
 `pin.low(pin)`              | Turn OFF `pin`
 `pin.write(pin, val)`       | Write `val` in `pin`
-`pin.read(pin)`             | Read `pin`
+`pin.read(pin)`             | Read `pin` and return this state
 `pwm.write(channel, val)`   | Write `val` in the PWM `channel` (in the terminal)
 `adc.read(channel)`         | Read the ADC (by terminal) in `channel` and return that value 
 `uart.print(message)`       | Print the `message` in the terminal
