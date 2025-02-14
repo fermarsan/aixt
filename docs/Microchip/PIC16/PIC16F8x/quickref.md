@@ -164,19 +164,12 @@ name                        | description
 `pin.toggle(pin)`           | toggle the state of `pin`
 `pin.write(pin, val)`       | Write `val` in `pin`
 `pin.read(pin)`             | Read `pin` and return this state
+`port.setup(port, config)`  | configure `port` assigning `config` value
+`port.read(port)`           | read `port` and return this value
+`port.write(port, value)`   | write `value` to `port`
+`timer0.setup(period)`      | configure Timer0 `period`
+`timer0.read()`             | read Timer0 value and return it
+`timer0.write(port, value)`   | write `value` to `port`
   
 
-
-The functions contained in the API are digital inputs or outputs.
-
-name                                  | description
---------------------------------------|------------------------------
-
-`pin.write(pin_name,val)`             | write `val` to `pin_name`
-`pin.read(pin_name)`                  | read `pin_name`
-`pin (pin)`                           | configure `pin_output` or `pin_input`
-`port`                                | initialize `port`
-`port.read(port_name)`                | read `port_name`
-`port.setup(port_name, value)`        | configure `port_name` assign value `value`
-`port.write(port_name, value)`        | write `port_name` to `value`
 
