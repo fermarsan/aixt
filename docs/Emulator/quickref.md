@@ -13,6 +13,13 @@ time.sleep_ms(50)        // sleep for 50 milliseconds
 time.sleep_us(100)       // sleep for 100 microseconds
 ```
 
+### Functions
+name                  | description
+----------------------|-----------------------
+`time.sleep(time)`    | delay in seconds
+`time.sleep_us(time)` | delay in microseconds
+`time.sleep_ms(time)` | delay in milliseconds
+
 
 ## Emulated pins
 Use the `pin` module:
@@ -24,6 +31,14 @@ pin.high(pin.x)
 pin.low(pin.y)
 pin.write(pin.z, pin.read(pin.a))   // pin echo
 ```
+
+### Functions
+name                    | description
+------------------------|---------------------------
+`pin.high(pin)`         | Turn ON `pin`
+`pin.low(pin)`          | Turn OFF `pin`
+`pin.write(pin, value)` | Write `value` in `pin`
+`pin.read(pin)`         | Return the state of `pin`
 
 ### `pin` names
 Functions to emulate input/output pins on the terminal. There are 8 emulated pins named: `a`, `b`, `c`, `d`, `w`, `x`, `y` and `z`, which are show in the terminal after any change, as follows:
@@ -62,6 +77,11 @@ terminal output:
                                     PWM 1 :  60 %
 ||||||||||||||||||||||||||||||____________________
 ```
+
+### Functions
+name                        | description
+----------------------------|-----------------------------------
+`pwm.write(channel, value)` | Write `value` in the PWM `channel`
 
 
 ## Emulated ADC
@@ -105,8 +125,7 @@ Hello world!
 ### `uart.input()` function
 The input strings to be captured by the `input()` function having a fixed size of 30 characters.
 
-
-## Supported functions
+## Functions
 name                        | description
 ----------------------------|-------------------------------------------------------------------------------------
 `time.sleep(time)`          | delay in seconds
