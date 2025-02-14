@@ -108,22 +108,22 @@ The input strings to be captured by the `input()` function having a fixed size o
 
 ## Supported functions
 name                        | description
-----------------------------|---------------------------------------------------------------
+----------------------------|-------------------------------------------------------------------------------------
 `time.sleep(time)`          | delay in seconds
 `time.sleep_us(time)`       | delay in microseconds
 `time.sleep_ms(time)`       | delay in milliseconds
 `pin.high(pin)`             | Turn ON `pin`
 `pin.low(pin)`              | Turn OFF `pin`
 `pin.write(pin, val)`       | Write `val` in `pin`
-`pin.read(pin)`             | Read `pin` (return the state)
-`pwm.write(channel, val)`   | Write `val` in the PWM `channel` (in the terminal)
+`pin.read(pin)`             | Return the state of `pin`
+`pwm.write(channel, val)`   | Write `val` in the PWM `channel`
 `adc.read(channel)`         | Read the ADC (by terminal) in `channel` (return the value) 
-`uart.print(message)`       | Print the `message` in the terminal
-`uart.println(message)`     | Print the `message` plus a new line in the terminal
-`uart.input(message)`       | Print the `message` and return the string entered by the user
-`uart2.print(message)`      | Print the `message` in the terminal
-`uart2.println(message)`    | Print the `message` plus a new line in the terminal
-`uart2.input(message)`      | Print the `message` and return the string entered by the user 
-`uart3.print(message)`      | Print the `message` in the terminal
-`uart3.println(message)`    | Print the `message` plus a new line in the terminal
-`uart3.input(message)`      | Print the `message` and return the string entered by the user  
+`uart.print(message)`       | Print the `message` in the virtual UART
+`uart.println(message)`     | Print the `message` plus a new line in the virtual UART
+`uart.input(message)`       | Print the `message` and return the string entered by the user in the virtual UART
+`uart2.print(message)`      | Print the `message` in the virtual UART 2
+`uart2.println(message)`    | Print the `message` plus a new line in the virtual UART 2
+`uart2.input(message)`      | Print the `message` and return the string entered by the user in the virtual UART 2
+`uart3.print(message)`      | Print the `message` in the virtual UART 3
+`uart3.println(message)`    | Print the `message` plus a new line in the virtual UART 3
+`uart3.input(message)`      | Print the `message` and return the string entered by the user in the virtual UART 3

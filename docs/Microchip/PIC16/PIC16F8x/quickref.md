@@ -1,12 +1,18 @@
 # Quick reference for the PIC16F8x family
 
-## Reference for the Microchip PIC16F8x devices
+Reference for the Microchip PIC16F8x devices:
 - PIC16F83
 - PIC16F84
 - PIC16F84A
 
 **NOTE:** This PIC16F8x microcontrollers only has digital outputs and digital inputs
 
+## General $\mu C$ control
+
+```v
+// by default the CPU oscillation frequency is 10Mhz
+@[as_macro] const cpu_freq = 4_000_000  // change it to 4Mhz
+```
 
 ## Delay
 Use the `time` module:
@@ -19,6 +25,12 @@ time.sleep_ms(50)        // sleep for 50 milliseconds
 time.sleep_us(100)       // sleep for 100 microseconds
 ```
 
+### Functions
+name                  | description
+----------------------|----------------------
+`time.sleep(time)`    | Delay in seconds
+`time.sleep_us(time)` | Delay in microseconds
+`time.sleep_ms(time)` | Delay in milliseconds
 
 ## Pins
 Use the `pin` module:
@@ -32,6 +44,16 @@ pin.low(pin.a3)
 pin.toggle(pin.b7)
 pin.write(pin.b2, pin.read(pin.a1)) // pin echo
 ```
+
+### Functions
+name                    | description
+------------------------|--------------------------
+`pin.setup(pin, mode)`  | Configure `pin` as `mode`
+`pin.high(pin)`         | Turn On `pin`
+`pin.low(pin)`          | Turn Off `pin`
+`pin.toggle(pin)`       | Toggle the state of `pin`
+`pin.write(pin, value)` | Write `value` in `pin`
+`pin.read(pin)`         | Return the state of `pin`
 
 
 ### `pin` names
@@ -58,10 +80,15 @@ val := port.read(port.a)
 port.write(port.b, val) // port echo
 ```
 
+### Functions
+name                      | description
+--------------------------|---------------------------
+`port.setup(port, mode)`  | Configure `port` as `mode`
+`port.read(port)`         | Return the value of `port`
+`port.write(port, value)` | Write `value` to `port`
 
 ### `port` names
 The port names are named with a letter indicating the port. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
-
 
 ### Pin names for PIC16F8x
 | Port | Aixt name |
@@ -76,6 +103,8 @@ Use the `timer0` module:
 ```v
 import timer0
 
+@[as_macro] const cpu_freq = 4_000_000  // 4Mhz
+
 timer0.setup(10_000)    // setup a time of 10ms
 .
 .
@@ -83,6 +112,16 @@ timer0.setup(10_000)    // setup a time of 10ms
 t1 := timer0.read()
 timer0.restart()
 ```
+
+### Functions
+name                   | description
+-----------------------|-------------------------------------------
+`timer0.setup(period)` | Configure Timer0's `period`
+`timer0.read()`        | Return the value of Timer0
+`timer0.restart()`     | Restart the Timer0 from its initial value
+`timer0.irq_enable()`  | Enable Timer0 overflow interrupt
+`timer0.irq_disable()` | Disable Timer0 overflow interrupt
+
 
 ## External Interrupt
 Use the `ext` module:
@@ -94,82 +133,9 @@ ext.setup(ext.falling)	// rising edge for external interrupt
 ext.irq_enable()		// enable the interrupt
 ```
 
-
-
-## Examples
-
-### Pin Configuration
-```v
-pin.setup(pin.a4, pin.output)      // Function to configure the pin as output
-pin.setup(pin.b2, pin.output)      // Function to configure the pin as output
-pin.setup(pin.a2, pin.input)    // Function to configure the pin as input
-pin.setup(pin.b4, pin.input)    // Function to configure the pin as input
-
-pin.high(pin.a4)    // Function to turn on the pin
-pin.low(pin.a4)     // Function to turn off the pin
-
-pin.write(pin.a2, 0)  // Function to write to the pin
-pin.write(pin.a2, 1)  // Function to write to the pin
-
-pin.read(pin.a1)  // Function to read the pin
-pin.read(pin.a1)  // Function to read the pin
-```
-
-### Example of turning an LED on and off:
-```v
-for {
-    pin.high(pin.b1);
-    time.sleep_us(500);
-    pin.low(pin.b1);
-    time.sleep_us(500);
-}
-```
-
-### Example of turning a LED On and Off using a digital input:
-```v
-for {
-    if pin.read(pin.b2) == 1 {        // Condition if it finds a 1 in b2
-        pin.high(pin.b1);
-    } else if pin.read(pin.b4) == 1 {   // Condition if it finds a 1 in b4
-        pin.low(pin.b1);
-    }
-}
-
-```
-
-### Port Configuration
-```v
-port.setup(port.a, 0b00000000)      // Function to configure the port as output
-```
-
-### Example of writing on a port of the microcontroller:
-```v
-for {
-    port.write(port.a,0b00110101);
-    time.sleep_ms(500);
-    port.write(port.a,0b00001010);
-    time.sleep_ms(500);
-}
-```
-
-## Supported Functions
-name                        | description
-----------------------------|---------------------------------------------------------------
-`time.sleep(time)`          | delay in seconds
-`time.sleep_us(time)`       | delay in microseconds
-`time.sleep_ms(time)`       | delay in milliseconds
-`pin.setup(pin, mode)`      | configures `pin` as `mode`
-`pin.high(pin)`             | Turn On `pin`
-`pin.low(pin)`              | Turn Off `pin`
-`pin.toggle(pin)`           | toggle the state of `pin`
-`pin.write(pin, val)`       | Write `val` in `pin`
-`pin.read(pin)`             | Read `pin` and return this state
-`port.setup(port, config)`  | configure `port` assigning `config` value
-`port.read(port)`           | read `port` and return this value
-`port.write(port, value)`   | write `value` to `port`
-`timer0.setup(period)`      | configure Timer0 `period`
-`timer0.read()`             | read Timer0 value and return it
-`timer0.write(port, value)`   | write `value` to `port`
-  
-
-
+### Functions
+name                | description
+--------------------|------------------------------------
+`ext.setup(edge)`   | Configure external interrupt `edge`
+`ext.irq_enable()`  | Enable external interrupt
+`ext.irq_disable()` | Disable external interrupt
