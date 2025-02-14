@@ -51,7 +51,7 @@ Nombre                  | Descripción
 
 ### EJEMPLOS
 #### Parpadeo de un LED
-```go
+```v
 pin_mode(5, out)
 
 for i in 0..10{   //10 veces
@@ -64,7 +64,7 @@ for i in 0..10{   //10 veces
 
 #### Ejemplo lectura analoga
 
-```go
+```v
 
 pin.setup(2, out)
 pin.setup(3, out)
@@ -102,7 +102,7 @@ for {
 ```
 
 #### Ejemplo salida PWM
-```go
+```v
 
 pin.setup(5, out)
 int util=0
@@ -120,7 +120,7 @@ for {
 ```
 
 #### Encender un LED con u pulsador
-```go
+```v
 pin_mode(3, out)
 
 for {   //infinite loop
@@ -134,20 +134,20 @@ for {   //infinite loop
 ### Configuración Pines de Salida
 
 To activate the port to use
-```go
+```v
 pin.high(pin_name)
 ```
 * *Example: If you want to activate the port IO17;  `pin.high(IO17)`.*
 
 To disable the port being used
-```go
+```v
 pin.low(pin_name)
 ```
 * *Example: If you want to disable the port IO17;  `pin.low(O17I)`.*
 
 To disable or enable the port to be used
 
-```go
+```v
 pin.write(pin_name, value)
 ```
 * *Example: If you want to disable port IO17 `pin.write(IO17, 1)`, and if you want to activate  `pin.write(IO17, 0)`.*
@@ -155,7 +155,7 @@ pin.write(pin_name, value)
 ### Input port detection
 
 If you need to know what state an entry port is in:
-```go
+```v
 x = pin.read(pin_name)
 ```
 
@@ -164,13 +164,13 @@ x = pin.read(pin_name)
 ### Analog to digital ports (ADC)
 
 To configure one of the analog ports
-```go
+```v
 adc.setup(channel, setup_value_1, ... )
 ```
 * *In channel the name of the analog port is entered, in setup_value_1 the value that will be given is said port.*
 
 To detect the analog port value
-```go
+```v
 x = adc.read(channel)
 ```
 * *In `channel` the name of the analog port is entered, and `x` takes the value of said port..*
@@ -178,14 +178,14 @@ x = adc.read(channel)
 ### Pulse Width Modulation (PWM outputs)
 
 To configure some PWM
-```go
+```v
 pwm.setup(setup_value_1, setup_value_2, ... )
 ```
 * *In pwm you set the PWM to use, and in setup_value_1 the value to which you want to configure said pwm.*
 
 
 To configure the duty cycle of a modulator
-```go
+```v
 pwm_duty(duty)
 ```
 * *In PWM the pwm to be used is set, and in `duty` the value of the cycle (from 0 to 100) in percentage.*
@@ -223,19 +223,19 @@ uart2_write(message)    // send binary data (in Bytes) to UART2
 * Use of times
 
     * In each expression, the time value is put inside the parentheses.
-```go
+```v
 time.sleep(s) //Seconds
 ```
-```go
+```v
 time.sleep_ms(ms) //Milliseconds
 ```
-```go
+```v
 time.sleep_us(us) //Microseconds
 ```
 
 * Example flashing LED
 
-```go
+```v
 import machine { pin }
 import time { sleep_ms }
 

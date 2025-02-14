@@ -64,25 +64,25 @@ For each of these modules, you will have a file in .c.v format with the same nam
 
 ### Output port configuration
 To activate the port to use
-```go
+```v
 pin.setup(pin_name, pin.output)
 ```
 * *Example: If you want to activate the port 17;  `pin.setup(io17, pin.output)`.*
 To activate the port to use
-```go
+```v
 pin.high(pin_name)
 ```
 * *Example: If you want to activate the port 17;  `pin.high(io17)`.*
 
 To disable the port being used
-```go
+```v
 pin.low(pin_name)
 ```
 * *Example: If you want to disable the port 17;  `pin.low(io17)`.*
 
 To disable or enable the port to be used
 
-```go
+```v
 pin.write(pin_name, VALUE)
 ```
 * *Example: If you want to disable port 17 `pin.write(io17, 1)`, and if you want to activate  `pin.write(io17, 0)`.*
@@ -90,7 +90,7 @@ pin.write(pin_name, VALUE)
 ### Input port detection
 
 If you need to know what state an entry port is in:
-```go
+```v
 x = pin.read(pin_name)
 ```
 
@@ -99,7 +99,7 @@ x = pin.read(pin_name)
 ### Pulse Width Modulation (PWM outputs)
 
 To configure some PWM
-```go
+```v
 pin.setup(pin_name, pin.output)
 ```
 * *Example: in pwm you set the PWM to use `pin.setup(io17, pin.output)`*
@@ -109,11 +109,11 @@ To configure the duty cycle of a modulator
 
 Everything is implemented within a for, with a counter up to the desired cycles
 
-```go
+```v
 pwm.write(pin_name, pin.output)
 ```
 * *Example: in pwm you set the PWM to use* 
-```go
+```v
 for {
     pwm.write(io17, val)
     sleep_ms(250)
@@ -164,15 +164,15 @@ uart.write(message)    // send binary data (in Bytes) to second UART
 * Use of times
 
     * In each expression, the time VALUE is put inside the parentheses.
-```go
+```v
 time.sleep(s) //Seconds
 ```
 * *Example: This is used as `time.sleep(2)`*
-```go
+```v
 time.sleep_ms(ms) //Milliseconds
 ```
 * *Example: This is used as `time.sleep_ms(500)`*
-```go
+```v
 time.sleep_us(us) //Microseconds
 ```
  *Example: This is used as `time.sleep_us(5000)`*
@@ -182,7 +182,7 @@ time.sleep_us(us) //Microseconds
 For the development of the program, some examples of the codes in v languages ​​are shown, which will be transpiled
 * Example flashing LED
 
-```go
+```v
 import pin
 import time {sleep_ms}
 
@@ -196,7 +196,7 @@ for {   //infinite loop
 }
 ```
 * Example PWM
-```go
+```v
 import time {sleep_ms}
 import pin
 import pwm
@@ -215,7 +215,7 @@ for {
 } 
 ```
 * Example UART
-```go
+```v
 import time {sleep_ms}
 import pin
 import uart

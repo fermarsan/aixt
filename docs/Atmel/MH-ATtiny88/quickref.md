@@ -197,7 +197,7 @@ Addition of V language examples which can be implemented in the Aixt project for
 
 Flashing of one LED in an infinite cycle with time delay:
 
-```go
+```v
 import time { sleep_ms }  			// import the time module from the API
 import pin				        // import the pin module from the API
 
@@ -214,7 +214,7 @@ for {                     			//main loop of the code
 
 Example of digital readout, led sequence:
 
-```go
+```v
 import time {sleep_ms}        			  // import the sleep_ms function of the time module 
 import pin 			               	 // Import the pin module in its entirety
 
@@ -237,7 +237,7 @@ for{
 ### ANALOG AND DIGITAL READOUT
 
 In this example we will test the analog and digital readings through the flashing of a LED that depends on the variation of a variable resistor:
-```go
+```v
 import pin                            // Import the pin module in its entirety
 import adc                            // Import the adc module in its entirety
 import pwm                            // Import the pwm module in its entirety
@@ -260,7 +260,7 @@ for{                                    // creates the cycle
 
 Test UART communication with counter increasing if switch is pressed:
 
-```go
+```v
 
 import pin             //import the module pin from API
 import uart            //import the module uart from API

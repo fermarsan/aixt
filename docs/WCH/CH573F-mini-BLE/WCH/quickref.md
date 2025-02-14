@@ -73,27 +73,27 @@ The distribution will be by modules within the API according to the functions to
 ### Setup pin configuration
 To configure the pin usage mode.
 
-```go
+```v
 pin.setup(pin_name, mode)
 ```
 * *Example: If you want to activate pin 11 of port A as an output;  `pin.setup(pin.a11, pin.output)`.*
 * *Example: If you want to activate pin 11 of port A as an input.;  `pin.setup(pin.a11, pin.input)`.*
 
 To activate the pin to use
-```go
+```v
 pin.high(PIN_NAME)
 ```
 * *Example: If you want to activate pin 7 of port B;  `pin.high(pin.b7)`.*
 
 To disable the pin being used
-```go
+```v
 pin.low(PIN_NAME)
 ```
 * *Example: If you want to disable pin 7 of port B;  `pin.low(pin.b7)`.*
 
 ### Setup port configuration
 To configure the mode of one or all pins of the specific port.
-```go
+```v
 port.setup(PORT, BITS, MODE)
 ```
 * *Example: If you want to activate pin 4 of port A as an output;  `pin.setup(pin.a, pin.0x00000010, output)`.*
@@ -102,13 +102,13 @@ port.setup(PORT, BITS, MODE)
 State port detection
 
 If you need to know what state an entry port is in:
-```go
+```v
 pin.read(PORT)
 ```
 * *Example: If you want to detect the VALUE of port A; `port.read(port.a)`*
 
 To activate one pin o all pin to use
-```go
+```v
 port.write(PORT, BITS)
 ```
 * *Example: If you want to activate pin 15 of port B as an output;  `port.write(port.b, 0x00000080)`.*
@@ -119,7 +119,7 @@ port.write(PORT, BITS)
 There are 6 PWM channels on the CH573-mini-BLE card, each channel having its respective pin for output configuration. 
 
 For PWM output configuration:
-```go
+```v
 pwm.write(channel, value)
 ```
 * *Example: If you  want activate pwm the channel 4 with specific value between a cycle of 0 and 256;  `pwm.write(4, 50)`*
@@ -159,15 +159,15 @@ uart#.read // receives binary data (in Bytes) to the default UART
 ### Time 
 
 * In each expression, the time VALUE is put inside the parentheses.
-```go
+```v
 time.sleep(s) //Seconds
 ```
 * *Example: This is used as `time.sleep(2)`*
-```go
+```v
 time.sleep_ms(ms) //Milliseconds
 ```
 * *Example: This is used as `time.sleep_ms(500)`*
-```go
+```v
 time.sleep_us(us) //Microseconds
 ```
  *Example: This is used as `time.sleep_us(5000)`*
@@ -178,7 +178,7 @@ Below are some code in V language, examples of the main functions that are trans
 
 * Example flashing LED
 
-```go
+```v
 import time { sleep_ms }
 import pin 
 
@@ -194,7 +194,7 @@ for {
 
 * Example flashing LED with toggle 
 
-```go
+```v
 import time { sleep_ms }
 import pin 
 
@@ -206,7 +206,7 @@ for {
 }
 ```
 * Example PORT 
-```go
+```v
 import port
 import time {sleep_ms}
 
@@ -220,7 +220,7 @@ for{
 }
 ```
 * Example PWM
-```go
+```v
 import time { sleep_ms }
 import pin { setup }                         
 import pwm                           
@@ -241,7 +241,7 @@ for {
 }
 ```
 * Example ADC
-```go
+```v
 import pin { setup }                         
 import pwm      
 import adc
@@ -256,7 +256,7 @@ for {
     }
 ```
 * Example UART0
-```go
+```v
 import time {sleep_ms}
 import uart
 import pin 
