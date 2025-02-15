@@ -103,6 +103,11 @@ Aixt virtual ADC input     ADC 0 : 23
 Aixt virtual ADC input     ADC 1 : 56
 ```
 
+### Functions
+name                | description
+--------------------|----------------------------
+`adc.read(channel)` | Return the ADC in `channel`
+
 
 ## Emulated UART (serial port)
 This software emulator has 3 virtual UARTs named `UART`, `UART2` and `UART3`.
@@ -122,21 +127,9 @@ terminal output:
 Hello world!
 ```
 
-### `uart.input()` function
-The input strings to be captured by the `input()` function having a fixed size of 30 characters.
-
-## Functions
+### Functions
 name                        | description
 ----------------------------|-------------------------------------------------------------------------------------
-`time.sleep(time)`          | delay in seconds
-`time.sleep_us(time)`       | delay in microseconds
-`time.sleep_ms(time)`       | delay in milliseconds
-`pin.high(pin)`             | Turn ON `pin`
-`pin.low(pin)`              | Turn OFF `pin`
-`pin.write(pin, val)`       | Write `val` in `pin`
-`pin.read(pin)`             | Return the state of `pin`
-`pwm.write(channel, val)`   | Write `val` in the PWM `channel`
-`adc.read(channel)`         | Read the ADC (by terminal) in `channel` (return the value) 
 `uart.print(message)`       | Print the `message` in the virtual UART
 `uart.println(message)`     | Print the `message` plus a new line in the virtual UART
 `uart.input(message)`       | Print the `message` and return the string entered by the user in the virtual UART
@@ -146,3 +139,6 @@ name                        | description
 `uart3.print(message)`      | Print the `message` in the virtual UART 3
 `uart3.println(message)`    | Print the `message` plus a new line in the virtual UART 3
 `uart3.input(message)`      | Print the `message` and return the string entered by the user in the virtual UART 3
+
+### Input function
+The input strings to be captured by the `uart.input()` function having a fixed size of 30 characters.
