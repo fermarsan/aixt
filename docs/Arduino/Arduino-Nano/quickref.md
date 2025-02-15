@@ -102,3 +102,30 @@ name                        | description
 
 ### PWM pin names
 There are 2 PWM channels named: `ch0` and `ch1`.
+
+
+## ADC (Analog to Digital Converter)
+Use the `adc` module:
+
+```v
+import adc
+
+val1 := adc.read(ch0)       // read de ADC channel 0
+val2 := adc.read(ch1)       // read de ADC channel 1
+```
+
+terminal output:
+```
+Aixt virtual ADC input     ADC 0 : 23
+```
+```
+Aixt virtual ADC input     ADC 1 : 56
+```
+
+### Functions
+name                | description
+--------------------|----------------------------
+`adc.read(channel)` | Return the ADC in `channel`
+
+### Analog channels
+There are 2 emulated ADC channels named: `ch0` and `ch1`.
