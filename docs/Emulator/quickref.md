@@ -83,6 +83,9 @@ name                        | description
 ----------------------------|-----------------------------------
 `pwm.write(channel, value)` | Write `value` in the PWM `channel`
 
+### PWM pin names
+There are 2 emulated PWM channels named: `ch0` and `ch1`.
+
 
 ## Emulated ADC (Analog to Digital Converter)
 Use the `adc` module:
@@ -90,9 +93,8 @@ Use the `adc` module:
 ```v
 import adc
 
-val1, val2 := 0, 0
-val1 = adc.read(ch0)       // read de ADC channel 0
-val2 = adc.read(ch1)       // read de ADC channel 1
+val1 := adc.read(ch0)       // read de ADC channel 0
+val2 := adc.read(ch1)       // read de ADC channel 1
 ```
 
 terminal output:
@@ -104,7 +106,7 @@ Aixt virtual ADC input     ADC 1 : 56
 ```
 
 ### Analog channels
-There are 2 emulated channels named: `ch0` and `ch1`. change, as follows:
+There are 2 emulated ADC channels named: `ch0` and `ch1`.
 
 ### Functions
 name                | description

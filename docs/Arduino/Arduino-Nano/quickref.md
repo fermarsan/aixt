@@ -101,4 +101,4 @@ name                        | description
 `pwm.write(channel, value)` | Write `value` in the PWM `channel`
 
 ### PWM pin names
-The PWM pin are named from `ch0` to `ch5`.
+There are 2 PWM channels named: `ch0` and `ch1`.
