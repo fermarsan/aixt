@@ -55,3 +55,31 @@ name                    | description
 
 ### Digital pin names
 The digital pin names are named from `d0` to `d21`.
+
+
+## Pin ports
+Use the `port` module:
+
+```v
+import port
+
+port.setup(port.b, port.all_outputs)
+port.setup(port.c, port.all_inputs)  // port A bit 7 and 6 as outputs, the rest as inputs
+
+val := port.read(port.c)
+port.write(port.b, val) // port echo
+```
+
+### Functions
+name                      | description
+--------------------------|---------------------------
+`port.setup(port, mode)`  | Configure `port` as `mode`
+`port.read(port)`         | Return the value of `port`
+`port.write(port, value)` | Write `value` to `port`
+
+### Digital port names
+| Port | Aixt name |
+|:----:|:---------:|
+| **B**| `b`       |
+| **A**| `c`       |
+| **B**| `d`       |
