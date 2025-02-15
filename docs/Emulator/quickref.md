@@ -59,7 +59,7 @@ _**After calling a reading function**_
 _Note: when using `pin.read()` the user has to write the value in the terminal manually._
 
 
-## Emulated PWM
+## Emulated PWM (Pulse Width Modulation)
 Use the `pwm` module:
 
 ```v
