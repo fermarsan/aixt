@@ -56,7 +56,7 @@ name                    | description
 `pin.read(pin)`         | Return the state of `pin`
 
 
-### `pin` names
+### Digital pin names
 The pin names are named with a letter indicating the port and a number indicating the pin. For example, `a6` indicates pin 6 of port A. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 
@@ -87,7 +87,7 @@ name                      | description
 `port.read(port)`         | Return the value of `port`
 `port.write(port, value)` | Write `value` to `port`
 
-### `port` names
+### Digital port names
 The port names are named with a letter indicating the port. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 ### Pin names for PIC16F8x
