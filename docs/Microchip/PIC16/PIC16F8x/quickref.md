@@ -67,7 +67,7 @@ The pin names are named with a letter indicating the port and a number indicatin
 | **B**| `b0`| `b1`| `b2`| `b3`| `b4`| `b5`| `b6`| `b7`|
 
 
-## Pin port
+## Pin ports
 Use the `port` module:
 
 ```v
