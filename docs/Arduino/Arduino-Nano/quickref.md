@@ -83,3 +83,22 @@ name                      | description
 | **B**| `b`       |
 | **A**| `c`       |
 | **B**| `d`       |
+
+
+## PWM (Pulse Width Modulation)
+Use the `pwm` module:
+
+```v
+import pwm
+
+pwm.write(pwm.ch0, 40)       // set the duty cycle for PWM channel 0
+pwm.write(pwm.ch1, 60)       // set the duty cycle for PWM channel 1
+```
+
+### Functions
+name                        | description
+----------------------------|-----------------------------------
+`pwm.write(channel, value)` | Write `value` in the PWM `channel`
+
+### PWM pin names
+The PWM pin are named from `ch0` to `ch5`.
