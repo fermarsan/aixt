@@ -120,4 +120,4 @@ name                | description
 `adc.read(channel)` | Return the ADC value in `channel`
 
 ### Analog channels
-There are 2 emulated ADC channels named: `ch0` and `ch1`.
+The PWM channels are named from `ch0` to `ch7`.
