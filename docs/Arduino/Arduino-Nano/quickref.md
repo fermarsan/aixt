@@ -134,8 +134,12 @@ uart.println('World...')
 ```
 
 ### Functions
-name                        | description
-----------------------------|-------------------------------------------------------------------------------------
-`uart.print(message)`       | Send the `message` to UART
-`uart.println(message)`     | Send the `message` plus a new line to UART
-`uart.input(message)`       | Send the `message` and return the string entered by the user to UART
+name                    | description
+------------------------|---------------------------------------------------------------
+`uart.setup(baud_rate)` | Configure the `baud_rate` of the UART
+`uart.read()`           | Return one character received by UART
+`uart.input(message)`   | Send the `message` and then return the string received by UART
+`uart.write(character)` | Send one character by UART
+`uart.print(message)`   | Send the `message` by UART
+`uart.println(message)` | Send the `message` plus a new line by UART
+`uart.any()`            | Return the number uf characters in the UART's buffer
