@@ -107,7 +107,7 @@ Aixt virtual ADC input     ADC 1 : 56
 
 ### Functions
 name                | description
---------------------|----------------------------
+--------------------|----------------------------------
 `adc.read(channel)` | Return the ADC value in `channel`
 
 ### Analog channels

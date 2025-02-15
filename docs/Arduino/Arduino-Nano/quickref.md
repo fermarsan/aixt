@@ -116,7 +116,7 @@ val2 := adc.read(ch1)       // read de ADC channel 1
 
 ### Functions
 name                | description
---------------------|----------------------------
+--------------------|----------------------------------
 `adc.read(channel)` | Return the ADC value in `channel`
 
 ### Analog channels
