@@ -1,6 +1,6 @@
 # Quick reference for the PIC16F8x family
 
-Reference for the Microchip PIC16F8x devices:
+Quick reference for the Microchip PIC16F8x devices:
 - PIC16F83
 - PIC16F84
 - PIC16F84A
