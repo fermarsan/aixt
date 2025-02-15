@@ -105,13 +105,13 @@ Aixt virtual ADC input     ADC 0 : 23
 Aixt virtual ADC input     ADC 1 : 56
 ```
 
-### Analog channels
-There are 2 emulated ADC channels named: `ch0` and `ch1`.
-
 ### Functions
 name                | description
 --------------------|----------------------------
 `adc.read(channel)` | Return the ADC in `channel`
+
+### Analog channels
+There are 2 emulated ADC channels named: `ch0` and `ch1`.
 
 
 ## Emulated UART (serial port)
