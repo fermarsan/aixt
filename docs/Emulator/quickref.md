@@ -40,8 +40,8 @@ name                    | description
 `pin.write(pin, value)` | Write `value` in `pin`
 `pin.read(pin)`         | Return the state of `pin`
 
-### `pin` names
-Functions to emulate input/output pins on the terminal. There are 8 emulated pins named: `a`, `b`, `c`, `d`, `w`, `x`, `y` and `z`, which are show in the terminal after any change, as follows:
+### Digital pin names
+The functions to emulate input/output digital pins on the terminal use 8 emulated pins named: `a`, `b`, `c`, `d`, `w`, `x`, `y` and `z`, which are show in the terminal after any change, as follows:
 
 _**After calling a writing function**_
 ```
@@ -102,6 +102,9 @@ Aixt virtual ADC input     ADC 0 : 23
 ```
 Aixt virtual ADC input     ADC 1 : 56
 ```
+
+### Analog channels
+There are 2 emulated channels named: `ch0` and `ch1`. change, as follows:
 
 ### Functions
 name                | description
