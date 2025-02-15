@@ -84,7 +84,7 @@ name                        | description
 `pwm.write(channel, value)` | Write `value` in the PWM `channel`
 
 
-## Emulated ADC
+## Emulated ADC (Analog to Digital Converter)
 Use the `adc` module:
 
 ```v
