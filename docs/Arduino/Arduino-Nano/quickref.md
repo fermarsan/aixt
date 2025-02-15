@@ -121,3 +121,21 @@ name                | description
 
 ### Analog channels
 The PWM channels are named from `ch0` to `ch7`.
+
+
+## UART (serial port)
+Use the `uart` module:
+
+```v
+import uart
+
+uart.print('Hello ')
+uart.println('World...')
+```
+
+### Functions
+name                        | description
+----------------------------|-------------------------------------------------------------------------------------
+`uart.print(message)`       | Send the `message` to UART
+`uart.println(message)`     | Send the `message` plus a new line to UART
+`uart.input(message)`       | Send the `message` and return the string entered by the user to UART
