@@ -148,15 +148,15 @@ time.sleep_us(us)    // delay in microseconds
 ```
 
 
-
+# Creating a new API module
 
 ### File `function_name.c.v`.
 All functions implemented in each **Aixt** module have a file named: 
-`function_name.c.v` where it is done if implementation.
+`function_name.c.v` where it is done its implementation.
 
-In this case the `setup` function of the `adc` module, which sets the resolution of the ADC.
+For instance the `setup` function of the `adc` module, which sets the resolution of the ADC, has to be described in `adc/setup.c.v`.
 
-In devices using the **arduino** _backend_ most functionalities just have to be masked instead of implementing them from scratch. In this case the `setup` function in V masks the `analogReadResolution` function of **arduino**.
+In devices using the **arduino** _backend_ most functionalities just have to be masked instead of implementing them from scratch. In this case the `setup` function in **V** masks the `analogReadResolution` function of **arduino**.
 
 All functions have to be public (`pub`).
 
