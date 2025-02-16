@@ -67,25 +67,25 @@ To activate the port to use
 ```v
 pin.setup(pin_name, pin.output)
 ```
-* *Example: If you want to activate the port 17;  `pin.setup(io17, pin.output)`.*
+* *Example: If you want to activate the port 17;  `pin.setup(pin.io17, pin.output)`.*
 To activate the port to use
 ```v
 pin.high(pin_name)
 ```
-* *Example: If you want to activate the port 17;  `pin.high(io17)`.*
+* *Example: If you want to activate the port 17;  `pin.high(pin.io17)`.*
 
 To disable the port being used
 ```v
 pin.low(pin_name)
 ```
-* *Example: If you want to disable the port 17;  `pin.low(io17)`.*
+* *Example: If you want to disable the port 17;  `pin.low(pin.io17)`.*
 
 To disable or enable the port to be used
 
 ```v
 pin.write(pin_name, VALUE)
 ```
-* *Example: If you want to disable port 17 `pin.write(io17, 1)`, and if you want to activate  `pin.write(io17, 0)`.*
+* *Example: If you want to disable port 17 `pin.write(pin.io17, 1)`, and if you want to activate  `pin.write(pin.io17, 0)`.*
 
 ### Input port detection
 
@@ -94,7 +94,7 @@ If you need to know what state an entry port is in:
 x = pin.read(pin_name)
 ```
 
-* *Example: If you want to detect the VALUE of port 3; `x = pin.read(io3)`, and `x` will take the VALUE of 0 or 1, depending on which port is active or disabled.*
+* *Example: If you want to detect the VALUE of port 3; `x = pin.read(pin.io3)`, and `x` will take the VALUE of 0 or 1, depending on which port is active or disabled.*
 
 ### Pulse Width Modulation (PWM outputs)
 
@@ -102,7 +102,7 @@ To configure some PWM
 ```v
 pin.setup(pin_name, pin.output)
 ```
-* *Example: in pwm you set the PWM to use `pin.setup(io17, pin.output)`*
+* *Example: in pwm you set the PWM to use `pin.setup(pin.io17, pin.output)`*
 
 
 To configure the duty cycle of a modulator
@@ -115,11 +115,11 @@ pwm.write(pin_name, pin.output)
 * *Example: in pwm you set the PWM to use* 
 ```v
 for {
-    pwm.write(io17, val)
+    pwm.write(pin.io17, val)
     sleep_ms(250)
-    val=val+10
-    if val==250{
-		val=0  
+    val += 10
+    if val == 250 {
+		  val = 0  
     }
 }
 ```
@@ -186,12 +186,12 @@ For the development of the program, some examples of the codes in v languages �
 import pin
 import time {sleep_ms}
 
-pin.setup(io14, pin.output)
+pin.setup(pin.io14, pin.output)
 
 for {   //infinite loop
-    pin.high(io14)
+    pin.high(pin.io14)
     sleep_ms(500)
-    pin.low(io14)
+    pin.low(pin.io14)
     sleep_ms(500)
 }
 ```
@@ -203,10 +203,10 @@ import pwm
 
 __global val = 0
 
-pin.setup(io17, pin.output)
+pin.setup(pin.io17, pin.output)
 
 for {
-    pwm.write(io17, val)
+    pwm.write(pin.io17, val)
     sleep_ms(250)
     val=val+10
     if val==250{
@@ -222,9 +222,9 @@ import uart
 
 
   uart.setup(115200)
-  pin.setup(io4,output)
-  pin.setup(io5,output)
-  pin.setup(io12,output)
+  pin.setup(pin.io4,output)
+  pin.setup(pin.io5,output)
+  pin.setup(pin.io12,output)
 
 for {
   uart.println("\r\n Este programa realiza unas funciones establecidas:")
@@ -233,10 +233,10 @@ for {
   uart.println("\r\n El piloto (led) Rojo indica que esta esperando instrucciones.")
   uart.println("\r\n Esperando instrucciones: \r\n")
 
-  pin.high(io12)
+  pin.high(pin.io12)
   sleep_ms(500)
 
-  pin.low(io12)
+  pin.low(pin.io12)
   sleep_ms(500)
   x:=0
   x=uart.available()
@@ -247,10 +247,10 @@ for {
     if command==`A` {
         uart.println("\r\n Comando A recibido. \r\n")
         uart.println("\r\n Realizando acción A. \r\n")
-        pin.high(io4)
+        pin.high(pin.io4)
         sleep_ms(5000)
 
-        pin.low(io4)
+        pin.low(pin.io4)
         sleep_ms(1000)
         uart.println("\r\n Proceso A finalizado. \r\n")
 	}
@@ -258,19 +258,19 @@ for {
       if command==`B` {
         uart.println("\r\n Comando B recibido. \r\n")
         uart.println("\r\n Realizando acción B. \r\n")
-        pin.high(io5)
+        pin.high(pin.io5)
         sleep_ms(5000)
 
-        pin.low(io5)
+        pin.low(pin.io5)
         sleep_ms(1000)
         uart.println("\r\n Proceso B finalizado. \r\n")
 	  }
 
       else {
-        pin.high(io12)
+        pin.high(pin.io12)
         sleep_ms(1000)
 
-        pin.low(io12)
+        pin.low(pin.io12)
         sleep_ms(1000)
       
     }
