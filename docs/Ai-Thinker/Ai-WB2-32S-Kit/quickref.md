@@ -214,6 +214,7 @@ for {
     }
 } 
 ```
+
 * Example UART
 ```v
 import time {sleep_ms}
@@ -277,6 +278,7 @@ for {
   }
 }
 ```
+
 ## Informative video
 Informative video on the development of the AIXT project, with the device
 https://youtu.be/BRSWZXQ2mLY
