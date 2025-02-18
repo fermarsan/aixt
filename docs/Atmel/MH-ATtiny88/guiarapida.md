@@ -175,7 +175,7 @@ DEFINITION AIXT	 | DEFINITION ARDUINO
 
 Parpadeo de un LED en un ciclo infinito con retraso de tiempo:
 
-```go
+```v
 import time { sleep_ms }  			// importa (sleep_ms) del modulo time
 import pin				        // importa el modulo pin en su totalidad
 
@@ -188,7 +188,7 @@ for {                     			//crea el void loob
 }
 ```
 ### Secuencia tipo semaforo
-```go
+```v
 import time {sleep_ms}          //importa la funcion sleep_ms de el modulo time   
 import pin 			// Importa el módulo pin en su totalidad
 
@@ -211,7 +211,7 @@ for{
 ### LECTURA ANALÓGICA Y DIGITAL
 
 En este ejemplo, probaremos las lecturas analógicas y digitales a través del destello de un LED que depende de la variación de un potenciómetro:
-```go
+```v
 import pin                            // Importa el módulo pin en su totalidad
 import adc                            // Importa el módulo adc en su totalidad
 import pwm                            // Importa el módulo pwm en su totalidad
@@ -231,7 +231,7 @@ for{                      // crea el ciclo
 ### comunicacion serial
 
 Prueba de comunicación UART con contador incrementando si se presiona un interruptor:
-```go
+```v
 
 import pin             //importa en su totalidad el modulo PIN
 import uart            //importa el modulo UART

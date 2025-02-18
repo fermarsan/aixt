@@ -28,6 +28,8 @@ fn (mut gen Gen) init_output_file() {
 				'typedef ${c_type} i32;'
 			} else if c_type == 'NOT SUPPORTED' {
 				'// typedef ${c_type} ${v_type};'
+			} else if gen.setup.backend == 'arduino' && v_type == "u16" {
+				'// typedef ${c_type} ${v_type};'
 			} else {
 				'typedef ${c_type} ${v_type};'
 			}

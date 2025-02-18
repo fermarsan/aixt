@@ -1,0 +1,31 @@
+{
+    "port":      "PIC16F182x",
+    "board":     "---",
+    "backend":   "c",
+
+    "cc_linux":			"",             
+    "cc_windows":		"",
+    "cc_make_flags":	"PART@{device}",
+
+    "flasher_linux":    "",
+    "flasher_windows":  "",
+	"flasher_flags":	"",
+
+    "api_paths": [
+        "Microchip/PIC16F182x",
+        "Microchip/xc8-generic",
+        "Microchip/PIC12F-16F-generic/PIC16F-core",
+        "Microchip/PIC12F-16F-generic/timer1",
+        "Microchip/PIC12F-16F-generic/timer2",
+        "Microchip/PIC12F-16F-generic/adc",
+        "Microchip/PIC12F-16F-generic/pwm",
+        "Microchip/PIC12F-16F-generic/uart"
+    ],
+    "v_defines": [
+    ],
+
+    "default_cpu_freq": 32000000,
+    "default_string_len": 20,
+
+    "compiler_setup_path": "setup/xc8.json"
+}

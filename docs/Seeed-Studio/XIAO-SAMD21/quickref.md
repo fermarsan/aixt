@@ -64,7 +64,7 @@ The functions contained in the API for digital input or output and for performin
 ### LED Blinking
 Next, an LED will be turned on and off 10 times.
 
-```go
+```v
 import time {sleep_ms}   // Import the sleep_ms function from the time module 
 import pin  // Import the pin module in its entirety
 
@@ -82,7 +82,7 @@ for{}       // Infinite loop necessary for compilation
 ### Sequence of 3 LEDs
 Next, a sequence of 3 LEDs will be shown.
 
-```go
+```v
 import time {sleep_ms} // Import the sleep_ms function
 import pin  // Import the pin module
 
@@ -109,7 +109,7 @@ for{
 ### Turn on an LED with a Button
 Next, the turning on of an LED will be conditioned to a button.
 
-```go
+```v
 import pin  // Import the pin module
 
 __global (
@@ -131,7 +131,7 @@ for{        // Infinite loop
 
 ### Analog Reading
 
-```go
+```v
 import pin  // import the pin module
 import adc  // import the adc module
 
@@ -170,7 +170,7 @@ for {       // Infinite loop
 
 ### PWM Output
 
-```go
+```v
 import time {sleep_ms}  // import the sleep_ms function
 import pin              // import the pin module
 import pwm              // import the pwm module
@@ -194,7 +194,7 @@ for {
 
 ### Serial Communication
 
-```go
+```v
 import pin      // import the pin module
 import uart     // import the uart module
  

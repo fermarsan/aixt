@@ -126,7 +126,7 @@ This is an Aixt implementation to provide support for the ESP32-C3FH4 board.
 
 ### BLINKING
 
-```go
+```v
 	import time { sleep_ms }  			// Import the time module
 	import pin 						 	// Import the pin module 
 
@@ -142,7 +142,7 @@ This is an Aixt implementation to provide support for the ESP32-C3FH4 board.
 
 ### PWM OUTPUT 
 
-```go
+```v
  import time { sleep_ms }
 import pin
 import pwm
@@ -181,7 +181,7 @@ for {
 
 ### ANALOG READING
 
-```go
+```v
 import pin                            	  
 import adc                            	 
 import pwm                            	 
@@ -197,7 +197,7 @@ for{
 ```
 ### SERIAL COMMUNICATION 
 
-```go
+```v
 import pin             
 import uart            
   
