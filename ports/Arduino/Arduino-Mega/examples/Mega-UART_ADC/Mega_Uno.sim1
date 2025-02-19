@@ -1,0 +1,25 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Ground" CircId="Ground-41" mainComp="false" Show_id="false" Show_Val="false" Pos="412,-48" rotation="0" hflip="1" vflip="1" label="Ground-41" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Potentiometer" CircId="Potentiometer-42" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="412,-96" rotation="90" hflip="1" vflip="1" label="Potentiometer-42" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1 kΩ" Value_Ohm="762 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Rail" CircId="Rail-43" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="412,-144" rotation="90" hflip="1" vflip="1" label="Rail-43" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="SerialTerm" CircId="SerialTerm-57" mainComp="false" Show_id="false" Show_Val="false" Pos="-40,-104" rotation="0" hflip="-1" vflip="1" label="SerialTerm-57" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
+
+<item itemtype="Subcircuit" CircId="Mega-58" mainComp="false" Show_id="true" Show_Val="false" Pos="92,-172" rotation="0" hflip="1" vflip="1" label="Mega-58" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="Mega-UART_ADC.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Connector" uid="Connector-144" startpinid="Ground-41-Gnd" endpinid="Potentiometer-42-PinB" pointList="412,-64,412,-80" />
+
+<item itemtype="Connector" uid="Connector-145" startpinid="Potentiometer-42-PinA" endpinid="Rail-43-outnod" pointList="412,-112,412,-128" />
+
+<item itemtype="Connector" uid="Connector-189" startpinid="SerialTerm-57-pin0" endpinid="Mega-58-0" pointList="-16,-112,100,-112,100,-52" />
+
+<item itemtype="Connector" uid="Connector-190" startpinid="Mega-58-1" endpinid="SerialTerm-57-pin1" pointList="100,-44,100,-32,68,-32,68,-96,-16,-96" />
+
+<item itemtype="Connector" uid="Connector-204" startpinid="Potentiometer-42-PinM" endpinid="Mega-58-A5" pointList="396,-96,320,-96,320,-44,244,-44" />
+
+</circuit>
