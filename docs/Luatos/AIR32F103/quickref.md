@@ -97,24 +97,24 @@ For each of these modules, you will have a file in .c.v format with the same nam
 
 ### Output port configuration
 To activate the port to use
-```go
+```v
 pin.setup(pin_name, mode)
 ```
 To activate the port to use
-```go
+```v
 pin.high(PIN_NAME)
 ```
 * *Example: If you want to activate the port 17;  `pin.high(17)`.*
 
 To disable the port being used
-```go
+```v
 pin.low(PIN_NAME)
 ```
 * *Example: If you want to disable the port 17;  `pin.low(17)`.*
 
 To disable or enable the port to be used
 
-```go
+```v
 pin.write(PIN_NAME, VALUE)
 ```
 * *Example: If you want to disable port 17 `pin.write(17, 1)`, and if you want to activate  `pin.write(17, 0)`.*
@@ -122,7 +122,7 @@ pin.write(PIN_NAME, VALUE)
 ### Input port detection
 
 If you need to know what state an entry port is in:
-```go
+```v
 x = pin.read(PIN_NAME)
 ```
 
@@ -131,13 +131,13 @@ x = pin.read(PIN_NAME)
 ### Analog to digital ports (ADC)
 
 To configure one of the analog ports
-```go
+```v
 adc.setup(PIN_NAME, SETUP_VALUE, ... )
 ```
 * *In PIN_NAME the name of the analog port is entered, in SETUP_VALUE the VALUE that will be given is said port.*
 
 To detect the analog port VALUE
-```go
+```v
 x = adc.read(PIN_NAME)
 ```
 * *In `PIN_NAME` the name of the analog port is entered, and `x` takes the VALUE of said port..*
@@ -145,14 +145,14 @@ x = adc.read(PIN_NAME)
 ## Pulse Width Modulation (PWM outputs)
 
 To configure some PWM
-```go
+```v
 pwm.setup(SETUP_VALUE, setup_VALUE_1, ... )
 ```
 * *In pwm you set the PWM to use, and in SETUP_VALUE the VALUE to which you want to configure said pwm.*
 
 
 To configure the duty cycle of a modulator
-```go
+```v
 pwm.write(duty)
 ```
 * *In PWM the pwm to be used is set, and in `duty` the VALUE of the cycle (from 0 to 100) in percentage.*
@@ -210,19 +210,19 @@ uart.read_1 // receives binary data (in Bytes) to second UART
 * Use of times
 
     * In each expression, the time VALUE is put inside the parentheses.
-```go
+```v
 time.sleep(S) //Seconds
 ```
-```go
+```v
 time.sleep_ms(MS) //Milliseconds
 ```
-```go
+```v
 time.sleep_us(US) //Microseconds
 ```
 
 * Example flashing LED
 
-```go
+```v
 import pin
 import time {sleep_ms}
 
@@ -237,7 +237,7 @@ for {   //infinite loop
 ```
 
 * Example digital input and output
-```go
+```v
 const int ledPIN1 = PA3; //salida digital al led PA3
 
 const int intPIN = PA0; //entrada digital al led PA0
@@ -264,7 +264,7 @@ void loop() {
 
 * Example analog input and output and signal PWM 
 
-```go
+```v
 define LED_BUILTIN 2
 
 #include <PWMOutESP32.h> //https://github.com/fellipecouto/PWMOutESP32 [ http://www.efeitonerd.com.br ]
@@ -305,7 +305,7 @@ void loop() {
 * Example port comunication UART 
 
 
-```go
+```v
 for AIR32F103 as emisor:
 
 long Dato;//Dato como entero

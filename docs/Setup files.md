@@ -21,7 +21,7 @@ The setup files use the `.json` format due to its ubiquitous nature. The followi
     "api_paths": [
         "Microchip/PIC16F8x",
         "Microchip/xc8-generic",
-        "Microchip/PIC16F-generic"
+        "Microchip/PIC12F-16F-generic"
     ],
     "v_defines": [
     ],

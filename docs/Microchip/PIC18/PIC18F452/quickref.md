@@ -84,7 +84,7 @@ name                             | description
 `time.sleep_ms(TIME) `          | Retardo en `miliseg`
 
 ## Configuración de pines 
-```go
+```v
 pin.setup(pin.d3, pin.output)      // Función para configurar el pin como salida 
 pin.setup(pin.a2, pin.output)      // Función para configurar el pin como salida
 pin.setup(pin.b5, pin.input)    // Función para configurar el pin como entrada
@@ -101,7 +101,7 @@ pin.read(pin.b3)      // Función para leer el pin
 
 ```
 ## Configuración de puertos
-```go
+```v
 
 port.setup(port.d3, pin.output)      // Función para configurar el pin como salida 
 port.setup(port.b5, pin.input)    // Función para configurar el pin como entrada
@@ -115,7 +115,7 @@ port.read(port.b3)      // Función para leer el pin
 ```
 Ejemplo de prender y apagar un led:
 
-```go
+```v
       
 for {
     pin.high(pin.d4)
@@ -126,7 +126,7 @@ for {
 ```
 Ejemplo de prender y apagar un led con una entrada digital:
 
-```go
+```v
 
 for {
     
@@ -146,7 +146,7 @@ for {
         
 ```
 ## Configuración del ADC
-```go
+```v
 
     adc.setup()
     
@@ -178,14 +178,14 @@ for {
 
 ```
 ## Configuración del PWM
-```go
+```v
 pwm.setup(1, 2)     // Inicializa el pwm
 pwm.write(val, 1)     // Calcula el ciclo de trabajo 
 
 ```
 Ejemplo de variar la intensidad de un led:
 
-```go
+```v
  for {    
         valor_adc := adc.read(0)  // Almacena el valor del ADC
         pwm.write(valor_adc,1)  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1        
@@ -197,7 +197,7 @@ Ejemplo de variar la intensidad de un led:
 
 
 ## Configuración del UART Transmisión
-```go
+```v
    
        //CONFIG DE LOS PINES
     pin.setup(pin.c6,output)   //RC6 = TX
@@ -215,7 +215,7 @@ Ejemplo de variar la intensidad de un led:
 ```
 ## Configuración del UART Recepcion
 
-```go
+```v
 
     port.setup(port.b, pin.port.output)
 

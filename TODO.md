@@ -54,3 +54,6 @@ Tasks to do in Aixt
 - [x] Implement an example library
 - [x] Issue: Array initialization fails the number of elements
 - [x] Pass arrays as function parameters
+- [x] Issue solved: `U16` type fails on Arduino backend
+- [x] Update quickref.md files (Emulator, PIC16F8x, Arduino Nano) 
+- [x] Move the `random` module from API to Libraries  

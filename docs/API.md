@@ -8,26 +8,29 @@ import pin
 
 ### Pin setup
 ```v
-pin.setup(pin_name, mode)
+pin.setup(name, mode)
 ```
-- `pin_name` could change depending on the microcontroller for instance `pin.b7`, `pin.gp7`, etc.
+- `name` could change depending on the microcontroller for instance `pin.b7`, `pin.gp7`, etc.
 - `mode`:
   - `pin.input`
   - `pin.output`
 
 ### Pin output
 ```v
-pin.high(pin_name)
+pin.high(name)
 ```
+
 ```v
-pin.low(pin_name)
+pin.low(name)
 ```
+
 ```v
-pin.toggle(pin_name)    
+pin.toggle(name)    
 // not available for all devices
 ```
+
 ```v
-pin.write(pin_name, value)
+pin.write(name, value)
 ```
 - `value` is an integer to be written in the pin
   - `0`
@@ -36,7 +39,7 @@ pin.write(pin_name, value)
 
 ### Pin input
 ```v
-x = pin.read(pin_name)
+x = pin.read(name)
 ```
 `pin.read()` returns an integer (`0` or `1`)
 
@@ -46,8 +49,8 @@ requires:
 import adc
 ```
 
+The syntax for all the ADC functions is: `adc.function_name()`.
 
-The syntax for all the ADC functions is: `adcx_function_name()`, being `x` the identifying number in case of multiple ADCs. You can omit the `x` for referring to the first ADC or in the case of having only one.
 
 ### ADC setup
 ```v
@@ -89,7 +92,7 @@ requires:
 import uart
 ```
 
-The UART used to be the standard stream output, so the functions `print()`, `println()` and `input()` work directly on the default UART. The default UART could change depending on the board or microcontroller, please refer to the specific documentation. The syntax for most of UART functions is: `uartx_function_name()`, being `x` the identifying number in case of multiple UARTs. You can omit the `x` for referring to the first or default UART, or in the case of having only one.  
+The default UART could change depending on the board or microcontroller, please refer to the specific documentation. The syntax for most of UART functions is: `uartx.function_name()`, being `x` the identifying number in case of multiple UARTs. You can omit the `x` for referring to the first or default UART, or in the case of having only one.  
 
 ### UART setup
 
@@ -100,13 +103,13 @@ uart.setup(baud_rate)   // the same of uart1_setup(baud_rate)
 
 ### Serial receiving
 ```v
-str1 = input()          // read a string from the default UART
+str1 = uart.input()          // read a string from the default UART
 ```
 ```v
-str2 = uart2_input()    // read a string from UART2
+str2 = uart2.input()    // read a string from UART2
 ```
 ```v
-str2 = uart1_read()    // read a single Byte from UART1
+str2 = uart1.read()    // read a single Byte from UART1
 ```
 
 ### Serial transmitting
@@ -127,7 +130,7 @@ uart2.write(message)    // send binary data (in Bytes) to UART2
 ```
 
 
-## Timming
+## Delay
 requires:
 ```v
 import time
@@ -145,71 +148,59 @@ time.sleep_us(us)    // delay in microseconds
 ```
 
 
+# Creating a new API module
+
+### File `function_name.c.v`.
+All functions implemented in each **Aixt** module have a file named: 
+`function_name.c.v` where it is done its implementation.
+
+For instance the `setup` function of the `adc` module, which sets the resolution of the ADC, has to be described in `adc/setup.c.v`.
+
+In devices using the **arduino** _backend_ most functionalities just have to be masked instead of implementing them from scratch. In this case the `setup` function in **V** masks the `analogReadResolution` function of **arduino**.
+
+All functions have to be public (`pub`).
+
+The `@[inline]` attribute is optional and defines the function created in C to be `inline`.
 
 
-### Archivo `function_name.c.v`
-Todas los funciones implementadas en cada módulo de **Aixt** tienen un archivo nombrado 
-`nombre_funcion.c.v` donde se hace si implementación.
+### File `module_name.c.v`.
+All modules implemented in the `api` directory have a file with the same name as the module. For example the `pwm` module must have a `pwm.c.v` file where the basic definitions for the module are made.
 
-en este caso la función `setup` del módulo `adc`, que configura la resolución del ADC.
+In this case the functions to be invoked from C (arduino) are defined.
 
-En los dispositivos que usan el _backend_ de **arduino** la mayoría de funcionalidades solamente se tienen que enmascarar en lugar de implementarlas desde cero. En este caso la función `setup` en V enmascara la función `analogReadResolution` de **arduino**.
+V allows the `any` data type which is practical if the return data type and/or parameters of the function to be masked are not known.
 
-Todas las funciones tienen que ser públicas (`pub`).
+In this case the implementation can be left as is.
 
-El atributo `@[inline]` es opcional y define que la función creada en C sea 'inline'.
-
-
-### Archivo `module_name.c.v`
-Todos los módulos implementados en el directorio `api` tienen un archivo con el mismo nombre del módulo. Por ejemplo el módulo `pwm` debe tiene un archivo `pwm.c.v` donde se hacen las definiciones básicas para el módulo.
-
-En este caso se definen las funciones que van a ser invocadas desde C (arduino).
-
-V permite el tipo de datos `any` que resulta ser práctico si no se conoce el tipo de datos de retorno y/o de los parámetros de la función a enmascarar.
-
-En este caso la implementación puede quedar tal cual está.
-
-### Inclusión de archivos en C
-Los módulos de la API en **Aixt** pueden incluir archivos `.c` ó `.h`con la directiva `#include <lib.h>` ó `#include "lib.h"`. Teniendo en cuenta que los archivos incluidos entre `"` se buscarán en el mismo directorio.
-
-### Enmascaramiento de métodos de arduino
-En el caso del _backend_ de **arduino**, las funciones definidas como métodos se pueden redefinir como macros en un archivo `.c` para poder ser 'llamadas' desde V sin problemas.
-
-Reemplazando el `.` por `_`.
+### File inclusion in C
+API modules in **Aixt** can include `.c` or `.h` files with the `#include <lib.h>` or `#include “lib.h”` directive. Note that files enclosed in `"` will be searched in the same directory.
 
 
-Y cada función a implementar o enmascarar se describe en un archivo `.c.v` separado, para poder ser llamado independientemente desde V con el fin de utilizar la menor cantidad de memoria posible si así lo desea el usuario.
+### Masking of arduino methods
+In the case of the **arduino** _backend_, functions defined as methods can be redefined as macros in a `.c` file so that they can be `called` from V without problems.
 
-en este caso debemos reemplazar `Serial1` por solo `Serial` en todas las funciones.
-
-
-Borramos los módulos no soportados
-y listo
-
-Ahora compilemos los ejemplos para corroborar el funcionamiento.
-
-Renombramos las carpetas de ejemplos y los archivos `.v`
-
-es aconsejable abrir un sesión diferente de vscode con unicamente el archivo del proyecto de ejemplo
-
-debemos modificar el archivo `settings.json` del directorio `.vscode` con el nombre del nuevo dispositivo
-
-En el caso del ejemplo del parpadeo, la transcompilación generó el archivo `.ino` y el archivo binario de salida en la carpeta `build`
-
-ahora lo probamos en el  simulador **Wokwi**
-podemos copiar el código generado al simulador
-
-Como vemos el ejemplo del parpadeo funciona
-
-Listo
-
-No es mas por este video
-nos vemos en un próximo video
+Replacing the `.` with `_`.
 
 
+And each function to be implemented or masked is described in a separate `.c.v` file, so that it can be called independently from V in order to use as little memory as possible if desired by the user.
+
+In this case we must replace `Serial1` by just `Serial` in all functions.
 
 
+We delete the unsupported modules
+and that's it
 
+Now let's compile the examples to corroborate the operation.
 
+We rename the examples folders and the `.v` files.
 
+it is advisable to open a different vscode session with only the example project file.
 
+we must modify the `settings.json` file in the `.vscode` directory with the name of the new device.
+
+In the case of the flicker example, the transcompilation generated the `.ino` file and the output binary file in the `build` folder.
+
+now we test it in the **Wokwi** simulator
+we can copy the generated code to the simulator
+
+As we can see the example of the blinking works

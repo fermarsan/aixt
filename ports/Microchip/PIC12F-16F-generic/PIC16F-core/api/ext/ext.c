@@ -1,0 +1,1 @@
+#define EXT_IRQ_IN_USE

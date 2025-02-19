@@ -1,25 +1,47 @@
-# Quick reference for the Software Emulator port
+# Quick reference for the Software Emulator
+Software CLI emulator that works on _Linux_, _Windows_ and _Android (Termux)_.
 
-This software emulation works on _Linux_, _Windows_ and _Android (Termux)_.
 
 ## Delay
 Use the `time` module:
+
 ```v
+import time
+
 time.sleep(2)            // sleep for 2 seconds
 time.sleep_ms(50)        // sleep for 50 milliseconds
 time.sleep_us(100)       // sleep for 100 microseconds
 ```
 
+### Functions
+name                  | description
+----------------------|-----------------------
+`time.sleep(time)`    | delay in seconds
+`time.sleep_us(time)` | delay in microseconds
+`time.sleep_ms(time)` | delay in milliseconds
+
+
 ## Emulated pins
+Use the `pin` module:
+
 ```v
-pin.high(pin.a)         // turn ON the "a" pin 
-pin.low(y)          // turn OFF the "y" pin 
-pin.write(pin.d, 1)     // write 1 on "d" pin
-pin.read(x)         // read "x" pin
+import pin
+
+pin.high(pin.x)
+pin.low(pin.y)
+pin.write(pin.z, pin.read(pin.a))   // pin echo
 ```
 
-### `pin` names
-Functions to emulate input/output pins on the terminal. There are 8 emulated pins named: `a`, `b`, `c`, `d`, `w`, `x`, `y` and `z`, which are show in the terminal after any change, as follows:
+### Functions
+name                    | description
+------------------------|---------------------------
+`pin.high(pin)`         | Turn ON `pin`
+`pin.low(pin)`          | Turn OFF `pin`
+`pin.write(pin, value)` | Write `value` in `pin`
+`pin.read(pin)`         | Return the state of `pin`
+
+### Digital pin names
+The functions to emulate input/output digital pins on the terminal use 8 emulated pins named: `a`, `b`, `c`, `d`, `w`, `x`, `y` and `z`, which are show in the terminal after any change, as follows:
 
 _**After calling a writing function**_
 ```
@@ -34,46 +56,94 @@ _**After calling a reading function**_
  Aixt virtual pins     Input z : 1
 ```
 
-#### Supported functions
-name                    | description
-------------------------|---------------------
-`pin.high(pin)`         | Turn ON `pin`
-`pin.low(pin)`          | Turn OFF `pin`
-`pin.write(pin, val)`   | Write `val` in `pin`
-`pin.read(pin)`         | Read `pin`
-
 _Note: when using `pin.read()` the user has to write the value in the terminal manually._
 
-## PWM
+
+## Emulated PWM (Pulse Width Modulation)
+Use the `pwm` module:
+
 ```v
-pwm1_duty(40)       // set the duty cycle for PWM 1
-pwm2_duty(60)       // set the duty cycle for PWM 2
+import pwm
+
+pwm.write(pwm.ch0, 40)       // set the duty cycle for PWM channel 0
+pwm.write(pwm.ch1, 60)       // set the duty cycle for PWM channel 1
 ```
 
 terminal output:
 ```
  Aixt virtual PWM outputs
-                                    PWM 1 :  40 %
+                                    PWM 0 :  40 %
 ||||||||||||||||||||______________________________
-                                    PWM 2 :  60 %
+                                    PWM 1 :  60 %
 ||||||||||||||||||||||||||||||____________________
 ```
 
-## ADC
+### Functions
+name                        | description
+----------------------------|-----------------------------------
+`pwm.write(channel, value)` | Write `value` in the PWM `channel`
+
+### PWM pin names
+There are 2 emulated PWM channels named: `ch0` and `ch1`.
+
+
+## Emulated ADC (Analog to Digital Converter)
+Use the `adc` module:
+
 ```v
-val1, val2 := 0, 0
-val1 = adc1_read()       // read de ADC 1
-val2 = adc2_read()       // read de ADC 2
+import adc
+
+val1 := adc.read(ch0)       // read de ADC channel 0
+val2 := adc.read(ch1)       // read de ADC channel 1
 ```
 
 terminal output:
 ```
-Aixt virtual ADC input     ADC 1 : 23
+Aixt virtual ADC input     ADC 0 : 23
 ```
 ```
-Aixt virtual ADC input     ADC 2 : 56
+Aixt virtual ADC input     ADC 1 : 56
 ```
 
+### Functions
+name                | description
+--------------------|----------------------------------
+`adc.read(channel)` | Return the ADC value in `channel`
 
-### `input()` function
-The input strings to be captured by the `input()` function having a fixed size of 30 characters.
+### Analog channels
+There are 2 emulated ADC channels named: `ch0` and `ch1`.
+
+
+## Emulated UART (serial port)
+This software emulator has 3 virtual UARTs named `UART`, `UART2` and `UART3`.
+
+Use the `uart` or `uartx` module:
+
+```v
+import uart
+
+uart.print('Hello ')
+uart.println('World...')
+```
+
+terminal output:
+```
+ Aixt virtual UART
+Hello world!
+```
+
+### Functions
+name                        | description
+----------------------------|-------------------------------------------------------------------------------------
+`uart.print(message)`       | Print the `message` in the virtual UART
+`uart.println(message)`     | Print the `message` plus a new line in the virtual UART
+`uart.input(message)`       | Print the `message` and return the string entered by the user in the virtual UART
+`uart2.print(message)`      | Print the `message` in the virtual UART 2
+`uart2.println(message)`    | Print the `message` plus a new line in the virtual UART 2
+`uart2.input(message)`      | Print the `message` and return the string entered by the user in the virtual UART 2
+`uart3.print(message)`      | Print the `message` in the virtual UART 3
+`uart3.println(message)`    | Print the `message` plus a new line in the virtual UART 3
+`uart3.input(message)`      | Print the `message` and return the string entered by the user in the virtual UART 3
+
+### Input function
+The input strings to be captured by the `uart.input()` function having a fixed size of 30 characters.
