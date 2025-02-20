@@ -79,7 +79,9 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 					}
 					'arduino' {
 						if isr_name == 'ext' {
-							'attachInterrupt(digitalPinToInterrupt(_const_${node.attrs[0].arg}), ${name}, _const_ext__${node.attrs[1].name});'
+							
+							// '''#define enable_ext_irq_${node.attrs[0].arg.replace('.', '__')} \\
+							// attachInterrupt(digitalPinToInterrupt(_const_${node.attrs[0].arg.replace('.', '__')}), ${name}, _const_ext__${node.attrs[1].name})'''
 						} else {
 							''
 						}

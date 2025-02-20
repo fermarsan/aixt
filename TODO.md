@@ -28,7 +28,7 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Start changing the External Interrupt for PIC16F8x to `@[ext_isr; falling]` style
+- [ ] Start changing the External Interrupt for Arduino Nano using C maros with string concatenation
 
 ### Done ✓make
 
