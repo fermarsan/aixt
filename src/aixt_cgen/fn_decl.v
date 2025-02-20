@@ -12,7 +12,6 @@ import v.ast
 fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := ['\n']
-	mut attrs := ''
 	mut ret, mut ret_type := '', ''
 	mut name := ''
 	mut params := ''
@@ -33,6 +32,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			mut nxc_task := false
 			for a in node.attrs {
 				attrs += '${a.name} '
+				attrs_args += '${a.arg} '
 				if a.name == 'task' { 
 					nxc_task = true
 				}
@@ -73,13 +73,18 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				}
 			// ---------- functions as Interrupt Service Routines ----------
 			} else if attrs.contains('_isr') {	
-				isr_name := attrs.replace('_isr', '')
+				isr_name := attrs.replace('_isr', '').replace(' ', '')
+				gen.init_cmds << isr_name
 				gen.init_cmds << match gen.setup.backend {
 					'c' {
 						'ptr_${isr_name.replace(' ', '')}_isr = ${name};'
 					}
 					'arduino' {
-						'attachInterrupt(digitalPinToInterrupt(X), ${name}, CHANGE);'
+						if isr_name == 'ext' {
+							'attachInterrupt(digitalPinToInterrupt(${isr_name}), ${name}, ext_int_mode);'
+						} else {
+							''
+						}
 					}
 					else {
 						''

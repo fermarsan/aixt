@@ -29,6 +29,7 @@ Tasks to do in Aixt
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
 - [ ] Start implementing External Interrupts on Arduino backend
+- [ ] Change the function attribute management
 
 ### Done ✓make
 

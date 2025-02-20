@@ -10,7 +10,7 @@ __global (
 	state = false
 )
 
-@[ext_isr]
+@[ext_isr: 'pin.d11']
 fn blink() {
 	state = !state
 }
