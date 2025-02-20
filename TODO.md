@@ -28,6 +28,7 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
+- [ ] Start implementing External Interrupts on Arduino backend
 
 ### Done ✓make
 
