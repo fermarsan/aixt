@@ -29,6 +29,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				gen.init_cmds << '${module_short_name}__init();'
 			}
 			gen.cur_fn = node.name
+			// -------------------- NXC tasks --------------------
 			mut nxc_task := false
 			for a in node.attrs {
 				attrs += '${a.name} '
@@ -38,6 +39,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			}
 			if nxc_task && gen.setup.backend == 'nxc' {
 				name = '${node.short_name}'
+			// -------------------- regular functions --------------------
 			} else {
 				ret, ret_type = gen.get_str_c_type(node.return_type)
 				ret_type = ret + ret_type.replace('string', 'char*') + ' '	// type
@@ -52,7 +54,8 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			for st in node.stmts {
 				stmts << gen.ast_node(st).join('\n').split('\n')	// separate line by line
 			}
-			if attrs.contains('as_macro') {	// functions as macros
+			// -------------------- functions as C macros -------------------- 
+			if attrs.contains('as_macro') {	
 				mut names := ''
 				for param in node.params {
 					names += '${param.name}, '
@@ -68,11 +71,23 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				} else {
 					out << $tmpl('c_templates/fn_decl_as_multi_macro.tmpl.c')#[..-1].replace('return', '')
 				}
-			} else if attrs.contains('_isr') {	// functions as Interrupt Service Routines
+			// ---------- functions as Interrupt Service Routines ----------
+			} else if attrs.contains('_isr') {	
 				isr_name := attrs.replace('_isr', '')
-				gen.init_cmds << 'ptr_${isr_name.replace(' ', '')}_isr = ${name};'
+				gen.init_cmds << match gen.setup.backend {
+					'c' {
+						'ptr_${isr_name.replace(' ', '')}_isr = ${name};'
+					}
+					'arduino' {
+						'attachInterrupt(digitalPinToInterrupt(X), ${name}, CHANGE);'
+					}
+					else {
+						''
+					}
+				}
 				attrs = ''
 				out << $tmpl('c_templates/fn_decl.tmpl.c')#[..-1]
+			// -------------------- regular functions --------------------
 			} else {
 				gen.definitions << $tmpl('c_templates/fn_prototype.tmpl.c')#[..-1].replace('inline ', '')	// generates the function's prototype
 				out << $tmpl('c_templates/fn_decl.tmpl.c')#[..-1]
