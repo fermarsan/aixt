@@ -12,6 +12,7 @@ import v.ast
 fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := ['\n']
+	mut attrs := if node.attrs.len == 0 { '' } else { node.attrs[0].name }
 	mut ret, mut ret_type := '', ''
 	mut name := ''
 	mut params := ''
@@ -28,15 +29,13 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				gen.init_cmds << '${module_short_name}__init();'
 			}
 			gen.cur_fn = node.name
-			// -------------------- NXC tasks --------------------
 			mut nxc_task := false
 			for a in node.attrs {
-				attrs += '${a.name} '
-				attrs_args += '${a.arg} '
 				if a.name == 'task' { 
 					nxc_task = true
 				}
 			}
+			// -------------------- NXC tasks --------------------
 			if nxc_task && gen.setup.backend == 'nxc' {
 				name = '${node.short_name}'
 			// -------------------- regular functions --------------------
@@ -55,7 +54,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				stmts << gen.ast_node(st).join('\n').split('\n')	// separate line by line
 			}
 			// -------------------- functions as C macros -------------------- 
-			if attrs.contains('as_macro') {	
+			if attrs == 'as_macro' {	
 				mut names := ''
 				for param in node.params {
 					names += '${param.name}, '
@@ -73,15 +72,14 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				}
 			// ---------- functions as Interrupt Service Routines ----------
 			} else if attrs.contains('_isr') {	
-				isr_name := attrs.replace('_isr', '').replace(' ', '')
-				gen.init_cmds << isr_name
+				isr_name := attrs.replace('_isr', '')
 				gen.init_cmds << match gen.setup.backend {
 					'c' {
-						'ptr_${isr_name.replace(' ', '')}_isr = ${name};'
+						'ptr_${isr_name}_isr = ${name};'
 					}
 					'arduino' {
 						if isr_name == 'ext' {
-							'attachInterrupt(digitalPinToInterrupt(${isr_name}), ${name}, ext_int_mode);'
+							'attachInterrupt(digitalPinToInterrupt(_const_${node.attrs[0].arg}), ${name}, _const_ext__${node.attrs[1].name});'
 						} else {
 							''
 						}

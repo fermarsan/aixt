@@ -28,8 +28,7 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Start implementing External Interrupts on Arduino backend
-- [ ] Change the function attribute management
+- [ ] Start changing the External Interrupt for PIC16F8x to `@[ext_isr; falling]` style
 
 ### Done ✓make
 
@@ -59,3 +58,5 @@ Tasks to do in Aixt
 - [x] Issue solved: `U16` type fails on Arduino backend
 - [x] Update quickref.md files (Emulator, PIC16F8x, Arduino Nano) 
 - [x] Move the `random` module from API to Libraries  
+- [x] Implement External Interrupts on Arduino backend
+- [x] Change the function attribute management

@@ -10,7 +10,7 @@ __global (
 	state = false
 )
 
-@[ext_isr: 'pin.d11']
+@[ext_isr:'pin.d11'; rising]
 fn blink() {
 	state = !state
 }
@@ -18,8 +18,6 @@ fn blink() {
 pin.setup(pin.d11, pin.input)
 pin.setup(pin.d13, pin.output)
 pin.low(pin.d13)
-
-ext.setup(ext.change)
 
 for {
 	pin.write(pin.d11, u8(state))
