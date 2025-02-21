@@ -28,7 +28,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Start changing the External Interrupt for Arduino Nano using C maros with string concatenation
 
 ### Done ✓make
 
@@ -58,5 +57,7 @@ Tasks to do in Aixt
 - [x] Issue solved: `U16` type fails on Arduino backend
 - [x] Update quickref.md files (Emulator, PIC16F8x, Arduino Nano) 
 - [x] Move the `random` module from API to Libraries  
-- [x] Implement External Interrupts on Arduino backend
+- [x] Implement External Interrupts on Arduino backend (AVR based)
 - [x] Change the function attribute management
+- [x] Change the External Interrupt for Arduino Nano using C maros with string concatenation
+- [x] Add an external interrupt example for Arduino Nano

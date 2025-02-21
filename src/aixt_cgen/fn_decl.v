@@ -73,21 +73,21 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			// ---------- functions as Interrupt Service Routines ----------
 			} else if attrs.contains('_isr') {	
 				isr_name := attrs.replace('_isr', '')
-				gen.init_cmds << match gen.setup.backend {
+				match gen.setup.backend {
 					'c' {
-						'ptr_${isr_name}_isr = ${name};'
+						gen.init_cmds << 'ptr_${isr_name}_isr = ${name};'
 					}
 					'arduino' {
 						if isr_name == 'ext' {
-							
+							pin_name := node.attrs[0].arg
+							pin := gen.table.global_scope.find_const(pin_name) or { panic(err) }
+							name = 'ext_isr_${pin.expr.str()}'
 							// '''#define enable_ext_irq_${node.attrs[0].arg.replace('.', '__')} \\
 							// attachInterrupt(digitalPinToInterrupt(_const_${node.attrs[0].arg.replace('.', '__')}), ${name}, _const_ext__${node.attrs[1].name})'''
-						} else {
-							''
 						}
 					}
 					else {
-						''
+						name = name
 					}
 				}
 				attrs = ''
