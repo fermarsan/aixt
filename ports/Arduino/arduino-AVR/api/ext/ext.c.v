@@ -7,10 +7,13 @@
 module ext
 
 
-@[as_macro] pub const rising  = C.RISING  
-@[as_macro] pub const falling = C.FALLING  
-@[as_macro] pub const change = 	C.CHANGE 	
+#include "ext.c"
 
-__global (
-	ext_int_mode = rising
-)
+fn C.ext_isr(pin any) fn()
+fn C.attachInterrupt(pin any, handler fn(), mode any)
+fn C.detachInterrupt(pin any)	
+fn C.digitalPinToInterrupt(pin any)
+
+@[as_macro] pub const rising  = C.RISING
+@[as_macro] pub const falling = C.FALLING
+@[as_macro] pub const change  = C.CHANGE

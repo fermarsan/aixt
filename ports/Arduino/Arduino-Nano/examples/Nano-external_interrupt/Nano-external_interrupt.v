@@ -7,18 +7,20 @@ import pin
 import ext
 
 __global (
-	state = false
+	state = true
 )
 
-@[ext_isr:'pin.d11'; rising]
+@[ext_isr:'pin.d2']
 fn blink() {
 	state = !state
 }
 
-pin.setup(pin.d11, pin.input)
+pin.setup(pin.d2, pin.input)
 pin.setup(pin.d13, pin.output)
 pin.low(pin.d13)
 
+ext.irq_enable(pin.d2, ext.rising)
+
 for {
-	pin.write(pin.d11, u8(state))
+	pin.write(pin.d13, u8(state))
 }

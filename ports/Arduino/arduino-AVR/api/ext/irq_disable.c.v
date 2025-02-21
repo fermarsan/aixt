@@ -1,15 +1,14 @@
 // Project name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2024-2025
+// Date: 2024
 // License: MIT
 //
 // Description: External interrupts management functions for 16F family
 module ext
 
-// irq_enable enables the external interrupt
+// irq_disable disables the external interrupt
 @[as_macro]
-pub fn irq_enable() {
-	C.GIE = 1
-	C.INTE = 1
+pub fn irq_disable(pin any) {
+	C.detachInterrupt(C.digitalPinToInterrupt(pin))
 }
 

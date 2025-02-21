@@ -1,0 +1,1 @@
+#define ext_isr(PIN)    ext_isr_##PIN
