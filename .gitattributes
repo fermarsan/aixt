@@ -27,8 +27,8 @@
 *.mk linguist-ignore
 *.inc linguist-ignore
 *.bat linguist-ignore
-*Makefile linguist-ignore
-*makefile linguist-ignore
+*Makefile linguist-vendored
+*makefile linguist-vendored
 
 # Mark binary files as binary
 *.d binary
