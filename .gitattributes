@@ -21,7 +21,7 @@
 #  ports/**/**/projects/** linguist-vendored=true
 #  ports/*/projects/*.X/** linguist-vendored=true
 
- assets/** linguist-documentation=true
+#  assets/** linguist-documentation=true
 
 # others
 *.i linguist-vendored
@@ -54,3 +54,12 @@
 
 # Mark dependency directories as linguist-vendored
 .vmodules/ linguist-vendored
+
+# Ignore image files in language statistics
+*.png linguist-vendored
+*.jpg linguist-vendored
+*.jpeg linguist-vendored
+*.gif linguist-vendored
+*.bmp linguist-vendored
+*.svg linguist-vendored
+*.ico linguist-vendored
