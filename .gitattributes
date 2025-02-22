@@ -22,6 +22,7 @@
 #  ports/*/projects/*.X/** linguist-vendored=true
 
 #  assets/** linguist-documentation=true
+*.txt linguist-documentation=true
 
 # others
 *.i linguist-vendored
