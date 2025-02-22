@@ -8,7 +8,10 @@
 *.h linguist-generated=true
 *.ino linguist-generated=true
 *.nxc linguist-generated=true
+.bin/ linguist-generated=true
 
+
+ports/WCH/CH573F-mini-BLE/projects/*linguist-vendored=true
 # ports/**/projects/** linguist-vendored=true
 # ports/**/**/projects/** linguist-vendored=true
 # ports/**/**/**/projects/** linguist-vendored=true
@@ -28,7 +31,6 @@
 *.i linguist-vendored
 *.mk linguist-vendored
 *.inc linguist-vendored
-*.s linguist-vendored
 *.bat linguist-vendored
 *.P linguist-vendored
 *.sdc linguist-vendored
@@ -73,3 +75,8 @@
 *.S linguist-vendored
 *.a51 linguist-vendored
 *.inc linguist-vendored
+
+# Ignore Linux executables without extension
+# Assuming executables are in specific directories like "bin" or "build"
+bin/* linguist-vendored
+build/* linguist-vendored
