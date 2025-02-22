@@ -65,3 +65,10 @@
 *.bmp linguist-vendored
 *.svg linguist-vendored
 *.ico linguist-vendored
+
+# Ignore assembly files in language statistics
+*.s linguist-vendored
+*.asm linguist-vendored
+*.S linguist-vendored
+*.a51 linguist-vendored
+*.inc linguist-vendored
