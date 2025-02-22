@@ -80,3 +80,7 @@ ports/WCH/CH573F-mini-BLE/projects/*linguist-vendored=true
 # Assuming executables are in specific directories like "bin" or "build"
 bin/* linguist-vendored
 build/* linguist-vendored
+
+# Ignore JSON and TOML files in language statistics
+*.json linguist-vendored
+*.toml linguist-vendored
