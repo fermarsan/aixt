@@ -23,10 +23,15 @@
 
 #  assets/** linguist-documentation=true
 
-*.i linguist-ignore
-*.mk linguist-ignore
-*.inc linguist-ignore
-*.bat linguist-ignore
+# others
+*.i linguist-vendored
+*.mk linguist-vendored
+*.inc linguist-vendored
+*.bat linguist-vendored
+
+*.ipynb linguist-vendored
+
+# Ignore Makefiles in language statistics
 *Makefile linguist-vendored
 *makefile linguist-vendored
 
