@@ -8,3 +8,4 @@ module main
 
 
 @[as_macro]	const led_0 = 13
+GIR
