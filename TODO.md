@@ -15,7 +15,8 @@ Tasks to do in Aixt
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
 - [ ] Implement an equivalent to Arduino's `millis()`
 - [ ] Implements sub-modules
-- [ ] Implement CH32V and CH5xx families on Arduino through Platformio
+- [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO
+- [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO
 
 
 ### In Progress
