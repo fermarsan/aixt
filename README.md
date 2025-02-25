@@ -91,8 +91,8 @@ arrays                | dynamic-sized                     | fixed-sized and dyna
 default integers size | 32 bits                           | depends on the device
 structs               | allow functions (object-oriented) | do not allow functions (only structured programming)
 functions             | multiple return values            | only one return value
-text macros           | not allowed                       | allowed by using '@[as_macro]' attribute, for functions and constants
-`C` variables access  | not allowed                       | allowed by using 'C.var_name' syntax
+text macros           | not allowed                       | allowed by using `@[as_macro]` attribute, for functions and constants
+`C` variables access  | not allowed                       | allowed by using `C.var_name` syntax
 global variables      | disabled by default               | enabled by default
 
 

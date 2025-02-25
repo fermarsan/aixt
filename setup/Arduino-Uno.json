@@ -14,7 +14,9 @@
     "api_paths": [
         "Arduino/Arduino-Uno",
         "Arduino/arduino-AVR",
-        "Arduino/arduino-generic-UART"
+        "Arduino/arduino-generic-UART",
+        "Arduino/arduino-generic-I2C",
+        "Arduino/arduino-generic-spi"
     ],
     "v_defines": [
     ],

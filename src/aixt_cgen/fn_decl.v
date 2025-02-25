@@ -12,7 +12,7 @@ import v.ast
 fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := ['\n']
-	mut attrs := ''
+	mut attrs := if node.attrs.len == 0 { '' } else { node.attrs[0].name }
 	mut ret, mut ret_type := '', ''
 	mut name := ''
 	mut params := ''
@@ -31,13 +31,14 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			gen.cur_fn = node.name
 			mut nxc_task := false
 			for a in node.attrs {
-				attrs += '${a.name} '
 				if a.name == 'task' { 
 					nxc_task = true
 				}
 			}
+			// -------------------- NXC tasks --------------------
 			if nxc_task && gen.setup.backend == 'nxc' {
 				name = '${node.short_name}'
+			// -------------------- regular functions --------------------
 			} else {
 				ret, ret_type = gen.get_str_c_type(node.return_type)
 				ret_type = ret + ret_type.replace('string', 'char*') + ' '	// type
@@ -52,7 +53,8 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			for st in node.stmts {
 				stmts << gen.ast_node(st).join('\n').split('\n')	// separate line by line
 			}
-			if attrs.contains('as_macro') {	// functions as macros
+			// -------------------- functions as C macros -------------------- 
+			if attrs == 'as_macro' {	
 				mut names := ''
 				for param in node.params {
 					names += '${param.name}, '
@@ -68,11 +70,29 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				} else {
 					out << $tmpl('c_templates/fn_decl_as_multi_macro.tmpl.c')#[..-1].replace('return', '')
 				}
-			} else if attrs.contains('_isr') {	// functions as Interrupt Service Routines
+			// ---------- functions as Interrupt Service Routines ----------
+			} else if attrs.contains('_isr') {	
 				isr_name := attrs.replace('_isr', '')
-				gen.init_cmds << 'ptr_${isr_name.replace(' ', '')}_isr = ${name};'
+				match gen.setup.backend {
+					'c' {
+						gen.init_cmds << 'ptr_${isr_name}_isr = ${name};'
+					}
+					'arduino' {
+						if isr_name == 'ext' {
+							pin_name := node.attrs[0].arg
+							pin := gen.table.global_scope.find_const(pin_name) or { panic(err) }
+							name = 'ext_isr_${pin.expr.str()}'
+							// '''#define enable_ext_irq_${node.attrs[0].arg.replace('.', '__')} \\
+							// attachInterrupt(digitalPinToInterrupt(_const_${node.attrs[0].arg.replace('.', '__')}), ${name}, _const_ext__${node.attrs[1].name})'''
+						}
+					}
+					else {
+						name = name
+					}
+				}
 				attrs = ''
 				out << $tmpl('c_templates/fn_decl.tmpl.c')#[..-1]
+			// -------------------- regular functions --------------------
 			} else {
 				gen.definitions << $tmpl('c_templates/fn_prototype.tmpl.c')#[..-1].replace('inline ', '')	// generates the function's prototype
 				out << $tmpl('c_templates/fn_decl.tmpl.c')#[..-1]
