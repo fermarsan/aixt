@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: ADC functions Arduino Uno
+// Description: ADC functions Arduinio Uno
 module adc
 
 // ADC pin names
