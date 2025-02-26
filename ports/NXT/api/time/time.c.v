@@ -1,8 +1,8 @@
 module time
 
-fn C.Wait(t any)
-fn C.FirstTick() u32
-fn C.CurrentTick() u32
+// fn C.Wait(t any)
+// fn C.FirstTick() u32
+// fn C.CurrentTick() u32
 
 
 @[as_macro] 

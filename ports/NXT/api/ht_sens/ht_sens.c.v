@@ -7,33 +7,33 @@
 
 module ht_sens
 
-fn C.SetSensorHTGyro(args ...any)
-fn C.SetSensorHTMagnet(args ...any)
-fn C.SetSensorHTEOPD(args ...any)
-fn C.SetSensorHTForce(args ...any)
-fn C.SensorHTGyro(args ...any) i16
-fn C.SensorHTMagnet(args ...any) i16
-fn C.SensorHTEOPD(args ...any) i16
-fn C.SensorHTForce(args ...any) i16
-fn C.SensorHTColorNum(args ...any) i16
-fn C.SensorHTCompass(args ...any) i16
-fn C.SensorHTIRSeekerDir(args ...any) i16
-fn C.SetHTColor2Mode(args ...any) i8
-fn C.SetHTIRSeeker2Mode(args ...any) i8
-fn C.ReadSensorHTAccel(args ...any) bool
-fn C.ReadSensorHTColor(args ...any) bool
-fn C.ReadSensorHTIRSeeker(args ...any) bool
-fn C.ReadSensorHTNormalizedColor(args ...any) bool
-fn C.ReadSensorHTRawColor(args ...any) bool
-fn C.ReadSensorHTIRReceiver(args ...any) bool
-fn C.ResetSensorHTAngle(args ...any) i8
-fn C.ReadSensorHTAngle(args ...any) bool
-fn C.ResetHTBarometricCalibration(args ...any) bool
-fn C.SetHTBarometricCalibration(args ...any) bool
-fn C.ReadSensorHTBarometric(args ...any) bool
-fn C.SetSensorHTPIRDeadband(args ...any) bool
-fn C.SensorHTPIR(args ...any) i8
-fn C.ReadSensorHTTouchMultiplexer(args ...any)
+// fn C.SetSensorHTGyro(args ...any)
+// fn C.SetSensorHTMagnet(args ...any)
+// fn C.SetSensorHTEOPD(args ...any)
+// fn C.SetSensorHTForce(args ...any)
+// fn C.SensorHTGyro(args ...any) i16
+// fn C.SensorHTMagnet(args ...any) i16
+// fn C.SensorHTEOPD(args ...any) i16
+// fn C.SensorHTForce(args ...any) i16
+// fn C.SensorHTColorNum(args ...any) i16
+// fn C.SensorHTCompass(args ...any) i16
+// fn C.SensorHTIRSeekerDir(args ...any) i16
+// fn C.SetHTColor2Mode(args ...any) i8
+// fn C.SetHTIRSeeker2Mode(args ...any) i8
+// fn C.ReadSensorHTAccel(args ...any) bool
+// fn C.ReadSensorHTColor(args ...any) bool
+// fn C.ReadSensorHTIRSeeker(args ...any) bool
+// fn C.ReadSensorHTNormalizedColor(args ...any) bool
+// fn C.ReadSensorHTRawColor(args ...any) bool
+// fn C.ReadSensorHTIRReceiver(args ...any) bool
+// fn C.ResetSensorHTAngle(args ...any) i8
+// fn C.ReadSensorHTAngle(args ...any) bool
+// fn C.ResetHTBarometricCalibration(args ...any) bool
+// fn C.SetHTBarometricCalibration(args ...any) bool
+// fn C.ReadSensorHTBarometric(args ...any) bool
+// fn C.SetSensorHTPIRDeadband(args ...any) bool
+// fn C.SensorHTPIR(args ...any) i8
+// fn C.ReadSensorHTTouchMultiplexer(args ...any)
 
 @[as_macro]
 pub fn as_gyro(args ..any) {

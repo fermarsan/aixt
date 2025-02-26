@@ -70,25 +70,25 @@ module sound
 @[as_macro] pub const tone_as7	= C.TONE_AS7
 @[as_macro] pub const tone_b7	= C.TONE_B7
 
-fn C.PlayFile(args ...any) i8
-fn C.PlayTone(args ...any) i8
-fn C.PlayFileEx(args ...any) i8
-fn C.PlayToneEx(args ...any) i8
-fn C.StopSound() 
-fn C.SoundFrequency() u16 
-fn C.SoundDuration() u16 
-fn C.SoundSampleRate() u16 
-fn C.SoundMode() u8 
-fn C.SoundVolume() u8 
-fn C.SetSoundDuration(args ...any)
-fn C.SetSoundFlags(args ...any)
-fn C.SetSoundFrequency(args ...any)
-fn C.SetSoundMode(args ...any)
-fn C.SetSoundModuleState(args ...any)
-fn C.SetSoundSampleRate(args ...any)
-fn C.SetSoundVolume(args ...any)
-fn C.PlaySound(args ...any)
-fn C.PlayTones(args ...any)
+// fn C.PlayFile(args ...any) i8
+// fn C.PlayTone(args ...any) i8
+// fn C.PlayFileEx(args ...any) i8
+// fn C.PlayToneEx(args ...any) i8
+// fn C.StopSound() 
+// fn C.SoundFrequency() u16 
+// fn C.SoundDuration() u16 
+// fn C.SoundSampleRate() u16 
+// fn C.SoundMode() u8 
+// fn C.SoundVolume() u8 
+// fn C.SetSoundDuration(args ...any)
+// fn C.SetSoundFlags(args ...any)
+// fn C.SetSoundFrequency(args ...any)
+// fn C.SetSoundMode(args ...any)
+// fn C.SetSoundModuleState(args ...any)
+// fn C.SetSoundSampleRate(args ...any)
+// fn C.SetSoundVolume(args ...any)
+// fn C.PlaySound(args ...any)
+// fn C.PlayTones(args ...any)
 
 
 // Functions for accessing and modifying sound module features. 

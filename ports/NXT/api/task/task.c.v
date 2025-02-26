@@ -7,15 +7,15 @@
 
 module task
 
-fn C.Yield() 
-fn C.StopAllTasks() 
-fn C.ExitTo(args ...any)
-fn C.Precedes(args ...any)
-fn C.Follows(args ...any)
-fn C.Acquire(args ...any)
-fn C.Release(args ...any)
-fn C.StartTask(args ...any)
-fn C.StopTask(args ...any)
+// fn C.Yield() 
+// fn C.StopAllTasks() 
+// fn C.ExitTo(args ...any)
+// fn C.Precedes(args ...any)
+// fn C.Follows(args ...any)
+// fn C.Acquire(args ...any)
+// fn C.Release(args ...any)
+// fn C.StartTask(args ...any)
+// fn C.StopTask(args ...any)
 
 
 
