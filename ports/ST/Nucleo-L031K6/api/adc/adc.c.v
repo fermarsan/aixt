@@ -6,7 +6,7 @@
 // Description: ADC functions
 module adc
 
-fn C.analogReadResolution(res any)
+// fn C.analogReadResolution(res any)
 
 // adc channels
 pub const ch0 = u8(C.A0)
