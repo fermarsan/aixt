@@ -63,3 +63,4 @@ Tasks to do in Aixt
 - [x] Change the function attribute management
 - [x] Change the External Interrupt for Arduino Nano using C maros with string concatenation
 - [x] Add an external interrupt example for Arduino Nano
+- [x] Use the `-experimental` flag in order to avoid the manual defining of C functions (V v0.4.9)
