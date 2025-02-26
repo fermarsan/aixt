@@ -8,9 +8,9 @@ module uart
 
 #include "uart.c"
 
-// fn C.SERIAL_BEGIN(baud_rate int)
-// fn C.SERIAL_WRITE(character u8) 
-// fn C.SERIAL_READ() u8
-// fn C.SERIAL_PRINT(message string)
-// fn C.SERIAL_PRINTLN(message string)
-// fn C.SERIAL_AVAILABLE() int
+fn C.SERIAL_BEGIN(baud_rate int)
+fn C.SERIAL_WRITE(character u8) 
+fn C.SERIAL_READ() u8
+fn C.SERIAL_PRINT(message string)
+fn C.SERIAL_PRINTLN(message string)
+fn C.SERIAL_AVAILABLE() int

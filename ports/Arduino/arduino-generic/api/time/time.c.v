@@ -6,5 +6,5 @@
 // Description: Time module (Arduino devices)
 module time
 
-// fn C.delay(tms int)
-// fn C.delayMicroseconds(tus int)
+fn C.delay(tms int)
+fn C.delayMicroseconds(tus int)
