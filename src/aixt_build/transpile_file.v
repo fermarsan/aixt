@@ -50,7 +50,7 @@ pub fn transpile_file(path string, setup aixt_setup.Setup, aixt_path string) {
 	c_gen.pref, _ = pref.parse_args_and_show_errors([], defines, true)
 	c_gen.pref.is_script = true
 	c_gen.pref.enable_globals = true
-	c_gen.pref.experimental = true	//XXXXXXXXXXXXXXXXX DISABLE for V compiler v0.4.9+ XXXXXXXXXXXXXXXXX 
+	// c_gen.pref.experimental = true	//XXXXXXXXXXXXXXXXX DISABLE for V compiler v0.4.9+ (avoid manual C functions declaration) XXXXXXXXXXXXXXXXX 
 	
 	// println('##################### ${c_gen.pref.compile_values} ########################')
 
