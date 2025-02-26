@@ -78,25 +78,25 @@ module sensor
 
 
 
-// fn C.SetSensor(args ...any)
-// fn C.SetSensorTouch(args ...any)
-// fn C.SetSensorLight(args ...any)
-// fn C.SetSensorSound(args ...any)
-// fn C.SetSensorLowspeed(args ...any)
-// fn C.SetSensorUltrasonic(args ...any)
-// fn C.SetSensorTemperature(args ...any)
-// fn C.SetSensorColorFull(args ...any)
-// fn C.Sensor(args ...any) u16
-// fn C.SensorBoolean(args ...any) bool
-// fn C.SensorUS(args ...any) u8
-// fn C.SensorUS0(args ...any) u8
-// fn C.SensorUSWait(args ...any) u8
-// fn C.ConfigureTemperatureSensor( args ...any)
-// fn C.SensorTemperature(args ...any) f32
-// fn C.SetSensorType(args ...any)
-// fn C.SetSensorMode(args ...any)
-// fn C.ClearSensor(args ...any) 
-// fn C.ResetSensor(args ...any)
+fn C.SetSensor(args ...any)
+fn C.SetSensorTouch(args ...any)
+fn C.SetSensorLight(args ...any)
+fn C.SetSensorSound(args ...any)
+fn C.SetSensorLowspeed(args ...any)
+fn C.SetSensorUltrasonic(args ...any)
+fn C.SetSensorTemperature(args ...any)
+fn C.SetSensorColorFull(args ...any)
+fn C.Sensor(args ...any) u16
+fn C.SensorBoolean(args ...any) bool
+fn C.SensorUS(args ...any) u8
+fn C.SensorUS0(args ...any) u8
+fn C.SensorUSWait(args ...any) u8
+fn C.ConfigureTemperatureSensor( args ...any)
+fn C.SensorTemperature(args ...any) f32
+fn C.SetSensorType(args ...any)
+fn C.SetSensorMode(args ...any)
+fn C.ClearSensor(args ...any) 
+fn C.ResetSensor(args ...any)
 
 
 @[as_macro]

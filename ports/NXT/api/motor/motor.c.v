@@ -23,56 +23,56 @@ module motor	// NXC Output
 @[as_macro] pub const regmode_sync    = C.UT_REGMODE_SYNC  
 @[as_macro] pub const regmode_pos     = C.UT_REGMODE_POS 
 
-// fn C.SetMotorPwnFreq(args ...any)
-// fn C.SetMotorRegulationTime(args ...any)
-// fn C.SetMotorRegulationOptions(args ...any)
-// fn C.OnFwdSyncPID(args ...any)    
-// fn C.OnFwdSyncExPID(args ...any)         
-// fn C.OnFwdRegPID(args ...any)                 
-// fn C.OnFwdRegExPID(args ...any)
-// fn C.Off(args ...any)
-// fn C.Coast(args ...any)
-// fn C.OffEx(args ...any)                     
-// fn C.CoastEx(args ...any)
-// fn C.Float(args ...any)
-// fn C.OnFwd(args ...any)                     
-// fn C.OnFwdEx(args ...any)
-// fn C.OnFwdReg(args ...any)                  
-// fn C.OnFwdRegEx(args ...any)                 
-// fn C.OnFwdSync(args ...any)                 
-// fn C.OnFwdSyncEx(args ...any)                 
-// fn C.RotateMotor(args ...any)                
-// fn C.RotateMotorPID(args ...any)                
-// fn C.RotateMotorEx(args ...any)                
-// fn C.RotateMotorExPID(args ...any)                
-// fn C.ResetTachoCount(args ...any)                
-// fn C.ResetBlockTachoCount(args ...any)                
-// fn C.ResetRotationCount(args ...any)                
-// fn C.ResetAllTachoCounts(args ...any)              
-// fn C.MotorMode(args ...any) u8
-// fn C.MotorPower(args ...any) i8              
-// fn C.MotorActualSpeed(args ...any) i8                 
-// fn C.MotorTachoCount(args ...any) int             
-// fn C.MotorTachoLimit(args ...any) int             
-// fn C.MotorRunState(args ...any) u8                
-// fn C.MotorTurnRatio(args ...any) i8                
-// fn C.MotorRegulation(args ...any) u8                
-// fn C.MotorOverload(args ...any) bool                
-// fn C.MotorRegPValue(args ...any) u8                
-// fn C.MotorRegIValue(args ...any) u8                
-// fn C.MotorRegDValue(args ...any) u8                
-// fn C.MotorBlockTachoCount(args ...any) int                  
-// fn C.MotorRotationCount(args ...any) int                 
-// fn C.MotorOutputOptions(args ...any) u8                 
-// fn C.MotorMaxSpeed(args ...any) u8                 
-// fn C.MotorMaxAcceleration(args ...any) u8                 
-// fn C.MotorPwnFreq(args ...any) u8                 
-// fn C.MotorRegulationTime(args ...any) u8                 
-// fn C.MotorRegulationOptions(args ...any) u8
-// fn C.PosRegEnable(args ...any) 
-// fn C.PosRegSetAngle(args ...any) 
-// fn C.PosRegAddAngle(args ...any)
-// fn C.PosRegSetMax(args ...any)
+fn C.SetMotorPwnFreq(args ...any)
+fn C.SetMotorRegulationTime(args ...any)
+fn C.SetMotorRegulationOptions(args ...any)
+fn C.OnFwdSyncPID(args ...any)    
+fn C.OnFwdSyncExPID(args ...any)         
+fn C.OnFwdRegPID(args ...any)                 
+fn C.OnFwdRegExPID(args ...any)
+fn C.Off(args ...any)
+fn C.Coast(args ...any)
+fn C.OffEx(args ...any)                     
+fn C.CoastEx(args ...any)
+fn C.Float(args ...any)
+fn C.OnFwd(args ...any)                     
+fn C.OnFwdEx(args ...any)
+fn C.OnFwdReg(args ...any)                  
+fn C.OnFwdRegEx(args ...any)                 
+fn C.OnFwdSync(args ...any)                 
+fn C.OnFwdSyncEx(args ...any)                 
+fn C.RotateMotor(args ...any)                
+fn C.RotateMotorPID(args ...any)                
+fn C.RotateMotorEx(args ...any)                
+fn C.RotateMotorExPID(args ...any)                
+fn C.ResetTachoCount(args ...any)                
+fn C.ResetBlockTachoCount(args ...any)                
+fn C.ResetRotationCount(args ...any)                
+fn C.ResetAllTachoCounts(args ...any)              
+fn C.MotorMode(args ...any) u8
+fn C.MotorPower(args ...any) i8              
+fn C.MotorActualSpeed(args ...any) i8                 
+fn C.MotorTachoCount(args ...any) int             
+fn C.MotorTachoLimit(args ...any) int             
+fn C.MotorRunState(args ...any) u8                
+fn C.MotorTurnRatio(args ...any) i8                
+fn C.MotorRegulation(args ...any) u8                
+fn C.MotorOverload(args ...any) bool                
+fn C.MotorRegPValue(args ...any) u8                
+fn C.MotorRegIValue(args ...any) u8                
+fn C.MotorRegDValue(args ...any) u8                
+fn C.MotorBlockTachoCount(args ...any) int                  
+fn C.MotorRotationCount(args ...any) int                 
+fn C.MotorOutputOptions(args ...any) u8                 
+fn C.MotorMaxSpeed(args ...any) u8                 
+fn C.MotorMaxAcceleration(args ...any) u8                 
+fn C.MotorPwnFreq(args ...any) u8                 
+fn C.MotorRegulationTime(args ...any) u8                 
+fn C.MotorRegulationOptions(args ...any) u8
+fn C.PosRegEnable(args ...any) 
+fn C.PosRegSetAngle(args ...any) 
+fn C.PosRegAddAngle(args ...any)
+fn C.PosRegSetMax(args ...any)
 
 
 

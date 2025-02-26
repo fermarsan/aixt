@@ -65,4 +65,3 @@ Tasks to do in Aixt
 - [x] Add an external interrupt example for Arduino Nano
 - [x] Use the `-experimental` flag in order to avoid the manual defining of C functions (V v0.4.9)
 - [x] Remove the manual defining of C functions in Arduino Ports
-- [x] Remove the manual defining of C functions in NXT port

@@ -7,19 +7,19 @@
 
 module rune
 
-// fn C.isupper(args ...any) i16
-// fn C.islower(args ...any) i16
-// fn C.isalpha(args ...any) i16
-// fn C.isdigit(args ...any) i16
-// fn C.isalnum(args ...any) i16
-// fn C.isspace(args ...any) i16
-// fn C.iscntrl(args ...any) i16
-// fn C.isprint(args ...any) i16
-// fn C.isgraph(args ...any) i16
-// fn C.ispunct(args ...any) i16
-// fn C.isxdigit(args ...any) i16
-// fn C.toupper(args ...any) i16
-// fn C.tolower(args ...any) i16 
+fn C.isupper(args ...any) i16
+fn C.islower(args ...any) i16
+fn C.isalpha(args ...any) i16
+fn C.isdigit(args ...any) i16
+fn C.isalnum(args ...any) i16
+fn C.isspace(args ...any) i16
+fn C.iscntrl(args ...any) i16
+fn C.isprint(args ...any) i16
+fn C.isgraph(args ...any) i16
+fn C.ispunct(args ...any) i16
+fn C.isxdigit(args ...any) i16
+fn C.toupper(args ...any) i16
+fn C.tolower(args ...any) i16 
 
 
 

@@ -7,9 +7,9 @@
 
 module rand
 
-// fn C.srand(args ...any) int 
-// fn C.rand() u32 
-// fn C.Random(args ...any) i16
+fn C.srand(args ...any) int 
+fn C.rand() u32 
+fn C.Random(args ...any) i16
 
 //cstdlib.c
 @[as_macro]

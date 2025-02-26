@@ -28,22 +28,22 @@ module button
 @[as_macro] pub const _none   			= 0x10   
 
 
-// fn C.ButtonPressed(args ...any) bool
-// fn C.ButtonCount(args ...any) u8
-// fn C.ReadButtonEx(args ...any) i8
-// fn C.ButtonPressCount(args ...any) u8
-// fn C.ButtonLongPressCount(args ...any) u8 
-// fn C.ButtonShortReleaseCount(args ...any) u8 
-// fn C.ButtonLongReleaseCount(args ...any) u8 
-// fn C.ButtonReleaseCount(args ...any) u8 
-// fn C.ButtonState(args ...any) u8
-// fn C.SetButtonPressCount(args ...any) 
-// fn C.SetButtonLongPressCount(args ...any) 
-// fn C.SetButtonLongReleaseCount(args ...any) 
-// fn C.SetButtonReleaseCount(args ...any) 
-// fn C.SetButtonShortReleaseCount(args ...any) 
-// fn C.SetButtonState(args ...any) 
-// fn C.SysReadButton(args ...any) 
+fn C.ButtonPressed(args ...any) bool
+fn C.ButtonCount(args ...any) u8
+fn C.ReadButtonEx(args ...any) i8
+fn C.ButtonPressCount(args ...any) u8
+fn C.ButtonLongPressCount(args ...any) u8 
+fn C.ButtonShortReleaseCount(args ...any) u8 
+fn C.ButtonLongReleaseCount(args ...any) u8 
+fn C.ButtonReleaseCount(args ...any) u8 
+fn C.ButtonState(args ...any) u8
+fn C.SetButtonPressCount(args ...any) 
+fn C.SetButtonLongPressCount(args ...any) 
+fn C.SetButtonLongReleaseCount(args ...any) 
+fn C.SetButtonReleaseCount(args ...any) 
+fn C.SetButtonShortReleaseCount(args ...any) 
+fn C.SetButtonState(args ...any) 
+fn C.SysReadButton(args ...any) 
 
 
 // Functions for accessing and modifying Button module features. 

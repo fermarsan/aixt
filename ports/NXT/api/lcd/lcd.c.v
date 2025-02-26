@@ -40,19 +40,19 @@ pub const y_max = i8(56)
 
 
 
-// fn C.ResetScreen() 
-// fn C.CircleOut(args ...any) i8 
-// fn C.LineOut(args ...any) i8 
-// fn C.PointOut(args ...any) i8 
-// fn C.RectOut(args ...any) i8 
-// fn C.TextOut(args ...any) i8 
-// fn C.NumOut(args ...any) i8 
-// fn C.EllipseOut(args ...any) i8 
-// fn C.DisplayContrast() u8 
-// fn C.SetDisplayContrast(args ...any) u8 
-// fn C.ClearScreen()
-// fn C.ClearLine(args ...any) 
-// fn C.StrLen(args ...any) u16
+fn C.ResetScreen() 
+fn C.CircleOut(args ...any) i8 
+fn C.LineOut(args ...any) i8 
+fn C.PointOut(args ...any) i8 
+fn C.RectOut(args ...any) i8 
+fn C.TextOut(args ...any) i8 
+fn C.NumOut(args ...any) i8 
+fn C.EllipseOut(args ...any) i8 
+fn C.DisplayContrast() u8 
+fn C.SetDisplayContrast(args ...any) u8 
+fn C.ClearScreen()
+fn C.ClearLine(args ...any) 
+fn C.StrLen(args ...any) u16
 
 
 

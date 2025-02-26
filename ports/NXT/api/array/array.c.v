@@ -17,20 +17,20 @@ module array
 @[as_macro] pub const op_toupper = C.OPARR_TOUPPER
 @[as_macro] pub const op_tolower = C.OPARR_TOLOWER
 
-// fn C.ArrayBuild(args ...any)
-// fn C.ArrayLen(arg any) u16
-// fn C.ArraySubset(args ...any)
-// fn C.ArraySum(args ...any) any
-// fn C.ArrayMean(args ...any) any
-// fn C.ArraySumSqr(args ...any) any
-// fn C.ArrayStd(args ...any) any
-// fn C.ArrayMin(args ...any) any
-// fn C.ArrayMax(args ...any) any
-// fn C.ArraySort(args ...any)
-// fn C.ArrayOp(args ...any)
-// fn C.ArrayInit(args ...any)  
-// fn C.ArrayIndex(args ...any)  
-// fn C.ArrayReplace(args ...any)  
+fn C.ArrayBuild(args ...any)
+fn C.ArrayLen(arg any) u16
+fn C.ArraySubset(args ...any)
+fn C.ArraySum(args ...any) any
+fn C.ArrayMean(args ...any) any
+fn C.ArraySumSqr(args ...any) any
+fn C.ArrayStd(args ...any) any
+fn C.ArrayMin(args ...any) any
+fn C.ArrayMax(args ...any) any
+fn C.ArraySort(args ...any)
+fn C.ArrayOp(args ...any)
+fn C.ArrayInit(args ...any)  
+fn C.ArrayIndex(args ...any)  
+fn C.ArrayReplace(args ...any)  
 
 // Functions for use with NXC array types.
 @[as_macro]
