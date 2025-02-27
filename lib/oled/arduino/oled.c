@@ -5,7 +5,7 @@
 
 #define DISPLAY_SETUP(TYPE, ADDRESS)                                display.begin(TYPE, ADDRESS)
 #define DISPLAY_CLEARDISPLAY()                                      display.clearDisplay()
-#define DISPLAY_SETTEXTSIZE(NUMBER)                                 display.stTextSize(NUMBER) 
+#define DISPLAY_SETTEXTSIZE(NUMBER)                                 display.setTextSize(NUMBER) 
 #define DISPLAY_TEXTCOLOR(CHARACTER)                                display.setTextColor(CHARACTER)
 #define DISPLAY_SETCURSOR(X,Y)                                      display.setCursor(X,Y)      
 #define DISPLAY_PRINTLN(MESSAGE)                                    display.println(MESSAGE)

@@ -8,13 +8,13 @@
                 "command": [ "${config:aixt_windows}",
                             "transpile",
                             "${config:device}",
-                            "${file}" ],
+                            "${file}" ]
             },
             "linux": {
                 "command": [ "${config:aixt_linux}",
                             "transpile",
                             "${config:device}",
-                            "${file}" ],
+                            "${file}" ]
             },
             "problemMatcher": ["$tsc"],
             "group": "build",
@@ -29,13 +29,13 @@
                 "command": [ "${config:aixt_windows}",
                             "compile",
                             "${config:device}",
-                            "${file}" ],
+                            "${file}" ]
             },
             "linux": {
                 "command": [ "${config:aixt_linux}",
                             "compile",
                             "${config:device}",
-                            "${file}" ],
+                            "${file}" ]
             },
             "problemMatcher": ["$tsc"],
             "group": "build",
@@ -50,13 +50,13 @@
                 "command": [ "${config:aixt_windows}",
                             "build",
                             "${config:device}",
-                            "${file}" ],
+                            "${file}" ]
             },
             "linux": {
                 "command": [ "${config:aixt_linux}",
                             "build",
                             "${config:device}",
-                            "${file}" ],
+                            "${file}" ]
             },
             "problemMatcher": ["$tsc"],
             "group": "build",
@@ -71,13 +71,13 @@
                 "command": [ "${config:aixt_windows}",
                             "clean",
                             "${config:device}",
-                            "${file}" ],
+                            "${file}" ]
             },
             "linux": {
                 "command": [ "${config:aixt_linux}",
                             "clean",
                             "${config:device}",
-                            "${file}" ],
+                            "${file}" ]
             },
             "problemMatcher": ["$tsc"],
             "group": "build",
@@ -89,10 +89,10 @@
             "label": "Aixt: Run",
             "type": "shell",
             "windows": {
-                "command": [ "${fileDirname}\\${fileBasenameNoExtension}.exe" ],
+                "command": [ "${fileDirname}\\${fileBasenameNoExtension}.exe" ]
             },
             "linux": {
-                "command": [ "${fileDirname}/${fileBasenameNoExtension}" ],
+                "command": [ "${fileDirname}/${fileBasenameNoExtension}" ]
             },
             "problemMatcher": ["$tsc"],
             "group": "build",
@@ -105,7 +105,7 @@
             "group": "build",
             "dependsOrder": "sequence",
             "dependsOn": ["Aixt: Compile", "Aixt: Run"]
-        },
+        } ,
         {
             "label": "Aixt: Build & Run",
             "group": "build",
