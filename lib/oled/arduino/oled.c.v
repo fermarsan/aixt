@@ -7,7 +7,7 @@ module oled
 @[as_macro] pub const inverse   = 2
 
 
-fn C.DISPLAY_BEGIN(type_ any , address any) bool
+fn C.DISPLAY_BEGIN(type_ any , address any) 
 fn C.DISPLAY_CLEARDISPLAY(any) 
 fn C.DISPLAY_SETTEXTSIZE(number any)
 fn C.DISPLAY_TEXTCOLOR(character any)
