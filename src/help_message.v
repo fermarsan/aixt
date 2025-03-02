@@ -15,7 +15,7 @@ module main
 // incorrect command usage is detected.
 // help_message is the help option message function
 fn help_message() string {
-	return 'aixt is a tool for managing Aixt source code (*.v).
+	return 'aixt is a microcontrollers programming framework on Vlang.
 
 Usage:
   aixt [command] [device] [input_file_name]
