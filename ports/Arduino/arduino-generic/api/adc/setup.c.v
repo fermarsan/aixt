@@ -3,8 +3,11 @@
 // Date: 2024
 // License: MIT
 //
-// Description: ADC functions
+// Description: ADC setup
 module adc
 
-fn C.analogRead(name u8) u16
-fn C.analogReadResolution(res any)	
+// setup function sets the ADC resolution
+@[inline]
+pub fn setup(res u8) {
+	C.analogReadResolution(res)
+}
