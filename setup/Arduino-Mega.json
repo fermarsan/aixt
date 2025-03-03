@@ -4,7 +4,7 @@
     "backend": "arduino",
 
     "cc_linux":         "arduino-cli",
-    "cc_windows":       "arduino-cli.exe",
+    "cc_windows":       "arduino-cli.exe", 
     "cc_make_flags":    "compile -b arduino:avr:mega -v --output-dir @{file_dir_name}/build",
 
     "flasher_linux":    "arduino-cli",
