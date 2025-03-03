@@ -5,7 +5,7 @@
 module pin
 
 // low puts a low value (logic 0) to a specific pin
-@[inline]
+@[as_macro]
 pub fn low(name u8) {   
     C.digitalWrite(name, C.LOW)
 }

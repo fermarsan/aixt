@@ -5,7 +5,7 @@
 module pin
 
 // write puts a logic value to a specific pin
-@[inline]
+@[as_macro]
 pub fn write(name u8, val u8) {  
     C.digitalWrite(name, val)
 }
