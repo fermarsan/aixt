@@ -3,14 +3,13 @@
     "board":   "Arduino Mega",
     "backend": "arduino",
 
-    "cc_linux":   "arduino-cli",
-    "cc_windows": "arduino-cli.exe",
-    "cc_make_flags":   "compile -b arduino:avr:mega -v --output-dir @{file_dir_name}/build",
+    "cc_linux":         "arduino-cli",
+    "cc_windows":       "arduino-cli.exe",
+    "cc_make_flags":    "compile -b arduino:avr:mega -v --output-dir @{file_dir_name}/build",
 
     "flasher_linux":    "arduino-cli",
     "flasher_windows":  "arduino-cli.exe",
 	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b arduino:avr:nano",
-
 
     "api_paths": [
         "Arduino/Arduino-Mega",
