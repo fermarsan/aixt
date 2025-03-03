@@ -3,14 +3,13 @@
 //	- Farith Ochoa Leon
 //	- Felipe Cardozo
 //	- Fernando M. Santa
-// Date: 2024
+// Date: 2024-2025
 // License : MIT
 //
-//Description: Builtin definitions (ESP32-C3FH4)
-//           
+//Description: Builtin definitions (ESP32-C3FH4)      
 
 module main
 
-fn init () {
+// builtin LED
+const led_0 = u8(8)
 
-}
