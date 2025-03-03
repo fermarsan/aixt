@@ -1,12 +1,10 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2024
+// Date: 2024-2025
 // License: MIT
 //
 // Description: ADC functions
 module adc
-
-fn C.analogReadResolution(res any)
 
 // adc channels
 pub const ch0 = 26

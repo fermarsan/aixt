@@ -7,24 +7,24 @@
 module pin
 
 // pin names 
-@[as_macro] pub const d0 = 0 
-@[as_macro] pub const d1 = 1
-@[as_macro] pub const d2 = 2
-@[as_macro] pub const d3 = 3
-@[as_macro] pub const d4 = 4
-@[as_macro] pub const d5 = 5
-@[as_macro] pub const d6 = 6
-@[as_macro] pub const d7 = 7
-@[as_macro] pub const d8 = 8
-@[as_macro] pub const d9 = 9
-@[as_macro] pub const d10 = 10
+pub const d0 = 0 
+pub const d1 = 1
+pub const d2 = 2
+pub const d3 = 3
+pub const d4 = 4
+pub const d5 = 5
+pub const d6 = 6
+pub const d7 = 7
+pub const d8 = 8
+pub const d9 = 9
+pub const d10 = 10
 
-@[as_macro] pub const d18 = 18
-@[as_macro] pub const d19 = 19
-@[as_macro] pub const d20 = 20
-@[as_macro] pub const d21 = 21
+pub const d18 = 18
+pub const d19 = 19
+pub const d20 = 20
+pub const d21 = 21
 
 // pin mode
-@[as_macro] pub const input		= 0
-@[as_macro] pub const output	= 1
-@[as_macro] pub const in_pullup = 2
+pub const input		= 0
+pub const output	= 1
+pub const in_pullup = 2

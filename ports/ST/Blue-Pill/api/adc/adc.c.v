@@ -9,8 +9,6 @@
 // Description: ADC functions
 module adc
 
-fn C.analogReadResolution(res any)
-
 // adc channels
 pub const ch0 = u8(C.PA0)
 pub const ch1 = u8(C.PA1)
