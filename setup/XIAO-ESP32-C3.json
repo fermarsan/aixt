@@ -14,7 +14,9 @@
     "api_paths": [
         "Seeed-Studio/XIAO-ESP32-xx",
         "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART"
+        "Arduino/arduino-generic-UART",
+        "Arduino/arduino-generic-i2c",
+        "Arduino/arduino-generic-spi"
     ],
 
     "v_defines": [

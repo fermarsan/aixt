@@ -12,9 +12,11 @@
 	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b arduino:avr:nano",
 
     "api_paths": [
-        "Arduino/Arduino-Nano",
-        "Arduino/arduino-AVR",
-        "Arduino/arduino-generic-UART"
+        "WeAct_Studio/ESP32-C3FH4",
+        "Arduino/arduino-generic",
+        "Arduino/arduino-generic-UART",
+        "Arduino/arduino-generic-i2c",
+        "Arduino/arduino-generic-spi"
     ],
     "v_defines": [
     ],

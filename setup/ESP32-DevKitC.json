@@ -15,7 +15,9 @@
     "api_paths": [
         "Espressif/ESP32-DevKitC",
         "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART"
+        "Arduino/arduino-generic-UART",
+        "Arduino/arduino-generic-i2c",
+        "Arduino/arduino-generic-spi"
     ],
     "v_defines": [
     ],

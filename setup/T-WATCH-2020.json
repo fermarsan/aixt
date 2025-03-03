@@ -13,7 +13,10 @@
 
     "api_paths": [
         "LILYGO/T-WATCH-2020",
-        "Arduino/arduino-generic"
+        "Arduino/arduino-generic",
+        "Arduino/arduino-generic-UART",
+        "Arduino/arduino-generic-i2c",
+        "Arduino/arduino-generic-spi"
     ],
     "v_defines": [
     ],

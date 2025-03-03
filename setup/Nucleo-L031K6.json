@@ -15,7 +15,9 @@
     "api_paths": [
         "ST/Nucleo-L031K6",
         "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART"
+        "Arduino/arduino-generic-UART",
+        "Arduino/arduino-generic-i2c",
+        "Arduino/arduino-generic-spi"
     ],
     "v_defines": [
     ],
