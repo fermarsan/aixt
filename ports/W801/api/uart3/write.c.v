@@ -4,8 +4,8 @@
 // License: MIT
 module uart3
 
-// print function prints data to the serial port as human-readable ASCII text
+// write function sends a single byte to the serial port
 @[inline]
-pub fn print(message string) {  
-	C.SERIAL3_PRINT(message)
+pub fn write(character u8) {  
+	C.SERIAL3_WRITE(character)
 }

@@ -4,8 +4,8 @@
 // License: MIT
 module uart4
 
-// print function prints data to the serial port as human-readable ASCII text
+// pins function sets the tx and tx pins for the uart
 @[inline]
-pub fn print(message string) {  
-	C.SERIAL4_PRINT(message)
+pub fn pins(tx_pin int, rx_pin int) {
+	C.SERIAL4_PINS(tx_pin, rx_pin)
 }

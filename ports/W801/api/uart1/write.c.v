@@ -4,11 +4,8 @@
 // License: MIT
 module uart1
 
-// any function gets the number of bytes (characters) available for reading
+// write function sends a single byte to the serial port
 @[inline]
-pub fn any() int {
-	return C.SERIAL1_AVAILABLE()
+pub fn write(character u8) {  
+	C.SERIAL1_WRITE(character)
 }
-
-
-

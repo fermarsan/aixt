@@ -66,3 +66,4 @@ Tasks to do in Aixt
 - [x] Unify the API of Arduino supported devices 
 - [x] Update the ESP32-C3FH4 port
 - [x] New port Luatos/ESP32-C3-CORE
+- [x] Update the W801 port

@@ -9,38 +9,11 @@
 // Description: Builtin definitions (W801 port) 
 module main
 
-enum Pin_names { // enumerated type for digital pin names
-    
-	a1	 = C.PB21
-	a2
-	a3
-	a4
-	a5
-	a6
-
-	pin1 = C.PB21
-	pin2
-	
-}
-
-enum Builtin_names {
-	led1 = PB25
-	led2 = PB26
-	led3 = PB18
-	led4 = PB16
-	led5 = PB17
-	led6 = PB11
-	led7 = PB5
-
-}
-
-enum Pin_modes {  
-    input  = C.INPUT  
-	output
-}
-
-enum Port__names {
-	b = 0
-	c
-	d
-}
+// builtin LEDs
+pub const led_0 = C.PB25
+pub const led_1 = C.PB26
+pub const led_2 = C.PB18
+pub const led_3 = C.PB16
+pub const led_4 = C.PB17
+pub const led_5 = C.PB11
+pub const led_6 = C.PB5

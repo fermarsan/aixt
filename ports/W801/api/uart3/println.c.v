@@ -1,18 +1,11 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Authors:
-//	- Johann Escobar Guzmán
-//	- Daniel Andrés Vásquez Gómez
-//	- Fernando M. Santa
-// Date: 2023-2024
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: ernando Martínez Santa
+// Date: 2024
 // License: MIT
-//
-// // Description: SLEEP_ms functions (W801)
-//              (PC port) 
-
 module uart3
 
-// Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
+// print function prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
 @[inline]
 pub fn println(message string) {  
-	C.Serial3.println(message)
+	C.SERIAL3_PRINTLN(message)
 }

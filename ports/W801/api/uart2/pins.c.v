@@ -4,11 +4,8 @@
 // License: MIT
 module uart2
 
-// any function gets the number of bytes (characters) available for reading
+// pins function sets the tx and tx pins for the uart
 @[inline]
-pub fn any() int {
-	return C.SERIAL2_AVAILABLE()
+pub fn pins(tx_pin int, rx_pin int) {
+	C.SERIAL2_PINS(tx_pin, rx_pin)
 }
-
-
-
