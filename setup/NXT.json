@@ -6,7 +6,11 @@
 
     "cc_linux":			"/home/fercho/aixt/ports/NXT/nbc-linux",
     "cc_windows":		"c:\\aixt\\ports\\NXT\\nbc-windows.exe",
-    "cc_flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc",
+    "cc_flags":         " -T:NXT -S:usb -d @{file_no_extension}.nxc",
+
+    "flasher_linux":    "/home/fercho/aixt/ports/NXT/nbc-linux",
+    "flasher_windows":  "c:\\aixt\\ports\\NXT\\nbc-windows.exe",
+	"flasher_flags":	" -T:NXT -S:usb -d @{file_no_extension}.nxc",
 
     "api_paths": [
         "NXT"
