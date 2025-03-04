@@ -30,7 +30,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Unify the API of Arduino supported devices 
 
 ### Done ✓make
 
@@ -64,3 +63,4 @@ Tasks to do in Aixt
 - [x] Change the function attribute management
 - [x] Change the External Interrupt for Arduino Nano using C maros with string concatenation
 - [x] Add an external interrupt example for Arduino Nano
+- [x] Unify the API of Arduino supported devices 
