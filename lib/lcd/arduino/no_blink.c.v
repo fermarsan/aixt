@@ -6,6 +6,6 @@ module lcd
 
 // print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn noBlink() {  
+pub fn no_blink() {  
 C.LCD_NOBLINK()
 }

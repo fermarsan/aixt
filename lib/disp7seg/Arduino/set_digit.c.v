@@ -6,6 +6,6 @@ module disp7seg
 
 // print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn setDigit(p1 int, p2 int) {  
-C.DISP7SEG_SETDIGIT(p1, p2) 
+pub fn set_digit(p1 int, p2 int) {  
+C.DIGITSHIELD_SETDIGIT(p1, p2) 
 }

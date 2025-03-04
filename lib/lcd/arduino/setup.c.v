@@ -6,6 +6,6 @@ module lcd
 
 // print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn begin(P1 int,P2 int) {  
-C.LCD_BEGIN(P1,P2,P3,P4,P5,P6)
+pub fn setup(p1 int,p2 int) {  
+C.LCD_BEGIN(p1,p2)
 }
