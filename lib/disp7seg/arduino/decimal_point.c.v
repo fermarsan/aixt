@@ -6,6 +6,6 @@ module disp7seg
 
 // print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn  set_precision(p1 int) {  
-C.DIGITSHIELD_SETPRECISION(p1) 
+pub fn decimal_point(p1 int, p2 bool) {  
+C.DIGITSHIELD_SETDECIMALPOINT(p1, p2) 
 }
