@@ -109,5 +109,10 @@ pub fn (mut gen Gen) gen(source_path string) string {
 		gen.out = []
 	}
 
+	// copy the include files to the output folder
+	for path in gen.include_paths {
+		os.copy_file(path, os.base(source_path)) or { panic(err) }
+	}
+
 	return gen.out_format()
 }
