@@ -96,6 +96,13 @@ fn main() {
 							if os.exists('${os.dir(base_name)}/build/') {
 								os.rmdir_all('${os.dir(base_name)}/build/') or { panic(err) }
 							}
+							// Remove all .c, .cpp, .h, hpp files inside the directory
+							files := os.ls(os.dir(base_name)) or { [] }
+							for file in files {
+								if file.ends_with('.c') || file.ends_with('.cpp') || file.ends_with('.h') || file.ends_with('.hpp') {
+									os.rm('${os.dir(base_name)}/${file}') or {}
+								}
+							}
 							println('Output files cleaned.')
 						}
 						'new_project', '-np' {

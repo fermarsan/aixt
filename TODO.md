@@ -68,3 +68,4 @@ Tasks to do in Aixt
 - [x] New port Luatos/ESP32-C3-CORE
 - [x] Update the W801 port
 - [x] Add custom h/c, h/cpp and hpp/cpp files to the project folder (to use custom c external libraries)
+- [x] Improve the `clean` command, removing the all .c, .cpp, .h and .hpp files
