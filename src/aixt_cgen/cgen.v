@@ -112,8 +112,10 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 	// copy the include files to the output folder
 	for path in gen.include_paths {
-		println('>>>>>>>>>>>>>>>>>> ${path} <<<<<<<<<<<<<<<<<<')
-		os.cp(path, os.dir(source_path)) or { panic(err) }
+		if !os.exists(os.dir(source_path) + '/' + os.file_name(path)) {
+			os.cp_all(path, os.dir(source_path), false) or { panic(err) }
+			println("${path}\ncopied to project's folder")
+		}
 	}
 
 	return gen.out_format()

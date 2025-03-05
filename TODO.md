@@ -30,7 +30,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Issue: cannot add custom h/c and h/cpp files to the project folder
 
 ### Done ✓make
 
@@ -68,3 +67,4 @@ Tasks to do in Aixt
 - [x] Update the ESP32-C3FH4 port
 - [x] New port Luatos/ESP32-C3-CORE
 - [x] Update the W801 port
+- [x] Add custom h/c, h/cpp and hpp/cpp files to the project folder (to use custom c external libraries)
