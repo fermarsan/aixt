@@ -31,6 +31,6 @@ module pin
 @[as_macro] pub const d21 = 21
 
 // pin mode
-@[as_macro] pub const input		= 0
-@[as_macro] pub const output	= 1
-@[as_macro] pub const in_pullup = 2
+@[as_macro] pub const input		= u8(C.INPUT)
+@[as_macro] pub const output	= u8(C.OUTPUT)
+@[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)

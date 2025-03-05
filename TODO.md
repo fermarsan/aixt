@@ -48,13 +48,13 @@ Tasks to do in Aixt
 - [x] `.aixt` extension is deprecated
 - [x] `Aixt: Flash` and `Aixt: Build & Flash` vscode tasks added to arduino-backend devices 
 - [x] Issue solved: Conditional assign already works on V v0.4.9
-- [x] Issue: Conditional declare/assign statement already doesn't declare inner local variables
+- [x] Issue solved: Conditional declare/assign statement already doesn't declare inner local variables
 - [x] `random` module for arduino devices created
 - [x] IMU module created for the `M5Stack` port 
 - [x] 6 tested examples for the `M5Stack` port 
 - [x] Implement the folder structure for libraries
 - [x] Implement an example library
-- [x] Issue: Array initialization fails the number of elements
+- [x] Issue solved: Array initialization fails the number of elements
 - [x] Pass arrays as function parameters
 - [x] Issue solved: `U16` type fails on Arduino backend
 - [x] Update quickref.md files (Emulator, PIC16F8x, Arduino Nano) 
@@ -64,8 +64,9 @@ Tasks to do in Aixt
 - [x] Change the External Interrupt for Arduino Nano using C maros with string concatenation
 - [x] Add an external interrupt example for Arduino Nano
 - [x] Unify the API of Arduino supported devices 
-- [x] Update the ESP32-C3FH4 port
 - [x] New port Luatos/ESP32-C3-CORE
 - [x] Update the W801 port
 - [x] Add custom h/c, h/cpp and hpp/cpp files to the project folder (to use custom c external libraries)
 - [x] Improve the `clean` command, removing the all .c, .cpp, .h and .hpp files
+- [x] Update the ESP32-C3FH4 port (blinking led example tested) 
+- [x] Standardize `pin.mode` on `pin.setup` for all arduino devices 

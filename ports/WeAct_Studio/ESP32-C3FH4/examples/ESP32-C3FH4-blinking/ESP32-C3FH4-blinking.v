@@ -7,7 +7,7 @@ import time
 import pin
 
 //builtin LED
-pin.setup(8, u8(C.OUTPUT))
+pin.setup(8, pin.output)
 
 for {
 	pin.high(8)
@@ -15,3 +15,4 @@ for {
 	pin.low(8)
 	time.sleep_ms(500)
 }
+

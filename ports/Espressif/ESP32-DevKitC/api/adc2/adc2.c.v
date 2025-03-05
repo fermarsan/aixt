@@ -6,8 +6,6 @@
 // Description: ADC functions
 module adc2
 
-fn C.analogReadResolution(res any)	
-
 // adc channels
 pub const ch0 = 4
 pub const ch1 = 0
