@@ -6,6 +6,6 @@ module disp7seg
 
 // print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn  setLeadingZeros(P1 bool) {  
-C.DISP7SEG_SETLEADINGZEROS(P1) 
+pub fn  set_leadingzeros(p1 bool) {  
+C.DIGITSHIELD_SETLEADINGZEROS(p1) 
 }

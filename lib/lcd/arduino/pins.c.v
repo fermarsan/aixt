@@ -6,6 +6,6 @@ module lcd
 
 // print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn LiquidCrystal lcd(P1 int,P2 int, P3 int, P4 int, P5 int, P6 int) {  
-	C.LIQUIDCRYSTALLCD(P1,P2,P3,P4,P5,P6)
+pub fn pins(rs int,en int, d4 int, d5 int, d6 int, d7 int) {  
+	C.LCD_PINS(rs,en,d4,d5,d6,d7)
 }

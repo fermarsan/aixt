@@ -6,6 +6,6 @@ module lcd
 
 // print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn printf(P1 string) {  
-C.LCD_PRINTF(P1)
+pub fn printf(p1 string) {  
+C.LCD_PRINTF(p1)
 }

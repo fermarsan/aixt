@@ -6,6 +6,6 @@ module lcd
 
 // print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn  setCursor(P1 int,P2 int) {  
-C.LCD_SETCURSOR(P1,P2)
+pub fn  set_cursor(p1 int,p2 int) {  
+C.LCD_SETCURSOR(p1,p2)
 }
