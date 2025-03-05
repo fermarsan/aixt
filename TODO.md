@@ -64,9 +64,9 @@ Tasks to do in Aixt
 - [x] Change the External Interrupt for Arduino Nano using C maros with string concatenation
 - [x] Add an external interrupt example for Arduino Nano
 - [x] Unify the API of Arduino supported devices 
-- [x] Update the W801 port
 - [x] Add custom h/c, h/cpp and hpp/cpp files to the project folder (to use custom c external libraries)
 - [x] Improve the `clean` command, removing the all .c, .cpp, .h and .hpp files
 - [x] Update the ESP32-C3FH4 port (blinking led example tested) 
 - [x] Standardize `pin.mode` on `pin.setup` for all arduino devices 
 - [x] New port Luatos/ESP32-C3-CORE (blinking led example tested) 
+- [x] Update the W801 port (blinking led example tested) 
