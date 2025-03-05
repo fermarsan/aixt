@@ -23,9 +23,62 @@ typedef char rune;
 #define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000
 #define _const_main__cpu_freq  16000000
 
+// #if defined(EXT_IRQ_IN_USE) || defined(TIMER0_IRQ_IN_USE)  // if any interrupt source is activated
+
+// #endif  // defined(EXT_IRQ_IN_USE)  ||  defined(TIMER0_IRQ_IN_USE)
+
 #define _const_main__led_0 13
 
-void setup() {
+#define time__sleep(ts) delay(ts * 1000)
+
+#define time__sleep_ms(tms) delay(tms)
+
+#define time__sleep_us(tus) delayMicroseconds(tus)
+
+#define _const_pin__d0 0
+#define _const_pin__d1 1
+#define _const_pin__d2 2
+#define _const_pin__d3 3
+#define _const_pin__d4 4
+#define _const_pin__d5 5
+#define _const_pin__d6 6
+#define _const_pin__d7 7
+#define _const_pin__d8 8
+#define _const_pin__d9 9
+#define _const_pin__d10 10
+#define _const_pin__d11 11
+#define _const_pin__d12 12
+#define _const_pin__d13 13
+#define _const_pin__d14 14
+#define _const_pin__d15 15
+#define _const_pin__d16 16
+#define _const_pin__d17 17
+#define _const_pin__d18 18
+#define _const_pin__d19 19
+#define _const_pin__d20 20
+#define _const_pin__d21 21
+#define _const_pin__input 0
+#define _const_pin__output 1
+#define _const_pin__in_pullup 2
+
+#define pin__read(name)  digitalRead(name)
+
+#define pin__low(name) digitalWrite(name, LOW)
+
+#define pin__write(name, val) digitalWrite(name, val)
+
+#define pin__setup(name, mode) pinMode(name, mode)
+
+#define pin__high(name) digitalWrite(name, HIGH)
+
+ void setup() {
+	pin__setup(_const_main__led_0, _const_pin__output); 
+	while( true ) {
+		pin__high(_const_main__led_0); 
+		time__sleep_ms(500); 
+		pin__low(_const_main__led_0); 
+		time__sleep_ms(500); 
+	} 
 }
 
 void loop(){

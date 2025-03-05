@@ -6,11 +6,11 @@
 
     "cc_linux":			"arduino-cli",
     "cc_windows":		"arduino-cli.exe",
-    "cc_make_flags":	"compile -b arduino:avr:nano -v --output-dir ./build ",
+    "cc_make_flags":	"compile -b w80x_duino:XT804:w801 -v --output-dir ./build ",
 
     "flasher_linux":    "arduino-cli",
     "flasher_windows":  "arduino-cli.exe",
-	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32",
+	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b w80x_duino:XT804:w801",
 
     "api_paths": [
         "W801",
