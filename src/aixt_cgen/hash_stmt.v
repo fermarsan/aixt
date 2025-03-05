@@ -19,10 +19,10 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
 				gen.c_preproc_cmds << '#${node.val}'
 			}
 		} else {	// if it is a custom header
-			c_file_path := '${os.dir(node.source_file)}/${c_file_name}'
+			c_file_name := node.main.replace('"', '')
+			c_file_path := '${os.dir(node.source_file)}${c_file_name}'
 			println('>>>>>>>>>>>>>>>>>> ${c_file_path} <<<<<<<<<<<<<<<<<<')
 			// for .c files copy the code inside to the output
-			c_file_name := node.main.replace('"', '')
 			if c_file_name.ends_with('.c"') {
 				mut c_lines := os.read_lines(c_file_path) or { panic(err) }
 				// add initial new-line	
@@ -39,6 +39,7 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
 				gen.definitions << '\n'
 			// for .h/.hpp files copy them to the output folder including its correspondent .c or .cpp 
 			} else if c_file_name.ends_with('.h"') || c_file_name.ends_with('.hpp"') {
+				gen.definitions << '#include "${c_file_name}"'
 				gen.include_paths << c_file_path
 				c_path := c_file_path.replace('.hpp', '.c').replace('.h', '.c')
 				if os.exists(c_path) {
@@ -48,6 +49,7 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
 				if os.exists(cpp_path) {
 					gen.include_paths << cpp_path
 				}
+				println('>>>>>>>>>>>>>>>>>> ${gen.include_paths} <<<<<<<<<<<<<<<<<<')
 			}
 		}
 	} else {

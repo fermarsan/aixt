@@ -12,6 +12,7 @@ import v.token
 import v.pref
 import v.parser
 import v.checker
+import os
 
 // Gen is the struct that defines all the necessary data for the code generation
 pub struct Gen {
@@ -111,7 +112,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 	// copy the include files to the output folder
 	for path in gen.include_paths {
-		os.copy_file(path, os.base(source_path)) or { panic(err) }
+		os.cp(path, os.base(source_path)) or { panic(err) }
 	}
 
 	return gen.out_format()

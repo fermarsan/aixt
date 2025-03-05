@@ -6,8 +6,9 @@
 // Description: lcd module (Arduino Nano - ATmega328P port)
 module disp7seg
 
-#include "disp7seg.c"
 
+#include "DigitShield_A2.h"
+#include "disp7seg.c"
 
 fn C.DIGITSHIELD_BEGIN() 
 fn C.DIGITSHIELD_SETVALUE(p1 int) 

@@ -1,5 +1,3 @@
-#include "DigitShield_A2.h"
-
 #define DIGITSHIELD_BEGIN()                                         DigitShield.begin()
 #define DIGITSHIELD_SETVALUE(P1)                                    DigitShield.setValue(P1) 
 #define DIGITSHIELD_SETPRECISION(P1)                                DigitShield.setPrecision(P1)
