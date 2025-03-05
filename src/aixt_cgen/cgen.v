@@ -30,7 +30,7 @@ pub mut:
 	out                []string
 	c_preproc_cmds     []string
 	api_mod_paths      map[string][]string
-	// includes		     []string
+	include_paths	   []string
 	// macros		     []string
 	definitions        []string
 	init_cmds	       []string

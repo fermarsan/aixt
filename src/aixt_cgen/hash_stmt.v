@@ -19,21 +19,36 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
 				gen.c_preproc_cmds << '#${node.val}'
 			}
 		} else {	// if it is a custom header
-			c_file_name := node.main.replace('"', '')
 			c_file_path := '${os.dir(node.source_file)}/${c_file_name}'
-			mut c_lines := os.read_lines(c_file_path) or { panic(err) }
-			// add initial new-line	
-			c_lines.prepend('\n')
-			// delete initial tabs	
-			mut re := regex.regex_opt('\n[ \t]+') or { panic(err) }
-			c_lines_2 := re.replace(c_lines.join('\n'), '\n')
-			if c_lines_2.contains('_IRQ_') {	// if there is an IRQ definition
-				gen.definitions.insert(0, c_lines_2)
-			} else {	
-				gen.definitions << re.replace(c_lines.join('\n'), '\n')
+			println('>>>>>>>>>>>>>>>>>> ${c_file_path} <<<<<<<<<<<<<<<<<<')
+			// for .c files copy the code inside to the output
+			c_file_name := node.main.replace('"', '')
+			if c_file_name.ends_with('.c"') {
+				mut c_lines := os.read_lines(c_file_path) or { panic(err) }
+				// add initial new-line	
+				c_lines.prepend('\n')
+				// delete initial tabs	
+				mut re := regex.regex_opt('\n[ \t]+') or { panic(err) }
+				c_lines_2 := re.replace(c_lines.join('\n'), '\n')
+				if c_lines_2.contains('_IRQ_') {	// if there is an IRQ definition
+					gen.definitions.insert(0, c_lines_2)
+				} else {	
+					gen.definitions << re.replace(c_lines.join('\n'), '\n')
+				}
+				// add final new-line	
+				gen.definitions << '\n'
+			// for .h/.hpp files copy them to the output folder including its correspondent .c or .cpp 
+			} else if c_file_name.ends_with('.h"') || c_file_name.ends_with('.hpp"') {
+				gen.include_paths << c_file_path
+				c_path := c_file_path.replace('.hpp', '.c').replace('.h', '.c')
+				if os.exists(c_path) {
+					gen.include_paths << c_path
+				}
+				cpp_path := c_file_path.replace('.hpp', '.cpp').replace('.h', '.cpp')
+				if os.exists(cpp_path) {
+					gen.include_paths << cpp_path
+				}
 			}
-			// add final new-line	
-			gen.definitions << '\n'
 		}
 	} else {
 		panic('Hash statement #${node.val} not supported.')
