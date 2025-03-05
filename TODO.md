@@ -69,4 +69,4 @@ Tasks to do in Aixt
 - [x] Update the ESP32-C3FH4 port (blinking led example tested) 
 - [x] Standardize `pin.mode` on `pin.setup` for all arduino devices 
 - [x] New port Luatos/ESP32-C3-CORE (blinking led example tested) 
-- [x] Update the W801 port (blinking led example tested) 
+- [x] Update the W801 port (2 blinking led examples tested) 
