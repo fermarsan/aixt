@@ -3,7 +3,7 @@
 #include <Adafruit_GFX.h>  //Incluye libreria de interfaz grafica
 #include <Adafruit_SSD1306.h>  //Incluye libreria para display OLED SSD1306
 
-#define DISPLAY_SETUP(TYPE, ADDRESS)                                display.begin(TYPE, ADDRESS)
+#define DISPLAY_BEGIN(TYPE, ADDRESS)                                display.begin(TYPE, ADDRESS)
 #define DISPLAY_CLEARDISPLAY()                                      display.clearDisplay()
 #define DISPLAY_SETTEXTSIZE(NUMBER)                                 display.setTextSize(NUMBER) 
 #define DISPLAY_TEXTCOLOR(CHARACTER)                                display.setTextColor(CHARACTER)
