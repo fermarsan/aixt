@@ -13,7 +13,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 	mut out := []string{}
 	mut ref, mut var_type := gen.get_str_c_type(node.typ)
 
-	println('================== global: ${var_type} <<<<<<<<<<<<<<<<<<')
+	// println('>>>>>>>>>>>>>>>>>> global: ${var_type} <<<<<<<<<<<<<<<<<<')
 	var_name := node.name.replace('.', '__')
 	expr := node.expr
 	match expr {

@@ -18,32 +18,32 @@ import os
 pub struct Gen {
 pub mut:
 // mut:
-	files              []&ast.File
-	table              &ast.Table = unsafe { nil }
-	cur_scope          &ast.Scope = unsafe { nil }
-	cur_left		   ast.Expr
-	cur_left_type      ast.Type
-	cur_op		       token.Kind
-	cur_cond           ast.Expr
-	transpiler_path    string
-	// imports			 []string
-	source_paths       []string
-	out                []string
-	c_preproc_cmds     []string
-	api_mod_paths      map[string][]string
-	include_paths	   []string
-	// macros		     []string
-	definitions        []string
-	init_cmds	       []string
-	to_insert_lines    []string
-	cur_fn             string
-	file_count		   int
-	level_count        int
-	match_as_nested_if bool
-	cpu_freq_defined   bool
+	files          		[]&ast.File
+	table          		&ast.Table = unsafe { nil }
+	cur_scope      		&ast.Scope = unsafe { nil }
+	cur_left			ast.Expr
+	cur_left_type  		ast.Type
+	cur_op		   		token.Kind
+	cur_cond       		ast.Expr
+	transpiler_path		string
+	imports				[]string
+	source_paths		[]string
+	out           		[]string
+	c_preproc_cmds		[]string
+	api_mod_paths  		map[string][]string
+	include_paths		[]string
+	// macros			  []string
+	definitions    		[]string
+	init_cmds	   		[]string
+	to_insert_lines		[]string
+	cur_fn         		string
+	file_count			int
+	level_count    		int
+	match_as_nested_if 	bool
+	cpu_freq_defined   	bool
 // pub mut:
-	pref               &pref.Preferences = unsafe { nil }
-	setup              aixt_setup.Setup
+	pref 				&pref.Preferences = unsafe { nil }
+	setup				aixt_setup.Setup
 }
 
 // gen is the main function of the code generation.
@@ -55,23 +55,29 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	api_paths := gen.setup.api_paths
 
-	// adds the builtin file first
+	// add the builtin file first
 	gen.source_paths << '${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v'
+	// add the source files in the project's main folder
 	gen.add_sources(source_path)
 
-	// first parse round
-	mut temp_table := ast.new_table()
-	temp_files := parser.parse_files(gen.source_paths, mut temp_table, gen.pref)
+	// println('>>>>>>>>>>>>>>>>>> ${gen.source_paths} <<<<<<<<<<<<<<<<<<')
 
-	// find the import file paths
-	mut imp_paths := []string{}
-	for file in temp_files {	// source folder
-		for imp in file.imports {
-			imp_paths << gen.import_paths(imp)
-		}
-	}
-	gen.source_paths.insert(1, imp_paths)
-	println('All files:\n${gen.source_paths.join('\n\t')}')
+	// first parse round
+	// mut temp_table := ast.new_table()
+	// temp_files := parser.parse_files(gen.source_paths, mut temp_table, gen.pref)
+
+	// // find the import file paths
+	// mut imp_paths := []string{}
+	// for file in temp_files {	// source folder
+	// 	for imp in file.imports {
+	// 		imp_paths << gen.import_paths(imp)
+	// 	}
+	// }
+	// println('imp_paths:\n${imp_paths}')
+	// gen.source_paths.insert(1, imp_paths)
+	// println('All files:\n${gen.source_paths.join('\n\t')}')
+
+	gen.find_all_sources(gen.source_paths.len)
 
 	// second parse round including imports
 	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
@@ -119,4 +125,28 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	}
 
 	return gen.out_format()
+}
+
+//find_all_sources recursively finds and adds all the source file paths in a given path
+pub fn (mut gen Gen) find_all_sources(n int) {
+	mut temp_table := ast.new_table()
+	temp_files := parser.parse_files(gen.source_paths, mut temp_table, gen.pref)
+
+	// find the import file paths
+	for file in temp_files {	// source folder
+		for imp in file.imports {
+			gen.source_paths.insert(1, gen.import_paths(imp))
+		}
+	}
+
+	if n != gen.source_paths.len {
+		gen.find_all_sources(gen.source_paths.len)
+	}
+
+	// println('imp_paths:\n${imp_paths}')
+	// println('All files:\n${gen.source_paths.join('\n\t')}')
+
+	// second parse round including imports
+	// gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
+	// checker_.check_files(gen.files)
 }

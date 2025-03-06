@@ -6,6 +6,5 @@
 // Description: Builtin LEDs
 module leds
 
-import pin
 
 
