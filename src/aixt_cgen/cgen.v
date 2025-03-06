@@ -64,21 +64,6 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 	println('>>>>>>>>>>>>>>>>>> ${gen.source_paths} <<<<<<<<<<<<<<<<<<')
 
-	// first parse round
-	// mut temp_table := ast.new_table()
-	// temp_files := parser.parse_files(gen.source_paths, mut temp_table, gen.pref)
-
-	// // find the import file paths
-	// mut imp_paths := []string{}
-	// for file in temp_files {	// source folder
-	// 	for imp in file.imports {
-	// 		imp_paths << gen.import_paths(imp)
-	// 	}
-	// }
-	// println('imp_paths:\n${imp_paths}')
-	// gen.source_paths.insert(1, imp_paths)
-	// println('All files:\n${gen.source_paths.join('\n\t')}')
-
 	gen.find_all_sources(gen.source_paths.len)
 
 	println('All files:\n${gen.source_paths.join('\n\t')}')
@@ -153,10 +138,4 @@ pub fn (mut gen Gen) find_all_sources(n int) {
 	if n != gen.source_paths.len {
 		gen.find_all_sources(gen.source_paths.len)
 	}
-
-	// println('imp_paths:\n${imp_paths}')
-
-	// second parse round including imports
-	// gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
-	// checker_.check_files(gen.files)
 }
