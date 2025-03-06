@@ -12,7 +12,7 @@ import pin
 pub fn write(value u8) {
 	mask := u8(0b00000001)
 	for n in 0..6 {
-		pin.write( led_array[n], ( value & (mask << n) ) >> n)
+		pin.write( led_array[n], ~( value & (mask << n) ) >> n)
 	}
 }
 
