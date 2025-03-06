@@ -30,8 +30,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Issue: can not import a module from another module
-- [ ] Standardize the member vars `api_mod_paths` and `api_lib_paths` as maps
 
 ### Done ✓make
 
@@ -72,3 +70,5 @@ Tasks to do in Aixt
 - [x] Standardize `pin.mode` on `pin.setup` for all arduino devices 
 - [x] New port Luatos/ESP32-C3-CORE (blinking led example tested) 
 - [x] Update the W801 port (2 blinking led examples tested) 
+- [x] Issue solved: can not import a module from another module
+- [x] Standardize the member vars `api_mod_paths` and `api_lib_paths` as maps

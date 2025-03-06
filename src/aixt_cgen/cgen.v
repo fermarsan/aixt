@@ -31,7 +31,7 @@ pub mut:
 	out           		[]string
 	c_preproc_cmds		[]string
 	api_mod_paths  		map[string][]string
-	lib_mod_paths
+	lib_mod_paths		map[string][]string
 	include_paths		[]string
 	// macros			  []string
 	definitions    		[]string
@@ -51,7 +51,8 @@ pub mut:
 // It receives the source path (file or folder), and return a string with the generated code.
 pub fn (mut gen Gen) gen(source_path string) string {
 
-	gen.load_mod_paths()
+	gen.load_api_mod_paths()
+	gen.load_lib_mod_paths()
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
 	api_paths := gen.setup.api_paths
@@ -130,13 +131,15 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 //find_all_sources recursively finds and adds all the source file paths in a given path
 pub fn (mut gen Gen) find_all_sources(n int) {
+	println('>>>>>>>>>>>>>>>>>> FILES: ${n} <<<<<<<<<<<<<<<<<<')
 	mut temp_table := ast.new_table()
 	temp_files := parser.parse_files(gen.source_paths, mut temp_table, gen.pref)
 
-	// find the import file paths
+	//find the import file paths
 	for file in temp_files {	// source folder
 		for imp in file.imports {
-			gen.source_paths.insert(1, gen.import_paths(imp))
+			// gen.source_paths.insert(1, gen.import_paths(imp))
+			gen.source_paths << gen.import_paths(imp)
 		}
 	}
 
