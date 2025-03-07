@@ -19,7 +19,7 @@ pin.setup(pin.d2, pin.input)
 pin.setup(pin.d13, pin.output)
 pin.low(pin.d13)
 
-ext.irq_enable(pin.d2, ext.rising)
+ext.irq_enable(pin.d2, ext.change)
 
 for {
 	pin.write(pin.d13, u8(state))
