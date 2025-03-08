@@ -12,7 +12,10 @@ import v.ast
 // import_stmt is the code generation function for import statements.
 fn (mut gen Gen) import_stmt(node ast.Import) []string {
 	// println('>>>>>>>>>>>>>>>>>> Import: ${node.mod} <<<<<<<<<<<<<<<<<<')
-	// gen.source_paths.insert(1, gen.import_paths(node))
+	// if !gen.imports.contains(node.mod) {
+	// 	gen.imports << node.mod
+	// 	// gen.source_paths.insert(1, gen.import_paths(node))
+	// }
 	return []
 }
 

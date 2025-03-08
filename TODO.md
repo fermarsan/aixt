@@ -31,7 +31,6 @@ Tasks to do in Aixt
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
 - [ ] Issue: Constant array transpiling fails
-- [ ] Issue: Library modules are not included
 
 ### Done ✓make
 
@@ -74,3 +73,4 @@ Tasks to do in Aixt
 - [x] Update the W801 port (2 blinking led examples tested) 
 - [x] Issue solved: can not import a module from another module
 - [x] Standardize the member vars `api_mod_paths` and `api_lib_paths` as maps
+- [x] Issue solved: Library modules are not included

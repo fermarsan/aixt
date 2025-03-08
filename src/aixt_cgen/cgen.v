@@ -26,7 +26,7 @@ pub mut:
 	cur_op		   		token.Kind
 	cur_cond       		ast.Expr
 	transpiler_path		string
-	imports				[]string
+	// imports				[]string
 	source_paths		[]string
 	out           		[]string
 	c_preproc_cmds		[]string
@@ -60,22 +60,15 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	// add the builtin file first
 	gen.source_paths << '${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v'
 	// add the source files in the project's main folder
-	gen.add_sources(source_path)
-
-	println('>>>>>>>>>>>>>>>>>> ${gen.source_paths} <<<<<<<<<<<<<<<<<<')
+	gen.add_local_sources(source_path)
 
 	gen.find_all_sources(gen.source_paths.len)
-
-	println('All files:\n${gen.source_paths.join('\n\t')}')
+	println('Source files:\n\t${gen.source_paths.join('\n\t')}')
 
 	// second parse round including imports
 	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
 	checker_.check_files(gen.files)
 	// gen.err_war_print()
-
-	// println('>>>>>>>>>>>>>>>>>> ${gen.source_paths} <<<<<<<<<<<<<<<<<<')
-
-
 
 	gen.init_output_file()
 
@@ -107,7 +100,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 	// copy the include files to the output folder
 	for path in gen.include_paths {
-		if !os.exists(os.dir(source_path) + '/' + os.file_name(path)) {
+		if !os.exists('${os.dir(source_path)}/${os.file_name(path)}') {
 			os.cp_all(path, os.dir(source_path), false) or { panic(err) }
 			println("${path}\ncopied to project's folder")
 		}
@@ -118,7 +111,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 //find_all_sources recursively finds and adds all the source file paths in a given path
 pub fn (mut gen Gen) find_all_sources(n int) {
-	println('>>>>>>>>>>>>>>>>>> FILES: ${n} <<<<<<<<<<<<<<<<<<')
+	// println('>>>>>>>>>>>>>>>>>> Files found: ${n} <<<<<<<<<<<<<<<<<<')
 	mut temp_table := ast.new_table()
 	temp_files := parser.parse_files(gen.source_paths, mut temp_table, gen.pref)
 
@@ -130,8 +123,6 @@ pub fn (mut gen Gen) find_all_sources(n int) {
 					gen.source_paths.insert(1, path)
 				}
 			}
-			// gen.source_paths.insert(1, gen.import_paths(imp))
-			// gen.source_paths << gen.import_paths(imp)
 		}
 	}
 
