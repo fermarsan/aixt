@@ -16,7 +16,7 @@ for{
 	time.sleep_ms(2000)
 	oled.clear()
 	oled.size(1)
-	oled.color(C.WHITE)
+	oled.color(oled.white)
 	oled.setcursor(0,0)
 	oled.println('HELLO WORLD')
 } 
