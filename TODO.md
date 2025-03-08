@@ -30,7 +30,8 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Issue: constant array transpiling fails
+- [ ] Issue: Constant array transpiling fails
+- [ ] Issue: Library modules are not included
 
 ### Done ✓make
 
