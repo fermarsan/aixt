@@ -8,11 +8,10 @@
 
 //FUNCIONES DESCRITAS PARA LA LIBRERIA DEL MODULO DE COMUNICACIÓN SPI
 
-
 module spi
 
-// Transfiere un byte de datos a través del bus SPI.
+// Configura el divisor de frecuencia del reloj SPI.
 @[as_macro]
-pub fn transfer(data u8) {  
-    return C.SPI_TRANSFER(data)
+pub fn clock_divider(divider u8) {  
+    C.SPI_SETCLOCKDIVIDER(divider)
 }

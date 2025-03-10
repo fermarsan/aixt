@@ -8,11 +8,10 @@
 
 //FUNCIONES DESCRITAS PARA LA LIBRERIA DEL MODULO DE COMUNICACIÓN SPI
 
-
 module spi
 
-// Transfiere un byte de datos a través del bus SPI.
+// Configura el modo de datos SPI.
 @[as_macro]
-pub fn transfer(data u8) {  
-    return C.SPI_TRANSFER(data)
+pub fn data_mode(mode u8) {  
+    C.SPI_SETDATAMODE(mode)
 }

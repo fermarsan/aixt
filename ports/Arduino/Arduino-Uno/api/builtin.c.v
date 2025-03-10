@@ -6,5 +6,6 @@
 // Description: Builtin definitions (Arduino Nano - ATmega328P port)
 module main
 
+#include "builtin.c"
 
 @[as_macro]	const led_0 = 13

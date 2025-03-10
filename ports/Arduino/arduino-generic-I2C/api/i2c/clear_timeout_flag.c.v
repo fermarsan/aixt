@@ -3,15 +3,12 @@
 //        - Juan Pablo Bernal
 //        - Daniela Mendoza Deantonio
 //        - Fernando M. Santa
-// SPI
+// Date: 2024
 
+module i2c
 
-//FUNCIONES DESCRITAS PARA LA LIBRERIA DEL MODULO DE COMUNICACIÓN SPI
-
-module spi
-
-// Finaliza el bus SPI.
+// print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn end() {  
-    C.SPI_ENDTRANSACTION()
+pub fn clear_timeout_flag() {  
+	C.WIRE_CLEARWIRETIMEOUTFLAG()
 }

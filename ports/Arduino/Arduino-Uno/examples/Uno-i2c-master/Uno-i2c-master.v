@@ -1,5 +1,8 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Juan Pablo Bernal - Daniela Mendoza Deantonio - Fernando Martinez Santa 
+// Authors:
+//        - Juan Pablo Bernal
+//        - Daniela Mendoza Deantonio
+//        - Fernando M. Santa
 // Date: 2024
 
 import i2c

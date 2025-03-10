@@ -11,8 +11,8 @@
 
 module spi
 
-// Transfiere un byte de datos a través del bus SPI.
+// Read and Write a byte buffer from SPI bus.
 @[as_macro]
-pub fn transfer(data u8) {  
-    return C.SPI_TRANSFER(data)
+pub fn write(buffer u8[], n any) {  
+    return C.SPI_TRANSFER(buffer, n)
 }

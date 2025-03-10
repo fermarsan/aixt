@@ -8,11 +8,11 @@
 
 //FUNCIONES DESCRITAS PARA LA LIBRERIA DEL MODULO DE COMUNICACIÓN SPI
 
-
 module spi
 
-// Transfiere un byte de datos a través del bus SPI.
+// Asignar una función de interrupción para SPI
 @[as_macro]
-pub fn transfer(data u8) {  
-    return C.SPI_TRANSFER(data)
+pub fn irq_enable() {
+    C.SPI_ATTACHINTERRUPT()
+    // C.SPI_USINGINTERRUPT(interrupt_num)
 }
