@@ -13,5 +13,5 @@ module spi
 // Inicia una transacción SPI con configuraciones específicas.
 @[as_macro]
 pub fn start(freq any, bit_order any, mode any) {  
-    C.SPI_BEGINTRANSACTION(C.SPISettings(freq any, bit_order any, mode any))
+    C.SPI_BEGINTRANSACTION(C.SPISettings(freq, bit_order, mode))
 }

@@ -13,6 +13,6 @@ module spi
 
 // Read and Write a byte buffer from SPI bus.
 @[as_macro]
-pub fn write(buffer u8[], n any) {  
-    return C.SPI_TRANSFER(buffer, n)
+pub fn rw_buffer(buffer []u8, n any) {  
+    C.SPI_TRANSFERBUFFER(buffer, n)
 }

@@ -13,6 +13,6 @@ module spi
 
 // Transfiere un byte de datos a través del bus SPI.
 @[as_macro]
-pub fn write(data u16) {  
+pub fn write16(data u16) {  
     C.SPI_TRANSFER16(data)
 }

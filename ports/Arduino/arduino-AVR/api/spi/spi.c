@@ -5,6 +5,7 @@
 #define SPI_BEGINTRANSACTION(...)               SPI.beginTransaction(__VA_ARGS__)
 #define SPI_ENDTRANSACTION()                    SPI.endTransaction()
 #define SPI_TRANSFER(...)                       SPI.transfer(__VA_ARGS__)
+#define SPI_TRANSFERBUFFER(...)                 SPI.transfer(__VA_ARGS__)
 #define SPI_TRANSFER16(...)                     SPI.transfer16(__VA_ARGS__)
 #define SPI_SETBITORDER(order)                  SPI.setBitOrder(order)
 #define SPI_SETDATAMODE(mode)                   SPI.setDataMode(mode)
