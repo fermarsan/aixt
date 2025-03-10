@@ -6,11 +6,11 @@
 // SPI
 
 
-//FUNCIONES DESCRITAS PARA LA LIBRERIA DEL MODULO DE COMUNICACIÓN SPI
+// Functions for the SPI communication module library
 
 module spi
 
-// Configura el orden de los bits (LSBFIRST o MSBFIRST).
+// configures the bit order (lsbfirst or msbfirst).
 @[as_macro]
 pub fn bit_order(order u8) {  
     C.SPI_SETBITORDER(order)

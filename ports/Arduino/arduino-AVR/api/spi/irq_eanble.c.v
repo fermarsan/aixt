@@ -6,13 +6,13 @@
 // SPI
 
 
-//FUNCIONES DESCRITAS PARA LA LIBRERIA DEL MODULO DE COMUNICACIÓN SPI
+// Functions for the spi communication module library
 
 module spi
 
-// Asignar una función de interrupción para SPI
+// irq_enable enables and attaches the interrupt function for SPI via ISR (SPI_STC_vect)   
 @[as_macro]
 pub fn irq_enable() {
+    // C.SPCR |= (1<<C.SPIE)   // Enable SPI Interrupt
     C.SPI_ATTACHINTERRUPT()
-    // C.SPI_USINGINTERRUPT(interrupt_num)
 }

@@ -6,11 +6,11 @@
 // SPI
 
 
-//FUNCIONES DESCRITAS PARA LA LIBRERIA DEL MODULO DE COMUNICACIÓN SPI
+// Functions for the SPI communication module library
 
 module spi
 
-// Configura el modo de datos SPI.
+// data_mode configures the SPI data mode.
 @[as_macro]
 pub fn data_mode(mode u8) {  
     C.SPI_SETDATAMODE(mode)

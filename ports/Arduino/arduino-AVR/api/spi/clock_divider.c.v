@@ -6,11 +6,11 @@
 // SPI
 
 
-//FUNCIONES DESCRITAS PARA LA LIBRERIA DEL MODULO DE COMUNICACIÓN SPI
+// Functions for the SPI communication module library
 
 module spi
 
-// Configura el divisor de frecuencia del reloj SPI.
+// clock_divider configures the SPI clock frequency divider.
 @[as_macro]
 pub fn clock_divider(divider u8) {  
     C.SPI_SETCLOCKDIVIDER(divider)
