@@ -6,21 +6,21 @@
 // Date: 2024
 // Description: I2C module.
 
-//FUNCIONES DESCRITAS PARA LA LIBRERIA DEL MODULO DE COMUNICACIÓN I2C
-#include <Wire.h>
-#include "i2c.c"
+// Functions for the I2C communication module library
+#include <Wire.h>0
+#include “i2c.c”
 
-fn C.WIRE_BEGIN(args ...any) //Inicializar el bus I2C "define comunicación"
-fn C.WIRE_END() // Cerrar el bus I2C
-fn C.WIRE_REQUESTFROM(args ...any)// Solicitar bytes de un dispositivo periférico
-fn C.WIRE_BEGINTRANSMISSION(args ...any) // Comienza a poner en cola una transmisión
-fn C.WIRE_ENDTRANSMISSION(args ...any) // Transmitir los bytes que se han puesto en cola y finalizar la transmisión
-fn C.WIRE_WRITE(args ...any) // Escribe datos desde el periférico al controlador o viceversa
-fn C.WIRE_AVAILABLE(args ...any) int // Devuelve el número de bytes disponibles para la recuperación
-fn C.WIRE_READ(args ...any) u8 // Lee un byte que se transmitió desde un periférico a un controlador.
-fn C.WIRE_SETCLOCK(args ...any) // Modificar la frecuencia del reloj
-fn C.WIRE_ONRECEIVE(args ...any) // Registrar una función a la que se llamará cuando un periférico reciba una transmisión
-fn C.WIRE_ONREQUEST(args ...any) // Registrar una función que se llamará cuando un controlador solicite datos
-fn C.WIRE_SETWIRETIMEOUT(args ...any) // Establece el tiempo de espera para las transmisiones en el modo de controlador
-fn C.WIRE_CLEARWIRETIMEOUTFLAG(args ...any) // Borra el indicador de tiempo de espera
-fn C.WIRE_GETWIRETIMEOUTFLAG(args ...any) bool // Comprueba si se ha agotado el tiempo de espera desde la última vez que se borró el indicador.
+fn C.WIRE_BEGIN(args ...any) //Initialize the I2C bus “define communication” //Initialize the I2C bus “define communication”.
+fn C.WIRE_END() // Close the I2C bus
+fn C.WIRE_REQUESTFROM(args ...any)// Request bytes from a peripheral device
+fn C.WIRE_BEGINTRANSMISSION(args ...any) // Begin queuing a transmission
+fn C.WIRE_ENDTRANSMISSION(args ...any) // Transmit the bytes that have been queued and terminate the transmission
+fn C.WIRE_WRITE(args ...any) // Writes data from the peripheral to the controller or vice versa
+fn C.WIRE_AVAILABLE(args ...any) int // Returns number of bytes available for retrieval
+fn C.WIRE_READ(args ...any) u8 // Reads a byte that was transmitted from a peripheral to a controller.
+fn C.WIRE_SETCLOCK(args ...any) // Change clock frequency
+fn C.WIRE_ONRECEIVE(args ...any) // Register a function to be called when a peripheral receives a transmission.
+fn C.WIRE_ONREQUEST(args ...any) // Register a function to be called when data is requested by a controller
+fn C.WIRE_SETWIRETIMEOUT(args ...any) // Set timeout for controller mode transmissions
+fn C.WIRE_CLEARWIRETIMEOUTFLAG(args ...any) // Clears the timeout flag
+fn C.WIRE_GETWIRETIMEOUTFLAG(args ...any) bool // Checks if the timeout has elapsed since the flag was last cleared.

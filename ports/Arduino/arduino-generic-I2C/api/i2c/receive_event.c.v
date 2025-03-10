@@ -7,8 +7,8 @@
 
 module i2c
 
-// print function prints data to the serial port as human-readable ASCII text
+//print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn setup_timeout(timeout int) {  
-	C.WIRE_SETWIRETIMEOUT(timeout)
+pub fn receive_event(function_pointer fn(int)) {  
+	C.WIRE_ONRECEIVE(function_pointer)
 }

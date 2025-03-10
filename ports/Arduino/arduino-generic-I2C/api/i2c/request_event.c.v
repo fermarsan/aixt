@@ -7,8 +7,8 @@
 
 module i2c
 
-// print function prints data to the serial port as human-readable ASCII text
+//print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn setup_clock(clock_speed int) {  
-	C.WIRE_SETCLOCK(clock_speed)
+pub fn request_event(function_pointer fn()) {  
+	C.WIRE_ONREQUEST(function_pointer)
 }

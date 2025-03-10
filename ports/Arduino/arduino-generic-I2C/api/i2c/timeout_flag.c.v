@@ -9,6 +9,6 @@ module i2c
 
 // print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn read_timeout_flag() bool {  
+pub fn timeout_flag() bool {  
 	return C.WIRE_GETWIRETIMEOUTFLAG()
 }

@@ -21,7 +21,7 @@ fn main() {
     pin.setup(led3, pin.output)
 
     i2c.as_slave(0x23) // Iniciar esclavo con dirección 0x23
-    i2c.on_receive(receive_event)
+    i2c.receive_event(receive)
 
     for {
         // Mantener LEDs apagados por defecto
@@ -33,7 +33,7 @@ fn main() {
 }
 
 // Función llamada al recibir datos por I2C
-fn receive_event(num_bytes int) {
+fn receive(num_bytes int) {
     for _ in 0 .. num_bytes {
         data := i2c.read()
         match data {
