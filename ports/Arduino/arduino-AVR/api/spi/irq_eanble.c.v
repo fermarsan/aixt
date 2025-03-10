@@ -6,7 +6,7 @@
 // SPI
 
 
-// Functions for the spi communication module library
+// Functions for the SPI communication module library
 module spi
 
 // irq_enable enables and attaches the interrupt function for SPI via ISR (SPI_STC_vect)   

@@ -1,6 +1,9 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Juan Pablo Bernal Agudelo
-//
+// Authors:
+//        - Juan Pablo Bernal
+//        - Daniela Mendoza Deantonio
+//        - Fernando M. Santa
+// Date: 2024
 // Description: I2C module.
 
 //FUNCIONES DESCRITAS PARA LA LIBRERIA DEL MODULO DE COMUNICACIÓN I2C

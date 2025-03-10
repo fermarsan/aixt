@@ -1,70 +1,73 @@
-// esclavo.v
+// slave.v
 
 import spi
 import pin
+import uart
 import time
 
-// Definir los pines
-const input_button = u8(2)  // Pin del botón
-const output_led = u8(7)    // Pin del LED
+// Define the pins
+const push = u8(2) // Pin of the button
+const led = u8(7) // LED pin
 
-// Variables para almacenar el estado recibido y enviado
-mut received := false
-mut slave_received := u8(0)
-mut slave_send := u8(0)
+// Variables to store the received and sent state
+__global ( 
+    received = false
+)
 
-// Función de configuración
+// Configuration function
 fn setup() {
-    // Inicializar el puerto serie
-    spi.print("Iniciando esclavo SPI...")
+    // Initialize serial port
+    uart.setup(115200)
+    uart.println(“Initializing SPI slave...”)
 
-    // Configurar los pines
-    pin.setup(input_button, pin.input)   // Pin del botón como entrada
-    pin.setup(output_led, pin.output)    // Pin del LED como salida
+    // Configure the pins
+    pin.setup(push, pin.input) // Button pin as input
+    pin.setup(led, pin.output) // Pin of the LED as output
+    pin.setup(spi.miso, pin.output) // MISO pin as output
 
-    // Inicializar el bus SPI en modo esclavo
+    // Initialize the SPI bus in slave mode
     spi.begin()
 }
 
-// Función de bucle principal
+// Main loop function
 fn loop() {
-    // Verificar si hay datos disponibles en el bus SPI
+    // Check if data is available on SPI bus
     if spi.available() > 0 {
-        // Leer el byte recibido
-        slave_received = spi.transfer(0)  // Dummy byte para recibir datos
+        // Read received byte
+        slave_received = spi.transfer(0) // Dummy byte to receive data
         received = true
     }
 
     if received {
-        // Controlar el LED en función del dato recibido
+        // Control the LED according to the received data
         if slave_received == 1 {
-            pin.write(output_led, pin.high)  // Encender el LED
+            pin.write(led, pin.high) // Turn on the LED
         } else {
-            pin.write(output_led, pin.low)   // Apagar el LED
+            pin.write(led, pin.low) // Turn off the LED
         }
 
-        // Leer el estado del botón
-        button_value := pin.read(input_button)
+        // Read button status
+        button_value := pin.read(push)
 
-        // Preparar el dato a enviar
+        // Prepare the data to send
         if button_value == pin.high {
             slave_send = u8(1)
         } else {
             slave_send = u8(0)
         }
 
-        // Enviar el dato al maestro
+        // Send the data to the master
         spi.transfer(slave_send)
 
-        // Reiniciar la bandera de recepción
+        // Reset the receive flag
         received = false
     }
 
-    // Esperar un breve momento antes de la siguiente verificación
+    // Wait a brief moment before the next check.
     time.sleep_ms(100)
 }
 
-// Punto de entrada del programa
+// Program entry point.
 fn main() {
     setup()
     for {

@@ -6,7 +6,7 @@
 // SPI
 
 
-// FUNCTIONS DESCRIBED FOR THE SPI COMMUNICATION MODULE LIBRARY
+// Functions for the SPI communication module library
 module spi
 
 #include <Arduino.h>
@@ -30,6 +30,8 @@ fn C.SPI_DETACHINTERRUPT() //Perform the interrupt according to input
 fn C.SPISettings(args ...any) // Configure SPI settings
 
 pub const ss =   u8(C.SS)
+pub const miso =   u8(C.MISO)
+pub const mosi =   u8(C.MOSI)
 
 pub const msb_1st = C.MSBFIRST
 pub const lsb_1st = C.LSBFIRST

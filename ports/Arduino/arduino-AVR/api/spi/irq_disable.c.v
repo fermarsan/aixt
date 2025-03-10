@@ -6,7 +6,7 @@
 // SPI
 
 
-// Functions for the spi communication module library
+// Functions for the SPI communication module library
 
 module spi
 
