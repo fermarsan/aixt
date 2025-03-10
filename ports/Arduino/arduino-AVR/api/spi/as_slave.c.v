@@ -10,8 +10,9 @@
 
 module spi
 
-// clock_divider configures the SPI clock frequency divider.
+// Inicializa el bus SPI.
 @[as_macro]
-pub fn clock_divider(divider u8) {  
-    C.SPI_SETCLOCKDIVIDER(divider)
+pub fn as_slave() {
+    SPCR |= _BV(SPE);   // as a slave  
+    C.SPI_BEGIN()
 }

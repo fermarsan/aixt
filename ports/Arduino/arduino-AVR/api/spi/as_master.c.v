@@ -10,8 +10,8 @@
 
 module spi
 
-// Finaliza el bus SPI.
+// Inicializa el bus SPI.
 @[as_macro]
-pub fn end() {  
-    C.SPI_END()
+pub fn as_master() {  
+    C.SPI_BEGIN()
 }

@@ -10,8 +10,8 @@
 
 module spi
 
-// data_mode configures the SPI data mode.
+// configures the bit order (lsbfirst or msbfirst).
 @[as_macro]
-pub fn data_mode(mode u8) {  
-    C.SPI_SETDATAMODE(mode)
+pub fn set_bit_order(order u8) {  
+    C.SPI_SETBITORDER(order)
 }
