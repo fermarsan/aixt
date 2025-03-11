@@ -10,8 +10,8 @@
 
 module spi
 
-// clock_divider configures the SPI clock frequency divider.
+// configures the bit order (lsbfirst or msbfirst).
 @[as_macro]
-pub fn write_clock_divider(divider u8) {  
-    C.SPI_SETCLOCKDIVIDER(divider)
+pub fn set_bit_order(order u8) {  
+    C.SPI_SETBITORDER(order)
 }

@@ -36,7 +36,7 @@ pin.setup(spi.miso, pin.output) // MISO pin as output
 
 spi.as_slave()      // Initialize the SPI bus in slave mode
 spi.set_bit_order(spi.msb_1st)
-spi.write_mode(spi.neg_rising)
+spi.set_mode(spi.neg_rising)
 spi.irq_enable()    // enable SPI interrupt
 
 for {

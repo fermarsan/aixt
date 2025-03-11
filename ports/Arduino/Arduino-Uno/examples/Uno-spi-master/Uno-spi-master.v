@@ -23,9 +23,9 @@ pin.setup(push, pin.input)  // Button pin as input
 pin.setup(led, pin.output)  // Pin of the LED as output
 
 spi.as_master()             // Initialize the SPI bus as master
-spi.write_clock_divider(8)    // Set clock frequency divider (SPI_CLOCK_DIV8)
+spi.set_clock_divider(8)    // Set clock frequency divider (SPI_CLOCK_DIV8)
 spi.set_bit_order(spi.msb_1st)
-spi.write_mode(spi.neg_rising)
+spi.set_mode(spi.neg_rising)
 pin.high(spi.ss)            // disconnect the slave
 
 for {
