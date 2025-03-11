@@ -16,6 +16,7 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules
 - [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO
 - [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO
+- [ ] Add settings file `port_name.json` inside `/port_name` folder
 
 
 ### In Progress
