@@ -118,62 +118,62 @@ pub fn stop() {
 }
 
 @[as_macro]
-pub fn read_frequency() u16 {
+pub fn frequency() u16 {
 	return C.SoundFrequency() 
 }
 
 @[as_macro]
-pub fn read_duration() u16 {
+pub fn duration() u16 {
 	return C.SoundDuration() 
 }
 
 @[as_macro]
-pub fn read_sample_rate() u16 {
+pub fn sample_rate() u16 {
 	return C.SoundSampleRate() 
 }
 
 @[as_macro]
-pub fn read_mode() u8 {
+pub fn mode() u8 {
 	return C.SoundMode() 
 }
 
 @[as_macro]
-pub fn read_volume() u8 {
+pub fn volume() u8 {
 	return C.SoundVolume() 
 }
 
 @[as_macro]
-pub fn write_duration(args ...any) {
+pub fn set_duration(args ...any) {
 	C.SetSoundDuration(...args) 
 }
 
 @[as_macro]
-pub fn write_flags(args ...any) {
+pub fn set_flags(args ...any) {
 	C.SetSoundFlags(...args) 
 }
 
 @[as_macro]
-pub fn write_frequency(args ...any) {
+pub fn set_frequency(args ...any) {
 	C.SetSoundFrequency(...args) 
 }
 
 @[as_macro]
-pub fn write_mode(args ...any) {
+pub fn set_mode(args ...any) {
 	C.SetSoundMode(...args) 
 }
 
 @[as_macro]
-pub fn write_module_state(args ...any) {
+pub fn set_module_state(args ...any) {
 	C.SetSoundModuleState(...args) 
 }
 
 @[as_macro]
-pub fn write_sample_rate(args ...any) {
+pub fn set_sample_rate(args ...any) {
 	C.SetSoundSampleRate(...args) 
 }
 
 @[as_macro]
-pub fn write_volume(args ...any) {
+pub fn set_volume(args ...any) {
 	C.SetSoundVolume(...args) 
 }
 

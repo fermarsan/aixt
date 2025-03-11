@@ -62,22 +62,22 @@ pub fn reset() {
 }
 
 @[as_macro] 
-pub fn circle(args ...any) i8 {
+pub fn draw_circle(args ...any) i8 {
 	return C.CircleOut(...args) 
 }
 
 @[as_macro] 
-pub fn line(args ...any) i8 {
+pub fn draw_line(args ...any) i8 {
 	return C.LineOut(...args) 
 }
 
 @[as_macro] 
-pub fn point(args ...any) i8 {
+pub fn draw_point(args ...any) i8 {
 	return C.PointOut(...args) 
 }
 
 @[as_macro] 
-pub fn rect(args ...any) i8 {
+pub fn draw_rect(args ...any) i8 {
 	return C.RectOut(...args) 
 }
 
@@ -92,17 +92,17 @@ pub fn write_num(args ...any) i8 {
 }
 
 @[as_macro] 
-pub fn ellipse(args ...any) i8 {
+pub fn draw_ellipse(args ...any) i8 {
 	return C.EllipseOut(...args) 
 }
 
 @[as_macro] 
-pub fn read_contrast() u8 {
+pub fn contrast() u8 {
 	return C.DisplayContrast() 
 }
 
 @[as_macro] 
-pub fn write_contrast(args ...any) {
+pub fn set_contrast(args ...any) {
 	C.SetDisplayContrast(...args) 
 }
 

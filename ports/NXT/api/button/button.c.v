@@ -53,7 +53,7 @@ pub fn read(args ...any) bool {
 }
 
 @[as_macro]
-pub fn read_count(args ...any) u8 {
+pub fn count(args ...any) u8 {
 	return C.ButtonCount(...args) 
 }
 
@@ -63,62 +63,62 @@ pub fn read_ex(args ...any) i8 {
 }
 
 @[as_macro]
-pub fn read_press(args ...any) u8 {
+pub fn press_count(args ...any) u8 {
 	return C.ButtonPressCount(...args) 
 }
 
 @[as_macro]
-pub fn read_long_press(args ...any) u8 {
+pub fn long_press_count(args ...any) u8 {
 	return C.ButtonLongPressCount(...args) 
 }
 
 @[as_macro]
-pub fn read_short_release(args ...any) u8 {
+pub fn short_release_count(args ...any) u8 {
 	return C.ButtonShortReleaseCount(...args) 
 }
 
 @[as_macro]
-pub fn read_long_release(args ...any) u8 {
+pub fn long_release_count(args ...any) u8 {
 	return C.ButtonLongReleaseCount(...args) 
 }
 
 @[as_macro]
-pub fn read_release(args ...any) u8 {
+pub fn release_count(args ...any) u8 {
 	return C.ButtonReleaseCount(...args) 
 }
 
 @[as_macro]
-pub fn read_state(args ...any) u8 {
+pub fn state(args ...any) u8 {
 	return C.ButtonState(...args) 
 }
 
 @[as_macro]
-pub fn write_long_press_cnt(args ...any) {
+pub fn set_long_press_count(args ...any) {
 	return C.SetButtonLongPressCount(...args) 
 }
 
 @[as_macro]
-pub fn write_long_release_cnt(args ...any) {
+pub fn set_long_release_count(args ...any) {
 	return C.SetButtonLongReleaseCount(...args) 
 }
 
 @[as_macro]
-pub fn write_cnt(args ...any) {
+pub fn set_press_count(args ...any) {
 	C.SetButtonPressCount(btn, n) 
 }
 
 @[as_macro]
-pub fn write_release_cnt(args ...any) {
+pub fn set_release_count(args ...any) {
 	return C.SetButtonReleaseCount(...args) 
 }
 
 @[as_macro]
-pub fn write_short_release_cnt(args ...any) {
+pub fn set_short_release_count(args ...any) {
 	return C.SetButtonShortReleaseCount(...args) 
 }
 
 @[as_macro]
-pub fn write_state(args ...any) {
+pub fn set_state(args ...any) {
 	return C.SetButtonState(...args) 
 }
 

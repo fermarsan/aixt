@@ -175,7 +175,7 @@ pub fn read_temperature(args ...any) f32 {
 }
 
 @[as_macro]
-pub fn write_type(args ...any) {
+pub fn set_type(args ...any) {
 	C.SetSensorType(...args) 
 }                                                          
 

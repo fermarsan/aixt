@@ -149,11 +149,11 @@ pub fn read_angle(args ..any) bool {
  
 @[as_macro]
 pub fn reset_barometric(args ..any) bool {
-	ResetHTBarometricCalibration(u8 port)
+	C.ResetHTBarometricCalibration(u8 port)
 }
  
 @[as_macro]
-pub fn setup_barometric(args ..any) bool {
+pub fn as_barometric(args ..any) bool {
 	return C.SetHTBarometricCalibration(...args)
 }
  
@@ -164,7 +164,7 @@ pub fn read_barometric(args ..any) bool {
  
  
 @[as_macro]
-pub fn setup_pir_deadband(args ..any) bool {
+pub fn as_pir(args ..any) bool {
 	return C.SetSensorHTPIRDeadband(...args)
 }
  

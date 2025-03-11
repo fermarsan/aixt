@@ -12,6 +12,6 @@ module spi
 
 // data_mode configures the SPI data mode.
 @[as_macro]
-pub fn set_mode(mode u8) {  
+pub fn write_mode(mode u8) {  
     C.SPI_SETDATAMODE(mode)
 }
