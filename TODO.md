@@ -12,10 +12,12 @@ Tasks to do in Aixt
 - [ ] Implement uart.input()
 - [ ] Support for arrays and strings initialized inside "for" statement
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
+- [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Implement an equivalent to Arduino's `millis()`
 - [ ] Implements sub-modules
 - [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO
 - [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO
+- [ ] Allow multi-arg functions
 - [ ] Add settings file `port_name.json` inside `/port_name` folder
 
 
@@ -27,9 +29,7 @@ Tasks to do in Aixt
 - [ ] implement maps
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
-- [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Allow multi-arg functions
 
 ### Done ✓make
 
