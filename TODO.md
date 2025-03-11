@@ -30,7 +30,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Issue: Calling function from array interpolations
-- [ ] Issue: Constant array transpiling fails
 - [ ] Allow multi-arg functions
 
 ### Done ✓make
@@ -76,3 +75,4 @@ Tasks to do in Aixt
 - [x] Standardize the member vars `api_mod_paths` and `api_lib_paths` as maps
 - [x] Issue solved: Library modules are not included
 - [x] Enable interrupts functions for Arduino devices in addition to the external interrupts
+- [x] Issue solved: Constant array transpiling fails

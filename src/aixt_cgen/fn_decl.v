@@ -40,7 +40,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				name = '${node.short_name}'
 			// -------------------- regular functions --------------------
 			} else {
-				ret, ret_type = gen.get_str_c_type(node.return_type)
+				ret, ret_type = gen.get_str_c_type(node.return_type, false)
 				ret_type = ret + ret_type.replace('string', 'char*') + ' '	// type
 				name = '${module_short_name}__${node.short_name}'
 			}

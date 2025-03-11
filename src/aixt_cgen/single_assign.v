@@ -16,7 +16,7 @@ import v.token
 fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind, right ast.Expr) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${right.str()} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
-	ref, var_type := gen.get_str_c_type(left_type)
+	ref, var_type := gen.get_str_c_type(left_type, false)
 	var_name := gen.ast_node(left).join('')
 	var_value := gen.ast_node(right).join('')
 	left_expr := left
@@ -70,14 +70,14 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
 	mut c_line := ''
-	mut ref, mut var_type := gen.get_str_c_type(left_type)
+	mut ref, mut var_type := gen.get_str_c_type(left_type, false)
 	var_name := gen.ast_node(left).join('')
 	var_kind := gen.table.type_kind(left_type).str() 
 	match var_kind {		
 		'array', 'array_fixed' {
 			array_init := (right as ast.ArrayInit)
 			// println('>>>>>>>>>>>>>>>>>> ${array_init} <<<<<<<<<<<<<<<<<<')
-			ref, var_type = gen.get_str_c_type(array_init.elem_type)
+			ref, var_type = gen.get_str_c_type(array_init.elem_type, false)
 			len := 	if array_init.has_cap { 
 						array_init.cap_expr
 					} else { 

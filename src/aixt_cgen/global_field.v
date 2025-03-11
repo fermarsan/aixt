@@ -11,7 +11,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	// println(node)
 	mut out := []string{}
-	mut ref, mut var_type := gen.get_str_c_type(node.typ)
+	mut ref, mut var_type := gen.get_str_c_type(node.typ, false)
 
 	// println('>>>>>>>>>>>>>>>>>> global: ${var_type} <<<<<<<<<<<<<<<<<<')
 	var_name := node.name.replace('.', '__')
@@ -36,7 +36,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 		}
 		ast.ArrayInit {
 			array_init := (node.expr as ast.ArrayInit)
-			ref, var_type = gen.get_str_c_type(array_init.elem_type)
+			ref, var_type = gen.get_str_c_type(array_init.elem_type, false)
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.expr).join('')
 			if array_init.is_fixed {

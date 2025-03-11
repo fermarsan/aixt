@@ -10,7 +10,7 @@ import v.ast
 fn (mut gen Gen) struct_field(node ast.StructField) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
-	mut ref, mut var_type := gen.get_str_c_type(node.typ)
+	mut ref, mut var_type := gen.get_str_c_type(node.typ, false)
 	var_name := node.name//.replace('.', '__')
 	expr := node.default_expr
 	match expr {
@@ -33,7 +33,7 @@ fn (mut gen Gen) struct_field(node ast.StructField) []string {
 		}
 		ast.ArrayInit {
 			array_init := (node.default_expr as ast.ArrayInit)
-			ref, var_type = gen.get_str_c_type(array_init.elem_type)
+			ref, var_type = gen.get_str_c_type(array_init.elem_type, false)
 			len := array_init.exprs.len
 			var_value := gen.ast_node(node.default_expr).join('')
 			if array_init.is_fixed {

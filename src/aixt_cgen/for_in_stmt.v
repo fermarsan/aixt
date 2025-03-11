@@ -23,7 +23,7 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 	} else if node.kind.str() == 'array' {
 		gen.level_count++
 		index_name := '__i_${gen.level_count}'	// temporal variables (indexes) by levels
-		_, var_type := gen.get_str_c_type(ast.idx_to_type(node.val_type.idx())) 
+		_, var_type := gen.get_str_c_type(ast.idx_to_type(node.val_type.idx()), false) 
 		obj := gen.find_obj_all_scopes(node.cond.str()) or {
 			panic('Identifier "${node.cond.str()}" not found.')
 		}

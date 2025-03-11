@@ -21,7 +21,8 @@ import v.ast
 fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
-	mut ref, mut var_type := gen.get_str_c_type(node.typ)
+	mut ref, mut var_type := gen.get_str_c_type(node.typ, true)
+	println('>>>>>>>>>>>>>>>>>> ${ref} , ${var_type} <<<<<<<<<<<<<<<<<<')
 
 	if node.name.contains('cpu_freq') {
 		gen.cpu_freq_defined = true
@@ -36,7 +37,7 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 		match var_type {
 			'array' {
 				array_init := (node.expr as ast.ArrayInit)
-				ref, var_type = gen.get_str_c_type(array_init.elem_type)
+				ref, var_type = gen.get_str_c_type(array_init.elem_type, true)
 				len := array_init.exprs.len
 				var_value := gen.ast_node(node.expr).join('')
 				out << 'const ' + $tmpl('c_templates/decl_assign_array_fixed.tmpl.c')#[..-1]
