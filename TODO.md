@@ -11,7 +11,6 @@ Tasks to do in Aixt
 - [ ] "40_inline_asm.v" inline asm implementation
 - [ ] Implement uart.input()
 - [ ] Support for arrays and strings initialized inside "for" statement
-- [ ] Issue: Ident names including module and function name or scope position (for all ports)
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
 - [ ] Implement an equivalent to Arduino's `millis()`
 - [ ] Implements sub-modules
@@ -25,7 +24,6 @@ Tasks to do in Aixt
 - [ ] Implement structs #feat
     - [ ] support struct fields (`struct_name.struct_field`)
 - [ ] implement maps
-- [ ] Change arrays to pure V
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
