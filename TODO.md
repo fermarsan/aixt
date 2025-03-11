@@ -32,7 +32,6 @@ Tasks to do in Aixt
 - [ ] Issue: Calling function from array interpolations
 - [ ] Issue: Constant array transpiling fails
 - [ ] Allow multi-arg functions
-- [ ] Enable interrupts functions for Arduino devices in addition to the external interrupts
 
 ### Done ✓make
 
@@ -76,3 +75,4 @@ Tasks to do in Aixt
 - [x] Issue solved: can not import a module from another module
 - [x] Standardize the member vars `api_mod_paths` and `api_lib_paths` as maps
 - [x] Issue solved: Library modules are not included
+- [x] Enable interrupts functions for Arduino devices in addition to the external interrupts
