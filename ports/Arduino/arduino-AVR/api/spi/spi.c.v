@@ -29,20 +29,15 @@ fn C.SPI_ATTACHINTERRUPT(args ...any) //Perform the interrupt according to input
 fn C.SPI_DETACHINTERRUPT() //Perform the interrupt according to input
 fn C.SPISettings(args ...any) // Configure SPI settings
 
-pub const ss =   u8(C.SS)
-pub const miso =   u8(C.MISO)
-pub const mosi =   u8(C.MOSI)
+pub const ss	= u8(C.SS)
+pub const miso	= u8(C.MISO)
+pub const mosi	= u8(C.MOSI)
+pub const sck  	= u8(C.SCK)
 
-pub const msb_1st = C.MSBFIRST
-pub const lsb_1st = C.LSBFIRST
+pub const msb_1st = u8(C.MSBFIRST)
+pub const lsb_1st = u8(C.LSBFIRST)
 
-pub const neg_rising = C.SPI_MODE0
-pub const neg_falling = C.SPI_MODE1
-pub const pos_falling = C.SPI_MODE2
-pub const pos_rising = C.SPI_MODE3
-
-pub const clk_div_2 = C.SPI_CLOCK_DIV2
-pub const clk_div_4 = C.SPI_CLOCK_DIV4
-pub const clk_div_8 = C.SPI_CLOCK_DIV8
-pub const clk_div_16 = C.SPI_CLOCK_DIV16
-pub const clk_div_32 = C.SPI_CLO
+pub const neg_rising  = u8(C.SPI_MODE0)
+pub const neg_falling = u8(C.SPI_MODE1)
+pub const pos_falling = u8(C.SPI_MODE2)
+pub const pos_rising  = u8(C.SPI_MODE3)
