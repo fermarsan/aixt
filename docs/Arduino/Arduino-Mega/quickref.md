@@ -1,8 +1,8 @@
-# Quick reference for the Arduino Nano board
+# Quick reference for the Arduino Uno board
 
 ## CONFIGURATION OF PINS AND THEIR RESPECTIVE FUNCTIONS
 
-![Alt text](Ard-Nano.jpg)
+![Alt text](Arduino-Mega.jpg)
 
 
 ## Delay
@@ -58,7 +58,7 @@ name                    | description
 
 
 ### Digital pin names
-The digital pin names are named from `d0` to `d21`.
+The digital pin names are named from `d0` to `d69`.
 
 
 ## Pin ports
@@ -85,8 +85,14 @@ name                      | description
 | Port | Aixt name |
 |:----:|:---------:|
 | **B**| `b`       |
-| **A**| `c`       |
-| **B**| `d`       |
+| **C**| `c`       |
+| **D**| `d`       |
+| **E**| `e`       |
+| **F**| `f`       |
+| **G**| `g`       |
+| **H**| `h`       |
+| **J**| `j`       |
+| **K**| `k`       |
 
 
 ## PWM (Pulse Width Modulation)
@@ -105,7 +111,7 @@ name                        | description
 `pwm.write(channel, value)` | Write `value` in the PWM `channel`
 
 ### PWM pin names
-The PWM channels are named from `ch0` to `ch5`.
+The PWM channels are named from `ch0` to `ch11`.
 
 
 ## ADC (Analog to Digital Converter)
@@ -124,11 +130,11 @@ name                | description
 `adc.read(channel)` | Return the ADC value in `channel`
 
 ### Analog channels
-The PWM channels are named from `ch0` to `ch7`.
+The PWM channels are named from `ch0` to `ch15`.
 
 
 ## UART (serial port)
-Use the `uart` module:
+Use the `uart0` , `uart1` , `uart2` or `uart3` module:
 
 ```v
 import uart
@@ -138,12 +144,19 @@ uart.println('World...')
 ```
 
 ### Functions
-name                    | description
-------------------------|---------------------------------------------------------------
-`uart.setup(baud_rate)` | Configure the `baud_rate` of the UART
-`uart.read()`           | Return one character received by UART
-`uart.input(message)`   | Send the `message` and then return the string received by UART
-`uart.write(character)` | Send one character by UART
-`uart.print(message)`   | Send the `message` by UART
-`uart.println(message)` | Send the `message` plus a new line by UART
-`uart.any()`            | Return the number uf characters in the UART's buffer
+name                     | description
+-------------------------|---------------------------------------------------------------
+`uart.setup(baud_rate)`  | Configure the `baud_rate` of the UART
+`uart.read()`            | Return one character received by UART
+`uart.input(message)`    | Send the `message` and then return the string received by UART
+`uart.write(character)`  | Send one character by UART
+`uart.print(message)`    | Send the `message` by UART
+`uart.println(message)`  | Send the `message` plus a new line by UART
+`uart.any()`             | Return the number uf characters in the UART's buffer
+`uart2.setup(baud_rate)` | Configure the `baud_rate` of the UART 2
+`uart2.read()`           | Return one character received by UART 2
+`uart2.input(message)`   | Send the `message` and then return the string received by UART 2
+`uart2.write(character)` | Send one character by UART 2
+`uart2.print(message)`   | Send the `message` by UART 2
+`uart2.println(message)` | Send the `message` plus a new line by UART 2
+`uart2.any()`            | Return the number uf characters in the UART2's buffer

@@ -1,8 +1,8 @@
-# Quick reference for the Arduino Nano board
+# Quick reference for the Arduino Uno board
 
 ## CONFIGURATION OF PINS AND THEIR RESPECTIVE FUNCTIONS
 
-![Alt text](Ard-Nano.jpg)
+![Alt text](Arduino-Uno.jpg)
 
 
 ## Delay
@@ -58,7 +58,7 @@ name                    | description
 
 
 ### Digital pin names
-The digital pin names are named from `d0` to `d21`.
+The digital pin names are named from `d0` to `d19`.
 
 
 ## Pin ports
@@ -85,8 +85,8 @@ name                      | description
 | Port | Aixt name |
 |:----:|:---------:|
 | **B**| `b`       |
-| **A**| `c`       |
-| **B**| `d`       |
+| **C**| `c`       |
+| **D**| `d`       |
 
 
 ## PWM (Pulse Width Modulation)
@@ -124,7 +124,7 @@ name                | description
 `adc.read(channel)` | Return the ADC value in `channel`
 
 ### Analog channels
-The PWM channels are named from `ch0` to `ch7`.
+The PWM channels are named from `ch0` to `ch5`.
 
 
 ## UART (serial port)
