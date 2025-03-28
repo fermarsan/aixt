@@ -153,10 +153,21 @@ name                     | description
 `uart.print(message)`    | Send the `message` by UART
 `uart.println(message)`  | Send the `message` plus a new line by UART
 `uart.any()`             | Return the number uf characters in the UART's buffer
+`uart1.setup(baud_rate)` | Configure the `baud_rate` of the UART 1
+`uart1.ready()`          |
+`uart1.read()`           | Return one character received by UART 1
+`uart1.print(message)`   | Send the `message` by UART 1
+`uart1.println(message)` | Send the `message` plus a new line by UART 1
+`uart1.any()`            | Return the number uf characters in the UART1's buffer
 `uart2.setup(baud_rate)` | Configure the `baud_rate` of the UART 2
+`uart2.ready()`          |
 `uart2.read()`           | Return one character received by UART 2
-`uart2.input(message)`   | Send the `message` and then return the string received by UART 2
-`uart2.write(character)` | Send one character by UART 2
 `uart2.print(message)`   | Send the `message` by UART 2
 `uart2.println(message)` | Send the `message` plus a new line by UART 2
 `uart2.any()`            | Return the number uf characters in the UART2's buffer
+`uart3.setup(baud_rate)` | Configure the `baud_rate` of the UART 3
+`uart3.ready()`          |
+`uart3.read()`           | Return one character received by UART 3
+`uart3.print(message)`   | Send the `message` by UART 3
+`uart3.println(message)` | Send the `message` plus a new line by UART 3
+`uart3.any()`            | Return the number uf characters in the UART2's buffer
