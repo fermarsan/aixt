@@ -16,7 +16,7 @@ module tft_espi
 
 @[as_macro] pub const white = C.TFT_WHITE
 @[as_macro] pub const black = C.TFT_BLACK
-
+@[as_macro] pub const red = C.TFT_RED
 
 fn C.TFT_FILLSCREEN(color any)
 fn C.TFT_SETTEXTCOLOR(color any, bkg_color any) 
