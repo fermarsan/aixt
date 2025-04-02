@@ -1,6 +1,8 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pin.c.v
-// Author: Fernando Martínez Santa - Julian Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Authors:
+//	 - Julian Camilo Guzmán Zambrano
+//	 - Juan Pablo Gonzalez Penagos
+//	 - Fernando M. Santa
 // Date: 2022-2024
 // License: MIT
 //
@@ -9,10 +11,7 @@
 
 module pin
 
-#define pin__output		OUTPUT
-#define pin__input		INPUT
-#define pin__in_pullup	INPUT_PULLUP
+#define output		OUTPUT
+#define input		INPUT
+#define in_pullup	INPUT_PULLUP
 
-fn init() {
-
-}

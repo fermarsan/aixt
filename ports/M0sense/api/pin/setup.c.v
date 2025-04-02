@@ -1,3 +1,6 @@
 module pin
 
-#define pin__setup(PIN,  MODE)   gpio_set_mode(PIN, MODE)
+@[inline]
+pub fn setup(PIN,  MODE) {
+	C.gpio_set_mode(PIN, MODE)
+}

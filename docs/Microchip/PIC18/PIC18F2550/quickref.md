@@ -59,144 +59,144 @@ Las funciones que contiene la API entradas o salidas digitales, conversor analog
 
 name                             | description
 ---------------------------------|------------------------------------------------------
-`pin__high(pin)`                 | Modo alto `pin`
-`pin__low(pin)`                  | Modo bajo `pin`
-`pin__write(pin, val)`           | Escribe `val` en `pin`
-`pin__read(pin)`                 | Lee `pin`
-`pin__setup(pin, mode)`          | Configura pines I/O     `pin`
-`port__setup(port, mode)`        | Configura puertos I/O   `pin`
-`port__write(port, val)`         | Escribe `val` en `port`
-`port__read(port)`               | Lee `port`
-`adc_setup()`                    | Configura el `adc` 
-`adc_read(channel)`              | Configura el canal `channel` del `adc`
-`adc_reading()`                  | Alamacena el valor del `adc`
-`pwm_setup(pin1, pin2)`          | Configura el resgitro `pin1` y la salida en `pin2`
-`pwm_write(duty, pin)`           | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
-`uart_setup()`                   | Configura el `uart`
-`uart__write()`                  | Configura el `TX`
-`uart__read()`                   | Configura el `RX`
+`pin.high(pin)`                 | Modo alto `pin`
+`pin.low(pin)`                  | Modo bajo `pin`
+`pin.write(pin, val)`           | Escribe `val` en `pin`
+`pin.read(pin)`                 | Lee `pin`
+`pin.setup(pin, mode)`          | Configura pines I/O     `pin`
+`port.setup(port, mode)`        | Configura puertos I/O   `pin`
+`port.write(port, val)`         | Escribe `val` en `port`
+`port.read(port)`               | Lee `port`
+`adc.setup()`                    | Configura el `adc` 
+`adc.read(channel)`              | Configura el canal `channel` del `adc`
+`adc.reading()`                  | Alamacena el valor del `adc`
+`pwm.setup(pin1, pin2)`          | Configura el resgitro `pin1` y la salida en `pin2`
+`pwm.write(duty, pin)`           | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
+`uart.setup()`                   | Configura el `uart`
+`uart.write()`                  | Configura el `TX`
+`uart.read()`                   | Configura el `RX`
 `sleep(time)`                    | Retardo en `seg`
 `sleep_us(time)`                 | Retardo en `microseg`
 `sleep_ms(time)`                 | Retardo en `miliseg`
 
 ## Configuración de pines 
-```go
-pin__setup(b3, output)      // Función para configurar el pin como salida 
-pin__setup(a2, output)      // Función para configurar el pin como salida
-pin__setup(b2, input)    // Función para configurar el pin como entrada
-pin__setup(a1, input)    // Función para configurar el pin como entrada
+```v
+pin.setup(pin.b3, pin.output)      // Función para configurar el pin como salida 
+pin.setup(pin.a2, pin.output)      // Función para configurar el pin como salida
+pin.setup(pin.b2, pin.input)    // Función para configurar el pin como entrada
+pin.setup(pin.a1, pin.input)    // Función para configurar el pin como entrada
 
-pin__high(b3)    // Función para encender el pin           
-pin__low(b3)     // Función para apagar el pin
+pin.high(pin.b3)    // Función para encender el pin           
+pin.low(pin.b3)     // Función para apagar el pin
 
-pin__write(a4, 0)  // Función sobre escribir el pin
-pin__write(a4, 1)  // Función sobre escribir el pin
+pin.write(pin.a4, 0)  // Función sobre escribir el pin
+pin.write(pin.a4, 1)  // Función sobre escribir el pin
 
-pin__read(c4)      // Función para leer el pin
-pin__read(b0)      // Función para leer el pin
+pin.read(pin.c4)      // Función para leer el pin
+pin.read(pin.b0)      // Función para leer el pin
 ```
 Ejemplo de prender y apagar un led:
 
-```go
+```v
       
 while (1) {
-    pin__high(b4);
-    sleep__us(700);
-    pin__low(b4);
-    sleep__us(700);
+    pin.high(pin.b4);
+    time.sleep_us(700);
+    pin.low(pin.b4);
+    time.sleep_us(700);
 }
 ```
 Ejemplo de prender y apagar un led con una entrada digital:
 
-```go
+```v
 
 while(1){
     
-    if(a4 == 0){        // Condición si encuentra un 0 en el pin a4
+    if(a4 == 0){        // Condición si encuentra un 0 en el a4
         
-        pin_high(c0);
-        pin_high(c2);
+        pin.high(pin.c0);
+        pin.high(pin.c2);
     }
     
-    else if(b2 == 1){   // Condición si encuentra un 1 en el pin b2
+    else if(b2 == 1){   // Condición si encuentra un 1 en el b2
         
-        pin_low(a1);
-        pin_low(c2);
+        pin.low(pin.a1);
+        pin.low(pin.c2);
     }
 
 }
         
 ```
 ## Configuración del ADC
-```go
-adc_setup()     // Iicializa el ADC
-adc_read(0)     // Escoge el pin denl canal analogico
-adc_reading();  // Almacena el valor del ADC en una función
+```v
+adc.setup()     // Iicializa el ADC
+adc.read(0)     // Escoge el pin denl canal analogico
+adc.reading();  // Almacena el valor del ADC en una función
 
 ```
 
 Ejemplo de prender y apagar leds dependiendo del valor del ADC:
-```go
+```v
 unsigned int adc_RTA;  // Declaración de variable para almacenar el valor del ADC
         
 while(1){
             
-    adc_RTA = adc_reading(); // Almacena el valor del ADC
+    adc_RTA = adc.reading(); // Almacena el valor del ADC
     
     if ( adc_RTA >= 1000 ){
         
-        pin__high(C4);
-        pin__high(C1);
-        pin__high(C2);           
+        pin.high(pin.C4);
+        pin.high(pin.C1);
+        pin.high(pin.C2);           
     }
     
     else if ( adc_RTA >= 600 ){
         
-        pin_high(b5);
-        pin_high(b1);
-        pin_low(b3);
+        pin.high(pin.b5);
+        pin.high(pin.b1);
+        pin.low(pin.b3);
     }
     
     else if ( adc_RTA >= 340 ){
         
-        pin_high(a0);
-        pin_low(a1);
-        pin_low(a2);   
+        pin.high(pin.a0);
+        pin.low(pin.a1);
+        pin.low(pin.a2);   
     }
         
     else {
         
-        pin_low(c7);
-        pin_low(c6);
-        pin_low(c5);      
+        pin.low(pin.c7);
+        pin.low(pin.c6);
+        pin.low(pin.c5);      
     }
 
 }
 
 ```
 ## Configuración del PWM
-```go
-pwm_setup()     // Inicializa el pwm
-pwm_write()     // Calcula el ciclo de trabajo 
+```v
+pwm.setup()     // Inicializa el pwm
+pwm.write()     // Calcula el ciclo de trabajo 
 
 ```
 Ejemplo de variar la intensidad de un led:
 
-```go
+```v
  while(1){
     
-        adc := adc_read(3)  // Almacena el valor del ADC
-        pwm_write(adc)  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1
+        adc := adc.read(3)  // Almacena el valor del ADC
+        pwm.write(adc)  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1
         
     }
 
 ```
 
 ## Configuración del UART Transmisión
-```go
+```v
    
        //CONFIG DE LOS PINES
-    pin.setup(c6,output)   //RC6 = TX
+    pin.setup(pin.c6,output)   //RC6 = TX
 
        //Inicializamos la comunicación serial
     uart.setup()
@@ -212,23 +212,23 @@ Ejemplo de variar la intensidad de un led:
 
 ## Configuración del UART Recepcion
 
-```go
+```v
 
-    port.setup(b, port.output)
+    port.setup(port.b, pin.port.output)
 
     // LIMPIAMOS EL PUERTO B
 
-    port.write(b, port.output)
+    port.write(port.b, pin.port.output)
     
    
-   // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
-    pin.setup(c7,input)
+   // CONFIGURAMOS EL C7 PARA LA RECEPCIÓN DE DATOS
+    pin.setup(pin.c7,input)
 
    // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
     uart.setup()             
 
      for {
-         port.write(b, uart.read())
+         port.write(port.b, uart.read())
      }
 ```
 

@@ -1,3 +1,6 @@
 module uart2
 
-#define	uart2__write(DATA)  while(U2STAbits.UTXBF == 1){}  U2TXREG = DATA;
+@[inline]
+pub fn uart2.write(DATA) {
+C.while(U2STAbits.UTXBF == 1){}  U2TXREG = DATA;
+}

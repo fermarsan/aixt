@@ -1,0 +1,19 @@
+// Project name: Aixt project, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
+// Date: 2025
+// License: MIT
+//
+// Description: Timer0 functions for 16F family
+module timer0
+
+// prescaler configures the prescaler of the Timer0
+@[as_macro]
+pub fn prescaler(presc u8) {
+	if presc == timer0.no_pre {
+		C.PSA =  1	// without prescaler
+	} else { 
+		C.PSA =  0 
+		C.OPTION_REG &= 0b11111000	// deletes 3 LSBs
+		C.OPTION_REG |= presc	// sets the new prescaler value
+	}
+}

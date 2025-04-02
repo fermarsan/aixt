@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "author": "Fernando Martinez Santa",
+  "editor": "wokwi",
+  "parts": [ { "type": "board-stm32-bluepill", "id": "stm32", "top": -1.36, "left": -3.63, "attrs": {} } ],
+  "connections": [
+    [ "stm32:A10", "$serialMonitor:TX", "green", [] ],
+    [ "stm32:A9", "$serialMonitor:RX", "green", [] ]
+  ],
+  "dependencies": {}
+}

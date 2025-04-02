@@ -1,3 +1,6 @@
 module pin
 
-#define pin__low(PIN_NAME)		digitalWrite(PIN_NAME, LOW)
+@[inline]
+pub fn low(PIN_NAME) {
+	C.digitalWrite(PIN_NAME, LOW)
+}

@@ -1,0 +1,25 @@
+
+"port": "CY8CKIT-049",
+"device":		"CY8C4245AXI-483",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
+"board": "CY8CKIT-049-42XX",
+"backend": "native",
+"cc_linux":			"",
+"cc_windows":		"PSoC_Creator.exe",
+"cc_flags":      "-o",
+"path":"Cypress/CY8CKIT-049-42XX/Config_Gral_049.cydsn",
+
+"config_operator":   [],
+"configuration": [],
+"initialization":    [
+    "CyGlobalInitEnable;",
+    "uart_Start();",
+    "pwm0_Start();",
+    "pwm1_Start();",
+    "pwm2_Start();",
+    "pwm3_Start();",
+    "adc_Start();",
+    "amux_Start();",
+    
+]

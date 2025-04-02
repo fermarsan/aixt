@@ -5,9 +5,9 @@ This **Aixt** port works as an **NXC** language wrapper. Most of the name functi
 ```v
 forward(motor_a, 75)    
 forward(motor_c, 75)
-sleep(4000)          
+time.sleep(4000)          
 reverse(motors_ac, 75)  
-sleep(4000)
+time.sleep(4000)
 off(motors_ac)
 ```
 
@@ -53,7 +53,7 @@ The **Aixt** port for **NXC** language suports _tasks_ by using attributes and s
 
 move_mutex := mutex('') //initialization value is necesary but will be ingnored
 
-precedes(move_square, check_sensors)
+task.priority(move_square, check_sensors)
 set_sensor_touch(in_1)
 ```
 

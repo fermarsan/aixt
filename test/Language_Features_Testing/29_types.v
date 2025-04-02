@@ -1,5 +1,5 @@
 const (
-	u = `m`
+	u = `m` 
 	v =  23
 )
 __global (
@@ -18,7 +18,7 @@ enum Color {
 
 a := 12
 b := 3.4
-c := `c`
+c := `c` 
 d := 'str'
 e := [3, 5, 6, 7]
 f := Color.red

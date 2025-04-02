@@ -1,9 +1,14 @@
-// Project Name:
+// Project name:
 // Author: 
 // Date: 
+// NXT Intelligent Brick
 
+import time 
 import motor
+import sensor
 
-motor.forward(ab, 50)
-sleep(2)
-motor.off(ab)
+for {
+	motor.write(motor.ab, 50)
+	time.sleep(2)
+	motor.off(motor.ab)
+}

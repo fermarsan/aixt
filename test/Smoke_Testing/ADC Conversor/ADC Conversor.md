@@ -1,6 +1,6 @@
 # Smoke Testing for ADC module
 
-In the next table you would be able to find listed the Smoke test senarios that you can follow in order to get the Smoke Testing Certification for the ADC module.
+The table below lists the Smoke test scenarios for the ADC module. Follow these to complete the Smoke Testing Certification for the ADC module.
   
 
 | ID            | Name              | Scenario                               | Objectives 															                  | Description 																																																													| Gherkin Steps 																																										            	 | Steps    																																																																																																																																																												  | Expected results   																																									| Code Example |
@@ -9,18 +9,21 @@ In the next table you would be able to find listed the Smoke test senarios that 
 
 
 -   ExampleCode1
-```
-    adc.setup()                   // CONFIGURE PORT B AS OUTPUT
-    port.setup(b, port.output)    // CONFIGURE PORT C AS OUTPUT
-    port.setup(c, port.output)    // CLEAN PORT B
-    port.write(b, 0x00)    // CLEAN THE PORT C
-    port.write(c, 0x00) 
-    for
-    {
-        adc.read(0)
-        valor := adc.reading()
-        port.write(b, valor & 0xFF)                   // Shows the lower part data on port B
-        port.write(c, (valor>>8) & 0x03 )            // Shows the high part data on port C
-        time.sleep_ms(10)
-    }
+```v
+import time
+import adc
+import port
+
+adc.setup() 
+port.setup(port.b, pin.port.output) // CONFIGURE PORT B AS OUTPUT
+port.setup(port.c, pin.port.output) // CONFIGURE PORT C AS OUTPUT
+port.write(port.b, 0x00) // CLEAN PORT B
+port.write(port.c, 0x00) // CLEAN THE PORT C
+
+for {
+	value := adc.read(0) // Stores the ADC value
+	port.write(port.b, value & 0xFF) // Shows the lower part data on port B
+	port.write(port.c, (value >> 8) & 0x03) // Shows the high part data on port C
+	time.sleep_ms(10)
+}
 ```

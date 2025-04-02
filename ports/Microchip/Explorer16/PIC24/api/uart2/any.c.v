@@ -1,3 +1,6 @@
 module uart2
 
-#define	uart2__any()	U2STAbits.URXDA
+@[inline]
+pub fn uart2.any() {
+	C.U2STAbits.URXDA
+}

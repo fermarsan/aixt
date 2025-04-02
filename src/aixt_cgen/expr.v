@@ -1,5 +1,5 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
 module aixt_cgen
@@ -8,6 +8,7 @@ import v.ast
 
 // expr is the code generation function for expressions.
 fn (mut gen Gen) expr(node ast.Expr) []string {
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	println('${node.type_name().after('v.ast.')}:\t\t${node}')
 	match node {
 		ast.IfExpr { // basic shape of an "if" expression
@@ -65,8 +66,26 @@ fn (mut gen Gen) expr(node ast.Expr) []string {
 		ast.EnumVal {
 			return gen.enum_val(node)
 		}
+		ast.ComptimeSelector {
+			return gen.comptime_selector(node)
+		}
 		ast.EmptyExpr {
 			return []
+		}
+		ast.UnsafeExpr {
+			return gen.unsafe_expr(node)
+		}
+		ast.RangeExpr {
+			return gen.range_expr(node)
+		}
+		ast.SelectorExpr {
+			return gen.selector_expr(node)
+		}
+		ast.ArrayDecompose {
+			return gen.array_decompose(node)
+		}
+		ast.NodeError {
+			panic('\n\n***** Transpiler error *****:\nNode error in pos: ${node.pos}.\n')
 		}
 		else { 
 			panic('\n\n***** Transpiler error *****:\nUndefined expression.\n') 

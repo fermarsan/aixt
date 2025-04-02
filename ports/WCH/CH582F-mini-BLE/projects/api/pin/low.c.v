@@ -1,0 +1,16 @@
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Cristian Garzón
+// Date: 2023 - 2024
+// Description: PIN functions (WCH-CH582F)
+
+module pin
+
+@[inline]
+pub fn low_(port, ...) {
+	C.GPIO##port##_ResetBits(GPIO_Pin_##__VA_ARGS__)
+}
+
+@[inline]
+pub fn low(PIN_NAME) {
+	C.pin.low_(PIN_NAME)
+}

@@ -1,6 +1,5 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: sleep_us.c
-// Javier Leon, Camilo Lucas and Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Javier Leon, Camilo Lucas and Fernando M. Santa
 // Date: 2023
 // License: MIT
 //

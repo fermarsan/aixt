@@ -1,7 +1,12 @@
-a, b, c := 10, 20, 30
+mut a := 10.1
+mut b, c := 20.0, 30.2
 
-b = c + a
+// b = c + a
 
 a = if b > c { b } else { c }
 
-if b > c { a = b } else { a = c }
+if a > c { 
+	b = a 
+} else { 
+	a = c 
+}

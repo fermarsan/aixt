@@ -1,9 +1,10 @@
 {
     "aixt_linux":   "./src",
     "aixt_windows": ".\\src",
-    "device":       "",
+    "device":		"",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
     "files.associations": {
-        "*.aixt": "v",
         "*.nxc": "c",
     }
 }

@@ -1,51 +1,54 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt project, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
 module aixt_build
 
 import os
-import toml
+import aixt_setup
 
 // compile_file calls the port's defined compiler to compile a previous transpiled Aixt source code.
 // example:
-// ```v
+// ``` v
 // aixt_build.compile_file('example.v', setup)
-// ```
-// Calls the compiler with `example.c` file, previously generated from `example.v`.
-// If inside the containing folder of `example.v` a `Makefile` exits, it calls the 
-// `make` command insted.
-pub fn compile_file(path string, setup_file toml.Doc) {
+// ``` 
+// Calls the compiler with `example.c` file, previously generated from `example.v` .
+// If inside the containing folder of `example.v` a `Makefile`  exits, it calls the 
+// `make`  command instead.
+pub fn compile_file(path string, setup aixt_setup.Setup) {
 
 	cc := $if windows { // C compiler depending on the OS
-		setup_file.value('cc_windows').string()
+		setup.cc_windows
 	} $else {
-		setup_file.value('cc_linux').string()
+		setup.cc_linux
 	}
 
-	flags := setup_file.value('cc_flags').string()
+	mut flags := setup.cc_make_flags
+	flags = flags.replace('@{file_no_ext}', '${path}')	
+	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')	
+	flags = flags.replace('@{device}', '${setup.device}')
 
-	input_ext := match setup_file.value('backend').string() {
+	input_ext := match setup.backend {
 		'nxc' 		{ '.nxc' }
 		'arduino'	{ '.ino' } 
 		else 		{ '.c' }
 	}
+	flags = flags.replace('@{input_ext}', '${input_ext}')
 
-	output_ext := match setup_file.value('port').string() {
+	output_ext := match setup.port {
 		'Emulator'	{
 			$if windows { '.exe' } $else { '' }
 		}
 		else	{ '' }
 	}
+	flags = flags.replace('@{output_ext}', '${output_ext}')	
+
 	// println('-------- ${os.dir(path)} --------')
-	if os.exists('${os.dir(path)}/Makefile') {	// through Makefile
-		println(os.execute('make -f ${os.dir(path)}/Makefile').output)
-		// println(os.execute('make').output)
-	} else {	// calling compiler directly
-		if os.is_dir(path) {
-			println(os.execute('${cc} ${path}/main${input_ext} ${flags} ${path}/main').output)
-		} else {
-			println(os.execute('${cc} ${path}${input_ext} ${flags} ${path}${output_ext}').output)
-		}
+	if os.exists('${os.dir(path)}/Makefile') {		// calling compiler through Makefile
+		println('make -f ${os.dir(path)}/Makefile ${flags}')
+		println(os.execute('make -f ${os.dir(path)}/Makefile ${flags}').output)
+	} else {
+		println('${cc} ${flags}')
+		println(os.execute('${cc} ${flags}').output)
 	}
 }

@@ -1,6 +1,8 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: write.c.v
-// Author: Fernando Martínez Santa - Julian Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Authors:
+//	 - Julian Camilo Guzmán Zambrano
+//	 - Juan Pablo Gonzalez Penagos
+//	 - Fernando M. Santa
 // Date: 2022-2024
 // License: MIT
 //
@@ -9,4 +11,7 @@
 
 module pwm
 
-#define pwm__write(PIN_NAME, MODE)   pwmWrite(PIN_NAME, MODE)
+@[inline]
+pub fn write(PIN_NAME, MODE) {
+	C.pwmWrite(PIN_NAME, MODE)
+}

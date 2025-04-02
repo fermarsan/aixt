@@ -1,12 +1,24 @@
 module uart
 
 
-#define uart__println_0(MESSAGE)	Serial.println(MESSAGE)
+@[inline]
+pub fn println_0(MESSAGE) {
+	C.Serial.println(MESSAGE)
+}
 
-#define uart__println_1(MESSAGE)	Serial1.println(MESSAGE)
+@[inline]
+pub fn println_1(MESSAGE) {
+	C.Serial1.println(MESSAGE)
+}
 
-#define uart__println_x(UART_NUMBER, MESSAGE)		uart__println_ ## UART_NUMBER (MESSAGE) 			
+@[inline]
+pub fn println_x(UART_NUMBER, MESSAGE)		uart.println_ ## UART_NUMBER (MESSAGE) {
+	C.	
+}
 
 // macro with 1 or 2 arguments
-#define SEL_UART_PRINTLN(_1, _2, MACRO_NAME, ...) MACRO_NAME
-#define uart__println(...) SEL_UART_PRINTLN(__VA_ARGS__, uart__println_x, uart__println_0)(__VA_ARGS__)
+#define SEL_uart.printLN(_1, _2, MACRO_NAME, ...) MACRO_NAME
+@[inline]
+pub fn println(...) {
+	C.SEL_uart.printLN(__VA_ARGS__, uart.println_x, uart.println_0)(__VA_ARGS__)
+}

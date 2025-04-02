@@ -1,6 +1,8 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: read.c.v
-// Author: Fernando Martínez Santa - Julian Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Authors:
+//	 - Julian Camilo Guzmán Zambrano
+//	 - Juan Pablo Gonzalez Penagos
+//	 - Fernando M. Santa
 // Date: 2022-2024
 // License: MIT
 //
@@ -9,4 +11,7 @@
 
 module pin
 
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
+@[inline]
+pub fn read(PIN_NAME) {
+	C.digitalRead(PIN_NAME)
+}

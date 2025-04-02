@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "Fernando Martinez Santa",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 110.35,
+      "left": -44.2,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 104.3, "left": -192.2, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 144.76, "left": -105.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 220.8, "left": -202.2, "attrs": {} },
+    {
+      "type": "chip-scope",
+      "id": "scope1",
+      "top": 106.62,
+      "left": 100.8,
+      "attrs": {
+        "sampleTimeUs": "100",
+        "sampleTimeMs": "0",
+        "triggerChannel": "0",
+        "triggerMode": "1",
+        "crtColor": "0",
+        "trace0Color": "14",
+        "trace1Color": "12",
+        "trace2Color": "10",
+        "trace3Color": "2"
+      }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP26", "pot1:SIG", "green", [ "h0" ] ],
+    [ "pot1:VCC", "vcc1:VCC", "red", [ "v28.8", "h56.8" ] ],
+    [ "gnd1:GND", "pot1:GND", "black", [ "v-19.2", "h28.8" ] ],
+    [ "pico:GP7", "scope1:D0", "green", [ "h38.4", "v-96" ] ]
+  ],
+  "dependencies": { "chip-scope": "github:Dlloydev/Wokwi-Chip-scope@1.0.7" }
+}

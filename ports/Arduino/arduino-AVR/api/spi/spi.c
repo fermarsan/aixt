@@ -1,0 +1,16 @@
+#define SPI_IRQ_IN_USE
+
+#define SPI_BEGIN()                             SPI.begin()
+#define SPI_END()                               SPI.end()
+#define SPI_BEGINTRANSACTION(...)               SPI.beginTransaction(__VA_ARGS__)
+#define SPI_ENDTRANSACTION()                    SPI.endTransaction()
+#define SPI_TRANSFER(...)                       SPI.transfer(__VA_ARGS__)
+#define SPI_TRANSFERBUFFER(...)                 SPI.transfer(__VA_ARGS__)
+#define SPI_TRANSFER16(...)                     SPI.transfer16(__VA_ARGS__)
+#define SPI_SETBITORDER(order)                  SPI.setBitOrder(order)
+#define SPI_SETDATAMODE(mode)                   SPI.setDataMode(mode)
+#define SPI_SETCLOCKDIVIDER(divider)            SPI.setClockDivider(divider)
+#define SPI_USINGINTERRUPT(interrupt_num)       SPI.usingInterrupt(interrupt_num)
+#define SPI_NOTUSINGINTERRUPT(interrupt_num)    SPI.notUsingInterrupt(interrupt_num)
+#define SPI_ATTACHINTERRUPT()                   SPI.attachInterrupt()
+#define SPI_DETACHINTERRUPT()                   SPI.detachInterrupt()

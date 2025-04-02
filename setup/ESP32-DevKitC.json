@@ -1,0 +1,30 @@
+
+{
+    "port":    "ESP32-DevKitC",
+    "board":   "ESP32-WROOM-32",
+    "backend": "arduino",
+
+    "cc_linux":			"arduino-cli",
+    "cc_windows":		"arduino-cli.exe",
+    "cc_make_flags":	"compile -b esp32:esp32:esp32 -v --output-dir @{file_dir_name}/build",
+
+    "flasher_linux":    "arduino-cli",
+    "flasher_windows":  "arduino-cli.exe",
+	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32",
+
+    "api_paths": [
+        "Espressif/ESP32-DevKitC",
+        "Arduino/arduino-ESP32",
+        "Arduino/arduino-generic",
+        "Arduino/arduino-generic-UART",
+        "Arduino/arduino-generic-i2c"
+    ],
+    
+    "v_defines": [
+    ],
+
+    "default_cpu_freq": 4000000,
+    "default_string_len": 50,
+
+    "compiler_setup_path": "setup/arduino32.json"
+}

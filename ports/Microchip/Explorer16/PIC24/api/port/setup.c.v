@@ -1,13 +1,16 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
 module port
 
 // setup macro configures a complete pin port input/output mode. This is expanded in this way:
-//   pin.setup(a, value)
+//   pin.setup(pin.a, value)
 //     |
 //	   +-->	TRISa = value
 //            |
 //	          +-->	TRISA = value
-#define port__setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
+@[inline]
+pub fn setup(PORT_NAME, VALUE) {
+	C.TRIS ## PORT_NAME = VALUE
+}

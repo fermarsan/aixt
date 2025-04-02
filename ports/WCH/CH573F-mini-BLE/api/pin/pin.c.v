@@ -1,5 +1,5 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa & Cristian Garzón
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Cristian Garzón
 // Date: 2023 - 2024
 // Description: PIN functions (WCH-CH573F)
 
@@ -27,10 +27,10 @@ module pin
 #define b23 B, 23
 
 // out macro defines the pin output mode
-#define pin__output    		GPIO_ModeOut_PP_5mA      
+#define output    		GPIO_ModeOut_PP_5mA      
 //Tambien esta el modo GPIO_ModeOut_PP_20mA
 
 // in macro defines the pin input mode
-#define pin__input     		GPIO_ModeIN_Floating
-#define pin__in_pullup		GPIO_ModeIN_PU
-#define pin__in_pulldown	GPIO_ModeIN_PD
+#define input     		GPIO_ModeIN_Floating
+#define in_pullup		GPIO_ModeIN_PU
+const in_pulldown = C.GPIO_ModeIN_PD

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Fernando Martinez Santa",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": 206.6,
+      "left": -58.6,
+      "attrs": { "travelLength": "30" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 44.4, "left": -53.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 110.4,
+      "left": -96.55,
+      "rotate": 90,
+      "attrs": { "value": "330" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot1:VCC", "esp:5V", "red", [ "h0", "v-48" ] ],
+    [ "esp:13", "pot1:SIG", "green", [ "h-71.81", "v105.6" ] ],
+    [ "esp:GND.1", "r1:2", "black", [ "h0" ] ],
+    [ "esp:32", "led1:A", "green", [ "h0" ] ],
+    [ "led1:C", "r1:1", "green", [ "v0", "h-18.8" ] ]
+  ],
+  "dependencies": {}
+}

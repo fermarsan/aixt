@@ -1,5 +1,5 @@
-// Project Name: Aixt project, https://github.com/fermarsan/aixt
-// File Name: pin.c
+// Project name: Aixt project, https://github.com/fermarsan/aixt
+
 // Author: Yahir Gracia
 // Date: 2024
 // License: MIT

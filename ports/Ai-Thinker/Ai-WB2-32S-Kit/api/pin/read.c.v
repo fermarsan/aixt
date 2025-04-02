@@ -1,6 +1,5 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: read.c.v
-// Author: Fernando Martínez Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
 // Date: 2022-2024
 // License: MIT
 //
@@ -8,4 +7,7 @@
 
 module pin
 
-#define pin__read(PIN_NAME)   digitalRead(PIN_NAME)
+@[inline]
+pub fn read(PIN_NAME) {
+	C.digitalRead(PIN_NAME)
+}

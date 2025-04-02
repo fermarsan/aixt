@@ -1,0 +1,42 @@
+module str
+
+// cstring.h
+@[as_macro] to_num() { return C.StrToNum() }
+@[as_macro] str_len() { return C.StrLen() }
+@[as_macro] index() { return C.StrIndex() }
+@[as_macro] from_num() { return C.NumToStr() }
+@[as_macro] str_cat() { return C.StrCat() }
+@[as_macro] sub() { return C.SubStr() }
+@[as_macro] flatten() { return C.Flatten() }
+@[as_macro] replace() { return C.StrReplace() }
+@[as_macro] format_num() { return C.FormatNum() }
+@[as_macro] format_val() { return C.FormatVal() }
+@[as_macro] flatten_var() { return C.FlattenVar() }
+@[as_macro] unflatten_var() { return C.UnflattenVar() }
+@[as_macro] pos() { return C.Pos() }
+@[as_macro] byte_array_to() { return C.ByteArrayToStr() }
+@[as_macro] byte_array_to_ex() { return C.ByteArrayToStrEx() }
+@[as_macro] to_byte_array() { return C.StrToByteArray() }
+@[as_macro] copy() { return C.Copy() }
+@[as_macro] mid() { return C.MidStr() }
+@[as_macro] right() { return C.RightStr() }
+@[as_macro] left() { return C.LeftStr() }
+@[as_macro] len() { return C.strlen() }
+@[as_macro] cat() { return C.strcat() }
+@[as_macro] n_cat() { return C.strncat() }
+@[as_macro] cpy() { return C.strcpy() }
+@[as_macro] n_cpy() { return C.strncpy() }
+@[as_macro] cmp() { return C.strcmp() }
+@[as_macro] n_cmp() { return C.strncmp() }
+@[as_macro] memcpy() { return C.memcpy() }
+@[as_macro] memmove() { return C.memmove() }
+@[as_macro] memcmp() { return C.memcmp() }
+@[as_macro] address_of() { return C.addressOf() }
+@[as_macro] reladdress_of() { return C.reladdressOf() }
+@[as_macro] address_of_ex() { return C.addressOfEx() }
+
+// Functions for use with NXC array types.
+@[as_macro] upper_case() { return C.UpperCase() } 
+@[as_macro] lower_case() { return C.LowerCase() } 
+@[as_macro] upper_case_ex() { return C.UpperCaseEx() } 
+@[as_macro] lower_case_ex() { return C.LowerCaseEx() } 

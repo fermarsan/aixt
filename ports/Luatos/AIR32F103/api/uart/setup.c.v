@@ -1,6 +1,8 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: setup.c.v
-// Author: Fernando Martínez Santa - Julian Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Authors:
+//	 - Julian Camilo Guzmán Zambrano
+//	 - Juan Pablo Gonzalez Penagos
+//	 - Fernando M. Santa
 // Date: 2022-2024
 // License: MIT
 //
@@ -9,4 +11,7 @@
 
 module uart
 
-#define uart__setup(BAUD_RATE)   Serial.begin(BAUD_RATE)
+@[inline]
+pub fn setup(BAUD_RATE) {
+	C.Serial.begin(BAUD_RATE)
+}

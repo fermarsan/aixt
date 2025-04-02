@@ -1,10 +1,9 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa & Cristian Garzón
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Cristian Garzón
 // Date: 2023 - 2024
+// Description: TIME functions (WCH-CH573F)
 
 module time
 
-// sleep_ms is a delay function in milliseconds for the (WCH-CH573F)
-
-#define time__sleep_ms(TIME)    DelayMs(TIME)
+#define time.sleep_ms(TIME)    DelayMs(TIME)
 

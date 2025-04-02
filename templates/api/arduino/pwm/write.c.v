@@ -1,3 +1,6 @@
 module pwm
 
-#define pwm__write(PIN, VAL)	analogWrite(PIN, VAL)
+@[inline]
+pub fn write(PIN, VAL) {
+	C.analogWrite(PIN, VAL)
+}

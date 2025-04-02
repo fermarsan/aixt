@@ -1,0 +1,44 @@
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Authors:
+//	- Javier Leon
+//	- Camilo Lucas
+//	- Fernando M. Santa
+// Date: 2023
+// License: MIT
+//
+// Description: Builtin definitions
+//              (CY8CKIT-145-40XX)
+
+enum __pin_names {
+led1,
+_led2,
+_led3,
+led4,
+led5,
+led6,
+led7,
+led8,
+led9,
+led10,
+led11,
+_led12,
+do0,
+do1,
+do2,
+pwm_1,
+pwm_2,
+pwm_3,
+_sw1,
+sw2,
+di0,
+di1,
+di2,
+btn0,
+btn1,
+btn2,
+sld0,
+sld1,
+sld2,
+sld3,
+sld4,
+};  

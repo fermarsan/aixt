@@ -1,14 +1,15 @@
-// Project Nme : Aixt project : http://gitlab.com/fermansan/aixt-project.git
-// File Name: builtin.c.v
-// Author: Farith Ochoa Leon, Felipe Cardozo and Fernando Martinez Santa
-// Date: 2024
+// Project Name : Aixt: http://github.com/fermansan/aixt.git
+// Authors:
+//	- Farith Ochoa Leon
+//	- Felipe Cardozo
+//	- Fernando M. Santa
+// Date: 2024-2025
 // License : MIT
 //
-//Description: Builtin definitions (ESP32-C3FH4)
-//           
+//Description: Builtin definitions (ESP32-C3FH4)      
 
 module main
 
-fn init () {
+// builtin LED
+const led_0 = u8(8)
 
-}

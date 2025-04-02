@@ -1,5 +1,5 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
 module aixt_cgen
@@ -8,55 +8,60 @@ import v.ast
 
 // const_field is the code generation function for constant definitions.
 // This works for single definitions:
-// ```v
+// ``` v
 // const max_count = 20
-// ```
+// ``` 
 // and block definitions:
-// ```v
+// ``` v
 // const(
 // 	max = 50
 // 	min = 5
 // )
-// ```
+// ``` 
 fn (mut gen Gen) const_field(node ast.ConstField) []string {
-	mut c_line := ''
-	mut var_kind := gen.table.type_kind(node.typ).str()
-	// println('================== ${var_kind} ==================')
-	match var_kind {
-		'array' {
-			var_kind = gen.table.type_kind((node.expr as ast.ArrayInit).elem_type).str()
-			c_line += 'const ${gen.setup.value(var_kind).string()} ' // array's element type
-			c_line += '${node.name}['
-			array_len := (node.expr as ast.ArrayInit).exprs.len
-			if  array_len != 0 {
-				c_line += '${array_len}] = ${gen.ast_node(node.expr).join('')};'
-			} else {
-				c_line += '];'
-			}
-		}				
-		'string' {
-			c_line += 'const char ${node.name}[] = ${gen.ast_node(node.expr).join('')};'
-		}
-		else {
-			if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
-				c_line += if gen.setup.value(var_kind).string() == 'char []' {
-					'const char ${node.name}[] = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')};'
-				} else {
-					'const ${gen.setup.value(var_kind).string()} ${node.name} = ${gen.ast_node((node.expr as ast.CastExpr).expr).join('')};'
-				}								
-			} else {
-				var_kind = match var_kind {		// var literal kind standardization
-					'f64' { 'float_literal' }
-					'int' { 'int_literal' }
-					else { var_kind }
-				}
-				c_line += 'const ${gen.setup.value(var_kind).string()} ${node.name} = ${gen.ast_node(node.expr).join('')};'
-			}
-		}
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
+	mut out := []string{}
+	mut ref, mut var_type := gen.get_str_c_type(node.typ, true)
+	println('>>>>>>>>>>>>>>>>>> ${ref} , ${var_type} <<<<<<<<<<<<<<<<<<')
+
+	if node.name.contains('cpu_freq') {
+		gen.cpu_freq_defined = true
 	}
-	return if node.mod == 'main' {
-		[c_line.replace('main.', '')]
+
+	var_name := '_const_${node.name.replace('.', '__')}'
+	
+	if node.attrs.contains('as_macro') {
+		var_value := gen.ast_node(node.expr).join('')
+		out << $tmpl('c_templates/constant_as_macro.tmpl.c')#[..-1]
 	} else {
-		[c_line.replace('.', '__')]
+		match var_type {
+			'array' {
+				array_init := (node.expr as ast.ArrayInit)
+				ref, var_type = gen.get_str_c_type(array_init.elem_type, true)
+				len := array_init.exprs.len
+				var_value := gen.ast_node(node.expr).join('')
+				out << 'const ' + $tmpl('c_templates/decl_assign_array_fixed.tmpl.c')#[..-1]
+			}				
+			'string' {
+				var_value := gen.ast_node(node.expr).join('')
+				len := ''
+				out << 'const ' + $tmpl('c_templates/decl_assign_string.tmpl.c')#[..-1]
+			}
+			else {
+				if node.expr.type_name() == 'v.ast.CastExpr' {	// in case of casting expression
+					var_value := gen.ast_node((node.expr as ast.CastExpr).expr).join('')
+					if var_type == 'string' {
+						len := ''
+						out << 'const ' + $tmpl('c_templates/decl_assign_string.tmpl.c')#[..-1]
+					} else {
+						out << 'const ' + $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
+					}								
+				} else {
+					var_value := gen.ast_node(node.expr).join('')
+					out << 'const ' + $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
+				}
+			}
+		}
 	}
+	return out
 }

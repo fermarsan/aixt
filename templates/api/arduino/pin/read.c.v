@@ -1,3 +1,6 @@
 module pin
 
-#define pin__read(PIN_NAME)		digitalRead(PIN_NAME)
+@[inline]
+pub fn read(PIN_NAME) {
+	C.digitalRead(PIN_NAME)
+}

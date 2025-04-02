@@ -7,5 +7,5 @@ weight := 89
 imc := f32(weight / (height*height))
 
 uart.println('Mr. ${name} your IMC is ${imc}.')
-uart.println(2, 'IMC = ${weight} / (${height}^2)')
+uart.println( 'IMC = ${weight} / (${height}^2)')
 // uart.println('Mr. ${name} your IMC is ${weight / (height*height)}.')

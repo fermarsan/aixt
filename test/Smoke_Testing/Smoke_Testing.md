@@ -1,12 +1,12 @@
-# This is the Smoke test plan for Aixt project
+# Aixt Project Smoke Test Plan
 
-### **Smoke testing** are a type of functional testing that consists of a quick review of a software product to check if a new software build is ready for the next testing phase.
+### **Smoke testing** is a quick check of a software product to see if a new build is ready for further testing phases like Functional Testing.
 
-The following table summarizes the number of test cases for Smoke Testing per Module
+The table below shows the number of Smoke test cases per module:
 
 | Testing Type             | Number of Test Cases |
 | -------------            | :-------------:      |
 | **D-IO**                 | 2                    |
 | **ADC Conversor**        | 1                    |
 | **PWM**                  | 1                    |
-| **Serial Communitacion** | 2                    |
+| **Serial Communitacion** | 1                    |

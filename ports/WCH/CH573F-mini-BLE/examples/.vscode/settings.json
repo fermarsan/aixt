@@ -1,0 +1,10 @@
+{
+    "aixt_linux":   "../../../..",
+    "aixt_windows": "..\\..\\..\\..",
+    "device":		"CH573F-mini-BLE",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
+    "files.associations": {
+        "*.nxc": "c",
+    }
+}

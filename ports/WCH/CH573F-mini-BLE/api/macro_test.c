@@ -1,28 +1,49 @@
 #include <stdio.h>
 #include <string.h>
 
-#define pin__output GPIO_ModeOut_PP_5mA
+#define output GPIO_ModeOut_PP_5mA
 
 #define a11 A, 11
 
-#define pin__high_(port, ...) "GPIO" #port "_SetBits(GPIO_Pin_" #__VA_ARGS__ ")\n"
+@[inline]
+pub fn high_(port, ...) {
+	C."GPIO" #port "_SetBits(GPIO_Pin_" #__VA_ARGS__ ")\n"
+}
 
-#define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
+@[inline]
+pub fn high(PIN_NAME) {
+	C.pin.high_(PIN_NAME)
+}
 
-//#define pin__setup_(port, pin, ...) "GPIO" #port "_ModeCfg(GPIO_Pin_" #pin ", " #__VA_ARGS__ ")\n"
-#define pin__setup_(port, pin, ...) "PWMX_ACTOUT(CH_PWM" #port ", " #__VA_ARGS__ ")\n"
+//@[inline]
+pub fn setup_(port, pin, ...) {
+	C."GPIO" #port "_ModeCfg(GPIO_Pin_" #pin ", " #__VA_ARGS__ ")\n"
+}
+@[inline]
+pub fn setup_(port, pin, ...) {
+	C."PWMX_ACTOUT(CH_PWM" #port ", " #__VA_ARGS__ ")\n"
+}
 
-#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
+@[inline]
+pub fn setup(PIN_NAME, PIN_MODE) {
+	C.pin.setup_(PIN_NAME, PIN_MODE)
+}
 
 
-// #define pin__high(a11)     GPIOA_SetBits(GPIO_Pin_11)
-// #define pin__low(a11)      GPIOA_ResetBits(GPIO_Pin_11)
+// @[inline]
+pub fn high(a11) {
+	C.GPIOA_SetBits(GPIO_Pin_11)
+}
+// @[inline]
+pub fn low(a11) {
+	C.GPIOA_ResetBits(GPIO_Pin_11)
+}
 
 int main() 
 {
-    //printf(pin__setup(a11, pin__output));
-    printf(pin__setup(4, 10));
-    printf(pin__high(a11));
+    //printf(pin.setup(pin.a11, pin.output));
+    printf(pin.setup(4, 10));
+    printf(pin.high(pin.a11));
     return 0;
 }
 

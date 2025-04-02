@@ -8,8 +8,8 @@ SOURCE = ./src
 
 $(TARGET): $(SOURCE)
 	$(VC) $(VFLAGS) $(TARGET) $(SOURCE)
-	@echo "aixt executable created"
+	@echo "Aixt executable created"
 
 clean:
 	rm -f $(TARGET)
-	@echo "aixt executable deleted"
+	@echo "Aixt executable deleted"

@@ -1,7 +1,7 @@
 import uart
 
-msg1 := 'red'
-msg2 := 'green'
+mut msg1 := 'red'
+mut msg2 := 'green'
 msg3 := 'blue'
 
 msg1 = msg3

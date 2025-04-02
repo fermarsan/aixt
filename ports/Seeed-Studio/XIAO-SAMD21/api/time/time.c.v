@@ -1,5 +1,0 @@
-module time
-
-fn init() {
-
-}

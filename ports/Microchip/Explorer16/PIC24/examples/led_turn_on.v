@@ -2,5 +2,5 @@
 with a PIC24FJ microcontroller (XC16 compiler)*/
 
 fn main() {
-    pin_high(led10)    //turn ON the LED 10 (PORTA7)
+    pin.high(led10)    //turn ON the LED 10 (PORTA7)
 }

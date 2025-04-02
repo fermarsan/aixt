@@ -1,6 +1,5 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: write.c.v
-// Author: Fernando Martínez Santa - Julián Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa - Julián Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
 // Date: 2022-2024
 // License: MIT
 //
@@ -9,4 +8,7 @@
 
 module pin
 
-#define pin__write(PIN_NAME, VALUE)   digitalWrite(PIN_NAME, VALUE)
+@[inline]
+pub fn write(PIN_NAME, VALUE) {
+	C.digitalWrite(PIN_NAME, VALUE)
+}

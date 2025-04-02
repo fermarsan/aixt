@@ -38,58 +38,58 @@ No.| Name     | Function
 ### Output port configuration
 
 To activate the port to use
-```go
-pin_high(pin_name)
+```v
+pin.high(pin_name)
 ```
-* *Example: If you want to activate the port IO17;  `pin_high(IO17)`.*
+* *Example: If you want to activate the port IO17;  `pin.high(IO17)`.*
 
 To disable the port being used
-```go
-pin_low(pin_name)
+```v
+pin.low(pin_name)
 ```
-* *Example: If you want to disable the port IO17;  `pin_low(IO17)`.*
+* *Example: If you want to disable the port IO17;  `pin.low(IO17)`.*
 
 To disable or enable the port to be used
 
-```go
-pin_write(pin_name, value)
+```v
+pin.write(pin_name, value)
 ```
-* *Example: If you want to disable port IO17 `pin_write(IO17, 1)`, and if you want to activate  `pin_write(IO17, 0)`.*
+* *Example: If you want to disable port IO17 `pin.write(IO17, 1)`, and if you want to activate  `pin.write(IO17, 0)`.*
 
 ### Input port detection
 
 If you need to know what state an entry port is in:
-```go
-x = pin_read(pin_name)
+```v
+x = pin.read(pin_name)
 ```
 
-* *Example: If you want to detect the value of port IO3; `x = pin_read(IO17)`, and `x` will take the value of 0 or 1, depending on which port is active or disabled.*
+* *Example: If you want to detect the value of port IO3; `x = pin.read(IO17)`, and `x` will take the value of 0 or 1, depending on which port is active or disabled.*
 
 ### Analog to digital ports (ADC)
 
 To configure one of the analog ports
-```go
-adc_setup(channel, setup_value_1, ... )
+```v
+adc.setup(channel, setup_value_1, ... )
 ```
 * *In channel the name of the analog port is entered, in setup_value_1 the value that will be given is said port.*
 
 To detect the analog port value
-```go
-x = adc_read(channel)
+```v
+x = adc.read(channel)
 ```
 * *In `channel` the name of the analog port is entered, and `x` takes the value of said port..*
 
 ## Pulse Width Modulation (PWM outputs)
 
 To configure some PWM
-```go
-pwm_setup(setup_value_1, setup_value_2, ... )
+```v
+pwm.setup(setup_value_1, setup_value_2, ... )
 ```
 * *In pwm you set the PWM to use, and in setup_value_1 the value to which you want to configure said pwm.*
 
 
 To configure the duty cycle of a modulator
-```go
+```v
 pwm_duty(duty)
 ```
 * *In PWM the pwm to be used is set, and in `duty` the value of the cycle (from 0 to 100) in percentage.*
@@ -101,7 +101,7 @@ The UART used to be the standard stream output, so the functions `print()`, `pri
 ### UART setup
 
 ```v
-uart_setup(baud_rate)   // the same of uart1_setup(baud_rate)
+uart.setup(baud_rate)   // the same of uart1_setup(baud_rate)
 ```
 - `baud_rate` configure the communication speed
 
@@ -127,28 +127,28 @@ uart2_write(message)    // send binary data (in Bytes) to UART2
 * Use of times
 
     * In each expression, the time value is put inside the parentheses.
-```go
-sleep(s) //Seconds
+```v
+time.sleep(s) //Seconds
 ```
-```go
-sleep_ms(ms) //Milliseconds
+```v
+time.sleep_ms(ms) //Milliseconds
 ```
-```go
-sleep_us(us) //Microseconds
+```v
+time.sleep_us(us) //Microseconds
 ```
 
 * Example flashing LED
 
-```go
+```v
 import machine { pin }
 import time { sleep_ms }
 
 pin_mode(IO14, out)
 
 for {   //infinite loop
-    pin_high(IO14)
+    pin.high(IO14)
     sleep_ms(500)
-    pin_low(IO14)
+    pin.low(IO14)
     sleep_ms(500)
 }
 ```

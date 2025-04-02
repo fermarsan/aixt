@@ -1,8 +1,8 @@
 module main
 
+type Mutex = int
 
 // #################### NXC Command module ####################
-
 
 
 // Constant offsets into the Command module IOMAP structure. 
@@ -215,88 +215,88 @@ module main
 
 
 // Functions for accessing and modifying Command module features. 
-#define     current_tick(...)                  CurrentTick(__VA_ARGS__) 
-#define     first_tick(...)                    FirstTick(__VA_ARGS__) 
-#define     reset_sleep_timer(...)             ResetSleepTimer(__VA_ARGS__) 
-// #define     sys_call(...)                      SysCall(__VA_ARGS__) 
-// #define     sys_get_start_tick(...)            SysGetStartTick(__VA_ARGS__) 
-// #define     sys_keep_alive(...)                SysKeepAlive(__VA_ARGS__) 
-// #define     sys_io_map_read(...)               SysIOMapRead(__VA_ARGS__) 
-// #define     sys_io_map_write(...)              SysIOMapWrite(__VA_ARGS__) 
-// #define     sys_io_map_read_by_id(...)         SysIOMapReadByID(__VA_ARGS__) 
-// #define     sys_io_map_write_by_id(...)        SysIOMapWriteByID(__VA_ARGS__) 
-// #define     sys_datalog_write(...)             SysDatalogWrite(__VA_ARGS__) 
-// #define     sys_datalog_get_times(...)         SysDatalogGetTimes(__VA_ARGS__) 
-// #define     sys_read_sem_data(...)             SysReadSemData(__VA_ARGS__) 
-// #define     sys_write_sem_data(...)            SysWriteSemData(__VA_ARGS__) 
-// #define     sys_update_calib_cache_info(...)   SysUpdateCalibCacheInfo(__VA_ARGS__) 
-// #define     sys_compute_calib_value(...)       SysComputeCalibValue(__VA_ARGS__) 
-// #define     get_memory_info(...)               GetMemoryInfo(__VA_ARGS__) 
-// #define     sys_memory_manager(...)            SysMemoryManager(__VA_ARGS__) 
-// #define     get_last_response_info(...)        GetLastResponseInfo(__VA_ARGS__) 
-// #define     sys_read_last_response(...)        SysReadLastResponse(__VA_ARGS__) 
-#define     sleep_ms(...)                      Wait(__VA_ARGS__)					//custom 
-#define     yield(...)                         Yield(__VA_ARGS__) 
-#define     stop_all_tasks(...)                StopAllTasks(__VA_ARGS__) 
-#define     stop_program(...)                  Stop(__VA_ARGS__) 
-#define     exit_to(...)                       ExitTo(__VA_ARGS__) 
-#define     precedes(...)                      Precedes(__VA_ARGS__) 
-#define     follows(...)                       Follows(__VA_ARGS__) 
-#define     acquire(...)                       Acquire(__VA_ARGS__) 
-#define     release(...)                       Release(__VA_ARGS__) 
-#define     start_task(...)                    StartTask(__VA_ARGS__) 
-#define     stop_task(...)                     StopTask(__VA_ARGS__) 
-#define     branch_test(...)                   BranchTest(__VA_ARGS__) 
-#define     branch_comp(...)                   BranchComp(__VA_ARGS__) 
-// #define     set_io_map_bytes(...)              SetIOMapBytes(__VA_ARGS__) 
-// #define     set_io_map_value(...)              SetIOMapValue(__VA_ARGS__) 
-// #define     get_io_map_bytes(...)              GetIOMapBytes(__VA_ARGS__) 
-// #define     get_io_map_value(...)              GetIOMapValue(__VA_ARGS__) 
-// #define     get_low_speed_module_bytes(...)    GetLowSpeedModuleBytes(__VA_ARGS__) 
-// #define     get_display_module_bytes(...)      GetDisplayModuleBytes(__VA_ARGS__) 
-// #define     get_comm_module_bytes(...)         GetCommModuleBytes(__VA_ARGS__) 
-// #define     get_command_module_bytes(...)      GetCommandModuleBytes(__VA_ARGS__) 
-// #define     set_command_module_bytes(...)      SetCommandModuleBytes(__VA_ARGS__) 
-// #define     set_low_speed_module_bytes(...)    SetLowSpeedModuleBytes(__VA_ARGS__) 
-// #define     set_display_module_bytes(...)      SetDisplayModuleBytes(__VA_ARGS__) 
-// #define     set_comm_module_bytes(...)         SetCommModuleBytes(__VA_ARGS__) 
-// #define     set_sound_module_bytes(...)        SetSoundModuleBytes(__VA_ARGS__) 
-// #define     set_io_map_bytes_by_id(...)        SetIOMapBytesByID(__VA_ARGS__) 
-// #define     set_io_map_value_by_id(...)        SetIOMapValueByID(__VA_ARGS__) 
-// #define     get_io_map_bytes_by_id(...)        GetIOMapBytesByID(__VA_ARGS__) 
-// #define     get_io_map_value_by_id(...)        GetIOMapValueByID(__VA_ARGS__) 
-// #define     set_command_module_value(...)      SetCommandModuleValue(__VA_ARGS__) 
-// #define     set_io_ctrl_module_value(...)      SetIOCtrlModuleValue(__VA_ARGS__) 
-// #define     set_loader_module_value(...)       SetLoaderModuleValue(__VA_ARGS__) 
-// #define     set_ui_module_value(...)           SetUIModuleValue(__VA_ARGS__) 
-// #define     set_sound_module_value(...)        SetSoundModuleValue(__VA_ARGS__) 
-// #define     set_button_module_value(...)       SetButtonModuleValue(__VA_ARGS__) 
-// #define     set_input_module_value(...)        SetInputModuleValue(__VA_ARGS__) 
-// #define     set_output_module_value(...)       SetOutputModuleValue(__VA_ARGS__) 
-// #define     set_low_speed_module_value(...)    SetLowSpeedModuleValue(__VA_ARGS__) 
-// #define     set_display_module_value(...)      SetDisplayModuleValue(__VA_ARGS__) 
-// #define     set_comm_module_value(...)         SetCommModuleValue(__VA_ARGS__) 
-// #define     get_command_module_value(...)      GetCommandModuleValue(__VA_ARGS__) 
-// #define     get_loader_module_value(...)       GetLoaderModuleValue(__VA_ARGS__) 
-// #define     get_sound_module_value(...)        GetSoundModuleValue(__VA_ARGS__) 
-// #define     get_button_module_value(...)       GetButtonModuleValue(__VA_ARGS__) 
-// #define     get_ui_module_value(...)           GetUIModuleValue(__VA_ARGS__) 
-// #define     get_input_module_value(...)        GetInputModuleValue(__VA_ARGS__) 
-// #define     get_output_module_value(...)       GetOutputModuleValue(__VA_ARGS__) 
-// #define     get_low_speed_module_value(...)    GetLowSpeedModuleValue(__VA_ARGS__) 
-// #define     get_display_module_value(...)      GetDisplayModuleValue(__VA_ARGS__) 
-// #define     get_comm_module_value(...)         GetCommModuleValue(__VA_ARGS__)
+// @[inline] current_tick() { return C.CurrentTick() } 
+// @[inline] first_tick() { return C.FirstTick() } 
+// @[inline] reset_sleep_timer() { C.ResetSleepTimer() } 
+// @[inline] sys_call() { return C.SysCall() } 
+// @[inline] sys_get_start_tick() { return C.SysGetStartTick() } 
+// @[inline] sys_keep_alive() { return C.SysKeepAlive() } 
+// @[inline] sys_io_map_read() { return C.SysIOMapRead() } 
+// @[inline] sys_io_map_write() { return C.SysIOMapWrite() } 
+// @[inline] sys_io_map_read_by_id() { return C.SysIOMapReadByID() } 
+// @[inline] sys_io_map_write_by_id() { return C.SysIOMapWriteByID() } 
+// @[inline] sys_datalog_write() { return C.SysDatalogWrite() } 
+// @[inline] sys_datalog_get_times() { return C.SysDatalogGetTimes() } 
+// @[inline] sys_read_sem_data() { return C.SysReadSemData() } 
+// @[inline] sys_write_sem_data() { return C.SysWriteSemData() } 
+// @[inline] sys_update_calib_cache_info() { return C.SysUpdateCalibCacheInfo() } 
+// @[inline] sys_compute_calib_value() { return C.SysComputeCalibValue() } 
+// @[inline] get_memory_info() { return C.GetMemoryInfo() } 
+// @[inline] sys_memory_manager() { return C.SysMemoryManager() } 
+// @[inline] get_last_response_info() { return C.GetLastResponseInfo() } 
+// @[inline] sys_read_last_response() { return C.SysReadLastResponse() } 
+// @[inline] sleep_ms(ms u32) { C.Wait(ms) }					//custom 
+// @[inline] yield() { C.Yield() } 
+// @[inline] stop_all_tasks() { C.StopAllTasks() } 
+// @[inline] stop_program(val bool) { C.Stop(val) } 
+// @[inline] exit_to(new_task fn) { C.ExitTo(new_task) } 
+// @[inline] precedes() { return C.Precedes() } 
+// @[inline] follows() { return C.Follows() } 
+// @[inline] acquire() { return C.Acquire() } 
+// @[inline] release() { return C.Release() } 
+// @[inline] start_task() { return C.StartTask() } 
+// @[inline] stop_task() { return C.StopTask() } 
+// @[inline] branch_test() { return C.BranchTest() } 
+// @[inline] branch_comp() { return C.BranchComp() } 
+// @[inline] set_io_map_bytes() { return C.SetIOMapBytes() } 
+// @[inline] set_io_map_value() { return C.SetIOMapValue() } 
+// @[inline] get_io_map_bytes() { return C.GetIOMapBytes() } 
+// @[inline] get_io_map_value() { return C.GetIOMapValue() } 
+// @[inline] get_low_speed_module_bytes() { return C.GetLowSpeedModuleBytes() } 
+// @[inline] get_display_module_bytes() { return C.GetDisplayModuleBytes() } 
+// @[inline] get_comm_module_bytes() { return C.GetCommModuleBytes() } 
+// @[inline] get_command_module_bytes() { return C.GetCommandModuleBytes() } 
+// @[inline] set_command_module_bytes() { return C.SetCommandModuleBytes() } 
+// @[inline] set_low_speed_module_bytes() { return C.SetLowSpeedModuleBytes() } 
+// @[inline] set_display_module_bytes() { return C.SetDisplayModuleBytes() } 
+// @[inline] set_comm_module_bytes() { return C.SetCommModuleBytes() } 
+// @[inline] set_sound_module_bytes() { return C.SetSoundModuleBytes() } 
+// @[inline] set_io_map_bytes_by_id() { return C.SetIOMapBytesByID() } 
+// @[inline] set_io_map_value_by_id() { return C.SetIOMapValueByID() } 
+// @[inline] get_io_map_bytes_by_id() { return C.GetIOMapBytesByID() } 
+// @[inline] get_io_map_value_by_id() { return C.GetIOMapValueByID() } 
+// @[inline] set_command_module_value() { return C.SetCommandModuleValue() } 
+// @[inline] set_io_ctrl_module_value() { return C.SetIOCtrlModuleValue() } 
+// @[inline] set_loader_module_value() { return C.SetLoaderModuleValue() } 
+// @[inline] set_ui_module_value() { return C.SetUIModuleValue() } 
+// @[inline] set_sound_module_value() { return C.SetSoundModuleValue() } 
+// @[inline] set_button_module_value() { return C.SetButtonModuleValue() } 
+// @[inline] set_input_module_value() { return C.SetInputModuleValue() } 
+// @[inline] set_output_module_value() { return C.SetOutputModuleValue() } 
+// @[inline] set_low_speed_module_value() { return C.SetLowSpeedModuleValue() } 
+// @[inline] set_display_module_value() { return C.SetDisplayModuleValue() } 
+// @[inline] set_comm_module_value() { return C.SetCommModuleValue() } 
+// @[inline] get_command_module_value() { return C.GetCommandModuleValue() } 
+// @[inline] get_loader_module_value() { return C.GetLoaderModuleValue() } 
+// @[inline] get_sound_module_value() { return C.GetSoundModuleValue() } 
+// @[inline] get_button_module_value() { return C.GetButtonModuleValue() } 
+// @[inline] get_ui_module_value() { return C.GetUIModuleValue() } 
+// @[inline] get_input_module_value() { return C.GetInputModuleValue() } 
+// @[inline] get_output_module_value() { return C.GetOutputModuleValue() } 
+// @[inline] get_low_speed_module_value() { return C.GetLowSpeedModuleValue() } 
+// @[inline] get_display_module_value() { return C.GetDisplayModuleValue() } 
+// @[inline] get_comm_module_value() { return C.GetCommModuleValue() }
 
-#define		sleep(TS)							Wait(TS*1000)		//custom
+// @[inline] sleep(ts) { C.Wait(ts*1000) }		//custom
 
 // cstdlib.c
-// #define     abort(...)              abort(__VA_ARGS__)
-// #define     atoi(...)               atoi(__VA_ARGS__)
-// #define     atol(...)               atol(__VA_ARGS__)
-// #define     atof(...)               atof(__VA_ARGS__)
-// #define     strtod(...)             strtod(__VA_ARGS__)
-// #define     strtol(...)             strtol(__VA_ARGS__)
-// #define     strtoul(...)            strtoul(__VA_ARGS__)
+// @[inline] abort() { return C.abort() }
+// @[inline] atoi() { return C.atoi() }
+// @[inline] atol() { return C.atol() }
+// @[inline] atof() { return C.atof() }
+// @[inline] strtod() { return C.strtod() }
+// @[inline] strtol() { return C.strtol() }
+// @[inline] strtoul() { return C.strtoul() }
 
 
 // #################### NXC IOCtrl module ####################
@@ -309,6 +309,6 @@ module main
 // #define 	io_ctrl_boot     	IOCTRL_BOOT      
 
 // Functions for accessing and modifying IOCtrl module features. 
-#define     power_down(...)              PowerDown(__VA_ARGS__)
-#define     sleep_now(...)               SleepNow(__VA_ARGS__)
-#define     reboot_in_firmware_mode(...) RebootInFirmwareMode(__VA_ARGS__)
+// @[inline] power_down() { return C.PowerDown() }
+// @[inline] sleep_now() { return C.SleepNow() }
+// @[inline] reboot_in_firmware_mode() { return C.RebootInFirmwareMode() }

@@ -1,5 +1,5 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa & Cristian Garzón
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Cristian Garzón
 // Date: 2023 - 2024
 // Description: PORT functions (WCH-CH573F)
 
@@ -9,12 +9,12 @@ module port
 #define a A  
 #define b B  
 
-#define port__output    GPIO_ModeOut_PP_5mA      
+const output = C.GPIO_ModeOut_PP_5mA      
 //Tambien esta el modo GPIO_ModeOut_PP_20mA
    
-#define port__input     	GPIO_ModeIN_Floating
-#define port__in_pullup		GPIO_ModeIN_PU
-#define port__in_pulldown	GPIO_ModeIN_PD
+const input = C.GPIO_ModeIN_Floating
+const in_pullup = C.GPIO_ModeIN_PU
+const in_pulldown = C.GPIO_ModeIN_PD
 //Tambien esta el modo GPIO_ModeIN_PU y GPIO_ModeIN_Floating
 
 /*

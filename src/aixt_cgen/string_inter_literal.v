@@ -1,5 +1,5 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
 module aixt_cgen
@@ -7,18 +7,19 @@ module aixt_cgen
 import v.ast
 
 // string_inter_literal is the code generation function for string literals with interpolation.
-// ```v
+// ``` v
 // str := 'Hello ${var_name}...'
-// ```
+// ``` 
 fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut c_line := ''
 
 	mut strs := node.vals.clone()	//reverse()
 	mut exprs := node.exprs.clone()	//reverse()
 
 	// println('............. ${gen.setup.value('backend').str()} .............')	
-	len := gen.setup.value('string_default_len').int()
-	if gen.setup.value('backend').string() != 'nxc' {
+	len := gen.setup.default_string_len
+	if gen.setup.backend != 'nxc' {
 		gen.add_include('stdio.h')
 		gen.add_definition('char __temp_str[${len}];')
 	} else {
@@ -83,6 +84,30 @@ fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
 	c_line = c_line#[..-2] + ');'
 	gen.to_insert_lines << c_line
 	c_line = '___TO_INSERT_${gen.to_insert_lines.len - 1}___'
-	
+	// println(gen.out)
 	return [c_line + '__temp_str']
+}
+
+
+// find_type recursively finds the type of a expresion.
+fn (mut gen Gen) find_type(node ast.Expr) ast.Kind {
+	// gen.sym_table_print()
+	// println(gen.files[gen.file_count].scope)
+	mut expr_type := ast.new_type(1)	// initialized void
+	match node {
+		ast.Ident {
+			// ident_name := '${(node as ast.Ident).mod}.${(node as ast.Ident).name}'
+			ident_name := (node as ast.Ident).name
+			obj := gen.find_obj_all_scopes(ident_name) or {
+				panic('Identifier "${ident_name}" not found.') 
+			}
+			// println('=============== ${obj} ===============')
+			expr_type = obj.typ
+		}
+		else {
+			// println('=============== not ast.Ident ===============')
+			return .void
+		}
+	}
+	return gen.table.type_kind(expr_type)
 }

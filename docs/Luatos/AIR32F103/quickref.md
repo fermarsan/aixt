@@ -97,63 +97,63 @@ For each of these modules, you will have a file in .c.v format with the same nam
 
 ### Output port configuration
 To activate the port to use
-```go
-pin__setup(PIN_NAME, MODE)
+```v
+pin.setup(pin_name, mode)
 ```
 To activate the port to use
-```go
-pin__high(PIN_NAME)
+```v
+pin.high(PIN_NAME)
 ```
-* *Example: If you want to activate the port 17;  `pin__high(17)`.*
+* *Example: If you want to activate the port 17;  `pin.high(17)`.*
 
 To disable the port being used
-```go
-pin__low(PIN_NAME)
+```v
+pin.low(PIN_NAME)
 ```
-* *Example: If you want to disable the port 17;  `pin__low(17)`.*
+* *Example: If you want to disable the port 17;  `pin.low(17)`.*
 
 To disable or enable the port to be used
 
-```go
-pin__write(PIN_NAME, VALUE)
+```v
+pin.write(PIN_NAME, VALUE)
 ```
-* *Example: If you want to disable port 17 `pin__write(17, 1)`, and if you want to activate  `pin__write(17, 0)`.*
+* *Example: If you want to disable port 17 `pin.write(17, 1)`, and if you want to activate  `pin.write(17, 0)`.*
 
 ### Input port detection
 
 If you need to know what state an entry port is in:
-```go
-x = pin__read(PIN_NAME)
+```v
+x = pin.read(PIN_NAME)
 ```
 
-* *Example: If you want to detect the VALUE of port 3; `x = pin__read(17)`, and `x` will take the VALUE of 0 or 1, depending on which port is active or disabled.*
+* *Example: If you want to detect the VALUE of port 3; `x = pin.read(17)`, and `x` will take the VALUE of 0 or 1, depending on which port is active or disabled.*
 
 ### Analog to digital ports (ADC)
 
 To configure one of the analog ports
-```go
-adc__setup(PIN_NAME, SETUP_VALUE, ... )
+```v
+adc.setup(PIN_NAME, SETUP_VALUE, ... )
 ```
 * *In PIN_NAME the name of the analog port is entered, in SETUP_VALUE the VALUE that will be given is said port.*
 
 To detect the analog port VALUE
-```go
-x = adc__read(PIN_NAME)
+```v
+x = adc.read(PIN_NAME)
 ```
 * *In `PIN_NAME` the name of the analog port is entered, and `x` takes the VALUE of said port..*
 
 ## Pulse Width Modulation (PWM outputs)
 
 To configure some PWM
-```go
-pwm__setup(SETUP_VALUE, setup_VALUE_1, ... )
+```v
+pwm.setup(SETUP_VALUE, setup_VALUE_1, ... )
 ```
 * *In pwm you set the PWM to use, and in SETUP_VALUE the VALUE to which you want to configure said pwm.*
 
 
 To configure the duty cycle of a modulator
-```go
-pwm__duty(duty)
+```v
+pwm.write(duty)
 ```
 * *In PWM the pwm to be used is set, and in `duty` the VALUE of the cycle (from 0 to 100) in percentage.*
 
@@ -164,45 +164,45 @@ The UART used to be the standard stream output, so the functions `print()`, `pri
 ### UART setup
 
 ```v
-uart__setup(BAUD_RATE)   // the same of uart__setup(BAUD_RATE)
+uart.setup(BAUD_RATE)   // the same of uart.setup(BAUD_RATE)
 ```
 For a second connection it is used as:
 ```v 
-uart__setup_1(BAUD_RATE)   // the same of uart__setup_1(BAUD_RATE)
+uart.setup_1(BAUD_RATE)   // the same of uart.setup_1(BAUD_RATE)
 ```
 - `BAUD_RATE` configure the communication speed
 ### Serial transmitting
 
 ```v
-uart__print(MESSAGE)      // print a string to the default UART
+uart.print(message)      // print a string to the default UART
 ```
 ```v
-uart__println(MESSAGE)    // print a string plus a line-new character to the default UART
+uart.println(message)    // print a string plus a line-new character to the default UART
 ```
 ```v
-uart__ready // get everything ready for to UART
+uart.ready // get everything ready for to UART
 ```
 ```v
-uart__read // receives binary data (in Bytes) to UART
+uart.read // receives binary data (in Bytes) to UART
 ```
 ```v
-uart__write(MESSAGE)    // send binary data (in Bytes) to second UART
+uart.write(MESSAGE)    // send binary data (in Bytes) to second UART
 ```
 - For a second UART, it would be used as follows:
 ```v
-uart__print_1(MESSAGE)    // print a string to the second UART
+uart.print_1(MESSAGE)    // print a string to the second UART
 ```
 ```v
-uart__println_1(MESSAGE)  // print a string plus a line-new character to the second UART
+uart.println_1(MESSAGE)  // print a string plus a line-new character to the second UART
 ```
 ```v
-uart__write_1(MESSAGE)    // send binary data (in Bytes) to second UART
+uart.write_1(MESSAGE)    // send binary data (in Bytes) to second UART
 ```
 ```v
-uart__ready_1 // get everything ready for to second UART
+uart.ready_1 // get everything ready for to second UART
 ```
 ```v
-uart__read_1 // receives binary data (in Bytes) to second UART
+uart.read_1 // receives binary data (in Bytes) to second UART
 ```
 
 ### Retardos
@@ -210,23 +210,23 @@ uart__read_1 // receives binary data (in Bytes) to second UART
 * Use of times
 
     * In each expression, the time VALUE is put inside the parentheses.
-```go
-time__sleep(S) //Seconds
+```v
+time.sleep(S) //Seconds
 ```
-```go
-time__sleep_ms(MS) //Milliseconds
+```v
+time.sleep_ms(MS) //Milliseconds
 ```
-```go
-time__sleep_us(US) //Microseconds
+```v
+time.sleep_us(US) //Microseconds
 ```
 
 * Example flashing LED
 
-```go
+```v
 import pin
 import time {sleep_ms}
 
-pin.setup(14, pin.out)
+pin.setup(14, pin.output)
 
 for {   //infinite loop
     pin.high(14)
@@ -237,15 +237,15 @@ for {   //infinite loop
 ```
 
 * Example digital input and output
-```go
+```v
 const int ledPIN1 = PA3; //salida digital al led PA3
 
 const int intPIN = PA0; //entrada digital al led PA0
 void setup() {
      Serial.begin(9600);
      // put your setup code here, to run once:
-     pinMode(ledPIN1, OUTPUT);//led conectado a salida PA3
-      pinMode(intPIN, INPUT);//interruptor conectado a entrada PA0
+     pinMode(ledPIN1, pin.OUTput);//led conectado a salida PA3
+      pinMode(intPIN, pin.INput);//interruptor conectado a entrada PA0
 }
 void loop() {
   // put your main code here, to run repeatedly:
@@ -264,7 +264,7 @@ void loop() {
 
 * Example analog input and output and signal PWM 
 
-```go
+```v
 define LED_BUILTIN 2
 
 #include <PWMOutESP32.h> //https://github.com/fellipecouto/PWMOutESP32 [ http://www.efeitonerd.com.br ]
@@ -274,7 +274,7 @@ PWMOutESP32 pwm(10, 5000); //Resolution=10bits, Frequency=5000Hz
 
 void setup() {
   Serial.begin(115200);
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN, pin.OUTput);
 
   Serial.println("\nPWMOutESP32");
   Serial.println("Library for controlling ESP32 PWM outputs similar to use on Arduino");
@@ -305,7 +305,7 @@ void loop() {
 * Example port comunication UART 
 
 
-```go
+```v
 for AIR32F103 as emisor:
 
 long Dato;//Dato como entero

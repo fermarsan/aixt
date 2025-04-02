@@ -1,13 +1,15 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: adc.c
-// Author: Javier Leon, Camilo Lucas and Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Authors:
+//	- Javier Leon
+//	- Camilo Lucas
+//	- Fernando M. Santa
 // Date: 2023
 // License: MIT
 //
 // Description: This is a module to emulate ADC inputs in console.
 //              (CY8CKIT-049-42XX)
 
-void adc_read(int channel) {
+void adc.read(int channel) {
     if (channel==1){
         amux_FastSelect(0);
     }

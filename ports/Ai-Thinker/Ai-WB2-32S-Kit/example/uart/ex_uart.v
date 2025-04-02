@@ -1,6 +1,5 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: uart.v
-// Author: Fernando Martínez Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
 // Date: 2022-2024
 // License: MIT
 //
@@ -12,9 +11,9 @@ import uart
 
 
   uart.setup(115200)
-  pin.setup(io4,pin.output)
-  pin.setup(io5,pin.output)
-  pin.setup(io12,pin.output)
+  pin.setup(io4,output)
+  pin.setup(io5,output)
+  pin.setup(io12,output)
 
 for {
   uart.println("\r\n Este programa realiza unas funciones establecidas:")
@@ -31,10 +30,10 @@ for {
   x:=0
   x=uart.any()
   if  x> 0 {
-  command := ` `
+  command := ` ` 
 	command = uart.read()
 
-    if command==`A` {
+    if command==`A`  {
         uart.println("\r\n Comando A recibido. \r\n")
         uart.println("\r\n Realizando acción A. \r\n")
         pin.high(io4)
@@ -45,7 +44,7 @@ for {
         uart.println("\r\n Proceso A finalizado. \r\n")
 	}
 
-      if command==`B` {
+      if command==`B`  {
         uart.println("\r\n Comando B recibido. \r\n")
         uart.println("\r\n Realizando acción B. \r\n")
         pin.high(io5)

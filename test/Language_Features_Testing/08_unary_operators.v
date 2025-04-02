@@ -1,7 +1,7 @@
 // binary operators
 
-a, b := 0, 5
-c, d := true, false
+mut a, mut b := 0, 5
+mut c, d := true, false
 
 a = -b
 c = !d

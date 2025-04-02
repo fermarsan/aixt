@@ -134,37 +134,37 @@ NAME               | DESCRIPTION
 `time.sleep(time)`             | retardo en `S`
 `time.sleep_us(time)`          | retardo en `uS`
 `time.sleep_ms(time)`          | retardo en `mS`
-`pin.input`    | Parametros `mode` configuracion de entrada 
-`pin.output`    | parametros `mode` configuracion de salida 
+`input`    | Parametros `mode` configuracion de entrada 
+`output`    | parametros `mode` configuracion de salida 
 `uart.any()` |	Obtener el número de bytes para leer
 
 * La siguiente tabla presentará las equivalencias entre las funciones nativas del compilador en contraste con aquellas implementadas en el proyecto Aixt, con la idea central de redefinir estas funciones y ofrecer soporte estandarizado.
 
 DEFINITION AIXT	 | DEFINITION ARDUINO
 -----------------|-----------------------------
-`adc__read(PIN_NAME)`|    	`analogRead(PIN_NAME)`
-`pin__high(PIN_NAME)`| 		`digitalWrite(PIN_NAME, HIGH)`
-`pin__low(PIN_NAME)`|        	`digitalWrite(PIN_NAME, LOW)`
-`pin__output`| 				`OUTPUT`
-`pin__input`|	`INPUT`
-`pin__input_pullup	INPUT_PULLUP`|
-`pin__read(PIN_NAME)`|   	`digitalRead(PIN_NAME)`
-`pin__setup(PIN_NAME, MODE)`|        	`pinMode(PIN_NAME, MODE)`
-`pin__write(PIN_NAME, VALUE)`|  	`digitalWrite(PIN_NAME, VALUE)`
-`pwm__write(PIN, VALUE)`|   	`analogWrite(PIN, VALUE)`
-`time__sleep_ms(MS)`|  	`delay(MS)`
-`time__sleep_us(US) `|  	`delayMicroseconds(US)`
-`time__sleep(S)`|	`delay(S*1000)`
-`uart__any_0()`|		`Serial.available()`
-`uart__any_1()`|		`Serial1.available()`
-`uart__any_x(UART_NUMBER)	uart__any ## UART_NUMBER ##`| `serial.available()`
-`uart__print_0(MESSAGE)`|		`Serial.print(MESSAGE)`
-`uart__print_1(MESSAGE)`|		`Serial1.print(MESSAGE)`
-`uart__println_0(MESSAGE)`|		`Serial.println(MESSAGE)`
-`uart__println_1(MESSAGE)`|		`Serial1.println(MESSAGE)`
-`uart__read_0()`|		`Serial.read()`
-`uart__read_1()`|		`Serial1.read()`
-`uart__setup(BAUD_RATE)`|   	`Serial.begin(BAUD_RATE)`
+`adc.read(PIN_NAME)`|    	`analogRead(PIN_NAME)`
+`pin.high(PIN_NAME)`| 		`digitalWrite(PIN_NAME, HIGH)`
+`pin.low(PIN_NAME)`|        	`digitalWrite(PIN_NAME, LOW)`
+`output`| 				`OUTPUT`
+`input`|	`INPUT`
+`input_pullup	INPUT_PULLUP`|
+`pin.read(PIN_NAME)`|   	`digitalRead(PIN_NAME)`
+`pin.setup(pin_name, mode)`|        	`pinMode(PIN_NAME, MODE)`
+`pin.write(PIN_NAME, VALUE)`|  	`digitalWrite(PIN_NAME, VALUE)`
+`pwm.write(PIN, VALUE)`|   	`analogWrite(PIN, VALUE)`
+`time.sleep_ms(MS)`|  	`delay(MS)`
+`time.sleep_us(US) `|  	`delayMicroseconds(US)`
+`time.sleep(S)`|	`delay(S*1000)`
+`uart.any_0()`|		`Serial.available()`
+`uart.any_1()`|		`Serial1.available()`
+`uart.any_x(UART_NUMBER)	uart.any ## UART_NUMBER ##`| `serial.available()`
+`uart.print_0(MESSAGE)`|		`Serial.print(MESSAGE)`
+`uart.print_1(MESSAGE)`|		`Serial1.print(MESSAGE)`
+`uart.println_0(MESSAGE)`|		`Serial.println(MESSAGE)`
+`uart.println_1(MESSAGE)`|		`Serial1.println(MESSAGE)`
+`uart.read_0()`|		`Serial.read()`
+`uart.read_1()`|		`Serial1.read()`
+`uart.setup(BAUD_RATE)`|   	`Serial.begin(BAUD_RATE)`
   `  *Table of equivalences between functions`
 
 ## ejemplos
@@ -175,20 +175,20 @@ DEFINITION AIXT	 | DEFINITION ARDUINO
 
 Parpadeo de un LED en un ciclo infinito con retraso de tiempo:
 
-```go
+```v
 import time { sleep_ms }  			// importa (sleep_ms) del modulo time
 import pin				        // importa el modulo pin en su totalidad
 
 pin.setup(1, pin.output)  			// configura el pin 1 como salida
 for {                     			//crea el void loob
 	pin.high(1)			        //pin encendido
-	sleep_ms(500)	  	      		//retardo en milisegundos 
+	time.sleep_ms(500)	  	      		//retardo en milisegundos 
 	pin.low(1)			        //pin apagado
-	sleep_ms(500)		       		 //retardo en milisegundos
+	time.sleep_ms(500)		       		 //retardo en milisegundos
 }
 ```
 ### Secuencia tipo semaforo
-```go
+```v
 import time {sleep_ms}          //importa la funcion sleep_ms de el modulo time   
 import pin 			// Importa el módulo pin en su totalidad
 
@@ -211,7 +211,7 @@ for{
 ### LECTURA ANALÓGICA Y DIGITAL
 
 En este ejemplo, probaremos las lecturas analógicas y digitales a través del destello de un LED que depende de la variación de un potenciómetro:
-```go
+```v
 import pin                            // Importa el módulo pin en su totalidad
 import adc                            // Importa el módulo adc en su totalidad
 import pwm                            // Importa el módulo pwm en su totalidad
@@ -231,7 +231,7 @@ for{                      // crea el ciclo
 ### comunicacion serial
 
 Prueba de comunicación UART con contador incrementando si se presiona un interruptor:
-```go
+```v
 
 import pin             //importa en su totalidad el modulo PIN
 import uart            //importa el modulo UART

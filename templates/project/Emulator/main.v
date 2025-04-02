@@ -1,12 +1,12 @@
-// Project Name:
+// Project name:
 // Author: 
 // Date: 
-// CLI emulator (Windows, Lunix and Android-Termux) 
+// CLI emulator (Windows, Linux and Android-Termux) 
 
-import time { sleep_ms }
+import time
 import pin
 
 for {
-	pin.high(a)
-	sleep_ms(500)
+	pin.high(pin.a)
+	time.sleep_ms(500)
 }

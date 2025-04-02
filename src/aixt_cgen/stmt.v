@@ -1,5 +1,5 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
 module aixt_cgen
@@ -8,10 +8,11 @@ import v.ast
 
 // stmt is the code generation function for statements.
 fn (mut gen Gen) stmt(node ast.Stmt) []string {
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	println('${node.type_name().after('v.ast.')}:\t\t${node}')
 	match node {
 		ast.Module {
-			return []
+			return gen.module_stmt(node)
 		}
 		ast.Import {
 			return gen.import_stmt(node)
@@ -55,10 +56,18 @@ fn (mut gen Gen) stmt(node ast.Stmt) []string {
 		ast.AsmStmt {
 			return gen.asm_stmt(node)
 		}
+		ast.Block {
+			return gen.block(node)
+		}
+		ast.StructDecl {
+			return gen.struct_decl(node)
+		}
+		ast.TypeDecl {
+			return gen.type_decl(node)
+		}
 		ast.SemicolonStmt {
 			return []
 		}
-		
 		else { panic('\n\n***** Transpiler error *****:\nUndefined statement.\n') }
 	}
 }

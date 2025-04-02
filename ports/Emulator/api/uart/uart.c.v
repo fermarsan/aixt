@@ -1,5 +1,5 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
 //
@@ -8,5 +8,12 @@ module uart
 
 #include <stdio.h>
 #include <string.h>
-	
-fn C.init()
+
+__global (
+	uart__buffer = ''
+)
+
+fn init() {
+	C.printf('\033[1;32m')	// print in green
+	C.printf(' Aixt virtual UART\n')
+}

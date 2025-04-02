@@ -1,12 +1,12 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
 //
 // Description: This is a module to emulate a PWM output in console.
 module pwm
 
-fn write(channel int, duty int) {
-    duty__[channel] = duty
+pub fn write(channel int, duty int) {
+    pwm__duty[channel] = duty
     pwm.update()
 }

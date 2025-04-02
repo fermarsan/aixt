@@ -3,9 +3,9 @@
 import time { sleep }
 import machine
 
-a := 0.0
+mut a := 0.0
 
 for {
-	sleep(1)
+	time.sleep(1)
 	a++
 }

@@ -1,6 +1,8 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pwm.c
-// Author: Javier Leon, Camilo Lucas and Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Authors:
+//	- Javier Leon
+//	- Camilo Lucas
+//	- Fernando M. Santa
 // Date: 2023
 // License: MIT
 //

@@ -1,5 +1,5 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
 
@@ -9,6 +9,7 @@ import v.ast
 
 // ast_node is the Code generation function for AST nodes.
 fn (mut gen Gen) ast_node(node ast.Node) []string {
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	if node.type_name() == 'v.ast.File' {
 		println('')
 	}
@@ -18,7 +19,7 @@ fn (mut gen Gen) ast_node(node ast.Node) []string {
 			return gen.ast_file(node)
 		}
 		ast.Stmt {
-			return gen.stmt(node)
+			return [ gen.stmt(node).join('\n') ]
 		}
 		ast.Expr {
 			return gen.expr(node)
@@ -34,6 +35,9 @@ fn (mut gen Gen) ast_node(node ast.Node) []string {
 		}
 		ast.IfBranch { // statement block of "if" and "else" expressions
 			return gen.if_branch(node)
+		}		
+		ast.MatchBranch { // statement block of "if" and "else" expressions
+			return gen.match_branch(node)
 		}
 		ast.CallArg {
 			return gen.call_arg(node)
@@ -41,8 +45,11 @@ fn (mut gen Gen) ast_node(node ast.Node) []string {
 		ast.Param {
 			return gen.param(node)
 		}
+		ast.StructField {
+			return gen.struct_field(node)
+		}
 		else {
-			return []
+			return ['']
 		} //'Error: Not defined node.\n' }
 	}
 }

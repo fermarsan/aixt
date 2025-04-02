@@ -39,9 +39,9 @@ The functions contained in the API for digital input or output and for performin
 
 | Name                    | Description                                    | Examples                                 |
 |-------------------------|------------------------------------------------|------------------------------------------|
-| `pin.setup(pin, mode)`  | Configure `pin` as `mode` (input, out)         | **pin.setup**(5, pin.input) // Set pin 5 as input |
-| `pin.output`            | Parameter `mode` output configuration          | pin.setup(3, **pin.output**) // Set pin 3 as output |
-| `pin.input`             | Parameter `mode` input configuration           | pin.setup(7, **pin.input**) // Set pin 7 as input |
+| `pin.setup(pin, pin.mode)`  | Configure `pin` as `mode` (input, out)         | **pin.setup**(5, input) // Set pin 5 as input |
+| `output`            | Parameter `mode` output configuration          | pin.setup(3, **output**) // Set pin 3 as output |
+| `input`             | Parameter `mode` input configuration           | pin.setup(7, **input**) // Set pin 7 as input |
 | `pin.high(pin)`         | Digital output high `pin`                      | **pin.high**(3) // Output high on pin 3 |
 | `pin.low(pin)`          | Digital output low `pin`                       | **pin.low**(3) // Output low on pin 3 |
 | `pin.write(pin, val)`   | Write `val` to `pin`                           | **pin.write**(3, 1) // Write 1 to pin 3 |
@@ -64,7 +64,7 @@ The functions contained in the API for digital input or output and for performin
 ### LED Blinking
 Next, an LED will be turned on and off 10 times.
 
-```go
+```v
 import time {sleep_ms}   // Import the sleep_ms function from the time module 
 import pin  // Import the pin module in its entirety
 
@@ -82,7 +82,7 @@ for{}       // Infinite loop necessary for compilation
 ### Sequence of 3 LEDs
 Next, a sequence of 3 LEDs will be shown.
 
-```go
+```v
 import time {sleep_ms} // Import the sleep_ms function
 import pin  // Import the pin module
 
@@ -109,7 +109,7 @@ for{
 ### Turn on an LED with a Button
 Next, the turning on of an LED will be conditioned to a button.
 
-```go
+```v
 import pin  // Import the pin module
 
 __global (
@@ -131,7 +131,7 @@ for{        // Infinite loop
 
 ### Analog Reading
 
-```go
+```v
 import pin  // import the pin module
 import adc  // import the adc module
 
@@ -170,7 +170,7 @@ for {       // Infinite loop
 
 ### PWM Output
 
-```go
+```v
 import time {sleep_ms}  // import the sleep_ms function
 import pin              // import the pin module
 import pwm              // import the pwm module
@@ -194,7 +194,7 @@ for {
 
 ### Serial Communication
 
-```go
+```v
 import pin      // import the pin module
 import uart     // import the uart module
  

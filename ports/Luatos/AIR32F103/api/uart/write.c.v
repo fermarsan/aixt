@@ -1,3 +1,6 @@
 
 module uart
-#define uart__Write(VALUE)  Serial.write(VALUE)
+@[inline]
+pub fn write(VALUE) {
+	C.Serial.write(VALUE)
+}

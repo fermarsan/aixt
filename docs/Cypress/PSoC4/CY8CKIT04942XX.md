@@ -74,58 +74,58 @@ Puerto | nombre |Tipo    |
 ### Configuración puertos de salida
 
 Para activar el puerto que va ha usar;
-```go
-pin_high(pin_name)
+```v
+pin.high(pin_name)
 ```
-*Ejemplo: Si se desea activar el puerto do0;  `pin_high(do0)`.*
+*Ejemplo: Si se desea activar el puerto do0;  `pin.high(pin.do0)`.*
 
 Para desactivar el puerto que se está usando;
-```go
-pin_low(pin_name)
+```v
+pin.low(pin_name)
 ```
-*Ejemplo: Si se desea desactivar el puerto do0;  `pin_low(do0)`.*
+*Ejemplo: Si se desea desactivar el puerto do0;  `pin.low(pin.do0)`.*
 
 Para desactivar o activar el puerto que se va ha usar;
 
-```go
-pin_write(pin_name, value)
+```v
+pin.write(pin_name, value)
 ```
-*Ejemplo: Si se desea desactivar el puerto do0;  `pin_write(do0, 1)`, y si se desea activar;  `pin_write(do0, 0)`.*
+*Ejemplo: Si se desea desactivar el puerto do0;  `pin.write(do0, 1)`, y si se desea activar;  `pin.write(pin.do0, 0)`.*
 
 ### Detección puertos de entrada
 
 Si se necesita saber en que estado esta un puerto de entrada:
-```go
-x = pin_read(pin_name)
+```v
+x = pin.read(pin_name)
 ```
 
-*Ejemplo: Si se desea detectar el valor del puerto di0; `x = pin_read(di0)`, y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
+*Ejemplo: Si se desea detectar el valor del puerto di0; `x = pin.read(pin.di0)`, y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
 
 ### Puertos análogos a digital (ADC)
 
 Para configurar uno de los puertos análogos;
-```go
-adc_setup(channel, setup_value_1, ... )
+```v
+adc.setup(channel, setup_value_1, ... )
 ```
 *En channel se introduce el nombre del puerto análogo, en setup_value_1 el valor que se le va ha dar ha dicho puerto.*
 
 Para detectar el valor del puerto análogo;
-```go
-x = adc_read(channel)
+```v
+x = adc.read(channel)
 ```
 *En channel se introduce el nombre del puerto análogo, y x toma el valor que tenga dicho puerto.*
 
 ### PWM
 
 Para configurar algún pwm;
-```go
-pwm_setup(pwm_id, setup_value_1, ... )
+```v
+pwm.setup(pwm_id, setup_value_1, ... )
 ```
 *En pwm_id se pone el pwm a usar,  y en setup_value_1 el valor al cual se desea configurar dicho pwm.*
 
 
 Ahor, para configurar el ciclo de trabajo de un modulador;
-```go
+```v
 pwm_duty(pwm_id, duty)
 ```
 *En pwm_id se pone el pwm a usar,  y en duty el valor del ciclo (de 0 a 100) en porcentaje.*
@@ -133,28 +133,28 @@ pwm_duty(pwm_id, duty)
 ### Serial comunication (UART)
 
 Para configurar un puerto UART;
-```go
-uart_setup(uart_id, baud_rate)
+```v
+uart.setup(uart_id, baud_rate)
 ```
 *Aquí uart_id es el nombre del puerto que se va ha usar, y baud_rate es el valor de los baudios al cual se va ha usar.*
 
 Si se requiere ingresar un valor a un puerto UART;
-```go
-x = uart_input(uart_id)
+```v
+x = uart.input(uart_id)
 ```
 *Donde x es dicho valor.*
 
 En el caso de que se necesite tomar un valor del puerto UART que se esta usando;
 
 -Forma lineal
-```go
-uart_println(uart_id, message)
+```v
+uart.println(uart_id, message)
 ```
 *Muestra el mensaje (message) de tal forma que un carácter sigue al otro.*
 
 -Forma no lineal
-```go
-uart_print(uart_id, message)
+```v
+uart.print(uart_id, message)
 ```
 *Muestra el mensaje (message) con saltos de renglon.*
 
@@ -163,35 +163,35 @@ uart_print(uart_id, message)
 Uso de tiempos;
 
 -Segundos
-```go
-sleep(s)
+```v
+time.sleep(s)
 ```
 -milisegundos
 
-```go
-sleep_ms(ms)
+```v
+time.sleep_ms(ms)
 ```
 
 
 -Microsegundos
 
-```go
-sleep_us(us)
+```v
+time.sleep_us(us)
 ```
 *En cada expresión, el valor del tiempo se pone dentro del parentesis.*
 
 Ejemplo LED parapadeante
 
-```go
+```v
 import machine { pin }
 import time { sleep_ms }
 
 pin_mode(led1, out)
 
 for {   //infinite loop
-    pin_high(led1)
+    pin.high(led1)
     sleep_ms(500)
-    pin_low(led1)
+    pin.low(led1)
     sleep_ms(500)
 }
 ```

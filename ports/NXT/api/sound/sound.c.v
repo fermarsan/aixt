@@ -1,126 +1,189 @@
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
+// Date: 2024-2025
+// License: MIT
+//
+// Description: Sound module for NXT (NXC backend)
+
 module sound
-
-// #################### NXC Sound module ####################
-
-// Constant offsets into the Sound module IOMAP structure. 
-#define 	offset_freq         		SoundOffsetFreq           
-#define 	offset_duration     		SoundOffsetDuration       
-#define 	offset_sample_rate   		SoundOffsetSampleRate     
-#define 	offset_sound_filename		SoundOffsetSoundFilename  
-#define 	sound__offset_flags        	SoundOffsetFlags          
-#define 	offset_state        		SoundOffsetState          
-#define 	sound__offset_mode         	SoundOffsetMode           
-#define 	offset_volume       		SoundOffsetVolume         
-
-// Constants defining miscellaneous sound module aspects. 
-#define 	frequency_min     	FREQUENCY_MIN     
-#define 	frequency_max     	FREQUENCY_MAX     
-#define 	samplerate_min    	SAMPLERATE_MIN    
-#define 	samplerate_default	SAMPLERATE_DEFAULT
-#define 	samplerate_max    	SAMPLERATE_MAX    
-
-
-// Constants for use with the sound__flags() function. 
-#define 	flags_idle   	SOUND_FLAGS_IDLE    
-#define 	flags_update 	SOUND_FLAGS_UPDATE    
-#define 	flags_running	SOUND_FLAGS_RUNNING    
-
-// Constants for use with the sound__mode() function. 
-#define 	mode_once		SOUND_MODE_ONCE    
-#define 	mode_loop		SOUND_MODE_LOOP    
-#define 	mode_tone		SOUND_MODE_TONE   
-
-// Constants for use with the sound__state() function. 
-#define 	state_idle	SOUND_STATE_IDLE    
-#define 	state_file	SOUND_STATE_FILE    
-#define 	state_tone	SOUND_STATE_TONE    
-#define 	state_stop	SOUND_STATE_STOP   
+ 
 
 // Constants for use in the sound__play_tone() api function. 
-#define 	tone_c3		TONE_C3
-#define 	tone_cs3	TONE_CS3
-#define 	tone_d3		TONE_D3
-#define 	tone_ds3	TONE_DS3
-#define 	tone_e3		TONE_E3
-#define 	tone_f3		TONE_F3
-#define 	tone_fs3	TONE_FS3
-#define 	tone_g3		TONE_G3
-#define 	tone_gs3	TONE_GS3
-#define 	tone_a3		TONE_A3
-#define 	tone_as3	TONE_AS3
-#define 	tone_b3		TONE_B3
-#define 	tone_c4		TONE_C4
-#define 	tone_cs4	TONE_CS4
-#define 	tone_d4		TONE_D4
-#define 	tone_ds4	TONE_DS4
-#define 	tone_e4		TONE_E4
-#define 	tone_f4		TONE_F4
-#define 	tone_fs4	TONE_FS4
-#define 	tone_g4		TONE_G4
-#define 	tone_gs4	TONE_GS4
-#define 	tone_a4		TONE_A4
-#define 	tone_as4	TONE_AS4
-#define 	tone_b4		TONE_B4
-#define 	tone_c5		TONE_C5
-#define 	tone_cs5	TONE_CS5
-#define 	tone_d5		TONE_D5
-#define 	tone_ds5	TONE_DS5
-#define 	tone_e5		TONE_E5
-#define 	tone_f5		TONE_F5
-#define 	tone_fs5	TONE_FS5
-#define 	tone_g5		TONE_G5
-#define 	tone_gs5	TONE_GS5
-#define 	tone_a5		TONE_A5
-#define 	tone_as5	TONE_AS5
-#define 	tone_b5		TONE_B5
-#define 	tone_c6		TONE_C6
-#define 	tone_cs6	TONE_CS6
-#define 	tone_d6		TONE_D6
-#define 	tone_ds6	TONE_DS6
-#define 	tone_e6		TONE_E6
-#define 	tone_f6		TONE_F6
-#define 	tone_fs6	TONE_FS6
-#define 	tone_g6		TONE_G6
-#define 	tone_gs6	TONE_GS6
-#define 	tone_a6		TONE_A6
-#define 	tone_as6	TONE_AS6
-#define 	tone_b6		TONE_B6
-#define 	tone_c7		TONE_C7
-#define 	tone_cs7	TONE_CS7
-#define 	tone_d7		TONE_D7
-#define 	tone_ds7	TONE_DS7
-#define 	tone_e7		TONE_E7
-#define 	tone_f7		TONE_F7
-#define 	tone_fs7	TONE_FS7
-#define 	tone_g7		TONE_G7
-#define 	tone_gs7	TONE_GS7
-#define 	tone_a7		TONE_A7
-#define 	tone_as7	TONE_AS7
-#define 	tone_b7		TONE_B7
+@[as_macro] pub const tone_c3	= C.TONE_C3
+@[as_macro] pub const tone_cs3	= C.TONE_CS3
+@[as_macro] pub const tone_d3	= C.TONE_D3
+@[as_macro] pub const tone_ds3	= C.TONE_DS3
+@[as_macro] pub const tone_e3	= C.TONE_E3
+@[as_macro] pub const tone_f3	= C.TONE_F3
+@[as_macro] pub const tone_fs3	= C.TONE_FS3
+@[as_macro] pub const tone_g3	= C.TONE_G3
+@[as_macro] pub const tone_gs3	= C.TONE_GS3
+@[as_macro] pub const tone_a3	= C.TONE_A3
+@[as_macro] pub const tone_as3	= C.TONE_AS3
+@[as_macro] pub const tone_b3	= C.TONE_B3
+@[as_macro] pub const tone_c4	= C.TONE_C4
+@[as_macro] pub const tone_cs4	= C.TONE_CS4
+@[as_macro] pub const tone_d4	= C.TONE_D4
+@[as_macro] pub const tone_ds4	= C.TONE_DS4
+@[as_macro] pub const tone_e4	= C.TONE_E4
+@[as_macro] pub const tone_f4	= C.TONE_F4
+@[as_macro] pub const tone_fs4	= C.TONE_FS4
+@[as_macro] pub const tone_g4	= C.TONE_G4
+@[as_macro] pub const tone_gs4	= C.TONE_GS4
+@[as_macro] pub const tone_a4	= C.TONE_A4
+@[as_macro] pub const tone_as4	= C.TONE_AS4
+@[as_macro] pub const tone_b4	= C.TONE_B4
+@[as_macro] pub const tone_c5	= C.TONE_C5
+@[as_macro] pub const tone_cs5	= C.TONE_CS5
+@[as_macro] pub const tone_d5	= C.TONE_D5
+@[as_macro] pub const tone_ds5	= C.TONE_DS5
+@[as_macro] pub const tone_e5	= C.TONE_E5
+@[as_macro] pub const tone_f5	= C.TONE_F5
+@[as_macro] pub const tone_fs5	= C.TONE_FS5
+@[as_macro] pub const tone_g5	= C.TONE_G5
+@[as_macro] pub const tone_gs5	= C.TONE_GS5
+@[as_macro] pub const tone_a5	= C.TONE_A5
+@[as_macro] pub const tone_as5	= C.TONE_AS5
+@[as_macro] pub const tone_b5	= C.TONE_B5
+@[as_macro] pub const tone_c6	= C.TONE_C6
+@[as_macro] pub const tone_cs6	= C.TONE_CS6
+@[as_macro] pub const tone_d6	= C.TONE_D6
+@[as_macro] pub const tone_ds6	= C.TONE_DS6
+@[as_macro] pub const tone_e6	= C.TONE_E6
+@[as_macro] pub const tone_f6	= C.TONE_F6
+@[as_macro] pub const tone_fs6	= C.TONE_FS6
+@[as_macro] pub const tone_g6	= C.TONE_G6
+@[as_macro] pub const tone_gs6	= C.TONE_GS6
+@[as_macro] pub const tone_a6	= C.TONE_A6
+@[as_macro] pub const tone_as6	= C.TONE_AS6
+@[as_macro] pub const tone_b6	= C.TONE_B6
+@[as_macro] pub const tone_c7	= C.TONE_C7
+@[as_macro] pub const tone_cs7	= C.TONE_CS7
+@[as_macro] pub const tone_d7	= C.TONE_D7
+@[as_macro] pub const tone_ds7	= C.TONE_DS7
+@[as_macro] pub const tone_e7	= C.TONE_E7
+@[as_macro] pub const tone_f7	= C.TONE_F7
+@[as_macro] pub const tone_fs7	= C.TONE_FS7
+@[as_macro] pub const tone_g7	= C.TONE_G7
+@[as_macro] pub const tone_gs7	= C.TONE_GS7
+@[as_macro] pub const tone_a7	= C.TONE_A7
+@[as_macro] pub const tone_as7	= C.TONE_AS7
+@[as_macro] pub const tone_b7	= C.TONE_B7
+
+fn C.PlayFile(args ...any) i8
+fn C.PlayTone(args ...any) i8
+fn C.PlayFileEx(args ...any) i8
+fn C.PlayToneEx(args ...any) i8
+fn C.StopSound() 
+fn C.SoundFrequency() u16 
+fn C.SoundDuration() u16 
+fn C.SoundSampleRate() u16 
+fn C.SoundMode() u8 
+fn C.SoundVolume() u8 
+fn C.SetSoundDuration(args ...any)
+fn C.SetSoundFlags(args ...any)
+fn C.SetSoundFrequency(args ...any)
+fn C.SetSoundMode(args ...any)
+fn C.SetSoundModuleState(args ...any)
+fn C.SetSoundSampleRate(args ...any)
+fn C.SetSoundVolume(args ...any)
+fn C.PlaySound(args ...any)
+fn C.PlayTones(args ...any)
+
 
 // Functions for accessing and modifying sound module features. 
-#define     sound__play_file(...)        PlayFile(__VA_ARGS__)
-#define     sound__play_file_ex(...)     PlayFileEx(__VA_ARGS__)
-#define     sound__play_tone(...)        PlayTone(__VA_ARGS__)
-#define     sound__play_tone_ex(...)     PlayToneEx(__VA_ARGS__)
-#define     sound__state(...)            SoundState(__VA_ARGS__)
-#define     sound__flags(...)            SoundFlags(__VA_ARGS__)
-#define     sound__stop(...)             StopSound(__VA_ARGS__)
-#define     sound__frequency(...)        SoundFrequency(__VA_ARGS__)
-#define     sound__duration(...)         SoundDuration(__VA_ARGS__)
-#define     sound__sample_rate(...)      SoundSampleRate(__VA_ARGS__)
-#define     sound__mode(...)             SoundMode(__VA_ARGS__)
-#define     sound__volume(...)           SoundVolume(__VA_ARGS__)
-#define     sound__set_duration(...)     SetSoundDuration(__VA_ARGS__)
-#define     sound__set_flags(...)        SetSoundFlags(__VA_ARGS__)
-#define     sound__set_frequency(...)    SetSoundFrequency(__VA_ARGS__)
-#define     sound__set_mode(...)         SetSoundMode(__VA_ARGS__)
-#define     sound__set_module_state(...) SetSoundModuleState(__VA_ARGS__)
-#define     sound__set_sample_rate(...)  SetSoundSampleRate(__VA_ARGS__)
-#define     sound__set_volume(...)       SetSoundVolume(__VA_ARGS__)
-#define     sound__sys_play_file(...)    SysSoundPlayFile(__VA_ARGS__)
-#define     sound__sys_play_tone(...)    SysSoundPlayTone(__VA_ARGS__)
-#define     sound__sys_get_state(...)    SysSoundGetState(__VA_ARGS__)
-#define     sound__sys_set_state(...)    SysSoundSetState(__VA_ARGS__)
-#define     sound__play(...)             PlaySound(__VA_ARGS__)
-#define     sound__play_tones(...)       PlayTones(__VA_ARGS__)
+@[as_macro]
+pub fn play_file(args ...any) i8 {
+	return C.PlayFile(...args) 
+}
+
+@[as_macro]
+pub fn play_tone(args ...any) i8 {
+	return C.PlayTone(...args) 
+}
+
+@[as_macro] 
+pub fn play_file_ex(args ...any) i8 { 
+	return C.PlayFileEx(...args)
+}
+
+@[as_macro] 
+pub fn play_tone_ex(args ...any) i8 { 
+	return C.PlayToneEx(...args)
+}
+
+@[as_macro]
+pub fn stop() {
+	C.StopSound() 
+}
+
+@[as_macro]
+pub fn frequency() u16 {
+	return C.SoundFrequency() 
+}
+
+@[as_macro]
+pub fn duration() u16 {
+	return C.SoundDuration() 
+}
+
+@[as_macro]
+pub fn sample_rate() u16 {
+	return C.SoundSampleRate() 
+}
+
+@[as_macro]
+pub fn mode() u8 {
+	return C.SoundMode() 
+}
+
+@[as_macro]
+pub fn volume() u8 {
+	return C.SoundVolume() 
+}
+
+@[as_macro]
+pub fn set_duration(args ...any) {
+	C.SetSoundDuration(...args) 
+}
+
+@[as_macro]
+pub fn set_flags(args ...any) {
+	C.SetSoundFlags(...args) 
+}
+
+@[as_macro]
+pub fn set_frequency(args ...any) {
+	C.SetSoundFrequency(...args) 
+}
+
+@[as_macro]
+pub fn set_mode(args ...any) {
+	C.SetSoundMode(...args) 
+}
+
+@[as_macro]
+pub fn set_module_state(args ...any) {
+	C.SetSoundModuleState(...args) 
+}
+
+@[as_macro]
+pub fn set_sample_rate(args ...any) {
+	C.SetSoundSampleRate(...args) 
+}
+
+@[as_macro]
+pub fn set_volume(args ...any) {
+	C.SetSoundVolume(...args) 
+}
+
+@[as_macro]
+pub fn play(args ...any) {
+	C.PlaySound(...args) 
+}
+
+@[as_macro]
+pub fn play_tones(args ...any) {
+	C.PlayTones(...args) 
+}
+

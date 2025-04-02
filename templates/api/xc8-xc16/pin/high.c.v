@@ -1,19 +1,25 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: 
 // Date: 
 // License: MIT
 module pin
 
 // high macro sets an output pin. This is expanded in this way:
-//   pin.high(b2)
+//   pin.high(pin.b2)
 //     |
-//	   +-->	pin.high(B, 2)
+//	   +-->	pin.high(pin.B, 2)
 //	          |
 //	          +-->	PORTBbits.PORTB2 = 1	// PIC16	
 // 	          		LATBbits.LATB2 = 1		// (PIC18, PIC24, dsPIC33)
-#define pin__high_(PORT_NAME, PIN)   LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = 1
+@[inline]
+pub fn high_(PORT_NAME, PIN) {
+	C.LAT ## PORT_NAME ## bits.LAT ## PORT_NAME ## PIN = 1
+}
 
-#define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
+@[inline]
+pub fn high(PIN_NAME) {
+	C.pin.high_(PIN_NAME)
+}
 
 
 

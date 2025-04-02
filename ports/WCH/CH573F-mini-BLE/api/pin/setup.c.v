@@ -1,10 +1,16 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa & Cristian Garzón
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Cristian Garzón
 // Date: 2023 - 2024
 // Description: PIN functions (WCH-CH573F)
 
 module pin
 
-#define pin__setup_(port, pin, ...) GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
+@[inline]
+pub fn setup_(port, pin, ...) {
+	C.GPIO##port##_ModeCfg(GPIO_Pin_##pin, ##__VA_ARGS__)
+}
 
-#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
+@[inline]
+pub fn setup(PIN_NAME, PIN_MODE) {
+	C.pin.setup_(PIN_NAME, PIN_MODE)
+}

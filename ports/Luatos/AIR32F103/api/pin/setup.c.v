@@ -1,6 +1,8 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: setup.c.v
-// Author: Fernando Martínez Santa - Julian Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Authors:
+//	 - Julian Camilo Guzmán Zambrano
+//	 - Juan Pablo Gonzalez Penagos
+//	 - Fernando M. Santa
 // Date: 2022-2024
 // License: MIT
 //
@@ -9,4 +11,7 @@
 
 module pin
 
-#define pin__setup(PIN_NAME, MODE)    pinMode(PIN_NAME, MODE)
+@[inline]
+pub fn setup(PIN_NAME, MODE) {
+	C.pinMode(PIN_NAME, MODE)
+}

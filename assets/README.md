@@ -1,5 +1,7 @@
-<!-- Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-Author: Santiago Orjuela 
+<!-- Project Name: Aixt, https://github.com/fermarsan/aixt.git
+Authors:
+    - Santiago Orjuela
+    - Fernando M. Santa
 Date: 2022
 License: MIT -->
 

@@ -1,0 +1,25 @@
+
+"port": "CY8CKIT-145",
+"device":		"CY8C4045AZI-S413",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
+"board": "CY8CKIT-145-40XX",
+"backend": "native",
+"cc_linux":			"",
+"cc_windows":		"PSoC_Creator.exe",
+"cc_flags":      "-o",
+"path":"Cypress/CY8CKIT-145-40XX/Configuracion_General.cydsn",
+
+"config_operator":   [],
+"configuration": [],
+"initialization":    [
+    "CyGlobalInitEnable;",
+    "uart_Start();",
+    "pwm0_Start();",
+    "pwm1_Start();",
+    "pwm2_Start();",
+    "clock_Start();",
+    "capsense_Start();",
+    "capsense_InitializeAllBaselines();",
+    "capsense_ScanAllWidgets();",
+]

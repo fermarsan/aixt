@@ -1,10 +1,10 @@
-# Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-# File Name: setup.toml (CH552 Core Board)
-# Author: Fernando Martínez Santa
-# Date: 2023
-# License: MIT
+# Project Name: Aixt, https://github.com/fermarsan/aixt.git
+#  File Name: setup.toml (CH552 Core Board)
+#  Author: Fernando M. Santa
+#  Date: 2023
+#  License: MIT
 #
-# Description: This is the setup file for the CH552 Core Board version of Aixt project
+#  Description: This is the setup file for the CH552 Core Board version of Aixt project
 
 device =  "CH552"
 board =   "CH552 Core Board"
@@ -13,7 +13,7 @@ backend = "arduino"
 
 cc_linux =      "ardu"
 cc_windows =    "c:\\v\\thirdparty\\ardu.exe"
-# cc_flags = ["-0" ]
+#  cc_flags = ["-0" ]
 
 i8 =    "signed char"
 i16 =   "short"

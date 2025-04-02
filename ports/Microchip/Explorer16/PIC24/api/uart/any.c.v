@@ -1,3 +1,6 @@
 module uart
 
-#define	uart__any()	U1STAbits.URXDA
+@[inline]
+pub fn any() {
+	C.U1STAbits.URXDA
+}

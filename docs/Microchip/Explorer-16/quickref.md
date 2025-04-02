@@ -58,24 +58,24 @@ Potentiometer	  | name	| pin
 
 ## Delay and timing
 ```v
-sleep(2)		  // sleep for 2 seconds
-sleep_us(1)		// sleep for 1 microsecond
-sleep_ms(500)	// sleep for 500 milliseconds
+time.sleep(2)		  // sleep for 2 seconds
+time.sleep_us(1)		// sleep for 1 microsecond
+time.sleep_ms(500)	// sleep for 500 milliseconds
 ```
 
 ## Pin and GPIO
 ```v
-pin.setup(b5, out)
-pin.setup(a2, out)
-pin.setup(c10, in)
+pin.setup(pin.b5, out)
+pin.setup(pin.a2, out)
+pin.setup(pin.c10, in)
 
-pin.high(b5)
-pin.low(b5)
+pin.high(pin.b5)
+pin.low(pin.b5)
 
-pin.write(a2, 0)
-pin.write(a2, 1)
+pin.write(pin.a2, 0)
+pin.write(pin.a2, 1)
 
-x = pin.read(c10)
+x = pin.read(pin.c10)
 ```
 
 Blinking LED example:

@@ -1,14 +1,15 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: pwm.c.v
-// Author: Fernando Martínez Santa - Julian Camilo Guzmán Zambrano - Juan Pablo Gonzalez Penagos
-// Date: 2022-2024
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Authors:
+//	 - Julian Camilo Guzmán Zambrano
+//	 - Juan Pablo Gonzalez Penagos
+//	 - Fernando M. Santa
+// Date: 2022-2025
 // License: MIT
 //
-// // Description: PWM functions (Blue-Pill)
-//              (PC port) 
-
+// Description: PWM functions (Blue-Pill port)
 module pwm
 
-fn init() {
+fn C.analogWriteFreq(freq any) 
+fn C.analogWriteRange(range any) 
+fn C.analogWriteResolution(res any)
 
-}

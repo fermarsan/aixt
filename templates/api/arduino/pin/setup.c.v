@@ -1,3 +1,6 @@
 module pin
 
-#define pin__setup(PIN_NAME, MODE)		pinMode(PIN_NAME, MODE)
+@[inline]
+pub fn setup(PIN_NAME, MODE) {
+	C.pinMode(PIN_NAME, MODE)
+}

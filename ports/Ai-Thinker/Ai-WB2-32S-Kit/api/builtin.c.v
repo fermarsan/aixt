@@ -1,6 +1,5 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: builtin.c.v
-// Author: Fernando Martínez Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
 // Date: 2022-2024
 // License: MIT
 //
@@ -9,17 +8,15 @@
 module main
 
 enum __pin_names {    // enumerated type for the pin names
-    io11=11
-    io14=14
-    io17=17
-    io3=3
-    io4=4
-    io5=5
-    io7=7
-    io16=16
-    io12=12
+   	gpio11=11
+   	gpio14=14
+   	gpio17=17
+   	gpio3=3
+   	gpio4=4
+   	gpio5=5
+   	gpio7=7
+   	gpio16=16
+   	gpio12=12
 }
 
-fn init() {
 
-}

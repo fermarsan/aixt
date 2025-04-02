@@ -1,0 +1,28 @@
+
+{
+    "port":    "Blue-Pill",
+    "board":   "Blue-Pill",
+    "backend": "arduino",
+
+    "cc_linux":			"arduino-cli",
+    "cc_windows":		"arduino-cli.exe",
+    "cc_make_flags":	"compile -b STMicroelectronics:stm32:Blues -v --output-dir @{file_dir_name}/build",
+
+    "flasher_linux":    "arduino-cli",
+    "flasher_windows":  "arduino-cli.exe",
+	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b STMicroelectronics:stm32:Blues",
+
+    "api_paths": [
+        "Luatos/AIR32F103",
+        "Arduino/arduino-generic",
+        "Arduino/arduino-generic-UART",
+        "Arduino/arduino-generic-i2c"
+    ],
+    "v_defines": [
+    ],
+
+    "default_cpu_freq": 72000000,
+    "default_string_len": 50,
+
+    "compiler_setup_path": "setup/arduino32.json"
+}

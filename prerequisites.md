@@ -13,7 +13,8 @@ make
 - **PSoC Creator**: Cypress (PSoC 3, 4 ,5 and 6)
 - **clang** or **gcc**: Emulator on Linux or Android (Termux)
 - **tcc**: Emulator on Windows
-- **Arduino IDE/CLI**: for all the ports that use the Arduino backend
+- **Arduino-cli / Arduino IDE**: for all the ports that use the Arduino backend
+- **MounRiver Studio**: For CH devices
 
 _NOTE:_ **nbc**, the NXC compiler for LEGO Mindstorms NXT intelligent brick, is already delivered along with the **Aixt project** source code.
 

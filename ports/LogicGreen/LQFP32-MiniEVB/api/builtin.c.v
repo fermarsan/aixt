@@ -1,5 +1,5 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fabián A. Rojas Acosta, Alberto Pinzón Valero and Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fabián A. Rojas Acosta, Alberto Pinzón Valero and Fernando M. Santa
 // Date: 2024
 // License: MIT
 //
@@ -45,6 +45,3 @@ enum __pin_names { // enumerated type for digital pin names
 	d25 = 25
 }
 
-fn init() { //  init function call setup or initialization code
-
-}

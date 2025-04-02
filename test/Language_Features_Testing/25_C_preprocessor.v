@@ -1,12 +1,11 @@
-// Aixt supports any C preprocessor directive
+import time { sleep }
 
-#define	time	1500
 #include <stdio.h>
 
-a := 0
+mut a := 0
 
 for {
-	sleep(time)
+	time.sleep(2)
 	// a++
 	a = a + 1
 }

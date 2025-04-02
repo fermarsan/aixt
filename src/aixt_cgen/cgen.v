@@ -1,91 +1,132 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
 
 // Description: This file contains the C code generation functions of the Aixt.
 module aixt_cgen
 
+import aixt_setup
 import v.ast
+import v.token
 import v.pref
 import v.parser
 import v.checker
-import toml
+import os
 
 // Gen is the struct that defines all the necessary data for the code generation
 pub struct Gen {
 pub mut:
-// mut:	
-	files 			[]&ast.File
-	table 			&ast.Table = unsafe { nil }
-	cur_scope		&ast.Scope = unsafe { nil }
-	transpiler_path	string
-	imports			[]string
-	source_paths	[]string
-	out   			[]string
-	c_preproc_cmds	[]string	
-	// includes		[]string
-	// macros		[]string
-	definitions		[]string
-	init_cmds		[]string
-	to_insert_lines	[]string
-	cur_fn			string
-	file_count		int
-	level_count		int
+// mut:
+	files          		[]&ast.File
+	table          		&ast.Table = unsafe { nil }
+	cur_scope      		&ast.Scope = unsafe { nil }
+	cur_left			ast.Expr
+	cur_left_type  		ast.Type
+	cur_op		   		token.Kind
+	cur_cond       		ast.Expr
+	transpiler_path		string
+	// imports				[]string
+	source_paths		[]string
+	out           		[]string
+	c_preproc_cmds		[]string
+	api_mod_paths  		map[string][]string
+	lib_mod_paths		map[string][]string
+	include_paths		[]string
+	// macros			  []string
+	definitions    		[]string
+	init_cmds	   		[]string
+	to_insert_lines		[]string
+	cur_fn         		string
+	file_count			int
+	level_count    		int
+	match_as_nested_if 	bool
+	cpu_freq_defined   	bool
 // pub mut:
-	pref  			&pref.Preferences = unsafe { nil }
-	setup 			toml.Doc
+	pref 				&pref.Preferences = unsafe { nil }
+	setup				aixt_setup.Setup
 }
 
 // gen is the main function of the code generation.
 // It receives the source path (file or folder), and return a string with the generated code.
 pub fn (mut gen Gen) gen(source_path string) string {
-	gen.init_output_file()
 
-	// println('++++++++++++++++\npath: ${gen.setup.value('path').string()}\n++++++++++++++++')
-	// gen.add_sources('${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api') //auto-inludes API
-	gen.source_paths << '${gen.transpiler_path}/ports/${gen.setup.value('path').string()}/api/builtin.c.v'
-	gen.add_sources(source_path)
-
-	println('main source files:')	//  print source files
-	for source in gen.source_paths {
-		println('\t${source}')
-	}
-
-	// gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
-	
-	// $if windows {
-		gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
-	// } $else {
-	// 	gen.files = parser.parse_files(gen.source_paths, gen.table, gen.pref)
-	// }
+	gen.load_api_mod_paths()
+	gen.load_lib_mod_paths()
 
 	mut checker_ := checker.new_checker(gen.table, gen.pref)
+	api_paths := gen.setup.api_paths
+
+	// add the builtin file first
+	gen.source_paths << '${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v'
+	// add the source files in the project's main folder
+	gen.add_local_sources(source_path)
+
+	gen.find_all_sources(gen.source_paths.len)
+	println('Source files:\n\t${gen.source_paths.join('\n\t')}')
+
+	// second parse round including imports
+	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
 	checker_.check_files(gen.files)
+	// gen.err_war_print()
+
+	gen.init_output_file()
 
 	// solve issue in Windows
-	if gen.files.len > gen.source_paths.len {
-		gen.files.pop()
-	}
+	// if gen.files.len > gen.source_paths.len {
+	// 	gen.files.pop()
+	// }
 
-	println('\n===== Top-down node analysis =====')
-	for i, file in gen.files {	// source folder
+	println('\n===== Top-down node analysis (Code generation) =====')
+	temp_2_files := gen.files.clone()
+	for i, file in temp_2_files {	// source folder
+		// println('>>>>>>>>>>>>>>>>>> ${file.imports} <<<<<<<<<<<<<<<<<<')
 		gen.file_count = i
 		gen.out << gen.ast_node(file) // starts from the main node (file)
 	}
-	
+
 	gen.sym_table_print()
 	gen.err_war_check()
 	gen.err_war_print()
 
 	mut e_count := 0
 	for i, file in gen.files {
+		// println('-----file: ${file.path}\t${file.mod}')
 		e_count += if i != 0 { file.errors.len } else { 0 }
 	}
 	if e_count != 0 {	// clear out stream if any error exist
 		gen.out = []
 	}
-	
-	gen.out_replacements()
-	return gen.out.join('\n')
+
+	// copy the include files to the output folder
+	for path in gen.include_paths {
+		if !os.exists('${os.dir(source_path)}/${os.file_name(path)}') {
+			os.cp_all(path, os.dir(source_path), false) or { panic(err) }
+			println("${path}\ncopied to project's folder")
+		}
+	}
+
+	return gen.out_format()
+}
+
+//find_all_sources recursively finds and adds all the source file paths in a given path
+pub fn (mut gen Gen) find_all_sources(n int) {
+	// println('>>>>>>>>>>>>>>>>>> Files found: ${n} <<<<<<<<<<<<<<<<<<')
+	mut temp_table := ast.new_table()
+	temp_files := parser.parse_files(gen.source_paths, mut temp_table, gen.pref)
+
+	//find the import file paths
+	for file in temp_files {	// source folder
+		for imp in file.imports {
+			for path in gen.import_paths(imp) {
+				if path !in gen.source_paths {
+					gen.source_paths.insert(1, path)
+				}
+			}
+		}
+	}
+
+	if n != gen.source_paths.len {
+		gen.find_all_sources(gen.source_paths.len)
+	}
 }

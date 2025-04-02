@@ -1,3 +1,3 @@
 module time
 
-#define time__sleep_ms(TIME)  delay(TIME)
+#define time.sleep_ms(TIME)  delay(TIME)

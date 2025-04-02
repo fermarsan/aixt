@@ -1,6 +1,5 @@
-// Project Name: Aixt project https://gitlab.com/fermarsan/aixt-project.git
-// File Name: sleep_us.c.v
-// Author: Fernando Martínez Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+// Project name: Aixt https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
 // Date: 2022-2024
 // License: MIT
 //
@@ -8,4 +7,4 @@
 
 module time
 
-#define time__sleep_us(US)    delayMicroseconds(US)
+#define time.sleep_us(US)    delayMicroseconds(US)

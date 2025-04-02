@@ -1,10 +1,9 @@
-// Project Name: Aixt project, https://gitlab.com/fermarsan/aixt-project.git
-// File Name: builtin.c
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2022-2023
 // License: MIT
 //
-// Description: Builtin definitions (Explorer16-PIC24 port)
+// Description: Builtin definitions (Exp16-PIC24 port)
 #define led3    a0  // Onboard LEDs            
 #define led4    a1        
 #define led5    a2        
@@ -382,19 +381,19 @@
 
 // void setup(void)
 // {   
-//     pin_setup(ta0, out); // Onboard LEDs            
-//     pin_setup(ta1, out);        
-//     pin_setup(ta2, out);        
-//     pin_setup(ta3, out);       
-//     pin_setup(ta4, out);       
-//     pin_setup(ta5, out);        
-//     pin_setup(ta6, out);        
-//     pin_setup(ta7, out);    
+//     pin.setup(ta0, out); // Onboard LEDs            
+//     pin.setup(ta1, out);        
+//     pin.setup(ta2, out);        
+//     pin.setup(ta3, out);       
+//     pin.setup(ta4, out);       
+//     pin.setup(ta5, out);        
+//     pin.setup(ta6, out);        
+//     pin.setup(ta7, out);    
 
-//     pin_setup(td6, in); // Onboard switchs  
-//     pin_setup(td13, in);  
-//     pin_setup(ta7, in); 
-//     pin_setup(td7, in); 
+//     pin.setup(td6, in); // Onboard switchs  
+//     pin.setup(td13, in);  
+//     pin.setup(ta7, in); 
+//     pin.setup(td7, in); 
 
-//     pin_setup(tb5, in);  // Onboard potentiometer
+//     pin.setup(tb5, in);  // Onboard potentiometer
 // }

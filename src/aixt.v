@@ -1,5 +1,5 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
 // Date: 2023-2024
 // License: MIT
 // Description: This is the main file of the Aixt project. It works as a makefile too.
@@ -7,7 +7,7 @@ module main
 // Aixt transpiler
 
 import os
-import toml
+import aixt_setup
 import aixt_build
 
 // main function for Aixt transpiler.
@@ -17,7 +17,7 @@ fn main() {
 	if os.args.len < 2 {
 		println(help_message())
 	} else {
-		// aixt_path := '${os.abs_path(os.dir(os.args[0]))}/..' // aixt base path (get out from `src` folder)
+		// aixt_path := '${os.abs_path(os.dir(os.args[0]))}/..' // aixt base path (get out from `src`  folder)
 		aixt_path := os.executable().all_before_last('\\aixt').all_before_last('/aixt')
 		println(aixt_path)
 		command := os.args[1] // command
@@ -25,8 +25,8 @@ fn main() {
 			'help', '--help', '-h' {
 				println(help_message())
 			}
-			'version' {	
-				lines := os.read_lines('./src/v.mod') or {['']}
+			'version', '--version', '-v' {	
+				lines := os.read_lines('${aixt_path}/src/v.mod') or {['']}
 				for line in lines {
 					if line.contains('version:') {
 						println('Aixt ${line.replace('\tversion:\t', '')}')
@@ -40,12 +40,10 @@ fn main() {
 				if os.args.len < 4 {
 					println(help_message())
 				} else {
-					port, input_name := os.args[2], os.abs_path(os.args[3])	// port name and source path input
-					mut base_name := input_name.replace('.aixt', '') // input file base name
-					base_name = base_name.replace('.v', '')
-					println('setup file:\n\t${aixt_path}/setup/${port}.toml\n')
-					// println(os.read_file('${aixt_path}/setup/${port}.toml') or { 'file doesn\'t exist' } )
-					setup := toml.parse_file('${aixt_path}/setup/${port}.toml') or { panic(err) } // load the device's setup file
+					mut device, input_name := os.args[2], os.abs_path(os.args[3])	// device name and source path input
+					base_name := input_name.replace('.v', '') // input file base name
+					mut setup := aixt_setup.Setup{}
+					setup.load(device, aixt_path)
 					// println('++++++++++++++++\n${setup}\n++++++++++++++++')
 					match command {
 						'transpile', '-t' {
@@ -54,21 +52,32 @@ fn main() {
 						}
 						'compile', '-c' {
 							aixt_build.compile_file(base_name, setup)
-							ext := match setup.value('backend').string() {
+							ext := match setup.backend {
 								'nxc' 		{ 'nxc' }
 								'arduino' 	{ 'ino' }
 								else 		{ 'c' }
 							}
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}
+						'flash', '-f' {
+							port := os.args[4] or { 'Undefined flashing port.' }
+							ext := match setup.backend {
+								'nxc' 		{ '' }
+								'arduino' 	{ '' }
+								else 		{ 'hex' }
+							}
+							name := if ext == '' { base_name } else { '${base_name}.${ext}' }
+							aixt_build.flash_file(name, port, setup)
+							println('\n${name} flashing finished.\n')
+						}
 						'build', '-b' {
 							aixt_build.transpile_file(input_name, setup, aixt_path)
 							println('\n${input_name} transpiling finished.\n')
 							aixt_build.compile_file(base_name, setup)
-							ext := match setup.value('backend').string() {
-								'nxc' { 'nxc' }
-								'arduino' { 'ino' }
-								else { 'c' }
+							ext := match setup.backend {
+								'nxc' 		{ 'nxc' }
+								'arduino' 	{ 'ino' }
+								else 		{ 'c' }
 							}
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}
@@ -84,18 +93,36 @@ fn main() {
 							} $else {
 								os.rm('${base_name}') or {}
 							}
+							if os.exists('${os.dir(base_name)}/build/') {
+								os.rmdir_all('${os.dir(base_name)}/build/') or { panic(err) }
+							}
+							// Remove all .c, .cpp, .h, hpp files inside the directory
+							files := os.ls(os.dir(base_name)) or { [] }
+							for file in files {
+								if file.ends_with('.c') || file.ends_with('.cpp') || file.ends_with('.h') || file.ends_with('.hpp') {
+									os.rm('${os.dir(base_name)}/${file}') or {}
+								}
+							}
 							println('Output files cleaned.')
 						}
 						'new_project', '-np' {
-							device, path := os.args[2], os.args[3]
+							path := os.args[3]
 							name := os.args[4] or { 'project' }
 							if !os.exists('${path}/${name}') {
 								os.mkdir('${path}/${name}') or { panic(err) }
 							}
 							// os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
-							os.cp_all('${aixt_path}/templates/project/${device}/', '${path}/${name}/', true) or {
+							os.cp_all('${aixt_path}/templates/project/${setup.port}/', '${path}/${name}/', true) or {
 								panic(err)
-							}						
+							}		
+							if setup.backend == 'arduino' {	// arduino-cli sketch name requirement
+								os.rename('${path}/${name}/main.v', '${path}/${name}/${name}.v') or { panic(err) }
+							}
+							if os.exists('${path}/${name}/Makefile') {	// adds the device name to de Makefile
+								mut makefile := os.read_file('${path}/${name}/Makefile') or { panic(err) }
+								makefile = makefile.replace('__device_name__', '${device}')
+								os.write_file('${path}/${name}/Makefile', makefile) or { panic(err) }
+							}
 						}
 						else {
 							println('Invalid command.')
@@ -106,4 +133,3 @@ fn main() {
 		}
 	}
 }
-

@@ -1,4 +1,5 @@
 // example for testing constant and global fields at the same time
+import uart { println }
 
 __global (
 	ga = 10
