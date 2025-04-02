@@ -75,3 +75,4 @@ Tasks to do in Aixt
 - [x] Issue solved: Library modules are not included
 - [x] Enable interrupts functions for Arduino devices in addition to the external interrupts
 - [x] Issue solved: Constant array transpiling fails
+- [x] create ESP32-CYD port and "tft_espi" library
