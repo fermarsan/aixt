@@ -10,6 +10,6 @@
 module tft_espi
 
 
-pub fn fill_screen(color any) {
-	C.TFT_FILLSCREEN(color)
+pub fn init() {
+	C.TFT_INIT()
 }

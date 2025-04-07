@@ -2,7 +2,7 @@
 // Authors: 
 //		- Jahn Delgado
 //		- Fernando M. Santa
-// Date: 29/01/2025
+// Date: 02/04/2025
 // License: MIT
 //
 // Description: Example of a Library module.
