@@ -1,0 +1,17 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Potentiometer" CircId="Potentiometer-1" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="40,-100" rotation="0" hflip="1" vflip="1" label="Potentiometer-1" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1 kΩ" Value_Ohm="218 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Subcircuit" CircId="DigitShield-2" mainComp="false" Show_id="true" Show_Val="false" Pos="12,0" rotation="0" hflip="1" vflip="1" label="DigitShield-2" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" BoardId="Mega-4" />
+
+<item itemtype="Subcircuit" CircId="Mega-4" mainComp="false" Show_id="true" Show_Val="false" Pos="-132,-372" rotation="90" hflip="1" vflip="1" label="Mega-4" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="../../Users/OSCAR BUITRAGO/AppData/Local/simulide/codeeditor/buildIno/build/Mega-7seg_adc.ino.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Connector" uid="Connector-4" startpinid="Potentiometer-1-PinA" endpinid="Mega-4-GND2" pointList="24,-100,-92,-100,-92,-140" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="Potentiometer-1-PinB" endpinid="Mega-4-5V00" pointList="56,-100,56,-48,-100,-48,-100,-140" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="Potentiometer-1-PinM" endpinid="Mega-4-A5" pointList="40,-84,40,-76,-20,-76,-20,-140" />
+
+</circuit>
