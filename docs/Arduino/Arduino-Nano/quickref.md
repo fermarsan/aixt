@@ -1,5 +1,9 @@
 # Quick reference for the Arduino Nano board
 
+## CONFIGURATION OF PINS AND THEIR RESPECTIVE FUNCTIONS
+
+![Alt text](Ard-Nano.jpg)
+
 
 ## Delay
 Use the `time` module:

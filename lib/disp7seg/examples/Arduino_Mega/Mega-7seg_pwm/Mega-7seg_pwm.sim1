@@ -1,0 +1,29 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Potentiometer" CircId="Potentiometer-1" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="124,-208" rotation="90" hflip="1" vflip="1" label="Potentiometer-1" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1 kΩ" Value_Ohm="663 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Ground" CircId="Ground-2" mainComp="false" Show_id="false" Show_Val="false" Pos="-276,-476" rotation="0" hflip="1" vflip="1" label="Ground-2" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Ground" CircId="Ground-3" mainComp="false" Show_id="false" Show_Val="false" Pos="124,-124" rotation="0" hflip="1" vflip="1" label="Ground-3" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Led" CircId="Led-4" mainComp="false" Show_id="false" Show_Val="false" Pos="-196,-496" rotation="0" hflip="-1" vflip="1" label="Led-4" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Rail" CircId="Rail-7" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="124,-256" rotation="90" hflip="1" vflip="1" label="Rail-7" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="Subcircuit" CircId="DigitShield-5" mainComp="false" Show_id="true" Show_Val="false" Pos="12,0" rotation="0" hflip="1" vflip="1" label="DigitShield-5" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" BoardId="Mega-8" />
+
+<item itemtype="Subcircuit" CircId="Mega-8" mainComp="false" Show_id="true" Show_Val="false" Pos="-92,-528" rotation="90" hflip="1" vflip="1" label="Mega-8" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="../../Users/OSCAR BUITRAGO/AppData/Local/simulide/codeeditor/buildIno/build/Mega-7seg_pwm.ino.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Connector" uid="Connector-1" startpinid="Led-4-rPin" endpinid="Ground-2-Gnd" pointList="-212,-496,-276,-496,-276,-492" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="Ground-3-Gnd" endpinid="Potentiometer-1-PinB" pointList="124,-140,124,-192" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="Potentiometer-1-PinA" endpinid="Rail-7-outnod" pointList="124,-224,124,-240" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="Led-4-lPin" endpinid="Mega-8-11" pointList="-180,-496,-68,-496,-68,-440" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="Potentiometer-1-PinM" endpinid="Mega-8-A5" pointList="108,-208,20,-208,20,-296" />
+
+</circuit>

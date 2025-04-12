@@ -1,0 +1,17 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="DigitShield-3" mainComp="false" Show_id="true" Show_Val="false" Pos="12,0" rotation="0" hflip="1" vflip="1" label="DigitShield-3" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" BoardId="Uno-1" />
+
+<item itemtype="Subcircuit" CircId="Uno-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-24,-236" rotation="90" hflip="1" vflip="1" label="Uno-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="Uno-7seg_ADC.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Potentiometer" CircId="Potentiometer-2" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="152,-4" rotation="0" hflip="1" vflip="1" label="Potentiometer-2" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1 kΩ" Value_Ohm="139 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="Potentiometer-2-PinA" endpinid="Uno-1-5V0" pointList="136,-4,72,-4,72,-52" />
+
+<item itemtype="Connector" uid="Connector-3" startpinid="Potentiometer-2-PinB" endpinid="Uno-1-GND2" pointList="168,-4,220,-4,220,-240,32,-240,32,-196" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="Potentiometer-2-PinM" endpinid="Uno-1-A5" pointList="152,12,152,32,108,32,108,-40,152,-40,152,-52" />
+
+</circuit>
