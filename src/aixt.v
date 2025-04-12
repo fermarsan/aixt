@@ -4,8 +4,8 @@
 // License: MIT
 // Description: This is the main file of the Aixt project. It works as a makefile too.
 module main
-// Aixt transpiler
 
+// Aixt transpiler
 import os
 import aixt_setup
 import aixt_build
@@ -25,8 +25,8 @@ fn main() {
 			'help', '--help', '-h' {
 				println(help_message())
 			}
-			'version', '--version', '-v' {	
-				lines := os.read_lines('${aixt_path}/src/v.mod') or {['']}
+			'version', '--version', '-v' {
+				lines := os.read_lines('${aixt_path}/src/v.mod') or { [''] }
 				for line in lines {
 					if line.contains('version:') {
 						println('Aixt ${line.replace('\tversion:\t', '')}')
@@ -40,7 +40,7 @@ fn main() {
 				if os.args.len < 4 {
 					println(help_message())
 				} else {
-					mut device, input_name := os.args[2], os.abs_path(os.args[3])	// device name and source path input
+					mut device, input_name := os.args[2], os.abs_path(os.args[3]) // device name and source path input
 					base_name := input_name.replace('.v', '') // input file base name
 					mut setup := aixt_setup.Setup{}
 					setup.load(device, aixt_path)
@@ -53,18 +53,18 @@ fn main() {
 						'compile', '-c' {
 							aixt_build.compile_file(base_name, setup)
 							ext := match setup.backend {
-								'nxc' 		{ 'nxc' }
-								'arduino' 	{ 'ino' }
-								else 		{ 'c' }
+								'nxc' { 'nxc' }
+								'arduino' { 'ino' }
+								else { 'c' }
 							}
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}
 						'flash', '-f' {
 							port := os.args[4] or { 'Undefined flashing port.' }
 							ext := match setup.backend {
-								'nxc' 		{ '' }
-								'arduino' 	{ '' }
-								else 		{ 'hex' }
+								'nxc' { '' }
+								'arduino' { '' }
+								else { 'hex' }
 							}
 							name := if ext == '' { base_name } else { '${base_name}.${ext}' }
 							aixt_build.flash_file(name, port, setup)
@@ -75,9 +75,9 @@ fn main() {
 							println('\n${input_name} transpiling finished.\n')
 							aixt_build.compile_file(base_name, setup)
 							ext := match setup.backend {
-								'nxc' 		{ 'nxc' }
-								'arduino' 	{ 'ino' }
-								else 		{ 'c' }
+								'nxc' { 'nxc' }
+								'arduino' { 'ino' }
+								else { 'c' }
 							}
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}
@@ -99,7 +99,8 @@ fn main() {
 							// Remove all .c, .cpp, .h, hpp files inside the directory
 							files := os.ls(os.dir(base_name)) or { [] }
 							for file in files {
-								if file.ends_with('.c') || file.ends_with('.cpp') || file.ends_with('.h') || file.ends_with('.hpp') {
+								if file.ends_with('.c') || file.ends_with('.cpp')
+									|| file.ends_with('.h') || file.ends_with('.hpp') {
 									os.rm('${os.dir(base_name)}/${file}') or {}
 								}
 							}
@@ -112,16 +113,21 @@ fn main() {
 								os.mkdir('${path}/${name}') or { panic(err) }
 							}
 							// os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
-							os.cp_all('${aixt_path}/templates/project/${setup.port}/', '${path}/${name}/', true) or {
-								panic(err)
-							}		
-							if setup.backend == 'arduino' {	// arduino-cli sketch name requirement
-								os.rename('${path}/${name}/main.v', '${path}/${name}/${name}.v') or { panic(err) }
+							os.cp_all('${aixt_path}/templates/project/${setup.port}/',
+								'${path}/${name}/', true) or { panic(err) }
+							if setup.backend == 'arduino' { // arduino-cli sketch name requirement
+								os.rename('${path}/${name}/main.v', '${path}/${name}/${name}.v') or {
+									panic(err)
+								}
 							}
-							if os.exists('${path}/${name}/Makefile') {	// adds the device name to de Makefile
-								mut makefile := os.read_file('${path}/${name}/Makefile') or { panic(err) }
+							if os.exists('${path}/${name}/Makefile') { // adds the device name to de Makefile
+								mut makefile := os.read_file('${path}/${name}/Makefile') or {
+									panic(err)
+								}
 								makefile = makefile.replace('__device_name__', '${device}')
-								os.write_file('${path}/${name}/Makefile', makefile) or { panic(err) }
+								os.write_file('${path}/${name}/Makefile', makefile) or {
+									panic(err)
+								}
 							}
 						}
 						else {
