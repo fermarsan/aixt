@@ -10,7 +10,7 @@
   // time module
   "time sleep": {
     "prefix": "tim",
-    "body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:10})",
+    "body": ["time.${1|sleep,sleep_ms,sleep_us|}(${2:10})", "$0"],
     "description": "Time functions"
   },
   // pin module
