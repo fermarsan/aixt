@@ -1,0 +1,42 @@
+[
+  {
+    "label": "Aixt: Transpile",
+    "command": "aixt",
+    "args": ["transpile", "RP-Pico", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Compile",
+    "command": "aixt",
+    "args": ["compile", "RP-Pico", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Build",
+    "command": "aixt",
+    "args": ["build", "RP-Pico", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Flash",
+    "command": "aixt",
+    "args": ["flash", "RP-Pico", "$ZED_FILE", "/dev/ttyUSB0"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Clean",
+    "command": "aixt",
+    "args": ["clean", "RP-Pico", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "label": "Aixt: Transpile",
+    "command": "aixt",
+    "args": ["transpile", "Exp16-PIC24", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Compile",
+    "command": "aixt",
+    "args": ["compile", "Exp16-PIC24", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Build",
+    "command": "aixt",
+    "args": ["build", "Exp16-PIC24", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Flash",
+    "command": "aixt",
+    "args": ["flash", "Exp16-PIC24", "$ZED_FILE", "/dev/ttyUSB0"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Clean",
+    "command": "aixt",
+    "args": ["clean", "Exp16-PIC24", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "label": "Aixt: Transpile",
+    "command": "aixt",
+    "args": ["transpile", "Blue-Pill", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Compile",
+    "command": "aixt",
+    "args": ["compile", "Blue-Pill", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Build",
+    "command": "aixt",
+    "args": ["build", "Blue-Pill", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Flash",
+    "command": "aixt",
+    "args": ["flash", "Blue-Pill", "$ZED_FILE", "/dev/ttyUSB0"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Clean",
+    "command": "aixt",
+    "args": ["clean", "Blue-Pill", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]
