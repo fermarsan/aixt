@@ -1,10 +1,7 @@
 {
-  "aixt_linux": "./src",
-  // "aixt_windows": ".\\src",
-  "device": "",
-  "port_linux": "/dev/ttyUSB0",
-  // "port_windows": "COM1",
   "file_types": {
-    "v": ["v"]
+    "V": ["v"],
+    "C": ["ino", "nxc"],
+    "XML": ["sim1"]
   }
 }

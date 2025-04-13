@@ -1,17 +1,42 @@
 [
   {
     "label": "Aixt: Transpile",
-    "command": "v run ${config:aixt_linux}",
-    "args": ["transpile", "${config:device}", "${file}"],
-    "env": { "foo": "bar" },
-    //"cwd": "/path/to/working/directory",
+    "command": "aixt",
+    "args": ["transpile", "Arduino-Nano", "$ZED_FILE"],
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
-    "reveal": "always",
-    "hide": "never",
-    "shell": "system",
-    "show_summary": true,
-    "show_output": true,
-    "tags": []
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Compile",
+    "command": "aixt",
+    "args": ["compile", "Arduino-Nano", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Build",
+    "command": "aixt",
+    "args": ["build", "Arduino-Nano", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Flash",
+    "command": "aixt",
+    "args": ["flash", "Arduino-Nano", "$ZED_FILE", "/dev/ttyUSB0"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Aixt: Clean",
+    "command": "aixt",
+    "args": ["clean", "Arduino-Nano", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
   }
 ]
