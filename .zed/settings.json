@@ -1,7 +1,8 @@
 {
   "file_types": {
-    "v": ["v"],
-    "c": ["nxc"],
-    "JSONC": ["code-snippets"] // for vscode code snippets
+    "V": ["v"],
+    "C": ["ino", "nxc"],
+    "JSONC": ["code-snippets"], // vscode code snippets
+    "XML": ["sim1"] // SimulIDE schematics
   }
 }
