@@ -76,4 +76,4 @@ Tasks to do in Aixt
 - [x] Enable interrupts functions for Arduino devices in addition to the external interrupts
 - [x] Issue solved: Constant array transpiling fails
 - [x] create ESP32-CYD port and "tft_espi" library
-- [x] Initial support for Zed editor
+- [x] Support for Zed editor implemented
