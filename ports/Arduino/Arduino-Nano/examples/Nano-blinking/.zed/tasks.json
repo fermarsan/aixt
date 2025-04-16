@@ -1,5 +1,13 @@
 [
   {
+    "label": "Aixt: Print",
+    "command": "echo",
+    "args": ["${tasks}"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
     "label": "Aixt: Transpile",
     "command": "aixt",
     "args": ["transpile", "Arduino-Nano", "$ZED_FILE"],
