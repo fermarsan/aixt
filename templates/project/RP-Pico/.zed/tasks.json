@@ -26,7 +26,7 @@
   {
     "label": "Aixt: Flash",
     "command": "aixt",
-    "args": ["flash", "RP-Pico", "$ZED_FILE", "/dev/ttyUSB0"],
+    "args": ["flash", "$DEVICE", "$ZED_FILE", "$PORT"],
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
