@@ -4,9 +4,10 @@
     "C": ["ino", "nxc"],
     "XML": ["sim1"]
   },
-  "tasks": {
-    "variables": {
-      "my_var": "my value"
+  "terminal": {
+    "env": {
+      "DEVICE": "Arduino-Nano",
+      "PORT": "/dev/ttyUSB0"
     }
   }
 }

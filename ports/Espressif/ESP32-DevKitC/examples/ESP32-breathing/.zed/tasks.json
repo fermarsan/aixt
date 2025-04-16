@@ -2,7 +2,7 @@
   {
     "label": "Aixt: Transpile",
     "command": "aixt",
-    "args": ["transpile", "ESP32-DevKitC", "$ZED_FILE"],
+    "args": ["transpile", "$DEVICE", "$ZED_FILE"],
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
@@ -10,7 +10,7 @@
   {
     "label": "Aixt: Compile",
     "command": "aixt",
-    "args": ["compile", "ESP32-DevKitC", "$ZED_FILE"],
+    "args": ["compile", "$DEVICE", "$ZED_FILE"],
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
@@ -18,7 +18,7 @@
   {
     "label": "Aixt: Build",
     "command": "aixt",
-    "args": ["build", "ESP32-DevKitC", "$ZED_FILE"],
+    "args": ["build", "$DEVICE", "$ZED_FILE"],
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
@@ -34,7 +34,7 @@
   {
     "label": "Aixt: Clean",
     "command": "aixt",
-    "args": ["clean", "ESP32-DevKitC", "$ZED_FILE"],
+    "args": ["clean", "$DEVICE", "$ZED_FILE"],
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
