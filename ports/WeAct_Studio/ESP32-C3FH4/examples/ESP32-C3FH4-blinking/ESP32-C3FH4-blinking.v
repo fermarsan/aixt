@@ -1,7 +1,7 @@
 // Project name: Blinking
 // Author: Fernando M. Santa
 // Date: 03/03/2025
-// Arduino-Nano board
+// ESP32-C3FH4 board
 
 import time
 import pin
@@ -15,4 +15,3 @@ for {
 	pin.low(8)
 	time.sleep_ms(500)
 }
-

@@ -3,5 +3,11 @@
     "V": ["v"],
     "C": ["ino", "nxc"],
     "XML": ["sim1"]
+  },
+  "terminal": {
+    "env": {
+      "DEVICE": "FIRE",
+      "PORT": "/dev/ttyUSB0"
+    }
   }
 }

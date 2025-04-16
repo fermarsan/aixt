@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Builtin definitions (Arduino Nano - ATmega328P port)
+// Description: Builtin definitions (Arduino Uno - ATmega328P port)
 module main
 
 #include "builtin.c"

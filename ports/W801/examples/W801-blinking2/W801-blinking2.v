@@ -1,7 +1,7 @@
 // Project name: Blinking
 // Author: Fernando M. Santa
 // Date: 03/03/2025
-// Arduino-Nano board
+// W801 board
 
 import time
 import pin

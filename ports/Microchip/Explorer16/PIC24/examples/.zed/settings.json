@@ -3,5 +3,11 @@
     "V": ["v"],
     "C": ["ino", "nxc"],
     "XML": ["sim1"]
+  },
+  "terminal": {
+    "env": {
+      "DEVICE": "Exp16-PIC24",
+      "PORT": "/dev/ttyUSB0"
+    }
   }
 }

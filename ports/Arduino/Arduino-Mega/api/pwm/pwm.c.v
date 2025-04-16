@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: PWM functions (Arduino Nano - ATmega328P port)
+// Description: PWM functions (Arduino Mega - ATmega2560 port)
 module pwm
 
 @[as_macro] pub const ch0 = 2
