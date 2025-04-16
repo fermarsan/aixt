@@ -2,13 +2,7 @@
   {
     "label": "V: format $ZED_RELATIVE_FILE",
     "command": "v",
-    "args": ["fmt", "$DEVICE", "$ZED_FILE"],
-    "use_new_terminal": false
-  },
-  {
-    "label": "Print device name",
-    "command": "echo",
-    "args": ["$ZED_FILE"],
+    "args": ["fmt", "-w", "$ZED_FILE"],
     "use_new_terminal": false
   }
 ]
