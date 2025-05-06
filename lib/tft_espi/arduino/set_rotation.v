@@ -10,6 +10,6 @@
 module tft_espi
 
 
-pub fn fill_screen(color any) {
-	C.TFT_FILLSCREEN(color)
+pub fn set_rotation(1) {
+	C.TFT_SETROTATION(1)
 }

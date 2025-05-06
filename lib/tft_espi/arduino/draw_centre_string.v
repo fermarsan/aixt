@@ -10,6 +10,6 @@
 module tft_espi
 
 
-pub fn fill_screen(color any) {
-	C.TFT_FILLSCREEN(color)
+pub fn draw_centre_string(temp_text any, center_x, text_y, font_size) {
+	C.TFT_DRAWCENTRESTRING(tempText, centerX, textY, font_size)
 }
