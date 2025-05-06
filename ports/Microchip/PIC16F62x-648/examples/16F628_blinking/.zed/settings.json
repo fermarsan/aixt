@@ -1,0 +1,13 @@
+{
+  "file_types": {
+    "V": ["v"],
+    "C": ["ino", "nxc"],
+    "XML": ["sim1"]
+  },
+  "terminal": {
+    "env": {
+      "DEVICE": "PIC16F628",
+      "PORT": "/dev/ttyUSB0"
+    }
+  }
+}
