@@ -1,0 +1,24 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F83 ]
+[d frameptr 0 ]
+"10 /opt/microchip/xc8/v3.00/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 /opt/microchip/xc8/v3.00/pic/sources/c99/common/Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 /opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"137 /home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_blinking/main.c
+[v _main main `(v  1 e 1 0 ]
+"164 /opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"452
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"137 /home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_blinking/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"143
+} 0

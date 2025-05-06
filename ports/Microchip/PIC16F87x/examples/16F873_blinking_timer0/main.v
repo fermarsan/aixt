@@ -2,28 +2,38 @@
 // Author: Fernando M. Santa
 // Date: 2024-2025
 // PIC16F83 fosc = 4Mhz by default
-
-import pin 
+import pin
 import timer0
 
+__global int_flag = false
 
-
-@[timer0_isr]	// interrupt service routine for timer0 overload
+// interrupt service routine for timer0 overload
+@[timer0_isr]
 fn blinking() {
 	timer0.restart()
-	pin.toggle(pin.b4)
+	int_flag = true
 }
 
 // @[as_macro] const cpu_freq = 8_000_000	// sets fosc to 8 Mhz
 // @[as_macro] const cpu_freq = 12_000_000	// sets fosc to 12 Mhz
 // @[as_macro] const cpu_freq = 20_000_000	// sets fosc to 20 Mhz
 
-pin.setup(pin.b4, pin.output)
-timer0.setup(10_000)	// configure the timer0 with a period of 10ms (10000us)
+mut count := u8(0)
 
-pin.low(pin.b4)			// reset LED pin
-timer0.irq_enable()		// enables timer0 interrupt
+pin.setup(pin.c7, pin.output)
+timer0.setup(10_000) // configure the timer0 with a period of 10ms (10000us)
+
+pin.low(pin.c7) // reset LED pin
+timer0.irq_enable() // enables timer0 interrupt
 
 for {
-	// empty infinite loop
+	if int_flag {
+		count++
+		if count >= 20 {
+			pin.toggle(pin.c7)
+			count = 0
+		}
+		// pin.toggle(pin.c7)
+		int_flag = false
+	}
 }
