@@ -21,12 +21,12 @@ pub fn setup(baudrate u32) {
 	// SPBRG = n;
 
 	mut x := i16(0)
-	x = u8(C._XTAL_FREQ / (baudrate << 4)) - 1 // X = (FOSC / (16 * BaudRate)) – 1
+	x = u8(u32(C._XTAL_FREQ) / (baudrate << 4)) - 1 // X = (FOSC / (16 * BaudRate)) – 1
 	if x < 0 {
 		x = 0
 	}
 	if x > 255 { // low speed
-		x = u8(C._XTAL_FREQ / (baudrate << 6)) - 1 // X = (FOSC / (64 * BaudRate)) – 1
+		x = u8(u32(C._XTAL_FREQ) / (baudrate << 6)) - 1 // X = (FOSC / (64 * BaudRate)) – 1
 		if x > 255 {
 			x = 255
 		}
@@ -34,7 +34,7 @@ pub fn setup(baudrate u32) {
 	} else { // high speed
 		C.BRGH = 1 // high speed
 	}
-	C.SPBRG = x
+	C.SPBRG = u8(x)
 	// C.SPBRG = u8(C._XTAL_FREQ / (32 * baudrate)) - 1
 	C.BRGH = 0 // low speed
 

@@ -9,9 +9,7 @@ module uart
 
 @[as_macro]
 pub fn println(msg string) {
-	for ch in msg {
-		print(msg)
-		write('\n')
-		write('\r')
-	}
+	print(msg)
+	write(`\n`)
+	write(`\r`)
 }

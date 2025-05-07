@@ -9,5 +9,5 @@ module uart
 
 @[as_macro]
 pub fn any() bool {
-	return bool(C.RCIF)
+	return C.RCIF == 1
 }
