@@ -8,6 +8,8 @@
 module uart
 
 @[as_macro]
-pub fn any() bool {
-	return bool(C.RCIF)
+pub fn print(msg string) {
+	for ch in masg {
+		uart.write(msg)
+	}
 }

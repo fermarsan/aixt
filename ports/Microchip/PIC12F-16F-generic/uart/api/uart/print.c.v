@@ -9,7 +9,7 @@ module uart
 
 @[as_macro]
 pub fn print(msg string) {
-	for ch in masg {
-		uart.write(msg)
+	for ch in msg {
+		write(ch)
 	}
 }

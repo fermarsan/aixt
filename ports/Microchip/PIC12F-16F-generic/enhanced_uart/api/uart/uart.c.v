@@ -5,11 +5,11 @@
 //
 // Description: Pin management functions
 //              (PIC16F family)
-
 module uart
 
 @[as_macro]
-pub fn write(ch u8) {
-	for C.TRMT == 0 {} // wait until tx buffer is empty
-	C.TXREG = ch
+pub fn println(msg string) {
+	uart.print(msg)
+	uart.write('\n')
+	uart.write('\r')
 }

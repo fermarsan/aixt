@@ -16,7 +16,7 @@
 
 <item itemtype="MCU" CircId="p16F873-17" mainComp="false" Show_id="true" Show_Val="false" Pos="-104,-132" rotation="0" hflip="1" vflip="1" label="p16F873-17" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="20 MHz" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="true" SerialMon="-1" />
 
-<item itemtype="SerialTerm" CircId="SerialTerm-18" mainComp="false" Show_id="false" Show_Val="false" Pos="20,-36" rotation="0" hflip="1" vflip="1" label="SerialTerm-18" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
+<item itemtype="SerialTerm" CircId="SerialTerm-18" mainComp="false" Show_id="false" Show_Val="false" Pos="4,-44" rotation="0" hflip="1" vflip="1" label="SerialTerm-18" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
 
 <item itemtype="Node" CircId="Node-19" mainComp="false" Pos="-164,-60" />
 
@@ -28,9 +28,9 @@
 
 <item itemtype="Connector" uid="Connector-15" startpinid="Resistor-12-rPin" endpinid="Ground-14-Gnd" pointList="-164,-12,-164,4" />
 
-<item itemtype="Connector" uid="Connector-30" startpinid="p16F873-17-PORTC7" endpinid="SerialTerm-18-pin0" pointList="-64,-44,-4,-44" />
+<item itemtype="Connector" uid="Connector-30" startpinid="p16F873-17-PORTC7" endpinid="SerialTerm-18-pin0" pointList="-64,-44,-20,-44,-20,-52" />
 
-<item itemtype="Connector" uid="Connector-31" startpinid="SerialTerm-18-pin1" endpinid="p16F873-17-PORTC6" pointList="-4,-28,-12,-28,-12,-36,-64,-36" />
+<item itemtype="Connector" uid="Connector-31" startpinid="SerialTerm-18-pin1" endpinid="p16F873-17-PORTC6" pointList="-20,-36,-64,-36" />
 
 <item itemtype="Connector" uid="Connector-32" startpinid="Resistor-8-lPin" endpinid="p16F873-17-PORTB7" pointList="-36,-124,-64,-124" />
 

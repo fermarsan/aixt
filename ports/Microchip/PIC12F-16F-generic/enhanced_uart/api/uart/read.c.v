@@ -10,10 +10,10 @@ module uart
 
 @[as_macro]
 pub fn read() u8 {
-	for C.RCIF == 0 {} // wait for data receive
-	if C.OERR { // if there is overrun error
-		C.CREN = 0 // clear overrun error bit
-		C.CREN = 1
-	}
-	return C.RCREG // read from USART receive data register
+  for C.RCIF == 0 {}  // wait for data receive
+  if C.OERR {   // if there is overrun error
+    C.CREN = 0  // clear overrun error bit
+    C.CREN = 1
+  }
+  return RCREG  // read from EUSART receive data register
 }

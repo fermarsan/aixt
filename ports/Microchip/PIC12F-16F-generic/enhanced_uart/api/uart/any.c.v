@@ -7,7 +7,7 @@
 //              (PIC16F family)
 module uart
 
-@[as_macro]
-pub fn any() bool {
-	return bool(C.RCIF)
+@[inline]
+pub fn any() {
+	C.RCIF
 }
