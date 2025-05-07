@@ -11,7 +11,7 @@ _CREN C4 0 ABS 0
 _SPEN C7 0 ABS 0
 _TXEN 4C5 0 ABS 0
 _TRMT 4C1 0 ABS 0
-_main 7BA 0 CODE 0
+_main 7D2 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
 start 0 0 CODE 0
@@ -109,26 +109,24 @@ start_initialization 7FD 0 CODE 0
 ___int_stack_lo 0 0 STACK 2
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__pmaintext 7BA 0 CODE 0
+__pmaintext 7D2 0 CODE 0
 __initialization 7FD 0 CODE 0
 %segments
 reset_vec 0 3 CODE 0 0
 cinit FFA FFF CODE FFA 0
 cstackBANK0 20 22 BANK0 20 1
-maintext F74 FF9 CODE F74 0
+maintext FA4 FF9 CODE FA4 0
 %locals
 build/main.o
-/tmp/xcXibigDp/driver_tmp_1.s
+/tmp/xcXHaDOpi/driver_tmp_1.s
 346 7FD 0 CODE 0
 349 7FD 0 CODE 0
 355 7FD 0 CODE 0
 357 7FD 0 CODE 0
 358 7FE 0 CODE 0
 main.c
-164 7BA 0 CODE 0
-165 7BA 0 CODE 0
-166 7BE 0 CODE 0
-168 7CA 0 CODE 0
-169 7D4 0 CODE 0
-170 7E2 0 CODE 0
-171 7EC 0 CODE 0
+164 7D2 0 CODE 0
+165 7D2 0 CODE 0
+166 7D6 0 CODE 0
+168 7E2 0 CODE 0
+169 7EC 0 CODE 0

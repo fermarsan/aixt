@@ -165,9 +165,7 @@ else { \
 	pin__setup(_const_pin__c6, _const_pin__output); 
 	uart__setup(115200); 
 	while( true ) {
-		uart__write(0x33); 
-		time__sleep_ms(500); 
-		uart__write(0x99); 
+		uart__write('x'); 
 		time__sleep_ms(500); 
 	} 
 }

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
-                                                                                               Wed May  7 16:58:26 2025
+                                                                                               Wed May  7 18:01:02 2025
 
 Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
      1                           	processor	16F873
@@ -193,7 +193,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    179                           
    180     07FD                     __end_of__initialization:
    181     07FD  0183               	clrf	3
-   182     07FE  118A  2FBA         	ljmp	_main	;jump to C main() function
+   182     07FE  118A  2FD2         	ljmp	_main	;jump to C main() function
    183                           
    184                           	psect	cstackBANK0
    185     0020                     __pcstackBANK0:
@@ -206,7 +206,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    192     0020                     	ds	3
    193                           
    194                           	psect	maintext
-   195     07BA                     __pmaintext:	
+   195     07D2                     __pmaintext:	
    196 ;;
    197 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
    198 ;;
@@ -238,140 +238,106 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    224 ;; This function uses a non-reentrant model
    225 ;;
    226                           
-   227     07BA                     _main:	
+   227     07D2                     _main:	
    228                           ;psect for function _main
    229                           
-   230     07BA                     l632:	
+   230     07D2                     l627:	
    231                           ;incstack = 0
    232                           ; Regs used in _main: [wreg+status,2+status,0]
    233                           
-   234     07BA                     l636:	
+   234     07D2                     l631:	
    235                           ;main.c: 165:  if( 0 == 1 ) { *(&TRISA + (22 >> 3)) |= (0x01 << (22 - ((22 >> 3) << 3)))
       +                          ; } else { *(&TRISA + (22 >> 3)) &= ~(0x01 << (22 - ((22 >> 3) << 3))); };;
    236                           
-   237     07BA  30BF               	movlw	191
-   238     07BB  1683               	bsf	3,5	;RP0=1, select bank1
-   239     07BC  1303               	bcf	3,6	;RP1=0, select bank1
-   240     07BD  0587               	andwf	7,f	;volatile
-   241     07BE                     l638:
-   242     07BE                     l640:
-   243     07BE                     l32:
-   244     07BE  1518               	bsf	24,2	;volatile
-   245     07BF                     l656:
-   246     07BF  3009               	movlw	9
-   247     07C0  0099               	movwf	25	;volatile
-   248     07C1                     l658:
-   249     07C1  1118               	bcf	24,2	;volatile
-   250     07C2                     l660:
-   251     07C2  1218               	bcf	24,4	;volatile
-   252     07C3                     l662:
-   253     07C3  1698               	bsf	24,5	;volatile
-   254     07C4                     l664:
-   255     07C4  1318               	bcf	24,6	;volatile
-   256     07C5                     l666:
-   257     07C5  1283               	bcf	3,5	;RP0=0, select bank0
-   258     07C6  1303               	bcf	3,6	;RP1=0, select bank0
-   259     07C7  1318               	bcf	24,6	;volatile
-   260     07C8                     l668:
-   261     07C8  1618               	bsf	24,4	;volatile
-   262     07C9                     l670:
-   263     07C9  1798               	bsf	24,7	;volatile
-   264     07CA                     l36:
-   265     07CA  1683               	bsf	3,5	;RP0=1, select bank1
-   266     07CB  1303               	bcf	3,6	;RP1=0, select bank1
-   267     07CC  1C98               	btfss	24,1	;volatile
-   268     07CD  2FCF               	goto	u31
-   269     07CE  2FD0               	goto	u30
-   270     07CF                     u31:
-   271     07CF  2FCA               	goto	l36
-   272     07D0                     u30:
-   273     07D0                     l38:
-   274     07D0  3033               	movlw	51
-   275     07D1  1283               	bcf	3,5	;RP0=0, select bank0
-   276     07D2  1303               	bcf	3,6	;RP1=0, select bank0
-   277     07D3  0099               	movwf	25	;volatile
-   278     07D4                     l672:
+   237     07D2  30BF               	movlw	191
+   238     07D3  1683               	bsf	3,5	;RP0=1, select bank1
+   239     07D4  1303               	bcf	3,6	;RP1=0, select bank1
+   240     07D5  0587               	andwf	7,f	;volatile
+   241     07D6                     l633:
+   242     07D6                     l635:
+   243     07D6                     l32:
+   244     07D6  1518               	bsf	24,2	;volatile
+   245     07D7                     l651:
+   246     07D7  3009               	movlw	9
+   247     07D8  0099               	movwf	25	;volatile
+   248     07D9                     l653:
+   249     07D9  1118               	bcf	24,2	;volatile
+   250     07DA                     l655:
+   251     07DA  1218               	bcf	24,4	;volatile
+   252     07DB                     l657:
+   253     07DB  1698               	bsf	24,5	;volatile
+   254     07DC                     l659:
+   255     07DC  1318               	bcf	24,6	;volatile
+   256     07DD                     l661:
+   257     07DD  1283               	bcf	3,5	;RP0=0, select bank0
+   258     07DE  1303               	bcf	3,6	;RP1=0, select bank0
+   259     07DF  1318               	bcf	24,6	;volatile
+   260     07E0                     l663:
+   261     07E0  1618               	bsf	24,4	;volatile
+   262     07E1                     l665:
+   263     07E1  1798               	bsf	24,7	;volatile
+   264     07E2                     l36:
+   265     07E2  1683               	bsf	3,5	;RP0=1, select bank1
+   266     07E3  1303               	bcf	3,6	;RP1=0, select bank1
+   267     07E4  1C98               	btfss	24,1	;volatile
+   268     07E5  2FE7               	goto	u21
+   269     07E6  2FE8               	goto	u20
+   270     07E7                     u21:
+   271     07E7  2FE2               	goto	l36
+   272     07E8                     u20:
+   273     07E8                     l38:
+   274     07E8  3078               	movlw	120
+   275     07E9  1283               	bcf	3,5	;RP0=0, select bank0
+   276     07EA  1303               	bcf	3,6	;RP1=0, select bank0
+   277     07EB  0099               	movwf	25	;volatile
+   278     07EC                     l667:
    279                           
    280                           ;main.c: 169:   _delay((unsigned long)((500)*(20000000/4000.0)));
-   281     07D4  300D               	movlw	13
-   282     07D5  1283               	bcf	3,5	;RP0=0, select bank0
-   283     07D6  1303               	bcf	3,6	;RP1=0, select bank0
-   284     07D7  00A2               	movwf	??_main+2
-   285     07D8  30AF               	movlw	175
-   286     07D9  00A1               	movwf	??_main+1
-   287     07DA  30B6               	movlw	182
-   288     07DB  00A0               	movwf	??_main
-   289     07DC                     u57:
-   290     07DC  0BA0               	decfsz	??_main,f
-   291     07DD  2FDC               	goto	u57
-   292     07DE  0BA1               	decfsz	??_main+1,f
-   293     07DF  2FDC               	goto	u57
-   294     07E0  0BA2               	decfsz	??_main+2,f
-   295     07E1  2FDC               	goto	u57
-   296     07E2                     l39:	
-   297                           ;main.c: 170:   while( TRMT == 0 ) { } TXREG = 0x99;;
-   298                           
-   299     07E2  1683               	bsf	3,5	;RP0=1, select bank1
-   300     07E3  1303               	bcf	3,6	;RP1=0, select bank1
-   301     07E4  1C98               	btfss	24,1	;volatile
-   302     07E5  2FE7               	goto	u41
-   303     07E6  2FE8               	goto	u40
-   304     07E7                     u41:
-   305     07E7  2FE2               	goto	l39
-   306     07E8                     u40:
-   307     07E8                     l41:
-   308     07E8  3099               	movlw	153
-   309     07E9  1283               	bcf	3,5	;RP0=0, select bank0
-   310     07EA  1303               	bcf	3,6	;RP1=0, select bank0
-   311     07EB  0099               	movwf	25	;volatile
-   312     07EC                     l674:
-   313                           
-   314                           ;main.c: 171:   _delay((unsigned long)((500)*(20000000/4000.0)));
-   315     07EC  300D               	movlw	13
-   316     07ED  1283               	bcf	3,5	;RP0=0, select bank0
-   317     07EE  1303               	bcf	3,6	;RP1=0, select bank0
-   318     07EF  00A2               	movwf	??_main+2
-   319     07F0  30AF               	movlw	175
-   320     07F1  00A1               	movwf	??_main+1
-   321     07F2  30B6               	movlw	182
-   322     07F3  00A0               	movwf	??_main
-   323     07F4                     u67:
-   324     07F4  0BA0               	decfsz	??_main,f
-   325     07F5  2FF4               	goto	u67
-   326     07F6  0BA1               	decfsz	??_main+1,f
-   327     07F7  2FF4               	goto	u67
-   328     07F8  0BA2               	decfsz	??_main+2,f
-   329     07F9  2FF4               	goto	u67
-   330     07FA  2FCA               	goto	l36
-   331     07FB  118A  2800         	ljmp	start
-   332     07FD                     __end_of_main:
-   333     0001                     ___latbits      equ	1
-   334     007E                     btemp           set	126	;btemp
-   335     007E                     wtemp0          set	126
-   336                           
-   337                           	psect	config
-   338                           
-   339                           ;Config register CONFIG @ 0x2007
-   340                           ;	Oscillator Selection bits
-   341                           ;	FOSC = HS, HS oscillator
-   342                           ;	Watchdog Timer Enable bit
-   343                           ;	WDTE = OFF, WDT disabled
-   344                           ;	Power-up Timer Enable bit
-   345                           ;	PWRTE = ON, PWRT enabled
-   346                           ;	FLASH Program Memory Code Protection bits
-   347                           ;	CP = OFF, Code protection off
-   348                           ;	Brown-out Reset Enable bit
-   349                           ;	BOREN = OFF, BOR disabled
-   350                           ;	Low Voltage In-Circuit Serial Programming Enable bit
-   351                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
-   352                           ;	Data EE Memory Code Protection
-   353                           ;	CPD = OFF, Code Protection off
-   354                           ;	FLASH Program Memory Write Enable
-   355                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
-   356                           ;	In-Circuit Debugger Mode bit
-   357                           ;	DEBUG = 0x1, unprogrammed default
-   358     2007                     	org	8199
-   359     2007  3D32               	dw	15666
+   281     07EC  300D               	movlw	13
+   282     07ED  1283               	bcf	3,5	;RP0=0, select bank0
+   283     07EE  1303               	bcf	3,6	;RP1=0, select bank0
+   284     07EF  00A2               	movwf	??_main+2
+   285     07F0  30AF               	movlw	175
+   286     07F1  00A1               	movwf	??_main+1
+   287     07F2  30B6               	movlw	182
+   288     07F3  00A0               	movwf	??_main
+   289     07F4                     u37:
+   290     07F4  0BA0               	decfsz	??_main,f
+   291     07F5  2FF4               	goto	u37
+   292     07F6  0BA1               	decfsz	??_main+1,f
+   293     07F7  2FF4               	goto	u37
+   294     07F8  0BA2               	decfsz	??_main+2,f
+   295     07F9  2FF4               	goto	u37
+   296     07FA  2FE2               	goto	l36
+   297     07FB  118A  2800         	ljmp	start
+   298     07FD                     __end_of_main:
+   299     0001                     ___latbits      equ	1
+   300     007E                     btemp           set	126	;btemp
+   301     007E                     wtemp0          set	126
+   302                           
+   303                           	psect	config
+   304                           
+   305                           ;Config register CONFIG @ 0x2007
+   306                           ;	Oscillator Selection bits
+   307                           ;	FOSC = HS, HS oscillator
+   308                           ;	Watchdog Timer Enable bit
+   309                           ;	WDTE = OFF, WDT disabled
+   310                           ;	Power-up Timer Enable bit
+   311                           ;	PWRTE = ON, PWRT enabled
+   312                           ;	FLASH Program Memory Code Protection bits
+   313                           ;	CP = OFF, Code protection off
+   314                           ;	Brown-out Reset Enable bit
+   315                           ;	BOREN = OFF, BOR disabled
+   316                           ;	Low Voltage In-Circuit Serial Programming Enable bit
+   317                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+   318                           ;	Data EE Memory Code Protection
+   319                           ;	CPD = OFF, Code Protection off
+   320                           ;	FLASH Program Memory Write Enable
+   321                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
+   322                           ;	In-Circuit Debugger Mode bit
+   323                           ;	DEBUG = 0x1, unprogrammed default
+   324     2007                     	org	8199
+   325     2007  3D32               	dw	15666
 
 Data Sizes:
     Strings     0
@@ -431,22 +397,20 @@ DATA                 0      0       3      0.0%
 
 
 Microchip Technology PIC Macro Assembler V3.00 build 20241204225717 
-Symbol Table                                                                                   Wed May  7 16:58:26 2025
+Symbol Table                                                                                   Wed May  7 18:01:02 2025
 
-                     l32 07BE                       l41 07E8                       l36 07CA  
-                     l38 07D0                       l39 07E2                       u30 07D0  
-                     u31 07CF                       u40 07E8                       u41 07E7  
-                     u57 07DC                       u67 07F4                      l640 07BE  
-                    l632 07BA                      l660 07C2                      l636 07BA  
-                    l670 07C9                      l662 07C3                      l638 07BE  
-                    l672 07D4                      l664 07C4                      l656 07BF  
-                    l674 07EC                      l666 07C5                      l658 07C1  
-                    l668 07C8                      _RX9 00C6                      _TX9 04C6  
+                     l32 07D6                       l36 07E2                       l38 07E8  
+                     u20 07E8                       u21 07E7                       u37 07F4  
+                    l631 07D2                      l633 07D6                      l651 07D7  
+                    l635 07D6                      l627 07D2                      l661 07DD  
+                    l653 07D9                      l663 07E0                      l655 07DA  
+                    l665 07E1                      l657 07DB                      l667 07EC  
+                    l659 07DC                      _RX9 00C6                      _TX9 04C6  
                    _BRGH 04C2                     _CREN 00C4                     _SPEN 00C7  
                    _TRMT 04C1                     _TXEN 04C5                     _SYNC 04C4  
-                   _main 07BA                     btemp 007E                     start 0000  
+                   _main 07D2                     btemp 007E                     start 0000  
                   ?_main 0020                    _SPBRG 0099                    _TRISA 0085  
                   _TXREG 0019                    status 0003                    wtemp0 007E  
         __initialization 07FD             __end_of_main 07FD                   ??_main 0020  
-__end_of__initialization 07FD               __pmaintext 07BA     end_of_initialization 07FD  
+__end_of__initialization 07FD               __pmaintext 07D2     end_of_initialization 07FD  
     start_initialization 07FD                ___latbits 0001            __pcstackBANK0 0020  

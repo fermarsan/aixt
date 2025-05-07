@@ -273,7 +273,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 94 ]
 {
 "168
-[; ;main.c: 168:   while( TRMT == 0 ) { } TXREG = 0x33;;
+[; ;main.c: 168:   while( TRMT == 0 ) { } TXREG = 'x';;
 [e $U 96  ]
 [e :U 97 ]
 {
@@ -281,30 +281,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 96 ]
 [e $ == -> _TRMT `i -> 0 `i 97  ]
 [e :U 98 ]
-[e = _TXREG -> -> 51 `i `uc ]
+[e = _TXREG -> -> 120 `ui `uc ]
 "169
 [; ;main.c: 169:   _delay((unsigned long)((500)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 "170
-[; ;main.c: 170:   while( TRMT == 0 ) { } TXREG = 0x99;;
-[e $U 99  ]
-[e :U 100 ]
-{
-}
-[e :U 99 ]
-[e $ == -> _TRMT `i -> 0 `i 100  ]
-[e :U 101 ]
-[e = _TXREG -> -> 153 `i `uc ]
-"171
-[; ;main.c: 171:   _delay((unsigned long)((500)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"172
-[; ;main.c: 172:  }
+[; ;main.c: 170:  }
 }
 [e :U 93 ]
 [e $U 94  ]
 [e :U 95 ]
-"173
-[; ;main.c: 173: }
+"171
+[; ;main.c: 171: }
 [e :UE 86 ]
 }

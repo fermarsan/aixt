@@ -11,13 +11,13 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcXibigDp/driver_tmp_12.o
-end_init CODE 0 0 0 2 2 1
-config CONFIG 4 2007 2007 1 2 1
 $build/main.o
 cinit CODE 0 7FD 7FD 3 2 1
-maintext CODE 0 7BA 7BA 43 2 1
+maintext CODE 0 7D2 7D2 2B 2 1
 cstackBANK0 BANK0 1 20 20 3 1 1
+config CONFIG 4 2007 2007 1 2 1
+$/tmp/xcXHaDOpi/driver_tmp_12.o
+end_init CODE 0 0 0 2 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -29,21 +29,21 @@ RAM 23-7D 1
 RAM A0-FD 1
 BANK0 23-7D 1
 BANK1 A0-FD 1
-CONST 2-7B9 2
+CONST 2-7D1 2
 CONST 800-FFF 2
-ENTRY 2-7B9 2
+ENTRY 2-7D1 2
 ENTRY 800-FFF 2
 IDLOC 2000-2003 2
-CODE 2-7B9 2
+CODE 2-7D1 2
 CODE 800-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-17D 1
 SFR3 180-1FD 1
 EEDATA 2100-217F 2
-STRCODE 2-7B9 2
+STRCODE 2-7D1 2
 STRCODE 800-FFF 2
-STRING 2-7B9 2
+STRING 2-7D1 2
 STRING 800-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -59,18 +59,16 @@ STRING 800-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $build/main.o
-7FD cinit CODE >346:/tmp/xcXibigDp/driver_tmp_1.s
-7FD cinit CODE >349:/tmp/xcXibigDp/driver_tmp_1.s
-7FD cinit CODE >355:/tmp/xcXibigDp/driver_tmp_1.s
-7FD cinit CODE >357:/tmp/xcXibigDp/driver_tmp_1.s
-7FE cinit CODE >358:/tmp/xcXibigDp/driver_tmp_1.s
-7BA maintext CODE >164:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
-7BA maintext CODE >165:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
-7BE maintext CODE >166:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
-7CA maintext CODE >168:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
-7D4 maintext CODE >169:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
-7E2 maintext CODE >170:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
-7EC maintext CODE >171:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
+7FD cinit CODE >346:/tmp/xcXHaDOpi/driver_tmp_1.s
+7FD cinit CODE >349:/tmp/xcXHaDOpi/driver_tmp_1.s
+7FD cinit CODE >355:/tmp/xcXHaDOpi/driver_tmp_1.s
+7FD cinit CODE >357:/tmp/xcXHaDOpi/driver_tmp_1.s
+7FE cinit CODE >358:/tmp/xcXHaDOpi/driver_tmp_1.s
+7D2 maintext CODE >164:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
+7D2 maintext CODE >165:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
+7D6 maintext CODE >166:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
+7E2 maintext CODE >168:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
+7EC maintext CODE >169:/home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -98,28 +96,28 @@ _SPEN C7 0 ABS 0 - build/main.o
 _SYNC 4C4 0 ABS 0 - build/main.o
 _TRMT 4C1 0 ABS 0 - build/main.o
 _TXEN 4C5 0 ABS 0 - build/main.o
-___sp 0 0 STACK 2 stack /tmp/xcXibigDp/driver_tmp_12.o
-_main F74 0 CODE 0 maintext build/main.o
+___sp 0 0 STACK 2 stack /tmp/xcXHaDOpi/driver_tmp_12.o
+_main FA4 0 CODE 0 maintext build/main.o
 btemp 7E 0 ABS 0 - build/main.o
-___stack_hi 0 0 STACK 2 stack /tmp/xcXibigDp/driver_tmp_12.o
-___stack_lo 0 0 STACK 2 stack /tmp/xcXibigDp/driver_tmp_12.o
-start 0 0 CODE 0 init /tmp/xcXibigDp/driver_tmp_12.o
+___stack_hi 0 0 STACK 2 stack /tmp/xcXHaDOpi/driver_tmp_12.o
+___stack_lo 0 0 STACK 2 stack /tmp/xcXHaDOpi/driver_tmp_12.o
+start 0 0 CODE 0 init /tmp/xcXHaDOpi/driver_tmp_12.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab /tmp/xcXibigDp/driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcXibigDp/driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcXibigDp/driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcXibigDp/driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcXibigDp/driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcXibigDp/driver_tmp_12.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcXHaDOpi/driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcXHaDOpi/driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcXHaDOpi/driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcXHaDOpi/driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcXHaDOpi/driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcXHaDOpi/driver_tmp_12.o
 wtemp0 7E 0 ABS 0 - build/main.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - /tmp/xcXibigDp/driver_tmp_12.o
-___stacklo 0 0 ABS 0 - /tmp/xcXibigDp/driver_tmp_12.o
+___stackhi 0 0 ABS 0 - /tmp/xcXHaDOpi/driver_tmp_12.o
+___stacklo 0 0 ABS 0 - /tmp/xcXHaDOpi/driver_tmp_12.o
 start_initialization FFA 0 CODE 0 cinit build/main.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 build/main.o
-___int_sp 0 0 STACK 2 stack /tmp/xcXibigDp/driver_tmp_12.o
+___int_sp 0 0 STACK 2 stack /tmp/xcXHaDOpi/driver_tmp_12.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
@@ -162,8 +160,8 @@ __S0 800 0 ABS 0 - -
 __S1 23 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcXibigDp/driver_tmp_12.o
-__pmaintext F74 0 CODE 0 maintext build/main.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXHaDOpi/driver_tmp_12.o
+__pmaintext FA4 0 CODE 0 maintext build/main.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 __Lspace_0 0 0 ABS 0 - -
@@ -181,8 +179,8 @@ __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __H__absolute__ 0 0 ABS 0 __absolute__ -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-___heap_hi 0 0 ABS 0 - /tmp/xcXibigDp/driver_tmp_12.o
-___heap_lo 0 0 ABS 0 - /tmp/xcXibigDp/driver_tmp_12.o
+___heap_hi 0 0 ABS 0 - /tmp/xcXHaDOpi/driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - /tmp/xcXHaDOpi/driver_tmp_12.o
 __end_of__initialization FFA 0 CODE 0 cinit build/main.o
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
@@ -194,8 +192,8 @@ _TXREG 19 0 ABS 0 - build/main.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __initialization FFA 0 CODE 0 cinit build/main.o
-___int_stack_hi 0 0 STACK 2 stack /tmp/xcXibigDp/driver_tmp_12.o
-___int_stack_lo 0 0 STACK 2 stack /tmp/xcXibigDp/driver_tmp_12.o
+___int_stack_hi 0 0 STACK 2 stack /tmp/xcXHaDOpi/driver_tmp_12.o
+___int_stack_lo 0 0 STACK 2 stack /tmp/xcXHaDOpi/driver_tmp_12.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -222,7 +220,7 @@ ___int_stack_lo 0 0 STACK 2 stack /tmp/xcXibigDp/driver_tmp_12.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7FD FFA 3 2
-maintext 0 7BA F74 43 2
+maintext 0 7D2 FA4 2B 2
 cstackBANK0 1 20 20 3 1
 reset_vec 0 0 0 2 2
 # %NOTES Section

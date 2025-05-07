@@ -1662,9 +1662,7 @@ typedef char rune;
  if( 0 == 1 ) { *(&TRISA + (22 >> 3)) |= (0x01 << (22 - ((22 >> 3) << 3))); } else { *(&TRISA + (22 >> 3)) &= ~(0x01 << (22 - ((22 >> 3) << 3))); };;
  i16 x = (i16)(0); x = (i16)((u8)((u32)(20000000) / (115200 << 4)) - 1); if( x < 0 ) { x = (i16)(0); }; if( x > 255 ) { x = (i16)((u8)((u32)(20000000) / (115200 << 6)) - 1); if( x > 255 ) { x = (i16)(255); }; BRGH = 0; } else { BRGH = 1; }; SPBRG = (u8)(x); BRGH = 0; SYNC = 0; TXEN = 1; TX9 = 0; RX9 = 0; CREN = 1; SPEN = 1;;
  while( 1 ) {
-  while( TRMT == 0 ) { } TXREG = 0x33;;
-  _delay((unsigned long)((500)*(20000000/4000.0)));
-  while( TRMT == 0 ) { } TXREG = 0x99;;
+  while( TRMT == 0 ) { } TXREG = 'x';;
   _delay((unsigned long)((500)*(20000000/4000.0)));
  }
 }
