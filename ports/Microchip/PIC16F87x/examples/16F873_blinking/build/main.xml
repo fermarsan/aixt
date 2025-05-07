@@ -3,15 +3,15 @@
   <executable name="build/main.hex">
     <memory name="program">
       <units>words</units>
-      <length>512</length>
-      <used>20</used>
-      <free>492</free>
+      <length>4096</length>
+      <used>31</used>
+      <free>4065</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
-      <length>36</length>
-      <used>4</used>
-      <free>32</free>
+      <length>192</length>
+      <used>5</used>
+      <free>187</free>
     </memory>
   </executable>
 </project>

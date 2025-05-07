@@ -1,109 +1,223 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"564 /opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 564:     struct {
-[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S26 . RD WR WREN WRERR EEIF ]
-"563
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 563: typedef union {
-[u S25 `S26 1 ]
-[n S25 . . ]
-"572
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 572: extern volatile EECON1bits_t EECON1bits __attribute__((address(0x088)));
-[v _EECON1bits `VS25 ~T0 @X0 0 e@136 ]
-"277
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 277: extern volatile unsigned char EEADR __attribute__((address(0x009)));
-[v _EEADR `Vuc ~T0 @X0 0 e@9 ]
-"558
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 558: extern volatile unsigned char EECON1 __attribute__((address(0x088)));
-[v _EECON1 `Vuc ~T0 @X0 0 e@136 ]
-"270
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 270: extern volatile unsigned char EEDATA __attribute__((address(0x008)));
-[v _EEDATA `Vuc ~T0 @X0 0 e@8 ]
+"1942 /opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1942:     struct {
+[s S85 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S85 . RD WR WREN WRERR . EEPGD ]
+"1941
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1941: typedef union {
+[u S84 `S85 1 ]
+[n S84 . . ]
+"1951
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1951: extern volatile EECON1bits_t EECON1bits __attribute__((address(0x18C)));
+[v _EECON1bits `VS84 ~T0 @X0 0 e@396 ]
+"1915
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1915: extern volatile unsigned char EEADR __attribute__((address(0x10D)));
+[v _EEADR `Vuc ~T0 @X0 0 e@269 ]
+"1936
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1936: extern volatile unsigned char EECON1 __attribute__((address(0x18C)));
+[v _EECON1 `Vuc ~T0 @X0 0 e@396 ]
+"1908
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1908: extern volatile unsigned char EEDATA __attribute__((address(0x10C)));
+[v _EEDATA `Vuc ~T0 @X0 0 e@268 ]
 "77
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 77:     struct {
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 77:     struct {
 [s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
 [n S6 . C DC Z nPD nTO RP IRP ]
 "86
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 86:     struct {
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 86:     struct {
 [s S7 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S7 . . RP0 RP1 ]
 "91
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 91:     struct {
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 91:     struct {
 [s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S8 . CARRY . ZERO ]
 "76
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 76: typedef union {
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 76: typedef union {
 [u S5 `S6 1 `S7 1 `S8 1 ]
 [n S5 . . . . ]
 "97
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 97: extern volatile STATUSbits_t STATUSbits __attribute__((address(0x003)));
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 97: extern volatile STATUSbits_t STATUSbits __attribute__((address(0x003)));
 [v _STATUSbits `VS5 ~T0 @X0 0 e@3 ]
-"310
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 310:     struct {
-[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S16 . RBIF INTF T0IF RBIE INTE T0IE EEIE GIE ]
-"320
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 320:     struct {
-[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S17 . . TMR0IF . TMR0IE ]
-"309
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 309: typedef union {
-[u S15 `S16 1 `S17 1 ]
-[n S15 . . . ]
-"327
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 327: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
-"602
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 602: extern volatile unsigned char EECON2 __attribute__((address(0x089)));
-[v _EECON2 `Vuc ~T0 @X0 0 e@137 ]
-"52 /opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 52: __asm("INDF equ 00h");
+"364
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 364:     struct {
+[s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S18 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"374
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 374:     struct {
+[s S19 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S19 . . TMR0IF . TMR0IE ]
+"363
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 363: typedef union {
+[u S17 `S18 1 `S19 1 ]
+[n S17 . . . ]
+"381
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 381: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS17 ~T0 @X0 0 e@11 ]
+"1981
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1981: extern volatile unsigned char EECON2 __attribute__((address(0x18D)));
+[v _EECON2 `Vuc ~T0 @X0 0 e@397 ]
+"52 /opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 52: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 "59
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 59: __asm("TMR0 equ 01h");
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 59: __asm("TMR0 equ 01h");
 [; <" TMR0 equ 01h ;# ">
 "66
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 66: __asm("PCL equ 02h");
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 66: __asm("PCL equ 02h");
 [; <" PCL equ 02h ;# ">
 "73
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 73: __asm("STATUS equ 03h");
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 73: __asm("STATUS equ 03h");
 [; <" STATUS equ 03h ;# ">
 "159
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 159: __asm("FSR equ 04h");
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 159: __asm("FSR equ 04h");
 [; <" FSR equ 04h ;# ">
 "166
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 166: __asm("PORTA equ 05h");
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 166: __asm("PORTA equ 05h");
 [; <" PORTA equ 05h ;# ">
-"210
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 210: __asm("PORTB equ 06h");
+"216
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 216: __asm("PORTB equ 06h");
 [; <" PORTB equ 06h ;# ">
-"272
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 272: __asm("EEDATA equ 08h");
-[; <" EEDATA equ 08h ;# ">
-"279
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 279: __asm("EEADR equ 09h");
-[; <" EEADR equ 09h ;# ">
-"286
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 286: __asm("PCLATH equ 0Ah");
+"278
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 278: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"340
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 340: __asm("PCLATH equ 0Ah");
 [; <" PCLATH equ 0Ah ;# ">
-"306
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 306: __asm("INTCON equ 0Bh");
+"360
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 360: __asm("INTCON equ 0Bh");
 [; <" INTCON equ 0Bh ;# ">
-"384
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 384: __asm("OPTION_REG equ 081h");
+"438
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 438: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"494
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 494: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"527
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 527: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"534
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 534: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"541
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 541: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"548
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 548: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"625
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 625: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"632
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 632: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"703
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 703: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"710
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 710: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"780
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 780: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"787
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 787: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"794
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 794: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"801
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 801: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"859
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 859: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"954
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 954: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"961
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 961: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"968
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 968: __asm("CCPR2 equ 01Bh");
+[; <" CCPR2 equ 01Bh ;# ">
+"975
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 975: __asm("CCPR2L equ 01Bh");
+[; <" CCPR2L equ 01Bh ;# ">
+"982
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 982: __asm("CCPR2H equ 01Ch");
+[; <" CCPR2H equ 01Ch ;# ">
+"989
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 989: __asm("CCP2CON equ 01Dh");
+[; <" CCP2CON equ 01Dh ;# ">
+"1047
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1047: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"1054
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1054: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"1150
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1150: __asm("OPTION_REG equ 081h");
 [; <" OPTION_REG equ 081h ;# ">
-"454
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 454: __asm("TRISA equ 085h");
+"1220
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1220: __asm("TRISA equ 085h");
 [; <" TRISA equ 085h ;# ">
-"498
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 498: __asm("TRISB equ 086h");
+"1270
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1270: __asm("TRISB equ 086h");
 [; <" TRISB equ 086h ;# ">
-"560
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 560: __asm("EECON1 equ 088h");
-[; <" EECON1 equ 088h ;# ">
-"604
-[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f83.h: 604: __asm("EECON2 equ 089h");
-[; <" EECON2 equ 089h ;# ">
+"1332
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1332: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"1394
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1394: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1450
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1450: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1483
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1483: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1517
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1517: __asm("SSPCON2 equ 091h");
+[; <" SSPCON2 equ 091h ;# ">
+"1579
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1579: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"1586
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1586: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"1593
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1593: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"1762
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1762: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"1843
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1843: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"1850
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1850: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"1857
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1857: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"1910
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1910: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"1917
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1917: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"1924
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1924: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"1931
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1931: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"1938
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1938: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"1983
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h: 1983: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
 "6 /opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 6: __eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 6: }
@@ -143,12 +257,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 10:  while (EECON1bits.WR) continue;
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 10:  __memcpyee(addr,(unsigned char *) &data,2);
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 10: {
-[e $U 28  ]
-[e :U 29 ]
-[e $U 28  ]
-[e :U 28 ]
-[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 29  ]
-[e :U 30 ]
+[e $U 87  ]
+[e :U 88 ]
+[e $U 87  ]
+[e :U 87 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 88  ]
+[e :U 89 ]
 "11
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 11:  EEADR = (unsigned char)from;
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 11:  return data;
@@ -158,19 +272,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 12:  while(size--) {
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 12: }
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 12:  __eecpymem((unsigned char *) &data,addr,4);
-[e $U 31  ]
-[e :U 32 ]
+[e $U 90  ]
+[e :U 91 ]
 {
 "13
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 13:   while (EECON1bits.WR) continue;
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 13: 
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 13:  return data;
-[e $U 34  ]
-[e :U 35 ]
-[e $U 34  ]
-[e :U 34 ]
-[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 35  ]
-[e :U 36 ]
+[e $U 93  ]
+[e :U 94 ]
+[e $U 93  ]
+[e :U 93 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 94  ]
+[e :U 95 ]
 "15
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 15:   EECON1 &= 0x7F;
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 15: 
@@ -191,16 +305,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 20:  }
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 20:  return data;
 }
-[e :U 31 ]
+[e :U 90 ]
 "12
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 12:  while(size--) {
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 12: }
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 12:  __eecpymem((unsigned char *) &data,addr,4);
-[e $ != -> -- _size -> -> 1 `i `uc `i -> 0 `i 32  ]
-[e :U 33 ]
+[e $ != -> -- _size -> -> 1 `i `uc `i -> 0 `i 91  ]
+[e :U 92 ]
 "36
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 36: }
-[e :UE 27 ]
+[e :UE 86 ]
 }
 "39
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 39: __memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
@@ -223,12 +337,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ptr _from ]
 "43
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 43:  while (EECON1bits.WR) continue;
-[e $U 38  ]
-[e :U 39 ]
-[e $U 38  ]
-[e :U 38 ]
-[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 39  ]
-[e :U 40 ]
+[e $U 97  ]
+[e :U 98 ]
+[e $U 97  ]
+[e :U 97 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 98  ]
+[e :U 99 ]
 "44
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 44:  EEADR = (unsigned char)to - 1U;
 [e = _EEADR -> - -> -> _to `uc `ui -> 1 `ui `uc ]
@@ -237,25 +351,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =& _EECON1 -> -> 127 `i `Vuc ]
 "48
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 48:  while(size--) {
-[e $U 41  ]
-[e :U 42 ]
+[e $U 100  ]
+[e :U 101 ]
 {
 "49
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 49:   while (EECON1bits.WR) {
-[e $U 44  ]
-[e :U 45 ]
+[e $U 103  ]
+[e :U 104 ]
 {
 "50
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 50:    continue;
-[e $U 44  ]
+[e $U 103  ]
 "51
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 51:   }
 }
-[e :U 44 ]
+[e :U 103 ]
 "49
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 49:   while (EECON1bits.WR) {
-[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 45  ]
-[e :U 46 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 104  ]
+[e :U 105 ]
 "52
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 52:   EEDATA = *ptr++;
 [e = _EEDATA *U ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
@@ -267,7 +381,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _STATUSbits 2 0 -> -> 0 `i `uc ]
 "55
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 55:   if (INTCONbits.GIE) {
-[e $ ! != -> . . _INTCONbits 0 7 `i -> 0 `i 47  ]
+[e $ ! != -> . . _INTCONbits 0 7 `i -> 0 `i 106  ]
 {
 "56
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 56:    STATUSbits.CARRY = 1;
@@ -275,7 +389,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "57
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 57:   }
 }
-[e :U 47 ]
+[e :U 106 ]
 "58
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 58:   INTCONbits.GIE = 0;
 [e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
@@ -296,7 +410,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
 "64
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 64:   if (STATUSbits.CARRY) {
-[e $ ! != -> . . _STATUSbits 2 0 `i -> 0 `i 48  ]
+[e $ ! != -> . . _STATUSbits 2 0 `i -> 0 `i 107  ]
 {
 "65
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 65:    INTCONbits.GIE = 1;
@@ -304,18 +418,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "66
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 66:   }
 }
-[e :U 48 ]
+[e :U 107 ]
 "67
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 67:  }
 }
-[e :U 41 ]
+[e :U 100 ]
 "48
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 48:  while(size--) {
-[e $ != -> -- _size -> -> 1 `i `uc `i -> 0 `i 42  ]
-[e :U 43 ]
+[e $ != -> -- _size -> -> 1 `i `uc `i -> 0 `i 101  ]
+[e :U 102 ]
 "101
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 101: }
-[e :UE 37 ]
+[e :UE 96 ]
 }
 "104
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 104: __eetoc(__eeprom void *addr)
@@ -339,10 +453,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "108
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 108:  return data;
 [e ) _data ]
-[e $UE 49  ]
+[e $UE 108  ]
 "109
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 109: }
-[e :UE 49 ]
+[e :UE 108 ]
 }
 "112
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 112: __eetoi(__eeprom void *addr)
@@ -366,10 +480,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "116
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 116:  return data;
 [e ) _data ]
-[e $UE 50  ]
+[e $UE 109  ]
 "117
 [; ;/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c: 117: }
-[e :UE 50 ]
+[e :UE 109 ]
 }
 "119
 [p k ]
@@ -390,9 +504,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 3 `i `uc ]
 "126
 [e ) _data ]
-[e $UE 51  ]
+[e $UE 110  ]
 "127
-[e :UE 51 ]
+[e :UE 110 ]
 }
 "128
 [p o ]
@@ -411,9 +525,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 4 `i `uc ]
 "135
 [e ) _data ]
-[e $UE 52  ]
+[e $UE 111  ]
 "136
-[e :UE 52 ]
+[e :UE 111 ]
 }
 "138
 [p k ]
@@ -434,9 +548,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 8 `i `uc ]
 "145
 [e ) _data ]
-[e $UE 53  ]
+[e $UE 112  ]
 "146
-[e :UE 53 ]
+[e :UE 112 ]
 }
 "147
 [p o ]
@@ -454,9 +568,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___memcpyee (3 , , -> _addr `*Euc -> &U _data `*Cuc -> -> 1 `i `uc ]
 "153
 [e ) _data ]
-[e $UE 54  ]
+[e $UE 113  ]
 "154
-[e :UE 54 ]
+[e :UE 113 ]
 }
 "157
 [v ___itoee `(ui ~T0 @X0 1 ef2`*Ev`ui ]
@@ -472,9 +586,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 2 `i `uc ]
 "160
 [e ) _data ]
-[e $UE 55  ]
+[e $UE 114  ]
 "161
-[e :UE 55 ]
+[e :UE 114 ]
 }
 "163
 [p k ]
@@ -494,9 +608,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 3 `i `uc ]
 "169
 [e ) _data ]
-[e $UE 56  ]
+[e $UE 115  ]
 "170
-[e :UE 56 ]
+[e :UE 115 ]
 }
 "171
 [p o ]
@@ -514,9 +628,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 4 `i `uc ]
 "177
 [e ) _data ]
-[e $UE 57  ]
+[e $UE 116  ]
 "178
-[e :UE 57 ]
+[e :UE 116 ]
 }
 "180
 [p k ]
@@ -536,9 +650,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 8 `i `uc ]
 "186
 [e ) _data ]
-[e $UE 58  ]
+[e $UE 117  ]
 "187
-[e :UE 58 ]
+[e :UE 117 ]
 }
 "188
 [p o ]
@@ -557,9 +671,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 3 `i `uc ]
 "195
 [e ) _data ]
-[e $UE 59  ]
+[e $UE 118  ]
 "196
-[e :UE 59 ]
+[e :UE 118 ]
 }
 "199
 [v ___eetofl `(d ~T0 @X0 1 ef1`*Ev ]
@@ -576,9 +690,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 4 `i `uc ]
 "203
 [e ) _data ]
-[e $UE 60  ]
+[e $UE 119  ]
 "204
-[e :UE 60 ]
+[e :UE 119 ]
 }
 "207
 [v ___fttoee `(f ~T0 @X0 1 ef2`*Ev`f ]
@@ -594,9 +708,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 3 `i `uc ]
 "210
 [e ) _data ]
-[e $UE 61  ]
+[e $UE 120  ]
 "211
-[e :UE 61 ]
+[e :UE 120 ]
 }
 "214
 [v ___fltoee `(d ~T0 @X0 1 ef2`*Ev`d ]
@@ -612,7 +726,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 4 `i `uc ]
 "217
 [e ) _data ]
-[e $UE 62  ]
+[e $UE 121  ]
 "218
-[e :UE 62 ]
+[e :UE 121 ]
 }
