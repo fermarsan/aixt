@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: UART functions
-//              (PIC16F88x port)
+//              (PIC16F family)
 module uart
 
 @[inline]
