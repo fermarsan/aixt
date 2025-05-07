@@ -4,12 +4,5 @@
 // License: MIT
 //
 // Description: Pin management functions
-//              (PIC16F88x port)
+//              (PIC16F family)
 module uart
-
-@[as_macro]
-pub fn println(msg string) {
-	uart.print(msg)
-	uart.write('\n')
-	uart.write('\r')
-}

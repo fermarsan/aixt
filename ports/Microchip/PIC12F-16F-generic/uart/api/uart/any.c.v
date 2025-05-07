@@ -4,10 +4,10 @@
 // License: MIT
 //
 // Description: UART functions
-//              (PIC16F88x port)
+//              (PIC16F family)
 module uart
 
-@[inline]
-pub fn any() {
-	C.RCIF
+@[as_macro]
+pub fn any() bool {
+	return bool(C.RCIF)
 }
