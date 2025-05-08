@@ -37,6 +37,8 @@ typedef char rune;
 #pragma config WRT = OFF        // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
+void  uart__print(char msg[]);
+
 #define time__sleep(ts) __delay_ms(ts << 10)
 
 #define time__sleep_ms(tms) __delay_ms(tms)
@@ -67,7 +69,9 @@ while( TXIF == 0 ) { \
 TXREG = ch; \
 // end #define
 
-#define uart__print(msg) 
+ void  uart__print(char msg[]) {
+	 
+}
 
 #define uart__setup(baudrate) \
 u16 x = (u16)((u16)(((u32)(_XTAL_FREQ) / 16) / baudrate) - 1); \
@@ -171,10 +175,8 @@ else { \
 	pin__setup(_const_pin__c6, _const_pin__output); 
 	uart__setup(115200); 
 	while( true ) {
-		for( int i = 0; i < 10; i ++ ) {
-			uart__write((u8)(i) + 48); 
-		} 
-		uart__write('\n'); 
+		uart__print("Hello "); 
+		uart__println("world...!"); 
 		time__sleep_ms(500); 
 	} 
 }

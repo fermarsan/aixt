@@ -7,7 +7,7 @@
 //              (PIC16F family)
 module uart
 
-@[as_macro]
+// @[as_macro]
 pub fn print(msg string) {
 	for ch in msg {
 		write(ch)

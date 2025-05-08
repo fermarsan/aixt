@@ -11,7 +11,9 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"170 /home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
+"72 /home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_hello/main.c
+[v _uart__print uart__print `(v  1 e 1 0 ]
+"174
 [v _main main `(v  1 e 1 0 ]
 "952 /opt/microchip/xc8/v3.00/pic/include/proc/pic16f873.h
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
@@ -35,12 +37,16 @@
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
 "2523
 [v _TXIF TXIF `VEb  1 e 0 @100 ]
-"170 /home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_tx/main.c
+"174 /home/fercho/git-projects/aixt/ports/Microchip/PIC16F87x/examples/16F873_uart_hello/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"174
-[v main@i i `i  1 a 2 3 ]
-"172
-[v main@x x `us  1 a 2 5 ]
-"180
+"176
+[v main@x x `us  1 a 2 4 ]
+"182
+} 0
+"72
+[v _uart__print uart__print `(v  1 e 1 0 ]
+{
+[v uart__print@msg msg `*.24uc  1 p 1 0 ]
+"74
 } 0

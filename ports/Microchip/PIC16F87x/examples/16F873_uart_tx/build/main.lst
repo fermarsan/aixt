@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
-                                                                                               Wed May  7 18:01:02 2025
+                                                                                               Thu May  8 00:01:14 2025
 
 Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
      1                           	processor	16F873
@@ -172,14 +172,14 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    158     018C                     EECON1          equ	396	;# 
    159     018D                     EECON2          equ	397	;# 
    160     0019                     _TXREG          set	25
-   161     00C7                     _SPEN           set	199
+   161     0064                     _TXIF           set	100
    162     00C4                     _CREN           set	196
    163     00C6                     _RX9            set	198
-   164     0099                     _SPBRG          set	153
-   165     0085                     _TRISA          set	133
-   166     04C1                     _TRMT           set	1217
-   167     04C6                     _TX9            set	1222
-   168     04C5                     _TXEN           set	1221
+   164     00C7                     _SPEN           set	199
+   165     0099                     _SPBRG          set	153
+   166     0085                     _TRISA          set	133
+   167     04C5                     _TXEN           set	1221
+   168     04C6                     _TX9            set	1222
    169     04C4                     _SYNC           set	1220
    170     04C2                     _BRGH           set	1218
    171                           
@@ -193,7 +193,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    179                           
    180     07FD                     __end_of__initialization:
    181     07FD  0183               	clrf	3
-   182     07FE  118A  2FD2         	ljmp	_main	;jump to C main() function
+   182     07FE  118A  2F7F         	ljmp	_main	;jump to C main() function
    183                           
    184                           	psect	cstackBANK0
    185     0020                     __pcstackBANK0:
@@ -204,140 +204,265 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    190                           
    191                           ; 1 bytes @ 0x0
    192     0020                     	ds	3
-   193                           
-   194                           	psect	maintext
-   195     07D2                     __pmaintext:	
-   196 ;;
-   197 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
-   198 ;;
-   199 ;; *************** function _main *****************
-   200 ;; Defined at:
-   201 ;;		line 164 in file "main.c"
-   202 ;; Parameters:    Size  Location     Type
-   203 ;;		None
-   204 ;; Auto vars:     Size  Location     Type
-   205 ;;  x               2    0        short 
-   206 ;; Return value:  Size  Location     Type
-   207 ;;                  1    wreg      void 
-   208 ;; Registers used:
-   209 ;;		wreg, status,2, status,0
-   210 ;; Tracked objects:
-   211 ;;		On entry : B00/0
-   212 ;;		On exit  : 0/0
-   213 ;;		Unchanged: 0/0
-   214 ;; Data sizes:     COMMON   BANK0   BANK1
-   215 ;;      Params:         0       0       0
-   216 ;;      Locals:         0       0       0
-   217 ;;      Temps:          0       3       0
-   218 ;;      Totals:         0       3       0
-   219 ;;Total ram usage:        3 bytes
-   220 ;; This function calls:
-   221 ;;		Nothing
-   222 ;; This function is called by:
-   223 ;;		Startup code after reset
-   224 ;; This function uses a non-reentrant model
-   225 ;;
-   226                           
-   227     07D2                     _main:	
-   228                           ;psect for function _main
-   229                           
-   230     07D2                     l627:	
-   231                           ;incstack = 0
-   232                           ; Regs used in _main: [wreg+status,2+status,0]
-   233                           
-   234     07D2                     l631:	
-   235                           ;main.c: 165:  if( 0 == 1 ) { *(&TRISA + (22 >> 3)) |= (0x01 << (22 - ((22 >> 3) << 3)))
-      +                          ; } else { *(&TRISA + (22 >> 3)) &= ~(0x01 << (22 - ((22 >> 3) << 3))); };;
+   193     0023                     main@i:
+   194                           
+   195                           ; 2 bytes @ 0x3
+   196     0023                     	ds	2
+   197     0025                     main@x:
+   198                           
+   199                           ; 2 bytes @ 0x5
+   200     0025                     	ds	2
+   201                           
+   202                           	psect	maintext
+   203     077F                     __pmaintext:	
+   204 ;;
+   205 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   206 ;;
+   207 ;; *************** function _main *****************
+   208 ;; Defined at:
+   209 ;;		line 170 in file "main.c"
+   210 ;; Parameters:    Size  Location     Type
+   211 ;;		None
+   212 ;; Auto vars:     Size  Location     Type
+   213 ;;  i               2    3[BANK0 ] int 
+   214 ;;  rem             4    0        unsigned long 
+   215 ;;  x               2    5[BANK0 ] unsigned short 
+   216 ;; Return value:  Size  Location     Type
+   217 ;;                  1    wreg      void 
+   218 ;; Registers used:
+   219 ;;		wreg, status,2, status,0, btemp+1
+   220 ;; Tracked objects:
+   221 ;;		On entry : B00/0
+   222 ;;		On exit  : 0/0
+   223 ;;		Unchanged: 0/0
+   224 ;; Data sizes:     COMMON   BANK0   BANK1
+   225 ;;      Params:         0       0       0
+   226 ;;      Locals:         0       4       0
+   227 ;;      Temps:          0       3       0
+   228 ;;      Totals:         0       7       0
+   229 ;;Total ram usage:        7 bytes
+   230 ;; This function calls:
+   231 ;;		Nothing
+   232 ;; This function is called by:
+   233 ;;		Startup code after reset
+   234 ;; This function uses a non-reentrant model
+   235 ;;
    236                           
-   237     07D2  30BF               	movlw	191
-   238     07D3  1683               	bsf	3,5	;RP0=1, select bank1
-   239     07D4  1303               	bcf	3,6	;RP1=0, select bank1
-   240     07D5  0587               	andwf	7,f	;volatile
-   241     07D6                     l633:
-   242     07D6                     l635:
-   243     07D6                     l32:
-   244     07D6  1518               	bsf	24,2	;volatile
-   245     07D7                     l651:
-   246     07D7  3009               	movlw	9
-   247     07D8  0099               	movwf	25	;volatile
-   248     07D9                     l653:
-   249     07D9  1118               	bcf	24,2	;volatile
-   250     07DA                     l655:
-   251     07DA  1218               	bcf	24,4	;volatile
-   252     07DB                     l657:
-   253     07DB  1698               	bsf	24,5	;volatile
-   254     07DC                     l659:
-   255     07DC  1318               	bcf	24,6	;volatile
-   256     07DD                     l661:
-   257     07DD  1283               	bcf	3,5	;RP0=0, select bank0
-   258     07DE  1303               	bcf	3,6	;RP1=0, select bank0
-   259     07DF  1318               	bcf	24,6	;volatile
-   260     07E0                     l663:
-   261     07E0  1618               	bsf	24,4	;volatile
-   262     07E1                     l665:
-   263     07E1  1798               	bsf	24,7	;volatile
-   264     07E2                     l36:
-   265     07E2  1683               	bsf	3,5	;RP0=1, select bank1
-   266     07E3  1303               	bcf	3,6	;RP1=0, select bank1
-   267     07E4  1C98               	btfss	24,1	;volatile
-   268     07E5  2FE7               	goto	u21
-   269     07E6  2FE8               	goto	u20
-   270     07E7                     u21:
-   271     07E7  2FE2               	goto	l36
-   272     07E8                     u20:
-   273     07E8                     l38:
-   274     07E8  3078               	movlw	120
-   275     07E9  1283               	bcf	3,5	;RP0=0, select bank0
-   276     07EA  1303               	bcf	3,6	;RP1=0, select bank0
-   277     07EB  0099               	movwf	25	;volatile
-   278     07EC                     l667:
-   279                           
-   280                           ;main.c: 169:   _delay((unsigned long)((500)*(20000000/4000.0)));
-   281     07EC  300D               	movlw	13
-   282     07ED  1283               	bcf	3,5	;RP0=0, select bank0
-   283     07EE  1303               	bcf	3,6	;RP1=0, select bank0
-   284     07EF  00A2               	movwf	??_main+2
-   285     07F0  30AF               	movlw	175
-   286     07F1  00A1               	movwf	??_main+1
-   287     07F2  30B6               	movlw	182
-   288     07F3  00A0               	movwf	??_main
-   289     07F4                     u37:
-   290     07F4  0BA0               	decfsz	??_main,f
-   291     07F5  2FF4               	goto	u37
-   292     07F6  0BA1               	decfsz	??_main+1,f
-   293     07F7  2FF4               	goto	u37
-   294     07F8  0BA2               	decfsz	??_main+2,f
-   295     07F9  2FF4               	goto	u37
-   296     07FA  2FE2               	goto	l36
-   297     07FB  118A  2800         	ljmp	start
-   298     07FD                     __end_of_main:
-   299     0001                     ___latbits      equ	1
-   300     007E                     btemp           set	126	;btemp
-   301     007E                     wtemp0          set	126
-   302                           
-   303                           	psect	config
-   304                           
-   305                           ;Config register CONFIG @ 0x2007
-   306                           ;	Oscillator Selection bits
-   307                           ;	FOSC = HS, HS oscillator
-   308                           ;	Watchdog Timer Enable bit
-   309                           ;	WDTE = OFF, WDT disabled
-   310                           ;	Power-up Timer Enable bit
-   311                           ;	PWRTE = ON, PWRT enabled
-   312                           ;	FLASH Program Memory Code Protection bits
-   313                           ;	CP = OFF, Code protection off
-   314                           ;	Brown-out Reset Enable bit
-   315                           ;	BOREN = OFF, BOR disabled
-   316                           ;	Low Voltage In-Circuit Serial Programming Enable bit
-   317                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
-   318                           ;	Data EE Memory Code Protection
-   319                           ;	CPD = OFF, Code Protection off
-   320                           ;	FLASH Program Memory Write Enable
-   321                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
-   322                           ;	In-Circuit Debugger Mode bit
-   323                           ;	DEBUG = 0x1, unprogrammed default
-   324     2007                     	org	8199
-   325     2007  3D32               	dw	15666
+   237     077F                     _main:	
+   238                           ;psect for function _main
+   239                           
+   240     077F                     l646:	
+   241                           ;incstack = 0
+   242                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1]
+   243                           
+   244     077F                     l650:	
+   245                           ;main.c: 171:  if( 0 == 1 ) { *(&TRISA + (22 >> 3)) |= (0x01 << (22 - ((22 >> 3) << 3)))
+      +                          ; } else { *(&TRISA + (22 >> 3)) &= ~(0x01 << (22 - ((22 >> 3) << 3))); };;
+   246                           
+   247     077F  30BF               	movlw	191
+   248     0780  1683               	bsf	3,5	;RP0=1, select bank1
+   249     0781  1303               	bcf	3,6	;RP1=0, select bank1
+   250     0782  0587               	andwf	7,f	;volatile
+   251     0783                     l652:
+   252                           
+   253                           ;main.c: 172:  u16 x = (u16)((u16)(((u32)(20000000) / 16) / 115200) - 1); u32 rem = (u32
+      +                          )(((u32)(20000000) / 16) % 115200); if( rem >= (115200 / 2) ) { x++; }; if( x < 0 ) { x 
+      +                          = (u16)(0); }; if( x > 255 ) { x = (u16)((u16)(((u32)(20000000) / 64) / 115200) - 1); re
+      +                          m = (u32)(((u32)(20000000) / 64) % 115200); if( rem >= (115200 / 2) ) { x++; }; if( x > 
+      +                          255 ) { x = (u16)(255); }; BRGH = 0; } else { BRGH = 1; }; SPBRG = (u8)(x); SYNC = 0; TX
+      +                          9 = 0; TXEN = 1; SPEN = 1; RX9 = 0; CREN = 1;;
+   254     0783  3009               	movlw	9
+   255     0784  1283               	bcf	3,5	;RP0=0, select bank0
+   256     0785  1303               	bcf	3,6	;RP1=0, select bank0
+   257     0786  00A5               	movwf	main@x
+   258     0787  3000               	movlw	0
+   259     0788  00A6               	movwf	main@x+1
+   260     0789                     l654:
+   261     0789                     l656:
+   262     0789  3001               	movlw	1
+   263     078A  07A5               	addwf	main@x,f
+   264     078B  1803               	skipnc
+   265     078C  0AA6               	incf	main@x+1,f
+   266     078D  3000               	movlw	0
+   267     078E  07A6               	addwf	main@x+1,f
+   268     078F                     l660:
+   269     078F  3001               	movlw	1
+   270     0790  0226               	subwf	main@x+1,w
+   271     0791  3000               	movlw	0
+   272     0792  1903               	skipnz
+   273     0793  0225               	subwf	main@x,w
+   274     0794  1C03               	skipc
+   275     0795  2F97               	goto	u61
+   276     0796  2F98               	goto	u60
+   277     0797                     u61:
+   278     0797  2FB3               	goto	l33
+   279     0798                     u60:
+   280     0798                     l662:
+   281     0798  3001               	movlw	1
+   282     0799  00A5               	movwf	main@x
+   283     079A  3000               	movlw	0
+   284     079B  00A6               	movwf	main@x+1
+   285     079C                     l664:
+   286     079C                     l666:
+   287     079C  3001               	movlw	1
+   288     079D  07A5               	addwf	main@x,f
+   289     079E  1803               	skipnc
+   290     079F  0AA6               	incf	main@x+1,f
+   291     07A0  3000               	movlw	0
+   292     07A1  07A6               	addwf	main@x+1,f
+   293     07A2                     l34:
+   294     07A2  3001               	movlw	1
+   295     07A3  0226               	subwf	main@x+1,w
+   296     07A4  3000               	movlw	0
+   297     07A5  1903               	skipnz
+   298     07A6  0225               	subwf	main@x,w
+   299     07A7  1C03               	skipc
+   300     07A8  2FAA               	goto	u71
+   301     07A9  2FAB               	goto	u70
+   302     07AA                     u71:
+   303     07AA  2FAF               	goto	l670
+   304     07AB                     u70:
+   305     07AB                     l668:
+   306     07AB  30FF               	movlw	255
+   307     07AC  00A5               	movwf	main@x
+   308     07AD  3000               	movlw	0
+   309     07AE  00A6               	movwf	main@x+1
+   310     07AF                     l670:
+   311     07AF  1683               	bsf	3,5	;RP0=1, select bank1
+   312     07B0  1303               	bcf	3,6	;RP1=0, select bank1
+   313     07B1  1118               	bcf	24,2	;volatile
+   314     07B2  2FB6               	goto	l672
+   315     07B3                     l33:
+   316     07B3  1683               	bsf	3,5	;RP0=1, select bank1
+   317     07B4  1303               	bcf	3,6	;RP1=0, select bank1
+   318     07B5  1518               	bsf	24,2	;volatile
+   319     07B6                     l672:
+   320     07B6  1283               	bcf	3,5	;RP0=0, select bank0
+   321     07B7  1303               	bcf	3,6	;RP1=0, select bank0
+   322     07B8  0825               	movf	main@x,w
+   323     07B9  1683               	bsf	3,5	;RP0=1, select bank1
+   324     07BA  1303               	bcf	3,6	;RP1=0, select bank1
+   325     07BB  0099               	movwf	25	;volatile
+   326     07BC                     l674:
+   327     07BC  1218               	bcf	24,4	;volatile
+   328     07BD                     l676:
+   329     07BD  1318               	bcf	24,6	;volatile
+   330     07BE                     l678:
+   331     07BE  1698               	bsf	24,5	;volatile
+   332     07BF                     l680:
+   333     07BF  1283               	bcf	3,5	;RP0=0, select bank0
+   334     07C0  1303               	bcf	3,6	;RP1=0, select bank0
+   335     07C1  1798               	bsf	24,7	;volatile
+   336     07C2                     l682:
+   337     07C2  1318               	bcf	24,6	;volatile
+   338     07C3                     l684:
+   339     07C3  1618               	bsf	24,4	;volatile
+   340     07C4                     l686:
+   341                           
+   342                           ;main.c: 174:   for( int i = 0; i < 10; i ++ ) {
+   343     07C4  1283               	bcf	3,5	;RP0=0, select bank0
+   344     07C5  1303               	bcf	3,6	;RP1=0, select bank0
+   345     07C6  01A3               	clrf	main@i
+   346     07C7  01A4               	clrf	main@i+1
+   347     07C8                     l40:
+   348     07C8  1283               	bcf	3,5	;RP0=0, select bank0
+   349     07C9  1303               	bcf	3,6	;RP1=0, select bank0
+   350     07CA  1E0C               	btfss	12,4	;volatile
+   351     07CB  2FCD               	goto	u81
+   352     07CC  2FCE               	goto	u80
+   353     07CD                     u81:
+   354     07CD  2FC8               	goto	l40
+   355     07CE                     u80:
+   356     07CE                     l692:
+   357     07CE  0823               	movf	main@i,w
+   358     07CF  3E30               	addlw	48
+   359     07D0  0099               	movwf	25	;volatile
+   360     07D1                     l694:
+   361                           
+   362                           ;main.c: 176:   }
+   363     07D1  3001               	movlw	1
+   364     07D2  07A3               	addwf	main@i,f
+   365     07D3  1803               	skipnc
+   366     07D4  0AA4               	incf	main@i+1,f
+   367     07D5  3000               	movlw	0
+   368     07D6  07A4               	addwf	main@i+1,f
+   369     07D7                     l696:
+   370     07D7  0824               	movf	main@i+1,w
+   371     07D8  3A80               	xorlw	128
+   372     07D9  00FF               	movwf	btemp+1
+   373     07DA  3080               	movlw	128
+   374     07DB  027F               	subwf	btemp+1,w
+   375     07DC  1D03               	skipz
+   376     07DD  2FE0               	goto	u95
+   377     07DE  300A               	movlw	10
+   378     07DF  0223               	subwf	main@i,w
+   379     07E0                     u95:
+   380     07E0  1C03               	skipc
+   381     07E1  2FE3               	goto	u91
+   382     07E2  2FE4               	goto	u90
+   383     07E3                     u91:
+   384     07E3  2FC8               	goto	l40
+   385     07E4                     u90:
+   386     07E4                     l43:
+   387     07E4  1283               	bcf	3,5	;RP0=0, select bank0
+   388     07E5  1303               	bcf	3,6	;RP1=0, select bank0
+   389     07E6  1E0C               	btfss	12,4	;volatile
+   390     07E7  2FE9               	goto	u101
+   391     07E8  2FEA               	goto	u100
+   392     07E9                     u101:
+   393     07E9  2FE4               	goto	l43
+   394     07EA                     u100:
+   395     07EA                     l45:
+   396     07EA  300A               	movlw	10
+   397     07EB  0099               	movwf	25	;volatile
+   398     07EC                     l698:
+   399                           
+   400                           ;main.c: 178:   _delay((unsigned long)((500)*(20000000/4000.0)));
+   401     07EC  300D               	movlw	13
+   402     07ED  1283               	bcf	3,5	;RP0=0, select bank0
+   403     07EE  1303               	bcf	3,6	;RP1=0, select bank0
+   404     07EF  00A2               	movwf	??_main+2
+   405     07F0  30AF               	movlw	175
+   406     07F1  00A1               	movwf	??_main+1
+   407     07F2  30B6               	movlw	182
+   408     07F3  00A0               	movwf	??_main
+   409     07F4                     u117:
+   410     07F4  0BA0               	decfsz	??_main,f
+   411     07F5  2FF4               	goto	u117
+   412     07F6  0BA1               	decfsz	??_main+1,f
+   413     07F7  2FF4               	goto	u117
+   414     07F8  0BA2               	decfsz	??_main+2,f
+   415     07F9  2FF4               	goto	u117
+   416     07FA  2FC4               	goto	l686
+   417     07FB  118A  2800         	ljmp	start
+   418     07FD                     __end_of_main:
+   419     0001                     ___latbits      equ	1
+   420     007E                     btemp           set	126	;btemp
+   421     007E                     wtemp0          set	126
+   422                           
+   423                           	psect	config
+   424                           
+   425                           ;Config register CONFIG @ 0x2007
+   426                           ;	Oscillator Selection bits
+   427                           ;	FOSC = HS, HS oscillator
+   428                           ;	Watchdog Timer Enable bit
+   429                           ;	WDTE = OFF, WDT disabled
+   430                           ;	Power-up Timer Enable bit
+   431                           ;	PWRTE = ON, PWRT enabled
+   432                           ;	FLASH Program Memory Code Protection bits
+   433                           ;	CP = OFF, Code protection off
+   434                           ;	Brown-out Reset Enable bit
+   435                           ;	BOREN = OFF, BOR disabled
+   436                           ;	Low Voltage In-Circuit Serial Programming Enable bit
+   437                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+   438                           ;	Data EE Memory Code Protection
+   439                           ;	CPD = OFF, Code Protection off
+   440                           ;	FLASH Program Memory Write Enable
+   441                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
+   442                           ;	In-Circuit Debugger Mode bit
+   443                           ;	DEBUG = 0x1, unprogrammed default
+   444     2007                     	org	8199
+   445     2007  3D32               	dw	15666
 
 Data Sizes:
     Strings     0
@@ -350,7 +475,7 @@ Data Sizes:
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON            0      0       0
-    BANK0            94      3       3
+    BANK0            94      7       7
     BANK1            94      0       0
 
 Pointer List with Targets:
@@ -374,8 +499,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 5     5      0      93
-                                              0 BANK0      3     3      0
+ (0) _main                                                11    11      0     186
+                                              0 BANK0      7     7      0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 0
  ---------------------------------------------------------------------------------
@@ -390,27 +515,35 @@ BITCOMMON            0      0       0      0.0%
 BITBANK0            94      0       0      0.0%
 BITBANK1            94      0       0      0.0%
 COMMON               0      0       0      0.0%
-BANK0               94      3       3      3.2%
+BANK0               94      7       7      7.4%
 BANK1               94      0       0      0.0%
 STACK                0      0       0      0.0%
-DATA                 0      0       3      0.0%
+DATA                 0      0       7      0.0%
 
 
 Microchip Technology PIC Macro Assembler V3.00 build 20241204225717 
-Symbol Table                                                                                   Wed May  7 18:01:02 2025
+Symbol Table                                                                                   Thu May  8 00:01:14 2025
 
-                     l32 07D6                       l36 07E2                       l38 07E8  
-                     u20 07E8                       u21 07E7                       u37 07F4  
-                    l631 07D2                      l633 07D6                      l651 07D7  
-                    l635 07D6                      l627 07D2                      l661 07DD  
-                    l653 07D9                      l663 07E0                      l655 07DA  
-                    l665 07E1                      l657 07DB                      l667 07EC  
-                    l659 07DC                      _RX9 00C6                      _TX9 04C6  
+                     l40 07C8                       l33 07B3                       l34 07A2  
+                     l43 07E4                       l45 07EA                       u60 0798  
+                     u61 0797                       u70 07AB                       u71 07AA  
+                     u80 07CE                       u81 07CD                       u90 07E4  
+                     u91 07E3                       u95 07E0                      l650 077F  
+                    l660 078F                      l652 0783                      l670 07AF  
+                    l662 0798                      l654 0789                      l646 077F  
+                    l680 07BF                      l672 07B6                      l664 079C  
+                    l656 0789                      l682 07C2                      l674 07BC  
+                    l666 079C                      l692 07CE                      l684 07C3  
+                    l676 07BD                      l668 07AB                      l694 07D1  
+                    l686 07C4                      l678 07BE                      l696 07D7  
+                    l698 07EC                      u100 07EA                      u101 07E9  
+                    u117 07F4                      _RX9 00C6                      _TX9 04C6  
                    _BRGH 04C2                     _CREN 00C4                     _SPEN 00C7  
-                   _TRMT 04C1                     _TXEN 04C5                     _SYNC 04C4  
-                   _main 07D2                     btemp 007E                     start 0000  
+                   _TXEN 04C5                     _TXIF 0064                     _SYNC 04C4  
+                   _main 077F                     btemp 007E                     start 0000  
                   ?_main 0020                    _SPBRG 0099                    _TRISA 0085  
-                  _TXREG 0019                    status 0003                    wtemp0 007E  
-        __initialization 07FD             __end_of_main 07FD                   ??_main 0020  
-__end_of__initialization 07FD               __pmaintext 07D2     end_of_initialization 07FD  
-    start_initialization 07FD                ___latbits 0001            __pcstackBANK0 0020  
+                  _TXREG 0019                    main@i 0023                    main@x 0025  
+                  status 0003                    wtemp0 007E          __initialization 07FD  
+           __end_of_main 07FD                   ??_main 0020  __end_of__initialization 07FD  
+             __pmaintext 077F     end_of_initialization 07FD      start_initialization 07FD  
+              ___latbits 0001            __pcstackBANK0 0020  

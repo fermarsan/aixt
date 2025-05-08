@@ -1,6 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Luis Alfredo Pinto Medina and Fernando M. Santa
-// Date: 2024
+// Date: 2024-2025
 // License: MIT
 //
 // Description: Pin management functions
@@ -10,6 +10,6 @@ module uart
 
 @[as_macro]
 pub fn write(ch u8) {
-	for C.TRMT == 0 {} // wait until tx buffer is empty
+	for C.TXIF == 0 {} // for C.TRMT == 0 {} // wait until tx buffer is empty
 	C.TXREG = ch
 }

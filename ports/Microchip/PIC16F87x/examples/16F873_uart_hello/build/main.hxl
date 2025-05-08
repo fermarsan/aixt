@@ -1,32 +1,33 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- /tmp/xcXfHmpPf/driver_tmp_3.o
+ /tmp/xcXkmDIEA/driver_tmp_3.o
  -Obuild/main.hex
  -logfile=build/main.hxl
  -addressing=2
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(/tmp/xcXfHmpPf/driver_tmp_3.o)
-  EFEh - FFFh		(/tmp/xcXfHmpPf/driver_tmp_3.o)
-  400Eh - 400Fh		(/tmp/xcXfHmpPf/driver_tmp_3.o)
+  0h - 31h		(/tmp/xcXkmDIEA/driver_tmp_3.o)
+  F14h - FFFh		(/tmp/xcXkmDIEA/driver_tmp_3.o)
+  400Eh - 400Fh		(/tmp/xcXkmDIEA/driver_tmp_3.o)
  Unused ranges:
-  4h - EFDh
+  32h - F13h
   1000h - 400Dh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (/tmp/xcXfHmpPf/driver_tmp_3.o)
+  H1 = Input file             (/tmp/xcXkmDIEA/driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
-00000000 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
+00000000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000030 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-00000EF0 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
-00000F00 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000F10 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000F10 | -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000F20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000F30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000F40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

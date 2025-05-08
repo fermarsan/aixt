@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,13 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/xc8/v3.00/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-
-
+# 1 "/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c" 2
 # 1 "/opt/microchip/xc8/v3.00/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/xc8/v3.00/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1624,48 +1618,175 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/xc8/v3.00/pic/include/xc.h" 2 3
-# 8 "main.c" 2
-# 1 "/opt/microchip/xc8/v3.00/pic/include/c99/stdbool.h" 1 3
-# 9 "main.c" 2
-
-typedef int8_t i8;
-typedef int16_t i16;
-typedef int32_t i32;
-
-typedef int8_t isize;
-typedef int32_t int_literal;
-typedef uint8_t u8;
-typedef uint16_t u16;
-typedef uint32_t u32;
-
-typedef uint8_t usize;
-typedef float f32;
-
-typedef float float_literal;
-typedef char rune;
+# 2 "/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c" 2
 
 
 
+void
+__eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
+{
+ volatile unsigned char *cp = to;
 
+ while (EECON1bits.WR) continue;
+ EEADR = (unsigned char)from;
+ while(size--) {
+  while (EECON1bits.WR) continue;
 
+  EECON1 &= 0x7F;
 
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = ON
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-# 170 "main.c"
- void main(void) {
- if( 0 == 1 ) { *(&TRISA + (22 >> 3)) |= (0x01 << (22 - ((22 >> 3) << 3))); } else { *(&TRISA + (22 >> 3)) &= ~(0x01 << (22 - ((22 >> 3) << 3))); };;
- u16 x = (u16)((u16)(((u32)(20000000) / 16) / 115200) - 1); u32 rem = (u32)(((u32)(20000000) / 16) % 115200); if( rem >= (115200 / 2) ) { x++; }; if( x < 0 ) { x = (u16)(0); }; if( x > 255 ) { x = (u16)((u16)(((u32)(20000000) / 64) / 115200) - 1); rem = (u32)(((u32)(20000000) / 64) % 115200); if( rem >= (115200 / 2) ) { x++; }; if( x > 255 ) { x = (u16)(255); }; BRGH = 0; } else { BRGH = 1; }; SPBRG = (u8)(x); SYNC = 0; TX9 = 0; TXEN = 1; SPEN = 1; RX9 = 0; CREN = 1;;
- while( 1 ) {
-  for( int i = 0; i < 10; i ++ ) {
-   while( TXIF == 0 ) { } TXREG = (u8)(i) + 48;;
-  }
-  while( TXIF == 0 ) { } TXREG = '\n';;
-  _delay((unsigned long)((500)*(20000000/4000.0)));
+  EECON1bits.RD = 1;
+  *cp++ = EEDATA;
+  ++EEADR;
  }
+# 36 "/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c"
+}
+
+void
+__memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
+{
+ const unsigned char *ptr =from;
+
+ while (EECON1bits.WR) continue;
+ EEADR = (unsigned char)to - 1U;
+
+ EECON1 &= 0x7F;
+
+ while(size--) {
+  while (EECON1bits.WR) {
+   continue;
+  }
+  EEDATA = *ptr++;
+  ++EEADR;
+  STATUSbits.CARRY = 0;
+  if (INTCONbits.GIE) {
+   STATUSbits.CARRY = 1;
+  }
+  INTCONbits.GIE = 0;
+  EECON1bits.WREN = 1;
+  EECON2 = 0x55;
+  EECON2 = 0xAA;
+  EECON1bits.WR = 1;
+  EECON1bits.WREN = 0;
+  if (STATUSbits.CARRY) {
+   INTCONbits.GIE = 1;
+  }
+ }
+# 101 "/opt/microchip/xc8/v3.00/pic/sources/c99/pic/__eeprom.c"
+}
+
+unsigned char
+__eetoc(__eeprom void *addr)
+{
+ unsigned char data;
+ __eecpymem((unsigned char *) &data,addr,1);
+ return data;
+}
+
+unsigned int
+__eetoi(__eeprom void *addr)
+{
+ unsigned int data;
+ __eecpymem((unsigned char *) &data,addr,2);
+ return data;
+}
+
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__eetom(__eeprom void *addr)
+{
+ __uint24 data;
+ __eecpymem((unsigned char *) &data,addr,3);
+ return data;
+}
+#pragma warning pop
+
+unsigned long
+__eetol(__eeprom void *addr)
+{
+ unsigned long data;
+ __eecpymem((unsigned char *) &data,addr,4);
+ return data;
+}
+
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__eetoo(__eeprom void *addr)
+{
+ unsigned long long data;
+ __eecpymem((unsigned char *) &data,addr,8);
+ return data;
+}
+#pragma warning pop
+
+unsigned char
+__ctoee(__eeprom void *addr, unsigned char data)
+{
+ __memcpyee(addr,(unsigned char *) &data,1);
+ return data;
+}
+
+unsigned int
+__itoee(__eeprom void *addr, unsigned int data)
+{
+ __memcpyee(addr,(unsigned char *) &data,2);
+ return data;
+}
+
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__mtoee(__eeprom void *addr, __uint24 data)
+{
+ __memcpyee(addr,(unsigned char *) &data,3);
+ return data;
+}
+#pragma warning pop
+
+unsigned long
+__ltoee(__eeprom void *addr, unsigned long data)
+{
+ __memcpyee(addr,(unsigned char *) &data,4);
+ return data;
+}
+
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__otoee(__eeprom void *addr, unsigned long long data)
+{
+ __memcpyee(addr,(unsigned char *) &data,8);
+ return data;
+}
+#pragma warning pop
+
+float
+__eetoft(__eeprom void *addr)
+{
+ float data;
+ __eecpymem((unsigned char *) &data,addr,3);
+ return data;
+}
+
+double
+__eetofl(__eeprom void *addr)
+{
+ double data;
+ __eecpymem((unsigned char *) &data,addr,4);
+ return data;
+}
+
+float
+__fttoee(__eeprom void *addr, float data)
+{
+ __memcpyee(addr,(unsigned char *) &data,3);
+ return data;
+}
+
+double
+__fltoee(__eeprom void *addr, double data)
+{
+ __memcpyee(addr,(unsigned char *) &data,4);
+ return data;
 }

@@ -1657,15 +1657,19 @@ typedef char rune;
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
-# 170 "main.c"
+
+void uart__print(char msg[]);
+# 72 "main.c"
+ void uart__print(char msg[]) {
+
+}
+# 174 "main.c"
  void main(void) {
  if( 0 == 1 ) { *(&TRISA + (22 >> 3)) |= (0x01 << (22 - ((22 >> 3) << 3))); } else { *(&TRISA + (22 >> 3)) &= ~(0x01 << (22 - ((22 >> 3) << 3))); };;
  u16 x = (u16)((u16)(((u32)(20000000) / 16) / 115200) - 1); u32 rem = (u32)(((u32)(20000000) / 16) % 115200); if( rem >= (115200 / 2) ) { x++; }; if( x < 0 ) { x = (u16)(0); }; if( x > 255 ) { x = (u16)((u16)(((u32)(20000000) / 64) / 115200) - 1); rem = (u32)(((u32)(20000000) / 64) % 115200); if( rem >= (115200 / 2) ) { x++; }; if( x > 255 ) { x = (u16)(255); }; BRGH = 0; } else { BRGH = 1; }; SPBRG = (u8)(x); SYNC = 0; TX9 = 0; TXEN = 1; SPEN = 1; RX9 = 0; CREN = 1;;
  while( 1 ) {
-  for( int i = 0; i < 10; i ++ ) {
-   while( TXIF == 0 ) { } TXREG = (u8)(i) + 48;;
-  }
-  while( TXIF == 0 ) { } TXREG = '\n';;
+  uart__print("Hello ");
+  uart__print("world...!"); while( TXIF == 0 ) { } TXREG = '\n';; while( TXIF == 0 ) { } TXREG = '\r';;;
   _delay((unsigned long)((500)*(20000000/4000.0)));
  }
 }
