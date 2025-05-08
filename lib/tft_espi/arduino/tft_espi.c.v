@@ -36,5 +36,5 @@ module tft_espi
 fn C.TFT_FILLSCREEN(color any)
 fn C.TFT_SETTEXTCOLOR(color any, bkg_color any)
 fn C.TFT_DRAWCENTRESTRING(temp_text, center_x, text_y, font_size)
-fn C.TFT_SETROTATION(1)
+fn C.TFT_SETROTATION(angle any)
 fn C.TFT_INIT()
