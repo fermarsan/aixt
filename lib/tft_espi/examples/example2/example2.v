@@ -3,12 +3,6 @@ import uart
 import pin
 import time
 
-const xpt2046_irq = pin.gpio36 // T_IRQ
-const xpt2046_mosi = pin.gpio32 // T_DIN
-const xpt2046_miso = pin.gpio39 // T_OUT
-const xpt2046_clk = pin.gpio25 // T_CLK
-const xpt2046_cs = pin.gpio33 // T_CS
-
 const screen_width = 320
 const screen_height = 240
 const font_size = 2

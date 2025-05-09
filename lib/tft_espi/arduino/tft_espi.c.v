@@ -10,20 +10,9 @@
 module tft_espi
 
 #include <SPI.h>
-#include <TFT_eSPI.h>
+// #include <TFT_eSPI.h>
 
 #include "tft_espi.c"
-
-// @[as_macro] pub const XPT2046_IRQ 36   // T_IRQ
-// @[as_macro] pub const XPT2046_MOSI 32  // T_DIN
-// @[as_macro] pub const XPT2046_MISO 39  // T_OUT
-// @[as_macro] pub const XPT2046_CLK 25   // T_CLK
-// @[as_macro] pub const XPT2046_CS 33    // T_CS
-
-// @[as_macro] pub const SCREEN_WIDTH 320
-// @[as_macro] pub const SCREEN_HEIGHT 240
-// @[as_macro] pub const FONT_SIZE 2
-
 
 @[as_macro] pub const white = C.TFT_WHITE
 @[as_macro] pub const black = C.TFT_BLACK
