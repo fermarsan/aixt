@@ -1,7 +1,7 @@
 // Project name: On-board LED blinking
-// Author:	Fernando M. Santa
-// Date:	06/01/2025
-// Nucleo-L031K6 board
+// Author:	Fernando M. Santa & Santiago Farfán
+// Date:	09/05/2025
+// STM32G431Coreboard
 
 import time
 import pin

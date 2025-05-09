@@ -7,23 +7,15 @@
 module pin
 
 // pin names
-pub const d0   = 0    
-pub const d1   = 1
-pub const d2   = 2
-pub const d3   = 3
-pub const d4   = 4
-pub const d5   = 5
-pub const d6   = 6
-pub const d7   = 7
-pub const d8   = 8
-pub const d9   = 9
-pub const d10  = 10
-pub const d11  = 11
-pub const d12  = 12
-pub const d13  = 13
+@[as_macro] pub const pa0	=	u8(C.PA0)
+// del PA1 al PA14    
+@[as_macro] pub const pa15	=	u8(C.PA15) 
 
+// lo mismo para PB y PC
+
+@[as_macro] pub const pc6	=	u8(C.PC6) 
 
 // pin modes
-pub const input		= u8(C.INPUT)
-pub const output	= u8(C.OUTPUT)
-pub const in_pullup = u8(C.INPUT_PULLUP)
+@[as_macro] pub const input		= u8(C.INPUT)
+@[as_macro] pub const output	= u8(C.OUTPUT)
+@[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
