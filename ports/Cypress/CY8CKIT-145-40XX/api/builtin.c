@@ -1,0 +1,9 @@
+ CyGlobalIntEnable; 
+uart_Start();    
+pwm1_Start();
+pwm2_Start();
+pwm3_Start();
+clock_Start();
+capsense_Start();
+capsense_InitializeAllBaselines();
+capsense_ScanAllWidgets();

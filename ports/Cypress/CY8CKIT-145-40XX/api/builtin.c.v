@@ -9,6 +9,8 @@
 // Description: Builtin definitions
 //              (CY8CKIT-145-40XX)
 
+#include "builtin.c"
+
 enum __pin_names {
 led1,
 _led2,
