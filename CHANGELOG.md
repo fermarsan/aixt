@@ -1,3 +1,79 @@
+## v0.1.10
+*15 May 2025*
+#### Devices Supported
+Devices updated to API v0.1.2:
+- Software emulator
+- Mindstorms NXT
+- PIC16F8x family
+- PIC16F87x family
+- Arduino Uno
+- Arduino Nano
+- Raspberry Pi Pico
+- ESP32-DevkitC
+- Blue-Pill
+- XIAO-SAMD21
+- Nucleo-L031K6
+- XIAO-ESP32-xx (C3, C6, S3)
+Devices being updating:
+- Arduino Mega
+- CY8CKIT-145
+- CY8CKIT-049
+- ESP32-CYD
+- ESP32-DevKitC
+- M5Stack FIRE
+- PIC16F6xx and 16F88x families
+- WCH families
+- STM32G431Core
+- Blaxk Pill
+#### New features
+- [x] Implement `for in` commands on strings.
+- [x] Add custom `h/c`, `h/cpp` and `hpp/cpp` files to the project folder (to use custom c external libraries)
+#### Changes
+- [x] Issue solved: `version` command only works running from aixt's main folder
+- [x] Update Microchip XC8 devices to xc8-v3.00
+- [x] New Timer0 example (PIC16F8x family)
+- [x] Implement Timer0 functions
+- [x] New type `Mutex` implemented in NXT port (`@[mutex]` attribute deprecated)
+- [x] New names for functions in NXT's `task` module
+- [x] NXT snippets file updated 
+- [x] `port` options added to all `settings.json` project files
+- [x] `flasher_linux`, `flasher_windows`, `flasher_flags` options added to all `setup.json` configuration files
+- [x] Implement `flash` option, to download the binary file to the device
+- [x] Help message updated
+- [x] Create M5Stack port
+- [x] `.aixt` extension is deprecated
+- [x] `Aixt: Flash` and `Aixt: Build & Flash` vscode tasks added to arduino-backend devices
+- [x] Issue solved: Conditional assign already works on V v0.4.9
+- [x] Issue solved: Conditional declare/assign statement already doesn't declare inner local variables
+- [x] `random` module for arduino devices created
+- [x] IMU module created for the `M5Stack` port
+- [x] 6 tested examples for the `M5Stack` port
+- [x] Implement the folder structure for libraries
+- [x] Implement an example library
+- [x] Issue solved: Array initialization fails the number of elements
+- [x] Pass arrays as function parameters
+- [x] Issue solved: `U16` type fails on Arduino backend
+- [x] Update quickref.md files (Emulator, PIC16F8x, Arduino Nano)
+- [x] Move the `random` module from API to Libraries
+- [x] Implement External Interrupts on Arduino backend (AVR based)
+- [x] Change the function attribute management
+- [x] Change the External Interrupt for Arduino Nano using C maros with string concatenation
+- [x] Add an external interrupt example for Arduino Nano
+- [x] Unify the API of Arduino supported devices
+- [x] Improve the `clean` command, removing the all `.c`, `.cpp`, `.h` and `.hpp` files
+- [x] Update the ESP32-C3FH4 port (blinking led example tested)
+- [x] Standardize `pin.mode` on `pin.setup` for all arduino devicesSTM32G431Core
+- [x] New port Luatos/ESP32-C3-CORE (blinking led example tested)
+- [x] Update the W801 port (2 blinking led examples tested)
+- [x] Issue solved: can not import a module from another module
+- [x] Standardize the member vars `api_mod_paths` and `api_lib_paths` as maps
+- [x] Issue solved: Library modules are not included
+- [x] Enable interrupts functions for Arduino devices in addition to the external interrupts
+- [x] Issue solved: Constant array transpiling fails
+- [x] create ESP32-CYD port and "tft_espi" library
+- [x] Support for Zed editor implemented
+- [x] Implement the PortB change interruption and pull-ups for PIC16F family
+
 ## v0.1.9
 *17 Jan 2025*
 #### Devices Supported
