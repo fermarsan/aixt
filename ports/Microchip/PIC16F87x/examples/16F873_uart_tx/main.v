@@ -4,7 +4,7 @@ import time
 
 pin.setup(pin.c6, pin.output) // RC6 = TX
 
-uart.setup(115200) // Initialize serial comunication to 115200 bps
+uart.setup(115200) // Initialize serial communication to 115200 bps
 
 for {
 	for i in 0 .. 10 {
