@@ -120,7 +120,7 @@ typedef struct
 #define adc_DEFAULT_DIFF_RESULT_FORMAT_SEL (0u)
 #define adc_DEFAULT_SE_RESULT_FORMAT_SEL   (1u)
 #define adc_DEFAULT_CLOCK_SOURCE           (1u)
-#define adc_DEFAULT_VREF_MV_VALUE          (5000)
+#define adc_DEFAULT_VREF_MV_VALUE          (3300)
 #define adc_DEFAULT_BUFFER_GAIN            (0u)
 #define adc_DEFAULT_AVG_SAMPLES_NUM        (0u)
 #define adc_DEFAULT_AVG_SAMPLES_DIV        (0u < 4u) ? (int16)(0x100u >> (7u - 0u)) : (int16)(0x100u >> 4u)

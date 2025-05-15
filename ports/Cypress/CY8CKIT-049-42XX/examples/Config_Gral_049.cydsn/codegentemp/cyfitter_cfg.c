@@ -136,17 +136,58 @@ static void CyClockStartupError(uint8 errorCode)
     CY_CFG_Clock_Startup_ErrorCallback();
 #else
     /*  If not using CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK, place your clock startup code here. */
-    /* `#START CyClockStartupError`  */
+    /* `#START CyClockStartupError` */
 
 
 
-    /* `#END`  */
+    /* `#END` */
 
     while(1) {}
 #endif /* CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK */
 }
 #endif
 
+#define CY_CFG_BASE_ADDR_COUNT 4u
+CYPACKED typedef struct
+{
+	uint8 offset;
+	uint8 value;
+} CYPACKED_ATTR cy_cfg_addrvalue_t;
+
+
+
+/*******************************************************************************
+* Function Name: cfg_write_bytes32
+********************************************************************************
+* Summary:
+*  This function is used for setting up the chip configuration areas that
+*  contain relatively sparse data.
+*
+* Parameters:
+*   void
+*
+* Return:
+*   void
+*
+*******************************************************************************/
+static void cfg_write_bytes32(const uint32 addr_table[], const cy_cfg_addrvalue_t data_table[]);
+static void cfg_write_bytes32(const uint32 addr_table[], const cy_cfg_addrvalue_t data_table[])
+{
+	/* For 32-bit little-endian architectures */
+	uint32 i, j = 0u;
+	for (i = 0u; i < CY_CFG_BASE_ADDR_COUNT; i++)
+	{
+		uint32 baseAddr = addr_table[i];
+		uint8 count = (uint8)baseAddr;
+		baseAddr &= 0xFFFFFF00u;
+		while (count != 0u)
+		{
+			CY_SET_REG8((void *)(baseAddr + data_table[j].offset), data_table[j].value);
+			j++;
+			count--;
+		}
+	}
+}
 
 
 /*******************************************************************************
@@ -231,7 +272,7 @@ static void ClockSetup(void)
 static void AnalogSetDefault(void);
 static void AnalogSetDefault(void)
 {
-	/* Variable VDDA is selected; no pumps are enabled by default */
+	SetAnalogRoutingPumps(1);
 }
 
 
@@ -284,16 +325,16 @@ void amux_Set(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x01u));
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x10u));
 			break;
 		case 1u:
-			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x02u));
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x20u));
 			break;
 		case 2u:
-			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x04u));
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x80u));
 			break;
 		case 3u:
-			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x08u));
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x40u));
 			break;
 		default:
 			break;
@@ -318,16 +359,16 @@ void amux_Unset(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x01u));
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x10u));
 			break;
 		case 1u:
-			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x02u));
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x20u));
 			break;
 		case 2u:
-			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x04u));
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x80u));
 			break;
 		case 3u:
-			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x08u));
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x40u));
 			break;
 		default:
 			break;
@@ -359,6 +400,26 @@ void cyfitter_cfg(void)
 	CyGlobalIntDisable;
 
 	{
+		static const uint32 CYCODE cy_cfg_addr_table[] = {
+			0x400F3301u, /* Base address: 0x400F3300 Count: 1 */
+			0x400F4002u, /* Base address: 0x400F4000 Count: 2 */
+			0x400F4102u, /* Base address: 0x400F4100 Count: 2 */
+			0x400F4304u, /* Base address: 0x400F4300 Count: 4 */
+		};
+
+		static const cy_cfg_addrvalue_t CYCODE cy_cfg_data_table[] = {
+			{0xE6u, 0x20u},
+			{0x56u, 0x80u},
+			{0xD4u, 0x40u},
+			{0x8Au, 0x80u},
+			{0x9Eu, 0x80u},
+			{0x1Cu, 0x80u},
+			{0x88u, 0x40u},
+			{0xC6u, 0x04u},
+			{0xE6u, 0x04u},
+		};
+
+
 
 		CYPACKED typedef struct {
 			void CYFAR *address;
@@ -380,14 +441,17 @@ void cyfitter_cfg(void)
 			CYMEMZERO(ms->address, (size_t)(uint32)(ms->size));
 		}
 
+		cfg_write_bytes32(cy_cfg_addr_table, cy_cfg_data_table);
+
 		/* HSIOM Starting address: CYDEV_HSIOM_BASE */
+		CY_SET_REG32((void *)(CYDEV_HSIOM_BASE), 0x00000003u);
 		CY_SET_REG32((void *)(CYREG_HSIOM_PORT_SEL1), 0x00000808u);
-		CY_SET_REG32((void *)(CYREG_HSIOM_PORT_SEL2), 0x08080000u);
-		CY_SET_REG32((void *)(CYREG_HSIOM_PORT_SEL3), 0x0000EE00u);
+		CY_SET_REG32((void *)(CYREG_HSIOM_PORT_SEL3), 0x0000EE08u);
 		CY_SET_REG32((void *)(CYREG_HSIOM_PORT_SEL4), 0x00000099u);
 
 		/* UDB_PA_0 Starting address: CYDEV_UDB_PA0_BASE */
 		CY_SET_REG32((void *)(CYDEV_UDB_PA0_BASE), 0x00990000u);
+		CY_SET_REG32((void *)(CYREG_UDB_PA0_CFG8), 0x00010000u);
 
 		/* UDB_PA_1 Starting address: CYDEV_UDB_PA1_BASE */
 		CY_SET_REG32((void *)(CYDEV_UDB_PA1_BASE), 0x00990000u);
@@ -405,18 +469,19 @@ void cyfitter_cfg(void)
 	/* Perform second pass device configuration. These items must be configured in specific order after the regular configuration is done. */
 	/* IOPINS0_0 Starting address: CYDEV_PRT0_BASE */
 	CY_SET_REG32((void *)(CYDEV_PRT0_BASE), 0x000000FFu);
-	CY_SET_REG32((void *)(CYREG_PRT0_PC), 0x00492492u);
+	CY_SET_REG32((void *)(CYREG_PRT0_PC), 0x00492496u);
 
 	/* IOPINS0_1 Starting address: CYDEV_PRT1_BASE */
-	CY_SET_REG32((void *)(CYDEV_PRT1_BASE), 0x0000003Fu);
-	CY_SET_REG32((void *)(CYREG_PRT1_PC), 0x00D92596u);
+	CY_SET_REG32((void *)(CYDEV_PRT1_BASE), 0x0000007Fu);
+	CY_SET_REG32((void *)(CYREG_PRT1_PC), 0x00C92596u);
 
 	/* IOPINS0_2 Starting address: CYDEV_PRT2_BASE */
-	CY_SET_REG32((void *)(CYDEV_PRT2_BASE), 0x0000005Fu);
-	CY_SET_REG32((void *)(CYREG_PRT2_PC), 0x00DB6000u);
-	CY_SET_REG32((void *)(CYREG_PRT2_PC2), 0x0000000Fu);
+	CY_SET_REG32((void *)(CYDEV_PRT2_BASE), 0x000000F0u);
+	CY_SET_REG32((void *)(CYREG_PRT2_PC), 0x00000DB6u);
+	CY_SET_REG32((void *)(CYREG_PRT2_PC2), 0x000000F0u);
 
 	/* IOPINS0_3 Starting address: CYDEV_PRT3_BASE */
+	CY_SET_REG32((void *)(CYDEV_PRT3_BASE), 0x00000001u);
 	CY_SET_REG32((void *)(CYREG_PRT3_PC), 0x00DB6DB6u);
 
 	/* IOPINS0_4 Starting address: CYDEV_PRT4_BASE */

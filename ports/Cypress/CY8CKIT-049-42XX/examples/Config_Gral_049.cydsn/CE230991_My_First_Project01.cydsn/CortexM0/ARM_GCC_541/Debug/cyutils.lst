@@ -1,0 +1,708 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cyutils.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.CySetReg24,"ax",%progbits
+  20              		.align	2
+  21              		.global	CySetReg24
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	CySetReg24, %function
+  25              	CySetReg24:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC4\\cyutils.c"
+   1:Generated_Source\PSoC4/cyutils.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/cyutils.c **** * \file cyutils.c
+   3:Generated_Source\PSoC4/cyutils.c **** * \version 5.70
+   4:Generated_Source\PSoC4/cyutils.c **** *
+   5:Generated_Source\PSoC4/cyutils.c **** * \brief Provides a function to handle 24-bit value writes.
+   6:Generated_Source\PSoC4/cyutils.c **** *
+   7:Generated_Source\PSoC4/cyutils.c **** ********************************************************************************
+   8:Generated_Source\PSoC4/cyutils.c **** * \copyright
+   9:Generated_Source\PSoC4/cyutils.c **** * Copyright 2008-2018, Cypress Semiconductor Corporation.  All rights reserved.
+  10:Generated_Source\PSoC4/cyutils.c **** * You may use this file only in accordance with the license, terms, conditions,
+  11:Generated_Source\PSoC4/cyutils.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  12:Generated_Source\PSoC4/cyutils.c **** * the software package with which this file was provided.
+  13:Generated_Source\PSoC4/cyutils.c **** *******************************************************************************/
+  14:Generated_Source\PSoC4/cyutils.c **** 
+  15:Generated_Source\PSoC4/cyutils.c **** #include "cytypes.h"
+  16:Generated_Source\PSoC4/cyutils.c **** 
+  17:Generated_Source\PSoC4/cyutils.c **** #if (!CY_PSOC3)
+  18:Generated_Source\PSoC4/cyutils.c **** 
+  19:Generated_Source\PSoC4/cyutils.c ****     /***************************************************************************
+  20:Generated_Source\PSoC4/cyutils.c ****     * Function Name: CySetReg24
+  21:Generated_Source\PSoC4/cyutils.c ****     ************************************************************************//**
+  22:Generated_Source\PSoC4/cyutils.c ****     *
+  23:Generated_Source\PSoC4/cyutils.c ****     * Writes a 24-bit value to the specified register.
+  24:Generated_Source\PSoC4/cyutils.c ****     *
+  25:Generated_Source\PSoC4/cyutils.c ****     * \param addr The address where data must be written.
+  26:Generated_Source\PSoC4/cyutils.c ****     * \param value The data that must be written.
+  27:Generated_Source\PSoC4/cyutils.c ****     *
+  28:Generated_Source\PSoC4/cyutils.c ****     * \reentrant No
+  29:Generated_Source\PSoC4/cyutils.c ****     *
+  30:Generated_Source\PSoC4/cyutils.c ****     ***************************************************************************/
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 2
+
+
+  31:Generated_Source\PSoC4/cyutils.c ****     void CySetReg24(uint32 volatile * addr, uint32 value)
+  32:Generated_Source\PSoC4/cyutils.c ****     {
+  28              		.loc 1 32 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 16
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 84B0     		sub	sp, sp, #16
+  37              		.cfi_def_cfa_offset 24
+  38 0004 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  40 0006 7860     		str	r0, [r7, #4]
+  41 0008 3960     		str	r1, [r7]
+  33:Generated_Source\PSoC4/cyutils.c ****         uint8 volatile *tmpAddr;
+  34:Generated_Source\PSoC4/cyutils.c **** 
+  35:Generated_Source\PSoC4/cyutils.c ****         tmpAddr = (uint8 volatile *) addr;
+  42              		.loc 1 35 0
+  43 000a 7B68     		ldr	r3, [r7, #4]
+  44 000c FB60     		str	r3, [r7, #12]
+  36:Generated_Source\PSoC4/cyutils.c **** 
+  37:Generated_Source\PSoC4/cyutils.c ****         tmpAddr[0u] = (uint8) value;
+  45              		.loc 1 37 0
+  46 000e 3B68     		ldr	r3, [r7]
+  47 0010 DAB2     		uxtb	r2, r3
+  48 0012 FB68     		ldr	r3, [r7, #12]
+  49 0014 1A70     		strb	r2, [r3]
+  38:Generated_Source\PSoC4/cyutils.c ****         tmpAddr[1u] = (uint8) (value >> 8u);
+  50              		.loc 1 38 0
+  51 0016 FB68     		ldr	r3, [r7, #12]
+  52 0018 0133     		adds	r3, r3, #1
+  53 001a 3A68     		ldr	r2, [r7]
+  54 001c 120A     		lsrs	r2, r2, #8
+  55 001e D2B2     		uxtb	r2, r2
+  56 0020 1A70     		strb	r2, [r3]
+  39:Generated_Source\PSoC4/cyutils.c ****         tmpAddr[2u] = (uint8) (value >> 16u);
+  57              		.loc 1 39 0
+  58 0022 FB68     		ldr	r3, [r7, #12]
+  59 0024 0233     		adds	r3, r3, #2
+  60 0026 3A68     		ldr	r2, [r7]
+  61 0028 120C     		lsrs	r2, r2, #16
+  62 002a D2B2     		uxtb	r2, r2
+  63 002c 1A70     		strb	r2, [r3]
+  40:Generated_Source\PSoC4/cyutils.c ****     }
+  64              		.loc 1 40 0
+  65 002e C046     		nop
+  66 0030 BD46     		mov	sp, r7
+  67 0032 04B0     		add	sp, sp, #16
+  68              		@ sp needed
+  69 0034 80BD     		pop	{r7, pc}
+  70              		.cfi_endproc
+  71              	.LFE0:
+  72              		.size	CySetReg24, .-CySetReg24
+  73 0036 C046     		.section	.text.CyGetReg24,"ax",%progbits
+  74              		.align	2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 3
+
+
+  75              		.global	CyGetReg24
+  76              		.code	16
+  77              		.thumb_func
+  78              		.type	CyGetReg24, %function
+  79              	CyGetReg24:
+  80              	.LFB1:
+  41:Generated_Source\PSoC4/cyutils.c **** 
+  42:Generated_Source\PSoC4/cyutils.c **** 
+  43:Generated_Source\PSoC4/cyutils.c ****     #if(CY_PSOC4)
+  44:Generated_Source\PSoC4/cyutils.c **** 
+  45:Generated_Source\PSoC4/cyutils.c ****         /***************************************************************************
+  46:Generated_Source\PSoC4/cyutils.c ****         * Function Name: CyGetReg24
+  47:Generated_Source\PSoC4/cyutils.c ****         ************************************************************************//**
+  48:Generated_Source\PSoC4/cyutils.c ****         *
+  49:Generated_Source\PSoC4/cyutils.c ****         * Reads the 24-bit value from the specified register.
+  50:Generated_Source\PSoC4/cyutils.c ****         *
+  51:Generated_Source\PSoC4/cyutils.c ****         * \param addr The address where data must be read.
+  52:Generated_Source\PSoC4/cyutils.c ****         *
+  53:Generated_Source\PSoC4/cyutils.c ****         * \reentrant No
+  54:Generated_Source\PSoC4/cyutils.c ****         *
+  55:Generated_Source\PSoC4/cyutils.c ****         ***************************************************************************/
+  56:Generated_Source\PSoC4/cyutils.c ****         uint32 CyGetReg24(uint32 const volatile * addr)
+  57:Generated_Source\PSoC4/cyutils.c ****         {
+  81              		.loc 1 57 0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 16
+  84              		@ frame_needed = 1, uses_anonymous_args = 0
+  85 0000 80B5     		push	{r7, lr}
+  86              		.cfi_def_cfa_offset 8
+  87              		.cfi_offset 7, -8
+  88              		.cfi_offset 14, -4
+  89 0002 84B0     		sub	sp, sp, #16
+  90              		.cfi_def_cfa_offset 24
+  91 0004 00AF     		add	r7, sp, #0
+  92              		.cfi_def_cfa_register 7
+  93 0006 7860     		str	r0, [r7, #4]
+  58:Generated_Source\PSoC4/cyutils.c ****             uint8 const volatile *tmpAddr;
+  59:Generated_Source\PSoC4/cyutils.c ****             uint32 value;
+  60:Generated_Source\PSoC4/cyutils.c **** 
+  61:Generated_Source\PSoC4/cyutils.c ****             tmpAddr = (uint8 const volatile *) addr;
+  94              		.loc 1 61 0
+  95 0008 7B68     		ldr	r3, [r7, #4]
+  96 000a FB60     		str	r3, [r7, #12]
+  62:Generated_Source\PSoC4/cyutils.c **** 
+  63:Generated_Source\PSoC4/cyutils.c ****             value  =  (uint32) tmpAddr[0u];
+  97              		.loc 1 63 0
+  98 000c FB68     		ldr	r3, [r7, #12]
+  99 000e 1B78     		ldrb	r3, [r3]
+ 100 0010 DBB2     		uxtb	r3, r3
+ 101 0012 BB60     		str	r3, [r7, #8]
+  64:Generated_Source\PSoC4/cyutils.c ****             value |= ((uint32) tmpAddr[1u] << 8u );
+ 102              		.loc 1 64 0
+ 103 0014 FB68     		ldr	r3, [r7, #12]
+ 104 0016 0133     		adds	r3, r3, #1
+ 105 0018 1B78     		ldrb	r3, [r3]
+ 106 001a DBB2     		uxtb	r3, r3
+ 107 001c 1B02     		lsls	r3, r3, #8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 4
+
+
+ 108 001e BA68     		ldr	r2, [r7, #8]
+ 109 0020 1343     		orrs	r3, r2
+ 110 0022 BB60     		str	r3, [r7, #8]
+  65:Generated_Source\PSoC4/cyutils.c ****             value |= ((uint32) tmpAddr[2u] << 16u);
+ 111              		.loc 1 65 0
+ 112 0024 FB68     		ldr	r3, [r7, #12]
+ 113 0026 0233     		adds	r3, r3, #2
+ 114 0028 1B78     		ldrb	r3, [r3]
+ 115 002a DBB2     		uxtb	r3, r3
+ 116 002c 1B04     		lsls	r3, r3, #16
+ 117 002e BA68     		ldr	r2, [r7, #8]
+ 118 0030 1343     		orrs	r3, r2
+ 119 0032 BB60     		str	r3, [r7, #8]
+  66:Generated_Source\PSoC4/cyutils.c **** 
+  67:Generated_Source\PSoC4/cyutils.c ****             return(value);
+ 120              		.loc 1 67 0
+ 121 0034 BB68     		ldr	r3, [r7, #8]
+  68:Generated_Source\PSoC4/cyutils.c ****         }
+ 122              		.loc 1 68 0
+ 123 0036 1800     		movs	r0, r3
+ 124 0038 BD46     		mov	sp, r7
+ 125 003a 04B0     		add	sp, sp, #16
+ 126              		@ sp needed
+ 127 003c 80BD     		pop	{r7, pc}
+ 128              		.cfi_endproc
+ 129              	.LFE1:
+ 130              		.size	CyGetReg24, .-CyGetReg24
+ 131 003e C046     		.text
+ 132              	.Letext0:
+ 133              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 134              		.section	.debug_info,"",%progbits
+ 135              	.Ldebug_info0:
+ 136 0000 45010000 		.4byte	0x145
+ 137 0004 0400     		.2byte	0x4
+ 138 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 139 000a 04       		.byte	0x4
+ 140 000b 01       		.uleb128 0x1
+ 141 000c CA000000 		.4byte	.LASF17
+ 142 0010 0C       		.byte	0xc
+ 143 0011 8A010000 		.4byte	.LASF18
+ 144 0015 3D000000 		.4byte	.LASF19
+ 145 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 146 001d 00000000 		.4byte	0
+ 147 0021 00000000 		.4byte	.Ldebug_line0
+ 148 0025 02       		.uleb128 0x2
+ 149 0026 01       		.byte	0x1
+ 150 0027 06       		.byte	0x6
+ 151 0028 D7010000 		.4byte	.LASF0
+ 152 002c 02       		.uleb128 0x2
+ 153 002d 01       		.byte	0x1
+ 154 002e 08       		.byte	0x8
+ 155 002f 27000000 		.4byte	.LASF1
+ 156 0033 02       		.uleb128 0x2
+ 157 0034 02       		.byte	0x2
+ 158 0035 05       		.byte	0x5
+ 159 0036 BE010000 		.4byte	.LASF2
+ 160 003a 02       		.uleb128 0x2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 5
+
+
+ 161 003b 02       		.byte	0x2
+ 162 003c 07       		.byte	0x7
+ 163 003d B7000000 		.4byte	.LASF3
+ 164 0041 02       		.uleb128 0x2
+ 165 0042 04       		.byte	0x4
+ 166 0043 05       		.byte	0x5
+ 167 0044 CE010000 		.4byte	.LASF4
+ 168 0048 02       		.uleb128 0x2
+ 169 0049 04       		.byte	0x4
+ 170 004a 07       		.byte	0x7
+ 171 004b A5000000 		.4byte	.LASF5
+ 172 004f 02       		.uleb128 0x2
+ 173 0050 08       		.byte	0x8
+ 174 0051 05       		.byte	0x5
+ 175 0052 AB010000 		.4byte	.LASF6
+ 176 0056 02       		.uleb128 0x2
+ 177 0057 08       		.byte	0x8
+ 178 0058 07       		.byte	0x7
+ 179 0059 73010000 		.4byte	.LASF7
+ 180 005d 03       		.uleb128 0x3
+ 181 005e 04       		.byte	0x4
+ 182 005f 05       		.byte	0x5
+ 183 0060 696E7400 		.ascii	"int\000"
+ 184 0064 02       		.uleb128 0x2
+ 185 0065 04       		.byte	0x4
+ 186 0066 07       		.byte	0x7
+ 187 0067 66010000 		.4byte	.LASF8
+ 188 006b 04       		.uleb128 0x4
+ 189 006c C8010000 		.4byte	.LASF9
+ 190 0070 02       		.byte	0x2
+ 191 0071 E401     		.2byte	0x1e4
+ 192 0073 2C000000 		.4byte	0x2c
+ 193 0077 04       		.uleb128 0x4
+ 194 0078 5F010000 		.4byte	.LASF10
+ 195 007c 02       		.byte	0x2
+ 196 007d E601     		.2byte	0x1e6
+ 197 007f 48000000 		.4byte	0x48
+ 198 0083 02       		.uleb128 0x2
+ 199 0084 04       		.byte	0x4
+ 200 0085 04       		.byte	0x4
+ 201 0086 21000000 		.4byte	.LASF11
+ 202 008a 02       		.uleb128 0x2
+ 203 008b 08       		.byte	0x8
+ 204 008c 04       		.byte	0x4
+ 205 008d 58010000 		.4byte	.LASF12
+ 206 0091 02       		.uleb128 0x2
+ 207 0092 01       		.byte	0x1
+ 208 0093 08       		.byte	0x8
+ 209 0094 B9010000 		.4byte	.LASF13
+ 210 0098 05       		.uleb128 0x5
+ 211 0099 6B000000 		.4byte	0x6b
+ 212 009d 05       		.uleb128 0x5
+ 213 009e 77000000 		.4byte	0x77
+ 214 00a2 06       		.uleb128 0x6
+ 215 00a3 11000000 		.4byte	.LASF20
+ 216 00a7 01       		.byte	0x1
+ 217 00a8 1F       		.byte	0x1f
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 6
+
+
+ 218 00a9 00000000 		.4byte	.LFB0
+ 219 00ad 36000000 		.4byte	.LFE0-.LFB0
+ 220 00b1 01       		.uleb128 0x1
+ 221 00b2 9C       		.byte	0x9c
+ 222 00b3 E2000000 		.4byte	0xe2
+ 223 00b7 07       		.uleb128 0x7
+ 224 00b8 1C000000 		.4byte	.LASF14
+ 225 00bc 01       		.byte	0x1
+ 226 00bd 1F       		.byte	0x1f
+ 227 00be E2000000 		.4byte	0xe2
+ 228 00c2 02       		.uleb128 0x2
+ 229 00c3 91       		.byte	0x91
+ 230 00c4 6C       		.sleb128 -20
+ 231 00c5 07       		.uleb128 0x7
+ 232 00c6 00000000 		.4byte	.LASF15
+ 233 00ca 01       		.byte	0x1
+ 234 00cb 1F       		.byte	0x1f
+ 235 00cc 77000000 		.4byte	0x77
+ 236 00d0 02       		.uleb128 0x2
+ 237 00d1 91       		.byte	0x91
+ 238 00d2 68       		.sleb128 -24
+ 239 00d3 08       		.uleb128 0x8
+ 240 00d4 35000000 		.4byte	.LASF16
+ 241 00d8 01       		.byte	0x1
+ 242 00d9 21       		.byte	0x21
+ 243 00da E8000000 		.4byte	0xe8
+ 244 00de 02       		.uleb128 0x2
+ 245 00df 91       		.byte	0x91
+ 246 00e0 74       		.sleb128 -12
+ 247 00e1 00       		.byte	0
+ 248 00e2 09       		.uleb128 0x9
+ 249 00e3 04       		.byte	0x4
+ 250 00e4 9D000000 		.4byte	0x9d
+ 251 00e8 09       		.uleb128 0x9
+ 252 00e9 04       		.byte	0x4
+ 253 00ea 98000000 		.4byte	0x98
+ 254 00ee 0A       		.uleb128 0xa
+ 255 00ef 06000000 		.4byte	.LASF21
+ 256 00f3 01       		.byte	0x1
+ 257 00f4 38       		.byte	0x38
+ 258 00f5 77000000 		.4byte	0x77
+ 259 00f9 00000000 		.4byte	.LFB1
+ 260 00fd 3E000000 		.4byte	.LFE1-.LFB1
+ 261 0101 01       		.uleb128 0x1
+ 262 0102 9C       		.byte	0x9c
+ 263 0103 32010000 		.4byte	0x132
+ 264 0107 07       		.uleb128 0x7
+ 265 0108 1C000000 		.4byte	.LASF14
+ 266 010c 01       		.byte	0x1
+ 267 010d 38       		.byte	0x38
+ 268 010e 32010000 		.4byte	0x132
+ 269 0112 02       		.uleb128 0x2
+ 270 0113 91       		.byte	0x91
+ 271 0114 6C       		.sleb128 -20
+ 272 0115 08       		.uleb128 0x8
+ 273 0116 35000000 		.4byte	.LASF16
+ 274 011a 01       		.byte	0x1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 7
+
+
+ 275 011b 3A       		.byte	0x3a
+ 276 011c 3D010000 		.4byte	0x13d
+ 277 0120 02       		.uleb128 0x2
+ 278 0121 91       		.byte	0x91
+ 279 0122 74       		.sleb128 -12
+ 280 0123 08       		.uleb128 0x8
+ 281 0124 00000000 		.4byte	.LASF15
+ 282 0128 01       		.byte	0x1
+ 283 0129 3B       		.byte	0x3b
+ 284 012a 77000000 		.4byte	0x77
+ 285 012e 02       		.uleb128 0x2
+ 286 012f 91       		.byte	0x91
+ 287 0130 70       		.sleb128 -16
+ 288 0131 00       		.byte	0
+ 289 0132 09       		.uleb128 0x9
+ 290 0133 04       		.byte	0x4
+ 291 0134 38010000 		.4byte	0x138
+ 292 0138 0B       		.uleb128 0xb
+ 293 0139 9D000000 		.4byte	0x9d
+ 294 013d 09       		.uleb128 0x9
+ 295 013e 04       		.byte	0x4
+ 296 013f 43010000 		.4byte	0x143
+ 297 0143 0B       		.uleb128 0xb
+ 298 0144 98000000 		.4byte	0x98
+ 299 0148 00       		.byte	0
+ 300              		.section	.debug_abbrev,"",%progbits
+ 301              	.Ldebug_abbrev0:
+ 302 0000 01       		.uleb128 0x1
+ 303 0001 11       		.uleb128 0x11
+ 304 0002 01       		.byte	0x1
+ 305 0003 25       		.uleb128 0x25
+ 306 0004 0E       		.uleb128 0xe
+ 307 0005 13       		.uleb128 0x13
+ 308 0006 0B       		.uleb128 0xb
+ 309 0007 03       		.uleb128 0x3
+ 310 0008 0E       		.uleb128 0xe
+ 311 0009 1B       		.uleb128 0x1b
+ 312 000a 0E       		.uleb128 0xe
+ 313 000b 55       		.uleb128 0x55
+ 314 000c 17       		.uleb128 0x17
+ 315 000d 11       		.uleb128 0x11
+ 316 000e 01       		.uleb128 0x1
+ 317 000f 10       		.uleb128 0x10
+ 318 0010 17       		.uleb128 0x17
+ 319 0011 00       		.byte	0
+ 320 0012 00       		.byte	0
+ 321 0013 02       		.uleb128 0x2
+ 322 0014 24       		.uleb128 0x24
+ 323 0015 00       		.byte	0
+ 324 0016 0B       		.uleb128 0xb
+ 325 0017 0B       		.uleb128 0xb
+ 326 0018 3E       		.uleb128 0x3e
+ 327 0019 0B       		.uleb128 0xb
+ 328 001a 03       		.uleb128 0x3
+ 329 001b 0E       		.uleb128 0xe
+ 330 001c 00       		.byte	0
+ 331 001d 00       		.byte	0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 8
+
+
+ 332 001e 03       		.uleb128 0x3
+ 333 001f 24       		.uleb128 0x24
+ 334 0020 00       		.byte	0
+ 335 0021 0B       		.uleb128 0xb
+ 336 0022 0B       		.uleb128 0xb
+ 337 0023 3E       		.uleb128 0x3e
+ 338 0024 0B       		.uleb128 0xb
+ 339 0025 03       		.uleb128 0x3
+ 340 0026 08       		.uleb128 0x8
+ 341 0027 00       		.byte	0
+ 342 0028 00       		.byte	0
+ 343 0029 04       		.uleb128 0x4
+ 344 002a 16       		.uleb128 0x16
+ 345 002b 00       		.byte	0
+ 346 002c 03       		.uleb128 0x3
+ 347 002d 0E       		.uleb128 0xe
+ 348 002e 3A       		.uleb128 0x3a
+ 349 002f 0B       		.uleb128 0xb
+ 350 0030 3B       		.uleb128 0x3b
+ 351 0031 05       		.uleb128 0x5
+ 352 0032 49       		.uleb128 0x49
+ 353 0033 13       		.uleb128 0x13
+ 354 0034 00       		.byte	0
+ 355 0035 00       		.byte	0
+ 356 0036 05       		.uleb128 0x5
+ 357 0037 35       		.uleb128 0x35
+ 358 0038 00       		.byte	0
+ 359 0039 49       		.uleb128 0x49
+ 360 003a 13       		.uleb128 0x13
+ 361 003b 00       		.byte	0
+ 362 003c 00       		.byte	0
+ 363 003d 06       		.uleb128 0x6
+ 364 003e 2E       		.uleb128 0x2e
+ 365 003f 01       		.byte	0x1
+ 366 0040 3F       		.uleb128 0x3f
+ 367 0041 19       		.uleb128 0x19
+ 368 0042 03       		.uleb128 0x3
+ 369 0043 0E       		.uleb128 0xe
+ 370 0044 3A       		.uleb128 0x3a
+ 371 0045 0B       		.uleb128 0xb
+ 372 0046 3B       		.uleb128 0x3b
+ 373 0047 0B       		.uleb128 0xb
+ 374 0048 27       		.uleb128 0x27
+ 375 0049 19       		.uleb128 0x19
+ 376 004a 11       		.uleb128 0x11
+ 377 004b 01       		.uleb128 0x1
+ 378 004c 12       		.uleb128 0x12
+ 379 004d 06       		.uleb128 0x6
+ 380 004e 40       		.uleb128 0x40
+ 381 004f 18       		.uleb128 0x18
+ 382 0050 9742     		.uleb128 0x2117
+ 383 0052 19       		.uleb128 0x19
+ 384 0053 01       		.uleb128 0x1
+ 385 0054 13       		.uleb128 0x13
+ 386 0055 00       		.byte	0
+ 387 0056 00       		.byte	0
+ 388 0057 07       		.uleb128 0x7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 9
+
+
+ 389 0058 05       		.uleb128 0x5
+ 390 0059 00       		.byte	0
+ 391 005a 03       		.uleb128 0x3
+ 392 005b 0E       		.uleb128 0xe
+ 393 005c 3A       		.uleb128 0x3a
+ 394 005d 0B       		.uleb128 0xb
+ 395 005e 3B       		.uleb128 0x3b
+ 396 005f 0B       		.uleb128 0xb
+ 397 0060 49       		.uleb128 0x49
+ 398 0061 13       		.uleb128 0x13
+ 399 0062 02       		.uleb128 0x2
+ 400 0063 18       		.uleb128 0x18
+ 401 0064 00       		.byte	0
+ 402 0065 00       		.byte	0
+ 403 0066 08       		.uleb128 0x8
+ 404 0067 34       		.uleb128 0x34
+ 405 0068 00       		.byte	0
+ 406 0069 03       		.uleb128 0x3
+ 407 006a 0E       		.uleb128 0xe
+ 408 006b 3A       		.uleb128 0x3a
+ 409 006c 0B       		.uleb128 0xb
+ 410 006d 3B       		.uleb128 0x3b
+ 411 006e 0B       		.uleb128 0xb
+ 412 006f 49       		.uleb128 0x49
+ 413 0070 13       		.uleb128 0x13
+ 414 0071 02       		.uleb128 0x2
+ 415 0072 18       		.uleb128 0x18
+ 416 0073 00       		.byte	0
+ 417 0074 00       		.byte	0
+ 418 0075 09       		.uleb128 0x9
+ 419 0076 0F       		.uleb128 0xf
+ 420 0077 00       		.byte	0
+ 421 0078 0B       		.uleb128 0xb
+ 422 0079 0B       		.uleb128 0xb
+ 423 007a 49       		.uleb128 0x49
+ 424 007b 13       		.uleb128 0x13
+ 425 007c 00       		.byte	0
+ 426 007d 00       		.byte	0
+ 427 007e 0A       		.uleb128 0xa
+ 428 007f 2E       		.uleb128 0x2e
+ 429 0080 01       		.byte	0x1
+ 430 0081 3F       		.uleb128 0x3f
+ 431 0082 19       		.uleb128 0x19
+ 432 0083 03       		.uleb128 0x3
+ 433 0084 0E       		.uleb128 0xe
+ 434 0085 3A       		.uleb128 0x3a
+ 435 0086 0B       		.uleb128 0xb
+ 436 0087 3B       		.uleb128 0x3b
+ 437 0088 0B       		.uleb128 0xb
+ 438 0089 27       		.uleb128 0x27
+ 439 008a 19       		.uleb128 0x19
+ 440 008b 49       		.uleb128 0x49
+ 441 008c 13       		.uleb128 0x13
+ 442 008d 11       		.uleb128 0x11
+ 443 008e 01       		.uleb128 0x1
+ 444 008f 12       		.uleb128 0x12
+ 445 0090 06       		.uleb128 0x6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 10
+
+
+ 446 0091 40       		.uleb128 0x40
+ 447 0092 18       		.uleb128 0x18
+ 448 0093 9742     		.uleb128 0x2117
+ 449 0095 19       		.uleb128 0x19
+ 450 0096 01       		.uleb128 0x1
+ 451 0097 13       		.uleb128 0x13
+ 452 0098 00       		.byte	0
+ 453 0099 00       		.byte	0
+ 454 009a 0B       		.uleb128 0xb
+ 455 009b 26       		.uleb128 0x26
+ 456 009c 00       		.byte	0
+ 457 009d 49       		.uleb128 0x49
+ 458 009e 13       		.uleb128 0x13
+ 459 009f 00       		.byte	0
+ 460 00a0 00       		.byte	0
+ 461 00a1 00       		.byte	0
+ 462              		.section	.debug_aranges,"",%progbits
+ 463 0000 24000000 		.4byte	0x24
+ 464 0004 0200     		.2byte	0x2
+ 465 0006 00000000 		.4byte	.Ldebug_info0
+ 466 000a 04       		.byte	0x4
+ 467 000b 00       		.byte	0
+ 468 000c 0000     		.2byte	0
+ 469 000e 0000     		.2byte	0
+ 470 0010 00000000 		.4byte	.LFB0
+ 471 0014 36000000 		.4byte	.LFE0-.LFB0
+ 472 0018 00000000 		.4byte	.LFB1
+ 473 001c 3E000000 		.4byte	.LFE1-.LFB1
+ 474 0020 00000000 		.4byte	0
+ 475 0024 00000000 		.4byte	0
+ 476              		.section	.debug_ranges,"",%progbits
+ 477              	.Ldebug_ranges0:
+ 478 0000 00000000 		.4byte	.LFB0
+ 479 0004 36000000 		.4byte	.LFE0
+ 480 0008 00000000 		.4byte	.LFB1
+ 481 000c 3E000000 		.4byte	.LFE1
+ 482 0010 00000000 		.4byte	0
+ 483 0014 00000000 		.4byte	0
+ 484              		.section	.debug_line,"",%progbits
+ 485              	.Ldebug_line0:
+ 486 0000 73000000 		.section	.debug_str,"MS",%progbits,1
+ 486      02004400 
+ 486      00000201 
+ 486      FB0E0D00 
+ 486      01010101 
+ 487              	.LASF15:
+ 488 0000 76616C75 		.ascii	"value\000"
+ 488      6500
+ 489              	.LASF21:
+ 490 0006 43794765 		.ascii	"CyGetReg24\000"
+ 490      74526567 
+ 490      323400
+ 491              	.LASF20:
+ 492 0011 43795365 		.ascii	"CySetReg24\000"
+ 492      74526567 
+ 492      323400
+ 493              	.LASF14:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 11
+
+
+ 494 001c 61646472 		.ascii	"addr\000"
+ 494      00
+ 495              	.LASF11:
+ 496 0021 666C6F61 		.ascii	"float\000"
+ 496      7400
+ 497              	.LASF1:
+ 498 0027 756E7369 		.ascii	"unsigned char\000"
+ 498      676E6564 
+ 498      20636861 
+ 498      7200
+ 499              	.LASF16:
+ 500 0035 746D7041 		.ascii	"tmpAddr\000"
+ 500      64647200 
+ 501              	.LASF19:
+ 502 003d 433A5C61 		.ascii	"C:\\aixt\\ports\\Cypress\\CY8CKIT-049-42XX\\example"
+ 502      6978745C 
+ 502      706F7274 
+ 502      735C4379 
+ 502      70726573 
+ 503 006b 735C436F 		.ascii	"s\\Config_Gral_049.cydsn\\CE230991_My_First_Project"
+ 503      6E666967 
+ 503      5F477261 
+ 503      6C5F3034 
+ 503      392E6379 
+ 504 009c 30312E63 		.ascii	"01.cydsn\000"
+ 504      7964736E 
+ 504      00
+ 505              	.LASF5:
+ 506 00a5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 506      20756E73 
+ 506      69676E65 
+ 506      6420696E 
+ 506      7400
+ 507              	.LASF3:
+ 508 00b7 73686F72 		.ascii	"short unsigned int\000"
+ 508      7420756E 
+ 508      7369676E 
+ 508      65642069 
+ 508      6E7400
+ 509              	.LASF17:
+ 510 00ca 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 510      43313120 
+ 510      352E342E 
+ 510      31203230 
+ 510      31363036 
+ 511 00fd 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 511      20726576 
+ 511      6973696F 
+ 511      6E203233 
+ 511      37373135 
+ 512 0130 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 512      66756E63 
+ 512      74696F6E 
+ 512      2D736563 
+ 512      74696F6E 
+ 513              	.LASF12:
+ 514 0158 646F7562 		.ascii	"double\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cceQreO8.s 			page 12
+
+
+ 514      6C6500
+ 515              	.LASF10:
+ 516 015f 75696E74 		.ascii	"uint32\000"
+ 516      333200
+ 517              	.LASF8:
+ 518 0166 756E7369 		.ascii	"unsigned int\000"
+ 518      676E6564 
+ 518      20696E74 
+ 518      00
+ 519              	.LASF7:
+ 520 0173 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 520      206C6F6E 
+ 520      6720756E 
+ 520      7369676E 
+ 520      65642069 
+ 521              	.LASF18:
+ 522 018a 47656E65 		.ascii	"Generated_Source\\PSoC4\\cyutils.c\000"
+ 522      72617465 
+ 522      645F536F 
+ 522      75726365 
+ 522      5C50536F 
+ 523              	.LASF6:
+ 524 01ab 6C6F6E67 		.ascii	"long long int\000"
+ 524      206C6F6E 
+ 524      6720696E 
+ 524      7400
+ 525              	.LASF13:
+ 526 01b9 63686172 		.ascii	"char\000"
+ 526      00
+ 527              	.LASF2:
+ 528 01be 73686F72 		.ascii	"short int\000"
+ 528      7420696E 
+ 528      7400
+ 529              	.LASF9:
+ 530 01c8 75696E74 		.ascii	"uint8\000"
+ 530      3800
+ 531              	.LASF4:
+ 532 01ce 6C6F6E67 		.ascii	"long int\000"
+ 532      20696E74 
+ 532      00
+ 533              	.LASF0:
+ 534 01d7 7369676E 		.ascii	"signed char\000"
+ 534      65642063 
+ 534      68617200 
+ 535              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

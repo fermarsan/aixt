@@ -35,10 +35,10 @@ int main(void)
             
     for(;;)
     {
-        //pin.high(led1);
-        //sleep_ms(1000);
-        //pin.low(led1);
-        //sleep_ms(1000);
+     pin.high(led1);
+       sleep_ms(1000);
+        pin.low(led1);
+        sleep_ms(1000);
         
         //pwm_duty(1, 0);
         //sleep_ms(2000);

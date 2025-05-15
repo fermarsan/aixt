@@ -24,9 +24,9 @@
 * - add user inlcude files, prototypes and variables between the following
 *   #START and #END tags
 ******************************************************************************/
-/* `#START ADC_SYS_VAR`   */
+/* `#START ADC_SYS_VAR`  */
 
-/* `#END`   */
+/* `#END`  */
 
 #if(adc_IRQ_REMOVE == 0u)
 
@@ -64,9 +64,9 @@
         *  Custom Code
         *  - add user ISR code between the following #START and #END tags
         *************************************************************************/
-        /* `#START MAIN_ADC_ISR`   */
+        /* `#START MAIN_ADC_ISR`  */
 
-        /* `#END`   */
+        /* `#END`  */
         
         /* Clear handled interrupt */
         adc_SAR_INTR_REG = intr_status;

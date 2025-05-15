@@ -1,0 +1,23 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2025-05-15T00:34:18Z")
+ (DESIGN "CE230991_My_First_Project01")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.4")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "CE230991_My_First_Project01")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT LED_1\(0\).pad_out LED_1\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.ff_div_8 \\PWM_1\:cy_m0s8_tcpwm_1\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT \\PWM_1\:cy_m0s8_tcpwm_1\\.line LED_1\(0\).pin_input (5.695:5.695:5.695))
+    (INTERCONNECT LED_1\(0\).pad_out LED_1\(0\)_PAD (0.000:0.000:0.000))
+    (INTERCONNECT LED_1\(0\)_PAD LED_1\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

@@ -117,7 +117,7 @@ void in2_adc_Write(uint8 value)
 
 
 /*******************************************************************************
-* Function Name: in2_adc.read
+* Function Name: in2_adc_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void in2_adc_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet in2_adc_SUT.c usage_in2_adc.read  
+*  \snippet in2_adc_SUT.c usage_in2_adc_Read  
 *******************************************************************************/
-uint8 in2_adc.read(void)
+uint8 in2_adc_Read(void)
 {
     return (uint8)((in2_adc_PS & in2_adc_MASK) >> in2_adc_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: in2_adc.readDataReg
+* Function Name: in2_adc_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 in2_adc.read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred in2_adc.read() API because the 
-* in2_adc.readDataReg() reads the data register instead of the status 
+* preferred in2_adc_Read() API because the 
+* in2_adc_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,9 +159,9 @@ uint8 in2_adc.read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet in2_adc_SUT.c usage_in2_adc.readDataReg 
+*  \snippet in2_adc_SUT.c usage_in2_adc_ReadDataReg 
 *******************************************************************************/
-uint8 in2_adc.readDataReg(void)
+uint8 in2_adc_ReadDataReg(void)
 {
     return (uint8)((in2_adc_DR & in2_adc_MASK) >> in2_adc_SHIFT);
 }
