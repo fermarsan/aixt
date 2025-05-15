@@ -7,4 +7,7 @@
 
 module pin
 
-fn
+#include "pin.c"
+
+
+fn C.PIN_WRITE(name any, value any) 

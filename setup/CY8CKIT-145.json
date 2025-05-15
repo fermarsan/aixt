@@ -1,25 +1,24 @@
-
-"port": "CY8CKIT-145",
-"device":		"CY8C4045AZI-S413",
-    "port_linux":   "/dev/ttyUSB0",
-    "port_windows": "COM1",
-"board": "CY8CKIT-145-40XX",
-"backend": "native",
-"cc_linux":			"",
-"cc_windows":		"PSoC_Creator.exe",
-"cc_flags":      "-o",
-"path":"Cypress/CY8CKIT-145-40XX/Configuracion_General.cydsn",
-
-"config_operator":   [],
-"configuration": [],
-"initialization":    [
-    "CyGlobalInitEnable;",
-    "uart_Start();",
-    "pwm0_Start();",
-    "pwm1_Start();",
-    "pwm2_Start();",
-    "clock_Start();",
-    "capsense_Start();",
-    "capsense_InitializeAllBaselines();",
-    "capsense_ScanAllWidgets();",
-]
+{
+    "port": "CY8CKIT-145",
+    "board": "CY8CKIT-145-40XX",
+    "backend": "c",
+  
+    "cc_linux": "",
+    "cc_windows": "",
+    "cc_make_flags": "",
+  
+    "flasher_linux": "",
+    "flasher_windows": "",
+    "flasher_flags": "",
+  
+    "api_paths": [
+      "Cypress/CY8CKIT-145-40XX"
+    ],
+    "v_defines": [],
+  
+    "default_cpu_freq": 20000000,
+    "default_string_len": 20,
+  
+    "compiler_setup_path": "setup/arduino32.json"
+  }
+  

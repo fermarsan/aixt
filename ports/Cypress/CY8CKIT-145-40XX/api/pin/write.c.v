@@ -7,7 +7,7 @@
 
 module pin
 
-@[inline]
-pub fn write(PIN_NAME, VALUE) {
-	C.PIN_NAME_Write(VALUE)
+@[as_macro]
+pub fn write(name any, value any) {
+	C.PIN_WRITE(name, value)
 }
