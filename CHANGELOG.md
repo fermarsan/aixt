@@ -1,4 +1,4 @@
-## v0.1.10
+## v0.2.0
 *15 May 2025*
 #### Devices Supported
 Devices updated to API v0.1.2:
