@@ -29,7 +29,7 @@ Tasks to do in Aixt
 - [ ] implement maps
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
-- [ ] Issue: Calling function from array interpolations
+- [ ] Issue: Calling function from string interpolations including casting
 
 ### Done ✓make
 
