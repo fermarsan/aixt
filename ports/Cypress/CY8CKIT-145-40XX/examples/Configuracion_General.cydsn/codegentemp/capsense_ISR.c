@@ -26,9 +26,9 @@
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START capsense_ISR_intc`  */
+/* `#START capsense_ISR_intc` */
 
-/* `#END`  */
+/* `#END` */
 
 extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
 
@@ -163,9 +163,9 @@ CY_ISR(capsense_ISR_Interrupt)
     #endif /* capsense_ISR_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START capsense_ISR_Interrupt`  */
+    /* `#START capsense_ISR_Interrupt` */
 
-    /* `#END`  */
+    /* `#END` */
 }
 
 

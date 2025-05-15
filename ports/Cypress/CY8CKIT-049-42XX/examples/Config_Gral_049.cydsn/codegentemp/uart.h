@@ -268,7 +268,7 @@ void uart_Wakeup(void);
 *   uart_GetRxInterruptSource() function for bit fields values).
 *
 *******************************************************************************/
-#define uart_SetRxInterruptMode(interruptMask)     uart.write_INTR_RX_MASK(interruptMask)
+#define uart_SetRxInterruptMode(interruptMask)     uart_WRITE_INTR_RX_MASK(interruptMask)
 
 
 /*******************************************************************************
@@ -385,7 +385,7 @@ void uart_SetRxFifoLevel(uint32 level);
 *   uart_GetTxInterruptSource() function for bit field values).
 *
 *******************************************************************************/
-#define uart_SetTxInterruptMode(interruptMask)  uart.write_INTR_TX_MASK(interruptMask)
+#define uart_SetTxInterruptMode(interruptMask)  uart_WRITE_INTR_TX_MASK(interruptMask)
 
 
 /*******************************************************************************
@@ -499,7 +499,7 @@ void uart_SetTxFifoLevel(uint32 level);
 *   uart_GetMasterInterruptSource() function for bit field values).
 *
 *******************************************************************************/
-#define uart_SetMasterInterruptMode(interruptMask)  uart.write_INTR_MASTER_MASK(interruptMask)
+#define uart_SetMasterInterruptMode(interruptMask)  uart_WRITE_INTR_MASTER_MASK(interruptMask)
 
 /*******************************************************************************
 * Function Name: uart_GetMasterInterruptMode
@@ -609,7 +609,7 @@ void uart_SetTxFifoLevel(uint32 level);
 *   uart_GetSlaveInterruptSource() function for bit field values).
 *
 *******************************************************************************/
-#define uart_SetSlaveInterruptMode(interruptMask)   uart.write_INTR_SLAVE_MASK(interruptMask)
+#define uart_SetSlaveInterruptMode(interruptMask)   uart_WRITE_INTR_SLAVE_MASK(interruptMask)
 
 /*******************************************************************************
 * Function Name: uart_GetSlaveInterruptMode
@@ -1506,52 +1506,34 @@ extern uint8 uart_initVar;
                                                          uart_RX_FIFO_SR_VALID)) ? (1u) : (0u))
 
 /* Write interrupt source: set sourceMask bits in uart_INTR_X_MASK_REG */
-@[inline]
-pub fn write_INTR_I2C_EC_MASK(sourceMask) {
-	C.\
-}
+#define uart_WRITE_INTR_I2C_EC_MASK(sourceMask) \
                                                 do{         \
                                                     uart_INTR_I2C_EC_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 
 #if (!uart_CY_SCBIP_V1)
-    @[inline]
-pub fn write_INTR_SPI_EC_MASK(sourceMask) {
-	C.\
-}
+    #define uart_WRITE_INTR_SPI_EC_MASK(sourceMask) \
                                                 do{         \
                                                     uart_INTR_SPI_EC_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 #endif /* (!uart_CY_SCBIP_V1) */
 
-@[inline]
-pub fn write_INTR_MASTER_MASK(sourceMask) {
-	C.\
-}
+#define uart_WRITE_INTR_MASTER_MASK(sourceMask) \
                                                 do{         \
                                                     uart_INTR_MASTER_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 
-@[inline]
-pub fn write_INTR_SLAVE_MASK(sourceMask) {
-	C.\
-}
+#define uart_WRITE_INTR_SLAVE_MASK(sourceMask)  \
                                                 do{         \
                                                     uart_INTR_SLAVE_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 
-@[inline]
-pub fn write_INTR_TX_MASK(sourceMask) {
-	C.\
-}
+#define uart_WRITE_INTR_TX_MASK(sourceMask)     \
                                                 do{         \
                                                     uart_INTR_TX_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 
-@[inline]
-pub fn write_INTR_RX_MASK(sourceMask) {
-	C.\
-}
+#define uart_WRITE_INTR_RX_MASK(sourceMask)     \
                                                 do{         \
                                                     uart_INTR_RX_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)

@@ -1,3 +1,3 @@
-# Component constraints for D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-145-40XX\projects\Configuracion_General.cydsn\TopDesign\TopDesign.cysch
-#  Project: D:\Documentos\UD\2023-3\Proyecto de grado\aixt-p-so-c-4\ports\Cypress\CY8CKIT-145-40XX\projects\Configuracion_General.cydsn\Configuracion_General.cyprj
-#  Date: Thu, 12 Oct 2023 00:44:36 GMT
+# Component constraints for C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\TopDesign\TopDesign.cysch
+# Project: C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj
+# Date: Wed, 14 May 2025 23:15:42 GMT

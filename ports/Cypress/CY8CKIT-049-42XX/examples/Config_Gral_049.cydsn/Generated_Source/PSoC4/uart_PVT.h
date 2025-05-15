@@ -28,7 +28,7 @@
 ***************************************/
 
 /* APIs to service INTR_I2C_EC register */
-#define uart_SetI2CExtClkInterruptMode(interruptMask) uart.write_INTR_I2C_EC_MASK(interruptMask)
+#define uart_SetI2CExtClkInterruptMode(interruptMask) uart_WRITE_INTR_I2C_EC_MASK(interruptMask)
 #define uart_ClearI2CExtClkInterruptSource(interruptMask) uart_CLEAR_INTR_I2C_EC(interruptMask)
 #define uart_GetI2CExtClkInterruptSource()                (uart_INTR_I2C_EC_REG)
 #define uart_GetI2CExtClkInterruptMode()                  (uart_INTR_I2C_EC_MASK_REG)
@@ -37,7 +37,7 @@
 #if (!uart_CY_SCBIP_V1)
     /* APIs to service INTR_SPI_EC register */
     #define uart_SetSpiExtClkInterruptMode(interruptMask) \
-                                                                uart.write_INTR_SPI_EC_MASK(interruptMask)
+                                                                uart_WRITE_INTR_SPI_EC_MASK(interruptMask)
     #define uart_ClearSpiExtClkInterruptSource(interruptMask) \
                                                                 uart_CLEAR_INTR_SPI_EC(interruptMask)
     #define uart_GetExtSpiClkInterruptSource()                 (uart_INTR_SPI_EC_REG)
