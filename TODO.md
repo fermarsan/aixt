@@ -78,3 +78,4 @@ Tasks to do in Aixt
 - [x] create ESP32-CYD port and "tft_espi" library
 - [x] Support for Zed editor implemented
 - [x] Implement the PortB change interruption and pull-ups for PIC16F family
+- [x] Implement `for in` commands on strings.
