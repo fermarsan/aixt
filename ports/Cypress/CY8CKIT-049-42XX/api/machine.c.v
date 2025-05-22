@@ -9,4 +9,4 @@
 // Description: Includes all machine modules
 //              (CY8CKIT-049-42XX)
 #include "./machine/pin.c"
-// #include "./machine/uart.c"
+// #include "./macachine/uart.c"

@@ -26,9 +26,9 @@
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START adc_IRQ_intc`  */
+/* `#START adc_IRQ_intc` */
 
-/* `#END`  */
+/* `#END` */
 
 extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
 
@@ -163,9 +163,9 @@ CY_ISR(adc_IRQ_Interrupt)
     #endif /* adc_IRQ_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START adc_IRQ_Interrupt`  */
+    /* `#START adc_IRQ_Interrupt` */
 
-    /* `#END`  */
+    /* `#END` */
 }
 
 

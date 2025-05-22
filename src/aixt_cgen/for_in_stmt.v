@@ -20,17 +20,12 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 			stmts << gen.ast_node(st).join('')
 		}
 		out << $tmpl('c_templates/for_in_range.tmpl.c')#[..-1]
-	} else if node.kind.str() == 'array' {
+	} else if node.kind.str() in ['array', 'string'] {
 		gen.level_count++
 		index_name := '__i_${gen.level_count}' // temporal variables (indexes) by levels
 		_, var_type := gen.get_str_c_type(ast.idx_to_type(node.val_type.idx()), false)
 		obj := gen.find_obj_all_scopes(node.cond.str()) or {
 			panic('Identifier "${node.cond.str()}" not found.')
-		}
-		len := match obj {
-			// limit value
-			ast.Var, ast.ConstField, ast.GlobalField { (obj.expr as ast.ArrayInit).exprs.len }
-			else { panic('Identifier "${node.cond.str()}" not found..') }
 		}
 		var_name := node.val_var
 		for st in node.stmts {
@@ -40,7 +35,16 @@ fn (mut gen Gen) for_in_stmt(node ast.ForInStmt) []string {
 		if node.val_is_mut {
 			mut_var_write = $tmpl('c_templates/mut_var_in_array_write.tmpl.c')#[..-1] // var writing
 		}
-		out << $tmpl('c_templates/for_in_array.tmpl.c')#[..-1]
+		if node.kind.str() == 'array' {
+			len := match obj {
+				// limit value
+				ast.Var, ast.ConstField, ast.GlobalField { (obj.expr as ast.ArrayInit).exprs.len }
+				else { panic('Identifier "${node.cond.str()}" not found.') }
+			}
+			out << $tmpl('c_templates/for_in_array.tmpl.c')#[..-1]
+		} else if node.kind.str() == 'string' {
+			out << $tmpl('c_templates/for_in_string.tmpl.c')#[..-1]
+		}
 		gen.level_count--
 	}
 	return out

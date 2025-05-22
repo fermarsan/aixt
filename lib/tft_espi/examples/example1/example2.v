@@ -1,43 +1,97 @@
-import tft_espi
-import uart
-import pin
-import time
 
-const xpt2046_irq = pin.gpio36 // T_IRQ
-const xpt2046_mosi = pin.gpio32 // T_DIN
-const xpt2046_miso = pin.gpio39 // T_OUT
-const xpt2046_clk = pin.gpio25 // T_CLK
-const xpt2046_cs = pin.gpio33 // T_CS
 
-const screen_width = 320
-const screen_height = 240
-const font_size = 2
+#include <SPI.h>
 
-fn print_touch_to_display(touch_x int, touch_y int, touch_z int) {
-	tft_espi.fill_screen(tft_espi.white)
-	tft_espi.set_text_color(tft_espi.black, tft_espi.white)
+#include <TFT_eSPI.h>
 
-	center_x := int(screen_width / 2)
-	text_y := 80
+#include <XPT2046_Touchscreen.h>
 
-	temp_text := 'Hola Mundo'
-	tft_espi.draw_centre_string(temp_text, center_x, text_y, font_size)
+TFT_eSPI tft = TFT_eSPI();
+
+#define XPT2046_IRQ 36   // T_IRQ
+#define XPT2046_MOSI 32  // T_DIN
+#define XPT2046_MISO 39  // T_OUT
+#define XPT2046_CLK 25   // T_CLK
+#define XPT2046_CS 33    // T_CS
+
+SPIClass touchscreenSPI = SPIClass(VSPI);
+XPT2046_Touchscreen touchscreen(XPT2046_CS, XPT2046_IRQ);
+
+#define SCREEN_WIDTH 320
+#define SCREEN_HEIGHT 240
+#define FONT_SIZE 2
+
+int x, y, z;
+
+void printTouchToSerial(int touchX, int touchY, int touchZ) {
+  Serial.print("X = ");
+  Serial.print(touchX);
+  Serial.print(" | Y = ");
+  Serial.print(touchY);
+  Serial.print(" | Pressure = ");
+  Serial.print(touchZ);
+  Serial.println();
 }
 
-x, y, z := 0, 0, 0
+void printTouchToDisplay(int touchX, int touchY, int touchZ) {
+  tft.fillScreen(TFT_WHITE);
+  tft.setTextColor(TFT_BLACK, TFT_WHITE);
 
-uart.setup(115200)
+  int centerX = SCREEN_WIDTH / 2;
+  int textY = 80;
+ 
+  String tempText = "X = " + String(touchX);
+  tft.drawCentreString(tempText, centerX, textY, FONT_SIZE);
 
-tft_espi.setup()
-tft_espi.set_rotation(1)
+  textY += 20;
+  tempText = "Y = " + String(touchY);
+  tft.drawCentreString(tempText, centerX, textY, FONT_SIZE);
 
-tft_espi.fill_screen(tft_espi.white)
-tft_espi.set_text_color(tft_espi.black, tft_espi.white)
+  textY += 20;
+  tempText = "Pressure = " + String(touchZ);
+  tft.drawCentreString(tempText, centerX, textY, FONT_SIZE);
+}
 
-// center_x := int(screen_width / 2)
-// center_y := int(screen_height / 2)
+void setup() {
+  Serial.begin(115200);
 
-for {
-	print_touch_to_display(x, y, z)
-	time.sleep_ms(100)
+  // Start the SPI for the touchscreen and init the touchscreen
+  touchscreenSPI.begin(XPT2046_CLK, XPT2046_MISO, XPT2046_MOSI, XPT2046_CS);
+  touchscreen.begin(touchscreenSPI);
+  // Set the Touchscreen rotation in landscape mode
+  // Note: in some displays, the touchscreen might be upside down, so you might need to set the rotation to 3: touchscreen.setRotation(3);
+  touchscreen.setRotation(1);
+
+  // Start the tft display
+  tft.init();
+  // Set the TFT display rotation in landscape mode
+  tft.setRotation(1);
+
+  // Clear the screen before writing to it
+  tft.fillScreen(TFT_WHITE);
+  tft.setTextColor(TFT_BLACK, TFT_WHITE);
+  
+  // Set X and Y coordinates for center of display
+  int centerX = SCREEN_WIDTH / 2;
+  int centerY = SCREEN_HEIGHT / 2;
+
+  tft.drawCentreString("Hello, world!", centerX, 30, FONT_SIZE);
+  tft.drawCentreString("Touch screen to test", centerX, centerY, FONT_SIZE);
+}
+
+void loop() {
+  // Checks if Touchscreen was touched, and prints X, Y and Pressure (Z) info on the TFT display and Serial Monitor
+  if (touchscreen.tirqTouched() && touchscreen.touched()) {
+    // Get Touchscreen points
+    TS_Point p = touchscreen.getPoint();
+    // Calibrate Touchscreen points with map function to the correct width and height
+    x = map(p.x, 200, 3700, 1, SCREEN_WIDTH);
+    y = map(p.y, 240, 3800, 1, SCREEN_HEIGHT);
+    z = p.z;
+
+    printTouchToSerial(x, y, z);
+    printTouchToDisplay(x, y, z);
+
+    delay(100);
+  }
 }

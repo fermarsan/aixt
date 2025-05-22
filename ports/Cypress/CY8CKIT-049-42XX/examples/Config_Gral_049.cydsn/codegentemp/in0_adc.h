@@ -47,9 +47,9 @@ typedef struct
 * \addtogroup group_general
 * @{
 */
-uint8   in0_adc.read(void);
+uint8   in0_adc_Read(void);
 void    in0_adc_Write(uint8 value);
-uint8   in0_adc.readDataReg(void);
+uint8   in0_adc_ReadDataReg(void);
 #if defined(in0_adc__PC) || (CY_PSOC4_4200L) 
     void    in0_adc_SetDriveMode(uint8 mode);
 #endif

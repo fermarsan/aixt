@@ -1,0 +1,1194 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"LED_1.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LED_1_SetDriveMode,"ax",%progbits
+  20              		.align	2
+  21              		.global	LED_1_SetDriveMode
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	LED_1_SetDriveMode, %function
+  25              	LED_1_SetDriveMode:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC4\\LED_1.c"
+   1:Generated_Source\PSoC4/LED_1.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/LED_1.c **** * File Name: LED_1.c  
+   3:Generated_Source\PSoC4/LED_1.c **** * Version 2.20
+   4:Generated_Source\PSoC4/LED_1.c **** *
+   5:Generated_Source\PSoC4/LED_1.c **** * Description:
+   6:Generated_Source\PSoC4/LED_1.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC4/LED_1.c **** *
+   8:Generated_Source\PSoC4/LED_1.c **** ********************************************************************************
+   9:Generated_Source\PSoC4/LED_1.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  10:Generated_Source\PSoC4/LED_1.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  11:Generated_Source\PSoC4/LED_1.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  12:Generated_Source\PSoC4/LED_1.c **** * the software package with which this file was provided.
+  13:Generated_Source\PSoC4/LED_1.c **** *******************************************************************************/
+  14:Generated_Source\PSoC4/LED_1.c **** 
+  15:Generated_Source\PSoC4/LED_1.c **** #include "cytypes.h"
+  16:Generated_Source\PSoC4/LED_1.c **** #include "LED_1.h"
+  17:Generated_Source\PSoC4/LED_1.c **** 
+  18:Generated_Source\PSoC4/LED_1.c **** 
+  19:Generated_Source\PSoC4/LED_1.c **** #if defined(LED_1__PC)
+  20:Generated_Source\PSoC4/LED_1.c ****     #define LED_1_SetP4PinDriveMode(shift, mode)  \
+  21:Generated_Source\PSoC4/LED_1.c ****     do { \
+  22:Generated_Source\PSoC4/LED_1.c ****         LED_1_PC =   (LED_1_PC & \
+  23:Generated_Source\PSoC4/LED_1.c ****                                 (uint32)(~(uint32)(LED_1_DRIVE_MODE_IND_MASK << \
+  24:Generated_Source\PSoC4/LED_1.c ****                                 (LED_1_DRIVE_MODE_BITS * (shift))))) | \
+  25:Generated_Source\PSoC4/LED_1.c ****                                 (uint32)((uint32)(mode) << \
+  26:Generated_Source\PSoC4/LED_1.c ****                                 (LED_1_DRIVE_MODE_BITS * (shift))); \
+  27:Generated_Source\PSoC4/LED_1.c ****     } while (0)
+  28:Generated_Source\PSoC4/LED_1.c **** #else
+  29:Generated_Source\PSoC4/LED_1.c ****     #if (CY_PSOC4_4200L)
+  30:Generated_Source\PSoC4/LED_1.c ****         #define LED_1_SetP4PinDriveMode(shift, mode)  \
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 2
+
+
+  31:Generated_Source\PSoC4/LED_1.c ****         do { \
+  32:Generated_Source\PSoC4/LED_1.c ****             LED_1_USBIO_CTRL_REG = (LED_1_USBIO_CTRL_REG & \
+  33:Generated_Source\PSoC4/LED_1.c ****                                     (uint32)(~(uint32)(LED_1_DRIVE_MODE_IND_MASK << \
+  34:Generated_Source\PSoC4/LED_1.c ****                                     (LED_1_DRIVE_MODE_BITS * (shift))))) | \
+  35:Generated_Source\PSoC4/LED_1.c ****                                     (uint32)((uint32)(mode) << \
+  36:Generated_Source\PSoC4/LED_1.c ****                                     (LED_1_DRIVE_MODE_BITS * (shift))); \
+  37:Generated_Source\PSoC4/LED_1.c ****         } while (0)
+  38:Generated_Source\PSoC4/LED_1.c ****     #endif
+  39:Generated_Source\PSoC4/LED_1.c **** #endif
+  40:Generated_Source\PSoC4/LED_1.c ****   
+  41:Generated_Source\PSoC4/LED_1.c **** 
+  42:Generated_Source\PSoC4/LED_1.c **** #if defined(LED_1__PC) || (CY_PSOC4_4200L) 
+  43:Generated_Source\PSoC4/LED_1.c ****     /*******************************************************************************
+  44:Generated_Source\PSoC4/LED_1.c ****     * Function Name: LED_1_SetDriveMode
+  45:Generated_Source\PSoC4/LED_1.c ****     ****************************************************************************//**
+  46:Generated_Source\PSoC4/LED_1.c ****     *
+  47:Generated_Source\PSoC4/LED_1.c ****     * \brief Sets the drive mode for each of the Pins component's pins.
+  48:Generated_Source\PSoC4/LED_1.c ****     * 
+  49:Generated_Source\PSoC4/LED_1.c ****     * <b>Note</b> This affects all pins in the Pins component instance. Use the
+  50:Generated_Source\PSoC4/LED_1.c ****     * Per-Pin APIs if you wish to control individual pin's drive modes.
+  51:Generated_Source\PSoC4/LED_1.c ****     *
+  52:Generated_Source\PSoC4/LED_1.c ****     * <b>Note</b> USBIOs have limited drive functionality. Refer to the Drive Mode
+  53:Generated_Source\PSoC4/LED_1.c ****     * parameter for more information.
+  54:Generated_Source\PSoC4/LED_1.c ****     *
+  55:Generated_Source\PSoC4/LED_1.c ****     * \param mode
+  56:Generated_Source\PSoC4/LED_1.c ****     *  Mode for the selected signals. Valid options are documented in 
+  57:Generated_Source\PSoC4/LED_1.c ****     *  \ref driveMode.
+  58:Generated_Source\PSoC4/LED_1.c ****     *
+  59:Generated_Source\PSoC4/LED_1.c ****     * \return
+  60:Generated_Source\PSoC4/LED_1.c ****     *  None
+  61:Generated_Source\PSoC4/LED_1.c ****     *
+  62:Generated_Source\PSoC4/LED_1.c ****     * \sideeffect
+  63:Generated_Source\PSoC4/LED_1.c ****     *  If you use read-modify-write operations that are not atomic, the ISR can
+  64:Generated_Source\PSoC4/LED_1.c ****     *  cause corruption of this function. An ISR that interrupts this function 
+  65:Generated_Source\PSoC4/LED_1.c ****     *  and performs writes to the Pins component Drive Mode registers can cause 
+  66:Generated_Source\PSoC4/LED_1.c ****     *  corrupted port data. To avoid this issue, you should either use the Per-Pin
+  67:Generated_Source\PSoC4/LED_1.c ****     *  APIs (primary method) or disable interrupts around this function.
+  68:Generated_Source\PSoC4/LED_1.c ****     *
+  69:Generated_Source\PSoC4/LED_1.c ****     * \funcusage
+  70:Generated_Source\PSoC4/LED_1.c ****     *  \snippet LED_1_SUT.c usage_LED_1_SetDriveMode
+  71:Generated_Source\PSoC4/LED_1.c ****     *******************************************************************************/
+  72:Generated_Source\PSoC4/LED_1.c ****     void LED_1_SetDriveMode(uint8 mode)
+  73:Generated_Source\PSoC4/LED_1.c ****     {
+  28              		.loc 1 73 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 82B0     		sub	sp, sp, #8
+  37              		.cfi_def_cfa_offset 16
+  38 0004 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  40 0006 0200     		movs	r2, r0
+  41 0008 FB1D     		adds	r3, r7, #7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 3
+
+
+  42 000a 1A70     		strb	r2, [r3]
+  74:Generated_Source\PSoC4/LED_1.c **** 		LED_1_SetP4PinDriveMode(LED_1__0__SHIFT, mode);
+  43              		.loc 1 74 0
+  44 000c 064B     		ldr	r3, .L2
+  45 000e 064A     		ldr	r2, .L2
+  46 0010 1268     		ldr	r2, [r2]
+  47 0012 0649     		ldr	r1, .L2+4
+  48 0014 1140     		ands	r1, r2
+  49 0016 FA1D     		adds	r2, r7, #7
+  50 0018 1278     		ldrb	r2, [r2]
+  51 001a 9204     		lsls	r2, r2, #18
+  52 001c 0A43     		orrs	r2, r1
+  53 001e 1A60     		str	r2, [r3]
+  75:Generated_Source\PSoC4/LED_1.c ****     }
+  54              		.loc 1 75 0
+  55 0020 C046     		nop
+  56 0022 BD46     		mov	sp, r7
+  57 0024 02B0     		add	sp, sp, #8
+  58              		@ sp needed
+  59 0026 80BD     		pop	{r7, pc}
+  60              	.L3:
+  61              		.align	2
+  62              	.L2:
+  63 0028 08010440 		.word	1074004232
+  64 002c FFFFE3FF 		.word	-1835009
+  65              		.cfi_endproc
+  66              	.LFE0:
+  67              		.size	LED_1_SetDriveMode, .-LED_1_SetDriveMode
+  68              		.section	.text.LED_1_Write,"ax",%progbits
+  69              		.align	2
+  70              		.global	LED_1_Write
+  71              		.code	16
+  72              		.thumb_func
+  73              		.type	LED_1_Write, %function
+  74              	LED_1_Write:
+  75              	.LFB1:
+  76:Generated_Source\PSoC4/LED_1.c **** #endif
+  77:Generated_Source\PSoC4/LED_1.c **** 
+  78:Generated_Source\PSoC4/LED_1.c **** 
+  79:Generated_Source\PSoC4/LED_1.c **** /*******************************************************************************
+  80:Generated_Source\PSoC4/LED_1.c **** * Function Name: LED_1_Write
+  81:Generated_Source\PSoC4/LED_1.c **** ****************************************************************************//**
+  82:Generated_Source\PSoC4/LED_1.c **** *
+  83:Generated_Source\PSoC4/LED_1.c **** * \brief Writes the value to the physical port (data output register), masking
+  84:Generated_Source\PSoC4/LED_1.c **** *  and shifting the bits appropriately. 
+  85:Generated_Source\PSoC4/LED_1.c **** *
+  86:Generated_Source\PSoC4/LED_1.c **** * The data output register controls the signal applied to the physical pin in 
+  87:Generated_Source\PSoC4/LED_1.c **** * conjunction with the drive mode parameter. This function avoids changing 
+  88:Generated_Source\PSoC4/LED_1.c **** * other bits in the port by using the appropriate method (read-modify-write or
+  89:Generated_Source\PSoC4/LED_1.c **** * bit banding).
+  90:Generated_Source\PSoC4/LED_1.c **** *
+  91:Generated_Source\PSoC4/LED_1.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
+  92:Generated_Source\PSoC4/LED_1.c **** * as it is driven by the hardware signal attached to it.
+  93:Generated_Source\PSoC4/LED_1.c **** *
+  94:Generated_Source\PSoC4/LED_1.c **** * \param value
+  95:Generated_Source\PSoC4/LED_1.c **** *  Value to write to the component instance.
+  96:Generated_Source\PSoC4/LED_1.c **** *
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 4
+
+
+  97:Generated_Source\PSoC4/LED_1.c **** * \return 
+  98:Generated_Source\PSoC4/LED_1.c **** *  None 
+  99:Generated_Source\PSoC4/LED_1.c **** *
+ 100:Generated_Source\PSoC4/LED_1.c **** * \sideeffect
+ 101:Generated_Source\PSoC4/LED_1.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
+ 102:Generated_Source\PSoC4/LED_1.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
+ 103:Generated_Source\PSoC4/LED_1.c **** *  interrupts this function and performs writes to the Pins component data 
+ 104:Generated_Source\PSoC4/LED_1.c **** *  register can cause corrupted port data. To avoid this issue, you should 
+ 105:Generated_Source\PSoC4/LED_1.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
+ 106:Generated_Source\PSoC4/LED_1.c **** *  this function.
+ 107:Generated_Source\PSoC4/LED_1.c **** *
+ 108:Generated_Source\PSoC4/LED_1.c **** * \funcusage
+ 109:Generated_Source\PSoC4/LED_1.c **** *  \snippet LED_1_SUT.c usage_LED_1_Write
+ 110:Generated_Source\PSoC4/LED_1.c **** *******************************************************************************/
+ 111:Generated_Source\PSoC4/LED_1.c **** void LED_1_Write(uint8 value)
+ 112:Generated_Source\PSoC4/LED_1.c **** {
+  76              		.loc 1 112 0
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 16
+  79              		@ frame_needed = 1, uses_anonymous_args = 0
+  80 0000 80B5     		push	{r7, lr}
+  81              		.cfi_def_cfa_offset 8
+  82              		.cfi_offset 7, -8
+  83              		.cfi_offset 14, -4
+  84 0002 84B0     		sub	sp, sp, #16
+  85              		.cfi_def_cfa_offset 24
+  86 0004 00AF     		add	r7, sp, #0
+  87              		.cfi_def_cfa_register 7
+  88 0006 0200     		movs	r2, r0
+  89 0008 FB1D     		adds	r3, r7, #7
+  90 000a 1A70     		strb	r2, [r3]
+ 113:Generated_Source\PSoC4/LED_1.c ****     uint8 drVal = (uint8)(LED_1_DR & (uint8)(~LED_1_MASK));
+  91              		.loc 1 113 0
+  92 000c 0F4B     		ldr	r3, .L5
+  93 000e 1B68     		ldr	r3, [r3]
+  94 0010 DAB2     		uxtb	r2, r3
+  95 0012 0F23     		movs	r3, #15
+  96 0014 FB18     		adds	r3, r7, r3
+  97 0016 4021     		movs	r1, #64
+  98 0018 8A43     		bics	r2, r1
+  99 001a 1A70     		strb	r2, [r3]
+ 114:Generated_Source\PSoC4/LED_1.c ****     drVal = (drVal | ((uint8)(value << LED_1_SHIFT) & LED_1_MASK));
+ 100              		.loc 1 114 0
+ 101 001c FB1D     		adds	r3, r7, #7
+ 102 001e 1B78     		ldrb	r3, [r3]
+ 103 0020 9B01     		lsls	r3, r3, #6
+ 104 0022 DBB2     		uxtb	r3, r3
+ 105 0024 4022     		movs	r2, #64
+ 106 0026 1340     		ands	r3, r2
+ 107 0028 D9B2     		uxtb	r1, r3
+ 108 002a 0F23     		movs	r3, #15
+ 109 002c FB18     		adds	r3, r7, r3
+ 110 002e 0F22     		movs	r2, #15
+ 111 0030 BA18     		adds	r2, r7, r2
+ 112 0032 1278     		ldrb	r2, [r2]
+ 113 0034 0A43     		orrs	r2, r1
+ 114 0036 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 5
+
+
+ 115:Generated_Source\PSoC4/LED_1.c ****     LED_1_DR = (uint32)drVal;
+ 115              		.loc 1 115 0
+ 116 0038 044B     		ldr	r3, .L5
+ 117 003a 0F22     		movs	r2, #15
+ 118 003c BA18     		adds	r2, r7, r2
+ 119 003e 1278     		ldrb	r2, [r2]
+ 120 0040 1A60     		str	r2, [r3]
+ 116:Generated_Source\PSoC4/LED_1.c **** }
+ 121              		.loc 1 116 0
+ 122 0042 C046     		nop
+ 123 0044 BD46     		mov	sp, r7
+ 124 0046 04B0     		add	sp, sp, #16
+ 125              		@ sp needed
+ 126 0048 80BD     		pop	{r7, pc}
+ 127              	.L6:
+ 128 004a C046     		.align	2
+ 129              	.L5:
+ 130 004c 00010440 		.word	1074004224
+ 131              		.cfi_endproc
+ 132              	.LFE1:
+ 133              		.size	LED_1_Write, .-LED_1_Write
+ 134              		.section	.text.LED_1_Read,"ax",%progbits
+ 135              		.align	2
+ 136              		.global	LED_1_Read
+ 137              		.code	16
+ 138              		.thumb_func
+ 139              		.type	LED_1_Read, %function
+ 140              	LED_1_Read:
+ 141              	.LFB2:
+ 117:Generated_Source\PSoC4/LED_1.c **** 
+ 118:Generated_Source\PSoC4/LED_1.c **** 
+ 119:Generated_Source\PSoC4/LED_1.c **** /*******************************************************************************
+ 120:Generated_Source\PSoC4/LED_1.c **** * Function Name: LED_1_Read
+ 121:Generated_Source\PSoC4/LED_1.c **** ****************************************************************************//**
+ 122:Generated_Source\PSoC4/LED_1.c **** *
+ 123:Generated_Source\PSoC4/LED_1.c **** * \brief Reads the associated physical port (pin status register) and masks 
+ 124:Generated_Source\PSoC4/LED_1.c **** *  the required bits according to the width and bit position of the component
+ 125:Generated_Source\PSoC4/LED_1.c **** *  instance. 
+ 126:Generated_Source\PSoC4/LED_1.c **** *
+ 127:Generated_Source\PSoC4/LED_1.c **** * The pin's status register returns the current logic level present on the 
+ 128:Generated_Source\PSoC4/LED_1.c **** * physical pin.
+ 129:Generated_Source\PSoC4/LED_1.c **** *
+ 130:Generated_Source\PSoC4/LED_1.c **** * \return 
+ 131:Generated_Source\PSoC4/LED_1.c **** *  The current value for the pins in the component as a right justified number.
+ 132:Generated_Source\PSoC4/LED_1.c **** *
+ 133:Generated_Source\PSoC4/LED_1.c **** * \funcusage
+ 134:Generated_Source\PSoC4/LED_1.c **** *  \snippet LED_1_SUT.c usage_LED_1_Read  
+ 135:Generated_Source\PSoC4/LED_1.c **** *******************************************************************************/
+ 136:Generated_Source\PSoC4/LED_1.c **** uint8 LED_1_Read(void)
+ 137:Generated_Source\PSoC4/LED_1.c **** {
+ 142              		.loc 1 137 0
+ 143              		.cfi_startproc
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 1, uses_anonymous_args = 0
+ 146 0000 80B5     		push	{r7, lr}
+ 147              		.cfi_def_cfa_offset 8
+ 148              		.cfi_offset 7, -8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 6
+
+
+ 149              		.cfi_offset 14, -4
+ 150 0002 00AF     		add	r7, sp, #0
+ 151              		.cfi_def_cfa_register 7
+ 138:Generated_Source\PSoC4/LED_1.c ****     return (uint8)((LED_1_PS & LED_1_MASK) >> LED_1_SHIFT);
+ 152              		.loc 1 138 0
+ 153 0004 044B     		ldr	r3, .L9
+ 154 0006 1B68     		ldr	r3, [r3]
+ 155 0008 4022     		movs	r2, #64
+ 156 000a 1340     		ands	r3, r2
+ 157 000c 9B09     		lsrs	r3, r3, #6
+ 158 000e DBB2     		uxtb	r3, r3
+ 139:Generated_Source\PSoC4/LED_1.c **** }
+ 159              		.loc 1 139 0
+ 160 0010 1800     		movs	r0, r3
+ 161 0012 BD46     		mov	sp, r7
+ 162              		@ sp needed
+ 163 0014 80BD     		pop	{r7, pc}
+ 164              	.L10:
+ 165 0016 C046     		.align	2
+ 166              	.L9:
+ 167 0018 04010440 		.word	1074004228
+ 168              		.cfi_endproc
+ 169              	.LFE2:
+ 170              		.size	LED_1_Read, .-LED_1_Read
+ 171              		.section	.text.LED_1_ReadDataReg,"ax",%progbits
+ 172              		.align	2
+ 173              		.global	LED_1_ReadDataReg
+ 174              		.code	16
+ 175              		.thumb_func
+ 176              		.type	LED_1_ReadDataReg, %function
+ 177              	LED_1_ReadDataReg:
+ 178              	.LFB3:
+ 140:Generated_Source\PSoC4/LED_1.c **** 
+ 141:Generated_Source\PSoC4/LED_1.c **** 
+ 142:Generated_Source\PSoC4/LED_1.c **** /*******************************************************************************
+ 143:Generated_Source\PSoC4/LED_1.c **** * Function Name: LED_1_ReadDataReg
+ 144:Generated_Source\PSoC4/LED_1.c **** ****************************************************************************//**
+ 145:Generated_Source\PSoC4/LED_1.c **** *
+ 146:Generated_Source\PSoC4/LED_1.c **** * \brief Reads the associated physical port's data output register and masks 
+ 147:Generated_Source\PSoC4/LED_1.c **** *  the correct bits according to the width and bit position of the component 
+ 148:Generated_Source\PSoC4/LED_1.c **** *  instance. 
+ 149:Generated_Source\PSoC4/LED_1.c **** *
+ 150:Generated_Source\PSoC4/LED_1.c **** * The data output register controls the signal applied to the physical pin in 
+ 151:Generated_Source\PSoC4/LED_1.c **** * conjunction with the drive mode parameter. This is not the same as the 
+ 152:Generated_Source\PSoC4/LED_1.c **** * preferred LED_1_Read() API because the 
+ 153:Generated_Source\PSoC4/LED_1.c **** * LED_1_ReadDataReg() reads the data register instead of the status 
+ 154:Generated_Source\PSoC4/LED_1.c **** * register. For output pins this is a useful function to determine the value 
+ 155:Generated_Source\PSoC4/LED_1.c **** * just written to the pin.
+ 156:Generated_Source\PSoC4/LED_1.c **** *
+ 157:Generated_Source\PSoC4/LED_1.c **** * \return 
+ 158:Generated_Source\PSoC4/LED_1.c **** *  The current value of the data register masked and shifted into a right 
+ 159:Generated_Source\PSoC4/LED_1.c **** *  justified number for the component instance.
+ 160:Generated_Source\PSoC4/LED_1.c **** *
+ 161:Generated_Source\PSoC4/LED_1.c **** * \funcusage
+ 162:Generated_Source\PSoC4/LED_1.c **** *  \snippet LED_1_SUT.c usage_LED_1_ReadDataReg 
+ 163:Generated_Source\PSoC4/LED_1.c **** *******************************************************************************/
+ 164:Generated_Source\PSoC4/LED_1.c **** uint8 LED_1_ReadDataReg(void)
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 7
+
+
+ 165:Generated_Source\PSoC4/LED_1.c **** {
+ 179              		.loc 1 165 0
+ 180              		.cfi_startproc
+ 181              		@ args = 0, pretend = 0, frame = 0
+ 182              		@ frame_needed = 1, uses_anonymous_args = 0
+ 183 0000 80B5     		push	{r7, lr}
+ 184              		.cfi_def_cfa_offset 8
+ 185              		.cfi_offset 7, -8
+ 186              		.cfi_offset 14, -4
+ 187 0002 00AF     		add	r7, sp, #0
+ 188              		.cfi_def_cfa_register 7
+ 166:Generated_Source\PSoC4/LED_1.c ****     return (uint8)((LED_1_DR & LED_1_MASK) >> LED_1_SHIFT);
+ 189              		.loc 1 166 0
+ 190 0004 044B     		ldr	r3, .L13
+ 191 0006 1B68     		ldr	r3, [r3]
+ 192 0008 4022     		movs	r2, #64
+ 193 000a 1340     		ands	r3, r2
+ 194 000c 9B09     		lsrs	r3, r3, #6
+ 195 000e DBB2     		uxtb	r3, r3
+ 167:Generated_Source\PSoC4/LED_1.c **** }
+ 196              		.loc 1 167 0
+ 197 0010 1800     		movs	r0, r3
+ 198 0012 BD46     		mov	sp, r7
+ 199              		@ sp needed
+ 200 0014 80BD     		pop	{r7, pc}
+ 201              	.L14:
+ 202 0016 C046     		.align	2
+ 203              	.L13:
+ 204 0018 00010440 		.word	1074004224
+ 205              		.cfi_endproc
+ 206              	.LFE3:
+ 207              		.size	LED_1_ReadDataReg, .-LED_1_ReadDataReg
+ 208              		.section	.text.LED_1_SetInterruptMode,"ax",%progbits
+ 209              		.align	2
+ 210              		.global	LED_1_SetInterruptMode
+ 211              		.code	16
+ 212              		.thumb_func
+ 213              		.type	LED_1_SetInterruptMode, %function
+ 214              	LED_1_SetInterruptMode:
+ 215              	.LFB4:
+ 168:Generated_Source\PSoC4/LED_1.c **** 
+ 169:Generated_Source\PSoC4/LED_1.c **** 
+ 170:Generated_Source\PSoC4/LED_1.c **** /*******************************************************************************
+ 171:Generated_Source\PSoC4/LED_1.c **** * Function Name: LED_1_SetInterruptMode
+ 172:Generated_Source\PSoC4/LED_1.c **** ****************************************************************************//**
+ 173:Generated_Source\PSoC4/LED_1.c **** *
+ 174:Generated_Source\PSoC4/LED_1.c **** * \brief Configures the interrupt mode for each of the Pins component's
+ 175:Generated_Source\PSoC4/LED_1.c **** *  pins. Alternatively you may set the interrupt mode for all the pins
+ 176:Generated_Source\PSoC4/LED_1.c **** *  specified in the Pins component.
+ 177:Generated_Source\PSoC4/LED_1.c **** *
+ 178:Generated_Source\PSoC4/LED_1.c **** *  <b>Note</b> The interrupt is port-wide and therefore any enabled pin
+ 179:Generated_Source\PSoC4/LED_1.c **** *  interrupt may trigger it.
+ 180:Generated_Source\PSoC4/LED_1.c **** *
+ 181:Generated_Source\PSoC4/LED_1.c **** * \param position
+ 182:Generated_Source\PSoC4/LED_1.c **** *  The pin position as listed in the Pins component. You may OR these to be 
+ 183:Generated_Source\PSoC4/LED_1.c **** *  able to configure the interrupt mode of multiple pins within a Pins 
+ 184:Generated_Source\PSoC4/LED_1.c **** *  component. Or you may use LED_1_INTR_ALL to configure the
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 8
+
+
+ 185:Generated_Source\PSoC4/LED_1.c **** *  interrupt mode of all the pins in the Pins component.       
+ 186:Generated_Source\PSoC4/LED_1.c **** *  - LED_1_0_INTR       (First pin in the list)
+ 187:Generated_Source\PSoC4/LED_1.c **** *  - LED_1_1_INTR       (Second pin in the list)
+ 188:Generated_Source\PSoC4/LED_1.c **** *  - ...
+ 189:Generated_Source\PSoC4/LED_1.c **** *  - LED_1_INTR_ALL     (All pins in Pins component)
+ 190:Generated_Source\PSoC4/LED_1.c **** *
+ 191:Generated_Source\PSoC4/LED_1.c **** * \param mode
+ 192:Generated_Source\PSoC4/LED_1.c **** *  Interrupt mode for the selected pins. Valid options are documented in
+ 193:Generated_Source\PSoC4/LED_1.c **** *  \ref intrMode.
+ 194:Generated_Source\PSoC4/LED_1.c **** *
+ 195:Generated_Source\PSoC4/LED_1.c **** * \return 
+ 196:Generated_Source\PSoC4/LED_1.c **** *  None
+ 197:Generated_Source\PSoC4/LED_1.c **** *  
+ 198:Generated_Source\PSoC4/LED_1.c **** * \sideeffect
+ 199:Generated_Source\PSoC4/LED_1.c **** *  It is recommended that the interrupt be disabled before calling this 
+ 200:Generated_Source\PSoC4/LED_1.c **** *  function to avoid unintended interrupt requests. Note that the interrupt
+ 201:Generated_Source\PSoC4/LED_1.c **** *  type is port wide, and therefore will trigger for any enabled pin on the 
+ 202:Generated_Source\PSoC4/LED_1.c **** *  port.
+ 203:Generated_Source\PSoC4/LED_1.c **** *
+ 204:Generated_Source\PSoC4/LED_1.c **** * \funcusage
+ 205:Generated_Source\PSoC4/LED_1.c **** *  \snippet LED_1_SUT.c usage_LED_1_SetInterruptMode
+ 206:Generated_Source\PSoC4/LED_1.c **** *******************************************************************************/
+ 207:Generated_Source\PSoC4/LED_1.c **** void LED_1_SetInterruptMode(uint16 position, uint16 mode)
+ 208:Generated_Source\PSoC4/LED_1.c **** {
+ 216              		.loc 1 208 0
+ 217              		.cfi_startproc
+ 218              		@ args = 0, pretend = 0, frame = 16
+ 219              		@ frame_needed = 1, uses_anonymous_args = 0
+ 220 0000 80B5     		push	{r7, lr}
+ 221              		.cfi_def_cfa_offset 8
+ 222              		.cfi_offset 7, -8
+ 223              		.cfi_offset 14, -4
+ 224 0002 84B0     		sub	sp, sp, #16
+ 225              		.cfi_def_cfa_offset 24
+ 226 0004 00AF     		add	r7, sp, #0
+ 227              		.cfi_def_cfa_register 7
+ 228 0006 0200     		movs	r2, r0
+ 229 0008 BB1D     		adds	r3, r7, #6
+ 230 000a 1A80     		strh	r2, [r3]
+ 231 000c 3B1D     		adds	r3, r7, #4
+ 232 000e 0A1C     		adds	r2, r1, #0
+ 233 0010 1A80     		strh	r2, [r3]
+ 209:Generated_Source\PSoC4/LED_1.c ****     uint32 intrCfg;
+ 210:Generated_Source\PSoC4/LED_1.c ****     
+ 211:Generated_Source\PSoC4/LED_1.c ****     intrCfg =  LED_1_INTCFG & (uint32)(~(uint32)position);
+ 234              		.loc 1 211 0
+ 235 0012 0B4B     		ldr	r3, .L16
+ 236 0014 1B68     		ldr	r3, [r3]
+ 237 0016 BA1D     		adds	r2, r7, #6
+ 238 0018 1288     		ldrh	r2, [r2]
+ 239 001a D243     		mvns	r2, r2
+ 240 001c 1340     		ands	r3, r2
+ 241 001e FB60     		str	r3, [r7, #12]
+ 212:Generated_Source\PSoC4/LED_1.c ****     LED_1_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+ 242              		.loc 1 212 0
+ 243 0020 074B     		ldr	r3, .L16
+ 244 0022 BA1D     		adds	r2, r7, #6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 9
+
+
+ 245 0024 391D     		adds	r1, r7, #4
+ 246 0026 1288     		ldrh	r2, [r2]
+ 247 0028 0988     		ldrh	r1, [r1]
+ 248 002a 0A40     		ands	r2, r1
+ 249 002c 92B2     		uxth	r2, r2
+ 250 002e 1100     		movs	r1, r2
+ 251 0030 FA68     		ldr	r2, [r7, #12]
+ 252 0032 0A43     		orrs	r2, r1
+ 253 0034 1A60     		str	r2, [r3]
+ 213:Generated_Source\PSoC4/LED_1.c **** }
+ 254              		.loc 1 213 0
+ 255 0036 C046     		nop
+ 256 0038 BD46     		mov	sp, r7
+ 257 003a 04B0     		add	sp, sp, #16
+ 258              		@ sp needed
+ 259 003c 80BD     		pop	{r7, pc}
+ 260              	.L17:
+ 261 003e C046     		.align	2
+ 262              	.L16:
+ 263 0040 0C010440 		.word	1074004236
+ 264              		.cfi_endproc
+ 265              	.LFE4:
+ 266              		.size	LED_1_SetInterruptMode, .-LED_1_SetInterruptMode
+ 267              		.section	.text.LED_1_ClearInterrupt,"ax",%progbits
+ 268              		.align	2
+ 269              		.global	LED_1_ClearInterrupt
+ 270              		.code	16
+ 271              		.thumb_func
+ 272              		.type	LED_1_ClearInterrupt, %function
+ 273              	LED_1_ClearInterrupt:
+ 274              	.LFB5:
+ 214:Generated_Source\PSoC4/LED_1.c **** 
+ 215:Generated_Source\PSoC4/LED_1.c **** 
+ 216:Generated_Source\PSoC4/LED_1.c **** /*******************************************************************************
+ 217:Generated_Source\PSoC4/LED_1.c **** * Function Name: LED_1_ClearInterrupt
+ 218:Generated_Source\PSoC4/LED_1.c **** ****************************************************************************//**
+ 219:Generated_Source\PSoC4/LED_1.c **** *
+ 220:Generated_Source\PSoC4/LED_1.c **** * \brief Clears any active interrupts attached with the component and returns 
+ 221:Generated_Source\PSoC4/LED_1.c **** *  the value of the interrupt status register allowing determination of which
+ 222:Generated_Source\PSoC4/LED_1.c **** *  pins generated an interrupt event.
+ 223:Generated_Source\PSoC4/LED_1.c **** *
+ 224:Generated_Source\PSoC4/LED_1.c **** * \return 
+ 225:Generated_Source\PSoC4/LED_1.c **** *  The right-shifted current value of the interrupt status register. Each pin 
+ 226:Generated_Source\PSoC4/LED_1.c **** *  has one bit set if it generated an interrupt event. For example, bit 0 is 
+ 227:Generated_Source\PSoC4/LED_1.c **** *  for pin 0 and bit 1 is for pin 1 of the Pins component.
+ 228:Generated_Source\PSoC4/LED_1.c **** *  
+ 229:Generated_Source\PSoC4/LED_1.c **** * \sideeffect
+ 230:Generated_Source\PSoC4/LED_1.c **** *  Clears all bits of the physical port's interrupt status register, not just
+ 231:Generated_Source\PSoC4/LED_1.c **** *  those associated with the Pins component.
+ 232:Generated_Source\PSoC4/LED_1.c **** *
+ 233:Generated_Source\PSoC4/LED_1.c **** * \funcusage
+ 234:Generated_Source\PSoC4/LED_1.c **** *  \snippet LED_1_SUT.c usage_LED_1_ClearInterrupt
+ 235:Generated_Source\PSoC4/LED_1.c **** *******************************************************************************/
+ 236:Generated_Source\PSoC4/LED_1.c **** uint8 LED_1_ClearInterrupt(void)
+ 237:Generated_Source\PSoC4/LED_1.c **** {
+ 275              		.loc 1 237 0
+ 276              		.cfi_startproc
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 10
+
+
+ 277              		@ args = 0, pretend = 0, frame = 8
+ 278              		@ frame_needed = 1, uses_anonymous_args = 0
+ 279 0000 80B5     		push	{r7, lr}
+ 280              		.cfi_def_cfa_offset 8
+ 281              		.cfi_offset 7, -8
+ 282              		.cfi_offset 14, -4
+ 283 0002 82B0     		sub	sp, sp, #8
+ 284              		.cfi_def_cfa_offset 16
+ 285 0004 00AF     		add	r7, sp, #0
+ 286              		.cfi_def_cfa_register 7
+ 238:Generated_Source\PSoC4/LED_1.c **** 	uint8 maskedStatus = (uint8)(LED_1_INTSTAT & LED_1_MASK);
+ 287              		.loc 1 238 0
+ 288 0006 094B     		ldr	r3, .L20
+ 289 0008 1B68     		ldr	r3, [r3]
+ 290 000a DAB2     		uxtb	r2, r3
+ 291 000c FB1D     		adds	r3, r7, #7
+ 292 000e 4021     		movs	r1, #64
+ 293 0010 0A40     		ands	r2, r1
+ 294 0012 1A70     		strb	r2, [r3]
+ 239:Generated_Source\PSoC4/LED_1.c **** 	LED_1_INTSTAT = maskedStatus;
+ 295              		.loc 1 239 0
+ 296 0014 054B     		ldr	r3, .L20
+ 297 0016 FA1D     		adds	r2, r7, #7
+ 298 0018 1278     		ldrb	r2, [r2]
+ 299 001a 1A60     		str	r2, [r3]
+ 240:Generated_Source\PSoC4/LED_1.c ****     return maskedStatus >> LED_1_SHIFT;
+ 300              		.loc 1 240 0
+ 301 001c FB1D     		adds	r3, r7, #7
+ 302 001e 1B78     		ldrb	r3, [r3]
+ 303 0020 9B09     		lsrs	r3, r3, #6
+ 304 0022 DBB2     		uxtb	r3, r3
+ 241:Generated_Source\PSoC4/LED_1.c **** }
+ 305              		.loc 1 241 0
+ 306 0024 1800     		movs	r0, r3
+ 307 0026 BD46     		mov	sp, r7
+ 308 0028 02B0     		add	sp, sp, #8
+ 309              		@ sp needed
+ 310 002a 80BD     		pop	{r7, pc}
+ 311              	.L21:
+ 312              		.align	2
+ 313              	.L20:
+ 314 002c 10010440 		.word	1074004240
+ 315              		.cfi_endproc
+ 316              	.LFE5:
+ 317              		.size	LED_1_ClearInterrupt, .-LED_1_ClearInterrupt
+ 318              		.text
+ 319              	.Letext0:
+ 320              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 321              		.section	.debug_info,"",%progbits
+ 322              	.Ldebug_info0:
+ 323 0000 96010000 		.4byte	0x196
+ 324 0004 0400     		.2byte	0x4
+ 325 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 326 000a 04       		.byte	0x4
+ 327 000b 01       		.uleb128 0x1
+ 328 000c 15010000 		.4byte	.LASF28
+ 329 0010 0C       		.byte	0xc
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 11
+
+
+ 330 0011 00000000 		.4byte	.LASF29
+ 331 0015 88000000 		.4byte	.LASF30
+ 332 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 333 001d 00000000 		.4byte	0
+ 334 0021 00000000 		.4byte	.Ldebug_line0
+ 335 0025 02       		.uleb128 0x2
+ 336 0026 01       		.byte	0x1
+ 337 0027 06       		.byte	0x6
+ 338 0028 3E020000 		.4byte	.LASF0
+ 339 002c 02       		.uleb128 0x2
+ 340 002d 01       		.byte	0x1
+ 341 002e 08       		.byte	0x8
+ 342 002f 6F000000 		.4byte	.LASF1
+ 343 0033 02       		.uleb128 0x2
+ 344 0034 02       		.byte	0x2
+ 345 0035 05       		.byte	0x5
+ 346 0036 25020000 		.4byte	.LASF2
+ 347 003a 02       		.uleb128 0x2
+ 348 003b 02       		.byte	0x2
+ 349 003c 07       		.byte	0x7
+ 350 003d 02010000 		.4byte	.LASF3
+ 351 0041 02       		.uleb128 0x2
+ 352 0042 04       		.byte	0x4
+ 353 0043 05       		.byte	0x5
+ 354 0044 35020000 		.4byte	.LASF4
+ 355 0048 02       		.uleb128 0x2
+ 356 0049 04       		.byte	0x4
+ 357 004a 07       		.byte	0x7
+ 358 004b F0000000 		.4byte	.LASF5
+ 359 004f 02       		.uleb128 0x2
+ 360 0050 08       		.byte	0x8
+ 361 0051 05       		.byte	0x5
+ 362 0052 05020000 		.4byte	.LASF6
+ 363 0056 02       		.uleb128 0x2
+ 364 0057 08       		.byte	0x8
+ 365 0058 07       		.byte	0x7
+ 366 0059 E9010000 		.4byte	.LASF7
+ 367 005d 03       		.uleb128 0x3
+ 368 005e 04       		.byte	0x4
+ 369 005f 05       		.byte	0x5
+ 370 0060 696E7400 		.ascii	"int\000"
+ 371 0064 02       		.uleb128 0x2
+ 372 0065 04       		.byte	0x4
+ 373 0066 07       		.byte	0x7
+ 374 0067 DC010000 		.4byte	.LASF8
+ 375 006b 04       		.uleb128 0x4
+ 376 006c 2F020000 		.4byte	.LASF9
+ 377 0070 02       		.byte	0x2
+ 378 0071 E401     		.2byte	0x1e4
+ 379 0073 2C000000 		.4byte	0x2c
+ 380 0077 04       		.uleb128 0x4
+ 381 0078 BD010000 		.4byte	.LASF10
+ 382 007c 02       		.byte	0x2
+ 383 007d E501     		.2byte	0x1e5
+ 384 007f 3A000000 		.4byte	0x3a
+ 385 0083 04       		.uleb128 0x4
+ 386 0084 CD010000 		.4byte	.LASF11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 12
+
+
+ 387 0088 02       		.byte	0x2
+ 388 0089 E601     		.2byte	0x1e6
+ 389 008b 48000000 		.4byte	0x48
+ 390 008f 02       		.uleb128 0x2
+ 391 0090 04       		.byte	0x4
+ 392 0091 04       		.byte	0x4
+ 393 0092 69000000 		.4byte	.LASF12
+ 394 0096 02       		.uleb128 0x2
+ 395 0097 08       		.byte	0x8
+ 396 0098 04       		.byte	0x4
+ 397 0099 A3010000 		.4byte	.LASF13
+ 398 009d 02       		.uleb128 0x2
+ 399 009e 01       		.byte	0x1
+ 400 009f 08       		.byte	0x8
+ 401 00a0 20020000 		.4byte	.LASF14
+ 402 00a4 04       		.uleb128 0x4
+ 403 00a5 1F000000 		.4byte	.LASF15
+ 404 00a9 02       		.byte	0x2
+ 405 00aa 9002     		.2byte	0x290
+ 406 00ac B0000000 		.4byte	0xb0
+ 407 00b0 05       		.uleb128 0x5
+ 408 00b1 83000000 		.4byte	0x83
+ 409 00b5 06       		.uleb128 0x6
+ 410 00b6 AA010000 		.4byte	.LASF16
+ 411 00ba 01       		.byte	0x1
+ 412 00bb 48       		.byte	0x48
+ 413 00bc 00000000 		.4byte	.LFB0
+ 414 00c0 30000000 		.4byte	.LFE0-.LFB0
+ 415 00c4 01       		.uleb128 0x1
+ 416 00c5 9C       		.byte	0x9c
+ 417 00c6 D9000000 		.4byte	0xd9
+ 418 00ca 07       		.uleb128 0x7
+ 419 00cb 00020000 		.4byte	.LASF18
+ 420 00cf 01       		.byte	0x1
+ 421 00d0 48       		.byte	0x48
+ 422 00d1 6B000000 		.4byte	0x6b
+ 423 00d5 02       		.uleb128 0x2
+ 424 00d6 91       		.byte	0x91
+ 425 00d7 77       		.sleb128 -9
+ 426 00d8 00       		.byte	0
+ 427 00d9 06       		.uleb128 0x6
+ 428 00da 4A020000 		.4byte	.LASF17
+ 429 00de 01       		.byte	0x1
+ 430 00df 6F       		.byte	0x6f
+ 431 00e0 00000000 		.4byte	.LFB1
+ 432 00e4 50000000 		.4byte	.LFE1-.LFB1
+ 433 00e8 01       		.uleb128 0x1
+ 434 00e9 9C       		.byte	0x9c
+ 435 00ea 0B010000 		.4byte	0x10b
+ 436 00ee 07       		.uleb128 0x7
+ 437 00ef 51000000 		.4byte	.LASF19
+ 438 00f3 01       		.byte	0x1
+ 439 00f4 6F       		.byte	0x6f
+ 440 00f5 6B000000 		.4byte	0x6b
+ 441 00f9 02       		.uleb128 0x2
+ 442 00fa 91       		.byte	0x91
+ 443 00fb 6F       		.sleb128 -17
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 13
+
+
+ 444 00fc 08       		.uleb128 0x8
+ 445 00fd 56020000 		.4byte	.LASF24
+ 446 0101 01       		.byte	0x1
+ 447 0102 71       		.byte	0x71
+ 448 0103 6B000000 		.4byte	0x6b
+ 449 0107 02       		.uleb128 0x2
+ 450 0108 91       		.byte	0x91
+ 451 0109 77       		.sleb128 -9
+ 452 010a 00       		.byte	0
+ 453 010b 09       		.uleb128 0x9
+ 454 010c 7D000000 		.4byte	.LASF20
+ 455 0110 01       		.byte	0x1
+ 456 0111 88       		.byte	0x88
+ 457 0112 6B000000 		.4byte	0x6b
+ 458 0116 00000000 		.4byte	.LFB2
+ 459 011a 1C000000 		.4byte	.LFE2-.LFB2
+ 460 011e 01       		.uleb128 0x1
+ 461 011f 9C       		.byte	0x9c
+ 462 0120 09       		.uleb128 0x9
+ 463 0121 57000000 		.4byte	.LASF21
+ 464 0125 01       		.byte	0x1
+ 465 0126 A4       		.byte	0xa4
+ 466 0127 6B000000 		.4byte	0x6b
+ 467 012b 00000000 		.4byte	.LFB3
+ 468 012f 1C000000 		.4byte	.LFE3-.LFB3
+ 469 0133 01       		.uleb128 0x1
+ 470 0134 9C       		.byte	0x9c
+ 471 0135 06       		.uleb128 0x6
+ 472 0136 3A000000 		.4byte	.LASF22
+ 473 013a 01       		.byte	0x1
+ 474 013b CF       		.byte	0xcf
+ 475 013c 00000000 		.4byte	.LFB4
+ 476 0140 44000000 		.4byte	.LFE4-.LFB4
+ 477 0144 01       		.uleb128 0x1
+ 478 0145 9C       		.byte	0x9c
+ 479 0146 75010000 		.4byte	0x175
+ 480 014a 07       		.uleb128 0x7
+ 481 014b C4010000 		.4byte	.LASF23
+ 482 014f 01       		.byte	0x1
+ 483 0150 CF       		.byte	0xcf
+ 484 0151 77000000 		.4byte	0x77
+ 485 0155 02       		.uleb128 0x2
+ 486 0156 91       		.byte	0x91
+ 487 0157 6E       		.sleb128 -18
+ 488 0158 07       		.uleb128 0x7
+ 489 0159 00020000 		.4byte	.LASF18
+ 490 015d 01       		.byte	0x1
+ 491 015e CF       		.byte	0xcf
+ 492 015f 77000000 		.4byte	0x77
+ 493 0163 02       		.uleb128 0x2
+ 494 0164 91       		.byte	0x91
+ 495 0165 6C       		.sleb128 -20
+ 496 0166 08       		.uleb128 0x8
+ 497 0167 D4010000 		.4byte	.LASF25
+ 498 016b 01       		.byte	0x1
+ 499 016c D1       		.byte	0xd1
+ 500 016d 83000000 		.4byte	0x83
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 14
+
+
+ 501 0171 02       		.uleb128 0x2
+ 502 0172 91       		.byte	0x91
+ 503 0173 74       		.sleb128 -12
+ 504 0174 00       		.byte	0
+ 505 0175 0A       		.uleb128 0xa
+ 506 0176 25000000 		.4byte	.LASF26
+ 507 017a 01       		.byte	0x1
+ 508 017b EC       		.byte	0xec
+ 509 017c 6B000000 		.4byte	0x6b
+ 510 0180 00000000 		.4byte	.LFB5
+ 511 0184 30000000 		.4byte	.LFE5-.LFB5
+ 512 0188 01       		.uleb128 0x1
+ 513 0189 9C       		.byte	0x9c
+ 514 018a 08       		.uleb128 0x8
+ 515 018b 13020000 		.4byte	.LASF27
+ 516 018f 01       		.byte	0x1
+ 517 0190 EE       		.byte	0xee
+ 518 0191 6B000000 		.4byte	0x6b
+ 519 0195 02       		.uleb128 0x2
+ 520 0196 91       		.byte	0x91
+ 521 0197 77       		.sleb128 -9
+ 522 0198 00       		.byte	0
+ 523 0199 00       		.byte	0
+ 524              		.section	.debug_abbrev,"",%progbits
+ 525              	.Ldebug_abbrev0:
+ 526 0000 01       		.uleb128 0x1
+ 527 0001 11       		.uleb128 0x11
+ 528 0002 01       		.byte	0x1
+ 529 0003 25       		.uleb128 0x25
+ 530 0004 0E       		.uleb128 0xe
+ 531 0005 13       		.uleb128 0x13
+ 532 0006 0B       		.uleb128 0xb
+ 533 0007 03       		.uleb128 0x3
+ 534 0008 0E       		.uleb128 0xe
+ 535 0009 1B       		.uleb128 0x1b
+ 536 000a 0E       		.uleb128 0xe
+ 537 000b 55       		.uleb128 0x55
+ 538 000c 17       		.uleb128 0x17
+ 539 000d 11       		.uleb128 0x11
+ 540 000e 01       		.uleb128 0x1
+ 541 000f 10       		.uleb128 0x10
+ 542 0010 17       		.uleb128 0x17
+ 543 0011 00       		.byte	0
+ 544 0012 00       		.byte	0
+ 545 0013 02       		.uleb128 0x2
+ 546 0014 24       		.uleb128 0x24
+ 547 0015 00       		.byte	0
+ 548 0016 0B       		.uleb128 0xb
+ 549 0017 0B       		.uleb128 0xb
+ 550 0018 3E       		.uleb128 0x3e
+ 551 0019 0B       		.uleb128 0xb
+ 552 001a 03       		.uleb128 0x3
+ 553 001b 0E       		.uleb128 0xe
+ 554 001c 00       		.byte	0
+ 555 001d 00       		.byte	0
+ 556 001e 03       		.uleb128 0x3
+ 557 001f 24       		.uleb128 0x24
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 15
+
+
+ 558 0020 00       		.byte	0
+ 559 0021 0B       		.uleb128 0xb
+ 560 0022 0B       		.uleb128 0xb
+ 561 0023 3E       		.uleb128 0x3e
+ 562 0024 0B       		.uleb128 0xb
+ 563 0025 03       		.uleb128 0x3
+ 564 0026 08       		.uleb128 0x8
+ 565 0027 00       		.byte	0
+ 566 0028 00       		.byte	0
+ 567 0029 04       		.uleb128 0x4
+ 568 002a 16       		.uleb128 0x16
+ 569 002b 00       		.byte	0
+ 570 002c 03       		.uleb128 0x3
+ 571 002d 0E       		.uleb128 0xe
+ 572 002e 3A       		.uleb128 0x3a
+ 573 002f 0B       		.uleb128 0xb
+ 574 0030 3B       		.uleb128 0x3b
+ 575 0031 05       		.uleb128 0x5
+ 576 0032 49       		.uleb128 0x49
+ 577 0033 13       		.uleb128 0x13
+ 578 0034 00       		.byte	0
+ 579 0035 00       		.byte	0
+ 580 0036 05       		.uleb128 0x5
+ 581 0037 35       		.uleb128 0x35
+ 582 0038 00       		.byte	0
+ 583 0039 49       		.uleb128 0x49
+ 584 003a 13       		.uleb128 0x13
+ 585 003b 00       		.byte	0
+ 586 003c 00       		.byte	0
+ 587 003d 06       		.uleb128 0x6
+ 588 003e 2E       		.uleb128 0x2e
+ 589 003f 01       		.byte	0x1
+ 590 0040 3F       		.uleb128 0x3f
+ 591 0041 19       		.uleb128 0x19
+ 592 0042 03       		.uleb128 0x3
+ 593 0043 0E       		.uleb128 0xe
+ 594 0044 3A       		.uleb128 0x3a
+ 595 0045 0B       		.uleb128 0xb
+ 596 0046 3B       		.uleb128 0x3b
+ 597 0047 0B       		.uleb128 0xb
+ 598 0048 27       		.uleb128 0x27
+ 599 0049 19       		.uleb128 0x19
+ 600 004a 11       		.uleb128 0x11
+ 601 004b 01       		.uleb128 0x1
+ 602 004c 12       		.uleb128 0x12
+ 603 004d 06       		.uleb128 0x6
+ 604 004e 40       		.uleb128 0x40
+ 605 004f 18       		.uleb128 0x18
+ 606 0050 9742     		.uleb128 0x2117
+ 607 0052 19       		.uleb128 0x19
+ 608 0053 01       		.uleb128 0x1
+ 609 0054 13       		.uleb128 0x13
+ 610 0055 00       		.byte	0
+ 611 0056 00       		.byte	0
+ 612 0057 07       		.uleb128 0x7
+ 613 0058 05       		.uleb128 0x5
+ 614 0059 00       		.byte	0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 16
+
+
+ 615 005a 03       		.uleb128 0x3
+ 616 005b 0E       		.uleb128 0xe
+ 617 005c 3A       		.uleb128 0x3a
+ 618 005d 0B       		.uleb128 0xb
+ 619 005e 3B       		.uleb128 0x3b
+ 620 005f 0B       		.uleb128 0xb
+ 621 0060 49       		.uleb128 0x49
+ 622 0061 13       		.uleb128 0x13
+ 623 0062 02       		.uleb128 0x2
+ 624 0063 18       		.uleb128 0x18
+ 625 0064 00       		.byte	0
+ 626 0065 00       		.byte	0
+ 627 0066 08       		.uleb128 0x8
+ 628 0067 34       		.uleb128 0x34
+ 629 0068 00       		.byte	0
+ 630 0069 03       		.uleb128 0x3
+ 631 006a 0E       		.uleb128 0xe
+ 632 006b 3A       		.uleb128 0x3a
+ 633 006c 0B       		.uleb128 0xb
+ 634 006d 3B       		.uleb128 0x3b
+ 635 006e 0B       		.uleb128 0xb
+ 636 006f 49       		.uleb128 0x49
+ 637 0070 13       		.uleb128 0x13
+ 638 0071 02       		.uleb128 0x2
+ 639 0072 18       		.uleb128 0x18
+ 640 0073 00       		.byte	0
+ 641 0074 00       		.byte	0
+ 642 0075 09       		.uleb128 0x9
+ 643 0076 2E       		.uleb128 0x2e
+ 644 0077 00       		.byte	0
+ 645 0078 3F       		.uleb128 0x3f
+ 646 0079 19       		.uleb128 0x19
+ 647 007a 03       		.uleb128 0x3
+ 648 007b 0E       		.uleb128 0xe
+ 649 007c 3A       		.uleb128 0x3a
+ 650 007d 0B       		.uleb128 0xb
+ 651 007e 3B       		.uleb128 0x3b
+ 652 007f 0B       		.uleb128 0xb
+ 653 0080 27       		.uleb128 0x27
+ 654 0081 19       		.uleb128 0x19
+ 655 0082 49       		.uleb128 0x49
+ 656 0083 13       		.uleb128 0x13
+ 657 0084 11       		.uleb128 0x11
+ 658 0085 01       		.uleb128 0x1
+ 659 0086 12       		.uleb128 0x12
+ 660 0087 06       		.uleb128 0x6
+ 661 0088 40       		.uleb128 0x40
+ 662 0089 18       		.uleb128 0x18
+ 663 008a 9742     		.uleb128 0x2117
+ 664 008c 19       		.uleb128 0x19
+ 665 008d 00       		.byte	0
+ 666 008e 00       		.byte	0
+ 667 008f 0A       		.uleb128 0xa
+ 668 0090 2E       		.uleb128 0x2e
+ 669 0091 01       		.byte	0x1
+ 670 0092 3F       		.uleb128 0x3f
+ 671 0093 19       		.uleb128 0x19
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 17
+
+
+ 672 0094 03       		.uleb128 0x3
+ 673 0095 0E       		.uleb128 0xe
+ 674 0096 3A       		.uleb128 0x3a
+ 675 0097 0B       		.uleb128 0xb
+ 676 0098 3B       		.uleb128 0x3b
+ 677 0099 0B       		.uleb128 0xb
+ 678 009a 27       		.uleb128 0x27
+ 679 009b 19       		.uleb128 0x19
+ 680 009c 49       		.uleb128 0x49
+ 681 009d 13       		.uleb128 0x13
+ 682 009e 11       		.uleb128 0x11
+ 683 009f 01       		.uleb128 0x1
+ 684 00a0 12       		.uleb128 0x12
+ 685 00a1 06       		.uleb128 0x6
+ 686 00a2 40       		.uleb128 0x40
+ 687 00a3 18       		.uleb128 0x18
+ 688 00a4 9742     		.uleb128 0x2117
+ 689 00a6 19       		.uleb128 0x19
+ 690 00a7 00       		.byte	0
+ 691 00a8 00       		.byte	0
+ 692 00a9 00       		.byte	0
+ 693              		.section	.debug_aranges,"",%progbits
+ 694 0000 44000000 		.4byte	0x44
+ 695 0004 0200     		.2byte	0x2
+ 696 0006 00000000 		.4byte	.Ldebug_info0
+ 697 000a 04       		.byte	0x4
+ 698 000b 00       		.byte	0
+ 699 000c 0000     		.2byte	0
+ 700 000e 0000     		.2byte	0
+ 701 0010 00000000 		.4byte	.LFB0
+ 702 0014 30000000 		.4byte	.LFE0-.LFB0
+ 703 0018 00000000 		.4byte	.LFB1
+ 704 001c 50000000 		.4byte	.LFE1-.LFB1
+ 705 0020 00000000 		.4byte	.LFB2
+ 706 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 707 0028 00000000 		.4byte	.LFB3
+ 708 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 709 0030 00000000 		.4byte	.LFB4
+ 710 0034 44000000 		.4byte	.LFE4-.LFB4
+ 711 0038 00000000 		.4byte	.LFB5
+ 712 003c 30000000 		.4byte	.LFE5-.LFB5
+ 713 0040 00000000 		.4byte	0
+ 714 0044 00000000 		.4byte	0
+ 715              		.section	.debug_ranges,"",%progbits
+ 716              	.Ldebug_ranges0:
+ 717 0000 00000000 		.4byte	.LFB0
+ 718 0004 30000000 		.4byte	.LFE0
+ 719 0008 00000000 		.4byte	.LFB1
+ 720 000c 50000000 		.4byte	.LFE1
+ 721 0010 00000000 		.4byte	.LFB2
+ 722 0014 1C000000 		.4byte	.LFE2
+ 723 0018 00000000 		.4byte	.LFB3
+ 724 001c 1C000000 		.4byte	.LFE3
+ 725 0020 00000000 		.4byte	.LFB4
+ 726 0024 44000000 		.4byte	.LFE4
+ 727 0028 00000000 		.4byte	.LFB5
+ 728 002c 30000000 		.4byte	.LFE5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 18
+
+
+ 729 0030 00000000 		.4byte	0
+ 730 0034 00000000 		.4byte	0
+ 731              		.section	.debug_line,"",%progbits
+ 732              	.Ldebug_line0:
+ 733 0000 B9000000 		.section	.debug_str,"MS",%progbits,1
+ 733      02004200 
+ 733      00000201 
+ 733      FB0E0D00 
+ 733      01010101 
+ 734              	.LASF29:
+ 735 0000 47656E65 		.ascii	"Generated_Source\\PSoC4\\LED_1.c\000"
+ 735      72617465 
+ 735      645F536F 
+ 735      75726365 
+ 735      5C50536F 
+ 736              	.LASF15:
+ 737 001f 72656733 		.ascii	"reg32\000"
+ 737      3200
+ 738              	.LASF26:
+ 739 0025 4C45445F 		.ascii	"LED_1_ClearInterrupt\000"
+ 739      315F436C 
+ 739      65617249 
+ 739      6E746572 
+ 739      72757074 
+ 740              	.LASF22:
+ 741 003a 4C45445F 		.ascii	"LED_1_SetInterruptMode\000"
+ 741      315F5365 
+ 741      74496E74 
+ 741      65727275 
+ 741      70744D6F 
+ 742              	.LASF19:
+ 743 0051 76616C75 		.ascii	"value\000"
+ 743      6500
+ 744              	.LASF21:
+ 745 0057 4C45445F 		.ascii	"LED_1_ReadDataReg\000"
+ 745      315F5265 
+ 745      61644461 
+ 745      74615265 
+ 745      6700
+ 746              	.LASF12:
+ 747 0069 666C6F61 		.ascii	"float\000"
+ 747      7400
+ 748              	.LASF1:
+ 749 006f 756E7369 		.ascii	"unsigned char\000"
+ 749      676E6564 
+ 749      20636861 
+ 749      7200
+ 750              	.LASF20:
+ 751 007d 4C45445F 		.ascii	"LED_1_Read\000"
+ 751      315F5265 
+ 751      616400
+ 752              	.LASF30:
+ 753 0088 433A5C61 		.ascii	"C:\\aixt\\ports\\Cypress\\CY8CKIT-049-42XX\\example"
+ 753      6978745C 
+ 753      706F7274 
+ 753      735C4379 
+ 753      70726573 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 19
+
+
+ 754 00b6 735C436F 		.ascii	"s\\Config_Gral_049.cydsn\\CE230991_My_First_Project"
+ 754      6E666967 
+ 754      5F477261 
+ 754      6C5F3034 
+ 754      392E6379 
+ 755 00e7 30312E63 		.ascii	"01.cydsn\000"
+ 755      7964736E 
+ 755      00
+ 756              	.LASF5:
+ 757 00f0 6C6F6E67 		.ascii	"long unsigned int\000"
+ 757      20756E73 
+ 757      69676E65 
+ 757      6420696E 
+ 757      7400
+ 758              	.LASF3:
+ 759 0102 73686F72 		.ascii	"short unsigned int\000"
+ 759      7420756E 
+ 759      7369676E 
+ 759      65642069 
+ 759      6E7400
+ 760              	.LASF28:
+ 761 0115 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 761      43313120 
+ 761      352E342E 
+ 761      31203230 
+ 761      31363036 
+ 762 0148 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 762      20726576 
+ 762      6973696F 
+ 762      6E203233 
+ 762      37373135 
+ 763 017b 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 763      66756E63 
+ 763      74696F6E 
+ 763      2D736563 
+ 763      74696F6E 
+ 764              	.LASF13:
+ 765 01a3 646F7562 		.ascii	"double\000"
+ 765      6C6500
+ 766              	.LASF16:
+ 767 01aa 4C45445F 		.ascii	"LED_1_SetDriveMode\000"
+ 767      315F5365 
+ 767      74447269 
+ 767      76654D6F 
+ 767      646500
+ 768              	.LASF10:
+ 769 01bd 75696E74 		.ascii	"uint16\000"
+ 769      313600
+ 770              	.LASF23:
+ 771 01c4 706F7369 		.ascii	"position\000"
+ 771      74696F6E 
+ 771      00
+ 772              	.LASF11:
+ 773 01cd 75696E74 		.ascii	"uint32\000"
+ 773      333200
+ 774              	.LASF25:
+ 775 01d4 696E7472 		.ascii	"intrCfg\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccZYYsS0.s 			page 20
+
+
+ 775      43666700 
+ 776              	.LASF8:
+ 777 01dc 756E7369 		.ascii	"unsigned int\000"
+ 777      676E6564 
+ 777      20696E74 
+ 777      00
+ 778              	.LASF7:
+ 779 01e9 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 779      206C6F6E 
+ 779      6720756E 
+ 779      7369676E 
+ 779      65642069 
+ 780              	.LASF18:
+ 781 0200 6D6F6465 		.ascii	"mode\000"
+ 781      00
+ 782              	.LASF6:
+ 783 0205 6C6F6E67 		.ascii	"long long int\000"
+ 783      206C6F6E 
+ 783      6720696E 
+ 783      7400
+ 784              	.LASF27:
+ 785 0213 6D61736B 		.ascii	"maskedStatus\000"
+ 785      65645374 
+ 785      61747573 
+ 785      00
+ 786              	.LASF14:
+ 787 0220 63686172 		.ascii	"char\000"
+ 787      00
+ 788              	.LASF2:
+ 789 0225 73686F72 		.ascii	"short int\000"
+ 789      7420696E 
+ 789      7400
+ 790              	.LASF9:
+ 791 022f 75696E74 		.ascii	"uint8\000"
+ 791      3800
+ 792              	.LASF4:
+ 793 0235 6C6F6E67 		.ascii	"long int\000"
+ 793      20696E74 
+ 793      00
+ 794              	.LASF0:
+ 795 023e 7369676E 		.ascii	"signed char\000"
+ 795      65642063 
+ 795      68617200 
+ 796              	.LASF17:
+ 797 024a 4C45445F 		.ascii	"LED_1_Write\000"
+ 797      315F5772 
+ 797      69746500 
+ 798              	.LASF24:
+ 799 0256 64725661 		.ascii	"drVal\000"
+ 799      6C00
+ 800              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

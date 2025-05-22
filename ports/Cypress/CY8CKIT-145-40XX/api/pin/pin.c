@@ -1,0 +1,1 @@
+#define PIN_WRITE(PIN_NAME, VAL)    PIN_NAME##_Write(VAL)

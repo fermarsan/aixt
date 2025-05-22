@@ -92,3 +92,7 @@ build/* linguist-vendored=true
 # Ignore JSON and TOML files in language statistics
 *.json linguist-vendored=true
 *.toml linguist-vendored=true
+
+
+# Ignore c libraries
+**/clib/** linguist-vendored=true

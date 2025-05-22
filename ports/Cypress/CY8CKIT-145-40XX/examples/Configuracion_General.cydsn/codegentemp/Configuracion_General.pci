@@ -1,9 +1,9 @@
 # Configuracion_General
-#  2023-10-12 00:44:38Z
+# 2025-05-14 23:15:43Z
 
-#  IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
+# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
 dont_use_io iocell 3 2
-#  IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
+# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
 dont_use_io iocell 3 3
 set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
 set_io "\uart:tx(0)\" iocell 3 1
