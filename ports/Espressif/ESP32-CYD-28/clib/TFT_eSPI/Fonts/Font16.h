@@ -1,4 +1,4 @@
-#include <Fonts/Font16.c>
+#include "Font16.c"
 
 #define nr_chrs_f16 96
 #define chr_hgt_f16 16
