@@ -1,4 +1,4 @@
-#include <Fonts/Font7srle.c>
+#include "Font7srle.c"
 
 #define nr_chrs_f7s 96
 #define chr_hgt_f7s 48

@@ -1,4 +1,4 @@
-#include <Fonts/Font72rle.c>
+#include "Font72rle.c"
 
 #define nr_chrs_f72 96
 #define chr_hgt_f72 75

@@ -1,4 +1,4 @@
-#include <Fonts/Font32rle.c>
+#include "Font32rle.c"
 
 #define nr_chrs_f32 96
 #define chr_hgt_f32 26
