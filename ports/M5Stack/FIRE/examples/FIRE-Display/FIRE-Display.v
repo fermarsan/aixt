@@ -19,7 +19,7 @@ lcd.fill_screen(lcd.green)
 time.sleep_ms(500)
 lcd.fill_screen(lcd.blue)
 time.sleep_ms(500)
-lcd.fill_screen(lcd.black)
+lcd.fill_screen(lcd.black)o
 time.sleep_ms(500)
 
 lcd.cursor(10, 10)  // Move the cursor position to (x,y)
