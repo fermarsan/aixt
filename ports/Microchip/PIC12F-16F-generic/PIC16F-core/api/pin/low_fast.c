@@ -1,0 +1,1 @@
+#define LOW_FAST(PORT_NAME, PIN)  PORT##PORT_NAME##PIN = 0
