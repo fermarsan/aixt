@@ -8,10 +8,10 @@ module pin
 
 #include "low_fast.c"
 
-fn C.LOW_FAST(port_name u8, pin_number u8)
+fn C.LOW_FAST(port_name int, pin_number int)
 
 // low_fast puts a logic 1 to a pin faster than the low function
 @[as_macro]
-pub fn low_fast(port_name u8, pin_number u8) {
+pub fn low_fast(port_name int, pin_number int) {
 	C.LOW_FAST(port_name, pin_number)
 }
