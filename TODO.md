@@ -14,7 +14,6 @@ Tasks to do in Aixt
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Implement an equivalent to Arduino's `millis()`
-- [ ] Implements sub-modules
 - [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO
 - [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO
 - [ ] Allow multi-arg functions
@@ -32,6 +31,7 @@ Tasks to do in Aixt
 - [ ] Issue: Calling function from string interpolations including casting
 - [ ] Issue: External interrupts on Arduino backend fails if the pin is not defined as constant
 - [ ] Add `pin.toggle()` function on Arduino Nano, Uno and Mega
+- [ ] Implements sub-modules
 
 
 ### Done ✓make
