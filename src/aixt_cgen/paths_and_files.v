@@ -84,20 +84,6 @@ fn (mut gen Gen) load_lib_mod_paths() {
 	// }
 }
 
-// add_local_sources recursively finds and adds all the source file paths in a given path
-fn (mut gen Gen) add_local_sources(global_path string) {
-	if os.is_file(global_path) {	// only one source code
-		if global_path.ends_with('.v') {
-			gen.source_paths << global_path
-		}
-	} else {
-		paths := os.ls(global_path) or { [] }
-		for path in paths {
-			gen.add_local_sources('${global_path}/${path}')	// recursively find
-		}
-	}
-}
-
 fn (mut gen Gen) used_module_paths(node ast.Import, module_map map[string][]string) []string {
 	mut out := []string{}
 	module_short_name := node.mod.all_after_last('.')
