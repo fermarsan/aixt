@@ -58,7 +58,11 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	api_paths := gen.setup.api_paths
 
 	// add the builtin file first
-	gen.source_paths << '${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v'
+	if os.exists('${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v') {
+		gen.source_paths << '${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v'
+	} else {
+		panic('"builtin.c.v" in have to exist in "${gen.transpiler_path}/ports/${api_paths[0]}/api/"')
+	}
 	// add the source files in the project's main folder
 	gen.add_local_sources(source_path)
 

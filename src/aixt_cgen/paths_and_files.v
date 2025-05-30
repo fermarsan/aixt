@@ -7,6 +7,21 @@ module aixt_cgen
 import os
 import v.ast
 
+// get_files function look for files in a folder recursively
+// returns an array of strings with all tha paths of found files
+fn get_file_paths(path string) []string {
+	mut paths := []string{}
+	dir_content := os.ls(path) or { [] }
+	for item in dir_content {
+		if os.is_dir('${path}/${item}') {
+			paths << get_file_paths('${path}/${item}')
+		} else {
+			paths << '${path}/${item}'
+		}
+	}
+	return paths
+}
+
 // load_api_mod_paths function detects all the modules in API folders
 fn (mut gen Gen) load_api_mod_paths() {
 	// println('API modules:')
