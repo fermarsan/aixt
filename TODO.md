@@ -32,7 +32,7 @@ Tasks to do in Aixt
 - [ ] Issue: Calling function from string interpolations including casting
 - [ ] Issue: External interrupts on Arduino backend fails if the pin is not defined as constant
 - [ ] Add `pin.toggle()` function on Arduino Nano, Uno and Mega
-- [ ] Implement new module `pin_fast` for fast functions
+- [ ] Implement `pin.<function>_fast` functions on `pin` module
 
 
 ### Done ✓make
