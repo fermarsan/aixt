@@ -30,7 +30,12 @@ Tasks to do in Aixt
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 - [ ] Issue: Calling function from string interpolations including casting
+- [ ] Issue: External interrupts on Arduino backend fails if the pin is not defined as constant
+- [ ] Add `pin.toggle()` function on Arduino Nano, Uno and Mega
+
 
 ### Done ✓make
+
+- [x] `pin.<function>_fast` functions on `pin` module implemented
 
 
