@@ -4,14 +4,14 @@
 // License: MIT
 //
 // Description: Pin management functions for 16F family
-module pin
+module fast
 
-#include "write_fast.c"
+#include "write.c"
 
 fn C.WRITE_FAST(port_name int, pin_number int, value u8)
 
-// write_fast puts a logic 1 to a pin faster than the write function
+// write writes a logic value to a pin faster than the regular write function
 @[as_macro]
-pub fn write_fast(port_name int, pin_number int, value u8) {
+pub fn write(port_name int, pin_number int, value u8) {
 	C.WRITE_FAST(port_name, pin_number, value)
 }

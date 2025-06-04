@@ -4,14 +4,14 @@
 // License: MIT
 //
 // Description: Pin management functions for 16F family
-module pin
+module fast
 
-#include "high_fast.c"
+#include "high.c"
 
 fn C.HIGH_FAST(port_name int, pin_number int)
 
-// high_fast puts a logic 1 to a pin faster than the high function
+// high puts a logic 1 to a pin faster than the regular high function
 @[as_macro]
-pub fn high_fast(port_name int, pin_number int) {
+pub fn high(port_name int, pin_number int) {
 	C.HIGH_FAST(port_name, pin_number)
 }

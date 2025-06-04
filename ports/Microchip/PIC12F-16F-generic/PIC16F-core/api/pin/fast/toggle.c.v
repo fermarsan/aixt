@@ -10,7 +10,7 @@ module fast
 
 fn C.TOGGLE_FAST(port_name int, pin_number int)
 
-// toggle puts a logic 1 to a pin faster than the regular toggle function
+// toggle toggles the logic value of a pin faster than the regular toggle function
 @[as_macro]
 pub fn toggle(port_name int, pin_number int) {
 	C.TOGGLE_FAST(port_name, pin_number)

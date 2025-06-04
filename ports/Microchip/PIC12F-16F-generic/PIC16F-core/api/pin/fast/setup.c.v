@@ -4,15 +4,15 @@
 // License: MIT
 //
 // Description: Pin management functions for 16F family
-module pin
+module fast
 
-#include "setup_fast.c"
+#include "setup.c"
 
 fn C.SETUP_FAST(port_name int, pin_number int, mode u8)
 
-// setup configures the mode of a pin
+// setup configures the mode of a pin faster than the regular setup function
 @[as_macro]
-pub fn setup_fast(port_name int, pin_number int, mode u8) {
+pub fn setup(port_name int, pin_number int, mode u8) {
 	C.SETUP_FAST(port_name, pin_number, mode)
 
 }

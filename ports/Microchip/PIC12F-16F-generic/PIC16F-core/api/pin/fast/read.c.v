@@ -4,14 +4,14 @@
 // License: MIT
 //
 // Description: Pin management functions for 16F family
-module pin
+module fast
 
-#include "read_fast.c"
+#include "read.c"
 
 fn C.READ_FAST(port_name int, pin_number int) u8
 
-// read_fast puts a logic 1 to a pin faster than the read function
+// read reads the logic value of a pin faster than the regular read function
 @[as_macro]
-pub fn read_fast(port_name int, pin_number int) u8 {
+pub fn read(port_name int, pin_number int) u8 {
 	return C.READ_FAST(port_name, pin_number)
 }

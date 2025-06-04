@@ -10,11 +10,11 @@ import pin.fast
 const cpu_freq = 20_000_000 // 20 Mhz
 // const cpu_freq = 10_000_000	// 4 Mhz
 
-pin.setup_fast(pin.port_b, 4, pin.output)
+fast.setup(pin.port_b, 4, pin.output)
 // pin.low_fast(pin.port_b, 4)
 
 for {
-	pin.high_fast(pin.port_b, 4)
+	fast.high(pin.port_b, 4)
 	time.sleep_ms(250)
 	// pin.low_fast(pin.port_b, 4)
 	fast.toggle(pin.port_b, 4)
