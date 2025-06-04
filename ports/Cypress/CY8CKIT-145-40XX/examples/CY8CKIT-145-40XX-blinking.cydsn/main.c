@@ -24,6 +24,8 @@ typedef char rune;
 #define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000
 #define _const_main__cpu_freq  20000000
 
+#include "project.h"
+
 #define INIT_INTERRUPTS()   CyGlobalIntEnable
 
 void  main__init();
