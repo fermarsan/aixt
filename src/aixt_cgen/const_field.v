@@ -22,7 +22,7 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
 	mut ref, mut var_type := gen.get_str_c_type(node.typ, true)
-	println('>>>>>>>>>>>>>>>>>> ${ref} , ${var_type} <<<<<<<<<<<<<<<<<<')
+	// println('>>>>>>>>>>>>>>>>>> ${ref} , ${var_type} <<<<<<<<<<<<<<<<<<')
 
 	if node.name.contains('cpu_freq') {
 		gen.cpu_freq_defined = true

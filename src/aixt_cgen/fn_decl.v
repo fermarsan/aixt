@@ -10,7 +10,8 @@ import v.ast
 
 // fn_decl is the code generation function for the function declaration statement.
 fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
-	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
+	println('>>>>>>>>>>>>>>>>>> ${node.short_name} <<<<<<<<<<<<<<<<<<')
+	println('>>>>>>>>>>>>>>>>>> ${node.mod} <<<<<<<<<<<<<<<<<<')
 	mut out := ['\n']
 	mut attrs := if node.attrs.len == 0 { '' } else { node.attrs[0].name }
 	mut ret, mut ret_type := '', ''

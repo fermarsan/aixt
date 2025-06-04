@@ -37,5 +37,6 @@ Tasks to do in Aixt
 ### Done ✓make
 
 - [x] `pin.<function>_fast` functions on `pin` module implemented
+- [x] Generate the `arduino-ARM32` subfolder 
 
 

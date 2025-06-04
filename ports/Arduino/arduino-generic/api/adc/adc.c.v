@@ -7,4 +7,3 @@
 module adc
 
 fn C.analogRead(name u8) u16
-fn C.analogReadResolution(res any)	

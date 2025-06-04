@@ -19,6 +19,7 @@ fn (mut gen Gen) string_inter_literal(node ast.StringInterLiteral) []string {
 
 	// println('............. ${gen.setup.value('backend').str()} .............')	
 	len := gen.setup.default_string_len
+	println('>>>>>>>>>>>>>>>>>> setup: ${gen.setup} <<<<<<<<<<<<<<<<<<')
 	if gen.setup.backend != 'nxc' {
 		gen.add_include('stdio.h')
 		gen.add_definition('char __temp_str[${len}];')

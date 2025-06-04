@@ -9,7 +9,7 @@
 
     "flasher_linux":    "arduino-cli",
     "flasher_windows":  "arduino-cli.exe",
-	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b arduino:avr:nano",
+	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b arduino:avr:mega",
 
     "api_paths": [
         "Arduino/Arduino-Mega",
@@ -22,7 +22,7 @@
     ],
 
     "default_cpu_freq": 16000000,
-    "string_default_len": 50,
+    "string_default_len": 111,
 
     "compiler_setup_path": "setup/arduino8.json"
 }
