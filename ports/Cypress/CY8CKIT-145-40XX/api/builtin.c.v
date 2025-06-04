@@ -10,30 +10,27 @@
 //              (CY8CKIT-145-40XX)
 
 #include <stdint.h>
+#include <stdbool.h>
 #include "builtin.c"
 
 fn C.INIT_INTERRUPTS() 
 
 
-@[as_macro] pub const led1 = 0
-@[as_macro] pub const _led2 = 1
-@[as_macro] pub const _led3 = 2
-@[as_macro] pub const led4 = 3
-@[as_macro] pub const led5 = 4
-@[as_macro] pub const led6 = 5
-@[as_macro] pub const led7 = 6
-@[as_macro] pub const led8 = 7
-@[as_macro] pub const led9 = 8
-@[as_macro] pub const led10 = 9
-@[as_macro] pub const led11 = 10
-@[as_macro] pub const _led12 = 11
+@[as_macro] pub const led_1 = C.led1
+@[as_macro] pub const led_4 = C.led4
+@[as_macro] pub const led_5 = C.led5
+@[as_macro] pub const led_6 = C.led6
+@[as_macro] pub const led_7 = C.led7
+@[as_macro] pub const led_8 = C.led8
+@[as_macro] pub const led_9 = C.led9
+@[as_macro] pub const led_10 =C.led10
+@[as_macro] pub const led_11 =C.led11
 @[as_macro] pub const do0 = 12
 @[as_macro] pub const do1 = 13
 @[as_macro] pub const do2 = 14
 @[as_macro] pub const pwm_1 = 15
 @[as_macro] pub const pwm_2 = 16
 @[as_macro] pub const pwm_3 = 17
-@[as_macro] pub const _sw1 = 18
 @[as_macro] pub const sw2 = 19
 @[as_macro] pub const di0 = 20
 @[as_macro] pub const di1 = 21
@@ -48,19 +45,20 @@ fn C.INIT_INTERRUPTS()
 @[as_macro] pub const sld4 = 30
 
 // enum __pin_names {
-// led1,
-// _led2,
-// _led3,
-// led4,
-// led5,
-// led6,
-// led7,
-// led8,
-// led9,
-// led10,
-// led11,
-// _led12,
-// do0,
+// led_1,
+//led _led_2,
+//led _led_3,
+//led led_4,
+//led led_5,
+//led led_6,
+//led led_7,
+//led led_8,
+//led led_9,
+//led led_10,
+//led led_11,
+//led led_11,
+//led _led_12,
+//led do0,
 // do1,
 // do2,
 // pwm_1,
