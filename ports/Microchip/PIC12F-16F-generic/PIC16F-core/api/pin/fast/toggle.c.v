@@ -4,14 +4,14 @@
 // License: MIT
 //
 // Description: Pin management functions for 16F family
-module pin
+module fast
 
-#include "toggle_fast.c"
+#include "toggle.c"
 
 fn C.TOGGLE_FAST(port_name int, pin_number int)
 
-// toggle_fast puts a logic 1 to a pin faster than the toggle function
+// toggle puts a logic 1 to a pin faster than the regular toggle function
 @[as_macro]
-pub fn toggle_fast(port_name int, pin_number int) {
+pub fn toggle(port_name int, pin_number int) {
 	C.TOGGLE_FAST(port_name, pin_number)
 }
