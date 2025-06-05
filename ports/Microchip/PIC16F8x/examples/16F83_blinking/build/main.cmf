@@ -1,0 +1,207 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+end_init CODE 0 0 0 1 2 1
+config CONFIG 4 2007 2007 1 2 1
+$build\main.o
+cinit CODE 0 1FE 1FE 2 2 1
+maintext CODE 0 1E9 1E9 15 2 1
+cstackBANK0 BANK0 1 C C 3 1 1
+config CONFIG 4 2007 2007 1 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM F-2D 1
+BANK0 F-2D 1
+CONST 1-1E8 2
+ENTRY 1-1E8 2
+IDLOC 2000-2003 2
+CODE 1-1E8 2
+SFR0 0-B 1
+SFR1 80-AD 1
+EEDATA 2100-213F 2
+STRCODE 1-1E8 2
+STRING 1-1E8 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$build\main.o
+1FE cinit CODE >172:C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_1.s
+1FE cinit CODE >175:C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_1.s
+1FE cinit CODE >181:C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_1.s
+1FE cinit CODE >183:C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_1.s
+1FF cinit CODE >184:C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_1.s
+1E9 maintext CODE >137:C:\Users\USUARIO\repos\aixt_proyecto\ports\Microchip\PIC16F8x\examples\16F83_blinking\main.c
+1E9 maintext CODE >138:C:\Users\USUARIO\repos\aixt_proyecto\ports\Microchip\PIC16F8x\examples\16F83_blinking\main.c
+1EC maintext CODE >139:C:\Users\USUARIO\repos\aixt_proyecto\ports\Microchip\PIC16F8x\examples\16F83_blinking\main.c
+1EC maintext CODE >140:C:\Users\USUARIO\repos\aixt_proyecto\ports\Microchip\PIC16F8x\examples\16F83_blinking\main.c
+1EF maintext CODE >141:C:\Users\USUARIO\repos\aixt_proyecto\ports\Microchip\PIC16F8x\examples\16F83_blinking\main.c
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 0 0 ABS 0 - build\main.o
+__Hspace_0 200 0 ABS 0 - -
+__Hspace_1 F 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 400F 0 ABS 0 - -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__L__absolute__ 0 0 ABS 0 __absolute__ -
+__Hstrings 0 0 ABS 0 strings -
+___sp 0 0 STACK 2 stack C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+_main 3D2 0 CODE 0 maintext build\main.o
+btemp 2E 0 ABS 0 - build\main.o
+___stack_hi 0 0 STACK 2 stack C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+___stack_lo 0 0 STACK 2 stack C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+start 0 0 CODE 0 init C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+__Hpowerup 0 0 CODE 0 powerup -
+intlevel0 0 0 ENTRY 0 functab C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+wtemp0 2E 0 ABS 0 - build\main.o
+__Hfunctab 0 0 ENTRY 0 functab -
+__Hclrtext 0 0 ABS 0 clrtext -
+__Lmaintext 0 0 ABS 0 maintext -
+___stackhi 0 0 ABS 0 - C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+___stacklo 0 0 ABS 0 - C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+start_initialization 3FC 0 CODE 0 cinit build\main.o
+__pcstackBANK0 C 0 BANK0 1 cstackBANK0 build\main.o
+___int_sp 0 0 STACK 2 stack C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 BANK1 1 bank1 -
+__Hcinit 400 0 CODE 0 cinit -
+__Hstack 0 0 STACK 2 stack -
+__Hmaintext 0 0 ABS 0 maintext -
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 4010 0 CONFIG 4 config -
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 BANK1 1 bank1 -
+__Lcinit 3FC 0 CODE 0 cinit -
+__Lstack 0 0 STACK 2 stack -
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hheap 0 0 HEAP 7 heap -
+__Hinit 0 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsivt 0 0 CODE 0 sivt -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Lheap 0 0 HEAP 7 heap -
+__Linit 0 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsivt 0 0 CODE 0 sivt -
+__Ltext 0 0 ABS 0 text -
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__S0 200 0 ABS 0 - -
+__S1 F 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__Lintentry 0 0 CODE 0 intentry -
+reset_vec 0 0 CODE 0 reset_vec C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+__pmaintext 3D2 0 CODE 0 maintext build\main.o
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 4 config -
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__Lend_init 0 0 CODE 0 end_init -
+end_of_initialization 3FC 0 CODE 0 cinit build\main.o
+__Hintentry 0 0 CODE 0 intentry -
+__Lstrings 0 0 ABS 0 strings -
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__H__absolute__ 0 0 ABS 0 __absolute__ -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+___heap_hi 0 0 ABS 0 - C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+__end_of__initialization 3FC 0 CODE 0 cinit build\main.o
+__Lfunctab 0 0 ENTRY 0 functab -
+__Lclrtext 0 0 ABS 0 clrtext -
+__Hend_init 2 0 CODE 0 end_init -
+__end_of_main 3FC 0 CODE 0 maintext build\main.o
+_PORTA 5 0 ABS 0 - build\main.o
+_TRISA 85 0 ABS 0 - build\main.o
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__initialization 3FC 0 CODE 0 cinit build\main.o
+___int_stack_hi 0 0 STACK 2 stack C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+___int_stack_lo 0 0 STACK 2 stack C:\Users\USUARIO\AppData\Local\Temp\xcAsb64.\driver_tmp_12.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 2E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 1FE 3FC 2 2
+maintext 0 1E9 3D2 15 2
+cstackBANK0 1 C C 3 1
+reset_vec 0 0 0 1 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

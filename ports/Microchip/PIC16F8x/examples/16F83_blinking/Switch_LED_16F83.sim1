@@ -1,6 +1,6 @@
 <circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
-<item itemtype="MCU" CircId="p16F83-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-60,-116" rotation="0" hflip="1" vflip="1" label="p16F83-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="4 MHz" Program="16F83_inverter/build/main.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" />
+<item itemtype="MCU" CircId="p16F83-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-60,-116" rotation="0" hflip="1" vflip="1" label="p16F83-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="4 MHz" Program="build/main.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" />
 
 <item itemtype="Resistor" CircId="Resistor-8" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="12,-44" rotation="0" hflip="1" vflip="1" label="Resistor-8" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="330 Ω" />
 
