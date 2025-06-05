@@ -38,6 +38,6 @@ Tasks to do in Aixt
 
 - [x] `pin.<function>_fast` functions on `pin` module implemented
 - [x] Generate the `arduino-ARM32` subfolder 
-- [x] Change aixt transpiler as a module with submodules
+- [x] Change the Aixt transpiler to a module with submodules
 
 
