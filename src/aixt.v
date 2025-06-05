@@ -7,8 +7,8 @@ module main
 
 // Aixt transpiler
 import os
-import aixt_setup
-import aixt_build
+import aixt.setup
+import aixt.build
 
 // main function for Aixt transpiler.
 // Usage:
@@ -42,17 +42,17 @@ fn main() {
 				} else {
 					mut device, input_name := os.args[2], os.abs_path(os.args[3]) // device name and source path input
 					base_name := input_name.replace('.v', '') // input file base name
-					mut setup := aixt_setup.Setup{}
-					setup.load(device, aixt_path)
-					// println('++++++++++++++++\n${setup}\n++++++++++++++++')
+					mut project_setup := setup.Setup{}
+					project_setup.load(device, aixt_path)
+					// println('++++++++++++++++\n${project_setup}\n++++++++++++++++')
 					match command {
 						'transpile', '-t' {
-							aixt_build.transpile_file(input_name, setup, aixt_path)
+							build.transpile_file(input_name, project_setup, aixt_path)
 							println('\n${input_name} transpiling finished.\n')
 						}
 						'compile', '-c' {
-							aixt_build.compile_file(base_name, setup)
-							ext := match setup.backend {
+							build.compile_file(base_name, project_setup)
+							ext := match project_setup.backend {
 								'nxc' { 'nxc' }
 								'arduino' { 'ino' }
 								else { 'c' }
@@ -61,20 +61,20 @@ fn main() {
 						}
 						'flash', '-f' {
 							port := os.args[4] or { 'Undefined flashing port.' }
-							ext := match setup.backend {
+							ext := match project_setup.backend {
 								'nxc' { '' }
 								'arduino' { '' }
 								else { 'hex' }
 							}
 							name := if ext == '' { base_name } else { '${base_name}.${ext}' }
-							aixt_build.flash_file(name, port, setup)
+							build.flash_file(name, port, project_setup)
 							println('\n${name} flashing finished.\n')
 						}
 						'build', '-b' {
-							aixt_build.transpile_file(input_name, setup, aixt_path)
+							build.transpile_file(input_name, project_setup, aixt_path)
 							println('\n${input_name} transpiling finished.\n')
-							aixt_build.compile_file(base_name, setup)
-							ext := match setup.backend {
+							build.compile_file(base_name, project_setup)
+							ext := match project_setup.backend {
 								'nxc' { 'nxc' }
 								'arduino' { 'ino' }
 								else { 'c' }
@@ -113,9 +113,9 @@ fn main() {
 								os.mkdir('${path}/${name}') or { panic(err) }
 							}
 							// os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
-							os.cp_all('${aixt_path}/templates/project/${setup.port}/',
+							os.cp_all('${aixt_path}/templates/project/${project_setup.port}/',
 								'${path}/${name}/', true) or { panic(err) }
-							if setup.backend == 'arduino' { // arduino-cli sketch name requirement
+							if project_setup.backend == 'arduino' { // arduino-cli sketch name requirement
 								os.rename('${path}/${name}/main.v', '${path}/${name}/${name}.v') or {
 									panic(err)
 								}

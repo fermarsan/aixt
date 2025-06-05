@@ -1,1 +1,0 @@
-strcpy(@var_name, @var_value);

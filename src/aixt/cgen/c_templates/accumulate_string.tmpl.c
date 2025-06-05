@@ -1,0 +1,1 @@
+strcat(@var_name, @var_value);

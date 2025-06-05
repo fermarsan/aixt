@@ -4,13 +4,13 @@ Aixt project has the follow general folder tree:
 ```
 aixt/    
     ├── src
-    │   ├── aixt_build
+    │   ├── aixt.build
     │   :   :
     │   │   └── builder.v
-    │   ├── aixt_setup
+    │   ├── aixt.setup
     │   :   :
     │   │   └── setup.v
-    │   ├── aixt_cgen
+    │   ├── aixt.cgen
     │   │   ├── assign.v
     │   │   ├── call.v
     │   :   :

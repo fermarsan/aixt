@@ -1,1 +1,0 @@
-@{init_or_name}[@{index_name}] = @{var_name};

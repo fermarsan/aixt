@@ -1,0 +1,1 @@
+#define @{name}(@names) @stmt
