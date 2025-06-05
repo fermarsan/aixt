@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
   28:Generated_Source\PSoC4/clock.c **** * Summary:
   29:Generated_Source\PSoC4/clock.c **** *  Starts the clock, aligned to the specified running clock.
   30:Generated_Source\PSoC4/clock.c **** *
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 2
 
 
   31:Generated_Source\PSoC4/clock.c **** * Parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
   60              		.align	2
   61              		.global	clock_Stop
   62              		.code	16
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 3
 
 
   63              		.thumb_func
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
   72              	.L6:
   97:Generated_Source\PSoC4/clock.c **** #if defined CYREG_PERI_DIV_CMD
   98:Generated_Source\PSoC4/clock.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 4
 
 
   99:Generated_Source\PSoC4/clock.c ****     /* Make sure any previous start command has finished. */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  125:Generated_Source\PSoC4/clock.c **** * Parameters:
  126:Generated_Source\PSoC4/clock.c **** *  clkDivider:  Divider register value (0-65535). This value is NOT the
  127:Generated_Source\PSoC4/clock.c **** *    divider; the clock hardware divides by clkDivider plus one. For example,
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 5
 
 
  128:Generated_Source\PSoC4/clock.c **** *    to divide the clock by 2, this parameter should be set to 1.
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  151:Generated_Source\PSoC4/clock.c ****     maskVal = clock_DIV_REG & (uint32)(~(uint32)clock__DIVIDER_MASK);
  152:Generated_Source\PSoC4/clock.c ****     /* combine mask and new divider val into 32-bit value */
  153:Generated_Source\PSoC4/clock.c ****     regVal = clkDivider | maskVal;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 6
 
 
  154:Generated_Source\PSoC4/clock.c ****     
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  159 0006 80B2     		uxth	r0, r0
  179:Generated_Source\PSoC4/clock.c ****         >> clock_DIV_INT_SHIFT);
  180:Generated_Source\PSoC4/clock.c **** }
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 7
 
 
  160              		.loc 1 180 0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  187              		.cfi_endproc
  188              	.LFE4:
  189              		.size	clock_GetFractionalDividerRegister, .-clock_GetFractionalDividerRegister
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 8
 
 
  190              		.text
@@ -431,17 +431,17 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  197 0006 00000000 		.4byte	.Ldebug_abbrev0
  198 000a 04       		.byte	0x4
  199 000b 01       		.uleb128 0x1
- 200 000c 9C010000 		.4byte	.LASF25
+ 200 000c A1010000 		.4byte	.LASF25
  201 0010 0C       		.byte	0xc
- 202 0011 51010000 		.4byte	.LASF26
- 203 0015 22000000 		.4byte	.LASF27
+ 202 0011 56010000 		.4byte	.LASF26
+ 203 0015 B3000000 		.4byte	.LASF27
  204 0019 00000000 		.4byte	.Ldebug_ranges0+0
  205 001d 00000000 		.4byte	0
  206 0021 00000000 		.4byte	.Ldebug_line0
  207 0025 02       		.uleb128 0x2
  208 0026 01       		.byte	0x1
  209 0027 06       		.byte	0x6
- 210 0028 2E020000 		.4byte	.LASF0
+ 210 0028 33020000 		.4byte	.LASF0
  211 002c 02       		.uleb128 0x2
  212 002d 01       		.byte	0x1
  213 002e 08       		.byte	0x8
@@ -449,27 +449,27 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  215 0033 02       		.uleb128 0x2
  216 0034 02       		.byte	0x2
  217 0035 05       		.byte	0x5
- 218 0036 83010000 		.4byte	.LASF2
+ 218 0036 88010000 		.4byte	.LASF2
  219 003a 02       		.uleb128 0x2
  220 003b 02       		.byte	0x2
  221 003c 07       		.byte	0x7
- 222 003d 84000000 		.4byte	.LASF3
+ 222 003d 34000000 		.4byte	.LASF3
  223 0041 02       		.uleb128 0x2
  224 0042 04       		.byte	0x4
  225 0043 05       		.byte	0x5
- 226 0044 93010000 		.4byte	.LASF4
+ 226 0044 98010000 		.4byte	.LASF4
  227 0048 02       		.uleb128 0x2
  228 0049 04       		.byte	0x4
  229 004a 07       		.byte	0x7
- 230 004b 72000000 		.4byte	.LASF5
+ 230 004b 22000000 		.4byte	.LASF5
  231 004f 02       		.uleb128 0x2
  232 0050 08       		.byte	0x8
  233 0051 05       		.byte	0x5
- 234 0052 70010000 		.4byte	.LASF6
+ 234 0052 75010000 		.4byte	.LASF6
  235 0056 02       		.uleb128 0x2
  236 0057 08       		.byte	0x8
  237 0058 07       		.byte	0x7
- 238 0059 3A010000 		.4byte	.LASF7
+ 238 0059 3F010000 		.4byte	.LASF7
  239 005d 03       		.uleb128 0x3
  240 005e 04       		.byte	0x4
  241 005f 05       		.byte	0x5
@@ -477,22 +477,22 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  243 0064 02       		.uleb128 0x2
  244 0065 04       		.byte	0x4
  245 0066 07       		.byte	0x7
- 246 0067 2D010000 		.4byte	.LASF8
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 9
+ 246 0067 32010000 		.4byte	.LASF8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 9
 
 
  247 006b 04       		.uleb128 0x4
- 248 006c 8D010000 		.4byte	.LASF9
+ 248 006c 92010000 		.4byte	.LASF9
  249 0070 02       		.byte	0x2
  250 0071 FC01     		.2byte	0x1fc
  251 0073 2C000000 		.4byte	0x2c
  252 0077 04       		.uleb128 0x4
- 253 0078 F1000000 		.4byte	.LASF10
+ 253 0078 A1000000 		.4byte	.LASF10
  254 007c 02       		.byte	0x2
  255 007d FD01     		.2byte	0x1fd
  256 007f 3A000000 		.4byte	0x3a
  257 0083 04       		.uleb128 0x4
- 258 0084 03010000 		.4byte	.LASF11
+ 258 0084 08010000 		.4byte	.LASF11
  259 0088 02       		.byte	0x2
  260 0089 FE01     		.2byte	0x1fe
  261 008b 48000000 		.4byte	0x48
@@ -503,11 +503,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  266 0096 02       		.uleb128 0x2
  267 0097 08       		.byte	0x8
  268 0098 04       		.byte	0x4
- 269 0099 A2000000 		.4byte	.LASF13
+ 269 0099 52000000 		.4byte	.LASF13
  270 009d 02       		.uleb128 0x2
  271 009e 01       		.byte	0x1
  272 009f 08       		.byte	0x8
- 273 00a0 7E010000 		.4byte	.LASF14
+ 273 00a0 83010000 		.4byte	.LASF14
  274 00a4 04       		.uleb128 0x4
  275 00a5 00000000 		.4byte	.LASF15
  276 00a9 02       		.byte	0x2
@@ -516,7 +516,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  279 00b0 05       		.uleb128 0x5
  280 00b1 83000000 		.4byte	0x83
  281 00b5 06       		.uleb128 0x6
- 282 00b6 E3000000 		.4byte	.LASF16
+ 282 00b6 93000000 		.4byte	.LASF16
  283 00ba 01       		.byte	0x1
  284 00bb 27       		.byte	0x27
  285 00bc 00000000 		.4byte	.LFB0
@@ -525,25 +525,25 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  288 00c5 9C       		.byte	0x9c
  289 00c6 DA000000 		.4byte	0xda
  290 00ca 07       		.uleb128 0x7
- 291 00cb B0000000 		.4byte	.LASF18
+ 291 00cb 60000000 		.4byte	.LASF18
  292 00cf 01       		.byte	0x1
  293 00d0 27       		.byte	0x27
  294 00d1 83000000 		.4byte	0x83
  295 00d5 00000000 		.4byte	.LLST0
  296 00d9 00       		.byte	0
  297 00da 08       		.uleb128 0x8
- 298 00db F8000000 		.4byte	.LASF28
+ 298 00db A8000000 		.4byte	.LASF28
  299 00df 01       		.byte	0x1
  300 00e0 5F       		.byte	0x5f
  301 00e1 00000000 		.4byte	.LFB1
  302 00e5 18000000 		.4byte	.LFE1-.LFB1
  303 00e9 01       		.uleb128 0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 10
 
 
  304 00ea 9C       		.byte	0x9c
  305 00eb 06       		.uleb128 0x6
- 306 00ec 0A010000 		.4byte	.LASF17
+ 306 00ec 0F010000 		.4byte	.LASF17
  307 00f0 01       		.byte	0x1
  308 00f1 86       		.byte	0x86
  309 00f2 00000000 		.4byte	.LFB2
@@ -552,13 +552,13 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  312 00fb 9C       		.byte	0x9c
  313 00fc 3B010000 		.4byte	0x13b
  314 0100 07       		.uleb128 0x7
- 315 0101 97000000 		.4byte	.LASF19
+ 315 0101 47000000 		.4byte	.LASF19
  316 0105 01       		.byte	0x1
  317 0106 86       		.byte	0x86
  318 0107 77000000 		.4byte	0x77
  319 010b 21000000 		.4byte	.LLST1
  320 010f 07       		.uleb128 0x7
- 321 0110 BC000000 		.4byte	.LASF20
+ 321 0110 6C000000 		.4byte	.LASF20
  322 0114 01       		.byte	0x1
  323 0115 86       		.byte	0x86
  324 0116 6B000000 		.4byte	0x6b
@@ -570,7 +570,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  330 0125 83000000 		.4byte	0x83
  331 0129 63000000 		.4byte	.LLST3
  332 012d 0A       		.uleb128 0xa
- 333 012e A9000000 		.4byte	.LASF22
+ 333 012e 59000000 		.4byte	.LASF22
  334 0132 01       		.byte	0x1
  335 0133 89       		.byte	0x89
  336 0134 83000000 		.4byte	0x83
@@ -578,7 +578,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  338 0139 51       		.byte	0x51
  339 013a 00       		.byte	0
  340 013b 0B       		.uleb128 0xb
- 341 013c CA000000 		.4byte	.LASF23
+ 341 013c 7A000000 		.4byte	.LASF23
  342 0140 01       		.byte	0x1
  343 0141 B0       		.byte	0xb0
  344 0142 77000000 		.4byte	0x77
@@ -587,7 +587,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  347 014e 01       		.uleb128 0x1
  348 014f 9C       		.byte	0x9c
  349 0150 0B       		.uleb128 0xb
- 350 0151 3A020000 		.4byte	.LASF24
+ 350 0151 3F020000 		.4byte	.LASF24
  351 0155 01       		.byte	0x1
  352 0156 C6       		.byte	0xc6
  353 0157 6B000000 		.4byte	0x6b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  358 0165 00       		.byte	0
  359              		.section	.debug_abbrev,"",%progbits
  360              	.Ldebug_abbrev0:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 11
 
 
  361 0000 01       		.uleb128 0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  415 0036 05       		.uleb128 0x5
  416 0037 35       		.uleb128 0x35
  417 0038 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 12
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 12
 
 
  418 0039 49       		.uleb128 0x49
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  472 0070 0B       		.uleb128 0xb
  473 0071 27       		.uleb128 0x27
  474 0072 19       		.uleb128 0x19
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 13
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 13
 
 
  475 0073 11       		.uleb128 0x11
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  529 00aa 13       		.uleb128 0x13
  530 00ab 11       		.uleb128 0x11
  531 00ac 01       		.uleb128 0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 14
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 14
 
 
  532 00ad 12       		.uleb128 0x12
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  586 0063 0A000000 		.4byte	.LVL3
  587 0067 10000000 		.4byte	.LVL5
  588 006b 0100     		.2byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 15
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 15
 
 
  589 006d 53       		.byte	0x53
@@ -898,143 +898,143 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 1
  636 0014 756E7369 		.ascii	"unsigned char\000"
  636      676E6564 
  636      20636861 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 16
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 16
 
 
  636      7200
- 637              	.LASF27:
- 638 0022 433A5C61 		.ascii	"C:\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\example"
- 638      6978745C 
- 638      706F7274 
- 638      735C4379 
- 638      70726573 
- 639 0050 735C4359 		.ascii	"s\\CY8CKIT-145-40XX-blinking.cydsn\000"
- 639      38434B49 
- 639      542D3134 
- 639      352D3430 
- 639      58582D62 
- 640              	.LASF5:
- 641 0072 6C6F6E67 		.ascii	"long unsigned int\000"
- 641      20756E73 
- 641      69676E65 
- 641      6420696E 
- 641      7400
- 642              	.LASF3:
- 643 0084 73686F72 		.ascii	"short unsigned int\000"
- 643      7420756E 
- 643      7369676E 
- 643      65642069 
- 643      6E7400
- 644              	.LASF19:
- 645 0097 636C6B44 		.ascii	"clkDivider\000"
- 645      69766964 
- 645      657200
- 646              	.LASF13:
- 647 00a2 646F7562 		.ascii	"double\000"
- 647      6C6500
- 648              	.LASF22:
- 649 00a9 72656756 		.ascii	"regVal\000"
- 649      616C00
- 650              	.LASF18:
- 651 00b0 616C6967 		.ascii	"alignClkDiv\000"
- 651      6E436C6B 
- 651      44697600 
- 652              	.LASF20:
- 653 00bc 636C6B46 		.ascii	"clkFractional\000"
- 653      72616374 
- 653      696F6E61 
- 653      6C00
- 654              	.LASF23:
- 655 00ca 636C6F63 		.ascii	"clock_GetDividerRegister\000"
- 655      6B5F4765 
- 655      74446976 
- 655      69646572 
- 655      52656769 
- 656              	.LASF16:
- 657 00e3 636C6F63 		.ascii	"clock_StartEx\000"
- 657      6B5F5374 
- 657      61727445 
- 657      7800
- 658              	.LASF10:
- 659 00f1 75696E74 		.ascii	"uint16\000"
- 659      313600
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 17
+ 637              	.LASF5:
+ 638 0022 6C6F6E67 		.ascii	"long unsigned int\000"
+ 638      20756E73 
+ 638      69676E65 
+ 638      6420696E 
+ 638      7400
+ 639              	.LASF3:
+ 640 0034 73686F72 		.ascii	"short unsigned int\000"
+ 640      7420756E 
+ 640      7369676E 
+ 640      65642069 
+ 640      6E7400
+ 641              	.LASF19:
+ 642 0047 636C6B44 		.ascii	"clkDivider\000"
+ 642      69766964 
+ 642      657200
+ 643              	.LASF13:
+ 644 0052 646F7562 		.ascii	"double\000"
+ 644      6C6500
+ 645              	.LASF22:
+ 646 0059 72656756 		.ascii	"regVal\000"
+ 646      616C00
+ 647              	.LASF18:
+ 648 0060 616C6967 		.ascii	"alignClkDiv\000"
+ 648      6E436C6B 
+ 648      44697600 
+ 649              	.LASF20:
+ 650 006c 636C6B46 		.ascii	"clkFractional\000"
+ 650      72616374 
+ 650      696F6E61 
+ 650      6C00
+ 651              	.LASF23:
+ 652 007a 636C6F63 		.ascii	"clock_GetDividerRegister\000"
+ 652      6B5F4765 
+ 652      74446976 
+ 652      69646572 
+ 652      52656769 
+ 653              	.LASF16:
+ 654 0093 636C6F63 		.ascii	"clock_StartEx\000"
+ 654      6B5F5374 
+ 654      61727445 
+ 654      7800
+ 655              	.LASF10:
+ 656 00a1 75696E74 		.ascii	"uint16\000"
+ 656      313600
+ 657              	.LASF28:
+ 658 00a8 636C6F63 		.ascii	"clock_Stop\000"
+ 658      6B5F5374 
+ 658      6F7000
+ 659              	.LASF27:
+ 660 00b3 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
+ 660      6978745C 
+ 660      61697874 
+ 660      5C706F72 
+ 660      74735C43 
+ 661 00e0 78616D70 		.ascii	"xamples\\CY8CKIT-145-40XX-blinking.cydsn\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 17
 
 
- 660              	.LASF28:
- 661 00f8 636C6F63 		.ascii	"clock_Stop\000"
- 661      6B5F5374 
- 661      6F7000
+ 661      6C65735C 
+ 661      43593843 
+ 661      4B49542D 
+ 661      3134352D 
  662              	.LASF11:
- 663 0103 75696E74 		.ascii	"uint32\000"
+ 663 0108 75696E74 		.ascii	"uint32\000"
  663      333200
  664              	.LASF17:
- 665 010a 636C6F63 		.ascii	"clock_SetFractionalDividerRegister\000"
+ 665 010f 636C6F63 		.ascii	"clock_SetFractionalDividerRegister\000"
  665      6B5F5365 
  665      74467261 
  665      6374696F 
  665      6E616C44 
  666              	.LASF8:
- 667 012d 756E7369 		.ascii	"unsigned int\000"
+ 667 0132 756E7369 		.ascii	"unsigned int\000"
  667      676E6564 
  667      20696E74 
  667      00
  668              	.LASF7:
- 669 013a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 669 013f 6C6F6E67 		.ascii	"long long unsigned int\000"
  669      206C6F6E 
  669      6720756E 
  669      7369676E 
  669      65642069 
  670              	.LASF26:
- 671 0151 47656E65 		.ascii	"Generated_Source\\PSoC4\\clock.c\000"
+ 671 0156 47656E65 		.ascii	"Generated_Source\\PSoC4\\clock.c\000"
  671      72617465 
  671      645F536F 
  671      75726365 
  671      5C50536F 
  672              	.LASF6:
- 673 0170 6C6F6E67 		.ascii	"long long int\000"
+ 673 0175 6C6F6E67 		.ascii	"long long int\000"
  673      206C6F6E 
  673      6720696E 
  673      7400
  674              	.LASF14:
- 675 017e 63686172 		.ascii	"char\000"
+ 675 0183 63686172 		.ascii	"char\000"
  675      00
  676              	.LASF2:
- 677 0183 73686F72 		.ascii	"short int\000"
+ 677 0188 73686F72 		.ascii	"short int\000"
  677      7420696E 
  677      7400
  678              	.LASF9:
- 679 018d 75696E74 		.ascii	"uint8\000"
+ 679 0192 75696E74 		.ascii	"uint8\000"
  679      3800
  680              	.LASF4:
- 681 0193 6C6F6E67 		.ascii	"long int\000"
+ 681 0198 6C6F6E67 		.ascii	"long int\000"
  681      20696E74 
  681      00
  682              	.LASF25:
- 683 019c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 683 01a1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  683      43313120 
  683      352E342E 
  683      31203230 
  683      31363036 
- 684 01cf 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 684 01d4 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
  684      20726576 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxwJkmS.s 			page 18
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc546fO6.s 			page 18
 
 
  684      6973696F 
  684      6E203233 
  684      37373135 
- 685 0202 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 685 0207 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
  685      67202D66 
  685      66756E63 
  685      74696F6E 
  685      2D736563 
  686              	.LASF0:
- 687 022e 7369676E 		.ascii	"signed char\000"
+ 687 0233 7369676E 		.ascii	"signed char\000"
  687      65642063 
  687      68617200 
  688              	.LASF24:
- 689 023a 636C6F63 		.ascii	"clock_GetFractionalDividerRegister\000"
+ 689 023f 636C6F63 		.ascii	"clock_GetFractionalDividerRegister\000"
  689      6B5F4765 
  689      74467261 
  689      6374696F 

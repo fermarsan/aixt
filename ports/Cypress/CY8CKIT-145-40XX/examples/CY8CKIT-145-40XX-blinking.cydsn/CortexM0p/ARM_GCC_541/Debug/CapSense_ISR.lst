@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
   28:Generated_Source\PSoC4/capsense_ISR.c **** ********************************************************************************/
   29:Generated_Source\PSoC4/capsense_ISR.c **** /* `#START capsense_ISR_intc` */
   30:Generated_Source\PSoC4/capsense_ISR.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 2
 
 
   31:Generated_Source\PSoC4/capsense_ISR.c **** /* `#END` */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
   85:Generated_Source\PSoC4/capsense_ISR.c **** *  Function definition example:
   86:Generated_Source\PSoC4/capsense_ISR.c **** *   CY_ISR(MyISR)
   87:Generated_Source\PSoC4/capsense_ISR.c **** *   {
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 3
 
 
   88:Generated_Source\PSoC4/capsense_ISR.c **** *   }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  142:Generated_Source\PSoC4/capsense_ISR.c **** *
  143:Generated_Source\PSoC4/capsense_ISR.c **** * Summary:
  144:Generated_Source\PSoC4/capsense_ISR.c **** *   The default Interrupt Service Routine for capsense_ISR.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 4
 
 
  145:Generated_Source\PSoC4/capsense_ISR.c **** *
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  180:Generated_Source\PSoC4/capsense_ISR.c **** * 
  181:Generated_Source\PSoC4/capsense_ISR.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
  182:Generated_Source\PSoC4/capsense_ISR.c **** *   used to provide consistent definition across compilers:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 5
 
 
  183:Generated_Source\PSoC4/capsense_ISR.c **** *
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  210:Generated_Source\PSoC4/capsense_ISR.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
  211:Generated_Source\PSoC4/capsense_ISR.c **** *
  212:Generated_Source\PSoC4/capsense_ISR.c **** * Parameters:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 6
 
 
  213:Generated_Source\PSoC4/capsense_ISR.c **** *   None
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  241:Generated_Source\PSoC4/capsense_ISR.c **** *   priority: Priority of the interrupt, 0 being the highest priority
  242:Generated_Source\PSoC4/capsense_ISR.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
  243:Generated_Source\PSoC4/capsense_ISR.c **** *             PSoC 4: Priority is from 0 to 3.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 7
 
 
  244:Generated_Source\PSoC4/capsense_ISR.c **** *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  138              		.section	.text.capsense_ISR_GetPriority,"ax",%progbits
  139              		.align	2
  140              		.global	capsense_ISR_GetPriority
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 8
 
 
  141              		.code	16
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  168              		.cfi_endproc
  169              	.LFE8:
  170              		.size	capsense_ISR_GetPriority, .-capsense_ISR_GetPriority
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 9
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 9
 
 
  171              		.section	.text.capsense_ISR_Enable,"ax",%progbits
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  202              		.code	16
  203              		.thumb_func
  204              		.type	capsense_ISR_GetState, %function
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 10
 
 
  205              	capsense_ISR_GetState:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  238              	capsense_ISR_Disable:
  239              	.LFB11:
  330:Generated_Source\PSoC4/capsense_ISR.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 11
 
 
  331:Generated_Source\PSoC4/capsense_ISR.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  273              		.cfi_def_cfa_offset 8
  274              		.cfi_offset 4, -8
  275              		.cfi_offset 14, -4
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 12
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 12
 
 
   59:Generated_Source\PSoC4/capsense_ISR.c **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  322 0008 2000     		movs	r0, r4
  323 000a FFF7FEFF 		bl	capsense_ISR_SetVector
  324              	.LVL14:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 13
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 13
 
 
  108:Generated_Source\PSoC4/capsense_ISR.c **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  372              		.section	.text.capsense_ISR_SetPending,"ax",%progbits
  373              		.align	2
  374              		.global	capsense_ISR_SetPending
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 14
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 14
 
 
  375              		.code	16
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  403              		.code	16
  404              		.thumb_func
  405              		.type	capsense_ISR_ClearPending, %function
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 15
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 15
 
 
  406              	capsense_ISR_ClearPending:
@@ -898,11 +898,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  435 0004 0400     		.2byte	0x4
  436 0006 00000000 		.4byte	.Ldebug_abbrev0
  437 000a 04       		.byte	0x4
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 16
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 16
 
 
  438 000b 01       		.uleb128 0x1
- 439 000c 54020000 		.4byte	.LASF36
+ 439 000c 42020000 		.4byte	.LASF36
  440 0010 0C       		.byte	0xc
  441 0011 26000000 		.4byte	.LASF37
  442 0015 1E010000 		.4byte	.LASF38
@@ -912,7 +912,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  446 0025 02       		.uleb128 0x2
  447 0026 01       		.byte	0x1
  448 0027 06       		.byte	0x6
- 449 0028 3B030000 		.4byte	.LASF0
+ 449 0028 29030000 		.4byte	.LASF0
  450 002c 02       		.uleb128 0x2
  451 002d 01       		.byte	0x1
  452 002e 08       		.byte	0x8
@@ -920,7 +920,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  454 0033 02       		.uleb128 0x2
  455 0034 02       		.byte	0x2
  456 0035 05       		.byte	0x5
- 457 0036 E6020000 		.4byte	.LASF2
+ 457 0036 D4020000 		.4byte	.LASF2
  458 003a 02       		.uleb128 0x2
  459 003b 02       		.byte	0x2
  460 003c 07       		.byte	0x7
@@ -936,7 +936,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  470 004f 02       		.uleb128 0x2
  471 0050 08       		.byte	0x8
  472 0051 05       		.byte	0x5
- 473 0052 14020000 		.4byte	.LASF6
+ 473 0052 02020000 		.4byte	.LASF6
  474 0056 02       		.uleb128 0x2
  475 0057 08       		.byte	0x8
  476 0058 07       		.byte	0x7
@@ -948,17 +948,17 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  482 0064 02       		.uleb128 0x2
  483 0065 04       		.byte	0x4
  484 0066 07       		.byte	0x7
- 485 0067 A3010000 		.4byte	.LASF8
+ 485 0067 91010000 		.4byte	.LASF8
  486 006b 04       		.uleb128 0x4
  487 006c 08010000 		.4byte	.LASF9
  488 0070 02       		.byte	0x2
  489 0071 FC01     		.2byte	0x1fc
  490 0073 2C000000 		.4byte	0x2c
  491 0077 04       		.uleb128 0x4
- 492 0078 85010000 		.4byte	.LASF10
+ 492 0078 73010000 		.4byte	.LASF10
  493 007c 02       		.byte	0x2
  494 007d FE01     		.2byte	0x1fe
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 17
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 17
 
 
  495 007f 48000000 		.4byte	0x48
@@ -973,7 +973,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  504 0091 02       		.uleb128 0x2
  505 0092 01       		.byte	0x1
  506 0093 08       		.byte	0x8
- 507 0094 37020000 		.4byte	.LASF13
+ 507 0094 25020000 		.4byte	.LASF13
  508 0098 04       		.uleb128 0x4
  509 0099 13000000 		.4byte	.LASF14
  510 009d 02       		.byte	0x2
@@ -982,7 +982,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  513 00a4 05       		.uleb128 0x5
  514 00a5 77000000 		.4byte	0x77
  515 00a9 04       		.uleb128 0x4
- 516 00aa E4010000 		.4byte	.LASF15
+ 516 00aa D2010000 		.4byte	.LASF15
  517 00ae 02       		.byte	0x2
  518 00af B802     		.2byte	0x2b8
  519 00b1 B5000000 		.4byte	0xb5
@@ -993,13 +993,13 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  524 00bc 02       		.uleb128 0x2
  525 00bd 08       		.byte	0x8
  526 00be 04       		.byte	0x4
- 527 00bf 18030000 		.4byte	.LASF16
+ 527 00bf 06030000 		.4byte	.LASF16
  528 00c3 02       		.uleb128 0x2
  529 00c4 04       		.byte	0x4
  530 00c5 07       		.byte	0x7
- 531 00c6 0B020000 		.4byte	.LASF17
+ 531 00c6 F9010000 		.4byte	.LASF17
  532 00ca 08       		.uleb128 0x8
- 533 00cb 47030000 		.4byte	.LASF24
+ 533 00cb 4C030000 		.4byte	.LASF24
  534 00cf 01       		.byte	0x1
  535 00d0 9F       		.byte	0x9f
  536 00d1 00000000 		.4byte	.LFB4
@@ -1007,7 +1007,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  538 00d9 01       		.uleb128 0x1
  539 00da 9C       		.byte	0x9c
  540 00db 09       		.uleb128 0x9
- 541 00dc 6E010000 		.4byte	.LASF18
+ 541 00dc 35030000 		.4byte	.LASF18
  542 00e0 01       		.byte	0x1
  543 00e1 C7       		.byte	0xc7
  544 00e2 00000000 		.4byte	.LFB5
@@ -1016,9 +1016,9 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  547 00eb 9C       		.byte	0x9c
  548 00ec FE000000 		.4byte	0xfe
  549 00f0 0A       		.uleb128 0xa
- 550 00f1 B0010000 		.4byte	.LASF20
+ 550 00f1 9E010000 		.4byte	.LASF20
  551 00f5 01       		.byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 18
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 18
 
 
  552 00f6 C7       		.byte	0xc7
@@ -1027,7 +1027,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  555 00fc 50       		.byte	0x50
  556 00fd 00       		.byte	0
  557 00fe 0B       		.uleb128 0xb
- 558 00ff 24030000 		.4byte	.LASF26
+ 558 00ff 12030000 		.4byte	.LASF26
  559 0103 01       		.byte	0x1
  560 0104 DB       		.byte	0xdb
  561 0105 A9000000 		.4byte	0xa9
@@ -1057,7 +1057,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  585 013e 6B000000 		.4byte	0x6b
  586 0142 21000000 		.4byte	.LLST1
  587 0146 0E       		.uleb128 0xe
- 588 0147 F0020000 		.4byte	.LASF23
+ 588 0147 DE020000 		.4byte	.LASF23
  589 014b 01       		.byte	0x1
  590 014c FC       		.byte	0xfc
  591 014d 77000000 		.4byte	0x77
@@ -1070,7 +1070,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  598 0160 F9020000 		.4byte	0x2f9
  599 0164 00       		.byte	0
  600 0165 10       		.uleb128 0x10
- 601 0166 FF020000 		.4byte	.LASF39
+ 601 0166 ED020000 		.4byte	.LASF39
  602 016a 01       		.byte	0x1
  603 016b 1501     		.2byte	0x115
  604 016d 6B000000 		.4byte	0x6b
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  606 0175 10000000 		.4byte	.LFE8-.LFB8
  607 0179 01       		.uleb128 0x1
  608 017a 9C       		.byte	0x9c
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 19
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 19
 
 
  609 017b 9D010000 		.4byte	0x19d
@@ -1089,7 +1089,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  614 0187 77000000 		.4byte	0x77
  615 018b 34000000 		.4byte	.LLST2
  616 018f 12       		.uleb128 0x12
- 617 0190 F0020000 		.4byte	.LASF23
+ 617 0190 DE020000 		.4byte	.LASF23
  618 0194 01       		.byte	0x1
  619 0195 1801     		.2byte	0x118
  620 0197 77000000 		.4byte	0x77
@@ -1104,7 +1104,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  629 01ad 01       		.uleb128 0x1
  630 01ae 9C       		.byte	0x9c
  631 01af 14       		.uleb128 0x14
- 632 01b0 CE010000 		.4byte	.LASF27
+ 632 01b0 BC010000 		.4byte	.LASF27
  633 01b4 01       		.byte	0x1
  634 01b5 4501     		.2byte	0x145
  635 01b7 6B000000 		.4byte	0x6b
@@ -1113,7 +1113,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  638 01c3 01       		.uleb128 0x1
  639 01c4 9C       		.byte	0x9c
  640 01c5 13       		.uleb128 0x13
- 641 01c6 22020000 		.4byte	.LASF28
+ 641 01c6 10020000 		.4byte	.LASF28
  642 01ca 01       		.byte	0x1
  643 01cb 5A01     		.2byte	0x15a
  644 01cd 00000000 		.4byte	.LFB11
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  663 01fe 0C020000 		.4byte	0x20c
  664 0202 16       		.uleb128 0x16
  665 0203 01       		.uleb128 0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 20
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 20
 
 
  666 0204 50       		.byte	0x50
@@ -1170,7 +1170,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  692 0239 9C       		.byte	0x9c
  693 023a 87020000 		.4byte	0x287
  694 023e 0C       		.uleb128 0xc
- 695 023f B0010000 		.4byte	.LASF20
+ 695 023f 9E010000 		.4byte	.LASF20
  696 0243 01       		.byte	0x1
  697 0244 63       		.byte	0x63
  698 0245 A9000000 		.4byte	0xa9
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  720 0279 50       		.byte	0x50
  721 027a 01       		.uleb128 0x1
  722 027b 33       		.byte	0x33
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 21
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 21
 
 
  723 027c 00       		.byte	0
@@ -1223,7 +1223,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  742 02aa DB000000 		.4byte	0xdb
  743 02ae 00       		.byte	0
  744 02af 13       		.uleb128 0x13
- 745 02b0 3C020000 		.4byte	.LASF32
+ 745 02b0 2A020000 		.4byte	.LASF32
  746 02b4 01       		.byte	0x1
  747 02b5 7501     		.2byte	0x175
  748 02b7 00000000 		.4byte	.LFB12
@@ -1231,7 +1231,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  750 02bf 01       		.uleb128 0x1
  751 02c0 9C       		.byte	0x9c
  752 02c1 13       		.uleb128 0x13
- 753 02c2 F1010000 		.4byte	.LASF33
+ 753 02c2 DF010000 		.4byte	.LASF33
  754 02c6 01       		.byte	0x1
  755 02c7 8E01     		.2byte	0x18e
  756 02c9 00000000 		.4byte	.LFB13
@@ -1251,14 +1251,14 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  770 02e9 21       		.byte	0x21
  771 02ea D3020000 		.4byte	0x2d3
  772 02ee 1A       		.uleb128 0x1a
- 773 02ef 8C010000 		.4byte	.LASF34
- 774 02f3 8C010000 		.4byte	.LASF34
+ 773 02ef 7A010000 		.4byte	.LASF34
+ 774 02f3 7A010000 		.4byte	.LASF34
  775 02f7 03       		.byte	0x3
  776 02f8 F8       		.byte	0xf8
  777 02f9 1A       		.uleb128 0x1a
- 778 02fa B8010000 		.4byte	.LASF35
- 779 02fe B8010000 		.4byte	.LASF35
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 22
+ 778 02fa A6010000 		.4byte	.LASF35
+ 779 02fe A6010000 		.4byte	.LASF35
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 22
 
 
  780 0302 03       		.byte	0x3
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  834 0031 05       		.uleb128 0x5
  835 0032 49       		.uleb128 0x49
  836 0033 13       		.uleb128 0x13
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 23
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 23
 
 
  837 0034 00       		.byte	0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  891 006b 0E       		.uleb128 0xe
  892 006c 3A       		.uleb128 0x3a
  893 006d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 24
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 24
 
 
  894 006e 3B       		.uleb128 0x3b
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  948 00a6 00       		.byte	0
  949 00a7 00       		.byte	0
  950 00a8 0C       		.uleb128 0xc
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 25
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 25
 
 
  951 00a9 05       		.uleb128 0x5
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  1005 00e1 2E       		.uleb128 0x2e
  1006 00e2 01       		.byte	0x1
  1007 00e3 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 26
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 26
 
 
  1008 00e4 19       		.uleb128 0x19
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  1062 011b 2E       		.uleb128 0x2e
  1063 011c 00       		.byte	0
  1064 011d 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 27
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 27
 
 
  1065 011e 19       		.uleb128 0x19
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  1119 0158 00       		.byte	0
  1120 0159 16       		.uleb128 0x16
  1121 015a 8A8201   		.uleb128 0x410a
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 28
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 28
 
 
  1122 015d 00       		.byte	0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  1176 0194 0B       		.uleb128 0xb
  1177 0195 3B       		.uleb128 0x3b
  1178 0196 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 29
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 29
 
 
  1179 0197 00       		.byte	0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  1233 0077 01       		.uleb128 0x1
  1234 0078 50       		.byte	0x50
  1235 0079 9F       		.byte	0x9f
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 30
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 30
 
 
  1236 007a 00000000 		.4byte	0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  1290 0038 00000000 		.4byte	.LFB11
  1291 003c 10000000 		.4byte	.LFE11
  1292 0040 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 31
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 31
 
 
  1293 0044 1C000000 		.4byte	.LFE1
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  1321              	.LASF19:
  1322 007d 63617073 		.ascii	"capsense_ISR_SetPriority\000"
  1322      656E7365 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 32
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 32
 
 
  1322      5F495352 
@@ -1912,142 +1912,142 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 1
  1342 0117 646F7562 		.ascii	"double\000"
  1342      6C6500
  1343              	.LASF38:
- 1344 011e 433A5C61 		.ascii	"C:\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\example"
+ 1344 011e 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
  1344      6978745C 
- 1344      706F7274 
- 1344      735C4379 
- 1344      70726573 
- 1345 014c 735C4359 		.ascii	"s\\CY8CKIT-145-40XX-blinking.cydsn\000"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 33
+ 1344      61697874 
+ 1344      5C706F72 
+ 1344      74735C43 
+ 1345 014b 78616D70 		.ascii	"xamples\\CY8CKIT-145-40XX-blinking.cydsn\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 33
 
 
- 1345      38434B49 
- 1345      542D3134 
- 1345      352D3430 
- 1345      58582D62 
- 1346              	.LASF18:
- 1347 016e 63617073 		.ascii	"capsense_ISR_SetVector\000"
- 1347      656E7365 
- 1347      5F495352 
- 1347      5F536574 
- 1347      56656374 
- 1348              	.LASF10:
- 1349 0185 75696E74 		.ascii	"uint32\000"
- 1349      333200
- 1350              	.LASF34:
- 1351 018c 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1351      74657243 
- 1351      72697469 
- 1351      63616C53 
- 1351      65637469 
- 1352              	.LASF8:
- 1353 01a3 756E7369 		.ascii	"unsigned int\000"
- 1353      676E6564 
- 1353      20696E74 
- 1353      00
- 1354              	.LASF20:
- 1355 01b0 61646472 		.ascii	"address\000"
- 1355      65737300 
- 1356              	.LASF35:
- 1357 01b8 43794578 		.ascii	"CyExitCriticalSection\000"
- 1357      69744372 
- 1357      69746963 
- 1357      616C5365 
- 1357      6374696F 
- 1358              	.LASF27:
- 1359 01ce 63617073 		.ascii	"capsense_ISR_GetState\000"
- 1359      656E7365 
- 1359      5F495352 
- 1359      5F476574 
- 1359      53746174 
- 1360              	.LASF15:
- 1361 01e4 63796973 		.ascii	"cyisraddress\000"
- 1361      72616464 
- 1361      72657373 
- 1361      00
- 1362              	.LASF33:
- 1363 01f1 63617073 		.ascii	"capsense_ISR_ClearPending\000"
- 1363      656E7365 
- 1363      5F495352 
- 1363      5F436C65 
- 1363      61725065 
- 1364              	.LASF17:
- 1365 020b 73697A65 		.ascii	"sizetype\000"
- 1365      74797065 
- 1365      00
- 1366              	.LASF6:
- 1367 0214 6C6F6E67 		.ascii	"long long int\000"
- 1367      206C6F6E 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 34
+ 1345      6C65735C 
+ 1345      43593843 
+ 1345      4B49542D 
+ 1345      3134352D 
+ 1346              	.LASF10:
+ 1347 0173 75696E74 		.ascii	"uint32\000"
+ 1347      333200
+ 1348              	.LASF34:
+ 1349 017a 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1349      74657243 
+ 1349      72697469 
+ 1349      63616C53 
+ 1349      65637469 
+ 1350              	.LASF8:
+ 1351 0191 756E7369 		.ascii	"unsigned int\000"
+ 1351      676E6564 
+ 1351      20696E74 
+ 1351      00
+ 1352              	.LASF20:
+ 1353 019e 61646472 		.ascii	"address\000"
+ 1353      65737300 
+ 1354              	.LASF35:
+ 1355 01a6 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1355      69744372 
+ 1355      69746963 
+ 1355      616C5365 
+ 1355      6374696F 
+ 1356              	.LASF27:
+ 1357 01bc 63617073 		.ascii	"capsense_ISR_GetState\000"
+ 1357      656E7365 
+ 1357      5F495352 
+ 1357      5F476574 
+ 1357      53746174 
+ 1358              	.LASF15:
+ 1359 01d2 63796973 		.ascii	"cyisraddress\000"
+ 1359      72616464 
+ 1359      72657373 
+ 1359      00
+ 1360              	.LASF33:
+ 1361 01df 63617073 		.ascii	"capsense_ISR_ClearPending\000"
+ 1361      656E7365 
+ 1361      5F495352 
+ 1361      5F436C65 
+ 1361      61725065 
+ 1362              	.LASF17:
+ 1363 01f9 73697A65 		.ascii	"sizetype\000"
+ 1363      74797065 
+ 1363      00
+ 1364              	.LASF6:
+ 1365 0202 6C6F6E67 		.ascii	"long long int\000"
+ 1365      206C6F6E 
+ 1365      6720696E 
+ 1365      7400
+ 1366              	.LASF28:
+ 1367 0210 63617073 		.ascii	"capsense_ISR_Disable\000"
+ 1367      656E7365 
+ 1367      5F495352 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 34
 
 
- 1367      6720696E 
- 1367      7400
- 1368              	.LASF28:
- 1369 0222 63617073 		.ascii	"capsense_ISR_Disable\000"
- 1369      656E7365 
- 1369      5F495352 
- 1369      5F446973 
- 1369      61626C65 
- 1370              	.LASF13:
- 1371 0237 63686172 		.ascii	"char\000"
- 1371      00
- 1372              	.LASF32:
- 1373 023c 63617073 		.ascii	"capsense_ISR_SetPending\000"
- 1373      656E7365 
- 1373      5F495352 
- 1373      5F536574 
- 1373      50656E64 
- 1374              	.LASF36:
- 1375 0254 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1375      43313120 
- 1375      352E342E 
- 1375      31203230 
- 1375      31363036 
- 1376 0287 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
- 1376      20726576 
- 1376      6973696F 
- 1376      6E203233 
- 1376      37373135 
- 1377 02ba 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
- 1377      67202D66 
- 1377      66756E63 
- 1377      74696F6E 
- 1377      2D736563 
- 1378              	.LASF2:
- 1379 02e6 73686F72 		.ascii	"short int\000"
- 1379      7420696E 
- 1379      7400
- 1380              	.LASF23:
- 1381 02f0 7072696F 		.ascii	"priorityOffset\000"
- 1381      72697479 
- 1381      4F666673 
- 1381      657400
- 1382              	.LASF39:
- 1383 02ff 63617073 		.ascii	"capsense_ISR_GetPriority\000"
- 1383      656E7365 
- 1383      5F495352 
- 1383      5F476574 
- 1383      5072696F 
- 1384              	.LASF16:
- 1385 0318 6C6F6E67 		.ascii	"long double\000"
- 1385      20646F75 
- 1385      626C6500 
- 1386              	.LASF26:
- 1387 0324 63617073 		.ascii	"capsense_ISR_GetVector\000"
- 1387      656E7365 
- 1387      5F495352 
- 1387      5F476574 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccDFTkUl.s 			page 35
+ 1367      5F446973 
+ 1367      61626C65 
+ 1368              	.LASF13:
+ 1369 0225 63686172 		.ascii	"char\000"
+ 1369      00
+ 1370              	.LASF32:
+ 1371 022a 63617073 		.ascii	"capsense_ISR_SetPending\000"
+ 1371      656E7365 
+ 1371      5F495352 
+ 1371      5F536574 
+ 1371      50656E64 
+ 1372              	.LASF36:
+ 1373 0242 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1373      43313120 
+ 1373      352E342E 
+ 1373      31203230 
+ 1373      31363036 
+ 1374 0275 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1374      20726576 
+ 1374      6973696F 
+ 1374      6E203233 
+ 1374      37373135 
+ 1375 02a8 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1375      67202D66 
+ 1375      66756E63 
+ 1375      74696F6E 
+ 1375      2D736563 
+ 1376              	.LASF2:
+ 1377 02d4 73686F72 		.ascii	"short int\000"
+ 1377      7420696E 
+ 1377      7400
+ 1378              	.LASF23:
+ 1379 02de 7072696F 		.ascii	"priorityOffset\000"
+ 1379      72697479 
+ 1379      4F666673 
+ 1379      657400
+ 1380              	.LASF39:
+ 1381 02ed 63617073 		.ascii	"capsense_ISR_GetPriority\000"
+ 1381      656E7365 
+ 1381      5F495352 
+ 1381      5F476574 
+ 1381      5072696F 
+ 1382              	.LASF16:
+ 1383 0306 6C6F6E67 		.ascii	"long double\000"
+ 1383      20646F75 
+ 1383      626C6500 
+ 1384              	.LASF26:
+ 1385 0312 63617073 		.ascii	"capsense_ISR_GetVector\000"
+ 1385      656E7365 
+ 1385      5F495352 
+ 1385      5F476574 
+ 1385      56656374 
+ 1386              	.LASF0:
+ 1387 0329 7369676E 		.ascii	"signed char\000"
+ 1387      65642063 
+ 1387      68617200 
+ 1388              	.LASF18:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvHLtQa.s 			page 35
 
 
- 1387      56656374 
- 1388              	.LASF0:
- 1389 033b 7369676E 		.ascii	"signed char\000"
- 1389      65642063 
- 1389      68617200 
+ 1389 0335 63617073 		.ascii	"capsense_ISR_SetVector\000"
+ 1389      656E7365 
+ 1389      5F495352 
+ 1389      5F536574 
+ 1389      56656374 
  1390              	.LASF24:
- 1391 0347 63617073 		.ascii	"capsense_ISR_Interrupt\000"
+ 1391 034c 63617073 		.ascii	"capsense_ISR_Interrupt\000"
  1391      656E7365 
  1391      5F495352 
  1391      5F496E74 

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
   29:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYPACKED 
   30:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYPACKED_ATTR __attribute__ ((packed))
   31:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYALIGNED __attribute__ ((aligned))
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 2
 
 
   32:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CY_CFG_UNUSED __attribute__ ((unused))
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
   86:Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_UNUSED
   87:Generated_Source\PSoC4/cyfitter_cfg.c **** static void CYCONFIGCPYCODE(void *dest, const void *src, size_t n);
   88:Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_UNUSED
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 3
 
 
   89:Generated_Source\PSoC4/cyfitter_cfg.c **** static void CYCONFIGCPYCODE(void *dest, const void *src, size_t n)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  143:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  144:Generated_Source\PSoC4/cyfitter_cfg.c ****     while(1) {}
  145:Generated_Source\PSoC4/cyfitter_cfg.c **** #endif /* CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK */
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 4
 
 
  146:Generated_Source\PSoC4/cyfitter_cfg.c **** }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  200:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* CYDEV_PERI_PCLK_CTL1 Starting address: CYDEV_PERI_PCLK_CTL1 */
  201:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_PERI_PCLK_CTL1), 0x00000042u);
  202:Generated_Source\PSoC4/cyfitter_cfg.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 5
 
 
  203:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Set Flash Cycles based on newly configured 24.00MHz HFCLK. */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
   51              		.size	AnalogSetDefault, .-AnalogSetDefault
   52              		.section	.psocinit,"ax",%progbits
   53              		.align	2
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 6
 
 
   54              		.code	16
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  186:Generated_Source\PSoC4/cyfitter_cfg.c **** 
   99              		.loc 1 186 0
  100 0032 114B     		ldr	r3, .L5+32
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 7
 
 
  101 0034 1A60     		str	r2, [r3]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  148              		.global	SetAnalogRoutingPumps
  149              		.code	16
  150              		.thumb_func
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 8
 
 
  151              		.type	SetAnalogRoutingPumps, %function
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  177 0012 5B08     		lsrs	r3, r3, #1
  178              	.LVL5:
  179              	.L9:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 9
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 9
 
 
  261:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  221              		.type	cyfitter_cfg, %function
  222              	cyfitter_cfg:
  223              	.LFB7:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 10
 
 
  274:Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  247              		.loc 1 304 0
  248 00a0 8022     		movs	r2, #128
  249 00a2 1205     		lsls	r2, r2, #20
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 11
 
 
  250 00a4 1C4B     		ldr	r3, .L15+16
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  286 00da 1C4B     		ldr	r3, .L15+68
  287 00dc 1A60     		str	r2, [r3]
  323:Generated_Source\PSoC4/cyfitter_cfg.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 12
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 12
 
 
  324:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_3 Starting address: CYDEV_GPIO_PRT3_BASE */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  325 011c 99EE0000 		.word	61081
  326 0120 00030240 		.word	1073873664
  327 0124 00000440 		.word	1074003968
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 13
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 13
 
 
  328 0128 00204300 		.word	4399104
@@ -751,10 +751,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  355 0006 00000000 		.4byte	.Ldebug_abbrev0
  356 000a 04       		.byte	0x4
  357 000b 01       		.uleb128 0x1
- 358 000c 90010000 		.4byte	.LASF19
+ 358 000c 95010000 		.4byte	.LASF19
  359 0010 0C       		.byte	0xc
  360 0011 15000000 		.4byte	.LASF20
- 361 0015 48000000 		.4byte	.LASF21
+ 361 0015 84000000 		.4byte	.LASF21
  362 0019 00000000 		.4byte	.Ldebug_ranges0+0
  363 001d 00000000 		.4byte	0
  364 0021 00000000 		.4byte	.Ldebug_line0
@@ -773,48 +773,48 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  377 003a 03       		.uleb128 0x3
  378 003b 08       		.byte	0x8
  379 003c 04       		.byte	0x4
- 380 003d 69010000 		.4byte	.LASF2
+ 380 003d 6E010000 		.4byte	.LASF2
  381 0041 03       		.uleb128 0x3
  382 0042 01       		.byte	0x1
  383 0043 06       		.byte	0x6
- 384 0044 5D010000 		.4byte	.LASF3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 14
+ 384 0044 62010000 		.4byte	.LASF3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 14
 
 
  385 0048 03       		.uleb128 0x3
  386 0049 01       		.byte	0x1
  387 004a 08       		.byte	0x8
- 388 004b 05010000 		.4byte	.LASF4
+ 388 004b 0A010000 		.4byte	.LASF4
  389 004f 03       		.uleb128 0x3
  390 0050 02       		.byte	0x2
  391 0051 05       		.byte	0x5
- 392 0052 86010000 		.4byte	.LASF5
+ 392 0052 8B010000 		.4byte	.LASF5
  393 0056 03       		.uleb128 0x3
  394 0057 02       		.byte	0x2
  395 0058 07       		.byte	0x7
- 396 0059 4A010000 		.4byte	.LASF6
+ 396 0059 4F010000 		.4byte	.LASF6
  397 005d 03       		.uleb128 0x3
  398 005e 04       		.byte	0x4
  399 005f 05       		.byte	0x5
- 400 0060 18010000 		.4byte	.LASF7
+ 400 0060 1D010000 		.4byte	.LASF7
  401 0064 03       		.uleb128 0x3
  402 0065 04       		.byte	0x4
  403 0066 07       		.byte	0x7
- 404 0067 9E000000 		.4byte	.LASF8
+ 404 0067 4E000000 		.4byte	.LASF8
  405 006b 03       		.uleb128 0x3
  406 006c 08       		.byte	0x8
  407 006d 07       		.byte	0x7
- 408 006e BD000000 		.4byte	.LASF9
+ 408 006e 6D000000 		.4byte	.LASF9
  409 0072 03       		.uleb128 0x3
  410 0073 04       		.byte	0x4
  411 0074 07       		.byte	0x7
- 412 0075 22020000 		.4byte	.LASF10
+ 412 0075 27020000 		.4byte	.LASF10
  413 0079 03       		.uleb128 0x3
  414 007a 01       		.byte	0x1
  415 007b 08       		.byte	0x8
- 416 007c 13010000 		.4byte	.LASF11
+ 416 007c 18010000 		.4byte	.LASF11
  417 0080 04       		.uleb128 0x4
- 418 0081 98000000 		.4byte	.LASF12
+ 418 0081 48000000 		.4byte	.LASF12
  419 0085 02       		.byte	0x2
  420 0086 FC01     		.2byte	0x1fc
  421 0088 48000000 		.4byte	0x48
@@ -826,23 +826,23 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  427 0098 03       		.uleb128 0x3
  428 0099 04       		.byte	0x4
  429 009a 04       		.byte	0x4
- 430 009b D4000000 		.4byte	.LASF14
+ 430 009b D9000000 		.4byte	.LASF14
  431 009f 03       		.uleb128 0x3
  432 00a0 08       		.byte	0x8
  433 00a1 04       		.byte	0x4
- 434 00a2 3D010000 		.4byte	.LASF15
+ 434 00a2 42010000 		.4byte	.LASF15
  435 00a6 04       		.uleb128 0x4
- 436 00a7 44010000 		.4byte	.LASF16
+ 436 00a7 49010000 		.4byte	.LASF16
  437 00ab 02       		.byte	0x2
  438 00ac A802     		.2byte	0x2a8
  439 00ae B2000000 		.4byte	0xb2
  440 00b2 05       		.uleb128 0x5
  441 00b3 8C000000 		.4byte	0x8c
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 15
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 15
 
 
  442 00b7 06       		.uleb128 0x6
- 443 00b8 21010000 		.4byte	.LASF22
+ 443 00b8 26010000 		.4byte	.LASF22
  444 00bc 01       		.byte	0x1
  445 00bd E3       		.byte	0xe3
  446 00be 00000000 		.4byte	.LFB5
@@ -850,7 +850,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  448 00c6 01       		.uleb128 0x1
  449 00c7 9C       		.byte	0x9c
  450 00c8 07       		.uleb128 0x7
- 451 00c9 32010000 		.4byte	.LASF23
+ 451 00c9 37010000 		.4byte	.LASF23
  452 00cd 01       		.byte	0x1
  453 00ce A9       		.byte	0xa9
  454 00cf 00000000 		.4byte	.LFB4
@@ -869,7 +869,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  467 00eb 00       		.byte	0
  468 00ec 00       		.byte	0
  469 00ed 0A       		.uleb128 0xa
- 470 00ee DA000000 		.4byte	.LASF17
+ 470 00ee DF000000 		.4byte	.LASF17
  471 00f2 01       		.byte	0x1
  472 00f3 FB       		.byte	0xfb
  473 00f4 00000000 		.4byte	.LFB6
@@ -878,27 +878,27 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  476 00fd 9C       		.byte	0x9c
  477 00fe 1F010000 		.4byte	0x11f
  478 0102 0B       		.uleb128 0xb
- 479 0103 75010000 		.4byte	.LASF24
+ 479 0103 7A010000 		.4byte	.LASF24
  480 0107 01       		.byte	0x1
  481 0108 FB       		.byte	0xfb
  482 0109 80000000 		.4byte	0x80
  483 010d 01       		.uleb128 0x1
  484 010e 50       		.byte	0x50
  485 010f 0C       		.uleb128 0xc
- 486 0110 7D010000 		.4byte	.LASF25
+ 486 0110 82010000 		.4byte	.LASF25
  487 0114 01       		.byte	0x1
  488 0115 FD       		.byte	0xfd
  489 0116 8C000000 		.4byte	0x8c
  490 011a 00000000 		.4byte	.LLST0
  491 011e 00       		.byte	0
  492 011f 0D       		.uleb128 0xd
- 493 0120 B0000000 		.4byte	.LASF18
+ 493 0120 60000000 		.4byte	.LASF18
  494 0124 01       		.byte	0x1
  495 0125 2701     		.2byte	0x127
  496 0127 90000000 		.4byte	.LFB7
  497 012b D8000000 		.4byte	.LFE7-.LFB7
  498 012f 01       		.uleb128 0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 16
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 16
 
 
  499 0130 9C       		.byte	0x9c
@@ -911,8 +911,8 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  506 0143 B7000000 		.4byte	0xb7
  507 0147 00       		.byte	0
  508 0148 0F       		.uleb128 0xf
- 509 0149 F0000000 		.4byte	.LASF26
- 510 014d F0000000 		.4byte	.LASF26
+ 509 0149 F5000000 		.4byte	.LASF26
+ 510 014d F5000000 		.4byte	.LASF26
  511 0151 03       		.byte	0x3
  512 0152 6C       		.byte	0x6c
  513 0153 00       		.byte	0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  553 0025 03       		.uleb128 0x3
  554 0026 0E       		.uleb128 0xe
  555 0027 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 17
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 17
 
 
  556 0028 00       		.byte	0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  610 005f 01       		.uleb128 0x1
  611 0060 12       		.uleb128 0x12
  612 0061 06       		.uleb128 0x6
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 18
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 18
 
 
  613 0062 40       		.uleb128 0x40
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  667 009f 03       		.uleb128 0x3
  668 00a0 0E       		.uleb128 0xe
  669 00a1 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 19
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 19
 
 
  670 00a2 0B       		.uleb128 0xb
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  724 00db 31       		.uleb128 0x31
  725 00dc 13       		.uleb128 0x13
  726 00dd 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 20
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 20
 
 
  727 00de 00       		.byte	0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  781 0024 38000000 		.4byte	.LFE6-.LFB6
  782 0028 90000000 		.4byte	.LFB7
  783 002c D8000000 		.4byte	.LFE7-.LFB7
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 21
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 21
 
 
  784 0030 00000000 		.4byte	0
@@ -1241,129 +1241,129 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 1
  808      676E6564 
  808      20696E74 
  808      00
- 809              	.LASF21:
- 810 0048 433A5C61 		.ascii	"C:\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\example"
- 810      6978745C 
- 810      706F7274 
- 810      735C4379 
- 810      70726573 
- 811 0076 735C4359 		.ascii	"s\\CY8CKIT-145-40XX-blinking.cydsn\000"
- 811      38434B49 
- 811      542D3134 
- 811      352D3430 
- 811      58582D62 
- 812              	.LASF12:
- 813 0098 75696E74 		.ascii	"uint8\000"
- 813      3800
- 814              	.LASF8:
- 815 009e 6C6F6E67 		.ascii	"long unsigned int\000"
- 815      20756E73 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 22
+ 809              	.LASF12:
+ 810 0048 75696E74 		.ascii	"uint8\000"
+ 810      3800
+ 811              	.LASF8:
+ 812 004e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 812      20756E73 
+ 812      69676E65 
+ 812      6420696E 
+ 812      7400
+ 813              	.LASF18:
+ 814 0060 63796669 		.ascii	"cyfitter_cfg\000"
+ 814      74746572 
+ 814      5F636667 
+ 814      00
+ 815              	.LASF9:
+ 816 006d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 816      206C6F6E 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 22
 
 
- 815      69676E65 
- 815      6420696E 
- 815      7400
- 816              	.LASF18:
- 817 00b0 63796669 		.ascii	"cyfitter_cfg\000"
- 817      74746572 
- 817      5F636667 
- 817      00
- 818              	.LASF9:
- 819 00bd 6C6F6E67 		.ascii	"long long unsigned int\000"
- 819      206C6F6E 
- 819      6720756E 
- 819      7369676E 
- 819      65642069 
+ 816      6720756E 
+ 816      7369676E 
+ 816      65642069 
+ 817              	.LASF21:
+ 818 0084 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
+ 818      6978745C 
+ 818      61697874 
+ 818      5C706F72 
+ 818      74735C43 
+ 819 00b1 78616D70 		.ascii	"xamples\\CY8CKIT-145-40XX-blinking.cydsn\000"
+ 819      6C65735C 
+ 819      43593843 
+ 819      4B49542D 
+ 819      3134352D 
  820              	.LASF14:
- 821 00d4 666C6F61 		.ascii	"float\000"
+ 821 00d9 666C6F61 		.ascii	"float\000"
  821      7400
  822              	.LASF17:
- 823 00da 53657441 		.ascii	"SetAnalogRoutingPumps\000"
+ 823 00df 53657441 		.ascii	"SetAnalogRoutingPumps\000"
  823      6E616C6F 
  823      67526F75 
  823      74696E67 
  823      50756D70 
  824              	.LASF26:
- 825 00f0 43795379 		.ascii	"CySysClkWriteImoFreq\000"
+ 825 00f5 43795379 		.ascii	"CySysClkWriteImoFreq\000"
  825      73436C6B 
  825      57726974 
  825      65496D6F 
  825      46726571 
  826              	.LASF4:
- 827 0105 756E7369 		.ascii	"unsigned char\000"
+ 827 010a 756E7369 		.ascii	"unsigned char\000"
  827      676E6564 
  827      20636861 
  827      7200
  828              	.LASF11:
- 829 0113 63686172 		.ascii	"char\000"
+ 829 0118 63686172 		.ascii	"char\000"
  829      00
  830              	.LASF7:
- 831 0118 6C6F6E67 		.ascii	"long int\000"
+ 831 011d 6C6F6E67 		.ascii	"long int\000"
  831      20696E74 
  831      00
  832              	.LASF22:
- 833 0121 416E616C 		.ascii	"AnalogSetDefault\000"
+ 833 0126 416E616C 		.ascii	"AnalogSetDefault\000"
  833      6F675365 
  833      74446566 
  833      61756C74 
  833      00
  834              	.LASF23:
- 835 0132 436C6F63 		.ascii	"ClockSetup\000"
+ 835 0137 436C6F63 		.ascii	"ClockSetup\000"
  835      6B536574 
  835      757000
  836              	.LASF15:
- 837 013d 646F7562 		.ascii	"double\000"
+ 837 0142 646F7562 		.ascii	"double\000"
  837      6C6500
  838              	.LASF16:
- 839 0144 72656733 		.ascii	"reg32\000"
+ 839 0149 72656733 		.ascii	"reg32\000"
  839      3200
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccGEYF6g.s 			page 23
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx2zqNc.s 			page 23
 
 
  840              	.LASF6:
- 841 014a 73686F72 		.ascii	"short unsigned int\000"
+ 841 014f 73686F72 		.ascii	"short unsigned int\000"
  841      7420756E 
  841      7369676E 
  841      65642069 
  841      6E7400
  842              	.LASF3:
- 843 015d 7369676E 		.ascii	"signed char\000"
+ 843 0162 7369676E 		.ascii	"signed char\000"
  843      65642063 
  843      68617200 
  844              	.LASF2:
- 845 0169 6C6F6E67 		.ascii	"long double\000"
+ 845 016e 6C6F6E67 		.ascii	"long double\000"
  845      20646F75 
  845      626C6500 
  846              	.LASF24:
- 847 0175 656E6162 		.ascii	"enabled\000"
+ 847 017a 656E6162 		.ascii	"enabled\000"
  847      6C656400 
  848              	.LASF25:
- 849 017d 72656756 		.ascii	"regValue\000"
+ 849 0182 72656756 		.ascii	"regValue\000"
  849      616C7565 
  849      00
  850              	.LASF5:
- 851 0186 73686F72 		.ascii	"short int\000"
+ 851 018b 73686F72 		.ascii	"short int\000"
  851      7420696E 
  851      7400
  852              	.LASF19:
- 853 0190 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 853 0195 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  853      43313120 
  853      352E342E 
  853      31203230 
  853      31363036 
- 854 01c3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 854 01c8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
  854      20726576 
  854      6973696F 
  854      6E203233 
  854      37373135 
- 855 01f6 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 855 01fb 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
  855      67202D66 
  855      66756E63 
  855      74696F6E 
  855      2D736563 
  856              	.LASF10:
- 857 0222 73697A65 		.ascii	"sizetype\000"
+ 857 0227 73697A65 		.ascii	"sizetype\000"
  857      74797065 
  857      00
  858              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
