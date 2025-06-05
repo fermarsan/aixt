@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
   28:Generated_Source\PSoC4/pwm_2_PM.c **** *  deep-sleep/hibernate modes. This function applies only to SIO and USBIO pins.
   29:Generated_Source\PSoC4/pwm_2_PM.c **** *  It should not be called for GPIO or GPIO_OVT pins.
   30:Generated_Source\PSoC4/pwm_2_PM.c **** *
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 2
 
 
   31:Generated_Source\PSoC4/pwm_2_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
   51              		.global	pwm_2_Wakeup
   52              		.code	16
   53              		.thumb_func
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 3
 
 
   54              		.type	pwm_2_Wakeup, %function
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
   72              	.L5:
   73 000c 00000000 		.word	.LANCHOR0
   74 0010 08020440 		.word	1074004488
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 4
 
 
   75              		.cfi_endproc
@@ -204,17 +204,17 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
   93 0006 00000000 		.4byte	.Ldebug_abbrev0
   94 000a 04       		.byte	0x4
   95 000b 01       		.uleb128 0x1
-  96 000c 5D010000 		.4byte	.LASF20
+  96 000c 62010000 		.4byte	.LASF20
   97 0010 0C       		.byte	0xc
-  98 0011 1B010000 		.4byte	.LASF21
-  99 0015 51000000 		.4byte	.LASF22
+  98 0011 20010000 		.4byte	.LASF21
+  99 0015 7D000000 		.4byte	.LASF22
  100 0019 00000000 		.4byte	.Ldebug_ranges0+0
  101 001d 00000000 		.4byte	0
  102 0021 00000000 		.4byte	.Ldebug_line0
  103 0025 02       		.uleb128 0x2
  104 0026 01       		.byte	0x1
  105 0027 06       		.byte	0x6
- 106 0028 EF010000 		.4byte	.LASF0
+ 106 0028 F4010000 		.4byte	.LASF0
  107 002c 02       		.uleb128 0x2
  108 002d 01       		.byte	0x1
  109 002e 08       		.byte	0x8
@@ -222,30 +222,30 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  111 0033 02       		.uleb128 0x2
  112 0034 02       		.byte	0x2
  113 0035 05       		.byte	0x5
- 114 0036 3D010000 		.4byte	.LASF2
+ 114 0036 42010000 		.4byte	.LASF2
  115 003a 02       		.uleb128 0x2
  116 003b 02       		.byte	0x2
  117 003c 07       		.byte	0x7
- 118 003d B3000000 		.4byte	.LASF3
+ 118 003d 63000000 		.4byte	.LASF3
  119 0041 02       		.uleb128 0x2
  120 0042 04       		.byte	0x4
  121 0043 05       		.byte	0x5
- 122 0044 4F010000 		.4byte	.LASF4
+ 122 0044 54010000 		.4byte	.LASF4
  123 0048 02       		.uleb128 0x2
  124 0049 04       		.byte	0x4
  125 004a 07       		.byte	0x7
- 126 004b A1000000 		.4byte	.LASF5
+ 126 004b 51000000 		.4byte	.LASF5
  127 004f 02       		.uleb128 0x2
  128 0050 08       		.byte	0x8
  129 0051 05       		.byte	0x5
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 5
 
 
- 130 0052 0D010000 		.4byte	.LASF6
+ 130 0052 12010000 		.4byte	.LASF6
  131 0056 02       		.uleb128 0x2
  132 0057 08       		.byte	0x8
  133 0058 07       		.byte	0x7
- 134 0059 ED000000 		.4byte	.LASF7
+ 134 0059 F2000000 		.4byte	.LASF7
  135 005d 03       		.uleb128 0x3
  136 005e 04       		.byte	0x4
  137 005f 05       		.byte	0x5
@@ -253,9 +253,9 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  139 0064 02       		.uleb128 0x2
  140 0065 04       		.byte	0x4
  141 0066 07       		.byte	0x7
- 142 0067 E0000000 		.4byte	.LASF8
+ 142 0067 E5000000 		.4byte	.LASF8
  143 006b 04       		.uleb128 0x4
- 144 006c CD000000 		.4byte	.LASF12
+ 144 006c D2000000 		.4byte	.LASF12
  145 0070 02       		.byte	0x2
  146 0071 FE01     		.2byte	0x1fe
  147 0073 48000000 		.4byte	0x48
@@ -266,11 +266,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  152 007e 02       		.uleb128 0x2
  153 007f 08       		.byte	0x8
  154 0080 04       		.byte	0x4
- 155 0081 C6000000 		.4byte	.LASF10
+ 155 0081 76000000 		.4byte	.LASF10
  156 0085 02       		.uleb128 0x2
  157 0086 01       		.byte	0x1
  158 0087 08       		.byte	0x8
- 159 0088 58010000 		.4byte	.LASF11
+ 159 0088 5D010000 		.4byte	.LASF11
  160 008c 04       		.uleb128 0x4
  161 008d 00000000 		.4byte	.LASF13
  162 0091 02       		.byte	0x2
@@ -284,13 +284,13 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  170 00a0 21       		.byte	0x21
  171 00a1 CA000000 		.4byte	0xca
  172 00a5 07       		.uleb128 0x7
- 173 00a6 47010000 		.4byte	.LASF14
+ 173 00a6 4C010000 		.4byte	.LASF14
  174 00aa 03       		.byte	0x3
  175 00ab 23       		.byte	0x23
  176 00ac 6B000000 		.4byte	0x6b
  177 00b0 00       		.byte	0
  178 00b1 07       		.uleb128 0x7
- 179 00b2 04010000 		.4byte	.LASF15
+ 179 00b2 09010000 		.4byte	.LASF15
  180 00b6 03       		.byte	0x3
  181 00b7 24       		.byte	0x24
  182 00b8 6B000000 		.4byte	0x6b
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  184 00bd 07       		.uleb128 0x7
  185 00be 13000000 		.4byte	.LASF16
  186 00c2 03       		.byte	0x3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 6
 
 
  187 00c3 25       		.byte	0x25
@@ -311,7 +311,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  194 00d0 26       		.byte	0x26
  195 00d1 9D000000 		.4byte	0x9d
  196 00d5 09       		.uleb128 0x9
- 197 00d6 D4000000 		.4byte	.LASF18
+ 197 00d6 D9000000 		.4byte	.LASF18
  198 00da 01       		.byte	0x1
  199 00db 2C       		.byte	0x2c
  200 00dc 00000000 		.4byte	.LFB0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  241 0012 00       		.byte	0
  242 0013 02       		.uleb128 0x2
  243 0014 24       		.uleb128 0x24
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 7
 
 
  244 0015 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  298 004b 0D       		.uleb128 0xd
  299 004c 00       		.byte	0
  300 004d 03       		.uleb128 0x3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 8
 
 
  301 004e 0E       		.uleb128 0xe
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  355 0085 3B       		.uleb128 0x3b
  356 0086 0B       		.uleb128 0xb
  357 0087 49       		.uleb128 0x49
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 9
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 9
 
 
  358 0088 13       		.uleb128 0x13
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  398 0030 666C6F61 		.ascii	"float\000"
  398      7400
  399              	.LASF19:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 10
 
 
  400 0036 70776D5F 		.ascii	"pwm_2_Wakeup\000"
@@ -550,100 +550,100 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 1
  402      676E6564 
  402      20636861 
  402      7200
- 403              	.LASF22:
- 404 0051 433A5C61 		.ascii	"C:\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\example"
- 404      6978745C 
- 404      706F7274 
- 404      735C4379 
- 404      70726573 
- 405 007f 735C4359 		.ascii	"s\\CY8CKIT-145-40XX-blinking.cydsn\000"
- 405      38434B49 
- 405      542D3134 
- 405      352D3430 
- 405      58582D62 
- 406              	.LASF5:
- 407 00a1 6C6F6E67 		.ascii	"long unsigned int\000"
- 407      20756E73 
- 407      69676E65 
- 407      6420696E 
- 407      7400
- 408              	.LASF3:
- 409 00b3 73686F72 		.ascii	"short unsigned int\000"
- 409      7420756E 
- 409      7369676E 
- 409      65642069 
- 409      6E7400
- 410              	.LASF10:
- 411 00c6 646F7562 		.ascii	"double\000"
- 411      6C6500
+ 403              	.LASF5:
+ 404 0051 6C6F6E67 		.ascii	"long unsigned int\000"
+ 404      20756E73 
+ 404      69676E65 
+ 404      6420696E 
+ 404      7400
+ 405              	.LASF3:
+ 406 0063 73686F72 		.ascii	"short unsigned int\000"
+ 406      7420756E 
+ 406      7369676E 
+ 406      65642069 
+ 406      6E7400
+ 407              	.LASF10:
+ 408 0076 646F7562 		.ascii	"double\000"
+ 408      6C6500
+ 409              	.LASF22:
+ 410 007d 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
+ 410      6978745C 
+ 410      61697874 
+ 410      5C706F72 
+ 410      74735C43 
+ 411 00aa 78616D70 		.ascii	"xamples\\CY8CKIT-145-40XX-blinking.cydsn\000"
+ 411      6C65735C 
+ 411      43593843 
+ 411      4B49542D 
+ 411      3134352D 
  412              	.LASF12:
- 413 00cd 75696E74 		.ascii	"uint32\000"
+ 413 00d2 75696E74 		.ascii	"uint32\000"
  413      333200
  414              	.LASF18:
- 415 00d4 70776D5F 		.ascii	"pwm_2_Sleep\000"
+ 415 00d9 70776D5F 		.ascii	"pwm_2_Sleep\000"
  415      325F536C 
  415      65657000 
  416              	.LASF8:
- 417 00e0 756E7369 		.ascii	"unsigned int\000"
+ 417 00e5 756E7369 		.ascii	"unsigned int\000"
  417      676E6564 
  417      20696E74 
  417      00
  418              	.LASF7:
- 419 00ed 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 419 00f2 6C6F6E67 		.ascii	"long long unsigned int\000"
  419      206C6F6E 
  419      6720756E 
  419      7369676E 
  419      65642069 
  420              	.LASF15:
- 421 0104 73696F53 		.ascii	"sioState\000"
+ 421 0109 73696F53 		.ascii	"sioState\000"
  421      74617465 
  421      00
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWGGkig.s 			page 11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccitCMHU.s 			page 11
 
 
  422              	.LASF6:
- 423 010d 6C6F6E67 		.ascii	"long long int\000"
+ 423 0112 6C6F6E67 		.ascii	"long long int\000"
  423      206C6F6E 
  423      6720696E 
  423      7400
  424              	.LASF21:
- 425 011b 47656E65 		.ascii	"Generated_Source\\PSoC4\\pwm_2_PM.c\000"
+ 425 0120 47656E65 		.ascii	"Generated_Source\\PSoC4\\pwm_2_PM.c\000"
  425      72617465 
  425      645F536F 
  425      75726365 
  425      5C50536F 
  426              	.LASF2:
- 427 013d 73686F72 		.ascii	"short int\000"
+ 427 0142 73686F72 		.ascii	"short int\000"
  427      7420696E 
  427      7400
  428              	.LASF14:
- 429 0147 70635374 		.ascii	"pcState\000"
+ 429 014c 70635374 		.ascii	"pcState\000"
  429      61746500 
  430              	.LASF4:
- 431 014f 6C6F6E67 		.ascii	"long int\000"
+ 431 0154 6C6F6E67 		.ascii	"long int\000"
  431      20696E74 
  431      00
  432              	.LASF11:
- 433 0158 63686172 		.ascii	"char\000"
+ 433 015d 63686172 		.ascii	"char\000"
  433      00
  434              	.LASF20:
- 435 015d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 435 0162 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  435      43313120 
  435      352E342E 
  435      31203230 
  435      31363036 
- 436 0190 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 436 0195 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
  436      20726576 
  436      6973696F 
  436      6E203233 
  436      37373135 
- 437 01c3 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 437 01c8 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
  437      67202D66 
  437      66756E63 
  437      74696F6E 
  437      2D736563 
  438              	.LASF0:
- 439 01ef 7369676E 		.ascii	"signed char\000"
+ 439 01f4 7369676E 		.ascii	"signed char\000"
  439      65642063 
  439      68617200 
  440              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

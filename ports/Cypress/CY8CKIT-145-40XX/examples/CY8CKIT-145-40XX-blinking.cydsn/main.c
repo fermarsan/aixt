@@ -5,6 +5,7 @@
 // Backend = c
 
 #include <stdint.h>
+#include <stdbool.h>
 typedef int8_t i8;
 typedef int16_t i16;
 typedef int32_t i32;
@@ -32,25 +33,21 @@ void  main__init();
 
 #define PIN_WRITE(PIN_NAME, VAL)    PIN_NAME##_Write(VAL)
 
-#define _const_main__led1 0
-#define _const_main___led2 1
-#define _const_main___led3 2
-#define _const_main__led4 3
-#define _const_main__led5 4
-#define _const_main__led6 5
-#define _const_main__led7 6
-#define _const_main__led8 7
-#define _const_main__led9 8
-#define _const_main__led10 9
-#define _const_main__led11 10
-#define _const_main___led12 11
+#define _const_main__led_1 led1
+#define _const_main__led_4 led4
+#define _const_main__led_5 led5
+#define _const_main__led_6 led6
+#define _const_main__led_7 led7
+#define _const_main__led_8 led8
+#define _const_main__led_9 led9
+#define _const_main__led_10 led10
+#define _const_main__led_11 led11
 #define _const_main__do0 12
 #define _const_main__do1 13
 #define _const_main__do2 14
 #define _const_main__pwm_1 15
 #define _const_main__pwm_2 16
 #define _const_main__pwm_3 17
-#define _const_main___sw1 18
 #define _const_main__sw2 19
 #define _const_main__di0 20
 #define _const_main__di1 21
@@ -74,13 +71,14 @@ void  main__init();
 
 #define time__sleep_us(tus) CyDelayUs(tus)
 
-  main() {
+ int main() {
 	main__init();
 	while( true ) {
-		pin__write(_const_main__led1, 0); 
+		pin__write(_const_main__led_1, 0); 
 		time__sleep_ms(500); 
-		pin__write(_const_main__led1, 1); 
+		pin__write(_const_main__led_1, 1); 
 		time__sleep_ms(500); 
 	} 
+	return 0;
 }
 

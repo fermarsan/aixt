@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED1\led1.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Configuracion_General\CY8CKIT-145-40XX-blinking\Source Files\main.c">
 <ExpandedNodeIds>
 <v>Configuracion_General</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking</v>
@@ -35,6 +35,25 @@
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED1</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>Configuracion_General</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\TopDesign</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.cydwr</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.cydwr\Pins</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.cydwr\Analog</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.cydwr\Clocks</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.cydwr\Interrupts</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.cydwr\System</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.cydwr\Directives</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.cydwr\Flash Security</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Header Files</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Header Files\cyapicallbacks.h</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Source Files</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Source Files\main.c</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\CapSense</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\CapSense_ISR</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\clock</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\cy_boot</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\cy_lfclk</v>
@@ -64,8 +83,6 @@
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\PWM1</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\PWM2</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\PWM3</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\SW2</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\UART</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -122,34 +139,8 @@
 <VisibleNodeIds>
 <v>Configuracion_General</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\clock.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\Cm0plusStart.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\di0.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\di0_PM.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\do0.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\do0_PM.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_1.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_1_PM.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_2.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_2_PM.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_3.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_3_PM.lst</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.elf</v>
-<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.hex</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.rpt</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking_timing.html</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
