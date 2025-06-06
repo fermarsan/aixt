@@ -25,7 +25,7 @@ pub mut:
 	cur_left_type  		ast.Type
 	cur_op		   		token.Kind
 	cur_cond       		ast.Expr
-	transpiler_path		string
+	aixt_path		string
 	// imports				[]string
 	source_paths		[]string
 	out           		[]string
@@ -58,10 +58,10 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	api_paths := gen.setup.api_paths
 
 	// add the builtin file first
-	if os.exists('${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v') {
-		gen.source_paths << '${gen.transpiler_path}/ports/${api_paths[0]}/api/builtin.c.v'
+	if os.exists('${gen.aixt_path}/ports/${api_paths[0]}/api/builtin.c.v') {
+		gen.source_paths << '${gen.aixt_path}/ports/${api_paths[0]}/api/builtin.c.v'
 	} else {
-		panic('"builtin.c.v" in have to exist in "${gen.transpiler_path}/ports/${api_paths[0]}/api/"')
+		panic('"builtin.c.v" in have to exist in "${gen.aixt_path}/ports/${api_paths[0]}/api/"')
 	}
 	// add the source files in the project's main folder
 	gen.add_local_sources(source_path)

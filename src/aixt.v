@@ -46,7 +46,7 @@ fn main() {
 					// println('++++++++++++++++\n${project_setup}\n++++++++++++++++')
 					match command {
 						'transpile', '-t' {
-							build.transpile_file(input_name, project_setup, aixt_path)
+							build.transpile_file(input_name, project_setup)
 							println('\n${input_name} transpiling finished.\n')
 						}
 						'compile', '-c' {
@@ -70,7 +70,7 @@ fn main() {
 							println('\n${name} flashing finished.\n')
 						}
 						'build', '-b' {
-							build.transpile_file(input_name, project_setup, aixt_path)
+							build.transpile_file(input_name, project_setup)
 							println('\n${input_name} transpiling finished.\n')
 							build.compile_file(base_name, project_setup)
 							ext := match project_setup.backend {
