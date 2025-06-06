@@ -14,8 +14,24 @@ import v.parser
 import aixt.setup
 import aixt.cgen
 
+// get_subfolders function look for file paths in a folder recursively
+// fn get_subfolders(path string) []string {
+// 	mut paths := []string{}
+// 	dir_content := os.ls(path) or { [] }
+// 	for item in dir_content {
+// 		if os.is_dir('${path}/${item}') {
+// 			paths << get_subfolders('${path}/${item}')
+// 		} else {
+// 			paths << '${path}/${item}'
+// 		}
+// 	}
+// 	return paths
+// }
+
 // transpile_file transpiles an Aixt source code into C.
-pub fn transpile_file(path string, project_setup setup.Setup, aixt_path string) {
+pub fn transpile_file(path string, project_setup setup.Setup) {
+
+	aixt_path := os.dir(os.executable())
 
 	mut aixt_pref := &pref.Preferences{}
 	// mut aixt_pref, _ := pref.parse_args_and_show_errors([], defines, true)
@@ -24,10 +40,6 @@ pub fn transpile_file(path string, project_setup setup.Setup, aixt_path string) 
 
 	mut aixt_builder := builder.new_builder(aixt_pref)
 	aixt_builder.table = ast.new_table()
-	
-	scope := ast.Scope{
-		parent: unsafe { nil }
-	}
 
 	file_paths := aixt_builder.v_files_from_dir(os.dir(path))
 
@@ -36,16 +48,37 @@ pub fn transpile_file(path string, project_setup setup.Setup, aixt_path string) 
 
 	// println('>>>>>>>>>>>>>>>>>> ${parsed_files} <<<<<<<<<<<<<<<<<<')
 	for file in parsed_files {
+
 		println('${os.base(file.path)}:')
 		for imp in file.imports {
 			println('\t${imp.mod}')
 		}
 	}
 
+	// load the API modules' paths
+	for api_path in project_setup.api_paths {
+		// base_dir := os.join_path(
+		// 	aixt_path, os.path_separator, 
+		// 	'ports', os.path_separator, 
+		// 	api_path, os.path_separator, 'api'
+		// )
+		base_dir := '${aixt_path}/ports/${api_path}/api'
+		println('>>>>>>>>>>>>>>>>>> ${base_dir} <<<<<<<<<<<<<<<<<<')
+		for module_path in aixt_builder.v_files_from_dir(base_dir) {
+			short_path := module_path.replace('${base_dir}/', '')
+			println('>>>>>>>>>>>>>>>>>> ${short_path} <<<<<<<<<<<<<<<<<<')
+			if short_path.ends_with('.c.v') {
+				module_name := if short_path.contains('/') {
+					short_path.all_before_last('/').replace('/', '.')
+				} else {
+					'main'
+				}
+				// gen.api_mod_paths[module_name] << path
+			}
+		}
+	}
 
-	println('>>>>>>>>>>>>>>>>>> ${pref.vexe_path()} <<<<<<<<<<<<<<<<<<')
-	
-	println('>>>>>>>>>>>>>>>>>> ${	os.executable()} <<<<<<<<<<<<<<<<<<')
+	// println('>>>>>>>>>>>>>>>>>> ${aixt_path} <<<<<<<<<<<<<<<<<<')
 
 	// // set de defines from the port's json file
 	// mut defines := ['']
@@ -110,4 +143,38 @@ pub fn transpile_file(path string, project_setup setup.Setup, aixt_path string) 
 	// 	println('${mod} :\n${paths}')
 	// }
 	// println('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+// }
+
+
+
+
+
+
+// fn load_api_mod_paths(project_setup setup.Setup) {
+// 	// println('API modules:')
+// 	aixt_path := os.dir(os.executable())
+
+// 	for api_path in project_setup.api_paths {
+// 		base_dir := '${aixt_path}/ports/${api_path}/api'
+// 		for path in get_file_paths(base_dir) {
+// 			short_path := path.replace('${base_dir}/', '')
+// 			if short_path.ends_with('.c.v') {
+// 				module_name := if short_path.contains('/') {
+// 					short_path.all_before_last('/').replace('/', '.')
+// 				} else {
+// 					'main'
+// 				}
+// 				gen.api_mod_paths[module_name] << path
+// 			}
+// 		}
+// 	}
+// 	// for item, dirs in gen.api_mod_paths {
+// 	// 	println('  ${item}:\n\t${dirs.join('\n\t')}')
+// 	// }
+// 	// println('>>>>>>>>>>>>>>>>>> ${gen.api_mod_paths} <<<<<<<<<<<<<<<<<<')
+// 	// println('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+// 	// for mod, paths in gen.api_mod_paths {
+// 	// 	println('${mod} :\n${paths}')
+// 	// }
+// 	// println('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
 // }
