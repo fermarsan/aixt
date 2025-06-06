@@ -88,7 +88,11 @@ pub fn transpile_file(path string, project_setup setup.Setup, aixt_path string) 
 // fn (mut gen Gen) load_api_mod_paths() {
 // 	// println('API modules:')
 // 	for api_path in gen.setup.api_paths {
+<<<<<<< HEAD
 // 		base_dir := '${gen.transpiler_path}/ports/${api_path}/api'
+=======
+// 		base_dir := '${gen.aixt_path}/ports/${api_path}/api'
+>>>>>>> origin/development
 // 		for path in get_file_paths(base_dir) {
 // 			short_path := path.replace('${base_dir}/', '')
 // 			if short_path.ends_with('.c.v') {

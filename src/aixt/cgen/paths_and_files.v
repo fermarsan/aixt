@@ -26,7 +26,7 @@ fn get_file_paths(path string) []string {
 fn (mut gen Gen) load_api_mod_paths() {
 	// println('API modules:')
 	for api_path in gen.setup.api_paths {
-		base_dir := '${gen.transpiler_path}/ports/${api_path}/api'
+		base_dir := '${gen.aixt_path}/ports/${api_path}/api'
 		for path in get_file_paths(base_dir) {
 			short_path := path.replace('${base_dir}/', '')
 			if short_path.ends_with('.c.v') {
@@ -53,9 +53,9 @@ fn (mut gen Gen) load_api_mod_paths() {
 // load_lib_mod_paths function detects all the modules in the `lib` folder
 fn (mut gen Gen) load_lib_mod_paths() {
 	// println('\nLibrary modules:')
-	lib_paths := os.ls('${gen.transpiler_path}/lib') or { [] } // modules in the `lib` folder
+	lib_paths := os.ls('${gen.aixt_path}/lib') or { [] } // modules in the `lib` folder
 	for lib_path in lib_paths {
-		base_dir := '${gen.transpiler_path}/lib/${lib_path}'
+		base_dir := '${gen.aixt_path}/lib/${lib_path}'
 		lib_backend_path := match gen.setup.backend {
 			'arduino' {
 				if os.exists('${base_dir}/arduino') {

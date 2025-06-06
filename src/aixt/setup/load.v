@@ -9,7 +9,9 @@ import os
 import json
 
 // load function loads the setup files for the device and the compiler
-pub fn (mut stp Setup) load(device string, aixt_path string) {
+pub fn (mut stp Setup) load(device string) {
+
+	aixt_path := os.dir(os.executable())
 
 	eq_devices := json.decode(
 		map[string]string,
