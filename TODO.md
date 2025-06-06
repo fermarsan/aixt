@@ -32,6 +32,7 @@ Tasks to do in Aixt
 - [ ] Issue: External interrupts on Arduino backend fails if the pin is not defined as constant
 - [ ] Add `pin.toggle()` function on Arduino Nano, Uno and Mega
 - [ ] Implements sub-modules
+- [ ] Remove the passing of the aixt-path among functions
 
 
 ### Done ✓make

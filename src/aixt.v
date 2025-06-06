@@ -17,9 +17,8 @@ fn main() {
 	if os.args.len < 2 {
 		println(help_message())
 	} else {
-		// aixt_path := '${os.abs_path(os.dir(os.args[0]))}/..' // aixt base path (get out from `src`  folder)
-		aixt_path := os.executable().all_before_last('\\aixt').all_before_last('/aixt')
-		println(aixt_path)
+		aixt_path := os.dir(os.executable())
+		println('Aixt path:\n\t${os.executable()}\n')
 		command := os.args[1] // command
 		match command {
 			'help', '--help', '-h' {
@@ -43,7 +42,7 @@ fn main() {
 					mut device, input_name := os.args[2], os.abs_path(os.args[3]) // device name and source path input
 					base_name := input_name.replace('.v', '') // input file base name
 					mut project_setup := setup.Setup{}
-					project_setup.load(device, aixt_path)
+					project_setup.load(device)
 					// println('++++++++++++++++\n${project_setup}\n++++++++++++++++')
 					match command {
 						'transpile', '-t' {
