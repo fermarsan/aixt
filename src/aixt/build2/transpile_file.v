@@ -13,6 +13,7 @@ import v.parser
 
 import aixt.setup
 import aixt.cgen
+import aixt.util
 
 // transpile_file transpiles an Aixt source code into C.
 pub fn transpile_file(path string, project_setup setup.Setup, aixt_path string) {
@@ -89,7 +90,7 @@ pub fn transpile_file(path string, project_setup setup.Setup, aixt_path string) 
 // 	// println('API modules:')
 // 	for api_path in gen.setup.api_paths {
 // 		base_dir := '${gen.aixt_path}/ports/${api_path}/api'
-// 		for path in get_file_paths(base_dir) {
+// 		for path in utils.get_file_paths(base_dir) {
 // 			short_path := path.replace('${base_dir}/', '')
 // 			if short_path.ends_with('.c.v') {
 // 				module_name := if short_path.contains('/') {
