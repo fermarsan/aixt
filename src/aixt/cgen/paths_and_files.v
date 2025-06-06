@@ -7,27 +7,15 @@ module cgen
 import os
 import v.parser
 import v.ast
+import aixt.util
 
-// get_files function look for file paths in a folder recursively
-fn get_file_paths(path string) []string {
-	mut paths := []string{}
-	dir_content := os.ls(path) or { [] }
-	for item in dir_content {
-		if os.is_dir('${path}/${item}') {
-			paths << get_file_paths('${path}/${item}')
-		} else {
-			paths << '${path}/${item}'
-		}
-	}
-	return paths
-}
 
 // load_api_mod_paths function detects all the modules in API folders
 fn (mut gen Gen) load_api_mod_paths() {
 	// println('API modules:')
 	for api_path in gen.setup.api_paths {
 		base_dir := '${gen.aixt_path}/ports/${api_path}/api'
-		for path in get_file_paths(base_dir) {
+		for path in util.get_file_paths(base_dir) {
 			short_path := path.replace('${base_dir}/', '')
 			if short_path.ends_with('.c.v') {
 				module_name := if short_path.contains('/') {
@@ -125,7 +113,7 @@ fn (mut gen Gen) add_local_sources(global_path string) {
 			gen.source_paths << global_path
 		}
 	} else {
-		for path in get_file_paths(global_path) {
+		for path in util.get_file_paths(global_path) {
 			gen.source_paths << path
 		}
 	}

@@ -13,6 +13,7 @@ import v.parser
 
 import aixt.setup
 import aixt.cgen
+import aixt.util
 
 // get_subfolders function look for file paths in a folder recursively
 // fn get_subfolders(path string) []string {
@@ -121,8 +122,13 @@ pub fn transpile_file(path string, project_setup setup.Setup) {
 // fn (mut gen Gen) load_api_mod_paths() {
 // 	// println('API modules:')
 // 	for api_path in gen.setup.api_paths {
+<<<<<<< HEAD
 // 		base_dir := '${gen.transpiler_path}/ports/${api_path}/api'
 // 		for path in get_file_paths(base_dir) {
+=======
+// 		base_dir := '${gen.aixt_path}/ports/${api_path}/api'
+// 		for path in utils.get_file_paths(base_dir) {
+>>>>>>> development
 // 			short_path := path.replace('${base_dir}/', '')
 // 			if short_path.ends_with('.c.v') {
 // 				module_name := if short_path.contains('/') {
