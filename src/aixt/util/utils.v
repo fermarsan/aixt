@@ -5,6 +5,8 @@
 // Description: util functions module
 module util
 
+import os
+
 // get_file_paths function look for file paths in a folder recursively
 pub fn get_file_paths(path string) []string {
 	mut paths := []string{}
