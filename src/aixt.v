@@ -9,6 +9,7 @@ module main
 import os
 import aixt.setup
 import aixt.build
+import aixt.build2
 
 // main function for Aixt transpiler.
 // Usage:
@@ -80,6 +81,9 @@ fn main() {
 								else { 'c' }
 							}
 							println('\n${base_name}.${ext} compiling finished.\n')
+						}
+						'build2' {
+							build2.transpile_file(input_name, project_setup, aixt_path)
 						}
 						'clean', '-cl' {
 							if os.exists('${os.dir(base_name)}/Makefile') {

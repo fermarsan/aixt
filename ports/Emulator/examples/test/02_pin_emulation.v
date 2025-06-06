@@ -1,4 +1,5 @@
 import pin
+import pin.fast
 import time
 
 fn main() {
