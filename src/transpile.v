@@ -14,8 +14,8 @@ import aixt.builder as aixt_builder
 import aixt.cgen2
 
 
-// transpile_file transpiles an Aixt source code into C.
-pub fn transpile_file(path string, project_setup setup.Setup) {
+// transpile transpiles an Aixt project (single or multiple file) into C.
+pub fn transpile(path string, project_setup setup.Setup) {
 
 	// set de defines from the port's json file
 	mut defines := ['']

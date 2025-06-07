@@ -40,8 +40,8 @@ Tasks to do in Aixt
 - [x] Generate the `arduino-ARM32` subfolder 
 - [x] Change aixt transpiler as a module with submodules
 - [x] Remove the passing of the aixt-path among functions
-- [x] Generate a new `builder` submodule for the Aixt transpiler
-- [x] Generate a new `cgen2` submodule for the Aixt transpiler
+- [x] Generate a new `builder` and `cgen2` submodules for the Aixt transpiler
 - [x] Generate a new transpiler script
-- [x] Implement and test (16F83_blinking) a new transpiler scheme
+- [x] Implement and test (16F83_blinking and Nano-random_bits) a new transpiler scheme
 - [x] Issue solved: C prototypes of `@[inline]` functions fail
+- [x] Move `transpile.v` `c_compile.v` and `flash.v` files from `build`module to `main`

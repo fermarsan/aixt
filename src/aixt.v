@@ -82,7 +82,7 @@ fn main() {
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}
 						'builder' {
-							transpile_file(input_name, project_setup)
+							transpile(input_name, project_setup)
 						}
 						'clean', '-cl' {
 							if os.exists('${os.dir(base_name)}/Makefile') {
