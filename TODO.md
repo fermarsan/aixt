@@ -41,8 +41,8 @@ Tasks to do in Aixt
 - [x] Change aixt transpiler as a module with submodules
 - [x] Remove the passing of the aixt-path among functions
 - [x] Generate a new `builder` and `cgen2` submodules for the Aixt transpiler
-- [x] Generate a new transpiler script
-- [x] Implement and test (16F83_blinking and Nano-random_bits) a new transpiler scheme
 - [x] Issue solved: C prototypes of `@[inline]` functions fail
 - [x] Move `transpile.v` `c_compile.v` and `flash.v` files from `build`module to `main`
 - [x] Changes `compile` Aixt option to `c_compile` (including vscode and zed `tasks.json`) 
+- [x] Generate a new transpiler script
+- [x] Implement and test (16F83_blinking, ESP32-C3FH4-blinking and Nano-random_bits) a new transpiler scheme
