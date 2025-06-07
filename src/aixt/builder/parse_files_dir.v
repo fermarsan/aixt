@@ -17,6 +17,14 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// -------------------- Find the main source files --------------------
 	mut file_paths := b.v_files_from_dir(os.dir(path))
 
+	// -------------------- Add the builtin file first --------------------
+	api_base_path := '${b.aixt_path}/ports/${b.setup.api_paths[0]}/api' 
+	if os.exists('${api_base_path}/builtin.c.v') {
+		file_paths.insert(0, '${api_base_path}/builtin.c.v')
+	} else {
+		panic('"builtin.c.v" in have to exist in "${api_base_path}/"')
+	}
+
 	// -------------------- First parser round --------------------
 	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
 
@@ -25,8 +33,9 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// }
 
 	// -------------------- Load the used API modules' files --------------------
-	file_paths << b.get_api_mod_paths()
-	file_paths << b.get_lib_mod_paths()
+	// file_paths << b.get_lib_mod_paths()
+	file_paths.insert(0, b.get_lib_mod_paths())
+	file_paths.insert(0, b.get_api_mod_paths())
 
 	// -------------------- Second parser round --------------------
 	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)

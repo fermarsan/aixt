@@ -10,11 +10,11 @@ import v.ast
 pub fn (mut b Builder) sym_table_print() {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 
-	println(' ==== global scope ==== ')
+	println('\n ==== global scope ==== ')
 	// println(b.table.type_symbols)
 	// println(b.table.type_idxs)		
 	print(b.symbol_table(b.table.global_scope))
-	println(' ======= scope ======== ')
+	println('\n ======= scope ======== ')
 	for file in b.parsed_files {
 		println('${file.mod.name}:\t${file.path_base}')
 		print(b.symbol_table(file.scope))
