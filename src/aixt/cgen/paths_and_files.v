@@ -10,7 +10,7 @@ import v.ast
 import aixt.util
 
 
-// load_api_mod_paths function detects all the modules in API folders
+// load_api_mod_paths function detects all the modules in API dirs
 fn (mut gen Gen) load_api_mod_paths() {
 	// println('API modules:')
 	for api_path in gen.setup.api_paths {

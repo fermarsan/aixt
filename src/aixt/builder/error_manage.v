@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 2023-2025
 // License: MIT
-module build2
+module builder
 
 import v.ast
 
@@ -65,20 +65,20 @@ pub fn err_war_check(files []&ast.File) {
 
 
 // err_war_print prints Aixt transpiler warnings and errors (based on v.ast.file)
-pub fn err_war_print(files []&ast.File) {
+pub fn (mut b builder) err_war_print() {
 	mut w_count, mut e_count := 0, 0
-	for file in files {
+	for file in b.files {
 		w_count += file.warnings.len
 		e_count += file.errors.len
 	}
 	println('\n${w_count} warning(s), ${e_count} error(s)')
-	for file in files {
+	for file in b.files {
 		for w in file.warnings {
 			println('warning: ${w.message}\t(${file.path_base})')
 			// println('\t${w.details}')
 		}
 	}
-	for file in files {
+	for file in b.files {
 		for e in file.errors {
 			println('error: ${e.message}\t(${file.path_base})')
 			// println('\t${e.details}')

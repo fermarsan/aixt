@@ -15,7 +15,7 @@ import aixt.cgen
 pub fn transpile_file(path string, project_setup setup.Setup) {
 	aixt_path := os.dir(os.executable())
 
-	mut c_gen := cgen.Gen{
+	mut c_gen := cgen.Gen {
 		files:              []&ast.File{}
 		table:              ast.new_table()
 		cur_scope: 			&ast.Scope{}

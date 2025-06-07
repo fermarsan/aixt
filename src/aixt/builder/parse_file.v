@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 2025
 // License: MIT
-module build2
+module builder
 
 import os
 import v.ast
@@ -13,45 +13,38 @@ import v.parser
 import aixt.setup
 import aixt.util
 
-// parse_file parses an Aixt source code.
-pub fn parse_file(path string, project_setup setup.Setup) []&ast.File {
+// parse_files_dir parses one or more Aixt's V sources files,
+// this receives the path of an individual source file or a 
+// directory and parses all the source files inside
+pub fn (mut b builder) parse_files_dir(path string) []&ast.File {
 
-	aixt_path := os.dir(os.executable())
-
-	mut aixt_pref := &pref.Preferences{}
-	// mut aixt_pref, _ := pref.parse_args_and_show_errors([], defines, true)
-	aixt_pref.is_script = true
-	aixt_pref.enable_globals = true
-
-	mut aixt_builder := builder.new_builder(aixt_pref)
-	aixt_builder.table = ast.new_table()
-
-	mut file_paths := aixt_builder.v_files_from_dir(os.dir(path))
+	// -------------------- Find the main source files --------------------
+	mut file_paths := b.v_files_from_dir(os.dir(path))
 
 	// -------------------- First parser round --------------------
-	mut parsed_files := parser.parse_files(file_paths, mut aixt_builder.table, aixt_builder.pref)
+	mut parsed_files := parser.parse_files(file_paths, mut b.table, b.pref)
 
 	for file in parsed_files {
 		println(file.path)
 	}
 
 	// load the API modules' paths
-	for api_path in project_setup.api_paths {
+	for api_path in b.setup.api_paths {
 		// base_dir := os.join_path(
 		// 	aixt_path, os.path_separator, 
 		// 	'ports', os.path_separator, 
 		// 	api_path, os.path_separator, 'api'
 		// )
 		base_dir := '${aixt_path}/ports/${api_path}/api'
-		mut api_folders := [base_dir]
-		api_folders << util.get_subfolders(base_dir)
-		// println('>>>>>>>>>>>>>>>>>> ${api_folders} <<<<<<<<<<<<<<<<<<')
-		for folder in api_folders {
+		mut api_dirs := [base_dir]
+		api_dirs << util.get_subdirs(base_dir)
+		// println('>>>>>>>>>>>>>>>>>> ${api_dirs} <<<<<<<<<<<<<<<<<<')
+		for folder in api_dirs {
 			// println('>>>>>>>>>>>>>>>>>> ${os.base(folder)} <<<<<<<<<<<<<<<<<<')
 			for file in parsed_files {
 				for imp in file.imports {
 					if os.base(folder) == imp.mod.all_after_last('.') {
-						file_paths << aixt_builder.v_files_from_dir(folder)
+						file_paths << b.v_files_from_dir(folder)
 					}
 				}
 			}
@@ -60,7 +53,7 @@ pub fn parse_file(path string, project_setup setup.Setup) []&ast.File {
 	}
 
 	// -------------------- Second parser round --------------------
-	parsed_files = parser.parse_files(file_paths, mut aixt_builder.table, aixt_builder.pref)
+	parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
 
 	for file in parsed_files {
 		println(file.path)

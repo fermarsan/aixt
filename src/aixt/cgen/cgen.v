@@ -25,7 +25,7 @@ pub mut:
 	cur_left_type  		ast.Type
 	cur_op		   		token.Kind
 	cur_cond       		ast.Expr
-	aixt_path		string
+	aixt_path			string
 	// imports				[]string
 	source_paths		[]string
 	out           		[]string
