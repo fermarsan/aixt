@@ -23,17 +23,17 @@
             }
         },
         {
-            "label": "Aixt: Compile",
+            "label": "Aixt: C compile",
             "type": "shell",
             "windows": {
                 "command": [ "${config:aixt_windows}",
-                            "compile",
+                            "c_compile",
                             "${config:device}",
                             "${file}" ]
             },
             "linux": {
                 "command": [ "${config:aixt_linux}",
-                            "compile",
+                            "c_compile",
                             "${config:device}",
                             "${file}" ]
             },
