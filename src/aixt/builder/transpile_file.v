@@ -6,14 +6,9 @@ module builder
 
 import os
 import v.ast
-// import v.token
 import v.pref
-import v.builder
-// import v.parser
-
-// import aixt.setup
-// import aixt.cgen
-// import aixt.util
+import v.builder as v_builder
+import aixt.setup
 
 // transpile_file transpiles an Aixt source code into C.
 pub fn transpile_file(path string, project_setup setup.Setup) {
@@ -26,14 +21,13 @@ pub fn transpile_file(path string, project_setup setup.Setup) {
 	aixt_pref.enable_globals = true
 
 	mut aixt_builder := Builder {
-		builder.Builder:	builder.new_builder(aixt_pref)
-		setup:				project_setup
-		aixt_path:			aixt_path
+		Builder:	v_builder.new_builder(aixt_pref)
+		setup:		project_setup
+		aixt_path:	aixt_path
 	}
-
 	aixt_builder.table = ast.new_table()
 
-	parsed_files := aixt_builder.parse_files_dir(path)
-	// err_war_print(parsed_files)
+	aixt_builder.parse_files_dir(path)
+	aixt_builder.err_war_print()
 
 }

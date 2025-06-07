@@ -6,19 +6,13 @@
 // Description: This file contains the C code generation functions of the Aixt.
 module builder
 
-import aixt.setup
-import v.ast
-import v.token
-import v.pref
-import v.builder
-import v.parser
-import v.checker
-import os
+import aixt.setup as aixt_setup
+import v.builder as v_builder
 
 // Gen is the struct that defines all the necessary data for the code generation
 pub struct Builder {
-pub mut:
-	builder.Builder
-	setup			setup.Setup
+	v_builder.Builder
+// pub mut:
+	setup			aixt_setup.Setup
 	aixt_path		string
 }

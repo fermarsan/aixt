@@ -5,26 +5,21 @@
 module builder
 
 import os
-import v.ast
-import v.pref
-import v.builder
 import v.parser
-
-import aixt.setup
 import aixt.util
 
 // parse_files_dir parses one or more Aixt's V sources files,
 // this receives the path of an individual source file or a 
 // directory and parses all the source files inside
-pub fn (mut b builder) parse_files_dir(path string) []&ast.File {
+pub fn (mut b Builder) parse_files_dir(path string) {
 
 	// -------------------- Find the main source files --------------------
 	mut file_paths := b.v_files_from_dir(os.dir(path))
 
 	// -------------------- First parser round --------------------
-	mut parsed_files := parser.parse_files(file_paths, mut b.table, b.pref)
+	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
 
-	for file in parsed_files {
+	for file in b.parsed_files {
 		println(file.path)
 	}
 
@@ -35,13 +30,13 @@ pub fn (mut b builder) parse_files_dir(path string) []&ast.File {
 		// 	'ports', os.path_separator, 
 		// 	api_path, os.path_separator, 'api'
 		// )
-		base_dir := '${aixt_path}/ports/${api_path}/api'
+		base_dir := '${b.aixt_path}/ports/${api_path}/api'
 		mut api_dirs := [base_dir]
 		api_dirs << util.get_subdirs(base_dir)
 		// println('>>>>>>>>>>>>>>>>>> ${api_dirs} <<<<<<<<<<<<<<<<<<')
 		for folder in api_dirs {
 			// println('>>>>>>>>>>>>>>>>>> ${os.base(folder)} <<<<<<<<<<<<<<<<<<')
-			for file in parsed_files {
+			for file in b.parsed_files {
 				for imp in file.imports {
 					if os.base(folder) == imp.mod.all_after_last('.') {
 						file_paths << b.v_files_from_dir(folder)
@@ -53,9 +48,9 @@ pub fn (mut b builder) parse_files_dir(path string) []&ast.File {
 	}
 
 	// -------------------- Second parser round --------------------
-	parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
+	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
 
-	for file in parsed_files {
+	for file in b.parsed_files {
 		println(file.path)
 	}
 
@@ -94,5 +89,4 @@ pub fn (mut b builder) parse_files_dir(path string) []&ast.File {
 	// 	os.write_file(output_path, transpiled) or {}
 	// }
 	// // println('##################### ${c_gen.pref.compile_values} ########################')
-
 }
