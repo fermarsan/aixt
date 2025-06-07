@@ -25,7 +25,7 @@ pub fn transpile_file(path string, project_setup setup.Setup) {
 	mut aixt_pref, _ := pref.parse_args_and_show_errors([], defines, true)
 	aixt_pref.is_script = true
 	aixt_pref.enable_globals = true
-	// aixt_pref.experimental = true	//XXXXXXXXXXXXXXXXX DISABLE for V compiler v0.4.9+ (avoid manual C functions declaration) XXXXXXXXXXXXXXXXX 
+	// aixt_pref.experimental = true	// DISABLE for V compiler v0.4.9+ (avoid manual C functions declaration)
 
 	// -------------------- creates the builder --------------------
 	mut aixt_b := aixt_builder.Builder {
