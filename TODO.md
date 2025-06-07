@@ -45,4 +45,4 @@ Tasks to do in Aixt
 - [x] Implement and test (16F83_blinking and Nano-random_bits) a new transpiler scheme
 - [x] Issue solved: C prototypes of `@[inline]` functions fail
 - [x] Move `transpile.v` `c_compile.v` and `flash.v` files from `build`module to `main`
-- [x] Changes `compile` aixt option to `c_compile` 
+- [x] Changes `compile` Aixt option to `c_compile` 
