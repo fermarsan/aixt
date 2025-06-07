@@ -42,3 +42,4 @@ Tasks to do in Aixt
 - [x] Remove the passing of the aixt-path among functions
 - [x] Generate a new builder submodule for the Aixt transpiler
 - [x] Generate a new cgen2 submodule for the Aixt transpiler
+- [x] Generate a new transpiler script

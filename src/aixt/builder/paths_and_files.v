@@ -11,7 +11,7 @@ import aixt.util
 
 
 // api_mod_paths function detects all the modules in API directories
-pub fn (mut b Builder) api_mod_paths() []string {
+pub fn (mut b Builder) get_api_mod_paths() []string {
 	mut out := []string{}
 	for api_path in b.setup.api_paths {
 		// api_base_dir := os.join_path(
@@ -42,43 +42,48 @@ pub fn (mut b Builder) api_mod_paths() []string {
 	return out
 }
 
-// // load_lib_mod_paths function detects all the modules in the `lib` folder
-// pub fn (mut b Builder) load_lib_mod_paths() {
-// 	// println('\nLibrary modules:')
-// 	lib_paths := os.ls('${b.aixt_path}/lib') or { [] } // modules in the `lib` folder
-// 	for lib_path in lib_paths {
-// 		base_dir := '${b.aixt_path}/lib/${lib_path}'
-// 		lib_backend_path := match b.setup.backend {
-// 			'arduino' {
-// 				if os.exists('${base_dir}/arduino') {
-// 					'${base_dir}/arduino'
-// 				} else {
-// 					'${base_dir}/c'
-// 				}
-// 			}
-// 			'nxc' {
-// 				if os.exists('${base_dir}/nxc') {
-// 					'${base_dir}/nxc'
-// 				} else {
-// 					'${base_dir}/c'
-// 				}
-// 			}
-// 			else {
-// 				'${base_dir}/c'
-// 			}
-// 		}
-// 		dir_content := os.ls(lib_backend_path) or { [] }
-// 		for item in dir_content {
-// 			file_path := '${lib_backend_path}/${item}'
-// 			if os.is_file(file_path) && file_path.ends_with('.c.v') {
-// 				b.lib_mod_paths[lib_path] << file_path
-// 			}
-// 		}
-// 	}
-// 	// for item, dirs in b.lib_mod_paths {
-// 	// 	println('  ${item}:\n\t${dirs.join('\n\t')}')
-// 	// }
-// }
+// lib_mod_paths function detects all the modules in the `lib` folder
+pub fn (mut b Builder) get_lib_mod_paths() []string {
+	mut out := []string{}
+	// println('\nLibrary modules:')
+	lib_paths := os.ls('${b.aixt_path}/lib') or { [] } // modules in the `lib` folder
+	for lib_path in lib_paths {
+		lib_base_dir := '${b.aixt_path}/lib/${lib_path}'
+		lib_backend_path := match b.setup.backend {
+			'arduino' {
+				if os.exists('${lib_base_dir}/arduino') {
+					'${lib_base_dir}/arduino'
+				} else {
+					'${lib_base_dir}/c'
+				}
+			}
+			'nxc' {
+				if os.exists('${lib_base_dir}/nxc') {
+					'${lib_base_dir}/nxc'
+				} else {
+					'${lib_base_dir}/c'
+				}
+			}
+			else {
+				'${lib_base_dir}/c'
+			}
+		}
+		mut lib_dirs := [lib_backend_path]
+		lib_dirs << util.get_subdirs(lib_backend_path)	
+		// println('>>>>>>>>>>>>>>>>>> ${lib_dirs} <<<<<<<<<<<<<<<<<<')	
+		for folder in lib_dirs {
+			// println('>>>>>>>>>>>>>>>>>> ${os.base(folder)} <<<<<<<<<<<<<<<<<<')
+			for file in b.parsed_files {
+				for imp in file.imports {
+					if os.base(folder.all_before_last('/')) == imp.mod.all_after_last('.') {
+						out << b.v_files_from_dir(folder)
+					}
+				}
+			}
+		}
+	}
+	return out
+}
 
 // pub fn (mut b Builder) used_module_paths(node ast.Import, module_map map[string][]string) []string {
 // 	mut out := []string{}

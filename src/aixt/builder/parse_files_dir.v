@@ -25,7 +25,8 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// }
 
 	// -------------------- Load the used API modules' files --------------------
-	file_paths << b.api_mod_paths()
+	file_paths << b.get_api_mod_paths()
+	file_paths << b.get_lib_mod_paths()
 
 	// -------------------- Second parser round --------------------
 	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
