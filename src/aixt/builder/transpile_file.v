@@ -5,10 +5,12 @@
 module builder
 
 import os
+import v.token
 import v.ast
 import v.pref
 import v.builder as v_builder
 import aixt.setup
+import aixt.cgen2
 
 // transpile_file transpiles an Aixt source code into C.
 pub fn transpile_file(path string, project_setup setup.Setup) {
@@ -31,5 +33,36 @@ pub fn transpile_file(path string, project_setup setup.Setup) {
 	aixt_builder.table = ast.new_table()
 
 	aixt_builder.parse_files_dir(path)
+	
+	aixt_builder.sym_table_print()
+	aixt_builder.err_war_check()
 	aixt_builder.err_war_print()
+
+	// creates the c code generator
+	mut c_gen := cgen2.Gen {
+		Builder:			aixt_builder.Builder
+		setup:				project_setup
+		aixt_path:			os.dir(os.executable())
+		cur_scope: 			&ast.Scope{}
+		cur_left:			ast.Nil{}
+		cur_left_type:		0
+		cur_op:				token.Kind.unknown
+		cur_cond:			ast.Nil{}
+		// imports: 		 	[]string{}
+		source_paths: 		[]string{}
+		out: 				[]string{}
+		c_preproc_cmds:		[]string{}
+		api_mod_paths:		map[string][]string{}
+		lib_mod_paths:		map[string][]string{}
+		include_paths:	    []string{}
+		// macros: 			 []string{}
+		definitions: 		[]string{}
+		init_cmds:			[]string{}
+		to_insert_lines:	[]string{}
+		cur_fn: 			'main'
+		file_count: 		0
+		level_count:        0
+		match_as_nested_if: false
+		cpu_freq_defined:	false
+	}
 }

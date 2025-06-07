@@ -1,31 +1,31 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2023-2024
+// Date: 2023-2025
 // License: MIT
 
 // Description: This file contains the C code generation functions of the Aixt.
 module cgen2
 
-import aixt.setup
+import aixt.setup as aixt_setup
 import v.ast
 import v.token
-import v.pref
+// import v.pref
 import v.parser
 import v.checker
+import v.builder as v_builder
 import os
 
 // Gen is the struct that defines all the necessary data for the code generation
-pub struct Gen {
+pub struct Gen {	
+	v_builder.Builder
 pub mut:
-// mut:
-	files          		[]&ast.File
-	table          		&ast.Table = unsafe { nil }
+	setup				aixt_setup.Setup
+	aixt_path			string
 	cur_scope      		&ast.Scope = unsafe { nil }
 	cur_left			ast.Expr
 	cur_left_type  		ast.Type
 	cur_op		   		token.Kind
 	cur_cond       		ast.Expr
-	aixt_path			string
 	// imports				[]string
 	source_paths		[]string
 	out           		[]string
@@ -42,9 +42,6 @@ pub mut:
 	level_count    		int
 	match_as_nested_if 	bool
 	cpu_freq_defined   	bool
-// pub mut:
-	pref 				&pref.Preferences = unsafe { nil }
-	setup				setup.Setup
 }
 
 // gen is the main function of the code generation.
@@ -70,31 +67,31 @@ pub fn (mut gen Gen) gen(source_path string) string {
 	println('Source files:\n\t${gen.source_paths.join('\n\t')}')
 
 	// second parse round including imports
-	gen.files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
-	checker_.check_files(gen.files)
+	gen.parsed_files = parser.parse_files(gen.source_paths, mut gen.table, gen.pref)
+	checker_.check_files(gen.parsed_files)
 	// gen.err_war_print()
 
 	gen.init_output_file()
 
 	// solve issue in Windows
-	// if gen.files.len > gen.source_paths.len {
-	// 	gen.files.pop()
+	// if gen.parsed_files.len > gen.source_paths.len {
+	// 	gen.parsed_files.pop()
 	// }
 
 	println('\n===== Top-down node analysis (Code generation) =====')
-	temp_2_files := gen.files.clone()
+	temp_2_files := gen.parsed_files.clone()
 	for i, file in temp_2_files {	// source folder
 		// println('>>>>>>>>>>>>>>>>>> ${file.imports} <<<<<<<<<<<<<<<<<<')
 		gen.file_count = i
 		gen.out << gen.ast_node(file) // starts from the main node (file)
 	}
 
-	gen.sym_table_print()
-	gen.err_war_check()
-	gen.err_war_print()
+	// b.sym_table_print()
+	// b.err_war_check()
+	// b.err_war_print()
 
 	mut e_count := 0
-	for i, file in gen.files {
+	for i, file in gen.parsed_files {
 		// println('-----file: ${file.path}\t${file.mod}')
 		e_count += if i != 0 { file.errors.len } else { 0 }
 	}
