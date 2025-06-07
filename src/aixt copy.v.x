@@ -8,7 +8,7 @@ module main
 // Aixt transpiler
 import os
 import aixt.setup
-// import aixt.build
+import aixt.build
 // import aixt.builder
 
 // main function for Aixt transpiler.
@@ -47,11 +47,11 @@ fn main() {
 					// println('++++++++++++++++\n${project_setup}\n++++++++++++++++')
 					match command {
 						'transpile', '-t' {
-							transpile(input_name, project_setup)
+							build.transpile_file(input_name, project_setup)
 							println('\n${input_name} transpiling finished.\n')
 						}
-						'c_compile', '-c' {
-							c_compile(base_name, project_setup)
+						'compile', '-c' {
+							build.compile_file(base_name, project_setup)
 							ext := match project_setup.backend {
 								'nxc' { 'nxc' }
 								'arduino' { 'ino' }
@@ -67,19 +67,22 @@ fn main() {
 								else { 'hex' }
 							}
 							name := if ext == '' { base_name } else { '${base_name}.${ext}' }
-							flash(name, port, project_setup)
+							build.flash_file(name, port, project_setup)
 							println('\n${name} flashing finished.\n')
 						}
 						'build', '-b' {
-							transpile(input_name, project_setup)
+							build.transpile_file(input_name, project_setup)
 							println('\n${input_name} transpiling finished.\n')
-							c_compile(base_name, project_setup)
+							build.compile_file(base_name, project_setup)
 							ext := match project_setup.backend {
 								'nxc' { 'nxc' }
 								'arduino' { 'ino' }
 								else { 'c' }
 							}
 							println('\n${base_name}.${ext} compiling finished.\n')
+						}
+						'builder' {
+							transpile(input_name, project_setup)
 						}
 						'clean', '-cl' {
 							if os.exists('${os.dir(base_name)}/Makefile') {
