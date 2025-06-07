@@ -11,7 +11,7 @@ import v.pref
 import v.builder as v_builder
 import aixt.setup
 import aixt.builder as aixt_builder
-import aixt.cgen2
+import aixt.cgen
 
 
 // transpile transpiles an Aixt project (single or multiple file) into C.
@@ -43,7 +43,7 @@ pub fn transpile(path string, project_setup setup.Setup) {
 	aixt_b.err_war_print()
 
 	// --------------------creates the C code generator --------------------
-	mut c_gen := cgen2.Gen {
+	mut c_gen := cgen.Gen {
 		Builder:			aixt_b
 		// setup:				project_setup
 		// aixt_path:			os.dir(os.executable())

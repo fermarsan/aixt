@@ -1,1 +1,0 @@
-@var_type @ref@var_name;
