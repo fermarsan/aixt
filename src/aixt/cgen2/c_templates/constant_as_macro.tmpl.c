@@ -1,0 +1,1 @@
+#define @var_name @var_value

@@ -53,40 +53,4 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	for file in b.parsed_files {
 		println(file.path)
 	}
-
-	// println('>>>>>>>>>>>>>>>>>> ${aixt_path} <<<<<<<<<<<<<<<<<<')
-
-	// // set de defines from the port's json file
-	// mut defines := ['']
-	// for define in c_gen.setup.v_defines {
-	// 	defines << ['-d', define]
-	// }
-	// // println('-------------------- ${defines} --------------------------')
-	// c_gen.pref, _ = pref.parse_args_and_show_errors([], defines, true)
-	// c_gen.pref.is_script = true
-	// c_gen.pref.enable_globals = true
-	// // c_gen.pref.experimental = true	//XXXXXXXXXXXXXXXXX DISABLE for V compiler v0.4.9+ (avoid manual C functions declaration) XXXXXXXXXXXXXXXXX 
-	
-	// // println('##################### ${c_gen.pref.compile_values} ########################')
-
-
-	// // println('\n\n+++++++${path}++++++++\n\n')
-	// mut transpiled := c_gen.gen(path) // transpile Aixt (V) to C
-
-	// if transpiled != '' {
-	// 	output_ext := match c_gen.setup.backend {
-	// 		'nxc' 		{ '.nxc' }
-	// 		'arduino'	{ '.ino' }
-	// 		else 		{ '.c' }
-	// 	}
-
-	// 	mut output_path := ''
-	// 	if os.is_file(path) {
-	// 		output_path = path.replace('.v', output_ext)
-	// 	} else {
-	// 		output_path = '${path}/main${output_ext}'
-	// 	}
-	// 	os.write_file(output_path, transpiled) or {}
-	// }
-	// // println('##################### ${c_gen.pref.compile_values} ########################')
 }

@@ -1,0 +1,1 @@
+strcat(strcpy(__temp_str, @left), @right)

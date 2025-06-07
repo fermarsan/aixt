@@ -1,0 +1,1 @@
+char @var_name[@len] = @var_value;
