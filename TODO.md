@@ -32,7 +32,6 @@ Tasks to do in Aixt
 - [ ] Issue: External interrupts on Arduino backend fails if the pin is not defined as constant
 - [ ] Add `pin.toggle()` function on Arduino Nano, Uno and Mega
 - [ ] Implements sub-modules
-- [ ] Issue `@[inline]` functions fail
 
 
 ### Done ✓make
@@ -45,3 +44,4 @@ Tasks to do in Aixt
 - [x] Generate a new `cgen2` submodule for the Aixt transpiler
 - [x] Generate a new transpiler script
 - [x] Implement and test (16F83_blinking) a new transpiler scheme
+- [x] Issue solved: C prototypes of `@[inline]` functions fail
