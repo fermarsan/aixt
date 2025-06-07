@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 2024
 // License: MIT
-module cgen2
+module cgen
 
 import v.ast
 

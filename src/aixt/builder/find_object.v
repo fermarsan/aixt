@@ -7,7 +7,7 @@ module builder
 import v.ast
 
 // find_object recursively find object in the global and current scope.
-fn (mut b Builder) find_object(name string, scope ast.Scope) ?ast.ScopeObject {
+pub fn (mut b Builder) find_object(name string, scope ast.Scope) ?ast.ScopeObject {
 	// println('>>>>>>>>>>>>>>>>>> ${name} <<<<<<<<<<<<<<<<<<')
 	if name in scope.objects {
 		return scope.objects[name] or { none }
@@ -25,7 +25,7 @@ fn (mut b Builder) find_object(name string, scope ast.Scope) ?ast.ScopeObject {
 
 
 // find_obj_all_scopes recursively finds an object in all the scopes.
-fn (mut b Builder) find_obj_all_scopes(name string) ?ast.ScopeObject {
+pub fn (mut b Builder) find_obj_all_scopes(name string) ?ast.ScopeObject {
 	// find in the global scope
 	mut obj := b.find_object(name, b.table.global_scope) or {
 		ast.Var { name: '__not_found__' } 
@@ -33,7 +33,7 @@ fn (mut b Builder) find_obj_all_scopes(name string) ?ast.ScopeObject {
 	// find in the rest of file scopes
 	if obj.name == '__not_found__' {
 		// println('>>>>>>>>>>>>>>>>>> Not found in Global Scope <<<<<<<<<<<<<<<<<<')
-		for file in b.files {
+		for file in b.parsed_files {
 			obj = b.find_object(name, file.scope) or { continue } 
 			break
 		}

@@ -7,7 +7,7 @@ module builder
 import v.ast
 
 // sym_table_print prints the table of all symbols.
-fn (mut b Builder) sym_table_print() {
+pub fn (mut b Builder) sym_table_print() {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 
 	println(' ==== global scope ==== ')
@@ -24,13 +24,13 @@ fn (mut b Builder) sym_table_print() {
 }
 
 // symbol_table prints recursively the symbol table os a specific scope
-fn (mut b Builder) symbol_table(scope ast.Scope) string {
+pub fn (mut b Builder) symbol_table(scope ast.Scope) string {
 	mut msg := ''
 	// println('#######\n ${scope.objects} \n#######')
 	for key, val in scope.objects {
 		// msg += '${val.name.after_char(`.` )} -- ${gen.kind_and_type(val)}\n'
 		if val.name != 'input' {	// ignore 'input' var of enum declaration
-			msg += '\t${key} -- ${gen.kind_and_type(val)}\n'
+			msg += '\t${key} -- ${b.kind_and_type(val)}\n'
 		}
 	}
 	for child in scope.children {
@@ -41,7 +41,7 @@ fn (mut b Builder) symbol_table(scope ast.Scope) string {
 
 
 // kind_and_type prints the kind and type of a identifier.
-fn (mut b Builder) kind_and_type(object ast.ScopeObject) string {
+pub fn (mut b Builder) kind_and_type(object ast.ScopeObject) string {
 	mut msg := ''
 	match object {
 		ast.ConstField {
