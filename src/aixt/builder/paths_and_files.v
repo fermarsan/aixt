@@ -1,0 +1,147 @@
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
+// Date: 2023-2024
+// License: MIT
+module builder
+
+import os
+// import v.parser
+// import v.ast
+import aixt.util
+
+
+// api_mod_paths function detects all the modules in API directories
+pub fn (mut b Builder) api_mod_paths() []string {
+	mut out := []string{}
+	for api_path in b.setup.api_paths {
+		// api_base_dir := os.join_path(
+		// 	aixt_path, os.path_separator, 
+		// 	'ports', os.path_separator, 
+		// 	api_path, os.path_separator, 'api'
+		// )
+		api_base_dir := '${b.aixt_path}/ports/${api_path}/api'
+		mut api_dirs := [api_base_dir]
+		api_dirs << util.get_subdirs(api_base_dir)
+		// println('>>>>>>>>>>>>>>>>>> ${api_dirs} <<<<<<<<<<<<<<<<<<')
+		for folder in api_dirs {
+			// println('>>>>>>>>>>>>>>>>>> ${os.base(folder)} <<<<<<<<<<<<<<<<<<')
+			for file in b.parsed_files {
+				for imp in file.imports {
+					if os.base(folder) == imp.mod.all_after_last('.') {
+						out << b.v_files_from_dir(folder)
+					}
+				}
+			}
+			
+		}
+	}
+	// for item, dirs in b.api_mod_paths {
+	// 	println('  ${item}:\n\t${dirs.join('\n\t')}')
+	// }
+	// println('>>>>>>>>>>>>>>>>>> ${b.api_mod_paths} <<<<<<<<<<<<<<<<<<')
+	return out
+}
+
+// // load_lib_mod_paths function detects all the modules in the `lib` folder
+// pub fn (mut b Builder) load_lib_mod_paths() {
+// 	// println('\nLibrary modules:')
+// 	lib_paths := os.ls('${b.aixt_path}/lib') or { [] } // modules in the `lib` folder
+// 	for lib_path in lib_paths {
+// 		base_dir := '${b.aixt_path}/lib/${lib_path}'
+// 		lib_backend_path := match b.setup.backend {
+// 			'arduino' {
+// 				if os.exists('${base_dir}/arduino') {
+// 					'${base_dir}/arduino'
+// 				} else {
+// 					'${base_dir}/c'
+// 				}
+// 			}
+// 			'nxc' {
+// 				if os.exists('${base_dir}/nxc') {
+// 					'${base_dir}/nxc'
+// 				} else {
+// 					'${base_dir}/c'
+// 				}
+// 			}
+// 			else {
+// 				'${base_dir}/c'
+// 			}
+// 		}
+// 		dir_content := os.ls(lib_backend_path) or { [] }
+// 		for item in dir_content {
+// 			file_path := '${lib_backend_path}/${item}'
+// 			if os.is_file(file_path) && file_path.ends_with('.c.v') {
+// 				b.lib_mod_paths[lib_path] << file_path
+// 			}
+// 		}
+// 	}
+// 	// for item, dirs in b.lib_mod_paths {
+// 	// 	println('  ${item}:\n\t${dirs.join('\n\t')}')
+// 	// }
+// }
+
+// pub fn (mut b Builder) used_module_paths(node ast.Import, module_map map[string][]string) []string {
+// 	mut out := []string{}
+// 	if node.mod in module_map {
+// 		for module_path in module_map[node.mod] {
+// 			if module_path.contains('${node.mod}.c.v') {
+// 				out.insert(0, os.abs_path(module_path)) // adds `module_name.c.v`  first
+// 			} else {
+// 				out << os.abs_path(module_path)
+// 			}
+// 		}
+// 	}
+// 	return out
+// }
+
+// // import_paths return the file paths of an specific module (import command)
+// pub fn (mut b Builder) import_paths(node ast.Import) []string {
+// 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
+// 	mut out := []string{}
+// 	// println('>>>>>>>>>>>>>>>>>> node.mod: ${node.mod} <<<<<<<<<<<<<<<<<<')
+// 	if node.mod in b.api_mod_paths { // API modules
+// 		out << b.used_module_paths(node, b.api_mod_paths).reverse() // reverse the order
+// 	} else if node.mod in b.lib_mod_paths { // Library modules
+// 		out << b.used_module_paths(node, b.lib_mod_paths).reverse() // reverse the order
+// 	}
+// 	// for path in out {
+// 	// 	println(path)
+// 	// }
+// 	return out
+// }
+
+// // add_local_sources recursively finds and adds all the source file paths in a given path
+// pub fn (mut b Builder) add_local_sources(global_path string) {
+// 	if os.is_file(global_path) { // only one source code
+// 		if global_path.ends_with('.v') {
+// 			b.source_paths << global_path
+// 		}
+// 	} else {
+// 		for path in util.get_file_paths(global_path) {
+// 			b.source_paths << path
+// 		}
+// 	}
+// }
+
+// // find_all_sources recursively finds and adds all the source file paths in a given path
+// pub fn (mut b Builder) find_all_sources(n int) {
+// 	// println('>>>>>>>>>>>>>>>>>> Files found: ${n} <<<<<<<<<<<<<<<<<<')
+// 	mut temp_table := ast.new_table()
+// 	temp_files := parser.parse_files(b.source_paths, mut temp_table, b.pref)
+
+// 	// find the import file paths
+// 	for file in temp_files { // source folder
+// 		for imp in file.imports {
+// 			// println('>>>>>>>>>>>>>>>>>> imp: ${imp} <<<<<<<<<<<<<<<<<<')
+// 			for path in b.import_paths(imp) {
+// 				if path !in b.source_paths {
+// 					b.source_paths.insert(1, path)
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	if n != b.source_paths.len {
+// 		b.find_all_sources(b.source_paths.len)
+// 	}
+// }
