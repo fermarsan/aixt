@@ -25,6 +25,8 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 		panic('"builtin.c.v" in have to exist in "${api_base_path}/"')
 	}
 
+	println('${b.pref.buildmode}')
+
 	// -------------------- First parser round --------------------
 	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
 	// for file in b.parsed_files {
