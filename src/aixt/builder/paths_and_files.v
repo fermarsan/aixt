@@ -10,6 +10,22 @@ import os
 import aixt.util
 
 
+// api_mod_dirs function detects all the modules in API directories
+pub fn (mut b Builder) get_api_mod_dirs() []string {
+	mut out := []string{}
+	for api_path in b.setup.api_paths {
+		// api_base_dir := os.join_path(
+		// 	aixt_path, os.path_separator, 
+		// 	'ports', os.path_separator, 
+		// 	api_path, os.path_separator, 'api'
+		// )
+		api_base_dir := '${b.aixt_path}/ports/${api_path}/api'
+		out << api_base_dir
+		// out << util.get_subdirs(api_base_dir)
+	}
+	return out
+}
+
 // api_mod_paths function detects all the modules in API directories
 pub fn (mut b Builder) get_api_mod_paths() []string {
 	mut out := []string{}
@@ -39,6 +55,38 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 	// 	println('  ${item}:\n\t${dirs.join('\n\t')}')
 	// }
 	// println('>>>>>>>>>>>>>>>>>> ${b.api_mod_paths} <<<<<<<<<<<<<<<<<<')
+	return out
+}
+
+// lib_mod_paths function detects all the modules in the `lib` folder
+pub fn (mut b Builder) get_lib_mod_dirs() []string {
+	mut out := []string{}
+	// println('\nLibrary modules:')
+	lib_paths := os.ls('${b.aixt_path}/lib') or { [] } // modules in the `lib` folder
+	for lib_path in lib_paths {
+		lib_base_dir := '${b.aixt_path}/lib/${lib_path}'
+		lib_backend_path := match b.setup.backend {
+			'arduino' {
+				if os.exists('${lib_base_dir}/arduino') {
+					'${lib_base_dir}/arduino'
+				} else {
+					'${lib_base_dir}/c'
+				}
+			}
+			'nxc' {
+				if os.exists('${lib_base_dir}/nxc') {
+					'${lib_base_dir}/nxc'
+				} else {
+					'${lib_base_dir}/c'
+				}
+			}
+			else {
+				'${lib_base_dir}/c'
+			}
+		}
+		out << lib_backend_path
+		// out << util.get_subdirs(lib_backend_path)	
+	}
 	return out
 }
 

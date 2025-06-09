@@ -27,24 +27,50 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 
 	// -------------------- First parser round --------------------
 	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
-
 	// for file in b.parsed_files {
 	// 	println(file.path)
 	// }
+	// for file in b.parsed_files {
+	// 	for imp in file.imports {
+	// 		println(imp.source_name)
+	// 	}
+	// }
 
 	// -------------------- Load the used API modules' files --------------------
-	// file_paths << b.get_lib_mod_paths()
-	file_paths.insert(0, b.get_lib_mod_paths())
-	file_paths.insert(0, b.get_api_mod_paths())
+	b.module_search_paths << b.get_api_mod_dirs()
+	b.module_search_paths << b.get_lib_mod_dirs()
 
 	// -------------------- Second parser round --------------------
-	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
+	println('>>>>>>>>>>>>>>>>>> ${b.module_search_paths} <<<<<<<<<<<<<<<<<<')
+	b.parse_imports()
 
-	mut checker_ := checker.new_checker(b.table, b.pref)
-	checker_.check_files(b.parsed_files)
+	b.checker = checker.new_checker(b.table, b.pref)
+	b.checker.check_files(b.parsed_files)
 
 	println('Source files:')
 	for file in b.parsed_files {
 		println('\t${file.path}')
+		// println('\tt${file.mod}:\n\t${file.path}')
 	}
+		
+	// println('Table imports:')
+	// for imp in b.table.imports {
+	// 	println('\t${imp}')
+	// }
+
+	// println('Table modules:')
+	// for mod in b.table.modules {
+	// 	println('\t${mod}')
+	// }
+
+	// println('Table dumps:')
+	// for key, d in b.table.dumps {
+	// 	println('\t${key}: ${d}')
+	// }
+
+	// println('Table fns:')
+	// for key, fnx in b.table.fns {
+	// 	println('\t${key}: ${fnx.name}, ${fnx.mod}, ${fnx.file}')
+	// }
+
 }
