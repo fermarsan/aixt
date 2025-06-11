@@ -25,7 +25,7 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 		panic('"builtin.c.v" in have to exist in "${api_base_path}/"')
 	}
 
-	println('${b.pref.buildmode}')
+	// println('${b.pref.buildmode}')
 
 	// -------------------- First parser round --------------------
 	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
@@ -39,12 +39,15 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// }
 
 	// -------------------- Load the used API modules' files --------------------
-	b.module_search_paths << b.get_api_mod_dirs()
-	b.module_search_paths << b.get_lib_mod_dirs()
+	// b.module_search_paths << b.get_api_mod_dirs()
+	// b.module_search_paths << b.get_lib_mod_dirs()
+	file_paths.insert(1, b.get_api_mod_paths())
+	file_paths.insert(1, b.get_lib_mod_paths())
 
 	// -------------------- Second parser round --------------------
-	println('>>>>>>>>>>>>>>>>>> ${b.module_search_paths} <<<<<<<<<<<<<<<<<<')
-	b.parse_imports()
+	// println('>>>>>>>>>>>>>>>>>> ${file_paths} <<<<<<<<<<<<<<<<<<')
+	// b.parse_imports()
+	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
 
 	b.checker = checker.new_checker(b.table, b.pref)
 	b.checker.check_files(b.parsed_files)
