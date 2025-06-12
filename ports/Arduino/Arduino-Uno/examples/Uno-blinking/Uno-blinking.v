@@ -1,8 +1,7 @@
 // Project name: Blinking
 // Author: Fernando M. Santa
 // Date: 2024-2025
-// Arduino-Mega board
-
+// Arduino-Uno board
 import time
 import pin
 

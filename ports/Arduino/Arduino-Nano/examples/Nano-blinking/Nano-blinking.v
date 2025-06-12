@@ -1,12 +1,9 @@
 // Project name: Blinking
 // Author: Fernando M. Santa
-// Date: 08/09/2024
+// Date: 2024-2025
 // Arduino-Nano board
 import time
 import pin
-
-// builtin LED
-pin.setup(led_0, pin.output)
 
 for {
 	pin.high(led_0)
