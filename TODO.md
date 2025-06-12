@@ -45,5 +45,5 @@ Tasks to do in Aixt
 - [x] Generate a new transpiler script
 - [x] Implement and test (16F83_blinking, ESP32-C3FH4-blinking and Nano-random_bits) a new transpiler scheme
 - [x] New transpiler folder tree including submodules `builder`, `cgen`, `setup` and `util`
-- [x] New external interrupt example for Blue Pill
 - [x] Builtin LED and SWITCH auto-setup (Arduino-AVR)
+- [x] New external interrupt example for Blue Pill (non-tested)

@@ -11,7 +11,6 @@
 
 @[as_macro]	const led_0 = 13
 
-
 fn C.pinMode(name u8, mode u8)
 fn C.digitalWrite(name u8, val u8)
 

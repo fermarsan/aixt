@@ -10,17 +10,16 @@ __global (
 	state = true
 )
 
-@[ext_isr:'pin.a2']
+@[ext_isr:'pin.b0']
 fn blink() {
 	state = !state
 }
 
-pin.setup(pin.a2, pin.input)
-pin.setup(led_0, pin.output)
-pin.low(led_0)
-
-ext.irq_enable(pin.a2, ext.change)
-
-for {
-	pin.write(led_0, u8(state))
+fn main() {
+	pin.setup(pin.b0, pin.input)
+	ext.irq_enable(pin.b0, ext.change)
+	
+	for {
+		pin.write(led_0, u8(state))
+	}
 }

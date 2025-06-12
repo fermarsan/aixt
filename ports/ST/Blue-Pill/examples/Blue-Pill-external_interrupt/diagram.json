@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "author": "Fernando Martinez Santa",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-stm32-bluepill", "id": "stm32", "top": -1.36, "left": -3.63, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 196.8,
+      "left": -77.35,
+      "rotate": 90,
+      "attrs": { "value": "10000" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 249.6, "left": -58.2, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 77.56, "left": -86.4, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": 132.2,
+      "left": -115.2,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "stm32:A10", "$serialMonitor:TX", "green", [] ],
+    [ "stm32:A9", "$serialMonitor:RX", "green", [] ],
+    [ "gnd1:GND", "r1:2", "black", [ "v0" ] ],
+    [ "btn1:2.r", "r1:1", "green", [ "h0" ] ],
+    [ "vcc1:VCC", "btn1:1.r", "red", [ "v0" ] ],
+    [ "stm32:B0", "r1:1", "green", [ "h36.47", "v-96", "h-144" ] ]
+  ],
+  "dependencies": {}
+}
