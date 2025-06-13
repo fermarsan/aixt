@@ -5,10 +5,6 @@
 import time
 import pin
 
-@[as_macro]
-const cpu_freq = 20_000_000 // 20 Mhz
-// const cpu_freq = 10_000_000	// 4 Mhz
-
 pin.setup(pin.b4, pin.output)
 
 for {

@@ -72,7 +72,7 @@ Devices being updated:
 - Issue solved: can not import a module from another module
 - Issue solved: Constant array transpiling fails
 
-## v0.1.9
+## v0.2.0
 *17 Jan 2025*
 #### Devices Supported
 Devices updated to API v0.1.2:
