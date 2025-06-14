@@ -15,7 +15,8 @@ pub fn (mut stp Setup) load(device string) {
 
 	eq_devices := json.decode(
 		map[string]string,
-		os.read_file('${aixt_path}/setup/equivalent-devices.json') or { panic(err) }
+		os.read_file('${aixt_path}' + os.path_separator + 'setup' + os.path_separator + 
+					 'equivalent-devices.json') or { panic(err) }
 	) or { panic(err) }
 	
 	port := if device in eq_devices {
@@ -24,7 +25,7 @@ pub fn (mut stp Setup) load(device string) {
 		device
 	}
 
-	dev_setup := os.read_file('${aixt_path}/setup/${port}.json') or { panic(err) }
+	dev_setup := os.read_file('${aixt_path}' + os.path_separator + 'setup/${port}.json') or { panic(err) }
 	setup := json.decode(Setup, dev_setup) or { panic(err) }
 
 	// println(setup)
@@ -34,6 +35,6 @@ pub fn (mut stp Setup) load(device string) {
 	stp = json.decode(Setup, complete_setup)  or { panic(err) }
 	stp.device = device
 
-	println('Setup files:\n\t${aixt_path}/setup/${stp.port}.json')
+	println('Setup files:\n\t${aixt_path}' + os.path_separator + 'setup/${stp.port}.json')
 	println('\t${aixt_path}/${stp.compiler_setup_path}\n')
 }

@@ -18,9 +18,10 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	mut file_paths := b.v_files_from_dir(os.dir(path))
 
 	// -------------------- Add the builtin file first --------------------
-	api_base_path := '${b.aixt_path}/ports/${b.setup.api_paths[0]}/api' 
-	if os.exists('${api_base_path}/builtin.c.v') {
-		file_paths.insert(0, '${api_base_path}/builtin.c.v')
+	api_base_path := '${b.aixt_path}' + os.path_separator + 'ports' + os.path_separator +
+					 '${b.setup.api_paths[0]}' + os.path_separator + 'api' 
+	if os.exists('${api_base_path}' + os.path_separator + 'builtin.c.v') {
+		file_paths.insert(0, '${api_base_path}' + os.path_separator + 'builtin.c.v')
 	} else {
 		panic('"builtin.c.v" in have to exist in "${api_base_path}/"')
 	}

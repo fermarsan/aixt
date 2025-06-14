@@ -44,9 +44,9 @@ pub fn c_compile(path string, project_setup setup.Setup) {
 	flags = flags.replace('@{output_ext}', '${output_ext}')	
 
 	// println('-------- ${os.dir(path)} --------')
-	if os.exists('${os.dir(path)}/Makefile') {		// calling compiler through Makefile
-		println('make -f ${os.dir(path)}/Makefile ${flags}')
-		println(os.execute('make -f ${os.dir(path)}/Makefile ${flags}').output)
+	if os.exists('${os.dir(path)}' + os.path_separator + 'Makefile') {		// calling compiler through Makefile
+		println('make -f ${os.dir(path)}' + os.path_separator + 'Makefile ${flags}')
+		println(os.execute('make -f ${os.dir(path)}' + os.path_separator + 'Makefile ${flags}').output)
 	} else {
 		println('${cc} ${flags}')
 		println(os.execute('${cc} ${flags}').output)

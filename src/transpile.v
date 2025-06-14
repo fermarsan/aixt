@@ -85,7 +85,7 @@ pub fn transpile(path string, project_setup setup.Setup) {
 		if os.is_file(path) {
 			output_path = path.replace('.v', output_ext)
 		} else {
-			output_path = '${path}/main${output_ext}'
+			output_path = '${path}' + os.path_separator + 'main${output_ext}'
 		}
 		os.write_file(output_path, transpiled) or {}
 	}

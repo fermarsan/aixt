@@ -26,7 +26,8 @@ fn main() {
 				println(help_message())
 			}
 			'version', '--version', '-v' {
-				lines := os.read_lines('${aixt_path}/src/v.mod') or { [''] }
+				lines := os.read_lines('${aixt_path}' + os.path_separator + 
+				                       'src' + os.path_separator + 'v.mod') or { [''] }
 				for line in lines {
 					if line.contains('version:') {
 						println('Aixt ${line.replace('\tversion:\t', '')}')
@@ -82,8 +83,9 @@ fn main() {
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}
 						'clean', '-cl' {
-							if os.exists('${os.dir(base_name)}/Makefile') {
-								println(os.execute('make -f ${os.dir(base_name)}/Makefile clean').output)
+							if os.exists('${os.dir(base_name)}' + os.path_separator + 'Makefile') {
+								println(os.execute('make -f ${os.dir(base_name)}' + os.path_separator + 
+												   'Makefile clean').output)
 							}
 							os.rm('${base_name}.c') or {} // clean c-type files
 							os.rm('${base_name}.nxc') or {}
@@ -93,8 +95,9 @@ fn main() {
 							} $else {
 								os.rm('${base_name}') or {}
 							}
-							if os.exists('${os.dir(base_name)}/build/') {
-								os.rmdir_all('${os.dir(base_name)}/build/') or { panic(err) }
+							if os.exists('${os.dir(base_name)}' + os.path_separator + 'build/') {
+								os.rmdir_all('${os.dir(base_name)}' + os.path_separator + 
+											 'build' + os.path_separator) or { panic(err) }
 							}
 							// Remove all .c, .cpp, .h, hpp files inside the directory
 							files := os.ls(os.dir(base_name)) or { [] }
@@ -112,20 +115,28 @@ fn main() {
 							if !os.exists('${path}/${name}') {
 								os.mkdir('${path}/${name}') or { panic(err) }
 							}
-							// os.cp('${aixt_path}/templates/main.v', '${path}/${name}/main.v') or {}
-							os.cp_all('${aixt_path}/templates/project/${project_setup.port}/',
-								'${path}/${name}/', true) or { panic(err) }
+							// os.cp('${aixt_path}' + os.path_separator + 'templates' + os.path_separator + 'main.v', 
+							// 	  '${path}' + os.path_separator + '${name}' + os.path_separator + 'main.v') or {}
+							os.cp_all('${aixt_path}' + os.path_separator + 'templates' + os.path_separator + 
+									  'project' + os.path_separator + '${project_setup.port}' + os.path_separator,
+									  '${path}' + os.path_separator + '${name}' + os.path_separator, true) or { 
+								panic(err) 
+							}
 							if project_setup.backend == 'arduino' { // arduino-cli sketch name requirement
-								os.rename('${path}/${name}/main.v', '${path}/${name}/${name}.v') or {
+								os.rename('${path}' + os.path_separator + '${name}' + os.path_separator + 'main.v', 
+										  '${path}' + os.path_separator + '${name}' + os.path_separator + '${name}.v') or {
 									panic(err)
 								}
 							}
-							if os.exists('${path}/${name}/Makefile') { // adds the device name to de Makefile
-								mut makefile := os.read_file('${path}/${name}/Makefile') or {
+							// adds the device name to de Makefile
+							if os.exists('${path}' + os.path_separator + '${name}' + os.path_separator + 'Makefile') { 
+								mut makefile := os.read_file('${path}' + os.path_separator + 
+															 '${name}' + os.path_separator + 'Makefile') or {
 									panic(err)
 								}
 								makefile = makefile.replace('__device_name__', '${device}')
-								os.write_file('${path}/${name}/Makefile', makefile) or {
+								os.write_file('${path}' + os.path_separator + '${name}' + os.path_separator + 
+											  'Makefile', makefile) or {
 									panic(err)
 								}
 							}

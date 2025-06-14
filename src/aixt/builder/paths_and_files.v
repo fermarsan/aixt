@@ -19,7 +19,8 @@ pub fn (mut b Builder) get_api_mod_dirs() []string {
 		// 	'ports', os.path_separator, 
 		// 	api_path, os.path_separator, 'api'
 		// )
-		api_base_dir := '${b.aixt_path}/ports/${api_path}/api'
+		api_base_dir := '${b.aixt_path}' + os.path_separator + 
+						'ports/${api_path}' + os.path_separator + 'api'
 		out << api_base_dir
 		// out << util.get_subdirs(api_base_dir)
 	}
@@ -35,7 +36,8 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 		// 	'ports', os.path_separator, 
 		// 	api_path, os.path_separator, 'api'
 		// )
-		api_base_dir := '${b.aixt_path}/ports/${api_path}/api'
+		api_base_dir := '${b.aixt_path}' + os.path_separator + 
+						'ports/${api_path}' + os.path_separator + 'api'
 		mut api_dirs := [api_base_dir]
 		api_dirs << util.get_subdirs(api_base_dir)
 		// println('>>>>>>>>>>>>>>>>>> ${api_dirs} <<<<<<<<<<<<<<<<<<')
@@ -62,26 +64,26 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 pub fn (mut b Builder) get_lib_mod_dirs() []string {
 	mut out := []string{}
 	// println('\nLibrary modules:')
-	lib_paths := os.ls('${b.aixt_path}/lib') or { [] } // modules in the `lib` folder
+	lib_paths := os.ls('${b.aixt_path}' + os.path_separator + 'lib') or { [] } // modules in the `lib` folder
 	for lib_path in lib_paths {
-		lib_base_dir := '${b.aixt_path}/lib/${lib_path}'
+		lib_base_dir := '${b.aixt_path}' + os.path_separator + 'lib/${lib_path}'
 		lib_backend_path := match b.setup.backend {
 			'arduino' {
-				if os.exists('${lib_base_dir}/arduino') {
-					'${lib_base_dir}/arduino'
+				if os.exists('${lib_base_dir}' + os.path_separator + 'arduino') {
+					'${lib_base_dir}' + os.path_separator + 'arduino'
 				} else {
-					'${lib_base_dir}/c'
+					'${lib_base_dir}' + os.path_separator + 'c'
 				}
 			}
 			'nxc' {
-				if os.exists('${lib_base_dir}/nxc') {
-					'${lib_base_dir}/nxc'
+				if os.exists('${lib_base_dir}' + os.path_separator + 'nxc') {
+					'${lib_base_dir}' + os.path_separator + 'nxc'
 				} else {
-					'${lib_base_dir}/c'
+					'${lib_base_dir}' + os.path_separator + 'c'
 				}
 			}
 			else {
-				'${lib_base_dir}/c'
+				'${lib_base_dir}' + os.path_separator + 'c'
 			}
 		}
 		out << lib_backend_path
@@ -94,26 +96,26 @@ pub fn (mut b Builder) get_lib_mod_dirs() []string {
 pub fn (mut b Builder) get_lib_mod_paths() []string {
 	mut out := []string{}
 	// println('\nLibrary modules:')
-	lib_paths := os.ls('${b.aixt_path}/lib') or { [] } // modules in the `lib` folder
+	lib_paths := os.ls('${b.aixt_path}' + os.path_separator + 'lib') or { [] } // modules in the `lib` folder
 	for lib_path in lib_paths {
-		lib_base_dir := '${b.aixt_path}/lib/${lib_path}'
+		lib_base_dir := '${b.aixt_path}' + os.path_separator + 'lib/${lib_path}'
 		lib_backend_path := match b.setup.backend {
 			'arduino' {
-				if os.exists('${lib_base_dir}/arduino') {
-					'${lib_base_dir}/arduino'
+				if os.exists('${lib_base_dir}' + os.path_separator + 'arduino') {
+					'${lib_base_dir}' + os.path_separator + 'arduino'
 				} else {
-					'${lib_base_dir}/c'
+					'${lib_base_dir}' + os.path_separator + 'c'
 				}
 			}
 			'nxc' {
-				if os.exists('${lib_base_dir}/nxc') {
-					'${lib_base_dir}/nxc'
+				if os.exists('${lib_base_dir}' + os.path_separator + 'nxc') {
+					'${lib_base_dir}' + os.path_separator + 'nxc'
 				} else {
-					'${lib_base_dir}/c'
+					'${lib_base_dir}' + os.path_separator + 'c'
 				}
 			}
 			else {
-				'${lib_base_dir}/c'
+				'${lib_base_dir}' + os.path_separator + 'c'
 			}
 		}
 		mut lib_dirs := [lib_backend_path]
