@@ -7,4 +7,5 @@
 module main
 
 // builtin LED
-@[as_macro] const led_0 = u8(C.PC6)
+@[as_macro] const led_0 = 33
+@[as_macro] const sw_0 = 36
