@@ -27,3 +27,4 @@ pub const d13  = 13
 pub const input		= u8(C.INPUT)
 pub const output	= u8(C.OUTPUT)
 pub const in_pullup = u8(C.INPUT_PULLUP)
+pub const in_pulldown = u8(C.INPUT_PULLDOWN)
