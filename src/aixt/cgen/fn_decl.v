@@ -72,27 +72,33 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 					out << $tmpl('c_templates/fn_decl_as_multi_macro.tmpl.c')#[..-1].replace('return', '')
 				}
 			// ---------- functions as Interrupt Service Routines ----------
-			} else if attrs.contains('_isr') {	
-				isr_name := attrs.replace('_isr', '')
-				match gen.setup.backend {
-					'c' {
-						gen.init_cmds << 'ptr_${isr_name}_isr = ${name};'
-					}
-					'arduino' {
-						if isr_name == 'ext' {
-							pin_name := node.attrs[0].arg
-							pin := gen.table.global_scope.find_const(pin_name) or { panic(err) }
-							name = 'ext_isr_${pin.expr.str()}'
-							// '''#define enable_ext_irq_${node.attrs[0].arg.replace('.', '__')} \\
-							// attachInterrupt(digitalPinToInterrupt(_const_${node.attrs[0].arg.replace('.', '__')}), ${name}, _const_ext__${node.attrs[1].name})'''
-						} else {
-							gen.init_cmds << 'ptr_${isr_name}_isr = ${name};' 
-						}
-					}
-					else {
-						name = name
-					}
-				}
+			} else if attrs.contains('_isr') {
+				attr_arg := if node.attrs[0].has_arg { 
+					'_${node.attrs[0].arg}' 
+				} else {  
+					''
+				} 
+				gen.init_cmds << 'ptr_${attrs}${attr_arg} = ${name};'
+				// isr_name := attrs.replace('_isr', '')
+				// match gen.setup.backend {
+				// 	'c' {
+				// 		gen.init_cmds << 'ptr_${isr_name}_isr = ${name};'
+				// 	}
+				// 	'arduino' {
+				// 		if isr_name == 'ext' {
+				// 			pin_name := node.attrs[0].arg
+				// 			pin := gen.table.global_scope.find_const(pin_name) or { panic(err) }
+				// 			name = 'ext_isr_${pin.expr.str()}'
+				// 			// '''#define enable_ext_irq_${node.attrs[0].arg.replace('.', '__')} \\
+				// 			// attachInterrupt(digitalPinToInterrupt(_const_${node.attrs[0].arg.replace('.', '__')}), ${name}, _const_ext__${node.attrs[1].name})'''
+				// 		} else {
+				// 			gen.init_cmds << 'ptr_${isr_name}_isr = ${name};' 
+				// 		}
+				// 	}
+				// 	else {
+				// 		name = name
+				// 	}
+				// }
 				attrs = ''
 				out << $tmpl('c_templates/fn_decl.tmpl.c')#[..-1]
 			// -------------------- regular functions --------------------
