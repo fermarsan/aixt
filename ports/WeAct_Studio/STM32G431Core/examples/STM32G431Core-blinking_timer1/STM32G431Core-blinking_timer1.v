@@ -1,7 +1,7 @@
 // Project name: On-board LED blinking
 // Author:	Fernando M. Santa & Santiago Farfán
 // Date:	09/05/2025
-// STM32G431Coreboard
+// STM32G431Core board
 
 import timer1
 import pin

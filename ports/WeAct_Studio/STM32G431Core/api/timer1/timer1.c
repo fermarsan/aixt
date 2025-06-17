@@ -4,4 +4,4 @@
 
 HardwareTimer *timer;
 TIM_TypeDef *inst = TIM1;
-timer1 = new HardwareTimer(inst);sa
+timer1 = new HardwareTimer(inst);
