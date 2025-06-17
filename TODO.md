@@ -33,6 +33,7 @@ Tasks to do in Aixt
 - [ ] Add `pin.toggle()` function on Arduino Nano, Uno and Mega
 - [ ] Implements sub-modules
 - [ ] Change pin definitions as macros in all the ports
+- [ ] Change the interrupt service functions to be universal (not dependent of the backend)
 
 
 ### Done ✓make
