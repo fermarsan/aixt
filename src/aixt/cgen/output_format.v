@@ -45,6 +45,7 @@ fn (mut gen Gen) out_format() string{
 	out = out.replace('{\n\n', '{\n')
 	out = out.replace('\\\n\n', '\\\n')
 	out = out.replace('#endif;', '#endif')
+	out = out.replace('\n ', '\n')
 
 	// add inner-block commands indentation 
 	for c in out {
