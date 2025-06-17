@@ -73,11 +73,20 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				}
 			// ---------- functions as Interrupt Service Routines ----------
 			} else if attrs.contains('_isr') {
-				attr_arg := if node.attrs[0].has_arg { 
-					'_${node.attrs[0].arg}' 
-				} else {  
-					''
+				mut attr_arg := ''
+				if node.attrs[0].has_arg {
+					defined_const := gen.table.global_scope.find_const(node.attrs[0].arg) or { 
+						&ast.ConstField {
+							name: ''
+						}
+					}
+					attr_arg = if defined_const.name != '' { 
+						'_${defined_const.expr.str()}'  
+					} else {
+						'_${node.attrs[0].arg}'
+					}
 				} 
+				gen.definitions.insert(0, '\nvoid (*ptr_${attrs}${attr_arg})(void);')
 				gen.init_cmds << 'ptr_${attrs}${attr_arg} = ${name};'
 				// isr_name := attrs.replace('_isr', '')
 				// match gen.setup.backend {

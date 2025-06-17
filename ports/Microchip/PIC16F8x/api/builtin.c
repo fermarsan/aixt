@@ -8,13 +8,13 @@
 
 #if defined(TIMER0_IRQ_IN_USE) || defined(EXT_IRQ_IN_USE)   // if any interrupt source is activated
 
-#ifdef EXT_IRQ_IN_USE    
-void (*ptr_ext_isr)(void);      // Interrupt Service Routine pointer
-#endif  // EXT_IRQ_IN_USE 
+// #ifdef EXT_IRQ_IN_USE    
+// void (*ptr_ext_isr)(void);      // Interrupt Service Routine pointer
+// #endif  // EXT_IRQ_IN_USE 
 
-#ifdef TIMER0_IRQ_IN_USE    
-void (*ptr_timer0_isr)(void);   // Interrupt Service Routine pointer
-#endif  // TIMER0_IRQ_IN_USE 
+// #ifdef TIMER0_IRQ_IN_USE    
+// void (*ptr_timer0_isr)(void);   // Interrupt Service Routine pointer
+// #endif  // TIMER0_IRQ_IN_USE 
 
 void __interrupt() Global_ISR() {
     #ifdef EXT_IRQ_IN_USE    

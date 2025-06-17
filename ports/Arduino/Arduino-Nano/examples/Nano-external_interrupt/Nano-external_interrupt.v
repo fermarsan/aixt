@@ -7,7 +7,7 @@ import pin
 import ext
 
 __global (
-	state = true
+	state = false
 )
 
 @[ext_isr:'pin.d2']

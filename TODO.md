@@ -33,7 +33,6 @@ Tasks to do in Aixt
 - [ ] Add `pin.toggle()` function on Arduino Nano, Uno and Mega
 - [ ] Implements sub-modules
 - [ ] Change pin definitions as macros in all the ports
-- [ ] Change the interrupt service functions to be universal (not dependent of the backend)
 
 
 ### Done ✓make
@@ -51,3 +50,4 @@ Tasks to do in Aixt
 - [x] New external interrupt example for Blue Pill (non-tested) 
 - [x] Change '/' linux path separator by `os.path_separator` constant
 - [x] Enable input pullups in the API
+- [x] Change the interrupt service functions to be universal (not dependent of the backend)
