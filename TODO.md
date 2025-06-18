@@ -15,7 +15,7 @@ Tasks to do in Aixt
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Implement an equivalent to Arduino's `millis()`
 - [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO
-- [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO
+<!-- - [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO -->
 - [ ] Allow multi-arg functions
 - [ ] Add settings file `port_name.json` inside `/port_name` folder
 
@@ -30,14 +30,11 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Issue: Calling function from string interpolations including casting
 - [ ] Issue: External interrupts on Arduino backend fails if the pin is not defined as constant
-- [ ] Add `pin.toggle()` function on Arduino Nano, Uno and Mega
 - [ ] Implements sub-modules
-- [ ] Change pin definitions as macros in all the ports
+- [ ] `pin.<function>_fast` functions on `pin` module implemented
 
 
 ### Done ✓make
-
-- [x] `pin.<function>_fast` functions on `pin` module implemented
 - [x] Generate the `arduino-ARM32` subfolder 
 - [x] Change aixt transpiler as a module with submodules
 - [x] Remove the passing of the aixt-path among functions
@@ -50,4 +47,6 @@ Tasks to do in Aixt
 - [x] New external interrupt example for Blue Pill (non-tested) 
 - [x] Change '/' linux path separator by `os.path_separator` constant
 - [x] Enable input pullup resistors in the API
+- [x] Change pin definitions as macros in most of the ports
 - [x] Change the interrupt service functions to be universal (not dependent of the backend)
+- [x] Add `pin.toggle()` function on Arduino ports
