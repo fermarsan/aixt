@@ -15,4 +15,4 @@ module timer1
 fn C.TIMER1_SETOVERFLOW(value int, format int)
 fn C.TIMER1_ATTACHINTERRUPT(handler fn())
 fn C.TIMER1_RESUME() 
-fn C.timer1_isr()
+fn C.ptr_timer1_isr()

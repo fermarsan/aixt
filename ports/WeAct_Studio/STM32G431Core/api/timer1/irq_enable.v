@@ -9,5 +9,5 @@ module timer1
 
 @[as_macro]
 pub fn irq_enable() {
-	C.TIMER1_ATTACHINTERRUPT(C.timer1_isr)
+	C.TIMER1_ATTACHINTERRUPT(C.ptr_timer1_isr)
 }
