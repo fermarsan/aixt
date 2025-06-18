@@ -1,6 +1,6 @@
 // Project name: External Interrupt example
 // Author: Fernando M. Santa
-// Date: 19/02/2025
+// Date: 17/06/2025
 // Arduino Nano board
 
 import pin
