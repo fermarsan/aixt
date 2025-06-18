@@ -46,7 +46,7 @@ Tasks to do in Aixt
 - [x] Builtin LED and SWITCH auto-setup (Arduino-AVR)
 - [x] New external interrupt example for Blue Pill (non-tested) 
 - [x] Change '/' linux path separator by `os.path_separator` constant
-- [x] Enable input pullup resistors in the API
+- [x] Enable input pulldown resistors in the API
 - [x] Change pin definitions as macros in most of the ports
 - [x] Change the interrupt service functions to be universal (not dependent of the backend)
 - [x] Add `pin.toggle()` function on Arduino ports
