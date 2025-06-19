@@ -5,8 +5,8 @@
 #define LCD_SETCURSOR(P1,P2)                                lcd.setCursor(P1,P2)
 #define LCD_CLEAR()                                         lcd.clear()
 #define LCD_HOME()                                          lcd.home()
-#define LCD_SCROLLDISPLAYLEFT()                             lcd.scrollDisplayleft()    
-#define LCD_SCROLLDISPLAYRIGHT()                            lcd.scrollDisplayright()  
+#define LCD_SCROLLDISPLAYLEFT()                             lcd.scrollDisplayLeft()    
+#define LCD_SCROLLDISPLAYRIGHT()                            lcd.scrollDisplayRight()  
 #define LCD_NODISPLAY()                                     lcd.noDisplay() 
 #define LCD_DISPLAY()                                       lcd.display();
 #define LCD_NOCURSOR()                                      lcd.noCursor();

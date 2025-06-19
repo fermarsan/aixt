@@ -1,0 +1,17 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Potentiometer" CircId="Potentiometer-3" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-128,-12" rotation="0" hflip="1" vflip="1" label="Potentiometer-3" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1 kΩ" Value_Ohm="414 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Subcircuit" CircId="LcdShield-2" mainComp="false" Show_id="true" Show_Val="false" Pos="12,0" rotation="0" hflip="1" vflip="1" label="LcdShield-2" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" BoardId="Mega-5" />
+
+<item itemtype="Subcircuit" CircId="Mega-5" mainComp="false" Show_id="true" Show_Val="false" Pos="-180,-308" rotation="90" hflip="1" vflip="1" label="Mega-5" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="Mega-lcd_adc.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Connector" uid="Connector-12" startpinid="Potentiometer-3-PinA" endpinid="Mega-5-5V00" pointList="-144,-12,-156,-12,-156,-64,-148,-64,-148,-76" />
+
+<item itemtype="Connector" uid="Connector-13" startpinid="Potentiometer-3-PinB" endpinid="Mega-5-GND2" pointList="-112,-12,-92,-12,-92,-56,-140,-56,-140,-76" />
+
+<item itemtype="Connector" uid="Connector-14" startpinid="Potentiometer-3-PinM" endpinid="Mega-5-A5" pointList="-128,4,-68,4,-68,-76" />
+
+</circuit>
