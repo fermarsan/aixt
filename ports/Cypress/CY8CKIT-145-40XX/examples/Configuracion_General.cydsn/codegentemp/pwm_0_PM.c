@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: pwm_3.c  
+* File Name: pwm_0.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "pwm_3.h"
+#include "pwm_0.h"
 
-static pwm_3_BACKUP_STRUCT  pwm_3_backup = {0u, 0u, 0u};
+static pwm_0_BACKUP_STRUCT  pwm_0_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: pwm_3_Sleep
+* Function Name: pwm_0_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static pwm_3_BACKUP_STRUCT  pwm_3_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet pwm_3_SUT.c usage_pwm_3_Sleep_Wakeup
+*  \snippet pwm_0_SUT.c usage_pwm_0_Sleep_Wakeup
 *******************************************************************************/
-void pwm_3_Sleep(void)
+void pwm_0_Sleep(void)
 {
-    #if defined(pwm_3__PC)
-        pwm_3_backup.pcState = pwm_3_PC;
+    #if defined(pwm_0__PC)
+        pwm_0_backup.pcState = pwm_0_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            pwm_3_backup.usbState = pwm_3_CR1_REG;
-            pwm_3_USB_POWER_REG |= pwm_3_USBIO_ENTER_SLEEP;
-            pwm_3_CR1_REG &= pwm_3_USBIO_CR1_OFF;
+            pwm_0_backup.usbState = pwm_0_CR1_REG;
+            pwm_0_USB_POWER_REG |= pwm_0_USBIO_ENTER_SLEEP;
+            pwm_0_CR1_REG &= pwm_0_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(pwm_3__SIO)
-        pwm_3_backup.sioState = pwm_3_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(pwm_0__SIO)
+        pwm_0_backup.sioState = pwm_0_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        pwm_3_SIO_REG &= (uint32)(~pwm_3_SIO_LPM_MASK);
+        pwm_0_SIO_REG &= (uint32)(~pwm_0_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: pwm_3_Wakeup
+* Function Name: pwm_0_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void pwm_3_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to pwm_3_Sleep() for an example usage.
+*  Refer to pwm_0_Sleep() for an example usage.
 *******************************************************************************/
-void pwm_3_Wakeup(void)
+void pwm_0_Wakeup(void)
 {
-    #if defined(pwm_3__PC)
-        pwm_3_PC = pwm_3_backup.pcState;
+    #if defined(pwm_0__PC)
+        pwm_0_PC = pwm_0_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            pwm_3_USB_POWER_REG &= pwm_3_USBIO_EXIT_SLEEP_PH1;
-            pwm_3_CR1_REG = pwm_3_backup.usbState;
-            pwm_3_USB_POWER_REG &= pwm_3_USBIO_EXIT_SLEEP_PH2;
+            pwm_0_USB_POWER_REG &= pwm_0_USBIO_EXIT_SLEEP_PH1;
+            pwm_0_CR1_REG = pwm_0_backup.usbState;
+            pwm_0_USB_POWER_REG &= pwm_0_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(pwm_3__SIO)
-        pwm_3_SIO_REG = pwm_3_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(pwm_0__SIO)
+        pwm_0_SIO_REG = pwm_0_backup.sioState;
     #endif
 }
 
