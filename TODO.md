@@ -51,4 +51,5 @@ Tasks to do in Aixt
 - [x] Change the interrupt service functions to be universal (not dependent of the backend)
 - [x] Add `pin.toggle()` function on Arduino AVR ports
 - [x] Standardize the API component names containing numbers by `'<name><number>'` instead of `'<name>_<number>'`
+- [x] Update examples on `README.md`
 

@@ -131,17 +131,33 @@ for { // infinite loop
 }
 ```
 
+### Simple blinking LED example
+```v
+// blinking LED on Arduino-Nano
+import time
+import pin
+
+pin.low(led0)	// turn off the on-board LED
+
+for {
+	pin.toggle(led0)    // change the LED state
+	time.sleep_ms(500)
+}
+```
+
 ### Example for NXT robotics platform
 
 ```v
-// "Drawing" an square with a differential platform (motors A and B)
+// Draw a square on the floor with a differential platform (motors A and B)
 import motor
 import time
 
 for {
+    // move forward
 	motor.write(motor.a, 50)
 	motor.write(motor.b, -50)	// reverse
 	time.sleep_ms(3000)
+    // spin
 	motor.write(motor.a, -50)	// reverse
 	time.sleep_ms(500)
 }

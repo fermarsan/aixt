@@ -5,9 +5,9 @@
 import time
 import pin
 
+pin.low(led0)	// turn off the on-board LED
+
 for {
-	pin.high(led0)
-	time.sleep_ms(500)
-	pin.low(led0)
+	pin.toggle(led0)
 	time.sleep_ms(500)
 }
