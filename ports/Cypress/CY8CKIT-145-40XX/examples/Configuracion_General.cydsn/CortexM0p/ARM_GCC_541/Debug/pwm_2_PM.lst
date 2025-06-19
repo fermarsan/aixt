@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
   28:Generated_Source\PSoC4/pwm_2_PM.c **** *  deep-sleep/hibernate modes. This function applies only to SIO and USBIO pins.
   29:Generated_Source\PSoC4/pwm_2_PM.c **** *  It should not be called for GPIO or GPIO_OVT pins.
   30:Generated_Source\PSoC4/pwm_2_PM.c **** *
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 2
 
 
   31:Generated_Source\PSoC4/pwm_2_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
   51              		.global	pwm_2_Wakeup
   52              		.code	16
   53              		.thumb_func
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 3
 
 
   54              		.type	pwm_2_Wakeup, %function
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
   72              	.L5:
   73 000c 00000000 		.word	.LANCHOR0
   74 0010 08020440 		.word	1074004488
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 4
 
 
   75              		.cfi_endproc
@@ -204,48 +204,48 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
   93 0006 00000000 		.4byte	.Ldebug_abbrev0
   94 000a 04       		.byte	0x4
   95 000b 01       		.uleb128 0x1
-  96 000c 89010000 		.4byte	.LASF20
+  96 000c 0C010000 		.4byte	.LASF20
   97 0010 0C       		.byte	0xc
-  98 0011 47010000 		.4byte	.LASF21
-  99 0015 76000000 		.4byte	.LASF22
+  98 0011 CA000000 		.4byte	.LASF21
+  99 0015 9E010000 		.4byte	.LASF22
  100 0019 00000000 		.4byte	.Ldebug_ranges0+0
  101 001d 00000000 		.4byte	0
  102 0021 00000000 		.4byte	.Ldebug_line0
  103 0025 02       		.uleb128 0x2
  104 0026 01       		.byte	0x1
  105 0027 06       		.byte	0x6
- 106 0028 1B020000 		.4byte	.LASF0
+ 106 0028 36000000 		.4byte	.LASF0
  107 002c 02       		.uleb128 0x2
  108 002d 01       		.byte	0x1
  109 002e 08       		.byte	0x8
- 110 002f 43000000 		.4byte	.LASF1
+ 110 002f 42000000 		.4byte	.LASF1
  111 0033 02       		.uleb128 0x2
  112 0034 02       		.byte	0x2
  113 0035 05       		.byte	0x5
- 114 0036 69010000 		.4byte	.LASF2
+ 114 0036 EC000000 		.4byte	.LASF2
  115 003a 02       		.uleb128 0x2
  116 003b 02       		.byte	0x2
  117 003c 07       		.byte	0x7
- 118 003d 63000000 		.4byte	.LASF3
+ 118 003d 62000000 		.4byte	.LASF3
  119 0041 02       		.uleb128 0x2
  120 0042 04       		.byte	0x4
  121 0043 05       		.byte	0x5
- 122 0044 7B010000 		.4byte	.LASF4
+ 122 0044 FE000000 		.4byte	.LASF4
  123 0048 02       		.uleb128 0x2
  124 0049 04       		.byte	0x4
  125 004a 07       		.byte	0x7
- 126 004b 51000000 		.4byte	.LASF5
+ 126 004b 50000000 		.4byte	.LASF5
  127 004f 02       		.uleb128 0x2
  128 0050 08       		.byte	0x8
  129 0051 05       		.byte	0x5
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 5
 
 
- 130 0052 39010000 		.4byte	.LASF6
+ 130 0052 BC000000 		.4byte	.LASF6
  131 0056 02       		.uleb128 0x2
  132 0057 08       		.byte	0x8
  133 0058 07       		.byte	0x7
- 134 0059 19010000 		.4byte	.LASF7
+ 134 0059 9C000000 		.4byte	.LASF7
  135 005d 03       		.uleb128 0x3
  136 005e 04       		.byte	0x4
  137 005f 05       		.byte	0x5
@@ -253,9 +253,9 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
  139 0064 02       		.uleb128 0x2
  140 0065 04       		.byte	0x4
  141 0066 07       		.byte	0x7
- 142 0067 0C010000 		.4byte	.LASF8
+ 142 0067 8F000000 		.4byte	.LASF8
  143 006b 04       		.uleb128 0x4
- 144 006c F9000000 		.4byte	.LASF12
+ 144 006c 7C000000 		.4byte	.LASF12
  145 0070 02       		.byte	0x2
  146 0071 FE01     		.2byte	0x1fe
  147 0073 48000000 		.4byte	0x48
@@ -266,11 +266,11 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
  152 007e 02       		.uleb128 0x2
  153 007f 08       		.byte	0x8
  154 0080 04       		.byte	0x4
- 155 0081 F2000000 		.4byte	.LASF10
+ 155 0081 75000000 		.4byte	.LASF10
  156 0085 02       		.uleb128 0x2
  157 0086 01       		.byte	0x1
  158 0087 08       		.byte	0x8
- 159 0088 84010000 		.4byte	.LASF11
+ 159 0088 07010000 		.4byte	.LASF11
  160 008c 04       		.uleb128 0x4
  161 008d 00000000 		.4byte	.LASF13
  162 0091 02       		.byte	0x2
@@ -284,13 +284,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
  170 00a0 21       		.byte	0x21
  171 00a1 CA000000 		.4byte	0xca
  172 00a5 07       		.uleb128 0x7
- 173 00a6 73010000 		.4byte	.LASF14
+ 173 00a6 F6000000 		.4byte	.LASF14
  174 00aa 03       		.byte	0x3
  175 00ab 23       		.byte	0x23
  176 00ac 6B000000 		.4byte	0x6b
  177 00b0 00       		.byte	0
  178 00b1 07       		.uleb128 0x7
- 179 00b2 30010000 		.4byte	.LASF15
+ 179 00b2 B3000000 		.4byte	.LASF15
  180 00b6 03       		.byte	0x3
  181 00b7 24       		.byte	0x24
  182 00b8 6B000000 		.4byte	0x6b
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
  184 00bd 07       		.uleb128 0x7
  185 00be 13000000 		.4byte	.LASF16
  186 00c2 03       		.byte	0x3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 6
 
 
  187 00c3 25       		.byte	0x25
@@ -311,7 +311,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
  194 00d0 26       		.byte	0x26
  195 00d1 9D000000 		.4byte	0x9d
  196 00d5 09       		.uleb128 0x9
- 197 00d6 00010000 		.4byte	.LASF18
+ 197 00d6 83000000 		.4byte	.LASF18
  198 00da 01       		.byte	0x1
  199 00db 2C       		.byte	0x2c
  200 00dc 00000000 		.4byte	.LFB0
@@ -319,7 +319,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
  202 00e4 01       		.uleb128 0x1
  203 00e5 9C       		.byte	0x9c
  204 00e6 09       		.uleb128 0x9
- 205 00e7 36000000 		.4byte	.LASF19
+ 205 00e7 EF010000 		.4byte	.LASF19
  206 00eb 01       		.byte	0x1
  207 00ec 52       		.byte	0x52
  208 00ed 00000000 		.4byte	.LFB1
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
  241 0012 00       		.byte	0
  242 0013 02       		.uleb128 0x2
  243 0014 24       		.uleb128 0x24
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 7
 
 
  244 0015 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
  298 004b 0D       		.uleb128 0xd
  299 004c 00       		.byte	0
  300 004d 03       		.uleb128 0x3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 8
 
 
  301 004e 0E       		.uleb128 0xe
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
  355 0085 3B       		.uleb128 0x3b
  356 0086 0B       		.uleb128 0xb
  357 0087 49       		.uleb128 0x49
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 9
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 9
 
 
  358 0088 13       		.uleb128 0x13
@@ -537,118 +537,113 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 1
  397              	.LASF9:
  398 0030 666C6F61 		.ascii	"float\000"
  398      7400
- 399              	.LASF19:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 10
+ 399              	.LASF0:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 10
 
 
- 400 0036 70776D5F 		.ascii	"pwm_2_Wakeup\000"
- 400      325F5761 
- 400      6B657570 
- 400      00
+ 400 0036 7369676E 		.ascii	"signed char\000"
+ 400      65642063 
+ 400      68617200 
  401              	.LASF1:
- 402 0043 756E7369 		.ascii	"unsigned char\000"
+ 402 0042 756E7369 		.ascii	"unsigned char\000"
  402      676E6564 
  402      20636861 
  402      7200
  403              	.LASF5:
- 404 0051 6C6F6E67 		.ascii	"long unsigned int\000"
+ 404 0050 6C6F6E67 		.ascii	"long unsigned int\000"
  404      20756E73 
  404      69676E65 
  404      6420696E 
  404      7400
  405              	.LASF3:
- 406 0063 73686F72 		.ascii	"short unsigned int\000"
+ 406 0062 73686F72 		.ascii	"short unsigned int\000"
  406      7420756E 
  406      7369676E 
  406      65642069 
  406      6E7400
- 407              	.LASF22:
- 408 0076 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\aixt"
- 408      6F63756D 
- 408      656E746F 
- 408      735C5544 
- 408      5C323032 
- 409 00a4 2D702D73 		.ascii	"-p-so-c-4\\ports\\Cypress\\CY8CKIT-145-40XX\\projec"
- 409      6F2D632D 
- 409      345C706F 
- 409      7274735C 
- 409      43797072 
- 410 00d3 74735C43 		.ascii	"ts\\Configuracion_General.cydsn\000"
- 410      6F6E6669 
- 410      67757261 
- 410      63696F6E 
- 410      5F47656E 
- 411              	.LASF10:
- 412 00f2 646F7562 		.ascii	"double\000"
- 412      6C6500
- 413              	.LASF12:
- 414 00f9 75696E74 		.ascii	"uint32\000"
- 414      333200
- 415              	.LASF18:
- 416 0100 70776D5F 		.ascii	"pwm_2_Sleep\000"
- 416      325F536C 
- 416      65657000 
- 417              	.LASF8:
- 418 010c 756E7369 		.ascii	"unsigned int\000"
- 418      676E6564 
- 418      20696E74 
+ 407              	.LASF10:
+ 408 0075 646F7562 		.ascii	"double\000"
+ 408      6C6500
+ 409              	.LASF12:
+ 410 007c 75696E74 		.ascii	"uint32\000"
+ 410      333200
+ 411              	.LASF18:
+ 412 0083 70776D5F 		.ascii	"pwm_2_Sleep\000"
+ 412      325F536C 
+ 412      65657000 
+ 413              	.LASF8:
+ 414 008f 756E7369 		.ascii	"unsigned int\000"
+ 414      676E6564 
+ 414      20696E74 
+ 414      00
+ 415              	.LASF7:
+ 416 009c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 416      206C6F6E 
+ 416      6720756E 
+ 416      7369676E 
+ 416      65642069 
+ 417              	.LASF15:
+ 418 00b3 73696F53 		.ascii	"sioState\000"
+ 418      74617465 
  418      00
- 419              	.LASF7:
- 420 0119 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 419              	.LASF6:
+ 420 00bc 6C6F6E67 		.ascii	"long long int\000"
  420      206C6F6E 
- 420      6720756E 
- 420      7369676E 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccVmD2oI.s 			page 11
+ 420      6720696E 
+ 420      7400
+ 421              	.LASF21:
+ 422 00ca 47656E65 		.ascii	"Generated_Source\\PSoC4\\pwm_2_PM.c\000"
+ 422      72617465 
+ 422      645F536F 
+ 422      75726365 
+ 422      5C50536F 
+ 423              	.LASF2:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cciOIOJk.s 			page 11
 
 
- 420      65642069 
- 421              	.LASF15:
- 422 0130 73696F53 		.ascii	"sioState\000"
- 422      74617465 
- 422      00
- 423              	.LASF6:
- 424 0139 6C6F6E67 		.ascii	"long long int\000"
- 424      206C6F6E 
- 424      6720696E 
+ 424 00ec 73686F72 		.ascii	"short int\000"
+ 424      7420696E 
  424      7400
- 425              	.LASF21:
- 426 0147 47656E65 		.ascii	"Generated_Source\\PSoC4\\pwm_2_PM.c\000"
- 426      72617465 
- 426      645F536F 
- 426      75726365 
- 426      5C50536F 
- 427              	.LASF2:
- 428 0169 73686F72 		.ascii	"short int\000"
- 428      7420696E 
- 428      7400
- 429              	.LASF14:
- 430 0173 70635374 		.ascii	"pcState\000"
- 430      61746500 
- 431              	.LASF4:
- 432 017b 6C6F6E67 		.ascii	"long int\000"
- 432      20696E74 
- 432      00
- 433              	.LASF11:
- 434 0184 63686172 		.ascii	"char\000"
- 434      00
- 435              	.LASF20:
- 436 0189 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 436      43313120 
- 436      352E342E 
- 436      31203230 
- 436      31363036 
- 437 01bc 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
- 437      20726576 
- 437      6973696F 
- 437      6E203233 
- 437      37373135 
- 438 01ef 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
- 438      67202D66 
- 438      66756E63 
- 438      74696F6E 
- 438      2D736563 
- 439              	.LASF0:
- 440 021b 7369676E 		.ascii	"signed char\000"
- 440      65642063 
- 440      68617200 
- 441              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 425              	.LASF14:
+ 426 00f6 70635374 		.ascii	"pcState\000"
+ 426      61746500 
+ 427              	.LASF4:
+ 428 00fe 6C6F6E67 		.ascii	"long int\000"
+ 428      20696E74 
+ 428      00
+ 429              	.LASF11:
+ 430 0107 63686172 		.ascii	"char\000"
+ 430      00
+ 431              	.LASF20:
+ 432 010c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 432      43313120 
+ 432      352E342E 
+ 432      31203230 
+ 432      31363036 
+ 433 013f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 433      20726576 
+ 433      6973696F 
+ 433      6E203233 
+ 433      37373135 
+ 434 0172 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 434      67202D66 
+ 434      66756E63 
+ 434      74696F6E 
+ 434      2D736563 
+ 435              	.LASF22:
+ 436 019e 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
+ 436      6978745C 
+ 436      61697874 
+ 436      5C706F72 
+ 436      74735C43 
+ 437 01cb 78616D70 		.ascii	"xamples\\Configuracion_General.cydsn\000"
+ 437      6C65735C 
+ 437      436F6E66 
+ 437      69677572 
+ 437      6163696F 
+ 438              	.LASF19:
+ 439 01ef 70776D5F 		.ascii	"pwm_2_Wakeup\000"
+ 439      325F5761 
+ 439      6B657570 
+ 439      00
+ 440              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

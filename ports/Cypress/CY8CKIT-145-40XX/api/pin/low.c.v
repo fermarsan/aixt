@@ -5,9 +5,11 @@
 //
 // // Description: low functions (CY8CKIT-145-40XX)
 
+
+
 module pin
 
-@[inline]
-pub fn low(PIN_NAME) {
-	C.PIN_NAME_Write(1)
+@[as_macro]
+pub fn low(name any) {
+	C.PIN_LOW(name)
 }
