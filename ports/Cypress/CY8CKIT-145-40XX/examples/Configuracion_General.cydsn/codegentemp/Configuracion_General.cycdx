@@ -29,7 +29,7 @@
     <register name="PERIOD_BUF" address="0x40060158" bitWidth="32" desc="Period buffer value" hidden="false" />
   </block>
   <block name="pwm_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="pwm3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+  <block name="pwm0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VMux_count" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_reload" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_start" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -778,7 +778,7 @@
       <field name="AZ1_SKIP" from="9" to="9" access="RW" resetVal="" desc="When set the AutoZero_1 state will be skipped" hidden="false" />
     </register>
   </block>
-  <block name="pwm_3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="pwm_0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="led5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="led4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>

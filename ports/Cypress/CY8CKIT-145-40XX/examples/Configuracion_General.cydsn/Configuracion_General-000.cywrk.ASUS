@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Configuracion_General-000\Configuracion_General\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\pwm_1">
 <ExpandedNodeIds>
 <v>Configuracion_General-000</v>
 <v>Configuracion_General-000\Configuracion_General</v>
@@ -77,12 +77,12 @@
 <v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\LED7</v>
 <v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\LED8</v>
 <v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\LED9</v>
+<v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\pwm_0</v>
 <v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\pwm_1</v>
 <v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\pwm_2</v>
-<v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\pwm_3</v>
+<v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\pwm0</v>
 <v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\PWM1</v>
 <v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\PWM2</v>
-<v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\PWM3</v>
 <v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\SW2</v>
 <v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\UART</v>
 <v>Configuracion_General-000\Configuracion_General\Generated_Source\PSoC4\UART_rx</v>
@@ -127,12 +127,14 @@
 <v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\do0.lst</v>
 <v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\do0_PM.lst</v>
 <v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_0.lst</v>
+<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_0_PM.lst</v>
 <v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_1.lst</v>
 <v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_1_PM.lst</v>
 <v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_2.lst</v>
 <v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_2_PM.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_3.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_3_PM.lst</v>
+<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm0.lst</v>
+<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm0_PM.lst</v>
 <v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.elf</v>
 <v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.hex</v>
 <v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.map</v>
@@ -143,36 +145,6 @@
 <VisibleNodeIds>
 <v>Configuracion_General-000</v>
 <v>Configuracion_General-000\Configuracion_General</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\clock.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\Cm0plusStart.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\di0.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\di0_PM.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\do0.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\do0_PM.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_1.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_1_PM.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_2.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_2_PM.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_3.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_3_PM.lst</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.elf</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.hex</v>
-<v>Configuracion_General-000\Configuracion_General\CortexM0p\ARM_GCC_541\Debug\Configuracion_General.map</v>
-<v>Configuracion_General-000\Configuracion_General\Configuracion_General.gpdsc</v>
 <v>Configuracion_General-000\Configuracion_General\Configuracion_General.rpt</v>
 <v>Configuracion_General-000\Configuracion_General\Configuracion_General_timing.html</v>
 </VisibleNodeIds>

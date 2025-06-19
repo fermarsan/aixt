@@ -114,9 +114,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm2.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm2.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm2_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm3.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm3.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm3_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Control.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Processing.c</File>
@@ -205,8 +202,15 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do0.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do0_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\do0_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm0.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm0.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm0_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\clock.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\clock.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_0.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_0.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_0_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_0_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_1_aliases.h</File>
@@ -215,10 +219,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_2.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_2_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_2_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_3.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_3.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_3_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_3_PM.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Export\ARM_GCC_Generic\CapSense_P4_v7_10">

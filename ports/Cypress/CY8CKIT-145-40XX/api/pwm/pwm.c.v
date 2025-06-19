@@ -10,5 +10,10 @@ module pwm
 
 #include "pwm.c"
 
-//fn C.PIN_WRITE(name any, value any)
+fn C.PWM_WRITE(name any, value any)
+
+
+// @[as_macro] pub const ch0 = 17
+// @[as_macro] pub const ch1 = 15
+// @[as_macro] pub const ch2 = 16
 

@@ -8,6 +8,6 @@
 module pwm
 
 @[as_macro]
-pub fn write(PIN_NAME, VALUE) {
-	C.WriteCompare(VALUE)
+pub fn write(channel any, val any) {
+	C.PWM_WRITE(channel, val)
 }
