@@ -99,7 +99,7 @@ global variables      | disabled by default               | enabled by default
 ### Example with `main` function
 
 ```v
-/* Turning ON by 5.5 seconds the B7 on a
+/* Turning ON the pin B7 by 5.5 seconds on a
 PIC16F84A microcontroller (XC8 compiler) */
 import time
 import pin
@@ -107,9 +107,9 @@ import pin
 fn main() {
     pin.setup(pin.b7, pin.output)
 
-    pin.high(pin.b7)    //turn ON the LED on PORTB7
+    pin.high(pin.b7)    // turn ON the LED on PORTB7
     time.sleep_ms(5500)
-    pin.low(pin.b7)
+    pin.low(pin.b7)     // turn OFF
 }
 ```
 
@@ -122,7 +122,7 @@ import uart
 import adc
 
 uart.setup(9600)    // baud rate
-adc.setup(12)       // resolution
+adc.setup(12)       // resolution (bits)
 
 for { // infinite loop
 	analog := adc.read(adc.ch0)
@@ -131,17 +131,34 @@ for { // infinite loop
 }
 ```
 
+### Simple blinking LED example
+```v
+// blinking LED on Arduino-Nano
+import time
+import pin
+
+pin.low(led0)	// turn OFF the on-board LED
+
+for {
+	pin.toggle(led0)    // change the LED state
+	time.sleep_ms(500)  // 500ms delay
+}
+```
+
 ### Example for NXT robotics platform
 
 ```v
-// "Drawing" an square with a differential platform (motors A and B)
+// Draw a square on the floor with a differential platform 
+// using motors A and B
 import motor
 import time
 
 for {
+    // move forward
 	motor.write(motor.a, 50)
 	motor.write(motor.b, -50)	// reverse
 	time.sleep_ms(3000)
+    // spin
 	motor.write(motor.a, -50)	// reverse
 	time.sleep_ms(500)
 }

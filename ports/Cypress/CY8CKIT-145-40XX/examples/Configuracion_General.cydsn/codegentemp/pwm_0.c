@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: pwm_3.c  
+* File Name: pwm_0.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "pwm_3.h"
+#include "pwm_0.h"
 
 
-#if defined(pwm_3__PC)
-    #define pwm_3_SetP4PinDriveMode(shift, mode)  \
+#if defined(pwm_0__PC)
+    #define pwm_0_SetP4PinDriveMode(shift, mode)  \
     do { \
-        pwm_3_PC =   (pwm_3_PC & \
-                                (uint32)(~(uint32)(pwm_3_DRIVE_MODE_IND_MASK << \
-                                (pwm_3_DRIVE_MODE_BITS * (shift))))) | \
+        pwm_0_PC =   (pwm_0_PC & \
+                                (uint32)(~(uint32)(pwm_0_DRIVE_MODE_IND_MASK << \
+                                (pwm_0_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (pwm_3_DRIVE_MODE_BITS * (shift))); \
+                                (pwm_0_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define pwm_3_SetP4PinDriveMode(shift, mode)  \
+        #define pwm_0_SetP4PinDriveMode(shift, mode)  \
         do { \
-            pwm_3_USBIO_CTRL_REG = (pwm_3_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(pwm_3_DRIVE_MODE_IND_MASK << \
-                                    (pwm_3_DRIVE_MODE_BITS * (shift))))) | \
+            pwm_0_USBIO_CTRL_REG = (pwm_0_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(pwm_0_DRIVE_MODE_IND_MASK << \
+                                    (pwm_0_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (pwm_3_DRIVE_MODE_BITS * (shift))); \
+                                    (pwm_0_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(pwm_3__PC) || (CY_PSOC4_4200L) 
+#if defined(pwm_0__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: pwm_3_SetDriveMode
+    * Function Name: pwm_0_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet pwm_3_SUT.c usage_pwm_3_SetDriveMode
+    *  \snippet pwm_0_SUT.c usage_pwm_0_SetDriveMode
     *******************************************************************************/
-    void pwm_3_SetDriveMode(uint8 mode)
+    void pwm_0_SetDriveMode(uint8 mode)
     {
-		pwm_3_SetP4PinDriveMode(pwm_3__0__SHIFT, mode);
+		pwm_0_SetP4PinDriveMode(pwm_0__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: pwm_3_Write
+* Function Name: pwm_0_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet pwm_3_SUT.c usage_pwm_3_Write
+*  \snippet pwm_0_SUT.c usage_pwm_0_Write
 *******************************************************************************/
-void pwm_3_Write(uint8 value)
+void pwm_0_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(pwm_3_DR & (uint8)(~pwm_3_MASK));
-    drVal = (drVal | ((uint8)(value << pwm_3_SHIFT) & pwm_3_MASK));
-    pwm_3_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(pwm_0_DR & (uint8)(~pwm_0_MASK));
+    drVal = (drVal | ((uint8)(value << pwm_0_SHIFT) & pwm_0_MASK));
+    pwm_0_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: pwm_3_Read
+* Function Name: pwm_0_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void pwm_3_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet pwm_3_SUT.c usage_pwm_3_Read  
+*  \snippet pwm_0_SUT.c usage_pwm_0_Read  
 *******************************************************************************/
-uint8 pwm_3_Read(void)
+uint8 pwm_0_Read(void)
 {
-    return (uint8)((pwm_3_PS & pwm_3_MASK) >> pwm_3_SHIFT);
+    return (uint8)((pwm_0_PS & pwm_0_MASK) >> pwm_0_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: pwm_3_ReadDataReg
+* Function Name: pwm_0_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 pwm_3_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred pwm_3_Read() API because the 
-* pwm_3_ReadDataReg() reads the data register instead of the status 
+* preferred pwm_0_Read() API because the 
+* pwm_0_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 pwm_3_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet pwm_3_SUT.c usage_pwm_3_ReadDataReg 
+*  \snippet pwm_0_SUT.c usage_pwm_0_ReadDataReg 
 *******************************************************************************/
-uint8 pwm_3_ReadDataReg(void)
+uint8 pwm_0_ReadDataReg(void)
 {
-    return (uint8)((pwm_3_DR & pwm_3_MASK) >> pwm_3_SHIFT);
+    return (uint8)((pwm_0_DR & pwm_0_MASK) >> pwm_0_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: pwm_3_SetInterruptMode
+* Function Name: pwm_0_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 pwm_3_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use pwm_3_INTR_ALL to configure the
+*  component. Or you may use pwm_0_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - pwm_3_0_INTR       (First pin in the list)
-*  - pwm_3_1_INTR       (Second pin in the list)
+*  - pwm_0_0_INTR       (First pin in the list)
+*  - pwm_0_1_INTR       (Second pin in the list)
 *  - ...
-*  - pwm_3_INTR_ALL     (All pins in Pins component)
+*  - pwm_0_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 pwm_3_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet pwm_3_SUT.c usage_pwm_3_SetInterruptMode
+*  \snippet pwm_0_SUT.c usage_pwm_0_SetInterruptMode
 *******************************************************************************/
-void pwm_3_SetInterruptMode(uint16 position, uint16 mode)
+void pwm_0_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  pwm_3_INTCFG & (uint32)(~(uint32)position);
-    pwm_3_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  pwm_0_INTCFG & (uint32)(~(uint32)position);
+    pwm_0_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: pwm_3_ClearInterrupt
+* Function Name: pwm_0_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void pwm_3_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet pwm_3_SUT.c usage_pwm_3_ClearInterrupt
+*  \snippet pwm_0_SUT.c usage_pwm_0_ClearInterrupt
 *******************************************************************************/
-uint8 pwm_3_ClearInterrupt(void)
+uint8 pwm_0_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(pwm_3_INTSTAT & pwm_3_MASK);
-	pwm_3_INTSTAT = maskedStatus;
-    return maskedStatus >> pwm_3_SHIFT;
+	uint8 maskedStatus = (uint8)(pwm_0_INTSTAT & pwm_0_MASK);
+	pwm_0_INTSTAT = maskedStatus;
+    return maskedStatus >> pwm_0_SHIFT;
 }
 
 

@@ -8,4 +8,4 @@
 module main
 
 // builtin LED
-const led_0 = 25
+const led0 = 25

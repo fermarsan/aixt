@@ -49,4 +49,4 @@ Tasks to do in Aixt
 - [x] Enable input pulldown resistors in the API
 - [x] Change pin definitions as macros in most of the ports
 - [x] Change the interrupt service functions to be universal (not dependent of the backend)
-- [x] Add `pin.toggle()` function on Arduino AVR ports
+- [x] Add `pin.toggle()` function on Arduino ports
