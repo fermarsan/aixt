@@ -29,7 +29,6 @@ Tasks to do in Aixt
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 - [ ] Issue: Calling function from string interpolations including casting
-- [ ] Issue: External interrupts on Arduino backend fails if the pin is not defined as constant
 - [ ] Implements sub-modules
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 
@@ -45,6 +44,7 @@ Tasks to do in Aixt
 - [x] New transpiler folder tree including submodules `builder`, `cgen`, `setup` and `util`
 - [x] Builtin LED and SWITCH auto-setup (Arduino-AVR)
 - [x] New external interrupt example for Blue Pill (non-tested) 
+- [x] For external interrupts on Arduino backend the pin has to be defined as constant
 - [x] Change '/' linux path separator by `os.path_separator` constant
 - [x] Enable input pulldown resistors in the API
 - [x] Change pin definitions as macros in most of the ports
