@@ -1,0 +1,17 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="LcdShield-4" mainComp="false" Show_id="true" Show_Val="false" Pos="12,0" rotation="0" hflip="1" vflip="1" label="LcdShield-4" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" BoardId="Uno-1" />
+
+<item itemtype="Subcircuit" CircId="Uno-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-176,-208" rotation="90" hflip="1" vflip="1" label="Uno-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="../../../../../../../Users/OSCAR BUITRAGO/AppData/Local/simulide/codeeditor/buildIno/build/Uno-lcd_uart1.ino.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Potentiometer" CircId="Potentiometer-5" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-48,48" rotation="0" hflip="1" vflip="1" label="Potentiometer-5" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1 kΩ" Value_Ohm="760 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Connector" uid="Connector-3" startpinid="Potentiometer-5-PinM" endpinid="Uno-1-A5" pointList="-48,64,-48,80,0,80,0,-24" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="Potentiometer-5-PinA" endpinid="Uno-1-5V0" pointList="-64,48,-80,48,-80,-24" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="Potentiometer-5-PinB" endpinid="Uno-1-GND0" pointList="-32,48,-32,-8,-64,-8,-64,-24" />
+
+</circuit>

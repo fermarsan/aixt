@@ -1,0 +1,17 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="LcdShield-4" mainComp="false" Show_id="true" Show_Val="false" Pos="12,0" rotation="0" hflip="1" vflip="1" label="LcdShield-4" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" BoardId="Mega-6" />
+
+<item itemtype="Subcircuit" CircId="Mega-6" mainComp="false" Show_id="true" Show_Val="false" Pos="-244,-16" rotation="-270" hflip="1" vflip="1" label="Mega-6" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Potentiometer" CircId="Potentiometer-10" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-204,280" rotation="0" hflip="1" vflip="1" label="Potentiometer-10" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1 kΩ" Value_Ohm="0 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="Potentiometer-10-PinM" endpinid="Mega-6-A5" pointList="-204,296,-204,300,-132,300,-132,216" />
+
+<item itemtype="Connector" uid="Connector-11" startpinid="Potentiometer-10-PinA" endpinid="Mega-6-5V00" pointList="-220,280,-220,216,-212,216" />
+
+<item itemtype="Connector" uid="Connector-12" startpinid="Potentiometer-10-PinB" endpinid="Mega-6-GND2" pointList="-188,280,-188,216,-204,216" />
+
+</circuit>
