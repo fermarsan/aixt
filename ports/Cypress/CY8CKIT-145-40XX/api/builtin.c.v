@@ -16,15 +16,15 @@
 fn C.INIT_INTERRUPTS() 
 
 
-@[as_macro] pub const led_1 = C.led1
-@[as_macro] pub const led_4 = C.led4
-@[as_macro] pub const led_5 = C.led5
-@[as_macro] pub const led_6 = C.led6
-@[as_macro] pub const led_7 = C.led7
-@[as_macro] pub const led_8 = C.led8
-@[as_macro] pub const led_9 = C.led9
-@[as_macro] pub const led_10 =C.led10
-@[as_macro] pub const led_11 =C.led11
+@[as_macro] pub const led1 = C.led1
+@[as_macro] pub const led4 = C.led4
+@[as_macro] pub const led5 = C.led5
+@[as_macro] pub const led6 = C.led6
+@[as_macro] pub const led7 = C.led7
+@[as_macro] pub const led8 = C.led8
+@[as_macro] pub const led9 = C.led9
+@[as_macro] pub const led10 =C.led10
+@[as_macro] pub const led11 =C.led11
 @[as_macro] pub const do0 = 12
 @[as_macro] pub const do1 = 13
 @[as_macro] pub const do2 = 14
@@ -45,19 +45,19 @@ fn C.INIT_INTERRUPTS()
 @[as_macro] pub const sld4 = 30
 
 // enum __pin_names {
-// led_1,
-//led _led_2,
-//led _led_3,
-//led led_4,
-//led led_5,
-//led led_6,
-//led led_7,
-//led led_8,
-//led led_9,
-//led led_10,
-//led led_11,
-//led led_11,
-//led _led_12,
+// led1,
+//led _led2,
+//led _led3,
+//led led4,
+//led led5,
+//led led6,
+//led led7,
+//led led8,
+//led led9,
+//led led10,
+//led led11,
+//led led11,
+//led _led12,
 //led do0,
 // do1,
 // do2,

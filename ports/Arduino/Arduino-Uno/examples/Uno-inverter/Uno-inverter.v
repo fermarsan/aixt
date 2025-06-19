@@ -10,8 +10,8 @@ pin.setup(pin.d8, pin.input)
 
 for {
 	if pin.read(pin.d8) == 1 {
-		pin.low(led_0)	// builtin LED
+		pin.low(led0)	// builtin LED
 	} else {
-		pin.high(led_0)
+		pin.high(led0)
 	}
 }

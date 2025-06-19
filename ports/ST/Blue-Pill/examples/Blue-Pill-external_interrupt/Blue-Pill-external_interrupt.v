@@ -20,6 +20,6 @@ fn main() {
 	ext.irq_enable(pin.b0, ext.change)
 	
 	for {
-		pin.write(led_0, u8(state))
+		pin.write(led0, u8(state))
 	}
 }

@@ -106,7 +106,7 @@ New Devices:
 - Issue solved: Unpacking type layout (symbol table)
 - NXT port updated to API v0.1.2
 - NXT snippets updated
-- Change builtin LED name to `led_0`
+- Change builtin LED name to `led0`
 - Issue solved: main constants and globals can be invoked omitting `main.` now.
 - Issue solved: array_init for non-fixed arrays fails
 - Blue-Pill port updated to API v0.1.2

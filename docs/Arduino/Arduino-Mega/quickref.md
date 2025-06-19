@@ -25,13 +25,13 @@ name                  | description
 
 
 ## Internal LEDs
-The onboard LED is named `led_0` 
+The onboard LED is named `led0` 
 
 ```v
 import pin
 
-pin.setup(led_0, pin.output)
-pin.high(led_0)
+pin.setup(led0, pin.output)
+pin.high(led0)
 ```
 
 

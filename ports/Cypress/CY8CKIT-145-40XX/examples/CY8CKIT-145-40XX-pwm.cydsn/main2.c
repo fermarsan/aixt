@@ -33,15 +33,15 @@ void  main__init();
 
 #define PWM_WRITE(PIN_NAME, VAL)    PIN_NAME##_WriteCompare(VAL)
 
-#define _const_main__led_1 led1
-#define _const_main__led_4 led4
-#define _const_main__led_5 led5
-#define _const_main__led_6 led6
-#define _const_main__led_7 led7
-#define _const_main__led_8 led8
-#define _const_main__led_9 led9
-#define _const_main__led_10 led10
-#define _const_main__led_11 led11
+#define _const_main__led1 led1
+#define _const_main__led4 led4
+#define _const_main__led5 led5
+#define _const_main__led6 led6
+#define _const_main__led7 led7
+#define _const_main__led8 led8
+#define _const_main__led9 led9
+#define _const_main__led10 led10
+#define _const_main__led11 led11
 #define _const_main__do0 12
 #define _const_main__do1 13
 #define _const_main__do2 14
