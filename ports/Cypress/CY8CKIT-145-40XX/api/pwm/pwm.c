@@ -1,1 +1,1 @@
-#define PWM_WRITE(PIN_NAME, VAL)    PIN_NAME##_WriteCompare(VAL)
+// #define PWM_WRITE(PIN_NAME, VAL)    PIN_NAME##_WriteCompare(VAL)
