@@ -13,11 +13,7 @@
 
 #define STEP_SIZE (capsense_LINEARSLIDER_X_RESOLUTION/capsense_LINEARSLIDER_NUM_SENSORS)
 
-#include "../../api/builtin.c"
-#include "../../api/machine/pin.c"
-#include "../../api/machine/pwm.c"
-#include "../../api/machine/uart.c"
-#include "../../api/time/sleep_ms.c"
+
 
 
 int main(void)
@@ -35,12 +31,31 @@ int main(void)
             
     for(;;)
     {
-     pin.high(led1);
-       sleep_ms(1000);
-        pin.low(led1);
-        sleep_ms(1000);
         
-        //pwm_duty(1, 0);
+        pwm1_WriteCompare(10000);
+       CyDelay(1000);
+    
+     pwm1_WriteCompare(8000);
+       CyDelay(1000);
+    
+     pwm1_WriteCompare(6000);
+       CyDelay(1000);
+    
+     pwm1_WriteCompare(4000);
+       CyDelay(1000);
+    
+     pwm1_WriteCompare(2000);
+       CyDelay(1000);
+   
+  
+       pwm1_WriteCompare(0);
+       CyDelay(2000);
+     //pin.high(led1);
+      // sleep_ms(1000);
+       // pin.low(led1);
+       // sleep_ms(1000);
+        
+       // pwm_duty(1, 0);
         //sleep_ms(2000);
         //pwm_duty(1, 10);
         //sleep_ms(2000);
@@ -57,7 +72,7 @@ int main(void)
         //pwm_duty(1, 70);
         //sleep_ms(2000);
         //pwm_duty(1, 80);
-        //sleep_ms(2000);
+       // sleep_ms(2000);
         //pwm_duty(1, 90);
         //sleep_ms(2000);
         //pwm_duty(1, 100);

@@ -6,4 +6,9 @@
 // // Description: pwm functions (CY8CKIT-145-40XX)
 
 
-module pwm   PWM_Start();
+module pwm   
+
+#include "pwm.c"
+
+//fn C.PIN_WRITE(name any, value any)
+

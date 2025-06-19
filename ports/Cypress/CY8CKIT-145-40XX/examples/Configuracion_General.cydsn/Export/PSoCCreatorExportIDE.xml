@@ -25,7 +25,7 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="Configuracion_General" Path="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" Version="6.10" Type="Normal">
+  <Project Name="Configuracion_General" Path="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" Version="6.10" Type="Normal">
     <CMSIS_SVD_File>Configuracion_General.svd</CMSIS_SVD_File>
     <Datasheet>Configuracion_General_datasheet.pdf</Datasheet>
     <LinkerFiles>
@@ -34,14 +34,14 @@
       <LinkerFile Toolchain="ARM IAR Generic">.\Generated_Source\PSoC4\Cm0plusIar.icf</LinkerFile>
     </LinkerFiles>
     <Folders>
-      <Folder BuildType="STRICT" Path="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
+      <Folder BuildType="STRICT" Path="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Generated_Source\PSoC4">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
+      <Folder BuildType="STRICT" Path="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Generated_Source\PSoC4">
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cyfitter_cfg.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cyfitter_cfg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cymetadata.c</File>
@@ -221,50 +221,50 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\pwm_3_PM.c</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Export\ARM_GCC_Generic\CapSense_P4_v7_10">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
+      <Folder BuildType="STRICT" Path="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Export\ARM_GCC_Generic\CapSense_P4_v7_10">
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\CapSense_P4_v7_10\Capsense_P4Library_GCCp.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Export\ARM_MDK_Generic\CapSense_P4_v7_10">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
+      <Folder BuildType="STRICT" Path="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Export\ARM_MDK_Generic\CapSense_P4_v7_10">
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\CapSense_P4_v7_10\Capsense_P4Library_MDKp.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Export\ARM_IAR_Generic\CapSense_P4_v7_10">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
+      <Folder BuildType="STRICT" Path="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Export\ARM_IAR_Generic\CapSense_P4_v7_10">
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn">
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\CapSense_P4_v7_10\Capsense_P4Library_IARp.a</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_441">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_473">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051_Keil_952">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0p">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM3">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM4">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM7">
-        <Files Root="C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
+        <Files Root="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn" />
       </Folder>
     </Folders>
   </Project>

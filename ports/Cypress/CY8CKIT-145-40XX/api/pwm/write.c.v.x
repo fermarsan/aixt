@@ -3,11 +3,11 @@
 // Date: 2022-2025
 // License: MIT
 //
-// // Description: high functions (CY8CKIT-145-40XX)
+// // Description: pwm functions (CY8CKIT-145-40XX)
 
-module pin
+module pwm
 
-@[inline]
-pub fn high(PIN_NAME) {
-	C.PIN_NAME_Write(0)
+@[as_macro]
+pub fn write(PIN_NAME, VALUE) {
+	C.WriteCompare(VALUE)
 }
