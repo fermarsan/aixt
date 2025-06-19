@@ -20,13 +20,13 @@ for {
 	lcd.print(cont)
 	cont++
 	time.sleep_ms(1000)
-if cont== 10 {
-	time.sleep_ms(1000)
-	lcd.clear()
-	time.sleep_ms(1000)
-    lcd.println("finish")
-	time.sleep_ms(3000)
-	lcd.clear()
-break
-};
+	if cont== 10 {
+		time.sleep_ms(1000)
+		lcd.clear()
+		time.sleep_ms(1000)
+		lcd.println("finish")
+		time.sleep_ms(3000)
+		lcd.clear()
+		break
+	}
 }

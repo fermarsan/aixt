@@ -18,11 +18,11 @@ pin.setup(pin.d13, pin.output)
 
 for {
  value := adc.read(adc.ch5)
-  brillo_led := u8(value/4)
-  pwm.write(pin.d13, brillo_led)
+  led_brightness := u8(value/4)
+  pwm.write(pin.d13, led_brightness)
 
   disp7seg.precision(0)
-  disp7seg.write(brillo_led)
+  disp7seg.write(led_brightness)
   time.sleep_ms(100)
 }
 

@@ -24,7 +24,7 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 - 3 entradas digitales
 - 3 salidas digitales
 - 5 sensores capacitivos tipo slider
-- 3 sensores capacitivos tipo boton
+- 3 sensores capacitivos tipo button
 
 *visualización en PSoC creator*
 

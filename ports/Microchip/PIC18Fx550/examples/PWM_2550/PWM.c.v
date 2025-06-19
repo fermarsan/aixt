@@ -106,13 +106,13 @@ void main()
  
         adc.read(0);
 
-       /* int valor_adc = ADRES; */
+       /* int adc_value = ADRES; */
  
-        int valor_adc = adc.reading();
+        int adc_value = adc.reading();
 
-        /*unsigned char valor_pwm = map(valor_adc, 0, 1023, 0, 50);
+        /*unsigned char valor_pwm = map(adc_value, 0, 1023, 0, 50);
         CCPR1L = (valor_pwm >> 2); */
  
-        pwm.write(valor_adc,1);  
+        pwm.write(adc_value,1);  
     }
 }
