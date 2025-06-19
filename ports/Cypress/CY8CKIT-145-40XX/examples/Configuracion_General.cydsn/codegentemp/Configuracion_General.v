@@ -1,6 +1,6 @@
 // ======================================================================
 // Configuracion_General.v generated from TopDesign.cysch
-// 05/14/2025 at 18:15
+// 06/07/2025 at 13:24
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1396,7 +1396,6 @@ module top ;
           wire  Net_31;
           wire  Net_30;
           wire  Net_29;
-          wire  Net_28;
           wire  Net_27;
           wire  Net_26;
           wire  Net_24;
@@ -1423,6 +1422,7 @@ module top ;
           wire  Net_3;
           wire  Net_2;
           wire  Net_1;
+          wire  Net_28;
           wire  Net_25;
 
     SCB_P4_v4_0_0 uart (
