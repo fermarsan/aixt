@@ -18,141 +18,125 @@ The modules for hardware timers managment are available for PIC16F (xc8 compiler
 The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR (arduino-cli) and STM32 (arduino-cli):
 - `ext` External interrupts
 
-## Devices supported on C backend
 
-| Aixt port name    | C compiler            | Board                         | Device                | CPU                               |
-|-------------------|-----------------------|-------------------------------|-----------------------|-----------------------------------|
-| Emulator          | GCC or TCC            | Linux, Android and Windows    | Emulator CLI          | x64 or AArch64                    |
-| PIC16F83          | xc8                   | ---                           | PIC16F83              | PIC16                             |
-| PIC16F84          | xc8                   | ---                           | PIC16F84              | PIC16                             |
-| PIC16F84A         | xc8                   | ---                           | PIC16F84A             | PIC16                             |
-| PIC16F873         | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
-| PIC16F874         | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
-| PIC16F876         | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
-| PIC16F877         | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
-| PIC16F873A        | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
-| PIC16F874A        | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
-| PIC16F876A        | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
-| PIC16F877A        | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
-| PIC16F882         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
-| PIC16F883         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
-| PIC16F884         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
-| PIC16F886         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
-| PIC16F887         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
-| CY8CKIT-049-42xx  | PSoC Creator          | CY8CKIT-049-42xx              | CY8C4245AXI-483       | Cortex-M0                         |
-| CY8CKIT-145-40xx  | PSoC Creator          | CY8CKIT-145-40xx              | CY8C4045AZI-S413      | Cortex-M0                         |
-<!-- | CH573F-mini-BLE   | MounRiver Studio II   | CH573F Core Board             | CH573F                | RV32                              |
-| CH582F-mini-BLE   | MounRiver Studio II   | CH582F Core Board             | CH582F                | RV32                              |
-| PIC16F6xx         | xc8                   | ---                           | PIC16F6xx family      | PIC16                             |
-| PIC18F452         | xc8                   | ---                           | PIC18F452             | PIC18                             |
-| PIC18F2550        | xc8                   | ---                           | PIC18F2550            | PIC18                             |
-| PIC18F4550        | xc8                   | ---                           | PIC18F4550            | PIC18                             |
-| Exp16-PIC24       | xc16                  | Explorer 16                   | PIC24FJ128GA010       | PIC33                             | 
-| Exp16-dsPIC33     | xc16                  | Explorer 16                   | dsPIC33FJ256GP710A    | dsPIC33                           |
-| M0sense           | Boufalolab SDK        | Sipeed M0sense                | BL702                 | RV32                              | -->
+## Devices features
 
-
-| Aixt port name                                | Implemented modules                                   |
-|-----------------------------------------------|-------------------------------------------------------|
-| Emulator                                      | `time`, `pin`, `adc`, `pwm`, `uart`                   |
-| [PIC16F8x](../setup/equivalent-devices.json)  | `time`, `pin`, `port`, `timer0`, `ext`                |
-| [PIC16F87x](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `timer0`, `ext`                |
-| [PIC16F88x](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext` |
-| CY8CKIT-049-42xx                              | `time`, `pin`, `adc`, `pwm`                           |
-| CY8CKIT-145-40xx                              | `time`, `pin`, `adc`, `pwm`                           |
-<!-- | CH573F-mini-BLE   | `time`, `pin`, `adc`, `pwm`, `uart`                   |
-| CH582F-mini-BLE   | `time`, `pin`, `adc`, `pwm`, `uart`                   |
-| PIC16F6xx         | `time`, `pin`, `port`, `timer0`, `ext`                |
-| PIC18F452         | WIP...                                                |
-| PIC18F2550        | WIP...                                                |
-| PIC18F4550        | WIP...                                                |
-| Exp16-PIC24       | WIP...                                                | 
-| Exp16-dsPIC33     | WIP...                                                |
-| M0sense           | WIP...                                                | -->
-
-## Devices supported on NXT backend
-This backend is designed for supporting LEGO Mindstorms NXT Intelligent Brick.  
-
-| Aixt port name    | C compiler    | Board                 | Device        | CPU       |
-|-------------------|---------------|-----------------------|---------------|-----------|
-| NXT               | nbc           | NXT Intelligent Brick | AT91SAM7S256  | ARM7TDMI  |
-
-
-| Aixt port name    | Implemented modules                                       |
-|-------------------|-----------------------------------------------------------|
-| NXT               | `time`, `motor`, `sensor`, `button`, `lcd`, `ht_sens`,    |
-|                   | `task`, `array`, `math`, `rand`, `str`, `sound`, `comm`,  |
-|                   | `file`, `i2c`, `io`, `lowspeed`, `ui`                     |
-  
-## Devices supported on Arduino backend
-
-| Aixt port name        | Compiler      | Board                         | Device                | CPU                   |
-|-----------------------|---------------|-------------------------------|-----------------------|-----------------------|
-| Arduino-Uno           | arduino-cli   | Arduino Uno                   | ATmega328p            | AVR 8-bit             |
-| Arduino-Nano          | arduino-cli   | Arduino Nano                  | ATmega328p            | AVR 8-bit             |
-| Arduino-Mega          | arduino-cli   | Arduino Mega                  | ATmega2560            | AVR 8-bit             |        
-| ESP32-DevKitC         | arduino-cli   | ESP32 DEVKITV1                | ESP32                 | LX6                   |  
-| ESP32-C3-CORE         | arduino-cli   | CORE-ESP32                    | ESP32-C3              | RV32                  |  
-| ESP32-C3FH4           | arduino-cli   | ESP32-C3FH4 Core Board        | ESP32-C3              | RV32                  |  
-| FIRE                  | arduino-cli   | M5Stack FIRE                  | ESP32                 | LX6                   | 
-| XIAO-SAMD21           | arduino-cli   | XIAO SAMD21                   | ATSAMD21G18           | Cortex-M0+            |    
-| XIAO-ESP32-xx         | arduino-cli   | XIAO ESP32-xx                 | ESP8266               | LX106                 |  
-| Blue-Pill             | arduino-cli   | Blue Pill                     | STM32F103C6           | Cortex-M3             |
-| Nucleo-L031K6         | arduino-cli   | Nucleo-L031K6                 | STM32F031K6T6         | Cortex-M0             |
-| RP-Pico               | arduino-cli   | Raspberry Pi Pico             | RP2040                | Dual Cortex-M0+       |   
-| Ai-WB2-32S-Kit        | arduino-cli   | Ai-WB2-32S-Kit                | BL602                 | RV32                  | 
-| STM32G431Core         | arduino-cli   | STM32G431CBU6 Core Board      | STM32G431CBU6         | Cortex-M4F            |
-<!-- | ESP32-CYD             | arduino-cli   | ESP32-CYD                     | ESP32                 | LX6                   | 
-| LQFP32-MiniEVB        | arduino-cli   | LQFP32 MiniEVB                | lgt8f328p             | AVR 8-bit compatible  |  
-| AIR32F103             | arduino-cli   | CORE-Air32F103CBT6            | air32f103             | Cortex-M3             | 
-| RP-Pico-W             | arduino-cli   | Raspberry Pi Pico W           | RP2040                | Dual Cortex-M0+       | 
-| NodeMCU-V3-Lua        | arduino-cli   | NodeMCU V3 Lua                | ESP8266               | LX106                 | 
-| ATtiny85-Kickstart    | arduino-cli   | Digispark Kickstart           | ATtiny85              | AVR 8-bit             |
-| MH-ATtiny88           | arduino-cli   | MH-Tiny                       | ATtiny88              | AVR 8-bit             |  
-| ESP32-D1              | arduino-cli   | D1 R32                        | ESP32                 | LX6                   |  
-| T-WATCH-2020          | arduino-cli   | T-Watch 2020 V1               | ESP32                 | LX6                   | 
-| Black-Pill            | arduino-cli   | Black Pill                    | STM32F411CEU6         | Cortex-M4             | 
-| Black-Pill2           | arduino-cli   | Black Pill                    | AT32F403ACGU7         | Cortex-M4             |
-| CH552-core            | arduino-cli   | CH552 Core Board              | CH552                 | E8051                 |
-| CH552-core-WeAct      | arduino-cli   | CH552 Core Board WeAct Studio | CH552                 | E8051                 |
-| CH32V103R8T6-EVT-R1   | arduino-cli   | CH32V103R8T6-EVT-R1 Ev. Board | CH32V103R8T6          | RV32                  |
-| CH32V003-Dev-Board    | arduino-cli   | CH32V003 Dev Board            | CH32V003F4U6          | RV32                  |
-| CH32V203-Dev-Board    | arduino-cli   | CH32V203 Dev Board            | CH32V203C8T6          | RV32                  | 
-| CH32V305-Dev-Board    | arduino-cli   | CH32V305 Dev Board            | CH32V305RBT6          | RV32                  | 
-| W801                  | arduino-cli   | HLK-W801-KIT-V1.1             | W801-C400             | XT804                 | -->
+| Aixt port name        | Backend   | C compiler            | Board                         | Device                | CPU                   |
+|-----------------------|-----------|-----------------------|-------------------------------|-----------------------|-----------------------|
+| Emulator              | c         | GCC or TCC            | Linux, Android and Windows    | Emulator CLI          | x64 or AArch64        |
+| NXT                   | nxc       | nbc                   | NXT Intelligent Brick         | AT91SAM7S256          | ARM7TDMI              |
+| PIC16F83              | c         | xc8                   | ---                           | PIC16F83              | PIC16                 |
+| PIC16F84              | c         | xc8                   | ---                           | PIC16F84              | PIC16                 |
+| PIC16F84A             | c         | xc8                   | ---                           | PIC16F84A             | PIC16                 |
+| PIC16F873             | c         | xc8                   | ---                           | PIC16F873             | PIC16                 |
+| PIC16F874             | c         | xc8                   | ---                           | PIC16F874             | PIC16                 |
+| PIC16F876             | c         | xc8                   | ---                           | PIC16F876             | PIC16                 |
+| PIC16F877             | c         | xc8                   | ---                           | PIC16F877             | PIC16                 |
+| PIC16F873A            | c         | xc8                   | ---                           | PIC16F873A            | PIC16                 |
+| PIC16F874A            | c         | xc8                   | ---                           | PIC16F874A            | PIC16                 |
+| PIC16F876A            | c         | xc8                   | ---                           | PIC16F876A            | PIC16                 |
+| PIC16F877A            | c         | xc8                   | ---                           | PIC16F877A            | PIC16                 |
+| PIC16F882             | c         | xc8                   | ---                           | PIC16F882             | PIC16                 |
+| PIC16F883             | c         | xc8                   | ---                           | PIC16F883             | PIC16                 |
+| PIC16F884             | c         | xc8                   | ---                           | PIC16F884             | PIC16                 |
+| PIC16F886             | c         | xc8                   | ---                           | PIC16F886             | PIC16                 |
+| PIC16F887             | c         | xc8                   | ---                           | PIC16F887             | PIC16                 |
+| CY8CKIT-049-42xx      | c         | PSoC Creator          | CY8CKIT-049-42xx              | CY8C4245AXI-483       | Cortex-M0             |
+| CY8CKIT-145-40xx      | c         | PSoC Creator          | CY8CKIT-145-40xx              | CY8C4045AZI-S413      | Cortex-M0             |
+| Arduino-Uno           | arduino   | arduino-cli           | Arduino Uno                   | ATmega328p            | AVR 8-bit             |
+| Arduino-Nano          | arduino   | arduino-cli           | Arduino Nano                  | ATmega328p            | AVR 8-bit             |
+| Arduino-Mega          | arduino   | arduino-cli           | Arduino Mega                  | ATmega2560            | AVR 8-bit             |        
+| ESP32-DevKitC         | arduino   | arduino-cli           | ESP32 DEVKITV1                | ESP32                 | LX6                   |  
+| ESP32-C3-CORE         | arduino   | arduino-cli           | CORE-ESP32                    | ESP32-C3              | RV32                  |  
+| ESP32-C3FH4           | arduino   | arduino-cli           | ESP32-C3FH4 Core Board        | ESP32-C3              | RV32                  |  
+| FIRE                  | arduino   | arduino-cli           | M5Stack FIRE                  | ESP32                 | LX6                   | 
+| XIAO-SAMD21           | arduino   | arduino-cli           | XIAO SAMD21                   | ATSAMD21G18           | Cortex-M0+            |    
+| XIAO-ESP32-xx         | arduino   | arduino-cli           | XIAO ESP32-xx                 | ESP8266               | LX106                 |  
+| Blue-Pill             | arduino   | arduino-cli           | Blue Pill                     | STM32F103C6           | Cortex-M3             |
+| Nucleo-L031K6         | arduino   | arduino-cli           | Nucleo-L031K6                 | STM32F031K6T6         | Cortex-M0             |
+| RP-Pico               | arduino   | arduino-cli           | Raspberry Pi Pico             | RP2040                | Dual Cortex-M0+       |   
+| Ai-WB2-32S-Kit        | arduino   | arduino-cli           | Ai-WB2-32S-Kit                | BL602                 | RV32                  | 
+| STM32G431Core         | arduino   | arduino-cli           | STM32G431CBU6 Core Board      | STM32G431CBU6         | Cortex-M4F            |
+<!-- | CH573F-mini-BLE       | c         | MounRiver Studio II   | CH573F Core Board             | CH573F                | RV32                  |
+| CH582F-mini-BLE       | c         | MounRiver Studio II   | CH582F Core Board             | CH582F                | RV32                  |
+| PIC16F6xx             | c         | xc8                   | ---                           | PIC16F6xx family      | PIC16                 |
+| PIC18F452             | c         | xc8                   | ---                           | PIC18F452             | PIC18                 |
+| PIC18F2550            | c         | xc8                   | ---                           | PIC18F2550            | PIC18                 |
+| PIC18F4550            | c         | xc8                   | ---                           | PIC18F4550            | PIC18                 |
+| Exp16-PIC24           | c         | xc16                  | Explorer 16                   | PIC24FJ128GA010       | PIC33                 | 
+| Exp16-dsPIC33         | c         | xc16                  | Explorer 16                   | dsPIC33FJ256GP710A    | dsPIC33               |
+| M0sense               | c         | Boufalolab SDK        | Sipeed M0sense                | BL702                 | RV32                  |
+| ESP32-CYD             | arduino   | arduino-cli           | ESP32-CYD                     | ESP32                 | LX6                   | 
+| LQFP32-MiniEVB        | arduino   | arduino-cli           | LQFP32 MiniEVB                | lgt8f328p             | AVR 8-bit compatible  |  
+| AIR32F103             | arduino   | arduino-cli           | CORE-Air32F103CBT6            | air32f103             | Cortex-M3             | 
+| RP-Pico-W             | arduino   | arduino-cli           | Raspberry Pi Pico W           | RP2040                | Dual Cortex-M0+       | 
+| NodeMCU-V3-Lua        | arduino   | arduino-cli           | NodeMCU V3 Lua                | ESP8266               | LX106                 | 
+| ATtiny85-Kickstart    | arduino   | arduino-cli           | Digispark Kickstart           | ATtiny85              | AVR 8-bit             |
+| MH-ATtiny88           | arduino   | arduino-cli           | MH-Tiny                       | ATtiny88              | AVR 8-bit             |  
+| ESP32-D1              | arduino   | arduino-cli           | D1 R32                        | ESP32                 | LX6                   |  
+| T-WATCH-2020          | arduino   | arduino-cli           | T-Watch 2020 V1               | ESP32                 | LX6                   | 
+| Black-Pill            | arduino   | arduino-cli           | Black Pill                    | STM32F411CEU6         | Cortex-M4             | 
+| Black-Pill2           | arduino   | arduino-cli           | Black Pill                    | AT32F403ACGU7         | Cortex-M4             |
+| CH552-core            | arduino   | arduino-cli           | CH552 Core Board              | CH552                 | E8051                 |
+| CH552-core-WeAct      | arduino   | arduino-cli           | CH552 Core Board WeAct Studio | CH552                 | E8051                 |
+| CH32V103R8T6-EVT-R1   | arduino   | arduino-cli           | CH32V103R8T6-EVT-R1 Ev. Board | CH32V103R8T6          | RV32                  |
+| CH32V003-Dev-Board    | arduino   | arduino-cli           | CH32V003 Dev Board            | CH32V003F4U6          | RV32                  |
+| CH32V203-Dev-Board    | arduino   | arduino-cli           | CH32V203 Dev Board            | CH32V203C8T6          | RV32                  | 
+| CH32V305-Dev-Board    | arduino   | arduino-cli           | CH32V305 Dev Board            | CH32V305RBT6          | RV32                  | 
+| W801                  | arduino   | arduino-cli           | HLK-W801-KIT-V1.1             | W801-C400             | XT804                 | -->
 
 
-| Aixt port name        | Implemented modules                                                   |
-|-----------------------|-----------------------------------------------------------------------|
-| Arduino-Uno           | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |
-| Arduino-Nano          | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |
-| Arduino-Mega          | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |        
-| ESP32-DevKitC         | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| ESP32-C3-CORE         | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| ESP32-C3FH4           | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| FIRE                  | `time`, `pin`, `adc`, `pwm`, `uart`, `button`, `lcd`, `power`, `imu`  |  
-| XIAO-SAMD21           | `time`, `pin`, `adc`, `pwm`, `uart`                                   |    
-| XIAO-ESP32-C3         | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| Blue-Pill             | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| Nucleo-L031K6         | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| RP-Pico               | `time`, `pin`, `adc`, `pwm`, `uart`                                   |   
-| Ai-WB2-32S-Kit        | `time`, `pin`, `adc`, `pwm`, `uart`                                   | 
-| STM32G431Core         | `time`, `pin`, `adc`, `pwm`, `uart`, `timer1`, `ext`                  |
-<!--  | ESP32-CYD             | WIP...                                                                |  
-| LQFP32-MiniEVB        | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |  
-| AIR32F103             | `time`, `pin`, `adc`, `pwm`, `uart`,                                  | 
-| RP-Pico-W             | `time`, `pin`, `adc`, `pwm`, `uart`,                                  | 
-| NodeMCU-V3-Lua        | `time`, `pin`, `port`, `adc`, `pwm`, `uart`,                          | 
-| ATtiny85-Kickstart    | WIP...                                                                |
-| MH-ATtiny88           | WIP...                                                                |  
-| ESP32-D1              | WIP...                                                                |  
-| T-WATCH-2020          | WIP...                                                                | 
-| Black-Pill            | WIP...                                                                | 
-| Black-Pill2           | WIP...                                                                |
-| CH552-core            | WIP...                                                                |
-| CH552-core-WeAct      | WIP...                                                                |
-| CH32V103R8T6-EVT-R1   | WIP...                                                                |
-| CH32V003-Dev-Board    | WIP...                                                                |
-| CH32V203-Dev-Board    | WIP...                                                                | 
-| CH32V305-Dev-Board    | WIP...                                                                | 
-| W801                  | WIP...                                                                | -->
+## Implemented modules by device
+
+| Aixt port name                                | Implemented modules                                                   |
+|-----------------------------------------------|-----------------------------------------------------------------------|
+| Emulator                                      | `time`, `pin`, `adc`, `pwm`, `uart`                                   |
+| NXT                                           | `time`, `motor`, `sensor`, `button`, `lcd`, `ht_sens`,                |
+|                                               | `task`, `array`, `math`, `rand`, `str`, `sound`, `comm`,              |
+|                                               | `file`, `i2c`, `io`, `lowspeed`, `ui`                                 |
+| [PIC16F8x](../setup/equivalent-devices.json)  | `time`, `pin`, `port`, `timer0`, `ext`                                |
+| [PIC16F87x](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `timer0`, `ext`                                |
+| [PIC16F88x](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext`                 |
+| CY8CKIT-049-42xx                              | `time`, `pin`, `adc`, `pwm`                                           |
+| CY8CKIT-145-40xx                              | `time`, `pin`, `adc`, `pwm`                                           |
+| Arduino-Uno                                   | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |
+| Arduino-Nano                                  | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |
+| Arduino-Mega                                  | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |        
+| ESP32-DevKitC                                 | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| ESP32-C3-CORE                                 | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| ESP32-C3FH4                                   | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| FIRE                                          | `time`, `pin`, `adc`, `pwm`, `uart`, `button`, `lcd`, `power`, `imu`  |  
+| XIAO-SAMD21                                   | `time`, `pin`, `adc`, `pwm`, `uart`                                   |    
+| XIAO-ESP32-C3                                 | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| Blue-Pill                                     | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| Nucleo-L031K6                                 | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| RP-Pico                                       | `time`, `pin`, `adc`, `pwm`, `uart`                                   |   
+| Ai-WB2-32S-Kit                                | `time`, `pin`, `adc`, `pwm`, `uart`                                   | 
+| STM32G431Core                                 | `time`, `pin`, `adc`, `pwm`, `uart`, `timer1`, `ext`                  |
+<!-- | CH573F-mini-BLE                               | `time`, `pin`, `adc`, `pwm`, `uart`                                   |
+| CH582F-mini-BLE                               | `time`, `pin`, `adc`, `pwm`, `uart`                                   |
+| PIC16F6xx                                     | `time`, `pin`, `port`, `timer0`, `ext`                                |
+| PIC18F452                                     | WIP...                                                                |
+| PIC18F2550                                    | WIP...                                                                |
+| PIC18F4550                                    | WIP...                                                                |
+| Exp16-PIC24                                   | WIP...                                                                | 
+| Exp16-dsPIC33                                 | WIP...                                                                |
+| M0sense                                       | WIP...                                                                |
+| ESP32-CYD                                     | WIP...                                                                |  
+| LQFP32-MiniEVB                                | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |  
+| AIR32F103                                     | `time`, `pin`, `adc`, `pwm`, `uart`,                                  | 
+| RP-Pico-W                                     | `time`, `pin`, `adc`, `pwm`, `uart`,                                  | 
+| NodeMCU-V3-Lua                                | `time`, `pin`, `port`, `adc`, `pwm`, `uart`,                          | 
+| ATtiny85-Kickstart                            | WIP...                                                                |
+| MH-ATtiny88                                   | WIP...                                                                |  
+| ESP32-D1                                      | WIP...                                                                |  
+| T-WATCH-2020                                  | WIP...                                                                | 
+| Black-Pill                                    | WIP...                                                                | 
+| Black-Pill2                                   | WIP...                                                                |
+| CH552-core                                    | WIP...                                                                |
+| CH552-core-WeAct                              | WIP...                                                                |
+| CH32V103R8T6-EVT-R1                           | WIP...                                                                |
+| CH32V003-Dev-Board                            | WIP...                                                                |
+| CH32V203-Dev-Board                            | WIP...                                                                | 
+| CH32V305-Dev-Board                            | WIP...                                                                | 
+| W801                                          | WIP...                                                                | -->
