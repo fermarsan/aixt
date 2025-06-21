@@ -50,12 +50,13 @@ stateDiagram-v2
     }
 
     state Compiler {
-        XC8
-        XC16
-        arduino_cli
+        xc8
+        arduino: arduino-cli
         GCC
+        PSoC: PSoC Creator
+        MounRiver: MounRiver Studio 
         others: ...
-        nbc: nbc (NXC)
+        nbc
     }
 
     state machine {

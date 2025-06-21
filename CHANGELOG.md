@@ -44,7 +44,7 @@ Devices being updated:
 - Change the interrupt service functions to be universal (not dependent of the backend)
 - Add `pin.toggle()` function on Arduino ports
 - Standardize the API component names containing numbers by `'<name><number>'` instead of `'<name>_<number>'`
-- Update examples on `README.md`
+- Update examples and the main diagram on `README.md`
 - update the supported device list and link it to `README.md`
 - update Emulator and NXT examples
 
