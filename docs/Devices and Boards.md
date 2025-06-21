@@ -51,7 +51,9 @@ The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR
 | ESP32-C3FH4           | arduino   | arduino-cli           | ESP32-C3FH4 Core Board        | ESP32-C3              | RV32                  |  
 | FIRE                  | arduino   | arduino-cli           | M5Stack FIRE                  | ESP32                 | LX6                   | 
 | XIAO-SAMD21           | arduino   | arduino-cli           | XIAO SAMD21                   | ATSAMD21G18           | Cortex-M0+            |    
-| XIAO-ESP32-xx         | arduino   | arduino-cli           | XIAO ESP32-xx                 | ESP8266               | LX106                 |  
+| XIAO-ESP32-C3         | arduino   | arduino-cli           | XIAO-ESP32-C3                 | ESP32-C3              | RV32                  |     
+| XIAO-ESP32-C6         | arduino   | arduino-cli           | XIAO-ESP32-C6                 | ESP32-C6              | RV32                  |    
+| XIAO-ESP32-S3         | arduino   | arduino-cli           | XIAO-ESP32-S3                 | ESP32-S3              | LX6                   | 
 | Blue-Pill             | arduino   | arduino-cli           | Blue Pill                     | STM32F103C6           | Cortex-M3             |
 | Nucleo-L031K6         | arduino   | arduino-cli           | Nucleo-L031K6                 | STM32F031K6T6         | Cortex-M0             |
 | RP-Pico               | arduino   | arduino-cli           | Raspberry Pi Pico             | RP2040                | Dual Cortex-M0+       |   
@@ -88,31 +90,31 @@ The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR
 
 ## Implemented modules by device
 
-| Aixt port name                                | Implemented modules                                                   |
-|-----------------------------------------------|-----------------------------------------------------------------------|
-| Emulator                                      | `time`, `pin`, `adc`, `pwm`, `uart`                                   |
-| NXT                                           | `time`, `motor`, `sensor`, `button`, `lcd`, `ht_sens`,                |
-|                                               | `task`, `array`, `math`, `rand`, `str`, `sound`, `comm`,              |
-|                                               | `file`, `i2c`, `io`, `lowspeed`, `ui`                                 |
-| [PIC16F8x](../setup/equivalent-devices.json)  | `time`, `pin`, `port`, `timer0`, `ext`                                |
-| [PIC16F87x](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `timer0`, `ext`                                |
-| [PIC16F88x](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext`                 |
-| CY8CKIT-049-42xx                              | `time`, `pin`, `adc`, `pwm`                                           |
-| CY8CKIT-145-40xx                              | `time`, `pin`, `adc`, `pwm`                                           |
-| Arduino-Uno                                   | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |
-| Arduino-Nano                                  | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |
-| Arduino-Mega                                  | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |        
-| ESP32-DevKitC                                 | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| ESP32-C3-CORE                                 | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| ESP32-C3FH4                                   | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| FIRE                                          | `time`, `pin`, `adc`, `pwm`, `uart`, `button`, `lcd`, `power`, `imu`  |  
-| XIAO-SAMD21                                   | `time`, `pin`, `adc`, `pwm`, `uart`                                   |    
-| XIAO-ESP32-C3                                 | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| Blue-Pill                                     | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| Nucleo-L031K6                                 | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
-| RP-Pico                                       | `time`, `pin`, `adc`, `pwm`, `uart`                                   |   
-| Ai-WB2-32S-Kit                                | `time`, `pin`, `adc`, `pwm`, `uart`                                   | 
-| STM32G431Core                                 | `time`, `pin`, `adc`, `pwm`, `uart`, `timer1`, `ext`                  |
+| Aixt port name                                    | Implemented modules                                                   |
+|---------------------------------------------------|-----------------------------------------------------------------------|
+| Emulator                                          | `time`, `pin`, `adc`, `pwm`, `uart`                                   |
+| NXT                                               | `time`, `motor`, `sensor`, `button`, `lcd`, `ht_sens`,                |
+|                                                   | `task`, `array`, `math`, `rand`, `str`, `sound`, `comm`,              |
+|                                                   | `file`, `i2c`, `io`, `lowspeed`, `ui`                                 |
+| [PIC16F8x](../setup/equivalent-devices.json)      | `time`, `pin`, `port`, `timer0`, `ext`                                |
+| [PIC16F87x](../setup/equivalent-devices.json)     | `time`, `pin`, `port`, `timer0`, `ext`                                |
+| [PIC16F88x](../setup/equivalent-devices.json)     | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext`                 |
+| CY8CKIT-049-42xx                                  | `time`, `pin`, `adc`, `pwm`                                           |
+| CY8CKIT-145-40xx                                  | `time`, `pin`, `adc`, `pwm`                                           |
+| Arduino-Uno                                       | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |
+| Arduino-Nano                                      | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |
+| Arduino-Mega                                      | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |        
+| ESP32-DevKitC                                     | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| ESP32-C3-CORE                                     | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| ESP32-C3FH4                                       | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| FIRE                                              | `time`, `pin`, `adc`, `pwm`, `uart`, `button`, `lcd`, `power`, `imu`  |  
+| XIAO-SAMD21                                       | `time`, `pin`, `adc`, `pwm`, `uart`                                   |    
+| [XIAO-ESP32-xx](../setup/equivalent-devices.json) | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| Blue-Pill                                         | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| Nucleo-L031K6                                     | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| RP-Pico                                           | `time`, `pin`, `adc`, `pwm`, `uart`                                   |   
+| Ai-WB2-32S-Kit                                    | `time`, `pin`, `adc`, `pwm`, `uart`                                   | 
+| STM32G431Core                                     | `time`, `pin`, `adc`, `pwm`, `uart`, `timer1`, `ext`                  |
 <!-- | CH573F-mini-BLE                               | `time`, `pin`, `adc`, `pwm`, `uart`                                   |
 | CH582F-mini-BLE                               | `time`, `pin`, `adc`, `pwm`, `uart`                                   |
 | PIC16F6xx                                     | `time`, `pin`, `port`, `timer0`, `ext`                                |
