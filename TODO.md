@@ -34,4 +34,4 @@ Tasks to do in Aixt
 
 
 ### Done ✓make
-- [] 
+- [x] Call Aixt directly from `.vscode/tasks.jason` instead of running it through V compiler
