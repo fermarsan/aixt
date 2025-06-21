@@ -7,8 +7,6 @@ import time
 import pin
 
 for {
-	pin.high(led0)
-	time.sleep_ms(500)
-	pin.low(led0)
+	pin.toggle(led0)
 	time.sleep_ms(500)
 }
