@@ -2,9 +2,12 @@
 #define _XTAL_FREQ _const_main__cpu_freq
 
 #pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
+#pragma config BOR = ON         // Brown-out Reset enabled
 #pragma config WDTE = OFF       // Watchdog Timer (WDT disabled)
 #pragma config PWRTE = ON       // Power-up Timer Enable bit (Power-up Timer is disabled)
 #pragma config CP = OFF         // Code Protection bit (Code protection disabled)
+#pragma config MCLRE = OFF      // Master clear disabled
+#pragma config LVP = OFF        // Low-Voltage Programming disabled
 
 #if defined(TIMER0_IRQ_IN_USE) || defined(EXT_IRQ_IN_USE)   // if any interrupt source is activated
 
