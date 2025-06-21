@@ -34,22 +34,4 @@ Tasks to do in Aixt
 
 
 ### Done ✓make
-- [x] Generate the `arduino-ARM32` subfolder 
-- [x] Change aixt transpiler as a module with submodules
-- [x] Remove the passing of the aixt-path among functions
-- [x] Issue solved: C prototypes of `@[inline]` functions fail
-- [x] Changes `compile` Aixt option to `c_compile` (including vscode and zed `tasks.json`) 
-- [x] Generate a new transpiler script
-- [x] Implement and test (16F83_blinking, ESP32-C3FH4-blinking and Nano-random_bits) a new transpiler scheme
-- [x] New transpiler folder tree including submodules `builder`, `cgen`, `setup` and `util`
-- [x] Builtin LED and SWITCH auto-setup (Arduino-AVR)
-- [x] New external interrupt example for Blue Pill (non-tested) 
-- [x] For external interrupts on Arduino backend the pin has to be defined as constant
-- [x] Change '/' linux path separator by `os.path_separator` constant
-- [x] Enable input pulldown resistors in the API
-- [x] Change pin definitions as macros in most of the ports
-- [x] Change the interrupt service functions to be universal (not dependent of the backend)
-- [x] Add `pin.toggle()` function on Arduino ports
-- [x] Standardize the API component names containing numbers by `'<name><number>'` instead of `'<name>_<number>'`
-- [x] Update examples on `README.md`
-- [x] update the supported device list and link it to `README.md`
+- [] 
