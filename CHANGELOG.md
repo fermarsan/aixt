@@ -46,6 +46,7 @@ Devices being updated:
 - Standardize the API component names containing numbers by `'<name><number>'` instead of `'<name>_<number>'`
 - Update examples on `README.md`
 - update the supported device list and link it to `README.md`
+- update Emulator examples
 
 ## v0.2.0
 *15 May 2025*
