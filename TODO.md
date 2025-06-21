@@ -52,4 +52,4 @@ Tasks to do in Aixt
 - [x] Add `pin.toggle()` function on Arduino ports
 - [x] Standardize the API component names containing numbers by `'<name><number>'` instead of `'<name>_<number>'`
 - [x] Update examples on `README.md`
-- [x] update the supported device list and link it to README.md
+- [x] update the supported device list and link it to `README.md`
