@@ -166,7 +166,7 @@ for {
 
 ## Aixt API
 
-The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API for all the ports includes at least functions for:
+The [**Aixt API**](docs/API.md) is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API for all the ports includes at least functions for:
 
 - Digital input/output
 - Analog inputs (ADC)
@@ -212,6 +212,11 @@ aixt.exe symlink
 ```
 ./aixt -b NXT ports/NXT/projects/1_motor.write.v
 ```
+
+
+## Supported devices and boards
+
+This is the complete [list of suported devices/boards](docs/Devices%20and%20Boards.md) and their backends and compilers.
 
 
 ## Prerequisites
