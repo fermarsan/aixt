@@ -89,7 +89,8 @@ This backend is designed for supporting LEGO Mindstorms NXT Intelligent Brick.
 | RP-Pico               | arduino-cli   | Raspberry Pi Pico             | RP2040                | Dual Cortex-M0+       |   
 | Ai-WB2-32S-Kit        | arduino-cli   | Ai-WB2-32S-Kit                | BL602                 | RV32                  | 
 | STM32G431Core         | arduino-cli   | STM32G431CBU6 Core Board      | STM32G431CBU6         | Cortex-M4F            |
-<!-- | LQFP32-MiniEVB        | arduino-cli   | LQFP32 MiniEVB                | lgt8f328p             | AVR 8-bit compatible  |  
+<!-- | ESP32-CYD             | arduino-cli   | ESP32-CYD                     | ESP32                 | LX6                   | 
+| LQFP32-MiniEVB        | arduino-cli   | LQFP32 MiniEVB                | lgt8f328p             | AVR 8-bit compatible  |  
 | AIR32F103             | arduino-cli   | CORE-Air32F103CBT6            | air32f103             | Cortex-M3             | 
 | RP-Pico-W             | arduino-cli   | Raspberry Pi Pico W           | RP2040                | Dual Cortex-M0+       | 
 | NodeMCU-V3-Lua        | arduino-cli   | NodeMCU V3 Lua                | ESP8266               | LX106                 | 
@@ -124,7 +125,8 @@ This backend is designed for supporting LEGO Mindstorms NXT Intelligent Brick.
 | RP-Pico               | `time`, `pin`, `adc`, `pwm`, `uart`                                   |   
 | Ai-WB2-32S-Kit        | `time`, `pin`, `adc`, `pwm`, `uart`                                   | 
 | STM32G431Core         | `time`, `pin`, `adc`, `pwm`, `uart`, `timer1`, `ext`                  |
-<!-- | LQFP32-MiniEVB        | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |  
+<!--  | ESP32-CYD             | WIP...                                                                |  
+| LQFP32-MiniEVB        | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |  
 | AIR32F103             | `time`, `pin`, `adc`, `pwm`, `uart`,                                  | 
 | RP-Pico-W             | `time`, `pin`, `adc`, `pwm`, `uart`,                                  | 
 | NodeMCU-V3-Lua        | `time`, `pin`, `port`, `adc`, `pwm`, `uart`,                          | 
