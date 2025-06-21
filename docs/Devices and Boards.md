@@ -81,9 +81,11 @@ This backend is designed for supporting LEGO Mindstorms NXT Intelligent Brick.
 | ESP32-DevKitC         | arduino-cli   | ESP32 DEVKITV1                | ESP32                 | LX6                   |  
 | ESP32-C3-CORE         | arduino-cli   | CORE-ESP32                    | ESP32-C3              | RV32                  |  
 | ESP32-C3FH4           | arduino-cli   | ESP32-C3FH4 Core Board        | ESP32-C3              | RV32                  |  
+| FIRE                  | arduino-cli   | M5Stack FIRE                  | ESP32                 | LX6                   | 
 | XIAO-SAMD21           | arduino-cli   | XIAO SAMD21                   | ATSAMD21G18           | Cortex-M0+            |    
 | XIAO-ESP32-xx         | arduino-cli   | XIAO ESP32-xx                 | ESP8266               | LX106                 |  
-| Blue-Pill             | arduino-cli   | Blue Pill                     | STM32F103C6           | Cortex-M3             |  
+| Blue-Pill             | arduino-cli   | Blue Pill                     | STM32F103C6           | Cortex-M3             |
+| Nucleo-L031K6         | arduino-cli   | Nucleo-L031K6                 | STM32F031K6T6         | Cortex-M0             |
 | RP-Pico               | arduino-cli   | Raspberry Pi Pico             | RP2040                | Dual Cortex-M0+       |   
 | Ai-WB2-32S-Kit        | arduino-cli   | Ai-WB2-32S-Kit                | BL602                 | RV32                  | 
 | STM32G431Core         | arduino-cli   | STM32G431CBU6 Core Board      | STM32G431CBU6         | Cortex-M4F            |
@@ -106,34 +108,36 @@ This backend is designed for supporting LEGO Mindstorms NXT Intelligent Brick.
 | W801                  | arduino-cli   | HLK-W801-KIT-V1.1             | W801-C400             | XT804                 | -->
 
 
-| Aixt port name        | Implemented modules                                   |
-|-----------------------|-------------------------------------------------------|
-| Arduino-Uno           | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`    |
-| Arduino-Nano          | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`    |
-| Arduino-Mega          | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`    |        
-| ESP32-DevKitC         | `time`, `pin`, `adc`, `pwm`, `uart`,                  |  
-| ESP32-C3-CORE         | `time`, `pin`, `adc`, `pwm`, `uart`,                  |  
-| ESP32-C3FH4           | `time`, `pin`, `adc`, `pwm`, `uart`,                  |  
-| XIAO-SAMD21           | `time`, `pin`, `adc`, `pwm`, `uart`,                  |    
-| XIAO-ESP32-C3         | `time`, `pin`, `adc`, `pwm`, `uart`,                  |  
-| Blue-Pill             | `time`, `pin`, `adc`, `pwm`, `uart`,                  |  
-| RP-Pico               | `time`, `pin`, `adc`, `pwm`, `uart`,                  |   
-| Ai-WB2-32S-Kit        | `time`, `pin`, `adc`, `pwm`, `uart`,                  | 
-| STM32G431Core         | `time`, `pin`, `adc`, `pwm`, `uart`, `timer1`, `ext`  |
-<!-- | LQFP32-MiniEVB        | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`    |  
-| AIR32F103             | `time`, `pin`, `adc`, `pwm`, `uart`,                  | 
-| RP-Pico-W             | `time`, `pin`, `adc`, `pwm`, `uart`,                  | 
-| NodeMCU-V3-Lua        | `time`, `pin`, `port`, `adc`, `pwm`, `uart`,          | 
-| ATtiny85-Kickstart    | WIP...                                                |
-| MH-ATtiny88           | WIP...                                                |  
-| ESP32-D1              | WIP...                                                |  
-| T-WATCH-2020          | WIP...                                                | 
-| Black-Pill            | WIP...                                                | 
-| Black-Pill2           | WIP...                                                |
-| CH552-core            | WIP...                                                |
-| CH552-core-WeAct      | WIP...                                                |
-| CH32V103R8T6-EVT-R1   | WIP...                                                |
-| CH32V003-Dev-Board    | WIP...                                                |
-| CH32V203-Dev-Board    | WIP...                                                | 
-| CH32V305-Dev-Board    | WIP...                                                | 
-| W801                  | WIP...                                                | -->
+| Aixt port name        | Implemented modules                                                   |
+|-----------------------|-----------------------------------------------------------------------|
+| Arduino-Uno           | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |
+| Arduino-Nano          | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |
+| Arduino-Mega          | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |        
+| ESP32-DevKitC         | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| ESP32-C3-CORE         | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| ESP32-C3FH4           | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| FIRE                  | `time`, `pin`, `adc`, `pwm`, `uart`, `button`, `lcd`, `power`, `imu`  |  
+| XIAO-SAMD21           | `time`, `pin`, `adc`, `pwm`, `uart`                                   |    
+| XIAO-ESP32-C3         | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| Blue-Pill             | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| Nucleo-L031K6         | `time`, `pin`, `adc`, `pwm`, `uart`                                   |  
+| RP-Pico               | `time`, `pin`, `adc`, `pwm`, `uart`                                   |   
+| Ai-WB2-32S-Kit        | `time`, `pin`, `adc`, `pwm`, `uart`                                   | 
+| STM32G431Core         | `time`, `pin`, `adc`, `pwm`, `uart`, `timer1`, `ext`                  |
+<!-- | LQFP32-MiniEVB        | `time`, `pin`, `port`, `adc`, `pwm`, `uart`, `ext`                    |  
+| AIR32F103             | `time`, `pin`, `adc`, `pwm`, `uart`,                                  | 
+| RP-Pico-W             | `time`, `pin`, `adc`, `pwm`, `uart`,                                  | 
+| NodeMCU-V3-Lua        | `time`, `pin`, `port`, `adc`, `pwm`, `uart`,                          | 
+| ATtiny85-Kickstart    | WIP...                                                                |
+| MH-ATtiny88           | WIP...                                                                |  
+| ESP32-D1              | WIP...                                                                |  
+| T-WATCH-2020          | WIP...                                                                | 
+| Black-Pill            | WIP...                                                                | 
+| Black-Pill2           | WIP...                                                                |
+| CH552-core            | WIP...                                                                |
+| CH552-core-WeAct      | WIP...                                                                |
+| CH32V103R8T6-EVT-R1   | WIP...                                                                |
+| CH32V003-Dev-Board    | WIP...                                                                |
+| CH32V203-Dev-Board    | WIP...                                                                | 
+| CH32V305-Dev-Board    | WIP...                                                                | 
+| W801                  | WIP...                                                                | -->

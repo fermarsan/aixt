@@ -1,3 +1,52 @@
+## v0.2.1
+*21 Jun 2025*
+#### Devices Supported
+Devices updated to API v0.1.2:
+- Software emulator
+- Mindstorms NXT
+- PIC16F8x family
+- PIC16F87x family
+- PIC16F88x family
+- Arduino Uno
+- Arduino Nano
+- Arduino Mega
+- Raspberry Pi Pico
+- ESP32-DevkitC
+- Blue-Pill
+- XIAO-SAMD21
+- Nucleo-L031K6
+- XIAO-ESP32-xx (C3, C6, S3)
+- CY8CKIT-145
+- CY8CKIT-049
+- ESP32-DevKitC
+- M5Stack FIRE
+- STM32G431Core
+Devices being updated:
+- ESP32-CYD
+- PIC16F6xx family
+- WCH families
+- Black-Pill
+#### Changes and new features
+- Generate the `arduino-ARM32` subfolder 
+- Change aixt transpiler as a module with submodules
+- Remove the passing of the aixt-path among functions
+- Issue solved: C prototypes of `@[inline]` functions fail
+- Changes `compile` Aixt option to `c_compile` (including vscode and zed `tasks.json`) 
+- Generate a new transpiler script
+- Implement and test (16F83_blinking, ESP32-C3FH4-blinking and Nano-random_bits) a new transpiler scheme
+- New transpiler folder tree including submodules `builder`, `cgen`, `setup` and `util`
+- Builtin LED and SWITCH auto-setup (Arduino-AVR)
+- New external interrupt example for Blue Pill (non-tested) 
+- For external interrupts on Arduino backend the pin has to be defined as constant
+- Change '/' linux path separator by `os.path_separator` constant
+- Enable input pulldown resistors in the API
+- Change pin definitions as macros in most of the ports
+- Change the interrupt service functions to be universal (not dependent of the backend)
+- Add `pin.toggle()` function on Arduino ports
+- Standardize the API component names containing numbers by `'<name><number>'` instead of `'<name>_<number>'`
+- Update examples on `README.md`
+- update the supported device list and link it to `README.md`
+
 ## v0.2.0
 *15 May 2025*
 #### Devices Supported
@@ -72,7 +121,7 @@ Devices being updated:
 - Issue solved: can not import a module from another module
 - Issue solved: Constant array transpiling fails
 
-## v0.2.0
+## v0.1.9
 *17 Jan 2025*
 #### Devices Supported
 Devices updated to API v0.1.2:
