@@ -23,9 +23,22 @@ The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR
 | Aixt port name    | C compiler            | Board                         | Device                | CPU                               |
 |-------------------|-----------------------|-------------------------------|-----------------------|-----------------------------------|
 | Emulator          | GCC or TCC            | Linux, Android and Windows    | Emulator CLI          | x64 or AArch64                    |
-| PIC16F8x          | xc8                   | ---                           | PIC16F8x family       | PIC16                             |
-| PIC16F87x         | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
-| PIC16F88x         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
+| PIC16F83          | xc8                   | ---                           | PIC16F83              | PIC16                             |
+| PIC16F84          | xc8                   | ---                           | PIC16F84              | PIC16                             |
+| PIC16F84A         | xc8                   | ---                           | PIC16F84A             | PIC16                             |
+| PIC16F873         | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
+| PIC16F874         | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
+| PIC16F876         | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
+| PIC16F877         | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
+| PIC16F873A        | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
+| PIC16F874A        | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
+| PIC16F876A        | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
+| PIC16F877A        | xc8                   | ---                           | PIC16F87x family      | PIC16                             |
+| PIC16F882         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
+| PIC16F883         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
+| PIC16F884         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
+| PIC16F886         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
+| PIC16F887         | xc8                   | ---                           | PIC16F88x family      | PIC16                             |
 | CY8CKIT-049-42xx  | PSoC Creator          | CY8CKIT-049-42xx              | CY8C4245AXI-483       | Cortex-M0                         |
 | CY8CKIT-145-40xx  | PSoC Creator          | CY8CKIT-145-40xx              | CY8C4045AZI-S413      | Cortex-M0                         |
 <!-- | CH573F-mini-BLE   | MounRiver Studio II   | CH573F Core Board             | CH573F                | RV32                              |
@@ -39,14 +52,14 @@ The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR
 | M0sense           | Boufalolab SDK        | Sipeed M0sense                | BL702                 | RV32                              | -->
 
 
-| Aixt port name    | Implemented modules                                   |
-|-------------------|-------------------------------------------------------|
-| Emulator          | `time`, `pin`, `adc`, `pwm`, `uart`                   |
-| PIC16F8x          | `time`, `pin`, `port`, `timer0`, `ext`                |
-| PIC16F87x         | `time`, `pin`, `port`, `timer0`, `ext`                |
-| PIC16F88x         | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext` |
-| CY8CKIT-049-42xx  | `time`, `pin`, `adc`, `pwm`                           |
-| CY8CKIT-145-40xx  | `time`, `pin`, `adc`, `pwm`                           |
+| Aixt port name                                | Implemented modules                                   |
+|-----------------------------------------------|-------------------------------------------------------|
+| Emulator                                      | `time`, `pin`, `adc`, `pwm`, `uart`                   |
+| [PIC16F8x](../setup/equivalent-devices.json)  | `time`, `pin`, `port`, `timer0`, `ext`                |
+| [PIC16F87x](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `timer0`, `ext`                |
+| [PIC16F88x](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext` |
+| CY8CKIT-049-42xx                              | `time`, `pin`, `adc`, `pwm`                           |
+| CY8CKIT-145-40xx                              | `time`, `pin`, `adc`, `pwm`                           |
 <!-- | CH573F-mini-BLE   | `time`, `pin`, `adc`, `pwm`, `uart`                   |
 | CH582F-mini-BLE   | `time`, `pin`, `adc`, `pwm`, `uart`                   |
 | PIC16F6xx         | `time`, `pin`, `port`, `timer0`, `ext`                |
