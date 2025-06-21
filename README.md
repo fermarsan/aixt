@@ -89,7 +89,6 @@ feature               | V                                 | Aixt's V
 ----------------------|-----------------------------------|----------------------------------------------------------------------
 strings               | dynamic-sized                     | fixed-sized and dynamic-sized if supported
 arrays                | dynamic-sized                     | fixed-sized and dynamic-sized if supported
-default integers size | 32 bits                           | depends on the device
 structs               | allow functions (object-oriented) | do not allow functions (only structured programming)
 functions             | multiple return values            | only one return value
 text macros           | not allowed                       | allowed by using `@[as_macro]` attribute, for functions and constants
@@ -126,9 +125,9 @@ uart.setup(9600)    // baud rate
 adc.setup(12)       // resolution (bits)
 
 for { // infinite loop
-	analog := adc.read(adc.ch0)
-	uart.println('ADC channel 0: ${analog}') // use string interpolation
-	time.sleep_ms(500)
+    analog := adc.read(adc.ch0)
+    uart.println('ADC channel 0: ${analog}') // use string interpolation
+    time.sleep_ms(500)
 }
 ```
 
@@ -141,8 +140,8 @@ import pin
 pin.low(led0)	// turn OFF the on-board LED
 
 for {
-	pin.toggle(led0)    // change the LED state
-	time.sleep_ms(500)  // 500ms delay
+    pin.toggle(led0)    // change the LED state
+    time.sleep_ms(500)  // 500ms delay
 }
 ```
 
@@ -156,12 +155,12 @@ import time
 
 for {
     // move forward
-	motor.write(motor.a, 50)
-	motor.write(motor.b, -50)	// reverse
-	time.sleep_ms(3000)
+    motor.write(motor.a, 50)
+    motor.write(motor.b, -50)	// reverse
+    time.sleep_ms(3000)
     // spin
-	motor.write(motor.a, -50)	// reverse
-	time.sleep_ms(500)
+    motor.write(motor.a, -50)	// reverse
+    time.sleep_ms(500)
 }
 ```
 
