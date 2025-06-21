@@ -1,14 +1,13 @@
 // Project name: Blinking
 // Author: Fernando M. Santa
-// Date: 05/09/2024
+// Date: 2024-2025
 // PIC16F83 fosc = 4Mhz
 import time
 import pin
 import pin.fast as  pin_fast
 
 @[as_macro]
-const cpu_freq = 20_000_000 // 20 Mhz
-// const cpu_freq = 10_000_000	// 4 Mhz
+const cpu_freq = 4_000_000 // 4 Mhz
 
 pin_fast.setup(pin.port_b, 4, pin.output)
 // pin.low_fast(pin.port_b, 4)
