@@ -116,7 +116,7 @@ pwm_duty(pwm_id, duty)
 ```
 *En pwm_id se pone el pwm a usar,  y en duty el valor del ciclo (de 0 a 100) en porcentaje.*
 
-### Serial comunication (UART)
+### Serial communication (UART)
 
 Para configurar un puerto UART;
 ```v
