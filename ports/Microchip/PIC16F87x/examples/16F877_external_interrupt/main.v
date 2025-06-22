@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 2024-2025
 // Changing a LED state by using the external interrupt
-// PIC16F84 fosc = 4Mhz
+// PIC16F84 fosc = 20Mhz
 
 import pin
 import ext
