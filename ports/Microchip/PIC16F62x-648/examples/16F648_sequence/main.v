@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 05/09/2024
 // 4-bit LED sequence on LSBs of PORTB
-// PIC16F84 fosc = 4Mhz
+// PIC16F648A fosc = 20Mhz
 
 import time
 import port

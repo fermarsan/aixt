@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 05/09/2024
 // Echo from the 4 LSBs of PORTA to the 4 LSBs of PORTB
-// PIC16F628 fosc = 4Mhz
+// PIC16F628 fosc = 20Mhz
 
 import time
 import port
