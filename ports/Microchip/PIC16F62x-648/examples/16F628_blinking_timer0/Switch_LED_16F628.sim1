@@ -14,17 +14,19 @@
 
 <item itemtype="Rail" CircId="Rail-15" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-116,-172" rotation="90" hflip="1" vflip="1" label="Rail-15" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
 
-<item itemtype="MCU" CircId="p16F628-17" mainComp="false" Show_id="true" Show_Val="false" Pos="-52,-116" rotation="0" hflip="1" vflip="1" label="p16F628-17" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="20 MHz" Program="build/main.hex" Auto_Load="false" saveEepr="true" Rst_enabled="true" Ext_Osc="true" Wdt_enabled="false" Clk_Out="false" MainMcu="true" SerialMon="-1" />
+<item itemtype="MCU" CircId="p16F628-17" mainComp="false" Show_id="true" Show_Val="false" Pos="-52,-116" rotation="0" hflip="1" vflip="1" label="p16F628-17" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="8 MHz" Program="build/main.hex" Auto_Load="false" saveEepr="true" Rst_enabled="true" Ext_Osc="true" Wdt_enabled="false" Clk_Out="false" MainMcu="true" SerialMon="-1" />
 
 <item itemtype="Resistor" CircId="Resistor-21" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-84,-108" rotation="90" hflip="1" vflip="1" label="Resistor-21" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="10 kΩ" />
+
+<item itemtype="FreqMeter" CircId="FreqMeter-25" mainComp="false" Show_id="false" Show_Val="false" Pos="132,-44" rotation="0" hflip="1" vflip="1" label="FreqMeter-25" idLabPos="-32,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Filter="0.1 V" />
 
 <item itemtype="Node" CircId="Node-22" mainComp="false" Pos="-116,-140" />
 
 <item itemtype="Node" CircId="Node-24" mainComp="false" Pos="-116,-60" />
 
-<item itemtype="Connector" uid="Connector-6" startpinid="Ground-9-Gnd" endpinid="Led-10-rPin" pointList="60,20,60,4" />
+<item itemtype="Node" CircId="Node-26" mainComp="false" Pos="60,-44" />
 
-<item itemtype="Connector" uid="Connector-10" startpinid="Resistor-8-rPin" endpinid="Led-10-lPin" pointList="44,-44,60,-44,60,-28" />
+<item itemtype="Connector" uid="Connector-6" startpinid="Ground-9-Gnd" endpinid="Led-10-rPin" pointList="60,20,60,4" />
 
 <item itemtype="Connector" uid="Connector-15" startpinid="Resistor-12-rPin" endpinid="Ground-14-Gnd" pointList="-116,4,-116,20" />
 
@@ -43,5 +45,11 @@
 <item itemtype="Connector" uid="Connector-53" startpinid="Resistor-12-lPin" endpinid="Node-24-0" pointList="-116,-28,-116,-60" />
 
 <item itemtype="Connector" uid="Connector-54" startpinid="Node-24-2" endpinid="Push-11-switch0pinN" pointList="-116,-60,-116,-92" />
+
+<item itemtype="Connector" uid="Connector-55" startpinid="FreqMeter-25-lPin" endpinid="Node-26-1" pointList="92,-44,60,-44" />
+
+<item itemtype="Connector" uid="Connector-56" startpinid="Resistor-8-rPin" endpinid="Node-26-0" pointList="44,-44,60,-44" />
+
+<item itemtype="Connector" uid="Connector-57" startpinid="Node-26-2" endpinid="Led-10-lPin" pointList="60,-44,60,-28" />
 
 </circuit>
