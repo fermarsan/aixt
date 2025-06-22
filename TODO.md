@@ -35,4 +35,4 @@ Tasks to do in Aixt
 
 ### Done ✓make
 - [x] Call Aixt directly from `.vscode/tasks.json` instead of running it through V compiler
-- [x] Configuration bits updated for PIC16F62x-648
+- [x] New devices supported PIC16F62x-648

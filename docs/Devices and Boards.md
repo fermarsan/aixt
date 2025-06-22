@@ -26,16 +26,16 @@ The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR
 | Emulator              | c         | GCC or TCC            | Linux, Android and Windows    | Emulator CLI          | x64 or AArch64        |
 | NXT                   | nxc       | nbc                   | NXT Intelligent Brick         | AT91SAM7S256          | ARM7TDMI              |
 | PIC16F83              | c         | xc8                   | ---                           | PIC16F83              | PIC16                 |
-| PIC16F84              | c         | xc8                   | ---                           | PIC16F84              | PIC16                 |
-| PIC16F84A             | c         | xc8                   | ---                           | PIC16F84A             | PIC16                 |
-| PIC16F873             | c         | xc8                   | ---                           | PIC16F873             | PIC16                 |
-| PIC16F874             | c         | xc8                   | ---                           | PIC16F874             | PIC16                 |
-| PIC16F876             | c         | xc8                   | ---                           | PIC16F876             | PIC16                 |
-| PIC16F877             | c         | xc8                   | ---                           | PIC16F877             | PIC16                 |
-| PIC16F873A            | c         | xc8                   | ---                           | PIC16F873A            | PIC16                 |
-| PIC16F874A            | c         | xc8                   | ---                           | PIC16F874A            | PIC16                 |
-| PIC16F876A            | c         | xc8                   | ---                           | PIC16F876A            | PIC16                 |
-| PIC16F877A            | c         | xc8                   | ---                           | PIC16F877A            | PIC16                 |
+| PIC16F84(A)           | c         | xc8                   | ---                           | PIC16F84(A)           | PIC16                 |
+| PIC16F627             | c         | xc8                   | ---                           | PIC16F627             | PIC16                 |
+| PIC16F628             | c         | xc8                   | ---                           | PIC16F628             | PIC16                 |
+| PIC16(L)F627A         | c         | xc8                   | ---                           | PIC16(L)F627A         | PIC16                 |
+| PIC16(L)F628A         | c         | xc8                   | ---                           | PIC16(L)F628A         | PIC16                 |
+| PIC16(L)F648A         | c         | xc8                   | ---                           | PIC16(L)F648A         | PIC16                 |
+| PIC16F873(A)          | c         | xc8                   | ---                           | PIC16F873(A)          | PIC16                 |
+| PIC16F874(A)          | c         | xc8                   | ---                           | PIC16F874(A)          | PIC16                 |
+| PIC16F876(A)          | c         | xc8                   | ---                           | PIC16F876(A)          | PIC16                 |
+| PIC16F877(A)          | c         | xc8                   | ---                           | PIC16F877(A)          | PIC16                 |
 | PIC16F882             | c         | xc8                   | ---                           | PIC16F882             | PIC16                 |
 | PIC16F883             | c         | xc8                   | ---                           | PIC16F883             | PIC16                 |
 | PIC16F884             | c         | xc8                   | ---                           | PIC16F884             | PIC16                 |
@@ -87,6 +87,7 @@ The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR
 | CH32V305-Dev-Board    | arduino   | arduino-cli           | CH32V305 Dev Board            | CH32V305RBT6          | RV32                  | 
 | W801                  | arduino   | arduino-cli           | HLK-W801-KIT-V1.1             | W801-C400             | XT804                 | -->
 
+**NOTE:** parenthesis in device names means optional, for instance `PIC16F84(A)` means tha both `PIC16F84` and `PIC16F84A` devices are supported.
 
 ## Implemented modules by device
 
@@ -97,6 +98,7 @@ The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR
 |                                                   | `task`, `array`, `math`, `rand`, `str`, `sound`, `comm`,              |
 |                                                   | `file`, `i2c`, `io`, `lowspeed`, `ui`                                 |
 | [PIC16F8x](../setup/equivalent-devices.json)      | `time`, `pin`, `port`, `timer0`, `ext`                                |
+| [PIC16F62x-648](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext`                 |
 | [PIC16F87x](../setup/equivalent-devices.json)     | `time`, `pin`, `port`, `timer0`, `ext`                                |
 | [PIC16F88x](../setup/equivalent-devices.json)     | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext`                 |
 | CY8CKIT-049-42xx                                  | `time`, `pin`, `adc`, `pwm`                                           |
