@@ -31,9 +31,9 @@ Tasks to do in Aixt
 - [ ] Issue: Calling function from string interpolations including casting
 - [ ] Implements sub-modules
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
+- [ ] Issue: `match` can not work with functions
 
 
 ### Done ✓make
 - [x] Call Aixt directly from `.vscode/tasks.json` instead of running it through V compiler
 - [x] New devices supported PIC16F62x-648 including `uart`
-- [x] Issue: `match` can not work with functions
