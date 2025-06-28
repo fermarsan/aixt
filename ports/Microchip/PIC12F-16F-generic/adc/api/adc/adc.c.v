@@ -24,7 +24,6 @@ module adc
 @[as_macro] pub const in14	= 0b1011111111111111		
 @[as_macro] pub const in15	= 0b0111111111111111
 
-
 // ADC frequency
 @[as_macro] pub const f_30ksps_1mhz		= 0	// VREF 3.0v
 @[as_macro] pub const f_30ksps_4mhz		= 1	// VREF 3.0v 
@@ -40,7 +39,6 @@ module adc
 @[as_macro] pub const bits_10	= 1
 
 // ADC input channels
-
 @[as_macro] pub const ch0 	= u8( 0 )		
 @[as_macro] pub const ch1 	= u8( 1 )			
 @[as_macro] pub const ch2 	= u8( 2 )			
