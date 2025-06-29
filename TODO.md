@@ -18,7 +18,6 @@ Tasks to do in Aixt
 <!-- - [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO -->
 - [ ] Allow multi-arg functions
 - [ ] Add settings file `port_name.json` inside `/port_name` folder
-- [ ] Add the module `core` for ordering the constants and functions related with the CPU
 
 
 ### In Progress
@@ -36,8 +35,9 @@ Tasks to do in Aixt
 
 
 ### Done ✓make
+
 - [x] Call Aixt directly from `.vscode/tasks.json` instead of running it through V compiler
 - [x] New devices supported PIC16F62x-648 including `uart`
 - [x] Issue solved: `module.c.v` is not parsed first when imported a module
 - [x] Issue solved: comments inside conditional compiling fails inside `as_macro` functions
-- [x] Issue solved: `as_macro` functions fails when return a value
+- [x] Issue solved: `as_macro` multiline functions fails when return a value
