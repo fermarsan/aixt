@@ -43,7 +43,7 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 					mod_name := imp.mod.all_after_last('.')
 					if os.base(folder) == mod_name {
 						mut paths :=  b.v_files_from_dir(folder)
-						// module.c.v first
+						// module_name.c.v first
 						for i, path in paths {
 							if path.contains('${mod_name}.c.v') {
 								paths.delete(i)
@@ -58,9 +58,6 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 			
 		}
 	}
-	// for item, dirs in b.api_mod_paths {
-	// 	println('  ${item}:\n\t${dirs.join('\n\t')}')
-	// }
 	// println('>>>>>>>>>>>>>>>>>> ${b.api_mod_paths} <<<<<<<<<<<<<<<<<<')
 	return out
 }
@@ -130,8 +127,18 @@ pub fn (mut b Builder) get_lib_mod_paths() []string {
 			// println('>>>>>>>>>>>>>>>>>> ${os.base(folder)} <<<<<<<<<<<<<<<<<<')
 			for file in b.parsed_files {
 				for imp in file.imports {
-					if os.base(folder.all_before_last('/')) == imp.mod.all_after_last('.') {
-						out << b.v_files_from_dir(folder)
+					lib_name := imp.mod.all_after_last('.')
+					if os.base(folder.all_before_last('/')) == lib_name {
+						mut paths :=  b.v_files_from_dir(folder)
+						// library_name.c.v first
+						for i, path in paths {
+							if path.contains('${lib_name}.c.v') {
+								paths.delete(i)
+								paths.insert(0, path)
+								break
+							}
+						}
+						out << paths
 					}
 				}
 			}

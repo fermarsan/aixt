@@ -34,9 +34,9 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: `inline` fucntions are bad transpiled
 - [ ] Issue: `as_macro` fucntions fails when return a value
-- [ ] Issue: `module.c.v` is not parsed first when imported a module
 
 
 ### Done ✓make
 - [x] Call Aixt directly from `.vscode/tasks.json` instead of running it through V compiler
 - [x] New devices supported PIC16F62x-648 including `uart`
+- [x] Issue solved: `module.c.v` is not parsed first when imported a module
