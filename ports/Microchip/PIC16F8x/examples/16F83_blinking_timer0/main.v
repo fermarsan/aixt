@@ -5,7 +5,7 @@
 import pin
 import timer0
 
-// @[as_macro] const cpu_freq = 8_000_000	// sets fosc to 8 Mhz
+@[as_macro] const cpu_freq = 8_000_000	// sets fosc to 8 Mhz
 // @[as_macro] const cpu_freq = 10_000_000	// sets fosc to 10 Mhz
 
 // interrupt service routine for timer0 overload
