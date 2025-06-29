@@ -14,7 +14,7 @@ Tasks to do in Aixt
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Implement an equivalent to Arduino's `millis()`
-- [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO
+<!-- - [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO -->
 <!-- - [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO -->
 - [ ] Allow multi-arg functions
 - [ ] Add settings file `port_name.json` inside `/port_name` folder
