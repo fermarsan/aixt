@@ -33,10 +33,10 @@ Tasks to do in Aixt
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: `as_macro` functions fails when return a value
-- [ ] Issue: comment "// OS_name" in conditional compiling fails inside `as_macro` functions
 
 
 ### Done ✓make
 - [x] Call Aixt directly from `.vscode/tasks.json` instead of running it through V compiler
 - [x] New devices supported PIC16F62x-648 including `uart`
 - [x] Issue solved: `module.c.v` is not parsed first when imported a module
+- [x] Issue solved: comments inside conditional compiling fails inside `as_macro` functions
