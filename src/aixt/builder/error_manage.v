@@ -43,10 +43,10 @@ pub fn (mut b Builder) err_war_check() {
 			// 'unexpected symbol `int`',
 	for j, mut file in b.parsed_files {
 		for i in 0 .. file.errors.len {	// look for each exception message by index
-			if j == 0 {	// discart all the error messages for builtin.c.v
+			if j == 0 {	// discard all the error messages for builtin.c.v
 				file.errors.delete(i)
-						b.err_war_check()	// recursively deleting
-						break
+				b.err_war_check()	// recursively deleting
+				break
 			} else {
 				message := file.errors[i].message
 				for msg in msg_exceptions {
@@ -81,5 +81,13 @@ pub fn (mut b Builder) err_war_print() {
 			println('error: ${e.message}\t(${file.path_base})')
 			// println('\t${e.details}')
 		}
+	}
+}
+
+// err_war_clear clears Aixt transpiler warnings and errors (based on v.ast.file)
+pub fn (mut b Builder) err_war_clear() {
+	for mut file in b.parsed_files {
+		file.errors.clear()
+		file.warnings.clear()
 	}
 }

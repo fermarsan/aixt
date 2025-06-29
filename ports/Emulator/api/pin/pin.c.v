@@ -19,7 +19,7 @@ pub const y = 6
 pub const z = 7
 
 __global (
-	pin__pins  = [0, 0, 0, 0, 0, 0, 0, 0] // virtual pin array
+	pin__pins = [0, 0, 0, 0, 0, 0, 0, 0] // virtual pin array
 	pin__input_value = 0
 )
 

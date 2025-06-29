@@ -31,11 +31,6 @@ pub fn (mut b Builder) get_api_mod_dirs() []string {
 pub fn (mut b Builder) get_api_mod_paths() []string {
 	mut out := []string{}
 	for api_path in b.setup.api_paths {
-		// api_base_dir := os.join_path(
-		// 	aixt_path, os.path_separator, 
-		// 	'ports', os.path_separator, 
-		// 	api_path, os.path_separator, 'api'
-		// )
 		api_base_dir := '${b.aixt_path}' + os.path_separator + 
 						'ports/${api_path}' + os.path_separator + 'api'
 		mut api_dirs := [api_base_dir]
@@ -45,8 +40,18 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 			// println('>>>>>>>>>>>>>>>>>> ${os.base(folder)} <<<<<<<<<<<<<<<<<<')
 			for file in b.parsed_files {
 				for imp in file.imports {
-					if os.base(folder) == imp.mod.all_after_last('.') {
-						out << b.v_files_from_dir(folder)
+					mod_name := imp.mod.all_after_last('.')
+					if os.base(folder) == mod_name {
+						mut paths :=  b.v_files_from_dir(folder)
+						// module.c.v first
+						for i, path in paths {
+							if path.contains('${mod_name}.c.v') {
+								paths.delete(i)
+								paths.insert(0, path)
+								break
+							}
+						}
+						out << paths
 					}
 				}
 			}

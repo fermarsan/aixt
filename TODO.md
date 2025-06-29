@@ -34,6 +34,7 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: `inline` fucntions are bad transpiled
 - [ ] Issue: `as_macro` fucntions fails when return a value
+- [ ] Issue: `module.c.v` is not parsed first when imported a module
 
 
 ### Done ✓make
