@@ -33,6 +33,7 @@ Tasks to do in Aixt
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: `as_macro` functions fails when return a value
+- [ ] Issue: comment "// OS_name" in conditional compiling fails inside `as_macro` functions
 
 
 ### Done ✓make

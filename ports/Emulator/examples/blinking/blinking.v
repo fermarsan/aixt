@@ -1,7 +1,7 @@
 import pin
 import time
 
-time.sleep(2)
+time.sleep(1)
 
 for _ in 0..5 {
 	pin.high(pin.a)
