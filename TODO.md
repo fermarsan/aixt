@@ -32,8 +32,8 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
-- [ ] Issue: `inline` fucntions are bad transpiled
-- [ ] Issue: `as_macro` fucntions fails when return a value
+- [ ] Issue: `inline` functions are bad transpiled
+- [ ] Issue: `as_macro` functions fails when return a value
 
 
 ### Done ✓make
