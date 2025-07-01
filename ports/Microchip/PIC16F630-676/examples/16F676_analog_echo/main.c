@@ -26,6 +26,24 @@ typedef char rune;
 #define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000
 #define _const_main__cpu_freq  20000000
 
+#define _const_pin__a0 0
+#define _const_pin__a1 1
+#define _const_pin__a2 2
+#define _const_pin__a3 3
+#define _const_pin__a4 4
+#define _const_pin__a5 5
+#define _const_pin__c0 16
+#define _const_pin__c1 17
+#define _const_pin__c2 18
+#define _const_pin__c3 19
+#define _const_pin__c4 20
+#define _const_pin__c5 21
+#define _const_pin__irq 2
+#define _const_pin__output 0
+#define _const_pin__input 1
+#define _const_pin__port_a A
+#define _const_pin__port_c C
+
 #define _const_adc__in0 (u8)(0b11111110)
 #define _const_adc__in1 (u8)(0b11111101)
 #define _const_adc__in2 (u8)(0b11111011)
@@ -68,65 +86,15 @@ typedef char rune;
 #define adc__setup(pins, nbits) \
 ({\
 	ANSEL = ~(u8)(pins); \
-	u8 div = (u8)(64); \
 	for( int i = 0; i < 6; i ++ ) { \
-		if( ((div >> i) * 1000) / _const_main__cpu_freq_mhz >= 1600 && ((div >> i) * 1000) / _const_main__cpu_freq_mhz <= 6400 ) { \
-			ADCON1 ( (div == 64) ? (0b01100000) : (div == 32) ? (0b00100000) : (div == 16) ? (0b01010000) : (div == 8) ? (0b00010000) : (div == 4) ? (0b01000000) : (div == 2) ? (0b00000000) : (0b00110000) );  \
+		if( ((64 >> i) * 1000) / _const_main__cpu_freq_mhz >= 1600 && ((64 >> i) * 1000) / _const_main__cpu_freq_mhz <= 6400 ) { \
+			ADCON1 ( (64 >> i == 64) ? (0b01100000) : (64 >> i == 32) ? (0b00100000) : (64 >> i == 16) ? (0b01010000) : (64 >> i == 8) ? (0b00010000) : (64 >> i == 4) ? (0b01000000) : (64 >> i == 2) ? (0b00000000) : (0b00110000) );  \
+			break;  \
 		};  \
 	} \
-	ADCON1 = 0b00000000; \
 	ADFM = nbits; \
 	ADON = 1; \
 })
-
-#define _const_pin__a0 0
-#define _const_pin__a1 1
-#define _const_pin__a2 2
-#define _const_pin__a3 3
-#define _const_pin__a4 4
-#define _const_pin__a5 5
-#define _const_pin__a6 6
-#define _const_pin__a7 7
-#define _const_pin__b0 8
-#define _const_pin__b1 9
-#define _const_pin__b2 10
-#define _const_pin__b3 11
-#define _const_pin__b4 12
-#define _const_pin__b5 13
-#define _const_pin__b6 14
-#define _const_pin__b7 15
-#define _const_pin__c0 16
-#define _const_pin__c1 17
-#define _const_pin__c2 18
-#define _const_pin__c3 19
-#define _const_pin__c4 20
-#define _const_pin__c5 21
-#define _const_pin__c6 22
-#define _const_pin__c7 23
-#define _const_pin__d0 24
-#define _const_pin__d1 25
-#define _const_pin__d2 26
-#define _const_pin__d3 27
-#define _const_pin__d4 28
-#define _const_pin__d5 29
-#define _const_pin__d6 30
-#define _const_pin__d7 31
-#define _const_pin__e0 32
-#define _const_pin__e1 33
-#define _const_pin__e2 34
-#define _const_pin__e3 35
-#define _const_pin__e4 36
-#define _const_pin__e5 37
-#define _const_pin__e6 38
-#define _const_pin__e7 39
-#define _const_pin__irq 8
-#define _const_pin__output 0
-#define _const_pin__input 1
-#define _const_pin__port_a A
-#define _const_pin__port_b B
-#define _const_pin__port_c C
-#define _const_pin__port_d D
-#define _const_pin__port_e E
 
 #define pin__high(name) *(&PORTA + (name >> 3)) |= 0x01 << (name - ((name >> 3) << 3))
 
