@@ -29,4 +29,4 @@ module pin
 @[as_macro] pub const output = 0
 @[as_macro] pub const input = 1
 @[as_macro] pub const port_a = C.A
-@[as_macro] pub const port_b = C.B
+@[as_macro] pub const port_b = C.B 
