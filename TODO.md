@@ -32,7 +32,6 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
-- [ ] Group PIC16F630-676 and PIC16F684 as PIC16F6xx-14pin
 
 
 ### Done ✓make
@@ -44,3 +43,4 @@ Tasks to do in Aixt
 - [x] Issue solved: `as_macro` multiline functions fails when return a value
 - [x] Change "Aixt: C compile" taks by "Aixt: C Compile" in all `tasks.json` files
 - [x] Add snippets for `timer0` and `ext` modules for PIC16F family
+- [x] Group PIC16F630-676 and PIC16F684 as PIC16F6xx-14pin

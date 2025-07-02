@@ -1,5 +1,5 @@
 {
-    "port":      "PIC16F630-676",
+    "port":      "PIC16F6xx-14pin",
     "board":     "---",
     "backend":   "c",
 
@@ -12,11 +12,13 @@
 	"flasher_flags":	"",
 
     "api_paths": [
-        "Microchip/PIC16F630-676",
+        "Microchip/PIC16F6xx-14pin",
         "Microchip/xc8-generic",
         "Microchip/PIC12F-16F-generic/PIC16F-core",
         "Microchip/PIC12F-16F-generic/timer1",
-        "Microchip/PIC12F-16F-generic/adc"
+        "Microchip/PIC12F-16F-generic/timer2",
+        "Microchip/PIC12F-16F-generic/adc",
+        "Microchip/PIC12F-16F-generic/pwm"
     ],
     "v_defines": [
     ],
