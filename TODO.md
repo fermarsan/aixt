@@ -32,6 +32,7 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
+- [ ] Group PIC16F630-676 and PIC16F684 as PIC16F6xx-14pin
 
 
 ### Done ✓make
