@@ -1,7 +1,7 @@
 // Project name: Analog echo
 // Author: Fernando M. Santa
 // Date: 01/07/2025
-// PIC16F6xx-14pin fosc = 20Mhz
+// PIC16F6xx-14p fosc = 20Mhz
 
 // import time
 import pin

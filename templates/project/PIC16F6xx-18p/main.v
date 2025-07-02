@@ -1,7 +1,7 @@
 // Project name:
 // Author: 
 // Date: 
-// PIC16F6xx-14pin fosc = 20Mhz
+// PIC16F6xx-18p fosc = 20Mhz
 
 import time
 import pin

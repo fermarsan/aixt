@@ -98,7 +98,7 @@ The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR
 |                                                   | `task`, `array`, `math`, `rand`, `str`, `sound`, `comm`,              |
 |                                                   | `file`, `i2c`, `io`, `lowspeed`, `ui`                                 |
 | [PIC16F8x](../setup/equivalent-devices.json)      | `time`, `pin`, `port`, `timer0`, `ext`                                |
-| [PIC16F62x-648](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `uart`, `timer0`, `ext`                        |
+| [PIC16F6xx-18p](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `uart`, `timer0`, `ext`                        |
 | [PIC16F87x](../setup/equivalent-devices.json)     | `time`, `pin`, `port`, `timer0`, `ext`                                |
 | [PIC16F88x](../setup/equivalent-devices.json)     | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext`                 |
 | CY8CKIT-049-42xx                                  | `time`, `pin`, `adc`, `pwm`                                           |
