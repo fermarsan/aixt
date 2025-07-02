@@ -28,7 +28,7 @@
 	// },
 	"snippet.aixt.pin.write": {
 		"prefix": "wr",
-		"body": "pin.write(pin.${1|d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10|}, pin.${2:1})",
+		"body": "pin.write(pin.${1|d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10|}, ${2:|0,1|})",
 		"description": "Pin writing function"
 	},
 	"snippet.aixt.pin.read": {
@@ -61,7 +61,7 @@
 	// pwm module
 	"snippet.aixt.pwm.write": {
 		"prefix": "wrpw",
-		"body": "pwm.write(pwm.${1|d3,d5,d6,d9,d10,d11|}, ${2:50})",
+		"body": "pwm.write(pwm.${1|d3,d5,d6,d9,d10,d11|}, ${2:duty})",
 		"description": "PWM writing function"
 	},
 	// uart module
