@@ -8,7 +8,7 @@
   // pin module
   "Aixt pin setup": {
     "prefix": "st",
-    "body": "pin.setup(pin.${1}, pin.${2|input,output,in_pullup|})",
+    "body": "pin.setup(pin.${1}, pin.${2|input,output,in_pullup,in_pulldown|})",
     "description": "Aixt Pin setup level function"
   },
   "Aixt pin high": {

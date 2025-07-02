@@ -93,5 +93,21 @@
 		"prefix": "idex",
 		"body": "ext.irq_disable()",
 		"description": "External interrrupt interrupt disable function"
+	},
+	// adc module
+	"snippet.aixt.adc.setup": {
+		"prefix": "stp",
+		"body": "adc.setup(adc.${1|a,b,c,d,e|}, ${2:byte})",
+		"description": "8-bit adc setup function"
+	},
+	"snippet.aixt.adc.read": {
+		"prefix": "rdp",
+		"body": "adc.read(adc.${1|a,b,c,d,e|})",
+		"description": "8-bit adc reading function"
+	},
+	"snippet.aixt.adc.write": {
+		"prefix": "wrp",
+		"body": "adc.write(adc.${1|a,b,c,d,e|}, ${2:byte})",
+		"description": "8-bit adc writing function"
 	}
   }
