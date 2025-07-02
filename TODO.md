@@ -32,7 +32,7 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
-<!-- - [ ] Change PIC16F62x-648 to PIC16F6xx-18pin -->
+- [ ] Change PIC16F68x-690 to PIC16F6xx-20pin
 
 
 ### Done ✓make
