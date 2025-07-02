@@ -5,7 +5,7 @@
 
     "cc_linux":			"",             
     "cc_windows":		"",
-    "cc_make_flags":	"PART@={device}",
+    "cc_make_flags":	"PART=@{device}",
 
     "flasher_linux":    "",
     "flasher_windows":  "",

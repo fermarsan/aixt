@@ -49,3 +49,4 @@ Tasks to do in Aixt
 - [x] Update snippets for PIC16F8x, PIC16F6xx-14p and PIC16F6xx-18p
 - [x] PIC12F6xx port implementation (`time`, `timer0`, `pin` and `ext` modules)
 - [x] Add examples folder for PIC12F6xx
+- [x] Issue solved: "cc_make_flags" write mistake in some `.json` setup files

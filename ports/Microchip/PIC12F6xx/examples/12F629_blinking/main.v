@@ -1,13 +1,13 @@
 // Project name: Blinking
 // Author: Fernando M. Santa
-// Date: 2024-2025
-// PIC16F83 fosc = 10Mhz
+// Date: 2025
+// PIC12F629 fosc = 20Mhz
 import time
 import pin
 
-pin.setup(pin.b4, pin.output)
+pin.setup(pin.io2, pin.output)
 
 for {
-	pin.toggle(pin.b4)
+	pin.toggle(pin.io2)
 	time.sleep_ms(250)
 }
