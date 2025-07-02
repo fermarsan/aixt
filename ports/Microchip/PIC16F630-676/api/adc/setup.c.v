@@ -3,7 +3,7 @@
 // Date: 2025
 // License: MIT
 //
-// Description: ADC management functions (PIC16F88x port)
+// Description: ADC management functions PIC16F676
 module adc
 
 @[as_macro]
