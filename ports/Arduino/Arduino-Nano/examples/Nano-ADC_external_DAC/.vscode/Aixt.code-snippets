@@ -2,7 +2,7 @@
 	// time module
 	"snippet.aixt.time.sleep": {
 		"prefix": "tim",
-		"body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:10})",
+		"body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:time})",
 		"description": "Time functions"
 	},
 	// pin module

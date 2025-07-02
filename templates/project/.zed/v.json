@@ -2,7 +2,7 @@
   // time module
   "Aixt time sleep": {
     "prefix": "tim",
-    "body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:10})",
+    "body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:time})",
     "description": "Aixt Time functions"
   },
   // pin module
@@ -49,7 +49,7 @@
   },
   "Aixt port write": {
     "prefix": "wrp",
-    "body": "port.write(port.${1}, ${2:0x00})",
+    "body": "port.write(port.${1}, ${2:byte})",
     "description": "Aixt 8-bit port writing function"
   },
   // adc module
