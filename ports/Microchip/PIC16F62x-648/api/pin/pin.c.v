@@ -3,7 +3,7 @@
 // Date: 2024-2025
 // License: MIT
 //
-// Description: Pin management functions for 16F8x
+// Description: Pin management functions for 16F62x-648
 module pin
 
 // pin names as macros
@@ -12,6 +12,9 @@ module pin
 @[as_macro] pub const a2 = 2
 @[as_macro] pub const a3 = 3
 @[as_macro] pub const a4 = 4
+@[as_macro] pub const a5 = 5
+@[as_macro] pub const a6 = 6
+@[as_macro] pub const a7 = 7
 
 @[as_macro] pub const b0 = 8
 @[as_macro] pub const b1 = 9
