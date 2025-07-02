@@ -42,3 +42,4 @@ Tasks to do in Aixt
 - [x] Issue solved: comments inside conditional compiling fails inside `as_macro` functions
 - [x] Issue solved: `as_macro` multiline functions fails when return a value
 - [x] Change "Aixt: C compile" taks by "Aixt: C Compile" in all `tasks.json` files
+- [x] Add snippets for `timer0` and `ext` modules for PIC16F family

@@ -52,4 +52,46 @@
 		"body": "port.write(port.${1|a,b,c,d,e|}, ${2:0x00})",
 		"description": "8-bit port writing function"
 	},
+	// timer0 module
+	"snippet.aixt.timer0.setup": {
+		"prefix": "stt0",
+		"body": "timer0.setup(${1:period})",
+		"description": "Timer 0 setup function (set timer period)"
+	},
+	"snippet.aixt.timer0.read": {
+		"prefix": "rdt0",
+		"body": "timer0.read()",
+		"description": "Timer 0 reading function"
+	},
+	"snippet.aixt.timer0.restart": {
+		"prefix": "rst0",
+		"body": "timer0.restart()",
+		"description": "Timer 0 restart function"
+	},
+	"snippet.aixt.timer0.irq_enable": {
+		"prefix": "iet0",
+		"body": "timer0.irq_enable()",
+		"description": "Timer 0 interrupt enable function"
+	},
+	"snippet.aixt.timer0.irq_disable": {
+		"prefix": "idt0",
+		"body": "timer0.irq_disable()",
+		"description": "Timer 0 interrupt disable function"
+	},
+	// ext module
+	"snippet.aixt.ext.setup": {
+		"prefix": "stex",
+		"body": "ext.setup(ext.${1|rising,falling|})",
+		"description": "External interrrupt setup function"
+	},
+	"snippet.aixt.ext.irq_enable": {
+		"prefix": "ieex",
+		"body": "ext.irq_enable()",
+		"description": "External interrrupt interrupt enable function"
+	},
+	"snippet.aixt.ext.irq_disable": {
+		"prefix": "idex",
+		"body": "ext.irq_disable()",
+		"description": "External interrrupt interrupt disable function"
+	}
   }
