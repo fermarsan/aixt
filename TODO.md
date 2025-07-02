@@ -32,7 +32,6 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
-- [ ] Change PIC16F68x-690 to PIC16F6xx-20pin
 
 
 ### Done ✓make
@@ -46,3 +45,4 @@ Tasks to do in Aixt
 - [x] Add snippets for `timer0` and `ext` modules for PIC16F family
 - [x] Group PIC16F630-676 and PIC16F684 as PIC16F6xx-14p
 - [x] Change PIC16F62x-648 to PIC16F6xx-18p
+- [x] Change PIC16F68x-690 to PIC16F6xx-20p
