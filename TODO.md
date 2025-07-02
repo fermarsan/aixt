@@ -52,3 +52,4 @@ Tasks to do in Aixt
 - [x] Add template and "examples" folders for PIC12F6xx
 - [x] Issue solved: "cc_make_flags" write mistake in some `.json` setup files
 - [x] Snippets updated for PIC devices (including `time`, `timer0`, `pin`, `port`, `adc`, `pwm` and `ext`)
+- [x] Update snippets for Arduino AVR
