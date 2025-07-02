@@ -39,7 +39,7 @@
 	// port module
 	"snippet.aixt.port.setup": {
 		"prefix": "stp",
-		"body": "port.setup(pin.${1|a,b|}, ${2:0b00000000})",
+		"body": "port.setup(pin.${1|a,b|}, ${2:byte})",
 		"description": "8-bit port setup function"
 	},
 	"snippet.aixt.port.read": {

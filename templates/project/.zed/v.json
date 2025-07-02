@@ -39,7 +39,7 @@
   // port module
   "Aixt port setup": {
     "prefix": "stp",
-    "body": "port.setup(port.${1}, ${2:0b00000000})",
+    "body": "port.setup(port.${1}, ${2:byte})",
     "description": "Aixt 8-bit port setup function"
   },
   "Aixt port read": {
