@@ -41,3 +41,4 @@ Tasks to do in Aixt
 - [x] Issue solved: `module.c.v` is not parsed first when imported a module
 - [x] Issue solved: comments inside conditional compiling fails inside `as_macro` functions
 - [x] Issue solved: `as_macro` multiline functions fails when return a value
+- [x] Change "Aixt: C compile" taks by "Aixt: C Compile" in all `tasks.json` files
