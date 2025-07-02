@@ -1,9 +1,9 @@
 // Project name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2024
+// Date: 2025
 // License: MIT
 //
-// Description: Pin-port functions (PIC16F8x port)
+// Description: Pin-port functions (PIC12F8x port)
 module port
 
 // setup configures bit by bit the pin mode of a 8 bit port

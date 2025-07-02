@@ -32,7 +32,6 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
-- [ ] PIC12F6xx port implementation
 
 
 ### Done ✓make
@@ -48,3 +47,4 @@ Tasks to do in Aixt
 - [x] Change PIC16F62x-648 to PIC16F6xx-18p
 - [x] Change PIC16F68x-690 to PIC16F6xx-20p
 - [x] Update snippets for PIC16F8x, PIC16F6xx-14p and PIC16F6xx-18p
+- [x] PIC12F6xx port implementation (`pin` and `ext` modules)
