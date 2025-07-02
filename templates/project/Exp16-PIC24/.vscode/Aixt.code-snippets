@@ -55,7 +55,7 @@
 	// adc module		
 	"snippet.aixt.adc.setup": {
 		"prefix": "sta",
-		"body": "adc.setup(adc.${1|in0,in1,in2,in3,in4,in5,in6,in7,in8,in9,in10,in11,in12,in13,in14,in15|}, ${2:20_000})",
+		"body": "adc.setup(adc.${1|all_analogs,all_digitals,in0,in1,in2,in3,in4,in5,in6,in7,in8,in9,in10,in11,in12,in13,in14,in15|}, ${2:20_000})",
 		"description": "ADC setup function"
 	},
 	"snippet.aixt.adc.read": {
@@ -70,7 +70,7 @@
 	},
 	"snippet.aixt.adc.an_in": {
 		"prefix": "pa",
-		"body": "adc.${1|in0,in1,in2,in3,in4,in5,in6,in7,in8,in9,in10,in11,in12,in13,in14,in15|}",
+		"body": "adc.${1|all_analogs,all_digitals,in0,in1,in2,in3,in4,in5,in6,in7,in8,in9,in10,in11,in12,in13,in14,in15|}",
 		"description": "ADC analog input setup constant"
 	},
 	// pwm module

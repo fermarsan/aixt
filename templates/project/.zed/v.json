@@ -55,7 +55,7 @@
   // adc module
   "Aixt adc read": {
     "prefix": "rda",
-    "body": "adc.read(adc. ${1})",
+    "body": "adc.read(adc.${1})",
     "description": "Aixt ADC reading function"
   },
   // pwm module

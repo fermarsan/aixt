@@ -28,7 +28,7 @@
 	},
 	"snippet.aixt.pin.write": {
 		"prefix": "wr",
-		"body": "pin.write(pin.${1|a,b|}${2|0,1,2,3,4,5,6,7|}, ${3:|0,1|})",
+		"body": "pin.write(pin.${1|a,b|}${2|0,1,2,3,4,5,6,7|}, ${3|0,1|})",
 		"description": "Pin writing function"
 	},
 	"snippet.aixt.pin.read": {
@@ -39,7 +39,7 @@
 	// port module
 	"snippet.aixt.port.setup": {
 		"prefix": "stp",
-		"body": "port.setup(port.${1|a,b|}, ${2:byte})",
+		"body": "port.setup(port.${1|a,b|}, ${2|port.all_inputs,port.all_outputs,byte|})",
 		"description": "8-bit port setup function"
 	},
 	"snippet.aixt.port.read": {
