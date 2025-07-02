@@ -81,7 +81,7 @@
 	// adc module
 	"snippet.aixt.adc.setup": {
 		"prefix": "sta",
-		"body": "adc.setup(adc.${1|all_analogs,all_digitals,in0,in1,in2,in3|}, adc.${2|bits_8,bits_10|})",
+		"body": "adc.setup(adc.${1|in0,in1,in2,in3,all_analogs,all_digitals|}, adc.${2|bits_8,bits_10|})",
 		"description": "ADC setup function"
 	},
 	"snippet.aixt.adc.read": {
