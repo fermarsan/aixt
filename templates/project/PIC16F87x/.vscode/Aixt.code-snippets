@@ -109,5 +109,16 @@
 		"prefix": "rdab",
 		"body": "adc.read_byte(adc.${1|ch0,ch1,ch2,ch3,ch4,ch5,ch6,ch7|})",
 		"description": "ADC byte reading function"
+	},
+	// pwm module
+	"snippet.aixt.pwm.setup": {
+		"prefix": "stpw",
+		"body": "pwm.setup(${1:period|})",
+		"description": "PWM setup function (set PWM period)"
+	},
+	"snippet.aixt.pwm.write": {
+		"prefix": "wrpw",
+		"body": "pwm.write(pwm.${1|ch1,ch2|}, ${2:duty})",
+		"description": "PWM writing function"
 	}
 }

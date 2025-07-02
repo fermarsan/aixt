@@ -93,5 +93,16 @@
 		"prefix": "idex",
 		"body": "ext.irq_disable()",
 		"description": "External interrrupt interrupt disable function"
+	},
+	// pwm module
+	"snippet.aixt.pwm.setup": {
+		"prefix": "stpw",
+		"body": "pwm.setup(${1:period|})",
+		"description": "PWM setup function (set PWM period)"
+	},
+	"snippet.aixt.pwm.write": {
+		"prefix": "wrpw",
+		"body": "pwm.write(${2:duty})",
+		"description": "PWM writing function"
 	}
   }
