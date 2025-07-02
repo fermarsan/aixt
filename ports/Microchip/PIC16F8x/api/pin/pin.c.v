@@ -28,5 +28,7 @@ module pin
 // pin modes as macros
 @[as_macro] pub const output = 0
 @[as_macro] pub const input = 1
+
+// port names as macros
 @[as_macro] pub const port_a = C.A
 @[as_macro] pub const port_b = C.B 
