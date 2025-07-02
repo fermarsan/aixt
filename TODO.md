@@ -32,6 +32,7 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
+- [ ] Issue: the Makefile for PIC12F6xx fails
 
 
 ### Done ✓make
