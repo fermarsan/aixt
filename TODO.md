@@ -33,7 +33,6 @@ Tasks to do in Aixt
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
-- [ ] Issue: change `as_macro` multiline functions because using ({ ... }) fails in XC Microchip compilers
 
 
 ### Done ✓make
@@ -55,3 +54,4 @@ Tasks to do in Aixt
 - [x] Snippets updated for PIC devices (including `time`, `timer0`, `pin`, `port`, `adc`, `pwm` and `ext`)
 - [x] Update snippets for Arduino AVR
 - [x] Make `adc.setup()` automatically set the used pin channels as inputs on PIC devices
+- [x] Issue solved: change `as_macro` multiline functions due to the using of ({ ... }) fails in XC Microchip compilers
