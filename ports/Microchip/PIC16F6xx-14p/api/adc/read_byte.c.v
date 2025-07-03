@@ -6,7 +6,7 @@
 // Description: ADC management functions (PIC16F88x port)
 module adc
 
-@[as_macro]
+@[inline]
 pub fn read_byte(channel u8) u8 {    
     C.ADCON0bits_CHS = channel  	    // select the ADC channel     
     C.GO_DONE = 1     	    // start conversion   
