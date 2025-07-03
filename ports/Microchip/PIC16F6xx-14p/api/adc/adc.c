@@ -1,0 +1,1 @@
+#define ADCON0bits_CHS ADCON0bits.CHS

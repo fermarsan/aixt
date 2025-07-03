@@ -53,3 +53,4 @@ Tasks to do in Aixt
 - [x] Issue solved: "cc_make_flags" write mistake in some `.json` setup files
 - [x] Snippets updated for PIC devices (including `time`, `timer0`, `pin`, `port`, `adc`, `pwm` and `ext`)
 - [x] Update snippets for Arduino AVR
+- [x] Make `adc.setup()` automatically set the used pin channels as inputs on PIC devices

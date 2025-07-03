@@ -8,7 +8,7 @@ module adc
 
 @[as_macro]
 pub fn read_byte(channel u8) u8 {    
-    C.CHS = channel  	    // select the ADC channel     
+    C.ADCON0bits_CHS = channel  	    // select the ADC channel     
     C.GO_DONE = 1     	    // start conversion   
     for C.GO_DONE == 1 {}	// wait for the end of conversion     
     return u8(C.ADRESH)     // return the ADC value (8 bits)   

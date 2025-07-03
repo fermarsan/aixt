@@ -2,13 +2,11 @@
 // Author: Fernando M. Santa
 // Date: 01/07/2025
 // PIC16F6xx-14p fosc = 20Mhz
-
 // import time
-import pin
 import port 
 import adc
 
-pin.setup(pin.a0, pin.input)
+
 adc.setup(adc.in0, adc.bits_10)
 port.setup(port.c, 0b11000000)
 port.setup(port.a, 0b11000011)

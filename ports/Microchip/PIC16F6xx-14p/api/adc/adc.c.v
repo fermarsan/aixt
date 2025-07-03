@@ -8,7 +8,9 @@
 module adc
 
 
-// ADC analog pins (negated by join them with &&)
+#include "adc.c"
+
+// ADC analog pins (are negated by join them with &&)
 @[as_macro] pub const in0 	= u8(0b11111110)
 @[as_macro] pub const in1 	= u8(0b11111101)	
 @[as_macro] pub const in2 	= u8(0b11111011)	
@@ -25,11 +27,11 @@ module adc
 @[as_macro] pub const bits_10	= 1
 
 // ADC input channels
-@[as_macro] pub const ch0 	= 0		
-@[as_macro] pub const ch1 	= 1			
-@[as_macro] pub const ch2 	= 2			
-@[as_macro] pub const ch3 	= 3			
-@[as_macro] pub const ch4 	= 4			
-@[as_macro] pub const ch5 	= 5			
-@[as_macro] pub const ch6 	= 6			
-@[as_macro] pub const ch7 	= 7			
+@[as_macro] pub const ch0 	= 0
+@[as_macro] pub const ch1 	= 1
+@[as_macro] pub const ch2 	= 2
+@[as_macro] pub const ch3 	= 3
+@[as_macro] pub const ch4 	= 4
+@[as_macro] pub const ch5 	= 5
+@[as_macro] pub const ch6 	= 6
+@[as_macro] pub const ch7 	= 7
