@@ -33,6 +33,7 @@ Tasks to do in Aixt
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
+- [ ] Issue: assignment using `match` fails
 
 
 ### Done ✓make

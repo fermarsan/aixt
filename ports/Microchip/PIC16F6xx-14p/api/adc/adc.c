@@ -1,1 +1,1 @@
-#define ADCON0bits_CHS ADCON0bits.CHS
+#define ADCON0_CHS  ADCON0bits.CHS

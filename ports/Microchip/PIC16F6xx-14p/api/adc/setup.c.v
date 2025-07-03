@@ -20,14 +20,14 @@ pub fn setup(pins u8, nbits u8) {
 	for i in 0..6 {	// matching the proper division for Fosc
 		if ((64 >> i)*1000) / C._const_main__cpu_freq_mhz >= 1600 &&
 		   ((64 >> i)*1000) / C._const_main__cpu_freq_mhz <= 6400 {
-			match i {
-				0	{ C.ADCON1 = 0b0_110_0000 }		// Fosc/64
-				1	{ C.ADCON1 = 0b0_010_0000 }		// Fosc/32
-				2	{ C.ADCON1 = 0b0_101_0000 }		// Fosc/16
-				3	{ C.ADCON1 = 0b0_001_0000 }		// Fosc/8 
-				4	{ C.ADCON1 = 0b0_100_0000 }		// Fosc/4 
-				5	{ C.ADCON1 = 0b0_000_0000 }		// Fosc/2 
-				else { C.ADCON1 = 0b0_011_0000 }	// F_RC
+			C.ADCON1 = match i {
+				0	{ 0b0_110_0000 }		// Fosc/64
+				1	{ 0b0_010_0000 }		// Fosc/32
+				2	{ 0b0_101_0000 }		// Fosc/16
+				3	{ 0b0_001_0000 }		// Fosc/8 
+				4	{ 0b0_100_0000 }		// Fosc/4 
+				5	{ 0b0_000_0000 }		// Fosc/2 
+				else { 0b0_011_0000 }	// F_RC
 			}
 			break
 		}

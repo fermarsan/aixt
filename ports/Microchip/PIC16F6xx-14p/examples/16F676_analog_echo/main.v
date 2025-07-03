@@ -4,7 +4,7 @@
 // PIC16F6xx-14p fosc = 20Mhz
 // import time
 import port 
-import adc
+import adc { setup, read }
 
 
 adc.setup(adc.in0, adc.bits_10)
