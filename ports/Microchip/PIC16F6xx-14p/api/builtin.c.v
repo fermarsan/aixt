@@ -11,4 +11,4 @@ module main
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "builtin.C"
+#include "builtin.c"

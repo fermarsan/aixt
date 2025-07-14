@@ -1,25 +1,25 @@
 // Project name: Analog echo
 // Author: Fernando M. Santa
 // Date: 01/07/2025
-// PIC16F6xx-14p fosc = 20Mhz
-// import time
+// PIC16F676 fosc = 20Mhz
+import time
 import port 
-import adc { setup, read }
+import adc
 
 
-adc.setup(adc.in0, adc.bits_10)
-port.setup(port.c, 0b11000000)
-port.setup(port.a, 0b11000011)
+adc.setup(adc.in2, adc.bits_8)
+port.setup(port.c, port.all_outputs)
+port.setup(port.a, 0b11_111100)
 
 for {
-	value := adc.read(adc.ch0)
+	value := adc.read_byte(adc.ch2)
 	port.write(
 		port.c, 
-		u8(value & 0x003f)
+		u8(value & 0b00111111)
 	)
 	port.write(
 		port.a, 
-		u8((value & 0x03C0) >> 4)
+		u8((value & 0b11000000) >> 6)
 	)
-	// time.sleep_us(100)
+	time.sleep_ms(1)
 }
