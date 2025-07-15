@@ -13,14 +13,12 @@ __global (
 // interrupt service routine for timer1 overload
 @[timer1_isr]
 fn blinking() {
-	timer1.restart()
 	state = !state
 }
 
-// pin.setup(led0, pin.output)
-// pin.low(led0) // reset LED pin
 timer1.setup(1, timer1.hz)
 timer1.irq_enable()	// enables timer1 interrupt
+timer1.restart()
 
 for {
 	// empty infinite loop

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "author": "Fernando Martinez Santa",
+  "editor": "wokwi",
+  "parts": [ { "type": "board-st-nucleo-l031k6", "id": "nucleo", "top": 0, "left": 0, "attrs": {} } ],
+  "connections": [
+    [ "$serialMonitor:TX", "nucleo:VCP_RX", "", [] ],
+    [ "$serialMonitor:RX", "nucleo:VCP_TX", "", [] ]
+  ],
+  "dependencies": {}
+}
