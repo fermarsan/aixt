@@ -8,11 +8,11 @@ import ext
 
 @[ext_isr:'pin.d2']
 fn blink() {
-	pin.toggle(led_0)
+	pin.toggle(led0)
 }
 
 pin.setup(pin.d2, pin.input)
-pin.low(led_0)
+pin.low(led0)
 
 ext.irq_enable(pin.d2, ext.change)
 

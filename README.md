@@ -50,12 +50,13 @@ stateDiagram-v2
     }
 
     state Compiler {
-        XC8
-        XC16
-        arduino_cli
+        xc8
+        arduino: arduino-cli
         GCC
+        PSoC: PSoC Creator
+        MounRiver: MounRiver Studio 
         others: ...
-        nbc: nbc (NXC)
+        nbc
     }
 
     state machine {
@@ -76,7 +77,7 @@ Aixt is designed to be as modular as possible to facilitate the incorporation of
 
 The transpiler is written in [_V_](https://vlang.io/) and uses the _V's_ self native compiler in order to transpile from _V_ to _C_. This is implemented in the folder `src\` and the main source code is the `src\aixt.v` file. **Aixt** generates code for 3 different backends:
 - **c**: for the microcontroller native C compiler
-- **nxc**: for the NXC compiler (LEGO Mindstorms NXT)
+- **nxc**: for the LEGO Mindstorms NXT compiler (NXC/nbc)
 - **arduino**: for the Arduino CLI
 
 
@@ -88,7 +89,6 @@ feature               | V                                 | Aixt's V
 ----------------------|-----------------------------------|----------------------------------------------------------------------
 strings               | dynamic-sized                     | fixed-sized and dynamic-sized if supported
 arrays                | dynamic-sized                     | fixed-sized and dynamic-sized if supported
-default integers size | 32 bits                           | depends on the device
 structs               | allow functions (object-oriented) | do not allow functions (only structured programming)
 functions             | multiple return values            | only one return value
 text macros           | not allowed                       | allowed by using `@[as_macro]` attribute, for functions and constants
@@ -99,7 +99,7 @@ global variables      | disabled by default               | enabled by default
 ### Example with `main` function
 
 ```v
-/* Turning ON by 5.5 seconds the B7 on a
+/* Turning ON the pin B7 by 5.5 seconds on a
 PIC16F84A microcontroller (XC8 compiler) */
 import time
 import pin
@@ -107,9 +107,9 @@ import pin
 fn main() {
     pin.setup(pin.b7, pin.output)
 
-    pin.high(pin.b7)    //turn ON the LED on PORTB7
+    pin.high(pin.b7)    // turn ON the LED on PORTB7
     time.sleep_ms(5500)
-    pin.low(pin.b7)
+    pin.low(pin.b7)     // turn OFF
 }
 ```
 
@@ -122,34 +122,51 @@ import uart
 import adc
 
 uart.setup(9600)    // baud rate
-adc.setup(12)       // resolution
+adc.setup(12)       // resolution (bits)
 
 for { // infinite loop
-	analog := adc.read(adc.ch0)
-	uart.println('ADC channel 0: ${analog}') // use string interpolation
-	time.sleep_ms(500)
+    analog := adc.read(adc.ch0)
+    uart.println('ADC channel 0: ${analog}') // use string interpolation
+    time.sleep_ms(500)
+}
+```
+
+### Simple blinking LED example
+```v
+// blinking LED on Arduino-Nano
+import time
+import pin
+
+pin.low(led0)	// turn OFF the on-board LED
+
+for {
+    pin.toggle(led0)    // change the LED state
+    time.sleep_ms(500)  // 500ms delay
 }
 ```
 
 ### Example for NXT robotics platform
 
 ```v
-// "Drawing" an square with a differential platform (motors A and B)
+// Draw a square on the floor with a differential platform 
+// using motors A and B
 import motor
 import time
 
 for {
-	motor.write(motor.a, 50)
-	motor.write(motor.b, -50)	// reverse
-	time.sleep_ms(3000)
-	motor.write(motor.a, -50)	// reverse
-	time.sleep_ms(500)
+    // move forward
+    motor.write(motor.a, 50)
+    motor.write(motor.b, -50)	// reverse
+    time.sleep_ms(3000)
+    // spin
+    motor.write(motor.a, -50)	// reverse
+    time.sleep_ms(500)
 }
 ```
 
 ## Aixt API
 
-The **Aixt API** is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API for all the ports includes at least functions for:
+The [**Aixt API**](docs/API.md) is inspired by _Micropython_, _Arduino_ and _Tinygo_. The API for all the ports includes at least functions for:
 
 - Digital input/output
 - Analog inputs (ADC)
@@ -195,6 +212,11 @@ aixt.exe symlink
 ```
 ./aixt -b NXT ports/NXT/projects/1_motor.write.v
 ```
+
+
+## Supported devices and boards
+
+This is the complete [list of suported devices/boards](docs/Devices%20and%20Boards.md) and their backends and compilers.
 
 
 ## Prerequisites

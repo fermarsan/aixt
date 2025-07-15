@@ -328,44 +328,43 @@ END GROUP
  .text.main__init
                 0x000001e4        0x4 .\CortexM0p\ARM_GCC_541\Debug\main.o
                 0x000001e4                main__init
- .text.main     0x000001e8       0x24 .\CortexM0p\ARM_GCC_541\Debug\main.o
+ .text.main     0x000001e8       0x28 .\CortexM0p\ARM_GCC_541\Debug\main.o
                 0x000001e8                main
  .text.AnalogSetDefault
-                0x0000020c       0x18 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000210       0x18 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.IntDefaultHandler
-                0x00000224       0x10 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
-                0x00000224                IntDefaultHandler
- .text.Start_c  0x00000234       0x48 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
-                0x00000234                Start_c
+                0x00000228       0x10 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+                0x00000228                IntDefaultHandler
+ .text.Start_c  0x00000238       0x48 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+                0x00000238                Start_c
  .text.initialize_psoc
-                0x0000027c       0x40 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
-                0x0000027c                initialize_psoc
+                0x00000280       0x40 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+                0x00000280                initialize_psoc
  .text.CySysClkImoDisableWcoLock
-                0x000002bc       0x4c .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
-                0x000002bc                CySysClkImoDisableWcoLock
+                0x000002c0       0x4c .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
+                0x000002c0                CySysClkImoDisableWcoLock
  .text.CySysClkImoGetWcoLock
-                0x00000308       0x14 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
-                0x00000308                CySysClkImoGetWcoLock
- .text.CyHalt   0x0000031c        0x4 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
-                0x0000031c                CyHalt
- .text.CyDelay  0x00000320       0x30 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
-                0x00000320                CyDelay
+                0x0000030c       0x14 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
+                0x0000030c                CySysClkImoGetWcoLock
+ .text.CyHalt   0x00000320        0x4 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
+                0x00000320                CyHalt
+ .text.CyDelay  0x00000324       0x30 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
+                0x00000324                CyDelay
  .text.CySysClkImoEnableWcoLock
-                0x00000350       0xd0 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
-                0x00000350                CySysClkImoEnableWcoLock
+                0x00000354       0xd0 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
+                0x00000354                CySysClkImoEnableWcoLock
  .text.CySysClkWriteImoFreq
-                0x00000420       0xd8 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
-                0x00000420                CySysClkWriteImoFreq
+                0x00000424       0xd8 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
+                0x00000424                CySysClkWriteImoFreq
  .text.CySysClkWcoEnabled
-                0x000004f8       0x14 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLFClk.o)
-                0x000004f8                CySysClkWcoEnabled
+                0x000004fc       0x14 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLFClk.o)
+                0x000004fc                CySysClkWcoEnabled
  .text.CySysWdtDisable
-                0x0000050c       0x10 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLFClk.o)
-                0x0000050c                CySysWdtDisable
+                0x00000510       0x10 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLFClk.o)
+                0x00000510                CySysWdtDisable
  .text.led1_Write
-                0x0000051c       0x18 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(led1.o)
-                0x0000051c                led1_Write
- *fill*         0x00000534        0x4 
+                0x00000520       0x18 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(led1.o)
+                0x00000520                led1_Write
  .text          0x00000538       0x20 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyBootAsmGnu.o)
                 0x00000538                CyDelayCycles
                 0x0000054a                CyEnterCriticalSection
@@ -628,17 +627,17 @@ END GROUP
  .debug_abbrev  0x00000827       0x14 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyBootAsmGnu.o)
  .debug_abbrev  0x0000083b      0x19e .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyFlash.o)
 
-.debug_line     0x00000000      0xf3c
+.debug_line     0x00000000      0xf3d
  *(.debug_line)
- .debug_line    0x00000000       0x89 .\CortexM0p\ARM_GCC_541\Debug\main.o
- .debug_line    0x00000089       0xc6 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_line    0x0000014f      0x141 .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
- .debug_line    0x00000290      0x247 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
- .debug_line    0x000004d7      0x4dc .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
- .debug_line    0x000009b3      0x284 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLFClk.o)
- .debug_line    0x00000c37       0xbc .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(led1.o)
- .debug_line    0x00000cf3       0x68 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyBootAsmGnu.o)
- .debug_line    0x00000d5b      0x1e1 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyFlash.o)
+ .debug_line    0x00000000       0x8a .\CortexM0p\ARM_GCC_541\Debug\main.o
+ .debug_line    0x0000008a       0xc6 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x00000150      0x141 .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x00000291      0x247 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+ .debug_line    0x000004d8      0x4dc .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
+ .debug_line    0x000009b4      0x284 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLFClk.o)
+ .debug_line    0x00000c38       0xbc .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(led1.o)
+ .debug_line    0x00000cf4       0x68 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyBootAsmGnu.o)
+ .debug_line    0x00000d5c      0x1e1 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyFlash.o)
 
 .debug_frame    0x00000000      0x948
  *(.debug_frame)

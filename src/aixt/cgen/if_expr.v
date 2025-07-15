@@ -1,6 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2023-2024
+// Date: 2023-2025
 // License: MIT
 module cgen
 
@@ -103,13 +103,8 @@ fn (mut gen Gen) if_expr_comptime(node ast.IfExpr) []string { // basic shape of 
 	mut out := []string{}
 
 	if node.is_expr { // in case of conditional assignment
-		for i, br in node.branches {
+		for br in node.branches {
 			if br.stmts.len > 0 { 
-				out << if br.cond.str().contains('[') {
-					'// not ${node.branches[i-1].cond.str().replace('?', '')}'	
-				} else {
-					'// ${br.cond.str().replace('?', '')}'
-				}
 				out << gen.single_assign(	gen.cur_left, 
 											gen.cur_left_type, 
 											gen.cur_op, 
@@ -118,13 +113,8 @@ fn (mut gen Gen) if_expr_comptime(node ast.IfExpr) []string { // basic shape of 
 		}
 	} else {
 		// println('?????????????????????????? ${node} ???????????????????????')
-		for i, br in node.branches {
+		for br in node.branches {
 			if br.stmts.len > 0 {
-				out << if br.cond.str().contains('[') {
-					'// not ${node.branches[i-1].cond.str().replace('?', '')}'	
-				} else {
-					'// ${br.cond.str().replace('?', '')}'
-				}
 				out << gen.ast_node(br)
 			}
 		}

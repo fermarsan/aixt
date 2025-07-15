@@ -6,9 +6,9 @@ pwm.setup()  //Configuramos el modulo CCP(PWM)
 
 for {
 
-	valor_adc := 0
-	valor_adc = adc.read(0)  //Retornamos la lectura de la conversión a la variable valor_adc
+	adc_value := 0
+	adc_value = adc.read(0)  //Retornamos la lectura de la conversión a la variable adc_value
 	 
-	pwm.write(valor_adc)      
+	pwm.write(adc_value)      
 
 }

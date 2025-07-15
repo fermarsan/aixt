@@ -7,7 +7,23 @@
 
 module pwm
 
-@[inline]
-pub fn write(PIN_NAME, VALUE) {
-	C.WriteCompare(VALUE)
+// @[as_macro]
+// pub fn write(channel any, val any) {
+// 	C.PWM_WRITE(channel, val)
+// }
+
+@[as_macro]
+pub fn write(channel int, val any) {
+	match channel {
+		pwm.ch0 {
+			C.pwm_0_WriteCompare(val)
+		}
+		pwm.ch1 {
+			C.pwm_1_WriteCompare(val)
+		}
+		pwm.ch2 {
+			C.pwm_2_WriteCompare(val)
+		}
+		else { }
+	}
 }

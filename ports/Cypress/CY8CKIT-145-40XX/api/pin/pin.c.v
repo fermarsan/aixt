@@ -11,3 +11,6 @@ module pin
 
 
 fn C.PIN_WRITE(name any, value any) 
+fn C.PIN_HIGH(name) 
+fn C.PIN_LOW(name)
+

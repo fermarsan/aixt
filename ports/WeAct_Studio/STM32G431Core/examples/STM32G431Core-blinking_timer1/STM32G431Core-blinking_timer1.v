@@ -22,5 +22,5 @@ timer1.restart()
 
 for {
 	// empty infinite loop
-	pin.write(led_0, u8(state))
+	pin.write(led0, u8(state))
 }
