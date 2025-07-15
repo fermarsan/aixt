@@ -7,11 +7,9 @@
 module pwm
 
 // setup function configures de PWM hardware
-@[inline]
-pub fn setup(freq u32, range u32, res u8) {
-    // C.analogWriteFreq(freq) 
-    // C.analogWriteRange(range) 
-    C.analogWriteResolution(res)
-}
-
+@[as_macro]
+pub fn write(name u8, value u8) {
+	C.analogWrite(name, value)
+} 
+	
 
