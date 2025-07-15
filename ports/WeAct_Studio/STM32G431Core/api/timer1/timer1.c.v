@@ -13,8 +13,14 @@ module timer1
 @[as_macro] pub const hz    = C.HERTZ_FORMAT
 @[as_macro] pub const pwm1  = C.TIMER_OUTPUT_COMPARE_PWM1
 
+
+@[as_macro] pub const ch1  = 1
+@[as_macro] pub const ch2  = 2
+@[as_macro] pub const ch3  = 3
+
 fn C.TIMER1_SETOVERFLOW(value int, format int)
 fn C.TIMER1_ATTACHINTERRUPT(handler fn())
+fn C.TIMER1_COMPARE_ATTACHINTERRUPT(ch int, handler fn()) 
 fn C.TIMER1_RESUME() 
 fn C.ptr_timer1_isr()
 fn C.TIMER1_WRITE_PERCENT_CHANNEL(channel int, val int)

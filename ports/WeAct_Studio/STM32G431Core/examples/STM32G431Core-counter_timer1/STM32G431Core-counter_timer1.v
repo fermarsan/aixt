@@ -14,6 +14,13 @@ fn overflow_interrupt() {
     pin.low(pin.pa8)
 }
 
+@[timer1_isr:'timer1.compare_ch1']
+fn compare_channel_1_interrupt() {
+    pin.high(pin.pa9)
+    time.sleep_ms(500)
+    pin.low(pin.pa9)
+}
+
 fn main() {
     // LED 1 en PA8 (canal 1) - 25%
     pin.setup(pin.pa8, pin.output)
@@ -36,6 +43,8 @@ fn main() {
     timer1.write_percent_channel(1, 25)
     timer1.write_percent_channel(2, 50)
     timer1.write_percent_channel(3, 75)
+
+    timer1.cmp_irq_enable(1)//timer1.compare_ch1)
 
     // Iniciar el timer
     timer1.restart()
