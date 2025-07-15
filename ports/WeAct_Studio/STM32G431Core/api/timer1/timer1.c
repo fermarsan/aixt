@@ -7,8 +7,7 @@
 #define TIMER1_SETMODE(channel, mode, pin) timer1->setMode(channel, mode, pin)
 #define TIMER1__PWM1 TIMER_OUTPUT_COMPARE_PWM1
 
-
-
+#define TIMER1_COMPARE_CHANNEL_ISR(CH, HANDLER) HANDLER ## _ ## CH
 
 
 TIM_TypeDef *inst = TIM1;

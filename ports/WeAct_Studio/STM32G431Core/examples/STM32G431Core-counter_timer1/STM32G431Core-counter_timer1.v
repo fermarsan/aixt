@@ -44,7 +44,7 @@ fn main() {
     timer1.write_percent_channel(2, 50)
     timer1.write_percent_channel(3, 75)
 
-    timer1.cmp_irq_enable(1)//timer1.compare_ch1)
+    timer1.compare_irq_enable(timer1.compare_ch1)
 
     // Iniciar el timer
     timer1.restart()

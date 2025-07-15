@@ -8,6 +8,9 @@ module timer1
 
 
 @[as_macro]
-pub fn cmp_irq_enable(ch int) {
-	C.TIMER1_COMPARE_ATTACHINTERRUPT(ch, C.ptr_timer1_isr)
+pub fn compare_irq_enable(ch int) {
+	C.TIMER1_COMPARE_ATTACHINTERRUPT(
+		ch, 
+		C.TIMER1_COMPARE_CHANNEL_ISR(ch, C.ptr_timer1_isr)
+	)
 }
