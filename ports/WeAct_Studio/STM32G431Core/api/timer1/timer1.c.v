@@ -18,7 +18,7 @@ module timer1
 @[as_macro] pub const compare_ch2  = 2
 @[as_macro] pub const compare_ch3  = 3
 
-fn C.TIMER1_SETOVERFLOW(value int, format int)
+fn C.TIMER1_SETOVERFLOW(value f32, format int)
 fn C.TIMER1_ATTACHINTERRUPT(handler fn())
 fn C.TIMER1_COMPARE_ATTACHINTERRUPT(channel int, handler fn()) 
 fn C.TIMER1_RESUME() 
