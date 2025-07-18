@@ -1,9 +1,9 @@
 // Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera
+// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
 // Date: 2022-2025
 // License: MIT
 //
-// // Description: high functions (CY8CKIT-145-40XX)
+// // Description: pin high functions (CY8CKIT-145-40XX)
 
 
 module pin

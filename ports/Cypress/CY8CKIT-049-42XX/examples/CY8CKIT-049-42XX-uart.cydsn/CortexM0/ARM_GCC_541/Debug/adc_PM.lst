@@ -1,0 +1,1014 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"adc_PM.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.adc_SaveConfig,"ax",%progbits
+  20              		.align	2
+  21              		.global	adc_SaveConfig
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	adc_SaveConfig, %function
+  25              	adc_SaveConfig:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC4\\adc_PM.c"
+   1:Generated_Source\PSoC4/adc_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/adc_PM.c **** * File Name: adc_PM.c
+   3:Generated_Source\PSoC4/adc_PM.c **** * Version 2.50
+   4:Generated_Source\PSoC4/adc_PM.c **** *
+   5:Generated_Source\PSoC4/adc_PM.c **** * Description:
+   6:Generated_Source\PSoC4/adc_PM.c **** *  This file provides Sleep/WakeUp APIs functionality.
+   7:Generated_Source\PSoC4/adc_PM.c **** *
+   8:Generated_Source\PSoC4/adc_PM.c **** * Note:
+   9:Generated_Source\PSoC4/adc_PM.c **** *
+  10:Generated_Source\PSoC4/adc_PM.c **** ********************************************************************************
+  11:Generated_Source\PSoC4/adc_PM.c **** * Copyright 2008-2017, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC4/adc_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:Generated_Source\PSoC4/adc_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:Generated_Source\PSoC4/adc_PM.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC4/adc_PM.c **** *******************************************************************************/
+  16:Generated_Source\PSoC4/adc_PM.c **** 
+  17:Generated_Source\PSoC4/adc_PM.c **** #include "adc.h"
+  18:Generated_Source\PSoC4/adc_PM.c **** 
+  19:Generated_Source\PSoC4/adc_PM.c **** 
+  20:Generated_Source\PSoC4/adc_PM.c **** /***************************************
+  21:Generated_Source\PSoC4/adc_PM.c **** * Local data allocation
+  22:Generated_Source\PSoC4/adc_PM.c **** ***************************************/
+  23:Generated_Source\PSoC4/adc_PM.c **** 
+  24:Generated_Source\PSoC4/adc_PM.c **** static adc_BACKUP_STRUCT  adc_backup =
+  25:Generated_Source\PSoC4/adc_PM.c **** {
+  26:Generated_Source\PSoC4/adc_PM.c ****     adc_DISABLED,
+  27:Generated_Source\PSoC4/adc_PM.c ****     0u    
+  28:Generated_Source\PSoC4/adc_PM.c **** };
+  29:Generated_Source\PSoC4/adc_PM.c **** 
+  30:Generated_Source\PSoC4/adc_PM.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 2
+
+
+  31:Generated_Source\PSoC4/adc_PM.c **** /*******************************************************************************
+  32:Generated_Source\PSoC4/adc_PM.c **** * Function Name: adc_SaveConfig
+  33:Generated_Source\PSoC4/adc_PM.c **** ********************************************************************************
+  34:Generated_Source\PSoC4/adc_PM.c **** *
+  35:Generated_Source\PSoC4/adc_PM.c **** * Summary:
+  36:Generated_Source\PSoC4/adc_PM.c **** *  Saves the current user configuration.
+  37:Generated_Source\PSoC4/adc_PM.c **** *
+  38:Generated_Source\PSoC4/adc_PM.c **** * Parameters:
+  39:Generated_Source\PSoC4/adc_PM.c **** *  None.
+  40:Generated_Source\PSoC4/adc_PM.c **** *
+  41:Generated_Source\PSoC4/adc_PM.c **** * Return:
+  42:Generated_Source\PSoC4/adc_PM.c **** *  None.
+  43:Generated_Source\PSoC4/adc_PM.c **** *
+  44:Generated_Source\PSoC4/adc_PM.c **** *******************************************************************************/
+  45:Generated_Source\PSoC4/adc_PM.c **** void adc_SaveConfig(void)
+  46:Generated_Source\PSoC4/adc_PM.c **** {
+  28              		.loc 1 46 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  47:Generated_Source\PSoC4/adc_PM.c ****     /* All configuration registers are marked as [reset_all_retention] */
+  48:Generated_Source\PSoC4/adc_PM.c **** }
+  33              		.loc 1 48 0
+  34              		@ sp needed
+  35 0000 7047     		bx	lr
+  36              		.cfi_endproc
+  37              	.LFE0:
+  38              		.size	adc_SaveConfig, .-adc_SaveConfig
+  39 0002 C046     		.section	.text.adc_RestoreConfig,"ax",%progbits
+  40              		.align	2
+  41              		.global	adc_RestoreConfig
+  42              		.code	16
+  43              		.thumb_func
+  44              		.type	adc_RestoreConfig, %function
+  45              	adc_RestoreConfig:
+  46              	.LFB1:
+  49:Generated_Source\PSoC4/adc_PM.c **** 
+  50:Generated_Source\PSoC4/adc_PM.c **** 
+  51:Generated_Source\PSoC4/adc_PM.c **** /*******************************************************************************
+  52:Generated_Source\PSoC4/adc_PM.c **** * Function Name: adc_RestoreConfig
+  53:Generated_Source\PSoC4/adc_PM.c **** ********************************************************************************
+  54:Generated_Source\PSoC4/adc_PM.c **** *
+  55:Generated_Source\PSoC4/adc_PM.c **** * Summary:
+  56:Generated_Source\PSoC4/adc_PM.c **** *  Restores the current user configuration.
+  57:Generated_Source\PSoC4/adc_PM.c **** *
+  58:Generated_Source\PSoC4/adc_PM.c **** * Parameters:
+  59:Generated_Source\PSoC4/adc_PM.c **** *  None.
+  60:Generated_Source\PSoC4/adc_PM.c **** *
+  61:Generated_Source\PSoC4/adc_PM.c **** * Return:
+  62:Generated_Source\PSoC4/adc_PM.c **** *  None.
+  63:Generated_Source\PSoC4/adc_PM.c **** *
+  64:Generated_Source\PSoC4/adc_PM.c **** *******************************************************************************/
+  65:Generated_Source\PSoC4/adc_PM.c **** void adc_RestoreConfig(void)
+  66:Generated_Source\PSoC4/adc_PM.c **** {
+  47              		.loc 1 66 0
+  48              		.cfi_startproc
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 3
+
+
+  49              		@ args = 0, pretend = 0, frame = 0
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51              		@ link register save eliminated.
+  67:Generated_Source\PSoC4/adc_PM.c ****     /* All configuration registers are marked as [reset_all_retention] */
+  68:Generated_Source\PSoC4/adc_PM.c **** }
+  52              		.loc 1 68 0
+  53              		@ sp needed
+  54 0000 7047     		bx	lr
+  55              		.cfi_endproc
+  56              	.LFE1:
+  57              		.size	adc_RestoreConfig, .-adc_RestoreConfig
+  58 0002 C046     		.section	.text.adc_Sleep,"ax",%progbits
+  59              		.align	2
+  60              		.global	adc_Sleep
+  61              		.code	16
+  62              		.thumb_func
+  63              		.type	adc_Sleep, %function
+  64              	adc_Sleep:
+  65              	.LFB2:
+  69:Generated_Source\PSoC4/adc_PM.c **** 
+  70:Generated_Source\PSoC4/adc_PM.c **** 
+  71:Generated_Source\PSoC4/adc_PM.c **** /*******************************************************************************
+  72:Generated_Source\PSoC4/adc_PM.c **** * Function Name: adc_Sleep
+  73:Generated_Source\PSoC4/adc_PM.c **** ********************************************************************************
+  74:Generated_Source\PSoC4/adc_PM.c **** *
+  75:Generated_Source\PSoC4/adc_PM.c **** * Summary:
+  76:Generated_Source\PSoC4/adc_PM.c **** *  Stops the ADC operation and saves the configuration registers and component
+  77:Generated_Source\PSoC4/adc_PM.c **** *  enable state. Should be called just prior to entering sleep.
+  78:Generated_Source\PSoC4/adc_PM.c **** *
+  79:Generated_Source\PSoC4/adc_PM.c **** * Parameters:
+  80:Generated_Source\PSoC4/adc_PM.c **** *  None.
+  81:Generated_Source\PSoC4/adc_PM.c **** *
+  82:Generated_Source\PSoC4/adc_PM.c **** * Return:
+  83:Generated_Source\PSoC4/adc_PM.c **** *  None.
+  84:Generated_Source\PSoC4/adc_PM.c **** *
+  85:Generated_Source\PSoC4/adc_PM.c **** * Global Variables:
+  86:Generated_Source\PSoC4/adc_PM.c **** *  adc_backup - modified.
+  87:Generated_Source\PSoC4/adc_PM.c **** *
+  88:Generated_Source\PSoC4/adc_PM.c **** *******************************************************************************/
+  89:Generated_Source\PSoC4/adc_PM.c **** void adc_Sleep(void)
+  90:Generated_Source\PSoC4/adc_PM.c **** {
+  66              		.loc 1 90 0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70 0000 10B5     		push	{r4, lr}
+  71              		.cfi_def_cfa_offset 8
+  72              		.cfi_offset 4, -8
+  73              		.cfi_offset 14, -4
+  91:Generated_Source\PSoC4/adc_PM.c ****     /* During deepsleep/ hibernate mode keep SARMUX active, i.e. do not open
+  92:Generated_Source\PSoC4/adc_PM.c ****     *   all switches (disconnect), to be used for ADFT
+  93:Generated_Source\PSoC4/adc_PM.c ****     */
+  94:Generated_Source\PSoC4/adc_PM.c ****     adc_backup.dftRegVal = adc_SAR_DFT_CTRL_REG & (uint32)~adc_ADFT_OVERRIDE;
+  74              		.loc 1 94 0
+  75 0002 184A     		ldr	r2, .L8
+  76 0004 1368     		ldr	r3, [r2]
+  77 0006 5B00     		lsls	r3, r3, #1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 4
+
+
+  78 0008 5B08     		lsrs	r3, r3, #1
+  79 000a 1749     		ldr	r1, .L8+4
+  80 000c 4B60     		str	r3, [r1, #4]
+  95:Generated_Source\PSoC4/adc_PM.c ****     adc_SAR_DFT_CTRL_REG |= adc_ADFT_OVERRIDE;
+  81              		.loc 1 95 0
+  82 000e 1368     		ldr	r3, [r2]
+  83 0010 8021     		movs	r1, #128
+  84 0012 0906     		lsls	r1, r1, #24
+  85 0014 0B43     		orrs	r3, r1
+  86 0016 1360     		str	r3, [r2]
+  96:Generated_Source\PSoC4/adc_PM.c ****     if((adc_SAR_CTRL_REG  & adc_ENABLE) != 0u)
+  87              		.loc 1 96 0
+  88 0018 144B     		ldr	r3, .L8+8
+  89 001a 1B68     		ldr	r3, [r3]
+  90 001c 002B     		cmp	r3, #0
+  91 001e 1DDA     		bge	.L4
+  97:Generated_Source\PSoC4/adc_PM.c ****     {
+  98:Generated_Source\PSoC4/adc_PM.c ****         if((adc_SAR_SAMPLE_CTRL_REG & adc_CONTINUOUS_EN) != 0u)
+  92              		.loc 1 98 0
+  93 0020 134B     		ldr	r3, .L8+12
+  94 0022 1B68     		ldr	r3, [r3]
+  95 0024 DB03     		lsls	r3, r3, #15
+  96 0026 03D5     		bpl	.L5
+  99:Generated_Source\PSoC4/adc_PM.c ****         {
+ 100:Generated_Source\PSoC4/adc_PM.c ****             adc_backup.enableState = adc_ENABLED | adc_STARTED;
+  97              		.loc 1 100 0
+  98 0028 0322     		movs	r2, #3
+  99 002a 0F4B     		ldr	r3, .L8+4
+ 100 002c 1A70     		strb	r2, [r3]
+ 101 002e 02E0     		b	.L6
+ 102              	.L5:
+ 101:Generated_Source\PSoC4/adc_PM.c ****         }
+ 102:Generated_Source\PSoC4/adc_PM.c ****         else
+ 103:Generated_Source\PSoC4/adc_PM.c ****         {
+ 104:Generated_Source\PSoC4/adc_PM.c ****             adc_backup.enableState = adc_ENABLED;
+ 103              		.loc 1 104 0
+ 104 0030 0122     		movs	r2, #1
+ 105 0032 0D4B     		ldr	r3, .L8+4
+ 106 0034 1A70     		strb	r2, [r3]
+ 107              	.L6:
+ 105:Generated_Source\PSoC4/adc_PM.c ****         }
+ 106:Generated_Source\PSoC4/adc_PM.c ****         adc_StopConvert();
+ 108              		.loc 1 106 0
+ 109 0036 FFF7FEFF 		bl	adc_StopConvert
+ 110              	.LVL0:
+ 107:Generated_Source\PSoC4/adc_PM.c ****         adc_Stop();
+ 111              		.loc 1 107 0
+ 112 003a FFF7FEFF 		bl	adc_Stop
+ 113              	.LVL1:
+ 108:Generated_Source\PSoC4/adc_PM.c ****         
+ 109:Generated_Source\PSoC4/adc_PM.c ****         /* Disable the SAR internal pump before entering the chip low power mode */
+ 110:Generated_Source\PSoC4/adc_PM.c ****         if((adc_SAR_CTRL_REG & adc_BOOSTPUMP_EN) != 0u)
+ 114              		.loc 1 110 0
+ 115 003e 0B4B     		ldr	r3, .L8+8
+ 116 0040 1B68     		ldr	r3, [r3]
+ 117 0042 DB02     		lsls	r3, r3, #11
+ 118 0044 0DD5     		bpl	.L3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 5
+
+
+ 111:Generated_Source\PSoC4/adc_PM.c ****         {
+ 112:Generated_Source\PSoC4/adc_PM.c ****             adc_SAR_CTRL_REG &= (uint32)~adc_BOOSTPUMP_EN;
+ 119              		.loc 1 112 0
+ 120 0046 094A     		ldr	r2, .L8+8
+ 121 0048 1168     		ldr	r1, [r2]
+ 122 004a 0A4B     		ldr	r3, .L8+16
+ 123 004c 0B40     		ands	r3, r1
+ 124 004e 1360     		str	r3, [r2]
+ 113:Generated_Source\PSoC4/adc_PM.c ****             adc_backup.enableState |= adc_BOOSTPUMP_ENABLED;
+ 125              		.loc 1 113 0
+ 126 0050 054A     		ldr	r2, .L8+4
+ 127 0052 1178     		ldrb	r1, [r2]
+ 128 0054 0423     		movs	r3, #4
+ 129 0056 0B43     		orrs	r3, r1
+ 130 0058 1370     		strb	r3, [r2]
+ 131 005a 02E0     		b	.L3
+ 132              	.L4:
+ 114:Generated_Source\PSoC4/adc_PM.c ****         }
+ 115:Generated_Source\PSoC4/adc_PM.c ****     }
+ 116:Generated_Source\PSoC4/adc_PM.c ****     else
+ 117:Generated_Source\PSoC4/adc_PM.c ****     {
+ 118:Generated_Source\PSoC4/adc_PM.c ****         adc_backup.enableState = adc_DISABLED;
+ 133              		.loc 1 118 0
+ 134 005c 0022     		movs	r2, #0
+ 135 005e 024B     		ldr	r3, .L8+4
+ 136 0060 1A70     		strb	r2, [r3]
+ 137              	.L3:
+ 119:Generated_Source\PSoC4/adc_PM.c ****     }
+ 120:Generated_Source\PSoC4/adc_PM.c **** }
+ 138              		.loc 1 120 0
+ 139              		@ sp needed
+ 140 0062 10BD     		pop	{r4, pc}
+ 141              	.L9:
+ 142              		.align	2
+ 143              	.L8:
+ 144 0064 30001A40 		.word	1075445808
+ 145 0068 00000000 		.word	.LANCHOR0
+ 146 006c 00001A40 		.word	1075445760
+ 147 0070 04001A40 		.word	1075445764
+ 148 0074 FFFFEFFF 		.word	-1048577
+ 149              		.cfi_endproc
+ 150              	.LFE2:
+ 151              		.size	adc_Sleep, .-adc_Sleep
+ 152              		.section	.text.adc_Wakeup,"ax",%progbits
+ 153              		.align	2
+ 154              		.global	adc_Wakeup
+ 155              		.code	16
+ 156              		.thumb_func
+ 157              		.type	adc_Wakeup, %function
+ 158              	adc_Wakeup:
+ 159              	.LFB3:
+ 121:Generated_Source\PSoC4/adc_PM.c **** 
+ 122:Generated_Source\PSoC4/adc_PM.c **** 
+ 123:Generated_Source\PSoC4/adc_PM.c **** /*******************************************************************************
+ 124:Generated_Source\PSoC4/adc_PM.c **** * Function Name: adc_Wakeup
+ 125:Generated_Source\PSoC4/adc_PM.c **** ********************************************************************************
+ 126:Generated_Source\PSoC4/adc_PM.c **** *
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 6
+
+
+ 127:Generated_Source\PSoC4/adc_PM.c **** * Summary:
+ 128:Generated_Source\PSoC4/adc_PM.c **** *  Restores the component enable state and configuration registers.
+ 129:Generated_Source\PSoC4/adc_PM.c **** *  This should be called just after awaking from sleep mode.
+ 130:Generated_Source\PSoC4/adc_PM.c **** *
+ 131:Generated_Source\PSoC4/adc_PM.c **** * Parameters:
+ 132:Generated_Source\PSoC4/adc_PM.c **** *  None.
+ 133:Generated_Source\PSoC4/adc_PM.c **** *
+ 134:Generated_Source\PSoC4/adc_PM.c **** * Return:
+ 135:Generated_Source\PSoC4/adc_PM.c **** *  None.
+ 136:Generated_Source\PSoC4/adc_PM.c **** *
+ 137:Generated_Source\PSoC4/adc_PM.c **** * Global Variables:
+ 138:Generated_Source\PSoC4/adc_PM.c **** *  adc_backup - used.
+ 139:Generated_Source\PSoC4/adc_PM.c **** *
+ 140:Generated_Source\PSoC4/adc_PM.c **** *******************************************************************************/
+ 141:Generated_Source\PSoC4/adc_PM.c **** void adc_Wakeup(void)
+ 142:Generated_Source\PSoC4/adc_PM.c **** {
+ 160              		.loc 1 142 0
+ 161              		.cfi_startproc
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164 0000 10B5     		push	{r4, lr}
+ 165              		.cfi_def_cfa_offset 8
+ 166              		.cfi_offset 4, -8
+ 167              		.cfi_offset 14, -4
+ 143:Generated_Source\PSoC4/adc_PM.c ****     adc_SAR_DFT_CTRL_REG = adc_backup.dftRegVal;
+ 168              		.loc 1 143 0
+ 169 0002 0C4B     		ldr	r3, .L13
+ 170 0004 0C4A     		ldr	r2, .L13+4
+ 171 0006 5968     		ldr	r1, [r3, #4]
+ 172 0008 1160     		str	r1, [r2]
+ 144:Generated_Source\PSoC4/adc_PM.c ****     if(adc_backup.enableState != adc_DISABLED)
+ 173              		.loc 1 144 0
+ 174 000a 1B78     		ldrb	r3, [r3]
+ 175 000c 002B     		cmp	r3, #0
+ 176 000e 0FD0     		beq	.L10
+ 145:Generated_Source\PSoC4/adc_PM.c ****     {
+ 146:Generated_Source\PSoC4/adc_PM.c ****         /* Enable the SAR internal pump  */
+ 147:Generated_Source\PSoC4/adc_PM.c ****         if((adc_backup.enableState & adc_BOOSTPUMP_ENABLED) != 0u)
+ 177              		.loc 1 147 0
+ 178 0010 5B07     		lsls	r3, r3, #29
+ 179 0012 05D5     		bpl	.L12
+ 148:Generated_Source\PSoC4/adc_PM.c ****         {
+ 149:Generated_Source\PSoC4/adc_PM.c ****             adc_SAR_CTRL_REG |= adc_BOOSTPUMP_EN;
+ 180              		.loc 1 149 0
+ 181 0014 094A     		ldr	r2, .L13+8
+ 182 0016 1368     		ldr	r3, [r2]
+ 183 0018 8021     		movs	r1, #128
+ 184 001a 4903     		lsls	r1, r1, #13
+ 185 001c 0B43     		orrs	r3, r1
+ 186 001e 1360     		str	r3, [r2]
+ 187              	.L12:
+ 150:Generated_Source\PSoC4/adc_PM.c ****         }
+ 151:Generated_Source\PSoC4/adc_PM.c ****         adc_Enable();
+ 188              		.loc 1 151 0
+ 189 0020 FFF7FEFF 		bl	adc_Enable
+ 190              	.LVL2:
+ 152:Generated_Source\PSoC4/adc_PM.c ****         if((adc_backup.enableState & adc_STARTED) != 0u)
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 7
+
+
+ 191              		.loc 1 152 0
+ 192 0024 034B     		ldr	r3, .L13
+ 193 0026 1B78     		ldrb	r3, [r3]
+ 194 0028 9B07     		lsls	r3, r3, #30
+ 195 002a 01D5     		bpl	.L10
+ 153:Generated_Source\PSoC4/adc_PM.c ****         {
+ 154:Generated_Source\PSoC4/adc_PM.c ****             adc_StartConvert();
+ 196              		.loc 1 154 0
+ 197 002c FFF7FEFF 		bl	adc_StartConvert
+ 198              	.LVL3:
+ 199              	.L10:
+ 155:Generated_Source\PSoC4/adc_PM.c ****         }
+ 156:Generated_Source\PSoC4/adc_PM.c ****     }
+ 157:Generated_Source\PSoC4/adc_PM.c **** }
+ 200              		.loc 1 157 0
+ 201              		@ sp needed
+ 202 0030 10BD     		pop	{r4, pc}
+ 203              	.L14:
+ 204 0032 C046     		.align	2
+ 205              	.L13:
+ 206 0034 00000000 		.word	.LANCHOR0
+ 207 0038 30001A40 		.word	1075445808
+ 208 003c 00001A40 		.word	1075445760
+ 209              		.cfi_endproc
+ 210              	.LFE3:
+ 211              		.size	adc_Wakeup, .-adc_Wakeup
+ 212              		.bss
+ 213              		.align	2
+ 214              		.set	.LANCHOR0,. + 0
+ 215              		.type	adc_backup, %object
+ 216              		.size	adc_backup, 8
+ 217              	adc_backup:
+ 218 0000 00000000 		.space	8
+ 218      00000000 
+ 219              		.text
+ 220              	.Letext0:
+ 221              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 222              		.file 3 "Generated_Source\\PSoC4\\adc.h"
+ 223              		.section	.debug_info,"",%progbits
+ 224              	.Ldebug_info0:
+ 225 0000 8F010000 		.4byte	0x18f
+ 226 0004 0400     		.2byte	0x4
+ 227 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 228 000a 04       		.byte	0x4
+ 229 000b 01       		.uleb128 0x1
+ 230 000c 2D010000 		.4byte	.LASF28
+ 231 0010 0C       		.byte	0xc
+ 232 0011 30020000 		.4byte	.LASF29
+ 233 0015 19000000 		.4byte	.LASF30
+ 234 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 235 001d 00000000 		.4byte	0
+ 236 0021 00000000 		.4byte	.Ldebug_line0
+ 237 0025 02       		.uleb128 0x2
+ 238 0026 01       		.byte	0x1
+ 239 0027 06       		.byte	0x6
+ 240 0028 70000000 		.4byte	.LASF0
+ 241 002c 02       		.uleb128 0x2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 8
+
+
+ 242 002d 01       		.byte	0x1
+ 243 002e 08       		.byte	0x8
+ 244 002f 8B000000 		.4byte	.LASF1
+ 245 0033 02       		.uleb128 0x2
+ 246 0034 02       		.byte	0x2
+ 247 0035 05       		.byte	0x5
+ 248 0036 EA010000 		.4byte	.LASF2
+ 249 003a 02       		.uleb128 0x2
+ 250 003b 02       		.byte	0x2
+ 251 003c 07       		.byte	0x7
+ 252 003d 06000000 		.4byte	.LASF3
+ 253 0041 02       		.uleb128 0x2
+ 254 0042 04       		.byte	0x4
+ 255 0043 05       		.byte	0x5
+ 256 0044 0F020000 		.4byte	.LASF4
+ 257 0048 02       		.uleb128 0x2
+ 258 0049 04       		.byte	0x4
+ 259 004a 07       		.byte	0x7
+ 260 004b 99000000 		.4byte	.LASF5
+ 261 004f 02       		.uleb128 0x2
+ 262 0050 08       		.byte	0x8
+ 263 0051 05       		.byte	0x5
+ 264 0052 CE010000 		.4byte	.LASF6
+ 265 0056 02       		.uleb128 0x2
+ 266 0057 08       		.byte	0x8
+ 267 0058 07       		.byte	0x7
+ 268 0059 FA000000 		.4byte	.LASF7
+ 269 005d 03       		.uleb128 0x3
+ 270 005e 04       		.byte	0x4
+ 271 005f 05       		.byte	0x5
+ 272 0060 696E7400 		.ascii	"int\000"
+ 273 0064 02       		.uleb128 0x2
+ 274 0065 04       		.byte	0x4
+ 275 0066 07       		.byte	0x7
+ 276 0067 ED000000 		.4byte	.LASF8
+ 277 006b 04       		.uleb128 0x4
+ 278 006c AB000000 		.4byte	.LASF9
+ 279 0070 02       		.byte	0x2
+ 280 0071 FC01     		.2byte	0x1fc
+ 281 0073 2C000000 		.4byte	0x2c
+ 282 0077 04       		.uleb128 0x4
+ 283 0078 E6000000 		.4byte	.LASF10
+ 284 007c 02       		.byte	0x2
+ 285 007d FE01     		.2byte	0x1fe
+ 286 007f 48000000 		.4byte	0x48
+ 287 0083 02       		.uleb128 0x2
+ 288 0084 04       		.byte	0x4
+ 289 0085 04       		.byte	0x4
+ 290 0086 6A000000 		.4byte	.LASF11
+ 291 008a 02       		.uleb128 0x2
+ 292 008b 08       		.byte	0x8
+ 293 008c 04       		.byte	0x4
+ 294 008d D4000000 		.4byte	.LASF12
+ 295 0091 02       		.uleb128 0x2
+ 296 0092 01       		.byte	0x1
+ 297 0093 08       		.byte	0x8
+ 298 0094 DC010000 		.4byte	.LASF13
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 9
+
+
+ 299 0098 04       		.uleb128 0x4
+ 300 0099 00000000 		.4byte	.LASF14
+ 301 009d 02       		.byte	0x2
+ 302 009e A802     		.2byte	0x2a8
+ 303 00a0 A4000000 		.4byte	0xa4
+ 304 00a4 05       		.uleb128 0x5
+ 305 00a5 77000000 		.4byte	0x77
+ 306 00a9 02       		.uleb128 0x2
+ 307 00aa 08       		.byte	0x8
+ 308 00ab 04       		.byte	0x4
+ 309 00ac 24020000 		.4byte	.LASF15
+ 310 00b0 02       		.uleb128 0x2
+ 311 00b1 04       		.byte	0x4
+ 312 00b2 07       		.byte	0x7
+ 313 00b3 C5010000 		.4byte	.LASF16
+ 314 00b7 06       		.uleb128 0x6
+ 315 00b8 08       		.byte	0x8
+ 316 00b9 03       		.byte	0x3
+ 317 00ba 1E       		.byte	0x1e
+ 318 00bb D8000000 		.4byte	0xd8
+ 319 00bf 07       		.uleb128 0x7
+ 320 00c0 18020000 		.4byte	.LASF17
+ 321 00c4 03       		.byte	0x3
+ 322 00c5 20       		.byte	0x20
+ 323 00c6 6B000000 		.4byte	0x6b
+ 324 00ca 00       		.byte	0
+ 325 00cb 07       		.uleb128 0x7
+ 326 00cc BB010000 		.4byte	.LASF18
+ 327 00d0 03       		.byte	0x3
+ 328 00d1 21       		.byte	0x21
+ 329 00d2 77000000 		.4byte	0x77
+ 330 00d6 04       		.byte	0x4
+ 331 00d7 00       		.byte	0
+ 332 00d8 08       		.uleb128 0x8
+ 333 00d9 C2000000 		.4byte	.LASF19
+ 334 00dd 03       		.byte	0x3
+ 335 00de 22       		.byte	0x22
+ 336 00df B7000000 		.4byte	0xb7
+ 337 00e3 09       		.uleb128 0x9
+ 338 00e4 7C000000 		.4byte	.LASF20
+ 339 00e8 01       		.byte	0x1
+ 340 00e9 2D       		.byte	0x2d
+ 341 00ea 00000000 		.4byte	.LFB0
+ 342 00ee 02000000 		.4byte	.LFE0-.LFB0
+ 343 00f2 01       		.uleb128 0x1
+ 344 00f3 9C       		.byte	0x9c
+ 345 00f4 09       		.uleb128 0x9
+ 346 00f5 11010000 		.4byte	.LASF21
+ 347 00f9 01       		.byte	0x1
+ 348 00fa 41       		.byte	0x41
+ 349 00fb 00000000 		.4byte	.LFB1
+ 350 00ff 02000000 		.4byte	.LFE1-.LFB1
+ 351 0103 01       		.uleb128 0x1
+ 352 0104 9C       		.byte	0x9c
+ 353 0105 0A       		.uleb128 0xa
+ 354 0106 23010000 		.4byte	.LASF22
+ 355 010a 01       		.byte	0x1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 10
+
+
+ 356 010b 59       		.byte	0x59
+ 357 010c 00000000 		.4byte	.LFB2
+ 358 0110 78000000 		.4byte	.LFE2-.LFB2
+ 359 0114 01       		.uleb128 0x1
+ 360 0115 9C       		.byte	0x9c
+ 361 0116 2D010000 		.4byte	0x12d
+ 362 011a 0B       		.uleb128 0xb
+ 363 011b 3A000000 		.4byte	.LVL0
+ 364 011f 66010000 		.4byte	0x166
+ 365 0123 0B       		.uleb128 0xb
+ 366 0124 3E000000 		.4byte	.LVL1
+ 367 0128 71010000 		.4byte	0x171
+ 368 012c 00       		.byte	0
+ 369 012d 0A       		.uleb128 0xa
+ 370 012e 50020000 		.4byte	.LASF23
+ 371 0132 01       		.byte	0x1
+ 372 0133 8D       		.byte	0x8d
+ 373 0134 00000000 		.4byte	.LFB3
+ 374 0138 40000000 		.4byte	.LFE3-.LFB3
+ 375 013c 01       		.uleb128 0x1
+ 376 013d 9C       		.byte	0x9c
+ 377 013e 55010000 		.4byte	0x155
+ 378 0142 0B       		.uleb128 0xb
+ 379 0143 24000000 		.4byte	.LVL2
+ 380 0147 7C010000 		.4byte	0x17c
+ 381 014b 0B       		.uleb128 0xb
+ 382 014c 30000000 		.4byte	.LVL3
+ 383 0150 87010000 		.4byte	0x187
+ 384 0154 00       		.byte	0
+ 385 0155 0C       		.uleb128 0xc
+ 386 0156 F4010000 		.4byte	.LASF31
+ 387 015a 01       		.byte	0x1
+ 388 015b 18       		.byte	0x18
+ 389 015c D8000000 		.4byte	0xd8
+ 390 0160 05       		.uleb128 0x5
+ 391 0161 03       		.byte	0x3
+ 392 0162 00000000 		.4byte	adc_backup
+ 393 0166 0D       		.uleb128 0xd
+ 394 0167 FF010000 		.4byte	.LASF24
+ 395 016b FF010000 		.4byte	.LASF24
+ 396 016f 03       		.byte	0x3
+ 397 0170 9E       		.byte	0x9e
+ 398 0171 0D       		.uleb128 0xd
+ 399 0172 E1010000 		.4byte	.LASF25
+ 400 0176 E1010000 		.4byte	.LASF25
+ 401 017a 03       		.byte	0x3
+ 402 017b 9A       		.byte	0x9a
+ 403 017c 0D       		.uleb128 0xd
+ 404 017d DB000000 		.4byte	.LASF26
+ 405 0181 DB000000 		.4byte	.LASF26
+ 406 0185 03       		.byte	0x3
+ 407 0186 9C       		.byte	0x9c
+ 408 0187 0D       		.uleb128 0xd
+ 409 0188 B1000000 		.4byte	.LASF27
+ 410 018c B1000000 		.4byte	.LASF27
+ 411 0190 03       		.byte	0x3
+ 412 0191 9D       		.byte	0x9d
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 11
+
+
+ 413 0192 00       		.byte	0
+ 414              		.section	.debug_abbrev,"",%progbits
+ 415              	.Ldebug_abbrev0:
+ 416 0000 01       		.uleb128 0x1
+ 417 0001 11       		.uleb128 0x11
+ 418 0002 01       		.byte	0x1
+ 419 0003 25       		.uleb128 0x25
+ 420 0004 0E       		.uleb128 0xe
+ 421 0005 13       		.uleb128 0x13
+ 422 0006 0B       		.uleb128 0xb
+ 423 0007 03       		.uleb128 0x3
+ 424 0008 0E       		.uleb128 0xe
+ 425 0009 1B       		.uleb128 0x1b
+ 426 000a 0E       		.uleb128 0xe
+ 427 000b 55       		.uleb128 0x55
+ 428 000c 17       		.uleb128 0x17
+ 429 000d 11       		.uleb128 0x11
+ 430 000e 01       		.uleb128 0x1
+ 431 000f 10       		.uleb128 0x10
+ 432 0010 17       		.uleb128 0x17
+ 433 0011 00       		.byte	0
+ 434 0012 00       		.byte	0
+ 435 0013 02       		.uleb128 0x2
+ 436 0014 24       		.uleb128 0x24
+ 437 0015 00       		.byte	0
+ 438 0016 0B       		.uleb128 0xb
+ 439 0017 0B       		.uleb128 0xb
+ 440 0018 3E       		.uleb128 0x3e
+ 441 0019 0B       		.uleb128 0xb
+ 442 001a 03       		.uleb128 0x3
+ 443 001b 0E       		.uleb128 0xe
+ 444 001c 00       		.byte	0
+ 445 001d 00       		.byte	0
+ 446 001e 03       		.uleb128 0x3
+ 447 001f 24       		.uleb128 0x24
+ 448 0020 00       		.byte	0
+ 449 0021 0B       		.uleb128 0xb
+ 450 0022 0B       		.uleb128 0xb
+ 451 0023 3E       		.uleb128 0x3e
+ 452 0024 0B       		.uleb128 0xb
+ 453 0025 03       		.uleb128 0x3
+ 454 0026 08       		.uleb128 0x8
+ 455 0027 00       		.byte	0
+ 456 0028 00       		.byte	0
+ 457 0029 04       		.uleb128 0x4
+ 458 002a 16       		.uleb128 0x16
+ 459 002b 00       		.byte	0
+ 460 002c 03       		.uleb128 0x3
+ 461 002d 0E       		.uleb128 0xe
+ 462 002e 3A       		.uleb128 0x3a
+ 463 002f 0B       		.uleb128 0xb
+ 464 0030 3B       		.uleb128 0x3b
+ 465 0031 05       		.uleb128 0x5
+ 466 0032 49       		.uleb128 0x49
+ 467 0033 13       		.uleb128 0x13
+ 468 0034 00       		.byte	0
+ 469 0035 00       		.byte	0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 12
+
+
+ 470 0036 05       		.uleb128 0x5
+ 471 0037 35       		.uleb128 0x35
+ 472 0038 00       		.byte	0
+ 473 0039 49       		.uleb128 0x49
+ 474 003a 13       		.uleb128 0x13
+ 475 003b 00       		.byte	0
+ 476 003c 00       		.byte	0
+ 477 003d 06       		.uleb128 0x6
+ 478 003e 13       		.uleb128 0x13
+ 479 003f 01       		.byte	0x1
+ 480 0040 0B       		.uleb128 0xb
+ 481 0041 0B       		.uleb128 0xb
+ 482 0042 3A       		.uleb128 0x3a
+ 483 0043 0B       		.uleb128 0xb
+ 484 0044 3B       		.uleb128 0x3b
+ 485 0045 0B       		.uleb128 0xb
+ 486 0046 01       		.uleb128 0x1
+ 487 0047 13       		.uleb128 0x13
+ 488 0048 00       		.byte	0
+ 489 0049 00       		.byte	0
+ 490 004a 07       		.uleb128 0x7
+ 491 004b 0D       		.uleb128 0xd
+ 492 004c 00       		.byte	0
+ 493 004d 03       		.uleb128 0x3
+ 494 004e 0E       		.uleb128 0xe
+ 495 004f 3A       		.uleb128 0x3a
+ 496 0050 0B       		.uleb128 0xb
+ 497 0051 3B       		.uleb128 0x3b
+ 498 0052 0B       		.uleb128 0xb
+ 499 0053 49       		.uleb128 0x49
+ 500 0054 13       		.uleb128 0x13
+ 501 0055 38       		.uleb128 0x38
+ 502 0056 0B       		.uleb128 0xb
+ 503 0057 00       		.byte	0
+ 504 0058 00       		.byte	0
+ 505 0059 08       		.uleb128 0x8
+ 506 005a 16       		.uleb128 0x16
+ 507 005b 00       		.byte	0
+ 508 005c 03       		.uleb128 0x3
+ 509 005d 0E       		.uleb128 0xe
+ 510 005e 3A       		.uleb128 0x3a
+ 511 005f 0B       		.uleb128 0xb
+ 512 0060 3B       		.uleb128 0x3b
+ 513 0061 0B       		.uleb128 0xb
+ 514 0062 49       		.uleb128 0x49
+ 515 0063 13       		.uleb128 0x13
+ 516 0064 00       		.byte	0
+ 517 0065 00       		.byte	0
+ 518 0066 09       		.uleb128 0x9
+ 519 0067 2E       		.uleb128 0x2e
+ 520 0068 00       		.byte	0
+ 521 0069 3F       		.uleb128 0x3f
+ 522 006a 19       		.uleb128 0x19
+ 523 006b 03       		.uleb128 0x3
+ 524 006c 0E       		.uleb128 0xe
+ 525 006d 3A       		.uleb128 0x3a
+ 526 006e 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 13
+
+
+ 527 006f 3B       		.uleb128 0x3b
+ 528 0070 0B       		.uleb128 0xb
+ 529 0071 27       		.uleb128 0x27
+ 530 0072 19       		.uleb128 0x19
+ 531 0073 11       		.uleb128 0x11
+ 532 0074 01       		.uleb128 0x1
+ 533 0075 12       		.uleb128 0x12
+ 534 0076 06       		.uleb128 0x6
+ 535 0077 40       		.uleb128 0x40
+ 536 0078 18       		.uleb128 0x18
+ 537 0079 9742     		.uleb128 0x2117
+ 538 007b 19       		.uleb128 0x19
+ 539 007c 00       		.byte	0
+ 540 007d 00       		.byte	0
+ 541 007e 0A       		.uleb128 0xa
+ 542 007f 2E       		.uleb128 0x2e
+ 543 0080 01       		.byte	0x1
+ 544 0081 3F       		.uleb128 0x3f
+ 545 0082 19       		.uleb128 0x19
+ 546 0083 03       		.uleb128 0x3
+ 547 0084 0E       		.uleb128 0xe
+ 548 0085 3A       		.uleb128 0x3a
+ 549 0086 0B       		.uleb128 0xb
+ 550 0087 3B       		.uleb128 0x3b
+ 551 0088 0B       		.uleb128 0xb
+ 552 0089 27       		.uleb128 0x27
+ 553 008a 19       		.uleb128 0x19
+ 554 008b 11       		.uleb128 0x11
+ 555 008c 01       		.uleb128 0x1
+ 556 008d 12       		.uleb128 0x12
+ 557 008e 06       		.uleb128 0x6
+ 558 008f 40       		.uleb128 0x40
+ 559 0090 18       		.uleb128 0x18
+ 560 0091 9742     		.uleb128 0x2117
+ 561 0093 19       		.uleb128 0x19
+ 562 0094 01       		.uleb128 0x1
+ 563 0095 13       		.uleb128 0x13
+ 564 0096 00       		.byte	0
+ 565 0097 00       		.byte	0
+ 566 0098 0B       		.uleb128 0xb
+ 567 0099 898201   		.uleb128 0x4109
+ 568 009c 00       		.byte	0
+ 569 009d 11       		.uleb128 0x11
+ 570 009e 01       		.uleb128 0x1
+ 571 009f 31       		.uleb128 0x31
+ 572 00a0 13       		.uleb128 0x13
+ 573 00a1 00       		.byte	0
+ 574 00a2 00       		.byte	0
+ 575 00a3 0C       		.uleb128 0xc
+ 576 00a4 34       		.uleb128 0x34
+ 577 00a5 00       		.byte	0
+ 578 00a6 03       		.uleb128 0x3
+ 579 00a7 0E       		.uleb128 0xe
+ 580 00a8 3A       		.uleb128 0x3a
+ 581 00a9 0B       		.uleb128 0xb
+ 582 00aa 3B       		.uleb128 0x3b
+ 583 00ab 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 14
+
+
+ 584 00ac 49       		.uleb128 0x49
+ 585 00ad 13       		.uleb128 0x13
+ 586 00ae 02       		.uleb128 0x2
+ 587 00af 18       		.uleb128 0x18
+ 588 00b0 00       		.byte	0
+ 589 00b1 00       		.byte	0
+ 590 00b2 0D       		.uleb128 0xd
+ 591 00b3 2E       		.uleb128 0x2e
+ 592 00b4 00       		.byte	0
+ 593 00b5 3F       		.uleb128 0x3f
+ 594 00b6 19       		.uleb128 0x19
+ 595 00b7 3C       		.uleb128 0x3c
+ 596 00b8 19       		.uleb128 0x19
+ 597 00b9 6E       		.uleb128 0x6e
+ 598 00ba 0E       		.uleb128 0xe
+ 599 00bb 03       		.uleb128 0x3
+ 600 00bc 0E       		.uleb128 0xe
+ 601 00bd 3A       		.uleb128 0x3a
+ 602 00be 0B       		.uleb128 0xb
+ 603 00bf 3B       		.uleb128 0x3b
+ 604 00c0 0B       		.uleb128 0xb
+ 605 00c1 00       		.byte	0
+ 606 00c2 00       		.byte	0
+ 607 00c3 00       		.byte	0
+ 608              		.section	.debug_aranges,"",%progbits
+ 609 0000 34000000 		.4byte	0x34
+ 610 0004 0200     		.2byte	0x2
+ 611 0006 00000000 		.4byte	.Ldebug_info0
+ 612 000a 04       		.byte	0x4
+ 613 000b 00       		.byte	0
+ 614 000c 0000     		.2byte	0
+ 615 000e 0000     		.2byte	0
+ 616 0010 00000000 		.4byte	.LFB0
+ 617 0014 02000000 		.4byte	.LFE0-.LFB0
+ 618 0018 00000000 		.4byte	.LFB1
+ 619 001c 02000000 		.4byte	.LFE1-.LFB1
+ 620 0020 00000000 		.4byte	.LFB2
+ 621 0024 78000000 		.4byte	.LFE2-.LFB2
+ 622 0028 00000000 		.4byte	.LFB3
+ 623 002c 40000000 		.4byte	.LFE3-.LFB3
+ 624 0030 00000000 		.4byte	0
+ 625 0034 00000000 		.4byte	0
+ 626              		.section	.debug_ranges,"",%progbits
+ 627              	.Ldebug_ranges0:
+ 628 0000 00000000 		.4byte	.LFB0
+ 629 0004 02000000 		.4byte	.LFE0
+ 630 0008 00000000 		.4byte	.LFB1
+ 631 000c 02000000 		.4byte	.LFE1
+ 632 0010 00000000 		.4byte	.LFB2
+ 633 0014 78000000 		.4byte	.LFE2
+ 634 0018 00000000 		.4byte	.LFB3
+ 635 001c 40000000 		.4byte	.LFE3
+ 636 0020 00000000 		.4byte	0
+ 637 0024 00000000 		.4byte	0
+ 638              		.section	.debug_line,"",%progbits
+ 639              	.Ldebug_line0:
+ 640 0000 A8000000 		.section	.debug_str,"MS",%progbits,1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 15
+
+
+ 640      02004C00 
+ 640      00000201 
+ 640      FB0E0D00 
+ 640      01010101 
+ 641              	.LASF14:
+ 642 0000 72656733 		.ascii	"reg32\000"
+ 642      3200
+ 643              	.LASF3:
+ 644 0006 73686F72 		.ascii	"short unsigned int\000"
+ 644      7420756E 
+ 644      7369676E 
+ 644      65642069 
+ 644      6E7400
+ 645              	.LASF30:
+ 646 0019 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-049-42XX\\e"
+ 646      6978745C 
+ 646      61697874 
+ 646      5C706F72 
+ 646      74735C43 
+ 647 0046 78616D70 		.ascii	"xamples\\CY8CKIT-049-42XX-uart.cydsn\000"
+ 647      6C65735C 
+ 647      43593843 
+ 647      4B49542D 
+ 647      3034392D 
+ 648              	.LASF11:
+ 649 006a 666C6F61 		.ascii	"float\000"
+ 649      7400
+ 650              	.LASF0:
+ 651 0070 7369676E 		.ascii	"signed char\000"
+ 651      65642063 
+ 651      68617200 
+ 652              	.LASF20:
+ 653 007c 6164635F 		.ascii	"adc_SaveConfig\000"
+ 653      53617665 
+ 653      436F6E66 
+ 653      696700
+ 654              	.LASF1:
+ 655 008b 756E7369 		.ascii	"unsigned char\000"
+ 655      676E6564 
+ 655      20636861 
+ 655      7200
+ 656              	.LASF5:
+ 657 0099 6C6F6E67 		.ascii	"long unsigned int\000"
+ 657      20756E73 
+ 657      69676E65 
+ 657      6420696E 
+ 657      7400
+ 658              	.LASF9:
+ 659 00ab 75696E74 		.ascii	"uint8\000"
+ 659      3800
+ 660              	.LASF27:
+ 661 00b1 6164635F 		.ascii	"adc_StartConvert\000"
+ 661      53746172 
+ 661      74436F6E 
+ 661      76657274 
+ 661      00
+ 662              	.LASF19:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 16
+
+
+ 663 00c2 6164635F 		.ascii	"adc_BACKUP_STRUCT\000"
+ 663      4241434B 
+ 663      55505F53 
+ 663      54525543 
+ 663      5400
+ 664              	.LASF12:
+ 665 00d4 646F7562 		.ascii	"double\000"
+ 665      6C6500
+ 666              	.LASF26:
+ 667 00db 6164635F 		.ascii	"adc_Enable\000"
+ 667      456E6162 
+ 667      6C6500
+ 668              	.LASF10:
+ 669 00e6 75696E74 		.ascii	"uint32\000"
+ 669      333200
+ 670              	.LASF8:
+ 671 00ed 756E7369 		.ascii	"unsigned int\000"
+ 671      676E6564 
+ 671      20696E74 
+ 671      00
+ 672              	.LASF7:
+ 673 00fa 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 673      206C6F6E 
+ 673      6720756E 
+ 673      7369676E 
+ 673      65642069 
+ 674              	.LASF21:
+ 675 0111 6164635F 		.ascii	"adc_RestoreConfig\000"
+ 675      52657374 
+ 675      6F726543 
+ 675      6F6E6669 
+ 675      6700
+ 676              	.LASF22:
+ 677 0123 6164635F 		.ascii	"adc_Sleep\000"
+ 677      536C6565 
+ 677      7000
+ 678              	.LASF28:
+ 679 012d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 679      43313120 
+ 679      352E342E 
+ 679      31203230 
+ 679      31363036 
+ 680 0160 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 680      20726576 
+ 680      6973696F 
+ 680      6E203233 
+ 680      37373135 
+ 681 0193 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 681      66756E63 
+ 681      74696F6E 
+ 681      2D736563 
+ 681      74696F6E 
+ 682              	.LASF18:
+ 683 01bb 64667452 		.ascii	"dftRegVal\000"
+ 683      65675661 
+ 683      6C00
+ 684              	.LASF16:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccpT2aAT.s 			page 17
+
+
+ 685 01c5 73697A65 		.ascii	"sizetype\000"
+ 685      74797065 
+ 685      00
+ 686              	.LASF6:
+ 687 01ce 6C6F6E67 		.ascii	"long long int\000"
+ 687      206C6F6E 
+ 687      6720696E 
+ 687      7400
+ 688              	.LASF13:
+ 689 01dc 63686172 		.ascii	"char\000"
+ 689      00
+ 690              	.LASF25:
+ 691 01e1 6164635F 		.ascii	"adc_Stop\000"
+ 691      53746F70 
+ 691      00
+ 692              	.LASF2:
+ 693 01ea 73686F72 		.ascii	"short int\000"
+ 693      7420696E 
+ 693      7400
+ 694              	.LASF31:
+ 695 01f4 6164635F 		.ascii	"adc_backup\000"
+ 695      6261636B 
+ 695      757000
+ 696              	.LASF24:
+ 697 01ff 6164635F 		.ascii	"adc_StopConvert\000"
+ 697      53746F70 
+ 697      436F6E76 
+ 697      65727400 
+ 698              	.LASF4:
+ 699 020f 6C6F6E67 		.ascii	"long int\000"
+ 699      20696E74 
+ 699      00
+ 700              	.LASF17:
+ 701 0218 656E6162 		.ascii	"enableState\000"
+ 701      6C655374 
+ 701      61746500 
+ 702              	.LASF15:
+ 703 0224 6C6F6E67 		.ascii	"long double\000"
+ 703      20646F75 
+ 703      626C6500 
+ 704              	.LASF29:
+ 705 0230 47656E65 		.ascii	"Generated_Source\\PSoC4\\adc_PM.c\000"
+ 705      72617465 
+ 705      645F536F 
+ 705      75726365 
+ 705      5C50536F 
+ 706              	.LASF23:
+ 707 0250 6164635F 		.ascii	"adc_Wakeup\000"
+ 707      57616B65 
+ 707      757000
+ 708              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

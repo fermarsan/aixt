@@ -627,17 +627,17 @@ END GROUP
  .debug_abbrev  0x00000827       0x14 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyBootAsmGnu.o)
  .debug_abbrev  0x0000083b      0x19e .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyFlash.o)
 
-.debug_line     0x00000000      0xf3d
+.debug_line     0x00000000      0xf3c
  *(.debug_line)
- .debug_line    0x00000000       0x8a .\CortexM0p\ARM_GCC_541\Debug\main.o
- .debug_line    0x0000008a       0xc6 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_line    0x00000150      0x141 .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
- .debug_line    0x00000291      0x247 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
- .debug_line    0x000004d8      0x4dc .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
- .debug_line    0x000009b4      0x284 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLFClk.o)
- .debug_line    0x00000c38       0xbc .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(led1.o)
- .debug_line    0x00000cf4       0x68 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyBootAsmGnu.o)
- .debug_line    0x00000d5c      0x1e1 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyFlash.o)
+ .debug_line    0x00000000       0x89 .\CortexM0p\ARM_GCC_541\Debug\main.o
+ .debug_line    0x00000089       0xc6 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x0000014f      0x141 .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x00000290      0x247 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+ .debug_line    0x000004d7      0x4dc .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLib.o)
+ .debug_line    0x000009b3      0x284 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyLFClk.o)
+ .debug_line    0x00000c37       0xbc .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(led1.o)
+ .debug_line    0x00000cf3       0x68 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyBootAsmGnu.o)
+ .debug_line    0x00000d5b      0x1e1 .\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.a(CyFlash.o)
 
 .debug_frame    0x00000000      0x948
  *(.debug_frame)

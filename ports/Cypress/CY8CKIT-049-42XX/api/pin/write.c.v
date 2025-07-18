@@ -1,13 +1,13 @@
 // Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera
-// Date: 2022-2024
+// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+// Date: 2022-2025
 // License: MIT
 //
-// // Description: write functions (CY8CKIT-049-42XX)
+// // Description: pin write functions (CY8CKIT-049-42XX)
 
 module pin
 
-@[inline]
-pub fn write(PIN_NAME, VALUE) {
-	C.PIN_NAME_Write(VALUE)
+@[as_macro]
+pub fn write(name any, value any) {
+	C.PIN_WRITE(name, value)
 }

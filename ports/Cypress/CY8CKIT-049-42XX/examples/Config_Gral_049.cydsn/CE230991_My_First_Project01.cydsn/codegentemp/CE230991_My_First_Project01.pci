@@ -1,9 +1,0 @@
-# CE230991_My_First_Project01
-# 2025-05-15 00:34:17Z
-
-# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
-dont_use_io iocell 3 2
-# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
-dont_use_io iocell 3 3
-set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
-set_io "LED_1(0)" iocell 1 6

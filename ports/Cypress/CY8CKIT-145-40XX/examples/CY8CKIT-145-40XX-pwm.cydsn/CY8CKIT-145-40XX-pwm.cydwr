@@ -11,7 +11,33 @@
   <Data key="DataVersionKey" value="2" />
   <Group key="DWRInstGuidMapping">
     <Group key="Pin">
-      <Data key="b30b6374-b98e-4adb-abf3-104c5c1fd992" value="LEDPWM" />
+      <Data key="3abdd565-d7bd-43cc-ae59-7aa231dacbad" value="di2" />
+      <Data key="5dff320b-b723-4097-a095-a8bafc6b367a" value="led9" />
+      <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="sw2" />
+      <Data key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/458c2b64-f6c8-403c-9883-825f70cb5346" value="capsense_CintB" />
+      <Data key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/7850aeaf-db25-4eae-b828-015ef596b59e" value="capsense_Cmod" />
+      <Data key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/9696e4af-6170-4a72-adbc-8a1b5950a8a9" value="capsense_Tx" />
+      <Data key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/77715107-f8d5-47e5-a629-0fb83101ac6b" value="capsense_Sns" />
+      <Data key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/a0d51a89-431d-48d5-b6fc-22184503fde4" value="capsense_CintA" />
+      <Data key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/ea884bc0-86af-40f9-b67b-efbe1ecd0ccd" value="capsense_Rx" />
+      <Data key="39f40c15-7b28-41c2-89b0-45142dcbb501" value="led1" />
+      <Data key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/23b8206d-1c77-4e61-be4a-b4037d5de5fc" value="uart_tx" />
+      <Data key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/78e33e5d-45ea-4b75-88d5-73274e8a7ce4" value="uart_rx" />
+      <Data key="63ad1388-8c11-4570-871c-d82429dc0b7d" value="do0" />
+      <Data key="91f43448-e971-44ea-b87b-5b9227c6394d" value="di1" />
+      <Data key="824db034-a17e-4115-b67d-a1d3ae88143f" value="led4" />
+      <Data key="90858a0e-6046-4f0f-beb4-153e5a7f75ce" value="led11" />
+      <Data key="2130111e-b557-4e91-a0d5-21ebe7d1410a" value="di0" />
+      <Data key="a5d6cb44-fce8-42b0-a16d-1792daeb4254" value="do2" />
+      <Data key="b780c54c-1f12-4f0b-be5d-99602c824b06" value="led5" />
+      <Data key="c6d5e5e8-d580-4903-bea5-35b6f1e85ba5" value="led8" />
+      <Data key="c419ce7a-e877-4df8-9c78-ef9efbe9f98b" value="led6" />
+      <Data key="dfa4b3fb-1238-42c1-8edb-bc96c792cd94" value="led7" />
+      <Data key="e95e1ce6-4e9a-485c-927a-a5992e52121f" value="pwm_2" />
+      <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="pwm_1" />
+      <Data key="f9e17010-f379-4ebf-a8a0-05170e0e57d3" value="do1" />
+      <Data key="fab737fe-cd8d-4a0e-95e4-29cbb8717af8" value="pwm_0" />
+      <Data key="fadec0dd-f3cd-4e82-8957-cc05342af803" value="led10" />
     </Group>
   </Group>
   <Group key="FlashSecurity">
@@ -987,13 +1013,160 @@
     </Group>
   </Group>
   <Group key="Pin2">
-    <Group key="b30b6374-b98e-4adb-abf3-104c5c1fd992">
+    <Group key="3abdd565-d7bd-43cc-ae59-7aa231dacbad">
+      <Group key="0">
+        <Data key="Port Format" value="1,7" />
+      </Group>
+    </Group>
+    <Group key="5dff320b-b723-4097-a095-a8bafc6b367a">
+      <Group key="0">
+        <Data key="Port Format" value="3,4" />
+      </Group>
+    </Group>
+    <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
+      <Group key="0">
+        <Data key="Port Format" value="0,7" />
+      </Group>
+    </Group>
+    <Group key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/458c2b64-f6c8-403c-9883-825f70cb5346">
+      <Group key="0">
+        <Data key="Port Format" value="4,3" />
+      </Group>
+    </Group>
+    <Group key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/7850aeaf-db25-4eae-b828-015ef596b59e">
+      <Group key="0">
+        <Data key="Port Format" value="4,1" />
+      </Group>
+    </Group>
+    <Group key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/9696e4af-6170-4a72-adbc-8a1b5950a8a9">
+      <Group key="0">
+        <Data key="Port Format" value="1,3" />
+      </Group>
+    </Group>
+    <Group key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/77715107-f8d5-47e5-a629-0fb83101ac6b">
+      <Group key="0">
+        <Data key="Port Format" value="0,0" />
+      </Group>
+      <Group key="1">
+        <Data key="Port Format" value="0,1" />
+      </Group>
+      <Group key="2">
+        <Data key="Port Format" value="0,2" />
+      </Group>
+      <Group key="3">
+        <Data key="Port Format" value="0,3" />
+      </Group>
+      <Group key="4">
+        <Data key="Port Format" value="0,6" />
+      </Group>
+    </Group>
+    <Group key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/a0d51a89-431d-48d5-b6fc-22184503fde4">
+      <Group key="0">
+        <Data key="Port Format" value="4,2" />
+      </Group>
+    </Group>
+    <Group key="9d1c5d4f-e9a4-45e7-ac0e-77df6c9eda08/ea884bc0-86af-40f9-b67b-efbe1ecd0ccd">
+      <Group key="0">
+        <Data key="Port Format" value="1,4" />
+      </Group>
+      <Group key="1">
+        <Data key="Port Format" value="1,5" />
+      </Group>
+      <Group key="2">
+        <Data key="Port Format" value="1,6" />
+      </Group>
+    </Group>
+    <Group key="39f40c15-7b28-41c2-89b0-45142dcbb501">
+      <Group key="0">
+        <Data key="Port Format" value="2,5" />
+      </Group>
+    </Group>
+    <Group key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/23b8206d-1c77-4e61-be4a-b4037d5de5fc">
+      <Group key="0">
+        <Data key="Port Format" value="3,1" />
+      </Group>
+    </Group>
+    <Group key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/78e33e5d-45ea-4b75-88d5-73274e8a7ce4">
+      <Group key="0">
+        <Data key="Port Format" value="3,0" />
+      </Group>
+    </Group>
+    <Group key="63ad1388-8c11-4570-871c-d82429dc0b7d">
+      <Group key="0">
+        <Data key="Port Format" value="4,0" />
+      </Group>
+    </Group>
+    <Group key="91f43448-e971-44ea-b87b-5b9227c6394d">
+      <Group key="0">
+        <Data key="Port Format" value="0,4" />
+      </Group>
+    </Group>
+    <Group key="824db034-a17e-4115-b67d-a1d3ae88143f">
+      <Group key="0">
+        <Data key="Port Format" value="2,0" />
+      </Group>
+    </Group>
+    <Group key="90858a0e-6046-4f0f-beb4-153e5a7f75ce">
+      <Group key="0">
+        <Data key="Port Format" value="3,6" />
+      </Group>
+    </Group>
+    <Group key="2130111e-b557-4e91-a0d5-21ebe7d1410a">
+      <Group key="0">
+        <Data key="Port Format" value="2,7" />
+      </Group>
+    </Group>
+    <Group key="a5d6cb44-fce8-42b0-a16d-1792daeb4254">
+      <Group key="0">
+        <Data key="Port Format" value="3,7" />
+      </Group>
+    </Group>
+    <Group key="b780c54c-1f12-4f0b-be5d-99602c824b06">
+      <Group key="0">
+        <Data key="Port Format" value="2,1" />
+      </Group>
+    </Group>
+    <Group key="c6d5e5e8-d580-4903-bea5-35b6f1e85ba5">
+      <Group key="0">
+        <Data key="Port Format" value="2,4" />
+      </Group>
+    </Group>
+    <Group key="c419ce7a-e877-4df8-9c78-ef9efbe9f98b">
+      <Group key="0">
+        <Data key="Port Format" value="2,2" />
+      </Group>
+    </Group>
+    <Group key="dfa4b3fb-1238-42c1-8edb-bc96c792cd94">
+      <Group key="0">
+        <Data key="Port Format" value="2,3" />
+      </Group>
+    </Group>
+    <Group key="e95e1ce6-4e9a-485c-927a-a5992e52121f">
       <Group key="0">
         <Data key="Port Format" value="2,6" />
       </Group>
     </Group>
+    <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
+      <Group key="0">
+        <Data key="Port Format" value="1,2" />
+      </Group>
+    </Group>
+    <Group key="f9e17010-f379-4ebf-a8a0-05170e0e57d3">
+      <Group key="0">
+        <Data key="Port Format" value="0,5" />
+      </Group>
+    </Group>
+    <Group key="fab737fe-cd8d-4a0e-95e4-29cbb8717af8">
+      <Group key="0">
+        <Data key="Port Format" value="1,0" />
+      </Group>
+    </Group>
+    <Group key="fadec0dd-f3cd-4e82-8957-cc05342af803">
+      <Group key="0">
+        <Data key="Port Format" value="3,5" />
+      </Group>
+    </Group>
     <Group key="UnAssigned Pins" />
-    <Group key="Unlocked Pins" />
   </Group>
   <Group key="PlaceDir">
     <Data key="count" value="0" />
@@ -1007,7 +1180,7 @@
     <Data key="CYDEV_STACK_SIZE" value="0x0400" />
     <Data key="CYDEV_USE_BUNDLED_CMSIS" value="True" />
     <Data key="CYDEV_VARIABLE_VDDA" value="True" />
-    <Data key="CYDEV_VDDA" value="3.3" />
-    <Data key="CYDEV_VDDD" value="3.3" />
+    <Data key="CYDEV_VDDA" value="5" />
+    <Data key="CYDEV_VDDD" value="5" />
   </Group>
 </DesignWideResources>

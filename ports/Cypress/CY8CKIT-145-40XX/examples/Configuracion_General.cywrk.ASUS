@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Configuracion_General\CY8CKIT-145-40XX-blinking\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>Configuracion_General</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking</v>
@@ -65,6 +65,24 @@
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\DO2</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED1</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED1\led1.c</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED1\led1.h</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED1\led1_aliases.h</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED1\led1_PM.c</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED10</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED11</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED4</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED5</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED6</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED7</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED8</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\LED9</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\pwm_1</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\pwm_2</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\pwm_3</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\PWM1</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\PWM2</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\Generated_Source\PSoC4\PWM3</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -149,6 +167,10 @@
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\Listing Files\pwm_3_PM.lst</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.elf</v>
 <v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.hex</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CortexM0p\ARM_GCC_541\Debug\CY8CKIT-145-40XX-blinking.map</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.gpdsc</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking.rpt</v>
+<v>Configuracion_General\CY8CKIT-145-40XX-blinking\CY8CKIT-145-40XX-blinking_timing.html</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -204,6 +226,7 @@
 <OpenDocs>
 <name v=".\CY8CKIT-145-40XX-blinking.cydsn\main.c" />
 <name v=".\CY8CKIT-145-40XX-blinking.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\CY8CKIT-145-40XX-blinking.cydsn\CY8CKIT-145-40XX-blinking.cydwr" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -211,7 +234,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="883, 342" SelectedTabbedMdiWindow="87fb8ca4-40bc-45ef-b891-2dbeba982882"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="4bdd89bf-23d1-490b-b1c0-205664eb96bc" /><DocumentWindow Key="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\CY8CKIT-145-40XX-blinking.cydsn\main.c" Guid="87fb8ca4-40bc-45ef-b891-2dbeba982882" /><DocumentWindow Key="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\CY8CKIT-145-40XX-blinking.cydsn\TopDesign\TopDesign.cysch" Guid="f131d652-0ce2-4710-88e5-54c9d0a7b576" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1504, 630" SelectedTabbedMdiWindow="87fb8ca4-40bc-45ef-b891-2dbeba982882"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="4bdd89bf-23d1-490b-b1c0-205664eb96bc" /><DocumentWindow Key="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\CY8CKIT-145-40XX-blinking.cydsn\main.c" Guid="87fb8ca4-40bc-45ef-b891-2dbeba982882" /><DocumentWindow Key="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\CY8CKIT-145-40XX-blinking.cydsn\TopDesign\TopDesign.cysch" Guid="f131d652-0ce2-4710-88e5-54c9d0a7b576" /><DocumentWindow Key="C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\CY8CKIT-145-40XX-blinking.cydsn\CY8CKIT-145-40XX-blinking.cydwr" Guid="a36460a6-9df6-497b-b5c3-08d2426e659f" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

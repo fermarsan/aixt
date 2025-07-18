@@ -1,13 +1,12 @@
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Authors:
-//	- Javier Leon
-//	- Camilo Lucas
-//	- Fernando M. Santa
-// Date: 2023
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+// Date: 2022-2025
 // License: MIT
 //
-// Description: Builtin definitions
-//              (CY8CKIT-145-40XX)
+
+//
+// Description: Builtin definitions (CY8CKIT-145-40XX)
+//              
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -16,22 +15,19 @@
 fn C.INIT_INTERRUPTS() 
 
 
-@[as_macro] pub const led_1 = C.led1
-@[as_macro] pub const led_4 = C.led4
-@[as_macro] pub const led_5 = C.led5
-@[as_macro] pub const led_6 = C.led6
-@[as_macro] pub const led_7 = C.led7
-@[as_macro] pub const led_8 = C.led8
-@[as_macro] pub const led_9 = C.led9
-@[as_macro] pub const led_10 =C.led10
-@[as_macro] pub const led_11 =C.led11
+@[as_macro] pub const led1 = C.led1
+@[as_macro] pub const led4 = C.led4
+@[as_macro] pub const led5 = C.led5
+@[as_macro] pub const led6 = C.led6
+@[as_macro] pub const led7 = C.led7
+@[as_macro] pub const led8 = C.led8
+@[as_macro] pub const led9 = C.led9
+@[as_macro] pub const led10 =C.led10
+@[as_macro] pub const led11 =C.led11
 @[as_macro] pub const do0 = 12
 @[as_macro] pub const do1 = 13
 @[as_macro] pub const do2 = 14
-@[as_macro] pub const pwm_1 = 15
-@[as_macro] pub const pwm_2 = 16
-@[as_macro] pub const pwm_0 = 17
-@[as_macro] pub const sw2 = 19
+@[as_macro] pub const sw2 = C.sw2
 @[as_macro] pub const di0 = 20
 @[as_macro] pub const di1 = 21
 @[as_macro] pub const di2 = 22

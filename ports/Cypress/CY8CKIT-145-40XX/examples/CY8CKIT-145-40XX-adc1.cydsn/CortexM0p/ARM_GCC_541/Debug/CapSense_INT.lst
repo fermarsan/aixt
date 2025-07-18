@@ -1,0 +1,3520 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"capsense_INT.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.capsense_SsCSDPostScan,"ax",%progbits
+  20              		.align	2
+  21              		.code	16
+  22              		.thumb_func
+  23              		.type	capsense_SsCSDPostScan, %function
+  24              	capsense_SsCSDPostScan:
+  25              	.LFB3:
+  26              		.file 1 "Generated_Source\\PSoC4\\capsense_INT.c"
+   1:Generated_Source\PSoC4/capsense_INT.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/capsense_INT.c **** * \file capsense_INT.c
+   3:Generated_Source\PSoC4/capsense_INT.c **** * \version 7.10
+   4:Generated_Source\PSoC4/capsense_INT.c **** *
+   5:Generated_Source\PSoC4/capsense_INT.c **** * \brief
+   6:Generated_Source\PSoC4/capsense_INT.c **** *   This file contains the source code for implementation of the Component's
+   7:Generated_Source\PSoC4/capsense_INT.c **** *   Interrupt Service Routine (ISR).
+   8:Generated_Source\PSoC4/capsense_INT.c **** *
+   9:Generated_Source\PSoC4/capsense_INT.c **** * \see capsense v7.10 Datasheet
+  10:Generated_Source\PSoC4/capsense_INT.c **** *
+  11:Generated_Source\PSoC4/capsense_INT.c **** *//*****************************************************************************
+  12:Generated_Source\PSoC4/capsense_INT.c **** * Copyright (2016-2019), Cypress Semiconductor Corporation.
+  13:Generated_Source\PSoC4/capsense_INT.c **** ********************************************************************************
+  14:Generated_Source\PSoC4/capsense_INT.c **** * This software is owned by Cypress Semiconductor Corporation (Cypress) and is
+  15:Generated_Source\PSoC4/capsense_INT.c **** * protected by and subject to worldwide patent protection (United States and
+  16:Generated_Source\PSoC4/capsense_INT.c **** * foreign), United States copyright laws and international treaty provisions.
+  17:Generated_Source\PSoC4/capsense_INT.c **** * Cypress hereby grants to licensee a personal, non-exclusive, non-transferable
+  18:Generated_Source\PSoC4/capsense_INT.c **** * license to copy, use, modify, create derivative works of, and compile the
+  19:Generated_Source\PSoC4/capsense_INT.c **** * Cypress Source Code and derivative works for the sole purpose of creating
+  20:Generated_Source\PSoC4/capsense_INT.c **** * custom software in support of licensee product to be used only in conjunction
+  21:Generated_Source\PSoC4/capsense_INT.c **** * with a Cypress integrated circuit as specified in the applicable agreement.
+  22:Generated_Source\PSoC4/capsense_INT.c **** * Any reproduction, modification, translation, compilation, or representation of
+  23:Generated_Source\PSoC4/capsense_INT.c **** * this software except as specified above is prohibited without the express
+  24:Generated_Source\PSoC4/capsense_INT.c **** * written permission of Cypress.
+  25:Generated_Source\PSoC4/capsense_INT.c **** *
+  26:Generated_Source\PSoC4/capsense_INT.c **** * Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH
+  27:Generated_Source\PSoC4/capsense_INT.c **** * REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  28:Generated_Source\PSoC4/capsense_INT.c **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  29:Generated_Source\PSoC4/capsense_INT.c **** * Cypress reserves the right to make changes without further notice to the
+  30:Generated_Source\PSoC4/capsense_INT.c **** * materials described herein. Cypress does not assume any liability arising out
+  31:Generated_Source\PSoC4/capsense_INT.c **** * of the application or use of any product or circuit described herein. Cypress
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 2
+
+
+  32:Generated_Source\PSoC4/capsense_INT.c **** * does not authorize its products for use as critical components in life-support
+  33:Generated_Source\PSoC4/capsense_INT.c **** * systems where a malfunction or failure may reasonably be expected to result in
+  34:Generated_Source\PSoC4/capsense_INT.c **** * significant injury to the user. The inclusion of Cypress' product in a life-
+  35:Generated_Source\PSoC4/capsense_INT.c **** * support systems application implies that the manufacturer assumes all risk of
+  36:Generated_Source\PSoC4/capsense_INT.c **** * such use and in doing so indemnifies Cypress against all charges. Use may be
+  37:Generated_Source\PSoC4/capsense_INT.c **** * limited by and subject to the applicable Cypress software license agreement.
+  38:Generated_Source\PSoC4/capsense_INT.c **** *******************************************************************************/
+  39:Generated_Source\PSoC4/capsense_INT.c **** #include "cytypes.h"
+  40:Generated_Source\PSoC4/capsense_INT.c **** #include "cyfitter.h"
+  41:Generated_Source\PSoC4/capsense_INT.c **** #include "capsense_Configuration.h"
+  42:Generated_Source\PSoC4/capsense_INT.c **** #include "capsense_Structure.h"
+  43:Generated_Source\PSoC4/capsense_INT.c **** #include "capsense_Sensing.h"
+  44:Generated_Source\PSoC4/capsense_INT.c **** #if (capsense_ENABLE == capsense_CSD_EN)
+  45:Generated_Source\PSoC4/capsense_INT.c ****     #include "capsense_SensingCSD_LL.h"
+  46:Generated_Source\PSoC4/capsense_INT.c **** #endif /* (capsense_ENABLE == capsense_CSD_EN) */
+  47:Generated_Source\PSoC4/capsense_INT.c **** #include "cyapicallbacks.h"
+  48:Generated_Source\PSoC4/capsense_INT.c **** 
+  49:Generated_Source\PSoC4/capsense_INT.c **** /*******************************************************************************
+  50:Generated_Source\PSoC4/capsense_INT.c **** * Static Function Prototypes
+  51:Generated_Source\PSoC4/capsense_INT.c **** *******************************************************************************/
+  52:Generated_Source\PSoC4/capsense_INT.c **** /**
+  53:Generated_Source\PSoC4/capsense_INT.c **** * \cond SECTION_C_INTERNAL
+  54:Generated_Source\PSoC4/capsense_INT.c **** * \addtogroup group_c_internal
+  55:Generated_Source\PSoC4/capsense_INT.c **** * \{
+  56:Generated_Source\PSoC4/capsense_INT.c **** */
+  57:Generated_Source\PSoC4/capsense_INT.c **** 
+  58:Generated_Source\PSoC4/capsense_INT.c **** #if (((capsense_ENABLE == capsense_CSD_EN) || (capsense_ENABLE == capsense_CSD_CSX_EN)) && \
+  59:Generated_Source\PSoC4/capsense_INT.c ****      (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN))
+  60:Generated_Source\PSoC4/capsense_INT.c ****     static void capsense_SsNextFrequencyScan(void);
+  61:Generated_Source\PSoC4/capsense_INT.c **** #endif /* (((capsense_ENABLE == capsense_CSD_EN) || (capsense_ENABLE == capsense_CSD_CSX_EN)) && \
+  62:Generated_Source\PSoC4/capsense_INT.c ****             (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)) */
+  63:Generated_Source\PSoC4/capsense_INT.c **** 
+  64:Generated_Source\PSoC4/capsense_INT.c **** #if ((capsense_ENABLE == capsense_CSD_EN) || (capsense_ENABLE == capsense_CSD_CSX_EN))
+  65:Generated_Source\PSoC4/capsense_INT.c ****     static void capsense_SsCSDPostScan(void);
+  66:Generated_Source\PSoC4/capsense_INT.c ****     static void capsense_SsCSDInitNextScan(void);
+  67:Generated_Source\PSoC4/capsense_INT.c **** #endif /* ((capsense_ENABLE == capsense_CSD_EN) || (capsense_ENABLE == capsense_CSD_CSX_EN)) */
+  68:Generated_Source\PSoC4/capsense_INT.c **** /** \}
+  69:Generated_Source\PSoC4/capsense_INT.c **** * \endcond */
+  70:Generated_Source\PSoC4/capsense_INT.c **** 
+  71:Generated_Source\PSoC4/capsense_INT.c **** 
+  72:Generated_Source\PSoC4/capsense_INT.c **** /**
+  73:Generated_Source\PSoC4/capsense_INT.c **** * \cond SECTION_C_INTERRUPT
+  74:Generated_Source\PSoC4/capsense_INT.c **** * \addtogroup group_c_interrupt
+  75:Generated_Source\PSoC4/capsense_INT.c **** * \{
+  76:Generated_Source\PSoC4/capsense_INT.c **** */
+  77:Generated_Source\PSoC4/capsense_INT.c **** 
+  78:Generated_Source\PSoC4/capsense_INT.c **** 
+  79:Generated_Source\PSoC4/capsense_INT.c **** #if ((capsense_ENABLE == capsense_CSD_EN) || (capsense_ENABLE == capsense_CSD_CSX_EN))
+  80:Generated_Source\PSoC4/capsense_INT.c **** 
+  81:Generated_Source\PSoC4/capsense_INT.c **** #if (capsense_ENABLE == capsense_CSDV2)
+  82:Generated_Source\PSoC4/capsense_INT.c ****     /* Fourth-generation HW block part */
+  83:Generated_Source\PSoC4/capsense_INT.c **** 
+  84:Generated_Source\PSoC4/capsense_INT.c ****     /*******************************************************************************
+  85:Generated_Source\PSoC4/capsense_INT.c ****     * Function Name: capsense_CSDPostSingleScan
+  86:Generated_Source\PSoC4/capsense_INT.c ****     ****************************************************************************//**
+  87:Generated_Source\PSoC4/capsense_INT.c ****     *
+  88:Generated_Source\PSoC4/capsense_INT.c ****     * \brief
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 3
+
+
+  89:Generated_Source\PSoC4/capsense_INT.c ****     *  This is an internal ISR function for the single-sensor scanning implementation.
+  90:Generated_Source\PSoC4/capsense_INT.c ****     *
+  91:Generated_Source\PSoC4/capsense_INT.c ****     * \details
+  92:Generated_Source\PSoC4/capsense_INT.c ****     *  This ISR handler is triggered when the user calls the
+  93:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_CSDScanExt() function.
+  94:Generated_Source\PSoC4/capsense_INT.c ****     *
+  95:Generated_Source\PSoC4/capsense_INT.c ****     *  The following tasks are performed for Third-generation HW block:
+  96:Generated_Source\PSoC4/capsense_INT.c ****     *    1. Disable the CSD interrupt.
+  97:Generated_Source\PSoC4/capsense_INT.c ****     *    2. Read the Counter register and update the data structure with raw data.
+  98:Generated_Source\PSoC4/capsense_INT.c ****     *    3. Connect the Vref buffer to the AMUX bus.
+  99:Generated_Source\PSoC4/capsense_INT.c ****     *    4. Update the Scan Counter.
+ 100:Generated_Source\PSoC4/capsense_INT.c ****     *    5. Reset the BUSY flag.
+ 101:Generated_Source\PSoC4/capsense_INT.c ****     *    6. Enable the CSD interrupt.
+ 102:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 103:Generated_Source\PSoC4/capsense_INT.c ****     *  The following tasks are performed for Fourth-generation HW block:
+ 104:Generated_Source\PSoC4/capsense_INT.c ****     *    1. Check if the raw data is not noisy.
+ 105:Generated_Source\PSoC4/capsense_INT.c ****     *    2. Read the Counter register and update the data structure with raw data.
+ 106:Generated_Source\PSoC4/capsense_INT.c ****     *    3. Configure and start the scan for the next frequency if the
+ 107:Generated_Source\PSoC4/capsense_INT.c ****     *      multi-frequency is enabled.
+ 108:Generated_Source\PSoC4/capsense_INT.c ****     *    4. Update the Scan Counter.
+ 109:Generated_Source\PSoC4/capsense_INT.c ****     *    5. Reset the BUSY flag.
+ 110:Generated_Source\PSoC4/capsense_INT.c ****     *    6. Enable the CSD interrupt.
+ 111:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 112:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler changes the IMO and initializes scanning for the next frequency
+ 113:Generated_Source\PSoC4/capsense_INT.c ****     *  channels when multi-frequency scanning is enabled.
+ 114:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 115:Generated_Source\PSoC4/capsense_INT.c ****     *  This function has two Macro Callbacks that allow calling the user code
+ 116:Generated_Source\PSoC4/capsense_INT.c ****     *  from macros specified in Component's generated code. Refer to the
+ 117:Generated_Source\PSoC4/capsense_INT.c ****     *  \ref group_c_macrocallbacks section of the PSoC Creator User Guide
+ 118:Generated_Source\PSoC4/capsense_INT.c ****     *  for details.
+ 119:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 120:Generated_Source\PSoC4/capsense_INT.c ****     *******************************************************************************/
+ 121:Generated_Source\PSoC4/capsense_INT.c ****     CY_ISR(capsense_CSDPostSingleScan)
+ 122:Generated_Source\PSoC4/capsense_INT.c ****     {
+ 123:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_ENTRY_CALLBACK
+ 124:Generated_Source\PSoC4/capsense_INT.c ****             capsense_EntryCallback();
+ 125:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_ENTRY_CALLBACK */
+ 126:Generated_Source\PSoC4/capsense_INT.c **** 
+ 127:Generated_Source\PSoC4/capsense_INT.c ****         /* Clear pending interrupt */
+ 128:Generated_Source\PSoC4/capsense_INT.c ****         CY_SET_REG32(capsense_INTR_PTR, capsense_INTR_SET_MASK);
+ 129:Generated_Source\PSoC4/capsense_INT.c **** 
+ 130:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN)
+ 131:Generated_Source\PSoC4/capsense_INT.c ****             if ((capsense_CSD_NOISE_METRIC_TH < ((CY_GET_REG32(capsense_RESULT_VAL1_PTR) &
+ 132:Generated_Source\PSoC4/capsense_INT.c ****                                                         capsense_RESULT_VAL1_BAD_CONVS_MASK) >>
+ 133:Generated_Source\PSoC4/capsense_INT.c ****                                                         capsense_RESULT_VAL1_BAD_CONVS_SHIFT)) &&
+ 134:Generated_Source\PSoC4/capsense_INT.c ****                                                         (0u < capsense_badConversionsNum))
+ 135:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 136:Generated_Source\PSoC4/capsense_INT.c ****                 /* Decrement bad conversions number */
+ 137:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_badConversionsNum--;
+ 138:Generated_Source\PSoC4/capsense_INT.c **** 
+ 139:Generated_Source\PSoC4/capsense_INT.c ****                 /* Start the re-scan */
+ 140:Generated_Source\PSoC4/capsense_INT.c ****                 CY_SET_REG32(capsense_SEQ_START_PTR, capsense_SEQ_START_AZ0_SKIP_MASK |
+ 141:Generated_Source\PSoC4/capsense_INT.c ****                                                              capsense_SEQ_START_AZ1_SKIP_MASK |
+ 142:Generated_Source\PSoC4/capsense_INT.c ****                                                              capsense_SEQ_START_START_MASK);
+ 143:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 144:Generated_Source\PSoC4/capsense_INT.c ****             else
+ 145:Generated_Source\PSoC4/capsense_INT.c ****             {
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 4
+
+
+ 146:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN) */
+ 147:Generated_Source\PSoC4/capsense_INT.c **** 
+ 148:Generated_Source\PSoC4/capsense_INT.c ****             capsense_SsCSDPostScan();
+ 149:Generated_Source\PSoC4/capsense_INT.c **** 
+ 150:Generated_Source\PSoC4/capsense_INT.c ****             #if (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)
+ 151:Generated_Source\PSoC4/capsense_INT.c ****                 if (capsense_FREQ_CHANNEL_2 > capsense_scanFreqIndex)
+ 152:Generated_Source\PSoC4/capsense_INT.c ****                 {
+ 153:Generated_Source\PSoC4/capsense_INT.c ****                     /* Scan the next channel */
+ 154:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsNextFrequencyScan();
+ 155:Generated_Source\PSoC4/capsense_INT.c ****                 }
+ 156:Generated_Source\PSoC4/capsense_INT.c ****                 else
+ 157:Generated_Source\PSoC4/capsense_INT.c ****                 {
+ 158:Generated_Source\PSoC4/capsense_INT.c ****                     /* All channels are scanned. Set IMO to zero channel */
+ 159:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_scanFreqIndex = capsense_FREQ_CHANNEL_0;
+ 160:Generated_Source\PSoC4/capsense_INT.c **** 
+ 161:Generated_Source\PSoC4/capsense_INT.c ****                     #if (capsense_MFS_IMO == capsense_MFS_METHOD)
+ 162:Generated_Source\PSoC4/capsense_INT.c ****                         capsense_SsChangeImoFreq(capsense_FREQ_CHANNEL_0);
+ 163:Generated_Source\PSoC4/capsense_INT.c ****                     #else
+ 164:Generated_Source\PSoC4/capsense_INT.c ****                         capsense_SsChangeClkFreq(capsense_FREQ_CHANNEL_0);
+ 165:Generated_Source\PSoC4/capsense_INT.c ****                     #endif /* (capsense_MFS_IMO == capsense_MFS_METHOD) */
+ 166:Generated_Source\PSoC4/capsense_INT.c **** 
+ 167:Generated_Source\PSoC4/capsense_INT.c ****                     #if (capsense_ENABLE == capsense_BLOCK_OFF_AFTER_SCAN_EN)
+ 168:Generated_Source\PSoC4/capsense_INT.c ****                         /* Disable Fourth-generation HW block */
+ 169:Generated_Source\PSoC4/capsense_INT.c ****                         CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd);
+ 170:Generated_Source\PSoC4/capsense_INT.c ****                     #endif /* (capsense_ENABLE == capsense_BLOCK_OFF_AFTER_SCAN_EN) */
+ 171:Generated_Source\PSoC4/capsense_INT.c **** 
+ 172:Generated_Source\PSoC4/capsense_INT.c ****                     /* Update Scan Counter */
+ 173:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_dsRam.scanCounter++;
+ 174:Generated_Source\PSoC4/capsense_INT.c **** 
+ 175:Generated_Source\PSoC4/capsense_INT.c ****                     /* Sensor is totally scanned. Reset BUSY flag */
+ 176:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_dsRam.status &= ~(capsense_SW_STS_BUSY | capsense_WDGT_SW_STS_BUSY);
+ 177:Generated_Source\PSoC4/capsense_INT.c ****                 }
+ 178:Generated_Source\PSoC4/capsense_INT.c ****             #else
+ 179:Generated_Source\PSoC4/capsense_INT.c ****                 {
+ 180:Generated_Source\PSoC4/capsense_INT.c ****                     #if (capsense_ENABLE == capsense_BLOCK_OFF_AFTER_SCAN_EN)
+ 181:Generated_Source\PSoC4/capsense_INT.c ****                         /* Disable Fourth-generation HW block */
+ 182:Generated_Source\PSoC4/capsense_INT.c ****                         CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd);
+ 183:Generated_Source\PSoC4/capsense_INT.c ****                     #endif /* (capsense_ENABLE == capsense_BLOCK_OFF_AFTER_SCAN_EN) */
+ 184:Generated_Source\PSoC4/capsense_INT.c **** 
+ 185:Generated_Source\PSoC4/capsense_INT.c ****                     /* Update Scan Counter */
+ 186:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_dsRam.scanCounter++;
+ 187:Generated_Source\PSoC4/capsense_INT.c **** 
+ 188:Generated_Source\PSoC4/capsense_INT.c ****                     /* Sensor is totally scanned. Reset BUSY flag */
+ 189:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_dsRam.status &= ~(capsense_SW_STS_BUSY | capsense_WDGT_SW_STS_BUSY);
+ 190:Generated_Source\PSoC4/capsense_INT.c ****                 }
+ 191:Generated_Source\PSoC4/capsense_INT.c ****             #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 192:Generated_Source\PSoC4/capsense_INT.c ****     #if (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN)
+ 193:Generated_Source\PSoC4/capsense_INT.c ****         }
+ 194:Generated_Source\PSoC4/capsense_INT.c ****     #endif /* (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN) */
+ 195:Generated_Source\PSoC4/capsense_INT.c **** 
+ 196:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_EXIT_CALLBACK
+ 197:Generated_Source\PSoC4/capsense_INT.c ****             capsense_ExitCallback();
+ 198:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_EXIT_CALLBACK */
+ 199:Generated_Source\PSoC4/capsense_INT.c ****     }
+ 200:Generated_Source\PSoC4/capsense_INT.c **** 
+ 201:Generated_Source\PSoC4/capsense_INT.c **** 
+ 202:Generated_Source\PSoC4/capsense_INT.c ****     /*******************************************************************************
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 5
+
+
+ 203:Generated_Source\PSoC4/capsense_INT.c ****     * Function Name: capsense_CSDPostMultiScan
+ 204:Generated_Source\PSoC4/capsense_INT.c ****     ****************************************************************************//**
+ 205:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 206:Generated_Source\PSoC4/capsense_INT.c ****     * \brief
+ 207:Generated_Source\PSoC4/capsense_INT.c ****     *  This is an internal ISR function for the multiple-sensor scanning
+ 208:Generated_Source\PSoC4/capsense_INT.c ****     *  implementation.
+ 209:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 210:Generated_Source\PSoC4/capsense_INT.c ****     * \details
+ 211:Generated_Source\PSoC4/capsense_INT.c ****     *  This ISR handler is triggered when the user calls the
+ 212:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_Scan() or capsense_ScanAllWidgets() APIs.
+ 213:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 214:Generated_Source\PSoC4/capsense_INT.c ****     *  The following tasks are performed:
+ 215:Generated_Source\PSoC4/capsense_INT.c ****     *    1. Disable the CSD interrupt.
+ 216:Generated_Source\PSoC4/capsense_INT.c ****     *    2. Read the Counter register and update the data structure with raw data.
+ 217:Generated_Source\PSoC4/capsense_INT.c ****     *    3. Connect the Vref buffer to the AMUX bus.
+ 218:Generated_Source\PSoC4/capsense_INT.c ****     *    4. Disable the CSD block (after the widget has been scanned).
+ 219:Generated_Source\PSoC4/capsense_INT.c ****     *    5. Update the Scan Counter.
+ 220:Generated_Source\PSoC4/capsense_INT.c ****     *    6. Reset the BUSY flag.
+ 221:Generated_Source\PSoC4/capsense_INT.c ****     *    7. Enable the CSD interrupt.
+ 222:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 223:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler initializes scanning for the previous sensor when the
+ 224:Generated_Source\PSoC4/capsense_INT.c ****     *  widget has more than one sensor.
+ 225:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler initializes scanning for the next widget when the
+ 226:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_ScanAllWidgets() APIs are called and the project has
+ 227:Generated_Source\PSoC4/capsense_INT.c ****     *  more than one widget.
+ 228:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler changes the IMO and initializes scanning for the next
+ 229:Generated_Source\PSoC4/capsense_INT.c ****     *  frequency channels when multi-frequency scanning is enabled.
+ 230:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 231:Generated_Source\PSoC4/capsense_INT.c ****     *  This function has two Macro Callbacks that allow calling the user
+ 232:Generated_Source\PSoC4/capsense_INT.c ****     *  code from macros specified in Component's generated code. Refer to the
+ 233:Generated_Source\PSoC4/capsense_INT.c ****     *  \ref group_c_macrocallbacks section of the PSoC Creator User Guide
+ 234:Generated_Source\PSoC4/capsense_INT.c ****     *  for details.
+ 235:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 236:Generated_Source\PSoC4/capsense_INT.c ****     *******************************************************************************/
+ 237:Generated_Source\PSoC4/capsense_INT.c ****     CY_ISR(capsense_CSDPostMultiScan)
+ 238:Generated_Source\PSoC4/capsense_INT.c ****     {
+ 239:Generated_Source\PSoC4/capsense_INT.c ****         /* Declare and initialize ptr to sensor IO structure to appropriate address */
+ 240:Generated_Source\PSoC4/capsense_INT.c ****         capsense_FLASH_IO_STRUCT const *curSnsIOPtr = (capsense_FLASH_IO_STRUCT const *)
+ 241:Generated_Source\PSoC4/capsense_INT.c ****                                                           capsense_dsFlash.wdgtArray[capsense_widge
+ 242:Generated_Source\PSoC4/capsense_INT.c ****                                                           + capsense_sensorIndex;
+ 243:Generated_Source\PSoC4/capsense_INT.c **** 
+ 244:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_ENTRY_CALLBACK
+ 245:Generated_Source\PSoC4/capsense_INT.c ****             capsense_EntryCallback();
+ 246:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_ENTRY_CALLBACK */
+ 247:Generated_Source\PSoC4/capsense_INT.c **** 
+ 248:Generated_Source\PSoC4/capsense_INT.c ****         /* Clear pending interrupt */
+ 249:Generated_Source\PSoC4/capsense_INT.c ****         CY_SET_REG32(capsense_INTR_PTR, capsense_INTR_SET_MASK);
+ 250:Generated_Source\PSoC4/capsense_INT.c **** 
+ 251:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN)
+ 252:Generated_Source\PSoC4/capsense_INT.c ****             if ((capsense_CSD_NOISE_METRIC_TH < ((CY_GET_REG32(capsense_RESULT_VAL1_PTR) &
+ 253:Generated_Source\PSoC4/capsense_INT.c ****                                                       capsense_RESULT_VAL1_BAD_CONVS_MASK) >>
+ 254:Generated_Source\PSoC4/capsense_INT.c ****                                                       capsense_RESULT_VAL1_BAD_CONVS_SHIFT)) &&
+ 255:Generated_Source\PSoC4/capsense_INT.c ****                                                       (0u < capsense_badConversionsNum))
+ 256:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 257:Generated_Source\PSoC4/capsense_INT.c ****                 /* Decrement bad conversions number */
+ 258:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_badConversionsNum--;
+ 259:Generated_Source\PSoC4/capsense_INT.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 6
+
+
+ 260:Generated_Source\PSoC4/capsense_INT.c ****                 /* Start the re-scan */
+ 261:Generated_Source\PSoC4/capsense_INT.c ****                 CY_SET_REG32(capsense_SEQ_START_PTR, capsense_SEQ_START_AZ0_SKIP_MASK |
+ 262:Generated_Source\PSoC4/capsense_INT.c ****                                                              capsense_SEQ_START_AZ1_SKIP_MASK |
+ 263:Generated_Source\PSoC4/capsense_INT.c ****                                                              capsense_SEQ_START_START_MASK);
+ 264:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 265:Generated_Source\PSoC4/capsense_INT.c ****             else
+ 266:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 267:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN) */
+ 268:Generated_Source\PSoC4/capsense_INT.c **** 
+ 269:Generated_Source\PSoC4/capsense_INT.c ****             capsense_SsCSDPostScan();
+ 270:Generated_Source\PSoC4/capsense_INT.c **** 
+ 271:Generated_Source\PSoC4/capsense_INT.c ****             /* Disable sensor when all frequency channels are scanned */
+ 272:Generated_Source\PSoC4/capsense_INT.c ****             #if (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)
+ 273:Generated_Source\PSoC4/capsense_INT.c ****                 if (capsense_FREQ_CHANNEL_2 == capsense_scanFreqIndex)
+ 274:Generated_Source\PSoC4/capsense_INT.c ****             #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 275:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 276:Generated_Source\PSoC4/capsense_INT.c ****                 /* Disable sensor */
+ 277:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_CSDDisconnectSns(curSnsIOPtr);
+ 278:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 279:Generated_Source\PSoC4/capsense_INT.c **** 
+ 280:Generated_Source\PSoC4/capsense_INT.c ****             #if (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)
+ 281:Generated_Source\PSoC4/capsense_INT.c ****                 if (capsense_FREQ_CHANNEL_2 > capsense_scanFreqIndex)
+ 282:Generated_Source\PSoC4/capsense_INT.c ****                 {
+ 283:Generated_Source\PSoC4/capsense_INT.c ****                      /* Scan the next channel */
+ 284:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsNextFrequencyScan();
+ 285:Generated_Source\PSoC4/capsense_INT.c ****                 }
+ 286:Generated_Source\PSoC4/capsense_INT.c ****                 else
+ 287:Generated_Source\PSoC4/capsense_INT.c ****                 {
+ 288:Generated_Source\PSoC4/capsense_INT.c ****                      /* All channels are scanned. Set IMO to zero channel */
+ 289:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_scanFreqIndex = capsense_FREQ_CHANNEL_0;
+ 290:Generated_Source\PSoC4/capsense_INT.c **** 
+ 291:Generated_Source\PSoC4/capsense_INT.c ****                     #if (capsense_MFS_IMO == capsense_MFS_METHOD)
+ 292:Generated_Source\PSoC4/capsense_INT.c ****                         capsense_SsChangeImoFreq(capsense_FREQ_CHANNEL_0);
+ 293:Generated_Source\PSoC4/capsense_INT.c ****                     #else
+ 294:Generated_Source\PSoC4/capsense_INT.c ****                         capsense_SsChangeClkFreq(capsense_FREQ_CHANNEL_0);
+ 295:Generated_Source\PSoC4/capsense_INT.c ****                     #endif /* (capsense_MFS_IMO == capsense_MFS_METHOD) */
+ 296:Generated_Source\PSoC4/capsense_INT.c **** 
+ 297:Generated_Source\PSoC4/capsense_INT.c ****                      /* Scan the next sensor */
+ 298:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsCSDInitNextScan();
+ 299:Generated_Source\PSoC4/capsense_INT.c ****                 }
+ 300:Generated_Source\PSoC4/capsense_INT.c ****             #else
+ 301:Generated_Source\PSoC4/capsense_INT.c ****                 /* Scan the next sensor */
+ 302:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_SsCSDInitNextScan();
+ 303:Generated_Source\PSoC4/capsense_INT.c ****             #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 304:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN)
+ 305:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 306:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN) */
+ 307:Generated_Source\PSoC4/capsense_INT.c **** 
+ 308:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_EXIT_CALLBACK
+ 309:Generated_Source\PSoC4/capsense_INT.c ****             capsense_ExitCallback();
+ 310:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_EXIT_CALLBACK */
+ 311:Generated_Source\PSoC4/capsense_INT.c ****     }
+ 312:Generated_Source\PSoC4/capsense_INT.c **** 
+ 313:Generated_Source\PSoC4/capsense_INT.c **** 
+ 314:Generated_Source\PSoC4/capsense_INT.c ****     #if (capsense_ENABLE == capsense_CSD_GANGED_SNS_EN)
+ 315:Generated_Source\PSoC4/capsense_INT.c ****     /*******************************************************************************
+ 316:Generated_Source\PSoC4/capsense_INT.c ****     * Function Name: capsense_CSDPostMultiScanGanged
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 7
+
+
+ 317:Generated_Source\PSoC4/capsense_INT.c ****     ****************************************************************************//**
+ 318:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 319:Generated_Source\PSoC4/capsense_INT.c ****     * \brief
+ 320:Generated_Source\PSoC4/capsense_INT.c ****     *  This is an internal ISR function for the multiple-sensor scanning
+ 321:Generated_Source\PSoC4/capsense_INT.c ****     *  implementation for ganged sensors.
+ 322:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 323:Generated_Source\PSoC4/capsense_INT.c ****     * \details
+ 324:Generated_Source\PSoC4/capsense_INT.c ****     *  This ISR handler is triggered when the user calls the
+ 325:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_Scan() API for a ganged sensor or the
+ 326:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_ScanAllWidgets() API in the project with ganged sensors.
+ 327:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 328:Generated_Source\PSoC4/capsense_INT.c ****     *  The following tasks are performed:
+ 329:Generated_Source\PSoC4/capsense_INT.c ****     *    1. Disable the CSD interrupt.
+ 330:Generated_Source\PSoC4/capsense_INT.c ****     *    2. Read the Counter register and update the data structure with raw data.
+ 331:Generated_Source\PSoC4/capsense_INT.c ****     *    3. Connect the Vref buffer to the AMUX bus.
+ 332:Generated_Source\PSoC4/capsense_INT.c ****     *    4. Disable the CSD block (after the widget has been scanned).
+ 333:Generated_Source\PSoC4/capsense_INT.c ****     *    5. Update the Scan Counter.
+ 334:Generated_Source\PSoC4/capsense_INT.c ****     *    6. Reset the BUSY flag.
+ 335:Generated_Source\PSoC4/capsense_INT.c ****     *    7. Enable the CSD interrupt.
+ 336:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 337:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler initializes scanning for the previous sensor when the
+ 338:Generated_Source\PSoC4/capsense_INT.c ****     *  widget has more than one sensor.
+ 339:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler initializes scanning for the next widget when the
+ 340:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_ScanAllWidgets() APIs are called and the project has
+ 341:Generated_Source\PSoC4/capsense_INT.c ****     *  more than one widget.
+ 342:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler changes the IMO and initializes scanning for the next
+ 343:Generated_Source\PSoC4/capsense_INT.c ****     *  frequency channels when multi-frequency scanning is enabled.
+ 344:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 345:Generated_Source\PSoC4/capsense_INT.c ****     *  This function has two Macro Callbacks that allow calling the user
+ 346:Generated_Source\PSoC4/capsense_INT.c ****     *  code from macros specified in Component's generated code. Refer to the
+ 347:Generated_Source\PSoC4/capsense_INT.c ****     *  \ref group_c_macrocallbacks section of the PSoC Creator User Guide
+ 348:Generated_Source\PSoC4/capsense_INT.c ****     *  for details.
+ 349:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 350:Generated_Source\PSoC4/capsense_INT.c ****     *******************************************************************************/
+ 351:Generated_Source\PSoC4/capsense_INT.c ****     CY_ISR(capsense_CSDPostMultiScanGanged)
+ 352:Generated_Source\PSoC4/capsense_INT.c ****     {
+ 353:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_ENTRY_CALLBACK
+ 354:Generated_Source\PSoC4/capsense_INT.c ****             capsense_EntryCallback();
+ 355:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_ENTRY_CALLBACK */
+ 356:Generated_Source\PSoC4/capsense_INT.c **** 
+ 357:Generated_Source\PSoC4/capsense_INT.c ****         /* Clear pending interrupt */
+ 358:Generated_Source\PSoC4/capsense_INT.c ****         CY_SET_REG32(capsense_INTR_PTR, capsense_INTR_SET_MASK);
+ 359:Generated_Source\PSoC4/capsense_INT.c **** 
+ 360:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN)
+ 361:Generated_Source\PSoC4/capsense_INT.c ****             if ((capsense_CSD_NOISE_METRIC_TH < ((CY_GET_REG32(capsense_RESULT_VAL1_PTR) &
+ 362:Generated_Source\PSoC4/capsense_INT.c ****                                                       capsense_RESULT_VAL1_BAD_CONVS_MASK) >>
+ 363:Generated_Source\PSoC4/capsense_INT.c ****                                                       capsense_RESULT_VAL1_BAD_CONVS_SHIFT)) &&
+ 364:Generated_Source\PSoC4/capsense_INT.c ****                                                       (0u < capsense_badConversionsNum))
+ 365:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 366:Generated_Source\PSoC4/capsense_INT.c ****                 /* Decrement bad conversions number */
+ 367:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_badConversionsNum--;
+ 368:Generated_Source\PSoC4/capsense_INT.c **** 
+ 369:Generated_Source\PSoC4/capsense_INT.c ****                 /* Start the re-scan */
+ 370:Generated_Source\PSoC4/capsense_INT.c ****                 CY_SET_REG32(capsense_SEQ_START_PTR, capsense_SEQ_START_AZ0_SKIP_MASK |
+ 371:Generated_Source\PSoC4/capsense_INT.c ****                                                              capsense_SEQ_START_AZ1_SKIP_MASK |
+ 372:Generated_Source\PSoC4/capsense_INT.c ****                                                              capsense_SEQ_START_START_MASK);
+ 373:Generated_Source\PSoC4/capsense_INT.c ****             }
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 8
+
+
+ 374:Generated_Source\PSoC4/capsense_INT.c ****             else
+ 375:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 376:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN) */
+ 377:Generated_Source\PSoC4/capsense_INT.c **** 
+ 378:Generated_Source\PSoC4/capsense_INT.c ****             capsense_SsCSDPostScan();
+ 379:Generated_Source\PSoC4/capsense_INT.c **** 
+ 380:Generated_Source\PSoC4/capsense_INT.c ****             #if (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)
+ 381:Generated_Source\PSoC4/capsense_INT.c ****                 if (capsense_FREQ_CHANNEL_2 == capsense_scanFreqIndex)
+ 382:Generated_Source\PSoC4/capsense_INT.c ****             #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 383:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 384:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_SsCSDDisconnectSnsExt((uint32)capsense_widgetIndex, (uint32)capsense_senso
+ 385:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 386:Generated_Source\PSoC4/capsense_INT.c **** 
+ 387:Generated_Source\PSoC4/capsense_INT.c ****             #if (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)
+ 388:Generated_Source\PSoC4/capsense_INT.c ****                 if (capsense_FREQ_CHANNEL_2 > capsense_scanFreqIndex)
+ 389:Generated_Source\PSoC4/capsense_INT.c ****                 {
+ 390:Generated_Source\PSoC4/capsense_INT.c ****                      /* Scan the next channel */
+ 391:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsNextFrequencyScan();
+ 392:Generated_Source\PSoC4/capsense_INT.c ****                 }
+ 393:Generated_Source\PSoC4/capsense_INT.c ****                 else
+ 394:Generated_Source\PSoC4/capsense_INT.c ****                 {
+ 395:Generated_Source\PSoC4/capsense_INT.c ****                     /* All channels are scanned. Set IMO to zero channel */
+ 396:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_scanFreqIndex = capsense_FREQ_CHANNEL_0;
+ 397:Generated_Source\PSoC4/capsense_INT.c **** 
+ 398:Generated_Source\PSoC4/capsense_INT.c ****                     #if (capsense_MFS_IMO == capsense_MFS_METHOD)
+ 399:Generated_Source\PSoC4/capsense_INT.c ****                         capsense_SsChangeImoFreq(capsense_FREQ_CHANNEL_0);
+ 400:Generated_Source\PSoC4/capsense_INT.c ****                     #else
+ 401:Generated_Source\PSoC4/capsense_INT.c ****                         capsense_SsChangeClkFreq(capsense_FREQ_CHANNEL_0);
+ 402:Generated_Source\PSoC4/capsense_INT.c ****                     #endif /* (capsense_MFS_IMO == capsense_MFS_METHOD) */
+ 403:Generated_Source\PSoC4/capsense_INT.c **** 
+ 404:Generated_Source\PSoC4/capsense_INT.c ****                      /* Scan the next sensor */
+ 405:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsCSDInitNextScan();
+ 406:Generated_Source\PSoC4/capsense_INT.c ****                 }
+ 407:Generated_Source\PSoC4/capsense_INT.c ****             #else
+ 408:Generated_Source\PSoC4/capsense_INT.c ****                  /* Scan the next sensor */
+ 409:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_SsCSDInitNextScan();
+ 410:Generated_Source\PSoC4/capsense_INT.c ****             #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 411:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN)
+ 412:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 413:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN) */
+ 414:Generated_Source\PSoC4/capsense_INT.c **** 
+ 415:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_EXIT_CALLBACK
+ 416:Generated_Source\PSoC4/capsense_INT.c ****             capsense_ExitCallback();
+ 417:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_EXIT_CALLBACK */
+ 418:Generated_Source\PSoC4/capsense_INT.c ****     }
+ 419:Generated_Source\PSoC4/capsense_INT.c ****     #endif /* (capsense_ENABLE == capsense_CSD_GANGED_SNS_EN) */
+ 420:Generated_Source\PSoC4/capsense_INT.c **** 
+ 421:Generated_Source\PSoC4/capsense_INT.c **** #else
+ 422:Generated_Source\PSoC4/capsense_INT.c **** 
+ 423:Generated_Source\PSoC4/capsense_INT.c ****     /* Third-generation HW block part */
+ 424:Generated_Source\PSoC4/capsense_INT.c **** 
+ 425:Generated_Source\PSoC4/capsense_INT.c ****     /*******************************************************************************
+ 426:Generated_Source\PSoC4/capsense_INT.c ****     * Function Name: capsense_CSDPostSingleScan
+ 427:Generated_Source\PSoC4/capsense_INT.c ****     ****************************************************************************//**
+ 428:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 429:Generated_Source\PSoC4/capsense_INT.c ****     * \brief
+ 430:Generated_Source\PSoC4/capsense_INT.c ****     *  This is an internal ISR function for the single-sensor scanning implementation.
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 9
+
+
+ 431:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 432:Generated_Source\PSoC4/capsense_INT.c ****     * \details
+ 433:Generated_Source\PSoC4/capsense_INT.c ****     *  This ISR handler is triggered when the user calls the
+ 434:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_CSDScanExt() function.
+ 435:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 436:Generated_Source\PSoC4/capsense_INT.c ****     *  The following tasks are performed for Third-generation HW block:
+ 437:Generated_Source\PSoC4/capsense_INT.c ****     *    1. Disable the CSD interrupt.
+ 438:Generated_Source\PSoC4/capsense_INT.c ****     *    2. Read the Counter register and update the data structure with raw data.
+ 439:Generated_Source\PSoC4/capsense_INT.c ****     *    3. Connect the Vref buffer to the AMUX bus.
+ 440:Generated_Source\PSoC4/capsense_INT.c ****     *    4. Update the Scan Counter.
+ 441:Generated_Source\PSoC4/capsense_INT.c ****     *    5. Reset the BUSY flag.
+ 442:Generated_Source\PSoC4/capsense_INT.c ****     *    6. Enable the CSD interrupt.
+ 443:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 444:Generated_Source\PSoC4/capsense_INT.c ****     *  The following tasks are performed for Fourth-generation HW block:
+ 445:Generated_Source\PSoC4/capsense_INT.c ****     *    1. Check if the raw data is not noisy.
+ 446:Generated_Source\PSoC4/capsense_INT.c ****     *    2. Read the Counter register and update the data structure with raw data.
+ 447:Generated_Source\PSoC4/capsense_INT.c ****     *    3. Configure and start the scan for the next frequency if the
+ 448:Generated_Source\PSoC4/capsense_INT.c ****     *      multi-frequency is enabled.
+ 449:Generated_Source\PSoC4/capsense_INT.c ****     *    4. Update the Scan Counter.
+ 450:Generated_Source\PSoC4/capsense_INT.c ****     *    5. Reset the BUSY flag.
+ 451:Generated_Source\PSoC4/capsense_INT.c ****     *    6. Enable the CSD interrupt.
+ 452:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 453:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler changes the IMO and initializes scanning for the next frequency
+ 454:Generated_Source\PSoC4/capsense_INT.c ****     *  channels when multi-frequency scanning is enabled.
+ 455:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 456:Generated_Source\PSoC4/capsense_INT.c ****     *  This function has two Macro Callbacks that allow calling the user code
+ 457:Generated_Source\PSoC4/capsense_INT.c ****     *  from macros specified in Component's generated code. Refer to the
+ 458:Generated_Source\PSoC4/capsense_INT.c ****     *  \ref group_c_macrocallbacks section of the PSoC Creator User Guide
+ 459:Generated_Source\PSoC4/capsense_INT.c ****     *  for details.
+ 460:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 461:Generated_Source\PSoC4/capsense_INT.c ****     *******************************************************************************/
+ 462:Generated_Source\PSoC4/capsense_INT.c ****     CY_ISR(capsense_CSDPostSingleScan)
+ 463:Generated_Source\PSoC4/capsense_INT.c ****     {
+ 464:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_ENTRY_CALLBACK
+ 465:Generated_Source\PSoC4/capsense_INT.c ****             capsense_EntryCallback();
+ 466:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_ENTRY_CALLBACK */
+ 467:Generated_Source\PSoC4/capsense_INT.c **** 
+ 468:Generated_Source\PSoC4/capsense_INT.c ****         /* Clear pending interrupt */
+ 469:Generated_Source\PSoC4/capsense_INT.c ****         CY_SET_REG32(capsense_INTR_PTR, capsense_INTR_SET_MASK);
+ 470:Generated_Source\PSoC4/capsense_INT.c **** 
+ 471:Generated_Source\PSoC4/capsense_INT.c ****         /* Read Rawdata */
+ 472:Generated_Source\PSoC4/capsense_INT.c ****         capsense_SsCSDPostScan();
+ 473:Generated_Source\PSoC4/capsense_INT.c **** 
+ 474:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)
+ 475:Generated_Source\PSoC4/capsense_INT.c ****             if (capsense_FREQ_CHANNEL_2 > capsense_scanFreqIndex)
+ 476:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 477:Generated_Source\PSoC4/capsense_INT.c ****                 /* Connect Vref Buffer to AMUX bus. Third-generation HW block is enabled */
+ 478:Generated_Source\PSoC4/capsense_INT.c ****                 CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CTANK_PRECHARGE_CON
+ 479:Generated_Source\PSoC4/capsense_INT.c **** 
+ 480:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_SsNextFrequencyScan();
+ 481:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 482:Generated_Source\PSoC4/capsense_INT.c ****             else
+ 483:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 484:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_scanFreqIndex = capsense_FREQ_CHANNEL_0;
+ 485:Generated_Source\PSoC4/capsense_INT.c **** 
+ 486:Generated_Source\PSoC4/capsense_INT.c ****                 #if (capsense_MFS_IMO == capsense_MFS_METHOD)
+ 487:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsChangeImoFreq(capsense_FREQ_CHANNEL_0);
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 10
+
+
+ 488:Generated_Source\PSoC4/capsense_INT.c ****                 #else
+ 489:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsChangeClkFreq(capsense_FREQ_CHANNEL_0);
+ 490:Generated_Source\PSoC4/capsense_INT.c ****                 #endif /* (capsense_MFS_IMO == capsense_MFS_METHOD) */
+ 491:Generated_Source\PSoC4/capsense_INT.c **** 
+ 492:Generated_Source\PSoC4/capsense_INT.c ****                 #if (capsense_ENABLE == capsense_BLOCK_OFF_AFTER_SCAN_EN)
+ 493:Generated_Source\PSoC4/capsense_INT.c ****                     /* Disable Third-generation HW block. Connect Vref Buffer to AMUX bus */
+ 494:Generated_Source\PSoC4/capsense_INT.c ****                     #if ((capsense_CSH_PRECHARGE_IO_BUF == capsense_CSD_CSH_PRECHARGE_SRC) &&\
+ 495:Generated_Source\PSoC4/capsense_INT.c ****                          (capsense_ENABLE == capsense_CSD_SHIELD_TANK_EN))
+ 496:Generated_Source\PSoC4/capsense_INT.c ****                         CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CMOD_PRECHA
+ 497:Generated_Source\PSoC4/capsense_INT.c ****                     #else
+ 498:Generated_Source\PSoC4/capsense_INT.c ****                         CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CTANK_PRECH
+ 499:Generated_Source\PSoC4/capsense_INT.c ****                     #endif
+ 500:Generated_Source\PSoC4/capsense_INT.c ****                 #else
+ 501:Generated_Source\PSoC4/capsense_INT.c ****                     /* Connect Vref Buffer to AMUX bus. Third-generation HW block is enabled */
+ 502:Generated_Source\PSoC4/capsense_INT.c ****                     CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CTANK_PRECHARGE
+ 503:Generated_Source\PSoC4/capsense_INT.c ****                 #endif
+ 504:Generated_Source\PSoC4/capsense_INT.c **** 
+ 505:Generated_Source\PSoC4/capsense_INT.c ****                 /* Update Scan Counter */
+ 506:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_dsRam.scanCounter++;
+ 507:Generated_Source\PSoC4/capsense_INT.c **** 
+ 508:Generated_Source\PSoC4/capsense_INT.c ****                 /* Sensor is totally scanned. Reset BUSY flag */
+ 509:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_dsRam.status &= ~(capsense_SW_STS_BUSY | capsense_WDGT_SW_STS_BUSY);
+ 510:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 511:Generated_Source\PSoC4/capsense_INT.c ****         #else
+ 512:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 513:Generated_Source\PSoC4/capsense_INT.c ****                 #if (capsense_ENABLE == capsense_BLOCK_OFF_AFTER_SCAN_EN)
+ 514:Generated_Source\PSoC4/capsense_INT.c ****                     /* Disable Third-generation HW block. Connect Vref Buffer to AMUX bus */
+ 515:Generated_Source\PSoC4/capsense_INT.c ****                     #if ((capsense_CSH_PRECHARGE_IO_BUF == capsense_CSD_CSH_PRECHARGE_SRC) &&\
+ 516:Generated_Source\PSoC4/capsense_INT.c ****                          (capsense_ENABLE == capsense_CSD_SHIELD_TANK_EN))
+ 517:Generated_Source\PSoC4/capsense_INT.c ****                         CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CMOD_PRECHA
+ 518:Generated_Source\PSoC4/capsense_INT.c ****                     #else
+ 519:Generated_Source\PSoC4/capsense_INT.c ****                         CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CTANK_PRECH
+ 520:Generated_Source\PSoC4/capsense_INT.c ****                     #endif
+ 521:Generated_Source\PSoC4/capsense_INT.c ****                 #else
+ 522:Generated_Source\PSoC4/capsense_INT.c ****                     /* Connect Vref Buffer to AMUX bus. Third-generation HW block is enabled */
+ 523:Generated_Source\PSoC4/capsense_INT.c ****                     CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CTANK_PRECHARGE
+ 524:Generated_Source\PSoC4/capsense_INT.c ****                 #endif
+ 525:Generated_Source\PSoC4/capsense_INT.c **** 
+ 526:Generated_Source\PSoC4/capsense_INT.c ****                 /* Update Scan Counter */
+ 527:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_dsRam.scanCounter++;
+ 528:Generated_Source\PSoC4/capsense_INT.c **** 
+ 529:Generated_Source\PSoC4/capsense_INT.c ****                 /* Sensor is totally scanned. Reset BUSY flag */
+ 530:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_dsRam.status &= ~(capsense_SW_STS_BUSY | capsense_WDGT_SW_STS_BUSY);
+ 531:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 532:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 533:Generated_Source\PSoC4/capsense_INT.c **** 
+ 534:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_EXIT_CALLBACK
+ 535:Generated_Source\PSoC4/capsense_INT.c ****             capsense_ExitCallback();
+ 536:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_EXIT_CALLBACK */
+ 537:Generated_Source\PSoC4/capsense_INT.c ****     }
+ 538:Generated_Source\PSoC4/capsense_INT.c **** 
+ 539:Generated_Source\PSoC4/capsense_INT.c **** 
+ 540:Generated_Source\PSoC4/capsense_INT.c ****     /*******************************************************************************
+ 541:Generated_Source\PSoC4/capsense_INT.c ****     * Function Name: capsense_CSDPostMultiScan
+ 542:Generated_Source\PSoC4/capsense_INT.c ****     ****************************************************************************//**
+ 543:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 544:Generated_Source\PSoC4/capsense_INT.c ****     * \brief
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 11
+
+
+ 545:Generated_Source\PSoC4/capsense_INT.c ****     *  This is an internal ISR function for the multiple-sensor scanning
+ 546:Generated_Source\PSoC4/capsense_INT.c ****     *  implementation.
+ 547:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 548:Generated_Source\PSoC4/capsense_INT.c ****     * \details
+ 549:Generated_Source\PSoC4/capsense_INT.c ****     *  This ISR handler is triggered when the user calls the
+ 550:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_Scan() or capsense_ScanAllWidgets() APIs.
+ 551:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 552:Generated_Source\PSoC4/capsense_INT.c ****     *  The following tasks are performed:
+ 553:Generated_Source\PSoC4/capsense_INT.c ****     *    1. Disable the CSD interrupt.
+ 554:Generated_Source\PSoC4/capsense_INT.c ****     *    2. Read the Counter register and update the data structure with raw data.
+ 555:Generated_Source\PSoC4/capsense_INT.c ****     *    3. Connect the Vref buffer to the AMUX bus.
+ 556:Generated_Source\PSoC4/capsense_INT.c ****     *    4. Disable the CSD block (after the widget has been scanned).
+ 557:Generated_Source\PSoC4/capsense_INT.c ****     *    5. Update the Scan Counter.
+ 558:Generated_Source\PSoC4/capsense_INT.c ****     *    6. Reset the BUSY flag.
+ 559:Generated_Source\PSoC4/capsense_INT.c ****     *    7. Enable the CSD interrupt.
+ 560:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 561:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler initializes scanning for the previous sensor when the
+ 562:Generated_Source\PSoC4/capsense_INT.c ****     *  widget has more than one sensor.
+ 563:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler initializes scanning for the next widget when the
+ 564:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_ScanAllWidgets() APIs are called and the project has
+ 565:Generated_Source\PSoC4/capsense_INT.c ****     *  more than one widget.
+ 566:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler changes the IMO and initializes scanning for the next
+ 567:Generated_Source\PSoC4/capsense_INT.c ****     *  frequency channels when multi-frequency scanning is enabled.
+ 568:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 569:Generated_Source\PSoC4/capsense_INT.c ****     *  This function has two Macro Callbacks that allow calling the user
+ 570:Generated_Source\PSoC4/capsense_INT.c ****     *  code from macros specified in Component's generated code. Refer to the
+ 571:Generated_Source\PSoC4/capsense_INT.c ****     *  \ref group_c_macrocallbacks section of the PSoC Creator User Guide
+ 572:Generated_Source\PSoC4/capsense_INT.c ****     *  for details.
+ 573:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 574:Generated_Source\PSoC4/capsense_INT.c ****     *******************************************************************************/
+ 575:Generated_Source\PSoC4/capsense_INT.c ****     CY_ISR(capsense_CSDPostMultiScan)
+ 576:Generated_Source\PSoC4/capsense_INT.c ****     {
+ 577:Generated_Source\PSoC4/capsense_INT.c ****         /* Declare and initialize ptr to sensor IO structure to appropriate address        */
+ 578:Generated_Source\PSoC4/capsense_INT.c ****         capsense_FLASH_IO_STRUCT const *curSnsIOPtr = (capsense_FLASH_IO_STRUCT const *)
+ 579:Generated_Source\PSoC4/capsense_INT.c ****                                                           capsense_dsFlash.wdgtArray[capsense_widge
+ 580:Generated_Source\PSoC4/capsense_INT.c ****                                                           + capsense_sensorIndex;
+ 581:Generated_Source\PSoC4/capsense_INT.c **** 
+ 582:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_ENTRY_CALLBACK
+ 583:Generated_Source\PSoC4/capsense_INT.c ****             capsense_EntryCallback();
+ 584:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_ENTRY_CALLBACK */
+ 585:Generated_Source\PSoC4/capsense_INT.c **** 
+ 586:Generated_Source\PSoC4/capsense_INT.c ****         /* Clear pending interrupt */
+ 587:Generated_Source\PSoC4/capsense_INT.c ****         CY_SET_REG32(capsense_INTR_PTR, capsense_INTR_SET_MASK);
+ 588:Generated_Source\PSoC4/capsense_INT.c **** 
+ 589:Generated_Source\PSoC4/capsense_INT.c ****          /* Read Rawdata */
+ 590:Generated_Source\PSoC4/capsense_INT.c ****         capsense_SsCSDPostScan();
+ 591:Generated_Source\PSoC4/capsense_INT.c **** 
+ 592:Generated_Source\PSoC4/capsense_INT.c ****         /* Connect Vref Buffer to AMUX bus */
+ 593:Generated_Source\PSoC4/capsense_INT.c ****         CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CTANK_PRECHARGE_CONFIG_CSD_
+ 594:Generated_Source\PSoC4/capsense_INT.c **** 
+ 595:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)
+ 596:Generated_Source\PSoC4/capsense_INT.c ****             /* Disable sensor when all frequency channels are scanned */
+ 597:Generated_Source\PSoC4/capsense_INT.c ****             if (capsense_FREQ_CHANNEL_2 == capsense_scanFreqIndex)
+ 598:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 599:Generated_Source\PSoC4/capsense_INT.c ****                 /* Disable sensor */
+ 600:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_CSDDisconnectSns(curSnsIOPtr);
+ 601:Generated_Source\PSoC4/capsense_INT.c ****             }
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 12
+
+
+ 602:Generated_Source\PSoC4/capsense_INT.c ****         #else
+ 603:Generated_Source\PSoC4/capsense_INT.c ****             /* Disable sensor */
+ 604:Generated_Source\PSoC4/capsense_INT.c ****             capsense_CSDDisconnectSns(curSnsIOPtr);
+ 605:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 606:Generated_Source\PSoC4/capsense_INT.c **** 
+ 607:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)
+ 608:Generated_Source\PSoC4/capsense_INT.c ****             if (capsense_FREQ_CHANNEL_2 > capsense_scanFreqIndex)
+ 609:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 610:Generated_Source\PSoC4/capsense_INT.c ****                  /* Scan the next channel */
+ 611:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_SsNextFrequencyScan();
+ 612:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 613:Generated_Source\PSoC4/capsense_INT.c ****             else
+ 614:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 615:Generated_Source\PSoC4/capsense_INT.c ****                  /* All channels are scanned. Set IMO to zero channel */
+ 616:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_scanFreqIndex = capsense_FREQ_CHANNEL_0;
+ 617:Generated_Source\PSoC4/capsense_INT.c **** 
+ 618:Generated_Source\PSoC4/capsense_INT.c ****                 #if (capsense_MFS_IMO == capsense_MFS_METHOD)
+ 619:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsChangeImoFreq(capsense_FREQ_CHANNEL_0);
+ 620:Generated_Source\PSoC4/capsense_INT.c ****                 #else
+ 621:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsChangeClkFreq(capsense_FREQ_CHANNEL_0);
+ 622:Generated_Source\PSoC4/capsense_INT.c ****                 #endif /* (capsense_MFS_IMO == capsense_MFS_METHOD) */
+ 623:Generated_Source\PSoC4/capsense_INT.c **** 
+ 624:Generated_Source\PSoC4/capsense_INT.c ****                  /* Scan the next sensor */
+ 625:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_SsCSDInitNextScan();
+ 626:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 627:Generated_Source\PSoC4/capsense_INT.c ****         #else
+ 628:Generated_Source\PSoC4/capsense_INT.c ****             /* Scan the next sensor */
+ 629:Generated_Source\PSoC4/capsense_INT.c ****             capsense_SsCSDInitNextScan();
+ 630:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 631:Generated_Source\PSoC4/capsense_INT.c **** 
+ 632:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_EXIT_CALLBACK
+ 633:Generated_Source\PSoC4/capsense_INT.c ****             capsense_ExitCallback();
+ 634:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_EXIT_CALLBACK */
+ 635:Generated_Source\PSoC4/capsense_INT.c ****     }
+ 636:Generated_Source\PSoC4/capsense_INT.c **** 
+ 637:Generated_Source\PSoC4/capsense_INT.c **** 
+ 638:Generated_Source\PSoC4/capsense_INT.c ****     #if (capsense_ENABLE == capsense_CSD_GANGED_SNS_EN)
+ 639:Generated_Source\PSoC4/capsense_INT.c ****     /*******************************************************************************
+ 640:Generated_Source\PSoC4/capsense_INT.c ****     * Function Name: capsense_CSDPostMultiScanGanged
+ 641:Generated_Source\PSoC4/capsense_INT.c ****     ****************************************************************************//**
+ 642:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 643:Generated_Source\PSoC4/capsense_INT.c ****     * \brief
+ 644:Generated_Source\PSoC4/capsense_INT.c ****     *  This is an internal ISR function for the multiple-sensor scanning
+ 645:Generated_Source\PSoC4/capsense_INT.c ****     *  implementation for ganged sensors.
+ 646:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 647:Generated_Source\PSoC4/capsense_INT.c ****     * \details
+ 648:Generated_Source\PSoC4/capsense_INT.c ****     *  This ISR handler is triggered when the user calls the
+ 649:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_Scan() API for a ganged sensor or the
+ 650:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_ScanAllWidgets() API in the project with ganged sensors.
+ 651:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 652:Generated_Source\PSoC4/capsense_INT.c ****     *  The following tasks are performed:
+ 653:Generated_Source\PSoC4/capsense_INT.c ****     *    1. Disable the CSD interrupt.
+ 654:Generated_Source\PSoC4/capsense_INT.c ****     *    2. Read the Counter register and update the data structure with raw data.
+ 655:Generated_Source\PSoC4/capsense_INT.c ****     *    3. Connect the Vref buffer to the AMUX bus.
+ 656:Generated_Source\PSoC4/capsense_INT.c ****     *    4. Disable the CSD block (after the widget has been scanned).
+ 657:Generated_Source\PSoC4/capsense_INT.c ****     *    5. Update the Scan Counter.
+ 658:Generated_Source\PSoC4/capsense_INT.c ****     *    6. Reset the BUSY flag.
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 13
+
+
+ 659:Generated_Source\PSoC4/capsense_INT.c ****     *    7. Enable the CSD interrupt.
+ 660:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 661:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler initializes scanning for the previous sensor when the
+ 662:Generated_Source\PSoC4/capsense_INT.c ****     *  widget has more than one sensor.
+ 663:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler initializes scanning for the next widget when the
+ 664:Generated_Source\PSoC4/capsense_INT.c ****     *  capsense_ScanAllWidgets() APIs are called and the project has
+ 665:Generated_Source\PSoC4/capsense_INT.c ****     *  more than one widget.
+ 666:Generated_Source\PSoC4/capsense_INT.c ****     *  The ISR handler changes the IMO and initializes scanning for the next
+ 667:Generated_Source\PSoC4/capsense_INT.c ****     *  frequency channels when multi-frequency scanning is enabled.
+ 668:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 669:Generated_Source\PSoC4/capsense_INT.c ****     *  This function has two Macro Callbacks that allow calling the user
+ 670:Generated_Source\PSoC4/capsense_INT.c ****     *  code from macros specified in Component's generated code. Refer to the
+ 671:Generated_Source\PSoC4/capsense_INT.c ****     *  \ref group_c_macrocallbacks section of the PSoC Creator User Guide
+ 672:Generated_Source\PSoC4/capsense_INT.c ****     *  for details.
+ 673:Generated_Source\PSoC4/capsense_INT.c ****     *
+ 674:Generated_Source\PSoC4/capsense_INT.c ****     *******************************************************************************/
+ 675:Generated_Source\PSoC4/capsense_INT.c ****     CY_ISR(capsense_CSDPostMultiScanGanged)
+ 676:Generated_Source\PSoC4/capsense_INT.c ****     {
+ 677:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_ENTRY_CALLBACK
+ 678:Generated_Source\PSoC4/capsense_INT.c ****             capsense_EntryCallback();
+ 679:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_ENTRY_CALLBACK */
+ 680:Generated_Source\PSoC4/capsense_INT.c **** 
+ 681:Generated_Source\PSoC4/capsense_INT.c ****         /* Clear pending interrupt */
+ 682:Generated_Source\PSoC4/capsense_INT.c ****         CY_SET_REG32(capsense_INTR_PTR, capsense_INTR_SET_MASK);
+ 683:Generated_Source\PSoC4/capsense_INT.c **** 
+ 684:Generated_Source\PSoC4/capsense_INT.c ****          /* Read Rawdata */
+ 685:Generated_Source\PSoC4/capsense_INT.c ****         capsense_SsCSDPostScan();
+ 686:Generated_Source\PSoC4/capsense_INT.c **** 
+ 687:Generated_Source\PSoC4/capsense_INT.c ****         /* Connect Vref Buffer to AMUX bus */
+ 688:Generated_Source\PSoC4/capsense_INT.c ****         CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CTANK_PRECHARGE_CONFIG_CSD_
+ 689:Generated_Source\PSoC4/capsense_INT.c **** 
+ 690:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)
+ 691:Generated_Source\PSoC4/capsense_INT.c ****             if (capsense_FREQ_CHANNEL_2 == capsense_scanFreqIndex)
+ 692:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 693:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_SsCSDDisconnectSnsExt((uint32)capsense_widgetIndex, (uint32)capsense_senso
+ 694:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 695:Generated_Source\PSoC4/capsense_INT.c ****         #else
+ 696:Generated_Source\PSoC4/capsense_INT.c ****             capsense_SsCSDDisconnectSnsExt((uint32)capsense_widgetIndex, (uint32)capsense_sensorInd
+ 697:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 698:Generated_Source\PSoC4/capsense_INT.c **** 
+ 699:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN)
+ 700:Generated_Source\PSoC4/capsense_INT.c ****             if (capsense_FREQ_CHANNEL_2 > capsense_scanFreqIndex)
+ 701:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 702:Generated_Source\PSoC4/capsense_INT.c ****                  /* Scan the next channel */
+ 703:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_SsNextFrequencyScan();
+ 704:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 705:Generated_Source\PSoC4/capsense_INT.c ****             else
+ 706:Generated_Source\PSoC4/capsense_INT.c ****             {
+ 707:Generated_Source\PSoC4/capsense_INT.c ****                 /* All channels are scanned. Set IMO to zero channel */
+ 708:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_scanFreqIndex = capsense_FREQ_CHANNEL_0;
+ 709:Generated_Source\PSoC4/capsense_INT.c **** 
+ 710:Generated_Source\PSoC4/capsense_INT.c ****                 #if (capsense_MFS_IMO == capsense_MFS_METHOD)
+ 711:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsChangeImoFreq(capsense_FREQ_CHANNEL_0);
+ 712:Generated_Source\PSoC4/capsense_INT.c ****                 #else
+ 713:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsChangeClkFreq(capsense_FREQ_CHANNEL_0);
+ 714:Generated_Source\PSoC4/capsense_INT.c ****                 #endif /* (capsense_MFS_IMO == capsense_MFS_METHOD) */
+ 715:Generated_Source\PSoC4/capsense_INT.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 14
+
+
+ 716:Generated_Source\PSoC4/capsense_INT.c ****                  /* Scan the next sensor */
+ 717:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_SsCSDInitNextScan();
+ 718:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 719:Generated_Source\PSoC4/capsense_INT.c ****         #else
+ 720:Generated_Source\PSoC4/capsense_INT.c ****              /* Scan the next sensor */
+ 721:Generated_Source\PSoC4/capsense_INT.c ****             capsense_SsCSDInitNextScan();
+ 722:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 723:Generated_Source\PSoC4/capsense_INT.c **** 
+ 724:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_EXIT_CALLBACK
+ 725:Generated_Source\PSoC4/capsense_INT.c ****             capsense_ExitCallback();
+ 726:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* capsense_EXIT_CALLBACK */
+ 727:Generated_Source\PSoC4/capsense_INT.c ****     }
+ 728:Generated_Source\PSoC4/capsense_INT.c ****     #endif /* (capsense_ENABLE == capsense_CSD_GANGED_SNS_EN) */
+ 729:Generated_Source\PSoC4/capsense_INT.c **** 
+ 730:Generated_Source\PSoC4/capsense_INT.c **** #endif /* (capsense_ENABLE == capsense_CSDV2) */
+ 731:Generated_Source\PSoC4/capsense_INT.c **** 
+ 732:Generated_Source\PSoC4/capsense_INT.c **** #endif /* ((capsense_ENABLE == capsense_CSD_EN) || (capsense_ENABLE == capsense_CSD_CSX_EN)) */
+ 733:Generated_Source\PSoC4/capsense_INT.c **** 
+ 734:Generated_Source\PSoC4/capsense_INT.c **** /** \}
+ 735:Generated_Source\PSoC4/capsense_INT.c ****  * \endcond */
+ 736:Generated_Source\PSoC4/capsense_INT.c **** 
+ 737:Generated_Source\PSoC4/capsense_INT.c **** 
+ 738:Generated_Source\PSoC4/capsense_INT.c **** #if ((capsense_ENABLE == capsense_CSD_EN) || (capsense_ENABLE == capsense_CSD_CSX_EN))
+ 739:Generated_Source\PSoC4/capsense_INT.c **** 
+ 740:Generated_Source\PSoC4/capsense_INT.c **** /*******************************************************************************
+ 741:Generated_Source\PSoC4/capsense_INT.c **** * Function Name: capsense_SsCSDPostScan
+ 742:Generated_Source\PSoC4/capsense_INT.c **** ****************************************************************************//**
+ 743:Generated_Source\PSoC4/capsense_INT.c **** *
+ 744:Generated_Source\PSoC4/capsense_INT.c **** * \brief
+ 745:Generated_Source\PSoC4/capsense_INT.c **** *   This function reads rawdata and releases required HW resources after scan.
+ 746:Generated_Source\PSoC4/capsense_INT.c **** *
+ 747:Generated_Source\PSoC4/capsense_INT.c **** * \details
+ 748:Generated_Source\PSoC4/capsense_INT.c **** *   This function performs following tasks after scan:
+ 749:Generated_Source\PSoC4/capsense_INT.c **** *   - Reads SlotResult from Raw Counter;
+ 750:Generated_Source\PSoC4/capsense_INT.c **** *   - Inits bad Conversions number;
+ 751:Generated_Source\PSoC4/capsense_INT.c **** *   - Disconnects Vrefhi from AMUBUF positive input;
+ 752:Generated_Source\PSoC4/capsense_INT.c **** *   - Disconnects AMUBUF output from CSDBUSB with sych PHI2+HSCMP;
+ 753:Generated_Source\PSoC4/capsense_INT.c **** *   - Opens HCBV and HCBG switches.
+ 754:Generated_Source\PSoC4/capsense_INT.c **** *
+ 755:Generated_Source\PSoC4/capsense_INT.c **** *******************************************************************************/
+ 756:Generated_Source\PSoC4/capsense_INT.c **** static void capsense_SsCSDPostScan(void)
+ 757:Generated_Source\PSoC4/capsense_INT.c **** {
+  27              		.loc 1 757 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+ 758:Generated_Source\PSoC4/capsense_INT.c ****     #if (capsense_ENABLE == capsense_CSDV2)
+ 759:Generated_Source\PSoC4/capsense_INT.c **** 
+ 760:Generated_Source\PSoC4/capsense_INT.c ****         uint32 tmpRawData;
+ 761:Generated_Source\PSoC4/capsense_INT.c ****         uint32 tmpMaxCount;
+ 762:Generated_Source\PSoC4/capsense_INT.c ****         capsense_RAM_WD_BASE_STRUCT const *ptrWdgt = (capsense_RAM_WD_BASE_STRUCT *)
+ 763:Generated_Source\PSoC4/capsense_INT.c ****                                             capsense_dsFlash.wdgtArray[capsense_widgetIndex].ptr2Wd
+  32              		.loc 1 763 0
+  33 0000 104B     		ldr	r3, .L4
+  34 0002 1B78     		ldrb	r3, [r3]
+  35 0004 DBB2     		uxtb	r3, r3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 15
+
+
+ 762:Generated_Source\PSoC4/capsense_INT.c ****                                             capsense_dsFlash.wdgtArray[capsense_widgetIndex].ptr2Wd
+  36              		.loc 1 762 0
+  37 0006 9A00     		lsls	r2, r3, #2
+  38 0008 D318     		adds	r3, r2, r3
+  39 000a DA00     		lsls	r2, r3, #3
+  40 000c 0E4B     		ldr	r3, .L4+4
+  41 000e 9A18     		adds	r2, r3, r2
+  42 0010 5368     		ldr	r3, [r2, #4]
+  43              	.LVL0:
+ 764:Generated_Source\PSoC4/capsense_INT.c **** 
+ 765:Generated_Source\PSoC4/capsense_INT.c ****         /* Read SlotResult from Raw Counter */
+ 766:Generated_Source\PSoC4/capsense_INT.c ****         tmpRawData = capsense_RESULT_VAL1_VALUE_MASK & CY_GET_REG32(capsense_COUNTER_PTR);
+  44              		.loc 1 766 0
+  45 0012 0E4A     		ldr	r2, .L4+8
+  46 0014 1168     		ldr	r1, [r2]
+  47 0016 0A04     		lsls	r2, r1, #16
+  48 0018 120C     		lsrs	r2, r2, #16
+  49              	.LVL1:
+ 767:Generated_Source\PSoC4/capsense_INT.c **** 
+ 768:Generated_Source\PSoC4/capsense_INT.c ****         tmpMaxCount = ((1uL << ptrWdgt->resolution) - 1uL);
+  50              		.loc 1 768 0
+  51 001a 1888     		ldrh	r0, [r3]
+  52 001c 0123     		movs	r3, #1
+  53              	.LVL2:
+  54 001e 8340     		lsls	r3, r3, r0
+  55 0020 013B     		subs	r3, r3, #1
+  56              	.LVL3:
+ 769:Generated_Source\PSoC4/capsense_INT.c ****         if(tmpRawData < tmpMaxCount)
+  57              		.loc 1 769 0
+  58 0022 9A42     		cmp	r2, r3
+  59 0024 06D2     		bcs	.L2
+ 770:Generated_Source\PSoC4/capsense_INT.c ****         {
+ 771:Generated_Source\PSoC4/capsense_INT.c ****             capsense_curRamSnsPtr->raw[capsense_scanFreqIndex] = LO16(tmpRawData);
+  60              		.loc 1 771 0
+  61 0026 0A4B     		ldr	r3, .L4+12
+  62              	.LVL4:
+  63 0028 1A68     		ldr	r2, [r3]
+  64              	.LVL5:
+  65 002a 0A4B     		ldr	r3, .L4+16
+  66 002c 1B78     		ldrb	r3, [r3]
+  67 002e 5B00     		lsls	r3, r3, #1
+  68 0030 D152     		strh	r1, [r2, r3]
+  69 0032 05E0     		b	.L1
+  70              	.LVL6:
+  71              	.L2:
+ 772:Generated_Source\PSoC4/capsense_INT.c ****         }
+ 773:Generated_Source\PSoC4/capsense_INT.c ****         else
+ 774:Generated_Source\PSoC4/capsense_INT.c ****         {
+ 775:Generated_Source\PSoC4/capsense_INT.c ****             capsense_curRamSnsPtr->raw[capsense_scanFreqIndex] = LO16(tmpMaxCount);
+  72              		.loc 1 775 0
+  73 0034 064A     		ldr	r2, .L4+12
+  74              	.LVL7:
+  75 0036 1168     		ldr	r1, [r2]
+  76              	.LVL8:
+  77 0038 064A     		ldr	r2, .L4+16
+  78 003a 1278     		ldrb	r2, [r2]
+  79 003c 5200     		lsls	r2, r2, #1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 16
+
+
+  80 003e 8B52     		strh	r3, [r1, r2]
+  81              	.LVL9:
+  82              	.L1:
+ 776:Generated_Source\PSoC4/capsense_INT.c ****         }
+ 777:Generated_Source\PSoC4/capsense_INT.c **** 
+ 778:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN)
+ 779:Generated_Source\PSoC4/capsense_INT.c ****             /* Init bad Conversions number */
+ 780:Generated_Source\PSoC4/capsense_INT.c ****             capsense_badConversionsNum = capsense_BAD_CONVERSIONS_NUM;
+ 781:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN) */
+ 782:Generated_Source\PSoC4/capsense_INT.c **** 
+ 783:Generated_Source\PSoC4/capsense_INT.c ****         #if (capsense_ENABLE == capsense_CSD_SHIELD_EN)
+ 784:Generated_Source\PSoC4/capsense_INT.c ****             /* Open HCBV and HCBG switches */
+ 785:Generated_Source\PSoC4/capsense_INT.c ****             CY_SET_REG32(capsense_SW_SHIELD_SEL_PTR, capsense_SW_SHIELD_SEL_SW_HCBV_STATIC_OPEN |
+ 786:Generated_Source\PSoC4/capsense_INT.c ****                                                              capsense_SW_SHIELD_SEL_SW_HCBG_STATIC_
+ 787:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_CSD_SHIELD_EN) */
+ 788:Generated_Source\PSoC4/capsense_INT.c **** 
+ 789:Generated_Source\PSoC4/capsense_INT.c ****     #else
+ 790:Generated_Source\PSoC4/capsense_INT.c **** 
+ 791:Generated_Source\PSoC4/capsense_INT.c ****         /* Read SlotResult from Raw Counter */
+ 792:Generated_Source\PSoC4/capsense_INT.c ****        capsense_curRamSnsPtr->raw[capsense_scanFreqIndex] = (uint16)CY_GET_REG32(capsense_COUNTER_P
+ 793:Generated_Source\PSoC4/capsense_INT.c **** 
+ 794:Generated_Source\PSoC4/capsense_INT.c ****     #endif /* (capsense_ENABLE == capsense_CSDV2) */
+ 795:Generated_Source\PSoC4/capsense_INT.c **** }
+  83              		.loc 1 795 0
+  84              		@ sp needed
+  85 0040 7047     		bx	lr
+  86              	.L5:
+  87 0042 C046     		.align	2
+  88              	.L4:
+  89 0044 00000000 		.word	capsense_widgetIndex
+  90 0048 00000000 		.word	capsense_dsFlash
+  91 004c D0000B40 		.word	1074462928
+  92 0050 00000000 		.word	capsense_curRamSnsPtr
+  93 0054 00000000 		.word	capsense_scanFreqIndex
+  94              		.cfi_endproc
+  95              	.LFE3:
+  96              		.size	capsense_SsCSDPostScan, .-capsense_SsCSDPostScan
+  97              		.section	.text.capsense_SsCSDInitNextScan,"ax",%progbits
+  98              		.align	2
+  99              		.code	16
+ 100              		.thumb_func
+ 101              		.type	capsense_SsCSDInitNextScan, %function
+ 102              	capsense_SsCSDInitNextScan:
+ 103              	.LFB4:
+ 796:Generated_Source\PSoC4/capsense_INT.c **** 
+ 797:Generated_Source\PSoC4/capsense_INT.c **** 
+ 798:Generated_Source\PSoC4/capsense_INT.c **** /*******************************************************************************
+ 799:Generated_Source\PSoC4/capsense_INT.c **** * Function Name: capsense_SsCSDInitNextScan
+ 800:Generated_Source\PSoC4/capsense_INT.c **** ****************************************************************************//**
+ 801:Generated_Source\PSoC4/capsense_INT.c **** *
+ 802:Generated_Source\PSoC4/capsense_INT.c **** * \brief
+ 803:Generated_Source\PSoC4/capsense_INT.c **** *   This function initializes the next sensor scan.
+ 804:Generated_Source\PSoC4/capsense_INT.c **** *
+ 805:Generated_Source\PSoC4/capsense_INT.c **** * \details
+ 806:Generated_Source\PSoC4/capsense_INT.c **** *   The function increments the sensor index, updates sense clock for matrix
+ 807:Generated_Source\PSoC4/capsense_INT.c **** *   or touchpad widgets only, sets up Compensation IDAC, enables the sensor and
+ 808:Generated_Source\PSoC4/capsense_INT.c **** *   scans it. When all the sensors are scanned it continues to set up the next widget
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 17
+
+
+ 809:Generated_Source\PSoC4/capsense_INT.c **** *   until all the widgets are scanned. The CSD block is disabled when all the widgets are
+ 810:Generated_Source\PSoC4/capsense_INT.c **** *   scanned.
+ 811:Generated_Source\PSoC4/capsense_INT.c **** *
+ 812:Generated_Source\PSoC4/capsense_INT.c **** *******************************************************************************/
+ 813:Generated_Source\PSoC4/capsense_INT.c **** static void capsense_SsCSDInitNextScan(void)
+ 814:Generated_Source\PSoC4/capsense_INT.c **** {
+ 104              		.loc 1 814 0
+ 105              		.cfi_startproc
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108 0000 70B5     		push	{r4, r5, r6, lr}
+ 109              		.cfi_def_cfa_offset 16
+ 110              		.cfi_offset 4, -16
+ 111              		.cfi_offset 5, -12
+ 112              		.cfi_offset 6, -8
+ 113              		.cfi_offset 14, -4
+ 815:Generated_Source\PSoC4/capsense_INT.c ****     /* Declare and initialize ptr to widget and sensor structures to appropriate address */
+ 816:Generated_Source\PSoC4/capsense_INT.c ****     #if (((capsense_ENABLE == capsense_CSD_IDAC_COMP_EN) || \
+ 817:Generated_Source\PSoC4/capsense_INT.c ****           (capsense_CSD_MATRIX_WIDGET_EN || capsense_CSD_TOUCHPAD_WIDGET_EN)) || \
+ 818:Generated_Source\PSoC4/capsense_INT.c ****           (((capsense_DISABLE == capsense_CSD_COMMON_SNS_CLK_EN) && \
+ 819:Generated_Source\PSoC4/capsense_INT.c ****           (capsense_ENABLE == capsense_CSDV2) && \
+ 820:Generated_Source\PSoC4/capsense_INT.c ****           (capsense_CSD_MATRIX_WIDGET_EN || capsense_CSD_TOUCHPAD_WIDGET_EN))))
+ 821:Generated_Source\PSoC4/capsense_INT.c ****         capsense_RAM_WD_BASE_STRUCT *ptrWdgt = (capsense_RAM_WD_BASE_STRUCT *)
+ 822:Generated_Source\PSoC4/capsense_INT.c ****                                                         capsense_dsFlash.wdgtArray[capsense_widgetI
+ 114              		.loc 1 822 0
+ 115 0002 274A     		ldr	r2, .L10
+ 116 0004 1378     		ldrb	r3, [r2]
+ 117 0006 DBB2     		uxtb	r3, r3
+ 821:Generated_Source\PSoC4/capsense_INT.c ****                                                         capsense_dsFlash.wdgtArray[capsense_widgetI
+ 118              		.loc 1 821 0
+ 119 0008 264C     		ldr	r4, .L10+4
+ 120 000a 9900     		lsls	r1, r3, #2
+ 121 000c CB18     		adds	r3, r1, r3
+ 122 000e D900     		lsls	r1, r3, #3
+ 123 0010 6118     		adds	r1, r4, r1
+ 124 0012 4868     		ldr	r0, [r1, #4]
+ 125              	.LVL10:
+ 823:Generated_Source\PSoC4/capsense_INT.c ****     #endif
+ 824:Generated_Source\PSoC4/capsense_INT.c **** 
+ 825:Generated_Source\PSoC4/capsense_INT.c ****     /* Check if all the sensors are scanned in widget */
+ 826:Generated_Source\PSoC4/capsense_INT.c ****     if (((uint8)capsense_dsFlash.wdgtArray[(capsense_widgetIndex)].totalNumSns - 1u) > capsense_sen
+ 126              		.loc 1 826 0
+ 127 0014 1378     		ldrb	r3, [r2]
+ 128 0016 DBB2     		uxtb	r3, r3
+ 129 0018 9A00     		lsls	r2, r3, #2
+ 130 001a D318     		adds	r3, r2, r3
+ 131 001c DA00     		lsls	r2, r3, #3
+ 132 001e A218     		adds	r2, r4, r2
+ 133 0020 127E     		ldrb	r2, [r2, #24]
+ 134 0022 013A     		subs	r2, r2, #1
+ 135 0024 204B     		ldr	r3, .L10+8
+ 136 0026 1B78     		ldrb	r3, [r3]
+ 137 0028 DBB2     		uxtb	r3, r3
+ 138 002a 9A42     		cmp	r2, r3
+ 139 002c 20D9     		bls	.L7
+ 827:Generated_Source\PSoC4/capsense_INT.c ****     {
+ 828:Generated_Source\PSoC4/capsense_INT.c ****         /* Increment sensor index to configure next sensor in widget */
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 18
+
+
+ 829:Generated_Source\PSoC4/capsense_INT.c ****         capsense_sensorIndex++;
+ 140              		.loc 1 829 0
+ 141 002e 1E4C     		ldr	r4, .L10+8
+ 142 0030 2378     		ldrb	r3, [r4]
+ 143 0032 0133     		adds	r3, r3, #1
+ 144 0034 DBB2     		uxtb	r3, r3
+ 145 0036 2370     		strb	r3, [r4]
+ 830:Generated_Source\PSoC4/capsense_INT.c **** 
+ 831:Generated_Source\PSoC4/capsense_INT.c ****         /* Update global pointer to capsense_RAM_SNS_STRUCT to current sensor  */
+ 832:Generated_Source\PSoC4/capsense_INT.c ****         capsense_curRamSnsPtr = (capsense_RAM_SNS_STRUCT *)
+ 146              		.loc 1 832 0
+ 147 0038 194D     		ldr	r5, .L10
+ 148 003a 2B78     		ldrb	r3, [r5]
+ 149 003c DBB2     		uxtb	r3, r3
+ 833:Generated_Source\PSoC4/capsense_INT.c ****                                                   capsense_dsFlash.wdgtArray[capsense_widgetIndex].
+ 150              		.loc 1 833 0
+ 151 003e 9A00     		lsls	r2, r3, #2
+ 152 0040 D318     		adds	r3, r2, r3
+ 153 0042 DA00     		lsls	r2, r3, #3
+ 154 0044 174B     		ldr	r3, .L10+4
+ 155 0046 9A18     		adds	r2, r3, r2
+ 156 0048 9168     		ldr	r1, [r2, #8]
+ 834:Generated_Source\PSoC4/capsense_INT.c ****                                                   + capsense_sensorIndex;
+ 157              		.loc 1 834 0
+ 158 004a 2378     		ldrb	r3, [r4]
+ 159 004c DBB2     		uxtb	r3, r3
+ 160 004e 9A00     		lsls	r2, r3, #2
+ 161 0050 D318     		adds	r3, r2, r3
+ 162 0052 5A00     		lsls	r2, r3, #1
+ 163 0054 8A18     		adds	r2, r1, r2
+ 832:Generated_Source\PSoC4/capsense_INT.c ****                                                   capsense_dsFlash.wdgtArray[capsense_widgetIndex].
+ 164              		.loc 1 832 0
+ 165 0056 154B     		ldr	r3, .L10+12
+ 166 0058 1A60     		str	r2, [r3]
+ 835:Generated_Source\PSoC4/capsense_INT.c **** 
+ 836:Generated_Source\PSoC4/capsense_INT.c ****         /* Configure clock divider to row or column */
+ 837:Generated_Source\PSoC4/capsense_INT.c ****         #if ((capsense_DISABLE == capsense_CSD_COMMON_SNS_CLK_EN) && \
+ 838:Generated_Source\PSoC4/capsense_INT.c ****              (capsense_CSD_MATRIX_WIDGET_EN || capsense_CSD_TOUCHPAD_WIDGET_EN))
+ 839:Generated_Source\PSoC4/capsense_INT.c ****             capsense_SsCSDConfigClock();
+ 840:Generated_Source\PSoC4/capsense_INT.c **** 
+ 841:Generated_Source\PSoC4/capsense_INT.c ****             #if (capsense_ENABLE == capsense_CSDV2)
+ 842:Generated_Source\PSoC4/capsense_INT.c ****                  /* Set up scanning resolution */
+ 843:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_SsCSDCalculateScanDuration(ptrWdgt);
+ 844:Generated_Source\PSoC4/capsense_INT.c ****             #endif
+ 845:Generated_Source\PSoC4/capsense_INT.c ****         #endif
+ 846:Generated_Source\PSoC4/capsense_INT.c **** 
+ 847:Generated_Source\PSoC4/capsense_INT.c ****         /* Setup Compensation IDAC for next sensor in widget */
+ 848:Generated_Source\PSoC4/capsense_INT.c ****         #if ((capsense_ENABLE == capsense_CSD_IDAC_COMP_EN) || \
+ 849:Generated_Source\PSoC4/capsense_INT.c ****              (capsense_CSD_MATRIX_WIDGET_EN || capsense_CSD_TOUCHPAD_WIDGET_EN))
+ 850:Generated_Source\PSoC4/capsense_INT.c ****             capsense_SsCSDSetUpIdacs(ptrWdgt);
+ 167              		.loc 1 850 0
+ 168 005a FFF7FEFF 		bl	capsense_SsCSDSetUpIdacs
+ 169              	.LVL11:
+ 851:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* ((capsense_ENABLE == capsense_CSD_IDAC_COMP_EN) || \
+ 852:Generated_Source\PSoC4/capsense_INT.c ****                    (capsense_CSD_MATRIX_WIDGET_EN || capsense_CSD_TOUCHPAD_WIDGET_EN)) */
+ 853:Generated_Source\PSoC4/capsense_INT.c **** 
+ 854:Generated_Source\PSoC4/capsense_INT.c ****         /* Enable sensor */
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 19
+
+
+ 855:Generated_Source\PSoC4/capsense_INT.c ****         capsense_SsCSDConnectSensorExt((uint32)capsense_widgetIndex, (uint32)capsense_sensorIndex);
+ 170              		.loc 1 855 0
+ 171 005e 2878     		ldrb	r0, [r5]
+ 172 0060 C0B2     		uxtb	r0, r0
+ 173 0062 2178     		ldrb	r1, [r4]
+ 174 0064 C9B2     		uxtb	r1, r1
+ 175 0066 FFF7FEFF 		bl	capsense_SsCSDConnectSensorExt
+ 176              	.LVL12:
+ 856:Generated_Source\PSoC4/capsense_INT.c **** 
+ 857:Generated_Source\PSoC4/capsense_INT.c ****         /* Proceed scanning */
+ 858:Generated_Source\PSoC4/capsense_INT.c ****         capsense_SsCSDStartSample();
+ 177              		.loc 1 858 0
+ 178 006a FFF7FEFF 		bl	capsense_SsCSDStartSample
+ 179              	.LVL13:
+ 180 006e 16E0     		b	.L6
+ 181              	.LVL14:
+ 182              	.L7:
+ 859:Generated_Source\PSoC4/capsense_INT.c ****     }
+ 860:Generated_Source\PSoC4/capsense_INT.c ****     /* Call scan next widget API if requested, if not, complete the scan  */
+ 861:Generated_Source\PSoC4/capsense_INT.c ****     else
+ 862:Generated_Source\PSoC4/capsense_INT.c ****     {
+ 863:Generated_Source\PSoC4/capsense_INT.c ****         capsense_sensorIndex = 0u;
+ 183              		.loc 1 863 0
+ 184 0070 0022     		movs	r2, #0
+ 185 0072 0D4B     		ldr	r3, .L10+8
+ 186 0074 1A70     		strb	r2, [r3]
+ 864:Generated_Source\PSoC4/capsense_INT.c **** 
+ 865:Generated_Source\PSoC4/capsense_INT.c ****         /* Current widget is totally scanned. Reset WIDGET BUSY flag */
+ 866:Generated_Source\PSoC4/capsense_INT.c ****         capsense_dsRam.status &= ~capsense_WDGT_SW_STS_BUSY;
+ 187              		.loc 1 866 0
+ 188 0076 0E4A     		ldr	r2, .L10+16
+ 189 0078 D168     		ldr	r1, [r2, #12]
+ 190 007a 0E4B     		ldr	r3, .L10+20
+ 191 007c 0B40     		ands	r3, r1
+ 192 007e D360     		str	r3, [r2, #12]
+ 867:Generated_Source\PSoC4/capsense_INT.c **** 
+ 868:Generated_Source\PSoC4/capsense_INT.c ****         /* Check if all the widgets have been scanned */
+ 869:Generated_Source\PSoC4/capsense_INT.c ****         if (capsense_ENABLE == capsense_requestScanAllWidget)
+ 193              		.loc 1 869 0
+ 194 0080 0D4B     		ldr	r3, .L10+24
+ 195 0082 1B78     		ldrb	r3, [r3]
+ 196 0084 012B     		cmp	r3, #1
+ 197 0086 02D1     		bne	.L9
+ 870:Generated_Source\PSoC4/capsense_INT.c ****         {
+ 871:Generated_Source\PSoC4/capsense_INT.c ****             /* Configure and begin scanning next widget */
+ 872:Generated_Source\PSoC4/capsense_INT.c ****             capsense_SsPostAllWidgetsScan();
+ 198              		.loc 1 872 0
+ 199 0088 FFF7FEFF 		bl	capsense_SsPostAllWidgetsScan
+ 200              	.LVL15:
+ 201 008c 07E0     		b	.L6
+ 202              	.LVL16:
+ 203              	.L9:
+ 873:Generated_Source\PSoC4/capsense_INT.c ****         }
+ 874:Generated_Source\PSoC4/capsense_INT.c ****         else
+ 875:Generated_Source\PSoC4/capsense_INT.c ****         {
+ 876:Generated_Source\PSoC4/capsense_INT.c ****             #if (capsense_ENABLE == capsense_BLOCK_OFF_AFTER_SCAN_EN)
+ 877:Generated_Source\PSoC4/capsense_INT.c ****                 #if (capsense_ENABLE == capsense_CSDV2)
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 20
+
+
+ 878:Generated_Source\PSoC4/capsense_INT.c ****                     /* Disable the CSD block */
+ 879:Generated_Source\PSoC4/capsense_INT.c ****                     CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd);
+ 880:Generated_Source\PSoC4/capsense_INT.c ****                 #else
+ 881:Generated_Source\PSoC4/capsense_INT.c ****                     /* Disable the CSD block. Connect Vref Buffer to AMUX bus */
+ 882:Generated_Source\PSoC4/capsense_INT.c ****                     #if ((capsense_CSH_PRECHARGE_IO_BUF == capsense_CSD_CSH_PRECHARGE_SRC) &&\
+ 883:Generated_Source\PSoC4/capsense_INT.c ****                          (capsense_ENABLE == capsense_CSD_SHIELD_TANK_EN))
+ 884:Generated_Source\PSoC4/capsense_INT.c ****                         CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CMOD_PRECHA
+ 885:Generated_Source\PSoC4/capsense_INT.c ****                     #else
+ 886:Generated_Source\PSoC4/capsense_INT.c ****                         CY_SET_REG32(capsense_CONFIG_PTR, capsense_configCsd | capsense_CTANK_PRECH
+ 887:Generated_Source\PSoC4/capsense_INT.c ****                     #endif
+ 888:Generated_Source\PSoC4/capsense_INT.c ****                 #endif
+ 889:Generated_Source\PSoC4/capsense_INT.c ****             #endif
+ 890:Generated_Source\PSoC4/capsense_INT.c **** 
+ 891:Generated_Source\PSoC4/capsense_INT.c ****             /* All widgets are totally scanned. Reset BUSY flag */
+ 892:Generated_Source\PSoC4/capsense_INT.c ****             capsense_dsRam.status &= ~capsense_SW_STS_BUSY;
+ 204              		.loc 1 892 0
+ 205 008e 084B     		ldr	r3, .L10+16
+ 206 0090 DA68     		ldr	r2, [r3, #12]
+ 207 0092 8021     		movs	r1, #128
+ 208 0094 8A43     		bics	r2, r1
+ 209 0096 DA60     		str	r2, [r3, #12]
+ 893:Generated_Source\PSoC4/capsense_INT.c **** 
+ 894:Generated_Source\PSoC4/capsense_INT.c ****             /* Update scan Counter */
+ 895:Generated_Source\PSoC4/capsense_INT.c ****             capsense_dsRam.scanCounter++;
+ 210              		.loc 1 895 0
+ 211 0098 1A89     		ldrh	r2, [r3, #8]
+ 212 009a 0132     		adds	r2, r2, #1
+ 213 009c 1A81     		strh	r2, [r3, #8]
+ 214              	.LVL17:
+ 215              	.L6:
+ 896:Generated_Source\PSoC4/capsense_INT.c ****         }
+ 897:Generated_Source\PSoC4/capsense_INT.c ****     }
+ 898:Generated_Source\PSoC4/capsense_INT.c **** }
+ 216              		.loc 1 898 0
+ 217              		@ sp needed
+ 218 009e 70BD     		pop	{r4, r5, r6, pc}
+ 219              	.L11:
+ 220              		.align	2
+ 221              	.L10:
+ 222 00a0 00000000 		.word	capsense_widgetIndex
+ 223 00a4 00000000 		.word	capsense_dsFlash
+ 224 00a8 00000000 		.word	capsense_sensorIndex
+ 225 00ac 00000000 		.word	capsense_curRamSnsPtr
+ 226 00b0 00000000 		.word	capsense_dsRam
+ 227 00b4 FFFFFEFF 		.word	-65537
+ 228 00b8 00000000 		.word	capsense_requestScanAllWidget
+ 229              		.cfi_endproc
+ 230              	.LFE4:
+ 231              		.size	capsense_SsCSDInitNextScan, .-capsense_SsCSDInitNextScan
+ 232              		.section	.text.capsense_CSDPostSingleScan,"ax",%progbits
+ 233              		.align	2
+ 234              		.global	capsense_CSDPostSingleScan
+ 235              		.code	16
+ 236              		.thumb_func
+ 237              		.type	capsense_CSDPostSingleScan, %function
+ 238              	capsense_CSDPostSingleScan:
+ 239              	.LFB1:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 21
+
+
+ 122:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_ENTRY_CALLBACK
+ 240              		.loc 1 122 0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244 0000 10B5     		push	{r4, lr}
+ 245              		.cfi_def_cfa_offset 8
+ 246              		.cfi_offset 4, -8
+ 247              		.cfi_offset 14, -4
+ 128:Generated_Source\PSoC4/capsense_INT.c **** 
+ 248              		.loc 1 128 0
+ 249 0002 8322     		movs	r2, #131
+ 250 0004 5200     		lsls	r2, r2, #1
+ 251 0006 064B     		ldr	r3, .L13
+ 252 0008 1A60     		str	r2, [r3]
+ 148:Generated_Source\PSoC4/capsense_INT.c **** 
+ 253              		.loc 1 148 0
+ 254 000a FFF7FEFF 		bl	capsense_SsCSDPostScan
+ 255              	.LVL18:
+ 186:Generated_Source\PSoC4/capsense_INT.c **** 
+ 256              		.loc 1 186 0
+ 257 000e 054B     		ldr	r3, .L13+4
+ 258 0010 1A89     		ldrh	r2, [r3, #8]
+ 259 0012 0132     		adds	r2, r2, #1
+ 260 0014 1A81     		strh	r2, [r3, #8]
+ 189:Generated_Source\PSoC4/capsense_INT.c ****                 }
+ 261              		.loc 1 189 0
+ 262 0016 D968     		ldr	r1, [r3, #12]
+ 263 0018 034A     		ldr	r2, .L13+8
+ 264 001a 0A40     		ands	r2, r1
+ 265 001c DA60     		str	r2, [r3, #12]
+ 199:Generated_Source\PSoC4/capsense_INT.c **** 
+ 266              		.loc 1 199 0
+ 267              		@ sp needed
+ 268 001e 10BD     		pop	{r4, pc}
+ 269              	.L14:
+ 270              		.align	2
+ 271              	.L13:
+ 272 0020 F0000B40 		.word	1074462960
+ 273 0024 00000000 		.word	capsense_dsRam
+ 274 0028 7FFFFEFF 		.word	-65665
+ 275              		.cfi_endproc
+ 276              	.LFE1:
+ 277              		.size	capsense_CSDPostSingleScan, .-capsense_CSDPostSingleScan
+ 278              		.section	.text.capsense_CSDPostMultiScan,"ax",%progbits
+ 279              		.align	2
+ 280              		.global	capsense_CSDPostMultiScan
+ 281              		.code	16
+ 282              		.thumb_func
+ 283              		.type	capsense_CSDPostMultiScan, %function
+ 284              	capsense_CSDPostMultiScan:
+ 285              	.LFB2:
+ 238:Generated_Source\PSoC4/capsense_INT.c ****         /* Declare and initialize ptr to sensor IO structure to appropriate address */
+ 286              		.loc 1 238 0
+ 287              		.cfi_startproc
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 22
+
+
+ 290 0000 10B5     		push	{r4, lr}
+ 291              		.cfi_def_cfa_offset 8
+ 292              		.cfi_offset 4, -8
+ 293              		.cfi_offset 14, -4
+ 240:Generated_Source\PSoC4/capsense_INT.c ****                                                           capsense_dsFlash.wdgtArray[capsense_widge
+ 294              		.loc 1 240 0
+ 295 0002 0D4B     		ldr	r3, .L16
+ 296 0004 1B78     		ldrb	r3, [r3]
+ 297 0006 DBB2     		uxtb	r3, r3
+ 241:Generated_Source\PSoC4/capsense_INT.c ****                                                           + capsense_sensorIndex;
+ 298              		.loc 1 241 0
+ 299 0008 9A00     		lsls	r2, r3, #2
+ 300 000a D318     		adds	r3, r2, r3
+ 301 000c DA00     		lsls	r2, r3, #3
+ 302 000e 0B4B     		ldr	r3, .L16+4
+ 303 0010 D458     		ldr	r4, [r2, r3]
+ 242:Generated_Source\PSoC4/capsense_INT.c **** 
+ 304              		.loc 1 242 0
+ 305 0012 0B4B     		ldr	r3, .L16+8
+ 306 0014 1A78     		ldrb	r2, [r3]
+ 307 0016 D2B2     		uxtb	r2, r2
+ 308 0018 D100     		lsls	r1, r2, #3
+ 309 001a 8A1A     		subs	r2, r1, r2
+ 310 001c 9300     		lsls	r3, r2, #2
+ 240:Generated_Source\PSoC4/capsense_INT.c ****                                                           capsense_dsFlash.wdgtArray[capsense_widge
+ 311              		.loc 1 240 0
+ 312 001e E418     		adds	r4, r4, r3
+ 313              	.LVL19:
+ 249:Generated_Source\PSoC4/capsense_INT.c **** 
+ 314              		.loc 1 249 0
+ 315 0020 8322     		movs	r2, #131
+ 316 0022 5200     		lsls	r2, r2, #1
+ 317 0024 074B     		ldr	r3, .L16+12
+ 318 0026 1A60     		str	r2, [r3]
+ 269:Generated_Source\PSoC4/capsense_INT.c **** 
+ 319              		.loc 1 269 0
+ 320 0028 FFF7FEFF 		bl	capsense_SsCSDPostScan
+ 321              	.LVL20:
+ 277:Generated_Source\PSoC4/capsense_INT.c ****             }
+ 322              		.loc 1 277 0
+ 323 002c 2000     		movs	r0, r4
+ 324 002e FFF7FEFF 		bl	capsense_CSDDisconnectSns
+ 325              	.LVL21:
+ 302:Generated_Source\PSoC4/capsense_INT.c ****             #endif /* (capsense_ENABLE == capsense_MULTI_FREQ_SCAN_EN) */
+ 326              		.loc 1 302 0
+ 327 0032 FFF7FEFF 		bl	capsense_SsCSDInitNextScan
+ 328              	.LVL22:
+ 311:Generated_Source\PSoC4/capsense_INT.c **** 
+ 329              		.loc 1 311 0
+ 330              		@ sp needed
+ 331              	.LVL23:
+ 332 0036 10BD     		pop	{r4, pc}
+ 333              	.L17:
+ 334              		.align	2
+ 335              	.L16:
+ 336 0038 00000000 		.word	capsense_widgetIndex
+ 337 003c 00000000 		.word	capsense_dsFlash
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 23
+
+
+ 338 0040 00000000 		.word	capsense_sensorIndex
+ 339 0044 F0000B40 		.word	1074462960
+ 340              		.cfi_endproc
+ 341              	.LFE2:
+ 342              		.size	capsense_CSDPostMultiScan, .-capsense_CSDPostMultiScan
+ 343              		.text
+ 344              	.Letext0:
+ 345              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 346              		.file 3 "Generated_Source\\PSoC4\\capsense_Configuration.h"
+ 347              		.file 4 "Generated_Source\\PSoC4\\capsense_Structure.h"
+ 348              		.file 5 "Generated_Source\\PSoC4\\capsense_Sensing.h"
+ 349              		.file 6 "Generated_Source\\PSoC4\\capsense_SensingCSD_LL.h"
+ 350              		.section	.debug_info,"",%progbits
+ 351              	.Ldebug_info0:
+ 352 0000 A9080000 		.4byte	0x8a9
+ 353 0004 0400     		.2byte	0x4
+ 354 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 355 000a 04       		.byte	0x4
+ 356 000b 01       		.uleb128 0x1
+ 357 000c 2A010000 		.4byte	.LASF116
+ 358 0010 0C       		.byte	0xc
+ 359 0011 71020000 		.4byte	.LASF117
+ 360 0015 9A040000 		.4byte	.LASF118
+ 361 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 362 001d 00000000 		.4byte	0
+ 363 0021 00000000 		.4byte	.Ldebug_line0
+ 364 0025 02       		.uleb128 0x2
+ 365 0026 01       		.byte	0x1
+ 366 0027 06       		.byte	0x6
+ 367 0028 2C040000 		.4byte	.LASF0
+ 368 002c 02       		.uleb128 0x2
+ 369 002d 01       		.byte	0x1
+ 370 002e 08       		.byte	0x8
+ 371 002f EB030000 		.4byte	.LASF1
+ 372 0033 02       		.uleb128 0x2
+ 373 0034 02       		.byte	0x2
+ 374 0035 05       		.byte	0x5
+ 375 0036 BA000000 		.4byte	.LASF2
+ 376 003a 02       		.uleb128 0x2
+ 377 003b 02       		.byte	0x2
+ 378 003c 07       		.byte	0x7
+ 379 003d 11050000 		.4byte	.LASF3
+ 380 0041 02       		.uleb128 0x2
+ 381 0042 04       		.byte	0x4
+ 382 0043 05       		.byte	0x5
+ 383 0044 1A030000 		.4byte	.LASF4
+ 384 0048 02       		.uleb128 0x2
+ 385 0049 04       		.byte	0x4
+ 386 004a 07       		.byte	0x7
+ 387 004b F0050000 		.4byte	.LASF5
+ 388 004f 02       		.uleb128 0x2
+ 389 0050 08       		.byte	0x8
+ 390 0051 05       		.byte	0x5
+ 391 0052 E8010000 		.4byte	.LASF6
+ 392 0056 02       		.uleb128 0x2
+ 393 0057 08       		.byte	0x8
+ 394 0058 07       		.byte	0x7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 24
+
+
+ 395 0059 38040000 		.4byte	.LASF7
+ 396 005d 03       		.uleb128 0x3
+ 397 005e 04       		.byte	0x4
+ 398 005f 05       		.byte	0x5
+ 399 0060 696E7400 		.ascii	"int\000"
+ 400 0064 02       		.uleb128 0x2
+ 401 0065 04       		.byte	0x4
+ 402 0066 07       		.byte	0x7
+ 403 0067 72040000 		.4byte	.LASF8
+ 404 006b 04       		.uleb128 0x4
+ 405 006c 97020000 		.4byte	.LASF9
+ 406 0070 02       		.byte	0x2
+ 407 0071 FC01     		.2byte	0x1fc
+ 408 0073 2C000000 		.4byte	0x2c
+ 409 0077 04       		.uleb128 0x4
+ 410 0078 5A020000 		.4byte	.LASF10
+ 411 007c 02       		.byte	0x2
+ 412 007d FD01     		.2byte	0x1fd
+ 413 007f 3A000000 		.4byte	0x3a
+ 414 0083 04       		.uleb128 0x4
+ 415 0084 DE050000 		.4byte	.LASF11
+ 416 0088 02       		.byte	0x2
+ 417 0089 FE01     		.2byte	0x1fe
+ 418 008b 48000000 		.4byte	0x48
+ 419 008f 02       		.uleb128 0x2
+ 420 0090 04       		.byte	0x4
+ 421 0091 04       		.byte	0x4
+ 422 0092 F3020000 		.4byte	.LASF12
+ 423 0096 02       		.uleb128 0x2
+ 424 0097 08       		.byte	0x8
+ 425 0098 04       		.byte	0x4
+ 426 0099 02060000 		.4byte	.LASF13
+ 427 009d 02       		.uleb128 0x2
+ 428 009e 01       		.byte	0x1
+ 429 009f 08       		.byte	0x8
+ 430 00a0 15030000 		.4byte	.LASF14
+ 431 00a4 05       		.uleb128 0x5
+ 432 00a5 6B000000 		.4byte	0x6b
+ 433 00a9 04       		.uleb128 0x4
+ 434 00aa F4040000 		.4byte	.LASF15
+ 435 00ae 02       		.byte	0x2
+ 436 00af A802     		.2byte	0x2a8
+ 437 00b1 B5000000 		.4byte	0xb5
+ 438 00b5 05       		.uleb128 0x5
+ 439 00b6 83000000 		.4byte	0x83
+ 440 00ba 04       		.uleb128 0x4
+ 441 00bb F6000000 		.4byte	.LASF16
+ 442 00bf 03       		.byte	0x3
+ 443 00c0 4301     		.2byte	0x143
+ 444 00c2 77000000 		.4byte	0x77
+ 445 00c6 04       		.uleb128 0x4
+ 446 00c7 33060000 		.4byte	.LASF17
+ 447 00cb 03       		.byte	0x3
+ 448 00cc 4701     		.2byte	0x147
+ 449 00ce 6B000000 		.4byte	0x6b
+ 450 00d2 06       		.uleb128 0x6
+ 451 00d3 10       		.byte	0x10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 25
+
+
+ 452 00d4 04       		.byte	0x4
+ 453 00d5 AD       		.byte	0xad
+ 454 00d6 5F010000 		.4byte	0x15f
+ 455 00da 07       		.uleb128 0x7
+ 456 00db 77050000 		.4byte	.LASF18
+ 457 00df 04       		.byte	0x4
+ 458 00e0 B2       		.byte	0xb2
+ 459 00e1 77000000 		.4byte	0x77
+ 460 00e5 00       		.byte	0
+ 461 00e6 07       		.uleb128 0x7
+ 462 00e7 0D040000 		.4byte	.LASF19
+ 463 00eb 04       		.byte	0x4
+ 464 00ec B7       		.byte	0xb7
+ 465 00ed BA000000 		.4byte	0xba
+ 466 00f1 02       		.byte	0x2
+ 467 00f2 07       		.uleb128 0x7
+ 468 00f3 65060000 		.4byte	.LASF20
+ 469 00f7 04       		.byte	0x4
+ 470 00f8 BC       		.byte	0xbc
+ 471 00f9 6B000000 		.4byte	0x6b
+ 472 00fd 04       		.byte	0x4
+ 473 00fe 07       		.uleb128 0x7
+ 474 00ff BE050000 		.4byte	.LASF21
+ 475 0103 04       		.byte	0x4
+ 476 0104 C1       		.byte	0xc1
+ 477 0105 6B000000 		.4byte	0x6b
+ 478 0109 05       		.byte	0x5
+ 479 010a 07       		.uleb128 0x7
+ 480 010b AB030000 		.4byte	.LASF22
+ 481 010f 04       		.byte	0x4
+ 482 0110 C7       		.byte	0xc7
+ 483 0111 6B000000 		.4byte	0x6b
+ 484 0115 06       		.byte	0x6
+ 485 0116 07       		.uleb128 0x7
+ 486 0117 E2000000 		.4byte	.LASF23
+ 487 011b 04       		.byte	0x4
+ 488 011c CD       		.byte	0xcd
+ 489 011d 6B000000 		.4byte	0x6b
+ 490 0121 07       		.byte	0x7
+ 491 0122 07       		.uleb128 0x7
+ 492 0123 75000000 		.4byte	.LASF24
+ 493 0127 04       		.byte	0x4
+ 494 0128 D4       		.byte	0xd4
+ 495 0129 C6000000 		.4byte	0xc6
+ 496 012d 08       		.byte	0x8
+ 497 012e 07       		.uleb128 0x7
+ 498 012f 9D000000 		.4byte	.LASF25
+ 499 0133 04       		.byte	0x4
+ 500 0134 DB       		.byte	0xdb
+ 501 0135 5F010000 		.4byte	0x15f
+ 502 0139 09       		.byte	0x9
+ 503 013a 07       		.uleb128 0x7
+ 504 013b 42000000 		.4byte	.LASF26
+ 505 013f 04       		.byte	0x4
+ 506 0140 E0       		.byte	0xe0
+ 507 0141 6B000000 		.4byte	0x6b
+ 508 0145 0A       		.byte	0xa
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 26
+
+
+ 509 0146 07       		.uleb128 0x7
+ 510 0147 E0060000 		.4byte	.LASF27
+ 511 014b 04       		.byte	0x4
+ 512 014c E8       		.byte	0xe8
+ 513 014d 77000000 		.4byte	0x77
+ 514 0151 0C       		.byte	0xc
+ 515 0152 07       		.uleb128 0x7
+ 516 0153 23020000 		.4byte	.LASF28
+ 517 0157 04       		.byte	0x4
+ 518 0158 ED       		.byte	0xed
+ 519 0159 6B000000 		.4byte	0x6b
+ 520 015d 0E       		.byte	0xe
+ 521 015e 00       		.byte	0
+ 522 015f 08       		.uleb128 0x8
+ 523 0160 6B000000 		.4byte	0x6b
+ 524 0164 6F010000 		.4byte	0x16f
+ 525 0168 09       		.uleb128 0x9
+ 526 0169 6F010000 		.4byte	0x16f
+ 527 016d 00       		.byte	0
+ 528 016e 00       		.byte	0
+ 529 016f 02       		.uleb128 0x2
+ 530 0170 04       		.byte	0x4
+ 531 0171 07       		.byte	0x7
+ 532 0172 ED000000 		.4byte	.LASF29
+ 533 0176 0A       		.uleb128 0xa
+ 534 0177 A1060000 		.4byte	.LASF30
+ 535 017b 04       		.byte	0x4
+ 536 017c EE       		.byte	0xee
+ 537 017d D2000000 		.4byte	0xd2
+ 538 0181 06       		.uleb128 0x6
+ 539 0182 10       		.byte	0x10
+ 540 0183 04       		.byte	0x4
+ 541 0184 F3       		.byte	0xf3
+ 542 0185 17020000 		.4byte	0x217
+ 543 0189 07       		.uleb128 0x7
+ 544 018a 77050000 		.4byte	.LASF18
+ 545 018e 04       		.byte	0x4
+ 546 018f F8       		.byte	0xf8
+ 547 0190 77000000 		.4byte	0x77
+ 548 0194 00       		.byte	0
+ 549 0195 07       		.uleb128 0x7
+ 550 0196 0D040000 		.4byte	.LASF19
+ 551 019a 04       		.byte	0x4
+ 552 019b FD       		.byte	0xfd
+ 553 019c BA000000 		.4byte	0xba
+ 554 01a0 02       		.byte	0x2
+ 555 01a1 0B       		.uleb128 0xb
+ 556 01a2 65060000 		.4byte	.LASF20
+ 557 01a6 04       		.byte	0x4
+ 558 01a7 0201     		.2byte	0x102
+ 559 01a9 6B000000 		.4byte	0x6b
+ 560 01ad 04       		.byte	0x4
+ 561 01ae 0B       		.uleb128 0xb
+ 562 01af BE050000 		.4byte	.LASF21
+ 563 01b3 04       		.byte	0x4
+ 564 01b4 0701     		.2byte	0x107
+ 565 01b6 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 27
+
+
+ 566 01ba 05       		.byte	0x5
+ 567 01bb 0B       		.uleb128 0xb
+ 568 01bc AB030000 		.4byte	.LASF22
+ 569 01c0 04       		.byte	0x4
+ 570 01c1 0D01     		.2byte	0x10d
+ 571 01c3 6B000000 		.4byte	0x6b
+ 572 01c7 06       		.byte	0x6
+ 573 01c8 0B       		.uleb128 0xb
+ 574 01c9 E2000000 		.4byte	.LASF23
+ 575 01cd 04       		.byte	0x4
+ 576 01ce 1301     		.2byte	0x113
+ 577 01d0 6B000000 		.4byte	0x6b
+ 578 01d4 07       		.byte	0x7
+ 579 01d5 0B       		.uleb128 0xb
+ 580 01d6 75000000 		.4byte	.LASF24
+ 581 01da 04       		.byte	0x4
+ 582 01db 1A01     		.2byte	0x11a
+ 583 01dd C6000000 		.4byte	0xc6
+ 584 01e1 08       		.byte	0x8
+ 585 01e2 0B       		.uleb128 0xb
+ 586 01e3 9D000000 		.4byte	.LASF25
+ 587 01e7 04       		.byte	0x4
+ 588 01e8 2101     		.2byte	0x121
+ 589 01ea 5F010000 		.4byte	0x15f
+ 590 01ee 09       		.byte	0x9
+ 591 01ef 0B       		.uleb128 0xb
+ 592 01f0 42000000 		.4byte	.LASF26
+ 593 01f4 04       		.byte	0x4
+ 594 01f5 2601     		.2byte	0x126
+ 595 01f7 6B000000 		.4byte	0x6b
+ 596 01fb 0A       		.byte	0xa
+ 597 01fc 0B       		.uleb128 0xb
+ 598 01fd E0060000 		.4byte	.LASF27
+ 599 0201 04       		.byte	0x4
+ 600 0202 2E01     		.2byte	0x12e
+ 601 0204 77000000 		.4byte	0x77
+ 602 0208 0C       		.byte	0xc
+ 603 0209 0B       		.uleb128 0xb
+ 604 020a 23020000 		.4byte	.LASF28
+ 605 020e 04       		.byte	0x4
+ 606 020f 3301     		.2byte	0x133
+ 607 0211 6B000000 		.4byte	0x6b
+ 608 0215 0E       		.byte	0xe
+ 609 0216 00       		.byte	0
+ 610 0217 04       		.uleb128 0x4
+ 611 0218 C4000000 		.4byte	.LASF31
+ 612 021c 04       		.byte	0x4
+ 613 021d 3401     		.2byte	0x134
+ 614 021f 81010000 		.4byte	0x181
+ 615 0223 0C       		.uleb128 0xc
+ 616 0224 12       		.byte	0x12
+ 617 0225 04       		.byte	0x4
+ 618 0226 3901     		.2byte	0x139
+ 619 0228 C9020000 		.4byte	0x2c9
+ 620 022c 0B       		.uleb128 0xb
+ 621 022d 77050000 		.4byte	.LASF18
+ 622 0231 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 28
+
+
+ 623 0232 3E01     		.2byte	0x13e
+ 624 0234 77000000 		.4byte	0x77
+ 625 0238 00       		.byte	0
+ 626 0239 0B       		.uleb128 0xb
+ 627 023a 0D040000 		.4byte	.LASF19
+ 628 023e 04       		.byte	0x4
+ 629 023f 4301     		.2byte	0x143
+ 630 0241 BA000000 		.4byte	0xba
+ 631 0245 02       		.byte	0x2
+ 632 0246 0B       		.uleb128 0xb
+ 633 0247 65060000 		.4byte	.LASF20
+ 634 024b 04       		.byte	0x4
+ 635 024c 4801     		.2byte	0x148
+ 636 024e 6B000000 		.4byte	0x6b
+ 637 0252 04       		.byte	0x4
+ 638 0253 0B       		.uleb128 0xb
+ 639 0254 BE050000 		.4byte	.LASF21
+ 640 0258 04       		.byte	0x4
+ 641 0259 4D01     		.2byte	0x14d
+ 642 025b 6B000000 		.4byte	0x6b
+ 643 025f 05       		.byte	0x5
+ 644 0260 0B       		.uleb128 0xb
+ 645 0261 AB030000 		.4byte	.LASF22
+ 646 0265 04       		.byte	0x4
+ 647 0266 5301     		.2byte	0x153
+ 648 0268 6B000000 		.4byte	0x6b
+ 649 026c 06       		.byte	0x6
+ 650 026d 0B       		.uleb128 0xb
+ 651 026e E2000000 		.4byte	.LASF23
+ 652 0272 04       		.byte	0x4
+ 653 0273 5901     		.2byte	0x159
+ 654 0275 6B000000 		.4byte	0x6b
+ 655 0279 07       		.byte	0x7
+ 656 027a 0B       		.uleb128 0xb
+ 657 027b 75000000 		.4byte	.LASF24
+ 658 027f 04       		.byte	0x4
+ 659 0280 6001     		.2byte	0x160
+ 660 0282 C6000000 		.4byte	0xc6
+ 661 0286 08       		.byte	0x8
+ 662 0287 0B       		.uleb128 0xb
+ 663 0288 9D000000 		.4byte	.LASF25
+ 664 028c 04       		.byte	0x4
+ 665 028d 6701     		.2byte	0x167
+ 666 028f 5F010000 		.4byte	0x15f
+ 667 0293 09       		.byte	0x9
+ 668 0294 0B       		.uleb128 0xb
+ 669 0295 42000000 		.4byte	.LASF26
+ 670 0299 04       		.byte	0x4
+ 671 029a 6C01     		.2byte	0x16c
+ 672 029c 6B000000 		.4byte	0x6b
+ 673 02a0 0A       		.byte	0xa
+ 674 02a1 0B       		.uleb128 0xb
+ 675 02a2 E0060000 		.4byte	.LASF27
+ 676 02a6 04       		.byte	0x4
+ 677 02a7 7401     		.2byte	0x174
+ 678 02a9 77000000 		.4byte	0x77
+ 679 02ad 0C       		.byte	0xc
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 29
+
+
+ 680 02ae 0B       		.uleb128 0xb
+ 681 02af 23020000 		.4byte	.LASF28
+ 682 02b3 04       		.byte	0x4
+ 683 02b4 7901     		.2byte	0x179
+ 684 02b6 6B000000 		.4byte	0x6b
+ 685 02ba 0E       		.byte	0xe
+ 686 02bb 0B       		.uleb128 0xb
+ 687 02bc C7060000 		.4byte	.LASF32
+ 688 02c0 04       		.byte	0x4
+ 689 02c1 7E01     		.2byte	0x17e
+ 690 02c3 C9020000 		.4byte	0x2c9
+ 691 02c7 10       		.byte	0x10
+ 692 02c8 00       		.byte	0
+ 693 02c9 08       		.uleb128 0x8
+ 694 02ca 77000000 		.4byte	0x77
+ 695 02ce D9020000 		.4byte	0x2d9
+ 696 02d2 09       		.uleb128 0x9
+ 697 02d3 6F010000 		.4byte	0x16f
+ 698 02d7 00       		.byte	0
+ 699 02d8 00       		.byte	0
+ 700 02d9 04       		.uleb128 0x4
+ 701 02da 82050000 		.4byte	.LASF33
+ 702 02de 04       		.byte	0x4
+ 703 02df 7F01     		.2byte	0x17f
+ 704 02e1 23020000 		.4byte	0x223
+ 705 02e5 0C       		.uleb128 0xc
+ 706 02e6 42       		.byte	0x42
+ 707 02e7 04       		.byte	0x4
+ 708 02e8 8501     		.2byte	0x185
+ 709 02ea 23030000 		.4byte	0x323
+ 710 02ee 0B       		.uleb128 0xb
+ 711 02ef 30020000 		.4byte	.LASF34
+ 712 02f3 04       		.byte	0x4
+ 713 02f4 8A01     		.2byte	0x18a
+ 714 02f6 17020000 		.4byte	0x217
+ 715 02fa 00       		.byte	0
+ 716 02fb 0B       		.uleb128 0xb
+ 717 02fc 35020000 		.4byte	.LASF35
+ 718 0300 04       		.byte	0x4
+ 719 0301 8F01     		.2byte	0x18f
+ 720 0303 17020000 		.4byte	0x217
+ 721 0307 10       		.byte	0x10
+ 722 0308 0B       		.uleb128 0xb
+ 723 0309 3A020000 		.4byte	.LASF36
+ 724 030d 04       		.byte	0x4
+ 725 030e 9401     		.2byte	0x194
+ 726 0310 17020000 		.4byte	0x217
+ 727 0314 20       		.byte	0x20
+ 728 0315 0B       		.uleb128 0xb
+ 729 0316 27070000 		.4byte	.LASF37
+ 730 031a 04       		.byte	0x4
+ 731 031b 9901     		.2byte	0x199
+ 732 031d D9020000 		.4byte	0x2d9
+ 733 0321 30       		.byte	0x30
+ 734 0322 00       		.byte	0
+ 735 0323 04       		.uleb128 0x4
+ 736 0324 0E010000 		.4byte	.LASF38
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 30
+
+
+ 737 0328 04       		.byte	0x4
+ 738 0329 9A01     		.2byte	0x19a
+ 739 032b E5020000 		.4byte	0x2e5
+ 740 032f 0C       		.uleb128 0xc
+ 741 0330 0A       		.byte	0xa
+ 742 0331 04       		.byte	0x4
+ 743 0332 A001     		.2byte	0x1a0
+ 744 0334 87030000 		.4byte	0x387
+ 745 0338 0D       		.uleb128 0xd
+ 746 0339 72617700 		.ascii	"raw\000"
+ 747 033d 04       		.byte	0x4
+ 748 033e A501     		.2byte	0x1a5
+ 749 0340 C9020000 		.4byte	0x2c9
+ 750 0344 00       		.byte	0
+ 751 0345 0B       		.uleb128 0xb
+ 752 0346 32000000 		.4byte	.LASF39
+ 753 034a 04       		.byte	0x4
+ 754 034b AA01     		.2byte	0x1aa
+ 755 034d C9020000 		.4byte	0x2c9
+ 756 0351 02       		.byte	0x2
+ 757 0352 0B       		.uleb128 0xb
+ 758 0353 09060000 		.4byte	.LASF40
+ 759 0357 04       		.byte	0x4
+ 760 0358 B001     		.2byte	0x1b0
+ 761 035a 5F010000 		.4byte	0x15f
+ 762 035e 04       		.byte	0x4
+ 763 035f 0B       		.uleb128 0xb
+ 764 0360 80000000 		.4byte	.LASF41
+ 765 0364 04       		.byte	0x4
+ 766 0365 B501     		.2byte	0x1b5
+ 767 0367 BA000000 		.4byte	0xba
+ 768 036b 06       		.byte	0x6
+ 769 036c 0B       		.uleb128 0xb
+ 770 036d 3A030000 		.4byte	.LASF42
+ 771 0371 04       		.byte	0x4
+ 772 0372 BA01     		.2byte	0x1ba
+ 773 0374 87030000 		.4byte	0x387
+ 774 0378 08       		.byte	0x8
+ 775 0379 0B       		.uleb128 0xb
+ 776 037a D4010000 		.4byte	.LASF43
+ 777 037e 04       		.byte	0x4
+ 778 037f BF01     		.2byte	0x1bf
+ 779 0381 5F010000 		.4byte	0x15f
+ 780 0385 09       		.byte	0x9
+ 781 0386 00       		.byte	0
+ 782 0387 08       		.uleb128 0x8
+ 783 0388 C6000000 		.4byte	0xc6
+ 784 038c 97030000 		.4byte	0x397
+ 785 0390 09       		.uleb128 0x9
+ 786 0391 6F010000 		.4byte	0x16f
+ 787 0395 00       		.byte	0
+ 788 0396 00       		.byte	0
+ 789 0397 04       		.uleb128 0x4
+ 790 0398 BC010000 		.4byte	.LASF44
+ 791 039c 04       		.byte	0x4
+ 792 039d C001     		.2byte	0x1c0
+ 793 039f 2F030000 		.4byte	0x32f
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 31
+
+
+ 794 03a3 0C       		.uleb128 0xc
+ 795 03a4 50       		.byte	0x50
+ 796 03a5 04       		.byte	0x4
+ 797 03a6 C601     		.2byte	0x1c6
+ 798 03a8 E1030000 		.4byte	0x3e1
+ 799 03ac 0B       		.uleb128 0xb
+ 800 03ad 30020000 		.4byte	.LASF34
+ 801 03b1 04       		.byte	0x4
+ 802 03b2 CB01     		.2byte	0x1cb
+ 803 03b4 E1030000 		.4byte	0x3e1
+ 804 03b8 00       		.byte	0
+ 805 03b9 0B       		.uleb128 0xb
+ 806 03ba 35020000 		.4byte	.LASF35
+ 807 03be 04       		.byte	0x4
+ 808 03bf D001     		.2byte	0x1d0
+ 809 03c1 E1030000 		.4byte	0x3e1
+ 810 03c5 0A       		.byte	0xa
+ 811 03c6 0B       		.uleb128 0xb
+ 812 03c7 3A020000 		.4byte	.LASF36
+ 813 03cb 04       		.byte	0x4
+ 814 03cc D501     		.2byte	0x1d5
+ 815 03ce E1030000 		.4byte	0x3e1
+ 816 03d2 14       		.byte	0x14
+ 817 03d3 0B       		.uleb128 0xb
+ 818 03d4 27070000 		.4byte	.LASF37
+ 819 03d8 04       		.byte	0x4
+ 820 03d9 DA01     		.2byte	0x1da
+ 821 03db F1030000 		.4byte	0x3f1
+ 822 03df 1E       		.byte	0x1e
+ 823 03e0 00       		.byte	0
+ 824 03e1 08       		.uleb128 0x8
+ 825 03e2 97030000 		.4byte	0x397
+ 826 03e6 F1030000 		.4byte	0x3f1
+ 827 03ea 09       		.uleb128 0x9
+ 828 03eb 6F010000 		.4byte	0x16f
+ 829 03ef 00       		.byte	0
+ 830 03f0 00       		.byte	0
+ 831 03f1 08       		.uleb128 0x8
+ 832 03f2 97030000 		.4byte	0x397
+ 833 03f6 01040000 		.4byte	0x401
+ 834 03fa 09       		.uleb128 0x9
+ 835 03fb 6F010000 		.4byte	0x16f
+ 836 03ff 04       		.byte	0x4
+ 837 0400 00       		.byte	0
+ 838 0401 04       		.uleb128 0x4
+ 839 0402 34070000 		.4byte	.LASF45
+ 840 0406 04       		.byte	0x4
+ 841 0407 DB01     		.2byte	0x1db
+ 842 0409 A3030000 		.4byte	0x3a3
+ 843 040d 0C       		.uleb128 0xc
+ 844 040e BC       		.byte	0xbc
+ 845 040f 04       		.byte	0x4
+ 846 0410 E101     		.2byte	0x1e1
+ 847 0412 28050000 		.4byte	0x528
+ 848 0416 0B       		.uleb128 0xb
+ 849 0417 52050000 		.4byte	.LASF46
+ 850 041b 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 32
+
+
+ 851 041c E801     		.2byte	0x1e8
+ 852 041e 77000000 		.4byte	0x77
+ 853 0422 00       		.byte	0
+ 854 0423 0B       		.uleb128 0xb
+ 855 0424 6E050000 		.4byte	.LASF47
+ 856 0428 04       		.byte	0x4
+ 857 0429 ED01     		.2byte	0x1ed
+ 858 042b 77000000 		.4byte	0x77
+ 859 042f 02       		.byte	0x2
+ 860 0430 0B       		.uleb128 0xb
+ 861 0431 4A050000 		.4byte	.LASF48
+ 862 0435 04       		.byte	0x4
+ 863 0436 F201     		.2byte	0x1f2
+ 864 0438 77000000 		.4byte	0x77
+ 865 043c 04       		.byte	0x4
+ 866 043d 0B       		.uleb128 0xb
+ 867 043e B6030000 		.4byte	.LASF49
+ 868 0442 04       		.byte	0x4
+ 869 0443 F801     		.2byte	0x1f8
+ 870 0445 77000000 		.4byte	0x77
+ 871 0449 06       		.byte	0x6
+ 872 044a 0B       		.uleb128 0xb
+ 873 044b B2050000 		.4byte	.LASF50
+ 874 044f 04       		.byte	0x4
+ 875 0450 FD01     		.2byte	0x1fd
+ 876 0452 77000000 		.4byte	0x77
+ 877 0456 08       		.byte	0x8
+ 878 0457 0B       		.uleb128 0xb
+ 879 0458 43050000 		.4byte	.LASF51
+ 880 045c 04       		.byte	0x4
+ 881 045d 0202     		.2byte	0x202
+ 882 045f B5000000 		.4byte	0xb5
+ 883 0463 0C       		.byte	0xc
+ 884 0464 0B       		.uleb128 0xb
+ 885 0465 8F040000 		.4byte	.LASF52
+ 886 0469 04       		.byte	0x4
+ 887 046a 0802     		.2byte	0x208
+ 888 046c 28050000 		.4byte	0x528
+ 889 0470 10       		.byte	0x10
+ 890 0471 0B       		.uleb128 0xb
+ 891 0472 E0030000 		.4byte	.LASF53
+ 892 0476 04       		.byte	0x4
+ 893 0477 0F02     		.2byte	0x20f
+ 894 0479 28050000 		.4byte	0x528
+ 895 047d 14       		.byte	0x14
+ 896 047e 0B       		.uleb128 0xb
+ 897 047f 1D070000 		.4byte	.LASF54
+ 898 0483 04       		.byte	0x4
+ 899 0484 1F02     		.2byte	0x21f
+ 900 0486 38050000 		.4byte	0x538
+ 901 048a 18       		.byte	0x18
+ 902 048b 0B       		.uleb128 0xb
+ 903 048c DD010000 		.4byte	.LASF55
+ 904 0490 04       		.byte	0x4
+ 905 0491 2502     		.2byte	0x225
+ 906 0493 77000000 		.4byte	0x77
+ 907 0497 1C       		.byte	0x1c
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 33
+
+
+ 908 0498 0B       		.uleb128 0xb
+ 909 0499 A8050000 		.4byte	.LASF56
+ 910 049d 04       		.byte	0x4
+ 911 049e 2A02     		.2byte	0x22a
+ 912 04a0 6B000000 		.4byte	0x6b
+ 913 04a4 1E       		.byte	0x1e
+ 914 04a5 0B       		.uleb128 0xb
+ 915 04a6 BD060000 		.4byte	.LASF57
+ 916 04aa 04       		.byte	0x4
+ 917 04ab 2F02     		.2byte	0x22f
+ 918 04ad 6B000000 		.4byte	0x6b
+ 919 04b1 1F       		.byte	0x1f
+ 920 04b2 0B       		.uleb128 0xb
+ 921 04b3 00000000 		.4byte	.LASF58
+ 922 04b7 04       		.byte	0x4
+ 923 04b8 3402     		.2byte	0x234
+ 924 04ba 23030000 		.4byte	0x323
+ 925 04be 20       		.byte	0x20
+ 926 04bf 0B       		.uleb128 0xb
+ 927 04c0 A0050000 		.4byte	.LASF59
+ 928 04c4 04       		.byte	0x4
+ 929 04c5 3902     		.2byte	0x239
+ 930 04c7 01040000 		.4byte	0x401
+ 931 04cb 62       		.byte	0x62
+ 932 04cc 0B       		.uleb128 0xb
+ 933 04cd D0060000 		.4byte	.LASF60
+ 934 04d1 04       		.byte	0x4
+ 935 04d2 3E02     		.2byte	0x23e
+ 936 04d4 6B000000 		.4byte	0x6b
+ 937 04d8 B2       		.byte	0xb2
+ 938 04d9 0B       		.uleb128 0xb
+ 939 04da 05030000 		.4byte	.LASF61
+ 940 04de 04       		.byte	0x4
+ 941 04df 4302     		.2byte	0x243
+ 942 04e1 6B000000 		.4byte	0x6b
+ 943 04e5 B3       		.byte	0xb3
+ 944 04e6 0B       		.uleb128 0xb
+ 945 04e7 5B050000 		.4byte	.LASF62
+ 946 04eb 04       		.byte	0x4
+ 947 04ec 4802     		.2byte	0x248
+ 948 04ee 77000000 		.4byte	0x77
+ 949 04f2 B4       		.byte	0xb4
+ 950 04f3 0B       		.uleb128 0xb
+ 951 04f4 7F040000 		.4byte	.LASF63
+ 952 04f8 04       		.byte	0x4
+ 953 04f9 4D02     		.2byte	0x24d
+ 954 04fb C9020000 		.4byte	0x2c9
+ 955 04ff B6       		.byte	0xb6
+ 956 0500 0B       		.uleb128 0xb
+ 957 0501 E5050000 		.4byte	.LASF64
+ 958 0505 04       		.byte	0x4
+ 959 0506 5202     		.2byte	0x252
+ 960 0508 6B000000 		.4byte	0x6b
+ 961 050c B8       		.byte	0xb8
+ 962 050d 0B       		.uleb128 0xb
+ 963 050e E7060000 		.4byte	.LASF65
+ 964 0512 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 34
+
+
+ 965 0513 5702     		.2byte	0x257
+ 966 0515 6B000000 		.4byte	0x6b
+ 967 0519 B9       		.byte	0xb9
+ 968 051a 0B       		.uleb128 0xb
+ 969 051b 23000000 		.4byte	.LASF66
+ 970 051f 04       		.byte	0x4
+ 971 0520 5C02     		.2byte	0x25c
+ 972 0522 6B000000 		.4byte	0x6b
+ 973 0526 BA       		.byte	0xba
+ 974 0527 00       		.byte	0
+ 975 0528 08       		.uleb128 0x8
+ 976 0529 83000000 		.4byte	0x83
+ 977 052d 38050000 		.4byte	0x538
+ 978 0531 09       		.uleb128 0x9
+ 979 0532 6F010000 		.4byte	0x16f
+ 980 0536 00       		.byte	0
+ 981 0537 00       		.byte	0
+ 982 0538 08       		.uleb128 0x8
+ 983 0539 6B000000 		.4byte	0x6b
+ 984 053d 48050000 		.4byte	0x548
+ 985 0541 09       		.uleb128 0x9
+ 986 0542 6F010000 		.4byte	0x16f
+ 987 0546 03       		.byte	0x3
+ 988 0547 00       		.byte	0
+ 989 0548 04       		.uleb128 0x4
+ 990 0549 F6010000 		.4byte	.LASF67
+ 991 054d 04       		.byte	0x4
+ 992 054e 5D02     		.2byte	0x25d
+ 993 0550 0D040000 		.4byte	0x40d
+ 994 0554 0C       		.uleb128 0xc
+ 995 0555 1C       		.byte	0x1c
+ 996 0556 04       		.byte	0x4
+ 997 0557 6302     		.2byte	0x263
+ 998 0559 D3050000 		.4byte	0x5d3
+ 999 055d 0B       		.uleb128 0xb
+ 1000 055e C0020000 		.4byte	.LASF68
+ 1001 0562 04       		.byte	0x4
+ 1002 0563 6802     		.2byte	0x268
+ 1003 0565 D3050000 		.4byte	0x5d3
+ 1004 0569 00       		.byte	0
+ 1005 056a 0B       		.uleb128 0xb
+ 1006 056b A5000000 		.4byte	.LASF69
+ 1007 056f 04       		.byte	0x4
+ 1008 0570 6D02     		.2byte	0x26d
+ 1009 0572 D3050000 		.4byte	0x5d3
+ 1010 0576 04       		.byte	0x4
+ 1011 0577 0B       		.uleb128 0xb
+ 1012 0578 1C060000 		.4byte	.LASF70
+ 1013 057c 04       		.byte	0x4
+ 1014 057d 7202     		.2byte	0x272
+ 1015 057f D3050000 		.4byte	0x5d3
+ 1016 0583 08       		.byte	0x8
+ 1017 0584 0B       		.uleb128 0xb
+ 1018 0585 BA020000 		.4byte	.LASF71
+ 1019 0589 04       		.byte	0x4
+ 1020 058a 7702     		.2byte	0x277
+ 1021 058c D3050000 		.4byte	0x5d3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 35
+
+
+ 1022 0590 0C       		.byte	0xc
+ 1023 0591 0B       		.uleb128 0xb
+ 1024 0592 19020000 		.4byte	.LASF72
+ 1025 0596 04       		.byte	0x4
+ 1026 0597 7C02     		.2byte	0x27c
+ 1027 0599 83000000 		.4byte	0x83
+ 1028 059d 10       		.byte	0x10
+ 1029 059e 0B       		.uleb128 0xb
+ 1030 059f 22060000 		.4byte	.LASF73
+ 1031 05a3 04       		.byte	0x4
+ 1032 05a4 8102     		.2byte	0x281
+ 1033 05a6 83000000 		.4byte	0x83
+ 1034 05aa 14       		.byte	0x14
+ 1035 05ab 0B       		.uleb128 0xb
+ 1036 05ac 11060000 		.4byte	.LASF74
+ 1037 05b0 04       		.byte	0x4
+ 1038 05b1 8602     		.2byte	0x286
+ 1039 05b3 6B000000 		.4byte	0x6b
+ 1040 05b7 18       		.byte	0x18
+ 1041 05b8 0B       		.uleb128 0xb
+ 1042 05b9 48030000 		.4byte	.LASF75
+ 1043 05bd 04       		.byte	0x4
+ 1044 05be 8B02     		.2byte	0x28b
+ 1045 05c0 6B000000 		.4byte	0x6b
+ 1046 05c4 19       		.byte	0x19
+ 1047 05c5 0B       		.uleb128 0xb
+ 1048 05c6 23030000 		.4byte	.LASF76
+ 1049 05ca 04       		.byte	0x4
+ 1050 05cb 9002     		.2byte	0x290
+ 1051 05cd 6B000000 		.4byte	0x6b
+ 1052 05d1 1A       		.byte	0x1a
+ 1053 05d2 00       		.byte	0
+ 1054 05d3 0E       		.uleb128 0xe
+ 1055 05d4 04       		.byte	0x4
+ 1056 05d5 A9000000 		.4byte	0xa9
+ 1057 05d9 04       		.uleb128 0x4
+ 1058 05da 5C000000 		.4byte	.LASF77
+ 1059 05de 04       		.byte	0x4
+ 1060 05df 9102     		.2byte	0x291
+ 1061 05e1 54050000 		.4byte	0x554
+ 1062 05e5 0C       		.uleb128 0xc
+ 1063 05e6 28       		.byte	0x28
+ 1064 05e7 04       		.byte	0x4
+ 1065 05e8 C402     		.2byte	0x2c4
+ 1066 05ea A5060000 		.4byte	0x6a5
+ 1067 05ee 0B       		.uleb128 0xb
+ 1068 05ef 10070000 		.4byte	.LASF78
+ 1069 05f3 04       		.byte	0x4
+ 1070 05f4 CD02     		.2byte	0x2cd
+ 1071 05f6 A5060000 		.4byte	0x6a5
+ 1072 05fa 00       		.byte	0
+ 1073 05fb 0B       		.uleb128 0xb
+ 1074 05fc 91000000 		.4byte	.LASF79
+ 1075 0600 04       		.byte	0x4
+ 1076 0601 D402     		.2byte	0x2d4
+ 1077 0603 AC060000 		.4byte	0x6ac
+ 1078 0607 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 36
+
+
+ 1079 0608 0B       		.uleb128 0xb
+ 1080 0609 5A060000 		.4byte	.LASF80
+ 1081 060d 04       		.byte	0x4
+ 1082 060e DA02     		.2byte	0x2da
+ 1083 0610 AE060000 		.4byte	0x6ae
+ 1084 0614 08       		.byte	0x8
+ 1085 0615 0B       		.uleb128 0xb
+ 1086 0616 6D060000 		.4byte	.LASF81
+ 1087 061a 04       		.byte	0x4
+ 1088 061b E002     		.2byte	0x2e0
+ 1089 061d AC060000 		.4byte	0x6ac
+ 1090 0621 0C       		.byte	0xc
+ 1091 0622 0B       		.uleb128 0xb
+ 1092 0623 61020000 		.4byte	.LASF82
+ 1093 0627 04       		.byte	0x4
+ 1094 0628 E702     		.2byte	0x2e7
+ 1095 062a B4060000 		.4byte	0x6b4
+ 1096 062e 10       		.byte	0x10
+ 1097 062f 0B       		.uleb128 0xb
+ 1098 0630 4F040000 		.4byte	.LASF83
+ 1099 0634 04       		.byte	0x4
+ 1100 0635 EC02     		.2byte	0x2ec
+ 1101 0637 83000000 		.4byte	0x83
+ 1102 063b 14       		.byte	0x14
+ 1103 063c 0B       		.uleb128 0xb
+ 1104 063d 85000000 		.4byte	.LASF84
+ 1105 0641 04       		.byte	0x4
+ 1106 0642 F302     		.2byte	0x2f3
+ 1107 0644 77000000 		.4byte	0x77
+ 1108 0648 18       		.byte	0x18
+ 1109 0649 0B       		.uleb128 0xb
+ 1110 064a 29030000 		.4byte	.LASF85
+ 1111 064e 04       		.byte	0x4
+ 1112 064f FA02     		.2byte	0x2fa
+ 1113 0651 6B000000 		.4byte	0x6b
+ 1114 0655 1A       		.byte	0x1a
+ 1115 0656 0B       		.uleb128 0xb
+ 1116 0657 27060000 		.4byte	.LASF86
+ 1117 065b 04       		.byte	0x4
+ 1118 065c 0003     		.2byte	0x300
+ 1119 065e 6B000000 		.4byte	0x6b
+ 1120 0662 1B       		.byte	0x1b
+ 1121 0663 0B       		.uleb128 0xb
+ 1122 0664 A3030000 		.4byte	.LASF87
+ 1123 0668 04       		.byte	0x4
+ 1124 0669 0A03     		.2byte	0x30a
+ 1125 066b 6B000000 		.4byte	0x6b
+ 1126 066f 1C       		.byte	0x1c
+ 1127 0670 0B       		.uleb128 0xb
+ 1128 0671 9D020000 		.4byte	.LASF88
+ 1129 0675 04       		.byte	0x4
+ 1130 0676 1203     		.2byte	0x312
+ 1131 0678 6B000000 		.4byte	0x6b
+ 1132 067c 1D       		.byte	0x1d
+ 1133 067d 0B       		.uleb128 0xb
+ 1134 067e 4E060000 		.4byte	.LASF89
+ 1135 0682 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 37
+
+
+ 1136 0683 1703     		.2byte	0x317
+ 1137 0685 77000000 		.4byte	0x77
+ 1138 0689 1E       		.byte	0x1e
+ 1139 068a 0B       		.uleb128 0xb
+ 1140 068b F9030000 		.4byte	.LASF90
+ 1141 068f 04       		.byte	0x4
+ 1142 0690 2003     		.2byte	0x320
+ 1143 0692 83000000 		.4byte	0x83
+ 1144 0696 20       		.byte	0x20
+ 1145 0697 0B       		.uleb128 0xb
+ 1146 0698 AB000000 		.4byte	.LASF91
+ 1147 069c 04       		.byte	0x4
+ 1148 069d 2503     		.2byte	0x325
+ 1149 069f 6B000000 		.4byte	0x6b
+ 1150 06a3 24       		.byte	0x24
+ 1151 06a4 00       		.byte	0
+ 1152 06a5 0E       		.uleb128 0xe
+ 1153 06a6 04       		.byte	0x4
+ 1154 06a7 AB060000 		.4byte	0x6ab
+ 1155 06ab 0F       		.uleb128 0xf
+ 1156 06ac 10       		.uleb128 0x10
+ 1157 06ad 04       		.byte	0x4
+ 1158 06ae 0E       		.uleb128 0xe
+ 1159 06af 04       		.byte	0x4
+ 1160 06b0 97030000 		.4byte	0x397
+ 1161 06b4 0E       		.uleb128 0xe
+ 1162 06b5 04       		.byte	0x4
+ 1163 06b6 6B000000 		.4byte	0x6b
+ 1164 06ba 04       		.uleb128 0x4
+ 1165 06bb C9020000 		.4byte	.LASF92
+ 1166 06bf 04       		.byte	0x4
+ 1167 06c0 2603     		.2byte	0x326
+ 1168 06c2 E5050000 		.4byte	0x5e5
+ 1169 06c6 0C       		.uleb128 0xc
+ 1170 06c7 A0       		.byte	0xa0
+ 1171 06c8 04       		.byte	0x4
+ 1172 06c9 2C03     		.2byte	0x32c
+ 1173 06cb DD060000 		.4byte	0x6dd
+ 1174 06cf 0B       		.uleb128 0xb
+ 1175 06d0 7D060000 		.4byte	.LASF93
+ 1176 06d4 04       		.byte	0x4
+ 1177 06d5 3103     		.2byte	0x331
+ 1178 06d7 DD060000 		.4byte	0x6dd
+ 1179 06db 00       		.byte	0
+ 1180 06dc 00       		.byte	0
+ 1181 06dd 08       		.uleb128 0x8
+ 1182 06de BA060000 		.4byte	0x6ba
+ 1183 06e2 ED060000 		.4byte	0x6ed
+ 1184 06e6 09       		.uleb128 0x9
+ 1185 06e7 6F010000 		.4byte	0x16f
+ 1186 06eb 03       		.byte	0x3
+ 1187 06ec 00       		.byte	0
+ 1188 06ed 04       		.uleb128 0x4
+ 1189 06ee 16040000 		.4byte	.LASF94
+ 1190 06f2 04       		.byte	0x4
+ 1191 06f3 3203     		.2byte	0x332
+ 1192 06f5 C6060000 		.4byte	0x6c6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 38
+
+
+ 1193 06f9 02       		.uleb128 0x2
+ 1194 06fa 08       		.byte	0x8
+ 1195 06fb 04       		.byte	0x4
+ 1196 06fc BF030000 		.4byte	.LASF95
+ 1197 0700 11       		.uleb128 0x11
+ 1198 0701 C7050000 		.4byte	.LASF99
+ 1199 0705 01       		.byte	0x1
+ 1200 0706 F402     		.2byte	0x2f4
+ 1201 0708 00000000 		.4byte	.LFB3
+ 1202 070c 58000000 		.4byte	.LFE3-.LFB3
+ 1203 0710 01       		.uleb128 0x1
+ 1204 0711 9C       		.byte	0x9c
+ 1205 0712 47070000 		.4byte	0x747
+ 1206 0716 12       		.uleb128 0x12
+ 1207 0717 37000000 		.4byte	.LASF96
+ 1208 071b 01       		.byte	0x1
+ 1209 071c F802     		.2byte	0x2f8
+ 1210 071e 83000000 		.4byte	0x83
+ 1211 0722 00000000 		.4byte	.LLST0
+ 1212 0726 12       		.uleb128 0x12
+ 1213 0727 50000000 		.4byte	.LASF97
+ 1214 072b 01       		.byte	0x1
+ 1215 072c F902     		.2byte	0x2f9
+ 1216 072e 83000000 		.4byte	0x83
+ 1217 0732 40000000 		.4byte	.LLST1
+ 1218 0736 12       		.uleb128 0x12
+ 1219 0737 32030000 		.4byte	.LASF98
+ 1220 073b 01       		.byte	0x1
+ 1221 073c FA02     		.2byte	0x2fa
+ 1222 073e 47070000 		.4byte	0x747
+ 1223 0742 80000000 		.4byte	.LLST2
+ 1224 0746 00       		.byte	0
+ 1225 0747 0E       		.uleb128 0xe
+ 1226 0748 04       		.byte	0x4
+ 1227 0749 4D070000 		.4byte	0x74d
+ 1228 074d 13       		.uleb128 0x13
+ 1229 074e 76010000 		.4byte	0x176
+ 1230 0752 11       		.uleb128 0x11
+ 1231 0753 3F020000 		.4byte	.LASF100
+ 1232 0757 01       		.byte	0x1
+ 1233 0758 2D03     		.2byte	0x32d
+ 1234 075a 00000000 		.4byte	.LFB4
+ 1235 075e BC000000 		.4byte	.LFE4-.LFB4
+ 1236 0762 01       		.uleb128 0x1
+ 1237 0763 9C       		.byte	0x9c
+ 1238 0764 9D070000 		.4byte	0x79d
+ 1239 0768 12       		.uleb128 0x12
+ 1240 0769 32030000 		.4byte	.LASF98
+ 1241 076d 01       		.byte	0x1
+ 1242 076e 3503     		.2byte	0x335
+ 1243 0770 9D070000 		.4byte	0x79d
+ 1244 0774 93000000 		.4byte	.LLST3
+ 1245 0778 14       		.uleb128 0x14
+ 1246 0779 5E000000 		.4byte	.LVL11
+ 1247 077d 71080000 		.4byte	0x871
+ 1248 0781 14       		.uleb128 0x14
+ 1249 0782 6A000000 		.4byte	.LVL12
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 39
+
+
+ 1250 0786 7D080000 		.4byte	0x87d
+ 1251 078a 14       		.uleb128 0x14
+ 1252 078b 6E000000 		.4byte	.LVL13
+ 1253 078f 89080000 		.4byte	0x889
+ 1254 0793 14       		.uleb128 0x14
+ 1255 0794 8C000000 		.4byte	.LVL15
+ 1256 0798 95080000 		.4byte	0x895
+ 1257 079c 00       		.byte	0
+ 1258 079d 0E       		.uleb128 0xe
+ 1259 079e 04       		.byte	0x4
+ 1260 079f 76010000 		.4byte	0x176
+ 1261 07a3 15       		.uleb128 0x15
+ 1262 07a4 50030000 		.4byte	.LASF101
+ 1263 07a8 01       		.byte	0x1
+ 1264 07a9 79       		.byte	0x79
+ 1265 07aa 00000000 		.4byte	.LFB1
+ 1266 07ae 2C000000 		.4byte	.LFE1-.LFB1
+ 1267 07b2 01       		.uleb128 0x1
+ 1268 07b3 9C       		.byte	0x9c
+ 1269 07b4 C2070000 		.4byte	0x7c2
+ 1270 07b8 14       		.uleb128 0x14
+ 1271 07b9 0E000000 		.4byte	.LVL18
+ 1272 07bd 00070000 		.4byte	0x700
+ 1273 07c1 00       		.byte	0
+ 1274 07c2 15       		.uleb128 0x15
+ 1275 07c3 87060000 		.4byte	.LASF102
+ 1276 07c7 01       		.byte	0x1
+ 1277 07c8 ED       		.byte	0xed
+ 1278 07c9 00000000 		.4byte	.LFB2
+ 1279 07cd 48000000 		.4byte	.LFE2-.LFB2
+ 1280 07d1 01       		.uleb128 0x1
+ 1281 07d2 9C       		.byte	0x9c
+ 1282 07d3 0D080000 		.4byte	0x80d
+ 1283 07d7 16       		.uleb128 0x16
+ 1284 07d8 F9020000 		.4byte	.LASF103
+ 1285 07dc 01       		.byte	0x1
+ 1286 07dd F0       		.byte	0xf0
+ 1287 07de 0D080000 		.4byte	0x80d
+ 1288 07e2 BC000000 		.4byte	.LLST4
+ 1289 07e6 14       		.uleb128 0x14
+ 1290 07e7 2C000000 		.4byte	.LVL20
+ 1291 07eb 00070000 		.4byte	0x700
+ 1292 07ef 17       		.uleb128 0x17
+ 1293 07f0 32000000 		.4byte	.LVL21
+ 1294 07f4 A0080000 		.4byte	0x8a0
+ 1295 07f8 03080000 		.4byte	0x803
+ 1296 07fc 18       		.uleb128 0x18
+ 1297 07fd 01       		.uleb128 0x1
+ 1298 07fe 50       		.byte	0x50
+ 1299 07ff 02       		.uleb128 0x2
+ 1300 0800 74       		.byte	0x74
+ 1301 0801 00       		.sleb128 0
+ 1302 0802 00       		.byte	0
+ 1303 0803 14       		.uleb128 0x14
+ 1304 0804 36000000 		.4byte	.LVL22
+ 1305 0808 52070000 		.4byte	0x752
+ 1306 080c 00       		.byte	0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 40
+
+
+ 1307 080d 0E       		.uleb128 0xe
+ 1308 080e 04       		.byte	0x4
+ 1309 080f 13080000 		.4byte	0x813
+ 1310 0813 13       		.uleb128 0x13
+ 1311 0814 D9050000 		.4byte	0x5d9
+ 1312 0818 19       		.uleb128 0x19
+ 1313 0819 0A020000 		.4byte	.LASF104
+ 1314 081d 04       		.byte	0x4
+ 1315 081e C604     		.2byte	0x4c6
+ 1316 0820 48050000 		.4byte	0x548
+ 1317 0824 19       		.uleb128 0x19
+ 1318 0825 E2020000 		.4byte	.LASF105
+ 1319 0829 04       		.byte	0x4
+ 1320 082a C704     		.2byte	0x4c7
+ 1321 082c 30080000 		.4byte	0x830
+ 1322 0830 13       		.uleb128 0x13
+ 1323 0831 ED060000 		.4byte	0x6ed
+ 1324 0835 1A       		.uleb128 0x1a
+ 1325 0836 A5020000 		.4byte	.LASF106
+ 1326 083a 05       		.byte	0x5
+ 1327 083b B1       		.byte	0xb1
+ 1328 083c A4000000 		.4byte	0xa4
+ 1329 0840 1A       		.uleb128 0x1a
+ 1330 0841 CB030000 		.4byte	.LASF107
+ 1331 0845 05       		.byte	0x5
+ 1332 0846 B2       		.byte	0xb2
+ 1333 0847 A4000000 		.4byte	0xa4
+ 1334 084b 1A       		.uleb128 0x1a
+ 1335 084c 6B030000 		.4byte	.LASF108
+ 1336 0850 05       		.byte	0x5
+ 1337 0851 B3       		.byte	0xb3
+ 1338 0852 6B000000 		.4byte	0x6b
+ 1339 0856 1A       		.uleb128 0x1a
+ 1340 0857 5C040000 		.4byte	.LASF109
+ 1341 085b 05       		.byte	0x5
+ 1342 085c B5       		.byte	0xb5
+ 1343 085d AE060000 		.4byte	0x6ae
+ 1344 0861 1A       		.uleb128 0x1a
+ 1345 0862 FA040000 		.4byte	.LASF110
+ 1346 0866 05       		.byte	0x5
+ 1347 0867 BC       		.byte	0xbc
+ 1348 0868 6C080000 		.4byte	0x86c
+ 1349 086c 13       		.uleb128 0x13
+ 1350 086d 6B000000 		.4byte	0x6b
+ 1351 0871 1B       		.uleb128 0x1b
+ 1352 0872 51070000 		.4byte	.LASF111
+ 1353 0876 51070000 		.4byte	.LASF111
+ 1354 087a 06       		.byte	0x6
+ 1355 087b A301     		.2byte	0x1a3
+ 1356 087d 1B       		.uleb128 0x1b
+ 1357 087e 24050000 		.4byte	.LASF112
+ 1358 0882 24050000 		.4byte	.LASF112
+ 1359 0886 06       		.byte	0x6
+ 1360 0887 B101     		.2byte	0x1b1
+ 1361 0889 1B       		.uleb128 0x1b
+ 1362 088a 09000000 		.4byte	.LASF113
+ 1363 088e 09000000 		.4byte	.LASF113
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 41
+
+
+ 1364 0892 06       		.byte	0x6
+ 1365 0893 A201     		.2byte	0x1a2
+ 1366 0895 1C       		.uleb128 0x1c
+ 1367 0896 F2060000 		.4byte	.LASF114
+ 1368 089a F2060000 		.4byte	.LASF114
+ 1369 089e 05       		.byte	0x5
+ 1370 089f 83       		.byte	0x83
+ 1371 08a0 1B       		.uleb128 0x1b
+ 1372 08a1 89030000 		.4byte	.LASF115
+ 1373 08a5 89030000 		.4byte	.LASF115
+ 1374 08a9 06       		.byte	0x6
+ 1375 08aa 9201     		.2byte	0x192
+ 1376 08ac 00       		.byte	0
+ 1377              		.section	.debug_abbrev,"",%progbits
+ 1378              	.Ldebug_abbrev0:
+ 1379 0000 01       		.uleb128 0x1
+ 1380 0001 11       		.uleb128 0x11
+ 1381 0002 01       		.byte	0x1
+ 1382 0003 25       		.uleb128 0x25
+ 1383 0004 0E       		.uleb128 0xe
+ 1384 0005 13       		.uleb128 0x13
+ 1385 0006 0B       		.uleb128 0xb
+ 1386 0007 03       		.uleb128 0x3
+ 1387 0008 0E       		.uleb128 0xe
+ 1388 0009 1B       		.uleb128 0x1b
+ 1389 000a 0E       		.uleb128 0xe
+ 1390 000b 55       		.uleb128 0x55
+ 1391 000c 17       		.uleb128 0x17
+ 1392 000d 11       		.uleb128 0x11
+ 1393 000e 01       		.uleb128 0x1
+ 1394 000f 10       		.uleb128 0x10
+ 1395 0010 17       		.uleb128 0x17
+ 1396 0011 00       		.byte	0
+ 1397 0012 00       		.byte	0
+ 1398 0013 02       		.uleb128 0x2
+ 1399 0014 24       		.uleb128 0x24
+ 1400 0015 00       		.byte	0
+ 1401 0016 0B       		.uleb128 0xb
+ 1402 0017 0B       		.uleb128 0xb
+ 1403 0018 3E       		.uleb128 0x3e
+ 1404 0019 0B       		.uleb128 0xb
+ 1405 001a 03       		.uleb128 0x3
+ 1406 001b 0E       		.uleb128 0xe
+ 1407 001c 00       		.byte	0
+ 1408 001d 00       		.byte	0
+ 1409 001e 03       		.uleb128 0x3
+ 1410 001f 24       		.uleb128 0x24
+ 1411 0020 00       		.byte	0
+ 1412 0021 0B       		.uleb128 0xb
+ 1413 0022 0B       		.uleb128 0xb
+ 1414 0023 3E       		.uleb128 0x3e
+ 1415 0024 0B       		.uleb128 0xb
+ 1416 0025 03       		.uleb128 0x3
+ 1417 0026 08       		.uleb128 0x8
+ 1418 0027 00       		.byte	0
+ 1419 0028 00       		.byte	0
+ 1420 0029 04       		.uleb128 0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 42
+
+
+ 1421 002a 16       		.uleb128 0x16
+ 1422 002b 00       		.byte	0
+ 1423 002c 03       		.uleb128 0x3
+ 1424 002d 0E       		.uleb128 0xe
+ 1425 002e 3A       		.uleb128 0x3a
+ 1426 002f 0B       		.uleb128 0xb
+ 1427 0030 3B       		.uleb128 0x3b
+ 1428 0031 05       		.uleb128 0x5
+ 1429 0032 49       		.uleb128 0x49
+ 1430 0033 13       		.uleb128 0x13
+ 1431 0034 00       		.byte	0
+ 1432 0035 00       		.byte	0
+ 1433 0036 05       		.uleb128 0x5
+ 1434 0037 35       		.uleb128 0x35
+ 1435 0038 00       		.byte	0
+ 1436 0039 49       		.uleb128 0x49
+ 1437 003a 13       		.uleb128 0x13
+ 1438 003b 00       		.byte	0
+ 1439 003c 00       		.byte	0
+ 1440 003d 06       		.uleb128 0x6
+ 1441 003e 13       		.uleb128 0x13
+ 1442 003f 01       		.byte	0x1
+ 1443 0040 0B       		.uleb128 0xb
+ 1444 0041 0B       		.uleb128 0xb
+ 1445 0042 3A       		.uleb128 0x3a
+ 1446 0043 0B       		.uleb128 0xb
+ 1447 0044 3B       		.uleb128 0x3b
+ 1448 0045 0B       		.uleb128 0xb
+ 1449 0046 01       		.uleb128 0x1
+ 1450 0047 13       		.uleb128 0x13
+ 1451 0048 00       		.byte	0
+ 1452 0049 00       		.byte	0
+ 1453 004a 07       		.uleb128 0x7
+ 1454 004b 0D       		.uleb128 0xd
+ 1455 004c 00       		.byte	0
+ 1456 004d 03       		.uleb128 0x3
+ 1457 004e 0E       		.uleb128 0xe
+ 1458 004f 3A       		.uleb128 0x3a
+ 1459 0050 0B       		.uleb128 0xb
+ 1460 0051 3B       		.uleb128 0x3b
+ 1461 0052 0B       		.uleb128 0xb
+ 1462 0053 49       		.uleb128 0x49
+ 1463 0054 13       		.uleb128 0x13
+ 1464 0055 38       		.uleb128 0x38
+ 1465 0056 0B       		.uleb128 0xb
+ 1466 0057 00       		.byte	0
+ 1467 0058 00       		.byte	0
+ 1468 0059 08       		.uleb128 0x8
+ 1469 005a 01       		.uleb128 0x1
+ 1470 005b 01       		.byte	0x1
+ 1471 005c 49       		.uleb128 0x49
+ 1472 005d 13       		.uleb128 0x13
+ 1473 005e 01       		.uleb128 0x1
+ 1474 005f 13       		.uleb128 0x13
+ 1475 0060 00       		.byte	0
+ 1476 0061 00       		.byte	0
+ 1477 0062 09       		.uleb128 0x9
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 43
+
+
+ 1478 0063 21       		.uleb128 0x21
+ 1479 0064 00       		.byte	0
+ 1480 0065 49       		.uleb128 0x49
+ 1481 0066 13       		.uleb128 0x13
+ 1482 0067 2F       		.uleb128 0x2f
+ 1483 0068 0B       		.uleb128 0xb
+ 1484 0069 00       		.byte	0
+ 1485 006a 00       		.byte	0
+ 1486 006b 0A       		.uleb128 0xa
+ 1487 006c 16       		.uleb128 0x16
+ 1488 006d 00       		.byte	0
+ 1489 006e 03       		.uleb128 0x3
+ 1490 006f 0E       		.uleb128 0xe
+ 1491 0070 3A       		.uleb128 0x3a
+ 1492 0071 0B       		.uleb128 0xb
+ 1493 0072 3B       		.uleb128 0x3b
+ 1494 0073 0B       		.uleb128 0xb
+ 1495 0074 49       		.uleb128 0x49
+ 1496 0075 13       		.uleb128 0x13
+ 1497 0076 00       		.byte	0
+ 1498 0077 00       		.byte	0
+ 1499 0078 0B       		.uleb128 0xb
+ 1500 0079 0D       		.uleb128 0xd
+ 1501 007a 00       		.byte	0
+ 1502 007b 03       		.uleb128 0x3
+ 1503 007c 0E       		.uleb128 0xe
+ 1504 007d 3A       		.uleb128 0x3a
+ 1505 007e 0B       		.uleb128 0xb
+ 1506 007f 3B       		.uleb128 0x3b
+ 1507 0080 05       		.uleb128 0x5
+ 1508 0081 49       		.uleb128 0x49
+ 1509 0082 13       		.uleb128 0x13
+ 1510 0083 38       		.uleb128 0x38
+ 1511 0084 0B       		.uleb128 0xb
+ 1512 0085 00       		.byte	0
+ 1513 0086 00       		.byte	0
+ 1514 0087 0C       		.uleb128 0xc
+ 1515 0088 13       		.uleb128 0x13
+ 1516 0089 01       		.byte	0x1
+ 1517 008a 0B       		.uleb128 0xb
+ 1518 008b 0B       		.uleb128 0xb
+ 1519 008c 3A       		.uleb128 0x3a
+ 1520 008d 0B       		.uleb128 0xb
+ 1521 008e 3B       		.uleb128 0x3b
+ 1522 008f 05       		.uleb128 0x5
+ 1523 0090 01       		.uleb128 0x1
+ 1524 0091 13       		.uleb128 0x13
+ 1525 0092 00       		.byte	0
+ 1526 0093 00       		.byte	0
+ 1527 0094 0D       		.uleb128 0xd
+ 1528 0095 0D       		.uleb128 0xd
+ 1529 0096 00       		.byte	0
+ 1530 0097 03       		.uleb128 0x3
+ 1531 0098 08       		.uleb128 0x8
+ 1532 0099 3A       		.uleb128 0x3a
+ 1533 009a 0B       		.uleb128 0xb
+ 1534 009b 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 44
+
+
+ 1535 009c 05       		.uleb128 0x5
+ 1536 009d 49       		.uleb128 0x49
+ 1537 009e 13       		.uleb128 0x13
+ 1538 009f 38       		.uleb128 0x38
+ 1539 00a0 0B       		.uleb128 0xb
+ 1540 00a1 00       		.byte	0
+ 1541 00a2 00       		.byte	0
+ 1542 00a3 0E       		.uleb128 0xe
+ 1543 00a4 0F       		.uleb128 0xf
+ 1544 00a5 00       		.byte	0
+ 1545 00a6 0B       		.uleb128 0xb
+ 1546 00a7 0B       		.uleb128 0xb
+ 1547 00a8 49       		.uleb128 0x49
+ 1548 00a9 13       		.uleb128 0x13
+ 1549 00aa 00       		.byte	0
+ 1550 00ab 00       		.byte	0
+ 1551 00ac 0F       		.uleb128 0xf
+ 1552 00ad 26       		.uleb128 0x26
+ 1553 00ae 00       		.byte	0
+ 1554 00af 00       		.byte	0
+ 1555 00b0 00       		.byte	0
+ 1556 00b1 10       		.uleb128 0x10
+ 1557 00b2 0F       		.uleb128 0xf
+ 1558 00b3 00       		.byte	0
+ 1559 00b4 0B       		.uleb128 0xb
+ 1560 00b5 0B       		.uleb128 0xb
+ 1561 00b6 00       		.byte	0
+ 1562 00b7 00       		.byte	0
+ 1563 00b8 11       		.uleb128 0x11
+ 1564 00b9 2E       		.uleb128 0x2e
+ 1565 00ba 01       		.byte	0x1
+ 1566 00bb 03       		.uleb128 0x3
+ 1567 00bc 0E       		.uleb128 0xe
+ 1568 00bd 3A       		.uleb128 0x3a
+ 1569 00be 0B       		.uleb128 0xb
+ 1570 00bf 3B       		.uleb128 0x3b
+ 1571 00c0 05       		.uleb128 0x5
+ 1572 00c1 27       		.uleb128 0x27
+ 1573 00c2 19       		.uleb128 0x19
+ 1574 00c3 11       		.uleb128 0x11
+ 1575 00c4 01       		.uleb128 0x1
+ 1576 00c5 12       		.uleb128 0x12
+ 1577 00c6 06       		.uleb128 0x6
+ 1578 00c7 40       		.uleb128 0x40
+ 1579 00c8 18       		.uleb128 0x18
+ 1580 00c9 9742     		.uleb128 0x2117
+ 1581 00cb 19       		.uleb128 0x19
+ 1582 00cc 01       		.uleb128 0x1
+ 1583 00cd 13       		.uleb128 0x13
+ 1584 00ce 00       		.byte	0
+ 1585 00cf 00       		.byte	0
+ 1586 00d0 12       		.uleb128 0x12
+ 1587 00d1 34       		.uleb128 0x34
+ 1588 00d2 00       		.byte	0
+ 1589 00d3 03       		.uleb128 0x3
+ 1590 00d4 0E       		.uleb128 0xe
+ 1591 00d5 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 45
+
+
+ 1592 00d6 0B       		.uleb128 0xb
+ 1593 00d7 3B       		.uleb128 0x3b
+ 1594 00d8 05       		.uleb128 0x5
+ 1595 00d9 49       		.uleb128 0x49
+ 1596 00da 13       		.uleb128 0x13
+ 1597 00db 02       		.uleb128 0x2
+ 1598 00dc 17       		.uleb128 0x17
+ 1599 00dd 00       		.byte	0
+ 1600 00de 00       		.byte	0
+ 1601 00df 13       		.uleb128 0x13
+ 1602 00e0 26       		.uleb128 0x26
+ 1603 00e1 00       		.byte	0
+ 1604 00e2 49       		.uleb128 0x49
+ 1605 00e3 13       		.uleb128 0x13
+ 1606 00e4 00       		.byte	0
+ 1607 00e5 00       		.byte	0
+ 1608 00e6 14       		.uleb128 0x14
+ 1609 00e7 898201   		.uleb128 0x4109
+ 1610 00ea 00       		.byte	0
+ 1611 00eb 11       		.uleb128 0x11
+ 1612 00ec 01       		.uleb128 0x1
+ 1613 00ed 31       		.uleb128 0x31
+ 1614 00ee 13       		.uleb128 0x13
+ 1615 00ef 00       		.byte	0
+ 1616 00f0 00       		.byte	0
+ 1617 00f1 15       		.uleb128 0x15
+ 1618 00f2 2E       		.uleb128 0x2e
+ 1619 00f3 01       		.byte	0x1
+ 1620 00f4 3F       		.uleb128 0x3f
+ 1621 00f5 19       		.uleb128 0x19
+ 1622 00f6 03       		.uleb128 0x3
+ 1623 00f7 0E       		.uleb128 0xe
+ 1624 00f8 3A       		.uleb128 0x3a
+ 1625 00f9 0B       		.uleb128 0xb
+ 1626 00fa 3B       		.uleb128 0x3b
+ 1627 00fb 0B       		.uleb128 0xb
+ 1628 00fc 27       		.uleb128 0x27
+ 1629 00fd 19       		.uleb128 0x19
+ 1630 00fe 11       		.uleb128 0x11
+ 1631 00ff 01       		.uleb128 0x1
+ 1632 0100 12       		.uleb128 0x12
+ 1633 0101 06       		.uleb128 0x6
+ 1634 0102 40       		.uleb128 0x40
+ 1635 0103 18       		.uleb128 0x18
+ 1636 0104 9742     		.uleb128 0x2117
+ 1637 0106 19       		.uleb128 0x19
+ 1638 0107 01       		.uleb128 0x1
+ 1639 0108 13       		.uleb128 0x13
+ 1640 0109 00       		.byte	0
+ 1641 010a 00       		.byte	0
+ 1642 010b 16       		.uleb128 0x16
+ 1643 010c 34       		.uleb128 0x34
+ 1644 010d 00       		.byte	0
+ 1645 010e 03       		.uleb128 0x3
+ 1646 010f 0E       		.uleb128 0xe
+ 1647 0110 3A       		.uleb128 0x3a
+ 1648 0111 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 46
+
+
+ 1649 0112 3B       		.uleb128 0x3b
+ 1650 0113 0B       		.uleb128 0xb
+ 1651 0114 49       		.uleb128 0x49
+ 1652 0115 13       		.uleb128 0x13
+ 1653 0116 02       		.uleb128 0x2
+ 1654 0117 17       		.uleb128 0x17
+ 1655 0118 00       		.byte	0
+ 1656 0119 00       		.byte	0
+ 1657 011a 17       		.uleb128 0x17
+ 1658 011b 898201   		.uleb128 0x4109
+ 1659 011e 01       		.byte	0x1
+ 1660 011f 11       		.uleb128 0x11
+ 1661 0120 01       		.uleb128 0x1
+ 1662 0121 31       		.uleb128 0x31
+ 1663 0122 13       		.uleb128 0x13
+ 1664 0123 01       		.uleb128 0x1
+ 1665 0124 13       		.uleb128 0x13
+ 1666 0125 00       		.byte	0
+ 1667 0126 00       		.byte	0
+ 1668 0127 18       		.uleb128 0x18
+ 1669 0128 8A8201   		.uleb128 0x410a
+ 1670 012b 00       		.byte	0
+ 1671 012c 02       		.uleb128 0x2
+ 1672 012d 18       		.uleb128 0x18
+ 1673 012e 9142     		.uleb128 0x2111
+ 1674 0130 18       		.uleb128 0x18
+ 1675 0131 00       		.byte	0
+ 1676 0132 00       		.byte	0
+ 1677 0133 19       		.uleb128 0x19
+ 1678 0134 34       		.uleb128 0x34
+ 1679 0135 00       		.byte	0
+ 1680 0136 03       		.uleb128 0x3
+ 1681 0137 0E       		.uleb128 0xe
+ 1682 0138 3A       		.uleb128 0x3a
+ 1683 0139 0B       		.uleb128 0xb
+ 1684 013a 3B       		.uleb128 0x3b
+ 1685 013b 05       		.uleb128 0x5
+ 1686 013c 49       		.uleb128 0x49
+ 1687 013d 13       		.uleb128 0x13
+ 1688 013e 3F       		.uleb128 0x3f
+ 1689 013f 19       		.uleb128 0x19
+ 1690 0140 3C       		.uleb128 0x3c
+ 1691 0141 19       		.uleb128 0x19
+ 1692 0142 00       		.byte	0
+ 1693 0143 00       		.byte	0
+ 1694 0144 1A       		.uleb128 0x1a
+ 1695 0145 34       		.uleb128 0x34
+ 1696 0146 00       		.byte	0
+ 1697 0147 03       		.uleb128 0x3
+ 1698 0148 0E       		.uleb128 0xe
+ 1699 0149 3A       		.uleb128 0x3a
+ 1700 014a 0B       		.uleb128 0xb
+ 1701 014b 3B       		.uleb128 0x3b
+ 1702 014c 0B       		.uleb128 0xb
+ 1703 014d 49       		.uleb128 0x49
+ 1704 014e 13       		.uleb128 0x13
+ 1705 014f 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 47
+
+
+ 1706 0150 19       		.uleb128 0x19
+ 1707 0151 3C       		.uleb128 0x3c
+ 1708 0152 19       		.uleb128 0x19
+ 1709 0153 00       		.byte	0
+ 1710 0154 00       		.byte	0
+ 1711 0155 1B       		.uleb128 0x1b
+ 1712 0156 2E       		.uleb128 0x2e
+ 1713 0157 00       		.byte	0
+ 1714 0158 3F       		.uleb128 0x3f
+ 1715 0159 19       		.uleb128 0x19
+ 1716 015a 3C       		.uleb128 0x3c
+ 1717 015b 19       		.uleb128 0x19
+ 1718 015c 6E       		.uleb128 0x6e
+ 1719 015d 0E       		.uleb128 0xe
+ 1720 015e 03       		.uleb128 0x3
+ 1721 015f 0E       		.uleb128 0xe
+ 1722 0160 3A       		.uleb128 0x3a
+ 1723 0161 0B       		.uleb128 0xb
+ 1724 0162 3B       		.uleb128 0x3b
+ 1725 0163 05       		.uleb128 0x5
+ 1726 0164 00       		.byte	0
+ 1727 0165 00       		.byte	0
+ 1728 0166 1C       		.uleb128 0x1c
+ 1729 0167 2E       		.uleb128 0x2e
+ 1730 0168 00       		.byte	0
+ 1731 0169 3F       		.uleb128 0x3f
+ 1732 016a 19       		.uleb128 0x19
+ 1733 016b 3C       		.uleb128 0x3c
+ 1734 016c 19       		.uleb128 0x19
+ 1735 016d 6E       		.uleb128 0x6e
+ 1736 016e 0E       		.uleb128 0xe
+ 1737 016f 03       		.uleb128 0x3
+ 1738 0170 0E       		.uleb128 0xe
+ 1739 0171 3A       		.uleb128 0x3a
+ 1740 0172 0B       		.uleb128 0xb
+ 1741 0173 3B       		.uleb128 0x3b
+ 1742 0174 0B       		.uleb128 0xb
+ 1743 0175 00       		.byte	0
+ 1744 0176 00       		.byte	0
+ 1745 0177 00       		.byte	0
+ 1746              		.section	.debug_loc,"",%progbits
+ 1747              	.Ldebug_loc0:
+ 1748              	.LLST0:
+ 1749 0000 1A000000 		.4byte	.LVL1
+ 1750 0004 2A000000 		.4byte	.LVL5
+ 1751 0008 0100     		.2byte	0x1
+ 1752 000a 52       		.byte	0x52
+ 1753 000b 2A000000 		.4byte	.LVL5
+ 1754 000f 34000000 		.4byte	.LVL6
+ 1755 0013 0700     		.2byte	0x7
+ 1756 0015 71       		.byte	0x71
+ 1757 0016 00       		.sleb128 0
+ 1758 0017 40       		.byte	0x40
+ 1759 0018 24       		.byte	0x24
+ 1760 0019 40       		.byte	0x40
+ 1761 001a 25       		.byte	0x25
+ 1762 001b 9F       		.byte	0x9f
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 48
+
+
+ 1763 001c 34000000 		.4byte	.LVL6
+ 1764 0020 36000000 		.4byte	.LVL7
+ 1765 0024 0100     		.2byte	0x1
+ 1766 0026 52       		.byte	0x52
+ 1767 0027 36000000 		.4byte	.LVL7
+ 1768 002b 38000000 		.4byte	.LVL8
+ 1769 002f 0700     		.2byte	0x7
+ 1770 0031 71       		.byte	0x71
+ 1771 0032 00       		.sleb128 0
+ 1772 0033 40       		.byte	0x40
+ 1773 0034 24       		.byte	0x24
+ 1774 0035 40       		.byte	0x40
+ 1775 0036 25       		.byte	0x25
+ 1776 0037 9F       		.byte	0x9f
+ 1777 0038 00000000 		.4byte	0
+ 1778 003c 00000000 		.4byte	0
+ 1779              	.LLST1:
+ 1780 0040 22000000 		.4byte	.LVL3
+ 1781 0044 28000000 		.4byte	.LVL4
+ 1782 0048 0100     		.2byte	0x1
+ 1783 004a 53       		.byte	0x53
+ 1784 004b 28000000 		.4byte	.LVL4
+ 1785 004f 34000000 		.4byte	.LVL6
+ 1786 0053 0700     		.2byte	0x7
+ 1787 0055 31       		.byte	0x31
+ 1788 0056 70       		.byte	0x70
+ 1789 0057 00       		.sleb128 0
+ 1790 0058 24       		.byte	0x24
+ 1791 0059 31       		.byte	0x31
+ 1792 005a 1C       		.byte	0x1c
+ 1793 005b 9F       		.byte	0x9f
+ 1794 005c 34000000 		.4byte	.LVL6
+ 1795 0060 40000000 		.4byte	.LVL9
+ 1796 0064 0100     		.2byte	0x1
+ 1797 0066 53       		.byte	0x53
+ 1798 0067 40000000 		.4byte	.LVL9
+ 1799 006b 58000000 		.4byte	.LFE3
+ 1800 006f 0700     		.2byte	0x7
+ 1801 0071 31       		.byte	0x31
+ 1802 0072 70       		.byte	0x70
+ 1803 0073 00       		.sleb128 0
+ 1804 0074 24       		.byte	0x24
+ 1805 0075 31       		.byte	0x31
+ 1806 0076 1C       		.byte	0x1c
+ 1807 0077 9F       		.byte	0x9f
+ 1808 0078 00000000 		.4byte	0
+ 1809 007c 00000000 		.4byte	0
+ 1810              	.LLST2:
+ 1811 0080 12000000 		.4byte	.LVL0
+ 1812 0084 1E000000 		.4byte	.LVL2
+ 1813 0088 0100     		.2byte	0x1
+ 1814 008a 53       		.byte	0x53
+ 1815 008b 00000000 		.4byte	0
+ 1816 008f 00000000 		.4byte	0
+ 1817              	.LLST3:
+ 1818 0093 14000000 		.4byte	.LVL10
+ 1819 0097 5D000000 		.4byte	.LVL11-1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 49
+
+
+ 1820 009b 0100     		.2byte	0x1
+ 1821 009d 50       		.byte	0x50
+ 1822 009e 70000000 		.4byte	.LVL14
+ 1823 00a2 8B000000 		.4byte	.LVL15-1
+ 1824 00a6 0100     		.2byte	0x1
+ 1825 00a8 50       		.byte	0x50
+ 1826 00a9 8E000000 		.4byte	.LVL16
+ 1827 00ad 9E000000 		.4byte	.LVL17
+ 1828 00b1 0100     		.2byte	0x1
+ 1829 00b3 50       		.byte	0x50
+ 1830 00b4 00000000 		.4byte	0
+ 1831 00b8 00000000 		.4byte	0
+ 1832              	.LLST4:
+ 1833 00bc 20000000 		.4byte	.LVL19
+ 1834 00c0 36000000 		.4byte	.LVL23
+ 1835 00c4 0100     		.2byte	0x1
+ 1836 00c6 54       		.byte	0x54
+ 1837 00c7 00000000 		.4byte	0
+ 1838 00cb 00000000 		.4byte	0
+ 1839              		.section	.debug_aranges,"",%progbits
+ 1840 0000 34000000 		.4byte	0x34
+ 1841 0004 0200     		.2byte	0x2
+ 1842 0006 00000000 		.4byte	.Ldebug_info0
+ 1843 000a 04       		.byte	0x4
+ 1844 000b 00       		.byte	0
+ 1845 000c 0000     		.2byte	0
+ 1846 000e 0000     		.2byte	0
+ 1847 0010 00000000 		.4byte	.LFB3
+ 1848 0014 58000000 		.4byte	.LFE3-.LFB3
+ 1849 0018 00000000 		.4byte	.LFB4
+ 1850 001c BC000000 		.4byte	.LFE4-.LFB4
+ 1851 0020 00000000 		.4byte	.LFB1
+ 1852 0024 2C000000 		.4byte	.LFE1-.LFB1
+ 1853 0028 00000000 		.4byte	.LFB2
+ 1854 002c 48000000 		.4byte	.LFE2-.LFB2
+ 1855 0030 00000000 		.4byte	0
+ 1856 0034 00000000 		.4byte	0
+ 1857              		.section	.debug_ranges,"",%progbits
+ 1858              	.Ldebug_ranges0:
+ 1859 0000 00000000 		.4byte	.LFB3
+ 1860 0004 58000000 		.4byte	.LFE3
+ 1861 0008 00000000 		.4byte	.LFB4
+ 1862 000c BC000000 		.4byte	.LFE4
+ 1863 0010 00000000 		.4byte	.LFB1
+ 1864 0014 2C000000 		.4byte	.LFE1
+ 1865 0018 00000000 		.4byte	.LFB2
+ 1866 001c 48000000 		.4byte	.LFE2
+ 1867 0020 00000000 		.4byte	0
+ 1868 0024 00000000 		.4byte	0
+ 1869              		.section	.debug_line,"",%progbits
+ 1870              	.Ldebug_line0:
+ 1871 0000 31010000 		.section	.debug_str,"MS",%progbits,1
+ 1871      0200AF00 
+ 1871      00000201 
+ 1871      FB0E0D00 
+ 1871      01010101 
+ 1872              	.LASF58:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 50
+
+
+ 1873 0000 77646774 		.ascii	"wdgtList\000"
+ 1873      4C697374 
+ 1873      00
+ 1874              	.LASF113:
+ 1875 0009 63617073 		.ascii	"capsense_SsCSDStartSample\000"
+ 1875      656E7365 
+ 1875      5F537343 
+ 1875      53445374 
+ 1875      61727453 
+ 1876              	.LASF66:
+ 1877 0023 7363616E 		.ascii	"scanCurrentISC\000"
+ 1877      43757272 
+ 1877      656E7449 
+ 1877      534300
+ 1878              	.LASF39:
+ 1879 0032 62736C6E 		.ascii	"bsln\000"
+ 1879      00
+ 1880              	.LASF96:
+ 1881 0037 746D7052 		.ascii	"tmpRawData\000"
+ 1881      61774461 
+ 1881      746100
+ 1882              	.LASF26:
+ 1883 0042 69646163 		.ascii	"idacGainIndex\000"
+ 1883      4761696E 
+ 1883      496E6465 
+ 1883      7800
+ 1884              	.LASF97:
+ 1885 0050 746D704D 		.ascii	"tmpMaxCount\000"
+ 1885      6178436F 
+ 1885      756E7400 
+ 1886              	.LASF77:
+ 1887 005c 63617073 		.ascii	"capsense_FLASH_IO_STRUCT\000"
+ 1887      656E7365 
+ 1887      5F464C41 
+ 1887      53485F49 
+ 1887      4F5F5354 
+ 1888              	.LASF24:
+ 1889 0075 6C6F7742 		.ascii	"lowBslnRst\000"
+ 1889      736C6E52 
+ 1889      737400
+ 1890              	.LASF41:
+ 1891 0080 64696666 		.ascii	"diff\000"
+ 1891      00
+ 1892              	.LASF84:
+ 1893 0085 746F7461 		.ascii	"totalNumSns\000"
+ 1893      6C4E756D 
+ 1893      536E7300 
+ 1894              	.LASF79:
+ 1895 0091 70747232 		.ascii	"ptr2WdgtRam\000"
+ 1895      57646774 
+ 1895      52616D00 
+ 1896              	.LASF25:
+ 1897 009d 69646163 		.ascii	"idacMod\000"
+ 1897      4D6F6400 
+ 1898              	.LASF69:
+ 1899 00a5 70635074 		.ascii	"pcPtr\000"
+ 1899      7200
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 51
+
+
+ 1900              	.LASF91:
+ 1901 00ab 69697246 		.ascii	"iirFilterCoeff\000"
+ 1901      696C7465 
+ 1901      72436F65 
+ 1901      666600
+ 1902              	.LASF2:
+ 1903 00ba 73686F72 		.ascii	"short int\000"
+ 1903      7420696E 
+ 1903      7400
+ 1904              	.LASF31:
+ 1905 00c4 63617073 		.ascii	"capsense_RAM_WD_BUTTON_STRUCT\000"
+ 1905      656E7365 
+ 1905      5F52414D 
+ 1905      5F57445F 
+ 1905      42555454 
+ 1906              	.LASF23:
+ 1907 00e2 6F6E4465 		.ascii	"onDebounce\000"
+ 1907      626F756E 
+ 1907      636500
+ 1908              	.LASF29:
+ 1909 00ed 73697A65 		.ascii	"sizetype\000"
+ 1909      74797065 
+ 1909      00
+ 1910              	.LASF16:
+ 1911 00f6 63617073 		.ascii	"capsense_THRESHOLD_TYPE\000"
+ 1911      656E7365 
+ 1911      5F544852 
+ 1911      4553484F 
+ 1911      4C445F54 
+ 1912              	.LASF38:
+ 1913 010e 63617073 		.ascii	"capsense_RAM_WD_LIST_STRUCT\000"
+ 1913      656E7365 
+ 1913      5F52414D 
+ 1913      5F57445F 
+ 1913      4C495354 
+ 1914              	.LASF116:
+ 1915 012a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1915      43313120 
+ 1915      352E342E 
+ 1915      31203230 
+ 1915      31363036 
+ 1916 015d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1916      20726576 
+ 1916      6973696F 
+ 1916      6E203233 
+ 1916      37373135 
+ 1917 0190 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1917      67202D66 
+ 1917      66756E63 
+ 1917      74696F6E 
+ 1917      2D736563 
+ 1918              	.LASF44:
+ 1919 01bc 63617073 		.ascii	"capsense_RAM_SNS_STRUCT\000"
+ 1919      656E7365 
+ 1919      5F52414D 
+ 1919      5F534E53 
+ 1919      5F535452 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 52
+
+
+ 1920              	.LASF43:
+ 1921 01d4 69646163 		.ascii	"idacComp\000"
+ 1921      436F6D70 
+ 1921      00
+ 1922              	.LASF55:
+ 1923 01dd 63736430 		.ascii	"csd0Config\000"
+ 1923      436F6E66 
+ 1923      696700
+ 1924              	.LASF6:
+ 1925 01e8 6C6F6E67 		.ascii	"long long int\000"
+ 1925      206C6F6E 
+ 1925      6720696E 
+ 1925      7400
+ 1926              	.LASF67:
+ 1927 01f6 63617073 		.ascii	"capsense_RAM_STRUCT\000"
+ 1927      656E7365 
+ 1927      5F52414D 
+ 1927      5F535452 
+ 1927      55435400 
+ 1928              	.LASF104:
+ 1929 020a 63617073 		.ascii	"capsense_dsRam\000"
+ 1929      656E7365 
+ 1929      5F647352 
+ 1929      616D00
+ 1930              	.LASF72:
+ 1931 0219 6873696F 		.ascii	"hsiomMask\000"
+ 1931      6D4D6173 
+ 1931      6B00
+ 1932              	.LASF28:
+ 1933 0223 736E7343 		.ascii	"snsClkSource\000"
+ 1933      6C6B536F 
+ 1933      75726365 
+ 1933      00
+ 1934              	.LASF34:
+ 1935 0230 62746E30 		.ascii	"btn0\000"
+ 1935      00
+ 1936              	.LASF35:
+ 1937 0235 62746E31 		.ascii	"btn1\000"
+ 1937      00
+ 1938              	.LASF36:
+ 1939 023a 62746E32 		.ascii	"btn2\000"
+ 1939      00
+ 1940              	.LASF100:
+ 1941 023f 63617073 		.ascii	"capsense_SsCSDInitNextScan\000"
+ 1941      656E7365 
+ 1941      5F537343 
+ 1941      5344496E 
+ 1941      69744E65 
+ 1942              	.LASF10:
+ 1943 025a 75696E74 		.ascii	"uint16\000"
+ 1943      313600
+ 1944              	.LASF82:
+ 1945 0261 70747232 		.ascii	"ptr2DebounceArr\000"
+ 1945      4465626F 
+ 1945      756E6365 
+ 1945      41727200 
+ 1946              	.LASF117:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 53
+
+
+ 1947 0271 47656E65 		.ascii	"Generated_Source\\PSoC4\\capsense_INT.c\000"
+ 1947      72617465 
+ 1947      645F536F 
+ 1947      75726365 
+ 1947      5C50536F 
+ 1948              	.LASF9:
+ 1949 0297 75696E74 		.ascii	"uint8\000"
+ 1949      3800
+ 1950              	.LASF88:
+ 1951 029d 6E756D52 		.ascii	"numRows\000"
+ 1951      6F777300 
+ 1952              	.LASF106:
+ 1953 02a5 63617073 		.ascii	"capsense_widgetIndex\000"
+ 1953      656E7365 
+ 1953      5F776964 
+ 1953      67657449 
+ 1953      6E646578 
+ 1954              	.LASF71:
+ 1955 02ba 70735074 		.ascii	"psPtr\000"
+ 1955      7200
+ 1956              	.LASF68:
+ 1957 02c0 6873696F 		.ascii	"hsiomPtr\000"
+ 1957      6D507472 
+ 1957      00
+ 1958              	.LASF92:
+ 1959 02c9 63617073 		.ascii	"capsense_FLASH_WD_STRUCT\000"
+ 1959      656E7365 
+ 1959      5F464C41 
+ 1959      53485F57 
+ 1959      445F5354 
+ 1960              	.LASF105:
+ 1961 02e2 63617073 		.ascii	"capsense_dsFlash\000"
+ 1961      656E7365 
+ 1961      5F647346 
+ 1961      6C617368 
+ 1961      00
+ 1962              	.LASF12:
+ 1963 02f3 666C6F61 		.ascii	"float\000"
+ 1963      7400
+ 1964              	.LASF103:
+ 1965 02f9 63757253 		.ascii	"curSnsIOPtr\000"
+ 1965      6E73494F 
+ 1965      50747200 
+ 1966              	.LASF61:
+ 1967 0305 736E7254 		.ascii	"snrTestSensorId\000"
+ 1967      65737453 
+ 1967      656E736F 
+ 1967      72496400 
+ 1968              	.LASF14:
+ 1969 0315 63686172 		.ascii	"char\000"
+ 1969      00
+ 1970              	.LASF4:
+ 1971 031a 6C6F6E67 		.ascii	"long int\000"
+ 1971      20696E74 
+ 1971      00
+ 1972              	.LASF76:
+ 1973 0323 73686966 		.ascii	"shift\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 54
+
+
+ 1973      7400
+ 1974              	.LASF85:
+ 1975 0329 77646774 		.ascii	"wdgtType\000"
+ 1975      54797065 
+ 1975      00
+ 1976              	.LASF98:
+ 1977 0332 70747257 		.ascii	"ptrWdgt\000"
+ 1977      64677400 
+ 1978              	.LASF42:
+ 1979 033a 6E656742 		.ascii	"negBslnRstCnt\000"
+ 1979      736C6E52 
+ 1979      7374436E 
+ 1979      7400
+ 1980              	.LASF75:
+ 1981 0348 64725368 		.ascii	"drShift\000"
+ 1981      69667400 
+ 1982              	.LASF101:
+ 1983 0350 63617073 		.ascii	"capsense_CSDPostSingleScan\000"
+ 1983      656E7365 
+ 1983      5F435344 
+ 1983      506F7374 
+ 1983      53696E67 
+ 1984              	.LASF108:
+ 1985 036b 63617073 		.ascii	"capsense_requestScanAllWidget\000"
+ 1985      656E7365 
+ 1985      5F726571 
+ 1985      75657374 
+ 1985      5363616E 
+ 1986              	.LASF115:
+ 1987 0389 63617073 		.ascii	"capsense_CSDDisconnectSns\000"
+ 1987      656E7365 
+ 1987      5F435344 
+ 1987      44697363 
+ 1987      6F6E6E65 
+ 1988              	.LASF87:
+ 1989 03a3 6E756D43 		.ascii	"numCols\000"
+ 1989      6F6C7300 
+ 1990              	.LASF22:
+ 1991 03ab 68797374 		.ascii	"hysteresis\000"
+ 1991      65726573 
+ 1991      697300
+ 1992              	.LASF49:
+ 1993 03b6 74756E65 		.ascii	"tunerCmd\000"
+ 1993      72436D64 
+ 1993      00
+ 1994              	.LASF95:
+ 1995 03bf 6C6F6E67 		.ascii	"long double\000"
+ 1995      20646F75 
+ 1995      626C6500 
+ 1996              	.LASF107:
+ 1997 03cb 63617073 		.ascii	"capsense_sensorIndex\000"
+ 1997      656E7365 
+ 1997      5F73656E 
+ 1997      736F7249 
+ 1997      6E646578 
+ 1998              	.LASF53:
+ 1999 03e0 77646774 		.ascii	"wdgtStatus\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 55
+
+
+ 1999      53746174 
+ 1999      757300
+ 2000              	.LASF1:
+ 2001 03eb 756E7369 		.ascii	"unsigned char\000"
+ 2001      676E6564 
+ 2001      20636861 
+ 2001      7200
+ 2002              	.LASF90:
+ 2003 03f9 7843656E 		.ascii	"xCentroidMultiplier\000"
+ 2003      74726F69 
+ 2003      644D756C 
+ 2003      7469706C 
+ 2003      69657200 
+ 2004              	.LASF19:
+ 2005 040d 66696E67 		.ascii	"fingerTh\000"
+ 2005      65725468 
+ 2005      00
+ 2006              	.LASF94:
+ 2007 0416 63617073 		.ascii	"capsense_FLASH_STRUCT\000"
+ 2007      656E7365 
+ 2007      5F464C41 
+ 2007      53485F53 
+ 2007      54525543 
+ 2008              	.LASF0:
+ 2009 042c 7369676E 		.ascii	"signed char\000"
+ 2009      65642063 
+ 2009      68617200 
+ 2010              	.LASF7:
+ 2011 0438 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2011      206C6F6E 
+ 2011      6720756E 
+ 2011      7369676E 
+ 2011      65642069 
+ 2012              	.LASF83:
+ 2013 044f 73746174 		.ascii	"staticConfig\000"
+ 2013      6963436F 
+ 2013      6E666967 
+ 2013      00
+ 2014              	.LASF109:
+ 2015 045c 63617073 		.ascii	"capsense_curRamSnsPtr\000"
+ 2015      656E7365 
+ 2015      5F637572 
+ 2015      52616D53 
+ 2015      6E735074 
+ 2016              	.LASF8:
+ 2017 0472 756E7369 		.ascii	"unsigned int\000"
+ 2017      676E6564 
+ 2017      20696E74 
+ 2017      00
+ 2018              	.LASF63:
+ 2019 047f 736E7254 		.ascii	"snrTestRawCount\000"
+ 2019      65737452 
+ 2019      6177436F 
+ 2019      756E7400 
+ 2020              	.LASF52:
+ 2021 048f 77646774 		.ascii	"wdgtEnable\000"
+ 2021      456E6162 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 56
+
+
+ 2021      6C6500
+ 2022              	.LASF118:
+ 2023 049a 433A5C72 		.ascii	"C:\\repopsitorios\\aixt\\ports\\Cypress\\CY8CKIT-14"
+ 2023      65706F70 
+ 2023      7369746F 
+ 2023      72696F73 
+ 2023      5C616978 
+ 2024 04c8 352D3430 		.ascii	"5-40XX\\projects\\Configuracion_General.cydsn\000"
+ 2024      58585C70 
+ 2024      726F6A65 
+ 2024      6374735C 
+ 2024      436F6E66 
+ 2025              	.LASF15:
+ 2026 04f4 72656733 		.ascii	"reg32\000"
+ 2026      3200
+ 2027              	.LASF110:
+ 2028 04fa 63617073 		.ascii	"capsense_scanFreqIndex\000"
+ 2028      656E7365 
+ 2028      5F736361 
+ 2028      6E467265 
+ 2028      71496E64 
+ 2029              	.LASF3:
+ 2030 0511 73686F72 		.ascii	"short unsigned int\000"
+ 2030      7420756E 
+ 2030      7369676E 
+ 2030      65642069 
+ 2030      6E7400
+ 2031              	.LASF112:
+ 2032 0524 63617073 		.ascii	"capsense_SsCSDConnectSensorExt\000"
+ 2032      656E7365 
+ 2032      5F537343 
+ 2032      5344436F 
+ 2032      6E6E6563 
+ 2033              	.LASF51:
+ 2034 0543 73746174 		.ascii	"status\000"
+ 2034      757300
+ 2035              	.LASF48:
+ 2036 054a 6877436C 		.ascii	"hwClock\000"
+ 2036      6F636B00 
+ 2037              	.LASF46:
+ 2038 0552 636F6E66 		.ascii	"configId\000"
+ 2038      69674964 
+ 2038      00
+ 2039              	.LASF62:
+ 2040 055b 736E7254 		.ascii	"snrTestScanCounter\000"
+ 2040      65737453 
+ 2040      63616E43 
+ 2040      6F756E74 
+ 2040      657200
+ 2041              	.LASF47:
+ 2042 056e 64657669 		.ascii	"deviceId\000"
+ 2042      63654964 
+ 2042      00
+ 2043              	.LASF18:
+ 2044 0577 7265736F 		.ascii	"resolution\000"
+ 2044      6C757469 
+ 2044      6F6E00
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 57
+
+
+ 2045              	.LASF33:
+ 2046 0582 63617073 		.ascii	"capsense_RAM_WD_SLIDER_STRUCT\000"
+ 2046      656E7365 
+ 2046      5F52414D 
+ 2046      5F57445F 
+ 2046      534C4944 
+ 2047              	.LASF59:
+ 2048 05a0 736E734C 		.ascii	"snsList\000"
+ 2048      69737400 
+ 2049              	.LASF56:
+ 2050 05a8 6D6F6443 		.ascii	"modCsdClk\000"
+ 2050      7364436C 
+ 2050      6B00
+ 2051              	.LASF50:
+ 2052 05b2 7363616E 		.ascii	"scanCounter\000"
+ 2052      436F756E 
+ 2052      74657200 
+ 2053              	.LASF21:
+ 2054 05be 6E4E6F69 		.ascii	"nNoiseTh\000"
+ 2054      73655468 
+ 2054      00
+ 2055              	.LASF99:
+ 2056 05c7 63617073 		.ascii	"capsense_SsCSDPostScan\000"
+ 2056      656E7365 
+ 2056      5F537343 
+ 2056      5344506F 
+ 2056      73745363 
+ 2057              	.LASF11:
+ 2058 05de 75696E74 		.ascii	"uint32\000"
+ 2058      333200
+ 2059              	.LASF64:
+ 2060 05e5 7363616E 		.ascii	"scanCsdISC\000"
+ 2060      43736449 
+ 2060      534300
+ 2061              	.LASF5:
+ 2062 05f0 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2062      20756E73 
+ 2062      69676E65 
+ 2062      6420696E 
+ 2062      7400
+ 2063              	.LASF13:
+ 2064 0602 646F7562 		.ascii	"double\000"
+ 2064      6C6500
+ 2065              	.LASF40:
+ 2066 0609 62736C6E 		.ascii	"bslnExt\000"
+ 2066      45787400 
+ 2067              	.LASF74:
+ 2068 0611 6873696F 		.ascii	"hsiomShift\000"
+ 2068      6D536869 
+ 2068      667400
+ 2069              	.LASF70:
+ 2070 061c 64725074 		.ascii	"drPtr\000"
+ 2070      7200
+ 2071              	.LASF73:
+ 2072 0622 6D61736B 		.ascii	"mask\000"
+ 2072      00
+ 2073              	.LASF86:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 58
+
+
+ 2074 0627 73656E73 		.ascii	"senseMethod\000"
+ 2074      654D6574 
+ 2074      686F6400 
+ 2075              	.LASF17:
+ 2076 0633 63617073 		.ascii	"capsense_LOW_BSLN_RST_TYPE\000"
+ 2076      656E7365 
+ 2076      5F4C4F57 
+ 2076      5F42534C 
+ 2076      4E5F5253 
+ 2077              	.LASF89:
+ 2078 064e 78526573 		.ascii	"xResolution\000"
+ 2078      6F6C7574 
+ 2078      696F6E00 
+ 2079              	.LASF80:
+ 2080 065a 70747232 		.ascii	"ptr2SnsRam\000"
+ 2080      536E7352 
+ 2080      616D00
+ 2081              	.LASF20:
+ 2082 0665 6E6F6973 		.ascii	"noiseTh\000"
+ 2082      65546800 
+ 2083              	.LASF81:
+ 2084 066d 70747232 		.ascii	"ptr2FltrHistory\000"
+ 2084      466C7472 
+ 2084      48697374 
+ 2084      6F727900 
+ 2085              	.LASF93:
+ 2086 067d 77646774 		.ascii	"wdgtArray\000"
+ 2086      41727261 
+ 2086      7900
+ 2087              	.LASF102:
+ 2088 0687 63617073 		.ascii	"capsense_CSDPostMultiScan\000"
+ 2088      656E7365 
+ 2088      5F435344 
+ 2088      506F7374 
+ 2088      4D756C74 
+ 2089              	.LASF30:
+ 2090 06a1 63617073 		.ascii	"capsense_RAM_WD_BASE_STRUCT\000"
+ 2090      656E7365 
+ 2090      5F52414D 
+ 2090      5F57445F 
+ 2090      42415345 
+ 2091              	.LASF57:
+ 2092 06bd 6D6F6443 		.ascii	"modCsxClk\000"
+ 2092      7378436C 
+ 2092      6B00
+ 2093              	.LASF32:
+ 2094 06c7 706F7369 		.ascii	"position\000"
+ 2094      74696F6E 
+ 2094      00
+ 2095              	.LASF60:
+ 2096 06d0 736E7254 		.ascii	"snrTestWidgetId\000"
+ 2096      65737457 
+ 2096      69646765 
+ 2096      74496400 
+ 2097              	.LASF27:
+ 2098 06e0 736E7343 		.ascii	"snsClk\000"
+ 2098      6C6B00
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc3VxHdA.s 			page 59
+
+
+ 2099              	.LASF65:
+ 2100 06e7 7363616E 		.ascii	"scanCsxISC\000"
+ 2100      43737849 
+ 2100      534300
+ 2101              	.LASF114:
+ 2102 06f2 63617073 		.ascii	"capsense_SsPostAllWidgetsScan\000"
+ 2102      656E7365 
+ 2102      5F537350 
+ 2102      6F737441 
+ 2102      6C6C5769 
+ 2103              	.LASF78:
+ 2104 0710 70747232 		.ascii	"ptr2SnsFlash\000"
+ 2104      536E7346 
+ 2104      6C617368 
+ 2104      00
+ 2105              	.LASF54:
+ 2106 071d 736E7353 		.ascii	"snsStatus\000"
+ 2106      74617475 
+ 2106      7300
+ 2107              	.LASF37:
+ 2108 0727 6C696E65 		.ascii	"linearslider\000"
+ 2108      6172736C 
+ 2108      69646572 
+ 2108      00
+ 2109              	.LASF45:
+ 2110 0734 63617073 		.ascii	"capsense_RAM_SNS_LIST_STRUCT\000"
+ 2110      656E7365 
+ 2110      5F52414D 
+ 2110      5F534E53 
+ 2110      5F4C4953 
+ 2111              	.LASF111:
+ 2112 0751 63617073 		.ascii	"capsense_SsCSDSetUpIdacs\000"
+ 2112      656E7365 
+ 2112      5F537343 
+ 2112      53445365 
+ 2112      74557049 
+ 2113              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

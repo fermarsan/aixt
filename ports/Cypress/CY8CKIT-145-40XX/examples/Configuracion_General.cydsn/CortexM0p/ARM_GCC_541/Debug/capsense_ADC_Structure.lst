@@ -1,0 +1,974 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"capsense_ADC_Structure.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.capsense_ADC_AdcDsInitialize,"ax",%progbits
+  20              		.align	2
+  21              		.global	capsense_ADC_AdcDsInitialize
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	capsense_ADC_AdcDsInitialize, %function
+  25              	capsense_ADC_AdcDsInitialize:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC4\\capsense_ADC_Structure.c"
+   1:Generated_Source\PSoC4/capsense_ADC_Structure.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \file capsense_ADC_Structure.c
+   3:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \version 7.10
+   4:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *
+   5:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \brief
+   6:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *   This file defines the data structure global variables and provides implementation
+   7:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *   for the high-level and low-level APIs of the Data Structure module.
+   8:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *
+   9:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \see capsense_ADC v7.10 Datasheet
+  10:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *
+  11:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *//*****************************************************************************
+  12:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * Copyright (2016-2019), Cypress Semiconductor Corporation.
+  13:Generated_Source\PSoC4/capsense_ADC_Structure.c **** ********************************************************************************
+  14:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * This software is owned by Cypress Semiconductor Corporation (Cypress) and is
+  15:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * protected by and subject to worldwide patent protection (United States and
+  16:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * foreign), United States copyright laws and international treaty provisions.
+  17:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * Cypress hereby grants to licensee a personal, non-exclusive, non-transferable
+  18:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * license to copy, use, modify, create derivative works of, and compile the
+  19:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * Cypress Source Code and derivative works for the sole purpose of creating
+  20:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * custom software in support of licensee product to be used only in conjunction
+  21:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * with a Cypress integrated circuit as specified in the applicable agreement.
+  22:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * Any reproduction, modification, translation, compilation, or representation of
+  23:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * this software except as specified above is prohibited without the express
+  24:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * written permission of Cypress.
+  25:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *
+  26:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH
+  27:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  28:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  29:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * Cypress reserves the right to make changes without further notice to the
+  30:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * materials described herein. Cypress does not assume any liability arising out
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 2
+
+
+  31:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * of the application or use of any product or circuit described herein. Cypress
+  32:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * does not authorize its products for use as critical components in life-support
+  33:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * systems where a malfunction or failure may reasonably be expected to result in
+  34:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * significant injury to the user. The inclusion of Cypress' product in a life-
+  35:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * support systems application implies that the manufacturer assumes all risk of
+  36:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * such use and in doing so indemnifies Cypress against all charges. Use may be
+  37:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * limited by and subject to the applicable Cypress software license agreement.
+  38:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *******************************************************************************/
+  39:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  40:Generated_Source\PSoC4/capsense_ADC_Structure.c **** #include <string.h>
+  41:Generated_Source\PSoC4/capsense_ADC_Structure.c **** #include <cytypes.h>
+  42:Generated_Source\PSoC4/capsense_ADC_Structure.c **** #include "CyLib.h"
+  43:Generated_Source\PSoC4/capsense_ADC_Structure.c **** #include "capsense_ADC_Structure.h"
+  44:Generated_Source\PSoC4/capsense_ADC_Structure.c **** #include "capsense_ADC_Configuration.h"
+  45:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  46:Generated_Source\PSoC4/capsense_ADC_Structure.c **** #if (capsense_ADC_ENABLE == capsense_ADC_ADC_EN)
+  47:Generated_Source\PSoC4/capsense_ADC_Structure.c ****     #include "capsense_ADC_Adc.h"
+  48:Generated_Source\PSoC4/capsense_ADC_Structure.c **** #endif /* (capsense_ADC_ENABLE == capsense_ADC_ADC_EN) */
+  49:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  50:Generated_Source\PSoC4/capsense_ADC_Structure.c **** /*******************************************************************************
+  51:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * Defines the RAM Data Structure variables and their init data in flash
+  52:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *******************************************************************************/
+  53:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  54:Generated_Source\PSoC4/capsense_ADC_Structure.c **** /**
+  55:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \cond SECTION_GLOBAL_VARIABLES
+  56:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \addtogroup group_global_variables
+  57:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \{
+  58:Generated_Source\PSoC4/capsense_ADC_Structure.c **** */
+  59:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  60:Generated_Source\PSoC4/capsense_ADC_Structure.c **** /**
+  61:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * The variable that contains the capsense_ADC configuration, settings and
+  62:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * scanning results. capsense_ADC_dsRam represents RAM Data Structure.
+  63:Generated_Source\PSoC4/capsense_ADC_Structure.c **** */
+  64:Generated_Source\PSoC4/capsense_ADC_Structure.c **** capsense_ADC_RAM_STRUCT capsense_ADC_dsRam;
+  65:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  66:Generated_Source\PSoC4/capsense_ADC_Structure.c **** /** \}
+  67:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \endcond */
+  68:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  69:Generated_Source\PSoC4/capsense_ADC_Structure.c **** /**
+  70:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \cond SECTION_API_CONSTANTS
+  71:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \addtogroup group_api_constants
+  72:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \{
+  73:Generated_Source\PSoC4/capsense_ADC_Structure.c **** */
+  74:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  75:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  76:Generated_Source\PSoC4/capsense_ADC_Structure.c **** /**
+  77:Generated_Source\PSoC4/capsense_ADC_Structure.c ****  *  The array of the pointers to the ADC input channels specific register.
+  78:Generated_Source\PSoC4/capsense_ADC_Structure.c ****  */
+  79:Generated_Source\PSoC4/capsense_ADC_Structure.c **** const capsense_ADC_FLASH_IO_STRUCT capsense_ADC_adcIoList[capsense_ADC_ADC_TOTAL_CHANNELS] =
+  80:Generated_Source\PSoC4/capsense_ADC_Structure.c **** {
+  81:Generated_Source\PSoC4/capsense_ADC_Structure.c ****     {
+  82:Generated_Source\PSoC4/capsense_ADC_Structure.c ****         (reg32 *)capsense_ADC_AdcInput__0__HSIOM,
+  83:Generated_Source\PSoC4/capsense_ADC_Structure.c ****         (reg32 *)capsense_ADC_AdcInput__0__PC,
+  84:Generated_Source\PSoC4/capsense_ADC_Structure.c ****         (reg32 *)capsense_ADC_AdcInput__0__DR,
+  85:Generated_Source\PSoC4/capsense_ADC_Structure.c ****         (reg32 *)capsense_ADC_AdcInput__0__PS,
+  86:Generated_Source\PSoC4/capsense_ADC_Structure.c ****         capsense_ADC_AdcInput__0__HSIOM_MASK,
+  87:Generated_Source\PSoC4/capsense_ADC_Structure.c ****         capsense_ADC_AdcInput__0__MASK,
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 3
+
+
+  88:Generated_Source\PSoC4/capsense_ADC_Structure.c ****         capsense_ADC_AdcInput__0__HSIOM_SHIFT,
+  89:Generated_Source\PSoC4/capsense_ADC_Structure.c ****         (uint8)capsense_ADC_AdcInput__0__SHIFT,
+  90:Generated_Source\PSoC4/capsense_ADC_Structure.c ****         (uint8)capsense_ADC_AdcInput__0__SHIFT * 3u,
+  91:Generated_Source\PSoC4/capsense_ADC_Structure.c ****     },
+  92:Generated_Source\PSoC4/capsense_ADC_Structure.c **** };
+  93:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  94:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  95:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  96:Generated_Source\PSoC4/capsense_ADC_Structure.c **** /** \}
+  97:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \endcond */
+  98:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+  99:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+ 100:Generated_Source\PSoC4/capsense_ADC_Structure.c **** /*******************************************************************************
+ 101:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * Function Name: capsense_ADC_AdcDsInitialize
+ 102:Generated_Source\PSoC4/capsense_ADC_Structure.c **** ****************************************************************************//**
+ 103:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *
+ 104:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \brief
+ 105:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *   This function initializes the Data Structure storage.
+ 106:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *
+ 107:Generated_Source\PSoC4/capsense_ADC_Structure.c **** * \details
+ 108:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *   Configures the initial Adc datastructure members.
+ 109:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *
+ 110:Generated_Source\PSoC4/capsense_ADC_Structure.c **** *******************************************************************************/
+ 111:Generated_Source\PSoC4/capsense_ADC_Structure.c **** void capsense_ADC_AdcDsInitialize(void)
+ 112:Generated_Source\PSoC4/capsense_ADC_Structure.c **** {
+  28              		.loc 1 112 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+ 113:Generated_Source\PSoC4/capsense_ADC_Structure.c ****     /* Reset RAM data structure content */
+ 114:Generated_Source\PSoC4/capsense_ADC_Structure.c ****     (void)memset(&capsense_ADC_dsRam, 0, sizeof(capsense_ADC_dsRam));
+  36              		.loc 1 114 0
+  37 0002 064C     		ldr	r4, .L2
+  38 0004 0A22     		movs	r2, #10
+  39 0006 0021     		movs	r1, #0
+  40 0008 2000     		movs	r0, r4
+  41 000a FFF7FEFF 		bl	memset
+  42              	.LVL0:
+ 115:Generated_Source\PSoC4/capsense_ADC_Structure.c **** 
+ 116:Generated_Source\PSoC4/capsense_ADC_Structure.c ****     capsense_ADC_dsRam.adcResolution = capsense_ADC_ADC_RESOLUTION;
+  43              		.loc 1 116 0
+  44 000e 0A23     		movs	r3, #10
+  45 0010 E371     		strb	r3, [r4, #7]
+ 117:Generated_Source\PSoC4/capsense_ADC_Structure.c ****     capsense_ADC_dsRam.adcIdac = (uint8)(capsense_ADC_ADC_IDAC_DEFAULT);
+  46              		.loc 1 117 0
+  47 0012 1133     		adds	r3, r3, #17
+  48 0014 6371     		strb	r3, [r4, #5]
+ 118:Generated_Source\PSoC4/capsense_ADC_Structure.c ****     capsense_ADC_dsRam.adcActiveCh = capsense_ADC_AdcNO_CHANNEL;
+  49              		.loc 1 118 0
+  50 0016 E433     		adds	r3, r3, #228
+  51 0018 A371     		strb	r3, [r4, #6]
+ 119:Generated_Source\PSoC4/capsense_ADC_Structure.c **** }
+  52              		.loc 1 119 0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 4
+
+
+  53              		@ sp needed
+  54 001a 10BD     		pop	{r4, pc}
+  55              	.L3:
+  56              		.align	2
+  57              	.L2:
+  58 001c 00000000 		.word	capsense_ADC_dsRam
+  59              		.cfi_endproc
+  60              	.LFE1:
+  61              		.size	capsense_ADC_AdcDsInitialize, .-capsense_ADC_AdcDsInitialize
+  62              		.global	capsense_ADC_adcIoList
+  63              		.comm	capsense_ADC_dsRam,10,4
+  64              		.section	.rodata
+  65              		.align	2
+  66              		.type	capsense_ADC_adcIoList, %object
+  67              		.size	capsense_ADC_adcIoList, 28
+  68              	capsense_ADC_adcIoList:
+  69 0000 00010240 		.word	1073873152
+  70 0004 08010440 		.word	1074004232
+  71 0008 00010440 		.word	1074004224
+  72 000c 04010440 		.word	1074004228
+  73 0010 00F00000 		.word	61440
+  74 0014 08000000 		.word	8
+  75 0018 0C       		.byte	12
+  76 0019 03       		.byte	3
+  77 001a 09       		.byte	9
+  78 001b 00       		.space	1
+  79              		.text
+  80              	.Letext0:
+  81              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+  82              		.file 3 "Generated_Source\\PSoC4\\capsense_ADC_Structure.h"
+  83              		.section	.debug_info,"",%progbits
+  84              	.Ldebug_info0:
+  85 0000 38020000 		.4byte	0x238
+  86 0004 0400     		.2byte	0x4
+  87 0006 00000000 		.4byte	.Ldebug_abbrev0
+  88 000a 04       		.byte	0x4
+  89 000b 01       		.uleb128 0x1
+  90 000c 30020000 		.4byte	.LASF38
+  91 0010 0C       		.byte	0xc
+  92 0011 00000000 		.4byte	.LASF39
+  93 0015 A8010000 		.4byte	.LASF40
+  94 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  95 001d 00000000 		.4byte	0
+  96 0021 00000000 		.4byte	.Ldebug_line0
+  97 0025 02       		.uleb128 0x2
+  98 0026 04       		.byte	0x4
+  99 0027 05       		.byte	0x5
+ 100 0028 696E7400 		.ascii	"int\000"
+ 101 002c 03       		.uleb128 0x3
+ 102 002d 04       		.byte	0x4
+ 103 002e 07       		.byte	0x7
+ 104 002f F4000000 		.4byte	.LASF0
+ 105 0033 03       		.uleb128 0x3
+ 106 0034 08       		.byte	0x8
+ 107 0035 05       		.byte	0x5
+ 108 0036 50010000 		.4byte	.LASF1
+ 109 003a 03       		.uleb128 0x3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 5
+
+
+ 110 003b 08       		.byte	0x8
+ 111 003c 04       		.byte	0x4
+ 112 003d 24020000 		.4byte	.LASF2
+ 113 0041 03       		.uleb128 0x3
+ 114 0042 01       		.byte	0x1
+ 115 0043 06       		.byte	0x6
+ 116 0044 C2020000 		.4byte	.LASF3
+ 117 0048 03       		.uleb128 0x3
+ 118 0049 01       		.byte	0x1
+ 119 004a 08       		.byte	0x8
+ 120 004b 93000000 		.4byte	.LASF4
+ 121 004f 03       		.uleb128 0x3
+ 122 0050 02       		.byte	0x2
+ 123 0051 05       		.byte	0x5
+ 124 0052 9E010000 		.4byte	.LASF5
+ 125 0056 03       		.uleb128 0x3
+ 126 0057 02       		.byte	0x2
+ 127 0058 07       		.byte	0x7
+ 128 0059 5E000000 		.4byte	.LASF6
+ 129 005d 03       		.uleb128 0x3
+ 130 005e 04       		.byte	0x4
+ 131 005f 05       		.byte	0x5
+ 132 0060 16020000 		.4byte	.LASF7
+ 133 0064 03       		.uleb128 0x3
+ 134 0065 04       		.byte	0x4
+ 135 0066 07       		.byte	0x7
+ 136 0067 A7000000 		.4byte	.LASF8
+ 137 006b 03       		.uleb128 0x3
+ 138 006c 08       		.byte	0x8
+ 139 006d 07       		.byte	0x7
+ 140 006e 01010000 		.4byte	.LASF9
+ 141 0072 03       		.uleb128 0x3
+ 142 0073 04       		.byte	0x4
+ 143 0074 07       		.byte	0x7
+ 144 0075 47010000 		.4byte	.LASF10
+ 145 0079 03       		.uleb128 0x3
+ 146 007a 01       		.byte	0x1
+ 147 007b 08       		.byte	0x8
+ 148 007c 1F020000 		.4byte	.LASF11
+ 149 0080 04       		.uleb128 0x4
+ 150 0081 C4000000 		.4byte	.LASF12
+ 151 0085 02       		.byte	0x2
+ 152 0086 FC01     		.2byte	0x1fc
+ 153 0088 48000000 		.4byte	0x48
+ 154 008c 04       		.uleb128 0x4
+ 155 008d E6000000 		.4byte	.LASF13
+ 156 0091 02       		.byte	0x2
+ 157 0092 FD01     		.2byte	0x1fd
+ 158 0094 56000000 		.4byte	0x56
+ 159 0098 04       		.uleb128 0x4
+ 160 0099 ED000000 		.4byte	.LASF14
+ 161 009d 02       		.byte	0x2
+ 162 009e FE01     		.2byte	0x1fe
+ 163 00a0 64000000 		.4byte	0x64
+ 164 00a4 03       		.uleb128 0x3
+ 165 00a5 04       		.byte	0x4
+ 166 00a6 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 6
+
+
+ 167 00a7 8D000000 		.4byte	.LASF15
+ 168 00ab 03       		.uleb128 0x3
+ 169 00ac 08       		.byte	0x8
+ 170 00ad 04       		.byte	0x4
+ 171 00ae D9000000 		.4byte	.LASF16
+ 172 00b2 05       		.uleb128 0x5
+ 173 00b3 80000000 		.4byte	0x80
+ 174 00b7 04       		.uleb128 0x4
+ 175 00b8 30000000 		.4byte	.LASF17
+ 176 00bc 02       		.byte	0x2
+ 177 00bd A802     		.2byte	0x2a8
+ 178 00bf C3000000 		.4byte	0xc3
+ 179 00c3 05       		.uleb128 0x5
+ 180 00c4 98000000 		.4byte	0x98
+ 181 00c8 06       		.uleb128 0x6
+ 182 00c9 0A       		.byte	0xa
+ 183 00ca 03       		.byte	0x3
+ 184 00cb 37       		.byte	0x37
+ 185 00cc 25010000 		.4byte	0x125
+ 186 00d0 07       		.uleb128 0x7
+ 187 00d1 3D010000 		.4byte	.LASF18
+ 188 00d5 03       		.byte	0x3
+ 189 00d6 3D       		.byte	0x3d
+ 190 00d7 25010000 		.4byte	0x125
+ 191 00db 00       		.byte	0
+ 192 00dc 07       		.uleb128 0x7
+ 193 00dd 96010000 		.4byte	.LASF19
+ 194 00e1 03       		.byte	0x3
+ 195 00e2 43       		.byte	0x43
+ 196 00e3 25010000 		.4byte	0x125
+ 197 00e7 02       		.byte	0x2
+ 198 00e8 07       		.uleb128 0x7
+ 199 00e9 54000000 		.4byte	.LASF20
+ 200 00ed 03       		.byte	0x3
+ 201 00ee 48       		.byte	0x48
+ 202 00ef B2000000 		.4byte	0xb2
+ 203 00f3 04       		.byte	0x4
+ 204 00f4 07       		.uleb128 0x7
+ 205 00f5 35010000 		.4byte	.LASF21
+ 206 00f9 03       		.byte	0x3
+ 207 00fa 4D       		.byte	0x4d
+ 208 00fb 80000000 		.4byte	0x80
+ 209 00ff 05       		.byte	0x5
+ 210 0100 07       		.uleb128 0x7
+ 211 0101 8A010000 		.4byte	.LASF22
+ 212 0105 03       		.byte	0x3
+ 213 0106 52       		.byte	0x52
+ 214 0107 80000000 		.4byte	0x80
+ 215 010b 06       		.byte	0x6
+ 216 010c 07       		.uleb128 0x7
+ 217 010d 46000000 		.4byte	.LASF23
+ 218 0111 03       		.byte	0x3
+ 219 0112 57       		.byte	0x57
+ 220 0113 80000000 		.4byte	0x80
+ 221 0117 07       		.byte	0x7
+ 222 0118 07       		.uleb128 0x7
+ 223 0119 3C000000 		.4byte	.LASF24
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 7
+
+
+ 224 011d 03       		.byte	0x3
+ 225 011e 5C       		.byte	0x5c
+ 226 011f 80000000 		.4byte	0x80
+ 227 0123 08       		.byte	0x8
+ 228 0124 00       		.byte	0
+ 229 0125 08       		.uleb128 0x8
+ 230 0126 8C000000 		.4byte	0x8c
+ 231 012a 35010000 		.4byte	0x135
+ 232 012e 09       		.uleb128 0x9
+ 233 012f 72000000 		.4byte	0x72
+ 234 0133 00       		.byte	0
+ 235 0134 00       		.byte	0
+ 236 0135 0A       		.uleb128 0xa
+ 237 0136 CE020000 		.4byte	.LASF25
+ 238 013a 03       		.byte	0x3
+ 239 013b 5D       		.byte	0x5d
+ 240 013c C8000000 		.4byte	0xc8
+ 241 0140 06       		.uleb128 0x6
+ 242 0141 1C       		.byte	0x1c
+ 243 0142 03       		.byte	0x3
+ 244 0143 63       		.byte	0x63
+ 245 0144 B5010000 		.4byte	0x1b5
+ 246 0148 07       		.uleb128 0x7
+ 247 0149 84000000 		.4byte	.LASF26
+ 248 014d 03       		.byte	0x3
+ 249 014e 68       		.byte	0x68
+ 250 014f B5010000 		.4byte	0x1b5
+ 251 0153 00       		.byte	0
+ 252 0154 07       		.uleb128 0x7
+ 253 0155 36000000 		.4byte	.LASF27
+ 254 0159 03       		.byte	0x3
+ 255 015a 6D       		.byte	0x6d
+ 256 015b B5010000 		.4byte	0x1b5
+ 257 015f 04       		.byte	0x4
+ 258 0160 07       		.uleb128 0x7
+ 259 0161 A1000000 		.4byte	.LASF28
+ 260 0165 03       		.byte	0x3
+ 261 0166 72       		.byte	0x72
+ 262 0167 B5010000 		.4byte	0x1b5
+ 263 016b 08       		.byte	0x8
+ 264 016c 07       		.uleb128 0x7
+ 265 016d E0000000 		.4byte	.LASF29
+ 266 0171 03       		.byte	0x3
+ 267 0172 77       		.byte	0x77
+ 268 0173 B5010000 		.4byte	0x1b5
+ 269 0177 0C       		.byte	0xc
+ 270 0178 07       		.uleb128 0x7
+ 271 0179 5E010000 		.4byte	.LASF30
+ 272 017d 03       		.byte	0x3
+ 273 017e 7C       		.byte	0x7c
+ 274 017f 98000000 		.4byte	0x98
+ 275 0183 10       		.byte	0x10
+ 276 0184 07       		.uleb128 0x7
+ 277 0185 85010000 		.4byte	.LASF31
+ 278 0189 03       		.byte	0x3
+ 279 018a 81       		.byte	0x81
+ 280 018b 98000000 		.4byte	0x98
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 8
+
+
+ 281 018f 14       		.byte	0x14
+ 282 0190 07       		.uleb128 0x7
+ 283 0191 B9000000 		.4byte	.LASF32
+ 284 0195 03       		.byte	0x3
+ 285 0196 86       		.byte	0x86
+ 286 0197 80000000 		.4byte	0x80
+ 287 019b 18       		.byte	0x18
+ 288 019c 07       		.uleb128 0x7
+ 289 019d CA000000 		.4byte	.LASF33
+ 290 01a1 03       		.byte	0x3
+ 291 01a2 8B       		.byte	0x8b
+ 292 01a3 80000000 		.4byte	0x80
+ 293 01a7 19       		.byte	0x19
+ 294 01a8 07       		.uleb128 0x7
+ 295 01a9 F9010000 		.4byte	.LASF34
+ 296 01ad 03       		.byte	0x3
+ 297 01ae 90       		.byte	0x90
+ 298 01af 80000000 		.4byte	0x80
+ 299 01b3 1A       		.byte	0x1a
+ 300 01b4 00       		.byte	0
+ 301 01b5 0B       		.uleb128 0xb
+ 302 01b6 04       		.byte	0x4
+ 303 01b7 B7000000 		.4byte	0xb7
+ 304 01bb 0A       		.uleb128 0xa
+ 305 01bc 18010000 		.4byte	.LASF35
+ 306 01c0 03       		.byte	0x3
+ 307 01c1 92       		.byte	0x92
+ 308 01c2 40010000 		.4byte	0x140
+ 309 01c6 0C       		.uleb128 0xc
+ 310 01c7 68010000 		.4byte	.LASF41
+ 311 01cb 01       		.byte	0x1
+ 312 01cc 6F       		.byte	0x6f
+ 313 01cd 00000000 		.4byte	.LFB1
+ 314 01d1 20000000 		.4byte	.LFE1-.LFB1
+ 315 01d5 01       		.uleb128 0x1
+ 316 01d6 9C       		.byte	0x9c
+ 317 01d7 F6010000 		.4byte	0x1f6
+ 318 01db 0D       		.uleb128 0xd
+ 319 01dc 0E000000 		.4byte	.LVL0
+ 320 01e0 32020000 		.4byte	0x232
+ 321 01e4 0E       		.uleb128 0xe
+ 322 01e5 01       		.uleb128 0x1
+ 323 01e6 50       		.byte	0x50
+ 324 01e7 02       		.uleb128 0x2
+ 325 01e8 74       		.byte	0x74
+ 326 01e9 00       		.sleb128 0
+ 327 01ea 0E       		.uleb128 0xe
+ 328 01eb 01       		.uleb128 0x1
+ 329 01ec 51       		.byte	0x51
+ 330 01ed 01       		.uleb128 0x1
+ 331 01ee 30       		.byte	0x30
+ 332 01ef 0E       		.uleb128 0xe
+ 333 01f0 01       		.uleb128 0x1
+ 334 01f1 52       		.byte	0x52
+ 335 01f2 01       		.uleb128 0x1
+ 336 01f3 3A       		.byte	0x3a
+ 337 01f4 00       		.byte	0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 9
+
+
+ 338 01f5 00       		.byte	0
+ 339 01f6 0F       		.uleb128 0xf
+ 340 01f7 71000000 		.4byte	.LASF36
+ 341 01fb 01       		.byte	0x1
+ 342 01fc 40       		.byte	0x40
+ 343 01fd 35010000 		.4byte	0x135
+ 344 0201 05       		.uleb128 0x5
+ 345 0202 03       		.byte	0x3
+ 346 0203 00000000 		.4byte	capsense_ADC_dsRam
+ 347 0207 08       		.uleb128 0x8
+ 348 0208 17020000 		.4byte	0x217
+ 349 020c 17020000 		.4byte	0x217
+ 350 0210 09       		.uleb128 0x9
+ 351 0211 72000000 		.4byte	0x72
+ 352 0215 00       		.byte	0
+ 353 0216 00       		.byte	0
+ 354 0217 10       		.uleb128 0x10
+ 355 0218 BB010000 		.4byte	0x1bb
+ 356 021c 0F       		.uleb128 0xf
+ 357 021d FF010000 		.4byte	.LASF37
+ 358 0221 01       		.byte	0x1
+ 359 0222 4F       		.byte	0x4f
+ 360 0223 2D020000 		.4byte	0x22d
+ 361 0227 05       		.uleb128 0x5
+ 362 0228 03       		.byte	0x3
+ 363 0229 00000000 		.4byte	capsense_ADC_adcIoList
+ 364 022d 10       		.uleb128 0x10
+ 365 022e 07020000 		.4byte	0x207
+ 366 0232 11       		.uleb128 0x11
+ 367 0233 D2000000 		.4byte	.LASF42
+ 368 0237 D2000000 		.4byte	.LASF42
+ 369 023b 00       		.byte	0
+ 370              		.section	.debug_abbrev,"",%progbits
+ 371              	.Ldebug_abbrev0:
+ 372 0000 01       		.uleb128 0x1
+ 373 0001 11       		.uleb128 0x11
+ 374 0002 01       		.byte	0x1
+ 375 0003 25       		.uleb128 0x25
+ 376 0004 0E       		.uleb128 0xe
+ 377 0005 13       		.uleb128 0x13
+ 378 0006 0B       		.uleb128 0xb
+ 379 0007 03       		.uleb128 0x3
+ 380 0008 0E       		.uleb128 0xe
+ 381 0009 1B       		.uleb128 0x1b
+ 382 000a 0E       		.uleb128 0xe
+ 383 000b 55       		.uleb128 0x55
+ 384 000c 17       		.uleb128 0x17
+ 385 000d 11       		.uleb128 0x11
+ 386 000e 01       		.uleb128 0x1
+ 387 000f 10       		.uleb128 0x10
+ 388 0010 17       		.uleb128 0x17
+ 389 0011 00       		.byte	0
+ 390 0012 00       		.byte	0
+ 391 0013 02       		.uleb128 0x2
+ 392 0014 24       		.uleb128 0x24
+ 393 0015 00       		.byte	0
+ 394 0016 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 10
+
+
+ 395 0017 0B       		.uleb128 0xb
+ 396 0018 3E       		.uleb128 0x3e
+ 397 0019 0B       		.uleb128 0xb
+ 398 001a 03       		.uleb128 0x3
+ 399 001b 08       		.uleb128 0x8
+ 400 001c 00       		.byte	0
+ 401 001d 00       		.byte	0
+ 402 001e 03       		.uleb128 0x3
+ 403 001f 24       		.uleb128 0x24
+ 404 0020 00       		.byte	0
+ 405 0021 0B       		.uleb128 0xb
+ 406 0022 0B       		.uleb128 0xb
+ 407 0023 3E       		.uleb128 0x3e
+ 408 0024 0B       		.uleb128 0xb
+ 409 0025 03       		.uleb128 0x3
+ 410 0026 0E       		.uleb128 0xe
+ 411 0027 00       		.byte	0
+ 412 0028 00       		.byte	0
+ 413 0029 04       		.uleb128 0x4
+ 414 002a 16       		.uleb128 0x16
+ 415 002b 00       		.byte	0
+ 416 002c 03       		.uleb128 0x3
+ 417 002d 0E       		.uleb128 0xe
+ 418 002e 3A       		.uleb128 0x3a
+ 419 002f 0B       		.uleb128 0xb
+ 420 0030 3B       		.uleb128 0x3b
+ 421 0031 05       		.uleb128 0x5
+ 422 0032 49       		.uleb128 0x49
+ 423 0033 13       		.uleb128 0x13
+ 424 0034 00       		.byte	0
+ 425 0035 00       		.byte	0
+ 426 0036 05       		.uleb128 0x5
+ 427 0037 35       		.uleb128 0x35
+ 428 0038 00       		.byte	0
+ 429 0039 49       		.uleb128 0x49
+ 430 003a 13       		.uleb128 0x13
+ 431 003b 00       		.byte	0
+ 432 003c 00       		.byte	0
+ 433 003d 06       		.uleb128 0x6
+ 434 003e 13       		.uleb128 0x13
+ 435 003f 01       		.byte	0x1
+ 436 0040 0B       		.uleb128 0xb
+ 437 0041 0B       		.uleb128 0xb
+ 438 0042 3A       		.uleb128 0x3a
+ 439 0043 0B       		.uleb128 0xb
+ 440 0044 3B       		.uleb128 0x3b
+ 441 0045 0B       		.uleb128 0xb
+ 442 0046 01       		.uleb128 0x1
+ 443 0047 13       		.uleb128 0x13
+ 444 0048 00       		.byte	0
+ 445 0049 00       		.byte	0
+ 446 004a 07       		.uleb128 0x7
+ 447 004b 0D       		.uleb128 0xd
+ 448 004c 00       		.byte	0
+ 449 004d 03       		.uleb128 0x3
+ 450 004e 0E       		.uleb128 0xe
+ 451 004f 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 11
+
+
+ 452 0050 0B       		.uleb128 0xb
+ 453 0051 3B       		.uleb128 0x3b
+ 454 0052 0B       		.uleb128 0xb
+ 455 0053 49       		.uleb128 0x49
+ 456 0054 13       		.uleb128 0x13
+ 457 0055 38       		.uleb128 0x38
+ 458 0056 0B       		.uleb128 0xb
+ 459 0057 00       		.byte	0
+ 460 0058 00       		.byte	0
+ 461 0059 08       		.uleb128 0x8
+ 462 005a 01       		.uleb128 0x1
+ 463 005b 01       		.byte	0x1
+ 464 005c 49       		.uleb128 0x49
+ 465 005d 13       		.uleb128 0x13
+ 466 005e 01       		.uleb128 0x1
+ 467 005f 13       		.uleb128 0x13
+ 468 0060 00       		.byte	0
+ 469 0061 00       		.byte	0
+ 470 0062 09       		.uleb128 0x9
+ 471 0063 21       		.uleb128 0x21
+ 472 0064 00       		.byte	0
+ 473 0065 49       		.uleb128 0x49
+ 474 0066 13       		.uleb128 0x13
+ 475 0067 2F       		.uleb128 0x2f
+ 476 0068 0B       		.uleb128 0xb
+ 477 0069 00       		.byte	0
+ 478 006a 00       		.byte	0
+ 479 006b 0A       		.uleb128 0xa
+ 480 006c 16       		.uleb128 0x16
+ 481 006d 00       		.byte	0
+ 482 006e 03       		.uleb128 0x3
+ 483 006f 0E       		.uleb128 0xe
+ 484 0070 3A       		.uleb128 0x3a
+ 485 0071 0B       		.uleb128 0xb
+ 486 0072 3B       		.uleb128 0x3b
+ 487 0073 0B       		.uleb128 0xb
+ 488 0074 49       		.uleb128 0x49
+ 489 0075 13       		.uleb128 0x13
+ 490 0076 00       		.byte	0
+ 491 0077 00       		.byte	0
+ 492 0078 0B       		.uleb128 0xb
+ 493 0079 0F       		.uleb128 0xf
+ 494 007a 00       		.byte	0
+ 495 007b 0B       		.uleb128 0xb
+ 496 007c 0B       		.uleb128 0xb
+ 497 007d 49       		.uleb128 0x49
+ 498 007e 13       		.uleb128 0x13
+ 499 007f 00       		.byte	0
+ 500 0080 00       		.byte	0
+ 501 0081 0C       		.uleb128 0xc
+ 502 0082 2E       		.uleb128 0x2e
+ 503 0083 01       		.byte	0x1
+ 504 0084 3F       		.uleb128 0x3f
+ 505 0085 19       		.uleb128 0x19
+ 506 0086 03       		.uleb128 0x3
+ 507 0087 0E       		.uleb128 0xe
+ 508 0088 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 12
+
+
+ 509 0089 0B       		.uleb128 0xb
+ 510 008a 3B       		.uleb128 0x3b
+ 511 008b 0B       		.uleb128 0xb
+ 512 008c 27       		.uleb128 0x27
+ 513 008d 19       		.uleb128 0x19
+ 514 008e 11       		.uleb128 0x11
+ 515 008f 01       		.uleb128 0x1
+ 516 0090 12       		.uleb128 0x12
+ 517 0091 06       		.uleb128 0x6
+ 518 0092 40       		.uleb128 0x40
+ 519 0093 18       		.uleb128 0x18
+ 520 0094 9742     		.uleb128 0x2117
+ 521 0096 19       		.uleb128 0x19
+ 522 0097 01       		.uleb128 0x1
+ 523 0098 13       		.uleb128 0x13
+ 524 0099 00       		.byte	0
+ 525 009a 00       		.byte	0
+ 526 009b 0D       		.uleb128 0xd
+ 527 009c 898201   		.uleb128 0x4109
+ 528 009f 01       		.byte	0x1
+ 529 00a0 11       		.uleb128 0x11
+ 530 00a1 01       		.uleb128 0x1
+ 531 00a2 31       		.uleb128 0x31
+ 532 00a3 13       		.uleb128 0x13
+ 533 00a4 00       		.byte	0
+ 534 00a5 00       		.byte	0
+ 535 00a6 0E       		.uleb128 0xe
+ 536 00a7 8A8201   		.uleb128 0x410a
+ 537 00aa 00       		.byte	0
+ 538 00ab 02       		.uleb128 0x2
+ 539 00ac 18       		.uleb128 0x18
+ 540 00ad 9142     		.uleb128 0x2111
+ 541 00af 18       		.uleb128 0x18
+ 542 00b0 00       		.byte	0
+ 543 00b1 00       		.byte	0
+ 544 00b2 0F       		.uleb128 0xf
+ 545 00b3 34       		.uleb128 0x34
+ 546 00b4 00       		.byte	0
+ 547 00b5 03       		.uleb128 0x3
+ 548 00b6 0E       		.uleb128 0xe
+ 549 00b7 3A       		.uleb128 0x3a
+ 550 00b8 0B       		.uleb128 0xb
+ 551 00b9 3B       		.uleb128 0x3b
+ 552 00ba 0B       		.uleb128 0xb
+ 553 00bb 49       		.uleb128 0x49
+ 554 00bc 13       		.uleb128 0x13
+ 555 00bd 3F       		.uleb128 0x3f
+ 556 00be 19       		.uleb128 0x19
+ 557 00bf 02       		.uleb128 0x2
+ 558 00c0 18       		.uleb128 0x18
+ 559 00c1 00       		.byte	0
+ 560 00c2 00       		.byte	0
+ 561 00c3 10       		.uleb128 0x10
+ 562 00c4 26       		.uleb128 0x26
+ 563 00c5 00       		.byte	0
+ 564 00c6 49       		.uleb128 0x49
+ 565 00c7 13       		.uleb128 0x13
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 13
+
+
+ 566 00c8 00       		.byte	0
+ 567 00c9 00       		.byte	0
+ 568 00ca 11       		.uleb128 0x11
+ 569 00cb 2E       		.uleb128 0x2e
+ 570 00cc 00       		.byte	0
+ 571 00cd 3F       		.uleb128 0x3f
+ 572 00ce 19       		.uleb128 0x19
+ 573 00cf 3C       		.uleb128 0x3c
+ 574 00d0 19       		.uleb128 0x19
+ 575 00d1 6E       		.uleb128 0x6e
+ 576 00d2 0E       		.uleb128 0xe
+ 577 00d3 03       		.uleb128 0x3
+ 578 00d4 0E       		.uleb128 0xe
+ 579 00d5 00       		.byte	0
+ 580 00d6 00       		.byte	0
+ 581 00d7 00       		.byte	0
+ 582              		.section	.debug_aranges,"",%progbits
+ 583 0000 1C000000 		.4byte	0x1c
+ 584 0004 0200     		.2byte	0x2
+ 585 0006 00000000 		.4byte	.Ldebug_info0
+ 586 000a 04       		.byte	0x4
+ 587 000b 00       		.byte	0
+ 588 000c 0000     		.2byte	0
+ 589 000e 0000     		.2byte	0
+ 590 0010 00000000 		.4byte	.LFB1
+ 591 0014 20000000 		.4byte	.LFE1-.LFB1
+ 592 0018 00000000 		.4byte	0
+ 593 001c 00000000 		.4byte	0
+ 594              		.section	.debug_ranges,"",%progbits
+ 595              	.Ldebug_ranges0:
+ 596 0000 00000000 		.4byte	.LFB1
+ 597 0004 20000000 		.4byte	.LFE1
+ 598 0008 00000000 		.4byte	0
+ 599 000c 00000000 		.4byte	0
+ 600              		.section	.debug_line,"",%progbits
+ 601              	.Ldebug_line0:
+ 602 0000 8A000000 		.section	.debug_str,"MS",%progbits,1
+ 602      02006F00 
+ 602      00000201 
+ 602      FB0E0D00 
+ 602      01010101 
+ 603              	.LASF39:
+ 604 0000 47656E65 		.ascii	"Generated_Source\\PSoC4\\capsense_ADC_Structure.c\000"
+ 604      72617465 
+ 604      645F536F 
+ 604      75726365 
+ 604      5C50536F 
+ 605              	.LASF17:
+ 606 0030 72656733 		.ascii	"reg32\000"
+ 606      3200
+ 607              	.LASF27:
+ 608 0036 70635074 		.ascii	"pcPtr\000"
+ 608      7200
+ 609              	.LASF24:
+ 610 003c 61646341 		.ascii	"adcAzTime\000"
+ 610      7A54696D 
+ 610      6500
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 14
+
+
+ 611              	.LASF23:
+ 612 0046 61646352 		.ascii	"adcResolution\000"
+ 612      65736F6C 
+ 612      7574696F 
+ 612      6E00
+ 613              	.LASF20:
+ 614 0054 61646353 		.ascii	"adcStatus\000"
+ 614      74617475 
+ 614      7300
+ 615              	.LASF6:
+ 616 005e 73686F72 		.ascii	"short unsigned int\000"
+ 616      7420756E 
+ 616      7369676E 
+ 616      65642069 
+ 616      6E7400
+ 617              	.LASF36:
+ 618 0071 63617073 		.ascii	"capsense_ADC_dsRam\000"
+ 618      656E7365 
+ 618      5F414443 
+ 618      5F647352 
+ 618      616D00
+ 619              	.LASF26:
+ 620 0084 6873696F 		.ascii	"hsiomPtr\000"
+ 620      6D507472 
+ 620      00
+ 621              	.LASF15:
+ 622 008d 666C6F61 		.ascii	"float\000"
+ 622      7400
+ 623              	.LASF4:
+ 624 0093 756E7369 		.ascii	"unsigned char\000"
+ 624      676E6564 
+ 624      20636861 
+ 624      7200
+ 625              	.LASF28:
+ 626 00a1 64725074 		.ascii	"drPtr\000"
+ 626      7200
+ 627              	.LASF8:
+ 628 00a7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 628      20756E73 
+ 628      69676E65 
+ 628      6420696E 
+ 628      7400
+ 629              	.LASF32:
+ 630 00b9 6873696F 		.ascii	"hsiomShift\000"
+ 630      6D536869 
+ 630      667400
+ 631              	.LASF12:
+ 632 00c4 75696E74 		.ascii	"uint8\000"
+ 632      3800
+ 633              	.LASF33:
+ 634 00ca 64725368 		.ascii	"drShift\000"
+ 634      69667400 
+ 635              	.LASF42:
+ 636 00d2 6D656D73 		.ascii	"memset\000"
+ 636      657400
+ 637              	.LASF16:
+ 638 00d9 646F7562 		.ascii	"double\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 15
+
+
+ 638      6C6500
+ 639              	.LASF29:
+ 640 00e0 70735074 		.ascii	"psPtr\000"
+ 640      7200
+ 641              	.LASF13:
+ 642 00e6 75696E74 		.ascii	"uint16\000"
+ 642      313600
+ 643              	.LASF14:
+ 644 00ed 75696E74 		.ascii	"uint32\000"
+ 644      333200
+ 645              	.LASF0:
+ 646 00f4 756E7369 		.ascii	"unsigned int\000"
+ 646      676E6564 
+ 646      20696E74 
+ 646      00
+ 647              	.LASF9:
+ 648 0101 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 648      206C6F6E 
+ 648      6720756E 
+ 648      7369676E 
+ 648      65642069 
+ 649              	.LASF35:
+ 650 0118 63617073 		.ascii	"capsense_ADC_FLASH_IO_STRUCT\000"
+ 650      656E7365 
+ 650      5F414443 
+ 650      5F464C41 
+ 650      53485F49 
+ 651              	.LASF21:
+ 652 0135 61646349 		.ascii	"adcIdac\000"
+ 652      64616300 
+ 653              	.LASF18:
+ 654 013d 61646352 		.ascii	"adcResult\000"
+ 654      6573756C 
+ 654      7400
+ 655              	.LASF10:
+ 656 0147 73697A65 		.ascii	"sizetype\000"
+ 656      74797065 
+ 656      00
+ 657              	.LASF1:
+ 658 0150 6C6F6E67 		.ascii	"long long int\000"
+ 658      206C6F6E 
+ 658      6720696E 
+ 658      7400
+ 659              	.LASF30:
+ 660 015e 6873696F 		.ascii	"hsiomMask\000"
+ 660      6D4D6173 
+ 660      6B00
+ 661              	.LASF41:
+ 662 0168 63617073 		.ascii	"capsense_ADC_AdcDsInitialize\000"
+ 662      656E7365 
+ 662      5F414443 
+ 662      5F416463 
+ 662      4473496E 
+ 663              	.LASF31:
+ 664 0185 6D61736B 		.ascii	"mask\000"
+ 664      00
+ 665              	.LASF22:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 16
+
+
+ 666 018a 61646341 		.ascii	"adcActiveCh\000"
+ 666      63746976 
+ 666      65436800 
+ 667              	.LASF19:
+ 668 0196 61646343 		.ascii	"adcCode\000"
+ 668      6F646500 
+ 669              	.LASF5:
+ 670 019e 73686F72 		.ascii	"short int\000"
+ 670      7420696E 
+ 670      7400
+ 671              	.LASF40:
+ 672 01a8 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
+ 672      6978745C 
+ 672      61697874 
+ 672      5C706F72 
+ 672      74735C43 
+ 673 01d5 78616D70 		.ascii	"xamples\\Configuracion_General.cydsn\000"
+ 673      6C65735C 
+ 673      436F6E66 
+ 673      69677572 
+ 673      6163696F 
+ 674              	.LASF34:
+ 675 01f9 73686966 		.ascii	"shift\000"
+ 675      7400
+ 676              	.LASF37:
+ 677 01ff 63617073 		.ascii	"capsense_ADC_adcIoList\000"
+ 677      656E7365 
+ 677      5F414443 
+ 677      5F616463 
+ 677      496F4C69 
+ 678              	.LASF7:
+ 679 0216 6C6F6E67 		.ascii	"long int\000"
+ 679      20696E74 
+ 679      00
+ 680              	.LASF11:
+ 681 021f 63686172 		.ascii	"char\000"
+ 681      00
+ 682              	.LASF2:
+ 683 0224 6C6F6E67 		.ascii	"long double\000"
+ 683      20646F75 
+ 683      626C6500 
+ 684              	.LASF38:
+ 685 0230 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 685      43313120 
+ 685      352E342E 
+ 685      31203230 
+ 685      31363036 
+ 686 0263 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 686      20726576 
+ 686      6973696F 
+ 686      6E203233 
+ 686      37373135 
+ 687 0296 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 687      67202D66 
+ 687      66756E63 
+ 687      74696F6E 
+ 687      2D736563 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJepiH9.s 			page 17
+
+
+ 688              	.LASF3:
+ 689 02c2 7369676E 		.ascii	"signed char\000"
+ 689      65642063 
+ 689      68617200 
+ 690              	.LASF25:
+ 691 02ce 63617073 		.ascii	"capsense_ADC_RAM_STRUCT\000"
+ 691      656E7365 
+ 691      5F414443 
+ 691      5F52414D 
+ 691      5F535452 
+ 692              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
