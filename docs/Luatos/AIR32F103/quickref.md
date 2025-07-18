@@ -302,7 +302,7 @@ void loop() {
 
 ```
 
-* Example port comunication UART 
+* Example port communication UART 
 
 
 ```v

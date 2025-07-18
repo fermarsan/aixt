@@ -1,7 +1,7 @@
 // Project name:
 // Author: 
 // Date: 
-// PIC16F8x fosc = 4Mhz
+// PIC16F8x fosc = 10Mhz
 
 import time
 import pin

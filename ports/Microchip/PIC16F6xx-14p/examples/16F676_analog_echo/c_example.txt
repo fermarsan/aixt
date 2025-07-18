@@ -1,0 +1,30 @@
+#include <xc.h>
+// Configuration bits
+#pragma config CP = OFF        // Code protection off
+#pragma config MCLRE = ON      // MCLR pin enabled
+#pragma config WDT = OFF       // Watchdog timer off
+#define _XTAL_FREQ 4000000     // Define the operating frequency (4 MHz)
+void ADC_Init(void) {
+    ADCON0 = 0x01; // Select AN0 channel and turn on ADC
+    ADCON1 = 0x0E; // Configure AN0 as analog, others as digital
+    ADCON2 = 0xA9; // Right justified, 20 TAD, Fosc/8
+}
+unsigned int ADC_Read(unsigned char channel) {
+    if (channel > 13) return 0; // Check if channel is valid
+    ADCON0 &= 0xC5; // Clear channel selection bits
+    ADCON0 |= channel << 2; // Select the channel
+    __delay_ms(2); // Acquisition time
+    ADCON0bits.GO_nDONE = 1; // Start conversion
+    while (ADCON0bits.GO_nDONE); // Wait for conversion to finish
+    return ((ADRESH << 8) + ADRESL); // Return the result
+}
+void main(void) {
+    unsigned int adc_value;
+    ADC_Init(); // Initialize ADC
+    while (1) {
+        adc_value = ADC_Read(0); // Read ADC value from channel AN0
+        // You can use adc_value for further processing
+        // For example, you can send it to a display or use in calculations
+        __delay_ms(1000); // Wait for 1 second before next reading
+    }
+}

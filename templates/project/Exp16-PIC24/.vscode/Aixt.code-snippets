@@ -2,13 +2,13 @@
 	// time module
 	"snippet.aixt.time.sleep": {
 		"prefix": "tim",
-		"body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:10})",
+		"body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:time})",
 		"description": "Time functions"
 	},
 	// pin module
 	"snippet.aixt.pin.setup": {
 		"prefix": "st",
-		"body": "pin.setup(pin.${1|a,b,c,d,e,f,g|}${2:0}, pin.${3|input,output,in_pullup|})",
+		"body": "pin.setup(pin.${1|a,b,c,d,e,f,g|}${2:0}, pin.${3|input,output,in_pullup,in_pulldown|})",
 		"description": "Pin setup level function"
 	},
 	"snippet.aixt.pin.high": {
@@ -81,7 +81,7 @@
 	},
 	"snippet.aixt.pwm.write": {
 		"prefix": "wrpw",
-		"body": "pwm.write(pwm.${1|ch1,ch2|}, ${2:50})",
+		"body": "pwm.write(pwm.${1|ch1,ch2|}, ${2:duty})",
 		"description": "PWM writing function"
 	},
 	// uart module

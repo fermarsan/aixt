@@ -6,64 +6,30 @@
 // Description: Timer0 functions for 16F family
 module timer0
 
-@[as_macro]
-const max_cycles_presc_1 = u32(1024) // 4 cycles * PRESCALER * 256
+@[as_macro] const max_cycles_presc_1 = u32(1024) // 4 cycles * PRESCALER * 256
+@[as_macro] const max_cycles_presc_2 = u32(2048)
+@[as_macro] const max_cycles_presc_4 = u32(4096)
+@[as_macro] const max_cycles_presc_8 = u32(8192)
+@[as_macro] const max_cycles_presc_16 = u32(16384)
+@[as_macro] const max_cycles_presc_32 = u32(32768)
+@[as_macro] const max_cycles_presc_64 = u32(65536)
+@[as_macro] const max_cycles_presc_128 = u32(131072)
 
-@[as_macro]
-const max_cycles_presc_2 = u32(2048)
-
-@[as_macro]
-const max_cycles_presc_4 = u32(4096)
-
-@[as_macro]
-const max_cycles_presc_8 = u32(8192)
-
-@[as_macro]
-const max_cycles_presc_16 = u32(16384)
-
-@[as_macro]
-const max_cycles_presc_32 = u32(32768)
-
-@[as_macro]
-const max_cycles_presc_64 = u32(65536)
-
-@[as_macro]
-const max_cycles_presc_128 = u32(131072)
-
-@[as_macro]
-fn max_t_prescaler(max_cycles_presc u32) u32 {
+@[as_macro] fn max_t_prescaler(max_cycles_presc u32) u32 {
 	return u32(max_cycles_presc / u8(C._const_main__cpu_freq_mhz))
 }
 
-@[as_macro]
-const presc_1_shift = u8(2) // amount of bit shifts to obtain (4 * PRE)
+@[as_macro] const presc_1_shift = u8(2) // amount of bit shifts to obtain (4 * PRE)
+@[as_macro] const presc_2_shift = u8(3)
+@[as_macro] const presc_4_shift = u8(4)
+@[as_macro] const presc_8_shift = u8(5)
+@[as_macro] const presc_16_shift = u8(6)
+@[as_macro] const presc_32_shift = u8(7)
+@[as_macro] const presc_64_shift = u8(8)
+@[as_macro] const presc_128_shift = u8(9)
+@[as_macro] const presc_256_shift = u8(10)
 
-@[as_macro]
-const presc_2_shift = u8(3)
-
-@[as_macro]
-const presc_4_shift = u8(4)
-
-@[as_macro]
-const presc_8_shift = u8(5)
-
-@[as_macro]
-const presc_16_shift = u8(6)
-
-@[as_macro]
-const presc_32_shift = u8(7)
-
-@[as_macro]
-const presc_64_shift = u8(8)
-
-@[as_macro]
-const presc_128_shift = u8(9)
-
-@[as_macro]
-const presc_256_shift = u8(10)
-
-@[as_macro]
-fn init_value(period u32, shift u8) u8 {
+@[as_macro] fn init_value(period u32, shift u8) u8 {
 	return u8(256 - u16(period >> shift) * u16(C._const_main__cpu_freq_mhz))
 }
 
@@ -76,8 +42,7 @@ fn init_value(period u32, shift u8) u8 {
 // | 12         | 21845      |
 // | 16         | 16384      |
 // | 20         | 13107      |
-@[as_macro]
-pub fn setup(period u32) {
+@[as_macro] pub fn setup(period u32) {
 	C.T0CS = 0
 	if period <= max_t_prescaler(max_cycles_presc_1) {
 		C.PSA = 1 // without prescaler
@@ -115,8 +80,7 @@ pub fn setup(period u32) {
 }
 
 // setup configures the Timer0
-// @[as_macro]
-// pub fn setup(period u16) {
+// @[as_macro] // pub fn setup(period u16) {
 // 	timer0__prescaler = i8(7)
 // 	timer0__initial = i8(-1)
 // 	for (timer0__initial < 0 || timer0__initial > 127) && timer0__prescaler >= 0 {

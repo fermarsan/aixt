@@ -2,4 +2,3 @@
 @for stmt in stmts
 @stmt \
 @end
-// end #define

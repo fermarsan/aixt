@@ -6,7 +6,7 @@ This Aixt implementation that supports the card W801
 ## View
 * *W801, a total of 44 interfaces are connected, for example, the pin function definition table is the interface definition.*
 
-![W801](C:\aixt_Alumno\aixt_Alumno\docs\W801\Imagenes)
+![W801](C:\aixt_Alumno\aixt_Alumno\docs\W801\Images)
 *Image taken from the device datasheet*
 
 ## Datasheet  

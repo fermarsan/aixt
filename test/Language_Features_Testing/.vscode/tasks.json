@@ -5,13 +5,13 @@
             "label": "Aixt: Transpile",
             "type": "shell",
             "windows": {
-                "command": [ "v run ${config:aixt_windows}",
+                "command": [ "${config:aixt_windows}",
                             "transpile",
                             "${config:device}",
                             "${file}" ],
             },
             "linux": {
-                "command": [ "v run ${config:aixt_linux}",
+                "command": [ "${config:aixt_linux}",
                             "transpile",
                             "${config:device}",
                             "${file}" ],
@@ -23,16 +23,16 @@
             }
         },
         {
-            "label": "Aixt: C compile",
+            "label": "Aixt: C Compile",
             "type": "shell",
             "windows": {
-                "command": [ "v run ${config:aixt_windows}",
+                "command": [ "${config:aixt_windows}",
                             "c_compile",
                             "${config:device}",
                             "${file}" ],
             },
             "linux": {
-                "command": [ "v run ${config:aixt_linux}",
+                "command": [ "${config:aixt_linux}",
                             "c_compile",
                             "${config:device}",
                             "${file}" ],
@@ -47,13 +47,13 @@
             "label": "Aixt: Build",
             "type": "shell",
             "windows": {
-                "command": [ "v run ${config:aixt_windows}",
+                "command": [ "${config:aixt_windows}",
                             "build",
                             "${config:device}",
                             "${file}" ],
             },
             "linux": {
-                "command": [ "v run ${config:aixt_linux}",
+                "command": [ "${config:aixt_linux}",
                             "build",
                             "${config:device}",
                             "${file}" ],
@@ -68,13 +68,13 @@
             "label": "Aixt: Clean",
             "type": "shell",
             "windows": {
-                "command": [ "v run ${config:aixt_windows}",
+                "command": [ "${config:aixt_windows}",
                             "clean",
                             "${config:device}",
                             "${file}" ],
             },
             "linux": {
-                "command": [ "v run ${config:aixt_linux}",
+                "command": [ "${config:aixt_linux}",
                             "clean",
                             "${config:device}",
                             "${file}" ],

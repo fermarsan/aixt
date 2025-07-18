@@ -2,13 +2,13 @@
   // time module
   "Aixt time sleep": {
     "prefix": "tim",
-    "body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:10})",
+    "body": "time.${1|sleep,sleep_ms,sleep_us|}(${2:time})",
     "description": "Aixt Time functions"
   },
   // pin module
   "Aixt pin setup": {
     "prefix": "st",
-    "body": "pin.setup(pin.${1}, pin.${2|input,output,in_pullup|})",
+    "body": "pin.setup(pin.${1}, pin.${2|input,output,in_pullup,in_pulldown|})",
     "description": "Aixt Pin setup level function"
   },
   "Aixt pin high": {
@@ -39,7 +39,7 @@
   // port module
   "Aixt port setup": {
     "prefix": "stp",
-    "body": "port.setup(port.${1}, ${2:0b00000000})",
+    "body": "port.setup(port.${1}, ${2:byte})",
     "description": "Aixt 8-bit port setup function"
   },
   "Aixt port read": {
@@ -49,13 +49,13 @@
   },
   "Aixt port write": {
     "prefix": "wrp",
-    "body": "port.write(port.${1}, ${2:0x00})",
+    "body": "port.write(port.${1}, ${2:byte})",
     "description": "Aixt 8-bit port writing function"
   },
   // adc module
   "Aixt adc read": {
     "prefix": "rda",
-    "body": "adc.read(adc. ${1})",
+    "body": "adc.read(adc.${1})",
     "description": "Aixt ADC reading function"
   },
   // pwm module
