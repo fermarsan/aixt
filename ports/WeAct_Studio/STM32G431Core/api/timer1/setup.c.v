@@ -8,6 +8,6 @@ module timer1
 
 
 @[as_macro]
-pub fn setup(value int, format int) {
+pub fn setup(value f32, format int) {
 	C.TIMER1_SETOVERFLOW(value, format)
 }
