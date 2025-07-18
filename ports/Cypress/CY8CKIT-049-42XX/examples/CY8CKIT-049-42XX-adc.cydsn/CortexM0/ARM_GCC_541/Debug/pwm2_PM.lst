@@ -1,0 +1,856 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"pwm2_PM.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.pwm2_SaveConfig,"ax",%progbits
+  20              		.align	2
+  21              		.global	pwm2_SaveConfig
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	pwm2_SaveConfig, %function
+  25              	pwm2_SaveConfig:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC4\\pwm2_PM.c"
+   1:Generated_Source\PSoC4/pwm2_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/pwm2_PM.c **** * File Name: pwm2_PM.c
+   3:Generated_Source\PSoC4/pwm2_PM.c **** * Version 2.10
+   4:Generated_Source\PSoC4/pwm2_PM.c **** *
+   5:Generated_Source\PSoC4/pwm2_PM.c **** * Description:
+   6:Generated_Source\PSoC4/pwm2_PM.c **** *  This file contains the setup, control, and status commands to support
+   7:Generated_Source\PSoC4/pwm2_PM.c **** *  the component operations in the low power mode.
+   8:Generated_Source\PSoC4/pwm2_PM.c **** *
+   9:Generated_Source\PSoC4/pwm2_PM.c **** * Note:
+  10:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  11:Generated_Source\PSoC4/pwm2_PM.c **** *
+  12:Generated_Source\PSoC4/pwm2_PM.c **** ********************************************************************************
+  13:Generated_Source\PSoC4/pwm2_PM.c **** * Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/pwm2_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC4/pwm2_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC4/pwm2_PM.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/pwm2_PM.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/pwm2_PM.c **** 
+  19:Generated_Source\PSoC4/pwm2_PM.c **** #include "pwm2.h"
+  20:Generated_Source\PSoC4/pwm2_PM.c **** 
+  21:Generated_Source\PSoC4/pwm2_PM.c **** static pwm2_BACKUP_STRUCT pwm2_backup;
+  22:Generated_Source\PSoC4/pwm2_PM.c **** 
+  23:Generated_Source\PSoC4/pwm2_PM.c **** 
+  24:Generated_Source\PSoC4/pwm2_PM.c **** /*******************************************************************************
+  25:Generated_Source\PSoC4/pwm2_PM.c **** * Function Name: pwm2_SaveConfig
+  26:Generated_Source\PSoC4/pwm2_PM.c **** ********************************************************************************
+  27:Generated_Source\PSoC4/pwm2_PM.c **** *
+  28:Generated_Source\PSoC4/pwm2_PM.c **** * Summary:
+  29:Generated_Source\PSoC4/pwm2_PM.c **** *  All configuration registers are retention. Nothing to save here.
+  30:Generated_Source\PSoC4/pwm2_PM.c **** *
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 2
+
+
+  31:Generated_Source\PSoC4/pwm2_PM.c **** * Parameters:
+  32:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  33:Generated_Source\PSoC4/pwm2_PM.c **** *
+  34:Generated_Source\PSoC4/pwm2_PM.c **** * Return:
+  35:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  36:Generated_Source\PSoC4/pwm2_PM.c **** *
+  37:Generated_Source\PSoC4/pwm2_PM.c **** *******************************************************************************/
+  38:Generated_Source\PSoC4/pwm2_PM.c **** void pwm2_SaveConfig(void)
+  39:Generated_Source\PSoC4/pwm2_PM.c **** {
+  28              		.loc 1 39 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  40:Generated_Source\PSoC4/pwm2_PM.c **** 
+  41:Generated_Source\PSoC4/pwm2_PM.c **** }
+  33              		.loc 1 41 0
+  34              		@ sp needed
+  35 0000 7047     		bx	lr
+  36              		.cfi_endproc
+  37              	.LFE0:
+  38              		.size	pwm2_SaveConfig, .-pwm2_SaveConfig
+  39 0002 C046     		.section	.text.pwm2_Sleep,"ax",%progbits
+  40              		.align	2
+  41              		.global	pwm2_Sleep
+  42              		.code	16
+  43              		.thumb_func
+  44              		.type	pwm2_Sleep, %function
+  45              	pwm2_Sleep:
+  46              	.LFB1:
+  42:Generated_Source\PSoC4/pwm2_PM.c **** 
+  43:Generated_Source\PSoC4/pwm2_PM.c **** 
+  44:Generated_Source\PSoC4/pwm2_PM.c **** /*******************************************************************************
+  45:Generated_Source\PSoC4/pwm2_PM.c **** * Function Name: pwm2_Sleep
+  46:Generated_Source\PSoC4/pwm2_PM.c **** ********************************************************************************
+  47:Generated_Source\PSoC4/pwm2_PM.c **** *
+  48:Generated_Source\PSoC4/pwm2_PM.c **** * Summary:
+  49:Generated_Source\PSoC4/pwm2_PM.c **** *  Stops the component operation and saves the user configuration.
+  50:Generated_Source\PSoC4/pwm2_PM.c **** *
+  51:Generated_Source\PSoC4/pwm2_PM.c **** * Parameters:
+  52:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  53:Generated_Source\PSoC4/pwm2_PM.c **** *
+  54:Generated_Source\PSoC4/pwm2_PM.c **** * Return:
+  55:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  56:Generated_Source\PSoC4/pwm2_PM.c **** *
+  57:Generated_Source\PSoC4/pwm2_PM.c **** *******************************************************************************/
+  58:Generated_Source\PSoC4/pwm2_PM.c **** void pwm2_Sleep(void)
+  59:Generated_Source\PSoC4/pwm2_PM.c **** {
+  47              		.loc 1 59 0
+  48              		.cfi_startproc
+  49              		@ args = 0, pretend = 0, frame = 0
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51 0000 10B5     		push	{r4, lr}
+  52              		.cfi_def_cfa_offset 8
+  53              		.cfi_offset 4, -8
+  54              		.cfi_offset 14, -4
+  60:Generated_Source\PSoC4/pwm2_PM.c ****     if(0u != (pwm2_BLOCK_CONTROL_REG & pwm2_MASK))
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 3
+
+
+  55              		.loc 1 60 0
+  56 0002 074B     		ldr	r3, .L5
+  57 0004 1B68     		ldr	r3, [r3]
+  58 0006 1B07     		lsls	r3, r3, #28
+  59 0008 03D5     		bpl	.L3
+  61:Generated_Source\PSoC4/pwm2_PM.c ****     {
+  62:Generated_Source\PSoC4/pwm2_PM.c ****         pwm2_backup.enableState = 1u;
+  60              		.loc 1 62 0
+  61 000a 0122     		movs	r2, #1
+  62 000c 054B     		ldr	r3, .L5+4
+  63 000e 1A70     		strb	r2, [r3]
+  64 0010 02E0     		b	.L4
+  65              	.L3:
+  63:Generated_Source\PSoC4/pwm2_PM.c ****     }
+  64:Generated_Source\PSoC4/pwm2_PM.c ****     else
+  65:Generated_Source\PSoC4/pwm2_PM.c ****     {
+  66:Generated_Source\PSoC4/pwm2_PM.c ****         pwm2_backup.enableState = 0u;
+  66              		.loc 1 66 0
+  67 0012 0022     		movs	r2, #0
+  68 0014 034B     		ldr	r3, .L5+4
+  69 0016 1A70     		strb	r2, [r3]
+  70              	.L4:
+  67:Generated_Source\PSoC4/pwm2_PM.c ****     }
+  68:Generated_Source\PSoC4/pwm2_PM.c **** 
+  69:Generated_Source\PSoC4/pwm2_PM.c ****     pwm2_Stop();
+  71              		.loc 1 69 0
+  72 0018 FFF7FEFF 		bl	pwm2_Stop
+  73              	.LVL0:
+  70:Generated_Source\PSoC4/pwm2_PM.c ****     pwm2_SaveConfig();
+  71:Generated_Source\PSoC4/pwm2_PM.c **** }
+  74              		.loc 1 71 0
+  75              		@ sp needed
+  76 001c 10BD     		pop	{r4, pc}
+  77              	.L6:
+  78 001e C046     		.align	2
+  79              	.L5:
+  80 0020 00000540 		.word	1074069504
+  81 0024 00000000 		.word	.LANCHOR0
+  82              		.cfi_endproc
+  83              	.LFE1:
+  84              		.size	pwm2_Sleep, .-pwm2_Sleep
+  85              		.section	.text.pwm2_RestoreConfig,"ax",%progbits
+  86              		.align	2
+  87              		.global	pwm2_RestoreConfig
+  88              		.code	16
+  89              		.thumb_func
+  90              		.type	pwm2_RestoreConfig, %function
+  91              	pwm2_RestoreConfig:
+  92              	.LFB2:
+  72:Generated_Source\PSoC4/pwm2_PM.c **** 
+  73:Generated_Source\PSoC4/pwm2_PM.c **** 
+  74:Generated_Source\PSoC4/pwm2_PM.c **** /*******************************************************************************
+  75:Generated_Source\PSoC4/pwm2_PM.c **** * Function Name: pwm2_RestoreConfig
+  76:Generated_Source\PSoC4/pwm2_PM.c **** ********************************************************************************
+  77:Generated_Source\PSoC4/pwm2_PM.c **** *
+  78:Generated_Source\PSoC4/pwm2_PM.c **** * Summary:
+  79:Generated_Source\PSoC4/pwm2_PM.c **** *  All configuration registers are retention. Nothing to restore here.
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 4
+
+
+  80:Generated_Source\PSoC4/pwm2_PM.c **** *
+  81:Generated_Source\PSoC4/pwm2_PM.c **** * Parameters:
+  82:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  83:Generated_Source\PSoC4/pwm2_PM.c **** *
+  84:Generated_Source\PSoC4/pwm2_PM.c **** * Return:
+  85:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+  86:Generated_Source\PSoC4/pwm2_PM.c **** *
+  87:Generated_Source\PSoC4/pwm2_PM.c **** *******************************************************************************/
+  88:Generated_Source\PSoC4/pwm2_PM.c **** void pwm2_RestoreConfig(void)
+  89:Generated_Source\PSoC4/pwm2_PM.c **** {
+  93              		.loc 1 89 0
+  94              		.cfi_startproc
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              		@ link register save eliminated.
+  90:Generated_Source\PSoC4/pwm2_PM.c **** 
+  91:Generated_Source\PSoC4/pwm2_PM.c **** }
+  98              		.loc 1 91 0
+  99              		@ sp needed
+ 100 0000 7047     		bx	lr
+ 101              		.cfi_endproc
+ 102              	.LFE2:
+ 103              		.size	pwm2_RestoreConfig, .-pwm2_RestoreConfig
+ 104 0002 C046     		.section	.text.pwm2_Wakeup,"ax",%progbits
+ 105              		.align	2
+ 106              		.global	pwm2_Wakeup
+ 107              		.code	16
+ 108              		.thumb_func
+ 109              		.type	pwm2_Wakeup, %function
+ 110              	pwm2_Wakeup:
+ 111              	.LFB3:
+  92:Generated_Source\PSoC4/pwm2_PM.c **** 
+  93:Generated_Source\PSoC4/pwm2_PM.c **** 
+  94:Generated_Source\PSoC4/pwm2_PM.c **** /*******************************************************************************
+  95:Generated_Source\PSoC4/pwm2_PM.c **** * Function Name: pwm2_Wakeup
+  96:Generated_Source\PSoC4/pwm2_PM.c **** ********************************************************************************
+  97:Generated_Source\PSoC4/pwm2_PM.c **** *
+  98:Generated_Source\PSoC4/pwm2_PM.c **** * Summary:
+  99:Generated_Source\PSoC4/pwm2_PM.c **** *  Restores the user configuration and restores the enable state.
+ 100:Generated_Source\PSoC4/pwm2_PM.c **** *
+ 101:Generated_Source\PSoC4/pwm2_PM.c **** * Parameters:
+ 102:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+ 103:Generated_Source\PSoC4/pwm2_PM.c **** *
+ 104:Generated_Source\PSoC4/pwm2_PM.c **** * Return:
+ 105:Generated_Source\PSoC4/pwm2_PM.c **** *  None
+ 106:Generated_Source\PSoC4/pwm2_PM.c **** *
+ 107:Generated_Source\PSoC4/pwm2_PM.c **** *******************************************************************************/
+ 108:Generated_Source\PSoC4/pwm2_PM.c **** void pwm2_Wakeup(void)
+ 109:Generated_Source\PSoC4/pwm2_PM.c **** {
+ 112              		.loc 1 109 0
+ 113              		.cfi_startproc
+ 114              		@ args = 0, pretend = 0, frame = 0
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116 0000 10B5     		push	{r4, lr}
+ 117              		.cfi_def_cfa_offset 8
+ 118              		.cfi_offset 4, -8
+ 119              		.cfi_offset 14, -4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 5
+
+
+ 110:Generated_Source\PSoC4/pwm2_PM.c ****     pwm2_RestoreConfig();
+ 111:Generated_Source\PSoC4/pwm2_PM.c **** 
+ 112:Generated_Source\PSoC4/pwm2_PM.c ****     if(0u != pwm2_backup.enableState)
+ 120              		.loc 1 112 0
+ 121 0002 034B     		ldr	r3, .L10
+ 122 0004 1B78     		ldrb	r3, [r3]
+ 123 0006 002B     		cmp	r3, #0
+ 124 0008 01D0     		beq	.L8
+ 113:Generated_Source\PSoC4/pwm2_PM.c ****     {
+ 114:Generated_Source\PSoC4/pwm2_PM.c ****         pwm2_Enable();
+ 125              		.loc 1 114 0
+ 126 000a FFF7FEFF 		bl	pwm2_Enable
+ 127              	.LVL1:
+ 128              	.L8:
+ 115:Generated_Source\PSoC4/pwm2_PM.c ****     }
+ 116:Generated_Source\PSoC4/pwm2_PM.c **** }
+ 129              		.loc 1 116 0
+ 130              		@ sp needed
+ 131 000e 10BD     		pop	{r4, pc}
+ 132              	.L11:
+ 133              		.align	2
+ 134              	.L10:
+ 135 0010 00000000 		.word	.LANCHOR0
+ 136              		.cfi_endproc
+ 137              	.LFE3:
+ 138              		.size	pwm2_Wakeup, .-pwm2_Wakeup
+ 139              		.bss
+ 140              		.align	2
+ 141              		.set	.LANCHOR0,. + 0
+ 142              		.type	pwm2_backup, %object
+ 143              		.size	pwm2_backup, 1
+ 144              	pwm2_backup:
+ 145 0000 00       		.space	1
+ 146              		.text
+ 147              	.Letext0:
+ 148              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 149              		.file 3 "Generated_Source\\PSoC4\\pwm2.h"
+ 150              		.section	.debug_info,"",%progbits
+ 151              	.Ldebug_info0:
+ 152 0000 5D010000 		.4byte	0x15d
+ 153 0004 0400     		.2byte	0x4
+ 154 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 155 000a 04       		.byte	0x4
+ 156 000b 01       		.uleb128 0x1
+ 157 000c 54010000 		.4byte	.LASF24
+ 158 0010 0C       		.byte	0xc
+ 159 0011 2E000000 		.4byte	.LASF25
+ 160 0015 69000000 		.4byte	.LASF26
+ 161 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 162 001d 00000000 		.4byte	0
+ 163 0021 00000000 		.4byte	.Ldebug_line0
+ 164 0025 02       		.uleb128 0x2
+ 165 0026 01       		.byte	0x1
+ 166 0027 06       		.byte	0x6
+ 167 0028 F5010000 		.4byte	.LASF0
+ 168 002c 02       		.uleb128 0x2
+ 169 002d 01       		.byte	0x1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 6
+
+
+ 170 002e 08       		.byte	0x8
+ 171 002f 4F000000 		.4byte	.LASF1
+ 172 0033 02       		.uleb128 0x2
+ 173 0034 02       		.byte	0x2
+ 174 0035 05       		.byte	0x5
+ 175 0036 3D010000 		.4byte	.LASF2
+ 176 003a 02       		.uleb128 0x2
+ 177 003b 02       		.byte	0x2
+ 178 003c 07       		.byte	0x7
+ 179 003d E2010000 		.4byte	.LASF3
+ 180 0041 02       		.uleb128 0x2
+ 181 0042 04       		.byte	0x4
+ 182 0043 05       		.byte	0x5
+ 183 0044 34010000 		.4byte	.LASF4
+ 184 0048 02       		.uleb128 0x2
+ 185 0049 04       		.byte	0x4
+ 186 004a 07       		.byte	0x7
+ 187 004b C9000000 		.4byte	.LASF5
+ 188 004f 02       		.uleb128 0x2
+ 189 0050 08       		.byte	0x8
+ 190 0051 05       		.byte	0x5
+ 191 0052 00000000 		.4byte	.LASF6
+ 192 0056 02       		.uleb128 0x2
+ 193 0057 08       		.byte	0x8
+ 194 0058 07       		.byte	0x7
+ 195 0059 EE000000 		.4byte	.LASF7
+ 196 005d 03       		.uleb128 0x3
+ 197 005e 04       		.byte	0x4
+ 198 005f 05       		.byte	0x5
+ 199 0060 696E7400 		.ascii	"int\000"
+ 200 0064 02       		.uleb128 0x2
+ 201 0065 04       		.byte	0x4
+ 202 0066 07       		.byte	0x7
+ 203 0067 21000000 		.4byte	.LASF8
+ 204 006b 04       		.uleb128 0x4
+ 205 006c C3000000 		.4byte	.LASF9
+ 206 0070 02       		.byte	0x2
+ 207 0071 FC01     		.2byte	0x1fc
+ 208 0073 2C000000 		.4byte	0x2c
+ 209 0077 04       		.uleb128 0x4
+ 210 0078 0E000000 		.4byte	.LASF10
+ 211 007c 02       		.byte	0x2
+ 212 007d FE01     		.2byte	0x1fe
+ 213 007f 48000000 		.4byte	0x48
+ 214 0083 02       		.uleb128 0x2
+ 215 0084 04       		.byte	0x4
+ 216 0085 04       		.byte	0x4
+ 217 0086 19020000 		.4byte	.LASF11
+ 218 008a 02       		.uleb128 0x2
+ 219 008b 08       		.byte	0x8
+ 220 008c 04       		.byte	0x4
+ 221 008d 47010000 		.4byte	.LASF12
+ 222 0091 02       		.uleb128 0x2
+ 223 0092 01       		.byte	0x1
+ 224 0093 08       		.byte	0x8
+ 225 0094 2F010000 		.4byte	.LASF13
+ 226 0098 04       		.uleb128 0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 7
+
+
+ 227 0099 4E010000 		.4byte	.LASF14
+ 228 009d 02       		.byte	0x2
+ 229 009e A802     		.2byte	0x2a8
+ 230 00a0 A4000000 		.4byte	0xa4
+ 231 00a4 05       		.uleb128 0x5
+ 232 00a5 77000000 		.4byte	0x77
+ 233 00a9 02       		.uleb128 0x2
+ 234 00aa 08       		.byte	0x8
+ 235 00ab 04       		.byte	0x4
+ 236 00ac 0D020000 		.4byte	.LASF15
+ 237 00b0 02       		.uleb128 0x2
+ 238 00b1 04       		.byte	0x4
+ 239 00b2 07       		.byte	0x7
+ 240 00b3 2F020000 		.4byte	.LASF16
+ 241 00b7 06       		.uleb128 0x6
+ 242 00b8 01       		.byte	0x1
+ 243 00b9 03       		.byte	0x3
+ 244 00ba 21       		.byte	0x21
+ 245 00bb CC000000 		.4byte	0xcc
+ 246 00bf 07       		.uleb128 0x7
+ 247 00c0 15000000 		.4byte	.LASF27
+ 248 00c4 03       		.byte	0x3
+ 249 00c5 23       		.byte	0x23
+ 250 00c6 6B000000 		.4byte	0x6b
+ 251 00ca 00       		.byte	0
+ 252 00cb 00       		.byte	0
+ 253 00cc 08       		.uleb128 0x8
+ 254 00cd 10010000 		.4byte	.LASF17
+ 255 00d1 03       		.byte	0x3
+ 256 00d2 24       		.byte	0x24
+ 257 00d3 B7000000 		.4byte	0xb7
+ 258 00d7 09       		.uleb128 0x9
+ 259 00d8 1F020000 		.4byte	.LASF18
+ 260 00dc 01       		.byte	0x1
+ 261 00dd 26       		.byte	0x26
+ 262 00de 00000000 		.4byte	.LFB0
+ 263 00e2 02000000 		.4byte	.LFE0-.LFB0
+ 264 00e6 01       		.uleb128 0x1
+ 265 00e7 9C       		.byte	0x9c
+ 266 00e8 0A       		.uleb128 0xa
+ 267 00e9 05010000 		.4byte	.LASF20
+ 268 00ed 01       		.byte	0x1
+ 269 00ee 3A       		.byte	0x3a
+ 270 00ef 00000000 		.4byte	.LFB1
+ 271 00f3 28000000 		.4byte	.LFE1-.LFB1
+ 272 00f7 01       		.uleb128 0x1
+ 273 00f8 9C       		.byte	0x9c
+ 274 00f9 07010000 		.4byte	0x107
+ 275 00fd 0B       		.uleb128 0xb
+ 276 00fe 1C000000 		.4byte	.LVL0
+ 277 0102 48010000 		.4byte	0x148
+ 278 0106 00       		.byte	0
+ 279 0107 09       		.uleb128 0x9
+ 280 0108 DB000000 		.4byte	.LASF19
+ 281 010c 01       		.byte	0x1
+ 282 010d 58       		.byte	0x58
+ 283 010e 00000000 		.4byte	.LFB2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 8
+
+
+ 284 0112 02000000 		.4byte	.LFE2-.LFB2
+ 285 0116 01       		.uleb128 0x1
+ 286 0117 9C       		.byte	0x9c
+ 287 0118 0A       		.uleb128 0xa
+ 288 0119 23010000 		.4byte	.LASF21
+ 289 011d 01       		.byte	0x1
+ 290 011e 6C       		.byte	0x6c
+ 291 011f 00000000 		.4byte	.LFB3
+ 292 0123 14000000 		.4byte	.LFE3-.LFB3
+ 293 0127 01       		.uleb128 0x1
+ 294 0128 9C       		.byte	0x9c
+ 295 0129 37010000 		.4byte	0x137
+ 296 012d 0B       		.uleb128 0xb
+ 297 012e 0E000000 		.4byte	.LVL1
+ 298 0132 54010000 		.4byte	0x154
+ 299 0136 00       		.byte	0
+ 300 0137 0C       		.uleb128 0xc
+ 301 0138 01020000 		.4byte	.LASF28
+ 302 013c 01       		.byte	0x1
+ 303 013d 15       		.byte	0x15
+ 304 013e CC000000 		.4byte	0xcc
+ 305 0142 05       		.uleb128 0x5
+ 306 0143 03       		.byte	0x3
+ 307 0144 00000000 		.4byte	pwm2_backup
+ 308 0148 0D       		.uleb128 0xd
+ 309 0149 B9000000 		.4byte	.LASF22
+ 310 014d B9000000 		.4byte	.LASF22
+ 311 0151 03       		.byte	0x3
+ 312 0152 3301     		.2byte	0x133
+ 313 0154 0D       		.uleb128 0xd
+ 314 0155 5D000000 		.4byte	.LASF23
+ 315 0159 5D000000 		.4byte	.LASF23
+ 316 015d 03       		.byte	0x3
+ 317 015e 3101     		.2byte	0x131
+ 318 0160 00       		.byte	0
+ 319              		.section	.debug_abbrev,"",%progbits
+ 320              	.Ldebug_abbrev0:
+ 321 0000 01       		.uleb128 0x1
+ 322 0001 11       		.uleb128 0x11
+ 323 0002 01       		.byte	0x1
+ 324 0003 25       		.uleb128 0x25
+ 325 0004 0E       		.uleb128 0xe
+ 326 0005 13       		.uleb128 0x13
+ 327 0006 0B       		.uleb128 0xb
+ 328 0007 03       		.uleb128 0x3
+ 329 0008 0E       		.uleb128 0xe
+ 330 0009 1B       		.uleb128 0x1b
+ 331 000a 0E       		.uleb128 0xe
+ 332 000b 55       		.uleb128 0x55
+ 333 000c 17       		.uleb128 0x17
+ 334 000d 11       		.uleb128 0x11
+ 335 000e 01       		.uleb128 0x1
+ 336 000f 10       		.uleb128 0x10
+ 337 0010 17       		.uleb128 0x17
+ 338 0011 00       		.byte	0
+ 339 0012 00       		.byte	0
+ 340 0013 02       		.uleb128 0x2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 9
+
+
+ 341 0014 24       		.uleb128 0x24
+ 342 0015 00       		.byte	0
+ 343 0016 0B       		.uleb128 0xb
+ 344 0017 0B       		.uleb128 0xb
+ 345 0018 3E       		.uleb128 0x3e
+ 346 0019 0B       		.uleb128 0xb
+ 347 001a 03       		.uleb128 0x3
+ 348 001b 0E       		.uleb128 0xe
+ 349 001c 00       		.byte	0
+ 350 001d 00       		.byte	0
+ 351 001e 03       		.uleb128 0x3
+ 352 001f 24       		.uleb128 0x24
+ 353 0020 00       		.byte	0
+ 354 0021 0B       		.uleb128 0xb
+ 355 0022 0B       		.uleb128 0xb
+ 356 0023 3E       		.uleb128 0x3e
+ 357 0024 0B       		.uleb128 0xb
+ 358 0025 03       		.uleb128 0x3
+ 359 0026 08       		.uleb128 0x8
+ 360 0027 00       		.byte	0
+ 361 0028 00       		.byte	0
+ 362 0029 04       		.uleb128 0x4
+ 363 002a 16       		.uleb128 0x16
+ 364 002b 00       		.byte	0
+ 365 002c 03       		.uleb128 0x3
+ 366 002d 0E       		.uleb128 0xe
+ 367 002e 3A       		.uleb128 0x3a
+ 368 002f 0B       		.uleb128 0xb
+ 369 0030 3B       		.uleb128 0x3b
+ 370 0031 05       		.uleb128 0x5
+ 371 0032 49       		.uleb128 0x49
+ 372 0033 13       		.uleb128 0x13
+ 373 0034 00       		.byte	0
+ 374 0035 00       		.byte	0
+ 375 0036 05       		.uleb128 0x5
+ 376 0037 35       		.uleb128 0x35
+ 377 0038 00       		.byte	0
+ 378 0039 49       		.uleb128 0x49
+ 379 003a 13       		.uleb128 0x13
+ 380 003b 00       		.byte	0
+ 381 003c 00       		.byte	0
+ 382 003d 06       		.uleb128 0x6
+ 383 003e 13       		.uleb128 0x13
+ 384 003f 01       		.byte	0x1
+ 385 0040 0B       		.uleb128 0xb
+ 386 0041 0B       		.uleb128 0xb
+ 387 0042 3A       		.uleb128 0x3a
+ 388 0043 0B       		.uleb128 0xb
+ 389 0044 3B       		.uleb128 0x3b
+ 390 0045 0B       		.uleb128 0xb
+ 391 0046 01       		.uleb128 0x1
+ 392 0047 13       		.uleb128 0x13
+ 393 0048 00       		.byte	0
+ 394 0049 00       		.byte	0
+ 395 004a 07       		.uleb128 0x7
+ 396 004b 0D       		.uleb128 0xd
+ 397 004c 00       		.byte	0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 10
+
+
+ 398 004d 03       		.uleb128 0x3
+ 399 004e 0E       		.uleb128 0xe
+ 400 004f 3A       		.uleb128 0x3a
+ 401 0050 0B       		.uleb128 0xb
+ 402 0051 3B       		.uleb128 0x3b
+ 403 0052 0B       		.uleb128 0xb
+ 404 0053 49       		.uleb128 0x49
+ 405 0054 13       		.uleb128 0x13
+ 406 0055 38       		.uleb128 0x38
+ 407 0056 0B       		.uleb128 0xb
+ 408 0057 00       		.byte	0
+ 409 0058 00       		.byte	0
+ 410 0059 08       		.uleb128 0x8
+ 411 005a 16       		.uleb128 0x16
+ 412 005b 00       		.byte	0
+ 413 005c 03       		.uleb128 0x3
+ 414 005d 0E       		.uleb128 0xe
+ 415 005e 3A       		.uleb128 0x3a
+ 416 005f 0B       		.uleb128 0xb
+ 417 0060 3B       		.uleb128 0x3b
+ 418 0061 0B       		.uleb128 0xb
+ 419 0062 49       		.uleb128 0x49
+ 420 0063 13       		.uleb128 0x13
+ 421 0064 00       		.byte	0
+ 422 0065 00       		.byte	0
+ 423 0066 09       		.uleb128 0x9
+ 424 0067 2E       		.uleb128 0x2e
+ 425 0068 00       		.byte	0
+ 426 0069 3F       		.uleb128 0x3f
+ 427 006a 19       		.uleb128 0x19
+ 428 006b 03       		.uleb128 0x3
+ 429 006c 0E       		.uleb128 0xe
+ 430 006d 3A       		.uleb128 0x3a
+ 431 006e 0B       		.uleb128 0xb
+ 432 006f 3B       		.uleb128 0x3b
+ 433 0070 0B       		.uleb128 0xb
+ 434 0071 27       		.uleb128 0x27
+ 435 0072 19       		.uleb128 0x19
+ 436 0073 11       		.uleb128 0x11
+ 437 0074 01       		.uleb128 0x1
+ 438 0075 12       		.uleb128 0x12
+ 439 0076 06       		.uleb128 0x6
+ 440 0077 40       		.uleb128 0x40
+ 441 0078 18       		.uleb128 0x18
+ 442 0079 9742     		.uleb128 0x2117
+ 443 007b 19       		.uleb128 0x19
+ 444 007c 00       		.byte	0
+ 445 007d 00       		.byte	0
+ 446 007e 0A       		.uleb128 0xa
+ 447 007f 2E       		.uleb128 0x2e
+ 448 0080 01       		.byte	0x1
+ 449 0081 3F       		.uleb128 0x3f
+ 450 0082 19       		.uleb128 0x19
+ 451 0083 03       		.uleb128 0x3
+ 452 0084 0E       		.uleb128 0xe
+ 453 0085 3A       		.uleb128 0x3a
+ 454 0086 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 11
+
+
+ 455 0087 3B       		.uleb128 0x3b
+ 456 0088 0B       		.uleb128 0xb
+ 457 0089 27       		.uleb128 0x27
+ 458 008a 19       		.uleb128 0x19
+ 459 008b 11       		.uleb128 0x11
+ 460 008c 01       		.uleb128 0x1
+ 461 008d 12       		.uleb128 0x12
+ 462 008e 06       		.uleb128 0x6
+ 463 008f 40       		.uleb128 0x40
+ 464 0090 18       		.uleb128 0x18
+ 465 0091 9742     		.uleb128 0x2117
+ 466 0093 19       		.uleb128 0x19
+ 467 0094 01       		.uleb128 0x1
+ 468 0095 13       		.uleb128 0x13
+ 469 0096 00       		.byte	0
+ 470 0097 00       		.byte	0
+ 471 0098 0B       		.uleb128 0xb
+ 472 0099 898201   		.uleb128 0x4109
+ 473 009c 00       		.byte	0
+ 474 009d 11       		.uleb128 0x11
+ 475 009e 01       		.uleb128 0x1
+ 476 009f 31       		.uleb128 0x31
+ 477 00a0 13       		.uleb128 0x13
+ 478 00a1 00       		.byte	0
+ 479 00a2 00       		.byte	0
+ 480 00a3 0C       		.uleb128 0xc
+ 481 00a4 34       		.uleb128 0x34
+ 482 00a5 00       		.byte	0
+ 483 00a6 03       		.uleb128 0x3
+ 484 00a7 0E       		.uleb128 0xe
+ 485 00a8 3A       		.uleb128 0x3a
+ 486 00a9 0B       		.uleb128 0xb
+ 487 00aa 3B       		.uleb128 0x3b
+ 488 00ab 0B       		.uleb128 0xb
+ 489 00ac 49       		.uleb128 0x49
+ 490 00ad 13       		.uleb128 0x13
+ 491 00ae 02       		.uleb128 0x2
+ 492 00af 18       		.uleb128 0x18
+ 493 00b0 00       		.byte	0
+ 494 00b1 00       		.byte	0
+ 495 00b2 0D       		.uleb128 0xd
+ 496 00b3 2E       		.uleb128 0x2e
+ 497 00b4 00       		.byte	0
+ 498 00b5 3F       		.uleb128 0x3f
+ 499 00b6 19       		.uleb128 0x19
+ 500 00b7 3C       		.uleb128 0x3c
+ 501 00b8 19       		.uleb128 0x19
+ 502 00b9 6E       		.uleb128 0x6e
+ 503 00ba 0E       		.uleb128 0xe
+ 504 00bb 03       		.uleb128 0x3
+ 505 00bc 0E       		.uleb128 0xe
+ 506 00bd 3A       		.uleb128 0x3a
+ 507 00be 0B       		.uleb128 0xb
+ 508 00bf 3B       		.uleb128 0x3b
+ 509 00c0 05       		.uleb128 0x5
+ 510 00c1 00       		.byte	0
+ 511 00c2 00       		.byte	0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 12
+
+
+ 512 00c3 00       		.byte	0
+ 513              		.section	.debug_aranges,"",%progbits
+ 514 0000 34000000 		.4byte	0x34
+ 515 0004 0200     		.2byte	0x2
+ 516 0006 00000000 		.4byte	.Ldebug_info0
+ 517 000a 04       		.byte	0x4
+ 518 000b 00       		.byte	0
+ 519 000c 0000     		.2byte	0
+ 520 000e 0000     		.2byte	0
+ 521 0010 00000000 		.4byte	.LFB0
+ 522 0014 02000000 		.4byte	.LFE0-.LFB0
+ 523 0018 00000000 		.4byte	.LFB1
+ 524 001c 28000000 		.4byte	.LFE1-.LFB1
+ 525 0020 00000000 		.4byte	.LFB2
+ 526 0024 02000000 		.4byte	.LFE2-.LFB2
+ 527 0028 00000000 		.4byte	.LFB3
+ 528 002c 14000000 		.4byte	.LFE3-.LFB3
+ 529 0030 00000000 		.4byte	0
+ 530 0034 00000000 		.4byte	0
+ 531              		.section	.debug_ranges,"",%progbits
+ 532              	.Ldebug_ranges0:
+ 533 0000 00000000 		.4byte	.LFB0
+ 534 0004 02000000 		.4byte	.LFE0
+ 535 0008 00000000 		.4byte	.LFB1
+ 536 000c 28000000 		.4byte	.LFE1
+ 537 0010 00000000 		.4byte	.LFB2
+ 538 0014 02000000 		.4byte	.LFE2
+ 539 0018 00000000 		.4byte	.LFB3
+ 540 001c 14000000 		.4byte	.LFE3
+ 541 0020 00000000 		.4byte	0
+ 542 0024 00000000 		.4byte	0
+ 543              		.section	.debug_line,"",%progbits
+ 544              	.Ldebug_line0:
+ 545 0000 9C000000 		.section	.debug_str,"MS",%progbits,1
+ 545      02004E00 
+ 545      00000201 
+ 545      FB0E0D00 
+ 545      01010101 
+ 546              	.LASF6:
+ 547 0000 6C6F6E67 		.ascii	"long long int\000"
+ 547      206C6F6E 
+ 547      6720696E 
+ 547      7400
+ 548              	.LASF10:
+ 549 000e 75696E74 		.ascii	"uint32\000"
+ 549      333200
+ 550              	.LASF27:
+ 551 0015 656E6162 		.ascii	"enableState\000"
+ 551      6C655374 
+ 551      61746500 
+ 552              	.LASF8:
+ 553 0021 756E7369 		.ascii	"unsigned int\000"
+ 553      676E6564 
+ 553      20696E74 
+ 553      00
+ 554              	.LASF25:
+ 555 002e 47656E65 		.ascii	"Generated_Source\\PSoC4\\pwm2_PM.c\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 13
+
+
+ 555      72617465 
+ 555      645F536F 
+ 555      75726365 
+ 555      5C50536F 
+ 556              	.LASF1:
+ 557 004f 756E7369 		.ascii	"unsigned char\000"
+ 557      676E6564 
+ 557      20636861 
+ 557      7200
+ 558              	.LASF23:
+ 559 005d 70776D32 		.ascii	"pwm2_Enable\000"
+ 559      5F456E61 
+ 559      626C6500 
+ 560              	.LASF26:
+ 561 0069 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-049-42XX\\e"
+ 561      6978745C 
+ 561      61697874 
+ 561      5C706F72 
+ 561      74735C43 
+ 562 0096 78616D70 		.ascii	"xamples\\CY8CKIT-049-42XX-adc.cydsn\000"
+ 562      6C65735C 
+ 562      43593843 
+ 562      4B49542D 
+ 562      3034392D 
+ 563              	.LASF22:
+ 564 00b9 70776D32 		.ascii	"pwm2_Stop\000"
+ 564      5F53746F 
+ 564      7000
+ 565              	.LASF9:
+ 566 00c3 75696E74 		.ascii	"uint8\000"
+ 566      3800
+ 567              	.LASF5:
+ 568 00c9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 568      20756E73 
+ 568      69676E65 
+ 568      6420696E 
+ 568      7400
+ 569              	.LASF19:
+ 570 00db 70776D32 		.ascii	"pwm2_RestoreConfig\000"
+ 570      5F526573 
+ 570      746F7265 
+ 570      436F6E66 
+ 570      696700
+ 571              	.LASF7:
+ 572 00ee 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 572      206C6F6E 
+ 572      6720756E 
+ 572      7369676E 
+ 572      65642069 
+ 573              	.LASF20:
+ 574 0105 70776D32 		.ascii	"pwm2_Sleep\000"
+ 574      5F536C65 
+ 574      657000
+ 575              	.LASF17:
+ 576 0110 70776D32 		.ascii	"pwm2_BACKUP_STRUCT\000"
+ 576      5F424143 
+ 576      4B55505F 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 14
+
+
+ 576      53545255 
+ 576      435400
+ 577              	.LASF21:
+ 578 0123 70776D32 		.ascii	"pwm2_Wakeup\000"
+ 578      5F57616B 
+ 578      65757000 
+ 579              	.LASF13:
+ 580 012f 63686172 		.ascii	"char\000"
+ 580      00
+ 581              	.LASF4:
+ 582 0134 6C6F6E67 		.ascii	"long int\000"
+ 582      20696E74 
+ 582      00
+ 583              	.LASF2:
+ 584 013d 73686F72 		.ascii	"short int\000"
+ 584      7420696E 
+ 584      7400
+ 585              	.LASF12:
+ 586 0147 646F7562 		.ascii	"double\000"
+ 586      6C6500
+ 587              	.LASF14:
+ 588 014e 72656733 		.ascii	"reg32\000"
+ 588      3200
+ 589              	.LASF24:
+ 590 0154 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 590      43313120 
+ 590      352E342E 
+ 590      31203230 
+ 590      31363036 
+ 591 0187 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 591      20726576 
+ 591      6973696F 
+ 591      6E203233 
+ 591      37373135 
+ 592 01ba 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 592      66756E63 
+ 592      74696F6E 
+ 592      2D736563 
+ 592      74696F6E 
+ 593              	.LASF3:
+ 594 01e2 73686F72 		.ascii	"short unsigned int\000"
+ 594      7420756E 
+ 594      7369676E 
+ 594      65642069 
+ 594      6E7400
+ 595              	.LASF0:
+ 596 01f5 7369676E 		.ascii	"signed char\000"
+ 596      65642063 
+ 596      68617200 
+ 597              	.LASF28:
+ 598 0201 70776D32 		.ascii	"pwm2_backup\000"
+ 598      5F626163 
+ 598      6B757000 
+ 599              	.LASF15:
+ 600 020d 6C6F6E67 		.ascii	"long double\000"
+ 600      20646F75 
+ 600      626C6500 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccWJD401.s 			page 15
+
+
+ 601              	.LASF11:
+ 602 0219 666C6F61 		.ascii	"float\000"
+ 602      7400
+ 603              	.LASF18:
+ 604 021f 70776D32 		.ascii	"pwm2_SaveConfig\000"
+ 604      5F536176 
+ 604      65436F6E 
+ 604      66696700 
+ 605              	.LASF16:
+ 606 022f 73697A65 		.ascii	"sizetype\000"
+ 606      74797065 
+ 606      00
+ 607              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,9 +1,10 @@
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+// Date: 2022-2025
 // License: MIT
 //
-// Description: Time module (Arduino devices)
+// // Description: time functions (CY8CKIT-145-40XX)
+
 module time
 
 

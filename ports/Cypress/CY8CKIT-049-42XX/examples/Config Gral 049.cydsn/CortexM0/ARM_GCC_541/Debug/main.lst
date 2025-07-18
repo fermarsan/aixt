@@ -1,0 +1,682 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB32:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** 
+  14:main.c        **** 
+  15:main.c        **** 
+  16:main.c        **** 
+  17:main.c        **** int main(void)
+  18:main.c        **** {
+  28              		.loc 1 18 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  19:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  37              		.loc 1 19 0
+  38              		.syntax divided
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 2
+
+
+  39              	@ 19 "main.c" 1
+  40 0002 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+  20:main.c        ****     uart_Start();
+  42              		.loc 1 20 0
+  43              		.thumb
+  44              		.syntax unified
+  45 0004 FFF7FEFF 		bl	uart_Start
+  46              	.LVL0:
+  21:main.c        ****     pwm1_Start();
+  47              		.loc 1 21 0
+  48 0008 FFF7FEFF 		bl	pwm1_Start
+  49              	.LVL1:
+  22:main.c        ****     pwm2_Start();
+  50              		.loc 1 22 0
+  51 000c FFF7FEFF 		bl	pwm2_Start
+  52              	.LVL2:
+  23:main.c        ****     pwm3_Start();
+  53              		.loc 1 23 0
+  54 0010 FFF7FEFF 		bl	pwm3_Start
+  55              	.LVL3:
+  24:main.c        ****     pwm4_Start();
+  56              		.loc 1 24 0
+  57 0014 FFF7FEFF 		bl	pwm4_Start
+  58              	.LVL4:
+  25:main.c        ****     clock_Start();
+  59              		.loc 1 25 0
+  60 0018 FFF7FEFF 		bl	clock_Start
+  61              	.LVL5:
+  26:main.c        ****     adc_Start();
+  62              		.loc 1 26 0
+  63 001c FFF7FEFF 		bl	adc_Start
+  64              	.LVL6:
+  27:main.c        ****     amux_Start();
+  65              		.loc 1 27 0
+  66 0020 FFF7FEFF 		bl	amux_Start
+  67              	.LVL7:
+  68              	.L2:
+  28:main.c        ****     
+  29:main.c        ****         
+  30:main.c        ****     for(;;)
+  31:main.c        ****     {
+  32:main.c        ****         led1_Write(0);
+  69              		.loc 1 32 0 discriminator 1
+  70 0024 0020     		movs	r0, #0
+  71 0026 FFF7FEFF 		bl	led1_Write
+  72              	.LVL8:
+  33:main.c        ****         CyDelay(5000);//pin_high(led1);
+  73              		.loc 1 33 0 discriminator 1
+  74 002a 054C     		ldr	r4, .L3
+  75 002c 2000     		movs	r0, r4
+  76 002e FFF7FEFF 		bl	CyDelay
+  77              	.LVL9:
+  34:main.c        ****         led1_Write(1);
+  78              		.loc 1 34 0 discriminator 1
+  79 0032 0120     		movs	r0, #1
+  80 0034 FFF7FEFF 		bl	led1_Write
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 3
+
+
+  81              	.LVL10:
+  35:main.c        ****         CyDelay(5000);//sleep_ms(300);
+  82              		.loc 1 35 0 discriminator 1
+  83 0038 2000     		movs	r0, r4
+  84 003a FFF7FEFF 		bl	CyDelay
+  85              	.LVL11:
+  86 003e F1E7     		b	.L2
+  87              	.L4:
+  88              		.align	2
+  89              	.L3:
+  90 0040 88130000 		.word	5000
+  91              		.cfi_endproc
+  92              	.LFE32:
+  93              		.size	main, .-main
+  94              		.text
+  95              	.Letext0:
+  96              		.file 2 "Generated_Source\\PSoC4/uart.h"
+  97              		.file 3 "Generated_Source\\PSoC4/pwm1.h"
+  98              		.file 4 "Generated_Source\\PSoC4/pwm2.h"
+  99              		.file 5 "Generated_Source\\PSoC4/pwm3.h"
+ 100              		.file 6 "Generated_Source\\PSoC4/pwm4.h"
+ 101              		.file 7 "Generated_Source\\PSoC4/clock.h"
+ 102              		.file 8 "Generated_Source\\PSoC4/adc.h"
+ 103              		.file 9 "Generated_Source\\PSoC4/amux.h"
+ 104              		.file 10 "Generated_Source\\PSoC4/led1.h"
+ 105              		.file 11 "Generated_Source\\PSoC4/CyLib.h"
+ 106              		.section	.debug_info,"",%progbits
+ 107              	.Ldebug_info0:
+ 108 0000 A9010000 		.4byte	0x1a9
+ 109 0004 0400     		.2byte	0x4
+ 110 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 111 000a 04       		.byte	0x4
+ 112 000b 01       		.uleb128 0x1
+ 113 000c D3000000 		.4byte	.LASF24
+ 114 0010 0C       		.byte	0xc
+ 115 0011 26000000 		.4byte	.LASF25
+ 116 0015 92010000 		.4byte	.LASF26
+ 117 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 118 001d 00000000 		.4byte	0
+ 119 0021 00000000 		.4byte	.Ldebug_line0
+ 120 0025 02       		.uleb128 0x2
+ 121 0026 01       		.byte	0x1
+ 122 0027 06       		.byte	0x6
+ 123 0028 74010000 		.4byte	.LASF0
+ 124 002c 02       		.uleb128 0x2
+ 125 002d 01       		.byte	0x1
+ 126 002e 08       		.byte	0x8
+ 127 002f 8F000000 		.4byte	.LASF1
+ 128 0033 02       		.uleb128 0x2
+ 129 0034 02       		.byte	0x2
+ 130 0035 05       		.byte	0x5
+ 131 0036 DD010000 		.4byte	.LASF2
+ 132 003a 02       		.uleb128 0x2
+ 133 003b 02       		.byte	0x2
+ 134 003c 07       		.byte	0x7
+ 135 003d 61010000 		.4byte	.LASF3
+ 136 0041 02       		.uleb128 0x2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 4
+
+
+ 137 0042 04       		.byte	0x4
+ 138 0043 05       		.byte	0x5
+ 139 0044 B8000000 		.4byte	.LASF4
+ 140 0048 02       		.uleb128 0x2
+ 141 0049 04       		.byte	0x4
+ 142 004a 07       		.byte	0x7
+ 143 004b 50000000 		.4byte	.LASF5
+ 144 004f 02       		.uleb128 0x2
+ 145 0050 08       		.byte	0x8
+ 146 0051 05       		.byte	0x5
+ 147 0052 00000000 		.4byte	.LASF6
+ 148 0056 02       		.uleb128 0x2
+ 149 0057 08       		.byte	0x8
+ 150 0058 07       		.byte	0x7
+ 151 0059 62000000 		.4byte	.LASF7
+ 152 005d 03       		.uleb128 0x3
+ 153 005e 04       		.byte	0x4
+ 154 005f 05       		.byte	0x5
+ 155 0060 696E7400 		.ascii	"int\000"
+ 156 0064 02       		.uleb128 0x2
+ 157 0065 04       		.byte	0x4
+ 158 0066 07       		.byte	0x7
+ 159 0067 0E000000 		.4byte	.LASF8
+ 160 006b 02       		.uleb128 0x2
+ 161 006c 04       		.byte	0x4
+ 162 006d 04       		.byte	0x4
+ 163 006e 8C010000 		.4byte	.LASF9
+ 164 0072 02       		.uleb128 0x2
+ 165 0073 08       		.byte	0x8
+ 166 0074 04       		.byte	0x4
+ 167 0075 C1000000 		.4byte	.LASF10
+ 168 0079 02       		.uleb128 0x2
+ 169 007a 01       		.byte	0x1
+ 170 007b 08       		.byte	0x8
+ 171 007c A9000000 		.4byte	.LASF11
+ 172 0080 02       		.uleb128 0x2
+ 173 0081 08       		.byte	0x8
+ 174 0082 04       		.byte	0x4
+ 175 0083 80010000 		.4byte	.LASF12
+ 176 0087 02       		.uleb128 0x2
+ 177 0088 04       		.byte	0x4
+ 178 0089 07       		.byte	0x7
+ 179 008a F2010000 		.4byte	.LASF13
+ 180 008e 04       		.uleb128 0x4
+ 181 008f 2D000000 		.4byte	.LASF27
+ 182 0093 01       		.byte	0x1
+ 183 0094 11       		.byte	0x11
+ 184 0095 5D000000 		.4byte	0x5d
+ 185 0099 00000000 		.4byte	.LFB32
+ 186 009d 44000000 		.4byte	.LFE32-.LFB32
+ 187 00a1 01       		.uleb128 0x1
+ 188 00a2 9C       		.byte	0x9c
+ 189 00a3 3A010000 		.4byte	0x13a
+ 190 00a7 05       		.uleb128 0x5
+ 191 00a8 08000000 		.4byte	.LVL0
+ 192 00ac 3A010000 		.4byte	0x13a
+ 193 00b0 05       		.uleb128 0x5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 5
+
+
+ 194 00b1 0C000000 		.4byte	.LVL1
+ 195 00b5 45010000 		.4byte	0x145
+ 196 00b9 05       		.uleb128 0x5
+ 197 00ba 10000000 		.4byte	.LVL2
+ 198 00be 51010000 		.4byte	0x151
+ 199 00c2 05       		.uleb128 0x5
+ 200 00c3 14000000 		.4byte	.LVL3
+ 201 00c7 5D010000 		.4byte	0x15d
+ 202 00cb 05       		.uleb128 0x5
+ 203 00cc 18000000 		.4byte	.LVL4
+ 204 00d0 69010000 		.4byte	0x169
+ 205 00d4 05       		.uleb128 0x5
+ 206 00d5 1C000000 		.4byte	.LVL5
+ 207 00d9 75010000 		.4byte	0x175
+ 208 00dd 05       		.uleb128 0x5
+ 209 00de 20000000 		.4byte	.LVL6
+ 210 00e2 80010000 		.4byte	0x180
+ 211 00e6 05       		.uleb128 0x5
+ 212 00e7 24000000 		.4byte	.LVL7
+ 213 00eb 8B010000 		.4byte	0x18b
+ 214 00ef 06       		.uleb128 0x6
+ 215 00f0 2A000000 		.4byte	.LVL8
+ 216 00f4 96010000 		.4byte	0x196
+ 217 00f8 02010000 		.4byte	0x102
+ 218 00fc 07       		.uleb128 0x7
+ 219 00fd 01       		.uleb128 0x1
+ 220 00fe 50       		.byte	0x50
+ 221 00ff 01       		.uleb128 0x1
+ 222 0100 30       		.byte	0x30
+ 223 0101 00       		.byte	0
+ 224 0102 06       		.uleb128 0x6
+ 225 0103 32000000 		.4byte	.LVL9
+ 226 0107 A1010000 		.4byte	0x1a1
+ 227 010b 16010000 		.4byte	0x116
+ 228 010f 07       		.uleb128 0x7
+ 229 0110 01       		.uleb128 0x1
+ 230 0111 50       		.byte	0x50
+ 231 0112 02       		.uleb128 0x2
+ 232 0113 74       		.byte	0x74
+ 233 0114 00       		.sleb128 0
+ 234 0115 00       		.byte	0
+ 235 0116 06       		.uleb128 0x6
+ 236 0117 38000000 		.4byte	.LVL10
+ 237 011b 96010000 		.4byte	0x196
+ 238 011f 29010000 		.4byte	0x129
+ 239 0123 07       		.uleb128 0x7
+ 240 0124 01       		.uleb128 0x1
+ 241 0125 50       		.byte	0x50
+ 242 0126 01       		.uleb128 0x1
+ 243 0127 31       		.byte	0x31
+ 244 0128 00       		.byte	0
+ 245 0129 08       		.uleb128 0x8
+ 246 012a 3E000000 		.4byte	.LVL11
+ 247 012e A1010000 		.4byte	0x1a1
+ 248 0132 07       		.uleb128 0x7
+ 249 0133 01       		.uleb128 0x1
+ 250 0134 50       		.byte	0x50
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 6
+
+
+ 251 0135 02       		.uleb128 0x2
+ 252 0136 74       		.byte	0x74
+ 253 0137 00       		.sleb128 0
+ 254 0138 00       		.byte	0
+ 255 0139 00       		.byte	0
+ 256 013a 09       		.uleb128 0x9
+ 257 013b 3D000000 		.4byte	.LASF14
+ 258 013f 3D000000 		.4byte	.LASF14
+ 259 0143 02       		.byte	0x2
+ 260 0144 72       		.byte	0x72
+ 261 0145 0A       		.uleb128 0xa
+ 262 0146 84000000 		.4byte	.LASF15
+ 263 014a 84000000 		.4byte	.LASF15
+ 264 014e 03       		.byte	0x3
+ 265 014f 3201     		.2byte	0x132
+ 266 0151 0A       		.uleb128 0xa
+ 267 0152 C8000000 		.4byte	.LASF16
+ 268 0156 C8000000 		.4byte	.LASF16
+ 269 015a 04       		.byte	0x4
+ 270 015b 3201     		.2byte	0x132
+ 271 015d 0A       		.uleb128 0xa
+ 272 015e E7010000 		.4byte	.LASF17
+ 273 0162 E7010000 		.4byte	.LASF17
+ 274 0166 05       		.byte	0x5
+ 275 0167 3201     		.2byte	0x132
+ 276 0169 0A       		.uleb128 0xa
+ 277 016a 32000000 		.4byte	.LASF18
+ 278 016e 32000000 		.4byte	.LASF18
+ 279 0172 06       		.byte	0x6
+ 280 0173 3201     		.2byte	0x132
+ 281 0175 09       		.uleb128 0x9
+ 282 0176 9D000000 		.4byte	.LASF19
+ 283 017a 9D000000 		.4byte	.LASF19
+ 284 017e 07       		.byte	0x7
+ 285 017f 23       		.byte	0x23
+ 286 0180 09       		.uleb128 0x9
+ 287 0181 AE000000 		.4byte	.LASF20
+ 288 0185 AE000000 		.4byte	.LASF20
+ 289 0189 08       		.byte	0x8
+ 290 018a 99       		.byte	0x99
+ 291 018b 09       		.uleb128 0x9
+ 292 018c 1B000000 		.4byte	.LASF21
+ 293 0190 1B000000 		.4byte	.LASF21
+ 294 0194 09       		.byte	0x9
+ 295 0195 25       		.byte	0x25
+ 296 0196 09       		.uleb128 0x9
+ 297 0197 79000000 		.4byte	.LASF22
+ 298 019b 79000000 		.4byte	.LASF22
+ 299 019f 0A       		.byte	0xa
+ 300 01a0 33       		.byte	0x33
+ 301 01a1 09       		.uleb128 0x9
+ 302 01a2 48000000 		.4byte	.LASF23
+ 303 01a6 48000000 		.4byte	.LASF23
+ 304 01aa 0B       		.byte	0xb
+ 305 01ab EC       		.byte	0xec
+ 306 01ac 00       		.byte	0
+ 307              		.section	.debug_abbrev,"",%progbits
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 7
+
+
+ 308              	.Ldebug_abbrev0:
+ 309 0000 01       		.uleb128 0x1
+ 310 0001 11       		.uleb128 0x11
+ 311 0002 01       		.byte	0x1
+ 312 0003 25       		.uleb128 0x25
+ 313 0004 0E       		.uleb128 0xe
+ 314 0005 13       		.uleb128 0x13
+ 315 0006 0B       		.uleb128 0xb
+ 316 0007 03       		.uleb128 0x3
+ 317 0008 0E       		.uleb128 0xe
+ 318 0009 1B       		.uleb128 0x1b
+ 319 000a 0E       		.uleb128 0xe
+ 320 000b 55       		.uleb128 0x55
+ 321 000c 17       		.uleb128 0x17
+ 322 000d 11       		.uleb128 0x11
+ 323 000e 01       		.uleb128 0x1
+ 324 000f 10       		.uleb128 0x10
+ 325 0010 17       		.uleb128 0x17
+ 326 0011 00       		.byte	0
+ 327 0012 00       		.byte	0
+ 328 0013 02       		.uleb128 0x2
+ 329 0014 24       		.uleb128 0x24
+ 330 0015 00       		.byte	0
+ 331 0016 0B       		.uleb128 0xb
+ 332 0017 0B       		.uleb128 0xb
+ 333 0018 3E       		.uleb128 0x3e
+ 334 0019 0B       		.uleb128 0xb
+ 335 001a 03       		.uleb128 0x3
+ 336 001b 0E       		.uleb128 0xe
+ 337 001c 00       		.byte	0
+ 338 001d 00       		.byte	0
+ 339 001e 03       		.uleb128 0x3
+ 340 001f 24       		.uleb128 0x24
+ 341 0020 00       		.byte	0
+ 342 0021 0B       		.uleb128 0xb
+ 343 0022 0B       		.uleb128 0xb
+ 344 0023 3E       		.uleb128 0x3e
+ 345 0024 0B       		.uleb128 0xb
+ 346 0025 03       		.uleb128 0x3
+ 347 0026 08       		.uleb128 0x8
+ 348 0027 00       		.byte	0
+ 349 0028 00       		.byte	0
+ 350 0029 04       		.uleb128 0x4
+ 351 002a 2E       		.uleb128 0x2e
+ 352 002b 01       		.byte	0x1
+ 353 002c 3F       		.uleb128 0x3f
+ 354 002d 19       		.uleb128 0x19
+ 355 002e 03       		.uleb128 0x3
+ 356 002f 0E       		.uleb128 0xe
+ 357 0030 3A       		.uleb128 0x3a
+ 358 0031 0B       		.uleb128 0xb
+ 359 0032 3B       		.uleb128 0x3b
+ 360 0033 0B       		.uleb128 0xb
+ 361 0034 27       		.uleb128 0x27
+ 362 0035 19       		.uleb128 0x19
+ 363 0036 49       		.uleb128 0x49
+ 364 0037 13       		.uleb128 0x13
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 8
+
+
+ 365 0038 8701     		.uleb128 0x87
+ 366 003a 19       		.uleb128 0x19
+ 367 003b 11       		.uleb128 0x11
+ 368 003c 01       		.uleb128 0x1
+ 369 003d 12       		.uleb128 0x12
+ 370 003e 06       		.uleb128 0x6
+ 371 003f 40       		.uleb128 0x40
+ 372 0040 18       		.uleb128 0x18
+ 373 0041 9742     		.uleb128 0x2117
+ 374 0043 19       		.uleb128 0x19
+ 375 0044 01       		.uleb128 0x1
+ 376 0045 13       		.uleb128 0x13
+ 377 0046 00       		.byte	0
+ 378 0047 00       		.byte	0
+ 379 0048 05       		.uleb128 0x5
+ 380 0049 898201   		.uleb128 0x4109
+ 381 004c 00       		.byte	0
+ 382 004d 11       		.uleb128 0x11
+ 383 004e 01       		.uleb128 0x1
+ 384 004f 31       		.uleb128 0x31
+ 385 0050 13       		.uleb128 0x13
+ 386 0051 00       		.byte	0
+ 387 0052 00       		.byte	0
+ 388 0053 06       		.uleb128 0x6
+ 389 0054 898201   		.uleb128 0x4109
+ 390 0057 01       		.byte	0x1
+ 391 0058 11       		.uleb128 0x11
+ 392 0059 01       		.uleb128 0x1
+ 393 005a 31       		.uleb128 0x31
+ 394 005b 13       		.uleb128 0x13
+ 395 005c 01       		.uleb128 0x1
+ 396 005d 13       		.uleb128 0x13
+ 397 005e 00       		.byte	0
+ 398 005f 00       		.byte	0
+ 399 0060 07       		.uleb128 0x7
+ 400 0061 8A8201   		.uleb128 0x410a
+ 401 0064 00       		.byte	0
+ 402 0065 02       		.uleb128 0x2
+ 403 0066 18       		.uleb128 0x18
+ 404 0067 9142     		.uleb128 0x2111
+ 405 0069 18       		.uleb128 0x18
+ 406 006a 00       		.byte	0
+ 407 006b 00       		.byte	0
+ 408 006c 08       		.uleb128 0x8
+ 409 006d 898201   		.uleb128 0x4109
+ 410 0070 01       		.byte	0x1
+ 411 0071 11       		.uleb128 0x11
+ 412 0072 01       		.uleb128 0x1
+ 413 0073 31       		.uleb128 0x31
+ 414 0074 13       		.uleb128 0x13
+ 415 0075 00       		.byte	0
+ 416 0076 00       		.byte	0
+ 417 0077 09       		.uleb128 0x9
+ 418 0078 2E       		.uleb128 0x2e
+ 419 0079 00       		.byte	0
+ 420 007a 3F       		.uleb128 0x3f
+ 421 007b 19       		.uleb128 0x19
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 9
+
+
+ 422 007c 3C       		.uleb128 0x3c
+ 423 007d 19       		.uleb128 0x19
+ 424 007e 6E       		.uleb128 0x6e
+ 425 007f 0E       		.uleb128 0xe
+ 426 0080 03       		.uleb128 0x3
+ 427 0081 0E       		.uleb128 0xe
+ 428 0082 3A       		.uleb128 0x3a
+ 429 0083 0B       		.uleb128 0xb
+ 430 0084 3B       		.uleb128 0x3b
+ 431 0085 0B       		.uleb128 0xb
+ 432 0086 00       		.byte	0
+ 433 0087 00       		.byte	0
+ 434 0088 0A       		.uleb128 0xa
+ 435 0089 2E       		.uleb128 0x2e
+ 436 008a 00       		.byte	0
+ 437 008b 3F       		.uleb128 0x3f
+ 438 008c 19       		.uleb128 0x19
+ 439 008d 3C       		.uleb128 0x3c
+ 440 008e 19       		.uleb128 0x19
+ 441 008f 6E       		.uleb128 0x6e
+ 442 0090 0E       		.uleb128 0xe
+ 443 0091 03       		.uleb128 0x3
+ 444 0092 0E       		.uleb128 0xe
+ 445 0093 3A       		.uleb128 0x3a
+ 446 0094 0B       		.uleb128 0xb
+ 447 0095 3B       		.uleb128 0x3b
+ 448 0096 05       		.uleb128 0x5
+ 449 0097 00       		.byte	0
+ 450 0098 00       		.byte	0
+ 451 0099 00       		.byte	0
+ 452              		.section	.debug_aranges,"",%progbits
+ 453 0000 1C000000 		.4byte	0x1c
+ 454 0004 0200     		.2byte	0x2
+ 455 0006 00000000 		.4byte	.Ldebug_info0
+ 456 000a 04       		.byte	0x4
+ 457 000b 00       		.byte	0
+ 458 000c 0000     		.2byte	0
+ 459 000e 0000     		.2byte	0
+ 460 0010 00000000 		.4byte	.LFB32
+ 461 0014 44000000 		.4byte	.LFE32-.LFB32
+ 462 0018 00000000 		.4byte	0
+ 463 001c 00000000 		.4byte	0
+ 464              		.section	.debug_ranges,"",%progbits
+ 465              	.Ldebug_ranges0:
+ 466 0000 00000000 		.4byte	.LFB32
+ 467 0004 44000000 		.4byte	.LFE32
+ 468 0008 00000000 		.4byte	0
+ 469 000c 00000000 		.4byte	0
+ 470              		.section	.debug_line,"",%progbits
+ 471              	.Ldebug_line0:
+ 472 0000 CB000000 		.section	.debug_str,"MS",%progbits,1
+ 472      02009900 
+ 472      00000201 
+ 472      FB0E0D00 
+ 472      01010101 
+ 473              	.LASF6:
+ 474 0000 6C6F6E67 		.ascii	"long long int\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 10
+
+
+ 474      206C6F6E 
+ 474      6720696E 
+ 474      7400
+ 475              	.LASF8:
+ 476 000e 756E7369 		.ascii	"unsigned int\000"
+ 476      676E6564 
+ 476      20696E74 
+ 476      00
+ 477              	.LASF21:
+ 478 001b 616D7578 		.ascii	"amux_Start\000"
+ 478      5F537461 
+ 478      727400
+ 479              	.LASF25:
+ 480 0026 6D61696E 		.ascii	"main.c\000"
+ 480      2E6300
+ 481              	.LASF27:
+ 482 002d 6D61696E 		.ascii	"main\000"
+ 482      00
+ 483              	.LASF18:
+ 484 0032 70776D34 		.ascii	"pwm4_Start\000"
+ 484      5F537461 
+ 484      727400
+ 485              	.LASF14:
+ 486 003d 75617274 		.ascii	"uart_Start\000"
+ 486      5F537461 
+ 486      727400
+ 487              	.LASF23:
+ 488 0048 43794465 		.ascii	"CyDelay\000"
+ 488      6C617900 
+ 489              	.LASF5:
+ 490 0050 6C6F6E67 		.ascii	"long unsigned int\000"
+ 490      20756E73 
+ 490      69676E65 
+ 490      6420696E 
+ 490      7400
+ 491              	.LASF7:
+ 492 0062 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 492      206C6F6E 
+ 492      6720756E 
+ 492      7369676E 
+ 492      65642069 
+ 493              	.LASF22:
+ 494 0079 6C656431 		.ascii	"led1_Write\000"
+ 494      5F577269 
+ 494      746500
+ 495              	.LASF15:
+ 496 0084 70776D31 		.ascii	"pwm1_Start\000"
+ 496      5F537461 
+ 496      727400
+ 497              	.LASF1:
+ 498 008f 756E7369 		.ascii	"unsigned char\000"
+ 498      676E6564 
+ 498      20636861 
+ 498      7200
+ 499              	.LASF19:
+ 500 009d 636C6F63 		.ascii	"clock_Start\000"
+ 500      6B5F5374 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 11
+
+
+ 500      61727400 
+ 501              	.LASF11:
+ 502 00a9 63686172 		.ascii	"char\000"
+ 502      00
+ 503              	.LASF20:
+ 504 00ae 6164635F 		.ascii	"adc_Start\000"
+ 504      53746172 
+ 504      7400
+ 505              	.LASF4:
+ 506 00b8 6C6F6E67 		.ascii	"long int\000"
+ 506      20696E74 
+ 506      00
+ 507              	.LASF10:
+ 508 00c1 646F7562 		.ascii	"double\000"
+ 508      6C6500
+ 509              	.LASF16:
+ 510 00c8 70776D32 		.ascii	"pwm2_Start\000"
+ 510      5F537461 
+ 510      727400
+ 511              	.LASF24:
+ 512 00d3 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 512      43313120 
+ 512      352E342E 
+ 512      31203230 
+ 512      31363036 
+ 513 0106 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 513      20726576 
+ 513      6973696F 
+ 513      6E203233 
+ 513      37373135 
+ 514 0139 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 514      66756E63 
+ 514      74696F6E 
+ 514      2D736563 
+ 514      74696F6E 
+ 515              	.LASF3:
+ 516 0161 73686F72 		.ascii	"short unsigned int\000"
+ 516      7420756E 
+ 516      7369676E 
+ 516      65642069 
+ 516      6E7400
+ 517              	.LASF0:
+ 518 0174 7369676E 		.ascii	"signed char\000"
+ 518      65642063 
+ 518      68617200 
+ 519              	.LASF12:
+ 520 0180 6C6F6E67 		.ascii	"long double\000"
+ 520      20646F75 
+ 520      626C6500 
+ 521              	.LASF9:
+ 522 018c 666C6F61 		.ascii	"float\000"
+ 522      7400
+ 523              	.LASF26:
+ 524 0192 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-049-42XX\\e"
+ 524      6978745C 
+ 524      61697874 
+ 524      5C706F72 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAUfM9K.s 			page 12
+
+
+ 524      74735C43 
+ 525 01bf 78616D70 		.ascii	"xamples\\Config Gral 049.cydsn\000"
+ 525      6C65735C 
+ 525      436F6E66 
+ 525      69672047 
+ 525      72616C20 
+ 526              	.LASF2:
+ 527 01dd 73686F72 		.ascii	"short int\000"
+ 527      7420696E 
+ 527      7400
+ 528              	.LASF17:
+ 529 01e7 70776D33 		.ascii	"pwm3_Start\000"
+ 529      5F537461 
+ 529      727400
+ 530              	.LASF13:
+ 531 01f2 73697A65 		.ascii	"sizetype\000"
+ 531      74797065 
+ 531      00
+ 532              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

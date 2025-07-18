@@ -1,13 +1,12 @@
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Authors:
-//	- Javier Leon
-//	- Camilo Lucas
-//	- Fernando M. Santa
-// Date: 2023
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+// Date: 2022-2025
 // License: MIT
 //
-// Description: Builtin definitions
-//              (CY8CKIT-145-40XX)
+
+//
+// Description: Builtin definitions (CY8CKIT-145-40XX)
+//              
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -28,10 +27,7 @@ fn C.INIT_INTERRUPTS()
 @[as_macro] pub const do0 = 12
 @[as_macro] pub const do1 = 13
 @[as_macro] pub const do2 = 14
-@[as_macro] pub const pwm_1 = 15
-@[as_macro] pub const pwm_2 = 16
-@[as_macro] pub const pwm_0 = 17
-@[as_macro] pub const sw2 = 19
+@[as_macro] pub const sw2 = C.sw2
 @[as_macro] pub const di0 = 20
 @[as_macro] pub const di1 = 21
 @[as_macro] pub const di2 = 22

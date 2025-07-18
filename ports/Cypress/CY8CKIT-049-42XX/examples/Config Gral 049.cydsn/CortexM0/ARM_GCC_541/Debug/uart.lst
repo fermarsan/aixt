@@ -1,0 +1,2112 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"uart.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.uart_ScbModePostEnable,"ax",%progbits
+  20              		.align	2
+  21              		.code	16
+  22              		.thumb_func
+  23              		.type	uart_ScbModePostEnable, %function
+  24              	uart_ScbModePostEnable:
+  25              	.LFB7:
+  26              		.file 1 "Generated_Source\\PSoC4\\uart.c"
+   1:Generated_Source\PSoC4/uart.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/uart.c **** * \file uart.c
+   3:Generated_Source\PSoC4/uart.c **** * \version 4.0
+   4:Generated_Source\PSoC4/uart.c **** *
+   5:Generated_Source\PSoC4/uart.c **** * \brief
+   6:Generated_Source\PSoC4/uart.c **** *  This file provides the source code to the API for the SCB Component.
+   7:Generated_Source\PSoC4/uart.c **** *
+   8:Generated_Source\PSoC4/uart.c **** * Note:
+   9:Generated_Source\PSoC4/uart.c **** *
+  10:Generated_Source\PSoC4/uart.c **** *******************************************************************************
+  11:Generated_Source\PSoC4/uart.c **** * \copyright
+  12:Generated_Source\PSoC4/uart.c **** * Copyright 2013-2017, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/uart.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC4/uart.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC4/uart.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/uart.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/uart.c **** 
+  18:Generated_Source\PSoC4/uart.c **** #include "uart_PVT.h"
+  19:Generated_Source\PSoC4/uart.c **** 
+  20:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_I2C_INC)
+  21:Generated_Source\PSoC4/uart.c ****     #include "uart_I2C_PVT.h"
+  22:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_MODE_I2C_INC) */
+  23:Generated_Source\PSoC4/uart.c **** 
+  24:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_EZI2C_INC)
+  25:Generated_Source\PSoC4/uart.c ****     #include "uart_EZI2C_PVT.h"
+  26:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_MODE_EZI2C_INC) */
+  27:Generated_Source\PSoC4/uart.c **** 
+  28:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_SPI_INC || uart_SCB_MODE_UART_INC)
+  29:Generated_Source\PSoC4/uart.c ****     #include "uart_SPI_UART_PVT.h"
+  30:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_MODE_SPI_INC || uart_SCB_MODE_UART_INC) */
+  31:Generated_Source\PSoC4/uart.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 2
+
+
+  32:Generated_Source\PSoC4/uart.c **** 
+  33:Generated_Source\PSoC4/uart.c **** /***************************************
+  34:Generated_Source\PSoC4/uart.c **** *    Run Time Configuration Vars
+  35:Generated_Source\PSoC4/uart.c **** ***************************************/
+  36:Generated_Source\PSoC4/uart.c **** 
+  37:Generated_Source\PSoC4/uart.c **** /* Stores internal component configuration for Unconfigured mode */
+  38:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+  39:Generated_Source\PSoC4/uart.c ****     /* Common configuration variables */
+  40:Generated_Source\PSoC4/uart.c ****     uint8 uart_scbMode = uart_SCB_MODE_UNCONFIG;
+  41:Generated_Source\PSoC4/uart.c ****     uint8 uart_scbEnableWake;
+  42:Generated_Source\PSoC4/uart.c ****     uint8 uart_scbEnableIntr;
+  43:Generated_Source\PSoC4/uart.c **** 
+  44:Generated_Source\PSoC4/uart.c ****     /* I2C configuration variables */
+  45:Generated_Source\PSoC4/uart.c ****     uint8 uart_mode;
+  46:Generated_Source\PSoC4/uart.c ****     uint8 uart_acceptAddr;
+  47:Generated_Source\PSoC4/uart.c **** 
+  48:Generated_Source\PSoC4/uart.c ****     /* SPI/UART configuration variables */
+  49:Generated_Source\PSoC4/uart.c ****     volatile uint8 * uart_rxBuffer;
+  50:Generated_Source\PSoC4/uart.c ****     uint8  uart_rxDataBits;
+  51:Generated_Source\PSoC4/uart.c ****     uint32 uart_rxBufferSize;
+  52:Generated_Source\PSoC4/uart.c **** 
+  53:Generated_Source\PSoC4/uart.c ****     volatile uint8 * uart_txBuffer;
+  54:Generated_Source\PSoC4/uart.c ****     uint8  uart_txDataBits;
+  55:Generated_Source\PSoC4/uart.c ****     uint32 uart_txBufferSize;
+  56:Generated_Source\PSoC4/uart.c **** 
+  57:Generated_Source\PSoC4/uart.c ****     /* EZI2C configuration variables */
+  58:Generated_Source\PSoC4/uart.c ****     uint8 uart_numberOfAddr;
+  59:Generated_Source\PSoC4/uart.c ****     uint8 uart_subAddrSize;
+  60:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
+  61:Generated_Source\PSoC4/uart.c **** 
+  62:Generated_Source\PSoC4/uart.c **** 
+  63:Generated_Source\PSoC4/uart.c **** /***************************************
+  64:Generated_Source\PSoC4/uart.c **** *     Common SCB Vars
+  65:Generated_Source\PSoC4/uart.c **** ***************************************/
+  66:Generated_Source\PSoC4/uart.c **** /**
+  67:Generated_Source\PSoC4/uart.c **** * \addtogroup group_general
+  68:Generated_Source\PSoC4/uart.c **** * \{
+  69:Generated_Source\PSoC4/uart.c **** */
+  70:Generated_Source\PSoC4/uart.c **** 
+  71:Generated_Source\PSoC4/uart.c **** /** uart_initVar indicates whether the uart 
+  72:Generated_Source\PSoC4/uart.c **** *  component has been initialized. The variable is initialized to 0 
+  73:Generated_Source\PSoC4/uart.c **** *  and set to 1 the first time SCB_Start() is called. This allows 
+  74:Generated_Source\PSoC4/uart.c **** *  the component to restart without reinitialization after the first 
+  75:Generated_Source\PSoC4/uart.c **** *  call to the uart_Start() routine.
+  76:Generated_Source\PSoC4/uart.c **** *
+  77:Generated_Source\PSoC4/uart.c **** *  If re-initialization of the component is required, then the 
+  78:Generated_Source\PSoC4/uart.c **** *  uart_Init() function can be called before the 
+  79:Generated_Source\PSoC4/uart.c **** *  uart_Start() or uart_Enable() function.
+  80:Generated_Source\PSoC4/uart.c **** */
+  81:Generated_Source\PSoC4/uart.c **** uint8 uart_initVar = 0u;
+  82:Generated_Source\PSoC4/uart.c **** 
+  83:Generated_Source\PSoC4/uart.c **** 
+  84:Generated_Source\PSoC4/uart.c **** #if (! (uart_SCB_MODE_I2C_CONST_CFG || \
+  85:Generated_Source\PSoC4/uart.c ****         uart_SCB_MODE_EZI2C_CONST_CFG))
+  86:Generated_Source\PSoC4/uart.c ****     /** This global variable stores TX interrupt sources after 
+  87:Generated_Source\PSoC4/uart.c ****     * uart_Stop() is called. Only these TX interrupt sources 
+  88:Generated_Source\PSoC4/uart.c ****     * will be restored on a subsequent uart_Enable() call.
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 3
+
+
+  89:Generated_Source\PSoC4/uart.c ****     */
+  90:Generated_Source\PSoC4/uart.c ****     uint16 uart_IntrTxMask = 0u;
+  91:Generated_Source\PSoC4/uart.c **** #endif /* (! (uart_SCB_MODE_I2C_CONST_CFG || \
+  92:Generated_Source\PSoC4/uart.c ****               uart_SCB_MODE_EZI2C_CONST_CFG)) */
+  93:Generated_Source\PSoC4/uart.c **** /** \} globals */
+  94:Generated_Source\PSoC4/uart.c **** 
+  95:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_IRQ_INTERNAL)
+  96:Generated_Source\PSoC4/uart.c **** #if !defined (CY_REMOVE_uart_CUSTOM_INTR_HANDLER)
+  97:Generated_Source\PSoC4/uart.c ****     void (*uart_customIntrHandler)(void) = NULL;
+  98:Generated_Source\PSoC4/uart.c **** #endif /* !defined (CY_REMOVE_uart_CUSTOM_INTR_HANDLER) */
+  99:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_IRQ_INTERNAL) */
+ 100:Generated_Source\PSoC4/uart.c **** 
+ 101:Generated_Source\PSoC4/uart.c **** 
+ 102:Generated_Source\PSoC4/uart.c **** /***************************************
+ 103:Generated_Source\PSoC4/uart.c **** *    Private Function Prototypes
+ 104:Generated_Source\PSoC4/uart.c **** ***************************************/
+ 105:Generated_Source\PSoC4/uart.c **** 
+ 106:Generated_Source\PSoC4/uart.c **** static void uart_ScbEnableIntr(void);
+ 107:Generated_Source\PSoC4/uart.c **** static void uart_ScbModeStop(void);
+ 108:Generated_Source\PSoC4/uart.c **** static void uart_ScbModePostEnable(void);
+ 109:Generated_Source\PSoC4/uart.c **** 
+ 110:Generated_Source\PSoC4/uart.c **** 
+ 111:Generated_Source\PSoC4/uart.c **** /*******************************************************************************
+ 112:Generated_Source\PSoC4/uart.c **** * Function Name: uart_Init
+ 113:Generated_Source\PSoC4/uart.c **** ****************************************************************************//**
+ 114:Generated_Source\PSoC4/uart.c **** *
+ 115:Generated_Source\PSoC4/uart.c **** *  Initializes the uart component to operate in one of the selected
+ 116:Generated_Source\PSoC4/uart.c **** *  configurations: I2C, SPI, UART or EZI2C.
+ 117:Generated_Source\PSoC4/uart.c **** *  When the configuration is set to "Unconfigured SCB", this function does
+ 118:Generated_Source\PSoC4/uart.c **** *  not do any initialization. Use mode-specific initialization APIs instead:
+ 119:Generated_Source\PSoC4/uart.c **** *  uart_I2CInit, uart_SpiInit, 
+ 120:Generated_Source\PSoC4/uart.c **** *  uart_UartInit or uart_EzI2CInit.
+ 121:Generated_Source\PSoC4/uart.c **** *
+ 122:Generated_Source\PSoC4/uart.c **** *******************************************************************************/
+ 123:Generated_Source\PSoC4/uart.c **** void uart_Init(void)
+ 124:Generated_Source\PSoC4/uart.c **** {
+ 125:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+ 126:Generated_Source\PSoC4/uart.c ****     if (uart_SCB_MODE_UNCONFIG_RUNTM_CFG)
+ 127:Generated_Source\PSoC4/uart.c ****     {
+ 128:Generated_Source\PSoC4/uart.c ****         uart_initVar = 0u;
+ 129:Generated_Source\PSoC4/uart.c ****     }
+ 130:Generated_Source\PSoC4/uart.c ****     else
+ 131:Generated_Source\PSoC4/uart.c ****     {
+ 132:Generated_Source\PSoC4/uart.c ****         /* Initialization was done before this function call */
+ 133:Generated_Source\PSoC4/uart.c ****     }
+ 134:Generated_Source\PSoC4/uart.c **** 
+ 135:Generated_Source\PSoC4/uart.c **** #elif (uart_SCB_MODE_I2C_CONST_CFG)
+ 136:Generated_Source\PSoC4/uart.c ****     uart_I2CInit();
+ 137:Generated_Source\PSoC4/uart.c **** 
+ 138:Generated_Source\PSoC4/uart.c **** #elif (uart_SCB_MODE_SPI_CONST_CFG)
+ 139:Generated_Source\PSoC4/uart.c ****     uart_SpiInit();
+ 140:Generated_Source\PSoC4/uart.c **** 
+ 141:Generated_Source\PSoC4/uart.c **** #elif (uart_SCB_MODE_UART_CONST_CFG)
+ 142:Generated_Source\PSoC4/uart.c ****     uart_UartInit();
+ 143:Generated_Source\PSoC4/uart.c **** 
+ 144:Generated_Source\PSoC4/uart.c **** #elif (uart_SCB_MODE_EZI2C_CONST_CFG)
+ 145:Generated_Source\PSoC4/uart.c ****     uart_EzI2CInit();
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 4
+
+
+ 146:Generated_Source\PSoC4/uart.c **** 
+ 147:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 148:Generated_Source\PSoC4/uart.c **** }
+ 149:Generated_Source\PSoC4/uart.c **** 
+ 150:Generated_Source\PSoC4/uart.c **** 
+ 151:Generated_Source\PSoC4/uart.c **** /*******************************************************************************
+ 152:Generated_Source\PSoC4/uart.c **** * Function Name: uart_Enable
+ 153:Generated_Source\PSoC4/uart.c **** ****************************************************************************//**
+ 154:Generated_Source\PSoC4/uart.c **** *
+ 155:Generated_Source\PSoC4/uart.c **** *  Enables uart component operation: activates the hardware and 
+ 156:Generated_Source\PSoC4/uart.c **** *  internal interrupt. It also restores TX interrupt sources disabled after the 
+ 157:Generated_Source\PSoC4/uart.c **** *  uart_Stop() function was called (note that level-triggered TX 
+ 158:Generated_Source\PSoC4/uart.c **** *  interrupt sources remain disabled to not cause code lock-up).
+ 159:Generated_Source\PSoC4/uart.c **** *  For I2C and EZI2C modes the interrupt is internal and mandatory for 
+ 160:Generated_Source\PSoC4/uart.c **** *  operation. For SPI and UART modes the interrupt can be configured as none, 
+ 161:Generated_Source\PSoC4/uart.c **** *  internal or external.
+ 162:Generated_Source\PSoC4/uart.c **** *  The uart configuration should be not changed when the component
+ 163:Generated_Source\PSoC4/uart.c **** *  is enabled. Any configuration changes should be made after disabling the 
+ 164:Generated_Source\PSoC4/uart.c **** *  component.
+ 165:Generated_Source\PSoC4/uart.c **** *  When configuration is set to “Unconfigured uart”, the component 
+ 166:Generated_Source\PSoC4/uart.c **** *  must first be initialized to operate in one of the following configurations: 
+ 167:Generated_Source\PSoC4/uart.c **** *  I2C, SPI, UART or EZ I2C, using the mode-specific initialization API. 
+ 168:Generated_Source\PSoC4/uart.c **** *  Otherwise this function does not enable the component.
+ 169:Generated_Source\PSoC4/uart.c **** *
+ 170:Generated_Source\PSoC4/uart.c **** *******************************************************************************/
+ 171:Generated_Source\PSoC4/uart.c **** void uart_Enable(void)
+ 172:Generated_Source\PSoC4/uart.c **** {
+ 173:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+ 174:Generated_Source\PSoC4/uart.c ****     /* Enable SCB block, only if it is already configured */
+ 175:Generated_Source\PSoC4/uart.c ****     if (!uart_SCB_MODE_UNCONFIG_RUNTM_CFG)
+ 176:Generated_Source\PSoC4/uart.c ****     {
+ 177:Generated_Source\PSoC4/uart.c ****         uart_CTRL_REG |= uart_CTRL_ENABLED;
+ 178:Generated_Source\PSoC4/uart.c **** 
+ 179:Generated_Source\PSoC4/uart.c ****         uart_ScbEnableIntr();
+ 180:Generated_Source\PSoC4/uart.c **** 
+ 181:Generated_Source\PSoC4/uart.c ****         /* Call PostEnable function specific to current operation mode */
+ 182:Generated_Source\PSoC4/uart.c ****         uart_ScbModePostEnable();
+ 183:Generated_Source\PSoC4/uart.c ****     }
+ 184:Generated_Source\PSoC4/uart.c **** #else
+ 185:Generated_Source\PSoC4/uart.c ****     uart_CTRL_REG |= uart_CTRL_ENABLED;
+ 186:Generated_Source\PSoC4/uart.c **** 
+ 187:Generated_Source\PSoC4/uart.c ****     uart_ScbEnableIntr();
+ 188:Generated_Source\PSoC4/uart.c **** 
+ 189:Generated_Source\PSoC4/uart.c ****     /* Call PostEnable function specific to current operation mode */
+ 190:Generated_Source\PSoC4/uart.c ****     uart_ScbModePostEnable();
+ 191:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 192:Generated_Source\PSoC4/uart.c **** }
+ 193:Generated_Source\PSoC4/uart.c **** 
+ 194:Generated_Source\PSoC4/uart.c **** 
+ 195:Generated_Source\PSoC4/uart.c **** /*******************************************************************************
+ 196:Generated_Source\PSoC4/uart.c **** * Function Name: uart_Start
+ 197:Generated_Source\PSoC4/uart.c **** ****************************************************************************//**
+ 198:Generated_Source\PSoC4/uart.c **** *
+ 199:Generated_Source\PSoC4/uart.c **** *  Invokes uart_Init() and uart_Enable().
+ 200:Generated_Source\PSoC4/uart.c **** *  After this function call, the component is enabled and ready for operation.
+ 201:Generated_Source\PSoC4/uart.c **** *  When configuration is set to "Unconfigured SCB", the component must first be
+ 202:Generated_Source\PSoC4/uart.c **** *  initialized to operate in one of the following configurations: I2C, SPI, UART
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 5
+
+
+ 203:Generated_Source\PSoC4/uart.c **** *  or EZI2C. Otherwise this function does not enable the component.
+ 204:Generated_Source\PSoC4/uart.c **** *
+ 205:Generated_Source\PSoC4/uart.c **** * \globalvars
+ 206:Generated_Source\PSoC4/uart.c **** *  uart_initVar - used to check initial configuration, modified
+ 207:Generated_Source\PSoC4/uart.c **** *  on first function call.
+ 208:Generated_Source\PSoC4/uart.c **** *
+ 209:Generated_Source\PSoC4/uart.c **** *******************************************************************************/
+ 210:Generated_Source\PSoC4/uart.c **** void uart_Start(void)
+ 211:Generated_Source\PSoC4/uart.c **** {
+ 212:Generated_Source\PSoC4/uart.c ****     if (0u == uart_initVar)
+ 213:Generated_Source\PSoC4/uart.c ****     {
+ 214:Generated_Source\PSoC4/uart.c ****         uart_Init();
+ 215:Generated_Source\PSoC4/uart.c ****         uart_initVar = 1u; /* Component was initialized */
+ 216:Generated_Source\PSoC4/uart.c ****     }
+ 217:Generated_Source\PSoC4/uart.c **** 
+ 218:Generated_Source\PSoC4/uart.c ****     uart_Enable();
+ 219:Generated_Source\PSoC4/uart.c **** }
+ 220:Generated_Source\PSoC4/uart.c **** 
+ 221:Generated_Source\PSoC4/uart.c **** 
+ 222:Generated_Source\PSoC4/uart.c **** /*******************************************************************************
+ 223:Generated_Source\PSoC4/uart.c **** * Function Name: uart_Stop
+ 224:Generated_Source\PSoC4/uart.c **** ****************************************************************************//**
+ 225:Generated_Source\PSoC4/uart.c **** *
+ 226:Generated_Source\PSoC4/uart.c **** *  Disables the uart component: disable the hardware and internal 
+ 227:Generated_Source\PSoC4/uart.c **** *  interrupt. It also disables all TX interrupt sources so as not to cause an 
+ 228:Generated_Source\PSoC4/uart.c **** *  unexpected interrupt trigger because after the component is enabled, the 
+ 229:Generated_Source\PSoC4/uart.c **** *  TX FIFO is empty.
+ 230:Generated_Source\PSoC4/uart.c **** *  Refer to the function uart_Enable() for the interrupt 
+ 231:Generated_Source\PSoC4/uart.c **** *  configuration details.
+ 232:Generated_Source\PSoC4/uart.c **** *  This function disables the SCB component without checking to see if 
+ 233:Generated_Source\PSoC4/uart.c **** *  communication is in progress. Before calling this function it may be 
+ 234:Generated_Source\PSoC4/uart.c **** *  necessary to check the status of communication to make sure communication 
+ 235:Generated_Source\PSoC4/uart.c **** *  is complete. If this is not done then communication could be stopped mid 
+ 236:Generated_Source\PSoC4/uart.c **** *  byte and corrupted data could result.
+ 237:Generated_Source\PSoC4/uart.c **** *
+ 238:Generated_Source\PSoC4/uart.c **** *******************************************************************************/
+ 239:Generated_Source\PSoC4/uart.c **** void uart_Stop(void)
+ 240:Generated_Source\PSoC4/uart.c **** {
+ 241:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_IRQ_INTERNAL)
+ 242:Generated_Source\PSoC4/uart.c ****     uart_DisableInt();
+ 243:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_IRQ_INTERNAL) */
+ 244:Generated_Source\PSoC4/uart.c **** 
+ 245:Generated_Source\PSoC4/uart.c ****     /* Call Stop function specific to current operation mode */
+ 246:Generated_Source\PSoC4/uart.c ****     uart_ScbModeStop();
+ 247:Generated_Source\PSoC4/uart.c **** 
+ 248:Generated_Source\PSoC4/uart.c ****     /* Disable SCB IP */
+ 249:Generated_Source\PSoC4/uart.c ****     uart_CTRL_REG &= (uint32) ~uart_CTRL_ENABLED;
+ 250:Generated_Source\PSoC4/uart.c **** 
+ 251:Generated_Source\PSoC4/uart.c ****     /* Disable all TX interrupt sources so as not to cause an unexpected
+ 252:Generated_Source\PSoC4/uart.c ****     * interrupt trigger after the component will be enabled because the 
+ 253:Generated_Source\PSoC4/uart.c ****     * TX FIFO is empty.
+ 254:Generated_Source\PSoC4/uart.c ****     * For SCB IP v0, it is critical as it does not mask-out interrupt
+ 255:Generated_Source\PSoC4/uart.c ****     * sources when it is disabled. This can cause a code lock-up in the
+ 256:Generated_Source\PSoC4/uart.c ****     * interrupt handler because TX FIFO cannot be loaded after the block
+ 257:Generated_Source\PSoC4/uart.c ****     * is disabled.
+ 258:Generated_Source\PSoC4/uart.c ****     */
+ 259:Generated_Source\PSoC4/uart.c ****     uart_SetTxInterruptMode(uart_NO_INTR_SOURCES);
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 6
+
+
+ 260:Generated_Source\PSoC4/uart.c **** 
+ 261:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_IRQ_INTERNAL)
+ 262:Generated_Source\PSoC4/uart.c ****     uart_ClearPendingInt();
+ 263:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_IRQ_INTERNAL) */
+ 264:Generated_Source\PSoC4/uart.c **** }
+ 265:Generated_Source\PSoC4/uart.c **** 
+ 266:Generated_Source\PSoC4/uart.c **** 
+ 267:Generated_Source\PSoC4/uart.c **** /*******************************************************************************
+ 268:Generated_Source\PSoC4/uart.c **** * Function Name: uart_SetRxFifoLevel
+ 269:Generated_Source\PSoC4/uart.c **** ****************************************************************************//**
+ 270:Generated_Source\PSoC4/uart.c **** *
+ 271:Generated_Source\PSoC4/uart.c **** *  Sets level in the RX FIFO to generate a RX level interrupt.
+ 272:Generated_Source\PSoC4/uart.c **** *  When the RX FIFO has more entries than the RX FIFO level an RX level
+ 273:Generated_Source\PSoC4/uart.c **** *  interrupt request is generated.
+ 274:Generated_Source\PSoC4/uart.c **** *
+ 275:Generated_Source\PSoC4/uart.c **** *  \param level: Level in the RX FIFO to generate RX level interrupt.
+ 276:Generated_Source\PSoC4/uart.c **** *   The range of valid level values is between 0 and RX FIFO depth - 1.
+ 277:Generated_Source\PSoC4/uart.c **** *
+ 278:Generated_Source\PSoC4/uart.c **** *******************************************************************************/
+ 279:Generated_Source\PSoC4/uart.c **** void uart_SetRxFifoLevel(uint32 level)
+ 280:Generated_Source\PSoC4/uart.c **** {
+ 281:Generated_Source\PSoC4/uart.c ****     uint32 rxFifoCtrl;
+ 282:Generated_Source\PSoC4/uart.c **** 
+ 283:Generated_Source\PSoC4/uart.c ****     rxFifoCtrl = uart_RX_FIFO_CTRL_REG;
+ 284:Generated_Source\PSoC4/uart.c **** 
+ 285:Generated_Source\PSoC4/uart.c ****     rxFifoCtrl &= ((uint32) ~uart_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK); /* Clear level mask bits */
+ 286:Generated_Source\PSoC4/uart.c ****     rxFifoCtrl |= ((uint32) (uart_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
+ 287:Generated_Source\PSoC4/uart.c **** 
+ 288:Generated_Source\PSoC4/uart.c ****     uart_RX_FIFO_CTRL_REG = rxFifoCtrl;
+ 289:Generated_Source\PSoC4/uart.c **** }
+ 290:Generated_Source\PSoC4/uart.c **** 
+ 291:Generated_Source\PSoC4/uart.c **** 
+ 292:Generated_Source\PSoC4/uart.c **** /*******************************************************************************
+ 293:Generated_Source\PSoC4/uart.c **** * Function Name: uart_SetTxFifoLevel
+ 294:Generated_Source\PSoC4/uart.c **** ****************************************************************************//**
+ 295:Generated_Source\PSoC4/uart.c **** *
+ 296:Generated_Source\PSoC4/uart.c **** *  Sets level in the TX FIFO to generate a TX level interrupt.
+ 297:Generated_Source\PSoC4/uart.c **** *  When the TX FIFO has less entries than the TX FIFO level an TX level
+ 298:Generated_Source\PSoC4/uart.c **** *  interrupt request is generated.
+ 299:Generated_Source\PSoC4/uart.c **** *
+ 300:Generated_Source\PSoC4/uart.c **** *  \param level: Level in the TX FIFO to generate TX level interrupt.
+ 301:Generated_Source\PSoC4/uart.c **** *   The range of valid level values is between 0 and TX FIFO depth - 1.
+ 302:Generated_Source\PSoC4/uart.c **** *
+ 303:Generated_Source\PSoC4/uart.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC4/uart.c **** void uart_SetTxFifoLevel(uint32 level)
+ 305:Generated_Source\PSoC4/uart.c **** {
+ 306:Generated_Source\PSoC4/uart.c ****     uint32 txFifoCtrl;
+ 307:Generated_Source\PSoC4/uart.c **** 
+ 308:Generated_Source\PSoC4/uart.c ****     txFifoCtrl = uart_TX_FIFO_CTRL_REG;
+ 309:Generated_Source\PSoC4/uart.c **** 
+ 310:Generated_Source\PSoC4/uart.c ****     txFifoCtrl &= ((uint32) ~uart_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK); /* Clear level mask bits */
+ 311:Generated_Source\PSoC4/uart.c ****     txFifoCtrl |= ((uint32) (uart_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
+ 312:Generated_Source\PSoC4/uart.c **** 
+ 313:Generated_Source\PSoC4/uart.c ****     uart_TX_FIFO_CTRL_REG = txFifoCtrl;
+ 314:Generated_Source\PSoC4/uart.c **** }
+ 315:Generated_Source\PSoC4/uart.c **** 
+ 316:Generated_Source\PSoC4/uart.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 7
+
+
+ 317:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_IRQ_INTERNAL)
+ 318:Generated_Source\PSoC4/uart.c ****     /*******************************************************************************
+ 319:Generated_Source\PSoC4/uart.c ****     * Function Name: uart_SetCustomInterruptHandler
+ 320:Generated_Source\PSoC4/uart.c ****     ****************************************************************************//**
+ 321:Generated_Source\PSoC4/uart.c ****     *
+ 322:Generated_Source\PSoC4/uart.c ****     *  Registers a function to be called by the internal interrupt handler.
+ 323:Generated_Source\PSoC4/uart.c ****     *  First the function that is registered is called, then the internal interrupt
+ 324:Generated_Source\PSoC4/uart.c ****     *  handler performs any operation such as software buffer management functions
+ 325:Generated_Source\PSoC4/uart.c ****     *  before the interrupt returns.  It is the user's responsibility not to break
+ 326:Generated_Source\PSoC4/uart.c ****     *  the software buffer operations. Only one custom handler is supported, which
+ 327:Generated_Source\PSoC4/uart.c ****     *  is the function provided by the most recent call.
+ 328:Generated_Source\PSoC4/uart.c ****     *  At the initialization time no custom handler is registered.
+ 329:Generated_Source\PSoC4/uart.c ****     *
+ 330:Generated_Source\PSoC4/uart.c ****     *  \param func: Pointer to the function to register.
+ 331:Generated_Source\PSoC4/uart.c ****     *        The value NULL indicates to remove the current custom interrupt
+ 332:Generated_Source\PSoC4/uart.c ****     *        handler.
+ 333:Generated_Source\PSoC4/uart.c ****     *
+ 334:Generated_Source\PSoC4/uart.c ****     *******************************************************************************/
+ 335:Generated_Source\PSoC4/uart.c ****     void uart_SetCustomInterruptHandler(void (*func)(void))
+ 336:Generated_Source\PSoC4/uart.c ****     {
+ 337:Generated_Source\PSoC4/uart.c ****     #if !defined (CY_REMOVE_uart_CUSTOM_INTR_HANDLER)
+ 338:Generated_Source\PSoC4/uart.c ****         uart_customIntrHandler = func; /* Register interrupt handler */
+ 339:Generated_Source\PSoC4/uart.c ****     #else
+ 340:Generated_Source\PSoC4/uart.c ****         if (NULL != func)
+ 341:Generated_Source\PSoC4/uart.c ****         {
+ 342:Generated_Source\PSoC4/uart.c ****             /* Suppress compiler warning */
+ 343:Generated_Source\PSoC4/uart.c ****         }
+ 344:Generated_Source\PSoC4/uart.c ****     #endif /* !defined (CY_REMOVE_uart_CUSTOM_INTR_HANDLER) */
+ 345:Generated_Source\PSoC4/uart.c ****     }
+ 346:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_IRQ_INTERNAL) */
+ 347:Generated_Source\PSoC4/uart.c **** 
+ 348:Generated_Source\PSoC4/uart.c **** 
+ 349:Generated_Source\PSoC4/uart.c **** /*******************************************************************************
+ 350:Generated_Source\PSoC4/uart.c **** * Function Name: uart_ScbModeEnableIntr
+ 351:Generated_Source\PSoC4/uart.c **** ****************************************************************************//**
+ 352:Generated_Source\PSoC4/uart.c **** *
+ 353:Generated_Source\PSoC4/uart.c **** *  Enables an interrupt for a specific mode.
+ 354:Generated_Source\PSoC4/uart.c **** *
+ 355:Generated_Source\PSoC4/uart.c **** *******************************************************************************/
+ 356:Generated_Source\PSoC4/uart.c **** static void uart_ScbEnableIntr(void)
+ 357:Generated_Source\PSoC4/uart.c **** {
+ 358:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_IRQ_INTERNAL)
+ 359:Generated_Source\PSoC4/uart.c ****     /* Enable interrupt in NVIC */
+ 360:Generated_Source\PSoC4/uart.c ****     #if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+ 361:Generated_Source\PSoC4/uart.c ****         if (0u != uart_scbEnableIntr)
+ 362:Generated_Source\PSoC4/uart.c ****         {
+ 363:Generated_Source\PSoC4/uart.c ****             uart_EnableInt();
+ 364:Generated_Source\PSoC4/uart.c ****         }
+ 365:Generated_Source\PSoC4/uart.c **** 
+ 366:Generated_Source\PSoC4/uart.c ****     #else
+ 367:Generated_Source\PSoC4/uart.c ****         uart_EnableInt();
+ 368:Generated_Source\PSoC4/uart.c **** 
+ 369:Generated_Source\PSoC4/uart.c ****     #endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 370:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_IRQ_INTERNAL) */
+ 371:Generated_Source\PSoC4/uart.c **** }
+ 372:Generated_Source\PSoC4/uart.c **** 
+ 373:Generated_Source\PSoC4/uart.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 8
+
+
+ 374:Generated_Source\PSoC4/uart.c **** /*******************************************************************************
+ 375:Generated_Source\PSoC4/uart.c **** * Function Name: uart_ScbModePostEnable
+ 376:Generated_Source\PSoC4/uart.c **** ****************************************************************************//**
+ 377:Generated_Source\PSoC4/uart.c **** *
+ 378:Generated_Source\PSoC4/uart.c **** *  Calls the PostEnable function for a specific operation mode.
+ 379:Generated_Source\PSoC4/uart.c **** *
+ 380:Generated_Source\PSoC4/uart.c **** *******************************************************************************/
+ 381:Generated_Source\PSoC4/uart.c **** static void uart_ScbModePostEnable(void)
+ 382:Generated_Source\PSoC4/uart.c **** {
+  27              		.loc 1 382 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 4, -8
+  34              		.cfi_offset 14, -4
+ 383:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+ 384:Generated_Source\PSoC4/uart.c **** #if (!uart_CY_SCBIP_V1)
+ 385:Generated_Source\PSoC4/uart.c ****     if (uart_SCB_MODE_SPI_RUNTM_CFG)
+ 386:Generated_Source\PSoC4/uart.c ****     {
+ 387:Generated_Source\PSoC4/uart.c ****         uart_SpiPostEnable();
+ 388:Generated_Source\PSoC4/uart.c ****     }
+ 389:Generated_Source\PSoC4/uart.c ****     else if (uart_SCB_MODE_UART_RUNTM_CFG)
+ 390:Generated_Source\PSoC4/uart.c ****     {
+ 391:Generated_Source\PSoC4/uart.c ****         uart_UartPostEnable();
+ 392:Generated_Source\PSoC4/uart.c ****     }
+ 393:Generated_Source\PSoC4/uart.c ****     else
+ 394:Generated_Source\PSoC4/uart.c ****     {
+ 395:Generated_Source\PSoC4/uart.c ****         /* Unknown mode: do nothing */
+ 396:Generated_Source\PSoC4/uart.c ****     }
+ 397:Generated_Source\PSoC4/uart.c **** #endif /* (!uart_CY_SCBIP_V1) */
+ 398:Generated_Source\PSoC4/uart.c **** 
+ 399:Generated_Source\PSoC4/uart.c **** #elif (uart_SCB_MODE_SPI_CONST_CFG)
+ 400:Generated_Source\PSoC4/uart.c ****     uart_SpiPostEnable();
+ 401:Generated_Source\PSoC4/uart.c **** 
+ 402:Generated_Source\PSoC4/uart.c **** #elif (uart_SCB_MODE_UART_CONST_CFG)
+ 403:Generated_Source\PSoC4/uart.c ****     uart_UartPostEnable();
+  35              		.loc 1 403 0
+  36 0002 FFF7FEFF 		bl	uart_UartPostEnable
+  37              	.LVL0:
+ 404:Generated_Source\PSoC4/uart.c **** 
+ 405:Generated_Source\PSoC4/uart.c **** #else
+ 406:Generated_Source\PSoC4/uart.c ****     /* Unknown mode: do nothing */
+ 407:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 408:Generated_Source\PSoC4/uart.c **** }
+  38              		.loc 1 408 0
+  39              		@ sp needed
+  40 0006 10BD     		pop	{r4, pc}
+  41              		.cfi_endproc
+  42              	.LFE7:
+  43              		.size	uart_ScbModePostEnable, .-uart_ScbModePostEnable
+  44              		.section	.text.uart_ScbModeStop,"ax",%progbits
+  45              		.align	2
+  46              		.code	16
+  47              		.thumb_func
+  48              		.type	uart_ScbModeStop, %function
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 9
+
+
+  49              	uart_ScbModeStop:
+  50              	.LFB8:
+ 409:Generated_Source\PSoC4/uart.c **** 
+ 410:Generated_Source\PSoC4/uart.c **** 
+ 411:Generated_Source\PSoC4/uart.c **** /*******************************************************************************
+ 412:Generated_Source\PSoC4/uart.c **** * Function Name: uart_ScbModeStop
+ 413:Generated_Source\PSoC4/uart.c **** ****************************************************************************//**
+ 414:Generated_Source\PSoC4/uart.c **** *
+ 415:Generated_Source\PSoC4/uart.c **** *  Calls the Stop function for a specific operation mode.
+ 416:Generated_Source\PSoC4/uart.c **** *
+ 417:Generated_Source\PSoC4/uart.c **** *******************************************************************************/
+ 418:Generated_Source\PSoC4/uart.c **** static void uart_ScbModeStop(void)
+ 419:Generated_Source\PSoC4/uart.c **** {
+  51              		.loc 1 419 0
+  52              		.cfi_startproc
+  53              		@ args = 0, pretend = 0, frame = 0
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55 0000 10B5     		push	{r4, lr}
+  56              		.cfi_def_cfa_offset 8
+  57              		.cfi_offset 4, -8
+  58              		.cfi_offset 14, -4
+ 420:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+ 421:Generated_Source\PSoC4/uart.c ****     if (uart_SCB_MODE_I2C_RUNTM_CFG)
+ 422:Generated_Source\PSoC4/uart.c ****     {
+ 423:Generated_Source\PSoC4/uart.c ****         uart_I2CStop();
+ 424:Generated_Source\PSoC4/uart.c ****     }
+ 425:Generated_Source\PSoC4/uart.c ****     else if (uart_SCB_MODE_EZI2C_RUNTM_CFG)
+ 426:Generated_Source\PSoC4/uart.c ****     {
+ 427:Generated_Source\PSoC4/uart.c ****         uart_EzI2CStop();
+ 428:Generated_Source\PSoC4/uart.c ****     }
+ 429:Generated_Source\PSoC4/uart.c **** #if (!uart_CY_SCBIP_V1)
+ 430:Generated_Source\PSoC4/uart.c ****     else if (uart_SCB_MODE_SPI_RUNTM_CFG)
+ 431:Generated_Source\PSoC4/uart.c ****     {
+ 432:Generated_Source\PSoC4/uart.c ****         uart_SpiStop();
+ 433:Generated_Source\PSoC4/uart.c ****     }
+ 434:Generated_Source\PSoC4/uart.c ****     else if (uart_SCB_MODE_UART_RUNTM_CFG)
+ 435:Generated_Source\PSoC4/uart.c ****     {
+ 436:Generated_Source\PSoC4/uart.c ****         uart_UartStop();
+ 437:Generated_Source\PSoC4/uart.c ****     }
+ 438:Generated_Source\PSoC4/uart.c **** #endif /* (!uart_CY_SCBIP_V1) */
+ 439:Generated_Source\PSoC4/uart.c ****     else
+ 440:Generated_Source\PSoC4/uart.c ****     {
+ 441:Generated_Source\PSoC4/uart.c ****         /* Unknown mode: do nothing */
+ 442:Generated_Source\PSoC4/uart.c ****     }
+ 443:Generated_Source\PSoC4/uart.c **** #elif (uart_SCB_MODE_I2C_CONST_CFG)
+ 444:Generated_Source\PSoC4/uart.c ****     uart_I2CStop();
+ 445:Generated_Source\PSoC4/uart.c **** 
+ 446:Generated_Source\PSoC4/uart.c **** #elif (uart_SCB_MODE_EZI2C_CONST_CFG)
+ 447:Generated_Source\PSoC4/uart.c ****     uart_EzI2CStop();
+ 448:Generated_Source\PSoC4/uart.c **** 
+ 449:Generated_Source\PSoC4/uart.c **** #elif (uart_SCB_MODE_SPI_CONST_CFG)
+ 450:Generated_Source\PSoC4/uart.c ****     uart_SpiStop();
+ 451:Generated_Source\PSoC4/uart.c **** 
+ 452:Generated_Source\PSoC4/uart.c **** #elif (uart_SCB_MODE_UART_CONST_CFG)
+ 453:Generated_Source\PSoC4/uart.c ****     uart_UartStop();
+  59              		.loc 1 453 0
+  60 0002 FFF7FEFF 		bl	uart_UartStop
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 10
+
+
+  61              	.LVL1:
+ 454:Generated_Source\PSoC4/uart.c **** 
+ 455:Generated_Source\PSoC4/uart.c **** #else
+ 456:Generated_Source\PSoC4/uart.c ****     /* Unknown mode: do nothing */
+ 457:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 458:Generated_Source\PSoC4/uart.c **** }
+  62              		.loc 1 458 0
+  63              		@ sp needed
+  64 0006 10BD     		pop	{r4, pc}
+  65              		.cfi_endproc
+  66              	.LFE8:
+  67              		.size	uart_ScbModeStop, .-uart_ScbModeStop
+  68              		.section	.text.uart_Init,"ax",%progbits
+  69              		.align	2
+  70              		.global	uart_Init
+  71              		.code	16
+  72              		.thumb_func
+  73              		.type	uart_Init, %function
+  74              	uart_Init:
+  75              	.LFB0:
+ 124:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+  76              		.loc 1 124 0
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80 0000 10B5     		push	{r4, lr}
+  81              		.cfi_def_cfa_offset 8
+  82              		.cfi_offset 4, -8
+  83              		.cfi_offset 14, -4
+ 142:Generated_Source\PSoC4/uart.c **** 
+  84              		.loc 1 142 0
+  85 0002 FFF7FEFF 		bl	uart_UartInit
+  86              	.LVL2:
+ 148:Generated_Source\PSoC4/uart.c **** 
+  87              		.loc 1 148 0
+  88              		@ sp needed
+  89 0006 10BD     		pop	{r4, pc}
+  90              		.cfi_endproc
+  91              	.LFE0:
+  92              		.size	uart_Init, .-uart_Init
+  93              		.section	.text.uart_Enable,"ax",%progbits
+  94              		.align	2
+  95              		.global	uart_Enable
+  96              		.code	16
+  97              		.thumb_func
+  98              		.type	uart_Enable, %function
+  99              	uart_Enable:
+ 100              	.LFB1:
+ 172:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+ 101              		.loc 1 172 0
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105 0000 10B5     		push	{r4, lr}
+ 106              		.cfi_def_cfa_offset 8
+ 107              		.cfi_offset 4, -8
+ 108              		.cfi_offset 14, -4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 11
+
+
+ 185:Generated_Source\PSoC4/uart.c **** 
+ 109              		.loc 1 185 0
+ 110 0002 044A     		ldr	r2, .L5
+ 111 0004 1368     		ldr	r3, [r2]
+ 112 0006 8021     		movs	r1, #128
+ 113 0008 0906     		lsls	r1, r1, #24
+ 114 000a 0B43     		orrs	r3, r1
+ 115 000c 1360     		str	r3, [r2]
+ 190:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 116              		.loc 1 190 0
+ 117 000e FFF7FEFF 		bl	uart_ScbModePostEnable
+ 118              	.LVL3:
+ 192:Generated_Source\PSoC4/uart.c **** 
+ 119              		.loc 1 192 0
+ 120              		@ sp needed
+ 121 0012 10BD     		pop	{r4, pc}
+ 122              	.L6:
+ 123              		.align	2
+ 124              	.L5:
+ 125 0014 00000640 		.word	1074135040
+ 126              		.cfi_endproc
+ 127              	.LFE1:
+ 128              		.size	uart_Enable, .-uart_Enable
+ 129              		.section	.text.uart_Start,"ax",%progbits
+ 130              		.align	2
+ 131              		.global	uart_Start
+ 132              		.code	16
+ 133              		.thumb_func
+ 134              		.type	uart_Start, %function
+ 135              	uart_Start:
+ 136              	.LFB2:
+ 211:Generated_Source\PSoC4/uart.c ****     if (0u == uart_initVar)
+ 137              		.loc 1 211 0
+ 138              		.cfi_startproc
+ 139              		@ args = 0, pretend = 0, frame = 0
+ 140              		@ frame_needed = 0, uses_anonymous_args = 0
+ 141 0000 10B5     		push	{r4, lr}
+ 142              		.cfi_def_cfa_offset 8
+ 143              		.cfi_offset 4, -8
+ 144              		.cfi_offset 14, -4
+ 212:Generated_Source\PSoC4/uart.c ****     {
+ 145              		.loc 1 212 0
+ 146 0002 064B     		ldr	r3, .L9
+ 147 0004 1B78     		ldrb	r3, [r3]
+ 148 0006 002B     		cmp	r3, #0
+ 149 0008 04D1     		bne	.L8
+ 214:Generated_Source\PSoC4/uart.c ****         uart_initVar = 1u; /* Component was initialized */
+ 150              		.loc 1 214 0
+ 151 000a FFF7FEFF 		bl	uart_Init
+ 152              	.LVL4:
+ 215:Generated_Source\PSoC4/uart.c ****     }
+ 153              		.loc 1 215 0
+ 154 000e 0122     		movs	r2, #1
+ 155 0010 024B     		ldr	r3, .L9
+ 156 0012 1A70     		strb	r2, [r3]
+ 157              	.L8:
+ 218:Generated_Source\PSoC4/uart.c **** }
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 12
+
+
+ 158              		.loc 1 218 0
+ 159 0014 FFF7FEFF 		bl	uart_Enable
+ 160              	.LVL5:
+ 219:Generated_Source\PSoC4/uart.c **** 
+ 161              		.loc 1 219 0
+ 162              		@ sp needed
+ 163 0018 10BD     		pop	{r4, pc}
+ 164              	.L10:
+ 165 001a C046     		.align	2
+ 166              	.L9:
+ 167 001c 00000000 		.word	.LANCHOR0
+ 168              		.cfi_endproc
+ 169              	.LFE2:
+ 170              		.size	uart_Start, .-uart_Start
+ 171              		.section	.text.uart_Stop,"ax",%progbits
+ 172              		.align	2
+ 173              		.global	uart_Stop
+ 174              		.code	16
+ 175              		.thumb_func
+ 176              		.type	uart_Stop, %function
+ 177              	uart_Stop:
+ 178              	.LFB3:
+ 240:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_IRQ_INTERNAL)
+ 179              		.loc 1 240 0
+ 180              		.cfi_startproc
+ 181              		@ args = 0, pretend = 0, frame = 0
+ 182              		@ frame_needed = 0, uses_anonymous_args = 0
+ 183 0000 10B5     		push	{r4, lr}
+ 184              		.cfi_def_cfa_offset 8
+ 185              		.cfi_offset 4, -8
+ 186              		.cfi_offset 14, -4
+ 246:Generated_Source\PSoC4/uart.c **** 
+ 187              		.loc 1 246 0
+ 188 0002 FFF7FEFF 		bl	uart_ScbModeStop
+ 189              	.LVL6:
+ 249:Generated_Source\PSoC4/uart.c **** 
+ 190              		.loc 1 249 0
+ 191 0006 044A     		ldr	r2, .L12
+ 192 0008 1368     		ldr	r3, [r2]
+ 193 000a 5B00     		lsls	r3, r3, #1
+ 194 000c 5B08     		lsrs	r3, r3, #1
+ 195 000e 1360     		str	r3, [r2]
+ 259:Generated_Source\PSoC4/uart.c **** 
+ 196              		.loc 1 259 0
+ 197 0010 0022     		movs	r2, #0
+ 198 0012 024B     		ldr	r3, .L12+4
+ 199 0014 1A60     		str	r2, [r3]
+ 264:Generated_Source\PSoC4/uart.c **** 
+ 200              		.loc 1 264 0
+ 201              		@ sp needed
+ 202 0016 10BD     		pop	{r4, pc}
+ 203              	.L13:
+ 204              		.align	2
+ 205              	.L12:
+ 206 0018 00000640 		.word	1074135040
+ 207 001c 880F0640 		.word	1074139016
+ 208              		.cfi_endproc
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 13
+
+
+ 209              	.LFE3:
+ 210              		.size	uart_Stop, .-uart_Stop
+ 211              		.section	.text.uart_SetRxFifoLevel,"ax",%progbits
+ 212              		.align	2
+ 213              		.global	uart_SetRxFifoLevel
+ 214              		.code	16
+ 215              		.thumb_func
+ 216              		.type	uart_SetRxFifoLevel, %function
+ 217              	uart_SetRxFifoLevel:
+ 218              	.LFB4:
+ 280:Generated_Source\PSoC4/uart.c ****     uint32 rxFifoCtrl;
+ 219              		.loc 1 280 0
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 0
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223              		@ link register save eliminated.
+ 224              	.LVL7:
+ 283:Generated_Source\PSoC4/uart.c **** 
+ 225              		.loc 1 283 0
+ 226 0000 034A     		ldr	r2, .L15
+ 227 0002 1368     		ldr	r3, [r2]
+ 228              	.LVL8:
+ 285:Generated_Source\PSoC4/uart.c ****     rxFifoCtrl |= ((uint32) (uart_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
+ 229              		.loc 1 285 0
+ 230 0004 0721     		movs	r1, #7
+ 231 0006 8B43     		bics	r3, r1
+ 232              	.LVL9:
+ 286:Generated_Source\PSoC4/uart.c **** 
+ 233              		.loc 1 286 0
+ 234 0008 0840     		ands	r0, r1
+ 235              	.LVL10:
+ 236 000a 1843     		orrs	r0, r3
+ 237              	.LVL11:
+ 288:Generated_Source\PSoC4/uart.c **** }
+ 238              		.loc 1 288 0
+ 239 000c 1060     		str	r0, [r2]
+ 289:Generated_Source\PSoC4/uart.c **** 
+ 240              		.loc 1 289 0
+ 241              		@ sp needed
+ 242 000e 7047     		bx	lr
+ 243              	.L16:
+ 244              		.align	2
+ 245              	.L15:
+ 246 0010 04030640 		.word	1074135812
+ 247              		.cfi_endproc
+ 248              	.LFE4:
+ 249              		.size	uart_SetRxFifoLevel, .-uart_SetRxFifoLevel
+ 250              		.section	.text.uart_SetTxFifoLevel,"ax",%progbits
+ 251              		.align	2
+ 252              		.global	uart_SetTxFifoLevel
+ 253              		.code	16
+ 254              		.thumb_func
+ 255              		.type	uart_SetTxFifoLevel, %function
+ 256              	uart_SetTxFifoLevel:
+ 257              	.LFB5:
+ 305:Generated_Source\PSoC4/uart.c ****     uint32 txFifoCtrl;
+ 258              		.loc 1 305 0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 14
+
+
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262              		@ link register save eliminated.
+ 263              	.LVL12:
+ 308:Generated_Source\PSoC4/uart.c **** 
+ 264              		.loc 1 308 0
+ 265 0000 034A     		ldr	r2, .L18
+ 266 0002 1368     		ldr	r3, [r2]
+ 267              	.LVL13:
+ 310:Generated_Source\PSoC4/uart.c ****     txFifoCtrl |= ((uint32) (uart_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
+ 268              		.loc 1 310 0
+ 269 0004 0721     		movs	r1, #7
+ 270 0006 8B43     		bics	r3, r1
+ 271              	.LVL14:
+ 311:Generated_Source\PSoC4/uart.c **** 
+ 272              		.loc 1 311 0
+ 273 0008 0840     		ands	r0, r1
+ 274              	.LVL15:
+ 275 000a 1843     		orrs	r0, r3
+ 276              	.LVL16:
+ 313:Generated_Source\PSoC4/uart.c **** }
+ 277              		.loc 1 313 0
+ 278 000c 1060     		str	r0, [r2]
+ 314:Generated_Source\PSoC4/uart.c **** 
+ 279              		.loc 1 314 0
+ 280              		@ sp needed
+ 281 000e 7047     		bx	lr
+ 282              	.L19:
+ 283              		.align	2
+ 284              	.L18:
+ 285 0010 04020640 		.word	1074135556
+ 286              		.cfi_endproc
+ 287              	.LFE5:
+ 288              		.size	uart_SetTxFifoLevel, .-uart_SetTxFifoLevel
+ 289              		.section	.text.uart_I2CSlaveNackGeneration,"ax",%progbits
+ 290              		.align	2
+ 291              		.global	uart_I2CSlaveNackGeneration
+ 292              		.code	16
+ 293              		.thumb_func
+ 294              		.type	uart_I2CSlaveNackGeneration, %function
+ 295              	uart_I2CSlaveNackGeneration:
+ 296              	.LFB9:
+ 459:Generated_Source\PSoC4/uart.c **** 
+ 460:Generated_Source\PSoC4/uart.c **** 
+ 461:Generated_Source\PSoC4/uart.c **** #if (uart_SCB_MODE_UNCONFIG_CONST_CFG)
+ 462:Generated_Source\PSoC4/uart.c ****     /*******************************************************************************
+ 463:Generated_Source\PSoC4/uart.c ****     * Function Name: uart_SetPins
+ 464:Generated_Source\PSoC4/uart.c ****     ****************************************************************************//**
+ 465:Generated_Source\PSoC4/uart.c ****     *
+ 466:Generated_Source\PSoC4/uart.c ****     *  Sets the pins settings accordingly to the selected operation mode.
+ 467:Generated_Source\PSoC4/uart.c ****     *  Only available in the Unconfigured operation mode. The mode specific
+ 468:Generated_Source\PSoC4/uart.c ****     *  initialization function calls it.
+ 469:Generated_Source\PSoC4/uart.c ****     *  Pins configuration is set by PSoC Creator when a specific mode of operation
+ 470:Generated_Source\PSoC4/uart.c ****     *  is selected in design time.
+ 471:Generated_Source\PSoC4/uart.c ****     *
+ 472:Generated_Source\PSoC4/uart.c ****     *  \param mode:      Mode of SCB operation.
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 15
+
+
+ 473:Generated_Source\PSoC4/uart.c ****     *  \param subMode:   Sub-mode of SCB operation. It is only required for SPI and UART
+ 474:Generated_Source\PSoC4/uart.c ****     *             modes.
+ 475:Generated_Source\PSoC4/uart.c ****     *  \param uartEnableMask: enables TX or RX direction and RTS and CTS signals.
+ 476:Generated_Source\PSoC4/uart.c ****     *
+ 477:Generated_Source\PSoC4/uart.c ****     *******************************************************************************/
+ 478:Generated_Source\PSoC4/uart.c ****     void uart_SetPins(uint32 mode, uint32 subMode, uint32 uartEnableMask)
+ 479:Generated_Source\PSoC4/uart.c ****     {
+ 480:Generated_Source\PSoC4/uart.c ****         uint32 pinsDm[uart_SCB_PINS_NUMBER];
+ 481:Generated_Source\PSoC4/uart.c ****         uint32 i;
+ 482:Generated_Source\PSoC4/uart.c ****         
+ 483:Generated_Source\PSoC4/uart.c ****     #if (!uart_CY_SCBIP_V1)
+ 484:Generated_Source\PSoC4/uart.c ****         uint32 pinsInBuf = 0u;
+ 485:Generated_Source\PSoC4/uart.c ****     #endif /* (!uart_CY_SCBIP_V1) */
+ 486:Generated_Source\PSoC4/uart.c ****         
+ 487:Generated_Source\PSoC4/uart.c ****         uint32 hsiomSel[uart_SCB_PINS_NUMBER] = 
+ 488:Generated_Source\PSoC4/uart.c ****         {
+ 489:Generated_Source\PSoC4/uart.c ****             uart_RX_SCL_MOSI_HSIOM_SEL_GPIO,
+ 490:Generated_Source\PSoC4/uart.c ****             uart_TX_SDA_MISO_HSIOM_SEL_GPIO,
+ 491:Generated_Source\PSoC4/uart.c ****             0u,
+ 492:Generated_Source\PSoC4/uart.c ****             0u,
+ 493:Generated_Source\PSoC4/uart.c ****             0u,
+ 494:Generated_Source\PSoC4/uart.c ****             0u,
+ 495:Generated_Source\PSoC4/uart.c ****             0u,
+ 496:Generated_Source\PSoC4/uart.c ****         };
+ 497:Generated_Source\PSoC4/uart.c **** 
+ 498:Generated_Source\PSoC4/uart.c ****     #if (uart_CY_SCBIP_V1)
+ 499:Generated_Source\PSoC4/uart.c ****         /* Supress compiler warning. */
+ 500:Generated_Source\PSoC4/uart.c ****         if ((0u == subMode) || (0u == uartEnableMask))
+ 501:Generated_Source\PSoC4/uart.c ****         {
+ 502:Generated_Source\PSoC4/uart.c ****         }
+ 503:Generated_Source\PSoC4/uart.c ****     #endif /* (uart_CY_SCBIP_V1) */
+ 504:Generated_Source\PSoC4/uart.c **** 
+ 505:Generated_Source\PSoC4/uart.c ****         /* Set default HSIOM to GPIO and Drive Mode to Analog Hi-Z */
+ 506:Generated_Source\PSoC4/uart.c ****         for (i = 0u; i < uart_SCB_PINS_NUMBER; i++)
+ 507:Generated_Source\PSoC4/uart.c ****         {
+ 508:Generated_Source\PSoC4/uart.c ****             pinsDm[i] = uart_PIN_DM_ALG_HIZ;
+ 509:Generated_Source\PSoC4/uart.c ****         }
+ 510:Generated_Source\PSoC4/uart.c **** 
+ 511:Generated_Source\PSoC4/uart.c ****         if ((uart_SCB_MODE_I2C   == mode) ||
+ 512:Generated_Source\PSoC4/uart.c ****             (uart_SCB_MODE_EZI2C == mode))
+ 513:Generated_Source\PSoC4/uart.c ****         {
+ 514:Generated_Source\PSoC4/uart.c ****         #if (uart_RX_SCL_MOSI_PIN)
+ 515:Generated_Source\PSoC4/uart.c ****             hsiomSel[uart_RX_SCL_MOSI_PIN_INDEX] = uart_RX_SCL_MOSI_HSIOM_SEL_I2C;
+ 516:Generated_Source\PSoC4/uart.c ****             pinsDm  [uart_RX_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_OD_LO;
+ 517:Generated_Source\PSoC4/uart.c ****         #elif (uart_RX_WAKE_SCL_MOSI_PIN)
+ 518:Generated_Source\PSoC4/uart.c ****             hsiomSel[uart_RX_WAKE_SCL_MOSI_PIN_INDEX] = uart_RX_WAKE_SCL_MOSI_HSIOM_SEL_I2C;
+ 519:Generated_Source\PSoC4/uart.c ****             pinsDm  [uart_RX_WAKE_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_OD_LO;
+ 520:Generated_Source\PSoC4/uart.c ****         #else
+ 521:Generated_Source\PSoC4/uart.c ****         #endif /* (uart_RX_SCL_MOSI_PIN) */
+ 522:Generated_Source\PSoC4/uart.c ****         
+ 523:Generated_Source\PSoC4/uart.c ****         #if (uart_TX_SDA_MISO_PIN)
+ 524:Generated_Source\PSoC4/uart.c ****             hsiomSel[uart_TX_SDA_MISO_PIN_INDEX] = uart_TX_SDA_MISO_HSIOM_SEL_I2C;
+ 525:Generated_Source\PSoC4/uart.c ****             pinsDm  [uart_TX_SDA_MISO_PIN_INDEX] = uart_PIN_DM_OD_LO;
+ 526:Generated_Source\PSoC4/uart.c ****         #endif /* (uart_TX_SDA_MISO_PIN) */
+ 527:Generated_Source\PSoC4/uart.c ****         }
+ 528:Generated_Source\PSoC4/uart.c ****     #if (!uart_CY_SCBIP_V1)
+ 529:Generated_Source\PSoC4/uart.c ****         else if (uart_SCB_MODE_SPI == mode)
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 16
+
+
+ 530:Generated_Source\PSoC4/uart.c ****         {
+ 531:Generated_Source\PSoC4/uart.c ****         #if (uart_RX_SCL_MOSI_PIN)
+ 532:Generated_Source\PSoC4/uart.c ****             hsiomSel[uart_RX_SCL_MOSI_PIN_INDEX] = uart_RX_SCL_MOSI_HSIOM_SEL_SPI;
+ 533:Generated_Source\PSoC4/uart.c ****         #elif (uart_RX_WAKE_SCL_MOSI_PIN)
+ 534:Generated_Source\PSoC4/uart.c ****             hsiomSel[uart_RX_WAKE_SCL_MOSI_PIN_INDEX] = uart_RX_WAKE_SCL_MOSI_HSIOM_SEL_SPI;
+ 535:Generated_Source\PSoC4/uart.c ****         #else
+ 536:Generated_Source\PSoC4/uart.c ****         #endif /* (uart_RX_SCL_MOSI_PIN) */
+ 537:Generated_Source\PSoC4/uart.c ****         
+ 538:Generated_Source\PSoC4/uart.c ****         #if (uart_TX_SDA_MISO_PIN)
+ 539:Generated_Source\PSoC4/uart.c ****             hsiomSel[uart_TX_SDA_MISO_PIN_INDEX] = uart_TX_SDA_MISO_HSIOM_SEL_SPI;
+ 540:Generated_Source\PSoC4/uart.c ****         #endif /* (uart_TX_SDA_MISO_PIN) */
+ 541:Generated_Source\PSoC4/uart.c ****         
+ 542:Generated_Source\PSoC4/uart.c ****         #if (uart_SCLK_PIN)
+ 543:Generated_Source\PSoC4/uart.c ****             hsiomSel[uart_SCLK_PIN_INDEX] = uart_SCLK_HSIOM_SEL_SPI;
+ 544:Generated_Source\PSoC4/uart.c ****         #endif /* (uart_SCLK_PIN) */
+ 545:Generated_Source\PSoC4/uart.c **** 
+ 546:Generated_Source\PSoC4/uart.c ****             if (uart_SPI_SLAVE == subMode)
+ 547:Generated_Source\PSoC4/uart.c ****             {
+ 548:Generated_Source\PSoC4/uart.c ****                 /* Slave */
+ 549:Generated_Source\PSoC4/uart.c ****                 pinsDm[uart_RX_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+ 550:Generated_Source\PSoC4/uart.c ****                 pinsDm[uart_TX_SDA_MISO_PIN_INDEX] = uart_PIN_DM_STRONG;
+ 551:Generated_Source\PSoC4/uart.c ****                 pinsDm[uart_SCLK_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+ 552:Generated_Source\PSoC4/uart.c **** 
+ 553:Generated_Source\PSoC4/uart.c ****             #if (uart_SS0_PIN)
+ 554:Generated_Source\PSoC4/uart.c ****                 /* Only SS0 is valid choice for Slave */
+ 555:Generated_Source\PSoC4/uart.c ****                 hsiomSel[uart_SS0_PIN_INDEX] = uart_SS0_HSIOM_SEL_SPI;
+ 556:Generated_Source\PSoC4/uart.c ****                 pinsDm  [uart_SS0_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+ 557:Generated_Source\PSoC4/uart.c ****             #endif /* (uart_SS0_PIN) */
+ 558:Generated_Source\PSoC4/uart.c **** 
+ 559:Generated_Source\PSoC4/uart.c ****             #if (uart_TX_SDA_MISO_PIN)
+ 560:Generated_Source\PSoC4/uart.c ****                 /* Disable input buffer */
+ 561:Generated_Source\PSoC4/uart.c ****                  pinsInBuf |= uart_TX_SDA_MISO_PIN_MASK;
+ 562:Generated_Source\PSoC4/uart.c ****             #endif /* (uart_TX_SDA_MISO_PIN) */
+ 563:Generated_Source\PSoC4/uart.c ****             }
+ 564:Generated_Source\PSoC4/uart.c ****             else 
+ 565:Generated_Source\PSoC4/uart.c ****             {
+ 566:Generated_Source\PSoC4/uart.c ****                 /* (Master) */
+ 567:Generated_Source\PSoC4/uart.c ****                 pinsDm[uart_RX_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_STRONG;
+ 568:Generated_Source\PSoC4/uart.c ****                 pinsDm[uart_TX_SDA_MISO_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+ 569:Generated_Source\PSoC4/uart.c ****                 pinsDm[uart_SCLK_PIN_INDEX] = uart_PIN_DM_STRONG;
+ 570:Generated_Source\PSoC4/uart.c **** 
+ 571:Generated_Source\PSoC4/uart.c ****             #if (uart_SS0_PIN)
+ 572:Generated_Source\PSoC4/uart.c ****                 hsiomSel [uart_SS0_PIN_INDEX] = uart_SS0_HSIOM_SEL_SPI;
+ 573:Generated_Source\PSoC4/uart.c ****                 pinsDm   [uart_SS0_PIN_INDEX] = uart_PIN_DM_STRONG;
+ 574:Generated_Source\PSoC4/uart.c ****                 pinsInBuf |= uart_SS0_PIN_MASK;
+ 575:Generated_Source\PSoC4/uart.c ****             #endif /* (uart_SS0_PIN) */
+ 576:Generated_Source\PSoC4/uart.c **** 
+ 577:Generated_Source\PSoC4/uart.c ****             #if (uart_SS1_PIN)
+ 578:Generated_Source\PSoC4/uart.c ****                 hsiomSel [uart_SS1_PIN_INDEX] = uart_SS1_HSIOM_SEL_SPI;
+ 579:Generated_Source\PSoC4/uart.c ****                 pinsDm   [uart_SS1_PIN_INDEX] = uart_PIN_DM_STRONG;
+ 580:Generated_Source\PSoC4/uart.c ****                 pinsInBuf |= uart_SS1_PIN_MASK;
+ 581:Generated_Source\PSoC4/uart.c ****             #endif /* (uart_SS1_PIN) */
+ 582:Generated_Source\PSoC4/uart.c **** 
+ 583:Generated_Source\PSoC4/uart.c ****             #if (uart_SS2_PIN)
+ 584:Generated_Source\PSoC4/uart.c ****                 hsiomSel [uart_SS2_PIN_INDEX] = uart_SS2_HSIOM_SEL_SPI;
+ 585:Generated_Source\PSoC4/uart.c ****                 pinsDm   [uart_SS2_PIN_INDEX] = uart_PIN_DM_STRONG;
+ 586:Generated_Source\PSoC4/uart.c ****                 pinsInBuf |= uart_SS2_PIN_MASK;
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 17
+
+
+ 587:Generated_Source\PSoC4/uart.c ****             #endif /* (uart_SS2_PIN) */
+ 588:Generated_Source\PSoC4/uart.c **** 
+ 589:Generated_Source\PSoC4/uart.c ****             #if (uart_SS3_PIN)
+ 590:Generated_Source\PSoC4/uart.c ****                 hsiomSel [uart_SS3_PIN_INDEX] = uart_SS3_HSIOM_SEL_SPI;
+ 591:Generated_Source\PSoC4/uart.c ****                 pinsDm   [uart_SS3_PIN_INDEX] = uart_PIN_DM_STRONG;
+ 592:Generated_Source\PSoC4/uart.c ****                 pinsInBuf |= uart_SS3_PIN_MASK;
+ 593:Generated_Source\PSoC4/uart.c ****             #endif /* (uart_SS3_PIN) */
+ 594:Generated_Source\PSoC4/uart.c **** 
+ 595:Generated_Source\PSoC4/uart.c ****                 /* Disable input buffers */
+ 596:Generated_Source\PSoC4/uart.c ****             #if (uart_RX_SCL_MOSI_PIN)
+ 597:Generated_Source\PSoC4/uart.c ****                 pinsInBuf |= uart_RX_SCL_MOSI_PIN_MASK;
+ 598:Generated_Source\PSoC4/uart.c ****             #elif (uart_RX_WAKE_SCL_MOSI_PIN)
+ 599:Generated_Source\PSoC4/uart.c ****                 pinsInBuf |= uart_RX_WAKE_SCL_MOSI_PIN_MASK;
+ 600:Generated_Source\PSoC4/uart.c ****             #else
+ 601:Generated_Source\PSoC4/uart.c ****             #endif /* (uart_RX_SCL_MOSI_PIN) */
+ 602:Generated_Source\PSoC4/uart.c **** 
+ 603:Generated_Source\PSoC4/uart.c ****             #if (uart_SCLK_PIN)
+ 604:Generated_Source\PSoC4/uart.c ****                 pinsInBuf |= uart_SCLK_PIN_MASK;
+ 605:Generated_Source\PSoC4/uart.c ****             #endif /* (uart_SCLK_PIN) */
+ 606:Generated_Source\PSoC4/uart.c ****             }
+ 607:Generated_Source\PSoC4/uart.c ****         }
+ 608:Generated_Source\PSoC4/uart.c ****         else /* UART */
+ 609:Generated_Source\PSoC4/uart.c ****         {
+ 610:Generated_Source\PSoC4/uart.c ****             if (uart_UART_MODE_SMARTCARD == subMode)
+ 611:Generated_Source\PSoC4/uart.c ****             {
+ 612:Generated_Source\PSoC4/uart.c ****                 /* SmartCard */
+ 613:Generated_Source\PSoC4/uart.c ****             #if (uart_TX_SDA_MISO_PIN)
+ 614:Generated_Source\PSoC4/uart.c ****                 hsiomSel[uart_TX_SDA_MISO_PIN_INDEX] = uart_TX_SDA_MISO_HSIOM_SEL_UART;
+ 615:Generated_Source\PSoC4/uart.c ****                 pinsDm  [uart_TX_SDA_MISO_PIN_INDEX] = uart_PIN_DM_OD_LO;
+ 616:Generated_Source\PSoC4/uart.c ****             #endif /* (uart_TX_SDA_MISO_PIN) */
+ 617:Generated_Source\PSoC4/uart.c ****             }
+ 618:Generated_Source\PSoC4/uart.c ****             else /* Standard or IrDA */
+ 619:Generated_Source\PSoC4/uart.c ****             {
+ 620:Generated_Source\PSoC4/uart.c ****                 if (0u != (uart_UART_RX_PIN_ENABLE & uartEnableMask))
+ 621:Generated_Source\PSoC4/uart.c ****                 {
+ 622:Generated_Source\PSoC4/uart.c ****                 #if (uart_RX_SCL_MOSI_PIN)
+ 623:Generated_Source\PSoC4/uart.c ****                     hsiomSel[uart_RX_SCL_MOSI_PIN_INDEX] = uart_RX_SCL_MOSI_HSIOM_SEL_UART;
+ 624:Generated_Source\PSoC4/uart.c ****                     pinsDm  [uart_RX_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+ 625:Generated_Source\PSoC4/uart.c ****                 #elif (uart_RX_WAKE_SCL_MOSI_PIN)
+ 626:Generated_Source\PSoC4/uart.c ****                     hsiomSel[uart_RX_WAKE_SCL_MOSI_PIN_INDEX] = uart_RX_WAKE_SCL_MOSI_HSIOM_SEL_UAR
+ 627:Generated_Source\PSoC4/uart.c ****                     pinsDm  [uart_RX_WAKE_SCL_MOSI_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+ 628:Generated_Source\PSoC4/uart.c ****                 #else
+ 629:Generated_Source\PSoC4/uart.c ****                 #endif /* (uart_RX_SCL_MOSI_PIN) */
+ 630:Generated_Source\PSoC4/uart.c ****                 }
+ 631:Generated_Source\PSoC4/uart.c **** 
+ 632:Generated_Source\PSoC4/uart.c ****                 if (0u != (uart_UART_TX_PIN_ENABLE & uartEnableMask))
+ 633:Generated_Source\PSoC4/uart.c ****                 {
+ 634:Generated_Source\PSoC4/uart.c ****                 #if (uart_TX_SDA_MISO_PIN)
+ 635:Generated_Source\PSoC4/uart.c ****                     hsiomSel[uart_TX_SDA_MISO_PIN_INDEX] = uart_TX_SDA_MISO_HSIOM_SEL_UART;
+ 636:Generated_Source\PSoC4/uart.c ****                     pinsDm  [uart_TX_SDA_MISO_PIN_INDEX] = uart_PIN_DM_STRONG;
+ 637:Generated_Source\PSoC4/uart.c ****                     
+ 638:Generated_Source\PSoC4/uart.c ****                     /* Disable input buffer */
+ 639:Generated_Source\PSoC4/uart.c ****                     pinsInBuf |= uart_TX_SDA_MISO_PIN_MASK;
+ 640:Generated_Source\PSoC4/uart.c ****                 #endif /* (uart_TX_SDA_MISO_PIN) */
+ 641:Generated_Source\PSoC4/uart.c ****                 }
+ 642:Generated_Source\PSoC4/uart.c **** 
+ 643:Generated_Source\PSoC4/uart.c ****             #if !(uart_CY_SCBIP_V0 || uart_CY_SCBIP_V1)
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 18
+
+
+ 644:Generated_Source\PSoC4/uart.c ****                 if (uart_UART_MODE_STD == subMode)
+ 645:Generated_Source\PSoC4/uart.c ****                 {
+ 646:Generated_Source\PSoC4/uart.c ****                     if (0u != (uart_UART_CTS_PIN_ENABLE & uartEnableMask))
+ 647:Generated_Source\PSoC4/uart.c ****                     {
+ 648:Generated_Source\PSoC4/uart.c ****                         /* CTS input is multiplexed with SCLK */
+ 649:Generated_Source\PSoC4/uart.c ****                     #if (uart_SCLK_PIN)
+ 650:Generated_Source\PSoC4/uart.c ****                         hsiomSel[uart_SCLK_PIN_INDEX] = uart_SCLK_HSIOM_SEL_UART;
+ 651:Generated_Source\PSoC4/uart.c ****                         pinsDm  [uart_SCLK_PIN_INDEX] = uart_PIN_DM_DIG_HIZ;
+ 652:Generated_Source\PSoC4/uart.c ****                     #endif /* (uart_SCLK_PIN) */
+ 653:Generated_Source\PSoC4/uart.c ****                     }
+ 654:Generated_Source\PSoC4/uart.c **** 
+ 655:Generated_Source\PSoC4/uart.c ****                     if (0u != (uart_UART_RTS_PIN_ENABLE & uartEnableMask))
+ 656:Generated_Source\PSoC4/uart.c ****                     {
+ 657:Generated_Source\PSoC4/uart.c ****                         /* RTS output is multiplexed with SS0 */
+ 658:Generated_Source\PSoC4/uart.c ****                     #if (uart_SS0_PIN)
+ 659:Generated_Source\PSoC4/uart.c ****                         hsiomSel[uart_SS0_PIN_INDEX] = uart_SS0_HSIOM_SEL_UART;
+ 660:Generated_Source\PSoC4/uart.c ****                         pinsDm  [uart_SS0_PIN_INDEX] = uart_PIN_DM_STRONG;
+ 661:Generated_Source\PSoC4/uart.c ****                         
+ 662:Generated_Source\PSoC4/uart.c ****                         /* Disable input buffer */
+ 663:Generated_Source\PSoC4/uart.c ****                         pinsInBuf |= uart_SS0_PIN_MASK;
+ 664:Generated_Source\PSoC4/uart.c ****                     #endif /* (uart_SS0_PIN) */
+ 665:Generated_Source\PSoC4/uart.c ****                     }
+ 666:Generated_Source\PSoC4/uart.c ****                 }
+ 667:Generated_Source\PSoC4/uart.c ****             #endif /* !(uart_CY_SCBIP_V0 || uart_CY_SCBIP_V1) */
+ 668:Generated_Source\PSoC4/uart.c ****             }
+ 669:Generated_Source\PSoC4/uart.c ****         }
+ 670:Generated_Source\PSoC4/uart.c ****     #endif /* (!uart_CY_SCBIP_V1) */
+ 671:Generated_Source\PSoC4/uart.c **** 
+ 672:Generated_Source\PSoC4/uart.c ****     /* Configure pins: set HSIOM, DM and InputBufEnable */
+ 673:Generated_Source\PSoC4/uart.c ****     /* Note: the DR register settings do not effect the pin output if HSIOM is other than GPIO */
+ 674:Generated_Source\PSoC4/uart.c **** 
+ 675:Generated_Source\PSoC4/uart.c ****     #if (uart_RX_SCL_MOSI_PIN)
+ 676:Generated_Source\PSoC4/uart.c ****         uart_SET_HSIOM_SEL(uart_RX_SCL_MOSI_HSIOM_REG,
+ 677:Generated_Source\PSoC4/uart.c ****                                        uart_RX_SCL_MOSI_HSIOM_MASK,
+ 678:Generated_Source\PSoC4/uart.c ****                                        uart_RX_SCL_MOSI_HSIOM_POS,
+ 679:Generated_Source\PSoC4/uart.c ****                                         hsiomSel[uart_RX_SCL_MOSI_PIN_INDEX]);
+ 680:Generated_Source\PSoC4/uart.c **** 
+ 681:Generated_Source\PSoC4/uart.c ****         uart_uart_rx_i2c_scl_spi_mosi_SetDriveMode((uint8) pinsDm[uart_RX_SCL_MOSI_PIN_INDEX]);
+ 682:Generated_Source\PSoC4/uart.c **** 
+ 683:Generated_Source\PSoC4/uart.c ****         #if (!uart_CY_SCBIP_V1)
+ 684:Generated_Source\PSoC4/uart.c ****             uart_SET_INP_DIS(uart_uart_rx_i2c_scl_spi_mosi_INP_DIS,
+ 685:Generated_Source\PSoC4/uart.c ****                                          uart_uart_rx_i2c_scl_spi_mosi_MASK,
+ 686:Generated_Source\PSoC4/uart.c ****                                          (0u != (pinsInBuf & uart_RX_SCL_MOSI_PIN_MASK)));
+ 687:Generated_Source\PSoC4/uart.c ****         #endif /* (!uart_CY_SCBIP_V1) */
+ 688:Generated_Source\PSoC4/uart.c ****     
+ 689:Generated_Source\PSoC4/uart.c ****     #elif (uart_RX_WAKE_SCL_MOSI_PIN)
+ 690:Generated_Source\PSoC4/uart.c ****         uart_SET_HSIOM_SEL(uart_RX_WAKE_SCL_MOSI_HSIOM_REG,
+ 691:Generated_Source\PSoC4/uart.c ****                                        uart_RX_WAKE_SCL_MOSI_HSIOM_MASK,
+ 692:Generated_Source\PSoC4/uart.c ****                                        uart_RX_WAKE_SCL_MOSI_HSIOM_POS,
+ 693:Generated_Source\PSoC4/uart.c ****                                        hsiomSel[uart_RX_WAKE_SCL_MOSI_PIN_INDEX]);
+ 694:Generated_Source\PSoC4/uart.c **** 
+ 695:Generated_Source\PSoC4/uart.c ****         uart_uart_rx_wake_i2c_scl_spi_mosi_SetDriveMode((uint8)
+ 696:Generated_Source\PSoC4/uart.c ****                                                                pinsDm[uart_RX_WAKE_SCL_MOSI_PIN_IND
+ 697:Generated_Source\PSoC4/uart.c **** 
+ 698:Generated_Source\PSoC4/uart.c ****         uart_SET_INP_DIS(uart_uart_rx_wake_i2c_scl_spi_mosi_INP_DIS,
+ 699:Generated_Source\PSoC4/uart.c ****                                      uart_uart_rx_wake_i2c_scl_spi_mosi_MASK,
+ 700:Generated_Source\PSoC4/uart.c ****                                      (0u != (pinsInBuf & uart_RX_WAKE_SCL_MOSI_PIN_MASK)));
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 19
+
+
+ 701:Generated_Source\PSoC4/uart.c **** 
+ 702:Generated_Source\PSoC4/uart.c ****          /* Set interrupt on falling edge */
+ 703:Generated_Source\PSoC4/uart.c ****         uart_SET_INCFG_TYPE(uart_RX_WAKE_SCL_MOSI_INTCFG_REG,
+ 704:Generated_Source\PSoC4/uart.c ****                                         uart_RX_WAKE_SCL_MOSI_INTCFG_TYPE_MASK,
+ 705:Generated_Source\PSoC4/uart.c ****                                         uart_RX_WAKE_SCL_MOSI_INTCFG_TYPE_POS,
+ 706:Generated_Source\PSoC4/uart.c ****                                         uart_INTCFG_TYPE_FALLING_EDGE);
+ 707:Generated_Source\PSoC4/uart.c ****     #else
+ 708:Generated_Source\PSoC4/uart.c ****     #endif /* (uart_RX_WAKE_SCL_MOSI_PIN) */
+ 709:Generated_Source\PSoC4/uart.c **** 
+ 710:Generated_Source\PSoC4/uart.c ****     #if (uart_TX_SDA_MISO_PIN)
+ 711:Generated_Source\PSoC4/uart.c ****         uart_SET_HSIOM_SEL(uart_TX_SDA_MISO_HSIOM_REG,
+ 712:Generated_Source\PSoC4/uart.c ****                                        uart_TX_SDA_MISO_HSIOM_MASK,
+ 713:Generated_Source\PSoC4/uart.c ****                                        uart_TX_SDA_MISO_HSIOM_POS,
+ 714:Generated_Source\PSoC4/uart.c ****                                         hsiomSel[uart_TX_SDA_MISO_PIN_INDEX]);
+ 715:Generated_Source\PSoC4/uart.c **** 
+ 716:Generated_Source\PSoC4/uart.c ****         uart_uart_tx_i2c_sda_spi_miso_SetDriveMode((uint8) pinsDm[uart_TX_SDA_MISO_PIN_INDEX]);
+ 717:Generated_Source\PSoC4/uart.c **** 
+ 718:Generated_Source\PSoC4/uart.c ****     #if (!uart_CY_SCBIP_V1)
+ 719:Generated_Source\PSoC4/uart.c ****         uart_SET_INP_DIS(uart_uart_tx_i2c_sda_spi_miso_INP_DIS,
+ 720:Generated_Source\PSoC4/uart.c ****                                      uart_uart_tx_i2c_sda_spi_miso_MASK,
+ 721:Generated_Source\PSoC4/uart.c ****                                     (0u != (pinsInBuf & uart_TX_SDA_MISO_PIN_MASK)));
+ 722:Generated_Source\PSoC4/uart.c ****     #endif /* (!uart_CY_SCBIP_V1) */
+ 723:Generated_Source\PSoC4/uart.c ****     #endif /* (uart_RX_SCL_MOSI_PIN) */
+ 724:Generated_Source\PSoC4/uart.c **** 
+ 725:Generated_Source\PSoC4/uart.c ****     #if (uart_SCLK_PIN)
+ 726:Generated_Source\PSoC4/uart.c ****         uart_SET_HSIOM_SEL(uart_SCLK_HSIOM_REG,
+ 727:Generated_Source\PSoC4/uart.c ****                                        uart_SCLK_HSIOM_MASK,
+ 728:Generated_Source\PSoC4/uart.c ****                                        uart_SCLK_HSIOM_POS,
+ 729:Generated_Source\PSoC4/uart.c ****                                        hsiomSel[uart_SCLK_PIN_INDEX]);
+ 730:Generated_Source\PSoC4/uart.c **** 
+ 731:Generated_Source\PSoC4/uart.c ****         uart_spi_sclk_SetDriveMode((uint8) pinsDm[uart_SCLK_PIN_INDEX]);
+ 732:Generated_Source\PSoC4/uart.c **** 
+ 733:Generated_Source\PSoC4/uart.c ****         uart_SET_INP_DIS(uart_spi_sclk_INP_DIS,
+ 734:Generated_Source\PSoC4/uart.c ****                                      uart_spi_sclk_MASK,
+ 735:Generated_Source\PSoC4/uart.c ****                                      (0u != (pinsInBuf & uart_SCLK_PIN_MASK)));
+ 736:Generated_Source\PSoC4/uart.c ****     #endif /* (uart_SCLK_PIN) */
+ 737:Generated_Source\PSoC4/uart.c **** 
+ 738:Generated_Source\PSoC4/uart.c ****     #if (uart_SS0_PIN)
+ 739:Generated_Source\PSoC4/uart.c ****         uart_SET_HSIOM_SEL(uart_SS0_HSIOM_REG,
+ 740:Generated_Source\PSoC4/uart.c ****                                        uart_SS0_HSIOM_MASK,
+ 741:Generated_Source\PSoC4/uart.c ****                                        uart_SS0_HSIOM_POS,
+ 742:Generated_Source\PSoC4/uart.c ****                                        hsiomSel[uart_SS0_PIN_INDEX]);
+ 743:Generated_Source\PSoC4/uart.c **** 
+ 744:Generated_Source\PSoC4/uart.c ****         uart_spi_ss0_SetDriveMode((uint8) pinsDm[uart_SS0_PIN_INDEX]);
+ 745:Generated_Source\PSoC4/uart.c **** 
+ 746:Generated_Source\PSoC4/uart.c ****         uart_SET_INP_DIS(uart_spi_ss0_INP_DIS,
+ 747:Generated_Source\PSoC4/uart.c ****                                      uart_spi_ss0_MASK,
+ 748:Generated_Source\PSoC4/uart.c ****                                      (0u != (pinsInBuf & uart_SS0_PIN_MASK)));
+ 749:Generated_Source\PSoC4/uart.c ****     #endif /* (uart_SS0_PIN) */
+ 750:Generated_Source\PSoC4/uart.c **** 
+ 751:Generated_Source\PSoC4/uart.c ****     #if (uart_SS1_PIN)
+ 752:Generated_Source\PSoC4/uart.c ****         uart_SET_HSIOM_SEL(uart_SS1_HSIOM_REG,
+ 753:Generated_Source\PSoC4/uart.c ****                                        uart_SS1_HSIOM_MASK,
+ 754:Generated_Source\PSoC4/uart.c ****                                        uart_SS1_HSIOM_POS,
+ 755:Generated_Source\PSoC4/uart.c ****                                        hsiomSel[uart_SS1_PIN_INDEX]);
+ 756:Generated_Source\PSoC4/uart.c **** 
+ 757:Generated_Source\PSoC4/uart.c ****         uart_spi_ss1_SetDriveMode((uint8) pinsDm[uart_SS1_PIN_INDEX]);
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 20
+
+
+ 758:Generated_Source\PSoC4/uart.c **** 
+ 759:Generated_Source\PSoC4/uart.c ****         uart_SET_INP_DIS(uart_spi_ss1_INP_DIS,
+ 760:Generated_Source\PSoC4/uart.c ****                                      uart_spi_ss1_MASK,
+ 761:Generated_Source\PSoC4/uart.c ****                                      (0u != (pinsInBuf & uart_SS1_PIN_MASK)));
+ 762:Generated_Source\PSoC4/uart.c ****     #endif /* (uart_SS1_PIN) */
+ 763:Generated_Source\PSoC4/uart.c **** 
+ 764:Generated_Source\PSoC4/uart.c ****     #if (uart_SS2_PIN)
+ 765:Generated_Source\PSoC4/uart.c ****         uart_SET_HSIOM_SEL(uart_SS2_HSIOM_REG,
+ 766:Generated_Source\PSoC4/uart.c ****                                        uart_SS2_HSIOM_MASK,
+ 767:Generated_Source\PSoC4/uart.c ****                                        uart_SS2_HSIOM_POS,
+ 768:Generated_Source\PSoC4/uart.c ****                                        hsiomSel[uart_SS2_PIN_INDEX]);
+ 769:Generated_Source\PSoC4/uart.c **** 
+ 770:Generated_Source\PSoC4/uart.c ****         uart_spi_ss2_SetDriveMode((uint8) pinsDm[uart_SS2_PIN_INDEX]);
+ 771:Generated_Source\PSoC4/uart.c **** 
+ 772:Generated_Source\PSoC4/uart.c ****         uart_SET_INP_DIS(uart_spi_ss2_INP_DIS,
+ 773:Generated_Source\PSoC4/uart.c ****                                      uart_spi_ss2_MASK,
+ 774:Generated_Source\PSoC4/uart.c ****                                      (0u != (pinsInBuf & uart_SS2_PIN_MASK)));
+ 775:Generated_Source\PSoC4/uart.c ****     #endif /* (uart_SS2_PIN) */
+ 776:Generated_Source\PSoC4/uart.c **** 
+ 777:Generated_Source\PSoC4/uart.c ****     #if (uart_SS3_PIN)
+ 778:Generated_Source\PSoC4/uart.c ****         uart_SET_HSIOM_SEL(uart_SS3_HSIOM_REG,
+ 779:Generated_Source\PSoC4/uart.c ****                                        uart_SS3_HSIOM_MASK,
+ 780:Generated_Source\PSoC4/uart.c ****                                        uart_SS3_HSIOM_POS,
+ 781:Generated_Source\PSoC4/uart.c ****                                        hsiomSel[uart_SS3_PIN_INDEX]);
+ 782:Generated_Source\PSoC4/uart.c **** 
+ 783:Generated_Source\PSoC4/uart.c ****         uart_spi_ss3_SetDriveMode((uint8) pinsDm[uart_SS3_PIN_INDEX]);
+ 784:Generated_Source\PSoC4/uart.c **** 
+ 785:Generated_Source\PSoC4/uart.c ****         uart_SET_INP_DIS(uart_spi_ss3_INP_DIS,
+ 786:Generated_Source\PSoC4/uart.c ****                                      uart_spi_ss3_MASK,
+ 787:Generated_Source\PSoC4/uart.c ****                                      (0u != (pinsInBuf & uart_SS3_PIN_MASK)));
+ 788:Generated_Source\PSoC4/uart.c ****     #endif /* (uart_SS3_PIN) */
+ 789:Generated_Source\PSoC4/uart.c ****     }
+ 790:Generated_Source\PSoC4/uart.c **** 
+ 791:Generated_Source\PSoC4/uart.c **** #endif /* (uart_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 792:Generated_Source\PSoC4/uart.c **** 
+ 793:Generated_Source\PSoC4/uart.c **** 
+ 794:Generated_Source\PSoC4/uart.c **** #if (uart_CY_SCBIP_V0 || uart_CY_SCBIP_V1)
+ 795:Generated_Source\PSoC4/uart.c ****     /*******************************************************************************
+ 796:Generated_Source\PSoC4/uart.c ****     * Function Name: uart_I2CSlaveNackGeneration
+ 797:Generated_Source\PSoC4/uart.c ****     ****************************************************************************//**
+ 798:Generated_Source\PSoC4/uart.c ****     *
+ 799:Generated_Source\PSoC4/uart.c ****     *  Sets command to generate NACK to the address or data.
+ 800:Generated_Source\PSoC4/uart.c ****     *
+ 801:Generated_Source\PSoC4/uart.c ****     *******************************************************************************/
+ 802:Generated_Source\PSoC4/uart.c ****     void uart_I2CSlaveNackGeneration(void)
+ 803:Generated_Source\PSoC4/uart.c ****     {
+ 297              		.loc 1 803 0
+ 298              		.cfi_startproc
+ 299              		@ args = 0, pretend = 0, frame = 0
+ 300              		@ frame_needed = 0, uses_anonymous_args = 0
+ 301              		@ link register save eliminated.
+ 804:Generated_Source\PSoC4/uart.c ****         /* Check for EC_AM toggle condition: EC_AM and clock stretching for address are enabled */
+ 805:Generated_Source\PSoC4/uart.c ****         if ((0u != (uart_CTRL_REG & uart_CTRL_EC_AM_MODE)) &&
+ 302              		.loc 1 805 0
+ 303 0000 0A4B     		ldr	r3, .L22
+ 304 0002 1B68     		ldr	r3, [r3]
+ 305 0004 DB05     		lsls	r3, r3, #23
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 21
+
+
+ 306 0006 0DD5     		bpl	.L21
+ 806:Generated_Source\PSoC4/uart.c ****             (0u == (uart_I2C_CTRL_REG & uart_I2C_CTRL_S_NOT_READY_ADDR_NACK)))
+ 307              		.loc 1 806 0 discriminator 1
+ 308 0008 094B     		ldr	r3, .L22+4
+ 309 000a 1B68     		ldr	r3, [r3]
+ 805:Generated_Source\PSoC4/uart.c ****             (0u == (uart_I2C_CTRL_REG & uart_I2C_CTRL_S_NOT_READY_ADDR_NACK)))
+ 310              		.loc 1 805 0 discriminator 1
+ 311 000c 5B04     		lsls	r3, r3, #17
+ 312 000e 09D4     		bmi	.L21
+ 807:Generated_Source\PSoC4/uart.c ****         {
+ 808:Generated_Source\PSoC4/uart.c ****             /* Toggle EC_AM before NACK generation */
+ 809:Generated_Source\PSoC4/uart.c ****             uart_CTRL_REG &= ~uart_CTRL_EC_AM_MODE;
+ 313              		.loc 1 809 0
+ 314 0010 064B     		ldr	r3, .L22
+ 315 0012 1968     		ldr	r1, [r3]
+ 316 0014 074A     		ldr	r2, .L22+8
+ 317 0016 0A40     		ands	r2, r1
+ 318 0018 1A60     		str	r2, [r3]
+ 810:Generated_Source\PSoC4/uart.c ****             uart_CTRL_REG |=  uart_CTRL_EC_AM_MODE;
+ 319              		.loc 1 810 0
+ 320 001a 1A68     		ldr	r2, [r3]
+ 321 001c 8021     		movs	r1, #128
+ 322 001e 4900     		lsls	r1, r1, #1
+ 323 0020 0A43     		orrs	r2, r1
+ 324 0022 1A60     		str	r2, [r3]
+ 325              	.L21:
+ 811:Generated_Source\PSoC4/uart.c ****         }
+ 812:Generated_Source\PSoC4/uart.c **** 
+ 813:Generated_Source\PSoC4/uart.c ****         uart_I2C_SLAVE_CMD_REG = uart_I2C_SLAVE_CMD_S_NACK;
+ 326              		.loc 1 813 0
+ 327 0024 0222     		movs	r2, #2
+ 328 0026 044B     		ldr	r3, .L22+12
+ 329 0028 1A60     		str	r2, [r3]
+ 814:Generated_Source\PSoC4/uart.c ****     }
+ 330              		.loc 1 814 0
+ 331              		@ sp needed
+ 332 002a 7047     		bx	lr
+ 333              	.L23:
+ 334              		.align	2
+ 335              	.L22:
+ 336 002c 00000640 		.word	1074135040
+ 337 0030 60000640 		.word	1074135136
+ 338 0034 FFFEFFFF 		.word	-257
+ 339 0038 6C000640 		.word	1074135148
+ 340              		.cfi_endproc
+ 341              	.LFE9:
+ 342              		.size	uart_I2CSlaveNackGeneration, .-uart_I2CSlaveNackGeneration
+ 343              		.global	uart_IntrTxMask
+ 344              		.global	uart_initVar
+ 345              		.bss
+ 346              		.align	1
+ 347              		.set	.LANCHOR0,. + 0
+ 348              		.type	uart_initVar, %object
+ 349              		.size	uart_initVar, 1
+ 350              	uart_initVar:
+ 351 0000 00       		.space	1
+ 352 0001 00       		.space	1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 22
+
+
+ 353              		.type	uart_IntrTxMask, %object
+ 354              		.size	uart_IntrTxMask, 2
+ 355              	uart_IntrTxMask:
+ 356 0002 0000     		.space	2
+ 357              		.text
+ 358              	.Letext0:
+ 359              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 360              		.file 3 "Generated_Source\\PSoC4\\uart_SPI_UART_PVT.h"
+ 361              		.section	.debug_info,"",%progbits
+ 362              	.Ldebug_info0:
+ 363 0000 48020000 		.4byte	0x248
+ 364 0004 0400     		.2byte	0x4
+ 365 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 366 000a 04       		.byte	0x4
+ 367 000b 01       		.uleb128 0x1
+ 368 000c E3010000 		.4byte	.LASF34
+ 369 0010 0C       		.byte	0xc
+ 370 0011 4F000000 		.4byte	.LASF35
+ 371 0015 6D000000 		.4byte	.LASF36
+ 372 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 373 001d 00000000 		.4byte	0
+ 374 0021 00000000 		.4byte	.Ldebug_line0
+ 375 0025 02       		.uleb128 0x2
+ 376 0026 01       		.byte	0x1
+ 377 0027 06       		.byte	0x6
+ 378 0028 DB020000 		.4byte	.LASF0
+ 379 002c 02       		.uleb128 0x2
+ 380 002d 01       		.byte	0x1
+ 381 002e 08       		.byte	0x8
+ 382 002f 0B010000 		.4byte	.LASF1
+ 383 0033 02       		.uleb128 0x2
+ 384 0034 02       		.byte	0x2
+ 385 0035 05       		.byte	0x5
+ 386 0036 8E010000 		.4byte	.LASF2
+ 387 003a 02       		.uleb128 0x2
+ 388 003b 02       		.byte	0x2
+ 389 003c 07       		.byte	0x7
+ 390 003d 3C000000 		.4byte	.LASF3
+ 391 0041 02       		.uleb128 0x2
+ 392 0042 04       		.byte	0x4
+ 393 0043 05       		.byte	0x5
+ 394 0044 C6020000 		.4byte	.LASF4
+ 395 0048 02       		.uleb128 0x2
+ 396 0049 04       		.byte	0x4
+ 397 004a 07       		.byte	0x7
+ 398 004b 2F010000 		.4byte	.LASF5
+ 399 004f 02       		.uleb128 0x2
+ 400 0050 08       		.byte	0x8
+ 401 0051 05       		.byte	0x5
+ 402 0052 8E020000 		.4byte	.LASF6
+ 403 0056 02       		.uleb128 0x2
+ 404 0057 08       		.byte	0x8
+ 405 0058 07       		.byte	0x7
+ 406 0059 CC010000 		.4byte	.LASF7
+ 407 005d 03       		.uleb128 0x3
+ 408 005e 04       		.byte	0x4
+ 409 005f 05       		.byte	0x5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 23
+
+
+ 410 0060 696E7400 		.ascii	"int\000"
+ 411 0064 02       		.uleb128 0x2
+ 412 0065 04       		.byte	0x4
+ 413 0066 07       		.byte	0x7
+ 414 0067 B1010000 		.4byte	.LASF8
+ 415 006b 04       		.uleb128 0x4
+ 416 006c 58010000 		.4byte	.LASF9
+ 417 0070 02       		.byte	0x2
+ 418 0071 FC01     		.2byte	0x1fc
+ 419 0073 2C000000 		.4byte	0x2c
+ 420 0077 04       		.uleb128 0x4
+ 421 0078 98010000 		.4byte	.LASF10
+ 422 007c 02       		.byte	0x2
+ 423 007d FD01     		.2byte	0x1fd
+ 424 007f 3A000000 		.4byte	0x3a
+ 425 0083 04       		.uleb128 0x4
+ 426 0084 AA010000 		.4byte	.LASF11
+ 427 0088 02       		.byte	0x2
+ 428 0089 FE01     		.2byte	0x1fe
+ 429 008b 48000000 		.4byte	0x48
+ 430 008f 02       		.uleb128 0x2
+ 431 0090 04       		.byte	0x4
+ 432 0091 04       		.byte	0x4
+ 433 0092 F1000000 		.4byte	.LASF12
+ 434 0096 02       		.uleb128 0x2
+ 435 0097 08       		.byte	0x8
+ 436 0098 04       		.byte	0x4
+ 437 0099 6B010000 		.4byte	.LASF13
+ 438 009d 02       		.uleb128 0x2
+ 439 009e 01       		.byte	0x1
+ 440 009f 08       		.byte	0x8
+ 441 00a0 9C020000 		.4byte	.LASF14
+ 442 00a4 04       		.uleb128 0x4
+ 443 00a5 00000000 		.4byte	.LASF15
+ 444 00a9 02       		.byte	0x2
+ 445 00aa A802     		.2byte	0x2a8
+ 446 00ac B0000000 		.4byte	0xb0
+ 447 00b0 05       		.uleb128 0x5
+ 448 00b1 83000000 		.4byte	0x83
+ 449 00b5 02       		.uleb128 0x2
+ 450 00b6 08       		.byte	0x8
+ 451 00b7 04       		.byte	0x4
+ 452 00b8 CF020000 		.4byte	.LASF16
+ 453 00bc 02       		.uleb128 0x2
+ 454 00bd 04       		.byte	0x4
+ 455 00be 07       		.byte	0x7
+ 456 00bf 85020000 		.4byte	.LASF17
+ 457 00c3 06       		.uleb128 0x6
+ 458 00c4 41010000 		.4byte	.LASF18
+ 459 00c8 01       		.byte	0x1
+ 460 00c9 7D01     		.2byte	0x17d
+ 461 00cb 00000000 		.4byte	.LFB7
+ 462 00cf 08000000 		.4byte	.LFE7-.LFB7
+ 463 00d3 01       		.uleb128 0x1
+ 464 00d4 9C       		.byte	0x9c
+ 465 00d5 E3000000 		.4byte	0xe3
+ 466 00d9 07       		.uleb128 0x7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 24
+
+
+ 467 00da 06000000 		.4byte	.LVL0
+ 468 00de 2A020000 		.4byte	0x22a
+ 469 00e2 00       		.byte	0
+ 470 00e3 06       		.uleb128 0x6
+ 471 00e4 25000000 		.4byte	.LASF19
+ 472 00e8 01       		.byte	0x1
+ 473 00e9 A201     		.2byte	0x1a2
+ 474 00eb 00000000 		.4byte	.LFB8
+ 475 00ef 08000000 		.4byte	.LFE8-.LFB8
+ 476 00f3 01       		.uleb128 0x1
+ 477 00f4 9C       		.byte	0x9c
+ 478 00f5 03010000 		.4byte	0x103
+ 479 00f9 07       		.uleb128 0x7
+ 480 00fa 06000000 		.4byte	.LVL1
+ 481 00fe 35020000 		.4byte	0x235
+ 482 0102 00       		.byte	0
+ 483 0103 08       		.uleb128 0x8
+ 484 0104 19010000 		.4byte	.LASF20
+ 485 0108 01       		.byte	0x1
+ 486 0109 7B       		.byte	0x7b
+ 487 010a 00000000 		.4byte	.LFB0
+ 488 010e 08000000 		.4byte	.LFE0-.LFB0
+ 489 0112 01       		.uleb128 0x1
+ 490 0113 9C       		.byte	0x9c
+ 491 0114 22010000 		.4byte	0x122
+ 492 0118 07       		.uleb128 0x7
+ 493 0119 06000000 		.4byte	.LVL2
+ 494 011d 40020000 		.4byte	0x240
+ 495 0121 00       		.byte	0
+ 496 0122 08       		.uleb128 0x8
+ 497 0123 23010000 		.4byte	.LASF21
+ 498 0127 01       		.byte	0x1
+ 499 0128 AB       		.byte	0xab
+ 500 0129 00000000 		.4byte	.LFB1
+ 501 012d 18000000 		.4byte	.LFE1-.LFB1
+ 502 0131 01       		.uleb128 0x1
+ 503 0132 9C       		.byte	0x9c
+ 504 0133 41010000 		.4byte	0x141
+ 505 0137 07       		.uleb128 0x7
+ 506 0138 12000000 		.4byte	.LVL3
+ 507 013c C3000000 		.4byte	0xc3
+ 508 0140 00       		.byte	0
+ 509 0141 08       		.uleb128 0x8
+ 510 0142 1A000000 		.4byte	.LASF22
+ 511 0146 01       		.byte	0x1
+ 512 0147 D2       		.byte	0xd2
+ 513 0148 00000000 		.4byte	.LFB2
+ 514 014c 20000000 		.4byte	.LFE2-.LFB2
+ 515 0150 01       		.uleb128 0x1
+ 516 0151 9C       		.byte	0x9c
+ 517 0152 69010000 		.4byte	0x169
+ 518 0156 07       		.uleb128 0x7
+ 519 0157 0E000000 		.4byte	.LVL4
+ 520 015b 03010000 		.4byte	0x103
+ 521 015f 07       		.uleb128 0x7
+ 522 0160 18000000 		.4byte	.LVL5
+ 523 0164 22010000 		.4byte	0x122
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 25
+
+
+ 524 0168 00       		.byte	0
+ 525 0169 08       		.uleb128 0x8
+ 526 016a A1020000 		.4byte	.LASF23
+ 527 016e 01       		.byte	0x1
+ 528 016f EF       		.byte	0xef
+ 529 0170 00000000 		.4byte	.LFB3
+ 530 0174 20000000 		.4byte	.LFE3-.LFB3
+ 531 0178 01       		.uleb128 0x1
+ 532 0179 9C       		.byte	0x9c
+ 533 017a 88010000 		.4byte	0x188
+ 534 017e 07       		.uleb128 0x7
+ 535 017f 06000000 		.4byte	.LVL6
+ 536 0183 E3000000 		.4byte	0xe3
+ 537 0187 00       		.byte	0
+ 538 0188 09       		.uleb128 0x9
+ 539 0189 71020000 		.4byte	.LASF24
+ 540 018d 01       		.byte	0x1
+ 541 018e 1701     		.2byte	0x117
+ 542 0190 00000000 		.4byte	.LFB4
+ 543 0194 14000000 		.4byte	.LFE4-.LFB4
+ 544 0198 01       		.uleb128 0x1
+ 545 0199 9C       		.byte	0x9c
+ 546 019a BF010000 		.4byte	0x1bf
+ 547 019e 0A       		.uleb128 0xa
+ 548 019f 36000000 		.4byte	.LASF26
+ 549 01a3 01       		.byte	0x1
+ 550 01a4 1701     		.2byte	0x117
+ 551 01a6 83000000 		.4byte	0x83
+ 552 01aa 00000000 		.4byte	.LLST0
+ 553 01ae 0B       		.uleb128 0xb
+ 554 01af BB020000 		.4byte	.LASF27
+ 555 01b3 01       		.byte	0x1
+ 556 01b4 1901     		.2byte	0x119
+ 557 01b6 83000000 		.4byte	0x83
+ 558 01ba 21000000 		.4byte	.LLST1
+ 559 01be 00       		.byte	0
+ 560 01bf 09       		.uleb128 0x9
+ 561 01c0 06000000 		.4byte	.LASF25
+ 562 01c4 01       		.byte	0x1
+ 563 01c5 3001     		.2byte	0x130
+ 564 01c7 00000000 		.4byte	.LFB5
+ 565 01cb 14000000 		.4byte	.LFE5-.LFB5
+ 566 01cf 01       		.uleb128 0x1
+ 567 01d0 9C       		.byte	0x9c
+ 568 01d1 F6010000 		.4byte	0x1f6
+ 569 01d5 0A       		.uleb128 0xa
+ 570 01d6 36000000 		.4byte	.LASF26
+ 571 01da 01       		.byte	0x1
+ 572 01db 3001     		.2byte	0x130
+ 573 01dd 83000000 		.4byte	0x83
+ 574 01e1 3F000000 		.4byte	.LLST2
+ 575 01e5 0B       		.uleb128 0xb
+ 576 01e6 9F010000 		.4byte	.LASF28
+ 577 01ea 01       		.byte	0x1
+ 578 01eb 3201     		.2byte	0x132
+ 579 01ed 83000000 		.4byte	0x83
+ 580 01f1 60000000 		.4byte	.LLST3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 26
+
+
+ 581 01f5 00       		.byte	0
+ 582 01f6 0C       		.uleb128 0xc
+ 583 01f7 72010000 		.4byte	.LASF37
+ 584 01fb 01       		.byte	0x1
+ 585 01fc 2203     		.2byte	0x322
+ 586 01fe 00000000 		.4byte	.LFB9
+ 587 0202 3C000000 		.4byte	.LFE9-.LFB9
+ 588 0206 01       		.uleb128 0x1
+ 589 0207 9C       		.byte	0x9c
+ 590 0208 0D       		.uleb128 0xd
+ 591 0209 5E010000 		.4byte	.LASF29
+ 592 020d 01       		.byte	0x1
+ 593 020e 51       		.byte	0x51
+ 594 020f 6B000000 		.4byte	0x6b
+ 595 0213 05       		.uleb128 0x5
+ 596 0214 03       		.byte	0x3
+ 597 0215 00000000 		.4byte	uart_initVar
+ 598 0219 0D       		.uleb128 0xd
+ 599 021a AB020000 		.4byte	.LASF30
+ 600 021e 01       		.byte	0x1
+ 601 021f 5A       		.byte	0x5a
+ 602 0220 77000000 		.4byte	0x77
+ 603 0224 05       		.uleb128 0x5
+ 604 0225 03       		.byte	0x3
+ 605 0226 00000000 		.4byte	uart_IntrTxMask
+ 606 022a 0E       		.uleb128 0xe
+ 607 022b F7000000 		.4byte	.LASF31
+ 608 022f F7000000 		.4byte	.LASF31
+ 609 0233 03       		.byte	0x3
+ 610 0234 4C       		.byte	0x4c
+ 611 0235 0E       		.uleb128 0xe
+ 612 0236 BE010000 		.4byte	.LASF32
+ 613 023a BE010000 		.4byte	.LASF32
+ 614 023e 03       		.byte	0x3
+ 615 023f 4D       		.byte	0x4d
+ 616 0240 0E       		.uleb128 0xe
+ 617 0241 E3000000 		.4byte	.LASF33
+ 618 0245 E3000000 		.4byte	.LASF33
+ 619 0249 03       		.byte	0x3
+ 620 024a 50       		.byte	0x50
+ 621 024b 00       		.byte	0
+ 622              		.section	.debug_abbrev,"",%progbits
+ 623              	.Ldebug_abbrev0:
+ 624 0000 01       		.uleb128 0x1
+ 625 0001 11       		.uleb128 0x11
+ 626 0002 01       		.byte	0x1
+ 627 0003 25       		.uleb128 0x25
+ 628 0004 0E       		.uleb128 0xe
+ 629 0005 13       		.uleb128 0x13
+ 630 0006 0B       		.uleb128 0xb
+ 631 0007 03       		.uleb128 0x3
+ 632 0008 0E       		.uleb128 0xe
+ 633 0009 1B       		.uleb128 0x1b
+ 634 000a 0E       		.uleb128 0xe
+ 635 000b 55       		.uleb128 0x55
+ 636 000c 17       		.uleb128 0x17
+ 637 000d 11       		.uleb128 0x11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 27
+
+
+ 638 000e 01       		.uleb128 0x1
+ 639 000f 10       		.uleb128 0x10
+ 640 0010 17       		.uleb128 0x17
+ 641 0011 00       		.byte	0
+ 642 0012 00       		.byte	0
+ 643 0013 02       		.uleb128 0x2
+ 644 0014 24       		.uleb128 0x24
+ 645 0015 00       		.byte	0
+ 646 0016 0B       		.uleb128 0xb
+ 647 0017 0B       		.uleb128 0xb
+ 648 0018 3E       		.uleb128 0x3e
+ 649 0019 0B       		.uleb128 0xb
+ 650 001a 03       		.uleb128 0x3
+ 651 001b 0E       		.uleb128 0xe
+ 652 001c 00       		.byte	0
+ 653 001d 00       		.byte	0
+ 654 001e 03       		.uleb128 0x3
+ 655 001f 24       		.uleb128 0x24
+ 656 0020 00       		.byte	0
+ 657 0021 0B       		.uleb128 0xb
+ 658 0022 0B       		.uleb128 0xb
+ 659 0023 3E       		.uleb128 0x3e
+ 660 0024 0B       		.uleb128 0xb
+ 661 0025 03       		.uleb128 0x3
+ 662 0026 08       		.uleb128 0x8
+ 663 0027 00       		.byte	0
+ 664 0028 00       		.byte	0
+ 665 0029 04       		.uleb128 0x4
+ 666 002a 16       		.uleb128 0x16
+ 667 002b 00       		.byte	0
+ 668 002c 03       		.uleb128 0x3
+ 669 002d 0E       		.uleb128 0xe
+ 670 002e 3A       		.uleb128 0x3a
+ 671 002f 0B       		.uleb128 0xb
+ 672 0030 3B       		.uleb128 0x3b
+ 673 0031 05       		.uleb128 0x5
+ 674 0032 49       		.uleb128 0x49
+ 675 0033 13       		.uleb128 0x13
+ 676 0034 00       		.byte	0
+ 677 0035 00       		.byte	0
+ 678 0036 05       		.uleb128 0x5
+ 679 0037 35       		.uleb128 0x35
+ 680 0038 00       		.byte	0
+ 681 0039 49       		.uleb128 0x49
+ 682 003a 13       		.uleb128 0x13
+ 683 003b 00       		.byte	0
+ 684 003c 00       		.byte	0
+ 685 003d 06       		.uleb128 0x6
+ 686 003e 2E       		.uleb128 0x2e
+ 687 003f 01       		.byte	0x1
+ 688 0040 03       		.uleb128 0x3
+ 689 0041 0E       		.uleb128 0xe
+ 690 0042 3A       		.uleb128 0x3a
+ 691 0043 0B       		.uleb128 0xb
+ 692 0044 3B       		.uleb128 0x3b
+ 693 0045 05       		.uleb128 0x5
+ 694 0046 27       		.uleb128 0x27
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 28
+
+
+ 695 0047 19       		.uleb128 0x19
+ 696 0048 11       		.uleb128 0x11
+ 697 0049 01       		.uleb128 0x1
+ 698 004a 12       		.uleb128 0x12
+ 699 004b 06       		.uleb128 0x6
+ 700 004c 40       		.uleb128 0x40
+ 701 004d 18       		.uleb128 0x18
+ 702 004e 9742     		.uleb128 0x2117
+ 703 0050 19       		.uleb128 0x19
+ 704 0051 01       		.uleb128 0x1
+ 705 0052 13       		.uleb128 0x13
+ 706 0053 00       		.byte	0
+ 707 0054 00       		.byte	0
+ 708 0055 07       		.uleb128 0x7
+ 709 0056 898201   		.uleb128 0x4109
+ 710 0059 00       		.byte	0
+ 711 005a 11       		.uleb128 0x11
+ 712 005b 01       		.uleb128 0x1
+ 713 005c 31       		.uleb128 0x31
+ 714 005d 13       		.uleb128 0x13
+ 715 005e 00       		.byte	0
+ 716 005f 00       		.byte	0
+ 717 0060 08       		.uleb128 0x8
+ 718 0061 2E       		.uleb128 0x2e
+ 719 0062 01       		.byte	0x1
+ 720 0063 3F       		.uleb128 0x3f
+ 721 0064 19       		.uleb128 0x19
+ 722 0065 03       		.uleb128 0x3
+ 723 0066 0E       		.uleb128 0xe
+ 724 0067 3A       		.uleb128 0x3a
+ 725 0068 0B       		.uleb128 0xb
+ 726 0069 3B       		.uleb128 0x3b
+ 727 006a 0B       		.uleb128 0xb
+ 728 006b 27       		.uleb128 0x27
+ 729 006c 19       		.uleb128 0x19
+ 730 006d 11       		.uleb128 0x11
+ 731 006e 01       		.uleb128 0x1
+ 732 006f 12       		.uleb128 0x12
+ 733 0070 06       		.uleb128 0x6
+ 734 0071 40       		.uleb128 0x40
+ 735 0072 18       		.uleb128 0x18
+ 736 0073 9742     		.uleb128 0x2117
+ 737 0075 19       		.uleb128 0x19
+ 738 0076 01       		.uleb128 0x1
+ 739 0077 13       		.uleb128 0x13
+ 740 0078 00       		.byte	0
+ 741 0079 00       		.byte	0
+ 742 007a 09       		.uleb128 0x9
+ 743 007b 2E       		.uleb128 0x2e
+ 744 007c 01       		.byte	0x1
+ 745 007d 3F       		.uleb128 0x3f
+ 746 007e 19       		.uleb128 0x19
+ 747 007f 03       		.uleb128 0x3
+ 748 0080 0E       		.uleb128 0xe
+ 749 0081 3A       		.uleb128 0x3a
+ 750 0082 0B       		.uleb128 0xb
+ 751 0083 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 29
+
+
+ 752 0084 05       		.uleb128 0x5
+ 753 0085 27       		.uleb128 0x27
+ 754 0086 19       		.uleb128 0x19
+ 755 0087 11       		.uleb128 0x11
+ 756 0088 01       		.uleb128 0x1
+ 757 0089 12       		.uleb128 0x12
+ 758 008a 06       		.uleb128 0x6
+ 759 008b 40       		.uleb128 0x40
+ 760 008c 18       		.uleb128 0x18
+ 761 008d 9742     		.uleb128 0x2117
+ 762 008f 19       		.uleb128 0x19
+ 763 0090 01       		.uleb128 0x1
+ 764 0091 13       		.uleb128 0x13
+ 765 0092 00       		.byte	0
+ 766 0093 00       		.byte	0
+ 767 0094 0A       		.uleb128 0xa
+ 768 0095 05       		.uleb128 0x5
+ 769 0096 00       		.byte	0
+ 770 0097 03       		.uleb128 0x3
+ 771 0098 0E       		.uleb128 0xe
+ 772 0099 3A       		.uleb128 0x3a
+ 773 009a 0B       		.uleb128 0xb
+ 774 009b 3B       		.uleb128 0x3b
+ 775 009c 05       		.uleb128 0x5
+ 776 009d 49       		.uleb128 0x49
+ 777 009e 13       		.uleb128 0x13
+ 778 009f 02       		.uleb128 0x2
+ 779 00a0 17       		.uleb128 0x17
+ 780 00a1 00       		.byte	0
+ 781 00a2 00       		.byte	0
+ 782 00a3 0B       		.uleb128 0xb
+ 783 00a4 34       		.uleb128 0x34
+ 784 00a5 00       		.byte	0
+ 785 00a6 03       		.uleb128 0x3
+ 786 00a7 0E       		.uleb128 0xe
+ 787 00a8 3A       		.uleb128 0x3a
+ 788 00a9 0B       		.uleb128 0xb
+ 789 00aa 3B       		.uleb128 0x3b
+ 790 00ab 05       		.uleb128 0x5
+ 791 00ac 49       		.uleb128 0x49
+ 792 00ad 13       		.uleb128 0x13
+ 793 00ae 02       		.uleb128 0x2
+ 794 00af 17       		.uleb128 0x17
+ 795 00b0 00       		.byte	0
+ 796 00b1 00       		.byte	0
+ 797 00b2 0C       		.uleb128 0xc
+ 798 00b3 2E       		.uleb128 0x2e
+ 799 00b4 00       		.byte	0
+ 800 00b5 3F       		.uleb128 0x3f
+ 801 00b6 19       		.uleb128 0x19
+ 802 00b7 03       		.uleb128 0x3
+ 803 00b8 0E       		.uleb128 0xe
+ 804 00b9 3A       		.uleb128 0x3a
+ 805 00ba 0B       		.uleb128 0xb
+ 806 00bb 3B       		.uleb128 0x3b
+ 807 00bc 05       		.uleb128 0x5
+ 808 00bd 27       		.uleb128 0x27
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 30
+
+
+ 809 00be 19       		.uleb128 0x19
+ 810 00bf 11       		.uleb128 0x11
+ 811 00c0 01       		.uleb128 0x1
+ 812 00c1 12       		.uleb128 0x12
+ 813 00c2 06       		.uleb128 0x6
+ 814 00c3 40       		.uleb128 0x40
+ 815 00c4 18       		.uleb128 0x18
+ 816 00c5 9742     		.uleb128 0x2117
+ 817 00c7 19       		.uleb128 0x19
+ 818 00c8 00       		.byte	0
+ 819 00c9 00       		.byte	0
+ 820 00ca 0D       		.uleb128 0xd
+ 821 00cb 34       		.uleb128 0x34
+ 822 00cc 00       		.byte	0
+ 823 00cd 03       		.uleb128 0x3
+ 824 00ce 0E       		.uleb128 0xe
+ 825 00cf 3A       		.uleb128 0x3a
+ 826 00d0 0B       		.uleb128 0xb
+ 827 00d1 3B       		.uleb128 0x3b
+ 828 00d2 0B       		.uleb128 0xb
+ 829 00d3 49       		.uleb128 0x49
+ 830 00d4 13       		.uleb128 0x13
+ 831 00d5 3F       		.uleb128 0x3f
+ 832 00d6 19       		.uleb128 0x19
+ 833 00d7 02       		.uleb128 0x2
+ 834 00d8 18       		.uleb128 0x18
+ 835 00d9 00       		.byte	0
+ 836 00da 00       		.byte	0
+ 837 00db 0E       		.uleb128 0xe
+ 838 00dc 2E       		.uleb128 0x2e
+ 839 00dd 00       		.byte	0
+ 840 00de 3F       		.uleb128 0x3f
+ 841 00df 19       		.uleb128 0x19
+ 842 00e0 3C       		.uleb128 0x3c
+ 843 00e1 19       		.uleb128 0x19
+ 844 00e2 6E       		.uleb128 0x6e
+ 845 00e3 0E       		.uleb128 0xe
+ 846 00e4 03       		.uleb128 0x3
+ 847 00e5 0E       		.uleb128 0xe
+ 848 00e6 3A       		.uleb128 0x3a
+ 849 00e7 0B       		.uleb128 0xb
+ 850 00e8 3B       		.uleb128 0x3b
+ 851 00e9 0B       		.uleb128 0xb
+ 852 00ea 00       		.byte	0
+ 853 00eb 00       		.byte	0
+ 854 00ec 00       		.byte	0
+ 855              		.section	.debug_loc,"",%progbits
+ 856              	.Ldebug_loc0:
+ 857              	.LLST0:
+ 858 0000 00000000 		.4byte	.LVL7
+ 859 0004 0A000000 		.4byte	.LVL10
+ 860 0008 0100     		.2byte	0x1
+ 861 000a 50       		.byte	0x50
+ 862 000b 0A000000 		.4byte	.LVL10
+ 863 000f 14000000 		.4byte	.LFE4
+ 864 0013 0400     		.2byte	0x4
+ 865 0015 F3       		.byte	0xf3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 31
+
+
+ 866 0016 01       		.uleb128 0x1
+ 867 0017 50       		.byte	0x50
+ 868 0018 9F       		.byte	0x9f
+ 869 0019 00000000 		.4byte	0
+ 870 001d 00000000 		.4byte	0
+ 871              	.LLST1:
+ 872 0021 04000000 		.4byte	.LVL8
+ 873 0025 0C000000 		.4byte	.LVL11
+ 874 0029 0100     		.2byte	0x1
+ 875 002b 53       		.byte	0x53
+ 876 002c 0C000000 		.4byte	.LVL11
+ 877 0030 14000000 		.4byte	.LFE4
+ 878 0034 0100     		.2byte	0x1
+ 879 0036 50       		.byte	0x50
+ 880 0037 00000000 		.4byte	0
+ 881 003b 00000000 		.4byte	0
+ 882              	.LLST2:
+ 883 003f 00000000 		.4byte	.LVL12
+ 884 0043 0A000000 		.4byte	.LVL15
+ 885 0047 0100     		.2byte	0x1
+ 886 0049 50       		.byte	0x50
+ 887 004a 0A000000 		.4byte	.LVL15
+ 888 004e 14000000 		.4byte	.LFE5
+ 889 0052 0400     		.2byte	0x4
+ 890 0054 F3       		.byte	0xf3
+ 891 0055 01       		.uleb128 0x1
+ 892 0056 50       		.byte	0x50
+ 893 0057 9F       		.byte	0x9f
+ 894 0058 00000000 		.4byte	0
+ 895 005c 00000000 		.4byte	0
+ 896              	.LLST3:
+ 897 0060 04000000 		.4byte	.LVL13
+ 898 0064 0C000000 		.4byte	.LVL16
+ 899 0068 0100     		.2byte	0x1
+ 900 006a 53       		.byte	0x53
+ 901 006b 0C000000 		.4byte	.LVL16
+ 902 006f 14000000 		.4byte	.LFE5
+ 903 0073 0100     		.2byte	0x1
+ 904 0075 50       		.byte	0x50
+ 905 0076 00000000 		.4byte	0
+ 906 007a 00000000 		.4byte	0
+ 907              		.section	.debug_aranges,"",%progbits
+ 908 0000 5C000000 		.4byte	0x5c
+ 909 0004 0200     		.2byte	0x2
+ 910 0006 00000000 		.4byte	.Ldebug_info0
+ 911 000a 04       		.byte	0x4
+ 912 000b 00       		.byte	0
+ 913 000c 0000     		.2byte	0
+ 914 000e 0000     		.2byte	0
+ 915 0010 00000000 		.4byte	.LFB7
+ 916 0014 08000000 		.4byte	.LFE7-.LFB7
+ 917 0018 00000000 		.4byte	.LFB8
+ 918 001c 08000000 		.4byte	.LFE8-.LFB8
+ 919 0020 00000000 		.4byte	.LFB0
+ 920 0024 08000000 		.4byte	.LFE0-.LFB0
+ 921 0028 00000000 		.4byte	.LFB1
+ 922 002c 18000000 		.4byte	.LFE1-.LFB1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 32
+
+
+ 923 0030 00000000 		.4byte	.LFB2
+ 924 0034 20000000 		.4byte	.LFE2-.LFB2
+ 925 0038 00000000 		.4byte	.LFB3
+ 926 003c 20000000 		.4byte	.LFE3-.LFB3
+ 927 0040 00000000 		.4byte	.LFB4
+ 928 0044 14000000 		.4byte	.LFE4-.LFB4
+ 929 0048 00000000 		.4byte	.LFB5
+ 930 004c 14000000 		.4byte	.LFE5-.LFB5
+ 931 0050 00000000 		.4byte	.LFB9
+ 932 0054 3C000000 		.4byte	.LFE9-.LFB9
+ 933 0058 00000000 		.4byte	0
+ 934 005c 00000000 		.4byte	0
+ 935              		.section	.debug_ranges,"",%progbits
+ 936              	.Ldebug_ranges0:
+ 937 0000 00000000 		.4byte	.LFB7
+ 938 0004 08000000 		.4byte	.LFE7
+ 939 0008 00000000 		.4byte	.LFB8
+ 940 000c 08000000 		.4byte	.LFE8
+ 941 0010 00000000 		.4byte	.LFB0
+ 942 0014 08000000 		.4byte	.LFE0
+ 943 0018 00000000 		.4byte	.LFB1
+ 944 001c 18000000 		.4byte	.LFE1
+ 945 0020 00000000 		.4byte	.LFB2
+ 946 0024 20000000 		.4byte	.LFE2
+ 947 0028 00000000 		.4byte	.LFB3
+ 948 002c 20000000 		.4byte	.LFE3
+ 949 0030 00000000 		.4byte	.LFB4
+ 950 0034 14000000 		.4byte	.LFE4
+ 951 0038 00000000 		.4byte	.LFB5
+ 952 003c 14000000 		.4byte	.LFE5
+ 953 0040 00000000 		.4byte	.LFB9
+ 954 0044 3C000000 		.4byte	.LFE9
+ 955 0048 00000000 		.4byte	0
+ 956 004c 00000000 		.4byte	0
+ 957              		.section	.debug_line,"",%progbits
+ 958              	.Ldebug_line0:
+ 959 0000 23010000 		.section	.debug_str,"MS",%progbits,1
+ 959      02005800 
+ 959      00000201 
+ 959      FB0E0D00 
+ 959      01010101 
+ 960              	.LASF15:
+ 961 0000 72656733 		.ascii	"reg32\000"
+ 961      3200
+ 962              	.LASF25:
+ 963 0006 75617274 		.ascii	"uart_SetTxFifoLevel\000"
+ 963      5F536574 
+ 963      54784669 
+ 963      666F4C65 
+ 963      76656C00 
+ 964              	.LASF22:
+ 965 001a 75617274 		.ascii	"uart_Start\000"
+ 965      5F537461 
+ 965      727400
+ 966              	.LASF19:
+ 967 0025 75617274 		.ascii	"uart_ScbModeStop\000"
+ 967      5F536362 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 33
+
+
+ 967      4D6F6465 
+ 967      53746F70 
+ 967      00
+ 968              	.LASF26:
+ 969 0036 6C657665 		.ascii	"level\000"
+ 969      6C00
+ 970              	.LASF3:
+ 971 003c 73686F72 		.ascii	"short unsigned int\000"
+ 971      7420756E 
+ 971      7369676E 
+ 971      65642069 
+ 971      6E7400
+ 972              	.LASF35:
+ 973 004f 47656E65 		.ascii	"Generated_Source\\PSoC4\\uart.c\000"
+ 973      72617465 
+ 973      645F536F 
+ 973      75726365 
+ 973      5C50536F 
+ 974              	.LASF36:
+ 975 006d 433A5C55 		.ascii	"C:\\Users\\ASUS\\Documents\\PROYECTO FINAL\\reposit"
+ 975      73657273 
+ 975      5C415355 
+ 975      535C446F 
+ 975      63756D65 
+ 976 009b 6F72696F 		.ascii	"orio\\aixt\\ports\\Cypress\\CY8CKIT-049-42XX\\proje"
+ 976      5C616978 
+ 976      745C706F 
+ 976      7274735C 
+ 976      43797072 
+ 977 00c9 6374735C 		.ascii	"cts\\Config Gral 049.cydsn\000"
+ 977      436F6E66 
+ 977      69672047 
+ 977      72616C20 
+ 977      3034392E 
+ 978              	.LASF33:
+ 979 00e3 75617274 		.ascii	"uart_UartInit\000"
+ 979      5F556172 
+ 979      74496E69 
+ 979      7400
+ 980              	.LASF12:
+ 981 00f1 666C6F61 		.ascii	"float\000"
+ 981      7400
+ 982              	.LASF31:
+ 983 00f7 75617274 		.ascii	"uart_UartPostEnable\000"
+ 983      5F556172 
+ 983      74506F73 
+ 983      74456E61 
+ 983      626C6500 
+ 984              	.LASF1:
+ 985 010b 756E7369 		.ascii	"unsigned char\000"
+ 985      676E6564 
+ 985      20636861 
+ 985      7200
+ 986              	.LASF20:
+ 987 0119 75617274 		.ascii	"uart_Init\000"
+ 987      5F496E69 
+ 987      7400
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 34
+
+
+ 988              	.LASF21:
+ 989 0123 75617274 		.ascii	"uart_Enable\000"
+ 989      5F456E61 
+ 989      626C6500 
+ 990              	.LASF5:
+ 991 012f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 991      20756E73 
+ 991      69676E65 
+ 991      6420696E 
+ 991      7400
+ 992              	.LASF18:
+ 993 0141 75617274 		.ascii	"uart_ScbModePostEnable\000"
+ 993      5F536362 
+ 993      4D6F6465 
+ 993      506F7374 
+ 993      456E6162 
+ 994              	.LASF9:
+ 995 0158 75696E74 		.ascii	"uint8\000"
+ 995      3800
+ 996              	.LASF29:
+ 997 015e 75617274 		.ascii	"uart_initVar\000"
+ 997      5F696E69 
+ 997      74566172 
+ 997      00
+ 998              	.LASF13:
+ 999 016b 646F7562 		.ascii	"double\000"
+ 999      6C6500
+ 1000              	.LASF37:
+ 1001 0172 75617274 		.ascii	"uart_I2CSlaveNackGeneration\000"
+ 1001      5F493243 
+ 1001      536C6176 
+ 1001      654E6163 
+ 1001      6B47656E 
+ 1002              	.LASF2:
+ 1003 018e 73686F72 		.ascii	"short int\000"
+ 1003      7420696E 
+ 1003      7400
+ 1004              	.LASF10:
+ 1005 0198 75696E74 		.ascii	"uint16\000"
+ 1005      313600
+ 1006              	.LASF28:
+ 1007 019f 74784669 		.ascii	"txFifoCtrl\000"
+ 1007      666F4374 
+ 1007      726C00
+ 1008              	.LASF11:
+ 1009 01aa 75696E74 		.ascii	"uint32\000"
+ 1009      333200
+ 1010              	.LASF8:
+ 1011 01b1 756E7369 		.ascii	"unsigned int\000"
+ 1011      676E6564 
+ 1011      20696E74 
+ 1011      00
+ 1012              	.LASF32:
+ 1013 01be 75617274 		.ascii	"uart_UartStop\000"
+ 1013      5F556172 
+ 1013      7453746F 
+ 1013      7000
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 35
+
+
+ 1014              	.LASF7:
+ 1015 01cc 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1015      206C6F6E 
+ 1015      6720756E 
+ 1015      7369676E 
+ 1015      65642069 
+ 1016              	.LASF34:
+ 1017 01e3 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1017      43313120 
+ 1017      352E342E 
+ 1017      31203230 
+ 1017      31363036 
+ 1018 0216 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1018      20726576 
+ 1018      6973696F 
+ 1018      6E203233 
+ 1018      37373135 
+ 1019 0249 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1019      66756E63 
+ 1019      74696F6E 
+ 1019      2D736563 
+ 1019      74696F6E 
+ 1020              	.LASF24:
+ 1021 0271 75617274 		.ascii	"uart_SetRxFifoLevel\000"
+ 1021      5F536574 
+ 1021      52784669 
+ 1021      666F4C65 
+ 1021      76656C00 
+ 1022              	.LASF17:
+ 1023 0285 73697A65 		.ascii	"sizetype\000"
+ 1023      74797065 
+ 1023      00
+ 1024              	.LASF6:
+ 1025 028e 6C6F6E67 		.ascii	"long long int\000"
+ 1025      206C6F6E 
+ 1025      6720696E 
+ 1025      7400
+ 1026              	.LASF14:
+ 1027 029c 63686172 		.ascii	"char\000"
+ 1027      00
+ 1028              	.LASF23:
+ 1029 02a1 75617274 		.ascii	"uart_Stop\000"
+ 1029      5F53746F 
+ 1029      7000
+ 1030              	.LASF30:
+ 1031 02ab 75617274 		.ascii	"uart_IntrTxMask\000"
+ 1031      5F496E74 
+ 1031      7254784D 
+ 1031      61736B00 
+ 1032              	.LASF27:
+ 1033 02bb 72784669 		.ascii	"rxFifoCtrl\000"
+ 1033      666F4374 
+ 1033      726C00
+ 1034              	.LASF4:
+ 1035 02c6 6C6F6E67 		.ascii	"long int\000"
+ 1035      20696E74 
+ 1035      00
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccwd7ERn.s 			page 36
+
+
+ 1036              	.LASF16:
+ 1037 02cf 6C6F6E67 		.ascii	"long double\000"
+ 1037      20646F75 
+ 1037      626C6500 
+ 1038              	.LASF0:
+ 1039 02db 7369676E 		.ascii	"signed char\000"
+ 1039      65642063 
+ 1039      68617200 
+ 1040              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

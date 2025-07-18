@@ -1,9 +1,14 @@
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Javier Leon, Camilo Lucas and Fernando M. Santa
-// Date: 2023
+// Project Name: Aixt https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+// Date: 2022-2025
 // License: MIT
 //
-// Description: Microseconds delay function
-//              (CY8CKIT-049-42XX)
+// // Description: time functions (CY8CKIT-049-42XX)
 
-#define sleep_us(TIME)    CyDelayUs(TIME)
+module time
+
+// sleep is a delay function in microseconds for Arduino devices
+@[as_macro]
+pub fn sleep_us(tus any) {
+	C.CyDelayUs(tus)
+}

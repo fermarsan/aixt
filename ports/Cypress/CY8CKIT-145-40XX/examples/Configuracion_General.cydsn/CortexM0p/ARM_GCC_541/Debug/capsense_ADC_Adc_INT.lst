@@ -1,0 +1,1762 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"capsense_ADC_Adc_INT.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_uidiv
+  20              		.global	__aeabi_idiv
+  21              		.section	.text.capsense_ADC_AdcIntrHandler,"ax",%progbits
+  22              		.align	2
+  23              		.global	capsense_ADC_AdcIntrHandler
+  24              		.code	16
+  25              		.thumb_func
+  26              		.type	capsense_ADC_AdcIntrHandler, %function
+  27              	capsense_ADC_AdcIntrHandler:
+  28              	.LFB1:
+  29              		.file 1 "Generated_Source\\PSoC4\\capsense_ADC_Adc_INT.c"
+   1:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * \file capsense_ADC_Adc_INT.c
+   3:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * \version 7.10
+   4:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *
+   5:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * \brief
+   6:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *   This file contains the source code for implementation of the capsense_ADC
+   7:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *   Component ADC functionality Interrupt Service Routine (ISR).
+   8:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *
+   9:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * \see capsense_ADC v7.10 Datasheet
+  10:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *
+  11:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *//*****************************************************************************
+  12:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * Copyright (2016-2019), Cypress Semiconductor Corporation.
+  13:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** ********************************************************************************
+  14:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * This software is owned by Cypress Semiconductor Corporation (Cypress) and is
+  15:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * protected by and subject to worldwide patent protection (United States and
+  16:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * foreign), United States copyright laws and international treaty provisions.
+  17:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * Cypress hereby grants to licensee a personal, non-exclusive, non-transferable
+  18:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * license to copy, use, modify, create derivative works of, and compile the
+  19:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * Cypress Source Code and derivative works for the sole purpose of creating
+  20:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * custom software in support of licensee product to be used only in conjunction
+  21:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * with a Cypress integrated circuit as specified in the applicable agreement.
+  22:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * Any reproduction, modification, translation, compilation, or representation of
+  23:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * this software except as specified above is prohibited without the express
+  24:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * written permission of Cypress.
+  25:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *
+  26:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH
+  27:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  28:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 2
+
+
+  29:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * Cypress reserves the right to make changes without further notice to the
+  30:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * materials described herein. Cypress does not assume any liability arising out
+  31:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * of the application or use of any product or circuit described herein. Cypress
+  32:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * does not authorize its products for use as critical components in life-support
+  33:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * systems where a malfunction or failure may reasonably be expected to result in
+  34:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * significant injury to the user. The inclusion of Cypress' product in a life-
+  35:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * support systems application implies that the manufacturer assumes all risk of
+  36:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * such use and in doing so indemnifies Cypress against all charges. Use may be
+  37:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * limited by and subject to the applicable Cypress software license agreement.
+  38:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *******************************************************************************/
+  39:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** #include "CyLib.h"
+  40:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** #include "cytypes.h"
+  41:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** #include "cyfitter.h"
+  42:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** #include "capsense_ADC_Adc.h"
+  43:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** #include "capsense_ADC_Sensing.h"
+  44:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** #include "capsense_ADC_Configuration.h"
+  45:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** #include "cyapicallbacks.h"
+  46:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+  47:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** /**
+  48:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * \cond SECTION_ADC_INTERRUPT
+  49:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * \addtogroup group_c_interrupt
+  50:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * \{
+  51:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** */
+  52:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+  53:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** #if (capsense_ADC_ADC_EN)
+  54:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+  55:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+  56:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** /*******************************************************************************
+  57:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * Function Name: capsense_ADC_AdcIntrHandler
+  58:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** ****************************************************************************//**
+  59:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *
+  60:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * \brief
+  61:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *   This is an internal ISR function for the ADC implementation.
+  62:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *
+  63:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** * \details
+  64:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *   This ISR is triggered after a measurement completes or during the calibration
+  65:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *   phases.
+  66:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *
+  67:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *   To use the entry or exit callbacks, define
+  68:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *   capsense_ADC_ADC_[ENTRY|EXIT]_CALLBACK
+  69:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *   and define the corresponding function,
+  70:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *   capsense_ADC_Adc[Entry|Exit]Callback().
+  71:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *
+  72:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** *******************************************************************************/
+  73:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** CY_ISR(capsense_ADC_AdcIntrHandler)
+  74:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** {
+  30              		.loc 1 74 0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  35              		.cfi_def_cfa_offset 20
+  36              		.cfi_offset 4, -20
+  37              		.cfi_offset 5, -16
+  38              		.cfi_offset 6, -12
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 3
+
+
+  41 0002 4746     		mov	r7, r8
+  42 0004 80B4     		push	{r7}
+  43              		.cfi_def_cfa_offset 24
+  44              		.cfi_offset 8, -24
+  75:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     static uint16 tVssa2Vref;
+  76:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     static uint16 tFull;
+  77:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     static uint16 vMaxMv;
+  78:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+  79:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     uint32 tmpResult;
+  80:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     uint32 polarity;
+  81:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     uint8 adcFsmStatus;
+  82:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     uint8 tmpChId;
+  83:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+  84:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     #if (capsense_ADC_ADC_FULLRANGE_MODE == capsense_ADC_ADC_MEASURE_MODE)
+  85:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         uint8  interruptState;
+  86:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         uint32 newRegValue;
+  87:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+  88:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         static uint16 tVdda2Vref;
+  89:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         static uint16 tRecover;
+  90:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     #endif /* (capsense_ADC_ADC_FULLRANGE_MODE == capsense_ADC_ADC_MEASURE_MODE) */
+  91:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+  92:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     #ifdef capsense_ADC_ADC_ENTRY_CALLBACK
+  93:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         capsense_ADC_AdcEntryCallback();
+  94:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     #endif /* capsense_ADC_ADC_ENTRY_CALLBACK */
+  95:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+  96:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     /* Mask all CSD block interrupts (disable all interrupts) */
+  97:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     CY_SET_REG32(capsense_ADC_INTR_MASK_PTR, capsense_ADC_INTR_MASK_CLEAR_MASK);
+  45              		.loc 1 97 0
+  46 0006 0022     		movs	r2, #0
+  47 0008 594B     		ldr	r3, .L14
+  48 000a 1A60     		str	r2, [r3]
+  98:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+  99:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     /* Clear all pending interrupts of CSD block */
+ 100:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     CY_SET_REG32(capsense_ADC_INTR_PTR, capsense_ADC_INTR_ALL_MASK);
+  49              		.loc 1 100 0
+  50 000c 0732     		adds	r2, r2, #7
+  51 000e FF32     		adds	r2, r2, #255
+  52 0010 584B     		ldr	r3, .L14+4
+  53 0012 1A60     		str	r2, [r3]
+ 101:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 102:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     /* Read ADC result and check for ADC_ABORT or ADC_OVERFLOW flags */
+ 103:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     tmpResult = CY_GET_REG32(capsense_ADC_ADC_RES_PTR);
+  54              		.loc 1 103 0
+  55 0014 584B     		ldr	r3, .L14+8
+  56 0016 1C68     		ldr	r4, [r3]
+  57              	.LVL0:
+ 104:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     if (0uL == (tmpResult & capsense_ADC_AdcADC_RES_ABORT_MASK))
+  58              		.loc 1 104 0
+  59 0018 002C     		cmp	r4, #0
+  60 001a 00DA     		bge	.LCB26
+  61 001c A2E0     		b	.L2	@long jump
+  62              	.LCB26:
+ 105:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     {
+ 106:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         if (0uL == (tmpResult & capsense_ADC_AdcADC_RES_OVERFLOW_MASK))
+  63              		.loc 1 106 0
+  64 001e 6300     		lsls	r3, r4, #1
+  65 0020 00D5     		bpl	.LCB30
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 4
+
+
+  66 0022 9BE0     		b	.L3	@long jump
+  67              	.LCB30:
+ 107:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         {
+ 108:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             /* Read ADC status, define polarity, value and ChId */
+ 109:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             adcFsmStatus = (uint8)(capsense_ADC_dsRam.adcStatus & capsense_ADC_AdcSTATUS_FSM_MASK);
+  68              		.loc 1 109 0
+  69 0024 5549     		ldr	r1, .L14+12
+  70 0026 0B79     		ldrb	r3, [r1, #4]
+  71 0028 F73A     		subs	r2, r2, #247
+  72 002a 9343     		bics	r3, r2
+  73              	.LVL1:
+ 110:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             /* Select the polarity bit */
+ 111:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             polarity = tmpResult & capsense_ADC_AdcADC_RES_HSCMPPOL_MASK;
+  74              		.loc 1 111 0
+  75 002c 8022     		movs	r2, #128
+  76 002e 5202     		lsls	r2, r2, #9
+  77 0030 2240     		ands	r2, r4
+  78              	.LVL2:
+ 112:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             /* Select the result value */
+ 113:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             tmpResult &= capsense_ADC_AdcADC_RES_VALUE_MASK;
+  79              		.loc 1 113 0
+  80 0032 2004     		lsls	r0, r4, #16
+  81 0034 000C     		lsrs	r0, r0, #16
+  82              	.LVL3:
+ 114:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             tmpChId = capsense_ADC_dsRam.adcStatus & (uint8)(capsense_ADC_AdcSTATUS_LASTCHAN_MASK);
+  83              		.loc 1 114 0
+  84 0036 0D79     		ldrb	r5, [r1, #4]
+  85 0038 0F21     		movs	r1, #15
+  86 003a 0D40     		ands	r5, r1
+  87              	.LVL4:
+ 115:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 116:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             /* ADC could have been converting or calibrating; handle each differently. */
+ 117:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             switch (adcFsmStatus)
+  88              		.loc 1 117 0
+  89 003c 202B     		cmp	r3, #32
+  90 003e 4BD0     		beq	.L5
+  91 0040 02D8     		bhi	.L6
+  92 0042 102B     		cmp	r3, #16
+  93 0044 3BD0     		beq	.L7
+  94 0046 90E0     		b	.L1
+  95              	.L6:
+  96 0048 302B     		cmp	r3, #48
+  97 004a 5ED0     		beq	.L8
+  98 004c 402B     		cmp	r3, #64
+  99 004e 00D0     		beq	.LCB64
+ 100 0050 8BE0     		b	.L1	@long jump
+ 101              	.LCB64:
+ 118:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             {
+ 119:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             case capsense_ADC_AdcSTATUS_CONVERTING:
+ 120:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 /*
+ 121:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 * After the converting will calculate an ADC result in mV depending on
+ 122:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 * sourcing or sinking mode. Checks for a saturation in all modes.
+ 123:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 */
+ 124:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 /* HSCMP polarity is 0:sink, 1:source */
+ 125:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 if(0uL != polarity) /* Sourcing */
+ 102              		.loc 1 125 0
+ 103 0052 002A     		cmp	r2, #0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 5
+
+
+ 104 0054 0ED0     		beq	.L10
+ 126:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 {
+ 127:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /* Saturate result at tVssa2Vref */
+ 128:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     tmpResult = (tmpResult > (uint32)tVssa2Vref) ? (uint32)tVssa2Vref : tmpResult;
+ 105              		.loc 1 128 0
+ 106 0056 4A4B     		ldr	r3, .L14+16
+ 107              	.LVL5:
+ 108 0058 1B88     		ldrh	r3, [r3]
+ 109 005a 9842     		cmp	r0, r3
+ 110 005c 00D9     		bls	.L11
+ 111 005e 1800     		movs	r0, r3
+ 112              	.LVL6:
+ 113              	.L11:
+ 129:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /* Scale result to Resolution range with rounding*/
+ 130:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     tmpResult = ((((uint32)tVssa2Vref - tmpResult) * capsense_ADC_AdcRES_MAX) +
+ 114              		.loc 1 130 0
+ 115 0060 181A     		subs	r0, r3, r0
+ 116              	.LVL7:
+ 117 0062 8302     		lsls	r3, r0, #10
+ 118 0064 181A     		subs	r0, r3, r0
+ 131:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                                  ((uint32)tFull >> 1uL)) / (uint32)tFull;
+ 119              		.loc 1 131 0
+ 120 0066 464B     		ldr	r3, .L14+16
+ 121 0068 5988     		ldrh	r1, [r3, #2]
+ 122 006a 4A08     		lsrs	r2, r1, #1
+ 123              	.LVL8:
+ 130:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                                  ((uint32)tFull >> 1uL)) / (uint32)tFull;
+ 124              		.loc 1 130 0
+ 125 006c 8018     		adds	r0, r0, r2
+ 126 006e FFF7FEFF 		bl	__aeabi_uidiv
+ 127              	.LVL9:
+ 128 0072 16E0     		b	.L12
+ 129              	.LVL10:
+ 130              	.L10:
+ 132:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 }
+ 133:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 else /* Sinking */
+ 134:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 {
+ 135:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     #if (capsense_ADC_ADC_FULLRANGE_MODE == capsense_ADC_ADC_MEASURE_MODE)
+ 136:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                         /* Scale result with sink/source mismatch with rounding */
+ 137:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                         tmpResult = (((uint32)((uint32)tRecover << 1u) * tmpResult) + ((uint32)tVss
+ 131              		.loc 1 137 0
+ 132 0074 424E     		ldr	r6, .L14+16
+ 133 0076 B388     		ldrh	r3, [r6, #4]
+ 134              	.LVL11:
+ 135 0078 5B00     		lsls	r3, r3, #1
+ 136 007a 5843     		muls	r0, r3
+ 137              	.LVL12:
+ 138 007c 3488     		ldrh	r4, [r6]
+ 139              	.LVL13:
+ 140 007e 6308     		lsrs	r3, r4, #1
+ 141 0080 C018     		adds	r0, r0, r3
+ 142 0082 2100     		movs	r1, r4
+ 143 0084 FFF7FEFF 		bl	__aeabi_uidiv
+ 144              	.LVL14:
+ 138:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                         /* Saturate result at t_Vdda2Vref*/
+ 139:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                         tmpResult = (tmpResult > (uint32)tVdda2Vref) ? (uint32)tVdda2Vref : tmpResu
+ 145              		.loc 1 139 0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 6
+
+
+ 146 0088 F388     		ldrh	r3, [r6, #6]
+ 147 008a 9842     		cmp	r0, r3
+ 148 008c 00D9     		bls	.L13
+ 149 008e 1800     		movs	r0, r3
+ 150              	.LVL15:
+ 151              	.L13:
+ 140:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                         /* Scale result to Resolution range with rounding */
+ 141:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                         tmpResult = ((((uint32)tVssa2Vref + tmpResult) * capsense_ADC_AdcRES_MAX)  
+ 152              		.loc 1 141 0
+ 153 0090 2018     		adds	r0, r4, r0
+ 154              	.LVL16:
+ 155 0092 8302     		lsls	r3, r0, #10
+ 156 0094 181A     		subs	r0, r3, r0
+ 142:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                                      ((uint32)tFull >> 1uL)) / (uint32)tFull;
+ 157              		.loc 1 142 0
+ 158 0096 3A4B     		ldr	r3, .L14+16
+ 159 0098 5988     		ldrh	r1, [r3, #2]
+ 160 009a 4B08     		lsrs	r3, r1, #1
+ 141:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                                      ((uint32)tFull >> 1uL)) / (uint32)tFull;
+ 161              		.loc 1 141 0
+ 162 009c C018     		adds	r0, r0, r3
+ 163 009e FFF7FEFF 		bl	__aeabi_uidiv
+ 164              	.LVL17:
+ 165              	.L12:
+ 143:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     #else /* (capsense_ADC_ADC_FULLRANGE_MODE == capsense_ADC_ADC_MEASURE_MODE) */
+ 144:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                         /* In vref mode, we are not supposed to be sinking. Saturate */
+ 145:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                         tmpResult = ((uint32)tVssa2Vref * capsense_ADC_AdcRES_MAX) / (uint32)tFull;
+ 146:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     #endif /* (capsense_ADC_ADC_FULLRANGE_MODE == capsense_ADC_ADC_MEASURE_MODE) */
+ 147:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 }
+ 148:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 /* Store ADC result code */
+ 149:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 capsense_ADC_dsRam.adcCode [tmpChId] = (uint16)(tmpResult);
+ 166              		.loc 1 149 0
+ 167 00a2 364C     		ldr	r4, .L14+12
+ 168 00a4 6D00     		lsls	r5, r5, #1
+ 169              	.LVL18:
+ 170 00a6 6319     		adds	r3, r4, r5
+ 171 00a8 5880     		strh	r0, [r3, #2]
+ 150:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 /* Scale result to mV with rounding and store it */
+ 151:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 tmpResult = ((uint32)vMaxMv * tmpResult) / capsense_ADC_AdcRES_MAX;
+ 172              		.loc 1 151 0
+ 173 00aa 354B     		ldr	r3, .L14+16
+ 174 00ac 1B89     		ldrh	r3, [r3, #8]
+ 175 00ae 5843     		muls	r0, r3
+ 176              	.LVL19:
+ 177 00b0 3449     		ldr	r1, .L14+20
+ 178 00b2 FFF7FEFF 		bl	__aeabi_uidiv
+ 179              	.LVL20:
+ 152:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 capsense_ADC_dsRam.adcResult[tmpChId] = (uint16)(tmpResult);
+ 180              		.loc 1 152 0
+ 181 00b6 6053     		strh	r0, [r4, r5]
+ 153:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 capsense_ADC_dsRam.adcStatus = capsense_ADC_AdcSTATUS_IDLE;
+ 182              		.loc 1 153 0
+ 183 00b8 0023     		movs	r3, #0
+ 184 00ba 2371     		strb	r3, [r4, #4]
+ 154:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 break;
+ 185              		.loc 1 154 0
+ 186 00bc 55E0     		b	.L1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 7
+
+
+ 187              	.LVL21:
+ 188              	.L7:
+ 155:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 156:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             case capsense_ADC_AdcSTATUS_CALIBPH1:
+ 157:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 /*
+ 158:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 * After the calibration phase 1 will define a time to charge Cref1 and Cref2 from V
+ 159:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 * clock cycles. In the full-range mode starts the next calibration phase 2. In the 
+ 160:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 * and recalibrate Idac if necessary.
+ 161:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 */
+ 162:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 tVssa2Vref = (uint16)tmpResult;
+ 189              		.loc 1 162 0
+ 190 00be 304B     		ldr	r3, .L14+16
+ 191              	.LVL22:
+ 192 00c0 1C80     		strh	r4, [r3]
+ 163:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 164:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 #if (capsense_ADC_ADC_FULLRANGE_MODE == capsense_ADC_ADC_MEASURE_MODE)
+ 165:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /* Full range mode */
+ 166:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     capsense_ADC_dsRam.adcStatus = capsense_ADC_AdcSTATUS_CALIBPH2;
+ 193              		.loc 1 166 0
+ 194 00c2 2022     		movs	r2, #32
+ 195              	.LVL23:
+ 196 00c4 2D4B     		ldr	r3, .L14+12
+ 197 00c6 1A71     		strb	r2, [r3, #4]
+ 167:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /* Un-mask ADC_RES interrupt (enable interrupt) */
+ 168:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     CY_SET_REG32(capsense_ADC_INTR_MASK_PTR, capsense_ADC_INTR_MASK_ADC_RES_MASK);
+ 198              		.loc 1 168 0
+ 199 00c8 E032     		adds	r2, r2, #224
+ 200 00ca 294B     		ldr	r3, .L14
+ 201 00cc 1A60     		str	r2, [r3]
+ 169:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     capsense_ADC_StartAdcFSM(capsense_ADC_AdcMEASMODE_VREFBY2);
+ 202              		.loc 1 169 0
+ 203 00ce 8020     		movs	r0, #128
+ 204              	.LVL24:
+ 205 00d0 8002     		lsls	r0, r0, #10
+ 206              	.LVL25:
+ 207 00d2 FFF7FEFF 		bl	capsense_ADC_StartAdcFSM
+ 208              	.LVL26:
+ 170:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 171:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 #else /* (capsense_ADC_ADC_FULLRANGE_MODE == capsense_ADC_ADC_MEASURE_MODE) */
+ 172:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /* Vref range mode */
+ 173:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     vMaxMv = capsense_ADC_adcVrefMv;
+ 174:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     tFull = tVssa2Vref;
+ 175:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     capsense_ADC_dsRam.adcStatus = capsense_ADC_AdcSTATUS_IDLE;
+ 176:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 177:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 #endif /* (capsense_ADC_ADC_FULLRANGE_MODE == capsense_ADC_ADC_MEASURE_MODE) */
+ 178:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 179:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 break;
+ 209              		.loc 1 179 0
+ 210 00d6 48E0     		b	.L1
+ 211              	.LVL27:
+ 212              	.L5:
+ 180:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 181:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             /* In vref mode not need further calibration */
+ 182:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             #if (capsense_ADC_ADC_FULLRANGE_MODE == capsense_ADC_ADC_MEASURE_MODE)
+ 183:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 184:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 case capsense_ADC_AdcSTATUS_CALIBPH2:
+ 185:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /*
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 8
+
+
+ 186:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     * After the calibration phase 2 will define a time to charge Cref1 and Cref2 to
+ 187:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     * a discharging them by a sinking from Vref during tVssa2Vref/2 time. This rech
+ 188:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     * and is proporional to an Idac_sourcing/Idac_sinking mismatch. Then charges ca
+ 189:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     * the next calibration phase 3.
+ 190:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     */
+ 191:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     tRecover = (uint16)tmpResult;
+ 213              		.loc 1 191 0
+ 214 00d8 294B     		ldr	r3, .L14+16
+ 215              	.LVL28:
+ 216 00da 9C80     		strh	r4, [r3, #4]
+ 192:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 193:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /* Disconnect amuxbusB, Connect VDDA to csdbusB */
+ 194:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     interruptState = CyEnterCriticalSection();
+ 217              		.loc 1 194 0
+ 218 00dc FFF7FEFF 		bl	CyEnterCriticalSection
+ 219              	.LVL29:
+ 195:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     newRegValue = CY_GET_REG32(capsense_ADC_SW_BYP_SEL_PTR);
+ 220              		.loc 1 195 0
+ 221 00e0 294A     		ldr	r2, .L14+24
+ 222 00e2 1168     		ldr	r1, [r2]
+ 223              	.LVL30:
+ 196:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     newRegValue &= (uint32)(~capsense_ADC_AdcSW_BYP_DEFAULT);
+ 224              		.loc 1 196 0
+ 225 00e4 294B     		ldr	r3, .L14+28
+ 226 00e6 0B40     		ands	r3, r1
+ 227              	.LVL31:
+ 197:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     CY_SET_REG32(capsense_ADC_SW_BYP_SEL_PTR, newRegValue);
+ 228              		.loc 1 197 0
+ 229 00e8 1360     		str	r3, [r2]
+ 198:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     CyExitCriticalSection(interruptState);
+ 230              		.loc 1 198 0
+ 231 00ea FFF7FEFF 		bl	CyExitCriticalSection
+ 232              	.LVL32:
+ 199:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     CY_SET_REG32(capsense_ADC_SW_SHIELD_SEL_PTR, capsense_ADC_AdcSW_SHIELD_VDDA2CSD
+ 233              		.loc 1 199 0
+ 234 00ee 8023     		movs	r3, #128
+ 235              	.LVL33:
+ 236 00f0 5B00     		lsls	r3, r3, #1
+ 237              	.LVL34:
+ 238 00f2 274A     		ldr	r2, .L14+32
+ 239 00f4 1360     		str	r3, [r2]
+ 200:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 201:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     capsense_ADC_dsRam.adcStatus = capsense_ADC_AdcSTATUS_CALIBPH3;
+ 240              		.loc 1 201 0
+ 241 00f6 3021     		movs	r1, #48
+ 242 00f8 204A     		ldr	r2, .L14+12
+ 243 00fa 1171     		strb	r1, [r2, #4]
+ 202:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 203:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /* Un-mask ADC_RES interrupt (enable interrupt) */
+ 204:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     CY_SET_REG32(capsense_ADC_INTR_MASK_PTR, capsense_ADC_INTR_MASK_ADC_RES_MASK);
+ 244              		.loc 1 204 0
+ 245 00fc 1C4A     		ldr	r2, .L14
+ 246 00fe 1360     		str	r3, [r2]
+ 205:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     capsense_ADC_StartAdcFSM(capsense_ADC_AdcMEASMODE_VIN);
+ 247              		.loc 1 205 0
+ 248 0100 C020     		movs	r0, #192
+ 249 0102 8002     		lsls	r0, r0, #10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 9
+
+
+ 250 0104 FFF7FEFF 		bl	capsense_ADC_StartAdcFSM
+ 251              	.LVL35:
+ 206:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     break;
+ 252              		.loc 1 206 0
+ 253 0108 2FE0     		b	.L1
+ 254              	.LVL36:
+ 255              	.L8:
+ 207:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 208:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 case capsense_ADC_AdcSTATUS_CALIBPH3:
+ 209:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /*
+ 210:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     * After the calibration phase 3 will define a time to discharge Cref1 and Cref2
+ 211:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     * a sinking. This time must be corrected to an Idac_sourcing/Idac_sinking misma
+ 212:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     * Calculates t_full, checks it for a target and recalibrate Idac if necessary. 
+ 213:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     */
+ 214:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /* Reconnect amuxbusB, disconnect VDDA */
+ 215:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     CY_SET_REG32(capsense_ADC_SW_SHIELD_SEL_PTR, capsense_ADC_AdcSW_SHIELD_DEFAULT)
+ 256              		.loc 1 215 0
+ 257 010a 0025     		movs	r5, #0
+ 258              	.LVL37:
+ 259 010c 204B     		ldr	r3, .L14+32
+ 260              	.LVL38:
+ 261 010e 1D60     		str	r5, [r3]
+ 216:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     interruptState = CyEnterCriticalSection();
+ 262              		.loc 1 216 0
+ 263 0110 FFF7FEFF 		bl	CyEnterCriticalSection
+ 264              	.LVL39:
+ 217:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     newRegValue = CY_GET_REG32(capsense_ADC_SW_BYP_SEL_PTR);
+ 265              		.loc 1 217 0
+ 266 0114 1C4A     		ldr	r2, .L14+24
+ 267 0116 1368     		ldr	r3, [r2]
+ 268              	.LVL40:
+ 218:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     newRegValue |= capsense_ADC_AdcSW_BYP_DEFAULT;
+ 269              		.loc 1 218 0
+ 270 0118 8821     		movs	r1, #136
+ 271 011a 4903     		lsls	r1, r1, #13
+ 272 011c 0B43     		orrs	r3, r1
+ 273              	.LVL41:
+ 219:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     CY_SET_REG32(capsense_ADC_SW_BYP_SEL_PTR, newRegValue);
+ 274              		.loc 1 219 0
+ 275 011e 1360     		str	r3, [r2]
+ 220:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     CyExitCriticalSection(interruptState);
+ 276              		.loc 1 220 0
+ 277 0120 FFF7FEFF 		bl	CyExitCriticalSection
+ 278              	.LVL42:
+ 221:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 222:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     tVdda2Vref = (uint16)tmpResult;
+ 279              		.loc 1 222 0
+ 280 0124 A0B2     		uxth	r0, r4
+ 281 0126 164E     		ldr	r6, .L14+16
+ 223:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /* Calibrate tVdda2Vref with Sink/Source mismatch with rounding */
+ 224:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     tVdda2Vref = (uint16)(((((uint32)tVdda2Vref << 1u) * tRecover) + ((uint32)tVssa
+ 282              		.loc 1 224 0
+ 283 0128 4400     		lsls	r4, r0, #1
+ 284              	.LVL43:
+ 285 012a B088     		ldrh	r0, [r6, #4]
+ 286 012c 6043     		muls	r0, r4
+ 287 012e 3788     		ldrh	r7, [r6]
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 10
+
+
+ 288 0130 7C08     		lsrs	r4, r7, #1
+ 289 0132 0019     		adds	r0, r0, r4
+ 290 0134 3900     		movs	r1, r7
+ 291 0136 FFF7FEFF 		bl	__aeabi_uidiv
+ 292              	.LVL44:
+ 293 013a 83B2     		uxth	r3, r0
+ 294 013c F380     		strh	r3, [r6, #6]
+ 225:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     /* Test whether the full range is 2-bits higher than adc resolution */
+ 226:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     tFull = (tVssa2Vref + tVdda2Vref);
+ 295              		.loc 1 226 0
+ 296 013e FA18     		adds	r2, r7, r3
+ 297 0140 7280     		strh	r2, [r6, #2]
+ 227:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     vMaxMv = capsense_ADC_adcVrefMv +
+ 228:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                             (((capsense_ADC_adcVrefMv * tVdda2Vref) + (tVssa2Vref >> 1uL)) / tVssa2
+ 298              		.loc 1 228 0
+ 299 0142 144A     		ldr	r2, .L14+36
+ 300 0144 1288     		ldrh	r2, [r2]
+ 301 0146 9046     		mov	r8, r2
+ 302 0148 5343     		muls	r3, r2
+ 303 014a 1819     		adds	r0, r3, r4
+ 304 014c 3900     		movs	r1, r7
+ 305 014e FFF7FEFF 		bl	__aeabi_idiv
+ 306              	.LVL45:
+ 227:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     vMaxMv = capsense_ADC_adcVrefMv +
+ 307              		.loc 1 227 0
+ 308 0152 4044     		add	r0, r0, r8
+ 309 0154 3081     		strh	r0, [r6, #8]
+ 229:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 230:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     capsense_ADC_dsRam.adcStatus = capsense_ADC_AdcSTATUS_IDLE;
+ 310              		.loc 1 230 0
+ 311 0156 094B     		ldr	r3, .L14+12
+ 312 0158 1D71     		strb	r5, [r3, #4]
+ 231:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 232:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                     break;
+ 313              		.loc 1 232 0
+ 314 015a 06E0     		b	.L1
+ 315              	.LVL46:
+ 316              	.L3:
+ 233:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 234:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             #endif /* (capsense_ADC_ADC_FULLRANGE_MODE == capsense_ADC_ADC_MEASURE_MODE) */
+ 235:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** 
+ 236:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             default:
+ 237:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 /* If interrupt is called without defined ADC state, do nothing. */
+ 238:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****                 break;
+ 239:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             }
+ 240:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         }
+ 241:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         else
+ 242:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         {
+ 243:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****             capsense_ADC_dsRam.adcStatus = capsense_ADC_AdcSTATUS_OVERFLOW;
+ 317              		.loc 1 243 0
+ 318 015c 8022     		movs	r2, #128
+ 319 015e 074B     		ldr	r3, .L14+12
+ 320 0160 1A71     		strb	r2, [r3, #4]
+ 321 0162 02E0     		b	.L1
+ 322              	.L2:
+ 244:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         }
+ 245:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     }
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 11
+
+
+ 246:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     else
+ 247:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     {
+ 248:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         capsense_ADC_dsRam.adcStatus = capsense_ADC_AdcSTATUS_IDLE;
+ 323              		.loc 1 248 0
+ 324 0164 0022     		movs	r2, #0
+ 325 0166 054B     		ldr	r3, .L14+12
+ 326 0168 1A71     		strb	r2, [r3, #4]
+ 327              	.LVL47:
+ 328              	.L1:
+ 249:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     }
+ 250:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     #ifdef capsense_ADC_ADC_EXIT_CALLBACK
+ 251:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****         capsense_ADC_AdcExitCallback();
+ 252:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c ****     #endif /* capsense_ADC_ADC_EXIT_CALLBACK */
+ 253:Generated_Source\PSoC4/capsense_ADC_Adc_INT.c **** }
+ 329              		.loc 1 253 0
+ 330              		@ sp needed
+ 331 016a 04BC     		pop	{r2}
+ 332 016c 9046     		mov	r8, r2
+ 333 016e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 334              	.L15:
+ 335              		.align	2
+ 336              	.L14:
+ 337 0170 F8000B40 		.word	1074462968
+ 338 0174 F0000B40 		.word	1074462960
+ 339 0178 E0000B40 		.word	1074462944
+ 340 017c 00000000 		.word	capsense_ADC_dsRam
+ 341 0180 00000000 		.word	.LANCHOR0
+ 342 0184 FF030000 		.word	1023
+ 343 0188 94020B40 		.word	1074463380
+ 344 018c FFFFEEFF 		.word	-1114113
+ 345 0190 88020B40 		.word	1074463368
+ 346 0194 00000000 		.word	capsense_ADC_adcVrefMv
+ 347              		.cfi_endproc
+ 348              	.LFE1:
+ 349              		.size	capsense_ADC_AdcIntrHandler, .-capsense_ADC_AdcIntrHandler
+ 350              		.bss
+ 351              		.align	1
+ 352              		.set	.LANCHOR0,. + 0
+ 353              		.type	tVssa2Vref.4888, %object
+ 354              		.size	tVssa2Vref.4888, 2
+ 355              	tVssa2Vref.4888:
+ 356 0000 0000     		.space	2
+ 357              		.type	tFull.4889, %object
+ 358              		.size	tFull.4889, 2
+ 359              	tFull.4889:
+ 360 0002 0000     		.space	2
+ 361              		.type	tRecover.4898, %object
+ 362              		.size	tRecover.4898, 2
+ 363              	tRecover.4898:
+ 364 0004 0000     		.space	2
+ 365              		.type	tVdda2Vref.4897, %object
+ 366              		.size	tVdda2Vref.4897, 2
+ 367              	tVdda2Vref.4897:
+ 368 0006 0000     		.space	2
+ 369              		.type	vMaxMv.4890, %object
+ 370              		.size	vMaxMv.4890, 2
+ 371              	vMaxMv.4890:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 12
+
+
+ 372 0008 0000     		.space	2
+ 373              		.text
+ 374              	.Letext0:
+ 375              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 376              		.file 3 "Generated_Source\\PSoC4\\capsense_ADC_Structure.h"
+ 377              		.file 4 "Generated_Source\\PSoC4\\capsense_ADC_Adc.h"
+ 378              		.file 5 "Generated_Source\\PSoC4\\CyLib.h"
+ 379              		.section	.debug_info,"",%progbits
+ 380              	.Ldebug_info0:
+ 381 0000 87020000 		.4byte	0x287
+ 382 0004 0400     		.2byte	0x4
+ 383 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 384 000a 04       		.byte	0x4
+ 385 000b 01       		.uleb128 0x1
+ 386 000c 49000000 		.4byte	.LASF42
+ 387 0010 0C       		.byte	0xc
+ 388 0011 1C010000 		.4byte	.LASF43
+ 389 0015 7C020000 		.4byte	.LASF44
+ 390 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 391 001d 00000000 		.4byte	0
+ 392 0021 00000000 		.4byte	.Ldebug_line0
+ 393 0025 02       		.uleb128 0x2
+ 394 0026 01       		.byte	0x1
+ 395 0027 06       		.byte	0x6
+ 396 0028 EE020000 		.4byte	.LASF0
+ 397 002c 02       		.uleb128 0x2
+ 398 002d 01       		.byte	0x1
+ 399 002e 08       		.byte	0x8
+ 400 002f 7B010000 		.4byte	.LASF1
+ 401 0033 02       		.uleb128 0x2
+ 402 0034 02       		.byte	0x2
+ 403 0035 05       		.byte	0x5
+ 404 0036 72020000 		.4byte	.LASF2
+ 405 003a 02       		.uleb128 0x2
+ 406 003b 02       		.byte	0x2
+ 407 003c 07       		.byte	0x7
+ 408 003d 36000000 		.4byte	.LASF3
+ 409 0041 02       		.uleb128 0x2
+ 410 0042 04       		.byte	0x4
+ 411 0043 05       		.byte	0x5
+ 412 0044 CD020000 		.4byte	.LASF4
+ 413 0048 02       		.uleb128 0x2
+ 414 0049 04       		.byte	0x4
+ 415 004a 07       		.byte	0x7
+ 416 004b 59010000 		.4byte	.LASF5
+ 417 004f 02       		.uleb128 0x2
+ 418 0050 08       		.byte	0x8
+ 419 0051 05       		.byte	0x5
+ 420 0052 00000000 		.4byte	.LASF6
+ 421 0056 02       		.uleb128 0x2
+ 422 0057 08       		.byte	0x8
+ 423 0058 07       		.byte	0x7
+ 424 0059 F4000000 		.4byte	.LASF7
+ 425 005d 03       		.uleb128 0x3
+ 426 005e 04       		.byte	0x4
+ 427 005f 05       		.byte	0x5
+ 428 0060 696E7400 		.ascii	"int\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 13
+
+
+ 429 0064 02       		.uleb128 0x2
+ 430 0065 04       		.byte	0x4
+ 431 0066 07       		.byte	0x7
+ 432 0067 B5010000 		.4byte	.LASF8
+ 433 006b 04       		.uleb128 0x4
+ 434 006c 6B010000 		.4byte	.LASF9
+ 435 0070 02       		.byte	0x2
+ 436 0071 FC01     		.2byte	0x1fc
+ 437 0073 2C000000 		.4byte	0x2c
+ 438 0077 04       		.uleb128 0x4
+ 439 0078 90010000 		.4byte	.LASF10
+ 440 007c 02       		.byte	0x2
+ 441 007d FD01     		.2byte	0x1fd
+ 442 007f 3A000000 		.4byte	0x3a
+ 443 0083 04       		.uleb128 0x4
+ 444 0084 97010000 		.4byte	.LASF11
+ 445 0088 02       		.byte	0x2
+ 446 0089 FE01     		.2byte	0x1fe
+ 447 008b 48000000 		.4byte	0x48
+ 448 008f 02       		.uleb128 0x2
+ 449 0090 04       		.byte	0x4
+ 450 0091 04       		.byte	0x4
+ 451 0092 EE000000 		.4byte	.LASF12
+ 452 0096 02       		.uleb128 0x2
+ 453 0097 08       		.byte	0x8
+ 454 0098 04       		.byte	0x4
+ 455 0099 89010000 		.4byte	.LASF13
+ 456 009d 02       		.uleb128 0x2
+ 457 009e 01       		.byte	0x1
+ 458 009f 08       		.byte	0x8
+ 459 00a0 35020000 		.4byte	.LASF14
+ 460 00a4 05       		.uleb128 0x5
+ 461 00a5 6B000000 		.4byte	0x6b
+ 462 00a9 04       		.uleb128 0x4
+ 463 00aa 0E000000 		.4byte	.LASF15
+ 464 00ae 02       		.byte	0x2
+ 465 00af A802     		.2byte	0x2a8
+ 466 00b1 B5000000 		.4byte	0xb5
+ 467 00b5 05       		.uleb128 0x5
+ 468 00b6 83000000 		.4byte	0x83
+ 469 00ba 02       		.uleb128 0x2
+ 470 00bb 08       		.byte	0x8
+ 471 00bc 04       		.byte	0x4
+ 472 00bd D6020000 		.4byte	.LASF16
+ 473 00c1 02       		.uleb128 0x2
+ 474 00c2 04       		.byte	0x4
+ 475 00c3 07       		.byte	0x7
+ 476 00c4 09020000 		.4byte	.LASF17
+ 477 00c8 06       		.uleb128 0x6
+ 478 00c9 0A       		.byte	0xa
+ 479 00ca 03       		.byte	0x3
+ 480 00cb 37       		.byte	0x37
+ 481 00cc 25010000 		.4byte	0x125
+ 482 00d0 07       		.uleb128 0x7
+ 483 00d1 FF010000 		.4byte	.LASF18
+ 484 00d5 03       		.byte	0x3
+ 485 00d6 3D       		.byte	0x3d
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 14
+
+
+ 486 00d7 25010000 		.4byte	0x125
+ 487 00db 00       		.byte	0
+ 488 00dc 07       		.uleb128 0x7
+ 489 00dd 6A020000 		.4byte	.LASF19
+ 490 00e1 03       		.byte	0x3
+ 491 00e2 43       		.byte	0x43
+ 492 00e3 25010000 		.4byte	0x125
+ 493 00e7 02       		.byte	0x2
+ 494 00e8 07       		.uleb128 0x7
+ 495 00e9 2C000000 		.4byte	.LASF20
+ 496 00ed 03       		.byte	0x3
+ 497 00ee 48       		.byte	0x48
+ 498 00ef A4000000 		.4byte	0xa4
+ 499 00f3 04       		.byte	0x4
+ 500 00f4 07       		.uleb128 0x7
+ 501 00f5 F7010000 		.4byte	.LASF21
+ 502 00f9 03       		.byte	0x3
+ 503 00fa 4D       		.byte	0x4d
+ 504 00fb 6B000000 		.4byte	0x6b
+ 505 00ff 05       		.byte	0x5
+ 506 0100 07       		.uleb128 0x7
+ 507 0101 3A020000 		.4byte	.LASF22
+ 508 0105 03       		.byte	0x3
+ 509 0106 52       		.byte	0x52
+ 510 0107 6B000000 		.4byte	0x6b
+ 511 010b 06       		.byte	0x6
+ 512 010c 07       		.uleb128 0x7
+ 513 010d 1E000000 		.4byte	.LASF23
+ 514 0111 03       		.byte	0x3
+ 515 0112 57       		.byte	0x57
+ 516 0113 6B000000 		.4byte	0x6b
+ 517 0117 07       		.byte	0x7
+ 518 0118 07       		.uleb128 0x7
+ 519 0119 14000000 		.4byte	.LASF24
+ 520 011d 03       		.byte	0x3
+ 521 011e 5C       		.byte	0x5c
+ 522 011f 6B000000 		.4byte	0x6b
+ 523 0123 08       		.byte	0x8
+ 524 0124 00       		.byte	0
+ 525 0125 08       		.uleb128 0x8
+ 526 0126 77000000 		.4byte	0x77
+ 527 012a 35010000 		.4byte	0x135
+ 528 012e 09       		.uleb128 0x9
+ 529 012f C1000000 		.4byte	0xc1
+ 530 0133 00       		.byte	0
+ 531 0134 00       		.byte	0
+ 532 0135 0A       		.uleb128 0xa
+ 533 0136 12020000 		.4byte	.LASF25
+ 534 013a 03       		.byte	0x3
+ 535 013b 5D       		.byte	0x5d
+ 536 013c C8000000 		.4byte	0xc8
+ 537 0140 0B       		.uleb128 0xb
+ 538 0141 4E020000 		.4byte	.LASF45
+ 539 0145 01       		.byte	0x1
+ 540 0146 49       		.byte	0x49
+ 541 0147 00000000 		.4byte	.LFB1
+ 542 014b 98010000 		.4byte	.LFE1-.LFB1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 15
+
+
+ 543 014f 01       		.uleb128 0x1
+ 544 0150 9C       		.byte	0x9c
+ 545 0151 53020000 		.4byte	0x253
+ 546 0155 0C       		.uleb128 0xc
+ 547 0156 2A020000 		.4byte	.LASF26
+ 548 015a 01       		.byte	0x1
+ 549 015b 4B       		.byte	0x4b
+ 550 015c 77000000 		.4byte	0x77
+ 551 0160 05       		.uleb128 0x5
+ 552 0161 03       		.byte	0x3
+ 553 0162 00000000 		.4byte	tVssa2Vref.4888
+ 554 0166 0C       		.uleb128 0xc
+ 555 0167 0B010000 		.4byte	.LASF27
+ 556 016b 01       		.byte	0x1
+ 557 016c 4C       		.byte	0x4c
+ 558 016d 77000000 		.4byte	0x77
+ 559 0171 05       		.uleb128 0x5
+ 560 0172 03       		.byte	0x3
+ 561 0173 02000000 		.4byte	tFull.4889
+ 562 0177 0C       		.uleb128 0xc
+ 563 0178 FA020000 		.4byte	.LASF28
+ 564 017c 01       		.byte	0x1
+ 565 017d 4D       		.byte	0x4d
+ 566 017e 77000000 		.4byte	0x77
+ 567 0182 05       		.uleb128 0x5
+ 568 0183 03       		.byte	0x3
+ 569 0184 08000000 		.4byte	vMaxMv.4890
+ 570 0188 0D       		.uleb128 0xd
+ 571 0189 71010000 		.4byte	.LASF29
+ 572 018d 01       		.byte	0x1
+ 573 018e 4F       		.byte	0x4f
+ 574 018f 83000000 		.4byte	0x83
+ 575 0193 00000000 		.4byte	.LLST0
+ 576 0197 0D       		.uleb128 0xd
+ 577 0198 EE010000 		.4byte	.LASF30
+ 578 019c 01       		.byte	0x1
+ 579 019d 50       		.byte	0x50
+ 580 019e 83000000 		.4byte	0x83
+ 581 01a2 AF000000 		.4byte	.LLST1
+ 582 01a6 0D       		.uleb128 0xd
+ 583 01a7 C2010000 		.4byte	.LASF31
+ 584 01ab 01       		.byte	0x1
+ 585 01ac 51       		.byte	0x51
+ 586 01ad 6B000000 		.4byte	0x6b
+ 587 01b1 78010000 		.4byte	.LLST2
+ 588 01b5 0D       		.uleb128 0xd
+ 589 01b6 46020000 		.4byte	.LASF32
+ 590 01ba 01       		.byte	0x1
+ 591 01bb 52       		.byte	0x52
+ 592 01bc 6B000000 		.4byte	0x6b
+ 593 01c0 B7010000 		.4byte	.LLST3
+ 594 01c4 0D       		.uleb128 0xd
+ 595 01c5 4A010000 		.4byte	.LASF33
+ 596 01c9 01       		.byte	0x1
+ 597 01ca 55       		.byte	0x55
+ 598 01cb 6B000000 		.4byte	0x6b
+ 599 01cf D5010000 		.4byte	.LLST4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 16
+
+
+ 600 01d3 0D       		.uleb128 0xd
+ 601 01d4 E2020000 		.4byte	.LASF34
+ 602 01d8 01       		.byte	0x1
+ 603 01d9 56       		.byte	0x56
+ 604 01da 83000000 		.4byte	0x83
+ 605 01de F3010000 		.4byte	.LLST5
+ 606 01e2 0C       		.uleb128 0xc
+ 607 01e3 11010000 		.4byte	.LASF35
+ 608 01e7 01       		.byte	0x1
+ 609 01e8 58       		.byte	0x58
+ 610 01e9 77000000 		.4byte	0x77
+ 611 01ed 05       		.uleb128 0x5
+ 612 01ee 03       		.byte	0x3
+ 613 01ef 06000000 		.4byte	tVdda2Vref.4897
+ 614 01f3 0C       		.uleb128 0xc
+ 615 01f4 E5010000 		.4byte	.LASF36
+ 616 01f8 01       		.byte	0x1
+ 617 01f9 59       		.byte	0x59
+ 618 01fa 77000000 		.4byte	0x77
+ 619 01fe 05       		.uleb128 0x5
+ 620 01ff 03       		.byte	0x3
+ 621 0200 04000000 		.4byte	tRecover.4898
+ 622 0204 0E       		.uleb128 0xe
+ 623 0205 D6000000 		.4byte	.LVL26
+ 624 0209 69020000 		.4byte	0x269
+ 625 020d 19020000 		.4byte	0x219
+ 626 0211 0F       		.uleb128 0xf
+ 627 0212 01       		.uleb128 0x1
+ 628 0213 50       		.byte	0x50
+ 629 0214 03       		.uleb128 0x3
+ 630 0215 40       		.byte	0x40
+ 631 0216 3D       		.byte	0x3d
+ 632 0217 24       		.byte	0x24
+ 633 0218 00       		.byte	0
+ 634 0219 10       		.uleb128 0x10
+ 635 021a E0000000 		.4byte	.LVL29
+ 636 021e 74020000 		.4byte	0x274
+ 637 0222 10       		.uleb128 0x10
+ 638 0223 EE000000 		.4byte	.LVL32
+ 639 0227 7F020000 		.4byte	0x27f
+ 640 022b 0E       		.uleb128 0xe
+ 641 022c 08010000 		.4byte	.LVL35
+ 642 0230 69020000 		.4byte	0x269
+ 643 0234 40020000 		.4byte	0x240
+ 644 0238 0F       		.uleb128 0xf
+ 645 0239 01       		.uleb128 0x1
+ 646 023a 50       		.byte	0x50
+ 647 023b 03       		.uleb128 0x3
+ 648 023c 48       		.byte	0x48
+ 649 023d 3D       		.byte	0x3d
+ 650 023e 24       		.byte	0x24
+ 651 023f 00       		.byte	0
+ 652 0240 10       		.uleb128 0x10
+ 653 0241 14010000 		.4byte	.LVL39
+ 654 0245 74020000 		.4byte	0x274
+ 655 0249 10       		.uleb128 0x10
+ 656 024a 24010000 		.4byte	.LVL42
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 17
+
+
+ 657 024e 7F020000 		.4byte	0x27f
+ 658 0252 00       		.byte	0
+ 659 0253 11       		.uleb128 0x11
+ 660 0254 DB000000 		.4byte	.LASF37
+ 661 0258 03       		.byte	0x3
+ 662 0259 9B       		.byte	0x9b
+ 663 025a 35010000 		.4byte	0x135
+ 664 025e 11       		.uleb128 0x11
+ 665 025f 01030000 		.4byte	.LASF38
+ 666 0263 04       		.byte	0x4
+ 667 0264 6B       		.byte	0x6b
+ 668 0265 77000000 		.4byte	0x77
+ 669 0269 12       		.uleb128 0x12
+ 670 026a 18030000 		.4byte	.LASF39
+ 671 026e 18030000 		.4byte	.LASF39
+ 672 0272 04       		.byte	0x4
+ 673 0273 5E       		.byte	0x5e
+ 674 0274 12       		.uleb128 0x12
+ 675 0275 9E010000 		.4byte	.LASF40
+ 676 0279 9E010000 		.4byte	.LASF40
+ 677 027d 05       		.byte	0x5
+ 678 027e F8       		.byte	0xf8
+ 679 027f 12       		.uleb128 0x12
+ 680 0280 CF010000 		.4byte	.LASF41
+ 681 0284 CF010000 		.4byte	.LASF41
+ 682 0288 05       		.byte	0x5
+ 683 0289 F9       		.byte	0xf9
+ 684 028a 00       		.byte	0
+ 685              		.section	.debug_abbrev,"",%progbits
+ 686              	.Ldebug_abbrev0:
+ 687 0000 01       		.uleb128 0x1
+ 688 0001 11       		.uleb128 0x11
+ 689 0002 01       		.byte	0x1
+ 690 0003 25       		.uleb128 0x25
+ 691 0004 0E       		.uleb128 0xe
+ 692 0005 13       		.uleb128 0x13
+ 693 0006 0B       		.uleb128 0xb
+ 694 0007 03       		.uleb128 0x3
+ 695 0008 0E       		.uleb128 0xe
+ 696 0009 1B       		.uleb128 0x1b
+ 697 000a 0E       		.uleb128 0xe
+ 698 000b 55       		.uleb128 0x55
+ 699 000c 17       		.uleb128 0x17
+ 700 000d 11       		.uleb128 0x11
+ 701 000e 01       		.uleb128 0x1
+ 702 000f 10       		.uleb128 0x10
+ 703 0010 17       		.uleb128 0x17
+ 704 0011 00       		.byte	0
+ 705 0012 00       		.byte	0
+ 706 0013 02       		.uleb128 0x2
+ 707 0014 24       		.uleb128 0x24
+ 708 0015 00       		.byte	0
+ 709 0016 0B       		.uleb128 0xb
+ 710 0017 0B       		.uleb128 0xb
+ 711 0018 3E       		.uleb128 0x3e
+ 712 0019 0B       		.uleb128 0xb
+ 713 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 18
+
+
+ 714 001b 0E       		.uleb128 0xe
+ 715 001c 00       		.byte	0
+ 716 001d 00       		.byte	0
+ 717 001e 03       		.uleb128 0x3
+ 718 001f 24       		.uleb128 0x24
+ 719 0020 00       		.byte	0
+ 720 0021 0B       		.uleb128 0xb
+ 721 0022 0B       		.uleb128 0xb
+ 722 0023 3E       		.uleb128 0x3e
+ 723 0024 0B       		.uleb128 0xb
+ 724 0025 03       		.uleb128 0x3
+ 725 0026 08       		.uleb128 0x8
+ 726 0027 00       		.byte	0
+ 727 0028 00       		.byte	0
+ 728 0029 04       		.uleb128 0x4
+ 729 002a 16       		.uleb128 0x16
+ 730 002b 00       		.byte	0
+ 731 002c 03       		.uleb128 0x3
+ 732 002d 0E       		.uleb128 0xe
+ 733 002e 3A       		.uleb128 0x3a
+ 734 002f 0B       		.uleb128 0xb
+ 735 0030 3B       		.uleb128 0x3b
+ 736 0031 05       		.uleb128 0x5
+ 737 0032 49       		.uleb128 0x49
+ 738 0033 13       		.uleb128 0x13
+ 739 0034 00       		.byte	0
+ 740 0035 00       		.byte	0
+ 741 0036 05       		.uleb128 0x5
+ 742 0037 35       		.uleb128 0x35
+ 743 0038 00       		.byte	0
+ 744 0039 49       		.uleb128 0x49
+ 745 003a 13       		.uleb128 0x13
+ 746 003b 00       		.byte	0
+ 747 003c 00       		.byte	0
+ 748 003d 06       		.uleb128 0x6
+ 749 003e 13       		.uleb128 0x13
+ 750 003f 01       		.byte	0x1
+ 751 0040 0B       		.uleb128 0xb
+ 752 0041 0B       		.uleb128 0xb
+ 753 0042 3A       		.uleb128 0x3a
+ 754 0043 0B       		.uleb128 0xb
+ 755 0044 3B       		.uleb128 0x3b
+ 756 0045 0B       		.uleb128 0xb
+ 757 0046 01       		.uleb128 0x1
+ 758 0047 13       		.uleb128 0x13
+ 759 0048 00       		.byte	0
+ 760 0049 00       		.byte	0
+ 761 004a 07       		.uleb128 0x7
+ 762 004b 0D       		.uleb128 0xd
+ 763 004c 00       		.byte	0
+ 764 004d 03       		.uleb128 0x3
+ 765 004e 0E       		.uleb128 0xe
+ 766 004f 3A       		.uleb128 0x3a
+ 767 0050 0B       		.uleb128 0xb
+ 768 0051 3B       		.uleb128 0x3b
+ 769 0052 0B       		.uleb128 0xb
+ 770 0053 49       		.uleb128 0x49
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 19
+
+
+ 771 0054 13       		.uleb128 0x13
+ 772 0055 38       		.uleb128 0x38
+ 773 0056 0B       		.uleb128 0xb
+ 774 0057 00       		.byte	0
+ 775 0058 00       		.byte	0
+ 776 0059 08       		.uleb128 0x8
+ 777 005a 01       		.uleb128 0x1
+ 778 005b 01       		.byte	0x1
+ 779 005c 49       		.uleb128 0x49
+ 780 005d 13       		.uleb128 0x13
+ 781 005e 01       		.uleb128 0x1
+ 782 005f 13       		.uleb128 0x13
+ 783 0060 00       		.byte	0
+ 784 0061 00       		.byte	0
+ 785 0062 09       		.uleb128 0x9
+ 786 0063 21       		.uleb128 0x21
+ 787 0064 00       		.byte	0
+ 788 0065 49       		.uleb128 0x49
+ 789 0066 13       		.uleb128 0x13
+ 790 0067 2F       		.uleb128 0x2f
+ 791 0068 0B       		.uleb128 0xb
+ 792 0069 00       		.byte	0
+ 793 006a 00       		.byte	0
+ 794 006b 0A       		.uleb128 0xa
+ 795 006c 16       		.uleb128 0x16
+ 796 006d 00       		.byte	0
+ 797 006e 03       		.uleb128 0x3
+ 798 006f 0E       		.uleb128 0xe
+ 799 0070 3A       		.uleb128 0x3a
+ 800 0071 0B       		.uleb128 0xb
+ 801 0072 3B       		.uleb128 0x3b
+ 802 0073 0B       		.uleb128 0xb
+ 803 0074 49       		.uleb128 0x49
+ 804 0075 13       		.uleb128 0x13
+ 805 0076 00       		.byte	0
+ 806 0077 00       		.byte	0
+ 807 0078 0B       		.uleb128 0xb
+ 808 0079 2E       		.uleb128 0x2e
+ 809 007a 01       		.byte	0x1
+ 810 007b 3F       		.uleb128 0x3f
+ 811 007c 19       		.uleb128 0x19
+ 812 007d 03       		.uleb128 0x3
+ 813 007e 0E       		.uleb128 0xe
+ 814 007f 3A       		.uleb128 0x3a
+ 815 0080 0B       		.uleb128 0xb
+ 816 0081 3B       		.uleb128 0x3b
+ 817 0082 0B       		.uleb128 0xb
+ 818 0083 27       		.uleb128 0x27
+ 819 0084 19       		.uleb128 0x19
+ 820 0085 11       		.uleb128 0x11
+ 821 0086 01       		.uleb128 0x1
+ 822 0087 12       		.uleb128 0x12
+ 823 0088 06       		.uleb128 0x6
+ 824 0089 40       		.uleb128 0x40
+ 825 008a 18       		.uleb128 0x18
+ 826 008b 9642     		.uleb128 0x2116
+ 827 008d 19       		.uleb128 0x19
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 20
+
+
+ 828 008e 01       		.uleb128 0x1
+ 829 008f 13       		.uleb128 0x13
+ 830 0090 00       		.byte	0
+ 831 0091 00       		.byte	0
+ 832 0092 0C       		.uleb128 0xc
+ 833 0093 34       		.uleb128 0x34
+ 834 0094 00       		.byte	0
+ 835 0095 03       		.uleb128 0x3
+ 836 0096 0E       		.uleb128 0xe
+ 837 0097 3A       		.uleb128 0x3a
+ 838 0098 0B       		.uleb128 0xb
+ 839 0099 3B       		.uleb128 0x3b
+ 840 009a 0B       		.uleb128 0xb
+ 841 009b 49       		.uleb128 0x49
+ 842 009c 13       		.uleb128 0x13
+ 843 009d 02       		.uleb128 0x2
+ 844 009e 18       		.uleb128 0x18
+ 845 009f 00       		.byte	0
+ 846 00a0 00       		.byte	0
+ 847 00a1 0D       		.uleb128 0xd
+ 848 00a2 34       		.uleb128 0x34
+ 849 00a3 00       		.byte	0
+ 850 00a4 03       		.uleb128 0x3
+ 851 00a5 0E       		.uleb128 0xe
+ 852 00a6 3A       		.uleb128 0x3a
+ 853 00a7 0B       		.uleb128 0xb
+ 854 00a8 3B       		.uleb128 0x3b
+ 855 00a9 0B       		.uleb128 0xb
+ 856 00aa 49       		.uleb128 0x49
+ 857 00ab 13       		.uleb128 0x13
+ 858 00ac 02       		.uleb128 0x2
+ 859 00ad 17       		.uleb128 0x17
+ 860 00ae 00       		.byte	0
+ 861 00af 00       		.byte	0
+ 862 00b0 0E       		.uleb128 0xe
+ 863 00b1 898201   		.uleb128 0x4109
+ 864 00b4 01       		.byte	0x1
+ 865 00b5 11       		.uleb128 0x11
+ 866 00b6 01       		.uleb128 0x1
+ 867 00b7 31       		.uleb128 0x31
+ 868 00b8 13       		.uleb128 0x13
+ 869 00b9 01       		.uleb128 0x1
+ 870 00ba 13       		.uleb128 0x13
+ 871 00bb 00       		.byte	0
+ 872 00bc 00       		.byte	0
+ 873 00bd 0F       		.uleb128 0xf
+ 874 00be 8A8201   		.uleb128 0x410a
+ 875 00c1 00       		.byte	0
+ 876 00c2 02       		.uleb128 0x2
+ 877 00c3 18       		.uleb128 0x18
+ 878 00c4 9142     		.uleb128 0x2111
+ 879 00c6 18       		.uleb128 0x18
+ 880 00c7 00       		.byte	0
+ 881 00c8 00       		.byte	0
+ 882 00c9 10       		.uleb128 0x10
+ 883 00ca 898201   		.uleb128 0x4109
+ 884 00cd 00       		.byte	0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 21
+
+
+ 885 00ce 11       		.uleb128 0x11
+ 886 00cf 01       		.uleb128 0x1
+ 887 00d0 31       		.uleb128 0x31
+ 888 00d1 13       		.uleb128 0x13
+ 889 00d2 00       		.byte	0
+ 890 00d3 00       		.byte	0
+ 891 00d4 11       		.uleb128 0x11
+ 892 00d5 34       		.uleb128 0x34
+ 893 00d6 00       		.byte	0
+ 894 00d7 03       		.uleb128 0x3
+ 895 00d8 0E       		.uleb128 0xe
+ 896 00d9 3A       		.uleb128 0x3a
+ 897 00da 0B       		.uleb128 0xb
+ 898 00db 3B       		.uleb128 0x3b
+ 899 00dc 0B       		.uleb128 0xb
+ 900 00dd 49       		.uleb128 0x49
+ 901 00de 13       		.uleb128 0x13
+ 902 00df 3F       		.uleb128 0x3f
+ 903 00e0 19       		.uleb128 0x19
+ 904 00e1 3C       		.uleb128 0x3c
+ 905 00e2 19       		.uleb128 0x19
+ 906 00e3 00       		.byte	0
+ 907 00e4 00       		.byte	0
+ 908 00e5 12       		.uleb128 0x12
+ 909 00e6 2E       		.uleb128 0x2e
+ 910 00e7 00       		.byte	0
+ 911 00e8 3F       		.uleb128 0x3f
+ 912 00e9 19       		.uleb128 0x19
+ 913 00ea 3C       		.uleb128 0x3c
+ 914 00eb 19       		.uleb128 0x19
+ 915 00ec 6E       		.uleb128 0x6e
+ 916 00ed 0E       		.uleb128 0xe
+ 917 00ee 03       		.uleb128 0x3
+ 918 00ef 0E       		.uleb128 0xe
+ 919 00f0 3A       		.uleb128 0x3a
+ 920 00f1 0B       		.uleb128 0xb
+ 921 00f2 3B       		.uleb128 0x3b
+ 922 00f3 0B       		.uleb128 0xb
+ 923 00f4 00       		.byte	0
+ 924 00f5 00       		.byte	0
+ 925 00f6 00       		.byte	0
+ 926              		.section	.debug_loc,"",%progbits
+ 927              	.Ldebug_loc0:
+ 928              	.LLST0:
+ 929 0000 18000000 		.4byte	.LVL0
+ 930 0004 36000000 		.4byte	.LVL3
+ 931 0008 0100     		.2byte	0x1
+ 932 000a 54       		.byte	0x54
+ 933 000b 36000000 		.4byte	.LVL3
+ 934 000f 62000000 		.4byte	.LVL7
+ 935 0013 0100     		.2byte	0x1
+ 936 0015 50       		.byte	0x50
+ 937 0016 72000000 		.4byte	.LVL9
+ 938 001a 7C000000 		.4byte	.LVL12
+ 939 001e 0100     		.2byte	0x1
+ 940 0020 50       		.byte	0x50
+ 941 0021 7C000000 		.4byte	.LVL12
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 22
+
+
+ 942 0025 7E000000 		.4byte	.LVL13
+ 943 0029 0700     		.2byte	0x7
+ 944 002b 74       		.byte	0x74
+ 945 002c 00       		.sleb128 0
+ 946 002d 40       		.byte	0x40
+ 947 002e 24       		.byte	0x24
+ 948 002f 40       		.byte	0x40
+ 949 0030 25       		.byte	0x25
+ 950 0031 9F       		.byte	0x9f
+ 951 0032 88000000 		.4byte	.LVL14
+ 952 0036 92000000 		.4byte	.LVL16
+ 953 003a 0100     		.2byte	0x1
+ 954 003c 50       		.byte	0x50
+ 955 003d A2000000 		.4byte	.LVL17
+ 956 0041 B0000000 		.4byte	.LVL19
+ 957 0045 0100     		.2byte	0x1
+ 958 0047 50       		.byte	0x50
+ 959 0048 B6000000 		.4byte	.LVL20
+ 960 004c D0000000 		.4byte	.LVL24
+ 961 0050 0100     		.2byte	0x1
+ 962 0052 50       		.byte	0x50
+ 963 0053 D0000000 		.4byte	.LVL24
+ 964 0057 D8000000 		.4byte	.LVL27
+ 965 005b 0700     		.2byte	0x7
+ 966 005d 74       		.byte	0x74
+ 967 005e 00       		.sleb128 0
+ 968 005f 40       		.byte	0x40
+ 969 0060 24       		.byte	0x24
+ 970 0061 40       		.byte	0x40
+ 971 0062 25       		.byte	0x25
+ 972 0063 9F       		.byte	0x9f
+ 973 0064 D8000000 		.4byte	.LVL27
+ 974 0068 DF000000 		.4byte	.LVL29-1
+ 975 006c 0100     		.2byte	0x1
+ 976 006e 50       		.byte	0x50
+ 977 006f DF000000 		.4byte	.LVL29-1
+ 978 0073 0A010000 		.4byte	.LVL36
+ 979 0077 0700     		.2byte	0x7
+ 980 0079 74       		.byte	0x74
+ 981 007a 00       		.sleb128 0
+ 982 007b 40       		.byte	0x40
+ 983 007c 24       		.byte	0x24
+ 984 007d 40       		.byte	0x40
+ 985 007e 25       		.byte	0x25
+ 986 007f 9F       		.byte	0x9f
+ 987 0080 0A010000 		.4byte	.LVL36
+ 988 0084 13010000 		.4byte	.LVL39-1
+ 989 0088 0100     		.2byte	0x1
+ 990 008a 50       		.byte	0x50
+ 991 008b 13010000 		.4byte	.LVL39-1
+ 992 008f 2A010000 		.4byte	.LVL43
+ 993 0093 0700     		.2byte	0x7
+ 994 0095 74       		.byte	0x74
+ 995 0096 00       		.sleb128 0
+ 996 0097 40       		.byte	0x40
+ 997 0098 24       		.byte	0x24
+ 998 0099 40       		.byte	0x40
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 23
+
+
+ 999 009a 25       		.byte	0x25
+ 1000 009b 9F       		.byte	0x9f
+ 1001 009c 5C010000 		.4byte	.LVL46
+ 1002 00a0 6A010000 		.4byte	.LVL47
+ 1003 00a4 0100     		.2byte	0x1
+ 1004 00a6 54       		.byte	0x54
+ 1005 00a7 00000000 		.4byte	0
+ 1006 00ab 00000000 		.4byte	0
+ 1007              	.LLST1:
+ 1008 00af 32000000 		.4byte	.LVL2
+ 1009 00b3 6C000000 		.4byte	.LVL8
+ 1010 00b7 0100     		.2byte	0x1
+ 1011 00b9 52       		.byte	0x52
+ 1012 00ba 6C000000 		.4byte	.LVL8
+ 1013 00be 74000000 		.4byte	.LVL10
+ 1014 00c2 0700     		.2byte	0x7
+ 1015 00c4 74       		.byte	0x74
+ 1016 00c5 00       		.sleb128 0
+ 1017 00c6 40       		.byte	0x40
+ 1018 00c7 3C       		.byte	0x3c
+ 1019 00c8 24       		.byte	0x24
+ 1020 00c9 1A       		.byte	0x1a
+ 1021 00ca 9F       		.byte	0x9f
+ 1022 00cb 74000000 		.4byte	.LVL10
+ 1023 00cf 87000000 		.4byte	.LVL14-1
+ 1024 00d3 0100     		.2byte	0x1
+ 1025 00d5 52       		.byte	0x52
+ 1026 00d6 BE000000 		.4byte	.LVL21
+ 1027 00da C4000000 		.4byte	.LVL23
+ 1028 00de 0100     		.2byte	0x1
+ 1029 00e0 52       		.byte	0x52
+ 1030 00e1 C4000000 		.4byte	.LVL23
+ 1031 00e5 D0000000 		.4byte	.LVL24
+ 1032 00e9 0700     		.2byte	0x7
+ 1033 00eb 74       		.byte	0x74
+ 1034 00ec 00       		.sleb128 0
+ 1035 00ed 40       		.byte	0x40
+ 1036 00ee 3C       		.byte	0x3c
+ 1037 00ef 24       		.byte	0x24
+ 1038 00f0 1A       		.byte	0x1a
+ 1039 00f1 9F       		.byte	0x9f
+ 1040 00f2 D0000000 		.4byte	.LVL24
+ 1041 00f6 D2000000 		.4byte	.LVL25
+ 1042 00fa 0800     		.2byte	0x8
+ 1043 00fc 70       		.byte	0x70
+ 1044 00fd 00       		.sleb128 0
+ 1045 00fe 39       		.byte	0x39
+ 1046 00ff 24       		.byte	0x24
+ 1047 0100 74       		.byte	0x74
+ 1048 0101 00       		.sleb128 0
+ 1049 0102 1A       		.byte	0x1a
+ 1050 0103 9F       		.byte	0x9f
+ 1051 0104 D2000000 		.4byte	.LVL25
+ 1052 0108 D8000000 		.4byte	.LVL27
+ 1053 010c 0700     		.2byte	0x7
+ 1054 010e 74       		.byte	0x74
+ 1055 010f 00       		.sleb128 0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 24
+
+
+ 1056 0110 40       		.byte	0x40
+ 1057 0111 3C       		.byte	0x3c
+ 1058 0112 24       		.byte	0x24
+ 1059 0113 1A       		.byte	0x1a
+ 1060 0114 9F       		.byte	0x9f
+ 1061 0115 D8000000 		.4byte	.LVL27
+ 1062 0119 DF000000 		.4byte	.LVL29-1
+ 1063 011d 0100     		.2byte	0x1
+ 1064 011f 52       		.byte	0x52
+ 1065 0120 DF000000 		.4byte	.LVL29-1
+ 1066 0124 F0000000 		.4byte	.LVL33
+ 1067 0128 0700     		.2byte	0x7
+ 1068 012a 74       		.byte	0x74
+ 1069 012b 00       		.sleb128 0
+ 1070 012c 40       		.byte	0x40
+ 1071 012d 3C       		.byte	0x3c
+ 1072 012e 24       		.byte	0x24
+ 1073 012f 1A       		.byte	0x1a
+ 1074 0130 9F       		.byte	0x9f
+ 1075 0131 F0000000 		.4byte	.LVL33
+ 1076 0135 F2000000 		.4byte	.LVL34
+ 1077 0139 0800     		.2byte	0x8
+ 1078 013b 73       		.byte	0x73
+ 1079 013c 00       		.sleb128 0
+ 1080 013d 39       		.byte	0x39
+ 1081 013e 24       		.byte	0x24
+ 1082 013f 74       		.byte	0x74
+ 1083 0140 00       		.sleb128 0
+ 1084 0141 1A       		.byte	0x1a
+ 1085 0142 9F       		.byte	0x9f
+ 1086 0143 F2000000 		.4byte	.LVL34
+ 1087 0147 0A010000 		.4byte	.LVL36
+ 1088 014b 0700     		.2byte	0x7
+ 1089 014d 74       		.byte	0x74
+ 1090 014e 00       		.sleb128 0
+ 1091 014f 40       		.byte	0x40
+ 1092 0150 3C       		.byte	0x3c
+ 1093 0151 24       		.byte	0x24
+ 1094 0152 1A       		.byte	0x1a
+ 1095 0153 9F       		.byte	0x9f
+ 1096 0154 0A010000 		.4byte	.LVL36
+ 1097 0158 13010000 		.4byte	.LVL39-1
+ 1098 015c 0100     		.2byte	0x1
+ 1099 015e 52       		.byte	0x52
+ 1100 015f 13010000 		.4byte	.LVL39-1
+ 1101 0163 2A010000 		.4byte	.LVL43
+ 1102 0167 0700     		.2byte	0x7
+ 1103 0169 74       		.byte	0x74
+ 1104 016a 00       		.sleb128 0
+ 1105 016b 40       		.byte	0x40
+ 1106 016c 3C       		.byte	0x3c
+ 1107 016d 24       		.byte	0x24
+ 1108 016e 1A       		.byte	0x1a
+ 1109 016f 9F       		.byte	0x9f
+ 1110 0170 00000000 		.4byte	0
+ 1111 0174 00000000 		.4byte	0
+ 1112              	.LLST2:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 25
+
+
+ 1113 0178 2C000000 		.4byte	.LVL1
+ 1114 017c 58000000 		.4byte	.LVL5
+ 1115 0180 0100     		.2byte	0x1
+ 1116 0182 53       		.byte	0x53
+ 1117 0183 74000000 		.4byte	.LVL10
+ 1118 0187 78000000 		.4byte	.LVL11
+ 1119 018b 0100     		.2byte	0x1
+ 1120 018d 53       		.byte	0x53
+ 1121 018e BE000000 		.4byte	.LVL21
+ 1122 0192 C0000000 		.4byte	.LVL22
+ 1123 0196 0100     		.2byte	0x1
+ 1124 0198 53       		.byte	0x53
+ 1125 0199 D8000000 		.4byte	.LVL27
+ 1126 019d DA000000 		.4byte	.LVL28
+ 1127 01a1 0100     		.2byte	0x1
+ 1128 01a3 53       		.byte	0x53
+ 1129 01a4 0A010000 		.4byte	.LVL36
+ 1130 01a8 0E010000 		.4byte	.LVL38
+ 1131 01ac 0100     		.2byte	0x1
+ 1132 01ae 53       		.byte	0x53
+ 1133 01af 00000000 		.4byte	0
+ 1134 01b3 00000000 		.4byte	0
+ 1135              	.LLST3:
+ 1136 01b7 3C000000 		.4byte	.LVL4
+ 1137 01bb A6000000 		.4byte	.LVL18
+ 1138 01bf 0100     		.2byte	0x1
+ 1139 01c1 55       		.byte	0x55
+ 1140 01c2 BE000000 		.4byte	.LVL21
+ 1141 01c6 0C010000 		.4byte	.LVL37
+ 1142 01ca 0100     		.2byte	0x1
+ 1143 01cc 55       		.byte	0x55
+ 1144 01cd 00000000 		.4byte	0
+ 1145 01d1 00000000 		.4byte	0
+ 1146              	.LLST4:
+ 1147 01d5 E0000000 		.4byte	.LVL29
+ 1148 01d9 ED000000 		.4byte	.LVL32-1
+ 1149 01dd 0100     		.2byte	0x1
+ 1150 01df 50       		.byte	0x50
+ 1151 01e0 14010000 		.4byte	.LVL39
+ 1152 01e4 23010000 		.4byte	.LVL42-1
+ 1153 01e8 0100     		.2byte	0x1
+ 1154 01ea 50       		.byte	0x50
+ 1155 01eb 00000000 		.4byte	0
+ 1156 01ef 00000000 		.4byte	0
+ 1157              	.LLST5:
+ 1158 01f3 E4000000 		.4byte	.LVL30
+ 1159 01f7 E8000000 		.4byte	.LVL31
+ 1160 01fb 0100     		.2byte	0x1
+ 1161 01fd 51       		.byte	0x51
+ 1162 01fe E8000000 		.4byte	.LVL31
+ 1163 0202 ED000000 		.4byte	.LVL32-1
+ 1164 0206 0100     		.2byte	0x1
+ 1165 0208 53       		.byte	0x53
+ 1166 0209 18010000 		.4byte	.LVL40
+ 1167 020d 23010000 		.4byte	.LVL42-1
+ 1168 0211 0100     		.2byte	0x1
+ 1169 0213 53       		.byte	0x53
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 26
+
+
+ 1170 0214 00000000 		.4byte	0
+ 1171 0218 00000000 		.4byte	0
+ 1172              		.section	.debug_aranges,"",%progbits
+ 1173 0000 1C000000 		.4byte	0x1c
+ 1174 0004 0200     		.2byte	0x2
+ 1175 0006 00000000 		.4byte	.Ldebug_info0
+ 1176 000a 04       		.byte	0x4
+ 1177 000b 00       		.byte	0
+ 1178 000c 0000     		.2byte	0
+ 1179 000e 0000     		.2byte	0
+ 1180 0010 00000000 		.4byte	.LFB1
+ 1181 0014 98010000 		.4byte	.LFE1-.LFB1
+ 1182 0018 00000000 		.4byte	0
+ 1183 001c 00000000 		.4byte	0
+ 1184              		.section	.debug_ranges,"",%progbits
+ 1185              	.Ldebug_ranges0:
+ 1186 0000 00000000 		.4byte	.LFB1
+ 1187 0004 98010000 		.4byte	.LFE1
+ 1188 0008 00000000 		.4byte	0
+ 1189 000c 00000000 		.4byte	0
+ 1190              		.section	.debug_line,"",%progbits
+ 1191              	.Ldebug_line0:
+ 1192 0000 E7000000 		.section	.debug_str,"MS",%progbits,1
+ 1192      02008E00 
+ 1192      00000201 
+ 1192      FB0E0D00 
+ 1192      01010101 
+ 1193              	.LASF6:
+ 1194 0000 6C6F6E67 		.ascii	"long long int\000"
+ 1194      206C6F6E 
+ 1194      6720696E 
+ 1194      7400
+ 1195              	.LASF15:
+ 1196 000e 72656733 		.ascii	"reg32\000"
+ 1196      3200
+ 1197              	.LASF24:
+ 1198 0014 61646341 		.ascii	"adcAzTime\000"
+ 1198      7A54696D 
+ 1198      6500
+ 1199              	.LASF23:
+ 1200 001e 61646352 		.ascii	"adcResolution\000"
+ 1200      65736F6C 
+ 1200      7574696F 
+ 1200      6E00
+ 1201              	.LASF20:
+ 1202 002c 61646353 		.ascii	"adcStatus\000"
+ 1202      74617475 
+ 1202      7300
+ 1203              	.LASF3:
+ 1204 0036 73686F72 		.ascii	"short unsigned int\000"
+ 1204      7420756E 
+ 1204      7369676E 
+ 1204      65642069 
+ 1204      6E7400
+ 1205              	.LASF42:
+ 1206 0049 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1206      43313120 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 27
+
+
+ 1206      352E342E 
+ 1206      31203230 
+ 1206      31363036 
+ 1207 007c 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1207      20726576 
+ 1207      6973696F 
+ 1207      6E203233 
+ 1207      37373135 
+ 1208 00af 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1208      67202D66 
+ 1208      66756E63 
+ 1208      74696F6E 
+ 1208      2D736563 
+ 1209              	.LASF37:
+ 1210 00db 63617073 		.ascii	"capsense_ADC_dsRam\000"
+ 1210      656E7365 
+ 1210      5F414443 
+ 1210      5F647352 
+ 1210      616D00
+ 1211              	.LASF12:
+ 1212 00ee 666C6F61 		.ascii	"float\000"
+ 1212      7400
+ 1213              	.LASF7:
+ 1214 00f4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1214      206C6F6E 
+ 1214      6720756E 
+ 1214      7369676E 
+ 1214      65642069 
+ 1215              	.LASF27:
+ 1216 010b 7446756C 		.ascii	"tFull\000"
+ 1216      6C00
+ 1217              	.LASF35:
+ 1218 0111 74566464 		.ascii	"tVdda2Vref\000"
+ 1218      61325672 
+ 1218      656600
+ 1219              	.LASF43:
+ 1220 011c 47656E65 		.ascii	"Generated_Source\\PSoC4\\capsense_ADC_Adc_INT.c\000"
+ 1220      72617465 
+ 1220      645F536F 
+ 1220      75726365 
+ 1220      5C50536F 
+ 1221              	.LASF33:
+ 1222 014a 696E7465 		.ascii	"interruptState\000"
+ 1222      72727570 
+ 1222      74537461 
+ 1222      746500
+ 1223              	.LASF5:
+ 1224 0159 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1224      20756E73 
+ 1224      69676E65 
+ 1224      6420696E 
+ 1224      7400
+ 1225              	.LASF9:
+ 1226 016b 75696E74 		.ascii	"uint8\000"
+ 1226      3800
+ 1227              	.LASF29:
+ 1228 0171 746D7052 		.ascii	"tmpResult\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 28
+
+
+ 1228      6573756C 
+ 1228      7400
+ 1229              	.LASF1:
+ 1230 017b 756E7369 		.ascii	"unsigned char\000"
+ 1230      676E6564 
+ 1230      20636861 
+ 1230      7200
+ 1231              	.LASF13:
+ 1232 0189 646F7562 		.ascii	"double\000"
+ 1232      6C6500
+ 1233              	.LASF10:
+ 1234 0190 75696E74 		.ascii	"uint16\000"
+ 1234      313600
+ 1235              	.LASF11:
+ 1236 0197 75696E74 		.ascii	"uint32\000"
+ 1236      333200
+ 1237              	.LASF40:
+ 1238 019e 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1238      74657243 
+ 1238      72697469 
+ 1238      63616C53 
+ 1238      65637469 
+ 1239              	.LASF8:
+ 1240 01b5 756E7369 		.ascii	"unsigned int\000"
+ 1240      676E6564 
+ 1240      20696E74 
+ 1240      00
+ 1241              	.LASF31:
+ 1242 01c2 61646346 		.ascii	"adcFsmStatus\000"
+ 1242      736D5374 
+ 1242      61747573 
+ 1242      00
+ 1243              	.LASF41:
+ 1244 01cf 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1244      69744372 
+ 1244      69746963 
+ 1244      616C5365 
+ 1244      6374696F 
+ 1245              	.LASF36:
+ 1246 01e5 74526563 		.ascii	"tRecover\000"
+ 1246      6F766572 
+ 1246      00
+ 1247              	.LASF30:
+ 1248 01ee 706F6C61 		.ascii	"polarity\000"
+ 1248      72697479 
+ 1248      00
+ 1249              	.LASF21:
+ 1250 01f7 61646349 		.ascii	"adcIdac\000"
+ 1250      64616300 
+ 1251              	.LASF18:
+ 1252 01ff 61646352 		.ascii	"adcResult\000"
+ 1252      6573756C 
+ 1252      7400
+ 1253              	.LASF17:
+ 1254 0209 73697A65 		.ascii	"sizetype\000"
+ 1254      74797065 
+ 1254      00
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 29
+
+
+ 1255              	.LASF25:
+ 1256 0212 63617073 		.ascii	"capsense_ADC_RAM_STRUCT\000"
+ 1256      656E7365 
+ 1256      5F414443 
+ 1256      5F52414D 
+ 1256      5F535452 
+ 1257              	.LASF26:
+ 1258 022a 74567373 		.ascii	"tVssa2Vref\000"
+ 1258      61325672 
+ 1258      656600
+ 1259              	.LASF14:
+ 1260 0235 63686172 		.ascii	"char\000"
+ 1260      00
+ 1261              	.LASF22:
+ 1262 023a 61646341 		.ascii	"adcActiveCh\000"
+ 1262      63746976 
+ 1262      65436800 
+ 1263              	.LASF32:
+ 1264 0246 746D7043 		.ascii	"tmpChId\000"
+ 1264      68496400 
+ 1265              	.LASF45:
+ 1266 024e 63617073 		.ascii	"capsense_ADC_AdcIntrHandler\000"
+ 1266      656E7365 
+ 1266      5F414443 
+ 1266      5F416463 
+ 1266      496E7472 
+ 1267              	.LASF19:
+ 1268 026a 61646343 		.ascii	"adcCode\000"
+ 1268      6F646500 
+ 1269              	.LASF2:
+ 1270 0272 73686F72 		.ascii	"short int\000"
+ 1270      7420696E 
+ 1270      7400
+ 1271              	.LASF44:
+ 1272 027c 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
+ 1272      6978745C 
+ 1272      61697874 
+ 1272      5C706F72 
+ 1272      74735C43 
+ 1273 02a9 78616D70 		.ascii	"xamples\\Configuracion_General.cydsn\000"
+ 1273      6C65735C 
+ 1273      436F6E66 
+ 1273      69677572 
+ 1273      6163696F 
+ 1274              	.LASF4:
+ 1275 02cd 6C6F6E67 		.ascii	"long int\000"
+ 1275      20696E74 
+ 1275      00
+ 1276              	.LASF16:
+ 1277 02d6 6C6F6E67 		.ascii	"long double\000"
+ 1277      20646F75 
+ 1277      626C6500 
+ 1278              	.LASF34:
+ 1279 02e2 6E657752 		.ascii	"newRegValue\000"
+ 1279      65675661 
+ 1279      6C756500 
+ 1280              	.LASF0:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccHVMMPS.s 			page 30
+
+
+ 1281 02ee 7369676E 		.ascii	"signed char\000"
+ 1281      65642063 
+ 1281      68617200 
+ 1282              	.LASF28:
+ 1283 02fa 764D6178 		.ascii	"vMaxMv\000"
+ 1283      4D7600
+ 1284              	.LASF38:
+ 1285 0301 63617073 		.ascii	"capsense_ADC_adcVrefMv\000"
+ 1285      656E7365 
+ 1285      5F414443 
+ 1285      5F616463 
+ 1285      56726566 
+ 1286              	.LASF39:
+ 1287 0318 63617073 		.ascii	"capsense_ADC_StartAdcFSM\000"
+ 1287      656E7365 
+ 1287      5F414443 
+ 1287      5F537461 
+ 1287      72744164 
+ 1288              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

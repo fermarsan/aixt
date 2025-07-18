@@ -1,0 +1,907 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_uidiv
+  20              		.section	.text.main,"ax",%progbits
+  21              		.align	2
+  22              		.global	main
+  23              		.code	16
+  24              		.thumb_func
+  25              		.type	main, %function
+  26              	main:
+  27              	.LFB33:
+  28              		.file 1 "main.c"
+   1:main.c        **** #include "project.h"
+   2:main.c        **** #include <stdio.h>
+   3:main.c        **** 
+   4:main.c        **** #define VDDA_mV 5000  // Tensión de referencia del ADC en mV
+   5:main.c        **** 
+   6:main.c        **** int main(void)
+   7:main.c        **** {
+  29              		.loc 1 7 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 32
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 00B5     		push	{lr}
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 14, -4
+  36 0002 89B0     		sub	sp, sp, #36
+  37              		.cfi_def_cfa_offset 40
+   8:main.c        ****     CyGlobalIntEnable;
+  38              		.loc 1 8 0
+  39              		.syntax divided
+  40              	@ 8 "main.c" 1
+  41 0004 62B6     		CPSIE   i
+  42              	@ 0 "" 2
+   9:main.c        **** 
+  10:main.c        ****     adc_Start();           // Inicia ADC
+  43              		.loc 1 10 0
+  44              		.thumb
+  45              		.syntax unified
+  46 0006 FFF7FEFF 		bl	adc_Start
+  47              	.LVL0:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 2
+
+
+  11:main.c        ****     adc_StartConvert();    // Comienza conversiones continuas
+  48              		.loc 1 11 0
+  49 000a FFF7FEFF 		bl	adc_StartConvert
+  50              	.LVL1:
+  12:main.c        **** 
+  13:main.c        ****     uart_Start();          // Inicia UART
+  51              		.loc 1 13 0
+  52 000e FFF7FEFF 		bl	uart_Start
+  53              	.LVL2:
+  14:main.c        ****     amux_Start();          // Inicia el multiplexor analógico
+  54              		.loc 1 14 0
+  55 0012 FFF7FEFF 		bl	amux_Start
+  56              	.LVL3:
+  57              	.L2:
+  15:main.c        **** 
+  16:main.c        ****     for(;;)
+  17:main.c        ****     {
+  18:main.c        ****         amux_FastSelect(0);   // Selecciona canal 0 (único canal usado)
+  58              		.loc 1 18 0
+  59 0016 0020     		movs	r0, #0
+  60 0018 FFF7FEFF 		bl	amux_FastSelect
+  61              	.LVL4:
+  19:main.c        ****         CyDelay(5);           // Breve estabilización
+  62              		.loc 1 19 0
+  63 001c 0520     		movs	r0, #5
+  64 001e FFF7FEFF 		bl	CyDelay
+  65              	.LVL5:
+  20:main.c        **** 
+  21:main.c        ****         if (adc_IsEndConversion(adc_RETURN_STATUS))
+  66              		.loc 1 21 0
+  67 0022 0120     		movs	r0, #1
+  68 0024 FFF7FEFF 		bl	adc_IsEndConversion
+  69              	.LVL6:
+  70 0028 0028     		cmp	r0, #0
+  71 002a F4D0     		beq	.L2
+  72              	.LBB2:
+  22:main.c        ****         {
+  23:main.c        ****             uint16 adcResult = adc_GetResult16(0);                    // Lee ADC
+  73              		.loc 1 23 0
+  74 002c 0020     		movs	r0, #0
+  75 002e FFF7FEFF 		bl	adc_GetResult16
+  76              	.LVL7:
+  77 0032 80B2     		uxth	r0, r0
+  78              	.LVL8:
+  24:main.c        ****             uint32 mV = ((uint32)adcResult * VDDA_mV) / 4095;        // Convierte a milivoltios
+  79              		.loc 1 24 0
+  80 0034 084B     		ldr	r3, .L4
+  81 0036 5843     		muls	r0, r3
+  82              	.LVL9:
+  83 0038 0849     		ldr	r1, .L4+4
+  84 003a FFF7FEFF 		bl	__aeabi_uidiv
+  85              	.LVL10:
+  86 003e 0200     		movs	r2, r0
+  87              	.LVL11:
+  25:main.c        **** 
+  26:main.c        ****             char buffer[32];
+  27:main.c        ****             sprintf(buffer, "Voltaje canal 0: %lu mV\r\n", mV);
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 3
+
+
+  88              		.loc 1 27 0
+  89 0040 0749     		ldr	r1, .L4+8
+  90 0042 6846     		mov	r0, sp
+  91              	.LVL12:
+  92 0044 FFF7FEFF 		bl	sprintf
+  93              	.LVL13:
+  28:main.c        ****             uart_UartPutString(buffer);
+  94              		.loc 1 28 0
+  95 0048 6846     		mov	r0, sp
+  96 004a FFF7FEFF 		bl	uart_UartPutString
+  97              	.LVL14:
+  29:main.c        **** 
+  30:main.c        ****             CyDelay(500); // Espera medio segundo
+  98              		.loc 1 30 0
+  99 004e FA20     		movs	r0, #250
+ 100 0050 4000     		lsls	r0, r0, #1
+ 101 0052 FFF7FEFF 		bl	CyDelay
+ 102              	.LVL15:
+ 103 0056 DEE7     		b	.L2
+ 104              	.L5:
+ 105              		.align	2
+ 106              	.L4:
+ 107 0058 88130000 		.word	5000
+ 108 005c FF0F0000 		.word	4095
+ 109 0060 00000000 		.word	.LC0
+ 110              	.LBE2:
+ 111              		.cfi_endproc
+ 112              	.LFE33:
+ 113              		.size	main, .-main
+ 114              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 115              		.align	2
+ 116              	.LC0:
+ 117 0000 566F6C74 		.ascii	"Voltaje canal 0: %lu mV\015\012\000"
+ 117      616A6520 
+ 117      63616E61 
+ 117      6C20303A 
+ 117      20256C75 
+ 118              		.text
+ 119              	.Letext0:
+ 120              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 121              		.file 3 "Generated_Source\\PSoC4/adc.h"
+ 122              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 123              		.file 5 "Generated_Source\\PSoC4/uart_SPI_UART.h"
+ 124              		.file 6 "Generated_Source\\PSoC4/CyLib.h"
+ 125              		.file 7 "Generated_Source\\PSoC4/uart.h"
+ 126              		.file 8 "Generated_Source\\PSoC4/amux.h"
+ 127              		.section	.debug_info,"",%progbits
+ 128              	.Ldebug_info0:
+ 129 0000 23020000 		.4byte	0x223
+ 130 0004 0400     		.2byte	0x4
+ 131 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 132 000a 04       		.byte	0x4
+ 133 000b 01       		.uleb128 0x1
+ 134 000c 11010000 		.4byte	.LASF28
+ 135 0010 0C       		.byte	0xc
+ 136 0011 C0010000 		.4byte	.LASF29
+ 137 0015 00000000 		.4byte	.LASF30
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 4
+
+
+ 138 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 139 001d 00000000 		.4byte	0
+ 140 0021 00000000 		.4byte	.Ldebug_line0
+ 141 0025 02       		.uleb128 0x2
+ 142 0026 01       		.byte	0x1
+ 143 0027 06       		.byte	0x6
+ 144 0028 20020000 		.4byte	.LASF0
+ 145 002c 02       		.uleb128 0x2
+ 146 002d 01       		.byte	0x1
+ 147 002e 08       		.byte	0x8
+ 148 002f 6C000000 		.4byte	.LASF1
+ 149 0033 02       		.uleb128 0x2
+ 150 0034 02       		.byte	0x2
+ 151 0035 05       		.byte	0x5
+ 152 0036 CC010000 		.4byte	.LASF2
+ 153 003a 02       		.uleb128 0x2
+ 154 003b 02       		.byte	0x2
+ 155 003c 07       		.byte	0x7
+ 156 003d 8C000000 		.4byte	.LASF3
+ 157 0041 02       		.uleb128 0x2
+ 158 0042 04       		.byte	0x4
+ 159 0043 05       		.byte	0x5
+ 160 0044 E7010000 		.4byte	.LASF4
+ 161 0048 02       		.uleb128 0x2
+ 162 0049 04       		.byte	0x4
+ 163 004a 07       		.byte	0x7
+ 164 004b 7A000000 		.4byte	.LASF5
+ 165 004f 02       		.uleb128 0x2
+ 166 0050 08       		.byte	0x8
+ 167 0051 05       		.byte	0x5
+ 168 0052 B2010000 		.4byte	.LASF6
+ 169 0056 02       		.uleb128 0x2
+ 170 0057 08       		.byte	0x8
+ 171 0058 07       		.byte	0x7
+ 172 0059 FA000000 		.4byte	.LASF7
+ 173 005d 03       		.uleb128 0x3
+ 174 005e 04       		.byte	0x4
+ 175 005f 05       		.byte	0x5
+ 176 0060 696E7400 		.ascii	"int\000"
+ 177 0064 02       		.uleb128 0x2
+ 178 0065 04       		.byte	0x4
+ 179 0066 07       		.byte	0x7
+ 180 0067 ED000000 		.4byte	.LASF8
+ 181 006b 04       		.uleb128 0x4
+ 182 006c DF000000 		.4byte	.LASF9
+ 183 0070 02       		.byte	0x2
+ 184 0071 FD01     		.2byte	0x1fd
+ 185 0073 3A000000 		.4byte	0x3a
+ 186 0077 04       		.uleb128 0x4
+ 187 0078 E6000000 		.4byte	.LASF10
+ 188 007c 02       		.byte	0x2
+ 189 007d FE01     		.2byte	0x1fe
+ 190 007f 48000000 		.4byte	0x48
+ 191 0083 02       		.uleb128 0x2
+ 192 0084 04       		.byte	0x4
+ 193 0085 04       		.byte	0x4
+ 194 0086 66000000 		.4byte	.LASF11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 5
+
+
+ 195 008a 02       		.uleb128 0x2
+ 196 008b 08       		.byte	0x8
+ 197 008c 04       		.byte	0x4
+ 198 008d D3000000 		.4byte	.LASF12
+ 199 0091 02       		.uleb128 0x2
+ 200 0092 01       		.byte	0x1
+ 201 0093 08       		.byte	0x8
+ 202 0094 C7010000 		.4byte	.LASF13
+ 203 0098 02       		.uleb128 0x2
+ 204 0099 08       		.byte	0x8
+ 205 009a 04       		.byte	0x4
+ 206 009b 04020000 		.4byte	.LASF14
+ 207 009f 02       		.uleb128 0x2
+ 208 00a0 04       		.byte	0x4
+ 209 00a1 07       		.byte	0x7
+ 210 00a2 A9010000 		.4byte	.LASF15
+ 211 00a6 05       		.uleb128 0x5
+ 212 00a7 DA000000 		.4byte	.LASF31
+ 213 00ab 01       		.byte	0x1
+ 214 00ac 06       		.byte	0x6
+ 215 00ad 5D000000 		.4byte	0x5d
+ 216 00b1 00000000 		.4byte	.LFB33
+ 217 00b5 64000000 		.4byte	.LFE33-.LFB33
+ 218 00b9 01       		.uleb128 0x1
+ 219 00ba 9C       		.byte	0x9c
+ 220 00bb A7010000 		.4byte	0x1a7
+ 221 00bf 06       		.uleb128 0x6
+ 222 00c0 2C000000 		.4byte	.LBB2
+ 223 00c4 38000000 		.4byte	.LBE2-.LBB2
+ 224 00c8 4D010000 		.4byte	0x14d
+ 225 00cc 07       		.uleb128 0x7
+ 226 00cd 9F010000 		.4byte	.LASF16
+ 227 00d1 01       		.byte	0x1
+ 228 00d2 17       		.byte	0x17
+ 229 00d3 6B000000 		.4byte	0x6b
+ 230 00d7 00000000 		.4byte	.LLST0
+ 231 00db 08       		.uleb128 0x8
+ 232 00dc 6D5600   		.ascii	"mV\000"
+ 233 00df 01       		.byte	0x1
+ 234 00e0 18       		.byte	0x18
+ 235 00e1 77000000 		.4byte	0x77
+ 236 00e5 13000000 		.4byte	.LLST1
+ 237 00e9 09       		.uleb128 0x9
+ 238 00ea D6010000 		.4byte	.LASF17
+ 239 00ee 01       		.byte	0x1
+ 240 00ef 1A       		.byte	0x1a
+ 241 00f0 A7010000 		.4byte	0x1a7
+ 242 00f4 02       		.uleb128 0x2
+ 243 00f5 91       		.byte	0x91
+ 244 00f6 58       		.sleb128 -40
+ 245 00f7 0A       		.uleb128 0xa
+ 246 00f8 32000000 		.4byte	.LVL7
+ 247 00fc B7010000 		.4byte	0x1b7
+ 248 0100 0A010000 		.4byte	0x10a
+ 249 0104 0B       		.uleb128 0xb
+ 250 0105 01       		.uleb128 0x1
+ 251 0106 50       		.byte	0x50
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 6
+
+
+ 252 0107 01       		.uleb128 0x1
+ 253 0108 30       		.byte	0x30
+ 254 0109 00       		.byte	0
+ 255 010a 0A       		.uleb128 0xa
+ 256 010b 48000000 		.4byte	.LVL13
+ 257 010f C2010000 		.4byte	0x1c2
+ 258 0113 27010000 		.4byte	0x127
+ 259 0117 0B       		.uleb128 0xb
+ 260 0118 01       		.uleb128 0x1
+ 261 0119 50       		.byte	0x50
+ 262 011a 02       		.uleb128 0x2
+ 263 011b 7D       		.byte	0x7d
+ 264 011c 00       		.sleb128 0
+ 265 011d 0B       		.uleb128 0xb
+ 266 011e 01       		.uleb128 0x1
+ 267 011f 51       		.byte	0x51
+ 268 0120 05       		.uleb128 0x5
+ 269 0121 03       		.byte	0x3
+ 270 0122 00000000 		.4byte	.LC0
+ 271 0126 00       		.byte	0
+ 272 0127 0A       		.uleb128 0xa
+ 273 0128 4E000000 		.4byte	.LVL14
+ 274 012c CD010000 		.4byte	0x1cd
+ 275 0130 3B010000 		.4byte	0x13b
+ 276 0134 0B       		.uleb128 0xb
+ 277 0135 01       		.uleb128 0x1
+ 278 0136 50       		.byte	0x50
+ 279 0137 02       		.uleb128 0x2
+ 280 0138 7D       		.byte	0x7d
+ 281 0139 00       		.sleb128 0
+ 282 013a 00       		.byte	0
+ 283 013b 0C       		.uleb128 0xc
+ 284 013c 56000000 		.4byte	.LVL15
+ 285 0140 D9010000 		.4byte	0x1d9
+ 286 0144 0B       		.uleb128 0xb
+ 287 0145 01       		.uleb128 0x1
+ 288 0146 50       		.byte	0x50
+ 289 0147 03       		.uleb128 0x3
+ 290 0148 0A       		.byte	0xa
+ 291 0149 F401     		.2byte	0x1f4
+ 292 014b 00       		.byte	0
+ 293 014c 00       		.byte	0
+ 294 014d 0D       		.uleb128 0xd
+ 295 014e 0A000000 		.4byte	.LVL0
+ 296 0152 E4010000 		.4byte	0x1e4
+ 297 0156 0D       		.uleb128 0xd
+ 298 0157 0E000000 		.4byte	.LVL1
+ 299 015b EF010000 		.4byte	0x1ef
+ 300 015f 0D       		.uleb128 0xd
+ 301 0160 12000000 		.4byte	.LVL2
+ 302 0164 FA010000 		.4byte	0x1fa
+ 303 0168 0D       		.uleb128 0xd
+ 304 0169 16000000 		.4byte	.LVL3
+ 305 016d 05020000 		.4byte	0x205
+ 306 0171 0A       		.uleb128 0xa
+ 307 0172 1C000000 		.4byte	.LVL4
+ 308 0176 10020000 		.4byte	0x210
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 7
+
+
+ 309 017a 84010000 		.4byte	0x184
+ 310 017e 0B       		.uleb128 0xb
+ 311 017f 01       		.uleb128 0x1
+ 312 0180 50       		.byte	0x50
+ 313 0181 01       		.uleb128 0x1
+ 314 0182 30       		.byte	0x30
+ 315 0183 00       		.byte	0
+ 316 0184 0A       		.uleb128 0xa
+ 317 0185 22000000 		.4byte	.LVL5
+ 318 0189 D9010000 		.4byte	0x1d9
+ 319 018d 97010000 		.4byte	0x197
+ 320 0191 0B       		.uleb128 0xb
+ 321 0192 01       		.uleb128 0x1
+ 322 0193 50       		.byte	0x50
+ 323 0194 01       		.uleb128 0x1
+ 324 0195 35       		.byte	0x35
+ 325 0196 00       		.byte	0
+ 326 0197 0C       		.uleb128 0xc
+ 327 0198 28000000 		.4byte	.LVL6
+ 328 019c 1B020000 		.4byte	0x21b
+ 329 01a0 0B       		.uleb128 0xb
+ 330 01a1 01       		.uleb128 0x1
+ 331 01a2 50       		.byte	0x50
+ 332 01a3 01       		.uleb128 0x1
+ 333 01a4 31       		.byte	0x31
+ 334 01a5 00       		.byte	0
+ 335 01a6 00       		.byte	0
+ 336 01a7 0E       		.uleb128 0xe
+ 337 01a8 91000000 		.4byte	0x91
+ 338 01ac B7010000 		.4byte	0x1b7
+ 339 01b0 0F       		.uleb128 0xf
+ 340 01b1 9F000000 		.4byte	0x9f
+ 341 01b5 1F       		.byte	0x1f
+ 342 01b6 00       		.byte	0
+ 343 01b7 10       		.uleb128 0x10
+ 344 01b8 C3000000 		.4byte	.LASF18
+ 345 01bc C3000000 		.4byte	.LASF18
+ 346 01c0 03       		.byte	0x3
+ 347 01c1 A0       		.byte	0xa0
+ 348 01c2 10       		.uleb128 0x10
+ 349 01c3 2C020000 		.4byte	.LASF19
+ 350 01c7 2C020000 		.4byte	.LASF19
+ 351 01cb 04       		.byte	0x4
+ 352 01cc E7       		.byte	0xe7
+ 353 01cd 11       		.uleb128 0x11
+ 354 01ce B0000000 		.4byte	.LASF20
+ 355 01d2 B0000000 		.4byte	.LASF20
+ 356 01d6 05       		.byte	0x5
+ 357 01d7 2A03     		.2byte	0x32a
+ 358 01d9 10       		.uleb128 0x10
+ 359 01da 34020000 		.4byte	.LASF21
+ 360 01de 34020000 		.4byte	.LASF21
+ 361 01e2 06       		.byte	0x6
+ 362 01e3 EC       		.byte	0xec
+ 363 01e4 10       		.uleb128 0x10
+ 364 01e5 DD010000 		.4byte	.LASF22
+ 365 01e9 DD010000 		.4byte	.LASF22
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 8
+
+
+ 366 01ed 03       		.byte	0x3
+ 367 01ee 99       		.byte	0x99
+ 368 01ef 10       		.uleb128 0x10
+ 369 01f0 9F000000 		.4byte	.LASF23
+ 370 01f4 9F000000 		.4byte	.LASF23
+ 371 01f8 03       		.byte	0x3
+ 372 01f9 9D       		.byte	0x9d
+ 373 01fa 10       		.uleb128 0x10
+ 374 01fb 50000000 		.4byte	.LASF24
+ 375 01ff 50000000 		.4byte	.LASF24
+ 376 0203 07       		.byte	0x7
+ 377 0204 72       		.byte	0x72
+ 378 0205 10       		.uleb128 0x10
+ 379 0206 5B000000 		.4byte	.LASF25
+ 380 020a 5B000000 		.4byte	.LASF25
+ 381 020e 08       		.byte	0x8
+ 382 020f 25       		.byte	0x25
+ 383 0210 10       		.uleb128 0x10
+ 384 0211 10020000 		.4byte	.LASF26
+ 385 0215 10020000 		.4byte	.LASF26
+ 386 0219 08       		.byte	0x8
+ 387 021a 27       		.byte	0x27
+ 388 021b 10       		.uleb128 0x10
+ 389 021c F0010000 		.4byte	.LASF27
+ 390 0220 F0010000 		.4byte	.LASF27
+ 391 0224 03       		.byte	0x3
+ 392 0225 9F       		.byte	0x9f
+ 393 0226 00       		.byte	0
+ 394              		.section	.debug_abbrev,"",%progbits
+ 395              	.Ldebug_abbrev0:
+ 396 0000 01       		.uleb128 0x1
+ 397 0001 11       		.uleb128 0x11
+ 398 0002 01       		.byte	0x1
+ 399 0003 25       		.uleb128 0x25
+ 400 0004 0E       		.uleb128 0xe
+ 401 0005 13       		.uleb128 0x13
+ 402 0006 0B       		.uleb128 0xb
+ 403 0007 03       		.uleb128 0x3
+ 404 0008 0E       		.uleb128 0xe
+ 405 0009 1B       		.uleb128 0x1b
+ 406 000a 0E       		.uleb128 0xe
+ 407 000b 55       		.uleb128 0x55
+ 408 000c 17       		.uleb128 0x17
+ 409 000d 11       		.uleb128 0x11
+ 410 000e 01       		.uleb128 0x1
+ 411 000f 10       		.uleb128 0x10
+ 412 0010 17       		.uleb128 0x17
+ 413 0011 00       		.byte	0
+ 414 0012 00       		.byte	0
+ 415 0013 02       		.uleb128 0x2
+ 416 0014 24       		.uleb128 0x24
+ 417 0015 00       		.byte	0
+ 418 0016 0B       		.uleb128 0xb
+ 419 0017 0B       		.uleb128 0xb
+ 420 0018 3E       		.uleb128 0x3e
+ 421 0019 0B       		.uleb128 0xb
+ 422 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 9
+
+
+ 423 001b 0E       		.uleb128 0xe
+ 424 001c 00       		.byte	0
+ 425 001d 00       		.byte	0
+ 426 001e 03       		.uleb128 0x3
+ 427 001f 24       		.uleb128 0x24
+ 428 0020 00       		.byte	0
+ 429 0021 0B       		.uleb128 0xb
+ 430 0022 0B       		.uleb128 0xb
+ 431 0023 3E       		.uleb128 0x3e
+ 432 0024 0B       		.uleb128 0xb
+ 433 0025 03       		.uleb128 0x3
+ 434 0026 08       		.uleb128 0x8
+ 435 0027 00       		.byte	0
+ 436 0028 00       		.byte	0
+ 437 0029 04       		.uleb128 0x4
+ 438 002a 16       		.uleb128 0x16
+ 439 002b 00       		.byte	0
+ 440 002c 03       		.uleb128 0x3
+ 441 002d 0E       		.uleb128 0xe
+ 442 002e 3A       		.uleb128 0x3a
+ 443 002f 0B       		.uleb128 0xb
+ 444 0030 3B       		.uleb128 0x3b
+ 445 0031 05       		.uleb128 0x5
+ 446 0032 49       		.uleb128 0x49
+ 447 0033 13       		.uleb128 0x13
+ 448 0034 00       		.byte	0
+ 449 0035 00       		.byte	0
+ 450 0036 05       		.uleb128 0x5
+ 451 0037 2E       		.uleb128 0x2e
+ 452 0038 01       		.byte	0x1
+ 453 0039 3F       		.uleb128 0x3f
+ 454 003a 19       		.uleb128 0x19
+ 455 003b 03       		.uleb128 0x3
+ 456 003c 0E       		.uleb128 0xe
+ 457 003d 3A       		.uleb128 0x3a
+ 458 003e 0B       		.uleb128 0xb
+ 459 003f 3B       		.uleb128 0x3b
+ 460 0040 0B       		.uleb128 0xb
+ 461 0041 27       		.uleb128 0x27
+ 462 0042 19       		.uleb128 0x19
+ 463 0043 49       		.uleb128 0x49
+ 464 0044 13       		.uleb128 0x13
+ 465 0045 8701     		.uleb128 0x87
+ 466 0047 19       		.uleb128 0x19
+ 467 0048 11       		.uleb128 0x11
+ 468 0049 01       		.uleb128 0x1
+ 469 004a 12       		.uleb128 0x12
+ 470 004b 06       		.uleb128 0x6
+ 471 004c 40       		.uleb128 0x40
+ 472 004d 18       		.uleb128 0x18
+ 473 004e 9642     		.uleb128 0x2116
+ 474 0050 19       		.uleb128 0x19
+ 475 0051 01       		.uleb128 0x1
+ 476 0052 13       		.uleb128 0x13
+ 477 0053 00       		.byte	0
+ 478 0054 00       		.byte	0
+ 479 0055 06       		.uleb128 0x6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 10
+
+
+ 480 0056 0B       		.uleb128 0xb
+ 481 0057 01       		.byte	0x1
+ 482 0058 11       		.uleb128 0x11
+ 483 0059 01       		.uleb128 0x1
+ 484 005a 12       		.uleb128 0x12
+ 485 005b 06       		.uleb128 0x6
+ 486 005c 01       		.uleb128 0x1
+ 487 005d 13       		.uleb128 0x13
+ 488 005e 00       		.byte	0
+ 489 005f 00       		.byte	0
+ 490 0060 07       		.uleb128 0x7
+ 491 0061 34       		.uleb128 0x34
+ 492 0062 00       		.byte	0
+ 493 0063 03       		.uleb128 0x3
+ 494 0064 0E       		.uleb128 0xe
+ 495 0065 3A       		.uleb128 0x3a
+ 496 0066 0B       		.uleb128 0xb
+ 497 0067 3B       		.uleb128 0x3b
+ 498 0068 0B       		.uleb128 0xb
+ 499 0069 49       		.uleb128 0x49
+ 500 006a 13       		.uleb128 0x13
+ 501 006b 02       		.uleb128 0x2
+ 502 006c 17       		.uleb128 0x17
+ 503 006d 00       		.byte	0
+ 504 006e 00       		.byte	0
+ 505 006f 08       		.uleb128 0x8
+ 506 0070 34       		.uleb128 0x34
+ 507 0071 00       		.byte	0
+ 508 0072 03       		.uleb128 0x3
+ 509 0073 08       		.uleb128 0x8
+ 510 0074 3A       		.uleb128 0x3a
+ 511 0075 0B       		.uleb128 0xb
+ 512 0076 3B       		.uleb128 0x3b
+ 513 0077 0B       		.uleb128 0xb
+ 514 0078 49       		.uleb128 0x49
+ 515 0079 13       		.uleb128 0x13
+ 516 007a 02       		.uleb128 0x2
+ 517 007b 17       		.uleb128 0x17
+ 518 007c 00       		.byte	0
+ 519 007d 00       		.byte	0
+ 520 007e 09       		.uleb128 0x9
+ 521 007f 34       		.uleb128 0x34
+ 522 0080 00       		.byte	0
+ 523 0081 03       		.uleb128 0x3
+ 524 0082 0E       		.uleb128 0xe
+ 525 0083 3A       		.uleb128 0x3a
+ 526 0084 0B       		.uleb128 0xb
+ 527 0085 3B       		.uleb128 0x3b
+ 528 0086 0B       		.uleb128 0xb
+ 529 0087 49       		.uleb128 0x49
+ 530 0088 13       		.uleb128 0x13
+ 531 0089 02       		.uleb128 0x2
+ 532 008a 18       		.uleb128 0x18
+ 533 008b 00       		.byte	0
+ 534 008c 00       		.byte	0
+ 535 008d 0A       		.uleb128 0xa
+ 536 008e 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 11
+
+
+ 537 0091 01       		.byte	0x1
+ 538 0092 11       		.uleb128 0x11
+ 539 0093 01       		.uleb128 0x1
+ 540 0094 31       		.uleb128 0x31
+ 541 0095 13       		.uleb128 0x13
+ 542 0096 01       		.uleb128 0x1
+ 543 0097 13       		.uleb128 0x13
+ 544 0098 00       		.byte	0
+ 545 0099 00       		.byte	0
+ 546 009a 0B       		.uleb128 0xb
+ 547 009b 8A8201   		.uleb128 0x410a
+ 548 009e 00       		.byte	0
+ 549 009f 02       		.uleb128 0x2
+ 550 00a0 18       		.uleb128 0x18
+ 551 00a1 9142     		.uleb128 0x2111
+ 552 00a3 18       		.uleb128 0x18
+ 553 00a4 00       		.byte	0
+ 554 00a5 00       		.byte	0
+ 555 00a6 0C       		.uleb128 0xc
+ 556 00a7 898201   		.uleb128 0x4109
+ 557 00aa 01       		.byte	0x1
+ 558 00ab 11       		.uleb128 0x11
+ 559 00ac 01       		.uleb128 0x1
+ 560 00ad 31       		.uleb128 0x31
+ 561 00ae 13       		.uleb128 0x13
+ 562 00af 00       		.byte	0
+ 563 00b0 00       		.byte	0
+ 564 00b1 0D       		.uleb128 0xd
+ 565 00b2 898201   		.uleb128 0x4109
+ 566 00b5 00       		.byte	0
+ 567 00b6 11       		.uleb128 0x11
+ 568 00b7 01       		.uleb128 0x1
+ 569 00b8 31       		.uleb128 0x31
+ 570 00b9 13       		.uleb128 0x13
+ 571 00ba 00       		.byte	0
+ 572 00bb 00       		.byte	0
+ 573 00bc 0E       		.uleb128 0xe
+ 574 00bd 01       		.uleb128 0x1
+ 575 00be 01       		.byte	0x1
+ 576 00bf 49       		.uleb128 0x49
+ 577 00c0 13       		.uleb128 0x13
+ 578 00c1 01       		.uleb128 0x1
+ 579 00c2 13       		.uleb128 0x13
+ 580 00c3 00       		.byte	0
+ 581 00c4 00       		.byte	0
+ 582 00c5 0F       		.uleb128 0xf
+ 583 00c6 21       		.uleb128 0x21
+ 584 00c7 00       		.byte	0
+ 585 00c8 49       		.uleb128 0x49
+ 586 00c9 13       		.uleb128 0x13
+ 587 00ca 2F       		.uleb128 0x2f
+ 588 00cb 0B       		.uleb128 0xb
+ 589 00cc 00       		.byte	0
+ 590 00cd 00       		.byte	0
+ 591 00ce 10       		.uleb128 0x10
+ 592 00cf 2E       		.uleb128 0x2e
+ 593 00d0 00       		.byte	0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 12
+
+
+ 594 00d1 3F       		.uleb128 0x3f
+ 595 00d2 19       		.uleb128 0x19
+ 596 00d3 3C       		.uleb128 0x3c
+ 597 00d4 19       		.uleb128 0x19
+ 598 00d5 6E       		.uleb128 0x6e
+ 599 00d6 0E       		.uleb128 0xe
+ 600 00d7 03       		.uleb128 0x3
+ 601 00d8 0E       		.uleb128 0xe
+ 602 00d9 3A       		.uleb128 0x3a
+ 603 00da 0B       		.uleb128 0xb
+ 604 00db 3B       		.uleb128 0x3b
+ 605 00dc 0B       		.uleb128 0xb
+ 606 00dd 00       		.byte	0
+ 607 00de 00       		.byte	0
+ 608 00df 11       		.uleb128 0x11
+ 609 00e0 2E       		.uleb128 0x2e
+ 610 00e1 00       		.byte	0
+ 611 00e2 3F       		.uleb128 0x3f
+ 612 00e3 19       		.uleb128 0x19
+ 613 00e4 3C       		.uleb128 0x3c
+ 614 00e5 19       		.uleb128 0x19
+ 615 00e6 6E       		.uleb128 0x6e
+ 616 00e7 0E       		.uleb128 0xe
+ 617 00e8 03       		.uleb128 0x3
+ 618 00e9 0E       		.uleb128 0xe
+ 619 00ea 3A       		.uleb128 0x3a
+ 620 00eb 0B       		.uleb128 0xb
+ 621 00ec 3B       		.uleb128 0x3b
+ 622 00ed 05       		.uleb128 0x5
+ 623 00ee 00       		.byte	0
+ 624 00ef 00       		.byte	0
+ 625 00f0 00       		.byte	0
+ 626              		.section	.debug_loc,"",%progbits
+ 627              	.Ldebug_loc0:
+ 628              	.LLST0:
+ 629 0000 34000000 		.4byte	.LVL8
+ 630 0004 38000000 		.4byte	.LVL9
+ 631 0008 0100     		.2byte	0x1
+ 632 000a 50       		.byte	0x50
+ 633 000b 00000000 		.4byte	0
+ 634 000f 00000000 		.4byte	0
+ 635              	.LLST1:
+ 636 0013 40000000 		.4byte	.LVL11
+ 637 0017 44000000 		.4byte	.LVL12
+ 638 001b 0100     		.2byte	0x1
+ 639 001d 50       		.byte	0x50
+ 640 001e 44000000 		.4byte	.LVL12
+ 641 0022 47000000 		.4byte	.LVL13-1
+ 642 0026 0100     		.2byte	0x1
+ 643 0028 52       		.byte	0x52
+ 644 0029 00000000 		.4byte	0
+ 645 002d 00000000 		.4byte	0
+ 646              		.section	.debug_aranges,"",%progbits
+ 647 0000 1C000000 		.4byte	0x1c
+ 648 0004 0200     		.2byte	0x2
+ 649 0006 00000000 		.4byte	.Ldebug_info0
+ 650 000a 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 13
+
+
+ 651 000b 00       		.byte	0
+ 652 000c 0000     		.2byte	0
+ 653 000e 0000     		.2byte	0
+ 654 0010 00000000 		.4byte	.LFB33
+ 655 0014 64000000 		.4byte	.LFE33-.LFB33
+ 656 0018 00000000 		.4byte	0
+ 657 001c 00000000 		.4byte	0
+ 658              		.section	.debug_ranges,"",%progbits
+ 659              	.Ldebug_ranges0:
+ 660 0000 00000000 		.4byte	.LFB33
+ 661 0004 64000000 		.4byte	.LFE33
+ 662 0008 00000000 		.4byte	0
+ 663 000c 00000000 		.4byte	0
+ 664              		.section	.debug_line,"",%progbits
+ 665              	.Ldebug_line0:
+ 666 0000 0F010000 		.section	.debug_str,"MS",%progbits,1
+ 666      0200EF00 
+ 666      00000201 
+ 666      FB0E0D00 
+ 666      01010101 
+ 667              	.LASF30:
+ 668 0000 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-049-42XX\\e"
+ 668      6978745C 
+ 668      61697874 
+ 668      5C706F72 
+ 668      74735C43 
+ 669 002d 78616D70 		.ascii	"xamples\\CY8CKIT-049-42XX-adc.cydsn\000"
+ 669      6C65735C 
+ 669      43593843 
+ 669      4B49542D 
+ 669      3034392D 
+ 670              	.LASF24:
+ 671 0050 75617274 		.ascii	"uart_Start\000"
+ 671      5F537461 
+ 671      727400
+ 672              	.LASF25:
+ 673 005b 616D7578 		.ascii	"amux_Start\000"
+ 673      5F537461 
+ 673      727400
+ 674              	.LASF11:
+ 675 0066 666C6F61 		.ascii	"float\000"
+ 675      7400
+ 676              	.LASF1:
+ 677 006c 756E7369 		.ascii	"unsigned char\000"
+ 677      676E6564 
+ 677      20636861 
+ 677      7200
+ 678              	.LASF5:
+ 679 007a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 679      20756E73 
+ 679      69676E65 
+ 679      6420696E 
+ 679      7400
+ 680              	.LASF3:
+ 681 008c 73686F72 		.ascii	"short unsigned int\000"
+ 681      7420756E 
+ 681      7369676E 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 14
+
+
+ 681      65642069 
+ 681      6E7400
+ 682              	.LASF23:
+ 683 009f 6164635F 		.ascii	"adc_StartConvert\000"
+ 683      53746172 
+ 683      74436F6E 
+ 683      76657274 
+ 683      00
+ 684              	.LASF20:
+ 685 00b0 75617274 		.ascii	"uart_UartPutString\000"
+ 685      5F556172 
+ 685      74507574 
+ 685      53747269 
+ 685      6E6700
+ 686              	.LASF18:
+ 687 00c3 6164635F 		.ascii	"adc_GetResult16\000"
+ 687      47657452 
+ 687      6573756C 
+ 687      74313600 
+ 688              	.LASF12:
+ 689 00d3 646F7562 		.ascii	"double\000"
+ 689      6C6500
+ 690              	.LASF31:
+ 691 00da 6D61696E 		.ascii	"main\000"
+ 691      00
+ 692              	.LASF9:
+ 693 00df 75696E74 		.ascii	"uint16\000"
+ 693      313600
+ 694              	.LASF10:
+ 695 00e6 75696E74 		.ascii	"uint32\000"
+ 695      333200
+ 696              	.LASF8:
+ 697 00ed 756E7369 		.ascii	"unsigned int\000"
+ 697      676E6564 
+ 697      20696E74 
+ 697      00
+ 698              	.LASF7:
+ 699 00fa 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 699      206C6F6E 
+ 699      6720756E 
+ 699      7369676E 
+ 699      65642069 
+ 700              	.LASF28:
+ 701 0111 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 701      43313120 
+ 701      352E342E 
+ 701      31203230 
+ 701      31363036 
+ 702 0144 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 702      20726576 
+ 702      6973696F 
+ 702      6E203233 
+ 702      37373135 
+ 703 0177 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 703      66756E63 
+ 703      74696F6E 
+ 703      2D736563 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 15
+
+
+ 703      74696F6E 
+ 704              	.LASF16:
+ 705 019f 61646352 		.ascii	"adcResult\000"
+ 705      6573756C 
+ 705      7400
+ 706              	.LASF15:
+ 707 01a9 73697A65 		.ascii	"sizetype\000"
+ 707      74797065 
+ 707      00
+ 708              	.LASF6:
+ 709 01b2 6C6F6E67 		.ascii	"long long int\000"
+ 709      206C6F6E 
+ 709      6720696E 
+ 709      7400
+ 710              	.LASF29:
+ 711 01c0 6D61696E 		.ascii	"main.c\000"
+ 711      2E6300
+ 712              	.LASF13:
+ 713 01c7 63686172 		.ascii	"char\000"
+ 713      00
+ 714              	.LASF2:
+ 715 01cc 73686F72 		.ascii	"short int\000"
+ 715      7420696E 
+ 715      7400
+ 716              	.LASF17:
+ 717 01d6 62756666 		.ascii	"buffer\000"
+ 717      657200
+ 718              	.LASF22:
+ 719 01dd 6164635F 		.ascii	"adc_Start\000"
+ 719      53746172 
+ 719      7400
+ 720              	.LASF4:
+ 721 01e7 6C6F6E67 		.ascii	"long int\000"
+ 721      20696E74 
+ 721      00
+ 722              	.LASF27:
+ 723 01f0 6164635F 		.ascii	"adc_IsEndConversion\000"
+ 723      4973456E 
+ 723      64436F6E 
+ 723      76657273 
+ 723      696F6E00 
+ 724              	.LASF14:
+ 725 0204 6C6F6E67 		.ascii	"long double\000"
+ 725      20646F75 
+ 725      626C6500 
+ 726              	.LASF26:
+ 727 0210 616D7578 		.ascii	"amux_FastSelect\000"
+ 727      5F466173 
+ 727      7453656C 
+ 727      65637400 
+ 728              	.LASF0:
+ 729 0220 7369676E 		.ascii	"signed char\000"
+ 729      65642063 
+ 729      68617200 
+ 730              	.LASF19:
+ 731 022c 73707269 		.ascii	"sprintf\000"
+ 731      6E746600 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 16
+
+
+ 732              	.LASF21:
+ 733 0234 43794465 		.ascii	"CyDelay\000"
+ 733      6C617900 
+ 734              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

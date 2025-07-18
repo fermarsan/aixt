@@ -34,6 +34,7 @@ void  main__init();
 #define PIN_WRITE(PIN_NAME, VAL)    PIN_NAME##_Write(VAL)
 #define PIN_HIGH(PIN_NAME)   PIN_NAME##_Write(1)
 #define PIN_LOW(PIN_NAME)   PIN_NAME##_Write(0)
+#define PIN_READ(PIN_NAME)    PIN_NAME##_Read()
 
 #define _const_main__led1 led1
 #define _const_main__led4 led4
@@ -47,10 +48,7 @@ void  main__init();
 #define _const_main__do0 12
 #define _const_main__do1 13
 #define _const_main__do2 14
-#define _const_main__pwm_1 15
-#define _const_main__pwm_2 16
-#define _const_main__pwm_3 17
-#define _const_main__sw2 19
+#define _const_main__sw2 sw2
 #define _const_main__di0 20
 #define _const_main__di1 21
 #define _const_main__di2 22
@@ -70,6 +68,8 @@ void  main__init();
 #define pin__high(name) PIN_HIGH(name)
 
 #define pin__low(name) PIN_LOW(name)
+
+#define pin__read(name)  PIN_READ(name)
 
 #define pin__write(name, value) PIN_WRITE(name, value)
 

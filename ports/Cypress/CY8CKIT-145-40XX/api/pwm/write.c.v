@@ -1,9 +1,9 @@
 // Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera
+// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
 // Date: 2022-2025
 // License: MIT
 //
-// // Description: pwm functions (CY8CKIT-145-40XX)
+// // Description: pwm write (CY8CKIT-145-40XX)
 
 module pwm
 
@@ -16,13 +16,13 @@ module pwm
 pub fn write(channel int, val any) {
 	match channel {
 		pwm.ch0 {
-			C.pwm_0_WriteCompare(val)
+			C.pwm0_WriteCompare(val)
 		}
 		pwm.ch1 {
-			C.pwm_1_WriteCompare(val)
+			C.pwm1_WriteCompare(val)
 		}
 		pwm.ch2 {
-			C.pwm_2_WriteCompare(val)
+			C.pwm2_WriteCompare(val)
 		}
 		else { }
 	}
