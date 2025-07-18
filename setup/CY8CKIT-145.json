@@ -1,23 +1,19 @@
 {
-    "port": "CY8CKIT-145",
-    "board": "CY8CKIT-145-40XX",
-    "backend": "c",
-  
-    "cc_linux": "",
-    "cc_windows": "",
-    "cc_make_flags": "",
-  
-    "flasher_linux": "",
-    "flasher_windows": "",
-    "flasher_flags": "",
-  
-    "api_paths": [
-      "Cypress/CY8CKIT-145-40XX"
-    ],
-    "v_defines": [],
-  
-    "default_cpu_freq": 20000000,
-    "default_string_len": 20,
-  
-    "compiler_setup_path": "setup/PSoC-Creator.json"
-  }
+  "port": "CY8CKIT-145",
+  "board": "CY8CKIT-145-40XX",
+  "backend": "c",
+  "cc_linux": "",
+  "cc_windows": "",
+  "cc_make_flags": "",
+  "flasher_linux": "",
+  "flasher_windows": "",
+  "flasher_flags": "",
+  "api_paths": [
+    "Cypress/CY8CKIT-145-40XX",
+    "Cypress/PSoC-Creator-generic"
+  ],
+  "v_defines": [],
+  "default_cpu_freq": 20000000,
+  "default_string_len": 20,
+  "compiler_setup_path": "setup/PSoC-Creator.json"
+}
