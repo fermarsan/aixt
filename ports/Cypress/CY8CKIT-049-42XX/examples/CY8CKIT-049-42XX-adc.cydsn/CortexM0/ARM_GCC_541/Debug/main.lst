@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 1
 
 
    1              		.syntax unified
@@ -58,55 +58,56 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
   45              		.syntax unified
   46 0006 FFF7FEFF 		bl	adc_Start
   47              	.LVL0:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 2
 
 
-  11:main.c        ****     adc_StartConvert();    // Comienza conversiones continuas
-  48              		.loc 1 11 0
-  49 000a FFF7FEFF 		bl	adc_StartConvert
-  50              	.LVL1:
+  11:main.c        ****     
   12:main.c        **** 
   13:main.c        ****     uart_Start();          // Inicia UART
-  51              		.loc 1 13 0
-  52 000e FFF7FEFF 		bl	uart_Start
-  53              	.LVL2:
+  48              		.loc 1 13 0
+  49 000a FFF7FEFF 		bl	uart_Start
+  50              	.LVL1:
   14:main.c        ****     amux_Start();          // Inicia el multiplexor analógico
-  54              		.loc 1 14 0
-  55 0012 FFF7FEFF 		bl	amux_Start
-  56              	.LVL3:
-  57              	.L2:
+  51              		.loc 1 14 0
+  52 000e FFF7FEFF 		bl	amux_Start
+  53              	.LVL2:
+  54              	.L2:
   15:main.c        **** 
   16:main.c        ****     for(;;)
   17:main.c        ****     {
   18:main.c        ****         amux_FastSelect(0);   // Selecciona canal 0 (único canal usado)
-  58              		.loc 1 18 0
-  59 0016 0020     		movs	r0, #0
-  60 0018 FFF7FEFF 		bl	amux_FastSelect
+  55              		.loc 1 18 0
+  56 0012 0020     		movs	r0, #0
+  57 0014 FFF7FEFF 		bl	amux_FastSelect
+  58              	.LVL3:
+  19:main.c        ****         adc_StartConvert();    // Comienza conversiones continuas
+  59              		.loc 1 19 0
+  60 0018 FFF7FEFF 		bl	adc_StartConvert
   61              	.LVL4:
-  19:main.c        ****         CyDelay(5);           // Breve estabilización
-  62              		.loc 1 19 0
+  20:main.c        ****         CyDelay(5);           // Breve estabilización
+  62              		.loc 1 20 0
   63 001c 0520     		movs	r0, #5
   64 001e FFF7FEFF 		bl	CyDelay
   65              	.LVL5:
-  20:main.c        **** 
-  21:main.c        ****         if (adc_IsEndConversion(adc_RETURN_STATUS))
-  66              		.loc 1 21 0
+  21:main.c        **** 
+  22:main.c        ****         if (adc_IsEndConversion(adc_RETURN_STATUS))
+  66              		.loc 1 22 0
   67 0022 0120     		movs	r0, #1
   68 0024 FFF7FEFF 		bl	adc_IsEndConversion
   69              	.LVL6:
   70 0028 0028     		cmp	r0, #0
-  71 002a F4D0     		beq	.L2
+  71 002a F2D0     		beq	.L2
   72              	.LBB2:
-  22:main.c        ****         {
-  23:main.c        ****             uint16 adcResult = adc_GetResult16(0);                    // Lee ADC
-  73              		.loc 1 23 0
+  23:main.c        ****         {
+  24:main.c        ****             uint16 adcResult = adc_GetResult16(0);                    // Lee ADC
+  73              		.loc 1 24 0
   74 002c 0020     		movs	r0, #0
   75 002e FFF7FEFF 		bl	adc_GetResult16
   76              	.LVL7:
   77 0032 80B2     		uxth	r0, r0
   78              	.LVL8:
-  24:main.c        ****             uint32 mV = ((uint32)adcResult * VDDA_mV) / 4095;        // Convierte a milivoltios
-  79              		.loc 1 24 0
+  25:main.c        ****             uint32 mV = ((uint32)adcResult * VDDA_mV) / 4095;        // Convierte a milivoltios
+  79              		.loc 1 25 0
   80 0034 084B     		ldr	r3, .L4
   81 0036 5843     		muls	r0, r3
   82              	.LVL9:
@@ -115,31 +116,31 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
   85              	.LVL10:
   86 003e 0200     		movs	r2, r0
   87              	.LVL11:
-  25:main.c        **** 
-  26:main.c        ****             char buffer[32];
-  27:main.c        ****             sprintf(buffer, "Voltaje canal 0: %lu mV\r\n", mV);
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 3
+  26:main.c        **** 
+  27:main.c        ****             char buffer[32];
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 3
 
 
-  88              		.loc 1 27 0
+  28:main.c        ****             sprintf(buffer, "Voltaje cana 0: %lu mV\r\n", mV);
+  88              		.loc 1 28 0
   89 0040 0749     		ldr	r1, .L4+8
   90 0042 6846     		mov	r0, sp
   91              	.LVL12:
   92 0044 FFF7FEFF 		bl	sprintf
   93              	.LVL13:
-  28:main.c        ****             uart_UartPutString(buffer);
-  94              		.loc 1 28 0
+  29:main.c        ****             uart_UartPutString(buffer);
+  94              		.loc 1 29 0
   95 0048 6846     		mov	r0, sp
   96 004a FFF7FEFF 		bl	uart_UartPutString
   97              	.LVL14:
-  29:main.c        **** 
-  30:main.c        ****             CyDelay(500); // Espera medio segundo
-  98              		.loc 1 30 0
+  30:main.c        **** 
+  31:main.c        ****             CyDelay(500); // Espera medio segundo
+  98              		.loc 1 31 0
   99 004e FA20     		movs	r0, #250
  100 0050 4000     		lsls	r0, r0, #1
  101 0052 FFF7FEFF 		bl	CyDelay
  102              	.LVL15:
- 103 0056 DEE7     		b	.L2
+ 103 0056 DCE7     		b	.L2
  104              	.L5:
  105              		.align	2
  106              	.L4:
@@ -153,11 +154,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  114              		.section	.rodata.str1.4,"aMS",%progbits,1
  115              		.align	2
  116              	.LC0:
- 117 0000 566F6C74 		.ascii	"Voltaje canal 0: %lu mV\015\012\000"
+ 117 0000 566F6C74 		.ascii	"Voltaje cana 0: %lu mV\015\012\000"
  117      616A6520 
  117      63616E61 
- 117      6C20303A 
- 117      20256C75 
+ 117      20303A20 
+ 117      256C7520 
  118              		.text
  119              	.Letext0:
  120              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
@@ -177,10 +178,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  134 000c 11010000 		.4byte	.LASF28
  135 0010 0C       		.byte	0xc
  136 0011 C0010000 		.4byte	.LASF29
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 4
+
+
  137 0015 00000000 		.4byte	.LASF30
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 4
-
-
  138 0019 00000000 		.4byte	.Ldebug_ranges0+0
  139 001d 00000000 		.4byte	0
  140 0021 00000000 		.4byte	.Ldebug_line0
@@ -237,10 +238,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  191 0083 02       		.uleb128 0x2
  192 0084 04       		.byte	0x4
  193 0085 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 5
+
+
  194 0086 66000000 		.4byte	.LASF11
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 5
-
-
  195 008a 02       		.uleb128 0x2
  196 008b 08       		.byte	0x8
  197 008c 04       		.byte	0x4
@@ -274,19 +275,19 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  225 00cc 07       		.uleb128 0x7
  226 00cd 9F010000 		.4byte	.LASF16
  227 00d1 01       		.byte	0x1
- 228 00d2 17       		.byte	0x17
+ 228 00d2 18       		.byte	0x18
  229 00d3 6B000000 		.4byte	0x6b
  230 00d7 00000000 		.4byte	.LLST0
  231 00db 08       		.uleb128 0x8
  232 00dc 6D5600   		.ascii	"mV\000"
  233 00df 01       		.byte	0x1
- 234 00e0 18       		.byte	0x18
+ 234 00e0 19       		.byte	0x19
  235 00e1 77000000 		.4byte	0x77
  236 00e5 13000000 		.4byte	.LLST1
  237 00e9 09       		.uleb128 0x9
  238 00ea D6010000 		.4byte	.LASF17
  239 00ee 01       		.byte	0x1
- 240 00ef 1A       		.byte	0x1a
+ 240 00ef 1B       		.byte	0x1b
  241 00f0 A7010000 		.4byte	0x1a7
  242 00f4 02       		.uleb128 0x2
  243 00f5 91       		.byte	0x91
@@ -297,10 +298,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  248 0100 0A010000 		.4byte	0x10a
  249 0104 0B       		.uleb128 0xb
  250 0105 01       		.uleb128 0x1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 6
+
+
  251 0106 50       		.byte	0x50
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 6
-
-
  252 0107 01       		.uleb128 0x1
  253 0108 30       		.byte	0x30
  254 0109 00       		.byte	0
@@ -352,22 +353,22 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  300 015f 0D       		.uleb128 0xd
  301 0160 12000000 		.4byte	.LVL2
  302 0164 FA010000 		.4byte	0x1fa
- 303 0168 0D       		.uleb128 0xd
- 304 0169 16000000 		.4byte	.LVL3
+ 303 0168 0A       		.uleb128 0xa
+ 304 0169 18000000 		.4byte	.LVL3
  305 016d 05020000 		.4byte	0x205
- 306 0171 0A       		.uleb128 0xa
- 307 0172 1C000000 		.4byte	.LVL4
- 308 0176 10020000 		.4byte	0x210
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 7
+ 306 0171 7B010000 		.4byte	0x17b
+ 307 0175 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 7
 
 
- 309 017a 84010000 		.4byte	0x184
- 310 017e 0B       		.uleb128 0xb
- 311 017f 01       		.uleb128 0x1
- 312 0180 50       		.byte	0x50
- 313 0181 01       		.uleb128 0x1
- 314 0182 30       		.byte	0x30
- 315 0183 00       		.byte	0
+ 308 0176 01       		.uleb128 0x1
+ 309 0177 50       		.byte	0x50
+ 310 0178 01       		.uleb128 0x1
+ 311 0179 30       		.byte	0x30
+ 312 017a 00       		.byte	0
+ 313 017b 0D       		.uleb128 0xd
+ 314 017c 1C000000 		.4byte	.LVL4
+ 315 0180 10020000 		.4byte	0x210
  316 0184 0A       		.uleb128 0xa
  317 0185 22000000 		.4byte	.LVL5
  318 0189 D9010000 		.4byte	0x1d9
@@ -417,32 +418,32 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  362 01e3 EC       		.byte	0xec
  363 01e4 10       		.uleb128 0x10
  364 01e5 DD010000 		.4byte	.LASF22
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 8
+
+
  365 01e9 DD010000 		.4byte	.LASF22
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 8
-
-
  366 01ed 03       		.byte	0x3
  367 01ee 99       		.byte	0x99
  368 01ef 10       		.uleb128 0x10
- 369 01f0 9F000000 		.4byte	.LASF23
- 370 01f4 9F000000 		.4byte	.LASF23
- 371 01f8 03       		.byte	0x3
- 372 01f9 9D       		.byte	0x9d
+ 369 01f0 50000000 		.4byte	.LASF23
+ 370 01f4 50000000 		.4byte	.LASF23
+ 371 01f8 07       		.byte	0x7
+ 372 01f9 72       		.byte	0x72
  373 01fa 10       		.uleb128 0x10
- 374 01fb 50000000 		.4byte	.LASF24
- 375 01ff 50000000 		.4byte	.LASF24
- 376 0203 07       		.byte	0x7
- 377 0204 72       		.byte	0x72
+ 374 01fb 5B000000 		.4byte	.LASF24
+ 375 01ff 5B000000 		.4byte	.LASF24
+ 376 0203 08       		.byte	0x8
+ 377 0204 25       		.byte	0x25
  378 0205 10       		.uleb128 0x10
- 379 0206 5B000000 		.4byte	.LASF25
- 380 020a 5B000000 		.4byte	.LASF25
+ 379 0206 10020000 		.4byte	.LASF25
+ 380 020a 10020000 		.4byte	.LASF25
  381 020e 08       		.byte	0x8
- 382 020f 25       		.byte	0x25
+ 382 020f 27       		.byte	0x27
  383 0210 10       		.uleb128 0x10
- 384 0211 10020000 		.4byte	.LASF26
- 385 0215 10020000 		.4byte	.LASF26
- 386 0219 08       		.byte	0x8
- 387 021a 27       		.byte	0x27
+ 384 0211 9F000000 		.4byte	.LASF26
+ 385 0215 9F000000 		.4byte	.LASF26
+ 386 0219 03       		.byte	0x3
+ 387 021a 9D       		.byte	0x9d
  388 021b 10       		.uleb128 0x10
  389 021c F0010000 		.4byte	.LASF27
  390 0220 F0010000 		.4byte	.LASF27
@@ -477,10 +478,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  419 0017 0B       		.uleb128 0xb
  420 0018 3E       		.uleb128 0x3e
  421 0019 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 9
+
+
  422 001a 03       		.uleb128 0x3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 9
-
-
  423 001b 0E       		.uleb128 0xe
  424 001c 00       		.byte	0
  425 001d 00       		.byte	0
@@ -537,10 +538,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  476 0052 13       		.uleb128 0x13
  477 0053 00       		.byte	0
  478 0054 00       		.byte	0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 10
+
+
  479 0055 06       		.uleb128 0x6
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 10
-
-
  480 0056 0B       		.uleb128 0xb
  481 0057 01       		.byte	0x1
  482 0058 11       		.uleb128 0x11
@@ -597,10 +598,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  533 008b 00       		.byte	0
  534 008c 00       		.byte	0
  535 008d 0A       		.uleb128 0xa
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 11
+
+
  536 008e 898201   		.uleb128 0x4109
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 11
-
-
  537 0091 01       		.byte	0x1
  538 0092 11       		.uleb128 0x11
  539 0093 01       		.uleb128 0x1
@@ -657,10 +658,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  590 00cd 00       		.byte	0
  591 00ce 10       		.uleb128 0x10
  592 00cf 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 12
+
+
  593 00d0 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 12
-
-
  594 00d1 3F       		.uleb128 0x3f
  595 00d2 19       		.uleb128 0x19
  596 00d3 3C       		.uleb128 0x3c
@@ -717,10 +718,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  647 0000 1C000000 		.4byte	0x1c
  648 0004 0200     		.2byte	0x2
  649 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 13
+
+
  650 000a 04       		.byte	0x4
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 13
-
-
  651 000b 00       		.byte	0
  652 000c 0000     		.2byte	0
  653 000e 0000     		.2byte	0
@@ -752,11 +753,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  669      43593843 
  669      4B49542D 
  669      3034392D 
- 670              	.LASF24:
+ 670              	.LASF23:
  671 0050 75617274 		.ascii	"uart_Start\000"
  671      5F537461 
  671      727400
- 672              	.LASF25:
+ 672              	.LASF24:
  673 005b 616D7578 		.ascii	"amux_Start\000"
  673      5F537461 
  673      727400
@@ -777,13 +778,13 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  680              	.LASF3:
  681 008c 73686F72 		.ascii	"short unsigned int\000"
  681      7420756E 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 14
+
+
  681      7369676E 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 14
-
-
  681      65642069 
  681      6E7400
- 682              	.LASF23:
+ 682              	.LASF26:
  683 009f 6164635F 		.ascii	"adc_StartConvert\000"
  683      53746172 
  683      74436F6E 
@@ -837,10 +838,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  703 0177 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  703      66756E63 
  703      74696F6E 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 15
+
+
  703      2D736563 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 15
-
-
  703      74696F6E 
  704              	.LASF16:
  705 019f 61646352 		.ascii	"adcResult\000"
@@ -886,7 +887,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  725 0204 6C6F6E67 		.ascii	"long double\000"
  725      20646F75 
  725      626C6500 
- 726              	.LASF26:
+ 726              	.LASF25:
  727 0210 616D7578 		.ascii	"amux_FastSelect\000"
  727      5F466173 
  727      7453656C 
@@ -897,10 +898,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 1
  729      68617200 
  730              	.LASF19:
  731 022c 73707269 		.ascii	"sprintf\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccFIw3Re.s 			page 16
+
+
  731      6E746600 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccrsMKl7.s 			page 16
-
-
  732              	.LASF21:
  733 0234 43794465 		.ascii	"CyDelay\000"
  733      6C617900 
