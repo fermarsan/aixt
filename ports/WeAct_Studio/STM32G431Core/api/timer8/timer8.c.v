@@ -4,9 +4,9 @@
 // License: MIT
 //
 // Description: Pin management STM32G431Core
-module timer1
+module timer8
 
-#include "timer1.c"
+#include "timer8.c"
 
 @[as_macro] pub const tick  = C.TICK_FORMAT
 @[as_macro] pub const ms    = C.MICROSEC_FORMAT   
@@ -18,13 +18,13 @@ module timer1
 @[as_macro] pub const compare_ch2  = 2
 @[as_macro] pub const compare_ch3  = 3
 
-fn C.TIMER1_SETOVERFLOW(value f32, format int)
-fn C.TIMER1_ATTACHINTERRUPT(handler fn())
-fn C.TIMER1_COMPARE_ATTACHINTERRUPT(channel int, handler fn()) 
-fn C.TIMER1_RESUME() 
-fn C.ptr_timer1_isr()
-fn C.TIMER1_WRITE_PERCENT_CHANNEL(channel int, val int)
-fn C.TIMER1_WRITE_PERCENT(val int)
-fn C.TIMER1_SETMODE(channel int, mode int, pin int)
+fn C.TIMER8_SETOVERFLOW(value f32, format int)
+fn C.TIMER8_ATTACHINTERRUPT(handler fn())
+fn C.TIMER8_COMPARE_ATTACHINTERRUPT(channel int, handler fn()) 
+fn C.TIMER8_RESUME() 
+fn C.ptr_timer8_isr()
+fn C.TIMER8_WRITE_PERCENT_CHANNEL(channel int, val int)
+fn C.TIMER8_WRITE_PERCENT(val int)
+fn C.TIMER8_SETMODE(channel int, mode int, pin int)
 
-fn C.TIMER1_COMPARE_CHANNEL_ISR(channel int, handler fn()) fn()
+fn C.TIMER8_COMPARE_CHANNEL_ISR(channel int, handler fn()) fn()

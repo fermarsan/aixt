@@ -4,10 +4,10 @@
 // License: MIT
 //
 // Description: Pin management STM32G431Core
-module timer1
+module timer8
 
 
 @[as_macro]
-pub fn cmp_irq_enable(ch int) {
-	C.TIMER1_COMPARE_ATTACHINTERRUPT(ch, C.ptr_timer1_isr)
+pub fn irq_enable() {
+	C.TIMER8_ATTACHINTERRUPT(C.ptr_timer8_isr)
 }

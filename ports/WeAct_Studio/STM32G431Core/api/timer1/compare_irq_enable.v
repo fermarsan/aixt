@@ -8,6 +8,9 @@ module timer1
 
 
 @[as_macro]
-pub fn setup(value f32, format int) {
-	C.TIMER1_SETOVERFLOW(value, format)
+pub fn compare_irq_enable(ch int) {
+	C.TIMER1_COMPARE_ATTACHINTERRUPT(
+		ch, 
+		C.TIMER1_COMPARE_CHANNEL_ISR(ch, C.ptr_timer1_isr)
+	)
 }

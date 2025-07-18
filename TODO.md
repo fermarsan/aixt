@@ -18,6 +18,7 @@ Tasks to do in Aixt
 <!-- - [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO -->
 - [ ] Allow multi-arg functions
 - [ ] Add settings file `port_name.json` inside `/port_name` folder
+- [ ] Check the convenience of the "generality" of each port implementation
 
 
 ### In Progress

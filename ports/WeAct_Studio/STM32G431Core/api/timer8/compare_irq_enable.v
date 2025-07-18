@@ -4,10 +4,13 @@
 // License: MIT
 //
 // Description: Pin management STM32G431Core
-module timer1
+module timer8
 
 
 @[as_macro]
-pub fn setup(value f32, format int) {
-	C.TIMER1_SETOVERFLOW(value, format)
+pub fn compare_irq_enable(ch int) {
+	C.TIMER8_COMPARE_ATTACHINTERRUPT(
+		ch, 
+		C.TIMER8_COMPARE_CHANNEL_ISR(ch, C.ptr_timer8_isr)
+	)
 }

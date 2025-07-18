@@ -4,10 +4,10 @@
 // License: MIT
 //
 // Description: Pin management STM32G431Core
-module timer1
+module timer8
 
 
 @[as_macro]
-pub fn setup(value f32, format int) {
-	C.TIMER1_SETOVERFLOW(value, format)
+pub fn restart() {
+	C.TIMER8_RESUME() 
 }
