@@ -7,7 +7,7 @@
 module adc
 
 @[as_macro]
-fn setup() {
+pub fn setup() {
 	C.adc_Start()       
     C.amux_Start()          
 }

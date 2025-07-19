@@ -17,6 +17,7 @@ fn C.amux_Start()
 fn C.amux_FastSelect(channel int)   
 fn C.adc_StartConvert()   
 fn C.adc_StopConvert()    
-fn C.adc_IsEndConversion(status int)
-fn C.adc_GetResult16(channel int)  
+fn C.adc_IsEndConversion(status int) bool
+fn C.adc_GetResult16(channel int) u16 
 fn C.CyDelay(tms int) 
+

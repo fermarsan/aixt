@@ -5,7 +5,7 @@
 //
 // // Description: builtin (CY8CKIT-049-42XX)
 
-#include "project.h"
+
 
 #define INIT_INTERRUPTS()   CyGlobalIntEnable
 

@@ -10,7 +10,7 @@
 
 fn C.INIT_INTERRUPTS()
 
- enum __pin_names {
+
 @[as_macro] pub const led1 = C.led1
 @[as_macro] pub const _led2 = C.led2
 @[as_macro] pub const do0 = 3
@@ -24,10 +24,6 @@ fn C.INIT_INTERRUPTS()
 @[as_macro] pub const do8 = 11
 @[as_macro] pub const do9 = 12
 @[as_macro] pub const do10 = 13
-@[as_macro] pub const pwm_1 = C.pwm1
-@[as_macro] pub const pwm_2 = C.pwm2
-@[as_macro] pub const pwm_3 = C.pwm3
-@[as_macro] pub const pwm_0 = C.pwm0
 @[as_macro] pub const sw1 =C.sw1
 @[as_macro] pub const di0 = 20
 @[as_macro] pub const di1 = 21
@@ -40,10 +36,7 @@ fn C.INIT_INTERRUPTS()
 @[as_macro] pub const di8 = 28
 @[as_macro] pub const di9 = 29
 @[as_macro] pub const di10 = 30
-@[as_macro] pub const in0_adc,
-@[as_macro] pub const in1_adc,
-@[as_macro] pub constin2_adc,
-@[as_macro] pub const in3_adc,
+
 
 pub fn init() {
     C.INIT_INTERRUPTS() 

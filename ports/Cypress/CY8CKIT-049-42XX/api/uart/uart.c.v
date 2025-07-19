@@ -10,10 +10,9 @@ module uart
 
 
 fn C.uart_UartPutString(message string) 
-fn C.UartPutCRLF() 
-fn C.UartGetChar() u8
+fn C.uart_UartGetChar() u8
 fn C.uart_Start()
-fn C.UartPutChar(character u8)
+fn C.uart_UartPutChar(character u8)
 
 
 
