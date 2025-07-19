@@ -9,15 +9,14 @@ int main(void)
 
     adc_Start();           // Inicia ADC
     
-
     uart_Start();          // Inicia UART
     amux_Start();          // Inicia el multiplexor analógico
 
     for(;;)
     {
         amux_FastSelect(0);   // Selecciona canal 0 (único canal usado)
-        adc_StartConvert();    // Comienza conversiones continuas
         CyDelay(5);           // Breve estabilización
+        adc_StartConvert();    // Comienza conversiones continuas
 
         if (adc_IsEndConversion(adc_RETURN_STATUS))
         {
