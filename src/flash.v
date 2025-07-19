@@ -11,7 +11,7 @@ import aixt.setup
 // example:
 // ``` v
 // build.flash_file('example.hex', '/dev/ttyUSB0', setup)
-// ``` 
+// ```
 // Calls the flashing tool to pass the binary file to the device
 pub fn flash(path string, port string, project_setup setup.Setup) {
 	// println('>>>>>>>>>>>>>>>>>> Flashing by: ${port} <<<<<<<<<<<<<<<<<<')
@@ -23,15 +23,15 @@ pub fn flash(path string, port string, project_setup setup.Setup) {
 	}
 
 	mut flags := project_setup.flasher_flags
-	flags = flags.replace('@{file_no_ext}', '${path}')	
-	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')	
-	flags = flags.replace('@{device}', '${project_setup.device}')	
+	flags = flags.replace('@{file_no_ext}', '${path}')
+	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')
+	flags = flags.replace('@{device}', '${project_setup.device}')
 	flags = flags.replace('@{port}', '${port}')
 
 	input_ext := match project_setup.backend {
-		'nxc' 		{ '.nxc' }
-		'arduino'	{ '.ino' } 
-		else 		{ '.c' }
+		'nxc' { '.nxc' }
+		'arduino' { '.ino' }
+		else { '.c' }
 	}
 	flags = flags.replace('@{input_ext}', '${input_ext}')
 
