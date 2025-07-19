@@ -7,5 +7,5 @@ module uart
 // write function sends a single byte to the serial port
 @[as_macro]
 pub fn write(character u8) {  
-	C.UartPutChar(character)
+	C.uart_UartPutChar(character)
 }

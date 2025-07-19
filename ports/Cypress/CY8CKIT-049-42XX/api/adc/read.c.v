@@ -4,10 +4,9 @@
 // License: MIT
 module adc
 
-import time
 
 //read function reads the value from the specified analog pin
-@[as_macro]
+@[inline]
 pub fn read(channel int) u16 {
 
 	C.amux_FastSelect(channel)	// Select the channel
@@ -16,5 +15,5 @@ pub fn read(channel int) u16 {
 	for !C.adc_IsEndConversion(C.adc_RETURN_STATUS) {}	// wait for the conversion
 	C.adc_StopConvert()
 	
-	return adc_GetResult16(0)	// read the ADC
+	return C.adc_GetResult16(0)	// read the ADC
 }

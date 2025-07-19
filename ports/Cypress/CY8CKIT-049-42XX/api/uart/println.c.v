@@ -8,5 +8,6 @@ module uart
 @[as_macro]
 pub fn println(message string) {  
 	C.uart_UartPutString(message)
-	C.UartPutCRLF()
+	C.uart_UartPutChar(0x0D)
+	C.uart_UartPutChar(0x0A)
 }
