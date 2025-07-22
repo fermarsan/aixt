@@ -58,3 +58,4 @@ Tasks to do in Aixt
 - [x] Update snippets for Arduino AVR
 - [x] Make `adc.setup()` automatically set the used pin channels as inputs on PIC devices
 - [x] Issue solved: change `as_macro` multiline functions due to the using of ({ ... }) fails in XC Microchip compilers
+- [x] Add the interrupts doc file.
