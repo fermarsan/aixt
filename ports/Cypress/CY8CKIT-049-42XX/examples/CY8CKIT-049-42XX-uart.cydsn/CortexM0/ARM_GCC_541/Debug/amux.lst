@@ -1,0 +1,869 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"amux.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.amux_Start,"ax",%progbits
+  20              		.align	2
+  21              		.global	amux_Start
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	amux_Start, %function
+  25              	amux_Start:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC4\\amux.c"
+   1:Generated_Source\PSoC4/amux.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/amux.c **** * File Name: amux.c
+   3:Generated_Source\PSoC4/amux.c **** * Version 1.80
+   4:Generated_Source\PSoC4/amux.c **** *
+   5:Generated_Source\PSoC4/amux.c **** *  Description:
+   6:Generated_Source\PSoC4/amux.c **** *    This file contains all functions required for the analog multiplexer
+   7:Generated_Source\PSoC4/amux.c **** *    AMux User Module.
+   8:Generated_Source\PSoC4/amux.c **** *
+   9:Generated_Source\PSoC4/amux.c **** *   Note:
+  10:Generated_Source\PSoC4/amux.c **** *
+  11:Generated_Source\PSoC4/amux.c **** *******************************************************************************
+  12:Generated_Source\PSoC4/amux.c **** * Copyright 2008-2010, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/amux.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC4/amux.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC4/amux.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/amux.c **** ********************************************************************************/
+  17:Generated_Source\PSoC4/amux.c **** 
+  18:Generated_Source\PSoC4/amux.c **** #include "amux.h"
+  19:Generated_Source\PSoC4/amux.c **** 
+  20:Generated_Source\PSoC4/amux.c **** static uint8 amux_lastChannel = amux_NULL_CHANNEL;
+  21:Generated_Source\PSoC4/amux.c **** 
+  22:Generated_Source\PSoC4/amux.c **** 
+  23:Generated_Source\PSoC4/amux.c **** /*******************************************************************************
+  24:Generated_Source\PSoC4/amux.c **** * Function Name: amux_Start
+  25:Generated_Source\PSoC4/amux.c **** ********************************************************************************
+  26:Generated_Source\PSoC4/amux.c **** * Summary:
+  27:Generated_Source\PSoC4/amux.c **** *  Disconnect all channels.
+  28:Generated_Source\PSoC4/amux.c **** *
+  29:Generated_Source\PSoC4/amux.c **** * Parameters:
+  30:Generated_Source\PSoC4/amux.c **** *  void
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 2
+
+
+  31:Generated_Source\PSoC4/amux.c **** *
+  32:Generated_Source\PSoC4/amux.c **** * Return:
+  33:Generated_Source\PSoC4/amux.c **** *  void
+  34:Generated_Source\PSoC4/amux.c **** *
+  35:Generated_Source\PSoC4/amux.c **** *******************************************************************************/
+  36:Generated_Source\PSoC4/amux.c **** void amux_Start(void) 
+  37:Generated_Source\PSoC4/amux.c **** {
+  28              		.loc 1 37 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  36              	.LVL0:
+  38:Generated_Source\PSoC4/amux.c ****     uint8 chan;
+  39:Generated_Source\PSoC4/amux.c **** 
+  40:Generated_Source\PSoC4/amux.c ****     for(chan = 0u; chan < amux_CHANNELS ; chan++)
+  37              		.loc 1 40 0
+  38 0002 0024     		movs	r4, #0
+  39 0004 04E0     		b	.L2
+  40              	.LVL1:
+  41              	.L3:
+  41:Generated_Source\PSoC4/amux.c ****     {
+  42:Generated_Source\PSoC4/amux.c **** #if (amux_MUXTYPE == amux_MUX_SINGLE)
+  43:Generated_Source\PSoC4/amux.c ****         amux_Unset(chan);
+  42              		.loc 1 43 0 discriminator 3
+  43 0006 2000     		movs	r0, r4
+  44 0008 FFF7FEFF 		bl	amux_Unset
+  45              	.LVL2:
+  40:Generated_Source\PSoC4/amux.c ****     {
+  46              		.loc 1 40 0 discriminator 3
+  47 000c 0134     		adds	r4, r4, #1
+  48              	.LVL3:
+  49 000e E4B2     		uxtb	r4, r4
+  50              	.LVL4:
+  51              	.L2:
+  40:Generated_Source\PSoC4/amux.c ****     {
+  52              		.loc 1 40 0 is_stmt 0 discriminator 1
+  53 0010 032C     		cmp	r4, #3
+  54 0012 F8D9     		bls	.L3
+  44:Generated_Source\PSoC4/amux.c **** #else
+  45:Generated_Source\PSoC4/amux.c ****         amux_CYAMUXSIDE_A_Unset(chan);
+  46:Generated_Source\PSoC4/amux.c ****         amux_CYAMUXSIDE_B_Unset(chan);
+  47:Generated_Source\PSoC4/amux.c **** #endif
+  48:Generated_Source\PSoC4/amux.c ****     }
+  49:Generated_Source\PSoC4/amux.c **** 
+  50:Generated_Source\PSoC4/amux.c ****     amux_lastChannel = amux_NULL_CHANNEL;
+  55              		.loc 1 50 0 is_stmt 1
+  56 0014 FF22     		movs	r2, #255
+  57 0016 014B     		ldr	r3, .L4
+  58 0018 1A70     		strb	r2, [r3]
+  51:Generated_Source\PSoC4/amux.c **** }
+  59              		.loc 1 51 0
+  60              		@ sp needed
+  61              	.LVL5:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 3
+
+
+  62 001a 10BD     		pop	{r4, pc}
+  63              	.L5:
+  64              		.align	2
+  65              	.L4:
+  66 001c 00000000 		.word	.LANCHOR0
+  67              		.cfi_endproc
+  68              	.LFE0:
+  69              		.size	amux_Start, .-amux_Start
+  70              		.section	.text.amux_Select,"ax",%progbits
+  71              		.align	2
+  72              		.global	amux_Select
+  73              		.code	16
+  74              		.thumb_func
+  75              		.type	amux_Select, %function
+  76              	amux_Select:
+  77              	.LFB1:
+  52:Generated_Source\PSoC4/amux.c **** 
+  53:Generated_Source\PSoC4/amux.c **** 
+  54:Generated_Source\PSoC4/amux.c **** #if (!amux_ATMOSTONE)
+  55:Generated_Source\PSoC4/amux.c **** /*******************************************************************************
+  56:Generated_Source\PSoC4/amux.c **** * Function Name: amux_Select
+  57:Generated_Source\PSoC4/amux.c **** ********************************************************************************
+  58:Generated_Source\PSoC4/amux.c **** * Summary:
+  59:Generated_Source\PSoC4/amux.c **** *  This functions first disconnects all channels then connects the given
+  60:Generated_Source\PSoC4/amux.c **** *  channel.
+  61:Generated_Source\PSoC4/amux.c **** *
+  62:Generated_Source\PSoC4/amux.c **** * Parameters:
+  63:Generated_Source\PSoC4/amux.c **** *  channel:  The channel to connect to the common terminal.
+  64:Generated_Source\PSoC4/amux.c **** *
+  65:Generated_Source\PSoC4/amux.c **** * Return:
+  66:Generated_Source\PSoC4/amux.c **** *  void
+  67:Generated_Source\PSoC4/amux.c **** *
+  68:Generated_Source\PSoC4/amux.c **** *******************************************************************************/
+  69:Generated_Source\PSoC4/amux.c **** void amux_Select(uint8 channel) 
+  70:Generated_Source\PSoC4/amux.c **** {
+  78              		.loc 1 70 0
+  79              		.cfi_startproc
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82              	.LVL6:
+  83 0000 10B5     		push	{r4, lr}
+  84              		.cfi_def_cfa_offset 8
+  85              		.cfi_offset 4, -8
+  86              		.cfi_offset 14, -4
+  87 0002 0400     		movs	r4, r0
+  71:Generated_Source\PSoC4/amux.c ****     amux_DisconnectAll();        /* Disconnect all previous connections */
+  88              		.loc 1 71 0
+  89 0004 FFF7FEFF 		bl	amux_Start
+  90              	.LVL7:
+  72:Generated_Source\PSoC4/amux.c ****     amux_Connect(channel);       /* Make the given selection */
+  91              		.loc 1 72 0
+  92 0008 2000     		movs	r0, r4
+  93 000a FFF7FEFF 		bl	amux_Set
+  94              	.LVL8:
+  73:Generated_Source\PSoC4/amux.c ****     amux_lastChannel = channel;  /* Update last channel */
+  95              		.loc 1 73 0
+  96 000e 014B     		ldr	r3, .L7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 4
+
+
+  97 0010 1C70     		strb	r4, [r3]
+  74:Generated_Source\PSoC4/amux.c **** }
+  98              		.loc 1 74 0
+  99              		@ sp needed
+ 100 0012 10BD     		pop	{r4, pc}
+ 101              	.L8:
+ 102              		.align	2
+ 103              	.L7:
+ 104 0014 00000000 		.word	.LANCHOR0
+ 105              		.cfi_endproc
+ 106              	.LFE1:
+ 107              		.size	amux_Select, .-amux_Select
+ 108              		.section	.text.amux_FastSelect,"ax",%progbits
+ 109              		.align	2
+ 110              		.global	amux_FastSelect
+ 111              		.code	16
+ 112              		.thumb_func
+ 113              		.type	amux_FastSelect, %function
+ 114              	amux_FastSelect:
+ 115              	.LFB2:
+  75:Generated_Source\PSoC4/amux.c **** #endif
+  76:Generated_Source\PSoC4/amux.c **** 
+  77:Generated_Source\PSoC4/amux.c **** 
+  78:Generated_Source\PSoC4/amux.c **** /*******************************************************************************
+  79:Generated_Source\PSoC4/amux.c **** * Function Name: amux_FastSelect
+  80:Generated_Source\PSoC4/amux.c **** ********************************************************************************
+  81:Generated_Source\PSoC4/amux.c **** * Summary:
+  82:Generated_Source\PSoC4/amux.c **** *  This function first disconnects the last connection made with FastSelect or
+  83:Generated_Source\PSoC4/amux.c **** *  Select, then connects the given channel. The FastSelect function is similar
+  84:Generated_Source\PSoC4/amux.c **** *  to the Select function, except it is faster since it only disconnects the
+  85:Generated_Source\PSoC4/amux.c **** *  last channel selected rather than all channels.
+  86:Generated_Source\PSoC4/amux.c **** *
+  87:Generated_Source\PSoC4/amux.c **** * Parameters:
+  88:Generated_Source\PSoC4/amux.c **** *  channel:  The channel to connect to the common terminal.
+  89:Generated_Source\PSoC4/amux.c **** *
+  90:Generated_Source\PSoC4/amux.c **** * Return:
+  91:Generated_Source\PSoC4/amux.c **** *  void
+  92:Generated_Source\PSoC4/amux.c **** *
+  93:Generated_Source\PSoC4/amux.c **** *******************************************************************************/
+  94:Generated_Source\PSoC4/amux.c **** void amux_FastSelect(uint8 channel) 
+  95:Generated_Source\PSoC4/amux.c **** {
+ 116              		.loc 1 95 0
+ 117              		.cfi_startproc
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120              	.LVL9:
+ 121 0000 10B5     		push	{r4, lr}
+ 122              		.cfi_def_cfa_offset 8
+ 123              		.cfi_offset 4, -8
+ 124              		.cfi_offset 14, -4
+ 125 0002 0400     		movs	r4, r0
+  96:Generated_Source\PSoC4/amux.c ****     /* Disconnect the last valid channel */
+  97:Generated_Source\PSoC4/amux.c ****     if( amux_lastChannel != amux_NULL_CHANNEL)
+ 126              		.loc 1 97 0
+ 127 0004 054B     		ldr	r3, .L11
+ 128 0006 1878     		ldrb	r0, [r3]
+ 129              	.LVL10:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 5
+
+
+ 130 0008 FF28     		cmp	r0, #255
+ 131 000a 01D0     		beq	.L10
+  98:Generated_Source\PSoC4/amux.c ****     {
+  99:Generated_Source\PSoC4/amux.c ****         amux_Disconnect(amux_lastChannel);
+ 132              		.loc 1 99 0
+ 133 000c FFF7FEFF 		bl	amux_Unset
+ 134              	.LVL11:
+ 135              	.L10:
+ 100:Generated_Source\PSoC4/amux.c ****     }
+ 101:Generated_Source\PSoC4/amux.c **** 
+ 102:Generated_Source\PSoC4/amux.c ****     /* Make the new channel connection */
+ 103:Generated_Source\PSoC4/amux.c **** #if (amux_MUXTYPE == amux_MUX_SINGLE)
+ 104:Generated_Source\PSoC4/amux.c ****     amux_Set(channel);
+ 136              		.loc 1 104 0
+ 137 0010 2000     		movs	r0, r4
+ 138 0012 FFF7FEFF 		bl	amux_Set
+ 139              	.LVL12:
+ 105:Generated_Source\PSoC4/amux.c **** #else
+ 106:Generated_Source\PSoC4/amux.c ****     amux_CYAMUXSIDE_A_Set(channel);
+ 107:Generated_Source\PSoC4/amux.c ****     amux_CYAMUXSIDE_B_Set(channel);
+ 108:Generated_Source\PSoC4/amux.c **** #endif
+ 109:Generated_Source\PSoC4/amux.c **** 
+ 110:Generated_Source\PSoC4/amux.c **** 
+ 111:Generated_Source\PSoC4/amux.c ****     amux_lastChannel = channel;   /* Update last channel */
+ 140              		.loc 1 111 0
+ 141 0016 014B     		ldr	r3, .L11
+ 142 0018 1C70     		strb	r4, [r3]
+ 112:Generated_Source\PSoC4/amux.c **** }
+ 143              		.loc 1 112 0
+ 144              		@ sp needed
+ 145 001a 10BD     		pop	{r4, pc}
+ 146              	.L12:
+ 147              		.align	2
+ 148              	.L11:
+ 149 001c 00000000 		.word	.LANCHOR0
+ 150              		.cfi_endproc
+ 151              	.LFE2:
+ 152              		.size	amux_FastSelect, .-amux_FastSelect
+ 153              		.data
+ 154              		.set	.LANCHOR0,. + 0
+ 155              		.type	amux_lastChannel, %object
+ 156              		.size	amux_lastChannel, 1
+ 157              	amux_lastChannel:
+ 158 0000 FF       		.byte	-1
+ 159              		.text
+ 160              	.Letext0:
+ 161              		.file 2 "Generated_Source\\PSoC4\\cyfitter_cfg.h"
+ 162              		.file 3 "Generated_Source\\PSoC4\\cytypes.h"
+ 163              		.section	.debug_info,"",%progbits
+ 164              	.Ldebug_info0:
+ 165 0000 61010000 		.4byte	0x161
+ 166 0004 0400     		.2byte	0x4
+ 167 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 168 000a 04       		.byte	0x4
+ 169 000b 01       		.uleb128 0x1
+ 170 000c EE000000 		.4byte	.LASF20
+ 171 0010 0C       		.byte	0xc
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 6
+
+
+ 172 0011 D4010000 		.4byte	.LASF21
+ 173 0015 61000000 		.4byte	.LASF22
+ 174 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 175 001d 00000000 		.4byte	0
+ 176 0021 00000000 		.4byte	.Ldebug_line0
+ 177 0025 02       		.uleb128 0x2
+ 178 0026 01       		.byte	0x1
+ 179 0027 06       		.byte	0x6
+ 180 0028 C8010000 		.4byte	.LASF0
+ 181 002c 02       		.uleb128 0x2
+ 182 002d 01       		.byte	0x1
+ 183 002e 08       		.byte	0x8
+ 184 002f 41000000 		.4byte	.LASF1
+ 185 0033 02       		.uleb128 0x2
+ 186 0034 02       		.byte	0x2
+ 187 0035 05       		.byte	0x5
+ 188 0036 94010000 		.4byte	.LASF2
+ 189 003a 02       		.uleb128 0x2
+ 190 003b 02       		.byte	0x2
+ 191 003c 07       		.byte	0x7
+ 192 003d 1C000000 		.4byte	.LASF3
+ 193 0041 02       		.uleb128 0x2
+ 194 0042 04       		.byte	0x4
+ 195 0043 05       		.byte	0x5
+ 196 0044 AF010000 		.4byte	.LASF4
+ 197 0048 02       		.uleb128 0x2
+ 198 0049 04       		.byte	0x4
+ 199 004a 07       		.byte	0x7
+ 200 004b 4F000000 		.4byte	.LASF5
+ 201 004f 02       		.uleb128 0x2
+ 202 0050 08       		.byte	0x8
+ 203 0051 05       		.byte	0x5
+ 204 0052 81010000 		.4byte	.LASF6
+ 205 0056 02       		.uleb128 0x2
+ 206 0057 08       		.byte	0x8
+ 207 0058 07       		.byte	0x7
+ 208 0059 D7000000 		.4byte	.LASF7
+ 209 005d 03       		.uleb128 0x3
+ 210 005e 04       		.byte	0x4
+ 211 005f 05       		.byte	0x5
+ 212 0060 696E7400 		.ascii	"int\000"
+ 213 0064 02       		.uleb128 0x2
+ 214 0065 04       		.byte	0x4
+ 215 0066 07       		.byte	0x7
+ 216 0067 CA000000 		.4byte	.LASF8
+ 217 006b 04       		.uleb128 0x4
+ 218 006c 9E010000 		.4byte	.LASF23
+ 219 0070 03       		.byte	0x3
+ 220 0071 FC01     		.2byte	0x1fc
+ 221 0073 2C000000 		.4byte	0x2c
+ 222 0077 02       		.uleb128 0x2
+ 223 0078 04       		.byte	0x4
+ 224 0079 04       		.byte	0x4
+ 225 007a 3B000000 		.4byte	.LASF9
+ 226 007e 02       		.uleb128 0x2
+ 227 007f 08       		.byte	0x8
+ 228 0080 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 7
+
+
+ 229 0081 B2000000 		.4byte	.LASF10
+ 230 0085 02       		.uleb128 0x2
+ 231 0086 01       		.byte	0x1
+ 232 0087 08       		.byte	0x8
+ 233 0088 8F010000 		.4byte	.LASF11
+ 234 008c 05       		.uleb128 0x5
+ 235 008d 08000000 		.4byte	.LASF12
+ 236 0091 01       		.byte	0x1
+ 237 0092 24       		.byte	0x24
+ 238 0093 00000000 		.4byte	.LFB0
+ 239 0097 20000000 		.4byte	.LFE0-.LFB0
+ 240 009b 01       		.uleb128 0x1
+ 241 009c 9C       		.byte	0x9c
+ 242 009d C1000000 		.4byte	0xc1
+ 243 00a1 06       		.uleb128 0x6
+ 244 00a2 7C010000 		.4byte	.LASF16
+ 245 00a6 01       		.byte	0x1
+ 246 00a7 26       		.byte	0x26
+ 247 00a8 6B000000 		.4byte	0x6b
+ 248 00ac 00000000 		.4byte	.LLST0
+ 249 00b0 07       		.uleb128 0x7
+ 250 00b1 0C000000 		.4byte	.LVL2
+ 251 00b5 4E010000 		.4byte	0x14e
+ 252 00b9 08       		.uleb128 0x8
+ 253 00ba 01       		.uleb128 0x1
+ 254 00bb 50       		.byte	0x50
+ 255 00bc 02       		.uleb128 0x2
+ 256 00bd 74       		.byte	0x74
+ 257 00be 00       		.sleb128 0
+ 258 00bf 00       		.byte	0
+ 259 00c0 00       		.byte	0
+ 260 00c1 05       		.uleb128 0x5
+ 261 00c2 2F000000 		.4byte	.LASF13
+ 262 00c6 01       		.byte	0x1
+ 263 00c7 45       		.byte	0x45
+ 264 00c8 00000000 		.4byte	.LFB1
+ 265 00cc 18000000 		.4byte	.LFE1-.LFB1
+ 266 00d0 01       		.uleb128 0x1
+ 267 00d1 9C       		.byte	0x9c
+ 268 00d2 FF000000 		.4byte	0xff
+ 269 00d6 09       		.uleb128 0x9
+ 270 00d7 00000000 		.4byte	.LASF15
+ 271 00db 01       		.byte	0x1
+ 272 00dc 45       		.byte	0x45
+ 273 00dd 6B000000 		.4byte	0x6b
+ 274 00e1 2A000000 		.4byte	.LLST1
+ 275 00e5 0A       		.uleb128 0xa
+ 276 00e6 08000000 		.4byte	.LVL7
+ 277 00ea 8C000000 		.4byte	0x8c
+ 278 00ee 07       		.uleb128 0x7
+ 279 00ef 0E000000 		.4byte	.LVL8
+ 280 00f3 59010000 		.4byte	0x159
+ 281 00f7 08       		.uleb128 0x8
+ 282 00f8 01       		.uleb128 0x1
+ 283 00f9 50       		.byte	0x50
+ 284 00fa 02       		.uleb128 0x2
+ 285 00fb 74       		.byte	0x74
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 8
+
+
+ 286 00fc 00       		.sleb128 0
+ 287 00fd 00       		.byte	0
+ 288 00fe 00       		.byte	0
+ 289 00ff 05       		.uleb128 0x5
+ 290 0100 B8010000 		.4byte	.LASF14
+ 291 0104 01       		.byte	0x1
+ 292 0105 5E       		.byte	0x5e
+ 293 0106 00000000 		.4byte	.LFB2
+ 294 010a 20000000 		.4byte	.LFE2-.LFB2
+ 295 010e 01       		.uleb128 0x1
+ 296 010f 9C       		.byte	0x9c
+ 297 0110 3D010000 		.4byte	0x13d
+ 298 0114 09       		.uleb128 0x9
+ 299 0115 00000000 		.4byte	.LASF15
+ 300 0119 01       		.byte	0x1
+ 301 011a 5E       		.byte	0x5e
+ 302 011b 6B000000 		.4byte	0x6b
+ 303 011f 4B000000 		.4byte	.LLST2
+ 304 0123 0A       		.uleb128 0xa
+ 305 0124 10000000 		.4byte	.LVL11
+ 306 0128 4E010000 		.4byte	0x14e
+ 307 012c 07       		.uleb128 0x7
+ 308 012d 16000000 		.4byte	.LVL12
+ 309 0131 59010000 		.4byte	0x159
+ 310 0135 08       		.uleb128 0x8
+ 311 0136 01       		.uleb128 0x1
+ 312 0137 50       		.byte	0x50
+ 313 0138 02       		.uleb128 0x2
+ 314 0139 74       		.byte	0x74
+ 315 013a 00       		.sleb128 0
+ 316 013b 00       		.byte	0
+ 317 013c 00       		.byte	0
+ 318 013d 0B       		.uleb128 0xb
+ 319 013e B9000000 		.4byte	.LASF17
+ 320 0142 01       		.byte	0x1
+ 321 0143 14       		.byte	0x14
+ 322 0144 6B000000 		.4byte	0x6b
+ 323 0148 05       		.uleb128 0x5
+ 324 0149 03       		.byte	0x3
+ 325 014a 00000000 		.4byte	amux_lastChannel
+ 326 014e 0C       		.uleb128 0xc
+ 327 014f A4010000 		.4byte	.LASF18
+ 328 0153 A4010000 		.4byte	.LASF18
+ 329 0157 02       		.byte	0x2
+ 330 0158 1B       		.byte	0x1b
+ 331 0159 0C       		.uleb128 0xc
+ 332 015a 13000000 		.4byte	.LASF19
+ 333 015e 13000000 		.4byte	.LASF19
+ 334 0162 02       		.byte	0x2
+ 335 0163 1A       		.byte	0x1a
+ 336 0164 00       		.byte	0
+ 337              		.section	.debug_abbrev,"",%progbits
+ 338              	.Ldebug_abbrev0:
+ 339 0000 01       		.uleb128 0x1
+ 340 0001 11       		.uleb128 0x11
+ 341 0002 01       		.byte	0x1
+ 342 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 9
+
+
+ 343 0004 0E       		.uleb128 0xe
+ 344 0005 13       		.uleb128 0x13
+ 345 0006 0B       		.uleb128 0xb
+ 346 0007 03       		.uleb128 0x3
+ 347 0008 0E       		.uleb128 0xe
+ 348 0009 1B       		.uleb128 0x1b
+ 349 000a 0E       		.uleb128 0xe
+ 350 000b 55       		.uleb128 0x55
+ 351 000c 17       		.uleb128 0x17
+ 352 000d 11       		.uleb128 0x11
+ 353 000e 01       		.uleb128 0x1
+ 354 000f 10       		.uleb128 0x10
+ 355 0010 17       		.uleb128 0x17
+ 356 0011 00       		.byte	0
+ 357 0012 00       		.byte	0
+ 358 0013 02       		.uleb128 0x2
+ 359 0014 24       		.uleb128 0x24
+ 360 0015 00       		.byte	0
+ 361 0016 0B       		.uleb128 0xb
+ 362 0017 0B       		.uleb128 0xb
+ 363 0018 3E       		.uleb128 0x3e
+ 364 0019 0B       		.uleb128 0xb
+ 365 001a 03       		.uleb128 0x3
+ 366 001b 0E       		.uleb128 0xe
+ 367 001c 00       		.byte	0
+ 368 001d 00       		.byte	0
+ 369 001e 03       		.uleb128 0x3
+ 370 001f 24       		.uleb128 0x24
+ 371 0020 00       		.byte	0
+ 372 0021 0B       		.uleb128 0xb
+ 373 0022 0B       		.uleb128 0xb
+ 374 0023 3E       		.uleb128 0x3e
+ 375 0024 0B       		.uleb128 0xb
+ 376 0025 03       		.uleb128 0x3
+ 377 0026 08       		.uleb128 0x8
+ 378 0027 00       		.byte	0
+ 379 0028 00       		.byte	0
+ 380 0029 04       		.uleb128 0x4
+ 381 002a 16       		.uleb128 0x16
+ 382 002b 00       		.byte	0
+ 383 002c 03       		.uleb128 0x3
+ 384 002d 0E       		.uleb128 0xe
+ 385 002e 3A       		.uleb128 0x3a
+ 386 002f 0B       		.uleb128 0xb
+ 387 0030 3B       		.uleb128 0x3b
+ 388 0031 05       		.uleb128 0x5
+ 389 0032 49       		.uleb128 0x49
+ 390 0033 13       		.uleb128 0x13
+ 391 0034 00       		.byte	0
+ 392 0035 00       		.byte	0
+ 393 0036 05       		.uleb128 0x5
+ 394 0037 2E       		.uleb128 0x2e
+ 395 0038 01       		.byte	0x1
+ 396 0039 3F       		.uleb128 0x3f
+ 397 003a 19       		.uleb128 0x19
+ 398 003b 03       		.uleb128 0x3
+ 399 003c 0E       		.uleb128 0xe
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 10
+
+
+ 400 003d 3A       		.uleb128 0x3a
+ 401 003e 0B       		.uleb128 0xb
+ 402 003f 3B       		.uleb128 0x3b
+ 403 0040 0B       		.uleb128 0xb
+ 404 0041 27       		.uleb128 0x27
+ 405 0042 19       		.uleb128 0x19
+ 406 0043 11       		.uleb128 0x11
+ 407 0044 01       		.uleb128 0x1
+ 408 0045 12       		.uleb128 0x12
+ 409 0046 06       		.uleb128 0x6
+ 410 0047 40       		.uleb128 0x40
+ 411 0048 18       		.uleb128 0x18
+ 412 0049 9742     		.uleb128 0x2117
+ 413 004b 19       		.uleb128 0x19
+ 414 004c 01       		.uleb128 0x1
+ 415 004d 13       		.uleb128 0x13
+ 416 004e 00       		.byte	0
+ 417 004f 00       		.byte	0
+ 418 0050 06       		.uleb128 0x6
+ 419 0051 34       		.uleb128 0x34
+ 420 0052 00       		.byte	0
+ 421 0053 03       		.uleb128 0x3
+ 422 0054 0E       		.uleb128 0xe
+ 423 0055 3A       		.uleb128 0x3a
+ 424 0056 0B       		.uleb128 0xb
+ 425 0057 3B       		.uleb128 0x3b
+ 426 0058 0B       		.uleb128 0xb
+ 427 0059 49       		.uleb128 0x49
+ 428 005a 13       		.uleb128 0x13
+ 429 005b 02       		.uleb128 0x2
+ 430 005c 17       		.uleb128 0x17
+ 431 005d 00       		.byte	0
+ 432 005e 00       		.byte	0
+ 433 005f 07       		.uleb128 0x7
+ 434 0060 898201   		.uleb128 0x4109
+ 435 0063 01       		.byte	0x1
+ 436 0064 11       		.uleb128 0x11
+ 437 0065 01       		.uleb128 0x1
+ 438 0066 31       		.uleb128 0x31
+ 439 0067 13       		.uleb128 0x13
+ 440 0068 00       		.byte	0
+ 441 0069 00       		.byte	0
+ 442 006a 08       		.uleb128 0x8
+ 443 006b 8A8201   		.uleb128 0x410a
+ 444 006e 00       		.byte	0
+ 445 006f 02       		.uleb128 0x2
+ 446 0070 18       		.uleb128 0x18
+ 447 0071 9142     		.uleb128 0x2111
+ 448 0073 18       		.uleb128 0x18
+ 449 0074 00       		.byte	0
+ 450 0075 00       		.byte	0
+ 451 0076 09       		.uleb128 0x9
+ 452 0077 05       		.uleb128 0x5
+ 453 0078 00       		.byte	0
+ 454 0079 03       		.uleb128 0x3
+ 455 007a 0E       		.uleb128 0xe
+ 456 007b 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 11
+
+
+ 457 007c 0B       		.uleb128 0xb
+ 458 007d 3B       		.uleb128 0x3b
+ 459 007e 0B       		.uleb128 0xb
+ 460 007f 49       		.uleb128 0x49
+ 461 0080 13       		.uleb128 0x13
+ 462 0081 02       		.uleb128 0x2
+ 463 0082 17       		.uleb128 0x17
+ 464 0083 00       		.byte	0
+ 465 0084 00       		.byte	0
+ 466 0085 0A       		.uleb128 0xa
+ 467 0086 898201   		.uleb128 0x4109
+ 468 0089 00       		.byte	0
+ 469 008a 11       		.uleb128 0x11
+ 470 008b 01       		.uleb128 0x1
+ 471 008c 31       		.uleb128 0x31
+ 472 008d 13       		.uleb128 0x13
+ 473 008e 00       		.byte	0
+ 474 008f 00       		.byte	0
+ 475 0090 0B       		.uleb128 0xb
+ 476 0091 34       		.uleb128 0x34
+ 477 0092 00       		.byte	0
+ 478 0093 03       		.uleb128 0x3
+ 479 0094 0E       		.uleb128 0xe
+ 480 0095 3A       		.uleb128 0x3a
+ 481 0096 0B       		.uleb128 0xb
+ 482 0097 3B       		.uleb128 0x3b
+ 483 0098 0B       		.uleb128 0xb
+ 484 0099 49       		.uleb128 0x49
+ 485 009a 13       		.uleb128 0x13
+ 486 009b 02       		.uleb128 0x2
+ 487 009c 18       		.uleb128 0x18
+ 488 009d 00       		.byte	0
+ 489 009e 00       		.byte	0
+ 490 009f 0C       		.uleb128 0xc
+ 491 00a0 2E       		.uleb128 0x2e
+ 492 00a1 00       		.byte	0
+ 493 00a2 3F       		.uleb128 0x3f
+ 494 00a3 19       		.uleb128 0x19
+ 495 00a4 3C       		.uleb128 0x3c
+ 496 00a5 19       		.uleb128 0x19
+ 497 00a6 6E       		.uleb128 0x6e
+ 498 00a7 0E       		.uleb128 0xe
+ 499 00a8 03       		.uleb128 0x3
+ 500 00a9 0E       		.uleb128 0xe
+ 501 00aa 3A       		.uleb128 0x3a
+ 502 00ab 0B       		.uleb128 0xb
+ 503 00ac 3B       		.uleb128 0x3b
+ 504 00ad 0B       		.uleb128 0xb
+ 505 00ae 00       		.byte	0
+ 506 00af 00       		.byte	0
+ 507 00b0 00       		.byte	0
+ 508              		.section	.debug_loc,"",%progbits
+ 509              	.Ldebug_loc0:
+ 510              	.LLST0:
+ 511 0000 02000000 		.4byte	.LVL0
+ 512 0004 06000000 		.4byte	.LVL1
+ 513 0008 0200     		.2byte	0x2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 12
+
+
+ 514 000a 30       		.byte	0x30
+ 515 000b 9F       		.byte	0x9f
+ 516 000c 06000000 		.4byte	.LVL1
+ 517 0010 0E000000 		.4byte	.LVL3
+ 518 0014 0100     		.2byte	0x1
+ 519 0016 54       		.byte	0x54
+ 520 0017 10000000 		.4byte	.LVL4
+ 521 001b 1A000000 		.4byte	.LVL5
+ 522 001f 0100     		.2byte	0x1
+ 523 0021 54       		.byte	0x54
+ 524 0022 00000000 		.4byte	0
+ 525 0026 00000000 		.4byte	0
+ 526              	.LLST1:
+ 527 002a 00000000 		.4byte	.LVL6
+ 528 002e 07000000 		.4byte	.LVL7-1
+ 529 0032 0100     		.2byte	0x1
+ 530 0034 50       		.byte	0x50
+ 531 0035 07000000 		.4byte	.LVL7-1
+ 532 0039 18000000 		.4byte	.LFE1
+ 533 003d 0400     		.2byte	0x4
+ 534 003f F3       		.byte	0xf3
+ 535 0040 01       		.uleb128 0x1
+ 536 0041 50       		.byte	0x50
+ 537 0042 9F       		.byte	0x9f
+ 538 0043 00000000 		.4byte	0
+ 539 0047 00000000 		.4byte	0
+ 540              	.LLST2:
+ 541 004b 00000000 		.4byte	.LVL9
+ 542 004f 08000000 		.4byte	.LVL10
+ 543 0053 0100     		.2byte	0x1
+ 544 0055 50       		.byte	0x50
+ 545 0056 08000000 		.4byte	.LVL10
+ 546 005a 20000000 		.4byte	.LFE2
+ 547 005e 0400     		.2byte	0x4
+ 548 0060 F3       		.byte	0xf3
+ 549 0061 01       		.uleb128 0x1
+ 550 0062 50       		.byte	0x50
+ 551 0063 9F       		.byte	0x9f
+ 552 0064 00000000 		.4byte	0
+ 553 0068 00000000 		.4byte	0
+ 554              		.section	.debug_aranges,"",%progbits
+ 555 0000 2C000000 		.4byte	0x2c
+ 556 0004 0200     		.2byte	0x2
+ 557 0006 00000000 		.4byte	.Ldebug_info0
+ 558 000a 04       		.byte	0x4
+ 559 000b 00       		.byte	0
+ 560 000c 0000     		.2byte	0
+ 561 000e 0000     		.2byte	0
+ 562 0010 00000000 		.4byte	.LFB0
+ 563 0014 20000000 		.4byte	.LFE0-.LFB0
+ 564 0018 00000000 		.4byte	.LFB1
+ 565 001c 18000000 		.4byte	.LFE1-.LFB1
+ 566 0020 00000000 		.4byte	.LFB2
+ 567 0024 20000000 		.4byte	.LFE2-.LFB2
+ 568 0028 00000000 		.4byte	0
+ 569 002c 00000000 		.4byte	0
+ 570              		.section	.debug_ranges,"",%progbits
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 13
+
+
+ 571              	.Ldebug_ranges0:
+ 572 0000 00000000 		.4byte	.LFB0
+ 573 0004 20000000 		.4byte	.LFE0
+ 574 0008 00000000 		.4byte	.LFB1
+ 575 000c 18000000 		.4byte	.LFE1
+ 576 0010 00000000 		.4byte	.LFB2
+ 577 0014 20000000 		.4byte	.LFE2
+ 578 0018 00000000 		.4byte	0
+ 579 001c 00000000 		.4byte	0
+ 580              		.section	.debug_line,"",%progbits
+ 581              	.Ldebug_line0:
+ 582 0000 A7000000 		.section	.debug_str,"MS",%progbits,1
+ 582      02005300 
+ 582      00000201 
+ 582      FB0E0D00 
+ 582      01010101 
+ 583              	.LASF15:
+ 584 0000 6368616E 		.ascii	"channel\000"
+ 584      6E656C00 
+ 585              	.LASF12:
+ 586 0008 616D7578 		.ascii	"amux_Start\000"
+ 586      5F537461 
+ 586      727400
+ 587              	.LASF19:
+ 588 0013 616D7578 		.ascii	"amux_Set\000"
+ 588      5F536574 
+ 588      00
+ 589              	.LASF3:
+ 590 001c 73686F72 		.ascii	"short unsigned int\000"
+ 590      7420756E 
+ 590      7369676E 
+ 590      65642069 
+ 590      6E7400
+ 591              	.LASF13:
+ 592 002f 616D7578 		.ascii	"amux_Select\000"
+ 592      5F53656C 
+ 592      65637400 
+ 593              	.LASF9:
+ 594 003b 666C6F61 		.ascii	"float\000"
+ 594      7400
+ 595              	.LASF1:
+ 596 0041 756E7369 		.ascii	"unsigned char\000"
+ 596      676E6564 
+ 596      20636861 
+ 596      7200
+ 597              	.LASF5:
+ 598 004f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 598      20756E73 
+ 598      69676E65 
+ 598      6420696E 
+ 598      7400
+ 599              	.LASF22:
+ 600 0061 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-049-42XX\\e"
+ 600      6978745C 
+ 600      61697874 
+ 600      5C706F72 
+ 600      74735C43 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 14
+
+
+ 601 008e 78616D70 		.ascii	"xamples\\CY8CKIT-049-42XX-uart.cydsn\000"
+ 601      6C65735C 
+ 601      43593843 
+ 601      4B49542D 
+ 601      3034392D 
+ 602              	.LASF10:
+ 603 00b2 646F7562 		.ascii	"double\000"
+ 603      6C6500
+ 604              	.LASF17:
+ 605 00b9 616D7578 		.ascii	"amux_lastChannel\000"
+ 605      5F6C6173 
+ 605      74436861 
+ 605      6E6E656C 
+ 605      00
+ 606              	.LASF8:
+ 607 00ca 756E7369 		.ascii	"unsigned int\000"
+ 607      676E6564 
+ 607      20696E74 
+ 607      00
+ 608              	.LASF7:
+ 609 00d7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 609      206C6F6E 
+ 609      6720756E 
+ 609      7369676E 
+ 609      65642069 
+ 610              	.LASF20:
+ 611 00ee 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 611      43313120 
+ 611      352E342E 
+ 611      31203230 
+ 611      31363036 
+ 612 0121 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 612      20726576 
+ 612      6973696F 
+ 612      6E203233 
+ 612      37373135 
+ 613 0154 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 613      66756E63 
+ 613      74696F6E 
+ 613      2D736563 
+ 613      74696F6E 
+ 614              	.LASF16:
+ 615 017c 6368616E 		.ascii	"chan\000"
+ 615      00
+ 616              	.LASF6:
+ 617 0181 6C6F6E67 		.ascii	"long long int\000"
+ 617      206C6F6E 
+ 617      6720696E 
+ 617      7400
+ 618              	.LASF11:
+ 619 018f 63686172 		.ascii	"char\000"
+ 619      00
+ 620              	.LASF2:
+ 621 0194 73686F72 		.ascii	"short int\000"
+ 621      7420696E 
+ 621      7400
+ 622              	.LASF23:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccneSCVs.s 			page 15
+
+
+ 623 019e 75696E74 		.ascii	"uint8\000"
+ 623      3800
+ 624              	.LASF18:
+ 625 01a4 616D7578 		.ascii	"amux_Unset\000"
+ 625      5F556E73 
+ 625      657400
+ 626              	.LASF4:
+ 627 01af 6C6F6E67 		.ascii	"long int\000"
+ 627      20696E74 
+ 627      00
+ 628              	.LASF14:
+ 629 01b8 616D7578 		.ascii	"amux_FastSelect\000"
+ 629      5F466173 
+ 629      7453656C 
+ 629      65637400 
+ 630              	.LASF0:
+ 631 01c8 7369676E 		.ascii	"signed char\000"
+ 631      65642063 
+ 631      68617200 
+ 632              	.LASF21:
+ 633 01d4 47656E65 		.ascii	"Generated_Source\\PSoC4\\amux.c\000"
+ 633      72617465 
+ 633      645F536F 
+ 633      75726365 
+ 633      5C50536F 
+ 634              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -3,20 +3,20 @@
 <item itemtype="Subcircuit" CircId="DigitShield-5" mainComp="false" Show_id="true" Show_Val="false" Pos="12,0" rotation="0" hflip="1" vflip="1" label="DigitShield-5" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" BoardId="Mega-1" />
 
 <item itemtype="Subcircuit" CircId="Mega-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,-268" rotation="0" hflip="1" vflip="1" label="Mega-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="../../Users/OSCAR BUITRAGO/AppData/Local/simulide/codeeditor/buildIno/build/Mega-7seg_uart_1.ino.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="Mega-7seg_uart.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
 </item>
 
-<item itemtype="Potentiometer" CircId="Potentiometer-2" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="172,-116" rotation="0" hflip="1" vflip="1" label="Potentiometer-2" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1 kΩ" Value_Ohm="207 Ω" Slider="false" Scale="1" />
+<item itemtype="Potentiometer" CircId="Potentiometer-2" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="172,-116" rotation="0" hflip="1" vflip="1" label="Potentiometer-2" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1 kΩ" Value_Ohm="781 Ω" Slider="false" Scale="1" />
 
-<item itemtype="SerialTerm" CircId="SerialTerm-4" mainComp="false" Show_id="false" Show_Val="false" Pos="-208,-216" rotation="0" hflip="1" vflip="1" label="SerialTerm-4" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
+<item itemtype="SerialTerm" CircId="SerialTerm-4" mainComp="false" Show_id="false" Show_Val="false" Pos="-204,-216" rotation="0" hflip="1" vflip="1" label="SerialTerm-4" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
 
 <item itemtype="Connector" uid="Connector-1" startpinid="Potentiometer-2-PinA" endpinid="Mega-1-5V00" pointList="156,-116,68,-116,68,-60,44,-60" />
 
 <item itemtype="Connector" uid="Connector-2" startpinid="Potentiometer-2-PinB" endpinid="Mega-1-GND2" pointList="188,-116,188,-68,44,-68" />
 
-<item itemtype="Connector" uid="Connector-4" startpinid="SerialTerm-4-pin0" endpinid="Mega-1-0" pointList="-232,-224,-232,-240,-272,-240,-272,-148,-100,-148" />
+<item itemtype="Connector" uid="Connector-4" startpinid="SerialTerm-4-pin0" endpinid="Mega-1-0" pointList="-228,-224,-228,-240,-272,-240,-272,-148,-100,-148" />
 
-<item itemtype="Connector" uid="Connector-5" startpinid="SerialTerm-4-pin1" endpinid="Mega-1-1" pointList="-232,-208,-232,-92,-152,-92,-152,-140,-100,-140" />
+<item itemtype="Connector" uid="Connector-5" startpinid="SerialTerm-4-pin1" endpinid="Mega-1-1" pointList="-228,-208,-228,-92,-152,-92,-152,-140,-100,-140" />
 
 <item itemtype="Connector" uid="Connector-8" startpinid="Potentiometer-2-PinM" endpinid="Mega-1-A5" pointList="172,-100,172,-96,84,-96,84,-140,44,-140" />
 

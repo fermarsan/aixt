@@ -9,7 +9,8 @@ module ext
 
 #include "ext.c"
 
-fn C.ext_isr(pin any) fn()
+// fn C.ext_isr(pin any) fn()
+fn C.ptr_ext_isr(pin any) fn()
 fn C.attachInterrupt(pin any, handler fn(), mode any)
 fn C.detachInterrupt(pin any)	
 fn C.digitalPinToInterrupt(pin any)

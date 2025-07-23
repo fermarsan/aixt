@@ -1,13 +1,13 @@
 // Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera
-// Date: 2022-2024
+// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+// Date: 2022-2025
 // License: MIT
 //
-// // Description: read functions (CY8CKIT-049-42XX)
+// // Description: pin read functions (CY8CKIT-049-42XX)
 
 module pin
 
-@[inline]
-pub fn read(PIN_NAME, VALUE) {
-	C.PIN_NAME_Read(VALUE)
+@[as_macro]
+pub fn read(name any) u8 {
+	return C.PIN_READ(name) 
 }

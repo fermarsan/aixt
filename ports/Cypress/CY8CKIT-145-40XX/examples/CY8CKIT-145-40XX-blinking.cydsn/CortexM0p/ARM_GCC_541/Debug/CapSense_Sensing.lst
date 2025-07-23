@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
   28:Generated_Source\PSoC4/capsense_Sensing.c **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
   29:Generated_Source\PSoC4/capsense_Sensing.c **** * Cypress reserves the right to make changes without further notice to the
   30:Generated_Source\PSoC4/capsense_Sensing.c **** * materials described herein. Cypress does not assume any liability arising out
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 2
 
 
   31:Generated_Source\PSoC4/capsense_Sensing.c **** * of the application or use of any product or circuit described herein. Cypress
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
   85:Generated_Source\PSoC4/capsense_Sensing.c ****     #define capsense_CSD_SNS_FREQ_KHZ_MAX               (6000u)
   86:Generated_Source\PSoC4/capsense_Sensing.c **** #else
   87:Generated_Source\PSoC4/capsense_Sensing.c ****     #define capsense_CSD_SNS_FREQ_KHZ_MAX               (12600u)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 3
 
 
   88:Generated_Source\PSoC4/capsense_Sensing.c **** #endif /* (capsense_ENABLE == capsense_CSDV2) */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  142:Generated_Source\PSoC4/capsense_Sensing.c ****     static void capsense_SsDisableCSXMode(void);
  143:Generated_Source\PSoC4/capsense_Sensing.c **** #endif /* (capsense_ENABLE == capsense_CSX_EN) */
  144:Generated_Source\PSoC4/capsense_Sensing.c **** #if (capsense_ENABLE == capsense_ISX_EN)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 4
 
 
  145:Generated_Source\PSoC4/capsense_Sensing.c ****     static void capsense_SsDisableISXMode(void);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  199:Generated_Source\PSoC4/capsense_Sensing.c ****     capsense_FLASH_WD_STRUCT const *capsense_curFlashWdgtPtr = 0u;
  200:Generated_Source\PSoC4/capsense_Sensing.c **** #endif
  201:Generated_Source\PSoC4/capsense_Sensing.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 5
 
 
  202:Generated_Source\PSoC4/capsense_Sensing.c **** #if (capsense_ENABLE == capsense_CSD_GANGED_SNS_EN)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  256:Generated_Source\PSoC4/capsense_Sensing.c **** *    3. Disconnect all previously connected electrodes, if the electrodes
  257:Generated_Source\PSoC4/capsense_Sensing.c **** *       connected by the lower level SetupWidgetExt() or ConnectSns() functions
  258:Generated_Source\PSoC4/capsense_Sensing.c ****         and not disconnected.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 6
 
 
  259:Generated_Source\PSoC4/capsense_Sensing.c **** *
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  313:Generated_Source\PSoC4/capsense_Sensing.c ****         switch (capsense_GET_SENSE_METHOD(&capsense_dsFlash.wdgtArray[widgetId]))
  314:Generated_Source\PSoC4/capsense_Sensing.c ****         {
  315:Generated_Source\PSoC4/capsense_Sensing.c ****         #if (capsense_ENABLE == capsense_CSX_EN)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 7
 
 
  316:Generated_Source\PSoC4/capsense_Sensing.c ****             case capsense_SENSE_METHOD_CSX_E:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  370:Generated_Source\PSoC4/capsense_Sensing.c ****     {
  371:Generated_Source\PSoC4/capsense_Sensing.c ****         /* Previous widget is being scanned. Return error. */
  372:Generated_Source\PSoC4/capsense_Sensing.c ****         scanStatus = CYRET_INVALID_STATE;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 8
 
 
  373:Generated_Source\PSoC4/capsense_Sensing.c ****     }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  427:Generated_Source\PSoC4/capsense_Sensing.c **** cystatus capsense_ScanAllWidgets(void)
  428:Generated_Source\PSoC4/capsense_Sensing.c **** {
  429:Generated_Source\PSoC4/capsense_Sensing.c ****     cystatus scanStatus = CYRET_UNKNOWN;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 9
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 9
 
 
  430:Generated_Source\PSoC4/capsense_Sensing.c **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  484:Generated_Source\PSoC4/capsense_Sensing.c **** /*******************************************************************************
  485:Generated_Source\PSoC4/capsense_Sensing.c **** * Function Name: capsense_SetupWidgetExt
  486:Generated_Source\PSoC4/capsense_Sensing.c **** ****************************************************************************//**
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 10
 
 
  487:Generated_Source\PSoC4/capsense_Sensing.c **** *
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  541:Generated_Source\PSoC4/capsense_Sensing.c ****         /* Previous widget is being scanned. Return error. */
  542:Generated_Source\PSoC4/capsense_Sensing.c ****         widgetStatus = CYRET_INVALID_STATE;
  543:Generated_Source\PSoC4/capsense_Sensing.c ****     }
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 11
 
 
  544:Generated_Source\PSoC4/capsense_Sensing.c ****     /*
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  598:Generated_Source\PSoC4/capsense_Sensing.c **** * Function Name: capsense_ScanExt
  599:Generated_Source\PSoC4/capsense_Sensing.c **** ****************************************************************************//**
  600:Generated_Source\PSoC4/capsense_Sensing.c **** *
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 12
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 12
 
 
  601:Generated_Source\PSoC4/capsense_Sensing.c **** * \brief
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  655:Generated_Source\PSoC4/capsense_Sensing.c ****             case capsense_SENSE_METHOD_CSX_E:
  656:Generated_Source\PSoC4/capsense_Sensing.c ****                 capsense_CSXScanExt();
  657:Generated_Source\PSoC4/capsense_Sensing.c ****                 break;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 13
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 13
 
 
  658:Generated_Source\PSoC4/capsense_Sensing.c ****         #endif
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  712:Generated_Source\PSoC4/capsense_Sensing.c ****          (capsense_MFS_IMO == capsense_MFS_METHOD))
  713:Generated_Source\PSoC4/capsense_Sensing.c ****         uint8 centerFreqTrim;
  714:Generated_Source\PSoC4/capsense_Sensing.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 14
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 14
 
 
  715:Generated_Source\PSoC4/capsense_Sensing.c ****         centerFreqTrim = (uint8)CY_GET_REG32(CY_SYS_CLK_IMO_TRIM1_PTR);
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  769:Generated_Source\PSoC4/capsense_Sensing.c **** }
  770:Generated_Source\PSoC4/capsense_Sensing.c **** 
  771:Generated_Source\PSoC4/capsense_Sensing.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 15
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 15
 
 
  772:Generated_Source\PSoC4/capsense_Sensing.c **** /*******************************************************************************
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  826:Generated_Source\PSoC4/capsense_Sensing.c **** *  Specifies the state of the sensor to be set:
  827:Generated_Source\PSoC4/capsense_Sensing.c **** *     1. capsense_GROUND - The pin is connected to the ground.
  828:Generated_Source\PSoC4/capsense_Sensing.c **** *     2. capsense_HIGHZ - The drive mode of the pin is set to High-Z
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 16
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 16
 
 
  829:Generated_Source\PSoC4/capsense_Sensing.c **** *        Analog.
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  883:Generated_Source\PSoC4/capsense_Sensing.c ****             interruptState = CyEnterCriticalSection();
  884:Generated_Source\PSoC4/capsense_Sensing.c ****             CY_SET_REG32(ioPtr->pcPtr, CY_GET_REG32(ioPtr->pcPtr) | (capsense_SNS_GROUND_CONNECT <<
  885:Generated_Source\PSoC4/capsense_Sensing.c ****             CY_SET_REG32(ioPtr->drPtr, CY_GET_REG32(ioPtr->drPtr) & (uint32)(~(uint32)((uint32)1u <
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 17
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 17
 
 
  886:Generated_Source\PSoC4/capsense_Sensing.c ****             CyExitCriticalSection(interruptState);
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  940:Generated_Source\PSoC4/capsense_Sensing.c ****     ****************************************************************************//**
  941:Generated_Source\PSoC4/capsense_Sensing.c ****     *
  942:Generated_Source\PSoC4/capsense_Sensing.c ****     * \brief
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 18
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 18
 
 
  943:Generated_Source\PSoC4/capsense_Sensing.c ****     *  This function disables CSD mode.
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  997:Generated_Source\PSoC4/capsense_Sensing.c ****     *  1. Disconnect CintA and CintB from AMUXBUS-A.
  998:Generated_Source\PSoC4/capsense_Sensing.c ****     *  2. Disconnect previous CSX electrode if it has been connected.
  999:Generated_Source\PSoC4/capsense_Sensing.c ****     *
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 19
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 19
 
 
 1000:Generated_Source\PSoC4/capsense_Sensing.c ****     *******************************************************************************/
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1054:Generated_Source\PSoC4/capsense_Sensing.c **** *  2. Disconnecting external capacitors.
 1055:Generated_Source\PSoC4/capsense_Sensing.c **** *  3. Setting new mode.
 1056:Generated_Source\PSoC4/capsense_Sensing.c **** *  4. Configuring HW to the new sensing mode.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 20
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 20
 
 
 1057:Generated_Source\PSoC4/capsense_Sensing.c **** *
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1111:Generated_Source\PSoC4/capsense_Sensing.c ****             #endif /* (capsense_ENABLE == capsense_CSD_EN) */
 1112:Generated_Source\PSoC4/capsense_Sensing.c ****         }
 1113:Generated_Source\PSoC4/capsense_Sensing.c ****         else if (capsense_SENSE_METHOD_CSX_E == mode)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 21
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 21
 
 
 1114:Generated_Source\PSoC4/capsense_Sensing.c ****         {
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1168:Generated_Source\PSoC4/capsense_Sensing.c ****     uint8  interruptState;
 1169:Generated_Source\PSoC4/capsense_Sensing.c **** 
 1170:Generated_Source\PSoC4/capsense_Sensing.c ****     uint32 loopIndex;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 22
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 22
 
 
 1171:Generated_Source\PSoC4/capsense_Sensing.c **** 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1225:Generated_Source\PSoC4/capsense_Sensing.c ****         snsIoPtr++;
 1226:Generated_Source\PSoC4/capsense_Sensing.c ****     }
 1227:Generated_Source\PSoC4/capsense_Sensing.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 23
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 23
 
 
 1228:Generated_Source\PSoC4/capsense_Sensing.c ****     #if ((capsense_ENABLE == capsense_CSD_EN) &&\
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1282:Generated_Source\PSoC4/capsense_Sensing.c ****             capsense_SsCSDDisableMode();
 1283:Generated_Source\PSoC4/capsense_Sensing.c ****         #endif /* (capsense_ENABLE == capsense_CSD_EN) */
 1284:Generated_Source\PSoC4/capsense_Sensing.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 24
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 24
 
 
 1285:Generated_Source\PSoC4/capsense_Sensing.c ****         #if (capsense_ENABLE == capsense_SELF_TEST_EN)
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1339:Generated_Source\PSoC4/capsense_Sensing.c ****                 (void)capsense_Scan();
 1340:Generated_Source\PSoC4/capsense_Sensing.c ****             }
 1341:Generated_Source\PSoC4/capsense_Sensing.c ****             else if((capsense_TOTAL_WIDGETS - 1u) == capsense_widgetIndex)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 25
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 25
 
 
 1342:Generated_Source\PSoC4/capsense_Sensing.c ****             {
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1396:Generated_Source\PSoC4/capsense_Sensing.c **** }
 1397:Generated_Source\PSoC4/capsense_Sensing.c **** 
 1398:Generated_Source\PSoC4/capsense_Sensing.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 26
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 26
 
 
 1399:Generated_Source\PSoC4/capsense_Sensing.c **** /*******************************************************************************
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1453:Generated_Source\PSoC4/capsense_Sensing.c ****      * 1u is subtracted from modClk because Divider register value has range (0-65535).
 1454:Generated_Source\PSoC4/capsense_Sensing.c ****      */
 1455:Generated_Source\PSoC4/capsense_Sensing.c ****     newRegValue = CY_GET_REG32(capsense_MODCLK_DIV_PTR) & (uint32)(~(uint32)capsense_ModClk__DIVIDE
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 27
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 27
 
 
 1456:Generated_Source\PSoC4/capsense_Sensing.c ****     newRegValue |= (modClk - 1u);
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1510:Generated_Source\PSoC4/capsense_Sensing.c ****          */
 1511:Generated_Source\PSoC4/capsense_Sensing.c ****         CY_SET_REG32(capsense_SNSCLK_DIV_PTR, ((snsClk - 1u) << 8u));
 1512:Generated_Source\PSoC4/capsense_Sensing.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 28
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 28
 
 
 1513:Generated_Source\PSoC4/capsense_Sensing.c ****         /* Check whether previous sense clock start command has finished. */
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1567:Generated_Source\PSoC4/capsense_Sensing.c **** *******************************************************************************/
 1568:Generated_Source\PSoC4/capsense_Sensing.c **** void capsense_SsSetClockDividers(uint32 snsClk, uint32 modClk)
 1569:Generated_Source\PSoC4/capsense_Sensing.c **** {
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 29
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 29
 
 
 1570:Generated_Source\PSoC4/capsense_Sensing.c ****     /* Configure Mod clock */
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1624:Generated_Source\PSoC4/capsense_Sensing.c ****         do
 1625:Generated_Source\PSoC4/capsense_Sensing.c ****         {
 1626:Generated_Source\PSoC4/capsense_Sensing.c ****             if (capsense_TOTAL_WIDGETS <= widgetId)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 30
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 30
 
 
 1627:Generated_Source\PSoC4/capsense_Sensing.c ****             {
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1681:Generated_Source\PSoC4/capsense_Sensing.c ****                 #endif  /* (capsense_ENABLE == capsense_CSD_IDAC_AUTOCAL_EN) */
 1682:Generated_Source\PSoC4/capsense_Sensing.c **** 
 1683:Generated_Source\PSoC4/capsense_Sensing.c ****             /* If only CSD is enabled, calibrate CSD sensor */
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 31
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 31
 
 
 1684:Generated_Source\PSoC4/capsense_Sensing.c ****             #elif (capsense_ENABLE == capsense_CSD_EN)
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1738:Generated_Source\PSoC4/capsense_Sensing.c ****     {
 1739:Generated_Source\PSoC4/capsense_Sensing.c ****         cystatus calibrateStatus = CYRET_SUCCESS;
 1740:Generated_Source\PSoC4/capsense_Sensing.c ****         uint32 wdgtIndex;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 32
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 32
 
 
 1741:Generated_Source\PSoC4/capsense_Sensing.c **** 
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1795:Generated_Source\PSoC4/capsense_Sensing.c ****         #if (capsense_CSD_MATRIX_WIDGET_EN || capsense_CSD_TOUCHPAD_WIDGET_EN)
 1796:Generated_Source\PSoC4/capsense_Sensing.c ****             uint32 maxCpSnsId = 0u;
 1797:Generated_Source\PSoC4/capsense_Sensing.c ****             uint32 maxCpRowSnsId = 0u;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 33
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 33
 
 
 1798:Generated_Source\PSoC4/capsense_Sensing.c ****         #endif
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1852:Generated_Source\PSoC4/capsense_Sensing.c ****         autoTuneConfig.snsClkConstantR = capsense_CSD_SNSCLK_R_CONST;
 1853:Generated_Source\PSoC4/capsense_Sensing.c ****         autoTuneConfig.vRef = capsense_CSD_VREF_MV;
 1854:Generated_Source\PSoC4/capsense_Sensing.c ****         autoTuneConfig.fingerCap = ptrRamWidget->fingerCap;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 34
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 34
 
 
 1855:Generated_Source\PSoC4/capsense_Sensing.c ****         autoTuneConfig.sigPFC = &ptrRamWidget->sigPFC;
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1909:Generated_Source\PSoC4/capsense_Sensing.c ****         /* Find sensor Cp and optimum sense clock value */
 1910:Generated_Source\PSoC4/capsense_Sensing.c ****         maxCp = SmartSense_TunePrescalers(&autoTuneConfig);
 1911:Generated_Source\PSoC4/capsense_Sensing.c ****         autoTuneConfig.sensorCap = maxCp;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 35
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 35
 
 
 1912:Generated_Source\PSoC4/capsense_Sensing.c **** 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1966:Generated_Source\PSoC4/capsense_Sensing.c ****                     ptrRamWidget->rowSnsClk <<= 1u;
 1967:Generated_Source\PSoC4/capsense_Sensing.c ****                 }
 1968:Generated_Source\PSoC4/capsense_Sensing.c ****             }
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 36
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 36
 
 
 1969:Generated_Source\PSoC4/capsense_Sensing.c ****         #endif /* (capsense_CSD_MATRIX_WIDGET_EN || capsense_CSD_TOUCHPAD_WIDGET_EN) */
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2023:Generated_Source\PSoC4/capsense_Sensing.c ****     }
 2024:Generated_Source\PSoC4/capsense_Sensing.c **** 
 2025:Generated_Source\PSoC4/capsense_Sensing.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 37
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 37
 
 
 2026:Generated_Source\PSoC4/capsense_Sensing.c ****     /*******************************************************************************
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2080:Generated_Source\PSoC4/capsense_Sensing.c ****         *  If Compensation IDAC is disabled the function loads trim values for IDAC1 only.
 2081:Generated_Source\PSoC4/capsense_Sensing.c ****         *
 2082:Generated_Source\PSoC4/capsense_Sensing.c ****         *******************************************************************************/
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 38
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 38
 
 
 2083:Generated_Source\PSoC4/capsense_Sensing.c ****         static void capsense_SsTrimIdacsSinking(void)
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2137:Generated_Source\PSoC4/capsense_Sensing.c **** 
 2138:Generated_Source\PSoC4/capsense_Sensing.c ****             /* Update IDAC trim bits for gain control in current source mode */
 2139:Generated_Source\PSoC4/capsense_Sensing.c ****             CY_SET_REG32(capsense_TRIM1_PTR, trimValue);
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 39
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 39
 
 
 2140:Generated_Source\PSoC4/capsense_Sensing.c ****         }
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2194:Generated_Source\PSoC4/capsense_Sensing.c ****         CY_SET_REG32(CY_SYS_CLK_IMO_TRIM1_PTR, capsense_immunity[value]);
 2195:Generated_Source\PSoC4/capsense_Sensing.c ****     }
 2196:Generated_Source\PSoC4/capsense_Sensing.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 40
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 40
 
 
 2197:Generated_Source\PSoC4/capsense_Sensing.c ****     /*******************************************************************************
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2251:Generated_Source\PSoC4/capsense_Sensing.c ****                         else
 2252:Generated_Source\PSoC4/capsense_Sensing.c ****                         {
 2253:Generated_Source\PSoC4/capsense_Sensing.c ****                             snsClkDivider = ptrWdgt->snsClk;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 41
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 41
 
 
 2254:Generated_Source\PSoC4/capsense_Sensing.c ****                         }
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2308:Generated_Source\PSoC4/capsense_Sensing.c ****                     default:
 2309:Generated_Source\PSoC4/capsense_Sensing.c ****                     {
 2310:Generated_Source\PSoC4/capsense_Sensing.c ****                         break;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 42
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 42
 
 
 2311:Generated_Source\PSoC4/capsense_Sensing.c ****                     }
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2365:Generated_Source\PSoC4/capsense_Sensing.c ****                     {
 2366:Generated_Source\PSoC4/capsense_Sensing.c ****                         snsClkDivider += freqOffset2;
 2367:Generated_Source\PSoC4/capsense_Sensing.c ****                         break;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 43
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 43
 
 
 2368:Generated_Source\PSoC4/capsense_Sensing.c ****                     }
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2422:Generated_Source\PSoC4/capsense_Sensing.c ****                 capsense_SsSetWidgetTxClkSrc(wdgtIndex, ptrWdgt);
 2423:Generated_Source\PSoC4/capsense_Sensing.c ****                 break;
 2424:Generated_Source\PSoC4/capsense_Sensing.c ****         #endif /* (((capsense_ENABLE == capsense_CSX_EN) || (capsense_ENABLE == capsense_ISX_EN)) &
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 44
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 44
 
 
 2425:Generated_Source\PSoC4/capsense_Sensing.c ****         default:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2479:Generated_Source\PSoC4/capsense_Sensing.c ****                     * Multiplying of the snsClkDivider by 2 is needed to pass the
 2480:Generated_Source\PSoC4/capsense_Sensing.c ****                     * average PRS frequency through the argument.
 2481:Generated_Source\PSoC4/capsense_Sensing.c ****                     */
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 45
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 45
 
 
 2482:Generated_Source\PSoC4/capsense_Sensing.c ****                     lfsrSize = capsense_SsCSDCalcPrsSize(snsClkDivider << 1uL, (uint32)ptrWdgt->res
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2536:Generated_Source\PSoC4/capsense_Sensing.c **** 
 2537:Generated_Source\PSoC4/capsense_Sensing.c **** 
 2538:Generated_Source\PSoC4/capsense_Sensing.c **** #if ((capsense_ENABLE == capsense_CSX_EN) && (capsense_ENABLE == capsense_CSDV2))
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 46
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 46
 
 
 2539:Generated_Source\PSoC4/capsense_Sensing.c ****     /*******************************************************************************
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2593:Generated_Source\PSoC4/capsense_Sensing.c ****      (capsense_CLK_SOURCE_PRSAUTO == capsense_CSX_TX_CLK_SOURCE)) ||\
 2594:Generated_Source\PSoC4/capsense_Sensing.c ****     ((capsense_ENABLE == capsense_CSD_EN) && \
 2595:Generated_Source\PSoC4/capsense_Sensing.c ****      (capsense_ENABLE == capsense_CSDV2) && \
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 47
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 47
 
 
 2596:Generated_Source\PSoC4/capsense_Sensing.c ****      (capsense_CLK_SOURCE_PRSAUTO == capsense_CSD_SNS_CLK_SOURCE)))
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
   51              	.LVL2:
   52 0012 2800     		movs	r0, r5
   53              	.LVL3:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 48
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 48
 
 
   54 0014 FFF7FEFF 		bl	__aeabi_uidivmod
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2640:Generated_Source\PSoC4/capsense_Sensing.c ****         lfsrSize = capsense_CLK_SOURCE_SSC2;
 2641:Generated_Source\PSoC4/capsense_Sensing.c ****     }
 2642:Generated_Source\PSoC4/capsense_Sensing.c ****     else if((capsense_SNSCLK_SSC1_THRESHOLD <= snsClkDivider) &&
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 49
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 49
 
 
   92              		.loc 1 2642 0
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2651:Generated_Source\PSoC4/capsense_Sensing.c ****     }
 2652:Generated_Source\PSoC4/capsense_Sensing.c **** 
 2653:Generated_Source\PSoC4/capsense_Sensing.c ****     return (lfsrSize);
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 50
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 50
 
 
 2654:Generated_Source\PSoC4/capsense_Sensing.c **** }
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2686:Generated_Source\PSoC4/capsense_Sensing.c **** *          capsense_CLK_SOURCE_SSC1   The length of LFSR sequence is 3 cycles.
 2687:Generated_Source\PSoC4/capsense_Sensing.c **** *          capsense_CLK_SOURCE_SSC2   The length of LFSR sequence is 7 cycles.
 2688:Generated_Source\PSoC4/capsense_Sensing.c **** *          capsense_CLK_SOURCE_SSC3   The length of LFSR sequence is 15 cycles.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 51
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 51
 
 
 2689:Generated_Source\PSoC4/capsense_Sensing.c **** *          capsense_CLK_SOURCE_SSC4   The length of LFSR sequence is 31 cycles.
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2725:Generated_Source\PSoC4/capsense_Sensing.c ****         {
 2726:Generated_Source\PSoC4/capsense_Sensing.c ****             lfsrRange = 0u;
  173              		.loc 1 2726 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 52
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 52
 
 
  174 000e 0023     		movs	r3, #0
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2745:Generated_Source\PSoC4/capsense_Sensing.c **** 
 2746:Generated_Source\PSoC4/capsense_Sensing.c ****         if(lfsrDither > capsense_LFSR_DITHER_PERCENTAGE)
  209              		.loc 1 2746 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 53
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 53
 
 
  210 0030 0A28     		cmp	r0, #10
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  252              		.cfi_offset 14, -4
  253 0002 0D00     		movs	r5, r1
 2568:Generated_Source\PSoC4/capsense_Sensing.c ****                 snsClkDivider = capsense_SsCSXGetTxClkDivider(wdgtIndex);
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 54
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 54
 
 
  254              		.loc 1 2568 0
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  301              		.loc 1 238 0
  302 0000 024B     		ldr	r3, .L25
  303 0002 DB68     		ldr	r3, [r3, #12]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 55
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 55
 
 
  304 0004 8020     		movs	r0, #128
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  352 0020 05D4     		bmi	.L34
  304:Generated_Source\PSoC4/capsense_Sensing.c ****     }
  353              		.loc 1 304 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 56
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 56
 
 
  354 0022 0124     		movs	r4, #1
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  398 0054 0124     		movs	r4, #1
  399              	.LVL42:
  400 0056 6442     		rsbs	r4, r4, #0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 57
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 57
 
 
  401              	.LVL43:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  449 001a 0020     		movs	r0, #0
  381:Generated_Source\PSoC4/capsense_Sensing.c ****         #endif
  450              		.loc 1 381 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 58
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 58
 
 
  451 001c 07E0     		b	.L40
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  433:Generated_Source\PSoC4/capsense_Sensing.c ****     {
  498              		.loc 1 433 0
  499 0002 0F4B     		ldr	r3, .L56
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 59
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 59
 
 
  500 0004 DB68     		ldr	r3, [r3, #12]
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  545              	.LVL55:
  546              	.L55:
  436:Generated_Source\PSoC4/capsense_Sensing.c ****     }
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 60
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 60
 
 
  547              		.loc 1 436 0
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  549:Generated_Source\PSoC4/capsense_Sensing.c ****         (0uL != capsense_GET_WIDGET_EN_STATUS(widgetId)) &&
  596              		.loc 1 549 0 discriminator 1
  597 001e DB07     		lsls	r3, r3, #31
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 61
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 61
 
 
  598 0020 0DD5     		bpl	.L65
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  643 005c FFF7FEFF 		bl	capsense_CSXSetupWidgetExt
  644              	.LVL59:
  573:Generated_Source\PSoC4/capsense_Sensing.c ****         #endif
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 62
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 62
 
 
  645              		.loc 1 573 0
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  693 0002 0B4B     		ldr	r3, .L78
  694 0004 DB68     		ldr	r3, [r3, #12]
  695 0006 DB03     		lsls	r3, r3, #15
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 63
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 63
 
 
  696 0008 0DD4     		bmi	.L75
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  740              		.section	.text.capsense_SetPinState,"ax",%progbits
  741              		.align	2
  742              		.global	capsense_SetPinState
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 64
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 64
 
 
  743              		.code	16
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  876:Generated_Source\PSoC4/capsense_Sensing.c ****         CyExitCriticalSection(interruptState);
  792              		.loc 1 876 0
  793 002c 6168     		ldr	r1, [r4, #4]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 65
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 65
 
 
  794 002e 0B68     		ldr	r3, [r1]
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  842              	.LVL79:
  887:Generated_Source\PSoC4/capsense_Sensing.c **** 
  843              		.loc 1 887 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 66
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 66
 
 
  844 006e 34E0     		b	.L82
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  917:Generated_Source\PSoC4/capsense_Sensing.c ****                 break;
  889              		.loc 1 917 0
  890 00b0 FFF7FEFF 		bl	CyExitCriticalSection
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 67
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 67
 
 
  891              	.LVL84:
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  936              	.L90:
  937 00e4 00000000 		.word	capsense_dsFlash
  938 00e8 00000000 		.word	.L84
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 68
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 68
 
 
  939              		.cfi_endproc
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  987 001e 0023     		movs	r3, #0
  988 0020 9846     		mov	r8, r3
 1193:Generated_Source\PSoC4/capsense_Sensing.c ****         default:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 69
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 69
 
 
  989              		.loc 1 1193 0
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1032 004c B940     		lsls	r1, r1, r7
  1033 004e 0A43     		orrs	r2, r1
  1034              	.LVL102:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 70
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 70
 
 
 1213:Generated_Source\PSoC4/capsense_Sensing.c **** 
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1078 0076 9046     		mov	r8, r2
  1079 0078 9946     		mov	r9, r3
  1080 007a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 71
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 71
 
 
  1081              	.L100:
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1129              	.L103:
 1339:Generated_Source\PSoC4/capsense_Sensing.c ****             }
  1130              		.loc 1 1339 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 72
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 72
 
 
  1131 0026 FFF7FEFF 		bl	capsense_Scan
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1177 0068 D360     		str	r3, [r2, #12]
  1178              	.LVL121:
  1179              	.L104:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 73
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 73
 
 
 1372:Generated_Source\PSoC4/capsense_Sensing.c ****     #endif /* (1u != capsense_TOTAL_WIDGETS) */
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 1417:Generated_Source\PSoC4/capsense_Sensing.c **** #if (capsense_ENABLE == capsense_IS_M0S8PERI_BLOCK)
  1229              		.loc 1 1417 0
  1230              		.cfi_startproc
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 74
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 74
 
 
  1231              		@ args = 0, pretend = 0, frame = 0
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1279              		@ args = 0, pretend = 0, frame = 0
  1280              		@ frame_needed = 0, uses_anonymous_args = 0
  1281              		@ link register save eliminated.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 75
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 75
 
 
  1282              	.LVL128:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1329              	.LVL135:
  1330 0006 FFF7FEFF 		bl	capsense_SsSetModClkClockDivider
  1331              	.LVL136:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 76
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 76
 
 
 1574:Generated_Source\PSoC4/capsense_Sensing.c **** }
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1379 0010 11D1     		bne	.L120
 1667:Generated_Source\PSoC4/capsense_Sensing.c ****                     {
  1380              		.loc 1 1667 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 77
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 77
 
 
  1381 0012 A200     		lsls	r2, r4, #2
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1429              		@ frame_needed = 0, uses_anonymous_args = 0
  1430 0000 70B5     		push	{r4, r5, r6, lr}
  1431              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 78
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 78
 
 
  1432              		.cfi_offset 4, -16
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2762:Generated_Source\PSoC4/capsense_Sensing.c ****            (capsense_CLK_SOURCE_PRSAUTO == capsense_CSX_TX_CLK_SOURCE)) ||\
 2763:Generated_Source\PSoC4/capsense_Sensing.c ****           ((capsense_ENABLE == capsense_CSD_EN) && \
 2764:Generated_Source\PSoC4/capsense_Sensing.c ****            (capsense_ENABLE == capsense_CSDV2) && \
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 79
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 79
 
 
 2765:Generated_Source\PSoC4/capsense_Sensing.c ****            (capsense_CLK_SOURCE_PRSAUTO == capsense_CSD_SNS_CLK_SOURCE))) */
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1490              		.loc 1 2803 0
  1491 000c 9889     		ldrh	r0, [r3, #12]
  1492              	.LVL159:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 80
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 80
 
 
 2804:Generated_Source\PSoC4/capsense_Sensing.c ****         #else
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2840:Generated_Source\PSoC4/capsense_Sensing.c ****             /* Get sense divider based on configuration */
 2841:Generated_Source\PSoC4/capsense_Sensing.c ****             #if (capsense_ENABLE != capsense_CSD_COMMON_SNS_CLK_EN)
 2842:Generated_Source\PSoC4/capsense_Sensing.c ****                 capsense_RAM_WD_BASE_STRUCT *ptrWdgt;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 81
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 81
 
 
 2843:Generated_Source\PSoC4/capsense_Sensing.c **** 
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2891:Generated_Source\PSoC4/capsense_Sensing.c ****                 * This operation is needed for Third-generation HW Block
 2892:Generated_Source\PSoC4/capsense_Sensing.c ****                 * based devices to take into account DIV-2 flip-flop.
 2893:Generated_Source\PSoC4/capsense_Sensing.c ****                 */
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 82
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 82
 
 
 2894:Generated_Source\PSoC4/capsense_Sensing.c ****                 snsClkDivider <<= 1uL;
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1549              		@ sp needed
  1550 0022 7047     		bx	lr
  1551              		.cfi_endproc
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 83
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 83
 
 
  1552              	.LFE26:
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1600 0026 0400     		movs	r4, r0
  1601              	.LVL176:
  1602              	.L136:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 84
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 84
 
 
 2484:Generated_Source\PSoC4/capsense_Sensing.c ****             #else
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1651 0010 5968     		ldr	r1, [r3, #4]
  1652              	.LVL184:
 2413:Generated_Source\PSoC4/capsense_Sensing.c ****         {
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 85
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 85
 
 
  1653              		.loc 1 2413 0
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2916:Generated_Source\PSoC4/capsense_Sensing.c **** #endif /* (capsense_ENABLE == capsense_CSD_EN) */
 2917:Generated_Source\PSoC4/capsense_Sensing.c **** 
 2918:Generated_Source\PSoC4/capsense_Sensing.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 86
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 86
 
 
 2919:Generated_Source\PSoC4/capsense_Sensing.c **** #if (capsense_ENABLE == capsense_CSDV2)
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1725              		.loc 1 2947 0
  1726 0010 2A4E     		ldr	r6, .L146
  1727 0012 3468     		ldr	r4, [r6]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 87
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 87
 
 
  1728 0014 2A4B     		ldr	r3, .L146+4
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1769 0046 3B68     		ldr	r3, [r7]
  1770              	.LVL201:
 2961:Generated_Source\PSoC4/capsense_Sensing.c ****         newRegValue &= (uint32)(~(uint32)capsense_EXT_CAP_DR_MASK);
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 88
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 88
 
 
  1771              		.loc 1 2961 0
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 2978:Generated_Source\PSoC4/capsense_Sensing.c ****         newRegValue = CY_GET_REG32(capsense_EXT_CAP_PC_PTR);
  1809              		.loc 1 2978 0
  1810 0074 2368     		ldr	r3, [r4]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 89
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 89
 
 
  1811              	.LVL212:
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1850 009c 4246     		mov	r2, r8
  1851 009e 1A40     		ands	r2, r3
  1852 00a0 1400     		movs	r4, r2
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 90
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 90
 
 
  1853              	.LVL223:
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 3005:Generated_Source\PSoC4/capsense_Sensing.c ****     ****************************************************************************//**
 3006:Generated_Source\PSoC4/capsense_Sensing.c ****     *
 3007:Generated_Source\PSoC4/capsense_Sensing.c ****     * \brief
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 91
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 91
 
 
 3008:Generated_Source\PSoC4/capsense_Sensing.c ****     *  The internal function discharge available external capacitors.
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 3062:Generated_Source\PSoC4/capsense_Sensing.c ****                                                capsense_HSIOM_SEL_GPIO);
 3063:Generated_Source\PSoC4/capsense_Sensing.c ****                 capsense_WriteBitsSafe(capsense_CSH_DR_PTR, capsense_EXT_CAP_DR_MASK_CSH, 0u);
 3064:Generated_Source\PSoC4/capsense_Sensing.c ****                 capsense_WriteBitsSafe(capsense_CSH_PC_PTR, capsense_EXT_CAP_PC_MASK_CSH,
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 92
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 92
 
 
 3065:Generated_Source\PSoC4/capsense_Sensing.c ****                                                capsense_EXT_CAP_PC_STRONG_CFG_CSH);
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 3119:Generated_Source\PSoC4/capsense_Sensing.c ****             capsense_WriteBitsSafe(capsense_CintB_PC_PTR,
 3120:Generated_Source\PSoC4/capsense_Sensing.c ****                                            capsense_EXT_CAP_PC_MASK_CINTB, cintBPc);
 3121:Generated_Source\PSoC4/capsense_Sensing.c ****             capsense_WriteBitsSafe(capsense_CintB_DR_PTR,
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 93
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 93
 
 
 3122:Generated_Source\PSoC4/capsense_Sensing.c ****                                            capsense_EXT_CAP_DR_MASK_CINTB, cintBDr);
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 3176:Generated_Source\PSoC4/capsense_Sensing.c ****     * \param
 3177:Generated_Source\PSoC4/capsense_Sensing.c ****     *  mode Operation mode, the state of inactive sensors should be configured for.
 3178:Generated_Source\PSoC4/capsense_Sensing.c ****     *       This parameter can take the following values:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 94
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 94
 
 
 3179:Generated_Source\PSoC4/capsense_Sensing.c ****     *        - capsense_SCAN_CSD_E - Regular CSD scan.
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  1916 0010 D154     		strb	r1, [r2, r3]
 3206:Generated_Source\PSoC4/capsense_Sensing.c ****         uint32_t retVal = CYRET_SUCCESS;
  1917              		.loc 1 3206 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 95
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 95
 
 
  1918 0012 0020     		movs	r0, #0
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 3249:Generated_Source\PSoC4/capsense_Sensing.c ****                 {
 3250:Generated_Source\PSoC4/capsense_Sensing.c ****                     capsense_dsRam.selfTestConfig.bistCsdShCapISC = (uint8)state;
 3251:Generated_Source\PSoC4/capsense_Sensing.c ****                 }
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 96
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 96
 
 
 3252:Generated_Source\PSoC4/capsense_Sensing.c ****                 break;
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
 3279:Generated_Source\PSoC4/capsense_Sensing.c **** * \param regPtr
 3280:Generated_Source\PSoC4/capsense_Sensing.c **** *  Specifies a pointer to port-pin register.
 3281:Generated_Source\PSoC4/capsense_Sensing.c **** *
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 97
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 97
 
 
 3282:Generated_Source\PSoC4/capsense_Sensing.c **** * \param mask
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2003              	.LFB9:
  954:Generated_Source\PSoC4/capsense_Sensing.c ****         #if ((capsense_ENABLE == capsense_CSDV2) && \
  2004              		.loc 1 954 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 98
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 98
 
 
  2005              		.cfi_startproc
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2052              		@ frame_needed = 0, uses_anonymous_args = 0
  2053 0000 10B5     		push	{r4, lr}
  2054              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 99
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 99
 
 
  2055              		.cfi_offset 4, -8
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2103              		.loc 1 1069 0
  2104 0004 124B     		ldr	r3, .L169
  2105 0006 1B78     		ldrb	r3, [r3]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 100
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 100
 
 
  2106 0008 8342     		cmp	r3, r0
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2149 003e 042C     		cmp	r4, #4
  2150 0040 04D0     		beq	.L163
 1129:Generated_Source\PSoC4/capsense_Sensing.c ****         {
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 101
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 101
 
 
  2151              		.loc 1 1129 0
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2198              		.loc 1 755 0
  2199 0014 0020     		movs	r0, #0
  2200 0016 FFF7FEFF 		bl	capsense_SsSwitchSensingMode
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 102
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 102
 
 
  2201              	.LVL260:
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2254              		.type	capsense_widgetIndex, %object
  2255              		.size	capsense_widgetIndex, 1
  2256              	capsense_widgetIndex:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 103
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 103
 
 
  2257 0002 00       		.space	1
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2311 0043 05       		.byte	0x5
  2312 0044 9F0A0000 		.4byte	.LASF4
  2313 0048 03       		.uleb128 0x3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 104
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 104
 
 
  2314 0049 350C0000 		.4byte	.LASF9
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2368 00b5 08       		.byte	0x8
  2369 00b6 F3050000 		.4byte	.LASF16
  2370 00ba 05       		.uleb128 0x5
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 105
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 105
 
 
  2371 00bb 1E0C0000 		.4byte	.LASF17
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2425 0132 03       		.uleb128 0x3
  2426 0133 D0050000 		.4byte	.LASF27
  2427 0137 06       		.byte	0x6
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 106
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 106
 
 
  2428 0138 76       		.byte	0x76
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2482 01a4 09       		.byte	0x9
  2483 01a5 0C       		.uleb128 0xc
  2484 01a6 4A050000 		.4byte	.LASF36
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 107
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 107
 
 
  2485 01aa 06       		.byte	0x6
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2539 0214 81000000 		.4byte	0x81
  2540 0218 04       		.byte	0x4
  2541 0219 0F       		.uleb128 0xf
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 108
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 108
 
 
  2542 021a AA070000 		.4byte	.LASF31
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2596 028f 12       		.byte	0x12
  2597 0290 06       		.byte	0x6
  2598 0291 3901     		.2byte	0x139
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 109
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 109
 
 
  2599 0293 34030000 		.4byte	0x334
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2653 030b 0A       		.byte	0xa
  2654 030c 0F       		.uleb128 0xf
  2655 030d 500D0000 		.4byte	.LASF37
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 110
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 110
 
 
  2656 0311 06       		.byte	0x6
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2710 0385 06       		.byte	0x6
  2711 0386 9901     		.2byte	0x199
  2712 0388 44030000 		.4byte	0x344
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 111
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 111
 
 
  2713 038c 30       		.byte	0x30
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2767 0400 00       		.byte	0
  2768 0401 00       		.byte	0
  2769 0402 05       		.uleb128 0x5
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 112
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 112
 
 
  2770 0403 0B0B0000 		.4byte	.LASF54
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2824 0479 BC       		.byte	0xbc
  2825 047a 06       		.byte	0x6
  2826 047b E101     		.2byte	0x1e1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 113
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 113
 
 
  2827 047d 93050000 		.4byte	0x593
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2881 04f5 18       		.byte	0x18
  2882 04f6 0F       		.uleb128 0xf
  2883 04f7 B3070000 		.4byte	.LASF65
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 114
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 114
 
 
  2884 04fb 06       		.byte	0x6
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2938 0570 06       		.byte	0x6
  2939 0571 5202     		.2byte	0x252
  2940 0573 81000000 		.4byte	0x81
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 115
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 115
 
 
  2941 0577 B8       		.byte	0xb8
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  2995 05ea 3E060000 		.4byte	0x63e
  2996 05ee 08       		.byte	0x8
  2997 05ef 0F       		.uleb128 0xf
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 116
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 116
 
 
  2998 05f0 EB0A0000 		.4byte	.LASF81
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3052 0665 00       		.byte	0
  3053 0666 0F       		.uleb128 0xf
  3054 0667 BE0C0000 		.4byte	.LASF89
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 117
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 117
 
 
  3055 066b 06       		.byte	0x6
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3109 06e0 06       		.byte	0x6
  3110 06e1 1203     		.2byte	0x312
  3111 06e3 81000000 		.4byte	0x81
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 118
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 118
 
 
  3112 06e7 1D       		.byte	0x1d
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3166 0756 03       		.byte	0x3
  3167 0757 00       		.byte	0
  3168 0758 05       		.uleb128 0x5
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 119
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 119
 
 
  3169 0759 250E0000 		.4byte	.LASF104
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3223 07c3 0A090000 		.4byte	.LASF114
  3224 07c7 07       		.byte	0x7
  3225 07c8 DA       		.byte	0xda
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 120
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 120
 
 
  3226 07c9 A1070000 		.4byte	0x7a1
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3280 0857 01       		.byte	0x1
  3281 0858 890A     		.2byte	0xa89
  3282 085a 99000000 		.4byte	0x99
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 121
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 121
 
 
  3283 085e F6000000 		.4byte	.LLST5
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3337 08ea 540E0000 		.4byte	.LASF115
  3338 08ee 01       		.byte	0x1
  3339 08ef 030A     		.2byte	0xa03
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 122
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 122
 
 
  3340 08f1 99000000 		.4byte	0x99
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3394 094b EC       		.byte	0xec
  3395 094c 99000000 		.4byte	0x99
  3396 0950 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 123
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 123
 
 
  3397 0954 10000000 		.4byte	.LFE1-.LFB1
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3451 09d3 6F01     		.2byte	0x16f
  3452 09d5 BA000000 		.4byte	0xba
  3453 09d9 7C020000 		.4byte	.LLST16
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 124
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 124
 
 
  3454 09dd 1D       		.uleb128 0x1d
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3508 0a62 15       		.uleb128 0x15
  3509 0a63 9D0E0000 		.4byte	.LASF125
  3510 0a67 01       		.byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 125
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 125
 
 
  3511 0a68 1702     		.2byte	0x217
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3565 0aee 1E       		.uleb128 0x1e
  3566 0aef 74020000 		.4byte	.LASF140
  3567 0af3 01       		.byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 126
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 126
 
 
  3568 0af4 4803     		.2byte	0x348
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3622 0b83 1D       		.uleb128 0x1d
  3623 0b84 4E000000 		.4byte	.LVL78
  3624 0b88 C6140000 		.4byte	0x14c6
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 127
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 127
 
 
  3625 0b8c 1D       		.uleb128 0x1d
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3679 0c12 58010000 		.4byte	.LASF138
  3680 0c16 01       		.byte	0x1
  3681 0c17 9004     		.2byte	0x490
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 128
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 128
 
 
  3682 0c19 81000000 		.4byte	0x81
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3736 0caa 16       		.uleb128 0x16
  3737 0cab 0E0A0000 		.4byte	.LASF149
  3738 0caf 01       		.byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 129
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 129
 
 
  3739 0cb0 2C05     		.2byte	0x52c
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3793 0d2d 63000000 		.4byte	.LASF154
  3794 0d31 01       		.byte	0x1
  3795 0d32 CC05     		.2byte	0x5cc
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 130
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 130
 
 
  3796 0d34 00000000 		.4byte	.LFB16
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3850 0db7 19       		.uleb128 0x19
  3851 0db8 01       		.uleb128 0x1
  3852 0db9 50       		.byte	0x50
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 131
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 131
 
 
  3853 0dba 02       		.uleb128 0x2
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3907 0e23 01       		.uleb128 0x1
  3908 0e24 51       		.byte	0x51
  3909 0e25 02       		.uleb128 0x2
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 132
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 132
 
 
  3910 0e26 08       		.byte	0x8
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  3964 0ea0 930B0000 		.4byte	.LASF161
  3965 0ea4 01       		.byte	0x1
  3966 0ea5 EA0A     		.2byte	0xaea
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 133
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 133
 
 
  3967 0ea7 99000000 		.4byte	0x99
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4021 0f23 9C       		.byte	0x9c
  4022 0f24 F70F0000 		.4byte	0xff7
  4023 0f28 15       		.uleb128 0x15
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 134
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 134
 
 
  4024 0f29 2A090000 		.4byte	.LASF123
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4078 0fad 02       		.uleb128 0x2
  4079 0fae 75       		.byte	0x75
  4080 0faf 00       		.sleb128 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 135
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 135
 
 
  4081 0fb0 19       		.uleb128 0x19
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4135 1008 9C       		.byte	0x9c
  4136 1009 52100000 		.4byte	0x1052
  4137 100d 16       		.uleb128 0x16
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 136
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 136
 
 
  4138 100e 2A090000 		.4byte	.LASF123
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4192 1088 16       		.uleb128 0x16
  4193 1089 B9010000 		.4byte	.LASF171
  4194 108d 01       		.byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 137
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 137
 
 
  4195 108e 7D0B     		.2byte	0xb7d
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4249 1119 C6140000 		.4byte	0x14c6
  4250 111d 1D       		.uleb128 0x1d
  4251 111e 82000000 		.4byte	.LVL215
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 138
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 138
 
 
  4252 1122 D1140000 		.4byte	0x14d1
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4306 11aa 01       		.byte	0x1
  4307 11ab D90C     		.2byte	0xcd9
  4308 11ad 00000000 		.4byte	.LFB29
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 139
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 139
 
 
  4309 11b1 1C000000 		.4byte	.LFE29-.LFB29
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4363 1241 19       		.uleb128 0x19
  4364 1242 01       		.uleb128 0x1
  4365 1243 50       		.byte	0x50
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 140
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 140
 
 
  4366 1244 05       		.uleb128 0x5
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4420 12a3 19       		.uleb128 0x19
  4421 12a4 01       		.uleb128 0x1
  4422 12a5 50       		.byte	0x50
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 141
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 141
 
 
  4423 12a6 02       		.uleb128 0x2
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4477 131f 01       		.uleb128 0x1
  4478 1320 9C       		.byte	0x9c
  4479 1321 5E130000 		.4byte	0x135e
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 142
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 142
 
 
  4480 1325 1F       		.uleb128 0x1f
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4534 1398 7B130000 		.4byte	0x137b
  4535 139c 24       		.uleb128 0x24
  4536 139d 9E040000 		.4byte	.LASF186
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 143
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 143
 
 
  4537 13a1 01       		.byte	0x1
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4591 1413 03       		.byte	0x3
  4592 1414 00000000 		.4byte	capsense_curFlashWdgtPtr
  4593 1418 07       		.uleb128 0x7
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 144
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 144
 
 
  4594 1419 04       		.byte	0x4
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4648 1495 09       		.byte	0x9
  4649 1496 8A01     		.2byte	0x18a
  4650 1498 25       		.uleb128 0x25
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 145
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 145
 
 
  4651 1499 BF010000 		.4byte	.LASF200
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4705 1516 25       		.uleb128 0x25
  4706 1517 35080000 		.4byte	.LASF211
  4707 151b 35080000 		.4byte	.LASF211
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 146
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 146
 
 
  4708 151f 0A       		.byte	0xa
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4762 0018 3E       		.uleb128 0x3e
  4763 0019 0B       		.uleb128 0xb
  4764 001a 03       		.uleb128 0x3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 147
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 147
 
 
  4765 001b 0E       		.uleb128 0xe
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4819 0051 00       		.byte	0
  4820 0052 00       		.byte	0
  4821 0053 08       		.uleb128 0x8
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 148
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 148
 
 
  4822 0054 15       		.uleb128 0x15
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4876 008a 38       		.uleb128 0x38
  4877 008b 0B       		.uleb128 0xb
  4878 008c 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 149
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 149
 
 
  4879 008d 00       		.byte	0
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4933 00c3 3B       		.uleb128 0x3b
  4934 00c4 05       		.uleb128 0x5
  4935 00c5 49       		.uleb128 0x49
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 150
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 150
 
 
  4936 00c6 13       		.uleb128 0x13
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  4990 00fd 17       		.uleb128 0x17
  4991 00fe 00       		.byte	0
  4992 00ff 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 151
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 151
 
 
  4993 0100 16       		.uleb128 0x16
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5047 013b 9142     		.uleb128 0x2111
  5048 013d 18       		.uleb128 0x18
  5049 013e 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 152
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 152
 
 
  5050 013f 00       		.byte	0
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5104 0178 40       		.uleb128 0x40
  5105 0179 18       		.uleb128 0x18
  5106 017a 9742     		.uleb128 0x2117
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 153
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 153
 
 
  5107 017c 19       		.uleb128 0x19
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5161 01b5 20       		.uleb128 0x20
  5162 01b6 26       		.uleb128 0x26
  5163 01b7 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 154
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 154
 
 
  5164 01b8 49       		.uleb128 0x49
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5218 01ee 03       		.uleb128 0x3
  5219 01ef 0E       		.uleb128 0xe
  5220 01f0 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 155
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 155
 
 
  5221 01f1 0B       		.uleb128 0xb
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5275 000f 76000000 		.4byte	.LVL9
  5276 0013 0100     		.2byte	0x1
  5277 0015 54       		.byte	0x54
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 156
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 156
 
 
  5278 0016 76000000 		.4byte	.LVL9
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5332 009a 9F       		.byte	0x9f
  5333 009b 38000000 		.4byte	.LVL21
  5334 009f 3E000000 		.4byte	.LVL24
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 157
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 157
 
 
  5335 00a3 0100     		.2byte	0x1
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5389 0124 1C000000 		.4byte	.LVL13
  5390 0128 0100     		.2byte	0x1
  5391 012a 53       		.byte	0x53
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 158
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 158
 
 
  5392 012b 38000000 		.4byte	.LVL21
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5446 01b4 00000000 		.4byte	0
  5447 01b8 00000000 		.4byte	0
  5448              	.LLST11:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 159
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 159
 
 
  5449 01bc 1C000000 		.4byte	.LVL32
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5503 0247 F3       		.byte	0xf3
  5504 0248 01       		.uleb128 0x1
  5505 0249 50       		.byte	0x50
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 160
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 160
 
 
  5506 024a 9F       		.byte	0x9f
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5560 02d5 9F       		.byte	0x9f
  5561 02d6 3E000000 		.4byte	.LVL56
  5562 02da 48000000 		.4byte	.LFE4
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 161
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 161
 
 
  5563 02de 0100     		.2byte	0x1
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5617 0362 0400     		.2byte	0x4
  5618 0364 F3       		.byte	0xf3
  5619 0365 01       		.uleb128 0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 162
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 162
 
 
  5620 0366 51       		.byte	0x51
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5674 03ea 00000000 		.4byte	.LVL70
  5675 03ee 08000000 		.4byte	.LVL71
  5676 03f2 0100     		.2byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 163
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 163
 
 
  5677 03f4 50       		.byte	0x50
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5731              	.LLST27:
  5732 0477 1E000000 		.4byte	.LVL76
  5733 047b 3D000000 		.4byte	.LVL77-1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 164
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 164
 
 
  5734 047f 0100     		.2byte	0x1
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5788 0509 30000000 		.4byte	.LVL96
  5789 050d 74000000 		.4byte	.LVL112
  5790 0511 0100     		.2byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 165
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 165
 
 
  5791 0513 55       		.byte	0x55
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5845 05a1 54       		.byte	0x54
  5846 05a2 00000000 		.4byte	0
  5847 05a6 00000000 		.4byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 166
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 166
 
 
  5848              	.LLST37:
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5902 0632 30000000 		.4byte	.LFE15
  5903 0636 0400     		.2byte	0x4
  5904 0638 F3       		.byte	0xf3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 167
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 167
 
 
  5905 0639 01       		.uleb128 0x1
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  5959 06bd 50       		.byte	0x50
  5960 06be 9F       		.byte	0x9f
  5961 06bf 00000000 		.4byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 168
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 168
 
 
  5962 06c3 00000000 		.4byte	0
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6016 074b 50       		.byte	0x50
  6017 074c 36000000 		.4byte	.LVL147
  6018 0750 3C000000 		.4byte	.LFE18
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 169
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 169
 
 
  6019 0754 0100     		.2byte	0x1
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6073 07de F3       		.byte	0xf3
  6074 07df 01       		.uleb128 0x1
  6075 07e0 50       		.byte	0x50
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 170
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 170
 
 
  6076 07e1 9F       		.byte	0x9f
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6130 0863 1C000000 		.4byte	.LVL173
  6131 0867 20000000 		.4byte	.LVL174
  6132 086b 0100     		.2byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 171
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 171
 
 
  6133 086d 50       		.byte	0x50
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6187 08fe 2B000000 		.4byte	.LVL187-1
  6188 0902 0100     		.2byte	0x1
  6189 0904 51       		.byte	0x51
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 172
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 172
 
 
  6190 0905 00000000 		.4byte	0
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6244 0991 00000000 		.4byte	0
  6245              	.LLST63:
  6246 0995 36000000 		.4byte	.LVL196
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 173
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 173
 
 
  6247 0999 41000000 		.4byte	.LVL199-1
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6301 0a2c 86000000 		.4byte	.LVL216
  6302 0a30 95000000 		.4byte	.LVL220-1
  6303 0a34 0100     		.2byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 174
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 174
 
 
  6304 0a36 50       		.byte	0x50
@@ -10438,7 +10438,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6358 0ab5 9F       		.byte	0x9f
  6359 0ab6 00000000 		.4byte	0
  6360 0aba 00000000 		.4byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 175
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 175
 
 
  6361              	.LLST67:
@@ -10498,7 +10498,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6415 0b41 00000000 		.4byte	.LVL238
  6416 0b45 0B000000 		.4byte	.LVL239-1
  6417 0b49 0100     		.2byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 176
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 176
 
 
  6418 0b4b 52       		.byte	0x52
@@ -10558,7 +10558,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6472 0000 FC000000 		.4byte	0xfc
  6473 0004 0200     		.2byte	0x2
  6474 0006 00000000 		.4byte	.Ldebug_info0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 177
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 177
 
 
  6475 000a 04       		.byte	0x4
@@ -10618,7 +10618,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6529 00d8 00000000 		.4byte	.LFB9
  6530 00dc 24000000 		.4byte	.LFE9-.LFB9
  6531 00e0 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 178
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 178
 
 
  6532 00e4 28000000 		.4byte	.LFE10-.LFB10
@@ -10678,7 +10678,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6586 00b4 D8000000 		.4byte	.LFE27
  6587 00b8 00000000 		.4byte	.LFB28
  6588 00bc 30000000 		.4byte	.LFE28
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 179
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 179
 
 
  6589 00c0 00000000 		.4byte	.LFB29
@@ -10738,7 +10738,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6617      656E7365 
  6617      5F537353 
  6617      65744D6F 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 180
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 180
 
 
  6617      64436C6B 
@@ -10798,7 +10798,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6641 0158 696E7465 		.ascii	"interruptState\000"
  6641      72727570 
  6641      74537461 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 181
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 181
 
 
  6641      746500
@@ -10858,7 +10858,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6663 0231 6C667372 		.ascii	"lfsrScale\000"
  6663      5363616C 
  6663      6500
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 182
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 182
 
 
  6664              	.LASF170:
@@ -10918,7 +10918,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6689      352E342E 
  6689      31203230 
  6689      31363036 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 183
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 183
 
 
  6690 030a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
@@ -10978,7 +10978,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6709      656E7365 
  6709      5F435344 
  6709      43616C69 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 184
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 184
 
 
  6709      62726174 
@@ -11038,7 +11038,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6733 04cd 64725074 		.ascii	"drPtr\000"
  6733      7200
  6734              	.LASF153:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 185
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 185
 
 
  6735 04d3 6D6F6443 		.ascii	"modClk\000"
@@ -11098,7 +11098,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6760              	.LASF94:
  6761 0578 746F7461 		.ascii	"totalNumSns\000"
  6761      6C4E756D 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 186
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 186
 
 
  6761      536E7300 
@@ -11158,7 +11158,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6783      313600
  6784              	.LASF116:
  6785 0646 636F6E76 		.ascii	"conversionsNum\000"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 187
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 187
 
 
  6785      65727369 
@@ -11218,7 +11218,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6807      456C6563 
  6807      74726F64 
  6808              	.LASF183:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 188
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 188
 
 
  6809 071c 63617073 		.ascii	"capsense_dsRam\000"
@@ -11278,7 +11278,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6830              	.LASF188:
  6831 07cb 63617073 		.ascii	"capsense_requestScanAllWidget\000"
  6831      656E7365 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 189
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 189
 
 
  6831      5F726571 
@@ -11338,7 +11338,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6853      5C706F72 
  6853      74735C43 
  6854 08b6 78616D70 		.ascii	"xamples\\CY8CKIT-145-40XX-blinking.cydsn\000"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 190
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 190
 
 
  6854      6C65735C 
@@ -11398,7 +11398,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6873              	.LASF75:
  6874 09a9 7363616E 		.ascii	"scanCsxISC\000"
  6874      43737849 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 191
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 191
 
 
  6874      534300
@@ -11458,7 +11458,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6898      72617465 
  6898      645F536F 
  6898      75726365 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 192
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 192
 
 
  6898      5C50536F 
@@ -11518,7 +11518,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6923              	.LASF157:
  6924 0b33 63617073 		.ascii	"capsense_CalibrateWidget\000"
  6924      656E7365 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 193
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 193
 
 
  6924      5F43616C 
@@ -11578,7 +11578,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6948      6C654353 
  6949              	.LASF100:
  6950 0bf9 7843656E 		.ascii	"xCentroidMultiplier\000"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 194
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 194
 
 
  6950      74726F69 
@@ -11638,7 +11638,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6974      43757272 
  6974      656E7449 
  6974      534300
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 195
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 195
 
 
  6975              	.LASF108:
@@ -11698,7 +11698,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  6998      5F53454E 
  6998      53455F4D 
  6998      4554484F 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 196
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 196
 
 
  6999              	.LASF204:
@@ -11758,7 +11758,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  7022      6C6500
  7023              	.LASF52:
  7024 0e17 6E656742 		.ascii	"negBslnRstCnt\000"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 197
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 197
 
 
  7024      736C6E52 
@@ -11818,7 +11818,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 1
  7045              	.LASF191:
  7046 0ecb 63617073 		.ascii	"capsense_scanFreqIndex\000"
  7046      656E7365 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc8rlxsB.s 			page 198
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccx19JRb.s 			page 198
 
 
  7046      5F736361 

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
   28:Generated_Source\PSoC4/capsense_Filter.c **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
   29:Generated_Source\PSoC4/capsense_Filter.c **** * Cypress reserves the right to make changes without further notice to the
   30:Generated_Source\PSoC4/capsense_Filter.c **** * materials described herein. Cypress does not assume any liability arising out
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 2
 
 
   31:Generated_Source\PSoC4/capsense_Filter.c **** * of the application or use of any product or circuit described herein. Cypress
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
   43              		.thumb_func
   44              		.type	capsense_FtInitializeBaselineChannel, %function
   45              	capsense_FtInitializeBaselineChannel:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 3
 
 
   46              	.LFB10:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  123:Generated_Source\PSoC4/capsense_Filter.c **** *  This function ignores the value of the wdgtEnable register. Multiple calling
  124:Generated_Source\PSoC4/capsense_Filter.c **** *  of this function (or any other function with a baseline updating task)
  125:Generated_Source\PSoC4/capsense_Filter.c **** *  without scanning leads to unexpected behavior.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 4
 
 
  126:Generated_Source\PSoC4/capsense_Filter.c **** *
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  180:Generated_Source\PSoC4/capsense_Filter.c **** *  test. Refer to capsense_CheckBaselineDuplication() for details.
  181:Generated_Source\PSoC4/capsense_Filter.c **** *
  182:Generated_Source\PSoC4/capsense_Filter.c **** * \param widgetId
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 5
 
 
  183:Generated_Source\PSoC4/capsense_Filter.c **** *  Specifies the ID number of the widget to update the baseline of the sensor
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  237:Generated_Source\PSoC4/capsense_Filter.c **** * \param ptrWidgetRam
  238:Generated_Source\PSoC4/capsense_Filter.c **** *  The pointer to the widget RAM structure where all the widget parameters
  239:Generated_Source\PSoC4/capsense_Filter.c **** *  are stored.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 6
 
 
  240:Generated_Source\PSoC4/capsense_Filter.c **** *
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  294:Generated_Source\PSoC4/capsense_Filter.c **** 
  295:Generated_Source\PSoC4/capsense_Filter.c ****         /* Reset baseline if condition is met */
  296:Generated_Source\PSoC4/capsense_Filter.c ****         if((sign == 0u) && (difference > (uint32) ptrWidgetRam->nNoiseTh))
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 7
 
 
  297:Generated_Source\PSoC4/capsense_Filter.c ****         {
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  351:Generated_Source\PSoC4/capsense_Filter.c ****                             history = (uint32) ptrSensor->bsln[freqChannel] << 8u;
  352:Generated_Source\PSoC4/capsense_Filter.c ****                             history |= ptrSensor->bslnExt[freqChannel];
  353:Generated_Source\PSoC4/capsense_Filter.c ****                         #else
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 8
 
 
  354:Generated_Source\PSoC4/capsense_Filter.c ****                             history = (uint32) ptrSensor->bsln[freqChannel];
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  408:Generated_Source\PSoC4/capsense_Filter.c **** * \details
  409:Generated_Source\PSoC4/capsense_Filter.c **** *  Initializes the baseline for all the sensors of all the widgets. Also, this function
  410:Generated_Source\PSoC4/capsense_Filter.c **** *  can be used to re-initialize baselines. capsense_Start() calls this
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 9
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 9
 
 
  411:Generated_Source\PSoC4/capsense_Filter.c **** *  API as part of capsense operation initialization.
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  465:Generated_Source\PSoC4/capsense_Filter.c ****     for(sensorId = sensorsNumber; sensorId-- > 0u;)
  466:Generated_Source\PSoC4/capsense_Filter.c ****     {
  467:Generated_Source\PSoC4/capsense_Filter.c ****         capsense_InitializeSensorBaseline(widgetId, sensorId);
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 10
 
 
  468:Generated_Source\PSoC4/capsense_Filter.c ****     }
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  522:Generated_Source\PSoC4/capsense_Filter.c **** *  Initializes the baseline history for a sensor indicated by an input
  523:Generated_Source\PSoC4/capsense_Filter.c **** *  parameter.
  524:Generated_Source\PSoC4/capsense_Filter.c **** *
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 11
 
 
  525:Generated_Source\PSoC4/capsense_Filter.c **** * \param *ptrSensor
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
   56              	.LVL1:
   57 0004 0629     		cmp	r1, #6
   58 0006 02D0     		beq	.L3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 12
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 12
 
 
  570:Generated_Source\PSoC4/capsense_Filter.c ****         {
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
   84              		.thumb_func
   85              		.type	capsense_FtInitializeBaseline, %function
   86              	capsense_FtInitializeBaseline:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 13
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 13
 
 
   87              	.LFB9:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  135              		.thumb_func
  136              		.type	capsense_InitializeSensorBaseline, %function
  137              	capsense_InitializeSensorBaseline:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 14
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 14
 
 
  138              	.LFB8:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  187              		.thumb_func
  188              		.type	capsense_InitializeWidgetBaseline, %function
  189              	capsense_InitializeWidgetBaseline:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 15
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 15
 
 
  190              	.LFB7:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  237              	.L13:
  238 0024 00000000 		.word	capsense_dsFlash
  239              		.cfi_endproc
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 16
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 16
 
 
  240              	.LFE7:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  288              		.thumb_func
  289              		.type	capsense_FtIIR1stOrder, %function
  290              	capsense_FtIIR1stOrder:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 17
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 17
 
 
  291              	.LFB11:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  652:Generated_Source\PSoC4/capsense_Filter.c ****     capsense_FLASH_WD_STRUCT const *ptrWidget;
  653:Generated_Source\PSoC4/capsense_Filter.c ****     capsense_RAM_SNS_STRUCT *ptrSensor = NULL;
  654:Generated_Source\PSoC4/capsense_Filter.c ****     #if (capsense_ENABLE == capsense_RC_FILTER_EN)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 18
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 18
 
 
  655:Generated_Source\PSoC4/capsense_Filter.c ****         capsense_PTR_FILTER_VARIANT ptrFilterHistObj;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  709:Generated_Source\PSoC4/capsense_Filter.c **** 
  710:Generated_Source\PSoC4/capsense_Filter.c ****         #if (capsense_REGULAR_RC_MEDIAN_FILTER_EN || capsense_PROX_RC_MEDIAN_FILTER_EN)
  711:Generated_Source\PSoC4/capsense_Filter.c ****             capsense_InitializeMedianInternal(ptrFilterHistObj, ptrSensor, (uint32)ptrWidget->wdgtT
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 19
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 19
 
 
  712:Generated_Source\PSoC4/capsense_Filter.c ****         #endif /* (capsense_REGULAR_RC_MEDIAN_FILTER_EN || capsense_PROX_RC_MEDIAN_FILTER_EN) */
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  766:Generated_Source\PSoC4/capsense_Filter.c ****     {
  767:Generated_Source\PSoC4/capsense_Filter.c ****         #if (capsense_REGULAR_SENSOR_EN)
  768:Generated_Source\PSoC4/capsense_Filter.c ****             ptrFilterHistObj.ptrRegular = &ptrFilterHistObj.ptrRegular[sensorId];
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 20
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 20
 
 
  769:Generated_Source\PSoC4/capsense_Filter.c ****         #endif /* (capsense_REGULAR_SENSOR_EN) */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  823:Generated_Source\PSoC4/capsense_Filter.c ****             ptrFilterHistObj.ptrProx = &ptrFilterHistObj.ptrProx[sensorId];
  824:Generated_Source\PSoC4/capsense_Filter.c ****         #endif /* (capsense_PROXIMITY_SENSOR_EN) */
  825:Generated_Source\PSoC4/capsense_Filter.c ****     }
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 21
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 21
 
 
  826:Generated_Source\PSoC4/capsense_Filter.c **** 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  880:Generated_Source\PSoC4/capsense_Filter.c **** }
  881:Generated_Source\PSoC4/capsense_Filter.c **** 
  882:Generated_Source\PSoC4/capsense_Filter.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 22
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 22
 
 
  883:Generated_Source\PSoC4/capsense_Filter.c **** /*******************************************************************************
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  937:Generated_Source\PSoC4/capsense_Filter.c ****                 #if (capsense_PROX_IIR_RC_TYPE == capsense_IIR_FILTER_PERFORMANCE)
  938:Generated_Source\PSoC4/capsense_Filter.c ****                     temp =  ptrFilterHistObj.ptrProx->proxChannel[freqChannel].iirHistory << capsen
  939:Generated_Source\PSoC4/capsense_Filter.c ****                     temp |= ptrFilterHistObj.ptrProx->proxChannel[freqChannel].iirHistoryLow;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 23
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 23
 
 
  940:Generated_Source\PSoC4/capsense_Filter.c ****                     temp =capsense_FtIIR1stOrder((uint32)ptrSensorObj->raw[freqChannel],
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  994:Generated_Source\PSoC4/capsense_Filter.c ****     if ((capsense_WD_TYPE_ENUM)ptrWidget->wdgtType != capsense_WD_PROXIMITY_E)
  995:Generated_Source\PSoC4/capsense_Filter.c ****     {
  996:Generated_Source\PSoC4/capsense_Filter.c ****         #if (capsense_REGULAR_SENSOR_EN)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 24
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 24
 
 
  997:Generated_Source\PSoC4/capsense_Filter.c ****             ptrFilterHistObj.ptrRegular = &ptrFilterHistObj.ptrRegular[sensorId];
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1051:Generated_Source\PSoC4/capsense_Filter.c ****         #if (capsense_PROXIMITY_SENSOR_EN)
 1052:Generated_Source\PSoC4/capsense_Filter.c ****             ptrFilterHistObj.ptrProx = &ptrFilterHistObj.ptrProx[sensorId];
 1053:Generated_Source\PSoC4/capsense_Filter.c ****         #endif /* (capsense_PROXIMITY_SENSOR_EN) */
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 25
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 25
 
 
 1054:Generated_Source\PSoC4/capsense_Filter.c ****     }
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1108:Generated_Source\PSoC4/capsense_Filter.c **** *
 1109:Generated_Source\PSoC4/capsense_Filter.c **** * \brief
 1110:Generated_Source\PSoC4/capsense_Filter.c **** *  Runs the Median filter.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 26
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 26
 
 
 1111:Generated_Source\PSoC4/capsense_Filter.c **** *
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1165:Generated_Source\PSoC4/capsense_Filter.c **** 
 1166:Generated_Source\PSoC4/capsense_Filter.c **** #if (capsense_REGULAR_RC_AVERAGE_FILTER_EN || capsense_PROX_RC_AVERAGE_FILTER_EN)
 1167:Generated_Source\PSoC4/capsense_Filter.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 27
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 27
 
 
 1168:Generated_Source\PSoC4/capsense_Filter.c **** /*******************************************************************************
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1222:Generated_Source\PSoC4/capsense_Filter.c **** *
 1223:Generated_Source\PSoC4/capsense_Filter.c **** * \details
 1224:Generated_Source\PSoC4/capsense_Filter.c **** *  Executes the average filter algorithm on a sensor indicated by an input
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 28
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 28
 
 
 1225:Generated_Source\PSoC4/capsense_Filter.c **** *  parameter.
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1279:Generated_Source\PSoC4/capsense_Filter.c **** *
 1280:Generated_Source\PSoC4/capsense_Filter.c **** * \param wdType
 1281:Generated_Source\PSoC4/capsense_Filter.c **** *  Specifies the type of a widget.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 29
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 29
 
 
 1282:Generated_Source\PSoC4/capsense_Filter.c **** *
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1336:Generated_Source\PSoC4/capsense_Filter.c ****                                            capsense_RAM_SNS_STRUCT *ptrSensorObj, uint32 wdType)
 1337:Generated_Source\PSoC4/capsense_Filter.c **** {
 1338:Generated_Source\PSoC4/capsense_Filter.c ****     uint32 freqChannel;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 30
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 30
 
 
 1339:Generated_Source\PSoC4/capsense_Filter.c ****     uint32 temp;
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1393:Generated_Source\PSoC4/capsense_Filter.c **** #if (capsense_ENABLE == capsense_ALP_FILTER_EN)
 1394:Generated_Source\PSoC4/capsense_Filter.c **** /*******************************************************************************
 1395:Generated_Source\PSoC4/capsense_Filter.c **** * Function Name: capsense_InitializeALP
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 31
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 31
 
 
 1396:Generated_Source\PSoC4/capsense_Filter.c **** ****************************************************************************//**
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1450:Generated_Source\PSoC4/capsense_Filter.c ****     capsense_RAM_SNS_STRUCT *ptrSensor = NULL;
 1451:Generated_Source\PSoC4/capsense_Filter.c ****     capsense_PTR_FILTER_VARIANT ptrFilterHistObj;
 1452:Generated_Source\PSoC4/capsense_Filter.c ****     ALP_FLTR_CONFIG_STRUCT alpFilterConfig;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 32
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 32
 
 
 1453:Generated_Source\PSoC4/capsense_Filter.c ****     ALP_FLTR_CONFIG_STRUCT *ptrAlpFilterConfig = &alpFilterConfig;
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1507:Generated_Source\PSoC4/capsense_Filter.c **** void capsense_InitializeALPInternal(capsense_PTR_FILTER_VARIANT ptrFilterHistObj,
 1508:Generated_Source\PSoC4/capsense_Filter.c ****                                             capsense_RAM_SNS_STRUCT *ptrSensorObj,
 1509:Generated_Source\PSoC4/capsense_Filter.c ****                                             uint32 wdType)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 33
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 33
 
 
 1510:Generated_Source\PSoC4/capsense_Filter.c **** {
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1564:Generated_Source\PSoC4/capsense_Filter.c ****     alpFilterConfig.configParam4 = ptrRamWdgt->hysteresis;
 1565:Generated_Source\PSoC4/capsense_Filter.c **** 
 1566:Generated_Source\PSoC4/capsense_Filter.c ****     capsense_RunALPInternal(ptrFilterHistObj, &alpFilterConfig, ptrSensorObj, wdType);
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 34
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 34
 
 
 1567:Generated_Source\PSoC4/capsense_Filter.c **** }
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1621:Generated_Source\PSoC4/capsense_Filter.c **** * Function Name: capsense_FtRunEnabledFilters
 1622:Generated_Source\PSoC4/capsense_Filter.c **** ****************************************************************************//**
 1623:Generated_Source\PSoC4/capsense_Filter.c **** *
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 35
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 35
 
 
 1624:Generated_Source\PSoC4/capsense_Filter.c **** * \brief
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1678:Generated_Source\PSoC4/capsense_Filter.c **** *
 1679:Generated_Source\PSoC4/capsense_Filter.c **** * \brief
 1680:Generated_Source\PSoC4/capsense_Filter.c **** *  Runs all enabled filters.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 36
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 36
 
 
 1681:Generated_Source\PSoC4/capsense_Filter.c **** *
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1735:Generated_Source\PSoC4/capsense_Filter.c ****     capsense_FLASH_WD_STRUCT const *ptrWidget = &capsense_dsFlash.wdgtArray[widgetId];
 1736:Generated_Source\PSoC4/capsense_Filter.c ****     capsense_RAM_WD_BASE_STRUCT *ptrWidgetRam = ptrWidget->ptr2WdgtRam;
 1737:Generated_Source\PSoC4/capsense_Filter.c ****     capsense_RAM_SNS_STRUCT *ptrSensor = NULL;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 37
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 37
 
 
 1738:Generated_Source\PSoC4/capsense_Filter.c ****     SMARTSENSE_CSD_NOISE_ENVELOPE_STRUCT *ptrNoiseEnvelope = NULL;
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1792:Generated_Source\PSoC4/capsense_Filter.c **** ****************************************************************************//**
 1793:Generated_Source\PSoC4/capsense_Filter.c **** *
 1794:Generated_Source\PSoC4/capsense_Filter.c **** * \brief
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 38
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 38
 
 
 1795:Generated_Source\PSoC4/capsense_Filter.c **** *  Return the median value from the three passed arguments.
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
 1849:Generated_Source\PSoC4/capsense_Filter.c **** *
 1850:Generated_Source\PSoC4/capsense_Filter.c **** * \param n
 1851:Generated_Source\PSoC4/capsense_Filter.c **** *  The IIR filter coefficient (n/256).
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 39
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 39
 
 
 1852:Generated_Source\PSoC4/capsense_Filter.c **** *
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  323              		.type	capsense_FtUpdateBaseline, %function
  324              	capsense_FtUpdateBaseline:
  325              	.LFB5:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 40
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 40
 
 
  259:Generated_Source\PSoC4/capsense_Filter.c ****     uint32 sign;
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  373 002a 0B1A     		subs	r3, r1, r0
  374              	.LVL47:
  292:Generated_Source\PSoC4/capsense_Filter.c ****         }
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 41
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 41
 
 
  375              		.loc 1 292 0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  420 0064 13D1     		bne	.L25
  421              	.L26:
  318:Generated_Source\PSoC4/capsense_Filter.c ****                 {
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 42
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 42
 
 
  422              		.loc 1 318 0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  469 009a 04BC     		pop	{r2}
  470 009c 9046     		mov	r8, r2
  471 009e F0BD     		pop	{r4, r5, r6, r7, pc}
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 43
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 43
 
 
  472              		.cfi_endproc
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  521 0022 FFF7FEFF 		bl	capsense_FtUpdateBaseline
  522              	.LVL72:
  222:Generated_Source\PSoC4/capsense_Filter.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 44
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 44
 
 
  523              		.loc 1 222 0
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  572 0014 2100     		movs	r1, r4
  573 0016 3000     		movs	r0, r6
  574 0018 FFF7FEFF 		bl	capsense_UpdateSensorBaseline
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 45
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 45
 
 
  575              	.LVL80:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  623 0004 0423     		movs	r3, #4
  624 0006 04E0     		b	.L37
  625              	.LVL88:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 46
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 46
 
 
  626              	.L38:
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  676 002e 08       		.byte	0x8
  677 002f 35030000 		.4byte	.LASF1
  678 0033 02       		.uleb128 0x2
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 47
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 47
 
 
  679 0034 02       		.byte	0x2
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  733 009d 02       		.uleb128 0x2
  734 009e 01       		.byte	0x1
  735 009f 08       		.byte	0x8
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 48
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 48
 
 
  736 00a0 AA020000 		.4byte	.LASF14
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  790 010f 08       		.uleb128 0x8
  791 0110 AD050000 		.4byte	.LASF27
  792 0114 04       		.byte	0x4
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 49
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 49
 
 
  793 0115 69       		.byte	0x69
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  847 0181 09       		.byte	0x9
  848 0182 0A       		.uleb128 0xa
  849 0183 15000000 		.4byte	.LASF36
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 50
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 50
 
 
  850 0187 04       		.byte	0x4
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  904 01f6 A5050000 		.4byte	.LASF41
  905 01fa 04       		.byte	0x4
  906 01fb B001     		.2byte	0x1b0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 51
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 51
 
 
  907 01fd A7010000 		.4byte	0x1a7
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  961 0271 0D030000 		.4byte	0x30d
  962 0275 08       		.byte	0x8
  963 0276 0F       		.uleb128 0xf
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 52
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 52
 
 
  964 0277 09060000 		.4byte	.LASF49
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1018 02ec 75030000 		.4byte	.LASF58
  1019 02f0 04       		.byte	0x4
  1020 02f1 2003     		.2byte	0x320
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 53
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 53
 
 
  1021 02f3 83000000 		.4byte	0x83
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1075 0367 01       		.uleb128 0x1
  1076 0368 9C       		.byte	0x9c
  1077 0369 13       		.uleb128 0x13
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 54
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 54
 
 
  1078 036a 76060000 		.4byte	.LASF66
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1132 03f0 9A000000 		.4byte	.LLST4
  1133 03f4 17       		.uleb128 0x17
  1134 03f5 14000000 		.4byte	.LVL6
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 55
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 55
 
 
  1135 03f9 69030000 		.4byte	0x369
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1189 0464 1C000000 		.4byte	.LVL17
  1190 0468 AE030000 		.4byte	0x3ae
  1191 046c 18       		.uleb128 0x18
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 56
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 56
 
 
  1192 046d 01       		.uleb128 0x1
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1246 04c3 C901     		.2byte	0x1c9
  1247 04c5 83000000 		.4byte	0x83
  1248 04c9 A8010000 		.4byte	.LLST9
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 57
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 57
 
 
  1249 04cd 16       		.uleb128 0x16
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1303 0537 1B       		.uleb128 0x1b
  1304 0538 70050000 		.4byte	.LASF80
  1305 053c 01       		.byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 58
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 58
 
 
  1306 053d 4507     		.2byte	0x745
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1360 05c3 C2020000 		.4byte	.LLST16
  1361 05c7 15       		.uleb128 0x15
  1362 05c8 6C060000 		.4byte	.LASF63
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 59
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 59
 
 
  1363 05cc 01       		.byte	0x1
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1417 0655 76       		.byte	0x76
  1418 0656 00       		.sleb128 0
  1419 0657 18       		.uleb128 0x18
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 60
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 60
 
 
  1420 0658 01       		.uleb128 0x1
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1474 06b8 00000000 		.4byte	.LASF86
  1475 06bc 01       		.byte	0x1
  1476 06bd CA       		.byte	0xca
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 61
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 61
 
 
  1477 06be 83000000 		.4byte	0x83
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1531 0718 24       		.byte	0x24
  1532 0719 76       		.byte	0x76
  1533 071a 00       		.sleb128 0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 62
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 62
 
 
  1534 071b 22       		.byte	0x22
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1588 077b 89030000 		.4byte	.LASF74
  1589 077f 01       		.byte	0x1
  1590 0780 94       		.byte	0x94
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 63
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 63
 
 
  1591 0781 8C040000 		.4byte	0x48c
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1645 07f0 00       		.sleb128 0
  1646 07f1 00       		.byte	0
  1647 07f2 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 64
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 64
 
 
  1648 07f3 24       		.uleb128 0x24
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1702 002c 03       		.uleb128 0x3
  1703 002d 0E       		.uleb128 0xe
  1704 002e 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 65
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 65
 
 
  1705 002f 0B       		.uleb128 0xb
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1759 0065 0B       		.uleb128 0xb
  1760 0066 0B       		.uleb128 0xb
  1761 0067 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 66
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 66
 
 
  1762 0068 0B       		.uleb128 0xb
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1816 009e 0D       		.uleb128 0xd
  1817 009f 00       		.byte	0
  1818 00a0 03       		.uleb128 0x3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 67
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 67
 
 
  1819 00a1 08       		.uleb128 0x8
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1873 00d7 01       		.uleb128 0x1
  1874 00d8 12       		.uleb128 0x12
  1875 00d9 06       		.uleb128 0x6
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 68
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 68
 
 
  1876 00da 40       		.uleb128 0x40
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1930 0112 05       		.uleb128 0x5
  1931 0113 49       		.uleb128 0x49
  1932 0114 13       		.uleb128 0x13
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 69
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 69
 
 
  1933 0115 02       		.uleb128 0x2
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  1987 0150 13       		.uleb128 0x13
  1988 0151 00       		.byte	0
  1989 0152 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 70
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 70
 
 
  1990 0153 1B       		.uleb128 0x1b
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2044 018a 18       		.uleb128 0x18
  2045 018b 00       		.byte	0
  2046 018c 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 71
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 71
 
 
  2047 018d 1E       		.uleb128 0x1e
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2101 01c6 05       		.uleb128 0x5
  2102 01c7 00       		.byte	0
  2103 01c8 03       		.uleb128 0x3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 72
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 72
 
 
  2104 01c9 0E       		.uleb128 0xe
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2158 01ff 00       		.byte	0
  2159 0200 00       		.byte	0
  2160 0201 00       		.byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 73
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 73
 
 
  2161              		.section	.debug_loc,"",%progbits
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2215 007d 1C000000 		.4byte	.LVL10
  2216 0081 0100     		.2byte	0x1
  2217 0083 55       		.byte	0x55
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 74
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 74
 
 
  2218 0084 1C000000 		.4byte	.LVL10
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2272 0108 12000000 		.4byte	.LVL15
  2273 010c 24000000 		.4byte	.LFE8
  2274 0110 0400     		.2byte	0x4
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 75
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 75
 
 
  2275 0112 F3       		.byte	0xf3
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2329 0169 22       		.byte	0x22
  2330 016a 33       		.byte	0x33
  2331 016b 24       		.byte	0x24
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 76
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 76
 
 
  2332 016c 75       		.byte	0x75
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2386 01e9 10000000 		.4byte	.LVL23
  2387 01ed 12000000 		.4byte	.LVL24
  2388 01f1 0100     		.2byte	0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 77
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 77
 
 
  2389 01f3 53       		.byte	0x53
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2443 0277 9F       		.byte	0x9f
  2444 0278 00000000 		.4byte	0
  2445 027c 00000000 		.4byte	0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 78
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 78
 
 
  2446              	.LLST14:
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2500 0303 56       		.byte	0x56
  2501 0304 9A000000 		.4byte	.LVL62
  2502 0308 A0000000 		.4byte	.LFE5
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 79
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 79
 
 
  2503 030c 0400     		.2byte	0x4
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2557 0394 00000000 		.4byte	0
  2558              	.LLST21:
  2559 0398 0E000000 		.4byte	.LVL43
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 80
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 80
 
 
  2560 039c 12000000 		.4byte	.LVL44
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2614 042a 0400     		.2byte	0x4
  2615 042c F3       		.byte	0xf3
  2616 042d 01       		.uleb128 0x1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 81
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 81
 
 
  2617 042e 50       		.byte	0x50
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2671 04ab 51       		.byte	0x51
  2672 04ac 22       		.byte	0x22
  2673 04ad 31       		.byte	0x31
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 82
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 82
 
 
  2674 04ae 24       		.byte	0x24
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2728 0520 20000000 		.4byte	.LVL82
  2729 0524 0100     		.2byte	0x1
  2730 0526 54       		.byte	0x54
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 83
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 83
 
 
  2731 0527 20000000 		.4byte	.LVL82
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2785 05b5 1A000000 		.4byte	.LVL93
  2786 05b9 0100     		.2byte	0x1
  2787 05bb 54       		.byte	0x54
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 84
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 84
 
 
  2788 05bc 1A000000 		.4byte	.LVL93
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2842 0068 00000000 		.4byte	0
  2843 006c 00000000 		.4byte	0
  2844              		.section	.debug_ranges,"",%progbits
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 85
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 85
 
 
  2845              	.Ldebug_ranges0:
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2885              	.LASF52:
  2886 0033 746F7461 		.ascii	"totalNumSns\000"
  2886      6C4E756D 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 86
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 86
 
 
  2886      536E7300 
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2908      5F52414D 
  2908      5F534E53 
  2908      5F535452 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 87
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 87
 
 
  2909              	.LASF68:
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2932      5C50536F 
  2933              	.LASF9:
  2934 0221 75696E74 		.ascii	"uint8\000"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 88
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 88
 
 
  2934      3800
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2960      54797065 
  2960      00
  2961              	.LASF29:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 89
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 89
 
 
  2962 02c7 66696E67 		.ascii	"fingerTh\000"
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  2984      7469706C 
  2984      69657200 
  2985              	.LASF74:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 90
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 90
 
 
  2986 0389 70747257 		.ascii	"ptrWidget\000"
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  3006      74735C43 
  3007 0463 78616D70 		.ascii	"xamples\\CY8CKIT-145-40XX-blinking.cydsn\000"
  3007      6C65735C 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 91
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 91
 
 
  3007      43593843 
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  3027      5F57445F 
  3027      42415345 
  3028              	.LASF31:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 92
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 92
 
 
  3029 0552 6E4E6F69 		.ascii	"nNoiseTh\000"
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 1
  3054              	.LASF25:
  3055 05f1 63617073 		.ascii	"capsense_WD_PROXIMITY_E\000"
  3055      656E7365 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJTdXye.s 			page 93
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc06oWaW.s 			page 93
 
 
  3055      5F57445F 

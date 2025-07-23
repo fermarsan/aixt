@@ -11,6 +11,6 @@
 module main
 
 // builtin LED
-const led_0 = u8(12)
-const led_1 = u8(13)
+const led0 = u8(12)
+const led1 = u8(13)
 

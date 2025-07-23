@@ -13,7 +13,7 @@
 <item itemtype="Subcircuit" CircId="DigitShield-5" mainComp="false" Show_id="true" Show_Val="false" Pos="12,0" rotation="0" hflip="1" vflip="1" label="DigitShield-5" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" BoardId="Mega-8" />
 
 <item itemtype="Subcircuit" CircId="Mega-8" mainComp="false" Show_id="true" Show_Val="false" Pos="-92,-528" rotation="90" hflip="1" vflip="1" label="Mega-8" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="../../Users/OSCAR BUITRAGO/AppData/Local/simulide/codeeditor/buildIno/build/Mega-7seg_pwm.ino.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Auto_Load="false" saveEepr="true" SerialMon="-1" />
 </item>
 
 <item itemtype="Connector" uid="Connector-1" startpinid="Led-4-rPin" endpinid="Ground-2-Gnd" pointList="-212,-496,-276,-496,-276,-492" />
@@ -22,8 +22,8 @@
 
 <item itemtype="Connector" uid="Connector-4" startpinid="Potentiometer-1-PinA" endpinid="Rail-7-outnod" pointList="124,-224,124,-240" />
 
-<item itemtype="Connector" uid="Connector-6" startpinid="Led-4-lPin" endpinid="Mega-8-11" pointList="-180,-496,-68,-496,-68,-440" />
-
 <item itemtype="Connector" uid="Connector-7" startpinid="Potentiometer-1-PinM" endpinid="Mega-8-A5" pointList="108,-208,20,-208,20,-296" />
+
+<item itemtype="Connector" uid="Connector-8" startpinid="Led-4-lPin" endpinid="Mega-8-13" pointList="-180,-496,-84,-496,-84,-440" />
 
 </circuit>

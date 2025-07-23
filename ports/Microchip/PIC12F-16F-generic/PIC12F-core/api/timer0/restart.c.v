@@ -1,9 +1,9 @@
 // Project name: Aixt project, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2024
+// Date: 2025
 // License: MIT
 //
-// Description: Timer0 functions for 16F family
+// Description: Timer0 functions for 12F family
 module timer0
 
 // restart the Timer0 with the predefined starting value

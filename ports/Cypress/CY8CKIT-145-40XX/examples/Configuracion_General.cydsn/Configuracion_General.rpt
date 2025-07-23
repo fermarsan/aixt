@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.233ms
+Loading plugins phase: Elapsed time ==> 0s.301ms
 <CYPRESSTAG name="CyDsfit arguments...">
-cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -d CY8C4045AZI-S413 -s C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -d CY8C4045AZI-S413 -s C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 2s.765ms
+Elaboration phase: Elapsed time ==> 3s.294ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.093ms
+HDL generation phase: Elapsed time ==> 0s.096ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -25,23 +25,23 @@ HDL generation phase: Elapsed time ==> 0s.093ms
 ======================================================================
 Compiling:  Configuracion_General.v
 Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 Configuracion_General.v -verilog
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 Configuracion_General.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  Configuracion_General.v
 Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 Configuracion_General.v -verilog
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 Configuracion_General.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  Configuracion_General.v
 Program  :   vlogfe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 -verilog Configuracion_General.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 -verilog Configuracion_General.v
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Wed May 14 18:15:42 2025
+Mon Jun 30 19:01:34 2025
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 Configuracion_General.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Wed May 14 18:15:42 2025
+Mon Jun 30 19:01:34 2025
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
@@ -80,11 +80,11 @@ vlogfe:  No errors.
 ======================================================================
 Compiling:  Configuracion_General.v
 Program  :   tovif
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 -verilog Configuracion_General.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 -verilog Configuracion_General.v
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Wed May 14 18:15:42 2025
+Mon Jun 30 19:01:34 2025
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -95,9 +95,9 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\c
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\codegentemp\Configuracion_General.ctl'.
+Linking 'C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\codegentemp\Configuracion_General.ctl'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\codegentemp\Configuracion_General.v'.
+Linking 'C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\codegentemp\Configuracion_General.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
@@ -108,11 +108,11 @@ tovif:  No errors.
 ======================================================================
 Compiling:  Configuracion_General.v
 Program  :   topld
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 -verilog Configuracion_General.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 -verilog Configuracion_General.v
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Wed May 14 18:15:42 2025
+Mon Jun 30 19:01:35 2025
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -123,9 +123,9 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\c
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\codegentemp\Configuracion_General.ctl'.
+Linking 'C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\codegentemp\Configuracion_General.ctl'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\codegentemp\Configuracion_General.v'.
+Linking 'C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\codegentemp\Configuracion_General.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
@@ -179,13 +179,13 @@ Aliasing \pwm2:Net_66\ to \uart:select_s_wire\
 Aliasing \pwm2:Net_82\ to \uart:select_s_wire\
 Aliasing \pwm2:Net_72\ to \uart:select_s_wire\
 Aliasing tmpOE__pwm_2_net_0 to \uart:tmpOE__tx_net_0\
-Aliasing \pwm3:Net_81\ to \pwm1:Net_81\
-Aliasing \pwm3:Net_75\ to \uart:select_s_wire\
-Aliasing \pwm3:Net_69\ to \uart:tmpOE__tx_net_0\
-Aliasing \pwm3:Net_66\ to \uart:select_s_wire\
-Aliasing \pwm3:Net_82\ to \uart:select_s_wire\
-Aliasing \pwm3:Net_72\ to \uart:select_s_wire\
-Aliasing tmpOE__pwm_3_net_0 to \uart:tmpOE__tx_net_0\
+Aliasing \pwm0:Net_81\ to \pwm1:Net_81\
+Aliasing \pwm0:Net_75\ to \uart:select_s_wire\
+Aliasing \pwm0:Net_69\ to \uart:tmpOE__tx_net_0\
+Aliasing \pwm0:Net_66\ to \uart:select_s_wire\
+Aliasing \pwm0:Net_82\ to \uart:select_s_wire\
+Aliasing \pwm0:Net_72\ to \uart:select_s_wire\
+Aliasing tmpOE__pwm_0_net_0 to \uart:tmpOE__tx_net_0\
 Aliasing tmpOE__led5_net_0 to \uart:tmpOE__tx_net_0\
 Aliasing tmpOE__led4_net_0 to \uart:tmpOE__tx_net_0\
 Aliasing \capsense:Net_95\ to \uart:select_s_wire\
@@ -249,13 +249,13 @@ Removing Lhs of wire \pwm2:Net_66\[78] = zero[17]
 Removing Lhs of wire \pwm2:Net_82\[79] = zero[17]
 Removing Lhs of wire \pwm2:Net_72\[80] = zero[17]
 Removing Lhs of wire tmpOE__pwm_2_net_0[88] = one[18]
-Removing Lhs of wire \pwm3:Net_81\[94] = Net_25[66]
-Removing Lhs of wire \pwm3:Net_75\[95] = zero[17]
-Removing Lhs of wire \pwm3:Net_69\[96] = one[18]
-Removing Lhs of wire \pwm3:Net_66\[97] = zero[17]
-Removing Lhs of wire \pwm3:Net_82\[98] = zero[17]
-Removing Lhs of wire \pwm3:Net_72\[99] = zero[17]
-Removing Lhs of wire tmpOE__pwm_3_net_0[107] = one[18]
+Removing Lhs of wire \pwm0:Net_81\[94] = Net_25[66]
+Removing Lhs of wire \pwm0:Net_75\[95] = zero[17]
+Removing Lhs of wire \pwm0:Net_69\[96] = one[18]
+Removing Lhs of wire \pwm0:Net_66\[97] = zero[17]
+Removing Lhs of wire \pwm0:Net_82\[98] = zero[17]
+Removing Lhs of wire \pwm0:Net_72\[99] = zero[17]
+Removing Lhs of wire tmpOE__pwm_0_net_0[107] = one[18]
 Removing Lhs of wire tmpOE__led5_net_0[113] = one[18]
 Removing Lhs of wire tmpOE__led4_net_0[119] = one[18]
 Removing Lhs of wire \capsense:Net_95\[148] = zero[17]
@@ -320,16 +320,16 @@ topld:  No errors.
 
 CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
-Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 Configuracion_General.v -verilog
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -dcpsoc3 Configuracion_General.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 0s.930ms
+Warp synthesis phase: Elapsed time ==> 0s.788ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Wednesday, 14 May 2025 18:15:43
-Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -d CY8C4045AZI-S413 Configuracion_General.v -verilog
+cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Monday, 30 June 2025 19:01:35
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\aixt\aixt\ports\Cypress\CY8CKIT-145-40XX\examples\Configuracion_General.cydsn\Configuracion_General.cyprj -d CY8C4045AZI-S413 Configuracion_General.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.015ms
+Design parsing phase: Elapsed time ==> 0s.019ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -524,7 +524,7 @@ Design Equations
         {
         }
 
-    Pin : Name = pwm_3(0)
+    Pin : Name = pwm_0(0)
         Attributes:
             In Group/Port: True
             In Sync Option: AUTO
@@ -557,9 +557,9 @@ Design Equations
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
-            pa_out => pwm_3(0)__PA ,
+            pa_out => pwm_0(0)__PA ,
             pin_input => Net_76 ,
-            pad => pwm_3(0)_PAD );
+            pad => pwm_0(0)_PAD );
         Properties:
         {
         }
@@ -1730,8 +1730,8 @@ LP Comparator                 :    0 :    2 :    2 :  0.00 %
 DAC                           :      :      :      :        
   7-bit IDAC                  :    2 :    0 :    2 : 100.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.078ms
-Tech Mapping phase: Elapsed time ==> 0s.093ms
+Technology Mapping: Elapsed time ==> 0s.085ms
+Tech Mapping phase: Elapsed time ==> 0s.103ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="FFB & IO Pre Placement">
@@ -1743,7 +1743,7 @@ Cell                                : Block
 \uart:rx(0)\                        : [IOP=(3)][IoId=(0)]                
 pwm_1(0)                            : [IOP=(1)][IoId=(2)]                
 pwm_2(0)                            : [IOP=(2)][IoId=(6)]                
-pwm_3(0)                            : [IOP=(1)][IoId=(0)]                
+pwm_0(0)                            : [IOP=(1)][IoId=(0)]                
 led5(0)                             : [IOP=(2)][IoId=(1)]                
 led4(0)                             : [IOP=(2)][IoId=(0)]                
 \capsense:Sns(0)\                   : [IOP=(0)][IoId=(0)]                
@@ -1776,7 +1776,7 @@ ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]
 \uart:SCB\                          : SCB_[FFB(SCB,1)]                   
 \pwm1:cy_m0s8_tcpwm_1\              : TCPWM_[FFB(TCPWM,3)]               
 \pwm2:cy_m0s8_tcpwm_1\              : TCPWM_[FFB(TCPWM,1)]               
-\pwm3:cy_m0s8_tcpwm_1\              : TCPWM_[FFB(TCPWM,2)]               
+\pwm0:cy_m0s8_tcpwm_1\              : TCPWM_[FFB(TCPWM,2)]               
 \capsense:CSD\                      : CSD_[FFB(CSD,0)]                   
 \capsense:IDACMod\                  : CSIDAC7_[FFB(CSIDAC7,0)]           
 \capsense:IDACComp\                 : CSIDAC7_[FFB(CSIDAC7,1)]           
@@ -1784,15 +1784,15 @@ ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Real Analog Placement">
-Elapsed time ==> 0.1672214s
+Elapsed time ==> 0.1894857s
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.515ms
+Analog Placement phase: Elapsed time ==> 0s.575ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0060919 secs
+Route success=True, Iterations=1 Elapsed=0.0068155 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.000ms
+Analog Routing phase: Elapsed time ==> 0s.008ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -1889,11 +1889,11 @@ Map of item to net {
 }
 Mux Info {
 }
-Analog Code Generation phase: Elapsed time ==> 0s.031ms
+Analog Code Generation phase: Elapsed time ==> 0s.027ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
-I2076: Total run-time: 0.2 sec.
+I2076: Total run-time: 0.1 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
@@ -1907,7 +1907,7 @@ PLD Packing: Elapsed time ==> 0s.000ms
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.015ms
+Partitioning: Elapsed time ==> 0s.017ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -2267,7 +2267,7 @@ Pin : Name = sw2(0)
 
 Port 1 contains the following IO cells:
 [IoId=0]: 
-Pin : Name = pwm_3(0)
+Pin : Name = pwm_0(0)
     Attributes:
         In Group/Port: True
         In Sync Option: AUTO
@@ -2300,9 +2300,9 @@ Pin : Name = pwm_3(0)
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
-        pa_out => pwm_3(0)__PA ,
+        pa_out => pwm_0(0)__PA ,
         pin_input => Net_76 ,
-        pad => pwm_3(0)_PAD );
+        pad => pwm_0(0)_PAD );
     Properties:
     {
     }
@@ -3407,7 +3407,7 @@ TCPWM group 0:
     Tcpwm Block @ F(TCPWM,1): 
     m0s8tcpwmcell: Name =\pwm2:cy_m0s8_tcpwm_1\
         PORT MAP (
-            clock => Net_25_ff4 ,
+            clock => Net_25_ff5 ,
             capture => zero ,
             count => one ,
             reload => zero ,
@@ -3424,9 +3424,9 @@ TCPWM group 0:
             cy_registers = ""
         }
     Tcpwm Block @ F(TCPWM,2): 
-    m0s8tcpwmcell: Name =\pwm3:cy_m0s8_tcpwm_1\
+    m0s8tcpwmcell: Name =\pwm0:cy_m0s8_tcpwm_1\
         PORT MAP (
-            clock => Net_25_ff5 ,
+            clock => Net_25_ff3 ,
             capture => zero ,
             count => one ,
             reload => zero ,
@@ -3445,7 +3445,7 @@ TCPWM group 0:
     Tcpwm Block @ F(TCPWM,3): 
     m0s8tcpwmcell: Name =\pwm1:cy_m0s8_tcpwm_1\
         PORT MAP (
-            clock => Net_25_ff3 ,
+            clock => Net_25_ff4 ,
             capture => zero ,
             count => one ,
             reload => zero ,
@@ -3494,7 +3494,7 @@ Port | Pin | Fixed |      Type |       Drive Mode |                Name | Connec
      |   6 |     * |      NONE |      HI_Z_ANALOG |   \capsense:Sns(4)\ | Analog(\capsense:Net_2_0\)
      |   7 |     * |      NONE |      RES_PULL_UP |              sw2(0) | 
 -----+-----+-------+-----------+------------------+---------------------+---------------------------
-   1 |   0 |     * |      NONE |         CMOS_OUT |            pwm_3(0) | In(Net_76)
+   1 |   0 |     * |      NONE |         CMOS_OUT |            pwm_0(0) | In(Net_76)
      |   2 |     * |      NONE |         CMOS_OUT |            pwm_1(0) | In(Net_28)
      |   3 |     * |      NONE |      HI_Z_ANALOG |    \capsense:Tx(0)\ | Analog(\capsense:Net_2_0\)
      |   4 |     * |      NONE |      HI_Z_ANALOG |    \capsense:Rx(0)\ | Analog(\capsense:Net_2_0\)
@@ -3526,19 +3526,19 @@ Port | Pin | Fixed |      Type |       Drive Mode |                Name | Connec
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.062ms
-Digital Placement phase: Elapsed time ==> 0s.546ms
+Digital component placer commit/Report: Elapsed time ==> 0s.058ms
+Digital Placement phase: Elapsed time ==> 0s.593ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc4/9/route_arch-rrg.cydata" --vh2-path "Configuracion_General_r.vh2" --pcf-path "Configuracion_General.pco" --des-name "Configuracion_General" --dsf-path "Configuracion_General.dsf"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.265ms
+Digital Routing phase: Elapsed time ==> 0s.342ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.171ms
+Bitstream Generation phase: Elapsed time ==> 0s.196ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.000ms
+Bitstream Verification phase: Elapsed time ==> 0s.004ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 No timing parameter file available for CY8C4045AZI-S413
@@ -3548,11 +3548,11 @@ Static timing analysis phase: Elapsed time ==> 0s.000ms
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.250ms
+Design database save phase: Elapsed time ==> 0s.367ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 2s.015ms
+cydsfit: Elapsed time ==> 2s.380ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 2s.015ms
-API generation phase: Elapsed time ==> 6s.280ms
-Dependency generation phase: Elapsed time ==> 0s.031ms
+Fitter phase: Elapsed time ==> 2s.382ms
+API generation phase: Elapsed time ==> 8s.459ms
+Dependency generation phase: Elapsed time ==> 0s.023ms
 Cleanup phase: Elapsed time ==> 0s.000ms

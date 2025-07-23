@@ -1,16 +1,13 @@
 // Project name: Blinking
 // Author: Fernando M. Santa
-// Date: 08/09/2024
+// Date: 2024-2025
 // Arduino-Nano board
 import time
 import pin
 
-// builtin LED
-pin.setup(led_0, pin.output)
+pin.low(led0)	// turn off the on-board LED
 
 for {
-	pin.high(led_0)
-	time.sleep_ms(500)
-	pin.low(led_0)
+	pin.toggle(led0)
 	time.sleep_ms(500)
 }

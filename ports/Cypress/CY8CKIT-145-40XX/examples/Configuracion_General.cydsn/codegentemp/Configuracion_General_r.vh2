@@ -1,5 +1,5 @@
 -- Project:   Configuracion_General
--- Generated: 05/14/2025 18:15:44
+-- Generated: 06/30/2025 19:01:36
 -- PSoC Creator  4.4
 
 ENTITY Configuracion_General IS
@@ -8,7 +8,7 @@ ENTITY Configuracion_General IS
         \uart:rx(0)_PAD\ : IN std_ulogic;
         pwm_1(0)_PAD : OUT std_ulogic;
         pwm_2(0)_PAD : OUT std_ulogic;
-        pwm_3(0)_PAD : OUT std_ulogic;
+        pwm_0(0)_PAD : OUT std_ulogic;
         led5(0)_PAD : OUT std_ulogic;
         led4(0)_PAD : OUT std_ulogic;
         led6(0)_PAD : OUT std_ulogic;
@@ -142,9 +142,9 @@ ARCHITECTURE __DEFAULT__ OF Configuracion_General IS
     SIGNAL led9(0)__PA : bit;
     SIGNAL one : bit;
     ATTRIBUTE POWER OF one : SIGNAL IS true;
+    SIGNAL pwm_0(0)__PA : bit;
     SIGNAL pwm_1(0)__PA : bit;
     SIGNAL pwm_2(0)__PA : bit;
-    SIGNAL pwm_3(0)__PA : bit;
     SIGNAL sw2(0)__PA : bit;
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
@@ -154,7 +154,7 @@ ARCHITECTURE __DEFAULT__ OF Configuracion_General IS
     ATTRIBUTE Location OF \uart:rx(0)\ : LABEL IS "P3[0]";
     ATTRIBUTE Location OF pwm_1(0) : LABEL IS "P1[2]";
     ATTRIBUTE Location OF pwm_2(0) : LABEL IS "P2[6]";
-    ATTRIBUTE Location OF pwm_3(0) : LABEL IS "P1[0]";
+    ATTRIBUTE Location OF pwm_0(0) : LABEL IS "P1[0]";
     ATTRIBUTE Location OF led5(0) : LABEL IS "P2[1]";
     ATTRIBUTE Location OF led4(0) : LABEL IS "P2[0]";
     ATTRIBUTE Location OF \capsense:Sns(0)\ : LABEL IS "P0[0]";
@@ -186,7 +186,7 @@ ARCHITECTURE __DEFAULT__ OF Configuracion_General IS
     ATTRIBUTE Location OF \uart:SCB\ : LABEL IS "F(SCB,1)";
     ATTRIBUTE Location OF \pwm1:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,3)";
     ATTRIBUTE Location OF \pwm2:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,1)";
-    ATTRIBUTE Location OF \pwm3:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,2)";
+    ATTRIBUTE Location OF \pwm0:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,2)";
     ATTRIBUTE Location OF \capsense:ISR\ : LABEL IS "[IntrContainer=(0)][IntrId=(10)]";
     ATTRIBUTE Location OF \capsense:CSD\ : LABEL IS "F(CSD,0)";
     ATTRIBUTE Location OF \capsense:IDACMod\ : LABEL IS "F(CSIDAC7,0)";
@@ -445,11 +445,11 @@ BEGIN
             wco => ClockBlock_WCO,
             ff_div_2 => \capsense:Net_1423_ff2\,
             ff_div_3 => open,
-            ff_div_4 => Net_25_ff4,
-            ff_div_5 => Net_25_ff5,
+            ff_div_4 => Net_25_ff5,
+            ff_div_5 => Net_25_ff3,
             ff_div_0 => open,
             ff_div_1 => \uart:Net_847_ff0\,
-            ff_div_6 => Net_25_ff3);
+            ff_div_6 => Net_25_ff4);
 
     \uart:tx\:logicalport
         GENERIC MAP(
@@ -818,7 +818,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    pwm_3:logicalport
+    pwm_0:logicalport
         GENERIC MAP(
             drive_mode => "110",
             ibuf_enabled => "1",
@@ -889,20 +889,20 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    pwm_3(0):iocell
+    pwm_0(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "pwm_3",
+            logicalport => "pwm_0",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
-            pa_out => pwm_3(0)__PA,
+            pa_out => pwm_0(0)__PA,
             oe => open,
             pin_input => Net_76,
-            pad_out => pwm_3(0)_PAD,
-            pad_in => pwm_3(0)_PAD,
+            pad_out => pwm_0(0)_PAD,
+            pad_in => pwm_0(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -3021,7 +3021,7 @@ BEGIN
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => Net_25_ff3,
+            clock => Net_25_ff4,
             capture => '0',
             count => '1',
             reload => '0',
@@ -3038,7 +3038,7 @@ BEGIN
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => Net_25_ff4,
+            clock => Net_25_ff5,
             capture => '0',
             count => '1',
             reload => '0',
@@ -3051,11 +3051,11 @@ BEGIN
             line_compl => Net_43,
             interrupt => Net_41);
 
-    \pwm3:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
+    \pwm0:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => Net_25_ff5,
+            clock => Net_25_ff3,
             capture => '0',
             count => '1',
             reload => '0',

@@ -1,0 +1,418 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc5GZBIi.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_meta_chipprotect
+  20              		.global	cy_metadata
+  21              		.global	cy_meta_flashprotect
+  22              		.section	.cychipprotect,"a",%progbits
+  23              		.align	2
+  24              		.type	cy_meta_chipprotect, %object
+  25              		.size	cy_meta_chipprotect, 1
+  26              	cy_meta_chipprotect:
+  27 0000 01       		.byte	1
+  28              		.section	.cymeta,"a",%progbits
+  29              		.align	2
+  30              		.type	cy_metadata, %object
+  31              		.size	cy_metadata, 12
+  32              	cy_metadata:
+  33 0000 00       		.byte	0
+  34 0001 02       		.byte	2
+  35 0002 19       		.byte	25
+  36 0003 01       		.byte	1
+  37 0004 11       		.byte	17
+  38 0005 A9       		.byte	-87
+  39 0006 00       		.byte	0
+  40 0007 01       		.byte	1
+  41 0008 00       		.byte	0
+  42 0009 00       		.byte	0
+  43 000a 00       		.byte	0
+  44 000b 00       		.byte	0
+  45              		.section	.cyflashprotect,"a",%progbits
+  46              		.align	2
+  47              		.type	cy_meta_flashprotect, %object
+  48              		.size	cy_meta_flashprotect, 32
+  49              	cy_meta_flashprotect:
+  50 0000 00000000 		.space	32
+  50      00000000 
+  50      00000000 
+  50      00000000 
+  50      00000000 
+  51              		.text
+  52              	.Letext0:
+  53              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc5GZBIi.s 			page 2
+
+
+  54              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  55              		.file 3 "Generated_Source\\PSoC4\\cymetadata.c"
+  56              		.section	.debug_info,"",%progbits
+  57              	.Ldebug_info0:
+  58 0000 F4000000 		.4byte	0xf4
+  59 0004 0400     		.2byte	0x4
+  60 0006 00000000 		.4byte	.Ldebug_abbrev0
+  61 000a 04       		.byte	0x4
+  62 000b 01       		.uleb128 0x1
+  63 000c F8000000 		.4byte	.LASF15
+  64 0010 0C       		.byte	0xc
+  65 0011 44000000 		.4byte	.LASF16
+  66 0015 8A010000 		.4byte	.LASF17
+  67 0019 00000000 		.4byte	.Ldebug_line0
+  68 001d 02       		.uleb128 0x2
+  69 001e 01       		.byte	0x1
+  70 001f 06       		.byte	0x6
+  71 0020 2A000000 		.4byte	.LASF0
+  72 0024 03       		.uleb128 0x3
+  73 0025 00000000 		.4byte	.LASF9
+  74 0029 01       		.byte	0x1
+  75 002a 1D       		.byte	0x1d
+  76 002b 2F000000 		.4byte	0x2f
+  77 002f 02       		.uleb128 0x2
+  78 0030 01       		.byte	0x1
+  79 0031 08       		.byte	0x8
+  80 0032 36000000 		.4byte	.LASF1
+  81 0036 02       		.uleb128 0x2
+  82 0037 02       		.byte	0x2
+  83 0038 05       		.byte	0x5
+  84 0039 E5000000 		.4byte	.LASF2
+  85 003d 02       		.uleb128 0x2
+  86 003e 02       		.byte	0x2
+  87 003f 07       		.byte	0x7
+  88 0040 7A000000 		.4byte	.LASF3
+  89 0044 02       		.uleb128 0x2
+  90 0045 04       		.byte	0x4
+  91 0046 05       		.byte	0x5
+  92 0047 EF000000 		.4byte	.LASF4
+  93 004b 02       		.uleb128 0x2
+  94 004c 04       		.byte	0x4
+  95 004d 07       		.byte	0x7
+  96 004e 68000000 		.4byte	.LASF5
+  97 0052 02       		.uleb128 0x2
+  98 0053 08       		.byte	0x8
+  99 0054 05       		.byte	0x5
+ 100 0055 D7000000 		.4byte	.LASF6
+ 101 0059 02       		.uleb128 0x2
+ 102 005a 08       		.byte	0x8
+ 103 005b 07       		.byte	0x7
+ 104 005c 9A000000 		.4byte	.LASF7
+ 105 0060 04       		.uleb128 0x4
+ 106 0061 04       		.byte	0x4
+ 107 0062 05       		.byte	0x5
+ 108 0063 696E7400 		.ascii	"int\000"
+ 109 0067 02       		.uleb128 0x2
+ 110 0068 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc5GZBIi.s 			page 3
+
+
+ 111 0069 07       		.byte	0x7
+ 112 006a 8D000000 		.4byte	.LASF8
+ 113 006e 03       		.uleb128 0x3
+ 114 006f B1000000 		.4byte	.LASF10
+ 115 0073 02       		.byte	0x2
+ 116 0074 18       		.byte	0x18
+ 117 0075 24000000 		.4byte	0x24
+ 118 0079 05       		.uleb128 0x5
+ 119 007a 90000000 		.4byte	0x90
+ 120 007e 89000000 		.4byte	0x89
+ 121 0082 06       		.uleb128 0x6
+ 122 0083 89000000 		.4byte	0x89
+ 123 0087 1F       		.byte	0x1f
+ 124 0088 00       		.byte	0
+ 125 0089 02       		.uleb128 0x2
+ 126 008a 04       		.byte	0x4
+ 127 008b 07       		.byte	0x7
+ 128 008c CE000000 		.4byte	.LASF11
+ 129 0090 07       		.uleb128 0x7
+ 130 0091 6E000000 		.4byte	0x6e
+ 131 0095 08       		.uleb128 0x8
+ 132 0096 B9000000 		.4byte	.LASF12
+ 133 009a 03       		.byte	0x3
+ 134 009b 1F       		.byte	0x1f
+ 135 009c A6000000 		.4byte	0xa6
+ 136 00a0 05       		.uleb128 0x5
+ 137 00a1 03       		.byte	0x3
+ 138 00a2 00000000 		.4byte	cy_meta_flashprotect
+ 139 00a6 07       		.uleb128 0x7
+ 140 00a7 79000000 		.4byte	0x79
+ 141 00ab 05       		.uleb128 0x5
+ 142 00ac 90000000 		.4byte	0x90
+ 143 00b0 BB000000 		.4byte	0xbb
+ 144 00b4 06       		.uleb128 0x6
+ 145 00b5 89000000 		.4byte	0x89
+ 146 00b9 0B       		.byte	0xb
+ 147 00ba 00       		.byte	0
+ 148 00bb 08       		.uleb128 0x8
+ 149 00bc 1E000000 		.4byte	.LASF13
+ 150 00c0 03       		.byte	0x3
+ 151 00c1 30       		.byte	0x30
+ 152 00c2 CC000000 		.4byte	0xcc
+ 153 00c6 05       		.uleb128 0x5
+ 154 00c7 03       		.byte	0x3
+ 155 00c8 00000000 		.4byte	cy_metadata
+ 156 00cc 07       		.uleb128 0x7
+ 157 00cd AB000000 		.4byte	0xab
+ 158 00d1 05       		.uleb128 0x5
+ 159 00d2 90000000 		.4byte	0x90
+ 160 00d6 E1000000 		.4byte	0xe1
+ 161 00da 06       		.uleb128 0x6
+ 162 00db 89000000 		.4byte	0x89
+ 163 00df 00       		.byte	0
+ 164 00e0 00       		.byte	0
+ 165 00e1 08       		.uleb128 0x8
+ 166 00e2 0A000000 		.4byte	.LASF14
+ 167 00e6 03       		.byte	0x3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc5GZBIi.s 			page 4
+
+
+ 168 00e7 3F       		.byte	0x3f
+ 169 00e8 F2000000 		.4byte	0xf2
+ 170 00ec 05       		.uleb128 0x5
+ 171 00ed 03       		.byte	0x3
+ 172 00ee 00000000 		.4byte	cy_meta_chipprotect
+ 173 00f2 07       		.uleb128 0x7
+ 174 00f3 D1000000 		.4byte	0xd1
+ 175 00f7 00       		.byte	0
+ 176              		.section	.debug_abbrev,"",%progbits
+ 177              	.Ldebug_abbrev0:
+ 178 0000 01       		.uleb128 0x1
+ 179 0001 11       		.uleb128 0x11
+ 180 0002 01       		.byte	0x1
+ 181 0003 25       		.uleb128 0x25
+ 182 0004 0E       		.uleb128 0xe
+ 183 0005 13       		.uleb128 0x13
+ 184 0006 0B       		.uleb128 0xb
+ 185 0007 03       		.uleb128 0x3
+ 186 0008 0E       		.uleb128 0xe
+ 187 0009 1B       		.uleb128 0x1b
+ 188 000a 0E       		.uleb128 0xe
+ 189 000b 10       		.uleb128 0x10
+ 190 000c 17       		.uleb128 0x17
+ 191 000d 00       		.byte	0
+ 192 000e 00       		.byte	0
+ 193 000f 02       		.uleb128 0x2
+ 194 0010 24       		.uleb128 0x24
+ 195 0011 00       		.byte	0
+ 196 0012 0B       		.uleb128 0xb
+ 197 0013 0B       		.uleb128 0xb
+ 198 0014 3E       		.uleb128 0x3e
+ 199 0015 0B       		.uleb128 0xb
+ 200 0016 03       		.uleb128 0x3
+ 201 0017 0E       		.uleb128 0xe
+ 202 0018 00       		.byte	0
+ 203 0019 00       		.byte	0
+ 204 001a 03       		.uleb128 0x3
+ 205 001b 16       		.uleb128 0x16
+ 206 001c 00       		.byte	0
+ 207 001d 03       		.uleb128 0x3
+ 208 001e 0E       		.uleb128 0xe
+ 209 001f 3A       		.uleb128 0x3a
+ 210 0020 0B       		.uleb128 0xb
+ 211 0021 3B       		.uleb128 0x3b
+ 212 0022 0B       		.uleb128 0xb
+ 213 0023 49       		.uleb128 0x49
+ 214 0024 13       		.uleb128 0x13
+ 215 0025 00       		.byte	0
+ 216 0026 00       		.byte	0
+ 217 0027 04       		.uleb128 0x4
+ 218 0028 24       		.uleb128 0x24
+ 219 0029 00       		.byte	0
+ 220 002a 0B       		.uleb128 0xb
+ 221 002b 0B       		.uleb128 0xb
+ 222 002c 3E       		.uleb128 0x3e
+ 223 002d 0B       		.uleb128 0xb
+ 224 002e 03       		.uleb128 0x3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc5GZBIi.s 			page 5
+
+
+ 225 002f 08       		.uleb128 0x8
+ 226 0030 00       		.byte	0
+ 227 0031 00       		.byte	0
+ 228 0032 05       		.uleb128 0x5
+ 229 0033 01       		.uleb128 0x1
+ 230 0034 01       		.byte	0x1
+ 231 0035 49       		.uleb128 0x49
+ 232 0036 13       		.uleb128 0x13
+ 233 0037 01       		.uleb128 0x1
+ 234 0038 13       		.uleb128 0x13
+ 235 0039 00       		.byte	0
+ 236 003a 00       		.byte	0
+ 237 003b 06       		.uleb128 0x6
+ 238 003c 21       		.uleb128 0x21
+ 239 003d 00       		.byte	0
+ 240 003e 49       		.uleb128 0x49
+ 241 003f 13       		.uleb128 0x13
+ 242 0040 2F       		.uleb128 0x2f
+ 243 0041 0B       		.uleb128 0xb
+ 244 0042 00       		.byte	0
+ 245 0043 00       		.byte	0
+ 246 0044 07       		.uleb128 0x7
+ 247 0045 26       		.uleb128 0x26
+ 248 0046 00       		.byte	0
+ 249 0047 49       		.uleb128 0x49
+ 250 0048 13       		.uleb128 0x13
+ 251 0049 00       		.byte	0
+ 252 004a 00       		.byte	0
+ 253 004b 08       		.uleb128 0x8
+ 254 004c 34       		.uleb128 0x34
+ 255 004d 00       		.byte	0
+ 256 004e 03       		.uleb128 0x3
+ 257 004f 0E       		.uleb128 0xe
+ 258 0050 3A       		.uleb128 0x3a
+ 259 0051 0B       		.uleb128 0xb
+ 260 0052 3B       		.uleb128 0x3b
+ 261 0053 0B       		.uleb128 0xb
+ 262 0054 49       		.uleb128 0x49
+ 263 0055 13       		.uleb128 0x13
+ 264 0056 3F       		.uleb128 0x3f
+ 265 0057 19       		.uleb128 0x19
+ 266 0058 02       		.uleb128 0x2
+ 267 0059 18       		.uleb128 0x18
+ 268 005a 00       		.byte	0
+ 269 005b 00       		.byte	0
+ 270 005c 00       		.byte	0
+ 271              		.section	.debug_aranges,"",%progbits
+ 272 0000 14000000 		.4byte	0x14
+ 273 0004 0200     		.2byte	0x2
+ 274 0006 00000000 		.4byte	.Ldebug_info0
+ 275 000a 04       		.byte	0x4
+ 276 000b 00       		.byte	0
+ 277 000c 0000     		.2byte	0
+ 278 000e 0000     		.2byte	0
+ 279 0010 00000000 		.4byte	0
+ 280 0014 00000000 		.4byte	0
+ 281              		.section	.debug_line,"",%progbits
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc5GZBIi.s 			page 6
+
+
+ 282              	.Ldebug_line0:
+ 283 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 283      02003701 
+ 283      00000201 
+ 283      FB0E0D00 
+ 283      01010101 
+ 284              	.LASF9:
+ 285 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 285      6E74385F 
+ 285      7400
+ 286              	.LASF14:
+ 287 000a 63795F6D 		.ascii	"cy_meta_chipprotect\000"
+ 287      6574615F 
+ 287      63686970 
+ 287      70726F74 
+ 287      65637400 
+ 288              	.LASF13:
+ 289 001e 63795F6D 		.ascii	"cy_metadata\000"
+ 289      65746164 
+ 289      61746100 
+ 290              	.LASF0:
+ 291 002a 7369676E 		.ascii	"signed char\000"
+ 291      65642063 
+ 291      68617200 
+ 292              	.LASF1:
+ 293 0036 756E7369 		.ascii	"unsigned char\000"
+ 293      676E6564 
+ 293      20636861 
+ 293      7200
+ 294              	.LASF16:
+ 295 0044 47656E65 		.ascii	"Generated_Source\\PSoC4\\cymetadata.c\000"
+ 295      72617465 
+ 295      645F536F 
+ 295      75726365 
+ 295      5C50536F 
+ 296              	.LASF5:
+ 297 0068 6C6F6E67 		.ascii	"long unsigned int\000"
+ 297      20756E73 
+ 297      69676E65 
+ 297      6420696E 
+ 297      7400
+ 298              	.LASF3:
+ 299 007a 73686F72 		.ascii	"short unsigned int\000"
+ 299      7420756E 
+ 299      7369676E 
+ 299      65642069 
+ 299      6E7400
+ 300              	.LASF8:
+ 301 008d 756E7369 		.ascii	"unsigned int\000"
+ 301      676E6564 
+ 301      20696E74 
+ 301      00
+ 302              	.LASF7:
+ 303 009a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 303      206C6F6E 
+ 303      6720756E 
+ 303      7369676E 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc5GZBIi.s 			page 7
+
+
+ 303      65642069 
+ 304              	.LASF10:
+ 305 00b1 75696E74 		.ascii	"uint8_t\000"
+ 305      385F7400 
+ 306              	.LASF12:
+ 307 00b9 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 307      6574615F 
+ 307      666C6173 
+ 307      6870726F 
+ 307      74656374 
+ 308              	.LASF11:
+ 309 00ce 73697A65 		.ascii	"sizetype\000"
+ 309      74797065 
+ 309      00
+ 310              	.LASF6:
+ 311 00d7 6C6F6E67 		.ascii	"long long int\000"
+ 311      206C6F6E 
+ 311      6720696E 
+ 311      7400
+ 312              	.LASF2:
+ 313 00e5 73686F72 		.ascii	"short int\000"
+ 313      7420696E 
+ 313      7400
+ 314              	.LASF4:
+ 315 00ef 6C6F6E67 		.ascii	"long int\000"
+ 315      20696E74 
+ 315      00
+ 316              	.LASF15:
+ 317 00f8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 317      43313120 
+ 317      352E342E 
+ 317      31203230 
+ 317      31363036 
+ 318 012b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 318      20726576 
+ 318      6973696F 
+ 318      6E203233 
+ 318      37373135 
+ 319 015e 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 319      67202D66 
+ 319      66756E63 
+ 319      74696F6E 
+ 319      2D736563 
+ 320              	.LASF17:
+ 321 018a 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
+ 321      6978745C 
+ 321      61697874 
+ 321      5C706F72 
+ 321      74735C43 
+ 322 01b7 78616D70 		.ascii	"xamples\\Configuracion_General.cydsn\000"
+ 322      6C65735C 
+ 322      436F6E66 
+ 322      69677572 
+ 322      6163696F 
+ 323              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

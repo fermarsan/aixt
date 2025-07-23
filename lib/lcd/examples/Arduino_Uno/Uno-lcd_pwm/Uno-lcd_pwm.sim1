@@ -1,0 +1,23 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="LcdShield-2" mainComp="false" Show_id="true" Show_Val="false" Pos="12,0" rotation="0" hflip="1" vflip="1" label="LcdShield-2" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" BoardId="Uno-1" />
+
+<item itemtype="Subcircuit" CircId="Uno-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-176,-176" rotation="90" hflip="1" vflip="1" label="Uno-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="Uno-lcd_pwm.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Led" CircId="Led-3" mainComp="false" Show_id="false" Show_Val="false" Pos="32,-184" rotation="0" hflip="1" vflip="1" label="Led-3" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Potentiometer" CircId="Potentiometer-4" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-36,84" rotation="-360" hflip="1" vflip="1" label="Potentiometer-4" idLabPos="-16,-40" labelrot="0" valLabPos="-7.38113,-46.1113" valLabRot="0" Resistance="1 kΩ" Value_Ohm="82 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Connector" uid="Connector-8" startpinid="Potentiometer-4-PinA" endpinid="Uno-1-5V0" pointList="-52,84,-80,84,-80,8" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="Potentiometer-4-PinB" endpinid="Uno-1-GND0" pointList="-20,84,-20,32,-64,32,-64,8" />
+
+<item itemtype="Connector" uid="Connector-31" startpinid="Led-3-rPin" endpinid="Uno-1-GND2" pointList="48,-184,48,-244,-120,-244,-120,-136" />
+
+<item itemtype="Connector" uid="Connector-41" startpinid="Led-3-lPin" endpinid="Uno-1-6" pointList="16,-184,-48,-184,-48,-136" />
+
+<item itemtype="Connector" uid="Connector-48" startpinid="Potentiometer-4-PinM" endpinid="Uno-1-A5" pointList="-36,100,-36,104,0,104,0,8" />
+
+</circuit>

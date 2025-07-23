@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
   29:Generated_Source\PSoC4/capsense_INT.c **** * Cypress reserves the right to make changes without further notice to the
   30:Generated_Source\PSoC4/capsense_INT.c **** * materials described herein. Cypress does not assume any liability arising out
   31:Generated_Source\PSoC4/capsense_INT.c **** * of the application or use of any product or circuit described herein. Cypress
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 2
 
 
   32:Generated_Source\PSoC4/capsense_INT.c **** * does not authorize its products for use as critical components in life-support
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
   86:Generated_Source\PSoC4/capsense_INT.c ****     ****************************************************************************//**
   87:Generated_Source\PSoC4/capsense_INT.c ****     *
   88:Generated_Source\PSoC4/capsense_INT.c ****     * \brief
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 3
 
 
   89:Generated_Source\PSoC4/capsense_INT.c ****     *  This is an internal ISR function for the single-sensor scanning implementation.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  143:Generated_Source\PSoC4/capsense_INT.c ****             }
  144:Generated_Source\PSoC4/capsense_INT.c ****             else
  145:Generated_Source\PSoC4/capsense_INT.c ****             {
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 4
 
 
  146:Generated_Source\PSoC4/capsense_INT.c ****         #endif /* (capsense_ENABLE == capsense_CSD_NOISE_METRIC_EN) */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  200:Generated_Source\PSoC4/capsense_INT.c **** 
  201:Generated_Source\PSoC4/capsense_INT.c **** 
  202:Generated_Source\PSoC4/capsense_INT.c ****     /*******************************************************************************
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 5
 
 
  203:Generated_Source\PSoC4/capsense_INT.c ****     * Function Name: capsense_CSDPostMultiScan
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  257:Generated_Source\PSoC4/capsense_INT.c ****                 /* Decrement bad conversions number */
  258:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_badConversionsNum--;
  259:Generated_Source\PSoC4/capsense_INT.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 6
 
 
  260:Generated_Source\PSoC4/capsense_INT.c ****                 /* Start the re-scan */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  314:Generated_Source\PSoC4/capsense_INT.c ****     #if (capsense_ENABLE == capsense_CSD_GANGED_SNS_EN)
  315:Generated_Source\PSoC4/capsense_INT.c ****     /*******************************************************************************
  316:Generated_Source\PSoC4/capsense_INT.c ****     * Function Name: capsense_CSDPostMultiScanGanged
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 7
 
 
  317:Generated_Source\PSoC4/capsense_INT.c ****     ****************************************************************************//**
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  371:Generated_Source\PSoC4/capsense_INT.c ****                                                              capsense_SEQ_START_AZ1_SKIP_MASK |
  372:Generated_Source\PSoC4/capsense_INT.c ****                                                              capsense_SEQ_START_START_MASK);
  373:Generated_Source\PSoC4/capsense_INT.c ****             }
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 8
 
 
  374:Generated_Source\PSoC4/capsense_INT.c ****             else
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  428:Generated_Source\PSoC4/capsense_INT.c ****     *
  429:Generated_Source\PSoC4/capsense_INT.c ****     * \brief
  430:Generated_Source\PSoC4/capsense_INT.c ****     *  This is an internal ISR function for the single-sensor scanning implementation.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 9
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 9
 
 
  431:Generated_Source\PSoC4/capsense_INT.c ****     *
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  485:Generated_Source\PSoC4/capsense_INT.c **** 
  486:Generated_Source\PSoC4/capsense_INT.c ****                 #if (capsense_MFS_IMO == capsense_MFS_METHOD)
  487:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsChangeImoFreq(capsense_FREQ_CHANNEL_0);
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 10
 
 
  488:Generated_Source\PSoC4/capsense_INT.c ****                 #else
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  542:Generated_Source\PSoC4/capsense_INT.c ****     ****************************************************************************//**
  543:Generated_Source\PSoC4/capsense_INT.c ****     *
  544:Generated_Source\PSoC4/capsense_INT.c ****     * \brief
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 11
 
 
  545:Generated_Source\PSoC4/capsense_INT.c ****     *  This is an internal ISR function for the multiple-sensor scanning
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  599:Generated_Source\PSoC4/capsense_INT.c ****                 /* Disable sensor */
  600:Generated_Source\PSoC4/capsense_INT.c ****                 capsense_CSDDisconnectSns(curSnsIOPtr);
  601:Generated_Source\PSoC4/capsense_INT.c ****             }
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 12
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 12
 
 
  602:Generated_Source\PSoC4/capsense_INT.c ****         #else
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  656:Generated_Source\PSoC4/capsense_INT.c ****     *    4. Disable the CSD block (after the widget has been scanned).
  657:Generated_Source\PSoC4/capsense_INT.c ****     *    5. Update the Scan Counter.
  658:Generated_Source\PSoC4/capsense_INT.c ****     *    6. Reset the BUSY flag.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 13
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 13
 
 
  659:Generated_Source\PSoC4/capsense_INT.c ****     *    7. Enable the CSD interrupt.
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  713:Generated_Source\PSoC4/capsense_INT.c ****                     capsense_SsChangeClkFreq(capsense_FREQ_CHANNEL_0);
  714:Generated_Source\PSoC4/capsense_INT.c ****                 #endif /* (capsense_MFS_IMO == capsense_MFS_METHOD) */
  715:Generated_Source\PSoC4/capsense_INT.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 14
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 14
 
 
  716:Generated_Source\PSoC4/capsense_INT.c ****                  /* Scan the next sensor */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
   33 0000 104B     		ldr	r3, .L4
   34 0002 1B78     		ldrb	r3, [r3]
   35 0004 DBB2     		uxtb	r3, r3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 15
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 15
 
 
  762:Generated_Source\PSoC4/capsense_INT.c ****                                             capsense_dsFlash.wdgtArray[capsense_widgetIndex].ptr2Wd
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
   77 0038 064A     		ldr	r2, .L4+16
   78 003a 1278     		ldrb	r2, [r2]
   79 003c 5200     		lsls	r2, r2, #1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 16
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 16
 
 
   80 003e 8B52     		strh	r3, [r1, r2]
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  806:Generated_Source\PSoC4/capsense_INT.c **** *   The function increments the sensor index, updates sense clock for matrix
  807:Generated_Source\PSoC4/capsense_INT.c **** *   or touchpad widgets only, sets up Compensation IDAC, enables the sensor and
  808:Generated_Source\PSoC4/capsense_INT.c **** *   scans it. When all the sensors are scanned it continues to set up the next widget
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 17
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 17
 
 
  809:Generated_Source\PSoC4/capsense_INT.c **** *   until all the widgets are scanned. The CSD block is disabled when all the widgets are
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  139 002c 20D9     		bls	.L7
  827:Generated_Source\PSoC4/capsense_INT.c ****     {
  828:Generated_Source\PSoC4/capsense_INT.c ****         /* Increment sensor index to configure next sensor in widget */
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 18
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 18
 
 
  829:Generated_Source\PSoC4/capsense_INT.c ****         capsense_sensorIndex++;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  852:Generated_Source\PSoC4/capsense_INT.c ****                    (capsense_CSD_MATRIX_WIDGET_EN || capsense_CSD_TOUCHPAD_WIDGET_EN)) */
  853:Generated_Source\PSoC4/capsense_INT.c **** 
  854:Generated_Source\PSoC4/capsense_INT.c ****         /* Enable sensor */
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 19
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 19
 
 
  855:Generated_Source\PSoC4/capsense_INT.c ****         capsense_SsCSDConnectSensorExt((uint32)capsense_widgetIndex, (uint32)capsense_sensorIndex);
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  875:Generated_Source\PSoC4/capsense_INT.c ****         {
  876:Generated_Source\PSoC4/capsense_INT.c ****             #if (capsense_ENABLE == capsense_BLOCK_OFF_AFTER_SCAN_EN)
  877:Generated_Source\PSoC4/capsense_INT.c ****                 #if (capsense_ENABLE == capsense_CSDV2)
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 20
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 20
 
 
  878:Generated_Source\PSoC4/capsense_INT.c ****                     /* Disable the CSD block */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  237              		.type	capsense_CSDPostSingleScan, %function
  238              	capsense_CSDPostSingleScan:
  239              	.LFB1:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 21
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 21
 
 
  122:Generated_Source\PSoC4/capsense_INT.c ****         #ifdef capsense_ENTRY_CALLBACK
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  287              		.cfi_startproc
  288              		@ args = 0, pretend = 0, frame = 0
  289              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 22
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 22
 
 
  290 0000 10B5     		push	{r4, lr}
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  335              	.L16:
  336 0038 00000000 		.word	capsense_widgetIndex
  337 003c 00000000 		.word	capsense_dsFlash
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 23
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 23
 
 
  338 0040 00000000 		.word	capsense_sensorIndex
@@ -1342,19 +1342,19 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  356 000b 01       		.uleb128 0x1
  357 000c 2A010000 		.4byte	.LASF116
  358 0010 0C       		.byte	0xc
- 359 0011 71020000 		.4byte	.LASF117
- 360 0015 38040000 		.4byte	.LASF118
+ 359 0011 7F020000 		.4byte	.LASF117
+ 360 0015 48030000 		.4byte	.LASF118
  361 0019 00000000 		.4byte	.Ldebug_ranges0+0
  362 001d 00000000 		.4byte	0
  363 0021 00000000 		.4byte	.Ldebug_line0
  364 0025 02       		.uleb128 0x2
  365 0026 01       		.byte	0x1
  366 0027 06       		.byte	0x6
- 367 0028 E2020000 		.4byte	.LASF0
+ 367 0028 7D040000 		.4byte	.LASF0
  368 002c 02       		.uleb128 0x2
  369 002d 01       		.byte	0x1
  370 002e 08       		.byte	0x8
- 371 002f F7030000 		.4byte	.LASF1
+ 371 002f 3C040000 		.4byte	.LASF1
  372 0033 02       		.uleb128 0x2
  373 0034 02       		.byte	0x2
  374 0035 05       		.byte	0x5
@@ -1362,15 +1362,15 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  376 003a 02       		.uleb128 0x2
  377 003b 02       		.byte	0x2
  378 003c 07       		.byte	0x7
- 379 003d 33050000 		.4byte	.LASF3
+ 379 003d 08050000 		.4byte	.LASF3
  380 0041 02       		.uleb128 0x2
  381 0042 04       		.byte	0x4
  382 0043 05       		.byte	0x5
- 383 0044 26030000 		.4byte	.LASF4
+ 383 0044 28030000 		.4byte	.LASF4
  384 0048 02       		.uleb128 0x2
  385 0049 04       		.byte	0x4
  386 004a 07       		.byte	0x7
- 387 004b 12060000 		.4byte	.LASF5
+ 387 004b E7050000 		.4byte	.LASF5
  388 004f 02       		.uleb128 0x2
  389 0050 08       		.byte	0x8
  390 0051 05       		.byte	0x5
@@ -1378,10 +1378,10 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  392 0056 02       		.uleb128 0x2
  393 0057 08       		.byte	0x8
  394 0058 07       		.byte	0x7
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 24
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 24
 
 
- 395 0059 B4040000 		.4byte	.LASF7
+ 395 0059 89040000 		.4byte	.LASF7
  396 005d 03       		.uleb128 0x3
  397 005e 04       		.byte	0x4
  398 005f 05       		.byte	0x5
@@ -1389,38 +1389,38 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  400 0064 02       		.uleb128 0x2
  401 0065 04       		.byte	0x4
  402 0066 07       		.byte	0x7
- 403 0067 EE040000 		.4byte	.LASF8
+ 403 0067 C3040000 		.4byte	.LASF8
  404 006b 04       		.uleb128 0x4
- 405 006c 97020000 		.4byte	.LASF9
+ 405 006c A5020000 		.4byte	.LASF9
  406 0070 02       		.byte	0x2
  407 0071 FC01     		.2byte	0x1fc
  408 0073 2C000000 		.4byte	0x2c
  409 0077 04       		.uleb128 0x4
- 410 0078 5A020000 		.4byte	.LASF10
+ 410 0078 68020000 		.4byte	.LASF10
  411 007c 02       		.byte	0x2
  412 007d FD01     		.2byte	0x1fd
  413 007f 3A000000 		.4byte	0x3a
  414 0083 04       		.uleb128 0x4
- 415 0084 00060000 		.4byte	.LASF11
+ 415 0084 D5050000 		.4byte	.LASF11
  416 0088 02       		.byte	0x2
  417 0089 FE01     		.2byte	0x1fe
  418 008b 48000000 		.4byte	0x48
  419 008f 02       		.uleb128 0x2
  420 0090 04       		.byte	0x4
  421 0091 04       		.byte	0x4
- 422 0092 FF020000 		.4byte	.LASF12
+ 422 0092 01030000 		.4byte	.LASF12
  423 0096 02       		.uleb128 0x2
  424 0097 08       		.byte	0x8
  425 0098 04       		.byte	0x4
- 426 0099 24060000 		.4byte	.LASF13
+ 426 0099 F9050000 		.4byte	.LASF13
  427 009d 02       		.uleb128 0x2
  428 009e 01       		.byte	0x1
  429 009f 08       		.byte	0x8
- 430 00a0 21030000 		.4byte	.LASF14
+ 430 00a0 23030000 		.4byte	.LASF14
  431 00a4 05       		.uleb128 0x5
  432 00a5 6B000000 		.4byte	0x6b
  433 00a9 04       		.uleb128 0x4
- 434 00aa 16050000 		.4byte	.LASF15
+ 434 00aa EB040000 		.4byte	.LASF15
  435 00ae 02       		.byte	0x2
  436 00af A802     		.2byte	0x2a8
  437 00b1 B5000000 		.4byte	0xb5
@@ -1432,44 +1432,44 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  443 00c0 4301     		.2byte	0x143
  444 00c2 77000000 		.4byte	0x77
  445 00c6 04       		.uleb128 0x4
- 446 00c7 55060000 		.4byte	.LASF17
+ 446 00c7 2A060000 		.4byte	.LASF17
  447 00cb 03       		.byte	0x3
  448 00cc 4701     		.2byte	0x147
  449 00ce 6B000000 		.4byte	0x6b
  450 00d2 06       		.uleb128 0x6
  451 00d3 10       		.byte	0x10
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 25
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 25
 
 
  452 00d4 04       		.byte	0x4
  453 00d5 AD       		.byte	0xad
  454 00d6 5F010000 		.4byte	0x15f
  455 00da 07       		.uleb128 0x7
- 456 00db 99050000 		.4byte	.LASF18
+ 456 00db 6E050000 		.4byte	.LASF18
  457 00df 04       		.byte	0x4
  458 00e0 B2       		.byte	0xb2
  459 00e1 77000000 		.4byte	0x77
  460 00e5 00       		.byte	0
  461 00e6 07       		.uleb128 0x7
- 462 00e7 19040000 		.4byte	.LASF19
+ 462 00e7 5E040000 		.4byte	.LASF19
  463 00eb 04       		.byte	0x4
  464 00ec B7       		.byte	0xb7
  465 00ed BA000000 		.4byte	0xba
  466 00f1 02       		.byte	0x2
  467 00f2 07       		.uleb128 0x7
- 468 00f3 87060000 		.4byte	.LASF20
+ 468 00f3 5C060000 		.4byte	.LASF20
  469 00f7 04       		.byte	0x4
  470 00f8 BC       		.byte	0xbc
  471 00f9 6B000000 		.4byte	0x6b
  472 00fd 04       		.byte	0x4
  473 00fe 07       		.uleb128 0x7
- 474 00ff E0050000 		.4byte	.LASF21
+ 474 00ff B5050000 		.4byte	.LASF21
  475 0103 04       		.byte	0x4
  476 0104 C1       		.byte	0xc1
  477 0105 6B000000 		.4byte	0x6b
  478 0109 05       		.byte	0x5
  479 010a 07       		.uleb128 0x7
- 480 010b B7030000 		.4byte	.LASF22
+ 480 010b FC030000 		.4byte	.LASF22
  481 010f 04       		.byte	0x4
  482 0110 C7       		.byte	0xc7
  483 0111 6B000000 		.4byte	0x6b
@@ -1498,11 +1498,11 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  506 0140 E0       		.byte	0xe0
  507 0141 6B000000 		.4byte	0x6b
  508 0145 0A       		.byte	0xa
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 26
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 26
 
 
  509 0146 07       		.uleb128 0x7
- 510 0147 02070000 		.4byte	.LASF27
+ 510 0147 D7060000 		.4byte	.LASF27
  511 014b 04       		.byte	0x4
  512 014c E8       		.byte	0xe8
  513 014d 77000000 		.4byte	0x77
@@ -1526,7 +1526,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  531 0171 07       		.byte	0x7
  532 0172 ED000000 		.4byte	.LASF29
  533 0176 0A       		.uleb128 0xa
- 534 0177 C3060000 		.4byte	.LASF30
+ 534 0177 98060000 		.4byte	.LASF30
  535 017b 04       		.byte	0x4
  536 017c EE       		.byte	0xee
  537 017d D2000000 		.4byte	0xd2
@@ -1536,34 +1536,34 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  541 0184 F3       		.byte	0xf3
  542 0185 17020000 		.4byte	0x217
  543 0189 07       		.uleb128 0x7
- 544 018a 99050000 		.4byte	.LASF18
+ 544 018a 6E050000 		.4byte	.LASF18
  545 018e 04       		.byte	0x4
  546 018f F8       		.byte	0xf8
  547 0190 77000000 		.4byte	0x77
  548 0194 00       		.byte	0
  549 0195 07       		.uleb128 0x7
- 550 0196 19040000 		.4byte	.LASF19
+ 550 0196 5E040000 		.4byte	.LASF19
  551 019a 04       		.byte	0x4
  552 019b FD       		.byte	0xfd
  553 019c BA000000 		.4byte	0xba
  554 01a0 02       		.byte	0x2
  555 01a1 0B       		.uleb128 0xb
- 556 01a2 87060000 		.4byte	.LASF20
+ 556 01a2 5C060000 		.4byte	.LASF20
  557 01a6 04       		.byte	0x4
  558 01a7 0201     		.2byte	0x102
  559 01a9 6B000000 		.4byte	0x6b
  560 01ad 04       		.byte	0x4
  561 01ae 0B       		.uleb128 0xb
- 562 01af E0050000 		.4byte	.LASF21
+ 562 01af B5050000 		.4byte	.LASF21
  563 01b3 04       		.byte	0x4
  564 01b4 0701     		.2byte	0x107
  565 01b6 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 27
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 27
 
 
  566 01ba 05       		.byte	0x5
  567 01bb 0B       		.uleb128 0xb
- 568 01bc B7030000 		.4byte	.LASF22
+ 568 01bc FC030000 		.4byte	.LASF22
  569 01c0 04       		.byte	0x4
  570 01c1 0D01     		.2byte	0x10d
  571 01c3 6B000000 		.4byte	0x6b
@@ -1593,7 +1593,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  595 01f7 6B000000 		.4byte	0x6b
  596 01fb 0A       		.byte	0xa
  597 01fc 0B       		.uleb128 0xb
- 598 01fd 02070000 		.4byte	.LASF27
+ 598 01fd D7060000 		.4byte	.LASF27
  599 0201 04       		.byte	0x4
  600 0202 2E01     		.2byte	0x12e
  601 0204 77000000 		.4byte	0x77
@@ -1616,34 +1616,34 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  618 0226 3901     		.2byte	0x139
  619 0228 C9020000 		.4byte	0x2c9
  620 022c 0B       		.uleb128 0xb
- 621 022d 99050000 		.4byte	.LASF18
+ 621 022d 6E050000 		.4byte	.LASF18
  622 0231 04       		.byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 28
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 28
 
 
  623 0232 3E01     		.2byte	0x13e
  624 0234 77000000 		.4byte	0x77
  625 0238 00       		.byte	0
  626 0239 0B       		.uleb128 0xb
- 627 023a 19040000 		.4byte	.LASF19
+ 627 023a 5E040000 		.4byte	.LASF19
  628 023e 04       		.byte	0x4
  629 023f 4301     		.2byte	0x143
  630 0241 BA000000 		.4byte	0xba
  631 0245 02       		.byte	0x2
  632 0246 0B       		.uleb128 0xb
- 633 0247 87060000 		.4byte	.LASF20
+ 633 0247 5C060000 		.4byte	.LASF20
  634 024b 04       		.byte	0x4
  635 024c 4801     		.2byte	0x148
  636 024e 6B000000 		.4byte	0x6b
  637 0252 04       		.byte	0x4
  638 0253 0B       		.uleb128 0xb
- 639 0254 E0050000 		.4byte	.LASF21
+ 639 0254 B5050000 		.4byte	.LASF21
  640 0258 04       		.byte	0x4
  641 0259 4D01     		.2byte	0x14d
  642 025b 6B000000 		.4byte	0x6b
  643 025f 05       		.byte	0x5
  644 0260 0B       		.uleb128 0xb
- 645 0261 B7030000 		.4byte	.LASF22
+ 645 0261 FC030000 		.4byte	.LASF22
  646 0265 04       		.byte	0x4
  647 0266 5301     		.2byte	0x153
  648 0268 6B000000 		.4byte	0x6b
@@ -1673,12 +1673,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  672 029c 6B000000 		.4byte	0x6b
  673 02a0 0A       		.byte	0xa
  674 02a1 0B       		.uleb128 0xb
- 675 02a2 02070000 		.4byte	.LASF27
+ 675 02a2 D7060000 		.4byte	.LASF27
  676 02a6 04       		.byte	0x4
  677 02a7 7401     		.2byte	0x174
  678 02a9 77000000 		.4byte	0x77
  679 02ad 0C       		.byte	0xc
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 29
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 29
 
 
  680 02ae 0B       		.uleb128 0xb
@@ -1688,7 +1688,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  684 02b6 6B000000 		.4byte	0x6b
  685 02ba 0E       		.byte	0xe
  686 02bb 0B       		.uleb128 0xb
- 687 02bc E9060000 		.4byte	.LASF32
+ 687 02bc BE060000 		.4byte	.LASF32
  688 02c0 04       		.byte	0x4
  689 02c1 7E01     		.2byte	0x17e
  690 02c3 C9020000 		.4byte	0x2c9
@@ -1702,7 +1702,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  698 02d7 00       		.byte	0
  699 02d8 00       		.byte	0
  700 02d9 04       		.uleb128 0x4
- 701 02da A4050000 		.4byte	.LASF33
+ 701 02da 79050000 		.4byte	.LASF33
  702 02de 04       		.byte	0x4
  703 02df 7F01     		.2byte	0x17f
  704 02e1 23020000 		.4byte	0x223
@@ -1712,25 +1712,25 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  708 02e8 8501     		.2byte	0x185
  709 02ea 23030000 		.4byte	0x323
  710 02ee 0B       		.uleb128 0xb
- 711 02ef 30020000 		.4byte	.LASF34
+ 711 02ef 3E020000 		.4byte	.LASF34
  712 02f3 04       		.byte	0x4
  713 02f4 8A01     		.2byte	0x18a
  714 02f6 17020000 		.4byte	0x217
  715 02fa 00       		.byte	0
  716 02fb 0B       		.uleb128 0xb
- 717 02fc 35020000 		.4byte	.LASF35
+ 717 02fc 43020000 		.4byte	.LASF35
  718 0300 04       		.byte	0x4
  719 0301 8F01     		.2byte	0x18f
  720 0303 17020000 		.4byte	0x217
  721 0307 10       		.byte	0x10
  722 0308 0B       		.uleb128 0xb
- 723 0309 3A020000 		.4byte	.LASF36
+ 723 0309 48020000 		.4byte	.LASF36
  724 030d 04       		.byte	0x4
  725 030e 9401     		.2byte	0x194
  726 0310 17020000 		.4byte	0x217
  727 0314 20       		.byte	0x20
  728 0315 0B       		.uleb128 0xb
- 729 0316 49070000 		.4byte	.LASF37
+ 729 0316 1E070000 		.4byte	.LASF37
  730 031a 04       		.byte	0x4
  731 031b 9901     		.2byte	0x199
  732 031d D9020000 		.4byte	0x2d9
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  734 0322 00       		.byte	0
  735 0323 04       		.uleb128 0x4
  736 0324 0E010000 		.4byte	.LASF38
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 30
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 30
 
 
  737 0328 04       		.byte	0x4
@@ -1762,7 +1762,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  755 034d C9020000 		.4byte	0x2c9
  756 0351 02       		.byte	0x2
  757 0352 0B       		.uleb128 0xb
- 758 0353 2B060000 		.4byte	.LASF40
+ 758 0353 00060000 		.4byte	.LASF40
  759 0357 04       		.byte	0x4
  760 0358 B001     		.2byte	0x1b0
  761 035a 5F010000 		.4byte	0x15f
@@ -1774,7 +1774,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  767 0367 BA000000 		.4byte	0xba
  768 036b 06       		.byte	0x6
  769 036c 0B       		.uleb128 0xb
- 770 036d 46030000 		.4byte	.LASF42
+ 770 036d 30020000 		.4byte	.LASF42
  771 0371 04       		.byte	0x4
  772 0372 BA01     		.2byte	0x1ba
  773 0374 87030000 		.4byte	0x387
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  791 039c 04       		.byte	0x4
  792 039d C001     		.2byte	0x1c0
  793 039f 2F030000 		.4byte	0x32f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 31
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 31
 
 
  794 03a3 0C       		.uleb128 0xc
@@ -1807,25 +1807,25 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  797 03a6 C601     		.2byte	0x1c6
  798 03a8 E1030000 		.4byte	0x3e1
  799 03ac 0B       		.uleb128 0xb
- 800 03ad 30020000 		.4byte	.LASF34
+ 800 03ad 3E020000 		.4byte	.LASF34
  801 03b1 04       		.byte	0x4
  802 03b2 CB01     		.2byte	0x1cb
  803 03b4 E1030000 		.4byte	0x3e1
  804 03b8 00       		.byte	0
  805 03b9 0B       		.uleb128 0xb
- 806 03ba 35020000 		.4byte	.LASF35
+ 806 03ba 43020000 		.4byte	.LASF35
  807 03be 04       		.byte	0x4
  808 03bf D001     		.2byte	0x1d0
  809 03c1 E1030000 		.4byte	0x3e1
  810 03c5 0A       		.byte	0xa
  811 03c6 0B       		.uleb128 0xb
- 812 03c7 3A020000 		.4byte	.LASF36
+ 812 03c7 48020000 		.4byte	.LASF36
  813 03cb 04       		.byte	0x4
  814 03cc D501     		.2byte	0x1d5
  815 03ce E1030000 		.4byte	0x3e1
  816 03d2 14       		.byte	0x14
  817 03d3 0B       		.uleb128 0xb
- 818 03d4 49070000 		.4byte	.LASF37
+ 818 03d4 1E070000 		.4byte	.LASF37
  819 03d8 04       		.byte	0x4
  820 03d9 DA01     		.2byte	0x1da
  821 03db F1030000 		.4byte	0x3f1
@@ -1846,7 +1846,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  836 03ff 04       		.byte	0x4
  837 0400 00       		.byte	0
  838 0401 04       		.uleb128 0x4
- 839 0402 56070000 		.4byte	.LASF45
+ 839 0402 2B070000 		.4byte	.LASF45
  840 0406 04       		.byte	0x4
  841 0407 DB01     		.2byte	0x1db
  842 0409 A3030000 		.4byte	0x3a3
@@ -1856,58 +1856,58 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  846 0410 E101     		.2byte	0x1e1
  847 0412 28050000 		.4byte	0x528
  848 0416 0B       		.uleb128 0xb
- 849 0417 74050000 		.4byte	.LASF46
+ 849 0417 49050000 		.4byte	.LASF46
  850 041b 04       		.byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 32
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 32
 
 
  851 041c E801     		.2byte	0x1e8
  852 041e 77000000 		.4byte	0x77
  853 0422 00       		.byte	0
  854 0423 0B       		.uleb128 0xb
- 855 0424 90050000 		.4byte	.LASF47
+ 855 0424 65050000 		.4byte	.LASF47
  856 0428 04       		.byte	0x4
  857 0429 ED01     		.2byte	0x1ed
  858 042b 77000000 		.4byte	0x77
  859 042f 02       		.byte	0x2
  860 0430 0B       		.uleb128 0xb
- 861 0431 6C050000 		.4byte	.LASF48
+ 861 0431 41050000 		.4byte	.LASF48
  862 0435 04       		.byte	0x4
  863 0436 F201     		.2byte	0x1f2
  864 0438 77000000 		.4byte	0x77
  865 043c 04       		.byte	0x4
  866 043d 0B       		.uleb128 0xb
- 867 043e C2030000 		.4byte	.LASF49
+ 867 043e 07040000 		.4byte	.LASF49
  868 0442 04       		.byte	0x4
  869 0443 F801     		.2byte	0x1f8
  870 0445 77000000 		.4byte	0x77
  871 0449 06       		.byte	0x6
  872 044a 0B       		.uleb128 0xb
- 873 044b D4050000 		.4byte	.LASF50
+ 873 044b A9050000 		.4byte	.LASF50
  874 044f 04       		.byte	0x4
  875 0450 FD01     		.2byte	0x1fd
  876 0452 77000000 		.4byte	0x77
  877 0456 08       		.byte	0x8
  878 0457 0B       		.uleb128 0xb
- 879 0458 65050000 		.4byte	.LASF51
+ 879 0458 3A050000 		.4byte	.LASF51
  880 045c 04       		.byte	0x4
  881 045d 0202     		.2byte	0x202
  882 045f B5000000 		.4byte	0xb5
  883 0463 0C       		.byte	0xc
  884 0464 0B       		.uleb128 0xb
- 885 0465 0B050000 		.4byte	.LASF52
+ 885 0465 E0040000 		.4byte	.LASF52
  886 0469 04       		.byte	0x4
  887 046a 0802     		.2byte	0x208
  888 046c 28050000 		.4byte	0x528
  889 0470 10       		.byte	0x10
  890 0471 0B       		.uleb128 0xb
- 891 0472 EC030000 		.4byte	.LASF53
+ 891 0472 31040000 		.4byte	.LASF53
  892 0476 04       		.byte	0x4
  893 0477 0F02     		.2byte	0x20f
  894 0479 28050000 		.4byte	0x528
  895 047d 14       		.byte	0x14
  896 047e 0B       		.uleb128 0xb
- 897 047f 3F070000 		.4byte	.LASF54
+ 897 047f 14070000 		.4byte	.LASF54
  898 0483 04       		.byte	0x4
  899 0484 1F02     		.2byte	0x21f
  900 0486 38050000 		.4byte	0x538
@@ -1918,17 +1918,17 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  905 0491 2502     		.2byte	0x225
  906 0493 77000000 		.4byte	0x77
  907 0497 1C       		.byte	0x1c
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 33
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 33
 
 
  908 0498 0B       		.uleb128 0xb
- 909 0499 CA050000 		.4byte	.LASF56
+ 909 0499 9F050000 		.4byte	.LASF56
  910 049d 04       		.byte	0x4
  911 049e 2A02     		.2byte	0x22a
  912 04a0 6B000000 		.4byte	0x6b
  913 04a4 1E       		.byte	0x1e
  914 04a5 0B       		.uleb128 0xb
- 915 04a6 DF060000 		.4byte	.LASF57
+ 915 04a6 B4060000 		.4byte	.LASF57
  916 04aa 04       		.byte	0x4
  917 04ab 2F02     		.2byte	0x22f
  918 04ad 6B000000 		.4byte	0x6b
@@ -1940,45 +1940,45 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  924 04ba 23030000 		.4byte	0x323
  925 04be 20       		.byte	0x20
  926 04bf 0B       		.uleb128 0xb
- 927 04c0 C2050000 		.4byte	.LASF59
+ 927 04c0 97050000 		.4byte	.LASF59
  928 04c4 04       		.byte	0x4
  929 04c5 3902     		.2byte	0x239
  930 04c7 01040000 		.4byte	0x401
  931 04cb 62       		.byte	0x62
  932 04cc 0B       		.uleb128 0xb
- 933 04cd F2060000 		.4byte	.LASF60
+ 933 04cd C7060000 		.4byte	.LASF60
  934 04d1 04       		.byte	0x4
  935 04d2 3E02     		.2byte	0x23e
  936 04d4 6B000000 		.4byte	0x6b
  937 04d8 B2       		.byte	0xb2
  938 04d9 0B       		.uleb128 0xb
- 939 04da 11030000 		.4byte	.LASF61
+ 939 04da 13030000 		.4byte	.LASF61
  940 04de 04       		.byte	0x4
  941 04df 4302     		.2byte	0x243
  942 04e1 6B000000 		.4byte	0x6b
  943 04e5 B3       		.byte	0xb3
  944 04e6 0B       		.uleb128 0xb
- 945 04e7 7D050000 		.4byte	.LASF62
+ 945 04e7 52050000 		.4byte	.LASF62
  946 04eb 04       		.byte	0x4
  947 04ec 4802     		.2byte	0x248
  948 04ee 77000000 		.4byte	0x77
  949 04f2 B4       		.byte	0xb4
  950 04f3 0B       		.uleb128 0xb
- 951 04f4 FB040000 		.4byte	.LASF63
+ 951 04f4 D0040000 		.4byte	.LASF63
  952 04f8 04       		.byte	0x4
  953 04f9 4D02     		.2byte	0x24d
  954 04fb C9020000 		.4byte	0x2c9
  955 04ff B6       		.byte	0xb6
  956 0500 0B       		.uleb128 0xb
- 957 0501 07060000 		.4byte	.LASF64
+ 957 0501 DC050000 		.4byte	.LASF64
  958 0505 04       		.byte	0x4
  959 0506 5202     		.2byte	0x252
  960 0508 6B000000 		.4byte	0x6b
  961 050c B8       		.byte	0xb8
  962 050d 0B       		.uleb128 0xb
- 963 050e 09070000 		.4byte	.LASF65
+ 963 050e DE060000 		.4byte	.LASF65
  964 0512 04       		.byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 34
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 34
 
 
  965 0513 5702     		.2byte	0x257
@@ -2016,7 +2016,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  997 0557 6302     		.2byte	0x263
  998 0559 D3050000 		.4byte	0x5d3
  999 055d 0B       		.uleb128 0xb
- 1000 055e C0020000 		.4byte	.LASF68
+ 1000 055e CE020000 		.4byte	.LASF68
  1001 0562 04       		.byte	0x4
  1002 0563 6802     		.2byte	0x268
  1003 0565 D3050000 		.4byte	0x5d3
@@ -2028,17 +2028,17 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1009 0572 D3050000 		.4byte	0x5d3
  1010 0576 04       		.byte	0x4
  1011 0577 0B       		.uleb128 0xb
- 1012 0578 3E060000 		.4byte	.LASF70
+ 1012 0578 13060000 		.4byte	.LASF70
  1013 057c 04       		.byte	0x4
  1014 057d 7202     		.2byte	0x272
  1015 057f D3050000 		.4byte	0x5d3
  1016 0583 08       		.byte	0x8
  1017 0584 0B       		.uleb128 0xb
- 1018 0585 BA020000 		.4byte	.LASF71
+ 1018 0585 C8020000 		.4byte	.LASF71
  1019 0589 04       		.byte	0x4
  1020 058a 7702     		.2byte	0x277
  1021 058c D3050000 		.4byte	0x5d3
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 35
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 35
 
 
  1022 0590 0C       		.byte	0xc
@@ -2049,25 +2049,25 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1027 0599 83000000 		.4byte	0x83
  1028 059d 10       		.byte	0x10
  1029 059e 0B       		.uleb128 0xb
- 1030 059f 44060000 		.4byte	.LASF73
+ 1030 059f 19060000 		.4byte	.LASF73
  1031 05a3 04       		.byte	0x4
  1032 05a4 8102     		.2byte	0x281
  1033 05a6 83000000 		.4byte	0x83
  1034 05aa 14       		.byte	0x14
  1035 05ab 0B       		.uleb128 0xb
- 1036 05ac 33060000 		.4byte	.LASF74
+ 1036 05ac 08060000 		.4byte	.LASF74
  1037 05b0 04       		.byte	0x4
  1038 05b1 8602     		.2byte	0x286
  1039 05b3 6B000000 		.4byte	0x6b
  1040 05b7 18       		.byte	0x18
  1041 05b8 0B       		.uleb128 0xb
- 1042 05b9 54030000 		.4byte	.LASF75
+ 1042 05b9 99030000 		.4byte	.LASF75
  1043 05bd 04       		.byte	0x4
  1044 05be 8B02     		.2byte	0x28b
  1045 05c0 6B000000 		.4byte	0x6b
  1046 05c4 19       		.byte	0x19
  1047 05c5 0B       		.uleb128 0xb
- 1048 05c6 2F030000 		.4byte	.LASF76
+ 1048 05c6 31030000 		.4byte	.LASF76
  1049 05ca 04       		.byte	0x4
  1050 05cb 9002     		.2byte	0x290
  1051 05cd 6B000000 		.4byte	0x6b
@@ -2087,7 +2087,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1065 05e8 C402     		.2byte	0x2c4
  1066 05ea A5060000 		.4byte	0x6a5
  1067 05ee 0B       		.uleb128 0xb
- 1068 05ef 32070000 		.4byte	.LASF78
+ 1068 05ef 07070000 		.4byte	.LASF78
  1069 05f3 04       		.byte	0x4
  1070 05f4 CD02     		.2byte	0x2cd
  1071 05f6 A5060000 		.4byte	0x6a5
@@ -2098,29 +2098,29 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1076 0601 D402     		.2byte	0x2d4
  1077 0603 AC060000 		.4byte	0x6ac
  1078 0607 04       		.byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 36
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 36
 
 
  1079 0608 0B       		.uleb128 0xb
- 1080 0609 7C060000 		.4byte	.LASF80
+ 1080 0609 51060000 		.4byte	.LASF80
  1081 060d 04       		.byte	0x4
  1082 060e DA02     		.2byte	0x2da
  1083 0610 AE060000 		.4byte	0x6ae
  1084 0614 08       		.byte	0x8
  1085 0615 0B       		.uleb128 0xb
- 1086 0616 8F060000 		.4byte	.LASF81
+ 1086 0616 64060000 		.4byte	.LASF81
  1087 061a 04       		.byte	0x4
  1088 061b E002     		.2byte	0x2e0
  1089 061d AC060000 		.4byte	0x6ac
  1090 0621 0C       		.byte	0xc
  1091 0622 0B       		.uleb128 0xb
- 1092 0623 61020000 		.4byte	.LASF82
+ 1092 0623 6F020000 		.4byte	.LASF82
  1093 0627 04       		.byte	0x4
  1094 0628 E702     		.2byte	0x2e7
  1095 062a B4060000 		.4byte	0x6b4
  1096 062e 10       		.byte	0x10
  1097 062f 0B       		.uleb128 0xb
- 1098 0630 CB040000 		.4byte	.LASF83
+ 1098 0630 A0040000 		.4byte	.LASF83
  1099 0634 04       		.byte	0x4
  1100 0635 EC02     		.2byte	0x2ec
  1101 0637 83000000 		.4byte	0x83
@@ -2132,40 +2132,40 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1107 0644 77000000 		.4byte	0x77
  1108 0648 18       		.byte	0x18
  1109 0649 0B       		.uleb128 0xb
- 1110 064a 35030000 		.4byte	.LASF85
+ 1110 064a 37030000 		.4byte	.LASF85
  1111 064e 04       		.byte	0x4
  1112 064f FA02     		.2byte	0x2fa
  1113 0651 6B000000 		.4byte	0x6b
  1114 0655 1A       		.byte	0x1a
  1115 0656 0B       		.uleb128 0xb
- 1116 0657 49060000 		.4byte	.LASF86
+ 1116 0657 1E060000 		.4byte	.LASF86
  1117 065b 04       		.byte	0x4
  1118 065c 0003     		.2byte	0x300
  1119 065e 6B000000 		.4byte	0x6b
  1120 0662 1B       		.byte	0x1b
  1121 0663 0B       		.uleb128 0xb
- 1122 0664 AF030000 		.4byte	.LASF87
+ 1122 0664 F4030000 		.4byte	.LASF87
  1123 0668 04       		.byte	0x4
  1124 0669 0A03     		.2byte	0x30a
  1125 066b 6B000000 		.4byte	0x6b
  1126 066f 1C       		.byte	0x1c
  1127 0670 0B       		.uleb128 0xb
- 1128 0671 9D020000 		.4byte	.LASF88
+ 1128 0671 AB020000 		.4byte	.LASF88
  1129 0675 04       		.byte	0x4
  1130 0676 1203     		.2byte	0x312
  1131 0678 6B000000 		.4byte	0x6b
  1132 067c 1D       		.byte	0x1d
  1133 067d 0B       		.uleb128 0xb
- 1134 067e 70060000 		.4byte	.LASF89
+ 1134 067e 45060000 		.4byte	.LASF89
  1135 0682 04       		.byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 37
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 37
 
 
  1136 0683 1703     		.2byte	0x317
  1137 0685 77000000 		.4byte	0x77
  1138 0689 1E       		.byte	0x1e
  1139 068a 0B       		.uleb128 0xb
- 1140 068b 05040000 		.4byte	.LASF90
+ 1140 068b 4A040000 		.4byte	.LASF90
  1141 068f 04       		.byte	0x4
  1142 0690 2003     		.2byte	0x320
  1143 0692 83000000 		.4byte	0x83
@@ -2190,7 +2190,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1162 06b5 04       		.byte	0x4
  1163 06b6 6B000000 		.4byte	0x6b
  1164 06ba 04       		.uleb128 0x4
- 1165 06bb C9020000 		.4byte	.LASF92
+ 1165 06bb D7020000 		.4byte	.LASF92
  1166 06bf 04       		.byte	0x4
  1167 06c0 2603     		.2byte	0x326
  1168 06c2 E5050000 		.4byte	0x5e5
@@ -2200,7 +2200,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1172 06c9 2C03     		.2byte	0x32c
  1173 06cb DD060000 		.4byte	0x6dd
  1174 06cf 0B       		.uleb128 0xb
- 1175 06d0 9F060000 		.4byte	.LASF93
+ 1175 06d0 74060000 		.4byte	.LASF93
  1176 06d4 04       		.byte	0x4
  1177 06d5 3103     		.2byte	0x331
  1178 06d7 DD060000 		.4byte	0x6dd
@@ -2214,19 +2214,19 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1186 06eb 03       		.byte	0x3
  1187 06ec 00       		.byte	0
  1188 06ed 04       		.uleb128 0x4
- 1189 06ee 22040000 		.4byte	.LASF94
+ 1189 06ee 67040000 		.4byte	.LASF94
  1190 06f2 04       		.byte	0x4
  1191 06f3 3203     		.2byte	0x332
  1192 06f5 C6060000 		.4byte	0x6c6
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 38
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 38
 
 
  1193 06f9 02       		.uleb128 0x2
  1194 06fa 08       		.byte	0x8
  1195 06fb 04       		.byte	0x4
- 1196 06fc CB030000 		.4byte	.LASF95
+ 1196 06fc 10040000 		.4byte	.LASF95
  1197 0700 11       		.uleb128 0x11
- 1198 0701 E9050000 		.4byte	.LASF99
+ 1198 0701 BE050000 		.4byte	.LASF99
  1199 0705 01       		.byte	0x1
  1200 0706 F402     		.2byte	0x2f4
  1201 0708 00000000 		.4byte	.LFB3
@@ -2247,7 +2247,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1216 072e 83000000 		.4byte	0x83
  1217 0732 40000000 		.4byte	.LLST1
  1218 0736 12       		.uleb128 0x12
- 1219 0737 3E030000 		.4byte	.LASF98
+ 1219 0737 40030000 		.4byte	.LASF98
  1220 073b 01       		.byte	0x1
  1221 073c FA02     		.2byte	0x2fa
  1222 073e 47070000 		.4byte	0x747
@@ -2259,7 +2259,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1228 074d 13       		.uleb128 0x13
  1229 074e 76010000 		.4byte	0x176
  1230 0752 11       		.uleb128 0x11
- 1231 0753 3F020000 		.4byte	.LASF100
+ 1231 0753 4D020000 		.4byte	.LASF100
  1232 0757 01       		.byte	0x1
  1233 0758 2D03     		.2byte	0x32d
  1234 075a 00000000 		.4byte	.LFB4
@@ -2268,7 +2268,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1237 0763 9C       		.byte	0x9c
  1238 0764 9D070000 		.4byte	0x79d
  1239 0768 12       		.uleb128 0x12
- 1240 0769 3E030000 		.4byte	.LASF98
+ 1240 0769 40030000 		.4byte	.LASF98
  1241 076d 01       		.byte	0x1
  1242 076e 3503     		.2byte	0x335
  1243 0770 9D070000 		.4byte	0x79d
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1247 077d 71080000 		.4byte	0x871
  1248 0781 14       		.uleb128 0x14
  1249 0782 6A000000 		.4byte	.LVL12
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 39
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 39
 
 
  1250 0786 7D080000 		.4byte	0x87d
@@ -2293,7 +2293,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1259 079e 04       		.byte	0x4
  1260 079f 76010000 		.4byte	0x176
  1261 07a3 15       		.uleb128 0x15
- 1262 07a4 5C030000 		.4byte	.LASF101
+ 1262 07a4 A1030000 		.4byte	.LASF101
  1263 07a8 01       		.byte	0x1
  1264 07a9 79       		.byte	0x79
  1265 07aa 00000000 		.4byte	.LFB1
@@ -2306,7 +2306,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1272 07bd 00070000 		.4byte	0x700
  1273 07c1 00       		.byte	0
  1274 07c2 15       		.uleb128 0x15
- 1275 07c3 A9060000 		.4byte	.LASF102
+ 1275 07c3 7E060000 		.4byte	.LASF102
  1276 07c7 01       		.byte	0x1
  1277 07c8 ED       		.byte	0xed
  1278 07c9 00000000 		.4byte	.LFB2
@@ -2315,7 +2315,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1281 07d2 9C       		.byte	0x9c
  1282 07d3 0D080000 		.4byte	0x80d
  1283 07d7 16       		.uleb128 0x16
- 1284 07d8 05030000 		.4byte	.LASF103
+ 1284 07d8 07030000 		.4byte	.LASF103
  1285 07dc 01       		.byte	0x1
  1286 07dd F0       		.byte	0xf0
  1287 07de 0D080000 		.4byte	0x80d
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1304 0804 36000000 		.4byte	.LVL22
  1305 0808 52070000 		.4byte	0x752
  1306 080c 00       		.byte	0
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 40
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 40
 
 
  1307 080d 0E       		.uleb128 0xe
@@ -2352,65 +2352,65 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1315 081e C604     		.2byte	0x4c6
  1316 0820 48050000 		.4byte	0x548
  1317 0824 19       		.uleb128 0x19
- 1318 0825 EE020000 		.4byte	.LASF105
+ 1318 0825 F0020000 		.4byte	.LASF105
  1319 0829 04       		.byte	0x4
  1320 082a C704     		.2byte	0x4c7
  1321 082c 30080000 		.4byte	0x830
  1322 0830 13       		.uleb128 0x13
  1323 0831 ED060000 		.4byte	0x6ed
  1324 0835 1A       		.uleb128 0x1a
- 1325 0836 A5020000 		.4byte	.LASF106
+ 1325 0836 B3020000 		.4byte	.LASF106
  1326 083a 05       		.byte	0x5
  1327 083b B1       		.byte	0xb1
  1328 083c A4000000 		.4byte	0xa4
  1329 0840 1A       		.uleb128 0x1a
- 1330 0841 D7030000 		.4byte	.LASF107
+ 1330 0841 1C040000 		.4byte	.LASF107
  1331 0845 05       		.byte	0x5
  1332 0846 B2       		.byte	0xb2
  1333 0847 A4000000 		.4byte	0xa4
  1334 084b 1A       		.uleb128 0x1a
- 1335 084c 77030000 		.4byte	.LASF108
+ 1335 084c BC030000 		.4byte	.LASF108
  1336 0850 05       		.byte	0x5
  1337 0851 B3       		.byte	0xb3
  1338 0852 6B000000 		.4byte	0x6b
  1339 0856 1A       		.uleb128 0x1a
- 1340 0857 D8040000 		.4byte	.LASF109
+ 1340 0857 AD040000 		.4byte	.LASF109
  1341 085b 05       		.byte	0x5
  1342 085c B5       		.byte	0xb5
  1343 085d AE060000 		.4byte	0x6ae
  1344 0861 1A       		.uleb128 0x1a
- 1345 0862 1C050000 		.4byte	.LASF110
+ 1345 0862 F1040000 		.4byte	.LASF110
  1346 0866 05       		.byte	0x5
  1347 0867 BC       		.byte	0xbc
  1348 0868 6C080000 		.4byte	0x86c
  1349 086c 13       		.uleb128 0x13
  1350 086d 6B000000 		.4byte	0x6b
  1351 0871 1B       		.uleb128 0x1b
- 1352 0872 73070000 		.4byte	.LASF111
- 1353 0876 73070000 		.4byte	.LASF111
+ 1352 0872 48070000 		.4byte	.LASF111
+ 1353 0876 48070000 		.4byte	.LASF111
  1354 087a 06       		.byte	0x6
  1355 087b A301     		.2byte	0x1a3
  1356 087d 1B       		.uleb128 0x1b
- 1357 087e 46050000 		.4byte	.LASF112
- 1358 0882 46050000 		.4byte	.LASF112
+ 1357 087e 1B050000 		.4byte	.LASF112
+ 1358 0882 1B050000 		.4byte	.LASF112
  1359 0886 06       		.byte	0x6
  1360 0887 B101     		.2byte	0x1b1
  1361 0889 1B       		.uleb128 0x1b
  1362 088a 09000000 		.4byte	.LASF113
  1363 088e 09000000 		.4byte	.LASF113
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 41
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 41
 
 
  1364 0892 06       		.byte	0x6
  1365 0893 A201     		.2byte	0x1a2
  1366 0895 1C       		.uleb128 0x1c
- 1367 0896 14070000 		.4byte	.LASF114
- 1368 089a 14070000 		.4byte	.LASF114
+ 1367 0896 E9060000 		.4byte	.LASF114
+ 1368 089a E9060000 		.4byte	.LASF114
  1369 089e 05       		.byte	0x5
  1370 089f 83       		.byte	0x83
  1371 08a0 1B       		.uleb128 0x1b
- 1372 08a1 95030000 		.4byte	.LASF115
- 1373 08a5 95030000 		.4byte	.LASF115
+ 1372 08a1 DA030000 		.4byte	.LASF115
+ 1373 08a5 DA030000 		.4byte	.LASF115
  1374 08a9 06       		.byte	0x6
  1375 08aa 9201     		.2byte	0x192
  1376 08ac 00       		.byte	0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1418 0027 00       		.byte	0
  1419 0028 00       		.byte	0
  1420 0029 04       		.uleb128 0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 42
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 42
 
 
  1421 002a 16       		.uleb128 0x16
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1475 0060 00       		.byte	0
  1476 0061 00       		.byte	0
  1477 0062 09       		.uleb128 0x9
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 43
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 43
 
 
  1478 0063 21       		.uleb128 0x21
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1532 0099 3A       		.uleb128 0x3a
  1533 009a 0B       		.uleb128 0xb
  1534 009b 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 44
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 44
 
 
  1535 009c 05       		.uleb128 0x5
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1589 00d3 03       		.uleb128 0x3
  1590 00d4 0E       		.uleb128 0xe
  1591 00d5 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 45
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 45
 
 
  1592 00d6 0B       		.uleb128 0xb
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1646 010f 0E       		.uleb128 0xe
  1647 0110 3A       		.uleb128 0x3a
  1648 0111 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 46
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 46
 
 
  1649 0112 3B       		.uleb128 0x3b
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1703 014d 49       		.uleb128 0x49
  1704 014e 13       		.uleb128 0x13
  1705 014f 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 47
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 47
 
 
  1706 0150 19       		.uleb128 0x19
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1760 0019 40       		.byte	0x40
  1761 001a 25       		.byte	0x25
  1762 001b 9F       		.byte	0x9f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 48
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 48
 
 
  1763 001c 34000000 		.4byte	.LVL6
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1817              	.LLST3:
  1818 0093 14000000 		.4byte	.LVL10
  1819 0097 5D000000 		.4byte	.LVL11-1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 49
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 49
 
 
  1820 009b 0100     		.2byte	0x1
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1871      FB0E0D00 
  1871      01010101 
  1872              	.LASF58:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 50
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 50
 
 
  1873 0000 77646774 		.ascii	"wdgtList\000"
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1898              	.LASF69:
  1899 00a5 70635074 		.ascii	"pcPtr\000"
  1899      7200
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 51
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 51
 
 
  1900              	.LASF91:
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1919      5F52414D 
  1919      5F534E53 
  1919      5F535452 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 52
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 52
 
 
  1920              	.LASF43:
@@ -3094,432 +3094,427 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 1
  1933      6C6B536F 
  1933      75726365 
  1933      00
- 1934              	.LASF34:
- 1935 0230 62746E30 		.ascii	"btn0\000"
- 1935      00
- 1936              	.LASF35:
- 1937 0235 62746E31 		.ascii	"btn1\000"
+ 1934              	.LASF42:
+ 1935 0230 6E656742 		.ascii	"negBslnRstCnt\000"
+ 1935      736C6E52 
+ 1935      7374436E 
+ 1935      7400
+ 1936              	.LASF34:
+ 1937 023e 62746E30 		.ascii	"btn0\000"
  1937      00
- 1938              	.LASF36:
- 1939 023a 62746E32 		.ascii	"btn2\000"
+ 1938              	.LASF35:
+ 1939 0243 62746E31 		.ascii	"btn1\000"
  1939      00
- 1940              	.LASF100:
- 1941 023f 63617073 		.ascii	"capsense_SsCSDInitNextScan\000"
- 1941      656E7365 
- 1941      5F537343 
- 1941      5344496E 
- 1941      69744E65 
- 1942              	.LASF10:
- 1943 025a 75696E74 		.ascii	"uint16\000"
- 1943      313600
- 1944              	.LASF82:
- 1945 0261 70747232 		.ascii	"ptr2DebounceArr\000"
- 1945      4465626F 
- 1945      756E6365 
- 1945      41727200 
- 1946              	.LASF117:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 53
+ 1940              	.LASF36:
+ 1941 0248 62746E32 		.ascii	"btn2\000"
+ 1941      00
+ 1942              	.LASF100:
+ 1943 024d 63617073 		.ascii	"capsense_SsCSDInitNextScan\000"
+ 1943      656E7365 
+ 1943      5F537343 
+ 1943      5344496E 
+ 1943      69744E65 
+ 1944              	.LASF10:
+ 1945 0268 75696E74 		.ascii	"uint16\000"
+ 1945      313600
+ 1946              	.LASF82:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 53
 
 
- 1947 0271 47656E65 		.ascii	"Generated_Source\\PSoC4\\capsense_INT.c\000"
- 1947      72617465 
- 1947      645F536F 
- 1947      75726365 
- 1947      5C50536F 
- 1948              	.LASF9:
- 1949 0297 75696E74 		.ascii	"uint8\000"
- 1949      3800
- 1950              	.LASF88:
- 1951 029d 6E756D52 		.ascii	"numRows\000"
- 1951      6F777300 
- 1952              	.LASF106:
- 1953 02a5 63617073 		.ascii	"capsense_widgetIndex\000"
- 1953      656E7365 
- 1953      5F776964 
- 1953      67657449 
- 1953      6E646578 
- 1954              	.LASF71:
- 1955 02ba 70735074 		.ascii	"psPtr\000"
- 1955      7200
- 1956              	.LASF68:
- 1957 02c0 6873696F 		.ascii	"hsiomPtr\000"
- 1957      6D507472 
- 1957      00
- 1958              	.LASF92:
- 1959 02c9 63617073 		.ascii	"capsense_FLASH_WD_STRUCT\000"
- 1959      656E7365 
- 1959      5F464C41 
- 1959      53485F57 
- 1959      445F5354 
- 1960              	.LASF0:
- 1961 02e2 7369676E 		.ascii	"signed char\000"
- 1961      65642063 
- 1961      68617200 
+ 1947 026f 70747232 		.ascii	"ptr2DebounceArr\000"
+ 1947      4465626F 
+ 1947      756E6365 
+ 1947      41727200 
+ 1948              	.LASF117:
+ 1949 027f 47656E65 		.ascii	"Generated_Source\\PSoC4\\capsense_INT.c\000"
+ 1949      72617465 
+ 1949      645F536F 
+ 1949      75726365 
+ 1949      5C50536F 
+ 1950              	.LASF9:
+ 1951 02a5 75696E74 		.ascii	"uint8\000"
+ 1951      3800
+ 1952              	.LASF88:
+ 1953 02ab 6E756D52 		.ascii	"numRows\000"
+ 1953      6F777300 
+ 1954              	.LASF106:
+ 1955 02b3 63617073 		.ascii	"capsense_widgetIndex\000"
+ 1955      656E7365 
+ 1955      5F776964 
+ 1955      67657449 
+ 1955      6E646578 
+ 1956              	.LASF71:
+ 1957 02c8 70735074 		.ascii	"psPtr\000"
+ 1957      7200
+ 1958              	.LASF68:
+ 1959 02ce 6873696F 		.ascii	"hsiomPtr\000"
+ 1959      6D507472 
+ 1959      00
+ 1960              	.LASF92:
+ 1961 02d7 63617073 		.ascii	"capsense_FLASH_WD_STRUCT\000"
+ 1961      656E7365 
+ 1961      5F464C41 
+ 1961      53485F57 
+ 1961      445F5354 
  1962              	.LASF105:
- 1963 02ee 63617073 		.ascii	"capsense_dsFlash\000"
+ 1963 02f0 63617073 		.ascii	"capsense_dsFlash\000"
  1963      656E7365 
  1963      5F647346 
  1963      6C617368 
  1963      00
  1964              	.LASF12:
- 1965 02ff 666C6F61 		.ascii	"float\000"
+ 1965 0301 666C6F61 		.ascii	"float\000"
  1965      7400
  1966              	.LASF103:
- 1967 0305 63757253 		.ascii	"curSnsIOPtr\000"
+ 1967 0307 63757253 		.ascii	"curSnsIOPtr\000"
  1967      6E73494F 
  1967      50747200 
  1968              	.LASF61:
- 1969 0311 736E7254 		.ascii	"snrTestSensorId\000"
+ 1969 0313 736E7254 		.ascii	"snrTestSensorId\000"
  1969      65737453 
  1969      656E736F 
  1969      72496400 
  1970              	.LASF14:
- 1971 0321 63686172 		.ascii	"char\000"
+ 1971 0323 63686172 		.ascii	"char\000"
  1971      00
  1972              	.LASF4:
- 1973 0326 6C6F6E67 		.ascii	"long int\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 54
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 54
 
 
+ 1973 0328 6C6F6E67 		.ascii	"long int\000"
  1973      20696E74 
  1973      00
  1974              	.LASF76:
- 1975 032f 73686966 		.ascii	"shift\000"
+ 1975 0331 73686966 		.ascii	"shift\000"
  1975      7400
  1976              	.LASF85:
- 1977 0335 77646774 		.ascii	"wdgtType\000"
+ 1977 0337 77646774 		.ascii	"wdgtType\000"
  1977      54797065 
  1977      00
  1978              	.LASF98:
- 1979 033e 70747257 		.ascii	"ptrWdgt\000"
+ 1979 0340 70747257 		.ascii	"ptrWdgt\000"
  1979      64677400 
- 1980              	.LASF42:
- 1981 0346 6E656742 		.ascii	"negBslnRstCnt\000"
- 1981      736C6E52 
- 1981      7374436E 
- 1981      7400
- 1982              	.LASF75:
- 1983 0354 64725368 		.ascii	"drShift\000"
- 1983      69667400 
- 1984              	.LASF101:
- 1985 035c 63617073 		.ascii	"capsense_CSDPostSingleScan\000"
- 1985      656E7365 
- 1985      5F435344 
- 1985      506F7374 
- 1985      53696E67 
- 1986              	.LASF108:
- 1987 0377 63617073 		.ascii	"capsense_requestScanAllWidget\000"
- 1987      656E7365 
- 1987      5F726571 
- 1987      75657374 
- 1987      5363616E 
- 1988              	.LASF115:
- 1989 0395 63617073 		.ascii	"capsense_CSDDisconnectSns\000"
- 1989      656E7365 
- 1989      5F435344 
- 1989      44697363 
- 1989      6F6E6E65 
- 1990              	.LASF87:
- 1991 03af 6E756D43 		.ascii	"numCols\000"
- 1991      6F6C7300 
- 1992              	.LASF22:
- 1993 03b7 68797374 		.ascii	"hysteresis\000"
- 1993      65726573 
- 1993      697300
- 1994              	.LASF49:
- 1995 03c2 74756E65 		.ascii	"tunerCmd\000"
- 1995      72436D64 
- 1995      00
- 1996              	.LASF95:
- 1997 03cb 6C6F6E67 		.ascii	"long double\000"
- 1997      20646F75 
- 1997      626C6500 
- 1998              	.LASF107:
- 1999 03d7 63617073 		.ascii	"capsense_sensorIndex\000"
- 1999      656E7365 
- 1999      5F73656E 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 55
+ 1980              	.LASF118:
+ 1981 0348 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
+ 1981      6978745C 
+ 1981      61697874 
+ 1981      5C706F72 
+ 1981      74735C43 
+ 1982 0375 78616D70 		.ascii	"xamples\\Configuracion_General.cydsn\000"
+ 1982      6C65735C 
+ 1982      436F6E66 
+ 1982      69677572 
+ 1982      6163696F 
+ 1983              	.LASF75:
+ 1984 0399 64725368 		.ascii	"drShift\000"
+ 1984      69667400 
+ 1985              	.LASF101:
+ 1986 03a1 63617073 		.ascii	"capsense_CSDPostSingleScan\000"
+ 1986      656E7365 
+ 1986      5F435344 
+ 1986      506F7374 
+ 1986      53696E67 
+ 1987              	.LASF108:
+ 1988 03bc 63617073 		.ascii	"capsense_requestScanAllWidget\000"
+ 1988      656E7365 
+ 1988      5F726571 
+ 1988      75657374 
+ 1988      5363616E 
+ 1989              	.LASF115:
+ 1990 03da 63617073 		.ascii	"capsense_CSDDisconnectSns\000"
+ 1990      656E7365 
+ 1990      5F435344 
+ 1990      44697363 
+ 1990      6F6E6E65 
+ 1991              	.LASF87:
+ 1992 03f4 6E756D43 		.ascii	"numCols\000"
+ 1992      6F6C7300 
+ 1993              	.LASF22:
+ 1994 03fc 68797374 		.ascii	"hysteresis\000"
+ 1994      65726573 
+ 1994      697300
+ 1995              	.LASF49:
+ 1996 0407 74756E65 		.ascii	"tunerCmd\000"
+ 1996      72436D64 
+ 1996      00
+ 1997              	.LASF95:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 55
 
 
- 1999      736F7249 
- 1999      6E646578 
- 2000              	.LASF53:
- 2001 03ec 77646774 		.ascii	"wdgtStatus\000"
- 2001      53746174 
- 2001      757300
- 2002              	.LASF1:
- 2003 03f7 756E7369 		.ascii	"unsigned char\000"
- 2003      676E6564 
- 2003      20636861 
- 2003      7200
- 2004              	.LASF90:
- 2005 0405 7843656E 		.ascii	"xCentroidMultiplier\000"
- 2005      74726F69 
- 2005      644D756C 
- 2005      7469706C 
- 2005      69657200 
- 2006              	.LASF19:
- 2007 0419 66696E67 		.ascii	"fingerTh\000"
- 2007      65725468 
- 2007      00
- 2008              	.LASF94:
- 2009 0422 63617073 		.ascii	"capsense_FLASH_STRUCT\000"
- 2009      656E7365 
- 2009      5F464C41 
- 2009      53485F53 
- 2009      54525543 
- 2010              	.LASF118:
- 2011 0438 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\aixt"
- 2011      6F63756D 
- 2011      656E746F 
- 2011      735C5544 
- 2011      5C323032 
- 2012 0466 2D702D73 		.ascii	"-p-so-c-4\\ports\\Cypress\\CY8CKIT-145-40XX\\projec"
- 2012      6F2D632D 
- 2012      345C706F 
- 2012      7274735C 
- 2012      43797072 
- 2013 0495 74735C43 		.ascii	"ts\\Configuracion_General.cydsn\000"
- 2013      6F6E6669 
- 2013      67757261 
- 2013      63696F6E 
- 2013      5F47656E 
- 2014              	.LASF7:
- 2015 04b4 6C6F6E67 		.ascii	"long long unsigned int\000"
- 2015      206C6F6E 
- 2015      6720756E 
- 2015      7369676E 
- 2015      65642069 
- 2016              	.LASF83:
- 2017 04cb 73746174 		.ascii	"staticConfig\000"
- 2017      6963436F 
- 2017      6E666967 
- 2017      00
- 2018              	.LASF109:
- 2019 04d8 63617073 		.ascii	"capsense_curRamSnsPtr\000"
- 2019      656E7365 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 56
+ 1998 0410 6C6F6E67 		.ascii	"long double\000"
+ 1998      20646F75 
+ 1998      626C6500 
+ 1999              	.LASF107:
+ 2000 041c 63617073 		.ascii	"capsense_sensorIndex\000"
+ 2000      656E7365 
+ 2000      5F73656E 
+ 2000      736F7249 
+ 2000      6E646578 
+ 2001              	.LASF53:
+ 2002 0431 77646774 		.ascii	"wdgtStatus\000"
+ 2002      53746174 
+ 2002      757300
+ 2003              	.LASF1:
+ 2004 043c 756E7369 		.ascii	"unsigned char\000"
+ 2004      676E6564 
+ 2004      20636861 
+ 2004      7200
+ 2005              	.LASF90:
+ 2006 044a 7843656E 		.ascii	"xCentroidMultiplier\000"
+ 2006      74726F69 
+ 2006      644D756C 
+ 2006      7469706C 
+ 2006      69657200 
+ 2007              	.LASF19:
+ 2008 045e 66696E67 		.ascii	"fingerTh\000"
+ 2008      65725468 
+ 2008      00
+ 2009              	.LASF94:
+ 2010 0467 63617073 		.ascii	"capsense_FLASH_STRUCT\000"
+ 2010      656E7365 
+ 2010      5F464C41 
+ 2010      53485F53 
+ 2010      54525543 
+ 2011              	.LASF0:
+ 2012 047d 7369676E 		.ascii	"signed char\000"
+ 2012      65642063 
+ 2012      68617200 
+ 2013              	.LASF7:
+ 2014 0489 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2014      206C6F6E 
+ 2014      6720756E 
+ 2014      7369676E 
+ 2014      65642069 
+ 2015              	.LASF83:
+ 2016 04a0 73746174 		.ascii	"staticConfig\000"
+ 2016      6963436F 
+ 2016      6E666967 
+ 2016      00
+ 2017              	.LASF109:
+ 2018 04ad 63617073 		.ascii	"capsense_curRamSnsPtr\000"
+ 2018      656E7365 
+ 2018      5F637572 
+ 2018      52616D53 
+ 2018      6E735074 
+ 2019              	.LASF8:
+ 2020 04c3 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 56
 
 
- 2019      5F637572 
- 2019      52616D53 
- 2019      6E735074 
- 2020              	.LASF8:
- 2021 04ee 756E7369 		.ascii	"unsigned int\000"
- 2021      676E6564 
- 2021      20696E74 
- 2021      00
- 2022              	.LASF63:
- 2023 04fb 736E7254 		.ascii	"snrTestRawCount\000"
- 2023      65737452 
- 2023      6177436F 
- 2023      756E7400 
- 2024              	.LASF52:
- 2025 050b 77646774 		.ascii	"wdgtEnable\000"
- 2025      456E6162 
- 2025      6C6500
- 2026              	.LASF15:
- 2027 0516 72656733 		.ascii	"reg32\000"
- 2027      3200
- 2028              	.LASF110:
- 2029 051c 63617073 		.ascii	"capsense_scanFreqIndex\000"
- 2029      656E7365 
- 2029      5F736361 
- 2029      6E467265 
- 2029      71496E64 
- 2030              	.LASF3:
- 2031 0533 73686F72 		.ascii	"short unsigned int\000"
- 2031      7420756E 
- 2031      7369676E 
- 2031      65642069 
- 2031      6E7400
- 2032              	.LASF112:
- 2033 0546 63617073 		.ascii	"capsense_SsCSDConnectSensorExt\000"
- 2033      656E7365 
- 2033      5F537343 
- 2033      5344436F 
- 2033      6E6E6563 
- 2034              	.LASF51:
- 2035 0565 73746174 		.ascii	"status\000"
- 2035      757300
- 2036              	.LASF48:
- 2037 056c 6877436C 		.ascii	"hwClock\000"
- 2037      6F636B00 
- 2038              	.LASF46:
- 2039 0574 636F6E66 		.ascii	"configId\000"
- 2039      69674964 
- 2039      00
- 2040              	.LASF62:
- 2041 057d 736E7254 		.ascii	"snrTestScanCounter\000"
- 2041      65737453 
- 2041      63616E43 
- 2041      6F756E74 
- 2041      657200
- 2042              	.LASF47:
- 2043 0590 64657669 		.ascii	"deviceId\000"
- 2043      63654964 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 57
+ 2020      676E6564 
+ 2020      20696E74 
+ 2020      00
+ 2021              	.LASF63:
+ 2022 04d0 736E7254 		.ascii	"snrTestRawCount\000"
+ 2022      65737452 
+ 2022      6177436F 
+ 2022      756E7400 
+ 2023              	.LASF52:
+ 2024 04e0 77646774 		.ascii	"wdgtEnable\000"
+ 2024      456E6162 
+ 2024      6C6500
+ 2025              	.LASF15:
+ 2026 04eb 72656733 		.ascii	"reg32\000"
+ 2026      3200
+ 2027              	.LASF110:
+ 2028 04f1 63617073 		.ascii	"capsense_scanFreqIndex\000"
+ 2028      656E7365 
+ 2028      5F736361 
+ 2028      6E467265 
+ 2028      71496E64 
+ 2029              	.LASF3:
+ 2030 0508 73686F72 		.ascii	"short unsigned int\000"
+ 2030      7420756E 
+ 2030      7369676E 
+ 2030      65642069 
+ 2030      6E7400
+ 2031              	.LASF112:
+ 2032 051b 63617073 		.ascii	"capsense_SsCSDConnectSensorExt\000"
+ 2032      656E7365 
+ 2032      5F537343 
+ 2032      5344436F 
+ 2032      6E6E6563 
+ 2033              	.LASF51:
+ 2034 053a 73746174 		.ascii	"status\000"
+ 2034      757300
+ 2035              	.LASF48:
+ 2036 0541 6877436C 		.ascii	"hwClock\000"
+ 2036      6F636B00 
+ 2037              	.LASF46:
+ 2038 0549 636F6E66 		.ascii	"configId\000"
+ 2038      69674964 
+ 2038      00
+ 2039              	.LASF62:
+ 2040 0552 736E7254 		.ascii	"snrTestScanCounter\000"
+ 2040      65737453 
+ 2040      63616E43 
+ 2040      6F756E74 
+ 2040      657200
+ 2041              	.LASF47:
+ 2042 0565 64657669 		.ascii	"deviceId\000"
+ 2042      63654964 
+ 2042      00
+ 2043              	.LASF18:
+ 2044 056e 7265736F 		.ascii	"resolution\000"
+ 2044      6C757469 
+ 2044      6F6E00
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 57
 
 
- 2043      00
- 2044              	.LASF18:
- 2045 0599 7265736F 		.ascii	"resolution\000"
- 2045      6C757469 
- 2045      6F6E00
- 2046              	.LASF33:
- 2047 05a4 63617073 		.ascii	"capsense_RAM_WD_SLIDER_STRUCT\000"
- 2047      656E7365 
- 2047      5F52414D 
- 2047      5F57445F 
- 2047      534C4944 
- 2048              	.LASF59:
- 2049 05c2 736E734C 		.ascii	"snsList\000"
- 2049      69737400 
- 2050              	.LASF56:
- 2051 05ca 6D6F6443 		.ascii	"modCsdClk\000"
- 2051      7364436C 
- 2051      6B00
- 2052              	.LASF50:
- 2053 05d4 7363616E 		.ascii	"scanCounter\000"
- 2053      436F756E 
- 2053      74657200 
- 2054              	.LASF21:
- 2055 05e0 6E4E6F69 		.ascii	"nNoiseTh\000"
- 2055      73655468 
- 2055      00
- 2056              	.LASF99:
- 2057 05e9 63617073 		.ascii	"capsense_SsCSDPostScan\000"
- 2057      656E7365 
- 2057      5F537343 
- 2057      5344506F 
- 2057      73745363 
- 2058              	.LASF11:
- 2059 0600 75696E74 		.ascii	"uint32\000"
- 2059      333200
- 2060              	.LASF64:
- 2061 0607 7363616E 		.ascii	"scanCsdISC\000"
- 2061      43736449 
- 2061      534300
- 2062              	.LASF5:
- 2063 0612 6C6F6E67 		.ascii	"long unsigned int\000"
- 2063      20756E73 
- 2063      69676E65 
- 2063      6420696E 
- 2063      7400
- 2064              	.LASF13:
- 2065 0624 646F7562 		.ascii	"double\000"
- 2065      6C6500
- 2066              	.LASF40:
- 2067 062b 62736C6E 		.ascii	"bslnExt\000"
- 2067      45787400 
- 2068              	.LASF74:
- 2069 0633 6873696F 		.ascii	"hsiomShift\000"
- 2069      6D536869 
- 2069      667400
- 2070              	.LASF70:
- 2071 063e 64725074 		.ascii	"drPtr\000"
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 58
+ 2045              	.LASF33:
+ 2046 0579 63617073 		.ascii	"capsense_RAM_WD_SLIDER_STRUCT\000"
+ 2046      656E7365 
+ 2046      5F52414D 
+ 2046      5F57445F 
+ 2046      534C4944 
+ 2047              	.LASF59:
+ 2048 0597 736E734C 		.ascii	"snsList\000"
+ 2048      69737400 
+ 2049              	.LASF56:
+ 2050 059f 6D6F6443 		.ascii	"modCsdClk\000"
+ 2050      7364436C 
+ 2050      6B00
+ 2051              	.LASF50:
+ 2052 05a9 7363616E 		.ascii	"scanCounter\000"
+ 2052      436F756E 
+ 2052      74657200 
+ 2053              	.LASF21:
+ 2054 05b5 6E4E6F69 		.ascii	"nNoiseTh\000"
+ 2054      73655468 
+ 2054      00
+ 2055              	.LASF99:
+ 2056 05be 63617073 		.ascii	"capsense_SsCSDPostScan\000"
+ 2056      656E7365 
+ 2056      5F537343 
+ 2056      5344506F 
+ 2056      73745363 
+ 2057              	.LASF11:
+ 2058 05d5 75696E74 		.ascii	"uint32\000"
+ 2058      333200
+ 2059              	.LASF64:
+ 2060 05dc 7363616E 		.ascii	"scanCsdISC\000"
+ 2060      43736449 
+ 2060      534300
+ 2061              	.LASF5:
+ 2062 05e7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2062      20756E73 
+ 2062      69676E65 
+ 2062      6420696E 
+ 2062      7400
+ 2063              	.LASF13:
+ 2064 05f9 646F7562 		.ascii	"double\000"
+ 2064      6C6500
+ 2065              	.LASF40:
+ 2066 0600 62736C6E 		.ascii	"bslnExt\000"
+ 2066      45787400 
+ 2067              	.LASF74:
+ 2068 0608 6873696F 		.ascii	"hsiomShift\000"
+ 2068      6D536869 
+ 2068      667400
+ 2069              	.LASF70:
+ 2070 0613 64725074 		.ascii	"drPtr\000"
+ 2070      7200
+ 2071              	.LASF73:
+ 2072 0619 6D61736B 		.ascii	"mask\000"
+ 2072      00
+ 2073              	.LASF86:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 58
 
 
- 2071      7200
- 2072              	.LASF73:
- 2073 0644 6D61736B 		.ascii	"mask\000"
- 2073      00
- 2074              	.LASF86:
- 2075 0649 73656E73 		.ascii	"senseMethod\000"
- 2075      654D6574 
- 2075      686F6400 
- 2076              	.LASF17:
- 2077 0655 63617073 		.ascii	"capsense_LOW_BSLN_RST_TYPE\000"
- 2077      656E7365 
- 2077      5F4C4F57 
- 2077      5F42534C 
- 2077      4E5F5253 
- 2078              	.LASF89:
- 2079 0670 78526573 		.ascii	"xResolution\000"
- 2079      6F6C7574 
- 2079      696F6E00 
- 2080              	.LASF80:
- 2081 067c 70747232 		.ascii	"ptr2SnsRam\000"
- 2081      536E7352 
- 2081      616D00
- 2082              	.LASF20:
- 2083 0687 6E6F6973 		.ascii	"noiseTh\000"
- 2083      65546800 
- 2084              	.LASF81:
- 2085 068f 70747232 		.ascii	"ptr2FltrHistory\000"
- 2085      466C7472 
- 2085      48697374 
- 2085      6F727900 
- 2086              	.LASF93:
- 2087 069f 77646774 		.ascii	"wdgtArray\000"
- 2087      41727261 
- 2087      7900
- 2088              	.LASF102:
- 2089 06a9 63617073 		.ascii	"capsense_CSDPostMultiScan\000"
- 2089      656E7365 
- 2089      5F435344 
- 2089      506F7374 
- 2089      4D756C74 
- 2090              	.LASF30:
- 2091 06c3 63617073 		.ascii	"capsense_RAM_WD_BASE_STRUCT\000"
- 2091      656E7365 
- 2091      5F52414D 
- 2091      5F57445F 
- 2091      42415345 
- 2092              	.LASF57:
- 2093 06df 6D6F6443 		.ascii	"modCsxClk\000"
- 2093      7378436C 
- 2093      6B00
- 2094              	.LASF32:
- 2095 06e9 706F7369 		.ascii	"position\000"
- 2095      74696F6E 
- 2095      00
- 2096              	.LASF60:
- 2097 06f2 736E7254 		.ascii	"snrTestWidgetId\000"
- 2097      65737457 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\cclznyKg.s 			page 59
+ 2074 061e 73656E73 		.ascii	"senseMethod\000"
+ 2074      654D6574 
+ 2074      686F6400 
+ 2075              	.LASF17:
+ 2076 062a 63617073 		.ascii	"capsense_LOW_BSLN_RST_TYPE\000"
+ 2076      656E7365 
+ 2076      5F4C4F57 
+ 2076      5F42534C 
+ 2076      4E5F5253 
+ 2077              	.LASF89:
+ 2078 0645 78526573 		.ascii	"xResolution\000"
+ 2078      6F6C7574 
+ 2078      696F6E00 
+ 2079              	.LASF80:
+ 2080 0651 70747232 		.ascii	"ptr2SnsRam\000"
+ 2080      536E7352 
+ 2080      616D00
+ 2081              	.LASF20:
+ 2082 065c 6E6F6973 		.ascii	"noiseTh\000"
+ 2082      65546800 
+ 2083              	.LASF81:
+ 2084 0664 70747232 		.ascii	"ptr2FltrHistory\000"
+ 2084      466C7472 
+ 2084      48697374 
+ 2084      6F727900 
+ 2085              	.LASF93:
+ 2086 0674 77646774 		.ascii	"wdgtArray\000"
+ 2086      41727261 
+ 2086      7900
+ 2087              	.LASF102:
+ 2088 067e 63617073 		.ascii	"capsense_CSDPostMultiScan\000"
+ 2088      656E7365 
+ 2088      5F435344 
+ 2088      506F7374 
+ 2088      4D756C74 
+ 2089              	.LASF30:
+ 2090 0698 63617073 		.ascii	"capsense_RAM_WD_BASE_STRUCT\000"
+ 2090      656E7365 
+ 2090      5F52414D 
+ 2090      5F57445F 
+ 2090      42415345 
+ 2091              	.LASF57:
+ 2092 06b4 6D6F6443 		.ascii	"modCsxClk\000"
+ 2092      7378436C 
+ 2092      6B00
+ 2093              	.LASF32:
+ 2094 06be 706F7369 		.ascii	"position\000"
+ 2094      74696F6E 
+ 2094      00
+ 2095              	.LASF60:
+ 2096 06c7 736E7254 		.ascii	"snrTestWidgetId\000"
+ 2096      65737457 
+ 2096      69646765 
+ 2096      74496400 
+ 2097              	.LASF27:
+ 2098 06d7 736E7343 		.ascii	"snsClk\000"
+ 2098      6C6B00
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc75jWtd.s 			page 59
 
 
- 2097      69646765 
- 2097      74496400 
- 2098              	.LASF27:
- 2099 0702 736E7343 		.ascii	"snsClk\000"
- 2099      6C6B00
- 2100              	.LASF65:
- 2101 0709 7363616E 		.ascii	"scanCsxISC\000"
- 2101      43737849 
- 2101      534300
- 2102              	.LASF114:
- 2103 0714 63617073 		.ascii	"capsense_SsPostAllWidgetsScan\000"
- 2103      656E7365 
- 2103      5F537350 
- 2103      6F737441 
- 2103      6C6C5769 
- 2104              	.LASF78:
- 2105 0732 70747232 		.ascii	"ptr2SnsFlash\000"
- 2105      536E7346 
- 2105      6C617368 
- 2105      00
- 2106              	.LASF54:
- 2107 073f 736E7353 		.ascii	"snsStatus\000"
- 2107      74617475 
- 2107      7300
- 2108              	.LASF37:
- 2109 0749 6C696E65 		.ascii	"linearslider\000"
- 2109      6172736C 
- 2109      69646572 
- 2109      00
- 2110              	.LASF45:
- 2111 0756 63617073 		.ascii	"capsense_RAM_SNS_LIST_STRUCT\000"
- 2111      656E7365 
- 2111      5F52414D 
- 2111      5F534E53 
- 2111      5F4C4953 
- 2112              	.LASF111:
- 2113 0773 63617073 		.ascii	"capsense_SsCSDSetUpIdacs\000"
- 2113      656E7365 
- 2113      5F537343 
- 2113      53445365 
- 2113      74557049 
- 2114              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 2099              	.LASF65:
+ 2100 06de 7363616E 		.ascii	"scanCsxISC\000"
+ 2100      43737849 
+ 2100      534300
+ 2101              	.LASF114:
+ 2102 06e9 63617073 		.ascii	"capsense_SsPostAllWidgetsScan\000"
+ 2102      656E7365 
+ 2102      5F537350 
+ 2102      6F737441 
+ 2102      6C6C5769 
+ 2103              	.LASF78:
+ 2104 0707 70747232 		.ascii	"ptr2SnsFlash\000"
+ 2104      536E7346 
+ 2104      6C617368 
+ 2104      00
+ 2105              	.LASF54:
+ 2106 0714 736E7353 		.ascii	"snsStatus\000"
+ 2106      74617475 
+ 2106      7300
+ 2107              	.LASF37:
+ 2108 071e 6C696E65 		.ascii	"linearslider\000"
+ 2108      6172736C 
+ 2108      69646572 
+ 2108      00
+ 2109              	.LASF45:
+ 2110 072b 63617073 		.ascii	"capsense_RAM_SNS_LIST_STRUCT\000"
+ 2110      656E7365 
+ 2110      5F52414D 
+ 2110      5F534E53 
+ 2110      5F4C4953 
+ 2111              	.LASF111:
+ 2112 0748 63617073 		.ascii	"capsense_SsCSDSetUpIdacs\000"
+ 2112      656E7365 
+ 2112      5F537343 
+ 2112      53445365 
+ 2112      74557049 
+ 2113              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

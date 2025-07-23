@@ -1,25 +1,19 @@
-
-"port": "CY8CKIT-049",
-"device":		"CY8C4245AXI-483",
-    "port_linux":   "/dev/ttyUSB0",
-    "port_windows": "COM1",
-"board": "CY8CKIT-049-42XX",
-"backend": "native",
-"cc_linux":			"",
-"cc_windows":		"PSoC_Creator.exe",
-"cc_flags":      "-o",
-"path":"Cypress/CY8CKIT-049-42XX/Config_Gral_049.cydsn",
-
-"config_operator":   [],
-"configuration": [],
-"initialization":    [
-    "CyGlobalInitEnable;",
-    "uart_Start();",
-    "pwm0_Start();",
-    "pwm1_Start();",
-    "pwm2_Start();",
-    "pwm3_Start();",
-    "adc_Start();",
-    "amux_Start();",
-    
-]
+{
+    "port": "CY8CKIT-049",
+    "board": "CY8CKIT-049-42XX",
+    "backend": "c",
+    "cc_linux": "",
+    "cc_windows": "",
+    "cc_make_flags": "",
+    "flasher_linux": "",
+    "flasher_windows": "",
+    "flasher_flags": "",
+    "api_paths": [
+        "Cypress/CY8CKIT-049-42XX",
+        "Cypress/PSoC-Creator-generic"
+    ],
+    "v_defines": [],
+    "default_cpu_freq": 20000000,
+    "default_string_len": 20,
+    "compiler_setup_path": "setup/PSoC-Creator.json"
+}

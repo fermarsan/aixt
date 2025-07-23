@@ -8,9 +8,9 @@
     "reveal": "always"
   },
   {
-    "label": "Aixt: Compile",
+    "label": "Aixt: C Compile",
     "command": "aixt",
-    "args": ["compile", "$DEVICE", "$ZED_FILE"],
+    "args": ["c_compile", "$DEVICE", "$ZED_FILE"],
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"

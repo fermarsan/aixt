@@ -10,6 +10,12 @@
 module main
 
 // builtin LED
-const led_0 = u8(C.PC13)
+@[as_macro]	pub const led0 = 17
 
+fn C.pinMode(name u8, mode u8)
+fn C.digitalWrite(name u8, val u8)
 
+fn init() {
+	C.pinMode(led0, u8(C.OUTPUT))		// setup the pin of led0 as output
+	C.digitalWrite(led0, u8(C.HIGH))	// an turn it off
+}

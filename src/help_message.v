@@ -1,6 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2023-2024
+// Date: 2023-2025
 // License: MIT
 module main
 
@@ -38,7 +38,7 @@ Examples:
 
 aixt supports the following commands:
   transpile, -t                    Transpile to C an Aixt source file.
-  compile, -c                      Compile the previosly generated C file.
+  c_compile, -c                    Compile the previosly generated C file.
   build, -b                        Build (transpile and compile) an Aixt program.
   flash, -f                        Flash the device with the generated binary file 
   clean, -cl                       Clean all the generated file (C and executables).

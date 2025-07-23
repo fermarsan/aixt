@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
   28:Generated_Source\PSoC4/capsense_Tuner.c **** * Cypress reserves the right to make changes without further notice to the
   29:Generated_Source\PSoC4/capsense_Tuner.c **** * materials described herein. Cypress does not assume any liability arising out
   30:Generated_Source\PSoC4/capsense_Tuner.c **** * of the application or use of any product or circuit described herein. Cypress
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 2
 
 
   31:Generated_Source\PSoC4/capsense_Tuner.c **** * does not authorize its products for use as critical components in life-support
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
   39 0006 024A     		ldr	r2, .L2+4
   40 0008 1360     		str	r3, [r2]
   74:Generated_Source\PSoC4/capsense_Tuner.c **** }
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 3
 
 
   41              		.loc 1 74 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  110:Generated_Source\PSoC4/capsense_Tuner.c **** *      Component was restarted.
  111:Generated_Source\PSoC4/capsense_Tuner.c **** *    -  capsense_STATUS_RESTART_NONE - No restart was executed by this
  112:Generated_Source\PSoC4/capsense_Tuner.c **** *      function.
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 4
 
 
  113:Generated_Source\PSoC4/capsense_Tuner.c **** *
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
   87 0014 3C4B     		ldr	r3, .L18+4
   88 0016 DA80     		strh	r2, [r3, #6]
  139:Generated_Source\PSoC4/capsense_Tuner.c ****             CyExitCriticalSection(interruptState);
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 5
 
 
   89              		.loc 1 139 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  130 003a 324B     		ldr	r3, .L18
  131 003c 1A60     		str	r2, [r3]
  132              	.LVL8:
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 6
 
 
  153:Generated_Source\PSoC4/capsense_Tuner.c ****             updateFlag = 1Lu;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  169 0060 1A60     		str	r2, [r3]
  170              	.LVL15:
  170:Generated_Source\PSoC4/capsense_Tuner.c ****             updateFlag = 1Lu;
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 7
 
 
  171              		.loc 1 170 0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  205              	.L15:
  191:Generated_Source\PSoC4/capsense_Tuner.c ****             }
  192:Generated_Source\PSoC4/capsense_Tuner.c ****             CyExitCriticalSection(interruptState);
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 8
 
 
  206              		.loc 1 192 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  243 00bc 8A42     		cmp	r2, r1
  244 00be 1ED2     		bcs	.L17
  209:Generated_Source\PSoC4/capsense_Tuner.c ****             (ptrDsRam->scanCounter != ptrDsRam->snrTestScanCounter))
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 9
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 9
 
 
  245              		.loc 1 209 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  222:Generated_Source\PSoC4/capsense_Tuner.c ****                 ptrDsRam->snrTestRawCount[2u] = ptrSnsTmp->raw[2u];
  223:Generated_Source\PSoC4/capsense_Tuner.c ****             #endif
  224:Generated_Source\PSoC4/capsense_Tuner.c **** 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 10
 
 
  225:Generated_Source\PSoC4/capsense_Tuner.c ****             CyExitCriticalSection(interruptState);
@@ -591,22 +591,22 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  328 000b 01       		.uleb128 0x1
  329 000c 15010000 		.4byte	.LASF106
  330 0010 0C       		.byte	0xc
- 331 0011 B7050000 		.4byte	.LASF107
- 332 0015 AE030000 		.4byte	.LASF108
+ 331 0011 98050000 		.4byte	.LASF107
+ 332 0015 E0020000 		.4byte	.LASF108
  333 0019 00000000 		.4byte	.Ldebug_ranges0+0
  334 001d 00000000 		.4byte	0
  335 0021 00000000 		.4byte	.Ldebug_line0
  336 0025 02       		.uleb128 0x2
  337 0026 01       		.byte	0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 11
 
 
  338 0027 06       		.byte	0x6
- 339 0028 23060000 		.4byte	.LASF0
+ 339 0028 FF030000 		.4byte	.LASF0
  340 002c 02       		.uleb128 0x2
  341 002d 01       		.byte	0x1
  342 002e 08       		.byte	0x8
- 343 002f 15030000 		.4byte	.LASF1
+ 343 002f 66030000 		.4byte	.LASF1
  344 0033 02       		.uleb128 0x2
  345 0034 02       		.byte	0x2
  346 0035 05       		.byte	0x5
@@ -614,15 +614,15 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  348 003a 02       		.uleb128 0x2
  349 003b 02       		.byte	0x2
  350 003c 07       		.byte	0x7
- 351 003d AD040000 		.4byte	.LASF3
+ 351 003d 8E040000 		.4byte	.LASF3
  352 0041 02       		.uleb128 0x2
  353 0042 04       		.byte	0x4
  354 0043 05       		.byte	0x5
- 355 0044 B7020000 		.4byte	.LASF4
+ 355 0044 C5020000 		.4byte	.LASF4
  356 0048 02       		.uleb128 0x2
  357 0049 04       		.byte	0x4
  358 004a 07       		.byte	0x7
- 359 004b 7F050000 		.4byte	.LASF5
+ 359 004b 60050000 		.4byte	.LASF5
  360 004f 02       		.uleb128 0x2
  361 0050 08       		.byte	0x8
  362 0051 05       		.byte	0x5
@@ -630,7 +630,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  364 0056 02       		.uleb128 0x2
  365 0057 08       		.byte	0x8
  366 0058 07       		.byte	0x7
- 367 0059 2A040000 		.4byte	.LASF7
+ 367 0059 0B040000 		.4byte	.LASF7
  368 005d 03       		.uleb128 0x3
  369 005e 04       		.byte	0x4
  370 005f 05       		.byte	0x5
@@ -638,43 +638,43 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  372 0064 02       		.uleb128 0x2
  373 0065 04       		.byte	0x4
  374 0066 07       		.byte	0x7
- 375 0067 4E040000 		.4byte	.LASF8
+ 375 0067 2F040000 		.4byte	.LASF8
  376 006b 04       		.uleb128 0x4
- 377 006c 3A020000 		.4byte	.LASF9
+ 377 006c 48020000 		.4byte	.LASF9
  378 0070 02       		.byte	0x2
  379 0071 FC01     		.2byte	0x1fc
  380 0073 2C000000 		.4byte	0x2c
  381 0077 04       		.uleb128 0x4
- 382 0078 23020000 		.4byte	.LASF10
+ 382 0078 31020000 		.4byte	.LASF10
  383 007c 02       		.byte	0x2
  384 007d FD01     		.2byte	0x1fd
  385 007f 3A000000 		.4byte	0x3a
  386 0083 04       		.uleb128 0x4
- 387 0084 6D050000 		.4byte	.LASF11
+ 387 0084 4E050000 		.4byte	.LASF11
  388 0088 02       		.byte	0x2
  389 0089 FE01     		.2byte	0x1fe
  390 008b 48000000 		.4byte	0x48
  391 008f 02       		.uleb128 0x2
  392 0090 04       		.byte	0x4
  393 0091 04       		.byte	0x4
- 394 0092 9C020000 		.4byte	.LASF12
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 12
+ 394 0092 AA020000 		.4byte	.LASF12
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 12
 
 
  395 0096 02       		.uleb128 0x2
  396 0097 08       		.byte	0x8
  397 0098 04       		.byte	0x4
- 398 0099 91050000 		.4byte	.LASF13
+ 398 0099 72050000 		.4byte	.LASF13
  399 009d 02       		.uleb128 0x2
  400 009e 01       		.byte	0x1
  401 009f 08       		.byte	0x8
- 402 00a0 B2020000 		.4byte	.LASF14
+ 402 00a0 C0020000 		.4byte	.LASF14
  403 00a4 05       		.uleb128 0x5
  404 00a5 83000000 		.4byte	0x83
  405 00a9 02       		.uleb128 0x2
  406 00aa 08       		.byte	0x8
  407 00ab 04       		.byte	0x4
- 408 00ac 37030000 		.4byte	.LASF15
+ 408 00ac 88030000 		.4byte	.LASF15
  409 00b0 02       		.uleb128 0x2
  410 00b1 04       		.byte	0x4
  411 00b2 07       		.byte	0x7
@@ -682,12 +682,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  413 00b7 06       		.uleb128 0x6
  414 00b8 04       		.byte	0x4
  415 00b9 04       		.uleb128 0x4
- 416 00ba EC020000 		.4byte	.LASF17
+ 416 00ba 3D030000 		.4byte	.LASF17
  417 00be 03       		.byte	0x3
  418 00bf 4301     		.2byte	0x143
  419 00c1 77000000 		.4byte	0x77
  420 00c5 04       		.uleb128 0x4
- 421 00c6 79030000 		.4byte	.LASF18
+ 421 00c6 CA030000 		.4byte	.LASF18
  422 00ca 03       		.byte	0x3
  423 00cb 4701     		.2byte	0x147
  424 00cd 6B000000 		.4byte	0x6b
@@ -704,34 +704,34 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  435 00e4 F3       		.byte	0xf3
  436 00e5 77010000 		.4byte	0x177
  437 00e9 0A       		.uleb128 0xa
- 438 00ea 0E050000 		.4byte	.LASF19
+ 438 00ea EF040000 		.4byte	.LASF19
  439 00ee 04       		.byte	0x4
  440 00ef F8       		.byte	0xf8
  441 00f0 77000000 		.4byte	0x77
  442 00f4 00       		.byte	0
  443 00f5 0A       		.uleb128 0xa
- 444 00f6 C9020000 		.4byte	.LASF20
+ 444 00f6 D7020000 		.4byte	.LASF20
  445 00fa 04       		.byte	0x4
  446 00fb FD       		.byte	0xfd
  447 00fc B9000000 		.4byte	0xb9
  448 0100 02       		.byte	0x2
  449 0101 0B       		.uleb128 0xb
- 450 0102 2F060000 		.4byte	.LASF21
+ 450 0102 04060000 		.4byte	.LASF21
  451 0106 04       		.byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 13
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 13
 
 
  452 0107 0201     		.2byte	0x102
  453 0109 6B000000 		.4byte	0x6b
  454 010d 04       		.byte	0x4
  455 010e 0B       		.uleb128 0xb
- 456 010f 55050000 		.4byte	.LASF22
+ 456 010f 36050000 		.4byte	.LASF22
  457 0113 04       		.byte	0x4
  458 0114 0701     		.2byte	0x107
  459 0116 6B000000 		.4byte	0x6b
  460 011a 05       		.byte	0x5
  461 011b 0B       		.uleb128 0xb
- 462 011c 23030000 		.4byte	.LASF23
+ 462 011c 74030000 		.4byte	.LASF23
  463 0120 04       		.byte	0x4
  464 0121 0D01     		.2byte	0x10d
  465 0123 6B000000 		.4byte	0x6b
@@ -761,7 +761,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  489 0157 6B000000 		.4byte	0x6b
  490 015b 0A       		.byte	0xa
  491 015c 0B       		.uleb128 0xb
- 492 015d 8B060000 		.4byte	.LASF28
+ 492 015d 60060000 		.4byte	.LASF28
  493 0161 04       		.byte	0x4
  494 0162 2E01     		.2byte	0x12e
  495 0164 77000000 		.4byte	0x77
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  506 017c 04       		.byte	0x4
  507 017d 3401     		.2byte	0x134
  508 017f E1000000 		.4byte	0xe1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 14
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 14
 
 
  509 0183 0C       		.uleb128 0xc
@@ -787,31 +787,31 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  512 0186 3901     		.2byte	0x139
  513 0188 29020000 		.4byte	0x229
  514 018c 0B       		.uleb128 0xb
- 515 018d 0E050000 		.4byte	.LASF19
+ 515 018d EF040000 		.4byte	.LASF19
  516 0191 04       		.byte	0x4
  517 0192 3E01     		.2byte	0x13e
  518 0194 77000000 		.4byte	0x77
  519 0198 00       		.byte	0
  520 0199 0B       		.uleb128 0xb
- 521 019a C9020000 		.4byte	.LASF20
+ 521 019a D7020000 		.4byte	.LASF20
  522 019e 04       		.byte	0x4
  523 019f 4301     		.2byte	0x143
  524 01a1 B9000000 		.4byte	0xb9
  525 01a5 02       		.byte	0x2
  526 01a6 0B       		.uleb128 0xb
- 527 01a7 2F060000 		.4byte	.LASF21
+ 527 01a7 04060000 		.4byte	.LASF21
  528 01ab 04       		.byte	0x4
  529 01ac 4801     		.2byte	0x148
  530 01ae 6B000000 		.4byte	0x6b
  531 01b2 04       		.byte	0x4
  532 01b3 0B       		.uleb128 0xb
- 533 01b4 55050000 		.4byte	.LASF22
+ 533 01b4 36050000 		.4byte	.LASF22
  534 01b8 04       		.byte	0x4
  535 01b9 4D01     		.2byte	0x14d
  536 01bb 6B000000 		.4byte	0x6b
  537 01bf 05       		.byte	0x5
  538 01c0 0B       		.uleb128 0xb
- 539 01c1 23030000 		.4byte	.LASF23
+ 539 01c1 74030000 		.4byte	.LASF23
  540 01c5 04       		.byte	0x4
  541 01c6 5301     		.2byte	0x153
  542 01c8 6B000000 		.4byte	0x6b
@@ -838,13 +838,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  563 01f5 6B000000 		.4byte	.LASF27
  564 01f9 04       		.byte	0x4
  565 01fa 6C01     		.2byte	0x16c
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 15
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 15
 
 
  566 01fc 6B000000 		.4byte	0x6b
  567 0200 0A       		.byte	0xa
  568 0201 0B       		.uleb128 0xb
- 569 0202 8B060000 		.4byte	.LASF28
+ 569 0202 60060000 		.4byte	.LASF28
  570 0206 04       		.byte	0x4
  571 0207 7401     		.2byte	0x174
  572 0209 77000000 		.4byte	0x77
@@ -856,7 +856,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  578 0216 6B000000 		.4byte	0x6b
  579 021a 0E       		.byte	0xe
  580 021b 0B       		.uleb128 0xb
- 581 021c 72060000 		.4byte	.LASF31
+ 581 021c 47060000 		.4byte	.LASF31
  582 0220 04       		.byte	0x4
  583 0221 7E01     		.2byte	0x17e
  584 0223 29020000 		.4byte	0x229
@@ -870,7 +870,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  592 0237 00       		.byte	0
  593 0238 00       		.byte	0
  594 0239 04       		.uleb128 0x4
- 595 023a 19050000 		.4byte	.LASF32
+ 595 023a FA040000 		.4byte	.LASF32
  596 023e 04       		.byte	0x4
  597 023f 7F01     		.2byte	0x17f
  598 0241 83010000 		.4byte	0x183
@@ -880,28 +880,28 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  602 0248 8501     		.2byte	0x185
  603 024a 83020000 		.4byte	0x283
  604 024e 0B       		.uleb128 0xb
- 605 024f 0B020000 		.4byte	.LASF33
+ 605 024f 19020000 		.4byte	.LASF33
  606 0253 04       		.byte	0x4
  607 0254 8A01     		.2byte	0x18a
  608 0256 77010000 		.4byte	0x177
  609 025a 00       		.byte	0
  610 025b 0B       		.uleb128 0xb
- 611 025c 10020000 		.4byte	.LASF34
+ 611 025c 1E020000 		.4byte	.LASF34
  612 0260 04       		.byte	0x4
  613 0261 8F01     		.2byte	0x18f
  614 0263 77010000 		.4byte	0x177
  615 0267 10       		.byte	0x10
  616 0268 0B       		.uleb128 0xb
- 617 0269 15020000 		.4byte	.LASF35
+ 617 0269 23020000 		.4byte	.LASF35
  618 026d 04       		.byte	0x4
  619 026e 9401     		.2byte	0x194
  620 0270 77010000 		.4byte	0x177
  621 0274 20       		.byte	0x20
  622 0275 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 16
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 16
 
 
- 623 0276 D2060000 		.4byte	.LASF36
+ 623 0276 A7060000 		.4byte	.LASF36
  624 027a 04       		.byte	0x4
  625 027b 9901     		.2byte	0x199
  626 027d 39020000 		.4byte	0x239
@@ -930,19 +930,19 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  649 02ad 29020000 		.4byte	0x229
  650 02b1 02       		.byte	0x2
  651 02b2 0B       		.uleb128 0xb
- 652 02b3 98050000 		.4byte	.LASF39
+ 652 02b3 79050000 		.4byte	.LASF39
  653 02b7 04       		.byte	0x4
  654 02b8 B001     		.2byte	0x1b0
  655 02ba D1000000 		.4byte	0xd1
  656 02be 04       		.byte	0x4
  657 02bf 0B       		.uleb128 0xb
- 658 02c0 04070000 		.4byte	.LASF40
+ 658 02c0 D9060000 		.4byte	.LASF40
  659 02c4 04       		.byte	0x4
  660 02c5 B501     		.2byte	0x1b5
  661 02c7 B9000000 		.4byte	0xb9
  662 02cb 06       		.byte	0x6
  663 02cc 0B       		.uleb128 0xb
- 664 02cd D2020000 		.4byte	.LASF41
+ 664 02cd 0B020000 		.4byte	.LASF41
  665 02d1 04       		.byte	0x4
  666 02d2 BA01     		.2byte	0x1ba
  667 02d4 E7020000 		.4byte	0x2e7
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  677 02e8 C5000000 		.4byte	0xc5
  678 02ec F7020000 		.4byte	0x2f7
  679 02f0 08       		.uleb128 0x8
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 17
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 17
 
 
  680 02f1 B0000000 		.4byte	0xb0
@@ -975,25 +975,25 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  691 0306 C601     		.2byte	0x1c6
  692 0308 41030000 		.4byte	0x341
  693 030c 0B       		.uleb128 0xb
- 694 030d 0B020000 		.4byte	.LASF33
+ 694 030d 19020000 		.4byte	.LASF33
  695 0311 04       		.byte	0x4
  696 0312 CB01     		.2byte	0x1cb
  697 0314 41030000 		.4byte	0x341
  698 0318 00       		.byte	0
  699 0319 0B       		.uleb128 0xb
- 700 031a 10020000 		.4byte	.LASF34
+ 700 031a 1E020000 		.4byte	.LASF34
  701 031e 04       		.byte	0x4
  702 031f D001     		.2byte	0x1d0
  703 0321 41030000 		.4byte	0x341
  704 0325 0A       		.byte	0xa
  705 0326 0B       		.uleb128 0xb
- 706 0327 15020000 		.4byte	.LASF35
+ 706 0327 23020000 		.4byte	.LASF35
  707 032b 04       		.byte	0x4
  708 032c D501     		.2byte	0x1d5
  709 032e 41030000 		.4byte	0x341
  710 0332 14       		.byte	0x14
  711 0333 0B       		.uleb128 0xb
- 712 0334 D2060000 		.4byte	.LASF36
+ 712 0334 A7060000 		.4byte	.LASF36
  713 0338 04       		.byte	0x4
  714 0339 DA01     		.2byte	0x1da
  715 033b 51030000 		.4byte	0x351
@@ -1014,11 +1014,11 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  730 035f 04       		.byte	0x4
  731 0360 00       		.byte	0
  732 0361 04       		.uleb128 0x4
- 733 0362 E7060000 		.4byte	.LASF44
+ 733 0362 BC060000 		.4byte	.LASF44
  734 0366 04       		.byte	0x4
  735 0367 DB01     		.2byte	0x1db
  736 0369 03030000 		.4byte	0x303
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 18
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 18
 
 
  737 036d 0C       		.uleb128 0xc
@@ -1033,52 +1033,52 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  746 037e 77000000 		.4byte	0x77
  747 0382 00       		.byte	0
  748 0383 0B       		.uleb128 0xb
- 749 0384 1A020000 		.4byte	.LASF46
+ 749 0384 28020000 		.4byte	.LASF46
  750 0388 04       		.byte	0x4
  751 0389 ED01     		.2byte	0x1ed
  752 038b 77000000 		.4byte	0x77
  753 038f 02       		.byte	0x2
  754 0390 0B       		.uleb128 0xb
- 755 0391 C7040000 		.4byte	.LASF47
+ 755 0391 A8040000 		.4byte	.LASF47
  756 0395 04       		.byte	0x4
  757 0396 F201     		.2byte	0x1f2
  758 0398 77000000 		.4byte	0x77
  759 039c 04       		.byte	0x4
  760 039d 0B       		.uleb128 0xb
- 761 039e 2E030000 		.4byte	.LASF48
+ 761 039e 7F030000 		.4byte	.LASF48
  762 03a2 04       		.byte	0x4
  763 03a3 F801     		.2byte	0x1f8
  764 03a5 77000000 		.4byte	0x77
  765 03a9 06       		.byte	0x6
  766 03aa 0B       		.uleb128 0xb
- 767 03ab 49050000 		.4byte	.LASF49
+ 767 03ab 2A050000 		.4byte	.LASF49
  768 03af 04       		.byte	0x4
  769 03b0 FD01     		.2byte	0x1fd
  770 03b2 77000000 		.4byte	0x77
  771 03b6 08       		.byte	0x8
  772 03b7 0B       		.uleb128 0xb
- 773 03b8 C0040000 		.4byte	.LASF50
+ 773 03b8 A1040000 		.4byte	.LASF50
  774 03bc 04       		.byte	0x4
  775 03bd 0202     		.2byte	0x202
  776 03bf A4000000 		.4byte	0xa4
  777 03c3 0C       		.byte	0xc
  778 03c4 0B       		.uleb128 0xb
- 779 03c5 7F040000 		.4byte	.LASF51
+ 779 03c5 60040000 		.4byte	.LASF51
  780 03c9 04       		.byte	0x4
  781 03ca 0802     		.2byte	0x208
  782 03cc 88040000 		.4byte	0x488
  783 03d0 10       		.byte	0x10
  784 03d1 0B       		.uleb128 0xb
- 785 03d2 43030000 		.4byte	.LASF52
+ 785 03d2 94030000 		.4byte	.LASF52
  786 03d6 04       		.byte	0x4
  787 03d7 0F02     		.2byte	0x20f
  788 03d9 88040000 		.4byte	0x488
  789 03dd 14       		.byte	0x14
  790 03de 0B       		.uleb128 0xb
- 791 03df C8060000 		.4byte	.LASF53
+ 791 03df 9D060000 		.4byte	.LASF53
  792 03e3 04       		.byte	0x4
  793 03e4 1F02     		.2byte	0x21f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 19
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 19
 
 
  794 03e6 98040000 		.4byte	0x498
@@ -1090,13 +1090,13 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  800 03f3 77000000 		.4byte	0x77
  801 03f7 1C       		.byte	0x1c
  802 03f8 0B       		.uleb128 0xb
- 803 03f9 3F050000 		.4byte	.LASF55
+ 803 03f9 20050000 		.4byte	.LASF55
  804 03fd 04       		.byte	0x4
  805 03fe 2A02     		.2byte	0x22a
  806 0400 6B000000 		.4byte	0x6b
  807 0404 1E       		.byte	0x1e
  808 0405 0B       		.uleb128 0xb
- 809 0406 68060000 		.4byte	.LASF56
+ 809 0406 3D060000 		.4byte	.LASF56
  810 040a 04       		.byte	0x4
  811 040b 2F02     		.2byte	0x22f
  812 040d 6B000000 		.4byte	0x6b
@@ -1108,25 +1108,25 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  818 041a 83020000 		.4byte	0x283
  819 041e 20       		.byte	0x20
  820 041f 0B       		.uleb128 0xb
- 821 0420 37050000 		.4byte	.LASF58
+ 821 0420 18050000 		.4byte	.LASF58
  822 0424 04       		.byte	0x4
  823 0425 3902     		.2byte	0x239
  824 0427 61030000 		.4byte	0x361
  825 042b 62       		.byte	0x62
  826 042c 0B       		.uleb128 0xb
- 827 042d 7B060000 		.4byte	.LASF59
+ 827 042d 50060000 		.4byte	.LASF59
  828 0431 04       		.byte	0x4
  829 0432 3E02     		.2byte	0x23e
  830 0434 6B000000 		.4byte	0x6b
  831 0438 B2       		.byte	0xb2
  832 0439 0B       		.uleb128 0xb
- 833 043a A2020000 		.4byte	.LASF60
+ 833 043a B0020000 		.4byte	.LASF60
  834 043e 04       		.byte	0x4
  835 043f 4302     		.2byte	0x243
  836 0441 6B000000 		.4byte	0x6b
  837 0445 B3       		.byte	0xb3
  838 0446 0B       		.uleb128 0xb
- 839 0447 E6040000 		.4byte	.LASF61
+ 839 0447 C7040000 		.4byte	.LASF61
  840 044b 04       		.byte	0x4
  841 044c 4802     		.2byte	0x248
  842 044e 77000000 		.4byte	0x77
@@ -1138,22 +1138,22 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  848 045b 29020000 		.4byte	0x229
  849 045f B6       		.byte	0xb6
  850 0460 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 20
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 20
 
 
- 851 0461 74050000 		.4byte	.LASF63
+ 851 0461 55050000 		.4byte	.LASF63
  852 0465 04       		.byte	0x4
  853 0466 5202     		.2byte	0x252
  854 0468 6B000000 		.4byte	0x6b
  855 046c B8       		.byte	0xb8
  856 046d 0B       		.uleb128 0xb
- 857 046e 92060000 		.4byte	.LASF64
+ 857 046e 67060000 		.4byte	.LASF64
  858 0472 04       		.byte	0x4
  859 0473 5702     		.2byte	0x257
  860 0475 6B000000 		.4byte	0x6b
  861 0479 B9       		.byte	0xb9
  862 047a 0B       		.uleb128 0xb
- 863 047b 8A040000 		.4byte	.LASF65
+ 863 047b 6B040000 		.4byte	.LASF65
  864 047f 04       		.byte	0x4
  865 0480 5C02     		.2byte	0x25c
  866 0482 6B000000 		.4byte	0x6b
@@ -1184,40 +1184,40 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  891 04b7 C402     		.2byte	0x2c4
  892 04b9 74050000 		.4byte	0x574
  893 04bd 0B       		.uleb128 0xb
- 894 04be 16060000 		.4byte	.LASF67
+ 894 04be F7050000 		.4byte	.LASF67
  895 04c2 04       		.byte	0x4
  896 04c3 CD02     		.2byte	0x2cd
  897 04c5 74050000 		.4byte	0x574
  898 04c9 00       		.byte	0
  899 04ca 0B       		.uleb128 0xb
- 900 04cb E0020000 		.4byte	.LASF68
+ 900 04cb 31030000 		.4byte	.LASF68
  901 04cf 04       		.byte	0x4
  902 04d0 D402     		.2byte	0x2d4
  903 04d2 B7000000 		.4byte	0xb7
  904 04d6 04       		.byte	0x4
  905 04d7 0B       		.uleb128 0xb
- 906 04d8 0B060000 		.4byte	.LASF69
+ 906 04d8 EC050000 		.4byte	.LASF69
  907 04dc 04       		.byte	0x4
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 21
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 21
 
 
  908 04dd DA02     		.2byte	0x2da
  909 04df 7B050000 		.4byte	0x57b
  910 04e3 08       		.byte	0x8
  911 04e4 0B       		.uleb128 0xb
- 912 04e5 37060000 		.4byte	.LASF70
+ 912 04e5 0C060000 		.4byte	.LASF70
  913 04e9 04       		.byte	0x4
  914 04ea E002     		.2byte	0x2e0
  915 04ec B7000000 		.4byte	0xb7
  916 04f0 0C       		.byte	0xc
  917 04f1 0B       		.uleb128 0xb
- 918 04f2 2A020000 		.4byte	.LASF71
+ 918 04f2 38020000 		.4byte	.LASF71
  919 04f6 04       		.byte	0x4
  920 04f7 E702     		.2byte	0x2e7
  921 04f9 81050000 		.4byte	0x581
  922 04fd 10       		.byte	0x10
  923 04fe 0B       		.uleb128 0xb
- 924 04ff 41040000 		.4byte	.LASF72
+ 924 04ff 22040000 		.4byte	.LASF72
  925 0503 04       		.byte	0x4
  926 0504 EC02     		.2byte	0x2ec
  927 0506 83000000 		.4byte	0x83
@@ -1229,40 +1229,40 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  933 0513 77000000 		.4byte	0x77
  934 0517 18       		.byte	0x18
  935 0518 0B       		.uleb128 0xb
- 936 0519 C0020000 		.4byte	.LASF74
+ 936 0519 CE020000 		.4byte	.LASF74
  937 051d 04       		.byte	0x4
  938 051e FA02     		.2byte	0x2fa
  939 0520 6B000000 		.4byte	0x6b
  940 0524 1A       		.byte	0x1a
  941 0525 0B       		.uleb128 0xb
- 942 0526 E8050000 		.4byte	.LASF75
+ 942 0526 C9050000 		.4byte	.LASF75
  943 052a 04       		.byte	0x4
  944 052b 0003     		.2byte	0x300
  945 052d 6B000000 		.4byte	0x6b
  946 0531 1B       		.byte	0x1b
  947 0532 0B       		.uleb128 0xb
- 948 0533 0D030000 		.4byte	.LASF76
+ 948 0533 5E030000 		.4byte	.LASF76
  949 0537 04       		.byte	0x4
  950 0538 0A03     		.2byte	0x30a
  951 053a 6B000000 		.4byte	0x6b
  952 053e 1C       		.byte	0x1c
  953 053f 0B       		.uleb128 0xb
- 954 0540 40020000 		.4byte	.LASF77
+ 954 0540 4E020000 		.4byte	.LASF77
  955 0544 04       		.byte	0x4
  956 0545 1203     		.2byte	0x312
  957 0547 6B000000 		.4byte	0x6b
  958 054b 1D       		.byte	0x1d
  959 054c 0B       		.uleb128 0xb
- 960 054d FF050000 		.4byte	.LASF78
+ 960 054d E0050000 		.4byte	.LASF78
  961 0551 04       		.byte	0x4
  962 0552 1703     		.2byte	0x317
  963 0554 77000000 		.4byte	0x77
  964 0558 1E       		.byte	0x1e
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 22
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 22
 
 
  965 0559 0B       		.uleb128 0xb
- 966 055a 99040000 		.4byte	.LASF79
+ 966 055a 7A040000 		.4byte	.LASF79
  967 055e 04       		.byte	0x4
  968 055f 2003     		.2byte	0x320
  969 0561 83000000 		.4byte	0x83
@@ -1285,7 +1285,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  986 0582 04       		.byte	0x4
  987 0583 6B000000 		.4byte	0x6b
  988 0587 04       		.uleb128 0x4
- 989 0588 48020000 		.4byte	.LASF81
+ 989 0588 56020000 		.4byte	.LASF81
  990 058c 04       		.byte	0x4
  991 058d 2603     		.2byte	0x326
  992 058f B4040000 		.4byte	0x4b4
@@ -1295,7 +1295,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  996 0596 2C03     		.2byte	0x32c
  997 0598 AA050000 		.4byte	0x5aa
  998 059c 0B       		.uleb128 0xb
- 999 059d 47060000 		.4byte	.LASF82
+ 999 059d 1C060000 		.4byte	.LASF82
  1000 05a1 04       		.byte	0x4
  1001 05a2 3103     		.2byte	0x331
  1002 05a4 AA050000 		.4byte	0x5aa
@@ -1318,34 +1318,34 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1019 05c8 2C000000 		.4byte	0x2c
  1020 05cc 05       		.byte	0x5
  1021 05cd 2E       		.byte	0x2e
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 23
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 23
 
 
  1022 05ce FD050000 		.4byte	0x5fd
  1023 05d2 11       		.uleb128 0x11
- 1024 05d3 CF040000 		.4byte	.LASF84
+ 1024 05d3 B0040000 		.4byte	.LASF84
  1025 05d7 00       		.byte	0
  1026 05d8 11       		.uleb128 0x11
- 1027 05d9 94030000 		.4byte	.LASF85
+ 1027 05d9 E5030000 		.4byte	.LASF85
  1028 05dd 01       		.byte	0x1
  1029 05de 11       		.uleb128 0x11
- 1030 05df 60030000 		.4byte	.LASF86
+ 1030 05df B1030000 		.4byte	.LASF86
  1031 05e3 02       		.byte	0x2
  1032 05e4 11       		.uleb128 0x11
- 1033 05e5 5B040000 		.4byte	.LASF87
+ 1033 05e5 3C040000 		.4byte	.LASF87
  1034 05e9 03       		.byte	0x3
  1035 05ea 11       		.uleb128 0x11
- 1036 05eb 9D060000 		.4byte	.LASF88
+ 1036 05eb 72060000 		.4byte	.LASF88
  1037 05ef 04       		.byte	0x4
  1038 05f0 11       		.uleb128 0x11
- 1039 05f1 A0050000 		.4byte	.LASF89
+ 1039 05f1 81050000 		.4byte	.LASF89
  1040 05f5 05       		.byte	0x5
  1041 05f6 11       		.uleb128 0x11
- 1042 05f7 61020000 		.4byte	.LASF90
+ 1042 05f7 6F020000 		.4byte	.LASF90
  1043 05fb 06       		.byte	0x6
  1044 05fc 00       		.byte	0
  1045 05fd 12       		.uleb128 0x12
- 1046 05fe F9040000 		.4byte	.LASF91
+ 1046 05fe DA040000 		.4byte	.LASF91
  1047 0602 05       		.byte	0x5
  1048 0603 36       		.byte	0x36
  1049 0604 C6050000 		.4byte	0x5c6
@@ -1359,7 +1359,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1057 0618 9C       		.byte	0x9c
  1058 0619 29060000 		.4byte	0x629
  1059 061d 14       		.uleb128 0x14
- 1060 061e DF050000 		.4byte	.LASF98
+ 1060 061e C0050000 		.4byte	.LASF98
  1061 0622 01       		.byte	0x1
  1062 0623 46       		.byte	0x46
  1063 0624 29060000 		.4byte	0x629
@@ -1370,7 +1370,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1068 062f 05       		.uleb128 0x5
  1069 0630 A8040000 		.4byte	0x4a8
  1070 0634 15       		.uleb128 0x15
- 1071 0635 4E030000 		.4byte	.LASF110
+ 1071 0635 9F030000 		.4byte	.LASF110
  1072 0639 01       		.byte	0x1
  1073 063a 73       		.byte	0x73
  1074 063b 83000000 		.4byte	0x83
@@ -1378,12 +1378,12 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1076 0643 18010000 		.4byte	.LFE2-.LFB2
  1077 0647 01       		.uleb128 0x1
  1078 0648 9C       		.byte	0x9c
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 24
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 24
 
 
  1079 0649 01070000 		.4byte	0x701
  1080 064d 16       		.uleb128 0x16
- 1081 064e 5E050000 		.4byte	.LASF92
+ 1081 064e 3F050000 		.4byte	.LASF92
  1082 0652 01       		.byte	0x1
  1083 0653 75       		.byte	0x75
  1084 0654 6B000000 		.4byte	0x6b
@@ -1401,30 +1401,30 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1096 0672 83000000 		.4byte	0x83
  1097 0676 3C000000 		.4byte	.LLST2
  1098 067a 16       		.uleb128 0x16
- 1099 067b F4050000 		.4byte	.LASF95
+ 1099 067b D5050000 		.4byte	.LASF95
  1100 067f 01       		.byte	0x1
  1101 0680 78       		.byte	0x78
  1102 0681 83000000 		.4byte	0x83
  1103 0685 4F000000 		.4byte	.LLST3
  1104 0689 16       		.uleb128 0x16
- 1105 068a DF060000 		.4byte	.LASF96
+ 1105 068a B4060000 		.4byte	.LASF96
  1106 068e 01       		.byte	0x1
  1107 068f 79       		.byte	0x79
  1108 0690 FD050000 		.4byte	0x5fd
  1109 0694 0F010000 		.4byte	.LLST4
  1110 0698 16       		.uleb128 0x16
- 1111 0699 BC060000 		.4byte	.LASF97
+ 1111 0699 91060000 		.4byte	.LASF97
  1112 069d 01       		.byte	0x1
  1113 069e 7A       		.byte	0x7a
  1114 069f 83000000 		.4byte	0x83
  1115 06a3 22010000 		.4byte	.LLST5
  1116 06a7 14       		.uleb128 0x14
- 1117 06a8 DF050000 		.4byte	.LASF98
+ 1117 06a8 C0050000 		.4byte	.LASF98
  1118 06ac 01       		.byte	0x1
  1119 06ad 7C       		.byte	0x7c
  1120 06ae 29060000 		.4byte	0x629
  1121 06b2 16       		.uleb128 0x16
- 1122 06b3 75040000 		.4byte	.LASF99
+ 1122 06b3 56040000 		.4byte	.LASF99
  1123 06b7 01       		.byte	0x1
  1124 06b8 7D       		.byte	0x7d
  1125 06b9 01070000 		.4byte	0x701
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1133 06d3 17       		.uleb128 0x17
  1134 06d4 46000000 		.4byte	.LVL10
  1135 06d8 50070000 		.4byte	0x750
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 25
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 25
 
 
  1136 06dc 17       		.uleb128 0x17
@@ -1460,7 +1460,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1152 0707 05       		.uleb128 0x5
  1153 0708 F7020000 		.4byte	0x2f7
  1154 070c 18       		.uleb128 0x18
- 1155 070d 04030000 		.4byte	.LASF100
+ 1155 070d 55030000 		.4byte	.LASF100
  1156 0711 01       		.byte	0x1
  1157 0712 35       		.byte	0x35
  1158 0713 83000000 		.4byte	0x83
@@ -1473,15 +1473,15 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1165 0723 C604     		.2byte	0x4c6
  1166 0725 A8040000 		.4byte	0x4a8
  1167 0729 19       		.uleb128 0x19
- 1168 072a 8B020000 		.4byte	.LASF102
+ 1168 072a 99020000 		.4byte	.LASF102
  1169 072e 04       		.byte	0x4
  1170 072f C704     		.2byte	0x4c7
  1171 0731 35070000 		.4byte	0x735
  1172 0735 1A       		.uleb128 0x1a
  1173 0736 BA050000 		.4byte	0x5ba
  1174 073a 1B       		.uleb128 0x1b
- 1175 073b 51060000 		.4byte	.LASF103
- 1176 073f 51060000 		.4byte	.LASF103
+ 1175 073b 26060000 		.4byte	.LASF103
+ 1176 073f 26060000 		.4byte	.LASF103
  1177 0743 06       		.byte	0x6
  1178 0744 F8       		.byte	0xf8
  1179 0745 1B       		.uleb128 0x1b
@@ -1490,15 +1490,15 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1182 074e 06       		.byte	0x6
  1183 074f F9       		.byte	0xf9
  1184 0750 1B       		.uleb128 0x1b
- 1185 0751 7C020000 		.4byte	.LASF105
- 1186 0755 7C020000 		.4byte	.LASF105
+ 1185 0751 8A020000 		.4byte	.LASF105
+ 1186 0755 8A020000 		.4byte	.LASF105
  1187 0759 07       		.byte	0x7
  1188 075a 3B       		.byte	0x3b
  1189 075b 00       		.byte	0
  1190              		.section	.debug_abbrev,"",%progbits
  1191              	.Ldebug_abbrev0:
  1192 0000 01       		.uleb128 0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 26
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 26
 
 
  1193 0001 11       		.uleb128 0x11
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1247 0037 35       		.uleb128 0x35
  1248 0038 00       		.byte	0
  1249 0039 49       		.uleb128 0x49
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 27
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 27
 
 
  1250 003a 13       		.uleb128 0x13
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1304 0070 00       		.byte	0
  1305 0071 00       		.byte	0
  1306 0072 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 28
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 28
 
 
  1307 0073 0D       		.uleb128 0xd
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1361 00a9 00       		.byte	0
  1362 00aa 00       		.byte	0
  1363 00ab 10       		.uleb128 0x10
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 29
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 29
 
 
  1364 00ac 04       		.uleb128 0x4
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1418 00e2 18       		.uleb128 0x18
  1419 00e3 9742     		.uleb128 0x2117
  1420 00e5 19       		.uleb128 0x19
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 30
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 30
 
 
  1421 00e6 01       		.uleb128 0x1
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1475 011d 13       		.uleb128 0x13
  1476 011e 02       		.uleb128 0x2
  1477 011f 17       		.uleb128 0x17
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 31
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 31
 
 
  1478 0120 00       		.byte	0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1532 0158 19       		.uleb128 0x19
  1533 0159 3C       		.uleb128 0x3c
  1534 015a 19       		.uleb128 0x19
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 32
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 32
 
 
  1535 015b 6E       		.uleb128 0x6e
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1589 006e 0200     		.2byte	0x2
  1590 0070 31       		.byte	0x31
  1591 0071 9F       		.byte	0x9f
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 33
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 33
 
 
  1592 0072 38000000 		.4byte	.LVL7
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1646 00fc 92000000 		.4byte	.LVL21
  1647 0100 00010000 		.4byte	.LVL32
  1648 0104 0100     		.2byte	0x1
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 34
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 34
 
 
  1649 0106 56       		.byte	0x56
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1703 0020 00000000 		.4byte	0
  1704 0024 00000000 		.4byte	0
  1705              		.section	.debug_ranges,"",%progbits
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 35
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 35
 
 
  1706              	.Ldebug_ranges0:
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1733 0079 6C6F7742 		.ascii	"lowBslnRst\000"
  1733      736C6E52 
  1733      737400
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 36
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 36
 
 
  1734              	.LASF104:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1755      67202D66 
  1755      66756E63 
  1755      74696F6E 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 37
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 37
 
 
  1755      2D736563 
@@ -2199,411 +2199,406 @@ ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 1
  1771 0202 77696467 		.ascii	"widgetId\000"
  1771      65744964 
  1771      00
- 1772              	.LASF33:
- 1773 020b 62746E30 		.ascii	"btn0\000"
- 1773      00
- 1774              	.LASF34:
- 1775 0210 62746E31 		.ascii	"btn1\000"
+ 1772              	.LASF41:
+ 1773 020b 6E656742 		.ascii	"negBslnRstCnt\000"
+ 1773      736C6E52 
+ 1773      7374436E 
+ 1773      7400
+ 1774              	.LASF33:
+ 1775 0219 62746E30 		.ascii	"btn0\000"
  1775      00
- 1776              	.LASF35:
- 1777 0215 62746E32 		.ascii	"btn2\000"
+ 1776              	.LASF34:
+ 1777 021e 62746E31 		.ascii	"btn1\000"
  1777      00
- 1778              	.LASF46:
- 1779 021a 64657669 		.ascii	"deviceId\000"
- 1779      63654964 
+ 1778              	.LASF35:
+ 1779 0223 62746E32 		.ascii	"btn2\000"
  1779      00
- 1780              	.LASF10:
- 1781 0223 75696E74 		.ascii	"uint16\000"
- 1781      313600
- 1782              	.LASF71:
- 1783 022a 70747232 		.ascii	"ptr2DebounceArr\000"
- 1783      4465626F 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 38
+ 1780              	.LASF46:
+ 1781 0228 64657669 		.ascii	"deviceId\000"
+ 1781      63654964 
+ 1781      00
+ 1782              	.LASF10:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 38
 
 
- 1783      756E6365 
- 1783      41727200 
- 1784              	.LASF9:
- 1785 023a 75696E74 		.ascii	"uint8\000"
- 1785      3800
- 1786              	.LASF77:
- 1787 0240 6E756D52 		.ascii	"numRows\000"
- 1787      6F777300 
- 1788              	.LASF81:
- 1789 0248 63617073 		.ascii	"capsense_FLASH_WD_STRUCT\000"
- 1789      656E7365 
- 1789      5F464C41 
- 1789      53485F57 
- 1789      445F5354 
- 1790              	.LASF90:
- 1791 0261 63617073 		.ascii	"capsense_TU_CMD_ONE_SCAN_E\000"
+ 1783 0231 75696E74 		.ascii	"uint16\000"
+ 1783      313600
+ 1784              	.LASF71:
+ 1785 0238 70747232 		.ascii	"ptr2DebounceArr\000"
+ 1785      4465626F 
+ 1785      756E6365 
+ 1785      41727200 
+ 1786              	.LASF9:
+ 1787 0248 75696E74 		.ascii	"uint8\000"
+ 1787      3800
+ 1788              	.LASF77:
+ 1789 024e 6E756D52 		.ascii	"numRows\000"
+ 1789      6F777300 
+ 1790              	.LASF81:
+ 1791 0256 63617073 		.ascii	"capsense_FLASH_WD_STRUCT\000"
  1791      656E7365 
- 1791      5F54555F 
- 1791      434D445F 
- 1791      4F4E455F 
- 1792              	.LASF105:
- 1793 027c 63617073 		.ascii	"capsense_Start\000"
+ 1791      5F464C41 
+ 1791      53485F57 
+ 1791      445F5354 
+ 1792              	.LASF90:
+ 1793 026f 63617073 		.ascii	"capsense_TU_CMD_ONE_SCAN_E\000"
  1793      656E7365 
- 1793      5F537461 
- 1793      727400
- 1794              	.LASF102:
- 1795 028b 63617073 		.ascii	"capsense_dsFlash\000"
+ 1793      5F54555F 
+ 1793      434D445F 
+ 1793      4F4E455F 
+ 1794              	.LASF105:
+ 1795 028a 63617073 		.ascii	"capsense_Start\000"
  1795      656E7365 
- 1795      5F647346 
- 1795      6C617368 
- 1795      00
- 1796              	.LASF12:
- 1797 029c 666C6F61 		.ascii	"float\000"
- 1797      7400
- 1798              	.LASF60:
- 1799 02a2 736E7254 		.ascii	"snrTestSensorId\000"
- 1799      65737453 
- 1799      656E736F 
- 1799      72496400 
- 1800              	.LASF14:
- 1801 02b2 63686172 		.ascii	"char\000"
- 1801      00
- 1802              	.LASF4:
- 1803 02b7 6C6F6E67 		.ascii	"long int\000"
- 1803      20696E74 
+ 1795      5F537461 
+ 1795      727400
+ 1796              	.LASF102:
+ 1797 0299 63617073 		.ascii	"capsense_dsFlash\000"
+ 1797      656E7365 
+ 1797      5F647346 
+ 1797      6C617368 
+ 1797      00
+ 1798              	.LASF12:
+ 1799 02aa 666C6F61 		.ascii	"float\000"
+ 1799      7400
+ 1800              	.LASF60:
+ 1801 02b0 736E7254 		.ascii	"snrTestSensorId\000"
+ 1801      65737453 
+ 1801      656E736F 
+ 1801      72496400 
+ 1802              	.LASF14:
+ 1803 02c0 63686172 		.ascii	"char\000"
  1803      00
- 1804              	.LASF74:
- 1805 02c0 77646774 		.ascii	"wdgtType\000"
- 1805      54797065 
+ 1804              	.LASF4:
+ 1805 02c5 6C6F6E67 		.ascii	"long int\000"
+ 1805      20696E74 
  1805      00
- 1806              	.LASF20:
- 1807 02c9 66696E67 		.ascii	"fingerTh\000"
- 1807      65725468 
+ 1806              	.LASF74:
+ 1807 02ce 77646774 		.ascii	"wdgtType\000"
+ 1807      54797065 
  1807      00
- 1808              	.LASF41:
- 1809 02d2 6E656742 		.ascii	"negBslnRstCnt\000"
- 1809      736C6E52 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 39
+ 1808              	.LASF20:
+ 1809 02d7 66696E67 		.ascii	"fingerTh\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 39
 
 
- 1809      7374436E 
- 1809      7400
- 1810              	.LASF68:
- 1811 02e0 70747232 		.ascii	"ptr2WdgtRam\000"
- 1811      57646774 
- 1811      52616D00 
- 1812              	.LASF17:
- 1813 02ec 63617073 		.ascii	"capsense_THRESHOLD_TYPE\000"
- 1813      656E7365 
- 1813      5F544852 
- 1813      4553484F 
- 1813      4C445F54 
- 1814              	.LASF100:
- 1815 0304 74756E65 		.ascii	"tunerFsm\000"
- 1815      7246736D 
- 1815      00
- 1816              	.LASF76:
- 1817 030d 6E756D43 		.ascii	"numCols\000"
- 1817      6F6C7300 
- 1818              	.LASF1:
- 1819 0315 756E7369 		.ascii	"unsigned char\000"
- 1819      676E6564 
- 1819      20636861 
- 1819      7200
- 1820              	.LASF23:
- 1821 0323 68797374 		.ascii	"hysteresis\000"
- 1821      65726573 
- 1821      697300
- 1822              	.LASF48:
- 1823 032e 74756E65 		.ascii	"tunerCmd\000"
- 1823      72436D64 
- 1823      00
- 1824              	.LASF15:
- 1825 0337 6C6F6E67 		.ascii	"long double\000"
- 1825      20646F75 
- 1825      626C6500 
- 1826              	.LASF52:
- 1827 0343 77646774 		.ascii	"wdgtStatus\000"
- 1827      53746174 
- 1827      757300
- 1828              	.LASF110:
- 1829 034e 63617073 		.ascii	"capsense_RunTuner\000"
- 1829      656E7365 
- 1829      5F52756E 
- 1829      54756E65 
- 1829      7200
- 1830              	.LASF86:
- 1831 0360 63617073 		.ascii	"capsense_TU_CMD_RESUME_E\000"
- 1831      656E7365 
- 1831      5F54555F 
- 1831      434D445F 
- 1831      52455355 
- 1832              	.LASF18:
- 1833 0379 63617073 		.ascii	"capsense_LOW_BSLN_RST_TYPE\000"
- 1833      656E7365 
- 1833      5F4C4F57 
- 1833      5F42534C 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 40
+ 1809      65725468 
+ 1809      00
+ 1810              	.LASF108:
+ 1811 02e0 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
+ 1811      6978745C 
+ 1811      61697874 
+ 1811      5C706F72 
+ 1811      74735C43 
+ 1812 030d 78616D70 		.ascii	"xamples\\Configuracion_General.cydsn\000"
+ 1812      6C65735C 
+ 1812      436F6E66 
+ 1812      69677572 
+ 1812      6163696F 
+ 1813              	.LASF68:
+ 1814 0331 70747232 		.ascii	"ptr2WdgtRam\000"
+ 1814      57646774 
+ 1814      52616D00 
+ 1815              	.LASF17:
+ 1816 033d 63617073 		.ascii	"capsense_THRESHOLD_TYPE\000"
+ 1816      656E7365 
+ 1816      5F544852 
+ 1816      4553484F 
+ 1816      4C445F54 
+ 1817              	.LASF100:
+ 1818 0355 74756E65 		.ascii	"tunerFsm\000"
+ 1818      7246736D 
+ 1818      00
+ 1819              	.LASF76:
+ 1820 035e 6E756D43 		.ascii	"numCols\000"
+ 1820      6F6C7300 
+ 1821              	.LASF1:
+ 1822 0366 756E7369 		.ascii	"unsigned char\000"
+ 1822      676E6564 
+ 1822      20636861 
+ 1822      7200
+ 1823              	.LASF23:
+ 1824 0374 68797374 		.ascii	"hysteresis\000"
+ 1824      65726573 
+ 1824      697300
+ 1825              	.LASF48:
+ 1826 037f 74756E65 		.ascii	"tunerCmd\000"
+ 1826      72436D64 
+ 1826      00
+ 1827              	.LASF15:
+ 1828 0388 6C6F6E67 		.ascii	"long double\000"
+ 1828      20646F75 
+ 1828      626C6500 
+ 1829              	.LASF52:
+ 1830 0394 77646774 		.ascii	"wdgtStatus\000"
+ 1830      53746174 
+ 1830      757300
+ 1831              	.LASF110:
+ 1832 039f 63617073 		.ascii	"capsense_RunTuner\000"
+ 1832      656E7365 
+ 1832      5F52756E 
+ 1832      54756E65 
+ 1832      7200
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 40
 
 
- 1833      4E5F5253 
- 1834              	.LASF85:
- 1835 0394 63617073 		.ascii	"capsense_TU_CMD_SUSPEND_E\000"
- 1835      656E7365 
- 1835      5F54555F 
- 1835      434D445F 
- 1835      53555350 
- 1836              	.LASF108:
- 1837 03ae 443A5C44 		.ascii	"D:\\Documentos\\UD\\2023-3\\Proyecto de grado\\aixt"
- 1837      6F63756D 
- 1837      656E746F 
- 1837      735C5544 
- 1837      5C323032 
- 1838 03dc 2D702D73 		.ascii	"-p-so-c-4\\ports\\Cypress\\CY8CKIT-145-40XX\\projec"
- 1838      6F2D632D 
- 1838      345C706F 
- 1838      7274735C 
- 1838      43797072 
- 1839 040b 74735C43 		.ascii	"ts\\Configuracion_General.cydsn\000"
- 1839      6F6E6669 
- 1839      67757261 
- 1839      63696F6E 
- 1839      5F47656E 
- 1840              	.LASF7:
- 1841 042a 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1841      206C6F6E 
- 1841      6720756E 
- 1841      7369676E 
- 1841      65642069 
- 1842              	.LASF72:
- 1843 0441 73746174 		.ascii	"staticConfig\000"
- 1843      6963436F 
- 1843      6E666967 
- 1843      00
- 1844              	.LASF8:
- 1845 044e 756E7369 		.ascii	"unsigned int\000"
- 1845      676E6564 
- 1845      20696E74 
- 1845      00
- 1846              	.LASF87:
- 1847 045b 63617073 		.ascii	"capsense_TU_CMD_RESTART_E\000"
- 1847      656E7365 
- 1847      5F54555F 
- 1847      434D445F 
- 1847      52455354 
- 1848              	.LASF99:
- 1849 0475 70747253 		.ascii	"ptrSnsTmp\000"
- 1849      6E73546D 
- 1849      7000
- 1850              	.LASF51:
- 1851 047f 77646774 		.ascii	"wdgtEnable\000"
- 1851      456E6162 
- 1851      6C6500
- 1852              	.LASF65:
- 1853 048a 7363616E 		.ascii	"scanCurrentISC\000"
- 1853      43757272 
- 1853      656E7449 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 41
+ 1833              	.LASF86:
+ 1834 03b1 63617073 		.ascii	"capsense_TU_CMD_RESUME_E\000"
+ 1834      656E7365 
+ 1834      5F54555F 
+ 1834      434D445F 
+ 1834      52455355 
+ 1835              	.LASF18:
+ 1836 03ca 63617073 		.ascii	"capsense_LOW_BSLN_RST_TYPE\000"
+ 1836      656E7365 
+ 1836      5F4C4F57 
+ 1836      5F42534C 
+ 1836      4E5F5253 
+ 1837              	.LASF85:
+ 1838 03e5 63617073 		.ascii	"capsense_TU_CMD_SUSPEND_E\000"
+ 1838      656E7365 
+ 1838      5F54555F 
+ 1838      434D445F 
+ 1838      53555350 
+ 1839              	.LASF0:
+ 1840 03ff 7369676E 		.ascii	"signed char\000"
+ 1840      65642063 
+ 1840      68617200 
+ 1841              	.LASF7:
+ 1842 040b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1842      206C6F6E 
+ 1842      6720756E 
+ 1842      7369676E 
+ 1842      65642069 
+ 1843              	.LASF72:
+ 1844 0422 73746174 		.ascii	"staticConfig\000"
+ 1844      6963436F 
+ 1844      6E666967 
+ 1844      00
+ 1845              	.LASF8:
+ 1846 042f 756E7369 		.ascii	"unsigned int\000"
+ 1846      676E6564 
+ 1846      20696E74 
+ 1846      00
+ 1847              	.LASF87:
+ 1848 043c 63617073 		.ascii	"capsense_TU_CMD_RESTART_E\000"
+ 1848      656E7365 
+ 1848      5F54555F 
+ 1848      434D445F 
+ 1848      52455354 
+ 1849              	.LASF99:
+ 1850 0456 70747253 		.ascii	"ptrSnsTmp\000"
+ 1850      6E73546D 
+ 1850      7000
+ 1851              	.LASF51:
+ 1852 0460 77646774 		.ascii	"wdgtEnable\000"
+ 1852      456E6162 
+ 1852      6C6500
+ 1853              	.LASF65:
+ 1854 046b 7363616E 		.ascii	"scanCurrentISC\000"
+ 1854      43757272 
+ 1854      656E7449 
+ 1854      534300
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 41
 
 
- 1853      534300
- 1854              	.LASF79:
- 1855 0499 7843656E 		.ascii	"xCentroidMultiplier\000"
- 1855      74726F69 
- 1855      644D756C 
- 1855      7469706C 
- 1855      69657200 
- 1856              	.LASF3:
- 1857 04ad 73686F72 		.ascii	"short unsigned int\000"
- 1857      7420756E 
- 1857      7369676E 
- 1857      65642069 
- 1857      6E7400
- 1858              	.LASF50:
- 1859 04c0 73746174 		.ascii	"status\000"
- 1859      757300
- 1860              	.LASF47:
- 1861 04c7 6877436C 		.ascii	"hwClock\000"
- 1861      6F636B00 
- 1862              	.LASF84:
- 1863 04cf 63617073 		.ascii	"capsense_TU_CMD_NONE_E\000"
- 1863      656E7365 
- 1863      5F54555F 
- 1863      434D445F 
- 1863      4E4F4E45 
- 1864              	.LASF61:
- 1865 04e6 736E7254 		.ascii	"snrTestScanCounter\000"
- 1865      65737453 
- 1865      63616E43 
- 1865      6F756E74 
- 1865      657200
- 1866              	.LASF91:
- 1867 04f9 63617073 		.ascii	"capsense_TU_CMD_ENUM\000"
- 1867      656E7365 
- 1867      5F54555F 
- 1867      434D445F 
- 1867      454E554D 
- 1868              	.LASF19:
- 1869 050e 7265736F 		.ascii	"resolution\000"
- 1869      6C757469 
- 1869      6F6E00
- 1870              	.LASF32:
- 1871 0519 63617073 		.ascii	"capsense_RAM_WD_SLIDER_STRUCT\000"
- 1871      656E7365 
- 1871      5F52414D 
- 1871      5F57445F 
- 1871      534C4944 
- 1872              	.LASF58:
- 1873 0537 736E734C 		.ascii	"snsList\000"
- 1873      69737400 
- 1874              	.LASF55:
- 1875 053f 6D6F6443 		.ascii	"modCsdClk\000"
- 1875      7364436C 
- 1875      6B00
- 1876              	.LASF49:
- 1877 0549 7363616E 		.ascii	"scanCounter\000"
- 1877      436F756E 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 42
+ 1855              	.LASF79:
+ 1856 047a 7843656E 		.ascii	"xCentroidMultiplier\000"
+ 1856      74726F69 
+ 1856      644D756C 
+ 1856      7469706C 
+ 1856      69657200 
+ 1857              	.LASF3:
+ 1858 048e 73686F72 		.ascii	"short unsigned int\000"
+ 1858      7420756E 
+ 1858      7369676E 
+ 1858      65642069 
+ 1858      6E7400
+ 1859              	.LASF50:
+ 1860 04a1 73746174 		.ascii	"status\000"
+ 1860      757300
+ 1861              	.LASF47:
+ 1862 04a8 6877436C 		.ascii	"hwClock\000"
+ 1862      6F636B00 
+ 1863              	.LASF84:
+ 1864 04b0 63617073 		.ascii	"capsense_TU_CMD_NONE_E\000"
+ 1864      656E7365 
+ 1864      5F54555F 
+ 1864      434D445F 
+ 1864      4E4F4E45 
+ 1865              	.LASF61:
+ 1866 04c7 736E7254 		.ascii	"snrTestScanCounter\000"
+ 1866      65737453 
+ 1866      63616E43 
+ 1866      6F756E74 
+ 1866      657200
+ 1867              	.LASF91:
+ 1868 04da 63617073 		.ascii	"capsense_TU_CMD_ENUM\000"
+ 1868      656E7365 
+ 1868      5F54555F 
+ 1868      434D445F 
+ 1868      454E554D 
+ 1869              	.LASF19:
+ 1870 04ef 7265736F 		.ascii	"resolution\000"
+ 1870      6C757469 
+ 1870      6F6E00
+ 1871              	.LASF32:
+ 1872 04fa 63617073 		.ascii	"capsense_RAM_WD_SLIDER_STRUCT\000"
+ 1872      656E7365 
+ 1872      5F52414D 
+ 1872      5F57445F 
+ 1872      534C4944 
+ 1873              	.LASF58:
+ 1874 0518 736E734C 		.ascii	"snsList\000"
+ 1874      69737400 
+ 1875              	.LASF55:
+ 1876 0520 6D6F6443 		.ascii	"modCsdClk\000"
+ 1876      7364436C 
+ 1876      6B00
+ 1877              	.LASF49:
+ 1878 052a 7363616E 		.ascii	"scanCounter\000"
+ 1878      436F756E 
+ 1878      74657200 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 42
 
 
- 1877      74657200 
- 1878              	.LASF22:
- 1879 0555 6E4E6F69 		.ascii	"nNoiseTh\000"
- 1879      73655468 
- 1879      00
- 1880              	.LASF92:
- 1881 055e 696E7465 		.ascii	"interruptState\000"
- 1881      72727570 
- 1881      74537461 
- 1881      746500
- 1882              	.LASF11:
- 1883 056d 75696E74 		.ascii	"uint32\000"
- 1883      333200
- 1884              	.LASF63:
- 1885 0574 7363616E 		.ascii	"scanCsdISC\000"
- 1885      43736449 
- 1885      534300
- 1886              	.LASF5:
- 1887 057f 6C6F6E67 		.ascii	"long unsigned int\000"
- 1887      20756E73 
- 1887      69676E65 
- 1887      6420696E 
- 1887      7400
- 1888              	.LASF13:
- 1889 0591 646F7562 		.ascii	"double\000"
- 1889      6C6500
- 1890              	.LASF39:
- 1891 0598 62736C6E 		.ascii	"bslnExt\000"
- 1891      45787400 
- 1892              	.LASF89:
- 1893 05a0 63617073 		.ascii	"capsense_TU_CMD_PING_E\000"
- 1893      656E7365 
- 1893      5F54555F 
- 1893      434D445F 
- 1893      50494E47 
- 1894              	.LASF107:
- 1895 05b7 47656E65 		.ascii	"Generated_Source\\PSoC4\\capsense_Tuner.c\000"
- 1895      72617465 
- 1895      645F536F 
- 1895      75726365 
- 1895      5C50536F 
- 1896              	.LASF98:
- 1897 05df 70747244 		.ascii	"ptrDsRam\000"
- 1897      7352616D 
- 1897      00
- 1898              	.LASF75:
- 1899 05e8 73656E73 		.ascii	"senseMethod\000"
- 1899      654D6574 
- 1899      686F6400 
- 1900              	.LASF95:
- 1901 05f4 75706461 		.ascii	"updateFlag\000"
- 1901      7465466C 
- 1901      616700
- 1902              	.LASF78:
- 1903 05ff 78526573 		.ascii	"xResolution\000"
- 1903      6F6C7574 
- 1903      696F6E00 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 43
+ 1879              	.LASF22:
+ 1880 0536 6E4E6F69 		.ascii	"nNoiseTh\000"
+ 1880      73655468 
+ 1880      00
+ 1881              	.LASF92:
+ 1882 053f 696E7465 		.ascii	"interruptState\000"
+ 1882      72727570 
+ 1882      74537461 
+ 1882      746500
+ 1883              	.LASF11:
+ 1884 054e 75696E74 		.ascii	"uint32\000"
+ 1884      333200
+ 1885              	.LASF63:
+ 1886 0555 7363616E 		.ascii	"scanCsdISC\000"
+ 1886      43736449 
+ 1886      534300
+ 1887              	.LASF5:
+ 1888 0560 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1888      20756E73 
+ 1888      69676E65 
+ 1888      6420696E 
+ 1888      7400
+ 1889              	.LASF13:
+ 1890 0572 646F7562 		.ascii	"double\000"
+ 1890      6C6500
+ 1891              	.LASF39:
+ 1892 0579 62736C6E 		.ascii	"bslnExt\000"
+ 1892      45787400 
+ 1893              	.LASF89:
+ 1894 0581 63617073 		.ascii	"capsense_TU_CMD_PING_E\000"
+ 1894      656E7365 
+ 1894      5F54555F 
+ 1894      434D445F 
+ 1894      50494E47 
+ 1895              	.LASF107:
+ 1896 0598 47656E65 		.ascii	"Generated_Source\\PSoC4\\capsense_Tuner.c\000"
+ 1896      72617465 
+ 1896      645F536F 
+ 1896      75726365 
+ 1896      5C50536F 
+ 1897              	.LASF98:
+ 1898 05c0 70747244 		.ascii	"ptrDsRam\000"
+ 1898      7352616D 
+ 1898      00
+ 1899              	.LASF75:
+ 1900 05c9 73656E73 		.ascii	"senseMethod\000"
+ 1900      654D6574 
+ 1900      686F6400 
+ 1901              	.LASF95:
+ 1902 05d5 75706461 		.ascii	"updateFlag\000"
+ 1902      7465466C 
+ 1902      616700
+ 1903              	.LASF78:
+ 1904 05e0 78526573 		.ascii	"xResolution\000"
+ 1904      6F6C7574 
+ 1904      696F6E00 
+ 1905              	.LASF69:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 43
 
 
- 1904              	.LASF69:
- 1905 060b 70747232 		.ascii	"ptr2SnsRam\000"
- 1905      536E7352 
- 1905      616D00
- 1906              	.LASF67:
- 1907 0616 70747232 		.ascii	"ptr2SnsFlash\000"
- 1907      536E7346 
- 1907      6C617368 
- 1907      00
- 1908              	.LASF0:
- 1909 0623 7369676E 		.ascii	"signed char\000"
- 1909      65642063 
- 1909      68617200 
- 1910              	.LASF21:
- 1911 062f 6E6F6973 		.ascii	"noiseTh\000"
- 1911      65546800 
- 1912              	.LASF70:
- 1913 0637 70747232 		.ascii	"ptr2FltrHistory\000"
- 1913      466C7472 
- 1913      48697374 
- 1913      6F727900 
- 1914              	.LASF82:
- 1915 0647 77646774 		.ascii	"wdgtArray\000"
- 1915      41727261 
- 1915      7900
- 1916              	.LASF103:
- 1917 0651 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1917      74657243 
- 1917      72697469 
- 1917      63616C53 
- 1917      65637469 
- 1918              	.LASF56:
- 1919 0668 6D6F6443 		.ascii	"modCsxClk\000"
- 1919      7378436C 
- 1919      6B00
- 1920              	.LASF31:
- 1921 0672 706F7369 		.ascii	"position\000"
- 1921      74696F6E 
- 1921      00
- 1922              	.LASF59:
- 1923 067b 736E7254 		.ascii	"snrTestWidgetId\000"
- 1923      65737457 
- 1923      69646765 
- 1923      74496400 
- 1924              	.LASF28:
- 1925 068b 736E7343 		.ascii	"snsClk\000"
- 1925      6C6B00
- 1926              	.LASF64:
- 1927 0692 7363616E 		.ascii	"scanCsxISC\000"
- 1927      43737849 
- 1927      534300
- 1928              	.LASF88:
- 1929 069d 63617073 		.ascii	"capsense_TU_CMD_RUN_SNR_TEST_E\000"
- 1929      656E7365 
- 1929      5F54555F 
- 1929      434D445F 
- 1929      52554E5F 
-ARM GAS  C:\Users\Usuario\AppData\Local\Temp\ccAqxTWb.s 			page 44
+ 1906 05ec 70747232 		.ascii	"ptr2SnsRam\000"
+ 1906      536E7352 
+ 1906      616D00
+ 1907              	.LASF67:
+ 1908 05f7 70747232 		.ascii	"ptr2SnsFlash\000"
+ 1908      536E7346 
+ 1908      6C617368 
+ 1908      00
+ 1909              	.LASF21:
+ 1910 0604 6E6F6973 		.ascii	"noiseTh\000"
+ 1910      65546800 
+ 1911              	.LASF70:
+ 1912 060c 70747232 		.ascii	"ptr2FltrHistory\000"
+ 1912      466C7472 
+ 1912      48697374 
+ 1912      6F727900 
+ 1913              	.LASF82:
+ 1914 061c 77646774 		.ascii	"wdgtArray\000"
+ 1914      41727261 
+ 1914      7900
+ 1915              	.LASF103:
+ 1916 0626 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1916      74657243 
+ 1916      72697469 
+ 1916      63616C53 
+ 1916      65637469 
+ 1917              	.LASF56:
+ 1918 063d 6D6F6443 		.ascii	"modCsxClk\000"
+ 1918      7378436C 
+ 1918      6B00
+ 1919              	.LASF31:
+ 1920 0647 706F7369 		.ascii	"position\000"
+ 1920      74696F6E 
+ 1920      00
+ 1921              	.LASF59:
+ 1922 0650 736E7254 		.ascii	"snrTestWidgetId\000"
+ 1922      65737457 
+ 1922      69646765 
+ 1922      74496400 
+ 1923              	.LASF28:
+ 1924 0660 736E7343 		.ascii	"snsClk\000"
+ 1924      6C6B00
+ 1925              	.LASF64:
+ 1926 0667 7363616E 		.ascii	"scanCsxISC\000"
+ 1926      43737849 
+ 1926      534300
+ 1927              	.LASF88:
+ 1928 0672 63617073 		.ascii	"capsense_TU_CMD_RUN_SNR_TEST_E\000"
+ 1928      656E7365 
+ 1928      5F54555F 
+ 1928      434D445F 
+ 1928      52554E5F 
+ 1929              	.LASF97:
+ 1930 0691 74756E65 		.ascii	"tunerStatus\000"
+ 1930      72537461 
+ 1930      74757300 
+ 1931              	.LASF53:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccU346Dh.s 			page 44
 
 
- 1930              	.LASF97:
- 1931 06bc 74756E65 		.ascii	"tunerStatus\000"
- 1931      72537461 
- 1931      74757300 
- 1932              	.LASF53:
- 1933 06c8 736E7353 		.ascii	"snsStatus\000"
- 1933      74617475 
- 1933      7300
- 1934              	.LASF36:
- 1935 06d2 6C696E65 		.ascii	"linearslider\000"
- 1935      6172736C 
- 1935      69646572 
- 1935      00
- 1936              	.LASF96:
- 1937 06df 636F6D6D 		.ascii	"command\000"
- 1937      616E6400 
- 1938              	.LASF44:
- 1939 06e7 63617073 		.ascii	"capsense_RAM_SNS_LIST_STRUCT\000"
- 1939      656E7365 
- 1939      5F52414D 
- 1939      5F534E53 
- 1939      5F4C4953 
- 1940              	.LASF40:
- 1941 0704 64696666 		.ascii	"diff\000"
- 1941      00
- 1942              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1932 069d 736E7353 		.ascii	"snsStatus\000"
+ 1932      74617475 
+ 1932      7300
+ 1933              	.LASF36:
+ 1934 06a7 6C696E65 		.ascii	"linearslider\000"
+ 1934      6172736C 
+ 1934      69646572 
+ 1934      00
+ 1935              	.LASF96:
+ 1936 06b4 636F6D6D 		.ascii	"command\000"
+ 1936      616E6400 
+ 1937              	.LASF44:
+ 1938 06bc 63617073 		.ascii	"capsense_RAM_SNS_LIST_STRUCT\000"
+ 1938      656E7365 
+ 1938      5F52414D 
+ 1938      5F534E53 
+ 1938      5F4C4953 
+ 1939              	.LASF40:
+ 1940 06d9 64696666 		.ascii	"diff\000"
+ 1940      00
+ 1941              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

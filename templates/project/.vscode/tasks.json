@@ -6,7 +6,7 @@
       "type": "shell",
       "windows": {
         "command": [
-          "v run ${config:aixt_windows}",
+          "${config:aixt_windows}",
           "transpile",
           "${config:device}",
           "${file}"
@@ -14,7 +14,7 @@
       },
       "linux": {
         "command": [
-          "v run ${config:aixt_linux}",
+          "${config:aixt_linux}",
           "transpile",
           "${config:device}",
           "${file}"
@@ -27,20 +27,20 @@
       }
     },
     {
-      "label": "Aixt: Compile",
+      "label": "Aixt: C Compile",
       "type": "shell",
       "windows": {
         "command": [
-          "v run ${config:aixt_windows}",
-          "compile",
+          "${config:aixt_windows}",
+          "c_compile",
           "${config:device}",
           "${file}"
         ]
       },
       "linux": {
         "command": [
-          "v run ${config:aixt_linux}",
-          "compile",
+          "${config:aixt_linux}",
+          "c_compile",
           "${config:device}",
           "${file}"
         ]
@@ -56,7 +56,7 @@
       "type": "shell",
       "windows": {
         "command": [
-          "v run ${config:aixt_windows}",
+          "${config:aixt_windows}",
           "build",
           "${config:device}",
           "${file}"
@@ -64,7 +64,7 @@
       },
       "linux": {
         "command": [
-          "v run ${config:aixt_linux}",
+          "${config:aixt_linux}",
           "build",
           "${config:device}",
           "${file}"
@@ -81,7 +81,7 @@
       "type": "shell",
       "windows": {
         "command": [
-          "v run ${config:aixt_windows}",
+          "${config:aixt_windows}",
           "clean",
           "${config:device}",
           "${file}"
@@ -89,7 +89,7 @@
       },
       "linux": {
         "command": [
-          "v run ${config:aixt_linux}",
+          "${config:aixt_linux}",
           "clean",
           "${config:device}",
           "${file}"
@@ -127,7 +127,7 @@
       "type": "shell",
       "windows": {
         "command": [
-          "v run ${config:aixt_windows}",
+          "${config:aixt_windows}",
           "new_project",
           "${input:dirName}",
           "${input:projectName}",
@@ -136,7 +136,7 @@
       },
       "linux": {
         "command": [
-          "v run ${config:aixt_linux}",
+          "${config:aixt_linux}",
           "new_project",
           "${input:dirName}",
           "${input:projectName}",

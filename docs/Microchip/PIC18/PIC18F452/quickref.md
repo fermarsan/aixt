@@ -187,8 +187,8 @@ Ejemplo de variar la intensidad de un led:
 
 ```v
  for {    
-        valor_adc := adc.read(0)  // Almacena el valor del ADC
-        pwm.write(valor_adc,1)  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1        
+        adc_value := adc.read(0)  // Almacena el valor del ADC
+        pwm.write(adc_value,1)  // Calcula el ciclo de trabajo y lo establece en el módulo PWM CCP1        
     }
 
 ```

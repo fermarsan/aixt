@@ -1,6 +1,6 @@
 // Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera
-// Date: 2022-2024
+// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+// Date: 2022-2025
 // License: MIT
 //
 // // Description: pin functions (CY8CKIT-145-40XX)
@@ -11,3 +11,7 @@ module pin
 
 
 fn C.PIN_WRITE(name any, value any) 
+fn C.PIN_HIGH(name any) 
+fn C.PIN_LOW(name any)
+fn C.PIN_READ(name any) u8
+

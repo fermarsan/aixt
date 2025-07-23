@@ -2,7 +2,7 @@
 --	Conversion of Configuracion_General.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed May 14 18:15:43 2025
+--	Mon Jun 30 19:01:35 2025
 --
 
 USE cypress.cypress.all;
@@ -96,23 +96,23 @@ SIGNAL tmpFB_0__pwm_2_net_0 : bit;
 SIGNAL tmpIO_0__pwm_2_net_0 : bit;
 TERMINAL tmpSIOVREF__pwm_2_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__pwm_2_net_0 : bit;
-SIGNAL \pwm3:Net_81\ : bit;
-SIGNAL \pwm3:Net_75\ : bit;
-SIGNAL \pwm3:Net_69\ : bit;
-SIGNAL \pwm3:Net_66\ : bit;
-SIGNAL \pwm3:Net_82\ : bit;
-SIGNAL \pwm3:Net_72\ : bit;
+SIGNAL \pwm0:Net_81\ : bit;
+SIGNAL \pwm0:Net_75\ : bit;
+SIGNAL \pwm0:Net_69\ : bit;
+SIGNAL \pwm0:Net_66\ : bit;
+SIGNAL \pwm0:Net_82\ : bit;
+SIGNAL \pwm0:Net_72\ : bit;
 SIGNAL Net_82 : bit;
 SIGNAL Net_78 : bit;
 SIGNAL Net_72 : bit;
 SIGNAL Net_76 : bit;
 SIGNAL Net_77 : bit;
 SIGNAL Net_75 : bit;
-SIGNAL tmpOE__pwm_3_net_0 : bit;
-SIGNAL tmpFB_0__pwm_3_net_0 : bit;
-SIGNAL tmpIO_0__pwm_3_net_0 : bit;
-TERMINAL tmpSIOVREF__pwm_3_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__pwm_3_net_0 : bit;
+SIGNAL tmpOE__pwm_0_net_0 : bit;
+SIGNAL tmpFB_0__pwm_0_net_0 : bit;
+SIGNAL tmpIO_0__pwm_0_net_0 : bit;
+TERMINAL tmpSIOVREF__pwm_0_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__pwm_0_net_0 : bit;
 SIGNAL tmpOE__led5_net_0 : bit;
 SIGNAL tmpFB_0__led5_net_0 : bit;
 SIGNAL tmpIO_0__led5_net_0 : bit;
@@ -657,7 +657,7 @@ pwm_2:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__pwm_2_net_0);
-\pwm3:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
+\pwm0:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
 	GENERIC MAP(cy_registers=>"")
 	PORT MAP(clock=>Net_25,
 		capture=>zero,
@@ -671,7 +671,7 @@ pwm_2:cy_psoc3_pins_v1_10
 		line_out=>Net_76,
 		line_out_compl=>Net_77,
 		interrupt=>Net_75);
-pwm_3:cy_psoc3_pins_v1_10
+pwm_0:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"fab737fe-cd8d-4a0e-95e4-29cbb8717af8",
 		drive_mode=>"110",
 		ibuf_enabled=>"1",
@@ -729,10 +729,10 @@ pwm_3:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>Net_76,
-		fb=>(tmpFB_0__pwm_3_net_0),
+		fb=>(tmpFB_0__pwm_0_net_0),
 		analog=>(open),
-		io=>(tmpIO_0__pwm_3_net_0),
-		siovref=>(tmpSIOVREF__pwm_3_net_0),
+		io=>(tmpIO_0__pwm_0_net_0),
+		siovref=>(tmpSIOVREF__pwm_0_net_0),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>one,
@@ -740,7 +740,7 @@ pwm_3:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>tmpINTERRUPT_0__pwm_3_net_0);
+		interrupt=>tmpINTERRUPT_0__pwm_0_net_0);
 led5:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"b780c54c-1f12-4f0b-be5d-99602c824b06",
 		drive_mode=>"110",

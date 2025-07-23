@@ -5,6 +5,7 @@
 module pin
 
 // write puts a logic value to a specific pin
+@[as_macro]
 pub fn read(name int) int {  
 	pin__input_value = 0
     $if linux {
