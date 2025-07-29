@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: Pin management Nucleo-L031K6
+// Description: Pin management STM32G431Core
 module pin
 
 // pin names A

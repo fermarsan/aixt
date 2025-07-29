@@ -1,0 +1,9 @@
+{
+    "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
+    "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
+    "device":		"STM32F411Core",
+    "port_linux":   "/dev/ttyUSB0",
+    "port_windows": "COM1",
+    "files.associations": {
+    }
+}

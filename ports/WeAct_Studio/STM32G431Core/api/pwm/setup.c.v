@@ -3,7 +3,7 @@
 // Date: 2024
 // License: MIT
 //
-// Description: PWM setup (Nucleo-L031K6 port)
+// Description: PWM setup (STM32G431Core port)
 module pwm
 
 // setup function configures de PWM hardware
