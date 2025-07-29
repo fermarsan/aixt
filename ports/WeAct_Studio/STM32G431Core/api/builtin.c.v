@@ -3,7 +3,7 @@
 // Date: 2022-2025
 // License: MIT
 //
-// Description: Builtin definitions (Nucleo-L031K6 port) 
+// Description: Builtin definitions (STM32G431Core port) 
 module main
 
 
