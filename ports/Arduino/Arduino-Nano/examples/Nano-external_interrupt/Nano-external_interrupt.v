@@ -6,7 +6,7 @@
 import pin
 import ext
 
-@[ext_isr:'pin.d2']
+@[ext_isr:'pin.d2']	// interrupt service routine
 fn blink() {
 	pin.toggle(led0)
 }
@@ -14,8 +14,8 @@ fn blink() {
 pin.setup(pin.d2, pin.input)
 pin.low(led0)
 
-ext.irq_enable(pin.d2, ext.change)
+ext.irq_enable(pin.d2, ext.change)	// interrupt request enabled
 
 for {
-	
+	// Empty infinite loop
 }
