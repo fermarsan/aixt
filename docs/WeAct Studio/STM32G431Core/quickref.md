@@ -1,103 +1,210 @@
-# QUICK GUIDE STM32G431CBU6
+# Quick reference for the WeAct Studio STM32G431Core
 
-This is an Aixt implementation to provide support for the **STM32G431CBU6** development board.
+## STM32G431Core Pinout 
 
-## SUMMARY
+![Alt text](STM32G4-Pinout.jpg)
 
-* The STM32G431CBU6 by STMicroelectronics is a development board based on the STM32G431C6 microcontroller, part of the STM32G4 family, which combines performance, efficiency, and advanced features for embedded control.
 
-* It is built around a 32-bit ARM Cortex-M4 core with FPU (Floating Point Unit), ideal for motor control, digital signal processing (DSP), industrial automation, and power control applications.
-
-* The board includes multiple peripherals such as high-resolution ADCs, advanced timers (including PWM), and serial communication (UART, I2C, SPI), enabling robust embedded systems development.
-
-## FUNCTION
-
-* The STM32G431CBU6 can use its analog and digital pins to interface with sensors and actuators, enabling data acquisition and embedded control systems.
-
-* It provides high-resolution PWM outputs, 12-bit analog inputs, and configurable timers for real-time process control.
-
-* It supports multiple communication interfaces: UART, SPI, I2C, and CAN, allowing integration with a wide variety of external devices.
-
-* Ideal for applications requiring precision, analog signal control, and real-time processing such as switched-mode power supplies, converters, motor controllers, and industrial IoT systems.
-
-## SPECS
-
-* ARM® Cortex®-M4 32-bit core with FPU.
-* Up to 170 MHz system clock.
-* 128 KB Flash memory.
-* 32 KB SRAM.
-* 1 x 12-bit ADC with up to 16 channels.
-* 1 x 12-bit DAC.
-* 6 general-purpose and advanced timers (PWM, encoder, capture, etc.).
-* Communication:
-  * 3 x USART/UART
-  * 1 x SPI
-  * 1 x I2C
-  * 1 x CAN FD
-* Power supply: 3.3V.
-* USB port (depending on variant).
-* General-purpose GPIO pins.
-
-## PIN IDENTIFICATION
-
-| Pin   | Name           | Main Function                                 |
-|-------|----------------|-----------------------------------------------|
-| PC6   | LED_BUILTIN    | Digital Output, onboard LED                   |
-| PC13  | BUTTON         | Digital Input, onboard button (optional)      |
-| PA7   | GPIO / PWM     | PWM Output or GPIO                            |
-| PA8   | GPIO / PWM     | PWM Output or GPIO                            |
-| PA9   | GPIO / PWM     | PWM Output or GPIO                            |
-| PA0-PA5 | ADC Inputs   | Analog Inputs                                 |
-| USART1 (PA9/PA10) | UART TX/RX | Serial Communication                |
-| GND   | Ground         |                                               |
-| 3.3V  | Power Supply   |                                               |
-
-## PROGRAMMING IN V LANGUAGE (EXTENDED)
-
-| Name                         | Description                                                        |
-|------------------------------|--------------------------------------------------------------------|
-| `pin.setup(pin, mode)`       | Configure `pin` as `input` or `output`                            |
-| `pin.high(pin)`              | Set `pin` to high (HIGH)                                          |
-| `pin.low(pin)`               | Set `pin` to low (LOW)                                            |
-| `pin.write(pin, val)`        | Write value `val` (1 or 0) to `pin`                               |
-| `pin.read(pin)`              | Digital read of `pin`                                             |
-| `adc.read(pin)`              | Analog read from `pin`                                            |
-| `pwm.write(pin, val)`        | PWM output on `pin` with duty cycle `val`                         |
-| `pwm.setup(pin, freq)`       | Configure PWM `pin` with custom frequency                         |
-| `pwm.stop(pin)`              | Disable PWM on `pin`                                              |
-| `timer.start(id, ms)`        | Start `timer` with `id` (1, 2...) to trigger every `ms` ms        |
-| `timer.stop(id)`             | Stop the specified timer                                          |
-| `interrupt.setup(pin)`       | Enable external interrupt on `pin`                                |
-| `interrupt.disable(pin)`     | Disable external interrupt on `pin`                               |
-| `interrupt.on_falling(pin)`  | Trigger interrupt on falling edge on `pin`                        |
-| `interrupt.on_rising(pin)`   | Trigger interrupt on rising edge on `pin`                         |
-| `time.sleep(time)`           | Delay in seconds                                                  |
-| `time.sleep_us(time)`        | Delay in microseconds                                             |
-| `time.sleep_ms(time)`        | Delay in milliseconds                                             |
-| `uart.setup(baud_rate)`      | Initialize serial communication at `baud_rate`                    |
-| `uart.read()`                | Read data from UART                                               |
-| `uart.println("message")`    | Print `message` through UART                                      |
-
-## EXAMPLES
-
-### BLINKING
+## Delay and Timing
+Use the `time` module:
 
 ```v
-import time { sleep_ms }  			
-import pin 						 	
+import time
 
-pin.setup(6, pin.output)  			// PC6 as output
+time.sleep(2)            // sleep for 2 seconds
+time.sleep_ms(50)        // sleep for 50 milliseconds
+time.sleep_us(100)       // sleep for 100 microseconds
+```
+
+### Functions
+| name                  | description           |
+| --------------------- | --------------------- |
+| `time.sleep(time)`    | Delay in seconds      |
+| `time.sleep_us(time)` | Delay in microseconds |
+| `time.sleep_ms(time)` | Delay in milliseconds |
+
+
+## Onboard Hardware
+The onboard LED is named `led0` 
+
+```v
+import pin
+
+pin.setup(led0, pin.output)
+pin.high(led0)
+```
+
+
+## Pin module
+Use the `pin` module:
+
+```v
+import pin
+
+pin.setup(pin.pa0, pin.input)
+pin.high(pin.pc6)
+pin.low(pin.pa3)
+pin.write(pin.pa8, pin.read(pin.pa0)) // pin echo
+```
+
+### Functions
+| name                    | description               |
+| ----------------------- | ------------------------- |
+| `pin.setup(pin, mode)`  | Configure `pin` as `mode` |
+| `pin.high(pin)`         | Turn On `pin`             |
+| `pin.low(pin)`          | Turn Off `pin`            |
+| `pin.write(pin, value)` | Write `value` in `pin`    |
+| `pin.read(pin)`         | Return the state of `pin` |
+
+
+### Digital pin names
+| Pin  | STM32 Pin | Macro Value |
+|------|-----------|-------------|
+| d0   | pa0       | 192         |
+| d1   | pa1       | 193         |
+| d2   | pa2       | 194         |
+| d3   | pa3       | 195         |
+| d4   | pa4       | 196         |
+| d5   | pa5       | 197         |
+| d6   | pa6       | 198         |
+| d7   | pa7       | 199         |
+| d8   | pa8       | 8           |
+| d9   | pa9       | 9           |
+| d10  | pa10      | 10          |
+| d11  | pa11      | 11          |
+| d12  | pa12      | 12          |
+| d13  | pa15      | 13          |
+| d14  | pb3       | 19          |
+| d15  | pb4       | 20          |
+| d16  | pb5       | 21          |
+| d17  | pb6       | 22          |
+| d18  | pb7       | 23          |
+| d19  | pb8       | 44          |
+| d20  | pb9       | 25          |
+| d21  | pb10      | 26          |
+
+
+
+## Pin port module
+Use the `port` module:
+
+```v
+import port
+
+port.setup(port.b, port.all_outputs)
+port.setup(port.c, port.all_inputs)  // port A bit 7 and 6 as outputs, the rest as inputs
+
+val := port.read(port.c)
+port.write(port.b, val) // port echo
+```
+
+### Functions
+| name                      | description                |
+| ------------------------- | -------------------------- |
+| `port.setup(port, mode)`  | Configure `port` as `mode` |
+| `port.read(port)`         | Return the value of `port` |
+| `port.write(port, value)` | Write `value` to `port`    |
+
+### Digital port names
+| Port  | Aixt name |
+| :---: | :-------: |
+| **B** |    `b`    |
+| **A** |    `a`    |
+| **C** |    `c`    |
+
+
+## PWM (Pulse Width Modulation)
+Use the `pwm` module:
+
+```v
+import pwm
+
+pwm.write(pwm.ch0, 40)       // set the duty cycle for PWM channel 0
+pwm.write(pwm.ch1, 60)       // set the duty cycle for PWM channel 1
+```
+
+### Functions
+| name                        | description                        |
+| --------------------------- | ---------------------------------- |
+| `pwm.write(channel, value)` | Write `value` in the PWM `channel` |
+
+### PWM pin names
+The PWM channels are named from `ch0` to `ch5`.
+
+
+## ADC (Analog to Digital Converter)
+Use the `adc` module:
+
+```v
+import adc
+
+val1 := adc.read(ch0)       // read de ADC channel 0
+val2 := adc.read(ch1)       // read de ADC channel 1
+```
+
+### Functions
+| name                | description                       |
+| ------------------- | --------------------------------- |
+| `adc.read(channel)` | Return the ADC value in `channel` |
+
+### Analog channels
+The PWM channels are named from `ch0` to `ch7`.
+
+
+## UART (serial port)
+Use the `uart` module:
+
+```v
+import uart
+
+uart.print('Hello ')
+uart.println('World...')
+```
+
+### Functions
+| name                    | description                                                    |
+| ----------------------- | -------------------------------------------------------------- |
+| `uart.setup(baud_rate)` | Configure the `baud_rate` of the UART                          |
+| `uart.read()`           | Return one character received by UART                          |
+| `uart.input(message)`   | Send the `message` and then return the string received by UART |
+| `uart.write(character)` | Send one character by UART                                     |
+| `uart.print(message)`   | Send the `message` by UART                                     |
+| `uart.println(message)` | Send the `message` plus a new line by UART                     |
+| `uart.any()`            | Return the number uf characters in the UART's buffer           |
+
+
+## Examples
+
+### LED Blinking
+```v
+import time
+import pin
+
+pin.low(led0)	// turn off the on-board LED
 
 for {
-	pin.high(6)  					
-	time.sleep_ms(1000)  			
-	pin.low(6)  					
-	time.sleep_ms(1000)  			
+	pin.toggle(led0)    // LED toggle 
+	time.sleep_ms(500)  // delay
+}
+
+```
+
+### ADC value sent by UART
+```v
+import time
+import uart
+import adc
+
+uart.setup(9600)
+
+for {
+	analog := adc.read(adc.ch0)
+	uart.println('ADC channel 0: ${analog}')
+	time.sleep_ms(1000)
 }
 ```
 
-### EXTERNAL INTERRUPT
-
+### LED Blinking by Interrupt
 ```v
 import pin
 import ext
@@ -123,21 +230,3 @@ fn main() {
 	}
 }
 ```
-
-
-### PWM OUTPUT 
-```v
-import time
-import pin
-import pwm
-
-const duty_table = [u8(25), 60, 120, 180, 205]
-
-pin.setup(pin.d3, pin.output)	// for PWM
-
-for {
-	for duty in duty_table {
-		pwm.write(pin.d3, duty*256)
-		time.sleep_ms(250)
-	}
-}

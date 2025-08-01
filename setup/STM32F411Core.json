@@ -4,10 +4,10 @@
     "backend": "arduino",
     "cc_linux": "arduino-cli",
     "cc_windows": "arduino-cli.exe",
-    "cc_make_flags": "compile -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_F411C6UX -v --output-dir @{file_dir_name}/build",
+    "cc_make_flags": "compile -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_F411CEUx -v --output-dir @{file_dir_name}/build",
     "flasher_linux": "arduino-cli",
     "flasher_windows": "arduino-cli.exe",
-    "flasher_flags": "upload @{file_dir_name} -p @{port} -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_F411C6UX",
+    "flasher_flags": "upload @{file_dir_name} -p @{port} -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_F411CEUx",
     "api_paths": [
         "WeAct_Studio/STM32F411Core",
         "Arduino/arduino-generic",
