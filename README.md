@@ -14,60 +14,37 @@ This diagram shows the Aixt blocks and their interactions:
 ```mermaid
 stateDiagram-v2
 
-    Aixt: V
-    state Aixt {
-        source: Source code
+    source: Source code (*.v)
 
-        API: Microcontroller API
-        state API {
-            PICs: PIC
-            ATM: AT
-            STM
-            ESP
-            RP2040
-            PSoC
-            others2: ...
-            NXT: NXT brick
-        }
-    }
-
-
-
-    Aixt2C: Transpiler
+    Aixt2C: Aixt Transpiler
     state Aixt2C {
-        state V {
-            Transpiler: Transpiler
+        direction RL
+        Transpiler: Transpiler Core    
+        
+        Implementation: Implementation of X device
+        state Implementation {
+            API
+            SF: Setup files (*.json)
         }
-
-        state json {
-            setup: Setup files
-        }
+        
+        Implementation --> Transpiler
     }
 
-    C: C
-    state C {
-        Tr_Code: Transpiled code
-    }
 
+    Tr_Code: Transpiled code (*.c)
+
+    Compiler: C compiler
     state Compiler {
-        xc8
-        arduino: arduino-cli
-        GCC
-        PSoC: PSoC Creator
-        MounRiver: MounRiver Studio 
-        others: ...
-        nbc
+        compiler: Compiler compatible with X device
     }
 
-    state machine {
-        BF: Binary file
-    }
+    BF: Binary file
 
     source --> Aixt2C
-    API --> Aixt2C
-    Aixt2C --> C
-    C --> Compiler
-    Compiler --> machine
+    
+    Aixt2C --> Tr_Code
+    Tr_Code --> Compiler
+    Compiler --> BF
 ```
 
 Aixt is designed to be as modular as possible to facilitate the incorporation of new devices and boards. This is mainly possible by using a configuration files (in _json_ format) instead of creating new source code for each new device. That `.json` file contains the specific parameters of each device, board or compiler such as: variable types, initialization commands, compiler paths, etc.
@@ -85,15 +62,15 @@ The transpiler is written in [_V_](https://vlang.io/) and uses the _V's_ self na
 
 **Aixt's V** programing language implements a subset of the [_V language_](https://vlang.io/). The main differences are show as follows:
 
-feature               | V                                 | Aixt's V
-----------------------|-----------------------------------|----------------------------------------------------------------------
-strings               | dynamic-sized                     | fixed-sized and dynamic-sized if supported
-arrays                | dynamic-sized                     | fixed-sized and dynamic-sized if supported
-structs               | allow functions (object-oriented) | do not allow functions (only structured programming)
-functions             | multiple return values            | only one return value
-text macros           | not allowed                       | allowed by using `@[as_macro]` attribute, for functions and constants
-`C` variables access  | not allowed                       | allowed by using `C.var_name` syntax
-global variables      | disabled by default               | enabled by default
+| feature              | V                                 | Aixt's V                                                              |
+| -------------------- | --------------------------------- | --------------------------------------------------------------------- |
+| strings              | dynamic-sized                     | fixed-sized and dynamic-sized if supported                            |
+| arrays               | dynamic-sized                     | fixed-sized and dynamic-sized if supported                            |
+| structs              | allow functions (object-oriented) | do not allow functions (only structured programming)                  |
+| functions            | multiple return values            | only one return value                                                 |
+| text macros          | not allowed                       | allowed by using `@[as_macro]` attribute, for functions and constants |
+| `C` variables access | not allowed                       | allowed by using `C.var_name` syntax                                  |
+| global variables     | disabled by default               | enabled by default                                                    |
 
 
 ### Example with `main` function
