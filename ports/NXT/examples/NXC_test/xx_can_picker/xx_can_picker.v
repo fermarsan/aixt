@@ -4,7 +4,7 @@ import time
 
 
 const black = 40
-const can_near = 2
+const can_near = 8
 
 sensor.as_light(sensor.s1, true)
 sensor.as_ultrasonic(sensor.s2)
@@ -17,7 +17,7 @@ for {
 	if sensor.read(sensor.s1) > black {	// over white floor
 		motor.off(motor.ab)
 		time.sleep_ms(100)
-		if sensor.read_us(sensor.s2) < can_near {
+		if sensor.read_us(sensor.s2) <= can_near {
 			motor.off(motor.ab)
 			motor.write(motor.c, 50)	// pick the can
 			time.sleep_ms(1000)
