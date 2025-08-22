@@ -1,7 +1,7 @@
 Module {
 	name:	'time'
 	description:	'Aixt pin management module for xxx'
-	version:	'0.1.1'
+	version:	'0.1.2'
 	license:	'MIT'
 	dependencies:	[]
 }
