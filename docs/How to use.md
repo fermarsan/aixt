@@ -34,12 +34,12 @@ Examples:
 ## Aixt commands
 _**Aixt**_ supports the following commands:
 
-Command          | working
------------------|----------------------------------------------------
-transpile, -t    | Transpile to C an Aixt program.
-compile, -c      | Compile the previously generated C file.
-run, -r          | Run the previously generated executable file.
-build, -b        | Build (transpile, compile and run) an Aixt program.
-clean, -cl       | Clean all the generated file (C and executables).
-help, --help, -h | Call this help'
-version          | Print the Aixt version number
+| Command          | working                                             |
+| ---------------- | --------------------------------------------------- |
+| transpile, -t    | Transpile to C an Aixt program.                     |
+| compile, -c      | Compile the previously generated C file.            |
+| run, -r          | Run the previously generated executable file.       |
+| build, -b        | Build (transpile, compile and run) an Aixt program. |
+| clean, -cl       | Clean all the generated file (C and executables).   |
+| help, --help, -h | Call this help'                                     |
+| version          | Print the Aixt version number                       |

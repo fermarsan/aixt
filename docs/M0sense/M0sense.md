@@ -14,24 +14,24 @@ This Aixt implementation that supports the card  M0sense
 ## Port Identification
 Below are the ports used and their proper designations for programming:
 
-No.| Name     | Function 
--- |-----     |---
-1  |IO28      | GPIO28 
-2  |3V3       | 3.3V power supply; The output current of the external power supply is recommended to be above 500mA  
-3  |GND       | Ground 
-4  |VSYS      | REF System 
-5  |I02       | GPI02/BOOT Button
-6  |IO0       | GPIO0 
-7  |IO1       | GPIO1_LCD_CS
-8  |IO9       | GPIO9 
-9  |IO27      | GPIO27_SDA
-10 |IO26      | GPIO26_SCL 
-11 |IO25      | GPIO25_LEDR_LCD_DC 
-12 |IO24      | GPIO25_LEDG_LCD_MOSI 
-13 |IO23      | GPIO25_LEDB_LCD_SCLK
-14 |IO15      | GPIO15 
-15 |IO14      | GPIO14 
-16 |GND       | Ground
+| No. | Name | Function                                                                                            |
+| --- | ---- | --------------------------------------------------------------------------------------------------- |
+| 1   | IO28 | GPIO28                                                                                              |
+| 2   | 3V3  | 3.3V power supply; The output current of the external power supply is recommended to be above 500mA |
+| 3   | GND  | Ground                                                                                              |
+| 4   | VSYS | REF System                                                                                          |
+| 5   | I02  | GPI02/BOOT Button                                                                                   |
+| 6   | IO0  | GPIO0                                                                                               |
+| 7   | IO1  | GPIO1_LCD_CS                                                                                        |
+| 8   | IO9  | GPIO9                                                                                               |
+| 9   | IO27 | GPIO27_SDA                                                                                          |
+| 10  | IO26 | GPIO26_SCL                                                                                          |
+| 11  | IO25 | GPIO25_LEDR_LCD_DC                                                                                  |
+| 12  | IO24 | GPIO25_LEDG_LCD_MOSI                                                                                |
+| 13  | IO23 | GPIO25_LEDB_LCD_SCLK                                                                                |
+| 14  | IO15 | GPIO15                                                                                              |
+| 15  | IO14 | GPIO14                                                                                              |
+| 16  | GND  | Ground                                                                                              |
 
 ## Programming in v language
 

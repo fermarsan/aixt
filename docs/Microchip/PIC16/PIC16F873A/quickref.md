@@ -8,11 +8,11 @@
 Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 ### Nombres de los pines del PIC16F873A
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-|:------:|---|---|---|---|---|---|---|---|
-| **A**  | a0| a1| a2| a3| a4| a5| - | - |
-| **B**  | b0| b1| b2| b3| b4| b5| b6| b7|
-| **C**  | c0| c1| c2| c3| c4| c5| c6| c7|
+| Puerto | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+| :----: | --- | --- | --- | --- | --- | --- | --- | --- |
+| **A**  | a0  | a1  | a2  | a3  | a4  | a5  | -   | -   |
+| **B**  | b0  | b1  | b2  | b3  | b4  | b5  | b6  | b7  |
+| **C**  | c0  | c1  | c2  | c3  | c4  | c5  | c6  | c7  |
 
 En las familias de microcontroladores del _PIC16_, los registros del puerto se dividen en: 
 
@@ -27,58 +27,58 @@ Luego, para facilitar la implementación (y no generar código inncesario) de es
 ### Componentes Integrados 
 - Cuenta con seis pines analogicos que se encuentran distribuidas en el puerto A.
 
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 
-|:------:|---|---|---|---|---|---|---|---|
-| **A**  |AN0|AN1|AN2|AN3|AN4|AN5| - | - |
-| **B**  | - | - | - | - | - | - | - | - |
-| **C**  | - | - | - | - | - | - | - | - |
+| Puerto | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+| :----: | --- | --- | --- | --- | --- | --- | --- | --- |
+| **A**  | AN0 | AN1 | AN2 | AN3 | AN4 | AN5 | -   | -   |
+| **B**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **C**  | -   | -   | -   | -   | -   | -   | -   | -   |
 
 - Cuenta con dos pines para la modulacion del PWM.
 
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-|:------:|---|---|---|---|---|---|---|---|
-| **A**  | - | - | - | - | - | - | - | - |
-| **B**  | - | - | - | - | - | - | - | - |
-| **C**  | - | c1| c2| - | - | - | - | - |
+| Puerto | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+| :----: | --- | --- | --- | --- | --- | --- | --- | --- |
+| **A**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **B**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **C**  | -   | c1  | c2  | -   | -   | -   | -   | -   |
 
 - Cuenta con dos pines para la cominicación serial.   
 
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-|:------:|---|---|---|---|---|---|---|---|
-| **A**  | - | - | - | - | - | - | - | - |
-| **B**  | - | - | - | - | - | - | - | - |
-| **C**  | - | - | - | - | - | - | c6| c7|
+| Puerto | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+| :----: | --- | --- | --- | --- | --- | --- | --- | --- |
+| **A**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **B**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **C**  | -   | -   | -   | -   | -   | -   | c6  | c7  |
 
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales, conversor analogico a digital, modulación pwm y comunicación serial.
 
-name                                | description
-------------------------------------|------------------------------------------------------
-`pin.setup(pin_name, mode)`   | Configura `PIN_NAME` en `PIN_MODE`
-`pin.high(PIN_NAME)`               | Encender `PIN_NAME`
-`pin.low(PIN_NAME)`                | Apagar `PIN_NAME`
-`pin.write(PIN_NAME,VAL)`          | Escribe `VAL` en `PIN_NAME`
-`pin.read(PIN_NAME)`               | lee `PIN_NAME`
-`pin.digital(PIN)`                 | Configura I/0 digitales `PIN_NAME`
-`pin (PIN)`                         | Configura `PIN_OUTPUT` o `PIN_INPUT`
-`port`                              | Inicializa `port`
-`port.read(PORT_NAME)`             | Lee `PORT_NAME`
-`port.setup(PORT_NAME, VALUE)`     | Configura `PORT_NAME` asigna valor `VALUE`
-`port.write(PORT_NAME, VALUE)`     | Escribe `PORT_NAME` en `VALUE`
-`adc.setup()`                      | Configura el `adc` 
-`adc.read(channel)`                | Configura el canal `channel` del `adc`
-`adc`                               | Inicializa `adc`
-`pwm.setup()`                      | Configura el resgitro `pwm`
-`pwm.write(duty)`                  | Calcula el `duty` del `pwm` 
-`pwm`                               | Inicializa `pwm`
-`uart.setup()`                     | Configura el `uart`
-`uart.read()`                      | Lee los datos del `uart`
-`uart.write()`                     | Escribe los datos del `uart`
-`uart`                              | Inicializa el `uart`
-`time.sleep(time)`                 | Retardo en `seg`
-`time.sleep_us(time)`              | Retardo en `microseg`
-`time.sleep_ms(time)`              | Retardo en `miliseg`
-`time`                              | Inicializa el `time`
+| name                           | description                                |
+| ------------------------------ | ------------------------------------------ |
+| `pin.setup(pin_name, mode)`    | Configura `PIN_NAME` en `PIN_MODE`         |
+| `pin.high(PIN_NAME)`           | Encender `PIN_NAME`                        |
+| `pin.low(PIN_NAME)`            | Apagar `PIN_NAME`                          |
+| `pin.write(PIN_NAME,VAL)`      | Escribe `VAL` en `PIN_NAME`                |
+| `pin.read(PIN_NAME)`           | lee `PIN_NAME`                             |
+| `pin.digital(PIN)`             | Configura I/0 digitales `PIN_NAME`         |
+| `pin (PIN)`                    | Configura `PIN_OUTPUT` o `PIN_INPUT`       |
+| `port`                         | Inicializa `port`                          |
+| `port.read(PORT_NAME)`         | Lee `PORT_NAME`                            |
+| `port.setup(PORT_NAME, VALUE)` | Configura `PORT_NAME` asigna valor `VALUE` |
+| `port.write(PORT_NAME, VALUE)` | Escribe `PORT_NAME` en `VALUE`             |
+| `adc.setup()`                  | Configura el `adc`                         |
+| `adc.read(channel)`            | Configura el canal `channel` del `adc`     |
+| `adc`                          | Inicializa `adc`                           |
+| `pwm.setup()`                  | Configura el resgitro `pwm`                |
+| `pwm.write(duty)`              | Calcula el `duty` del `pwm`                |
+| `pwm`                          | Inicializa `pwm`                           |
+| `uart.setup()`                 | Configura el `uart`                        |
+| `uart.read()`                  | Lee los datos del `uart`                   |
+| `uart.write()`                 | Escribe los datos del `uart`               |
+| `uart`                         | Inicializa el `uart`                       |
+| `time.sleep(time)`             | Retardo en `seg`                           |
+| `time.sleep_us(time)`          | Retardo en `microseg`                      |
+| `time.sleep_ms(time)`          | Retardo en `miliseg`                       |
+| `time`                         | Inicializa el `time`                       |
 
 ### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v 
 

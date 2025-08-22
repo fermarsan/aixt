@@ -9,11 +9,12 @@ Los nombres de los pines se nombran con una letra que indica el puerto y un núm
 
 
 ### Nombres de los pines del PIC18F452
-| Puerto | - | - | - | - | - | - | - | - |
-| **A**  | a0| a1| a2| a3| a4| a5| - | - |
-| **B**  | b0| b1| b2| b3| b4| b5| b6| b7|
-| **C**  | c0| c1| c2| c3| c4| c5| c6| c7|
-| **D**  | d0| d1| d2| d3| d4| d5| d6| d7|
+| Puerto | -   | -   | -   | -   | -   | -   | -   | -   |
+| ------ | --- | --- | --- | --- | --- | --- | --- | --- |
+| **A**  | a0  | a1  | a2  | a3  | a4  | a5  | -   | -   |
+| **B**  | b0  | b1  | b2  | b3  | b4  | b5  | b6  | b7  |
+| **C**  | c0  | c1  | c2  | c3  | c4  | c5  | c6  | c7  |
+| **D**  | d0  | d1  | d2  | d3  | d4  | d5  | d6  | d7  |
 
 En las familias de microcontroladores del _PIC18F452_, los registros del puerto se dividen en: 
 
@@ -29,59 +30,59 @@ Luego, para facilitar la implementación (y no generar código inncesario) de es
 ### Componentes Integrados 
 - Cuenta con seis pines analogicos que se encuentran distribuidas en el puerto A.
 
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 
-|:------:|---|---|---|---|---|---|---|---|
-| **A**  |AN0|AN1|AN2|AN3| - |AN4| - | - |
-| **B**  | - | - | - | - | - | - | - | - |
-| **C**  | - | - | - | - | - | - | - | - |
-| **D**  | - | - | - | - | - | - | - | - |
-| **E**  |AN5|AN6|AN7| - | - | - | - | - |
+| Puerto | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+| :----: | --- | --- | --- | --- | --- | --- | --- | --- |
+| **A**  | AN0 | AN1 | AN2 | AN3 | -   | AN4 | -   | -   |
+| **B**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **C**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **D**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **E**  | AN5 | AN6 | AN7 | -   | -   | -   | -   | -   |
 
 - Cuenta con dos pines para la modulacion del PWM.
 
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-|:------:|---|---|---|---|---|---|---|---|
-| **A**  | - | - | - | - | - | - | - | - |
-| **B**  | - | - | - | - | - | - | - | - |
-| **C**  | - | c1| c2| - | - | - | - | - |
-| **D**  | - | - | - | - | - | - | - | - |
-| **E**  | - | - | - | - | - | - | - | - |
+| Puerto | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+| :----: | --- | --- | --- | --- | --- | --- | --- | --- |
+| **A**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **B**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **C**  | -   | c1  | c2  | -   | -   | -   | -   | -   |
+| **D**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **E**  | -   | -   | -   | -   | -   | -   | -   | -   |
 
 
 - Cuenta con dos pines para la cominicación serial.   
 
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-|:------:|---|---|---|---|---|---|---|---|
-| **A**  | - | - | - | - | - | - | - | - |
-| **B**  | - | - | - | - | - | - | - | - |
-| **C**  | - | - | - | - | - | - | c6| c7|
-| **D**  | - | - | - | - | - | - | - | - |
-| **E**  | - | - | - | - | - | - | - | - |
+| Puerto | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+| :----: | --- | --- | --- | --- | --- | --- | --- | --- |
+| **A**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **B**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **C**  | -   | -   | -   | -   | -   | -   | c6  | c7  |
+| **D**  | -   | -   | -   | -   | -   | -   | -   | -   |
+| **E**  | -   | -   | -   | -   | -   | -   | -   | -   |
 
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales, conversor analogico a digital, modulación pwm y comunicación serial.
 
-name                             | description
----------------------------------|------------------------------------------------------
-`pin.high(pin)`                 | Modo alto `pin`
-`pin.low(pin)`                  | Modo bajo `pin`
-`pin.write(pin, val)`           | Escribe `val` en `pin`
-`pin.read(pin)`                 | Lee `pin`
-`pin.setup(pin, mode)`          | Configura pines I/O     `pin`
-`port.setup(port, mode)`        | Configura puertos I/O   `pin`
-`port.write(port, val)`         | Escribe `val` en `port`
-`port.read(port)`               | Lee `port`
-`adc.setup()`                   | Configura el `adc` 
-`adc.read(channel)`             | Configura el canal `channel` del `adc`
-`adc.reading()`                 | Almacena el valor del `adc`
-`pwm.setup(pin1, pin2)`         | Configura el registro `pin1` y la salida en `pin2`
-`pwm.write(duty, pin)`          | Calcula el `duty` del `pwm` y lo alamcena en `pin` 
-`uart.setup()`                  | Configura el `uart`
-`uart.write()`                  | Configura el `TX`
-`uart.read()`                   | Configura el `RX`
-`time.sleep(TIME)`              | Retardo en `seg`
-`time.sleep_us(TIME)`           | Retardo en `microseg`
-`time.sleep_ms(TIME) `          | Retardo en `miliseg`
+| name                     | description                                        |
+| ------------------------ | -------------------------------------------------- |
+| `pin.high(pin)`          | Modo alto `pin`                                    |
+| `pin.low(pin)`           | Modo bajo `pin`                                    |
+| `pin.write(pin, val)`    | Escribe `val` en `pin`                             |
+| `pin.read(pin)`          | Lee `pin`                                          |
+| `pin.setup(pin, mode)`   | Configura pines I/O     `pin`                      |
+| `port.setup(port, mode)` | Configura puertos I/O   `pin`                      |
+| `port.write(port, val)`  | Escribe `val` en `port`                            |
+| `port.read(port)`        | Lee `port`                                         |
+| `adc.setup()`            | Configura el `adc`                                 |
+| `adc.read(channel)`      | Configura el canal `channel` del `adc`             |
+| `adc.reading()`          | Almacena el valor del `adc`                        |
+| `pwm.setup(pin1, pin2)`  | Configura el registro `pin1` y la salida en `pin2` |
+| `pwm.write(duty, pin)`   | Calcula el `duty` del `pwm` y lo alamcena en `pin` |
+| `uart.setup()`           | Configura el `uart`                                |
+| `uart.write()`           | Configura el `TX`                                  |
+| `uart.read()`            | Configura el `RX`                                  |
+| `time.sleep(TIME)`       | Retardo en `seg`                                   |
+| `time.sleep_us(TIME)`    | Retardo en `microseg`                              |
+| `time.sleep_ms(TIME) `   | Retardo en `miliseg`                               |
 
 ## Configuración de pines 
 ```v

@@ -40,23 +40,4 @@ Tasks to do in Aixt
 
 ### Done ✓make
 
-- [x] Call Aixt directly from `.vscode/tasks.json` instead of running it through V compiler
-- [x] New devices supported PIC16F62x-648 including `uart`
-- [x] Issue solved: `module.c.v` is not parsed first when imported a module
-- [x] Issue solved: comments inside conditional compiling fails inside `as_macro` functions
-- [x] Issue solved: `as_macro` multiline functions fails when return a value
-- [x] Change "Aixt: C compile" taks by "Aixt: C Compile" in all `tasks.json` files
-- [x] Add snippets for `timer0` and `ext` modules for PIC16F family
-- [x] Group PIC16F630-676 and PIC16F684 as PIC16F6xx-14p
-- [x] Change PIC16F62x-648 to PIC16F6xx-18p
-- [x] Change PIC16F68x-690 to PIC16F6xx-20p
-- [x] Update snippets for PIC16F8x, PIC16F6xx-14p and PIC16F6xx-18p
-- [x] PIC12F6xx port implementation (`time`, `timer0`, `pin` and `ext` modules)
-- [x] Add template and "examples" folders for PIC12F6xx
-- [x] Issue solved: "cc_make_flags" write mistake in some `.json` setup files
-- [x] Snippets updated for PIC devices (including `time`, `timer0`, `pin`, `port`, `adc`, `pwm` and `ext`)
-- [x] Update snippets for Arduino AVR
-- [x] Make `adc.setup()` automatically set the used pin channels as inputs on PIC devices
-- [x] Issue solved: change `as_macro` multiline functions due to the using of ({ ... }) fails in XC Microchip compilers
-- [x] Add the interrupts doc file.
-- [x] Block diagram updated
+

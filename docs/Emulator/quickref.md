@@ -14,11 +14,11 @@ time.sleep_us(100)       // sleep for 100 microseconds
 ```
 
 ### Functions
-name                  | description
-----------------------|-----------------------
-`time.sleep(time)`    | delay in seconds
-`time.sleep_us(time)` | delay in microseconds
-`time.sleep_ms(time)` | delay in milliseconds
+| name                  | description           |
+| --------------------- | --------------------- |
+| `time.sleep(time)`    | delay in seconds      |
+| `time.sleep_us(time)` | delay in microseconds |
+| `time.sleep_ms(time)` | delay in milliseconds |
 
 
 ## Emulated pins
@@ -33,12 +33,12 @@ pin.write(pin.z, pin.read(pin.a))   // pin echo
 ```
 
 ### Functions
-name                    | description
-------------------------|---------------------------
-`pin.high(pin)`         | Turn ON `pin`
-`pin.low(pin)`          | Turn OFF `pin`
-`pin.write(pin, value)` | Write `value` in `pin`
-`pin.read(pin)`         | Return the state of `pin`
+| name                    | description               |
+| ----------------------- | ------------------------- |
+| `pin.high(pin)`         | Turn ON `pin`             |
+| `pin.low(pin)`          | Turn OFF `pin`            |
+| `pin.write(pin, value)` | Write `value` in `pin`    |
+| `pin.read(pin)`         | Return the state of `pin` |
 
 ### Digital pin names
 The functions to emulate input/output digital pins on the terminal use 8 emulated pins named: `a`, `b`, `c`, `d`, `w`, `x`, `y` and `z`, which are show in the terminal after any change, as follows:
@@ -79,9 +79,9 @@ terminal output:
 ```
 
 ### Functions
-name                        | description
-----------------------------|-----------------------------------
-`pwm.write(channel, value)` | Write `value` in the PWM `channel`
+| name                        | description                        |
+| --------------------------- | ---------------------------------- |
+| `pwm.write(channel, value)` | Write `value` in the PWM `channel` |
 
 ### PWM pin names
 There are 2 emulated PWM channels named: `ch0` and `ch1`.
@@ -106,9 +106,9 @@ Aixt virtual ADC input     ADC 1 : 56
 ```
 
 ### Functions
-name                | description
---------------------|----------------------------------
-`adc.read(channel)` | Return the ADC value in `channel`
+| name                | description                       |
+| ------------------- | --------------------------------- |
+| `adc.read(channel)` | Return the ADC value in `channel` |
 
 ### Analog channels
 There are 2 emulated ADC channels named: `ch0` and `ch1`.
@@ -133,17 +133,17 @@ Hello world!
 ```
 
 ### Functions
-name                        | description
-----------------------------|-------------------------------------------------------------------------------------
-`uart.print(message)`       | Print the `message` in the virtual UART
-`uart.println(message)`     | Print the `message` plus a new line in the virtual UART
-`uart.input(message)`       | Print the `message` and return the string entered by the user in the virtual UART
-`uart2.print(message)`      | Print the `message` in the virtual UART 2
-`uart2.println(message)`    | Print the `message` plus a new line in the virtual UART 2
-`uart2.input(message)`      | Print the `message` and return the string entered by the user in the virtual UART 2
-`uart3.print(message)`      | Print the `message` in the virtual UART 3
-`uart3.println(message)`    | Print the `message` plus a new line in the virtual UART 3
-`uart3.input(message)`      | Print the `message` and return the string entered by the user in the virtual UART 3
+| name                     | description                                                                         |
+| ------------------------ | ----------------------------------------------------------------------------------- |
+| `uart.print(message)`    | Print the `message` in the virtual UART                                             |
+| `uart.println(message)`  | Print the `message` plus a new line in the virtual UART                             |
+| `uart.input(message)`    | Print the `message` and return the string entered by the user in the virtual UART   |
+| `uart2.print(message)`   | Print the `message` in the virtual UART 2                                           |
+| `uart2.println(message)` | Print the `message` plus a new line in the virtual UART 2                           |
+| `uart2.input(message)`   | Print the `message` and return the string entered by the user in the virtual UART 2 |
+| `uart3.print(message)`   | Print the `message` in the virtual UART 3                                           |
+| `uart3.println(message)` | Print the `message` plus a new line in the virtual UART 3                           |
+| `uart3.input(message)`   | Print the `message` and return the string entered by the user in the virtual UART 3 |
 
 ### Input function
 The input strings to be captured by the `uart.input()` function having a fixed size of 30 characters.

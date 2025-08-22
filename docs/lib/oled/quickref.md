@@ -44,19 +44,19 @@ OLED screens with the SSD1316 controller are widely used in electronic projects 
 
 ## SUPPORTED FUNCTIONS FOR TRANSPILATION**
 
-| Functions in C                   | Functions in V                   |
-|----------------------------------|----------------------------------|
-| `display.begin (TYPE, ADDRESS)`    | `DISPLAY_SETUP (TYPE, ADDRESS)`    |
-| `display.clearDisplay ()`          | `DISPLAY_CLEARDISPLAY ()`          |
-| `display.setTextSize (NUMBERS)`    | `DISPLAY_SETTEXTSIZE (NUMBERS)`    |
-| `display.setTextColor (CHARACTER)` | `DISPLAY_SETTEXTCOLOR(CHARACTER)`  |
-| `display.println (MESASAGE)`       | `DISPLAY_PRINTLN (MESSAGE)`        |
-| `display.display ()`               | `DISPLAY_DISPLAY ()`               | 
-| `display.DrawPixel (X,Y,COLOR)`    | `DISPLAY_DRAWPIXEL(X,Y,COLOR)`     |
-| `display.drawRect(X,Y,WIDTH,HEIGHT,COLOR)` | `DISPLAY_DRAWRECT(X,Y,WIDTH,HEIGHT,COLOR)`   |
-| `display.fillRect(X,Y,WIDTH,HEIGHT,COLOR)` | `DISPLAY_FILLRECT(X,Y,WIDTH,HEIGHT,COLOR)` | 
-| `display.drawCircle(X,Y,RADIO,COLOR)` | `DISPLAY_DRAWCICRLE(X,Y,RADIO,COLOR)` | 
-| `display.fillCircle(X,Y,RADIO,COLOR)` | `DISPLAY_FILLCIRCLE(X,Y,RADIO,COLOR)` | 
+| Functions in C                                           | Functions in V                                           |
+| -------------------------------------------------------- | -------------------------------------------------------- |
+| `display.begin (TYPE, ADDRESS)`                          | `DISPLAY_SETUP (TYPE, ADDRESS)`                          |
+| `display.clearDisplay ()`                                | `DISPLAY_CLEARDISPLAY ()`                                |
+| `display.setTextSize (NUMBERS)`                          | `DISPLAY_SETTEXTSIZE (NUMBERS)`                          |
+| `display.setTextColor (CHARACTER)`                       | `DISPLAY_SETTEXTCOLOR(CHARACTER)`                        |
+| `display.println (MESASAGE)`                             | `DISPLAY_PRINTLN (MESSAGE)`                              |
+| `display.display ()`                                     | `DISPLAY_DISPLAY ()`                                     |
+| `display.DrawPixel (X,Y,COLOR)`                          | `DISPLAY_DRAWPIXEL(X,Y,COLOR)`                           |
+| `display.drawRect(X,Y,WIDTH,HEIGHT,COLOR)`               | `DISPLAY_DRAWRECT(X,Y,WIDTH,HEIGHT,COLOR)`               |
+| `display.fillRect(X,Y,WIDTH,HEIGHT,COLOR)`               | `DISPLAY_FILLRECT(X,Y,WIDTH,HEIGHT,COLOR)`               |
+| `display.drawCircle(X,Y,RADIO,COLOR)`                    | `DISPLAY_DRAWCICRLE(X,Y,RADIO,COLOR)`                    |
+| `display.fillCircle(X,Y,RADIO,COLOR)`                    | `DISPLAY_FILLCIRCLE(X,Y,RADIO,COLOR)`                    |
 | `display.drawBitmap(X,Y,ARRAY_IMAGE,WIDTH,HEIGHT,COLOR)` | `DISPLAY_DRAWBITMAP(X,Y,ARRAY_IMAGE,WIDTH,HEIGHT,COLOR)` |
 
 **Support Code for Functions in V Language** 

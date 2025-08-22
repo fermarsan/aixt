@@ -16,46 +16,46 @@ CH573F-mini-BLE, It's a card with Bluetooth 4.2 communication, featuring a total
 ## Port Identification
 Below are the ports used and their proper designations for programming:
 
-Name | Alternate Funcion | Description
----  |       :---:       |     ---
-G    |                   | Ground
-5V   |                   | 5V Power supply 
-G    |                   | Ground
-3V3  |                   | 3.3V Power supply 
-A4   |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        RXD3       | UART3 serial data input
-A5   |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        TXD3       | UART3 serial data output
-A8   |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        RXD1       | UART1 serial data input
-A9   |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        TXD1       | UART1 serial data output
-A10  |        I/0        | General purpose bidirectional digital I/0 pin
-A11  |        I/0        | General purpose bidirectional digital I/0 pin
-A12  |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        PWM4       | Pulse width modulation output channel 4
-A13  |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        PWM5       | Pulse width modulation output channel 5
-A14  |        I/0        | General purpose bidirectional digital I/0 pin
-A15  |        I/0        | General purpose bidirectional digital I/0 pin 
-B4   |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        RXD0       | UART0 serial data input
-|    |        PWM7       | Pulse width modulation output channel 7
-B7   |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        TXD0       | UART0 serial data output
-|    |        PWM9       | Pulse width modulation output channel 9            
-B10  |        I/0        | General purpose bidirectional digital I/0 pin
-B11  |        I/0        | General purpose bidirectional digital I/0 pin 
-B12  |        I/0        | General purpose bidirectional digital I/0 pin
-B13  |        I/0        | General purpose bidirectional digital I/0 pin
-B14  |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        PWM10      | Pulse width modulation output channel 10
-B15  |        I/0        | General purpose bidirectional digital I/0 pin 
-B22  |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        RXD2       | UART2 serial data input
-B23  |        I/0        | General purpose bidirectional digital I/0 pin
-|    |        TXD2       | UART2 serial data output
-|    |        PWM11      | Pulse width modulation output channel 11
+| Name | Alternate Funcion | Description                                   |
+| ---- | :---------------: | --------------------------------------------- |
+| G    |                   | Ground                                        |
+| 5V   |                   | 5V Power supply                               |
+| G    |                   | Ground                                        |
+| 3V3  |                   | 3.3V Power supply                             |
+| A4   |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       RXD3        | UART3 serial data input                       |
+| A5   |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       TXD3        | UART3 serial data output                      |
+| A8   |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       RXD1        | UART1 serial data input                       |
+| A9   |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       TXD1        | UART1 serial data output                      |
+| A10  |        I/0        | General purpose bidirectional digital I/0 pin |
+| A11  |        I/0        | General purpose bidirectional digital I/0 pin |
+| A12  |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       PWM4        | Pulse width modulation output channel 4       |
+| A13  |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       PWM5        | Pulse width modulation output channel 5       |
+| A14  |        I/0        | General purpose bidirectional digital I/0 pin |
+| A15  |        I/0        | General purpose bidirectional digital I/0 pin |
+| B4   |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       RXD0        | UART0 serial data input                       |
+|      |       PWM7        | Pulse width modulation output channel 7       |
+| B7   |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       TXD0        | UART0 serial data output                      |
+|      |       PWM9        | Pulse width modulation output channel 9       |
+| B10  |        I/0        | General purpose bidirectional digital I/0 pin |
+| B11  |        I/0        | General purpose bidirectional digital I/0 pin |
+| B12  |        I/0        | General purpose bidirectional digital I/0 pin |
+| B13  |        I/0        | General purpose bidirectional digital I/0 pin |
+| B14  |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       PWM10       | Pulse width modulation output channel 10      |
+| B15  |        I/0        | General purpose bidirectional digital I/0 pin |
+| B22  |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       RXD2        | UART2 serial data input                       |
+| B23  |        I/0        | General purpose bidirectional digital I/0 pin |
+|      |       TXD2        | UART2 serial data output                      |
+|      |       PWM11       | Pulse width modulation output channel 11      |
 
 ## Programming in C/C++ language  
 Programming of the CH573-mini-BLE card is done using the [MounRiver Studio](http://www.mounriver.com/download) program, which is developed based on the Eclipse GNU version. It is optimized for integrated development of C/C++ for ARM and RISC-V processor microcontrollers, with the latter being present in the CH573-mini-BLE card.  
