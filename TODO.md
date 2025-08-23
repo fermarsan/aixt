@@ -24,8 +24,6 @@ Tasks to do in Aixt
 ### In Progress
 
 - [ ] generates documentation from code
-- [ ] Implement structs #feat
-    - [ ] support struct fields access (`struct_name.struct_field`)
 - [ ] implement maps
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
@@ -37,6 +35,8 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
 - [ ] Add OOP features to the API
+- [ ] support struct fields access (`struct_name.struct_field`)
+- [ ] support struct instances declaring
 
 
 ### Done ✓make

@@ -84,6 +84,9 @@ fn (mut gen Gen) expr(node ast.Expr) []string {
 		ast.ArrayDecompose {
 			return gen.array_decompose(node)
 		}
+		ast.StructInit {
+			return gen.struct_init(node)
+		}
 		ast.NodeError {
 			panic('\n\n***** Transpiler error *****:\nNode error in pos: ${node.pos}.\n')
 		}

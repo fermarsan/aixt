@@ -12,13 +12,14 @@ fn (mut gen Gen) struct_decl(node ast.StructDecl) []string {
 	mut out := []string{}
 	match node.language {
 		.v {
+			type_def := if gen.setup.backend == 'nxc' {''} else {'typedef'}
 			attrs := node.attrs.map(it.name).join(' ')
 			name := node.name.replace('.', '__')
 			mut fields := []string{}
 			for field in node.fields {
 				fields << gen.ast_node(field)
 			}
-			out << $tmpl('c_templates/struct.tmpl.c')
+			out << $tmpl('c_templates/struct_decl.tmpl.c')
 		}
 		else {
 			out = ['']
