@@ -25,7 +25,7 @@ Tasks to do in Aixt
 
 - [ ] generates documentation from code
 - [ ] Implement structs #feat
-    - [ ] support struct fields (`struct_name.struct_field`)
+    - [ ] support struct fields access (`struct_name.struct_field`)
 - [ ] implement maps
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
@@ -40,5 +40,10 @@ Tasks to do in Aixt
 
 
 ### Done ✓make
+
+- [x] Implement structs declaring
+- [x] Issue solved: Structs can not be registered twice (due to the double parsing round). Solved clearing the symbol table between parsings.
+
+
 
 

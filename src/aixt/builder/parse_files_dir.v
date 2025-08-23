@@ -5,6 +5,7 @@
 module builder
 
 import os
+import v.ast
 import v.parser
 import v.checker
 // import aixt.util
@@ -44,6 +45,9 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// b.module_search_paths << b.get_lib_mod_dirs()
 	file_paths.insert(1, b.get_api_mod_paths())
 	file_paths.insert(1, b.get_lib_mod_paths())
+
+	// restart the table
+	b.table = ast.new_table()
 
 	// -------------------- Second parser round --------------------
 	// println('>>>>>>>>>>>>>>>>>> ${file_paths} <<<<<<<<<<<<<<<<<<')
