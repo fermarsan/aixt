@@ -1,6 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2024
+// Date: 2025
 // License: MIT
 module cgen
 
@@ -12,7 +12,6 @@ fn (mut gen Gen) struct_init(node ast.StructInit) []string {
 	mut out := []string{}
 	match node.language {
 		.v {
-			name := '__struct_name__'
 			mut fields := []string{}
 			for field in node.init_fields {
 				fields << gen.ast_node(field)

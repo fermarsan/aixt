@@ -5,9 +5,12 @@ struct LED {
     // str         &u8
 }
 
-led_1 := LED {
+mut led_1 := LED {
 	state: 		false
 	is_analog: 	true
 }
+
+// led1.state = true 
+
 
 
