@@ -10,19 +10,18 @@ import v.ast
 fn (mut gen Gen) struct_init(node ast.StructInit) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
-	// match node.language {
-	// 	.v {
-	// 		attrs := node.attrs.map(it.name).join(' ')
-	// 		name := node.name.replace('.', '__')
-	// 		mut fields := []string{}
-	// 		for field in node.fields {
-	// 			fields << gen.ast_node(field)
-	// 		}
-	// 		out << $tmpl('c_templates/struct.tmpl.c')
-	// 	}
-	// 	else {
-	// 		out = ['']
-	// 	}
-	// }
+	match node.language {
+		.v {
+			name := '__struct_name__'
+			mut fields := []string{}
+			for field in node.init_fields {
+				fields << gen.ast_node(field)
+			}
+			out << $tmpl('c_templates/struct_init.tmpl.c')
+		}
+		else {
+			out = ['']
+		}
+	}
 	return out
 }
