@@ -1,6 +1,6 @@
-struct LEDs {
+struct LEDs_2 {
 	state 		bool
-	pin			i64
+	// pin			i64
 	is_analog	bool
-    str         &u8
+    // str         &u8
 }
