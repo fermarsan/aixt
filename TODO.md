@@ -36,13 +36,13 @@ Tasks to do in Aixt
 - [ ] Issue: individual module components importing fails
 - [ ] Add OOP features to the API
 - [ ] support struct fields access (`struct_name.struct_field`)
-- [ ] support struct instances declaring
 
 
 ### Done ✓make
 
+- [x] Issue solved: Structs can not be registered twice (due to the double parsing round). Solved clearing the symbol table between parsings
 - [x] Implement structs declaring
-- [x] Issue solved: Structs can not be registered twice (due to the double parsing round). Solved clearing the symbol table between parsings.
+- [x] Implement struct instances declaring
 
 
 

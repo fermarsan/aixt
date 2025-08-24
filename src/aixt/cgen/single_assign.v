@@ -14,9 +14,10 @@ import v.token
 // and
 // - cumulative-assignments `+=`, `-=` , etc. 
 fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind, right ast.Expr) []string {
-	// println('>>>>>>>>>>>>>>>>>> ${right.str()} <<<<<<<<<<<<<<<<<<')
+	// println('>>>>>>>>>>>>>>>>>> ${left_type.str()} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
-	ref, var_type := gen.get_str_c_type(left_type, false)
+	ref, mut var_type := gen.get_str_c_type(left_type, false)
+	// println('>>>>>>>>>>>>>>>>>> ${var_type} <<<<<<<<<<<<<<<<<<')
 	var_name := gen.ast_node(left).join('')
 	var_value := gen.ast_node(right).join('')
 	left_expr := left
@@ -48,6 +49,10 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 									  '"${op}" operator not supported for strings.\n')
 							}
 						}
+					}
+					'struct' {
+						var_type = var_type.replace('.', '__')
+						out << $tmpl('c_templates/assign.tmpl.c')#[..-1]
 					}
 					else {
 						out << $tmpl('c_templates/assign.tmpl.c')#[..-1]
@@ -121,6 +126,21 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 				var_value := gen.ast_node(right).join('')
 				c_line = $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
 			}
+		}
+		'struct' {
+			var_type = var_type.replace('.', '__')
+			if right.str() == 'ast.EmptyExpr' {	// declaration only
+				// println('>>>>>>>>>>>>>>>>>> ${right.str()} <<<<<<<<<<<<<<<<<<')
+				c_line = $tmpl('c_templates/decl.tmpl.c')#[..-1]
+			} else {
+				var_value := if right.type_name() == 'v.ast.CastExpr' {
+					gen.ast_node((right as ast.CastExpr).expr).join('')
+				} else {
+					gen.ast_node(right).join('')
+				}
+				c_line = $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
+			}
+
 		}
 		else {
 			if right.str() == 'ast.EmptyExpr' {	// declaration only
