@@ -16,7 +16,7 @@ fn (mut gen Gen) struct_init(node ast.StructInit) []string {
 			for field in node.init_fields {
 				fields << gen.ast_node(field)
 			}
-			out << $tmpl('c_templates/struct_init.tmpl.c')
+			out << $tmpl('c_templates/struct_init.tmpl.c')#[..-1]
 		}
 		else {
 			out = ['']

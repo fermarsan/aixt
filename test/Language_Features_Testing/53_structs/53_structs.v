@@ -10,7 +10,7 @@ mut led_1 := LED {
 	is_analog: 	true
 }
 
-// led1.state = true 
+led1.state = true 
 
 
 

@@ -51,8 +51,8 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 						}
 					}
 					'struct' {
-						var_type = var_type.replace('.', '__')
-						out << $tmpl('c_templates/assign.tmpl.c')#[..-1]
+						var_type = var_type.replace('main.', '')
+						out << $tmpl('c_templates/assign_struct.tmpl.c')#[..-1]
 					}
 					else {
 						out << $tmpl('c_templates/assign.tmpl.c')#[..-1]
@@ -128,17 +128,18 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			}
 		}
 		'struct' {
-			var_type = var_type.replace('.', '__')
+			var_type = var_type.replace('main.', '')
 			if right.str() == 'ast.EmptyExpr' {	// declaration only
 				// println('>>>>>>>>>>>>>>>>>> ${right.str()} <<<<<<<<<<<<<<<<<<')
-				c_line = $tmpl('c_templates/decl.tmpl.c')#[..-1]
+				// c_line = $tmpl('c_templates/decl.tmpl.c')#[..-1]
+				panic('"struct" definition can not be empty')
 			} else {
 				var_value := if right.type_name() == 'v.ast.CastExpr' {
 					gen.ast_node((right as ast.CastExpr).expr).join('')
 				} else {
 					gen.ast_node(right).join('')
 				}
-				c_line = $tmpl('c_templates/decl_assign.tmpl.c')#[..-1]
+				c_line = $tmpl('c_templates/decl_assign_struct.tmpl.c')#[..-1]
 			}
 
 		}
