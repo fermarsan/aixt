@@ -43,5 +43,5 @@ Tasks to do in Aixt
   - [x] Implement structs declaring
   - [x] Implement struct instances declaring
   - [x] Implement struct fields access (`struct_name.struct_field`)
-  - [x] Support struct methods
-- [x] Add OOP features to the API (Emulator port, Pin module) 
+  - [x] Support struct methods (using the V standard)
+- [x] Add OOP features to the API (Emulator pin module, NXT motor module) 

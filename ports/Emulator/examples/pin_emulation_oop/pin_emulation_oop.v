@@ -1,11 +1,11 @@
-import pin_oop //as pin
+import pin_oop as pin
 import time 
 
 
 fn main() {
-    mut led_1 := pin_oop.Pin{ pin_oop.a }
-    mut led_2 := pin_oop.Pin{ pin_oop.b }
-    pin_oop.update()
+    mut led_1 := pin.Pin{ pin.a }
+    mut led_2 := pin.Pin{ pin.b }
+    pin.update()
     time.sleep_ms(2000)
     led_1.high()
     led_2.write(1)

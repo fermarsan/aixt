@@ -39,11 +39,17 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			// -------------------- NXC tasks --------------------
 			if nxc_task && gen.setup.backend == 'nxc' {
 				name = '${node.short_name}'
-			// -------------------- regular functions --------------------
+			// -------------------- regular functions and methods --------------------
 			} else {
 				ret, ret_type = gen.get_str_c_type(node.return_type, false)
 				ret_type = ret + ret_type.replace('string', 'char*') + ' '	// type
-				name = '${module_short_name}__${node.short_name}'
+				if node.is_method {		// methods
+					_, mut struct_type := gen.get_str_c_type(node.params[0].typ, false)
+					struct_type = struct_type.replace('.', '__')
+					name = '${struct_type}_${node.name}'
+				} else {				// regular  functions
+					name = '${module_short_name}__${node.short_name}'
+				}
 			}
 			if node.params.len != 0 {
 				for pr in node.params {

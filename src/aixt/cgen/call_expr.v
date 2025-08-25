@@ -27,8 +27,9 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) []string {
 			} else if node.mod.all_after_last('.') == 'main' && gen.setup.backend == 'nxc' {
 				'${node.name.all_after_last('.')}'
 			} else if node.is_method {
-				_, var_type := gen.get_str_c_type(node.left_type, false)
-				'${var_type.all_before('.')}__${node.name}'
+				_, mut var_type := gen.get_str_c_type(node.left_type, false)
+				var_type = var_type.replace('.', '__')
+				'${var_type}_${node.name}'
 			} else {
 				'${node.mod.all_after_last('.')}__${node.name.all_after_last('.')}'
 			}
