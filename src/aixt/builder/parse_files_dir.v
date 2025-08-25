@@ -43,7 +43,7 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	println('Source files:')
 	for file in b.parsed_files {
 		println('\t${file.path}')
-		// println('\tt${file.mod}:\n\t${file.path}')
+		println('\tt${file.mod.name}:\n\t${file.path}')
 	}
 
 	// -------------------- Load the used API modules' files --------------------

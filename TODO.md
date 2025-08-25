@@ -35,6 +35,7 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
 - [ ] Add OOP features to the API
+- [ ] Support struct methods
 
 
 ### Done ✓make

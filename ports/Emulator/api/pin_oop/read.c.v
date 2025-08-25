@@ -1,8 +1,8 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2024
+// Date: 2023-2025
 // License: MIT
-module pin
+module pin_oop
 
 // write puts a logic value to a specific pin
 @[as_macro]
@@ -20,6 +20,6 @@ pub fn read(name int) int {
     } else {
         pin__pins[name] = 1
     }
-    pin.update()
+    pin_oop.update()
     return pin__input_value
 }
