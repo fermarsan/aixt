@@ -30,6 +30,7 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// println('${b.pref.buildmode}')
 
 	// -------------------- First parser round --------------------
+	println('-------------------- First parser round --------------------')
 	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
 	// for file in b.parsed_files {
 	// 	println(file.path)
@@ -39,6 +40,11 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// 		println(imp.source_name)
 	// 	}
 	// }
+	println('Source files:')
+	for file in b.parsed_files {
+		println('\t${file.path}')
+		// println('\tt${file.mod}:\n\t${file.path}')
+	}
 
 	// -------------------- Load the used API modules' files --------------------
 	// b.module_search_paths << b.get_api_mod_dirs()
@@ -50,6 +56,7 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	b.table = ast.new_table()
 
 	// -------------------- Second parser round --------------------
+	println('\n-------------------- Second parser round --------------------')
 	// println('>>>>>>>>>>>>>>>>>> ${file_paths} <<<<<<<<<<<<<<<<<<')
 	// b.parse_imports()
 	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)

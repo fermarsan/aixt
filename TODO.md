@@ -35,7 +35,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
 - [ ] Add OOP features to the API
-- [ ] support struct fields access (`struct_name.struct_field`)
 
 
 ### Done ✓make
@@ -43,7 +42,5 @@ Tasks to do in Aixt
 - [x] Issue solved: Structs can not be registered twice (due to the double parsing round). Solved clearing the symbol table between parsings
 - [x] Implement structs declaring
 - [x] Implement struct instances declaring
-
-
-
-
+- [x] Implement struct fields access (`struct_name.struct_field`)
+- [x] Start adding OOP features to the API (Emulator port)

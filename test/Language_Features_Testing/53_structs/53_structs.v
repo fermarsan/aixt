@@ -1,8 +1,9 @@
+import pin 
+
 struct LED {
+mut:
 	state 		bool
-	// pin			i64
 	is_analog	bool
-    // str         &u8
 }
 
 mut led_1 := LED {
@@ -10,7 +11,11 @@ mut led_1 := LED {
 	is_analog: 	true
 }
 
-led1.state = true 
+led_1.state = true 
+
+state := led_1.state
+
+a := 10
 
 
 
