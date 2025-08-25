@@ -2,11 +2,11 @@
 // Author: Fernando M. Santa
 // Date: 2023-2025
 // License: MIT
-module pin_oop
+module pin
 
 // write puts a logic value to a specific pin
 @[inline]
-pub fn (mut pin Pin) write(val int) {  
-    pin__pins[pin.id] = val
-    pin_oop.update()
+pub fn (mut pin_object Pin) write(val int) {  
+    pin__pins[pin_object.id] = val
+    pin.update()
 }

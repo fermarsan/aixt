@@ -31,6 +31,8 @@ pub fn (mut b Builder) get_api_mod_dirs() []string {
 pub fn (mut b Builder) get_api_mod_paths() []string {
 	mut out := []string{}
 	for api_path in b.setup.api_paths {
+		// api_path_sub := api_path.replace('.', os.path_separator)
+		// println('>>>>>>>>>>>>>>>>>> ${api_path_sub} <<<<<<<<<<<<<<<<<<')
 		api_base_dir := '${b.aixt_path}' + os.path_separator + 
 						'ports/${api_path}' + os.path_separator + 'api'
 		mut api_dirs := [api_base_dir]
@@ -40,12 +42,26 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 			// println('>>>>>>>>>>>>>>>>>> ${os.base(folder)} <<<<<<<<<<<<<<<<<<')
 			for file in b.parsed_files {
 				for imp in file.imports {
-					mod_name := imp.mod.all_after_last('.')
-					if os.base(folder) == mod_name {
-						mut paths :=  b.v_files_from_dir(folder)
+					mod_main_name := imp.mod.all_before('.')
+					mod_subname := imp.mod.all_after('.')
+					mod_name := if mod_subname == mod_main_name {
+						mod_main_name
+					} else {
+						imp.mod
+					}
+					// mod_main_name, mod_subname := imp.mod.split('.')
+					// println('>>>>>>>>>>>>>>>>>> ${mod_name} <<<<<<<<<<<<<<<<<<')
+					if os.base(folder) == mod_main_name {
+						complete_folder := if mod_subname == mod_main_name {
+							folder
+						} else {
+							folder + os.path_separator + mod_subname 
+						}
+						mut paths :=  b.v_files_from_dir(complete_folder)
 						// module_name.c.v first
 						for i, path in paths {
-							if path.contains('${mod_name}.c.v') {
+							mod_main_file := mod_name.replace('.', '_')
+							if path.contains('${mod_main_file}.c.v') {
 								paths.delete(i)
 								paths.insert(0, path)
 								break

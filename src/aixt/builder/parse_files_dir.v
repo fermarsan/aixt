@@ -35,11 +35,11 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// for file in b.parsed_files {
 	// 	println(file.path)
 	// }
-	// for file in b.parsed_files {
-	// 	for imp in file.imports {
-	// 		println(imp.source_name)
-	// 	}
-	// }
+	for file in b.parsed_files {
+		for imp in file.imports {
+			println(imp.source_name)
+		}
+	}
 	println('Source files:')
 	for file in b.parsed_files {
 		println('\t${file.path}')
@@ -48,9 +48,12 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 
 	// -------------------- Load the used API modules' files --------------------
 	// b.module_search_paths << b.get_api_mod_dirs()
-	// b.module_search_paths << b.get_lib_mod_dirs()
+	// b.module_search_paths << b.get_lib_mod_dirs()			
 	file_paths.insert(1, b.get_api_mod_paths())
 	file_paths.insert(1, b.get_lib_mod_paths())
+	for p in file_paths {
+		println(p)
+	}
 
 	// restart the table
 	b.table = ast.new_table()
