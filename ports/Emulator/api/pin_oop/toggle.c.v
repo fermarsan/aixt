@@ -5,7 +5,8 @@
 module pin_oop
 
 // toggle function toggles the logic value of a specific pin
-pub fn toggle(name int) {   
-    pin__pins[name] ^= int(1)
+@[inline]
+pub fn (mut pin Pin) toggle() {   
+    pin__pins[pin.id] ^= int(1)
     pin_oop.update()
 }

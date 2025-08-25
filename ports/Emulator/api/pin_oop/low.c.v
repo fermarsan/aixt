@@ -6,7 +6,7 @@ module pin_oop
 
 // high function puts a low value (logic 0) to a specific pin
 @[inline]
-pub fn low(name int) {   
-    pin__pins[name] = 0
+pub fn (mut pin Pin) low() {   
+    pin__pins[pin.id] = 0
     pin_oop.update()
 }

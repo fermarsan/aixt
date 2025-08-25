@@ -59,6 +59,11 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				mut names := ''
 				for param in node.params {
 					names += '${param.name}, '
+					// if param.typ.is_ptr() {
+					// 	for mut stmt in stmts {
+					// 		stmt = stmt.replace('${param.name}->', '${param.name}.')
+					// 	}
+					// }
 				}
 				names = names#[..-2]
 				if stmts.len == 1 {

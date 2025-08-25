@@ -14,6 +14,13 @@ fn (mut gen Gen) selector_expr(node ast.SelectorExpr) []string {
 		return ['${node.expr.str().replace('C.', '')}.${node.field_name}']
 	}
 	else {
-		return ['${node.expr}.${node.field_name}']
+		// ref, var_type = gen.get_str_c_type(node.typ, false)
+		// println('>>>>>>>>>>>>>>>>>> ${node.typ} <<<<<<<<<<<<<<<<<<')
+		// return ['']
+		return if node.expr_type.is_ptr() {
+			['${node.expr}->${node.field_name}']
+		} else {
+			['${node.expr}.${node.field_name}']
+		}
 	}
 }

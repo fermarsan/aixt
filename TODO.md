@@ -28,20 +28,20 @@ Tasks to do in Aixt
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 - [ ] Issue: Calling function from string interpolations including casting
-- [ ] Implements sub-modules
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
-- [ ] Add OOP features to the API
-- [ ] Support struct methods
+- [ ] Implements sub-modules
 
 
 ### Done ✓make
 
 - [x] Issue solved: Structs can not be registered twice (due to the double parsing round). Solved clearing the symbol table between parsings
-- [x] Implement structs declaring
-- [x] Implement struct instances declaring
-- [x] Implement struct fields access (`struct_name.struct_field`)
-- [x] Start adding OOP features to the API (Emulator port)
+- [x] Implement structs
+  - [x] Implement structs declaring
+  - [x] Implement struct instances declaring
+  - [x] Implement struct fields access (`struct_name.struct_field`)
+  - [x] Support struct methods
+- [x] Add OOP features to the API (Emulator port, Pin module) 

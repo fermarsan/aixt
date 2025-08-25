@@ -5,7 +5,7 @@
 module pin_oop
 
 // high function puts a high value (logic 1) to a specific pin
-// @[as_macro]
+@[inline]
 pub fn (mut pin Pin) high() {   
     pin__pins[pin.id] = 1
     pin_oop.update()

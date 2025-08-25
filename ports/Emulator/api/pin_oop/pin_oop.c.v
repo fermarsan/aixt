@@ -36,9 +36,9 @@ pub fn update() {
 	} $else {
 		C.system('cls')
 	}
-	C.printf(' Aixt virtual pins     [#] = ON   [ ] = OFF')
-	C.printf(' _____ _____ _____ _____ _____ _____ _____ _____')
-	C.printf('|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |')
+	C.printf(' Aixt virtual pins     [#] = ON   [ ] = OFF\n')
+	C.printf(' _____ _____ _____ _____ _____ _____ _____ _____\n')
+	C.printf('|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |\n')
 	for i in 0 .. 8 {
 		C.printf('| [')
 		if i <= 3 {
@@ -54,7 +54,7 @@ pub fn update() {
 		C.printf('\033[1;37m') // white
 		C.printf('] ')
 	}
-	C.printf('|')
+	C.printf('|\n')
 	C.printf("'-----'-----'-----'-----'-----'-----'-----'-----'\n")
 }
 

@@ -5,7 +5,8 @@
 module pin_oop
 
 // write puts a logic value to a specific pin
-pub fn write(name int, val int) {  
-    pin__pins[name] = val
+@[inline]
+pub fn (mut pin Pin) write(val int) {  
+    pin__pins[pin.id] = val
     pin_oop.update()
 }
