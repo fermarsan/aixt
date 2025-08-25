@@ -26,6 +26,8 @@ fn (mut gen Gen) call_expr(node ast.CallExpr) []string {
 				node.name.replace('.', '__')
 			} else if node.mod.all_after_last('.') == 'main' && gen.setup.backend == 'nxc' {
 				'${node.name.all_after_last('.')}'
+			} else if node.is_method {
+				'${node.left}.${node.name}'
 			} else {
 				'${node.mod.all_after_last('.')}__${node.name.all_after_last('.')}'
 			}

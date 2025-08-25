@@ -51,7 +51,7 @@ fn (mut gen Gen) single_assign(left ast.Expr, left_type ast.Type, op token.Kind,
 						}
 					}
 					'struct' {
-						var_type = var_type.replace('main.', '').replace('.', '__')
+						var_type = var_type.replace('.', '__')
 						out << $tmpl('c_templates/assign_struct.tmpl.c')#[..-1]
 					}
 					else {
@@ -128,7 +128,7 @@ fn (mut gen Gen) single_decl_assign(left ast.Expr, left_type ast.Type, right ast
 			}
 		}
 		'struct' {
-			var_type = var_type.replace('main.', '').replace('.', '__')
+			var_type = var_type.replace('.', '__')
 			if right.str() == 'ast.EmptyExpr' {	// declaration only
 				// println('>>>>>>>>>>>>>>>>>> ${right.str()} <<<<<<<<<<<<<<<<<<')
 				// c_line = $tmpl('c_templates/decl.tmpl.c')#[..-1]
