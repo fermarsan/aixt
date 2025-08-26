@@ -4,7 +4,8 @@ import motor
 import time
 
 const t_on = 1000
+const both = motor.ab
 
-motor.write(motor.ab, 50)
+motor.write(both, 50)
 time.sleep_ms(t_on)	
-motor.off(motor.ab)
+motor.off(both)

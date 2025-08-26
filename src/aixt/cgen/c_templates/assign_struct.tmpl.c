@@ -1,0 +1,1 @@
+@var_name @op (@var_type@ref)@var_value;

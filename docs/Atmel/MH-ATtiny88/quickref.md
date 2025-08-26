@@ -78,54 +78,54 @@ Retrieved from: [ATtiny88 data sheet](https://ww1.microchip.com/downloads/en/Dev
 
 Description of pins and their designation:
 
-|PIN NO.  | NAME | FUNCTION |
-|---------|--------|---------|
-|0        |D0      |DIGITAL PIN, LED 0|
-|1        |D1      |DIGITAL PIN|
-|2        |D2      |DIGITAL PIN|
-|3        |D3      |DIGITAL PIN|
-|4        |D4      |DIGITAL PIN|
-|5        |D5      |DIGITAL PIN|
-|6        |D6      |DIGITAL PIN|
-|7        |D7      |DIGITAL PIN|
-|8        |D8      |DIGITAL PIN|
-|9        |D9      |DIGITAL PIN|
-|10       |D10     |DIGITAL PIN,SS|
-|11       |D11     |DIGITAL PIN,MOSI|
-|12       |D12     |DIGITAL PIN,MISO|
-|13       |D13     |DIGITAL PIN,SCK|
-|14       |D14     |DIGITAL PIN|
-|15       |D15     |DIGITAL PIN|
-|16       |D16     |DIGITAL PIN|
-|17       |D17, A6  |DIGITAL PIN, analog-to-digital converter|
-|18       |D18, A7  |DIGITAL PIN, analog-to-digital converter|
-|19       |D19, A0  |DIGITAL PIN, analog-to-digital converter|
-|20       |D20, A1  |DIGITAL PIN, analog-to-digital converter|
-|21       |D21, A2  |DIGITAL PIN, analog-to-digital converter|
-|22       |D22, A3  |DIGITAL PIN, analog-to-digital converter|
-|23       |D23, A4  |DIGITAL PIN, analog-to-digital converter,SDA|
-|24       |D24, A5  |DIGITAL PIN, analog-to-digital converter,SCL|
-|25       |D25     |DIGITAL PIN|
-|         |RST     |RESET|
-|         |VIN     |POWER SUPPLY: VIN 7-12V|
-|         |5V      |POWER SUPPLY: 5V|
-|         |GND     | GROUND |
+| PIN NO. | NAME    | FUNCTION                                     |
+| ------- | ------- | -------------------------------------------- |
+| 0       | D0      | DIGITAL PIN, LED 0                           |
+| 1       | D1      | DIGITAL PIN                                  |
+| 2       | D2      | DIGITAL PIN                                  |
+| 3       | D3      | DIGITAL PIN                                  |
+| 4       | D4      | DIGITAL PIN                                  |
+| 5       | D5      | DIGITAL PIN                                  |
+| 6       | D6      | DIGITAL PIN                                  |
+| 7       | D7      | DIGITAL PIN                                  |
+| 8       | D8      | DIGITAL PIN                                  |
+| 9       | D9      | DIGITAL PIN                                  |
+| 10      | D10     | DIGITAL PIN,SS                               |
+| 11      | D11     | DIGITAL PIN,MOSI                             |
+| 12      | D12     | DIGITAL PIN,MISO                             |
+| 13      | D13     | DIGITAL PIN,SCK                              |
+| 14      | D14     | DIGITAL PIN                                  |
+| 15      | D15     | DIGITAL PIN                                  |
+| 16      | D16     | DIGITAL PIN                                  |
+| 17      | D17, A6 | DIGITAL PIN, analog-to-digital converter     |
+| 18      | D18, A7 | DIGITAL PIN, analog-to-digital converter     |
+| 19      | D19, A0 | DIGITAL PIN, analog-to-digital converter     |
+| 20      | D20, A1 | DIGITAL PIN, analog-to-digital converter     |
+| 21      | D21, A2 | DIGITAL PIN, analog-to-digital converter     |
+| 22      | D22, A3 | DIGITAL PIN, analog-to-digital converter     |
+| 23      | D23, A4 | DIGITAL PIN, analog-to-digital converter,SDA |
+| 24      | D24, A5 | DIGITAL PIN, analog-to-digital converter,SCL |
+| 25      | D25     | DIGITAL PIN                                  |
+|         | RST     | RESET                                        |
+|         | VIN     | POWER SUPPLY: VIN 7-12V                      |
+|         | 5V      | POWER SUPPLY: 5V                             |
+|         | GND     | GROUND                                       |
 
 
 
          
 ## ANALOG READOUT PORT CONFIGURATION
 
-|PIN NO.  | NOMBRE | DECLARACION |
-|---------|--------|-------------|
-|17       |A6      | 1|
-|18       |A7      | 2|
-|19       |A0      |-5|
-|20       |A1      |-4|
-|21       |A2      |-3|
-|22       |A3      |-2|
-|23       |A4      |-1|
-|24       |A5      | 0|
+| PIN NO. | NOMBRE | DECLARACION |
+| ------- | ------ | ----------- |
+| 17      | A6     | 1           |
+| 18      | A7     | 2           |
+| 19      | A0     | -5          |
+| 20      | A1     | -4          |
+| 21      | A2     | -3          |
+| 22      | A3     | -2          |
+| 23      | A4     | -1          |
+| 24      | A5     | 0           |
 
 ## PROGRAMMING LANGUAGE V
 
@@ -134,24 +134,24 @@ Description of pins and their designation:
 The descriptive functions contained in the API as inputs or outputs that perform analog-to-digital conversion:
 
 
-NAME               | DESCRIPTION
-------------------------|------------------------------
-`pin.setup(pin, mode)`    | Configure pin like `mode (input, out)`
-`pin.high(pin)`           | Digital output on `high pin`
-`pin.low(pin)`           | Digital output on `low pin`
-`pin.write(pin, val)`     | Type val in `pin`
-`pin.read(pin)`           | Digital input `pin`
-`adc.read(pin)`           | Analog pin readout for adc
-`pwm.write(pin, val)`     | Output pin and a useful val cycle
-`uart.setup(baund_rate)`  | Initiation Serial Communication to Baund_rate
-`uart.read()`             | Serial Communication Reading
-`println(message)`        | Print message via Serial Communication
-`time.sleep(time)`             | delay in `S`
-`time.sleep_us(time)`          | delay in `uS`
-`time.sleep_ms(time)`          | delay in `mS`
-`input`    | Parameter `mode` input configuration 
-`output`    | Parameter `mode` output configuration 
-`uart.any()` |	Get the number of bytes to read
+| NAME                     | DESCRIPTION                                   |
+| ------------------------ | --------------------------------------------- |
+| `pin.setup(pin, mode)`   | Configure pin like `mode (input, out)`        |
+| `pin.high(pin)`          | Digital output on `high pin`                  |
+| `pin.low(pin)`           | Digital output on `low pin`                   |
+| `pin.write(pin, val)`    | Type val in `pin`                             |
+| `pin.read(pin)`          | Digital input `pin`                           |
+| `adc.read(pin)`          | Analog pin readout for adc                    |
+| `pwm.write(pin, val)`    | Output pin and a useful val cycle             |
+| `uart.setup(baund_rate)` | Initiation Serial Communication to Baund_rate |
+| `uart.read()`            | Serial Communication Reading                  |
+| `println(message)`       | Print message via Serial Communication        |
+| `time.sleep(time)`       | delay in `S`                                  |
+| `time.sleep_us(time)`    | delay in `uS`                                 |
+| `time.sleep_ms(time)`    | delay in `mS`                                 |
+| `input`                  | Parameter `mode` input configuration          |
+| `output`                 | Parameter `mode` output configuration         |
+| `uart.any()`             | Get the number of bytes to read               |
 
 
 
@@ -159,31 +159,31 @@ NAME               | DESCRIPTION
 
 
 
-DEFINITION AIXT	 | DEFINITION ARDUINO
------------------|-----------------------------
-`adc.read(PIN_NAME)`|    	`analogRead(PIN_NAME)`
-`pin.high(PIN_NAME)`| 		`digitalWrite(PIN_NAME, HIGH)`
-`pin.low(PIN_NAME)`|        	`digitalWrite(PIN_NAME, LOW)`
-`output`| 				`OUTPUT`
-`input`|	`INPUT`
-`input_pullup	INPUT_PULLUP`|
-`pin.read(PIN_NAME)`|   	`digitalRead(PIN_NAME)`
-`pin.setup(pin_name, mode)`|        	`pinMode(PIN_NAME, MODE)`
-`pin.write(PIN_NAME, VALUE)`|  	`digitalWrite(PIN_NAME, VALUE)`
-`pwm.write(PIN, VALUE)`|   	`analogWrite(PIN, VALUE)`
-`time.sleep_ms(MS)`|  	`delay(MS)`
-`time.sleep_us(US) `|  	`delayMicroseconds(US)`
-`time.sleep(S)`|	`delay(S*1000)`
-`uart.any_0()`|		`Serial.available()`
-`uart.any_1()`|		`Serial1.available()`
-`uart.any_x(UART_NUMBER)	uart.any ## UART_NUMBER ##`| `serial.available()`
-`uart.print_0(MESSAGE)`|		`Serial.print(MESSAGE)`
-`uart.print_1(MESSAGE)`|		`Serial1.print(MESSAGE)`
-`uart.println_0(MESSAGE)`|		`Serial.println(MESSAGE)`
-`uart.println_1(MESSAGE)`|		`Serial1.println(MESSAGE)`
-`uart.read_0()`|		`Serial.read()`
-`uart.read_1()`|		`Serial1.read()`
-`uart.setup(BAUD_RATE)`|   	`Serial.begin(BAUD_RATE)`
+| DEFINITION AIXT                                      | DEFINITION ARDUINO              |
+| ---------------------------------------------------- | ------------------------------- |
+| `adc.read(PIN_NAME)`                                 | `analogRead(PIN_NAME)`          |
+| `pin.high(PIN_NAME)`                                 | `digitalWrite(PIN_NAME, HIGH)`  |
+| `pin.low(PIN_NAME)`                                  | `digitalWrite(PIN_NAME, LOW)`   |
+| `output`                                             | `OUTPUT`                        |
+| `input`                                              | `INPUT`                         |
+| `input_pullup	INPUT_PULLUP`                          |
+| `pin.read(PIN_NAME)`                                 | `digitalRead(PIN_NAME)`         |
+| `pin.setup(pin_name, mode)`                          | `pinMode(PIN_NAME, MODE)`       |
+| `pin.write(PIN_NAME, VALUE)`                         | `digitalWrite(PIN_NAME, VALUE)` |
+| `pwm.write(PIN, VALUE)`                              | `analogWrite(PIN, VALUE)`       |
+| `time.sleep_ms(MS)`                                  | `delay(MS)`                     |
+| `time.sleep_us(US) `                                 | `delayMicroseconds(US)`         |
+| `time.sleep(S)`                                      | `delay(S*1000)`                 |
+| `uart.any_0()`                                       | `Serial.available()`            |
+| `uart.any_1()`                                       | `Serial1.available()`           |
+| `uart.any_x(UART_NUMBER)	uart.any ## UART_NUMBER ##` | `serial.available()`            |
+| `uart.print_0(MESSAGE)`                              | `Serial.print(MESSAGE)`         |
+| `uart.print_1(MESSAGE)`                              | `Serial1.print(MESSAGE)`        |
+| `uart.println_0(MESSAGE)`                            | `Serial.println(MESSAGE)`       |
+| `uart.println_1(MESSAGE)`                            | `Serial1.println(MESSAGE)`      |
+| `uart.read_0()`                                      | `Serial.read()`                 |
+| `uart.read_1()`                                      | `Serial1.read()`                |
+| `uart.setup(BAUD_RATE)`                              | `Serial.begin(BAUD_RATE)`       |
   `  *Table of equivalences between functions`
 
 

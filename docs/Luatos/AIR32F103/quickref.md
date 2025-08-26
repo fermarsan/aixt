@@ -17,38 +17,38 @@ To program the card STM32F103C, the ST must be connected,therefore, it is recomm
 ## Port Identification
 Below are the ports used and their proper designations for programming:
 
-No.| Name     | Function 
--- |-----     |---
-1  |PC14      |OSC32_IN
-2  |PC15      |OSC32_OUT              
-3  |GND       | GROUND CARD BLUE PILL AIR32F103C
-4  |5V        | INPUT 5V BLUE PILL AIR32F103C
-5  |PA0       | WKUP/USART2_CTS/ADC12_IN0/TIM2_CH1_ETR/TIM5_CH1
-6  |PA1       | USART2_RTS/ADC12_IN1/TIM2_CH2/TIM5_CH2
-7  |PB9       | PWM
-8  |PB8       | TIM4_CH
-9  |3.3V      | INPUT 3.3V BLUE PILL AIR32F103C 
-10 |GND       | GROUND CARD BLUE PILL AIR32F103C
-11 |PA2       | USART2_TX/ADC12_IN2/TIM2_CH3/TIM5_CH3
-12 |PA3       | USART2_RX/ADC12_IN3/TIM2_CH4/TIM5_CH4
-13 |PA4       | SPI1_NSS/USART2_CK/DAC_OUT1/ADC12_IN4
-14 |PA6       | SPI1_MISO/ADC12_IN6/
-15 |PA7       | SPI1_MOSI/ADC12_IN7/TIM3_CH2
-16 |PA5       | SPI1_SCK/ADC12_IN5/DAC_OUT2
-17 |3.3V      | INPUT 3.3V BLUE PILL AIR32F103C 
-18 |GND       | GROUND CARD BLUE PILL AIR32F103C
-19 |PB0       | ADC12_IN8/TIM3_CH3
-20 |PB1       | ADC12_IN9/TIM3_CH4
-21 |PB5       | I2C1_SMBA/SPI3_MOS
-22 |PB4       | SPI3_MIS
-23 |5V        | INPUT 5V BLUE PILL AIR32F103C
-24 |PWB       |         
-25 |GND       | GROUND CARD BLUE PILL AIR32F103C
-26 |3.3V      | INPUT 3.3V BLUE PILL AIR32F103C 
-27 |RST       | OUTPUT RESET 
-28 |PB3       | SPI3_SCK
-29 |PA15      | SPI3_NS
-30 |PA10      | UART 0_RX
+| No. | Name | Function                                        |
+| --- | ---- | ----------------------------------------------- |
+| 1   | PC14 | OSC32_IN                                        |
+| 2   | PC15 | OSC32_OUT                                       |
+| 3   | GND  | GROUND CARD BLUE PILL AIR32F103C                |
+| 4   | 5V   | INPUT 5V BLUE PILL AIR32F103C                   |
+| 5   | PA0  | WKUP/USART2_CTS/ADC12_IN0/TIM2_CH1_ETR/TIM5_CH1 |
+| 6   | PA1  | USART2_RTS/ADC12_IN1/TIM2_CH2/TIM5_CH2          |
+| 7   | PB9  | PWM                                             |
+| 8   | PB8  | TIM4_CH                                         |
+| 9   | 3.3V | INPUT 3.3V BLUE PILL AIR32F103C                 |
+| 10  | GND  | GROUND CARD BLUE PILL AIR32F103C                |
+| 11  | PA2  | USART2_TX/ADC12_IN2/TIM2_CH3/TIM5_CH3           |
+| 12  | PA3  | USART2_RX/ADC12_IN3/TIM2_CH4/TIM5_CH4           |
+| 13  | PA4  | SPI1_NSS/USART2_CK/DAC_OUT1/ADC12_IN4           |
+| 14  | PA6  | SPI1_MISO/ADC12_IN6/                            |
+| 15  | PA7  | SPI1_MOSI/ADC12_IN7/TIM3_CH2                    |
+| 16  | PA5  | SPI1_SCK/ADC12_IN5/DAC_OUT2                     |
+| 17  | 3.3V | INPUT 3.3V BLUE PILL AIR32F103C                 |
+| 18  | GND  | GROUND CARD BLUE PILL AIR32F103C                |
+| 19  | PB0  | ADC12_IN8/TIM3_CH3                              |
+| 20  | PB1  | ADC12_IN9/TIM3_CH4                              |
+| 21  | PB5  | I2C1_SMBA/SPI3_MOS                              |
+| 22  | PB4  | SPI3_MIS                                        |
+| 23  | 5V   | INPUT 5V BLUE PILL AIR32F103C                   |
+| 24  | PWB  |
+| 25  | GND  | GROUND CARD BLUE PILL AIR32F103C                |
+| 26  | 3.3V | INPUT 3.3V BLUE PILL AIR32F103C                 |
+| 27  | RST  | OUTPUT RESET                                    |
+| 28  | PB3  | SPI3_SCK                                        |
+| 29  | PA15 | SPI3_NS                                         |
+| 30  | PA10 | UART 0_RX                                       |
 
 
 31 |PA9       | UART 0_TX

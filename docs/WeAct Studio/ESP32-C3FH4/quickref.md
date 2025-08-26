@@ -71,52 +71,52 @@ This is an Aixt implementation to provide support for the ESP32-C3FH4 board.
 
 ![Alt text](Picture/WeAct-Studio-ESP32.jpg) 
 
-|Pin No. | Name                                   | Function                            |
-|--------|----------------------------------------|-------------------------------------| 
-| 0      | GPIO0; ADC1_0; XTAL_32K_P              | Analog; Digital;                    |
-| 1      | GPIO1; ADC1_1; XTAL_32K_N              | Analog; Digital;                    |
-| 2      | GPIO2; ADC1_2; FSPIQ; BOOT             | Analog; Digital; Fast Serial Peripheral Interface Quad-SPI; Booting.                | 
-| 3      | GPIO3; ADC1_3;                         | Analog; Digital.                    |
-| 4      | GPIO4; ADC1_4; FSPHID; SCK; MTMS       | Analog; Digital; Full-Speed USB Human Interface Device; Serial Clock; Multi-Track Memory System.             | 
-| 5      | GPI05; ADC2_0; FSPIWP; MISO; MTDI      | Analog; Digital; Full-Speed Serial Peripheral Interface Write Protect; Master In Slave Out; Microcontroller Test Data Input.           | 
-| 6      | GPIO6; FSPICLK; MOSI; MTCK             | Digital; Full-Speed Serial Peripheral Interface Clock; Master Out Slave In; Microcontroller Test Clock.        | 
-| 7      | GPI07; FSPID; SS; MTDO                 | Digital; Full-Speed Serial Peripheral Interface Data; Slave Select; Microcontoller Test Data Output.       | 
-| 8      | GPIO8; SDA; LOG; BULTIN LED            | Digital; Serial Data; Builtin LED.           |
-| 9      | GPIO9; SCL; BOOT                       | Digital; Serial Clock Line; Booting.         |
-| 10     | GPIO10; FSPICSO; JTAG                  | Digital; Full-Speed Serial Peripheral Interface Chip Select Output; Joint Test Action Group.                     | 
-| 18     | GPIO18; USB_D+                         | Digital; USB Conecction Dp.                  | 
-| 19     | GPI019; USB_D-                         | Digital; USB Conecction Dn.                  | 
-| 21     | GPIO21; RXD 0                          | Digital; Serial Communication (Receiver)     | 
-| 22     | GPIO22; TXD 0                          | Digital; Serial Communication (Transmitter)  | 
-|        | 5v                                     | Board Power Supply                           | 
-|        | VB                                     | Voltage Boost                                |
-|        | GND                                    | Ground                                       | 
-|        | GND                                    | Ground                                       | 
-|        | GND                                    | Ground                                       | 
-|        | GND                                    | Ground                                       |
-|        | 3.3v                                   | Microcontroller Power Supply                 | 
-|        | 3.3v                                   | Microcontroller Power Supply                 | 
-|        | EN                                     | Enable                                       |
+| Pin No. | Name                              | Function                                                                                                                     |
+| ------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 0       | GPIO0; ADC1_0; XTAL_32K_P         | Analog; Digital;                                                                                                             |
+| 1       | GPIO1; ADC1_1; XTAL_32K_N         | Analog; Digital;                                                                                                             |
+| 2       | GPIO2; ADC1_2; FSPIQ; BOOT        | Analog; Digital; Fast Serial Peripheral Interface Quad-SPI; Booting.                                                         |
+| 3       | GPIO3; ADC1_3;                    | Analog; Digital.                                                                                                             |
+| 4       | GPIO4; ADC1_4; FSPHID; SCK; MTMS  | Analog; Digital; Full-Speed USB Human Interface Device; Serial Clock; Multi-Track Memory System.                             |
+| 5       | GPI05; ADC2_0; FSPIWP; MISO; MTDI | Analog; Digital; Full-Speed Serial Peripheral Interface Write Protect; Master In Slave Out; Microcontroller Test Data Input. |
+| 6       | GPIO6; FSPICLK; MOSI; MTCK        | Digital; Full-Speed Serial Peripheral Interface Clock; Master Out Slave In; Microcontroller Test Clock.                      |
+| 7       | GPI07; FSPID; SS; MTDO            | Digital; Full-Speed Serial Peripheral Interface Data; Slave Select; Microcontoller Test Data Output.                         |
+| 8       | GPIO8; SDA; LOG; BULTIN LED       | Digital; Serial Data; Builtin LED.                                                                                           |
+| 9       | GPIO9; SCL; BOOT                  | Digital; Serial Clock Line; Booting.                                                                                         |
+| 10      | GPIO10; FSPICSO; JTAG             | Digital; Full-Speed Serial Peripheral Interface Chip Select Output; Joint Test Action Group.                                 |
+| 18      | GPIO18; USB_D+                    | Digital; USB Conecction Dp.                                                                                                  |
+| 19      | GPI019; USB_D-                    | Digital; USB Conecction Dn.                                                                                                  |
+| 21      | GPIO21; RXD 0                     | Digital; Serial Communication (Receiver)                                                                                     |
+| 22      | GPIO22; TXD 0                     | Digital; Serial Communication (Transmitter)                                                                                  |
+|         | 5v                                | Board Power Supply                                                                                                           |
+|         | VB                                | Voltage Boost                                                                                                                |
+|         | GND                               | Ground                                                                                                                       |
+|         | GND                               | Ground                                                                                                                       |
+|         | GND                               | Ground                                                                                                                       |
+|         | GND                               | Ground                                                                                                                       |
+|         | 3.3v                              | Microcontroller Power Supply                                                                                                 |
+|         | 3.3v                              | Microcontroller Power Supply                                                                                                 |
+|         | EN                                | Enable                                                                                                                       |
 
 
 ## PROGRAMMING IN V LENGUAJE
 
 | Name                      | Description                                    |
-|---------------------------|------------------------------------------------|
+| ------------------------- | ---------------------------------------------- |
 | `pin.setup(pin, mode)`    | Configure `pin` as `mode` (input, out)         |
 | `pin.high(pin)`           | Digital output high `pin`                      |
-| `pin.low(pin)`            | Digital output low `pin`                       | 
+| `pin.low(pin)`            | Digital output low `pin`                       |
 | `pin.write(pin, val)`     | Write `val` to `pin`                           |
 | `pin.read(pin)`           | Digital read `pin`                             |
 | `adc.read(pin)`           | Analog read `pin` for `adc`                    |
 | `pwm.write(pin, val)`     | PWM output `pin` with duty cycle `val`         |
-| `uart.setup(baud_rate)`   | Serial Communication initiation at `Baud_rate` | 
+| `uart.setup(baud_rate)`   | Serial Communication initiation at `Baud_rate` |
 | `uart_any()`              | Get the number of byte to read                 |
 | `uart.read()`             | Serial Communication read                      |
 | `uart.println("message")` | Print `message` through Serial Communication   |
 | `time.sleep(time)`        | Time delay in `sec`                            |
 | `time.sleep_us(time)`     | Time delay in `microsec`                       |
-| `time.sleep_ms(time)`     | Time delay in `milisec`                        | 
+| `time.sleep_ms(time)`     | Time delay in `milisec`                        |
 
 * Description and compilation example on YouTube: https://youtu.be/dbCGMkhsr1E 
 

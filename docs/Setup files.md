@@ -68,10 +68,10 @@ The **_Aixt_** transpiler reads the `port_name.json` and  `compiler.json` and do
  
 **_Aixt_** can generated code for 3 different backends:
 
-Backend name    | Target
-----------------|-------------------------------------------------
-c               | for the native _C_ compiler of the device
-arduino         | for the ports that use _Arduino_ API
-nxc             | for LEGO Mindstorms NXT robots on _NXC_ language  
+| Backend name | Target                                           |
+| ------------ | ------------------------------------------------ |
+| c            | for the native _C_ compiler of the device        |
+| arduino      | for the ports that use _Arduino_ API             |
+| nxc          | for LEGO Mindstorms NXT robots on _NXC_ language |
 
 

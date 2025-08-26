@@ -16,49 +16,49 @@ To program the card STM32F103C, the ST must be connected,therefore, it is recomm
 ## Port Identification
 Below are the ports used and their proper designations for programming:
 
-No.| Name     | Function 
--- |-----     |---
-1  |VBAT      |3.3V power supply; The output current of the external power supply
-2  |          | By default, it is enabled as a chip, and the high level is effective 
-3  |          | Empty feet 
-4  |          | GPIO11/SPI_SCLK/IIC_SDA/ADC_CH10/JTAG_TDI/TDO 
-7  |R         | NRST_RESET BUTTON
-10 |A0        | PA0_ADC0_CTS2_T2C1E_WKUP
-11 |A1        | PA1_ADC1_RTS2_T2C2
-12 |A2        | PA2_ADC2_TX2_T2C3
-13 |A3        | PA3_ADC3_RX2_T2C4
-14 |A4        | PA4_ADC4_NSS1_CK2
-15 |A5        | PA5_ADC5_SCK1 
-16 |A6        | PA6_ADC6_MISO1_T3C1_T1BKIN 
-17 |A7        | PA7_ADC7_MOSI1_T3C2_T1C1N  
-18 |B0        | PB0_ADC8_T3C3_T1C2N
-19 |B1        | PB1_ADC9_T3C4_T1C3N
-20 |BOOT1     | PB2_BOOT1
-21 |B10       | PB10_SCL2_TX3_T2C3N
-22 |B11       | PB11_SDA2_RX3_T2C4N
-25 |B12       | PB12_SMBAI2_NSS2_T1BKIN_CK3
-26 |B13       | PB13_SCK2_T1C1N_CTS3
-27 |B14       | PB14_MISO2_T1C2N_RTS3
-28 |B15       | PB15_MOSI2_T1C3N
-29 |A8        | PA8_CK1_T1C1_MCO
-30 |A9        | PA9_TX1_T1C2
-31 |A10       | PA10_RX1_T1C3
-32 |A11       | PA11_USB-_CTS1_T1C4_CANRX
-33 |A12       | PA12_USB+_RTS1_T1ETR_CANTX 
-34 |SWIO      | SWIO_JTMS_PA13 
-37 |SWCLK     | SWCLK_JTCK_PA14
-38 |A15       | PA15_JTDI_NSS1_T2C1E
-39 |B3        | PB3_JTDO_SCK1_T2C2_TRACE SWO
-40 |B4        | PB4_JTRST_MISO1_T3C1
-41 |B5        | PB5_SMBAI1_MOSI1_T2C2
-42 |B6        | PB6_SCL1_T4C1_TX1
-43 |B7        | PB7_SDA1_T4C2_RX1
-44 |BOOT0     | BOOT0
-45 |B8        | PB8_SCL1_T4C3_CANRX
-46 |B9        | PB9_SDA1_T4C4_CANTX
-   |5V        | INPUT 5V BLUE PILL STM32F103C
-   |GND       | GROUND CARD BLUE PILL STM32F103C
-   |3.3V      | INPUT 3.3V BLUE PILL STM32F103C
+| No.  | Name                             | Function                                                             |
+| ---- | -------------------------------- | -------------------------------------------------------------------- |
+| 1    | VBAT                             | 3.3V power supply; The output current of the external power supply   |
+| 2    |                                  | By default, it is enabled as a chip, and the high level is effective |
+| 3    |                                  | Empty feet                                                           |
+| 4    |                                  | GPIO11/SPI_SCLK/IIC_SDA/ADC_CH10/JTAG_TDI/TDO                        |
+| 7    | R                                | NRST_RESET BUTTON                                                    |
+| 10   | A0                               | PA0_ADC0_CTS2_T2C1E_WKUP                                             |
+| 11   | A1                               | PA1_ADC1_RTS2_T2C2                                                   |
+| 12   | A2                               | PA2_ADC2_TX2_T2C3                                                    |
+| 13   | A3                               | PA3_ADC3_RX2_T2C4                                                    |
+| 14   | A4                               | PA4_ADC4_NSS1_CK2                                                    |
+| 15   | A5                               | PA5_ADC5_SCK1                                                        |
+| 16   | A6                               | PA6_ADC6_MISO1_T3C1_T1BKIN                                           |
+| 17   | A7                               | PA7_ADC7_MOSI1_T3C2_T1C1N                                            |
+| 18   | B0                               | PB0_ADC8_T3C3_T1C2N                                                  |
+| 19   | B1                               | PB1_ADC9_T3C4_T1C3N                                                  |
+| 20   | BOOT1                            | PB2_BOOT1                                                            |
+| 21   | B10                              | PB10_SCL2_TX3_T2C3N                                                  |
+| 22   | B11                              | PB11_SDA2_RX3_T2C4N                                                  |
+| 25   | B12                              | PB12_SMBAI2_NSS2_T1BKIN_CK3                                          |
+| 26   | B13                              | PB13_SCK2_T1C1N_CTS3                                                 |
+| 27   | B14                              | PB14_MISO2_T1C2N_RTS3                                                |
+| 28   | B15                              | PB15_MOSI2_T1C3N                                                     |
+| 29   | A8                               | PA8_CK1_T1C1_MCO                                                     |
+| 30   | A9                               | PA9_TX1_T1C2                                                         |
+| 31   | A10                              | PA10_RX1_T1C3                                                        |
+| 32   | A11                              | PA11_USB-_CTS1_T1C4_CANRX                                            |
+| 33   | A12                              | PA12_USB+_RTS1_T1ETR_CANTX                                           |
+| 34   | SWIO                             | SWIO_JTMS_PA13                                                       |
+| 37   | SWCLK                            | SWCLK_JTCK_PA14                                                      |
+| 38   | A15                              | PA15_JTDI_NSS1_T2C1E                                                 |
+| 39   | B3                               | PB3_JTDO_SCK1_T2C2_TRACE SWO                                         |
+| 40   | B4                               | PB4_JTRST_MISO1_T3C1                                                 |
+| 41   | B5                               | PB5_SMBAI1_MOSI1_T2C2                                                |
+| 42   | B6                               | PB6_SCL1_T4C1_TX1                                                    |
+| 43   | B7                               | PB7_SDA1_T4C2_RX1                                                    |
+| 44   | BOOT0                            | BOOT0                                                                |
+| 45   | B8                               | PB8_SCL1_T4C3_CANRX                                                  |
+| 46   | B9                               | PB9_SDA1_T4C4_CANTX                                                  |
+| 5V   | INPUT 5V BLUE PILL STM32F103C    |
+| GND  | GROUND CARD BLUE PILL STM32F103C |
+| 3.3V | INPUT 3.3V BLUE PILL STM32F103C  |
 
 
 ### Digital input and Output

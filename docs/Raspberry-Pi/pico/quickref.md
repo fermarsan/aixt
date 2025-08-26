@@ -13,11 +13,11 @@ time.sleep_us(100)       // sleep for 100 microseconds
 ```
 
 ### Functions
-name                  | description
-----------------------|----------------------
-`time.sleep(time)`    | Delay in seconds
-`time.sleep_us(time)` | Delay in microseconds
-`time.sleep_ms(time)` | Delay in milliseconds
+| name                  | description           |
+| --------------------- | --------------------- |
+| `time.sleep(time)`    | Delay in seconds      |
+| `time.sleep_us(time)` | Delay in microseconds |
+| `time.sleep_ms(time)` | Delay in milliseconds |
 
 
 ## Internal LEDs
@@ -44,19 +44,19 @@ pin.write(pin.d8, pin.read(pin.d0)) // pin echo
 ```
 
 ### Functions
-name                    | description
-------------------------|--------------------------
-`pin.setup(pin, mode)`  | Configure `pin` as `mode`
-`pin.high(pin)`         | Turn On `pin`
-`pin.low(pin)`          | Turn Off `pin`
-`pin.write(pin, value)` | Write `value` in `pin`
-`pin.read(pin)`         | Return the state of `pin`
+| name                    | description               |
+| ----------------------- | ------------------------- |
+| `pin.setup(pin, mode)`  | Configure `pin` as `mode` |
+| `pin.high(pin)`         | Turn On `pin`             |
+| `pin.low(pin)`          | Turn Off `pin`            |
+| `pin.write(pin, value)` | Write `value` in `pin`    |
+| `pin.read(pin)`         | Return the state of `pin` |
 
 
 ### Digital pin names
 The digital pin names are named from `d0` to `d21`.
 
-
+ 
 ## PWM (Pulse Width Modulation)
 Use the `pwm` module:
 
@@ -68,9 +68,9 @@ pwm.write(pwm.pin.gp8, 60)       // set the duty cycle for gp8 pin
 ```
 
 ### Functions
-name                        | description
-----------------------------|-----------------------------------
-`pwm.write(channel, value)` | Write `value` in the PWM `channel`
+| name                        | description                        |
+| --------------------------- | ---------------------------------- |
+| `pwm.write(channel, value)` | Write `value` in the PWM `channel` |
 
 ### PWM pin names
 All the digital pins are able to be used as PWM channels.
@@ -87,9 +87,9 @@ val2 := adc.read(ch1)       // read de ADC channel 1
 ```
 
 ### Functions
-name                | description
---------------------|----------------------------------
-`adc.read(channel)` | Return the ADC value in `channel`
+| name                | description                       |
+| ------------------- | --------------------------------- |
+| `adc.read(channel)` | Return the ADC value in `channel` |
 
 ### Analog channels
 The PWM channels are named from `ch0` to `ch2`.
@@ -106,22 +106,22 @@ uart.println('World...')
 ```
 
 ### Functions
-name                     | description
--------------------------|---------------------------------------------------------------
-`uart.setup(baud_rate)`  | Configure the `baud_rate` of the UART
-`uart.read()`            | Return one character received by UART
-`uart.input(message)`    | Send the `message` and then return the string received by UART
-`uart.write(character)`  | Send one character by UART
-`uart.print(message)`    | Send the `message` by UART
-`uart.println(message)`  | Send the `message` plus a new line by UART
-`uart.any()`             | Return the number uf characters in the UART's buffer
-`uart2.setup(baud_rate)` | Configure the `baud_rate` of the UART 2
-`uart2.read()`           | Return one character received by UART 2
-`uart2.input(message)`   | Send the `message` and then return the string received by UART 2
-`uart2.write(character)` | Send one character by UART 2
-`uart2.print(message)`   | Send the `message` by UART 2
-`uart2.println(message)` | Send the `message` plus a new line by UART 2
-`uart2.any()`            | Return the number uf characters in the UART2's buffer
+| name                     | description                                                      |
+| ------------------------ | ---------------------------------------------------------------- |
+| `uart.setup(baud_rate)`  | Configure the `baud_rate` of the UART                            |
+| `uart.read()`            | Return one character received by UART                            |
+| `uart.input(message)`    | Send the `message` and then return the string received by UART   |
+| `uart.write(character)`  | Send one character by UART                                       |
+| `uart.print(message)`    | Send the `message` by UART                                       |
+| `uart.println(message)`  | Send the `message` plus a new line by UART                       |
+| `uart.any()`             | Return the number uf characters in the UART's buffer             |
+| `uart2.setup(baud_rate)` | Configure the `baud_rate` of the UART 2                          |
+| `uart2.read()`           | Return one character received by UART 2                          |
+| `uart2.input(message)`   | Send the `message` and then return the string received by UART 2 |
+| `uart2.write(character)` | Send one character by UART 2                                     |
+| `uart2.print(message)`   | Send the `message` by UART 2                                     |
+| `uart2.println(message)` | Send the `message` plus a new line by UART 2                     |
+| `uart2.any()`            | Return the number uf characters in the UART2's buffer            |
 
 
 ## USB UART (serial port by USB)
@@ -135,12 +135,12 @@ usb_uart.println('World...')
 ```
 
 ### Functions
-name                     | description
--------------------------|---------------------------------------------------------------
-`uart.read()`            | Return one character received by USB-UART
-`uart.input(message)`    | Send the `message` and then return the string received by USB-UART
-`uart.write(character)`  | Send one character by USB-UART
-`uart.print(message)`    | Send the `message` by USB-UART
-`uart.println(message)`  | Send the `message` plus a new line by USB-UART
-`uart.any()`             | Return the number uf characters in the USB-UART's buffer
+| name                    | description                                                        |
+| ----------------------- | ------------------------------------------------------------------ |
+| `uart.read()`           | Return one character received by USB-UART                          |
+| `uart.input(message)`   | Send the `message` and then return the string received by USB-UART |
+| `uart.write(character)` | Send one character by USB-UART                                     |
+| `uart.print(message)`   | Send the `message` by USB-UART                                     |
+| `uart.println(message)` | Send the `message` plus a new line by USB-UART                     |
+| `uart.any()`            | Return the number uf characters in the USB-UART's buffer           |
 

@@ -1,24 +1,17 @@
-
 {
     "port": "NXT",
     "board": "LEGO Mindstorms NXT intelligent brick",
     "backend": "nxc",
-
-    "cc_linux":			"/home/fercho/aixt/ports/NXT/nbc-linux",
-    "cc_windows":		"c:\\aixt\\ports\\NXT\\nbc-windows.exe",
-    "cc_flags":         " -T:NXT -S:usb -d @{file_no_extension}.nxc",
-
-    "flasher_linux":    "/home/fercho/aixt/ports/NXT/nbc-linux",
-    "flasher_windows":  "c:\\aixt\\ports\\NXT\\nbc-windows.exe",
-	"flasher_flags":	" -T:NXT -S:usb -d @{file_no_extension}.nxc",
-
+    "cc_linux": "/home/fercho/git-projects/aixt/ports/NXT/nbc-linux",
+    "cc_windows": "c:\\aixt\\ports\\NXT\\nbc-windows.exe",
+    "cc_flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc",
+    "flasher_linux": "/home/fercho/git-projects/aixt/ports/NXT/nbc-linux",
+    "flasher_windows": "c:\\aixt\\ports\\NXT\\nbc-windows.exe",
+    "flasher_flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc",
     "api_paths": [
         "NXT"
     ],
-
-    "v_defines": [
-    ],
-
+    "v_defines": [],
     "default_cpu_freq": 4000000,
     "default_string_len": 80,
     "compiler_setup_path": "setup/nxc.json"

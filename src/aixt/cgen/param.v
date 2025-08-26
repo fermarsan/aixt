@@ -10,7 +10,8 @@ import v.ast
 fn (mut gen Gen) param(node ast.Param) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	// println('>>>>>>>>>>>>>>>>>> ${node.typ} <<<<<<<<<<<<<<<<<<')
-	ref, var_type := gen.get_str_c_type(node.typ, false)	
+	ref, mut var_type := gen.get_str_c_type(node.typ, false)	
+	var_type = var_type.replace('.', '__')
 	// println('>>>>>>>>>>>>>>>>>> ${ref}, ${var_type} <<<<<<<<<<<<<<<<<<')	
 	return match var_type {
 		'string' {

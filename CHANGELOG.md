@@ -1,3 +1,64 @@
+## v0.2.2
+*22 Aug 2025*
+#### Devices Supported
+Devices updated to API v0.1.2:
+- Software emulator
+- Mindstorms NXT
+- PIC16F6xx-14p family
+- PIC16F6xx-18p family
+- PIC16F6xx-20p family
+- PIC16F8x family
+- PIC16F87x family
+- PIC16F88x family
+- Arduino Uno
+- Arduino Nano
+- Arduino Mega
+- Blue-Pill
+- Nucleo-L031K6
+- STM32G431Core
+- STM32F411Core
+- Raspberry Pi Pico
+- XIAO-SAMD21
+- XIAO-ESP32-xx (C3, C6, S3)
+- ESP32-DevKitC
+- ESP32-C3-CORE
+- ESP32-C3FH4   
+- M5Stack FIRE
+Devices being updated:
+- CY8CKIT-145
+- CY8CKIT-049
+- ESP32-CYD
+- WCH families
+#### Changes and new features
+- Call Aixt directly from `.vscode/tasks.json` instead of running it through V compiler
+- New devices supported PIC16F62x-648 including `uart`
+- Issue solved: `module.c.v` is not parsed first when imported a module
+- Issue solved: comments inside conditional compiling fails inside `as_macro` functions
+- Issue solved: `as_macro` multiline functions fails when return a value
+- Change "Aixt: C compile" taks by "Aixt: C Compile" in all `tasks.json` files
+- Add snippets for `timer0` and `ext` modules for PIC16F family
+- Group PIC16F630-676 and PIC16F684 as PIC16F6xx-14p
+- Change PIC16F62x-648 to PIC16F6xx-18p
+- Change PIC16F68x-690 to PIC16F6xx-20p
+- Update snippets for PIC16F8x, PIC16F6xx-14p and PIC16F6xx-18p
+- PIC12F6xx port implementation (`time`, `timer0`, `pin` and `ext` modules)
+- Add template and "examples" folders for PIC12F6xx
+- Issue solved: "cc_make_flags" write mistake in some `.json` setup files
+- Snippets updated for PIC devices (including `time`, `timer0`, `pin`, `port`, `adc`, `pwm` and `ext`)
+- Update snippets for Arduino AVR
+- Make `adc.setup()` automatically set the used pin channels as inputs on PIC devices
+- Issue solved: change `as_macro` multiline functions due to the using of ({ ... }) fails in XC Microchip compilers
+- Add the interrupts doc file.
+- Block diagram updated
+- Interrupts `timerX` and `ext` implemented for ST devices (Arduino backend)
+#### Available Libraries
+- disp7seg (7 Segments Arduino Shield)
+- lcd (LCD Arduino Shield)
+- For Arduino backend:
+  - oled
+  - random
+  - tft_espi
+
 ## v0.2.1
 *21 Jun 2025*
 #### Devices Supported

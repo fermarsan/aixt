@@ -33,37 +33,37 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 ## Identificación de puertos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
 
-Puerto | nombre |Tipo    |
---  |-       |-       |
-2.5 |led1    |salida
-2.0 |led4    |salida
-2.1 |led5    |salida
-2.2 |led6    |salida
-2.3 |led7    |salida
-2.4 |led8    |salida
-3.4 |led9    |salida
-3.5 |led10   |salida
-3.6 |led11   |salida
-0.7 |sw2     |entrada
-2.7 |di0     |entrada
-0.4 |di1     |entrada
-1.7 |di2     |entrada
-4.0 |do0     |salida
-0.5 |do1     |salida
-3.7 |do2     |salida
-1.2 |out_pwm0|salida
-2.6 |out_pwm1|salida
-1.0 |out_pwm2|salida
-3.0 |\uart:rx\ |salida
-3.1 |\uart:tx\ |salida
-0.0 |SLD0     |entrada
-0.1 |SLD1     |entrada
-0.2 |SLD2     |entrada
-0.3 |SLD3     |entrada
-0.6 |SLD4     |entrada
-1.4 |BTN0     |entrada
-1.5 |BTN1     |entrada
-1.6 |BTN2     |entrada
+| Puerto | nombre    | Tipo    |
+| ------ | --------- | ------- |
+| 2.5    | led1      | salida  |
+| 2.0    | led4      | salida  |
+| 2.1    | led5      | salida  |
+| 2.2    | led6      | salida  |
+| 2.3    | led7      | salida  |
+| 2.4    | led8      | salida  |
+| 3.4    | led9      | salida  |
+| 3.5    | led10     | salida  |
+| 3.6    | led11     | salida  |
+| 0.7    | sw2       | entrada |
+| 2.7    | di0       | entrada |
+| 0.4    | di1       | entrada |
+| 1.7    | di2       | entrada |
+| 4.0    | do0       | salida  |
+| 0.5    | do1       | salida  |
+| 3.7    | do2       | salida  |
+| 1.2    | out_pwm0  | salida  |
+| 2.6    | out_pwm1  | salida  |
+| 1.0    | out_pwm2  | salida  |
+| 3.0    | \uart:rx\ | salida  |
+| 3.1    | \uart:tx\ | salida  |
+| 0.0    | SLD0      | entrada |
+| 0.1    | SLD1      | entrada |
+| 0.2    | SLD2      | entrada |
+| 0.3    | SLD3      | entrada |
+| 0.6    | SLD4      | entrada |
+| 1.4    | BTN0      | entrada |
+| 1.5    | BTN1      | entrada |
+| 1.6    | BTN2      | entrada |
 
 ## Programación en lenguaje v
 

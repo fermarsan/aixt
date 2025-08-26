@@ -13,15 +13,15 @@ The _V_ grammar was taken from these sources (ordered by importance):
 
 The main differences between **Aixt** and **V**are show as follows:
 
-feature               | V                                 | Aixt's V
-----------------------|-----------------------------------|----------------------------------------------------------------------
-strings               | dynamic-sized                     | fixed-sized and dynamic-sized if supported
-arrays                | dynamic-sized                     | fixed-sized and dynamic-sized if supported
-structs               | allow functions (object-oriented) | do not allow functions (only structured programming)
-functions             | multiple return values            | only one return value
-text macros           | not allowed                       | allowed by using '@[as_macro]' attribute, for functions and constants
-`C` variables access  | not allowed                       | allowed by using 'C.var_name' syntax
-global variables      | disabled by default               | enabled by default
+| feature              | V                                 | Aixt's V                                                              |
+| -------------------- | --------------------------------- | --------------------------------------------------------------------- |
+| strings              | dynamic-sized                     | fixed-sized and dynamic-sized if supported                            |
+| arrays               | dynamic-sized                     | fixed-sized and dynamic-sized if supported                            |
+| structs              | allow functions (object-oriented) | do not allow functions (only structured programming)                  |
+| functions            | multiple return values            | only one return value                                                 |
+| text macros          | not allowed                       | allowed by using '@[as_macro]' attribute, for functions and constants |
+| `C` variables access | not allowed                       | allowed by using 'C.var_name' syntax                                  |
+| global variables     | disabled by default               | enabled by default                                                    |
 
 
 #  V's supported keywords

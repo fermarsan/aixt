@@ -9,10 +9,10 @@ Los nombres de los pines se nombran con una letra que indica el puerto y un núm
 
 
 ### Nombres de los pines del PIC16F676
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 
-|:------:|---|---|---|---|---|---|
-| **A**  | a0| a1| a2| a3| a4| a5|
-| **C**  | c0| c1| c2| c3| c4| c5|
+| Puerto | 0   | 1   | 2   | 3   | 4   | 5   |
+| :----: | --- | --- | --- | --- | --- | --- |
+| **A**  | a0  | a1  | a2  | a3  | a4  | a5  |
+| **C**  | c0  | c1  | c2  | c3  | c4  | c5  |
 
 En las familias de microcontroladores del _PIC16_, los registros del puerto se dividen en: 
 
@@ -27,34 +27,34 @@ Luego, para facilitar la implementación (y no generar código inncesario) de es
 ### Componentes Integrados 
 Cuenta con ocho pines analogicas que se encuentran distribuidas entre en el puerto A y el puerto C.
 
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 
-|:------:|---|---|---|---|---|---|
-| **A**  |AN0|AN1|AN2|-  |AN3|-  |
-| **C**  |AN4|AN5|AN6|AN7|-  |-  |
+| Puerto | 0   | 1   | 2   | 3   | 4   | 5   |
+| :----: | --- | --- | --- | --- | --- | --- |
+| **A**  | AN0 | AN1 | AN2 | -   | AN3 | -   |
+| **C**  | AN4 | AN5 | AN6 | AN7 | -   | -   |
 
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales y para realizar una conversión analogico a digital.
 
-name                                  | description
---------------------------------------|----------------------------------------------
-`pin.setup(pin_name, mode)`     | Configura `PIN_NAME` en `PIN_MODE`
-`pin.high(PIN_NAME)`                 | Encender `PIN_NAME`
-`pin.low(PIN_NAME)`                  | Apagar `PIN_NAME`
-`pin.write(PIN_NAME,VAL)`            | Escribe `VAL` en `PIN_NAME`
-`pin.read(PIN_NAME)`                 | lee `PIN_NAME`
-`pin.digital(PIN)`                   | Configura I/0 digitales `PIN_NAME`
-`pin (PIN)`                           | Configura `PIN_OUTPUT` o `PIN_INPUT`
-`port`                                | Inicializa `port`
-`port.read(PORT_NAME)`               | Lee `PORT_NAME`
-`port.setup(PORT_NAME, VALUE)`       | Configura `PORT_NAME` asigna valor `VALUE`
-`port.write(PORT_NAME, VALUE)`       | Escribe `PORT_NAME` en `VALUE`
-`adc.setup()`                        | Configura el `adc` 
-`adc.read(channel)`                  | Configura el canal `channel` del `adc`
-`adc`                                 | Inicializa `adc` 
-`time.sleep(time)`                   | Retardo en `seg`
-`time.sleep_us(time)`                | Retardo en `microseg`
-`time.sleep_ms(time)`                | Retardo en `miliseg`
-`time`                                | Inicializa el `time`
+| name                           | description                                |
+| ------------------------------ | ------------------------------------------ |
+| `pin.setup(pin_name, mode)`    | Configura `PIN_NAME` en `PIN_MODE`         |
+| `pin.high(PIN_NAME)`           | Encender `PIN_NAME`                        |
+| `pin.low(PIN_NAME)`            | Apagar `PIN_NAME`                          |
+| `pin.write(PIN_NAME,VAL)`      | Escribe `VAL` en `PIN_NAME`                |
+| `pin.read(PIN_NAME)`           | lee `PIN_NAME`                             |
+| `pin.digital(PIN)`             | Configura I/0 digitales `PIN_NAME`         |
+| `pin (PIN)`                    | Configura `PIN_OUTPUT` o `PIN_INPUT`       |
+| `port`                         | Inicializa `port`                          |
+| `port.read(PORT_NAME)`         | Lee `PORT_NAME`                            |
+| `port.setup(PORT_NAME, VALUE)` | Configura `PORT_NAME` asigna valor `VALUE` |
+| `port.write(PORT_NAME, VALUE)` | Escribe `PORT_NAME` en `VALUE`             |
+| `adc.setup()`                  | Configura el `adc`                         |
+| `adc.read(channel)`            | Configura el canal `channel` del `adc`     |
+| `adc`                          | Inicializa `adc`                           |
+| `time.sleep(time)`             | Retardo en `seg`                           |
+| `time.sleep_us(time)`          | Retardo en `microseg`                      |
+| `time.sleep_ms(time)`          | Retardo en `miliseg`                       |
+| `time`                         | Inicializa el `time`                       |
 
 ### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v 
 
