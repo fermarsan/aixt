@@ -5,288 +5,316 @@
 **NOTA:** Este microcontrolador PIC16F cuenta con salidas digitales, entradas digitales, ADC, PWM y comunicación serial.
 
 ## Nombres de los Pines
-Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
+Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir [V variable naming rules.] (https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 ### Nombres de los pines del PIC16F886
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:------:|---|---|---|---|---|---|---|---|
-| **A**  | a0| a1| a2| a3| a4| a5| - | - |
+| **A**  | a0| a1| a2| a3| a4| a5| a6| a7|
 | **B**  | b0| b1| b2| b3| b4| b5| b6| b7|
 | **C**  | c0| c1| c2| c3| c4| c5| c6| c7|
+| **E**  | - | - | - | e3| - | - | - | - |
+
+![alt text](image-1.png) (https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/40001291H.pdf)
+
+`MCLR` significa Master Clear/Reset, es decir, un pin de reinicio del controlador y se conecta a Vcc (+5 V).
+- `VDD` Alimentación positiva y referencia de tierra para los pines lógicos y de E/S, respectivamente. Estos pines cuentan con protección de diodo.
+- `VSS` significa Fuente de Voltaje, Fuente o Fuente de Suministro de Voltaje y es el pin de tierra (GND), también conocido como referencia de voltaje, 0 voltios para todo el circuito.
 
 En las familias de microcontroladores del _PIC16_, los registros del puerto se dividen en: 
 
 - `TRIS` Para configurar cada pin del puerto
 - `PORT` Para gestionar los pines como entradas o salidas
 
-Luego, para facilitar la implementación (y no generar código inncesario) de este port _Aixt_, el nombre de cada pin difiere de su configuración, entrada y salida como en el siguiente ejemplo: 
+Tiene un pin de entrada y ocho de salida al dispositivo digital, el cual recibe el valor converdido del circuito analógico para mostrar el comportamiento ciclico programado de encendido del LED.
 
-- `b5_s` Nombre del bit para configurar el `b5` pin como entrada o salida 
-- `b5`   Nombre del bit para leer el pin como entrada o salida `b5`
+| Port | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+|:----:|-----|-----|-----|-----|-----|-----|-----|-----|
+| **A**| `a0`| ----| ----| ----| ----|----|----|----|
+| **B**| `b0`| `b1`| `b2`| `b3`| `b4`| `b5`| `b6`| `b7`|
+
 
 ### Componentes Integrados 
-- Cuenta con 11 pines analogicos que se encuentran distribuidas en el puerto A.
+- Cuenta con 24 pines analogos-digitales que se encuentran entre `A0–A7` Entradas/salidas; `B0–B7`, son salidas digitales, que se encuentran conectadas a datos; `C0–C7`, son pines entradas/salidas adicionales y pueden ser programados de forma especial, con funciones especificas; `Vdd` y ``ss`, son alimentación de 0V a 5V y GND; y finalizamos con el pin `MCLR/Vpp`, el cual es el reset, configurado de forma externa.
 
-| Puerto |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  | 
-|:------:| --- | --- | --- | --- | --- | --- | --- | --- |
-| **A**  | AN0 | AN1 | AN2 | AN3 |  -  | AN4 |  -  |  -  |
-| **B**  | AN12| AN10| AN8 | AN9 | AN11| AN13|  -  |  -  |
-| **C**  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |
-
-- Cuenta con dos pines para la modulacion del PWM.
-
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-|:------:|---|---|---|---|---|---|---|---|
-| **A**  | - | - | - | - | - | - | - | - |
-| **B**  | - | - | - | - | - | - | - | - |
-| **C**  | - | c1| c2| - | - | - | - | - |
-
-- Cuenta con dos pines para la cominicación serial.   
-
-| Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-|:------:|---|---|---|---|---|---|---|---|
-| **A**  | - | - | - | - | - | - | - | - |
-| **B**  | - | - | - | - | - | - | - | - |
-| **C**  | - | - | - | - | - | - | c6| c7|
 
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales, conversor analogico a digital, modulación pwm y comunicación serial.
 
-name                                | description
+#### Entradas y Salidas Digitales (GPIO)
+Nombre                                | Descripcion
 ------------------------------------|------------------------------------------------------
-`pin.setup(pin_name, mode)`   | Configura `PIN_NAME` en `PIN_MODE`
-`pin.high(PIN_NAME)`               | Encender `PIN_NAME`
-`pin.low(PIN_NAME)`                | Apagar `PIN_NAME`
-`pin.write(PIN_NAME,VAL)`          | Escribe `VAL` en `PIN_NAME`
-`pin.read(PIN_NAME)`               | lee `PIN_NAME`
-`pin.digital(PIN)`                 | Configura I/0 digitales `PIN_NAME`
-`pin (PIN)`                         | Configura `PIN_OUTPUT` o `PIN_INPUT`
-`port`                              | Inicializa `port`
-`port.read(PORT_NAME)`             | Lee `PORT_NAME`
-`port.setup(PORT_NAME, VALUE)`     | Configura `PORT_NAME` asigna valor `VALUE`
-`port.write(PORT_NAME, VALUE)`     | Escribe `PORT_NAME` en `VALUE`
-`adc.setup()`                      | Configura el `adc` 
-`adc.read(channel)`                | Configura el canal `channel` del `adc`
-`adc`                               | Inicializa `adc`
-`pwm.setup()`                      | Configura el resgitro `pwm`
-`pwm.write(duty)`                  | Calcula el `duty` del `pwm` 
-`pwm`                               | Inicializa `pwm`
-`uart.setup()`                     | Configura el `uart`
-`uart.read()`                      | Lee los datos del `uart`
-`uart.write()`                     | Escribe los datos del `uart`
-`uart`                              | Inicializa el `uart`
-`time.sleep(time)`                 | Retardo en `seg`
-`time.sleep_us(time)`              | Retardo en `microseg`
-`time.sleep_ms(time)`              | Retardo en `miliseg`
-`time`                              | Inicializa el `time`
-
-### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v 
-
-## Tiempo
+`pinMode(pin, modo)`   | Configura un pin como entrada o salida digital.
+`digitalWrite(pin, valor)`               | Envía un nivel lógico alto o bajo (1 o 0) a un pin configurado como salida.
+`digitalRead(pin)`                | Lee el estado lógico (1 o 0) de un pin configurado como entrada.
+`portWrite(puerto, valor)`          | Envía un valor binario (0–255) a un puerto completo (ej. PORTB).
+`portRead(puerto)`               | Lee el valor binario presente en un puerto completo.
 
 ```v
+import port //Configuracion
 
-time.sleep(5)	// Tiempo de 5 segundos
-time.sleep_us(10)	// Tiempo de 10 microsegundos
-time.sleep_ms(500)	// Tiempo de 500 milisegundos
-
-```
-
-## Configuración de pines 
-
-```v
-
-pin.setup(pin.a5, pin.output)      // Función para configurar el pin como salida 
-pin.setup(pin.b7, pin.output)      // Función para configurar el pin como salida
-pin.setup(pin.a0, pin.input)    // Función para configurar el pin como entrada
-pin.setup(pin.c4, pin.input)    // Función para configurar el pin como entrada
-
-pin.high(pin.a5)    // Función para encender el pin           
-pin.low(pin.a5)     // Función para apagar el pin
-
-pin.write(pin.a2, 0)  // Función sobre escribir el pin
-pin.write(pin.a2, 1)  // Función sobre escribir el pin
-
-pin.read(pin.b4)      // Función para leer el pin
-pin.read(pin.c7)      // Función para leer el pin
-
-```
-
-Ejemplo de prender y apagar un led:
-
-```v
-      
-for {
-
-    pin.high(pin.c7);
-    sleep_us(500);
-    pin.low(pin.c7);
-    sleep_us(500);
-
-}
-
-```
-Ejemplo de prender y apagar un led con una entrada digital:
-
-```v
-
-pin.digital();
+// Configurar RB0 como salida y RB1 como entrada
+port.setup(port.b0, port.output)
+port.setup(port.b1, port.input)
 
 for {
-    
-    if(b4 == 1){        // Condición si encuentra un 1 en el c2
-        
-        pin.high(pin.a4);
-        pin.high(pin.a5);
+    if port.read(port.b1) == 1 {      // Si la entrada RB1 está en alto
+        port.write(port.b0, 1)       // Encender salida RB0
+    } else {
+        port.write(port.b0, 0)       // Apagar salida RB0
     }
-    
-    else if(b5 == 1){   // Condición si encuentra un 1 en el c4
-        
-        pin.low(pin.a4);
-        pin.low(pin.a5);
-    }
-
 }
-        
-```
-## Configuración del port
-
-```v
-
-port.setup(port.b, ob00000000)      // Función para configurar el puerto como salida 
-
 ```
 
-Ejemplo de prender y apagar un puerto del microcontrolador:
+#### Conversor Analógico a Digital (ADC)
+Nombre                                | Descripcion
+------------------------------------|------------------------------------------------------
+`adcInit(canal)`                 | Inicializa el ADC y selecciona el canal analógico a leer.
+`adcRead(canal)`                         | Realiza la conversión y devuelve el valor digital (0–1023 para 10 bits).
 
 ```v
-      
-for {
-        
-    port.write(port.b,0b01010101);
-    sleep_ms(500);
-    port.write(port.b,0b10101010);
-    sleep_ms(500);      
-        
-}
+import adc //Configuracion
+import port
+import time
 
-```
-
-## Configuración del ADC
-
-```v
-
-adc.setup()     // Iicializa el ADC
-adc.read(0)     // Escoge el pin denl canal analogico
-
-```
-
-Ejemplo de prender y apagar leds dependiendo del valor del ADC:
-
-```v
-
-unsigned int adc_result;  // Declaración de variable para almacenar el valor del ADC
-        
-for {
-            
-    adc_result = adc.read(0) ; // Almacena el valor del ADC
-    
-    if ( adc_result >= 1020 ){
-        
-        pin.high(pin.b0);
-        pin.high(pin.b1);
-        pin.high(pin.b2);           
-    }
-    
-    else if ( adc_result >= 820 ){
-        
-        pin.high(pin.b0);
-        pin.high(pin.b1);
-        pin.low(pin.b2);
-    }
-    
-    else if ( adc_result >= 620 ){
-        
-        pin.high(pin.b0);
-        pin.low(pin.b1);
-        pin.low(pin.b2);   
-    }
-        
-    else {
-        
-        pin.low(pin.b0);
-        pin.low(pin.b1);
-        pin.low(pin.b2);      
-    }
-
-}
-
-```
-
-## Configuración del PWM
-
-```v
-
-pwm.setup()     // Inicializa el pwm
-pwm.write()     // Calcula el ciclo de trabajo 
-
-```
-Ejemplo de variar la intensidad de un led:
-
-```v
+adc.setup(0) // Canal AN0
 
 for {
-    
-    adc = adc.read(0);  // Almacena el valor del ADC
-        
-    pwm.write(adc);  // Realiza el calculo del Duty y lo guarda en CCP2
-        
+    value := adc.read(0)  // Leer valor ADC (0-1023)
+    port.write(port.b, value >> 2)  // Escalar a 8 bits y mostrar en PORTB
+    time.sleep_ms(100)
 }
-
 ```
 
-## Configuración del UART Transmisión
+#### Modulación por Ancho de Pulso (PWM)
+Nombre                                | Descripcion
+------------------------------------|------------------------------------------------------
+`pwmWrite(canal, ciclo`     | Ajusta el ciclo de trabajo (duty cycle) entre 0 y 1023 (para 10 bits).
+`pwmInit(canal, frecuencia`                      |Configura un canal PWM con la frecuencia deseada. 
+`pwmStop(canal)`                | Detiene la generación de señal PWM en el canal especificado.
 
 ```v
+import pwm //configuracion
+import time
 
-uart.setup()     // Inicializa la comunicación serial
+pwm.setup(1, 500) // Canal 1, frecuencia 500 Hz
 
+for duty := 0; duty < 1024; duty += 10 {
+    pwm.write(1, duty)     // Ajustar ciclo de trabajo (0-1023)
+    time.sleep_ms(10)
+}
 ```
-Ejemplo enviar un caracter y visualizarlo en un mensaje:
+
+#### Comunicación Serial (USART)
+Nombre                                | Descripcion
+------------------------------------|------------------------------------------------------
+`serialBegin(baudrate`                               | Inicializa la comunicación serial con la velocidad indicada (por ejemplo, 9600 bps).
+`serialWrite(dato)`                      | Envía un byte de datos por el puerto serial.
+`serialRead()`                  | Lee un byte de datos recibido por el puerto serial. 
+`serialAvailable()`                               | Indica si hay datos disponibles para leer.
+
 
 ```v
+import serial //Configuracion
+import time
+
+serial.begin(9600) // Velocidad de comunicación 9600 bps
 
 for {
-            
-    uart.write(0x33);
-	time.sleep_ms(500);
-	uart.write(0x99);
-	time.sleep_ms(500);
-    
+    serial.write("Hola PIC16F886!\n")
+    time.sleep_ms(1000)
+}
+```
+
+### Ejemplo de las funciones de la API en lenguaje _Aixt_v 
+
+```v
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdint.h>
+#define _XTAL_FREQ 10000000
+#pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator: High-speed crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1/CLKIN)
+#pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
+#pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
+#pragma config MCLRE = OFF      // RE3/MCLR pin function select bit (RE3/MCLR pin function is digital input, MCLR internally tied to VDD)
+#pragma config CP = OFF         // Code Protection bit (Program memory code protection is disabled)
+#pragma config CPD = OFF        // Data Code Protection bit (Data memory code protection is disabled)
+#pragma config BOREN = OFF      // Brown Out Reset Selection bits (BOR disabled)
+#pragma config IESO = OFF       // Internal External Switchover bit (Internal/External Switchover mode is disabled)
+#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enabled bit (Fail-Safe Clock Monitor is disabled)
+#pragma config LVP = OFF		// Low Voltage Programming Enable bit (RB3/PGM pin has PGM function, low voltage programming enabled)
+#pragma config BOR4V = BOR40V   // Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
+#pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
+#define time__sleep_ms(TIME)    __delay_ms(TIME)  // implementing by a macro for saving memory
+#define time__sleep_us(TIME)    __delay_us(TIME)  // implementing by a macro for saving memory
+#define time__sleep(TIME)    __delay_ms(TIME*1024)  // implementing by a macro for saving memory
+#define pin__output 0	// pin mode direction
+#define pin__input  1
+#define pin__a0      A, 0	// pin names
+#define pin__a1      A, 1
+#define pin__a2      A, 2
+#define pin__a3      A, 3
+#define pin__a4      A, 4
+#define pin__a5      A, 5
+#define pin__a6      A, 6
+#define pin__a7      A, 7
+#define pin__b0      B, 0
+#define pin__b1      B, 1
+#define pin__b2      B, 2
+#define pin__b3      B, 3
+#define pin__b4      B, 4
+#define pin__b5      B, 5
+#define pin__b6      B, 6
+#define pin__b7      B, 7
+#define pin__c0      C, 0
+#define pin__c1      C, 1
+#define pin__c2      C, 2
+#define pin__c3      C, 3
+#define pin__c4      C, 4
+#define pin__c5      C, 5
+#define pin__c6      C, 6
+#define pin__c7      C, 7
+#define pin__e3      E, 3
+#define pin__write_(PORT_NAME, PIN, VALUE)   PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = VALUE
+#define pin__write(PIN_NAME, VALUE)  pin__write_(PIN_NAME, VALUE)
+#define pin__high_(PORT_NAME, PIN)   PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = 1
+#define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
+#define pin__setup_(PORT_NAME, PIN, MODE)   TRIS ## PORT_NAME ## bits.TRIS ## PORT_NAME ## PIN = MODE
+#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
+#define pin__toggle_(PORT_NAME, PIN)   PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN ^= 1
+#define pin__toggle(PIN_NAME)  pin__toggle_(PIN_NAME)
+#define pin__read_(PORT_NAME, PIN)	PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN
+#define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
+#define pin__low_(PORT_NAME, PIN)   PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = 0
+#define pin__low(PIN_NAME)  pin__low_(PIN_NAME)
+#define port__a		A	// port name constants
+#define port__b		B
+#define port__c		C
+#define port__e		E
+#define	port__all_inputs	0xFF	// port mode constants
+#define	port__all_outputs	0x00
+#define TRISport__a		TRISA	// port setup name equivalents
+#define TRISport__b		TRISB
+#define TRISport__c		TRISC
+#define TRISport__e		TRISE
+#define PORTport__a		PORTA	// port name equivalents
+#define PORTport__b		PORTB
+#define PORTport__c		PORTC
+#define PORTport__e		PORTE
+#define port__write(PORT_NAME, VALUE)  PORT ## PORT_NAME = (uint8_t)VALUE
+#define port__setup(PORT_NAME, VALUE)   TRIS ## PORT_NAME = VALUE
+#define port__read(PORT_NAME)  PORT ## PORT_NAME
+#define	adc__in0 	0b1111111111111110
+#define	adc__in1 	0b1111111111111101
+#define	adc__in2 	0b1111111111111011
+#define	adc__in3 	0b1111111111110111
+#define	adc__in4 	0b1111111111101111
+#define	adc__in5 	0b1111111111011111
+#define	adc__in6 	0b1111111110111111
+#define	adc__in7 	0b1111111101111111
+#define	adc__in8 	0b1111111011111111
+#define	adc__in9 	0b1111110111111111
+#define	adc__in10	0b1111101111111111
+#define adc__f_30ksps_1mhz	0	// VREF 3.0v
+#define adc__f_30ksps_4mhz	1	// VREF 3.0v
+#define adc__f_18ksps_8mhz	2	// VREF full range
+#define adc__f_21ksps_10mhz	2	// VREF full range
+#define adc__f_24ksps_12mhz	2	// VREF 3.0v
+#define adc__f_30ksps_16mhz	2	// VREF 3.0v
+#define adc__f_34ksps_20mhz	2	// VREF 3.0v
+#define adc__f_18ksps_irc	3	// sleep mode FOSC > 1Mhz
+#define	adc__bits_8		0
+#define	adc__bits_10	1
+#define	adc__ch0 	0
+#define	adc__ch1 	1
+#define	adc__ch2 	2
+#define	adc__ch3 	3
+#define	adc__ch4 	4
+#define	adc__ch5 	5
+#define	adc__ch6 	6
+#define	adc__ch7 	7
+#define	adc__ch8 	8
+#define	adc__ch9 	9
+#define	adc__ch10	10
+
+uint8_t adc__read_byte(uint8_t channel) ;
+uint16_t adc__read(uint8_t channel) ;
+
+
+
+uint8_t adc__read_byte(uint8_t channel) {    
+    ADCON0bits.CHS = channel;   /* assign the ADC channel */    
+    ADCON0bits.GO_DONE = 1;     /* start conversion */  
+    while(ADCON0bits.GO_DONE == 1) {}   /* wait for the end of conversion */    
+    return ADRESH;              /* return the ADC value (8 bits) */  
+}
+
+
+
+#define adc__setup(PINS, FAD, NBITS) \
+    /* analog pins setup */ \
+    ANSEL = (uint8_t)~PINS;         \
+    ANSELH = (uint8_t)(~PINS>>8);   \
+    /* ADC setup */ \
+    ADCON1 = 0b00000000;    /*VSS, VDD*/\
+    ADCON1bits.ADFM = NBITS;    \
+    ADCON0bits.ADCS = FAD;  \
+    ADCON0bits.ADON = 1;
+
+
+
+uint16_t adc__read(uint8_t channel) {    
+    ADCON0bits.CHS = channel;   /* assign the ADC channel */    
+    ADCON0bits.GO_DONE = 1;     /* start conversion */  
+    while(ADCON0bits.GO_DONE == 1) {}   /* wait for the end of conversion */    
+    return (ADRESH << 8) | ADRESL;     /* return the ADC value */  
+}
+
+
+void main(void) {
+
+pin__setup(pin__a0, pin__input);
+adc__setup(adc__in0, adc__f_21ksps_10mhz, adc__bits_8);
+port__setup(port__b, port__all_outputs);
+unsigned char muestra = 0;
+while(true) {
+muestra = adc__read_byte(adc__ch0);
+port__write(port__b, muestra);
+}
 }
 
 ```
 
-## Configuración del UART Recepción
+## Configuración de un pin individual 
 
 ```v
 
-uart.setup()     // Inicializa la comunicación serial
+import port
+
+// Configurar RB0 como salida
+port.setup(port.b0, port.output)
+
+// Configurar RB1 como entrada
+port.setup(port.b1, port.input)
+```
+## Configuración de un Puerto Completo
+
+```v
+import port
+
+// Configurar todos los pines del puerto B como salidas
+port.setup(port.b, port.all_outputs)
 
 ```
-Ejemplo prender y apagar un el puerto del micro enviando un caracteres desde el PC:
+## Configuración Combinada de Bits
 
 ```v
+import port
 
-port.setup(port.b, 0b00000000);
-port.write(port.b, 0b00000000);
-pin.setup(pin.c7, pin.input);
-uart.setup();
-
-for {
-
-    port.read(port.b) = uart.read();
-
-}
+// 1 = salida, 0 = entrada
+// Ejemplo: 0b11110000 -> RB7..RB4 salidas, RB3..RB0 entradas
+port.setup_mask(port.b, 0b11110000)
 
 ```
