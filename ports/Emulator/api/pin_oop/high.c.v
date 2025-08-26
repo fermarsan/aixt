@@ -2,11 +2,11 @@
 // Author: Fernando M. Santa
 // Date: 2023-2025
 // License: MIT
-module pin
+module pin_oop
 
 // high function puts a high value (logic 1) to a specific pin
 @[inline]
-pub fn (mut pin_object Pin) high() {   
-    pin__pins[pin_object.id] = 1
-    pin.update()
+pub fn (mut pin Pin) high() {   
+    pin__pins[pin.id] = 1
+    pin_oop.update()
 }

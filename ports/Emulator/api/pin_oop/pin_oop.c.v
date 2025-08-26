@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: This is a module to emulate digital pines in console.
-module pin
+module pin_oop
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -59,5 +59,5 @@ pub fn update() {
 }
 
 fn init() {
-	pin.update()
+	pin_oop.update()
 }
