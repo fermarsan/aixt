@@ -5,7 +5,7 @@
 module pin
 
 // write puts a logic value to a specific pin
-pub fn write(name int, val int) {  
-    pin__pins[name] = val
+pub fn write(pin_id int, val int) {  
+    pin__pins[pin_id] = val
     pin.update()
 }
