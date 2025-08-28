@@ -23,7 +23,7 @@
             }
         },
         {
-            "label": "Aixt: Compile & Flash",
+            "label": "Aixt: C Compile",
             "type": "shell",
             "windows": {
                 "command": [ "${config:aixt_windows}",
@@ -44,7 +44,7 @@
             }
         },
         {
-            "label": "Aixt: Build & Flash",
+            "label": "Aixt: Build",
             "type": "shell",
             "windows": {
                 "command": [ "${config:aixt_windows}",
@@ -86,43 +86,25 @@
             }
         },
         {
-            "label": "Aixt: New Project",
+            "label": "Aixt: Run",
             "type": "shell",
             "windows": {
-                "command": [ "${config:aixt_windows}",
-                            "new_project",
-                            "${config:device}",
-                            "${input:dirName}",
-                            "${input:projectName}",
-                        ],
+                "command": [ "${fileDirname}\\${fileBasenameNoExtension}.exe" ],
             },
             "linux": {
-                "command": [ "${config:aixt_linux}",
-                            "new_project",
-                            "${config:device}",
-                            "${input:dirName}",
-                            "${input:projectName}",
-                         ],
+                "command": [ "${fileDirname}/${fileBasenameNoExtension}" ],
             },
             "problemMatcher": ["$tsc"],
             "group": "build",
             "presentation": {
             "showReuseMessage": false
-            }
+            }  
+        },
+        {
+            "label": "Aixt: Build & Run",
+            "group": "build",
+            "dependsOrder": "sequence",
+            "dependsOn": ["Aixt: Build", "Aixt: Run"]
         }
-    ],
-    "inputs": [
-      {
-        "type": "promptString",
-        "id": "projectName",
-        "description": "Project name.",
-        "default": "project"
-      },
-      {
-        "type": "promptString",
-        "id": "dirName",
-        "description": "Directory name.",
-        "default": "."
-      },
     ]
 }

@@ -29,46 +29,30 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 
 	// println('${b.pref.buildmode}')
 
-	// -------------------- First parser round --------------------
-	println('-------------------- First parser round --------------------')
+	println('-------------------- First parser round --------------------\n')
 	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
-	// for file in b.parsed_files {
-	// 	println(file.path)
-	// }
-	// for file in b.parsed_files {
-	// 	for imp in file.imports {
-	// 		println(imp.source_name)
-	// 	}
-	// }
-	println('Source files:')
-	for file in b.parsed_files {
-		println('\t${file.path}')
-		println('\tt${file.mod.name}:\n\t${file.path}')
-	}
+
+	println('Source files:\n')
+	b.show_parsed_files()
 
 	// -------------------- Load the used API modules' files --------------------
 	// b.module_search_paths << b.get_api_mod_dirs()
-	// b.module_search_paths << b.get_lib_mod_dirs()
+	// b.module_search_paths << b.get_lib_mod_dirs()			
 	file_paths.insert(1, b.get_api_mod_paths())
 	file_paths.insert(1, b.get_lib_mod_paths())
 
 	// restart the table
 	b.table = ast.new_table()
 
-	// -------------------- Second parser round --------------------
-	println('\n-------------------- Second parser round --------------------')
-	// println('>>>>>>>>>>>>>>>>>> ${file_paths} <<<<<<<<<<<<<<<<<<')
+	println('\n-------------------- Second parser round --------------------\n')
 	// b.parse_imports()
 	b.parsed_files = parser.parse_files(file_paths, mut b.table, b.pref)
 
+	println('Source files:\n')
+	b.show_parsed_files()
+
 	b.checker = checker.new_checker(b.table, b.pref)
 	b.checker.check_files(b.parsed_files)
-
-	println('Source files:')
-	for file in b.parsed_files {
-		println('\t${file.path}')
-		// println('\tt${file.mod}:\n\t${file.path}')
-	}
 		
 	// println('Table imports:')
 	// for imp in b.table.imports {
@@ -88,6 +72,15 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// println('Table fns:')
 	// for key, fnx in b.table.fns {
 	// 	println('\t${key}: ${fnx.name}, ${fnx.mod}, ${fnx.file}')
+	// }
+
+	// for file in b.parsed_files {
+	// 	println(file.path)
+	// }
+	// for file in b.parsed_files {
+	// 	for imp in file.imports {
+	// 		println(imp.source_name)
+	// 	}
 	// }
 
 }

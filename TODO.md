@@ -33,7 +33,6 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
-- [ ] Implements sub-modules
 
 
 ### Done ✓make
@@ -45,3 +44,4 @@ Tasks to do in Aixt
   - [x] Implement struct fields access (`struct_name.struct_field`)
   - [x] Support struct methods (using the V standard)
 - [x] Add OOP features to the API (Emulator pin module, NXT motor module) 
+- [x] Implements sub-modules with the syntax: `import main_module.submodule`
