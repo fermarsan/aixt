@@ -7,3 +7,4 @@
 
 module pwm
 
+//TODO: add the pin definition

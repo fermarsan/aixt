@@ -7,15 +7,15 @@
 module main
 
 // define analog pins
-#define a0  A0  
-#define a1  A1
-#define a2  A2
-#define a3  A3
-#define a4  A4
-#define a5  A5
-#define a6  A6
-#define a7  A7
-#define a10  A10
+@[as_macro] pub const a0 =  A0  
+@[as_macro] pub const a1 =  A1
+@[as_macro] pub const a2 =  A2
+@[as_macro] pub const a3 =  A3
+@[as_macro] pub const a4 =  A4
+@[as_macro] pub const a5 =  A5
+@[as_macro] pub const a6 =  A6
+@[as_macro] pub const a7 =  A7
+@[as_macro] pub const a10 =  A10
 
 enum __pin_names { // enumerated type for digital pin names
 	d0

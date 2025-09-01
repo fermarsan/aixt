@@ -66,115 +66,115 @@ module main
 #include <xc.h>
 #define _XTAL_FREQ 8000000
    
-#define a0_s    TRISAbits.TRISA0    // pin configuration pits
-#define a1_s    TRISAbits.TRISA1 
-#define a2_s    TRISAbits.TRISA2 
-#define a3_s    TRISAbits.TRISA3
-#define a4_s    TRISAbits.TRISA4 
-#define a5_s    TRISAbits.TRISA5 
-#define a6_s    TRISAbits.TRISA6 
+@[as_macro] pub const a0 =_s    TRISAbits.TRISA0    // pin configuration pits
+@[as_macro] pub const a1 =_s    TRISAbits.TRISA1 
+@[as_macro] pub const a2 =_s    TRISAbits.TRISA2 
+@[as_macro] pub const a3 =_s    TRISAbits.TRISA3
+@[as_macro] pub const a4 =_s    TRISAbits.TRISA4 
+@[as_macro] pub const a5 =_s    TRISAbits.TRISA5 
+@[as_macro] pub const a6 =_s    TRISAbits.TRISA6 
 
-#define b0_s    TRISBbits.TRISB0 
-#define b1_s    TRISBbits.TRISB1 
-#define b2_s    TRISBbits.TRISB2 
-#define b3_s    TRISBbits.TRISB3 
-#define b4_s    TRISBbits.TRISB4 
-#define b5_s    TRISBbits.TRISB5 
-#define b6_s    TRISBbits.TRISB6 
-#define b7_s    TRISBbits.TRISB7 
+@[as_macro] pub const b0 =_s    TRISBbits.TRISB0 
+@[as_macro] pub const b1 =_s    TRISBbits.TRISB1 
+@[as_macro] pub const b2 =_s    TRISBbits.TRISB2 
+@[as_macro] pub const b3 =_s    TRISBbits.TRISB3 
+@[as_macro] pub const b4 =_s    TRISBbits.TRISB4 
+@[as_macro] pub const b5 =_s    TRISBbits.TRISB5 
+@[as_macro] pub const b6 =_s    TRISBbits.TRISB6 
+@[as_macro] pub const b7 =_s    TRISBbits.TRISB7 
 
-#define c0_s    TRISCbits.TRISC0 
-#define c1_s    TRISCbits.TRISC1 
-#define c2_s    TRISCbits.TRISC2 
-#define c4_s    TRISCbits.TRISC4 
-#define c5_s    TRISCbits.TRISC5 
-#define c6_s    TRISCbits.TRISC6 
-#define c7_s    TRISCbits.TRISC7 
+@[as_macro] pub const c0 =_s    TRISCbits.TRISC0 
+@[as_macro] pub const c1 =_s    TRISCbits.TRISC1 
+@[as_macro] pub const c2 =_s    TRISCbits.TRISC2 
+@[as_macro] pub const c4 =_s    TRISCbits.TRISC4 
+@[as_macro] pub const c5 =_s    TRISCbits.TRISC5 
+@[as_macro] pub const c6 =_s    TRISCbits.TRISC6 
+@[as_macro] pub const c7 =_s    TRISCbits.TRISC7 
 
-#define d0_s    TRISCbits.TRISD0 
-#define d1_s    TRISCbits.TRISD1 
-#define d2_s    TRISCbits.TRISD2 
-#define d4_s    TRISCbits.TRISD4 
-#define d5_s    TRISCbits.TRISD5 
-#define d6_s    TRISCbits.TRISD6 
-#define d7_s    TRISCbits.TRISD7 
+@[as_macro] pub const d0 =_s    TRISCbits.TRISD0 
+@[as_macro] pub const d1 =_s    TRISCbits.TRISD1 
+@[as_macro] pub const d2 =_s    TRISCbits.TRISD2 
+@[as_macro] pub const d4 =_s    TRISCbits.TRISD4 
+@[as_macro] pub const d5 =_s    TRISCbits.TRISD5 
+@[as_macro] pub const d6 =_s    TRISCbits.TRISD6 
+@[as_macro] pub const d7 =_s    TRISCbits.TRISD7 
 
-#define e0_s    TRISCbits.TRISE0 
-#define e1_s    TRISCbits.TRISE1 
-#define e2_s    TRISCbits.TRISE2 
+@[as_macro] pub const e0 =_s    TRISCbits.TRISE0 
+@[as_macro] pub const e1 =_s    TRISCbits.TRISE1 
+@[as_macro] pub const e2 =_s    TRISCbits.TRISE2 
 
 
-#define a0_i    PORTAbits.RA0       // pin input pits 
-#define a1_i    PORTAbits.RA1 
-#define a2_i    PORTAbits.RA2 
-#define a3_i    PORTAbits.RA3 
-#define a4_i    PORTAbits.RA4 
-#define a5_i    PORTAbits.RA5 
-#define a6_i    PORTAbits.RA6 
+@[as_macro] pub const a0 =_i    PORTAbits.RA0       // pin input pits 
+@[as_macro] pub const a1 =_i    PORTAbits.RA1 
+@[as_macro] pub const a2 =_i    PORTAbits.RA2 
+@[as_macro] pub const a3 =_i    PORTAbits.RA3 
+@[as_macro] pub const a4 =_i    PORTAbits.RA4 
+@[as_macro] pub const a5 =_i    PORTAbits.RA5 
+@[as_macro] pub const a6 =_i    PORTAbits.RA6 
 
-#define b0_i    PORTBbits.RB0 
-#define b1_i    PORTBbits.RB1 
-#define b2_i    PORTBbits.RB2 
-#define b3_i    PORTBbits.RB3 
-#define b4_i    PORTBbits.RB4 
-#define b5_i    PORTBbits.RB5 
-#define b6_i    PORTBbits.RB6 
-#define b7_i    PORTBbits.RB7 
+@[as_macro] pub const b0 =_i    PORTBbits.RB0 
+@[as_macro] pub const b1 =_i    PORTBbits.RB1 
+@[as_macro] pub const b2 =_i    PORTBbits.RB2 
+@[as_macro] pub const b3 =_i    PORTBbits.RB3 
+@[as_macro] pub const b4 =_i    PORTBbits.RB4 
+@[as_macro] pub const b5 =_i    PORTBbits.RB5 
+@[as_macro] pub const b6 =_i    PORTBbits.RB6 
+@[as_macro] pub const b7 =_i    PORTBbits.RB7 
 
-#define c0_i    PORTCbits.RC0 
-#define c1_i    PORTCbits.RC1 
-#define c2_i    PORTCbits.RC2 
-#define c4_i    PORTCbits.RC4 
-#define c5_i    PORTCbits.RC5 
-#define c6_i    PORTCbits.RC6 
-#define c7_i    PORTCbits.RC7 
+@[as_macro] pub const c0 =_i    PORTCbits.RC0 
+@[as_macro] pub const c1 =_i    PORTCbits.RC1 
+@[as_macro] pub const c2 =_i    PORTCbits.RC2 
+@[as_macro] pub const c4 =_i    PORTCbits.RC4 
+@[as_macro] pub const c5 =_i    PORTCbits.RC5 
+@[as_macro] pub const c6 =_i    PORTCbits.RC6 
+@[as_macro] pub const c7 =_i    PORTCbits.RC7 
 
-#define d0_i    TRISCbits.TRISD0 
-#define d1_i    TRISCbits.TRISD1 
-#define d2_i    TRISCbits.TRISD2 
-#define d4_i    TRISCbits.TRISD4 
-#define d5_i   TRISCbits.TRISD5 
-#define d6_i    TRISCbits.TRISD6 
-#define d7_i    TRISCbits.TRISD7 
+@[as_macro] pub const d0 =_i    TRISCbits.TRISD0 
+@[as_macro] pub const d1 =_i    TRISCbits.TRISD1 
+@[as_macro] pub const d2 =_i    TRISCbits.TRISD2 
+@[as_macro] pub const d4 =_i    TRISCbits.TRISD4 
+@[as_macro] pub const d5 =_i   TRISCbits.TRISD5 
+@[as_macro] pub const d6 =_i    TRISCbits.TRISD6 
+@[as_macro] pub const d7 =_i    TRISCbits.TRISD7 
 
-#define e0_i    TRISCbits.TRISE0 
-#define e1_i    TRISCbits.TRISE1 
-#define e2_i    TRISCbits.TRISE2 
+@[as_macro] pub const e0 =_i    TRISCbits.TRISE0 
+@[as_macro] pub const e1 =_i    TRISCbits.TRISE1 
+@[as_macro] pub const e2 =_i    TRISCbits.TRISE2 
 
-#define a0      LATAbits.LATA0      // pin output pits
-#define a1      LATAbits.LATA1 
-#define a2      LATAbits.LATA2 
-#define a3      LATAbits.LATA3 
-#define a4      LATAbits.LATA4 
-#define a5      LATAbits.LATA5 
-#define a6      LATAbits.LATA6 
+@[as_macro] pub const a0 =      LATAbits.LATA0      // pin output pits
+@[as_macro] pub const a1 =      LATAbits.LATA1 
+@[as_macro] pub const a2 =      LATAbits.LATA2 
+@[as_macro] pub const a3 =      LATAbits.LATA3 
+@[as_macro] pub const a4 =      LATAbits.LATA4 
+@[as_macro] pub const a5 =      LATAbits.LATA5 
+@[as_macro] pub const a6 =      LATAbits.LATA6 
 
-#define b0      LATBbits.LATB0 
-#define b1      LATBbits.LATB1 
-#define b2      LATBbits.LATB2 
-#define b3      LATBbits.LATB3 
-#define b4      LATBbits.LATB4 
-#define b5      LATBbits.LATB5 
-#define b6      LATBbits.LATB6 
-#define b7      LATBbits.LATB7 
+@[as_macro] pub const b0 =      LATBbits.LATB0 
+@[as_macro] pub const b1 =      LATBbits.LATB1 
+@[as_macro] pub const b2 =      LATBbits.LATB2 
+@[as_macro] pub const b3 =      LATBbits.LATB3 
+@[as_macro] pub const b4 =      LATBbits.LATB4 
+@[as_macro] pub const b5 =      LATBbits.LATB5 
+@[as_macro] pub const b6 =      LATBbits.LATB6 
+@[as_macro] pub const b7 =      LATBbits.LATB7 
 
-#define c0      LATCbits.LATC0 
-#define c1      LATCbits.LATC1 
-#define c2      LATCbits.LATC2 
-#define c4      LATCbits.LATC4 
-#define c5      LATCbits.LATC5 
-#define c6      LATCbits.LATC6 
-#define c7      LATCbits.LATC7 
+@[as_macro] pub const c0 =      LATCbits.LATC0 
+@[as_macro] pub const c1 =      LATCbits.LATC1 
+@[as_macro] pub const c2 =      LATCbits.LATC2 
+@[as_macro] pub const c4 =      LATCbits.LATC4 
+@[as_macro] pub const c5 =      LATCbits.LATC5 
+@[as_macro] pub const c6 =      LATCbits.LATC6 
+@[as_macro] pub const c7 =      LATCbits.LATC7 
 
-#define d1    TRISCbits.TRISD0 
-#define d2    TRISCbits.TRISD1 
-#define d3    TRISCbits.TRISD2 
-#define d4    TRISCbits.TRISD4 
-#define d5   TRISCbits.TRISD5 
-#define d6    TRISCbits.TRISD6 
-#define d7    TRISCbits.TRISD7 
+@[as_macro] pub const d1 =    TRISCbits.TRISD0 
+@[as_macro] pub const d2 =    TRISCbits.TRISD1 
+@[as_macro] pub const d3 =    TRISCbits.TRISD2 
+@[as_macro] pub const d4 =    TRISCbits.TRISD4 
+@[as_macro] pub const d5 =   TRISCbits.TRISD5 
+@[as_macro] pub const d6 =    TRISCbits.TRISD6 
+@[as_macro] pub const d7 =    TRISCbits.TRISD7 
 
-#define e0    TRISCbits.TRISE0 
-#define e1    TRISCbits.TRISE1 
-#define e2    TRISCbits.TRISE2 
+@[as_macro] pub const e0 =    TRISCbits.TRISE0 
+@[as_macro] pub const e1 =    TRISCbits.TRISE1 
+@[as_macro] pub const e2 =    TRISCbits.TRISE2 
 

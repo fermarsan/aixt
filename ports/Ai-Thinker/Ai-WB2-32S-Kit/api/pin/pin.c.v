@@ -7,4 +7,14 @@
 
 module pin
 
-//TODO: add the pin definition
+//  pin names
+pub const gpio11 = 11
+pub const gpio14 = 14
+pub const gpio17 = 17
+pub const gpio3  = 3
+pub const gpio4  = 4
+pub const gpio5  = 5
+pub const gpio7  = 7
+pub const gpio16 = 16
+pub const gpio12 = 12
+

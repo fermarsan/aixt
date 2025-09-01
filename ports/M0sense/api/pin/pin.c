@@ -11,7 +11,7 @@
 
 #define BTN_PIN     d6_i  // Onboard switchs  
 
-#define a0_s    TRISAbits.TRISA0
+@[as_macro] pub const a0 =_s    TRISAbits.TRISA0
 
 
 

@@ -5,32 +5,28 @@
 
 module pin
 
-#define a4  A, 4
-#define a5  A, 5
-#define a8  A, 8
-#define a9  A, 9
-#define a10 A, 10
-#define a11 A, 11
-#define a12 A, 12
-#define a13 A, 13
-#define a14 A, 14
-#define a15 A, 15
-#define b4  B, 4
-#define b7  B, 7
-#define b10 B, 10
-#define b11 B, 11
-#define b12 B, 12
-#define b13 B, 13
-#define b14 B, 14
-#define b15 B, 15
-#define b22 B, 22
-#define b23 B, 23
+@[as_macro] pub const a4 =  A, 4
+@[as_macro] pub const a5 =  A, 5
+@[as_macro] pub const a8 =  A, 8
+@[as_macro] pub const a9 =  A, 9
+@[as_macro] pub const a10 = A, 10
+@[as_macro] pub const a11 = A, 11
+@[as_macro] pub const a12 = A, 12
+@[as_macro] pub const a13 = A, 13
+@[as_macro] pub const a14 = A, 14
+@[as_macro] pub const a15 = A, 15
+@[as_macro] pub const b4 =  B, 4
+@[as_macro] pub const b7 =  B, 7
+@[as_macro] pub const b10 = B, 10
+@[as_macro] pub const b11 = B, 11
+@[as_macro] pub const b12 = B, 12
+@[as_macro] pub const b13 = B, 13
+@[as_macro] pub const b14 = B, 14
+@[as_macro] pub const b15 = B, 15
+@[as_macro] pub const b22 = B, 22
+@[as_macro] pub const b23 = B, 23
 
-// out macro defines the pin output mode
-#define output    		GPIO_ModeOut_PP_5mA      
-//Tambien esta el modo GPIO_ModeOut_PP_20mA
-
-// in macro defines the pin input mode
-#define input     		GPIO_ModeIN_Floating
-#define in_pullup		GPIO_ModeIN_PU
-const in_pulldown = C.GPIO_ModeIN_PD
+@[as_macro] pub const input		= u8(C.INPUT)
+@[as_macro] pub const output	= u8(C.OUTPUT)
+@[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
+@[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)

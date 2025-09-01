@@ -3,7 +3,7 @@
 
 #define output GPIO_ModeOut_PP_5mA
 
-#define a11 A, 11
+@[as_macro] pub const a11 = A, 11
 
 @[inline]
 pub fn high_(port, ...) {

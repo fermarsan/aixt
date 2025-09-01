@@ -9,6 +9,11 @@
 // // Description: PIN functions (Blue Pill_AIR32F103C)
 //              (PC port) 
 
+@[as_macro] pub const input		= u8(C.INPUT)
+@[as_macro] pub const output	= u8(C.OUTPUT)
+@[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
+@[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
+
 @[inline]
 pub fn setup(PIN_NAME, MODE) {
 	C.pinMode(PIN_NAME, MODE)
@@ -23,10 +28,6 @@ pub fn high(PIN_NAME) {
 pub fn low(PIN_NAME) {
 	C.digitalWrite(PIN_NAME, LOW)
 }
-
-#define output OUTPUT
-
-#define input INPUT_PULLUP
 
 @[inline]
 pub fn read(PIN_NAME) {
