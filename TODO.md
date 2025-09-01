@@ -34,7 +34,7 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
-- [ ] Change the C generation of commands: `import module { component }`, to reach it more to original V behavior (import all the `module` and enable a short pseudonym for `component`)
+- [ ] Unify most the ports implementation in only one file `module.c.v`
 
 
 ### Done ✓make
@@ -50,3 +50,4 @@ Tasks to do in Aixt
 - [x] Issue solved: References to 'struct's fail generating C code
 - [x] Issue solved: functions that returns pointers fail
 - [x] Include casting on C generated code for 'return' commands
+- [x] Change the C generation of commands: `import module { component }`, to reach it more to original V behavior (import all the `module` and enable a short pseudonym for `component`)

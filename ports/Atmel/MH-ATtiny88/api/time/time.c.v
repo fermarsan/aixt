@@ -8,3 +8,8 @@
 
 module time
 
+#define time.sleep(S)   delay(S*1000)
+
+#define time.sleep_ms(MS)  delay(MS)
+
+#define time.sleep_us(US)   delayMicroseconds(US)
