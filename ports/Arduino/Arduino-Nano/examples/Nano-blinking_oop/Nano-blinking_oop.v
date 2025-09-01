@@ -3,15 +3,15 @@
 // Date: 2024-2025
 // Arduino-Nano board
 import time
-import pin { led0 }
+import pin_opp as pin
 
-mut ext_led := pin.new_pin(pin.d15, pin.output)
+mut ext_led := pin.new(pin.d15, pin.output)
 
-led0.low()		// turn off the on-board LED
+pin.led0.low()		// turn off the on-board LED
 ext_led.high()	// turn on an external LED
 
 for {
-	led0.toggle()		// toggle both
+	pin.led0.toggle()		// toggle both
 	ext_led.toggle()
 	time.sleep_ms(500)
 }
