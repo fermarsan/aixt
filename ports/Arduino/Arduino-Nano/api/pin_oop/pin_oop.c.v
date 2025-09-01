@@ -37,4 +37,4 @@ module pin_oop
 @[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
 
 // builtin LED
-pub const led0 = new(pin_oop.d13, pin_oop.input)
+pub const led0 = Pin.new(pin_oop.d13, pin_oop.input)

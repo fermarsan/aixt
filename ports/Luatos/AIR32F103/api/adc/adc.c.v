@@ -9,3 +9,9 @@
 // // Description: ADC functions (Blue Pill_AIR32F103C)
 
 module adc
+
+
+@[inline]
+pub fn read(PIN_NAME) {
+C.analogRead(PIN_NAME)
+}

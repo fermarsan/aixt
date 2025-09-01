@@ -13,3 +13,13 @@ fn init() {
 	C.printf('\033[1;31m')	// print in red
 	C.printf(' Aixt virtual UART 3\n')
 }
+
+pub fn print(msg string) {
+	C.printf('\033[1;31m')	// red
+    C.printf('%s', msg)
+}
+
+pub fn println(msg string) {
+	C.printf('\033[1;31m')	// red
+    C.printf('%s\n', msg)
+}

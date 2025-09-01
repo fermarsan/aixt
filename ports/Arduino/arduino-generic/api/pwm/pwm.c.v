@@ -7,3 +7,9 @@
 module pwm
 
 fn C.analogWrite(name u8, value u8)
+
+//Writes an analog value (PWM wave) to a pin
+@[as_macro]
+pub fn write(name u8, value u8) {
+	C.analogWrite(name, value)
+} 

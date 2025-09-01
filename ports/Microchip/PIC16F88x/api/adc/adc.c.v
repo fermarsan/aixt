@@ -47,3 +47,18 @@ module adc
 @[as_macro] pub const ch13	= 13	
 @[as_macro] pub const ch14	= 14	
 @[as_macro] pub const ch15	= 15
+
+
+// Project name: Aixt project, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
+// Date: 2025
+// License: MIT
+//
+// Description: ADC analog pin setup for PIC16F88x family
+
+
+@[as_macro]
+fn set_as_analog(pins any) {
+	C.ANSEL = u8(~pins)
+    C.ANSELH = u8(~pins>>8)
+}

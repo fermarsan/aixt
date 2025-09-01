@@ -7,3 +7,9 @@
 module adc
 
 fn C.analogReadResolution(res any)	
+
+// setup function sets the ADC resolution
+@[as_macro]
+pub fn setup(res u8) {
+	C.analogReadResolution(res)
+}

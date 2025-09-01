@@ -18,3 +18,16 @@ fn C.digitalPinToInterrupt(pin any)
 @[as_macro] pub const rising  = C.RISING
 @[as_macro] pub const falling = C.FALLING
 @[as_macro] pub const change  = C.CHANGE
+
+// irq_enable enables the external interrupt
+@[as_macro]
+pub fn irq_enable(pin any, mode any) {
+	// C.attachInterrupt(C.digitalPinToInterrupt(pin), C.ext_isr(pin), mode)
+	C.attachInterrupt(C.digitalPinToInterrupt(pin), C.ptr_ext_isr(pin), mode)
+}
+
+// irq_disable disables the external interrupt
+@[as_macro]
+pub fn irq_disable(pin any) {
+	C.detachInterrupt(C.digitalPinToInterrupt(pin))
+}
