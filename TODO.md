@@ -19,6 +19,7 @@ Tasks to do in Aixt
 - [ ] Allow multi-arg functions
 - [ ] Add settings file `port_name.json` inside `/port_name` folder
 - [ ] Check the convenience of the "generality" of each port implementation
+- [ ] `pin.<function>_fast` functions on `pin` module implemented
 
 
 ### In Progress
@@ -28,7 +29,6 @@ Tasks to do in Aixt
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 - [ ] Issue: Calling function from string interpolations including casting
-- [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
