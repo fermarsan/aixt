@@ -20,6 +20,7 @@ Tasks to do in Aixt
 - [ ] Add settings file `port_name.json` inside `/port_name` folder
 - [ ] Check the convenience of the "generality" of each port implementation
 - [ ] `pin.<function>_fast` functions on `pin` module implemented
+- [ ] Implements sub-modules with the syntax: `import main_module.submodule`
 
 
 ### In Progress
@@ -33,7 +34,7 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
-- [ ] Implements sub-modules with the syntax: `import main_module.submodule`
+- [ ] Change the C generation of commands: `import module { component }`, to reach it more to original V behavior (import all the `module` and enable a short pseudonym for `component`)
 
 
 ### Done ✓make
