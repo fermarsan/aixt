@@ -48,3 +48,4 @@ Tasks to do in Aixt
 - [x] new 'pin_oop' object oriented pin module for Arduino backend
 - [x] Issue solved: References to 'struct's fail generating C code
 - [x] Issue solved: functions that returns pointers fail
+- [x] Include casting on C generated code for 'return' commands

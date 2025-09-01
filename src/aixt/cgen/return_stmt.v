@@ -11,5 +11,6 @@ fn (mut gen Gen) return_stmt(node ast.Return) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	// Be Careful....... multiple values return
 	expr := gen.ast_node(node.exprs[0]).join('')
-	return ['return ${expr};']
+	ref, var_type := gen.get_str_c_type(node.types[0], false)
+	return ['return ((${var_type}${ref}) ${expr});']
 }
