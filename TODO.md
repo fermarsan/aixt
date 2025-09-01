@@ -47,3 +47,4 @@ Tasks to do in Aixt
 - [x] Add OOP features to the API (Emulator pin module, NXT motor module) 
 - [x] new 'pin_oop' object oriented pin module for Arduino backend
 - [x] Issue solved: References to 'struct's fail generating C code
+- [x] Issue solved: functions that returns pointers fail

@@ -61,3 +61,11 @@ pub fn update() {
 fn init() {
 	pin_oop.update()
 }
+
+// new returns a new Pin instance
+pub fn new(id u8) &Pin {
+    mut p := &Pin {
+        id: id
+    }
+    return p
+}

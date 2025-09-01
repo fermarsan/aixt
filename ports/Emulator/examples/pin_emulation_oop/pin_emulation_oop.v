@@ -4,14 +4,14 @@ import time
 
 
 fn main() {
-    mut led_1 := pin.Pin{ pin.a }
-    mut led_2 := pin.Pin{ pin.b }
+    mut green_led := pin.Pin{ pin.a }
+    mut red_led := pin.new( pin.w )
     pin.update()
     time.sleep_ms(2000)
-    led_1.high()
-    led_2.write(1)
+    green_led.high()
+    red_led.write(1)
     time.sleep(2)   
-    led_1.low()
+    green_led.low()
     time.sleep(2)
-    led_2.write(0)
+    red_led.write(0)
 }
