@@ -34,6 +34,7 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
+- [ ] Issue: References to 'struct's fail generating C code
 
 
 ### Done ✓make
