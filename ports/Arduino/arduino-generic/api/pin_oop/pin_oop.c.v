@@ -11,8 +11,8 @@ pub struct Pin {
     id  u8
 }
 
-// fn C.pinMode(id u8, mode u8) // uncomment if not included in api/builtin.c.v
-// fn C.digitalWrite(id u8, val u8) // uncomment if not included in api/builtin.c.v
+fn C.pinMode(id u8, mode u8) // uncomment if not included in api/builtin.c.v
+fn C.digitalWrite(id u8, val u8) // uncomment if not included in api/builtin.c.v
 fn C.digitalRead(id u8) u8
 fn C.DIGITAL_TOGGLE(id u8)
 // fn C.digitalPinToPort(id u8)
@@ -22,8 +22,8 @@ fn C.DIGITAL_TOGGLE(id u8)
 
 // new returns a new Pin instance
 pub fn new(id u8, mode u8) &Pin {
-    mut p := Pin {
-        id:    id
+    mut p := &Pin {
+        id: id
     }
     p.setup(mode)
     return p

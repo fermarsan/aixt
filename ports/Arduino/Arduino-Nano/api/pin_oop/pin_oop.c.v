@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions Arduino devices
-module pin
+module pin_oop
 
 // pin names 
 @[as_macro] pub const d0 = 0 
@@ -37,4 +37,4 @@ module pin
 @[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
 
 // builtin LED
-pub const led0 = new(pin.d13, pin.input)
+pub const led0 = new(pin_oop.d13, pin_oop.input)
