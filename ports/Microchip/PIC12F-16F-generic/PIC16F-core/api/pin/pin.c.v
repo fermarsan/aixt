@@ -59,3 +59,58 @@ module pin
 // @[as_macro] pub const port_c = C.C
 // @[as_macro] pub const port_d = C.D
 // @[as_macro] pub const port_e = C.E
+
+// high puts a logic 1 to a pin
+@[as_macro]
+pub fn high(name u8) {
+    unsafe {
+		*(&C.PORTA + (name >> 3)) |=  0x01 << (name - ((name >> 3) << 3))
+	}// *(&C.PORTA + (name / 8))  |=  0x01 << (name % 8)
+}
+
+// low puts a logic 0 to a pin
+@[as_macro]
+pub fn low(name u8) {
+	unsafe {
+		*(&C.PORTA + (name >> 3))  &=  ~(0x01 << (name - ((name >> 3) << 3)))
+	}// *(&C.PORTA + (name / 8))   &=  ~(0x01 << (name % 8))
+}
+
+// read function reads the logic value of a pin
+@[as_macro]
+pub fn read(name u8) u8 {
+	unsafe {
+		return	u8( (*(&C.PORTA + (name >> 3))  >>  (name - ((name >> 3) << 3)))  &  0x01 )
+	}// return	u8( (*(&C.PORTA + (name / 8))   >>  (name % 8))  &  0x01 )
+}
+
+// setup configures the mode of a pin
+@[as_macro]
+pub fn setup(name u8, mode u8) {
+	unsafe { 
+		if mode == 1 { // as input (1)
+			*(&C.TRISA + (name >> 3)) |= (0x01 << (name - ((name >> 3) << 3)))
+		//  *(&C.TRISA + (name / 8))  |= (0x01 << (name % 8))
+		} else { // as output (0)
+			*(&C.TRISA + (name >> 3)) &= ~(0x01 << (name - ((name >> 3) << 3)))	
+		//  *(&C.TRISA + (name / 8))  &= ~(0x01 << (name % 8))
+		}
+	}
+}
+
+// toggle function toggles the logic value of a pin
+@[as_macro]
+pub fn toggle(name u8) {
+	unsafe {
+		*(&C.PORTA + (name >> 3))  ^=  0x01 << (name - ((name >> 3) << 3))
+	}// *(&C.PORTA + (name / 8))   ^=  0x01 << (name % 8)
+}
+
+// write function writes a logic value to a pin
+@[as_macro]
+pub fn write(name u8, value u8) {
+	unsafe {
+		*(&C.PORTA + (name >> 3))  &=  (~(0x01 << (name - ((name >> 3) << 3))))	// *(&C.PORTA + (name >> 3)) &= (~(0x01 << (name % 8)))
+		*(&C.PORTA + (name >> 3))  |=  (value << (name - ((name >> 3) << 3)))	// *(&C.PORTA + (name >> 3)) |= (value << (name % 8))
+	}
+}
