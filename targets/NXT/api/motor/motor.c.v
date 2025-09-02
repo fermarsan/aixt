@@ -23,6 +23,7 @@ module motor	// NXC Output
 @[as_macro] pub const regmode_sync    = C.UT_REGMODE_SYNC  
 @[as_macro] pub const regmode_pos     = C.UT_REGMODE_POS 
 
+
 // Motor struct
 pub struct Motor {
 mut:

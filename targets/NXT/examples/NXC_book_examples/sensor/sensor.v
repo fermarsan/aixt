@@ -1,7 +1,12 @@
 import motor
-import sensor
+import sensor { Sensor }
 
-sensor.setup(sensor.s1, sensor.touch)
-motor.write(motor.ac, 75)
-for sensor.read(sensor.s1) == 0 {}
-motor.off(motor.ac)
+
+mut touch := Sensor.new(sensor.s1)
+touch.setup(sensor.touch)
+
+motor_ac.write(75)
+
+for touch.read() == 0 {}	// wait while do not touch
+
+motor_ac.off()
