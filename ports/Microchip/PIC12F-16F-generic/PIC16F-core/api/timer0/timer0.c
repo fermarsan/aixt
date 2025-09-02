@@ -1,1 +1,0 @@
-#define TIMER0_IRQ_IN_USE
