@@ -17,7 +17,6 @@ Tasks to do in Aixt
 <!-- - [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO -->
 <!-- - [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO -->
 - [ ] Allow multi-arg functions
-- [ ] Add settings file `port_name.json` inside `/port_name` folder
 - [ ] Check the convenience of the "generality" of each port implementation
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
 
@@ -33,6 +32,7 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
+- [ ] Update NXT target with the OOP API (v0.2.0)
 
 
 ### Done ✓make
