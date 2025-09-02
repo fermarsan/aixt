@@ -1,20 +1,24 @@
-import motor
-import sensor
-import time
+import motor { Motor }
+import sensor { Sensor }
+import time { sleep_ms }
 import task
 
-
-// @[mutex] __global move_mutex = 0		// initialization value is necessary but will be ignored
-__global move_mutex = Mutex(0)		// mutex variable
+__global (
+	move_mutex	= Mutex(0)		// mutex variable
+	touch_s		= Sensor.new(sensor.s1)	// sensor variable
+	left_m		= Motor.new(motor.a)	// motor variables
+	right_m		= Motor.new(motor.c)
+	both_m		= Motor.new(motor.ac)
+)
 
 @[task]
 fn move_square() {
 	for {
 		task.mutex_lock(move_mutex)
-		motor_ac.write(75)
-		time.sleep_ms(1000)
-		motor_c.write(-75)	// reverse
-		time.sleep_ms(500)
+		both_m.write(75)
+		sleep_ms(1000)
+		right_m.write(-75)	// reverse
+		sleep_ms(500)
 		task.mutex_unlock(move_mutex)
 	}
 }
@@ -22,12 +26,12 @@ fn move_square() {
 @[task]
 fn check_sensors() {
 	for {
-		if sensor.read(sensor.s1) == 1 {
+		if touch_s.read() == 1 {
 			task.mutex_lock(move_mutex)
-			motor_ac.write(-75)	// reverse
-			time.sleep_ms(500)
-			motor_a.write(75)
-			time.sleep_ms(500)
+			both_m.write(-75)	// reverse
+			sleep_ms(500)
+			left_m.write(75)
+			sleep_ms(500)
 			task.mutex_unlock(move_mutex)
 		}
 	}
@@ -36,6 +40,6 @@ fn check_sensors() {
 
 @[task]
 fn main() {
-	sensor.as_touch(sensor.s1)
+	touch_s.setup(sensor.touch)	// configure the sensor as touch
 	task.priority(move_square, check_sensors)
 }

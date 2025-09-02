@@ -1,13 +1,14 @@
-import sensor
+import sensor { Sensor }
 import lcd
 import time
 
 
-sensor.as_light(sensor.s1, true)
+mut light_s := Sensor.new(sensor.s1)
+light_s.setup(sensor.light, true)
 
 for {
 	lcd.clear()
-	value := sensor.read(sensor.s1)
+	value := light_s.read()
 	lcd.move_to(1, 1)
 	lcd.print('S1 = ${value}')
 	time.sleep(1)

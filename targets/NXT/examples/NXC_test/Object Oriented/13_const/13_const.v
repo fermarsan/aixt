@@ -4,10 +4,6 @@ import time
 const t_on = 1000
 const t_off = 500
 
-// const t_on = 1000
-// const t_off = 500
-// const a = 34.67
-
 motor_ab.write(70)
 time.sleep_ms(t_on)
 

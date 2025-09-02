@@ -1,6 +1,6 @@
 import motor_fn as motor
 import sensor_fn as sensor
-import time
+import time { sleep_ms }
 import task
 
 __global move_mutex = Mutex(0)		// mutex variable
@@ -10,9 +10,9 @@ fn move_square() {
 	for {
 		task.mutex_lock(move_mutex)
 		motor.write(motor.ac, 75)
-		time.sleep_ms(1000)
+		sleep_ms(1000)
 		motor.write(motor.c, -75)	// reverse
-		time.sleep_ms(500)
+		sleep_ms(500)
 		task.mutex_unlock(move_mutex)
 	}
 }
@@ -23,9 +23,9 @@ fn check_sensors() {
 		if sensor.read(sensor.s1) == 1 {
 			task.mutex_lock(move_mutex)
 			motor.write(motor.ac, -75)	// reverse
-			time.sleep_ms(500)
+			sleep_ms(500)
 			motor.write(motor.a, 75)
-			time.sleep_ms(500)
+			sleep_ms(500)
 			task.mutex_unlock(move_mutex)
 		}
 	}

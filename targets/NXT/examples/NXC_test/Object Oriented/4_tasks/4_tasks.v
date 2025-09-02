@@ -36,5 +36,5 @@ fn check_sensors() {
 }
 
 
-touch.as_touch()	// configure the sensor as touch
+touch.setup(sensor.touch)	// configure the sensor as touch
 task.priority(move_square, check_sensors)

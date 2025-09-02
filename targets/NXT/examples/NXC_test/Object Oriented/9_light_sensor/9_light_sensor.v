@@ -1,16 +1,17 @@
 // move forward until the light sensor overpass a limit
 import motor
-import sensor
+import sensor { Sensor }
 import time
 
 
 const limit = 40
 
-sensor.as_light(sensor.s1, true)
+mut light_s := Sensor.new(sensor.s1)
+light_s.setup(sensor.light, true)
 motor_ab.write(60)
 
 for {
-	if sensor.read(sensor.s1) > limit {
+	if light_s.read() > limit {
 		motor_ab.off()
 	}
 }

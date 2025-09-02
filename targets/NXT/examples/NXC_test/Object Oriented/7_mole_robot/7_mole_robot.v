@@ -1,7 +1,7 @@
 // avoid obstacles using a touch sensor
 // differential platform with the motor B inverted
 import motor
-import sensor
+import sensor { Sensor }
 import time
 
 
@@ -27,12 +27,12 @@ fn stop_(tim u32) {
 	time.sleep_ms(tim)
 }
 
-
-sensor.as_touch(sensor.s3)
+mut touch := Sensor.new(sensor.s3)
+touch.setup(sensor.touch)
 
 for {
 	straight(pow, t_move)
-	if sensor.read(sensor.s3) == 1 { // if touch
+	if touch.read() == 1 { // if touch
 		stop_(t_stop)
 		straight(-pow, t_avoid) // reverse
 		spin(pow, t_avoid)

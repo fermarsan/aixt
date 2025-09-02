@@ -28,11 +28,13 @@ fn stop_(tim u32) {
 }
 
 
-sensor.as_touch(sensor.s3)
+
+mut touch := Sensor.new(sensor.s3)
+touch.setup(sensor.touch)
 
 for {
 	straight(pow, t_move)
-	if sensor.read(sensor.s3) == 1 { // if touch
+	if touch.read() == 1 { // if touch
 		stop_(t_stop)
 		straight(-pow, t_avoid) // reverse
 		spin(pow, t_avoid)

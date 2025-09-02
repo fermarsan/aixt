@@ -5,8 +5,8 @@ import task
 
 
 __global (
-	move_mutex = Mutex(0)			// mutex variable
-	touch = Sensor.new(sensor.s1)	// sensor variable
+	move_mutex 	= Mutex(0)				// mutex variable
+	touch_s		= Sensor.new(sensor.s1)	// sensor variable
 )
 
 @[task]
@@ -24,7 +24,7 @@ fn move_square() {
 @[task]
 fn check_sensors() {
 	for {
-		if touch.read() == 1 {
+		if touch_s.read() == 1 {
 			task.mutex_lock(move_mutex)
 			motor_ac.write(-75)	// reverse
 			time.sleep_ms(500)
@@ -37,6 +37,6 @@ fn check_sensors() {
 
 @[task]
 fn main() {
-	touch.as_touch()	// configure the sensor as touch
+	touch_s.setup(sensor.touch)	// configure the sensor as touch
 	task.priority(move_square, check_sensors)
 }
