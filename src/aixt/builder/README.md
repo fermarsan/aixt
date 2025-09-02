@@ -10,7 +10,7 @@ import aixt.build
 fn main() {
     port, input_name := 'Emulator', 'example.v'
     base_name = input_name.replace('.v', '')
-    setup := toml.parse_file('aixt' + os.path_separator + 'ports' + os.path_separator + 'setup' + os.path_separator + 'Emulator.toml') or { return }
+    setup := toml.parse_file('aixt' + os.path_separator + 'targets' + os.path_separator + 'setup' + os.path_separator + 'Emulator.toml') or { return }
 
     build.transpile_file(input_name, setup, aixt_path)
     println('\n${input_name} transpiling finished.\n')

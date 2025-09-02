@@ -16,11 +16,11 @@ pub fn (mut b Builder) get_api_mod_dirs() []string {
 	for api_path in b.setup.api_paths {
 		// api_base_dir := os.join_path(
 		// 	aixt_path, os.path_separator, 
-		// 	'ports', os.path_separator, 
+		// 	'targets', os.path_separator, 
 		// 	api_path, os.path_separator, 'api'
 		// )
 		api_base_dir := '${b.aixt_path}' + os.path_separator + 
-						'ports/${api_path}' + os.path_separator + 'api'
+						'targets/${api_path}' + os.path_separator + 'api'
 		out << api_base_dir
 		// out << util.get_subdirs(api_base_dir)
 	}
@@ -34,7 +34,7 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 		// api_path_sub := api_path.replace('.', os.path_separator)
 		// println('>>>>>>>>>>>>>>>>>> ${api_path_sub} <<<<<<<<<<<<<<<<<<')
 		api_base_dir := '${b.aixt_path}' + os.path_separator + 
-						'ports/${api_path}' + os.path_separator + 'api'
+						'targets/${api_path}' + os.path_separator + 'api'
 		mut api_dirs := [api_base_dir]
 		api_dirs << util.get_subdirs(api_base_dir)
 		// println('>>>>>>>>>>>>>>>>>> ${api_dirs} <<<<<<<<<<<<<<<<<<')

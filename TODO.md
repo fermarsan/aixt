@@ -32,8 +32,7 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
-- [ ] Update NXT target with the OOP API (v0.2.0)
-- [ ] Change the name of the devices/boards implementation folder from `ports` to `targets`  
+- [ ] Update NXT target with the OOP API (v0.2.0) 
 
 
 ### Done ✓make
@@ -54,3 +53,4 @@ Tasks to do in Aixt
 - [x] Change the definition of builtin LEDs ans Switches from `builtin.c.v` to `pin.c.v` 
 - [x] Unify most the ports implementation in only one file `module.c.v`
 - [x] `pin_fast` module implemented for PIC16
+- [x] Change the name of the devices/boards implementation folder from `ports` to `targets` 
