@@ -19,7 +19,6 @@ Tasks to do in Aixt
 - [ ] Allow multi-arg functions
 - [ ] Add settings file `port_name.json` inside `/port_name` folder
 - [ ] Check the convenience of the "generality" of each port implementation
-- [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
 
 
@@ -53,3 +52,4 @@ Tasks to do in Aixt
 - [x] Generate the modules `arduino-generic-UARTx` instead of defining them for each target
 - [x] Change the definition of builtin LEDs ans Switches from `builtin.c.v` to `pin.c.v` 
 - [x] Unify most the ports implementation in only one file `module.c.v`
+- [x] `pin_fast` module implemented for PIC16
