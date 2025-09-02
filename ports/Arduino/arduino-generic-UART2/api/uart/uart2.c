@@ -1,0 +1,7 @@
+#define SERIAL2_BEGIN(BAUD_RATE)     Serial2.begin(BAUD_RATE)
+#define SERIAL2_WRITE(CHARACTER)     Serial2.write(CHARACTER) 
+#define SERIAL2_READ()               Serial2.read()
+#define SERIAL2_READSTRING()         Serial2.readString()
+#define SERIAL2_PRINT(MESSAGE)       Serial2.print(MESSAGE)
+#define SERIAL2_PRINTLN(MESSAGE)     Serial2.println(MESSAGE)
+#define SERIAL2_AVAILABLE()          Serial2.available()    
