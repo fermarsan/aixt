@@ -1,0 +1,128 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Aixt: Transpile",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "transpile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "transpile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Compile & Flash",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "c_compile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "c_compile",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Build & Flash",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "build",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "build",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Clean",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "clean",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "clean",
+                            "${config:device}",
+                            "${file}" ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: New Project",
+            "type": "shell",
+            "windows": {
+                "command": [ "${config:aixt_windows}",
+                            "new_project",
+                            "${config:device}",
+                            "${input:dirName}",
+                            "${input:projectName}",
+                        ],
+            },
+            "linux": {
+                "command": [ "${config:aixt_linux}",
+                            "new_project",
+                            "${config:device}",
+                            "${input:dirName}",
+                            "${input:projectName}",
+                         ],
+            },
+            "problemMatcher": ["$tsc"],
+            "group": "build",
+            "presentation": {
+            "showReuseMessage": false
+            }
+        }
+    ],
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "projectName",
+        "description": "Project name.",
+        "default": "project"
+      },
+      {
+        "type": "promptString",
+        "id": "dirName",
+        "description": "Directory name.",
+        "default": "."
+      },
+    ]
+}
