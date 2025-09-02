@@ -1,10 +1,10 @@
 import motor
 import time
 
-motor.write(motor.ac, 75)
+motorac.write(75)
 time.sleep_ms(500)
-motor.off(motor.ac)
+motorac.off()
 time.sleep_ms(1000)
-motor.write(motor.ac, 75)
+motorac.write(75)
 time.sleep_ms(500)
-motor.float(motor.ac)
+motorac.float()
