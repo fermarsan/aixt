@@ -31,7 +31,6 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
-- [ ] Update NXT target with the OOP API (v0.2.0) 
 
 
 ### Done ✓make
@@ -53,4 +52,4 @@ Tasks to do in Aixt
 - [x] Unify most the ports implementation in only one file `module.c.v`
 - [x] `pin_fast` module implemented for PIC16
 - [x] Change the name of the devices/boards implementation folder from `ports` to `targets` 
-- [x] NXT target API (motor module) updated to v0.2.0 (OOP)
+- [x] NXT target API (motor, sensor and button modules) updated to v0.2.0 (OOP)

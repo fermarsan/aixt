@@ -1,0 +1,123 @@
+module button
+
+// #################### NXC Button module ####################
+
+// Constant offsets into the Button module IOMAP structure. 
+// #define 	offset_pressed_cnt		ButtonOffsetPressedCnt  
+// #define 	offset_long_press_cnt	ButtonOffsetLongPressCnt
+// #define 	offset_short_rel_cnt	ButtonOffsetShortRelCnt
+// #define 	offset_long_rel_cnt		ButtonOffsetLongRelCnt
+// #define 	offset_rel_cnt			ButtonOffsetRelCnt
+// #define 	offset_state			ButtonOffsetState
+
+// Constants to specify which button to use with button module functions. 
+// #define 	btn1      		BTN1       
+// #define 	btn2      		BTN2       
+// #define 	btn3      		BTN3       
+// #define 	btn4      		BTN4       
+// #define 	btn_exit   		BTNEXIT     
+// #define 	btn_right  		BTNRIGHT     
+// #define 	btn_left   		BTNLEFT     
+// #define 	btn_center 		BTNCENTER     
+// #define 	no_btns			NO_OF_BTNS
+
+
+@[as_macro] pub const btn1    = 0       
+@[as_macro] pub const btn2    = 1       
+@[as_macro] pub const btn3    = 2       
+@[as_macro] pub const btn4    = 3 
+@[as_macro] pub const no_btns = 4
+
+
+
+
+// Constants for use with the ButtonState() function.
+// The _EV values can be combined together using a bitwise OR operation. 
+// #define 	state_pressed_ev   			BTNSTATE_PRESSED_EV   
+// #define 	state_short_released_ev   	BTNSTATE_SHORT_RELEASED_EV   
+// #define 	state_long_pressed_ev   	BTNSTATE_LONG_PRESSED_EV   
+// #define 	state_long_released_ev   	BTNSTATE_LONG_RELEASED_EV   
+// #define 	state_pressed_state   		BTNSTATE_PRESSED_STATE   
+// #define 	state_none   				BTNSTATE_NONE   
+
+// Functions for accessing and modifying Button module features. 
+@[as_macro]
+read(btn u8) bool {
+	return C.ButtonPressed(btn, false) 
+}
+
+@[as_macro]
+read_count(btn u8) u8 {
+	return C.ButtonCount(btn, false) 
+}
+
+// @[as_macro]
+// read_ex() {
+// 	return C.ReadButtonEx() 
+// }
+
+// @[as_macro]
+// press_count(btn u8) {
+// 	return C.ButtonPressCount() 
+// }
+
+// @[as_macro]
+// long_press_count(btn u8) {
+// 	return C.ButtonLongPressCount() 
+// }
+
+// @[as_macro]
+// short_release_count(btn u8) {
+// 	return C.ButtonShortReleaseCount() 
+// }
+
+// @[as_macro]
+// long_release_count(btn u8) {
+// 	return C.ButtonLongReleaseCount() 
+// }
+
+// @[as_macro]
+// release_count(btn u8) {
+// 	return C.ButtonReleaseCount() 
+// }
+
+// @[as_macro]
+// state() {
+// 	return C.ButtonState() 
+// }
+
+// @[as_macro]
+// set_long_press_count() {
+// 	return C.SetButtonLongPressCount() 
+// }
+
+// @[as_macro]
+// set_long_release_count() {
+// 	return C.SetButtonLongReleaseCount() 
+// }
+
+@[as_macro]
+set_count(btn u8, n u8) {
+	C.SetButtonPressCount(btn, n) 
+}
+
+// @[as_macro]
+// set_release_count() {
+// 	return C.SetButtonReleaseCount() 
+// }
+
+// @[as_macro]
+// set_short_release_count() {
+// 	return C.SetButtonShortReleaseCount() 
+// }
+
+// @[as_macro]
+// set_state() {
+// 	return C.SetButtonState() 
+// }
+
+// @[as_macro]
+// sys_read() {
+// 	return C.SysReadButton() 
+// }
+
