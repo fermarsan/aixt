@@ -54,3 +54,4 @@ Tasks to do in Aixt
 - [x] Unify most the ports implementation in only one file `module.c.v`
 - [x] `pin_fast` module implemented for PIC16
 - [x] Change the name of the devices/boards implementation folder from `ports` to `targets` 
+- [x] NXT target API (motor module) updated to v0.2.0 (OOP)

@@ -38,315 +38,315 @@ __global (
 	motor_abc = Motor { id: abc }
 )
 
-fn C.SetMotorPwnFreq(n byte)
-fn C.SetMotorRegulationTime(n byte)
-fn C.SetMotorRegulationOptions(n byte)
-fn C.OnFwdSyncPID(outputs byte, pwr char, turnpct char, p byte, i byte, d byte)    
-fn C.OnFwdSyncExPID(outputs byte, pwr char, turnpct char, reset byte, p byte, i byte, d byte)         
-fn C.OnFwdRegPID(outputs byte, pwr char, regmode byte, p byte, i byte, d byte)                 
-fn C.OnFwdRegExPID(outputs byte, pwr char, regmode byte, reset byte, p byte, i byte, d byte)
-fn C.Off(outputs byte)
-fn C.Coast(outputs byte)
-fn C.OffEx(outputs byte, reset byte)                     
-fn C.CoastEx(outputs byte, reset byte)
-fn C.Float(outputs byte)
-fn C.OnFwd(outputs byte, pwr char)                     
-fn C.OnFwdEx(outputs byte, pwr char, reset byte)
-fn C.OnFwdReg(outputs byte, pwr char, regmode byte)                  
-fn C.OnFwdRegEx(outputs byte, pwr char, regmode byte, reset byte)                 
-fn C.OnFwdSync(outputs byte, pwr char, turnpct char)                 
-fn C.OnFwdSyncEx(outputs byte, pwr char, turnpct char, reset byte)                 
-fn C.RotateMotor(outputs byte, pwr char, angle long)                
-fn C.RotateMotorPID(outputs byte, pwr char, angle long, p byte, i byte, d byte)                
-fn C.RotateMotorEx(outputs byte, pwr char, angle long, turnpct char, sync bool, stop bool)                
-fn C.RotateMotorExPID(outputs byte, pwr char, angle long, turnpct char, sync bool, stop bool, p byte, i byte, d byte)                
-fn C.ResetTachoCount(outputs byte)                
-fn C.ResetBlockTachoCount(outputs byte)                
-fn C.ResetRotationCount(outputs byte)                
-fn C.ResetAllTachoCounts(outputs byte)              
-fn C.MotorMode(output byte) u8
-fn C.MotorPower(output byte) i8              
-fn C.MotorActualSpeed(output byte) i8                 
-fn C.MotorTachoCount(output byte) int             
-fn C.MotorTachoLimit(output byte) int             
-fn C.MotorRunState(output byte) u8                
-fn C.MotorTurnRatio(output byte) i8                
-fn C.MotorRegulation(output byte) u8                
-fn C.MotorOverload(output byte) bool                
-fn C.MotorRegPValue(output byte) u8                
-fn C.MotorRegIValue(output byte) u8                
-fn C.MotorRegDValue(output byte) u8                
-fn C.MotorBlockTachoCount(output byte) int                  
-fn C.MotorRotationCount(output byte) int                 
-fn C.MotorOutputOptions(output byte) u8                 
-fn C.MotorMaxSpeed(output byte) u8                 
-fn C.MotorMaxAcceleration(output byte) u8                 
+fn C.SetMotorPwnFreq(n u8)
+fn C.SetMotorRegulationTime(n u8)
+fn C.SetMotorRegulationOptions(n u8)
+fn C.OnFwdSyncPID(outputs u8, pwr i8, turnpct i8, p u8, i u8, d u8)    
+fn C.OnFwdSyncExPID(outputs u8, pwr i8, turnpct i8, reset u8, p u8, i u8, d u8)         
+fn C.OnFwdRegPID(outputs u8, pwr i8, regmode u8, p u8, i u8, d u8)                 
+fn C.OnFwdRegExPID(outputs u8, pwr i8, regmode u8, reset u8, p u8, i u8, d u8)
+fn C.Off(outputs u8)
+fn C.Coast(outputs u8)
+fn C.OffEx(outputs u8, reset u8)                     
+fn C.CoastEx(outputs u8, reset u8)
+fn C.Float(outputs u8)
+fn C.OnFwd(outputs u8, pwr i8)                     
+fn C.OnFwdEx(outputs u8, pwr i8, reset u8)
+fn C.OnFwdReg(outputs u8, pwr i8, regmode u8)                  
+fn C.OnFwdRegEx(outputs u8, pwr i8, regmode u8, reset u8)                 
+fn C.OnFwdSync(outputs u8, pwr i8, turnpct i8)                 
+fn C.OnFwdSyncEx(outputs u8, pwr i8, turnpct i8, reset u8)                 
+fn C.RotateMotor(outputs u8, pwr i8, angle int)                
+fn C.RotateMotorPID(outputs u8, pwr i8, angle int, p u8, i u8, d u8)                
+fn C.RotateMotorEx(outputs u8, pwr i8, angle int, turnpct i8, sync bool, stop bool)                
+fn C.RotateMotorExPID(outputs u8, pwr i8, angle int, turnpct i8, sync bool, stop bool, p u8, i u8, d u8)                
+fn C.ResetTachoCount(outputs u8)                
+fn C.ResetBlockTachoCount(outputs u8)                
+fn C.ResetRotationCount(outputs u8)                
+fn C.ResetAllTachoCounts(outputs u8)              
+fn C.MotorMode(output u8) u8
+fn C.MotorPower(output u8) i8              
+fn C.MotorActualSpeed(output u8) i8                 
+fn C.MotorTachoCount(output u8) int             
+fn C.MotorTachoLimit(output u8) int             
+fn C.MotorRunState(output u8) u8                
+fn C.MotorTurnRatio(output u8) i8                
+fn C.MotorRegulation(output u8) u8                
+fn C.MotorOverload(output u8) bool                
+fn C.MotorRegPValue(output u8) u8                
+fn C.MotorRegIValue(output u8) u8                
+fn C.MotorRegDValue(output u8) u8                
+fn C.MotorBlockTachoCount(output u8) int                  
+fn C.MotorRotationCount(output u8) int                 
+fn C.MotorOutputOptions(output u8) u8                 
+fn C.MotorMaxSpeed(output u8) u8                 
+fn C.MotorMaxAcceleration(output u8) u8                 
 fn C.MotorPwnFreq() u8                 
 fn C.MotorRegulationTime() u8                 
 fn C.MotorRegulationOptions() u8
-fn C.PosRegEnable(output byte, p byte, i byte, d byte) 
-fn C.PosRegSetAngle(output byte, angle long) 
-fn C.PosRegAddAngle(output byte, angle_add long)
-fn C.PosRegSetMax(output byte, max_speed byte, max_acceleration byte)
+fn C.PosRegEnable(output u8, p u8, i u8, d u8) 
+fn C.PosRegSetAngle(output u8, angle int) 
+fn C.PosRegAddAngle(output u8, angle_add int)
+fn C.PosRegSetMax(output u8, max_speed u8, max_acceleration u8)
 
 
 
 @[as_macro] 
-pub fn (mut m Motor) set_pwn_freq(n byte) {
+pub fn set_pwn_freq(n u8) {
 	C.SetMotorPwnFreq(n)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) set_regulation_time(n byte) {
+pub fn set_regulation_time(n u8) {
 	C.SetMotorRegulationTime(n)
 }
 
 @[as_macro] 
-pub fn (mut m Motor) set_regulation_options(n byte) {
+pub fn set_regulation_options(n u8) {
 	C.SetMotorRegulationOptions(n)
 }
 
 @[as_macro] 
-pub fn (mut m Motor) write_sync_pid(outputs byte, pwr char, turnpct char, p byte, i byte, d byte) {
-	C.OnFwdSyncPID(outputs, pwr, turnpct, p, i, d)
+pub fn (mut m Motor) write_sync_pid(pwr i8, turnpct i8, p u8, i u8, d u8) {
+	C.OnFwdSyncPID(m.id, pwr, turnpct, p, i, d)
 	// 	C.OnRevSyncPID(...args)
 }
     
 @[as_macro] 
-pub fn (mut m Motor) write_sync_ex_pid(outputs byte, pwr char, turnpct char, reset byte, p byte, i byte, d byte) {
-	C.OnFwdSyncExPID(outputs, pwr, turnpct, reset, p, i, d)
-	// C.OnRevSyncExPID(outputs, pwr, turnpct, reset, p, i, d)
+pub fn (mut m Motor) write_sync_ex_pid(pwr i8, turnpct i8, reset u8, p u8, i u8, d u8) {
+	C.OnFwdSyncExPID(m.id, pwr, turnpct, reset, p, i, d)
+	// C.OnRevSyncExPID(m.id, pwr, turnpct, reset, p, i, d)
 }
          
 @[as_macro] 
-pub fn (mut m Motor) write_reg_pid(outputs byte, pwr char, regmode byte, p byte, i byte, d byte) {
-	C.OnFwdRegPID(outputs, pwr, regmode, p, i, d)
+pub fn (mut m Motor) write_reg_pid(pwr i8, regmode u8, p u8, i u8, d u8) {
+	C.OnFwdRegPID(m.id, pwr, regmode, p, i, d)
 	// C.OnRevRegPID()
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) write_reg_ex_pid(outputs byte, pwr char, regmode byte, reset byte, p byte, i byte, d byte) {
-	C.OnFwdRegExPID(outputs, pwr, regmode, reset, p, i, d)
+pub fn (mut m Motor) write_reg_ex_pid(pwr i8, regmode u8, reset u8, p u8, i u8, d u8) {
+	C.OnFwdRegExPID(m.id, pwr, regmode, reset, p, i, d)
 	// C.OnRevRegExPID()
 }
 
 @[as_macro] 
-pub fn (mut m Motor) off(outputs byte) {
-	C.Off(outputs)
+pub fn (mut m Motor) off() {
+	C.Off(m.id)
 }
                      
 @[as_macro] 
-pub fn (mut m Motor) coast(outputs byte) {
-	C.Coast(outputs)
+pub fn (mut m Motor) coast() {
+	C.Coast(m.id)
 }
 
 @[as_macro] 
-pub fn (mut m Motor) off_ex(outputs byte, reset byte) {
-	C.OffEx(outputs, reset)
+pub fn (mut m Motor) off_ex(reset u8) {
+	C.OffEx(m.id, reset)
 }
                      
 @[as_macro] 
-pub fn (mut m Motor) coast_ex(outputs byte, reset byte) {
-	C.CoastEx(outputs, reset)
+pub fn (mut m Motor) coast_ex(reset u8) {
+	C.CoastEx(m.id, reset)
 }
 
 @[as_macro] 
-pub fn (mut m Motor) float(outputs byte) {
-	C.Float(outputs)
+pub fn (mut m Motor) float() {
+	C.Float(m.id)
 }
                      
 @[as_macro] 
-pub fn (mut m Motor) write(outputs byte, pwr char) {
-	C.OnFwd(outputs, pwr)
+pub fn (mut m Motor) write(pwr i8) {
+	C.OnFwd(m.id, pwr)
 	// C.OnRev()
 }
                      
 @[as_macro] 
-pub fn (mut m Motor) write_ex(outputs byte, pwr char, reset byte) {
-	C.OnFwdEx(outputs, pwr, reset)
+pub fn (mut m Motor) write_ex(pwr i8, reset u8) {
+	C.OnFwdEx(m.id, pwr, reset)
 	// C.OnRevEx()
 }
 
 @[as_macro] 
-pub fn (mut m Motor) write_reg(outputs byte, pwr char, regmode byte) {
-	C.OnFwdReg(outputs, pwr, regmode)
+pub fn (mut m Motor) write_reg(pwr i8, regmode u8) {
+	C.OnFwdReg(m.id, pwr, regmode)
 	// C.OnRevReg()
 }
                   
 @[as_macro] 
-pub fn (mut m Motor) write_reg_ex(outputs byte, pwr char, regmode byte, reset byte) {
-	C.OnFwdRegEx(outputs, pwr, regmode, reset)
+pub fn (mut m Motor) write_reg_ex(pwr i8, regmode u8, reset u8) {
+	C.OnFwdRegEx(m.id, pwr, regmode, reset)
 	// C.OnRevRegEx()
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) write_sync(outputs byte, pwr char, turnpct char) {
-	C.OnFwdSync(outputs, pwr, turnpct)
+pub fn (mut m Motor) write_sync(pwr i8, turnpct i8) {
+	C.OnFwdSync(m.id, pwr, turnpct)
 	// C.OnRevSync()
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) write_sync_ex(outputs byte, pwr char, turnpct char, reset byte) {
-	C.OnFwdSyncEx(outputs, pwr, turnpct, reset)
+pub fn (mut m Motor) write_sync_ex(pwr i8, turnpct i8, reset u8) {
+	C.OnFwdSyncEx(m.id, pwr, turnpct, reset)
 	// C.OnRevSyncEx()
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) rotate(outputs byte, pwr char, angle long) {
-	C.RotateMotor(outputs, pwr, angle)
+pub fn (mut m Motor) rotate(pwr i8, angle int) {
+	C.RotateMotor(m.id, pwr, angle)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) rotate_pid(outputs byte, pwr char, angle long, p byte, i byte, d byte) {
-	C.RotateMotorPID(outputs, pwr, angle, p, i, d)
+pub fn (mut m Motor) rotate_pid(pwr i8, angle int, p u8, i u8, d u8) {
+	C.RotateMotorPID(m.id, pwr, angle, p, i, d)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) rotate_ex(outputs byte, pwr char, angle long, turnpct char, sync bool, stop bool) {
-	C.RotateMotorEx(outputs, pwr, angle, turnpct, sync, stop)
+pub fn (mut m Motor) rotate_ex(pwr i8, angle int, turnpct i8, sync bool, stop bool) {
+	C.RotateMotorEx(m.id, pwr, angle, turnpct, sync, stop)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) rotate_ex_pid(outputs byte, pwr char, angle long, turnpct char, sync bool, stop bool, p byte, i byte, d byte) {
-	C.RotateMotorExPID(outputs, pwr, angle, turnpct, sync, stop, p, i, d)
+pub fn (mut m Motor) rotate_ex_pid(pwr i8, angle int, turnpct i8, sync bool, stop bool, p u8, i u8, d u8) {
+	C.RotateMotorExPID(m.id, pwr, angle, turnpct, sync, stop, p, i, d)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) reset_tacho_count(outputs byte) {
-	C.ResetTachoCount(outputs)
+pub fn (mut m Motor) reset_tacho_count() {
+	C.ResetTachoCount(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) reset_block_tacho_count(outputs byte) {
-	C.ResetBlockTachoCount(outputs)
+pub fn (mut m Motor) reset_block_tacho_count() {
+	C.ResetBlockTachoCount(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) reset_rotation_count(outputs byte) {
-	C.ResetRotationCount(outputs)
+pub fn (mut m Motor) reset_rotation_count() {
+	C.ResetRotationCount(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) reset_all_tacho_counts(outputs byte) {
-	C.ResetAllTachoCounts(outputs)
+pub fn (mut m Motor) reset_all_tacho_counts() {
+	C.ResetAllTachoCounts(m.id)
 }
                
 @[as_macro] 
-pub fn (mut m Motor) mode(output byte) u8 {
-	return C.MotorMode(output)
+pub fn (mut m Motor) mode() u8 {
+	return C.MotorMode(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) power(output byte) i8 {
-	return C.MotorPower(output)
+pub fn (mut m Motor) power() i8 {
+	return C.MotorPower(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) actual_speed(output byte) i8 {
-	return C.MotorActualSpeed(output)
+pub fn (mut m Motor) actual_speed() i8 {
+	return C.MotorActualSpeed(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) tacho_count(output byte) int {
-	return C.MotorTachoCount(output)
+pub fn (mut m Motor) tacho_count() int {
+	return C.MotorTachoCount(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) tacho_limit(output byte) int {
-	return C.MotorTachoLimit(output)
+pub fn (mut m Motor) tacho_limit() int {
+	return C.MotorTachoLimit(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) run_state(output byte) u8 {
-	return C.MotorRunState(output)
+pub fn (mut m Motor) run_state() u8 {
+	return C.MotorRunState(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) turn_ratio(output byte) i8 {
-	return C.MotorTurnRatio(output)
+pub fn (mut m Motor) turn_ratio() i8 {
+	return C.MotorTurnRatio(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) regulation(output byte) u8 {
-	return C.MotorRegulation(output)
+pub fn (mut m Motor) regulation() u8 {
+	return C.MotorRegulation(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) overload(output byte) bool {
-	return C.MotorOverload(output)
+pub fn (mut m Motor) overload() bool {
+	return C.MotorOverload(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) reg_p(output byte) u8 {
-	return C.MotorRegPValue(output)
+pub fn (mut m Motor) reg_p() u8 {
+	return C.MotorRegPValue(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) read_reg_i(output byte) u8 {
-	return C.MotorRegIValue(output)
+pub fn (mut m Motor) read_reg_i() u8 {
+	return C.MotorRegIValue(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) reg_d(output byte) u8 {
-	return C.MotorRegDValue(output)
+pub fn (mut m Motor) reg_d() u8 {
+	return C.MotorRegDValue(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) block_tacho_count(output byte) int {
-	return C.MotorBlockTachoCount(output)
+pub fn (mut m Motor) block_tacho_count() int {
+	return C.MotorBlockTachoCount(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) rotation_count(output byte) int {
-	return C.MotorRotationCount(output)
+pub fn (mut m Motor) rotation_count() int {
+	return C.MotorRotationCount(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) output_options(output byte) u8 {
-	return C.MotorOutputOptions(output)
+pub fn (mut m Motor) output_options() u8 {
+	return C.MotorOutputOptions(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) max_speed(output byte) u8 {
-	return C.MotorMaxSpeed(output)
+pub fn (mut m Motor) max_speed() u8 {
+	return C.MotorMaxSpeed(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) max_acceleration(output byte) u8 {
-	return C.MotorMaxAcceleration(output)
+pub fn (mut m Motor) max_acceleration() u8 {
+	return C.MotorMaxAcceleration(m.id)
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) pwn_freq() u8 {
+pub fn pwn_freq() u8 {
 	return C.MotorPwnFreq()
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) regulation_time() u8 {
+pub fn regulation_time() u8 {
 	return C.MotorRegulationTime()
 }
                  
 @[as_macro] 
-pub fn (mut m Motor) regulation_options() u8 {
+pub fn regulation_options() u8 {
 	return C.MotorRegulationOptions()
 }
 
 @[as_macro]
-pub fn (mut m Motor) enable_pos_reg(output byte, p byte, i byte, d byte) {
-	C.PosRegEnable(output, p, i, d)
+pub fn (mut m Motor) enable_pos_reg(p u8, i u8, d u8) {
+	C.PosRegEnable(m.id, p, i, d)
 }
  
 @[as_macro]
-pub fn (mut m Motor) set_angle_pos_reg(output byte, angle long) {
-	C.PosRegSetAngle(output, angle)
+pub fn (mut m Motor) set_angle_pos_reg(angle int) {
+	C.PosRegSetAngle(m.id, angle)
 }
  
 @[as_macro]
-pub fn (mut m Motor) add_angle_pos_reg(output byte, angle_add long) {
-	C.PosRegAddAngle(output, angle_add)
+pub fn (mut m Motor) add_angle_pos_reg(angle_add int) {
+	C.PosRegAddAngle(m.id, angle_add)
 }
 
 @[as_macro]
-pub fn (mut m Motor) set_max_pos_reg(output byte, max_speed byte, max_acceleration byte) {
-	C.PosRegSetMax(output, max_speed, max_acceleration)
+pub fn (mut m Motor) set_max_pos_reg(max_speed u8, max_acceleration u8) {
+	C.PosRegSetMax(m.id, max_speed, max_acceleration)
 }
