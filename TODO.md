@@ -52,3 +52,4 @@ Tasks to do in Aixt
 - [x] Include casting on C generated code for 'return' commands
 - [x] Change the C generation of commands: `import module { component }`, to reach it more to original V behavior (import all the `module` and enable a short pseudonym for `component`)
 - [x] Generate the modules `arduino-generic-UARTx` instead of defining them for each target
+- [x] Change the definition of builtin LEDs ans Switches from `builtin.c.v` to `pin.c.v` 

@@ -33,3 +33,12 @@ module pin
 @[as_macro] pub const output	= u8(C.OUTPUT)
 @[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
 @[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
+
+// builtin LED
+@[as_macro]	const led0 = 13
+
+// init is the module initialization function 
+fn init() {
+	setup(led0, output)		// setup the pin of led0 as output
+	low(led0)	// an turn it off
+}

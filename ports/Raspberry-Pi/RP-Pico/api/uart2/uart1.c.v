@@ -8,9 +8,10 @@ module uart2
 
 #include "uart2.c"
 
-fn C.SERIAL2_BEGIN(baud_rate int)
-fn C.SERIAL2_WRITE(character u8) 
-fn C.SERIAL2_READ() u8
-fn C.SERIAL2_PRINT(message string)
-fn C.SERIAL2_PRINTLN(message string)
-fn C.SERIAL2_AVAILABLE() int
+fn C.SERIAL2_PINS(tx_pin any, rx_pin any)
+
+// pins function sets the tx and tx pins for the uart
+@[inline]
+pub fn pins(tx_pin int, rx_pin int) {
+	C.SERIAL2_PINS(tx_pin, rx_pin)
+}

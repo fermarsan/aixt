@@ -1,6 +1,6 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2024
+// Date: 2024-2025
 // License: MIT
 //
 // Description: Pin management functions Arduino devices
@@ -75,8 +75,17 @@ module pin
 @[as_macro] pub const d67 = 67
 @[as_macro] pub const d68 = 68
 @[as_macro] pub const d69 = 69
+
 // pin mode
 @[as_macro] pub const input		= u8(C.INPUT)
 @[as_macro] pub const output	= u8(C.OUTPUT)
 @[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
 @[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
+
+// builtin LED
+@[as_macro]	const led0 = 13
+
+fn init() {
+	setup(led0, output)	// setup the pin of led0 as output
+	low(led0)			// an turn it off
+}
