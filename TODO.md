@@ -35,6 +35,7 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
 - [ ] Unify most the ports implementation in only one file `module.c.v`
+- [ ] Generate the modules `arduino-generic-UARTx` instead of defining them for each target
 
 
 ### Done ✓make
