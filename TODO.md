@@ -33,6 +33,7 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
 - [ ] Update NXT target with the OOP API (v0.2.0)
+- [ ] Change the name of the devices/boards implementation folder from `ports` to `targets`  
 
 
 ### Done ✓make
