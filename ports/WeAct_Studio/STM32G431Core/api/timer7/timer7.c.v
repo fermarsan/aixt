@@ -28,3 +28,41 @@ fn C.TIMER7_WRITE_PERCENT(val int)
 fn C.TIMER7_SETMODE(channel int, mode int, pin int)
 
 fn C.TIMER7_COMPARE_CHANNEL_ISR(channel int, handler fn()) fn()
+
+@[as_macro]
+pub fn compare_irq_enable(ch int) {
+	C.TIMER7_COMPARE_ATTACHINTERRUPT(
+		ch, 
+		C.TIMER7_COMPARE_CHANNEL_ISR(ch, C.ptr_timer7_isr)
+	)
+}
+
+@[as_macro]
+pub fn irq_enable() {
+	C.TIMER7_ATTACHINTERRUPT(C.ptr_timer7_isr)
+}
+
+@[as_macro]
+pub fn write_percent(val int) {
+    C.TIMER7_WRITE_PERCENT(val)
+}
+
+@[as_macro]
+pub fn write_percent_channel(channel int, val int) {
+    C.TIMER7_WRITE_PERCENT_CHANNEL(channel, val)
+}
+
+@[as_macro]
+pub fn restart() {
+	C.TIMER7_RESUME() 
+}
+
+@[as_macro]
+pub fn setmode(channel int, mode int, pin int) {
+	C.TIMER7_SETMODE(channel, mode, pin)
+}
+
+@[as_macro]
+pub fn setup(value f32, format int) {
+	C.TIMER7_SETOVERFLOW(value, format)
+}
