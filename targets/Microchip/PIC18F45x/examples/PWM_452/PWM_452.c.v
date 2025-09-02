@@ -58,11 +58,11 @@
 
 #define _XTAL_FREQ 8000000
 #include <xc.h>
-#include "/home/aixt-project/ports/Microchip/PIC18F452/api/builtin.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/pin.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/adc.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F452/api/machine/pwm.c"
-#include "/home/aixt-project/ports/Microchip/PIC18F452/api/time/sleep_ms.c"
+#include "/home/aixt-project/targets/Microchip/PIC18F452/api/builtin.c"
+#include "/home/aixt-project/targets/Microchip/PIC18F452/api/machine/pin.c"
+#include "/home/aixt-project/targets/Microchip/PIC18F452/api/machine/adc.c"
+#include "/home/aixt-project/targets/Microchip/PIC18F452/api/machine/pwm.c"
+#include "/home/aixt-project/targets/Microchip/PIC18F452/api/time/sleep_ms.c"
 
 void main()
 {

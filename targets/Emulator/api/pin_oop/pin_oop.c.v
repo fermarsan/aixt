@@ -63,6 +63,7 @@ fn init() {
 }
 
 //new returns a new Pin instance
+[@inline]
 pub fn Pin.new(id u8) Pin {
     return Pin {
 		id: id
