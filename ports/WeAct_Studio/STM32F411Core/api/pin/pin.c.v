@@ -51,3 +51,12 @@ module pin
 @[as_macro] pub const output	= u8(C.OUTPUT)
 @[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
 @[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
+
+@[as_macro] const led0 = 31	// builtin LED
+@[as_macro] const sw0 = 0		// builtin Switch	
+
+fn init() {
+	setup(sw0, in_pulldown)	// the switch pin as input with pulldown resistor	
+	setup(led0, output)		// setup the pin of led0 as output
+	low(led0)				// an turn it off
+}
