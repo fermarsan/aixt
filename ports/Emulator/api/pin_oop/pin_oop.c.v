@@ -37,8 +37,10 @@ pub fn update() {
 		C.system('cls')
 	}
 	C.printf(' Aixt virtual pins     [#] = ON   [ ] = OFF\n')
-	C.printf(' _____ _____ _____ _____ _____ _____ _____ _____\n')
-	C.printf('|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |\n')
+	C.printf(' _____ _____ _____ _____ _____ _____ _____ _____
+')
+	C.printf('|  a  |  b  |  c  |  d  |  w  |  x  |  y  |  z  |
+')
 	for i in 0 .. 8 {
 		C.printf('| [')
 		if i <= 3 {
@@ -67,4 +69,52 @@ pub fn Pin.new(id u8) Pin {
     return Pin {
 		id: id
 	}
+}
+
+// high function puts a high value (logic 1) to a specific pin
+@[inline]
+pub fn (mut pin Pin) high() {	
+    pin__pins[pin.id] = 1
+    pin_oop.update()
+}
+
+// high function puts a low value (logic 0) to a specific pin
+@[inline]
+pub fn (mut pin Pin) low() {	
+    pin__pins[pin.id] = 0
+    pin_oop.update()
+}
+
+// write puts a logic value to a specific pin
+@[inline]
+pub fn (mut pin Pin) read() int {  
+	pin__input_value = 0
+    $if linux {
+        C.system("clear")
+    } $else {
+        C.system("cls")
+    }
+	C.printf(' Aixt virtual pins input	  pin %d : ', pin.id)
+    C.scanf('%ld', &pin__input_value)
+	if pin__input_value == 0 {
+        pin__pins[pin.id] = 0
+    } else {
+        pin__pins[pin.id] = 1
+    }
+    pin_oop.update()
+    return pin__input_value
+}
+
+// toggle function toggles the logic value of a specific pin
+@[inline]
+pub fn (mut pin Pin) toggle() {	
+    pin__pins[pin.id] ^= int(1)
+    pin_oop.update()
+}
+
+// write puts a logic value to a specific pin
+@[inline]
+pub fn (mut pin Pin) write(val int) {  
+    pin__pins[pin.id] = val
+    pin_oop.update()
 }

@@ -8,3 +8,4 @@
 
 module pwm
 
+// TODO: PWM channels defining

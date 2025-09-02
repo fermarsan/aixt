@@ -6,37 +6,28 @@
 // Description: Pin management functions (LQFP32 MiniEVB Nano - LGT8F328P port)
 module pin
 
-@[as_macro] pub const input		= u8(C.INPUT)
-@[as_macro] pub const output	= u8(C.OUTPUT)
-@[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
-@[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
-
-// setup configures a pin's input/output mode
-@[inline]
-pub fn setup(PIN_NAME, MODE) {
-	C.pinMode(PIN_NAME, MODE)
-}
-
-// high function puts a high value (logic 1) to a specific pin
-@[inline]
-pub fn high(PIN_NAME) {
-	C.digitalWrite(PIN_NAME, HIGH)
-}
-
-// low function puts a low value (logic 0) to a specific pin
-@[inline]
-pub fn low(PIN_NAME) {
-	C.digitalWrite(PIN_NAME, LOW)
-}
-
-//Reads the value from a specified digital pin, either HIGH or LOW
-@[inline]
-pub fn read(PIN_NAME) {
-	C.digitalRead(PIN_NAME)
-}
-
-//Write a HIGH or a LOW value to a digital pin
-@[inline]
-pub fn write(PIN_NAME, VALUE) {
-	C.digitalWrite(PIN_NAME, VALUE)
-}
+@[as_macro] pub const d0 = 0
+@[as_macro] pub const d1 = 1
+@[as_macro] pub const d2 = 2
+@[as_macro] pub const d3 = 3
+@[as_macro] pub const d4 = 4
+@[as_macro] pub const d5 = 5
+@[as_macro] pub const d6 = 6
+@[as_macro] pub const d7 = 7
+@[as_macro] pub const d8 = 8
+@[as_macro] pub const d9 = 9
+@[as_macro] pub const d10 = 10
+@[as_macro] pub const d11 = 11
+@[as_macro] pub const d12 = 12
+@[as_macro] pub const d13 = 13
+@[as_macro] pub const d14 = 14
+@[as_macro] pub const d15 = 15
+@[as_macro] pub const d16 = 16
+@[as_macro] pub const d17 = 17
+@[as_macro] pub const d18 = 18
+@[as_macro] pub const d19 = 19
+@[as_macro] pub const d20 = 20
+@[as_macro] pub const d21 = 21
+@[as_macro] pub const d22 = 22
+@[as_macro] pub const d23 = 23
+@[as_macro] pub const d25 = 25

@@ -11,3 +11,13 @@
 
 module pwm
 
+@[inline]
+pub fn write(PIN_NAME, MODE) {
+	C.pwmWrite(PIN_NAME, MODE)
+}
+
+@[inline]
+pub fn map(MODE, VALUE,VALUE1,VALUE2,VALUE3) {
+	C.map(MODE, VALUE,VALUE1,VALUE2,VALUE3)
+}
+

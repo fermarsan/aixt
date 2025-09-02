@@ -45,3 +45,8 @@ pub fn update() {
 fn init() {
     pwm.update()
 }
+
+pub fn write(channel int, duty int) {
+    pwm__duty[channel] = duty
+    pwm.update()
+}
