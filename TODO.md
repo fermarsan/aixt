@@ -34,7 +34,6 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] Issue: individual module components importing fails
-- [ ] Unify most the ports implementation in only one file `module.c.v`
 
 
 ### Done ✓make
@@ -53,3 +52,4 @@ Tasks to do in Aixt
 - [x] Change the C generation of commands: `import module { component }`, to reach it more to original V behavior (import all the `module` and enable a short pseudonym for `component`)
 - [x] Generate the modules `arduino-generic-UARTx` instead of defining them for each target
 - [x] Change the definition of builtin LEDs ans Switches from `builtin.c.v` to `pin.c.v` 
+- [x] Unify most the ports implementation in only one file `module.c.v`
