@@ -9,6 +9,3 @@
 
 #define TIMER1_COMPARE_CHANNEL_ISR(CH, HANDLER) HANDLER ## _ ## CH
 
-
-TIM_TypeDef *inst = TIM1;
-HardwareTimer *timer1 = new HardwareTimer(inst);
