@@ -1,7 +1,25 @@
 # Quick reference for Mindstorms NXT brick
-## (transpiled to NXC language)
 
-This **Aixt** port works as an **NXC** language wrapper. Most of the name functions keep the same function names, but using _snake\_case_ instead of _CamelCase_, but some of them are totally change. For instance this **Aixt** code:
+## Transpiled to NXC language
+
+The _NXT_ **Aixt** target transpiles the source _V_ code to the **NXC** language. From the API version 0.2.0, the main modules (`motor`, `sensor` and `button`) have two versions: one that uses functional programming and another one that uses `struct`s and methods (object oriented approach). The following examples show the different ways to write a program for _NXT_.
+
+- Using functional programming:
+
+```v
+import motor
+import time
+
+motor.write(motor.a, 75)    
+motor.write(motor.c, 75)
+time.sleep_ms(4000)          
+motor.write(motors.ac, -75)  
+time.sleep_ms(4000)
+motor.off(motors.ac)
+```
+
+- using struct-based programming and module's global variables
+
 ```v
 import motor
 import time
@@ -13,8 +31,28 @@ motors_ac.write(-75)
 time.sleep_ms(4000)
 motors_ac.off()
 ```
+```
 
-will be transpiled to:
+- using struct-based programming and custom instances 
+
+```v
+import motor { Motor }
+import time
+
+mut left := Motor.new(motor.a)
+mut right := Motor.new(motor.c)
+mut left_right := Motor.new(motor.ac)
+
+left.write(75)    
+right.write(75)
+time.sleep_ms(4000)          
+leff_right.write(-75)  
+time.sleep_ms(4000)
+leff_right.off()
+```
+
+
+All of those codes is be equivalent to:
 ```c
 task main()
 {
@@ -72,7 +110,7 @@ touch.setup(sensor.touch)	// configure the sensor as touch
 task.priority(move_square, check_sensors)
 ```
 
-will be transpiled to:
+will be equivalent to:
 ```c
 mutex move_mutex;
 

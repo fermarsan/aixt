@@ -53,4 +53,4 @@ Tasks to do in Aixt
 - [x] `pin_fast` module implemented for PIC16
 - [x] Change the name of the devices/boards implementation folder from `ports` to `targets` 
 - [x] NXT target API (motor, sensor and button modules) updated to v0.2.0 (OOP)
-- [x] NXT test examples split in 'Funcional' and 'Object Oriented'
+- [x] NXT test examples split in 'funcional' and 'struct-based' (object oriented approach)
