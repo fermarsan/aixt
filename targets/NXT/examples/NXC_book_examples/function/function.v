@@ -1,14 +1,17 @@
-import motor
+import motor { Motor }
 import time
 
+mut left_m := Motor.new(motor.a)
+mut right_m := Motor.new(motor.b)
+mut both_m := Motor.new(motor.ab)
 
 fn turn_around() {
-	motor.write(motor.b, -75)
+	right_m.write(-75)
 	time.sleep_ms(3400)
-	motor.write(motor.ab, 75)
+	both_m.write(75)
 }	 
 
-motor.write(motor.ab, 75)
+both.write(75)
 time.sleep_ms(1)
 
 turn_around()
@@ -18,4 +21,4 @@ turn_around()
 time.sleep_ms(1)
 
 turn_around()
-motor.off(motor.ab)
+both_m.off()

@@ -1,16 +1,16 @@
 import motor
-import time
+import time { sleep_ms }
 
 const move_time = 1000
 const turn_time = 500
 
 for _ in 1..10 {
 	for _ in 1..4 {
-		motor.write(motor.ac, 75)
-		time.sleep_ms(move_time)
-		motor.write(motor.c, -75)
-		time.sleep_ms(turn_time)
+		motor_ac.write(75)
+		sleep_ms(move_time)
+		motor_c.write(-75)
+		sleep_ms(turn_time)
 	}
 }
 
-motor.off(motor.ac)
+motor_ac.off()

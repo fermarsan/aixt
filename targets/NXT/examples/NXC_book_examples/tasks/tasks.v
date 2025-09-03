@@ -1,11 +1,7 @@
-import motor
-import sensor
+import motor_fn as motor
+import sensor_fn as sensor
 import time
 import task
-
-
-// @[mutex]
-// __global move_mutex = 0		// initialization value is necessary but will be ignored
 
 __global move_mutex = Mutex(0)
 

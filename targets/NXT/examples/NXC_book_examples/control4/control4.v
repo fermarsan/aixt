@@ -1,5 +1,6 @@
-import sensor
+import sensor { Sensor }
 
-sensor.write_type(sensor.s3, sensor.type_light_inactive)
-sensor.write_mode(sensor.s3, sensor.mode_pct_full_scale)
-sensor.reset(sensor.s3)
+mut my_sensor := Sensor.new(sensor.s3)
+my_sensor.write_type(sensor.type_light_inactive)
+my_sensor.write_mode(sensor.mode_pct_full_scale)
+my_sensor.reset()

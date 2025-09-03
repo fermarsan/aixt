@@ -1,5 +1,5 @@
-import motor
-import sensor
+import motor_fn as motor
+import sensor_fn as sensor
 import time
 
 sensor.write_type(sensor.s1, sensor.type_touch)

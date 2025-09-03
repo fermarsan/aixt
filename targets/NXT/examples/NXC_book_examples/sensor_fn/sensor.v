@@ -1,5 +1,5 @@
-import motor
-import sensor
+import motor_fn as motor
+import sensor_fn as sensor
 
 sensor.setup(sensor.s1, sensor.touch)
 motor.write(motor.ac, 75)

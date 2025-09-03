@@ -1,4 +1,4 @@
-import motor
+import motor { Motor }
 
-motor.rotate(motor.ac, 50, 360)
-motor.rotate(motor.c, 50, -360)
+motor_ac.rotate(50, 360)
+motor_c.rotate(50, -360)

@@ -1,4 +1,4 @@
-import motor
+import motor_fn as motor
 import sound
 import time
 

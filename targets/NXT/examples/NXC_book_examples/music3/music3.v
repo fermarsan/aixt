@@ -1,5 +1,5 @@
 import sound
-import motor
+import motor_fn as motor
 import time
 import task
 

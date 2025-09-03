@@ -1,5 +1,5 @@
-import motor
-import sensor
+import motor_fn as motor
+import sensor_fn as sensor
 import time
 
 const threshold = 40

@@ -5,8 +5,8 @@ const move_time = 1000
 const turn_time = 360
 
 
-motor.write(motor.ac, 75)
+motor_ac.write(75)
 time.sleep(move_time)
-motor.write(motor.c, -75)
+motor_c.write(-75)
 time.sleep(turn_time)
-motor.off(motor.ac)
+motor_ac.off()
