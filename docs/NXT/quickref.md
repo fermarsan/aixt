@@ -3,12 +3,15 @@
 
 This **Aixt** port works as an **NXC** language wrapper. Most of the name functions keep the same function names, but using _snake\_case_ instead of _CamelCase_, but some of them are totally change. For instance this **Aixt** code:
 ```v
-forward(motor_a, 75)    
-forward(motor_c, 75)
-time.sleep(4000)          
-reverse(motors_ac, 75)  
-time.sleep(4000)
-off(motors_ac)
+import motor
+import time
+
+motor_a.write(75)    
+motor_c.write(75)
+time.sleep_ms(4000)          
+motors_ac.write(-75)  
+time.sleep_ms(4000)
+motors_ac.off()
 ```
 
 will be transpiled to:
@@ -18,43 +21,55 @@ task main()
     OnFwd(OUT_A, 75);
     OnFwd(OUT_C, 75);
     Wait(4000);
-    OnRev(OUT_AC, 75);
+    OnFwd(OUT_AC, -75);
     Wait(4000);
     Off(OUT_AC);
 }
 ```
 
 ## Multitasking
-The **Aixt** port for **NXC** language suports _tasks_ by using attributes and special variable types. In this case the special type `mutex` is used for implementing mutex variables, and the attribute `[task]` for implementing task functions. For instance, the follow code: 
+The **Aixt** port for **NXC** language supports _tasks_ by using attributes and special variable types. In this case the special alias type `Mutex` is used for implementing mutex variables, and the attribute `[@task]` for implementing task functions. For instance, the follow code: 
+
 ```v
-@[task] fn move_square() {
-    for {
-        acquire(move_mutex)
-        forward(motors_ac, 75)
-        sleep(1000)
-        reverse(motor_c, 75)
-        sleep(500)
-        release(move_mutex)
-    }
+import motor
+import sensor { Sensor }
+import time
+import task
+
+
+__global (
+	move_mutex = Mutex(0)			// mutex variable
+	touch = Sensor.new(sensor.s1)	// sensor variable
+)
+
+@[task]
+fn move_square() {
+	for {
+		task.mutex_lock(move_mutex)
+		motor_ac.write(75)
+		time.sleep_ms(1000)
+		motor_c.write(-75)	// reverse
+		time.sleep_ms(500)
+		task.mutex_unlock(move_mutex)
+	}
 }
 
-@[task] fn check_sensors() {
-    for {
-        if sensor_1 == 1 {
-            acquire(move_mutex)
-            reverse(motors_ac, 75)
-            sleep(500)
-            forward(motor_a, 75)
-            sleep(500)
-            release(move_mutex)
-        }
-    }
+@[task]
+fn check_sensors() {
+	for {
+		if touch.read() == 1 {
+			task.mutex_lock(move_mutex)
+			motor_ac.write(-75)	// reverse
+			time.sleep_ms(500)
+			motor_a.write(75)
+			time.sleep_ms(500)
+			task.mutex_unlock(move_mutex)
+		}
+	}
 }
 
-move_mutex := mutex('') //initialization value is necesary but will be ingnored
-
+touch.setup(sensor.touch)	// configure the sensor as touch
 task.priority(move_square, check_sensors)
-set_sensor_touch(in_1)
 ```
 
 will be transpiled to:
@@ -97,9 +112,7 @@ task main()
 }
 ```
 
-The complete list of the equivalences is in [NXT.toml](ports/setup/NXT.toml) file in the dictionary named `aliases`.
-
-The NXC port of **Aixt** can be used in _script_ mode (without main function). In that case the _mutex_ variables have to be "declared" after _task_ functions definition, as shown in the previous example.
+The NXC port of **Aixt** can be used in _script_ mode (without main function). In that case the _Mutex_ variables have to be "declared" after _task_ functions definition, as shown in the previous example.
 
 # Installing
 `Aixt` project includes the `nbc` compiler for both _Windows_ and _Linux_, but you have to install manually the USB drivers.
@@ -109,7 +122,7 @@ Download the _NXT_ software from (https://education.lego.com/en-us/downloads/ret
 
 
 ## for Linux
-Install the last version of `libusb-dev` package acording to your distribution. For instance in a _Debian-based_ distribution you can type in a terminal:
+Install the last version of `libusb-dev` package according to your distribution. For instance in a _Debian-based_ distribution you can type in a terminal:
 ```
 apt-get install libusb-1.0-0-dev
 ```

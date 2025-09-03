@@ -1,6 +1,6 @@
 module main
 
-type Mutex = int
+pub type Mutex = int
 
 // #################### NXC Command module ####################
 

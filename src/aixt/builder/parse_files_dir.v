@@ -17,6 +17,11 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 
 	// -------------------- Find the main source files --------------------
 	mut file_paths := b.v_files_from_dir(os.dir(path))
+	// println(path)
+	// println(os.dir(path))
+	// for file in file_paths {
+	// 	println(file)
+	// }
 
 	// -------------------- Add the builtin file first --------------------
 	api_base_path := '${b.aixt_path}' + os.path_separator + 'targets' + os.path_separator +
