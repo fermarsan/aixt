@@ -32,7 +32,7 @@ aixt/
     :   :
     │   └── WCH
     ├── LICENSE
-    ├── ports
+    ├── targets
     │   ├── Atmel
     │   ├── Cypress
     :   :
@@ -45,10 +45,10 @@ aixt/
 
 - The _source code_ is located in the `src` folder.
 - The `assets/` folder contains the resource files such images.
-- The `ports/` folder contains the implementation code for each device or board (mainly Aixt's V source code)
+- The `targets/` folder contains the implementation code for each device or board (mainly Aixt's V source code)
 - The `docs/` folder contains the documentation for each device or board
 
-For each device or board implementation, two folders with the same name must exist inside `ports` and `docs` folders`, for the implementation itself and the correspondent documentation:
+For each device or board implementation, two folders with the same name must exist inside `targets` and `docs` folders`, for the implementation itself and the correspondent documentation:
 
 ```
 aixt/    
@@ -58,14 +58,14 @@ aixt/
     │   ├── Emulator
     :   :
     :
-    ├── ports
+    ├── targets
     :   :
     │   ├── Emulator
     :   :
     :
 ```
 
-## `ports` folder
+## `targets` folder
 This contains the implementation in _C_ language of the Aixt API, projects and _Aixt_ examples, of each device or board. The recommended folder tree for each port is:
 
 ```

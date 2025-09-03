@@ -17,7 +17,7 @@ aixt/targets/Emulator/api
 All the API implementations have to follow this basic folder tree:
 
 ```
-ports/Microchip/Explorer-16/PIC24/api/
+targets/Microchip/Explorer-16/PIC24/api/
 ├── builtin.c
 ├──pin
 │   ├── pin.c
