@@ -3,7 +3,7 @@
 // Device = CY8CKIT-049
 // Board = CY8CKIT-049-42XX
 // Backend = c
-
+#include "project.h"
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>

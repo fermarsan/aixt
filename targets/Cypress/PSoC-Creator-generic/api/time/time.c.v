@@ -7,17 +7,6 @@
 
 module time
 
+
 fn C.CyDelay(tms any)
 fn C.CyDelayUs(tus any)
-
-// sleep is a delay function in milliseconds for Arduino devices 
-@[as_macro]
-pub fn sleep_ms(tms any) {
-	C.CyDelay(tms)
-}
-
-// sleep is a delay function in microseconds for Arduino devices
-@[as_macro]
-pub fn sleep_us(tus any) {
-	C.CyDelayUs(tus)
-}

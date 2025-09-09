@@ -32,65 +32,74 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 ## Identificación de puertos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
 
-| Puerto | nombre    | Tipo    |
-| ------ | --------- | ------- |
-| 1.6    | led1      | salida  |
-| 0.7    | sw1       | entrada |
-| 0.0    | di0       | entrada |
-| 0.1    | di1       | entrada |
-| 0.2    | di2       | entrada |
-| 0.3    | di3       | entrada |
-| 0.4    | di4       | entrada |
-| 0.5    | di5       | entrada |
-| 0.6    | di6       | entrada |
-| 1.1    | di7       | entrada |
-| 1.3    | di8       | entrada |
-| 1.4    | di9       | entrada |
-| 1.5    | di10      | entrada |
-| 1.7    | do0       | salida  |
-| 2.5    | do1       | salida  |
-| 2.7    | do2       | salida  |
-| 3.0    | do3       | salida  |
-| 3.1    | do4       | salida  |
-| 3.4    | do5       | salida  |
-| 3.5    | do6       | salida  |
-| 3.6    | do7       | salida  |
-| 3.7    | do8       | salida  |
-| 4.2    | do9       | salida  |
-| 4.3    | do10      | salida  |
-| 1.0    | out_pwm0  | salida  |
-| 1.2    | out_pwm1  | salida  |
-| 2.4    | out_pwm2  | salida  |
-| 2.6    | out_pwm3  | salida  |
-| 2.0    | in0_adc   | entrada |
-| 2.1    | in1_adc   | entrada |
-| 2.2    | in2_adc   | entrada |
-| 2.3    | in3_adc   | entrada |
-| 4.0    | \uart:rx\ | salida  |
-| 4.1    | \uart:tx\ | salida  |
+Puerto | nombre |Tipo    |
+--  |-       |-       |
+1.6 |led1    |salida
+0.7 |sw1     |entrada 
+0.0 |di0     |entrada 
+0.1 |di1     |entrada
+0.2 |di2     |entrada
+0.3 |di3     |entrada
+0.4 |di4     |entrada
+0.5 |di5     |entrada
+0.6 |di6     |entrada
+1.1 |di7     |entrada
+1.3 |di8     |entrada
+1.4 |di9     |entrada
+1.5 |di10    |entrada
+1.7 |do0     |salida 
+2.5 |do1     |salida
+2.7 |do2     |salida
+3.0 |do3     |salida
+3.1 |do4     |salida
+3.4 |do5     |salida
+3.5 |do6     |salida
+3.6 |do7     |salida
+3.7 |do8     |salida
+4.2 |do9     |salida
+4.3 |do10    |salida
+1.0 |out_pwm0|salida
+1.2 |out_pwm1|salida
+2.4 |out_pwm2|salida
+2.6 |out_pwm3|salida
+2.0 |in0_adc |entrada
+2.1 |in1_adc  |entrada
+2.2 |in2_adc  |entrada
+2.3 |in3_adc |entrada
+4.0 |\uart:rx\ |salida
+4.1 |\uart:tx\ |salida
 
 ## Programación en lenguaje v
 
+El esquema de la tarjeta está configurado para programar lo siguientes módulos:
+
+* modulo pin
+* modulo PWM
+* modulo Uart
+* modulo ADC
+
+Para cada uno de los siguientes módulos se obtendrá un archivo .c.v nombrado de la misma manera que el módulo
+
 ### Configuración puertos de salida
 
-Para activar el puerto que va ha usar;
+Para activar el puerto que va a usar;
 ```v
 pin.high(pin_name)
 ```
-*Ejemplo: Si se desea activar el puerto do0;  `pin.high(pin.do0)`.*
+*Ejemplo: Si se desea activar el puerto 1.6 nombrado Led1;  `pin.high(led1)`.*
 
 Para desactivar el puerto que se está usando;
 ```v
 pin.low(pin_name)
 ```
-*Ejemplo: Si se desea desactivar el puerto do0;  `pin.low(pin.do0)`.*
+*Ejemplo: Si se desea desactivar el puerto 1.6 nombrado Led1;  `pin.low(led1)`.*
 
-Para desactivar o activar el puerto que se va ha usar;
+Para desactivar o activar el puerto que se va a usar;
 
 ```v
 pin.write(pin_name, value)
 ```
-*Ejemplo: Si se desea desactivar el puerto do0;  `pin.write(do0, 1)`, y si se desea activar;  `pin.write(pin.do0, 0)`.*
+*Ejemplo: Si se desea desactivar el puerto 1.6;  `pin.write(led1, 1)`, y si se desea activar el puerto 1.6;  `pin.write(led1, 0)`.*
 
 ### Detección puertos de entrada
 
@@ -99,21 +108,7 @@ Si se necesita saber en que estado esta un puerto de entrada:
 x = pin.read(pin_name)
 ```
 
-*Ejemplo: Si se desea detectar el valor del puerto di0; `x = pin.read(pin.di0)`, y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
-
-### Puertos análogos a digital (ADC)
-
-Para configurar uno de los puertos análogos;
-```v
-adc.setup(channel, setup_value_1, ... )
-```
-*En channel se introduce el nombre del puerto análogo, en setup_value_1 el valor que se le va ha dar ha dicho puerto.*
-
-Para detectar el valor del puerto análogo;
-```v
-x = adc.read(channel)
-```
-*En channel se introduce el nombre del puerto análogo, y x toma el valor que tenga dicho puerto.*
+*Ejemplo: Si se desea detectar el valor del puerto 1.6; `x = pin.read(led1)`, y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
 
 ### PWM
 
@@ -130,7 +125,21 @@ pwm_duty(pwm_id, duty)
 ```
 *En pwm_id se pone el pwm a usar,  y en duty el valor del ciclo (de 0 a 100) en porcentaje.*
 
-### Serial communication (UART)
+### Puertos análogos a digital (ADC)
+
+Para configurar uno de los puertos análogos;
+```v
+adc.setup(channel, setup_value_1, ... )
+```
+*En channel se introduce el nombre del puerto análogo, en setup_value_1 el valor que se le va ha dar ha dicho puerto.*
+
+Para detectar el valor del puerto análogo;
+```v
+x = adc.read(channel)
+```
+*En channel se introduce el nombre del puerto análogo, y x toma el valor que tenga dicho puerto.*
+
+### Serial comunication (UART)
 
 Para configurar un puerto UART;
 ```v
@@ -180,18 +189,95 @@ time.sleep_us(us)
 ```
 *En cada expresión, el valor del tiempo se pone dentro del parentesis.*
 
-Ejemplo LED parapadeante
+### Implementación del proyecto aixt
+
+Estos son algunos ejemplos de códigos en lenguaje v que se pueden impplementar
+
+* Ejemplo LED parpadeante
+
+- con la función High y Low
 
 ```v
-import machine { pin }
-import time { sleep_ms }
+import time {sleep_ms}
+import pin
 
-pin_mode(led1, out)
 
-for {   //infinite loop
-    pin.high(led1)
-    sleep_ms(500)
-    pin.low(led1)
-    sleep_ms(500)
+for {
+
+	pin.high(led1)
+	time.sleep_ms(5000)
+	pin.low(led1)
+	time.sleep_ms(5000)
+
 }
-```
+
+- con la función Write
+
+```v
+import time {sleep_ms}
+import pin
+
+
+for {
+
+	pin.write(led1, 0)
+	time.sleep_ms(500)
+	pin.write(led1, 1)
+	time.sleep_ms(500)
+
+}
+
+- con la función Read
+
+* Ejemplo PWM 
+
+```v
+import time {sleep_ms}
+import pwm
+
+//pin.setup(17, pin.output)
+
+for {
+    pwm.write(pwm.ch1, 10000)
+    sleep_ms(500)
+
+    pwm.write(pwm.ch1, 5000)
+    sleep_ms(500)
+
+    pwm.write(pwm.ch1, 0)
+    sleep_ms(500)
+    
+ }
+
+* Ejemplo de UART
+
+```v
+import time {sleep_ms}
+import uart
+
+uart.setup()
+
+
+for {
+
+uart.print("message...\r\n")
+time.sleep_ms(1000)
+
+}
+
+* Ejemplo de adc
+
+```v
+
+import time
+import uart
+import adc
+
+uart.setup()
+adc.setup()
+
+for {
+	analog := adc.read(adc.ch0)
+	uart.println('ADC channel 0: ${analog}')
+	time.sleep_ms(1000)
+}

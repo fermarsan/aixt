@@ -1,4 +1,3 @@
-
 # Guía rápida PSoC4
 Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT14540XX
 
@@ -24,7 +23,7 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 - 3 entradas digitales
 - 3 salidas digitales
 - 5 sensores capacitivos tipo slider
-- 3 sensores capacitivos tipo button
+- 3 sensores capacitivos tipo boton
 
 *visualización en PSoC creator*
 
@@ -33,64 +32,71 @@ Se integran las funciones básicas del microcontrolados para generar una estruct
 ## Identificación de puertos
 A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
 
-| Puerto | nombre    | Tipo    |
-| ------ | --------- | ------- |
-| 2.5    | led1      | salida  |
-| 2.0    | led4      | salida  |
-| 2.1    | led5      | salida  |
-| 2.2    | led6      | salida  |
-| 2.3    | led7      | salida  |
-| 2.4    | led8      | salida  |
-| 3.4    | led9      | salida  |
-| 3.5    | led10     | salida  |
-| 3.6    | led11     | salida  |
-| 0.7    | sw2       | entrada |
-| 2.7    | di0       | entrada |
-| 0.4    | di1       | entrada |
-| 1.7    | di2       | entrada |
-| 4.0    | do0       | salida  |
-| 0.5    | do1       | salida  |
-| 3.7    | do2       | salida  |
-| 1.2    | out_pwm0  | salida  |
-| 2.6    | out_pwm1  | salida  |
-| 1.0    | out_pwm2  | salida  |
-| 3.0    | \uart:rx\ | salida  |
-| 3.1    | \uart:tx\ | salida  |
-| 0.0    | SLD0      | entrada |
-| 0.1    | SLD1      | entrada |
-| 0.2    | SLD2      | entrada |
-| 0.3    | SLD3      | entrada |
-| 0.6    | SLD4      | entrada |
-| 1.4    | BTN0      | entrada |
-| 1.5    | BTN1      | entrada |
-| 1.6    | BTN2      | entrada |
+Puerto | nombre |Tipo    |
+--  |-       |-       |
+2.5 |led1    |salida
+2.0 |led4    |salida
+2.1 |led5    |salida
+2.2 |led6    |salida
+2.3 |led7    |salida
+2.4 |led8    |salida
+3.4 |led9    |salida
+3.5 |led10   |salida
+3.6 |led11   |salida
+0.7 |sw2     |entrada
+2.7 |di0     |entrada
+0.4 |di1     |entrada
+1.7 |di2     |entrada
+4.0 |do0     |salida
+0.5 |do1     |salida
+3.7 |do2     |salida
+1.2 |out_pwm0|salida
+2.6 |out_pwm1|salida
+1.0 |out_pwm2|salida
+3.0 |\uart:rx\ |salida
+3.1 |\uart:tx\ |salida
+0.0 |sld0     |entrada
+0.1 |sld1     |entrada
+0.2 |sld2     |entrada
+0.3 |sld3     |entrada
+0.6 |sld4     |entrada
+1.4 |btn0     |entrada
+1.5 |btn1     |entrada
+1.6 |btn2     |entrada
 
 ## Programación en lenguaje v
+
+For each of these modules, you will have a file in .c.v format with the same name of the module and in this you will have the text module followed by the name of the module, example:
+
+* module pin
+* module pwm
+* module uart
+* module adc
 
 Algo importante en esta tarjeta es la activación de los leds, estos se encienden con ceros logicos, como se puede apreciar en los leds correspondientes a los sensores capacitivos tipo slider:
 
 ![Alt text](Imagenes/CY8CKIT14540XX/leds14540.jpg)
 
-### Pin output
+### Output port configuration
 
 Para activar el puerto que va ha usar;
 ```v
 pin.high(pin_name)
 ```
-*Ejemplo: si se desea activar el puerto do0; ` pin.high(pin.do0)`.*
+*Ejemplo: si se desea activar el puerto de salida llamado led1; ` pin.high(led1)`.*
 
 Para desactivar el puerto que se está usando;
 ```v
 pin.low(pin_name)
 ```
-*Ejemplo: si se desea desactivar el puerto do0; `pin.low(pin.do0)`.*
+*Ejemplo: si se desea desactivar puerto de salida llamado led1; `pin.low(led1)`.*
 
 Para desactivar o activar el puerto que se va ha usar;
 
 ```v
 pin.write(pin_name, value)
 ```
-*Ejemplo: si se desea desactivar el puerto do0;  `pin.write(do0, 1)`, y si se desea activar;  `pin.write(pin.do0, 0)`.*
+*Ejemplo: si se desea desactivar el puerto led1;  `pin.write(led1, 1)`, y si se desea activar;  `pin.write(led1, 0)`.*
 
 ### Detección puertos de entrada
 
@@ -99,51 +105,55 @@ Si se necesita saber en que estado esta un puerto de entrada:
 x = pin.read(pin_name)
 ```
 
-*Ejemplo: Si se desea detectar el valor del puerto di0;  `x = pin.read(pin.di0)`, y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
+*Ejemplo: Si se desea detectar el valor del puerto sw2;  `x = pin.read(sw2) `, y x tomara el valor de 0 o 1, dependiendo si el puerto está activo o desactivado.*
 
 ### PWM
 
 Para configurar algún pwm;
 ```v
-pwm.setup(pwm_id, setup_value_1, ... )
+pwm.write(pwm.channel,duty)
 ```
-*En pwm_id se pone el pwm a usar,  y en setup_value_1 el valor al cual se desea configurar dicho pwm.*
+*En pwm.channel se pone el pwm a usar,  y en duty el valor del ciclo de trabajo de un modulador (de 0 a 10000).*
 
-
-Ahora, para configurar el ciclo de trabajo de un modulador;
-```v
-pwm_duty(pwm_id, duty)
-```
-*En pwm_id se pone el pwm a usar,  y en duty el valor del ciclo (de 0 a 100) en porcentaje.*
-
-### Serial communication (UART)
+### Serial comunication (UART)
 
 Para configurar un puerto UART;
 ```v
-uart.setup(uart_id, baud_rate)
+
+uart.setup(),Starts the uart. 
+
+uart.print("message...\r\n")
+
 ```
-*Aquí uart_id es el nombre del puerto que se va ha usar, y baud_rate es el valor de los baudios al cual se va ha usar.*
+*Debido a que el puerto ya está definido como "uart:tx", este es el único puerto de comunicación serial Uart disponible, por lo tanto lo que se cescriba en lugar de "message" es la información que se va a imprimir.
 
-Si se requiere ingresar un valor a un puerto UART;
-```v
-x = uart.input(uart_id)
-```
-*Donde x es dicho valor.*
+uart.print(message string),  Places a NULL terminated string in the transmit buffer to be sent at the next
+available bus time.
 
-En el caso de que se necesite tomar un valor del puerto UART que se esta usando;
+uart.println(), Places byte of data followed by a carriage return (0x0D) and line feed (0x0A)
+to the transmit buffer.
 
--Forma lineal
-```v
-uart.println(uart_id, message)
-```
-*Muestra el mensaje (message) de tal forma que un carácter sigue al otro.*
+uart.read(), Retrieves next data element from receive buffer.
 
--Forma no lineal
-```v
-uart.print(uart_id, message)
-```
-*Muestra el mensaje (message) con saltos de renglon.*
+uart.write(), Places a byte of data in the transmit buffer to be sent at the next available bus
+time.
 
+
+### ADC
+
+Para configurar el módulo ADC utilizando los capsense de la tarjeta
+
+adc.read(adc.channel)
+
+El ADC por sí solo convierte la señal analógica en un número digital, pero ese número se queda dentro del microcontrolador. Para que la transmición y visualización de datos sea posible, se hace llamado de las funciones de la uart.
+
+uart.setup(), inicia el modulo Uart
+
+uart.println('ADC channel 0: ${analog}'), imprimir una cadena de texto y al final añadir un salto de línea. Contiene un texto fijo: "ADC channel 0:", contiene una interpolación de variable: ${analog}.
+
+
+
+Para 
 ### Retardos
 
 Uso de tiempos;
@@ -166,18 +176,101 @@ time.sleep_us(us)
 ```
 *En cada expresión, el valor del tiempo se pone dentro del parentesis.*
 
-Ejemplo LED parapadeante
+Ejemplo LED parapadeante funcion high and low
+
+import time {sleep_ms}
+import pin
+
+
+
+for {
+<<<<<<< HEAD
+	pin.high(led1)
+	time.sleep_ms(5000)
+	pin.low(led1)
+	time.sleep_ms(5000)
+}
+
+Ejemplo LED parapadeante funcion write
 
 ```v
-import machine { pin }
-import time { sleep_ms }
+import time
+import pin
 
-pin_mode(led1, out)
-
-for {   //infinite loop
-    pin.high(led1)
-    sleep_ms(500)
-    pin.low(led1)
-    sleep_ms(500)
+for {
+	pin.write(led_1, 0)
+	time.sleep_ms(500)
+	pin.write(led_1, 1)
+	time.sleep_ms(500)
 }
+
 ```
+Ejemplo LED parapadeante funcion read
+
+import time {sleep_ms}
+import pin
+
+
+
+for {
+    if pin.read(sw2) == 1 {     // Si el botón está presionado (valor lógico alto)
+        pin.high(led1)           // Encender LED
+    } else {
+        pin.low(led1)            // Apagar LED
+    }
+
+    time.sleep_ms(100)             // Pequeña espera para evitar rebotes
+}
+
+
+Ejemplo PWM
+
+```v
+import time {sleep_ms}
+import pwm
+
+//pin.setup(17, pin.output)
+
+for {
+    pwm.write(pwm.ch1, 10000)
+    sleep_ms(500)
+
+    pwm.write(pwm.ch1, 5000)
+    sleep_ms(500)
+
+    pwm.write(pwm.ch1, 0)
+    sleep_ms(500)
+    
+ }
+
+ ```
+
+ Ejemplo UART
+
+ import time {sleep_ms}
+import uart
+
+uart.setup()
+
+
+for {
+
+uart.print("Enviando por UART...\r\n")
+time.sleep_ms(1000) 
+
+}
+
+Ejemplo ADC
+
+import time
+import uart
+import adc
+
+uart.setup()
+
+for {
+	analog := adc.read(adc.ch0)
+	uart.println('ADC channel 0: ${analog}')
+	time.sleep_ms(1000)
+}
+
