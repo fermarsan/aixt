@@ -1,70 +1,72 @@
-# Guía rápida PSoC4
-Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT14540XX
+# Quick Guide PSoC4
 
-# Identificación tarjeta CY8CKIT14540XX	
+This Aixt implementation for PSoC 4 supports the CY8CKIT14540XX board.
 
-## Vista
+# This Aixt implementation for PSoC 4 supports the CY8CKIT14540XX board.
+
+## View
 
 ![Alt text](Imagenes/CY8CKIT14540XX/vista_general.jpg)
 
-## Hoja de datos
+## Datasheet
 [CY8CKIT14540XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-145-40XX_PSoC_4000S_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0efccdd91344)
 
 
 
-# Configuración general
+# General Configuration
 
-Se integran las funciones básicas del microcontrolados para generar una estructura hardware general, asi;
+The basic microcontroller functions are integrated to generate a general hardware structure, as follows:
 
 - 3 pwms
 - 9 leds
-- 1 pulsador
-- 2 puertos de comunicación
-- 3 entradas digitales
-- 3 salidas digitales
-- 5 sensores capacitivos tipo slider
-- 3 sensores capacitivos tipo boton
+- 1 push button
+- 2 communication ports
+- 3 digital inputs
+- 3 digital inputs
+- 5 capacitive slider sensors
+- 3 capacitive button sensors
 
-*visualización en PSoC creator*
+*Visualization in PSoC Creator*
 
 ![!\[Alt text\](Imagenes/CY8CKIT14540XX/vista_general.jpg)](Imagenes/CY8CKIT14540XX/Estructura_general_hardware_14540.jpg)
 
-## Identificación de puertos
-A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
+## Port Identification
 
-Puerto | nombre |Tipo    |
+The following table shows the ports used and their assigned names for programming: 
+
+Port | name |Type   |
 --  |-       |-       |
-2.5 |led1    |salida
-2.0 |led4    |salida
-2.1 |led5    |salida
-2.2 |led6    |salida
-2.3 |led7    |salida
-2.4 |led8    |salida
-3.4 |led9    |salida
-3.5 |led10   |salida
-3.6 |led11   |salida
-0.7 |sw2     |entrada
-2.7 |di0     |entrada
-0.4 |di1     |entrada
-1.7 |di2     |entrada
-4.0 |do0     |salida
-0.5 |do1     |salida
-3.7 |do2     |salida
-1.2 |out_pwm0|salida
-2.6 |out_pwm1|salida
-1.0 |out_pwm2|salida
-3.0 |\uart:rx\ |salida
-3.1 |\uart:tx\ |salida
-0.0 |sld0     |entrada
-0.1 |sld1     |entrada
-0.2 |sld2     |entrada
-0.3 |sld3     |entrada
-0.6 |sld4     |entrada
-1.4 |btn0     |entrada
-1.5 |btn1     |entrada
-1.6 |btn2     |entrada
+2.5 |led1    |outpout
+2.0 |led4    |outpout
+2.1 |led5    |outpout
+2.2 |led6    |outpout
+2.3 |led7    |outpout
+2.4 |led8    |outpout
+3.4 |led9    |outpout
+3.5 |led10   |outpout
+3.6 |led11   |outpout
+0.7 |sw2     |input
+2.7 |di0     |input
+0.4 |di1     |input
+1.7 |di2     |input
+4.0 |do0     |outpout
+0.5 |do1     |outpout
+3.7 |do2     |outpout
+1.2 |out_pwm0|outpout
+2.6 |out_pwm1|outpout
+1.0 |out_pwm2|outpout
+3.0 |\uart:rx\ |outpout
+3.1 |\uart:tx\ |outpout
+0.0 |sld0     |input
+0.1 |sld1     |input
+0.2 |sld2     |input
+0.3 |sld3     |input
+0.6 |sld4     |input
+1.4 |btn0     |input
+1.5 |btn1     |input
+1.6 |btn2     |input
 
-## Programación en lenguaje v
+## Programming in V language
 
 For each of these modules, you will have a file in .c.v format with the same name of the module and in this you will have the text module followed by the name of the module, example:
 
@@ -73,114 +75,136 @@ For each of these modules, you will have a file in .c.v format with the same nam
 * module uart
 * module adc
 
-Algo importante en esta tarjeta es la activación de los leds, estos se encienden con ceros logicos, como se puede apreciar en los leds correspondientes a los sensores capacitivos tipo slider:
+An important feature of this board is the LED activation: LEDs turn on with logical zeroes, as shown in the LEDs corresponding to the capacitive slider sensors:
 
 ![Alt text](Imagenes/CY8CKIT14540XX/leds14540.jpg)
 
 ### Output port configuration
 
-Para activar el puerto que va ha usar;
+To activate an output port;
 ```v
 pin.high(pin_name)
 ```
-*Ejemplo: si se desea activar el puerto de salida llamado led1; ` pin.high(led1)`.*
+*Example: to activate the output port called led1; ` pin.high(led1)`*
 
-Para desactivar el puerto que se está usando;
+To deactivate an output port;
 ```v
 pin.low(pin_name)
 ```
-*Ejemplo: si se desea desactivar puerto de salida llamado led1; `pin.low(led1)`.*
+*Example: to deactivate the output port called led1; `pin.low(led1)`*
 
-Para desactivar o activar el puerto que se va ha usar;
+To activate or deactivate an output port;
 
 ```v
 pin.write(pin_name, value)
 ```
-*Ejemplo: si se desea desactivar el puerto led1;  `pin.write(led1, 1)`, y si se desea activar;  `pin.write(led1, 0)`.*
+*Example: to deactivate led1;  `pin.write(led1, 1)`, and to activate it;  `pin.write(led1, 0)`.*
 
-### Detección puertos de entrada
+### Input Port Detection
 
-Si se necesita saber en que estado esta un puerto de entrada:
+To check the state of an input port:
 ```v
 x = pin.read(pin_name)
 ```
 
-*Ejemplo: Si se desea detectar el valor del puerto sw2;  `x = pin.read(sw2) `, y x tomara el valor de 0 o 1, dependiendo si el puerto está activo o desactivado.*
+*Example: to detect the value of port sw2;  `x = pin.read(sw2) `, The variable x will take a value of 0 or 1 depending on whether the port is active or inactive*
 
 ### PWM
 
-Para configurar algún pwm;
+To configure PWM on one of the ports;
 ```v
 pwm.write(pwm.channel,duty)
 ```
-*En pwm.channel se pone el pwm a usar,  y en duty el valor del ciclo de trabajo de un modulador (de 0 a 10000).*
+*pwm.channel indicates the channel to control, and duty represents the duty cycle value (from 0 to 10000).*
+
+*Example: to control channel 1 with a PWM signal with duty cycle = 10000, `pwm.write(pwm.ch1, 10000) `*
+
+
 
 ### Serial comunication (UART)
 
-Para configurar un puerto UART;
+To configure a UART communication port;
+
 ```v
 
-uart.setup(),Starts the uart. 
-
-uart.print("message...\r\n")
+uart.setup(), // Initializes and configures the UART with basic parameters
 
 ```
-*Debido a que el puerto ya está definido como "uart:tx", este es el único puerto de comunicación serial Uart disponible, por lo tanto lo que se cescriba en lugar de "message" es la información que se va a imprimir.
+## Serial Transmission
 
-uart.print(message string),  Places a NULL terminated string in the transmit buffer to be sent at the next
-available bus time.
+*Since the port is already defined as "uart:tx", this is the only available serial UART communication port. The value you place in "message" will be the data transmitted*
 
-uart.println(), Places byte of data followed by a carriage return (0x0D) and line feed (0x0A)
-to the transmit buffer.
+```v
 
-uart.read(), Retrieves next data element from receive buffer.
+uart.print(message) // Prints text (string or number converted to characters) and sends it to the UART TX register
+```
 
-uart.write(), Places a byte of data in the transmit buffer to be sent at the next available bus
-time.
+```v
+
+uart.println(message) // Prints text and appends a newline (\r\n)
+
+```
+
+```v
+
+uart.read() // Receives data from the UART port (reads input on RX pin)
+
+```
+
+```v
+
+uart.write() // Sends data through the UART port (writes directly to TX register)
+
+```
+
+### Analog-to-Digital Converter (ADC)
+
+To initialize and configure the ADC module
+
+```v
+
+adc.setup()
+
+```
+
+To read the digital value converted by the ADC on a specific channel.
+
+```v
+
+adc.read()
+
+```
 
 
-### ADC
+### Delays
 
-Para configurar el módulo ADC utilizando los capsense de la tarjeta
+Using time functions;
 
-adc.read(adc.channel)
-
-El ADC por sí solo convierte la señal analógica en un número digital, pero ese número se queda dentro del microcontrolador. Para que la transmición y visualización de datos sea posible, se hace llamado de las funciones de la uart.
-
-uart.setup(), inicia el modulo Uart
-
-uart.println('ADC channel 0: ${analog}'), imprimir una cadena de texto y al final añadir un salto de línea. Contiene un texto fijo: "ADC channel 0:", contiene una interpolación de variable: ${analog}.
-
-
-
-Para 
-### Retardos
-
-Uso de tiempos;
-
--Segundos
+* Seconds
 ```v
 time.sleep(s)
 ```
--milisegundos
+
+* Milliseconds
 
 ```v
 time.sleep_ms(ms)
 ```
 
-
--Microsegundos
+* Microseconds
 
 ```v
 time.sleep_us(us)
 ```
-*En cada expresión, el valor del tiempo se pone dentro del parentesis.*
 
-Ejemplo LED parapadeante funcion high and low
+*In each expression, place the desired time value inside the parentheses*
+
+* Example: Blinking LED (high/low functions)
+
+```v
 
 import time {sleep_ms}
 import pin
-
 
 
 for {
@@ -191,7 +215,8 @@ for {
 	time.sleep_ms(5000)
 }
 
-Ejemplo LED parapadeante funcion write
+```
+* Example: Blinking LED (write function)
 
 ```v
 import time
@@ -205,31 +230,33 @@ for {
 }
 
 ```
-Ejemplo LED parapadeante funcion read
+* Example: LED controlled by button (read function)
+
+```v
 
 import time {sleep_ms}
 import pin
 
 
-
 for {
-    if pin.read(sw2) == 1 {     // Si el botón está presionado (valor lógico alto)
-        pin.high(led1)           // Encender LED
+
+    if pin.read(sw2) == 1 {     // If the button is pressed (logic high)
+        pin.high(led1)           // Turn LED on
     } else {
-        pin.low(led1)            // Apagar LED
+        pin.low(led1)            // Turn LED off
     }
 
-    time.sleep_ms(100)             // Pequeña espera para evitar rebotes
+    time.sleep_ms(100)             // Small delay to avoid bouncing
 }
 
+```
 
-Ejemplo PWM
+* Example PWM
 
 ```v
+
 import time {sleep_ms}
 import pwm
-
-//pin.setup(17, pin.output)
 
 for {
     pwm.write(pwm.ch1, 10000)
@@ -242,25 +269,30 @@ for {
     sleep_ms(500)
     
  }
+ 
+  ```
 
- ```
 
- Ejemplo UART
+* Example Uart
 
- import time {sleep_ms}
+```v
+
+import time {sleep_ms}
 import uart
 
 uart.setup()
-
-
 for {
 
-uart.print("Enviando por UART...\r\n")
+uart.print("Sending for UART...\r\n")
 time.sleep_ms(1000) 
 
 }
 
-Ejemplo ADC
+```
+
+* Example ADC
+
+```v
 
 import time
 import uart
@@ -274,3 +306,4 @@ for {
 	time.sleep_ms(1000)
 }
 
+```
