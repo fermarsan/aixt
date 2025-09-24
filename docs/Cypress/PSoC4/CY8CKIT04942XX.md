@@ -16,13 +16,13 @@ This Aixt implementation for PSoC 4 supports the CY8CKIT04942X board.
 
 The basic microcontroller functions are integrated to generate a general hardware structure, as follows:
 
-- 4 pwms
-- 1 leds
+- 4 PWMs
+- 1 LEDs
 - 1 push button
-- 2 communication ports
-- 11 digital input
-- 11 digital output
-- 4 analog input
+- 2 communication ports (UARTs)
+- 11 digital inputs
+- 11 digital outputs
+- 4 analog inputs
 
 *Visualization in PSoC Creator*
 
@@ -32,42 +32,42 @@ The basic microcontroller functions are integrated to generate a general hardwar
 
 The following table shows the ports used and their assigned names for programming: 
 
-Port | name |Type   |
---  |-       |-       |
-1.6 |led1    |output
-0.7 |sw1     |input
-0.0 |di0     |input
-0.1 |di1     |input
-0.2 |di2     |input
-0.3 |di3     |input
-0.4 |di4     |input
-0.5 |di5     |input
-0.6 |di6     |input
-1.1 |di7     |input
-1.3 |di8     |input
-1.4 |di9     |input
-1.5 |di10    |input
-1.7 |do0     |output
-2.5 |do1     |output
-2.7 |do2     |output
-3.0 |do3     |output
-3.1 |do4     |output
-3.4 |do5     |output
-3.5 |do6     |output
-3.6 |do7     |output
-3.7 |do8     |output
-4.2 |do9     |output
-4.3 |do10    |output
-1.0 |out_pwm0|output
-1.2 |out_pwm1|output
-2.4 |out_pwm2|output
-2.6 |out_pwm3|output
-2.0 |in0_adc |input
-2.1 |in1_adc  |input
-2.2 |in2_adc  |input
-2.3 |in3_adc |input
-4.0 |\uart:rx\ |output
-4.1 |\uart:tx\ |output
+| Port | name      | Type   |
+| ---- | --------- | ------ |
+| 1.6  | led1      | output |
+| 0.7  | sw1       | input  |
+| 0.0  | di0       | input  |
+| 0.1  | di1       | input  |
+| 0.2  | di2       | input  |
+| 0.3  | di3       | input  |
+| 0.4  | di4       | input  |
+| 0.5  | di5       | input  |
+| 0.6  | di6       | input  |
+| 1.1  | di7       | input  |
+| 1.3  | di8       | input  |
+| 1.4  | di9       | input  |
+| 1.5  | di10      | input  |
+| 1.7  | do0       | output |
+| 2.5  | do1       | output |
+| 2.7  | do2       | output |
+| 3.0  | do3       | output |
+| 3.1  | do4       | output |
+| 3.4  | do5       | output |
+| 3.5  | do6       | output |
+| 3.6  | do7       | output |
+| 3.7  | do8       | output |
+| 4.2  | do9       | output |
+| 4.3  | do10      | output |
+| 1.0  | out_pwm0  | output |
+| 1.2  | out_pwm1  | output |
+| 2.4  | out_pwm2  | output |
+| 2.6  | out_pwm3  | output |
+| 2.0  | in0_adc   | input  |
+| 2.1  | in1_adc   | input  |
+| 2.2  | in2_adc   | input  |
+| 2.3  | in3_adc   | input  |
+| 4.0  | \uart:rx\ | output |
+| 4.1  | \uart:tx\ | output |
 
 ## Programming in V language
 
@@ -80,7 +80,7 @@ For each of these modules, you will have a file in .c.v format with the same nam
 
 For each of the following modules, a .c.v file will be generated with the same name as the module.
 
-![Alt text](Imagenes/CY8CKIT04942XX/leds14540.jpg)
+![Alt text](Imagenes/CY8CKIT04942XX/LEDs14540.jpg)
 
 ### Output port configuration
 
@@ -211,7 +211,6 @@ import pin
 
 
 for {
-<<<<<<< HEAD
 	pin.high(led1)
 	time.sleep_ms(5000)
 	pin.low(led1)
@@ -254,7 +253,7 @@ for {
 
 ```
 
-* Example PWM
+* PWM example 
 
 ```v
 
@@ -276,7 +275,7 @@ for {
   ```
 
 
-* Example Uart
+* UART example 
 
 ```v
 
@@ -293,7 +292,7 @@ time.sleep_ms(1000)
 
 ```
 
-* Example ADC
+* ADC example 
 
 ```v
 

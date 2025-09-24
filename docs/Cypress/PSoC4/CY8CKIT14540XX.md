@@ -17,12 +17,12 @@ This Aixt implementation for PSoC 4 supports the CY8CKIT14540XX board.
 
 The basic microcontroller functions are integrated to generate a general hardware structure, as follows:
 
-- 3 pwms
-- 9 leds
+- 3 PWMs
+- 9 LEDs
 - 1 push button
-- 2 communication ports
+- 2 communication ports (UARTs)
 - 3 digital inputs
-- 3 digital inputs
+- 3 digital outputs
 - 5 capacitive slider sensors
 - 3 capacitive button sensors
 
@@ -34,37 +34,37 @@ The basic microcontroller functions are integrated to generate a general hardwar
 
 The following table shows the ports used and their assigned names for programming: 
 
-Port | name |Type   |
---  |-       |-       |
-2.5 |led1    |outpout
-2.0 |led4    |outpout
-2.1 |led5    |outpout
-2.2 |led6    |outpout
-2.3 |led7    |outpout
-2.4 |led8    |outpout
-3.4 |led9    |outpout
-3.5 |led10   |outpout
-3.6 |led11   |outpout
-0.7 |sw2     |input
-2.7 |di0     |input
-0.4 |di1     |input
-1.7 |di2     |input
-4.0 |do0     |outpout
-0.5 |do1     |outpout
-3.7 |do2     |outpout
-1.2 |out_pwm0|outpout
-2.6 |out_pwm1|outpout
-1.0 |out_pwm2|outpout
-3.0 |\uart:rx\ |outpout
-3.1 |\uart:tx\ |outpout
-0.0 |sld0     |input
-0.1 |sld1     |input
-0.2 |sld2     |input
-0.3 |sld3     |input
-0.6 |sld4     |input
-1.4 |btn0     |input
-1.5 |btn1     |input
-1.6 |btn2     |input
+| Port | name      | Type   |
+| ---- | --------- | ------ |
+| 2.5  | led1      | output |
+| 2.0  | led4      | output |
+| 2.1  | led5      | output |
+| 2.2  | led6      | output |
+| 2.3  | led7      | output |
+| 2.4  | led8      | output |
+| 3.4  | led9      | output |
+| 3.5  | led10     | output |
+| 3.6  | led11     | output |
+| 0.7  | sw2       | input  |
+| 2.7  | di0       | input  |
+| 0.4  | di1       | input  |
+| 1.7  | di2       | input  |
+| 4.0  | do0       | output |
+| 0.5  | do1       | output |
+| 3.7  | do2       | output |
+| 1.2  | out_pwm0  | output |
+| 2.6  | out_pwm1  | output |
+| 1.0  | out_pwm2  | output |
+| 3.0  | \uart:rx\ | output |
+| 3.1  | \uart:tx\ | output |
+| 0.0  | sld0      | input  |
+| 0.1  | sld1      | input  |
+| 0.2  | sld2      | input  |
+| 0.3  | sld3      | input  |
+| 0.6  | sld4      | input  |
+| 1.4  | btn0      | input  |
+| 1.5  | btn1      | input  |
+| 1.6  | btn2      | input  |
 
 ## Programming in V language
 
@@ -208,7 +208,6 @@ import pin
 
 
 for {
-<<<<<<< HEAD
 	pin.high(led1)
 	time.sleep_ms(5000)
 	pin.low(led1)
@@ -251,7 +250,7 @@ for {
 
 ```
 
-* Example PWM
+* PWM example 
 
 ```v
 
@@ -273,7 +272,7 @@ for {
   ```
 
 
-* Example Uart
+* UART example 
 
 ```v
 
@@ -290,7 +289,7 @@ time.sleep_ms(1000)
 
 ```
 
-* Example ADC
+* ADC example 
 
 ```v
 
