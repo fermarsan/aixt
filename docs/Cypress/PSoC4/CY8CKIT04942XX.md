@@ -6,10 +6,10 @@ This Aixt implementation for PSoC 4 supports the CY8CKIT04942X board.
 
 ## View
 
-![Alt text](Imagenes/CY8CKIT04942XX/CY8CKIT04942XX.jpg)
+![CY8CKIT-049-42XX](Images-CY8CKIT04942XX/View-CY8CKIT04942XX.jpg)
 
 ## Datasheet
-[CY8CKIT-049-42XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-049-4xxx_PSoC_4_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ef17bd002cb)
+[Datasheet CY8CKIT-049-42XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-049-4xxx_PSoC_4_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ef17bd002cb)
 
 
 # General Configuration
@@ -26,7 +26,7 @@ The basic microcontroller functions are integrated to generate a general hardwar
 
 *Visualization in PSoC Creator*
 
-![!\[Alt text\](Estructura_general_hardware_4942.jpg)](Imagenes/CY8CKIT04942XX/Estructura_general_hardware_4942.jpg)
+![General_Hardware_Structure.jpg](Images-CY8CKIT04942XX/General_Hardware_Structure_CY8CKIT04942XX.jpg)
 
 ## Port Identification
 
@@ -80,7 +80,6 @@ For each of these modules, you will have a file in .c.v format with the same nam
 
 For each of the following modules, a .c.v file will be generated with the same name as the module.
 
-![Alt text](Imagenes/CY8CKIT04942XX/LEDs14540.jpg)
 
 ### Output port configuration
 

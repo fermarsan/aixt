@@ -6,10 +6,10 @@ This Aixt implementation for PSoC 4 supports the CY8CKIT14540XX board.
 
 ## View
 
-![Alt text](Imagenes/CY8CKIT14540XX/vista_general.jpg)
+![CY8CKIT14540XX](Images-CY8CKIT14540XX/CY8CKIT14540XX.jpg)
 
 ## Datasheet
-[CY8CKIT14540XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-145-40XX_PSoC_4000S_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0efccdd91344)
+[Datasheet CY8CKIT14540XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-145-40XX_PSoC_4000S_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0efccdd91344)
 
 
 
@@ -28,7 +28,7 @@ The basic microcontroller functions are integrated to generate a general hardwar
 
 *Visualization in PSoC Creator*
 
-![!\[Alt text\](Imagenes/CY8CKIT14540XX/vista_general.jpg)](Imagenes/CY8CKIT14540XX/Estructura_general_hardware_14540.jpg)
+![General_Hardware_Structure_CY8CKIT14540XX](Images-CY8CKIT14540XX/General_Hardware_Structure_CY8CKIT14540XX.jpg)
 
 ## Port Identification
 
@@ -77,7 +77,7 @@ For each of these modules, you will have a file in .c.v format with the same nam
 
 An important feature of this board is the LED activation: LEDs turn on with logical zeroes, as shown in the LEDs corresponding to the capacitive slider sensors:
 
-![Alt text](Imagenes/CY8CKIT14540XX/leds14540.jpg)
+![Slider_Sensors_CY8CKIT14540XX](Images-CY8CKIT14540XX/Slider_Sensors_CY8CKIT14540XX.jpg)
 
 ### Output port configuration
 
