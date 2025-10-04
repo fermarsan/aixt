@@ -30,8 +30,8 @@ The onboard LED is named `led0`
 ```v
 import pin
 
-pin.setup(led0, pin.output)
-pin.high(led0)
+pin.setup(pin.led0, pin.output)
+pin.high(pin.led0)
 ```
 
 
@@ -156,10 +156,10 @@ uart.println('World...')
 import time
 import pin
 
-pin.low(led0)	// turn off the on-board LED
+pin.low(pin.led0)	// turn off the on-board LED
 
 for {
-	pin.toggle(led0)    // LED toggle 
+	pin.toggle(pin.led0)    // LED toggle 
 	time.sleep_ms(500)  // delay
 }
 
@@ -187,11 +187,11 @@ import ext
 
 @[ext_isr:'pin.d2']	// interrupt service routine
 fn blink() {
-	pin.toggle(led0)
+	pin.toggle(pin.led0)
 }
 
 pin.setup(pin.d2, pin.input)
-pin.low(led0)
+pin.low(pin.led0)
 
 ext.irq_enable(pin.d2, ext.change)	// interrupt request enabled
 

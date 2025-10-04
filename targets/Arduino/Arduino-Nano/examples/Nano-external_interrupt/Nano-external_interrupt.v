@@ -8,11 +8,11 @@ import ext
 
 @[ext_isr:'pin.d2']	// interrupt service routine
 fn blink() {
-	pin.toggle(led0)
+	pin.toggle(pin.led0)
 }
 
 pin.setup(pin.d2, pin.input)
-pin.low(led0)
+pin.low(pin.led0)
 
 ext.irq_enable(pin.d2, ext.change)	// interrupt request enabled
 

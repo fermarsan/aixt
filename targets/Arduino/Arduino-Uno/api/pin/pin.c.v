@@ -36,9 +36,3 @@ module pin
 
 // builtin LED
 @[as_macro]	const led0 = 13
-
-// init is the module initialization function 
-fn init() {
-	setup(led0, output)		// setup the pin of led0 as output
-	low(led0)	// an turn it off
-}

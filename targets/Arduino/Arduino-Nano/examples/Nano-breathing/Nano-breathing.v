@@ -1,6 +1,6 @@
 // Project name: Breathing
 // Author: Fernando M. Santa
-// Date: 08/09/20
+// Date: 2025
 // Arduino-Nano board breathing LED by PWM
 
 import time

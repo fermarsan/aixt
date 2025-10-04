@@ -26,8 +26,8 @@ The onboard LED is named `led0`
 ```v
 import pin
 
-pin.setup(led0, pin.output)
-pin.high(led0)
+pin.setup(pin.led0, pin.output)
+pin.high(pin.led0)
 ```
 
 

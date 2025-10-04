@@ -55,4 +55,4 @@ Tasks to do in Aixt
 - [x] Change the name of the devices/boards implementation folder from `ports` to `targets` 
 - [x] NXT target API (motor, sensor and button modules) updated to v0.2.0 (OOP)
 - [x] NXT test examples split in 'funcional' and 'struct-based' (object oriented approach)
-- [x] Now the builtin inputs and output require to be manual configured ans initialized
+- [x] Now the builtin inputs and outputs belong to `pin` module and require to be manual configured ans initialized

@@ -7,11 +7,11 @@ import time
 import pin
 
 //builtin LED
-pin.setup(led0, pin.output)
+pin.setup(pin.led0, pin.output)
 
 for {
-	pin.high(led0)
+	pin.high(pin.led0)
 	time.sleep_ms(500)
-	pin.low(led0)
+	pin.low(pin.led0)
 	time.sleep_ms(500)
 }
