@@ -114,11 +114,12 @@ for { // infinite loop
 import time
 import pin
 
-pin.low(led0)	// turn OFF the on-board LED
+pin.setup(pin.led0, pin.output) // set the on-board LED as output
+pin.low(pin.led0)				// turn it off 
 
 for {
-    pin.toggle(led0)    // change the LED state
-    time.sleep_ms(500)  // 500ms delay
+    pin.toggle(pin.led0)    // change the LED state
+    time.sleep_ms(500)      // 500ms delay
 }
 ```
 
