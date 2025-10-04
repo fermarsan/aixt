@@ -10,7 +10,7 @@ import regex
 
 // hash_stmt: code generation for hash statements (C preprocessor).
 fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
-	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
+	println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	// println('########### ${node.ct_conds} ###########')
 	mut out := []string{}
 	if node.kind == 'include' {
@@ -20,7 +20,7 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
 			}
 		} else {	// if it is a custom header
 			c_file_name := node.main.replace('"', '')
-			c_file_path := '${os.dir(node.source_file)}/${c_file_name}'
+			c_file_path := os.dir(node.source_file) + os.path_separator + c_file_name
 			// println('>>>>>>>>>>>>>>>>>> ${c_file_path} <<<<<<<<<<<<<<<<<<')
 			// for .c files copy the code inside to the output
 			if c_file_name.ends_with('.c') {

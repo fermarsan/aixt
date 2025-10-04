@@ -34,6 +34,7 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] In general API unify the name of the identification I/O parameter from 'name' to 'id', in all the targets for the modules `pin`, `adc` and `pwn` (along with their `_oop` version)
+- [ ] Issue: `/` characters produce errors on Windows. It is necesary to replace them by `os.path_separator`
 
 
 ### Done ✓make
