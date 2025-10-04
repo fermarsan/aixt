@@ -7,3 +7,6 @@
 module main
 
 #include "builtin.c"
+
+// builtin LED
+@[as_macro]	const led0 = 13
