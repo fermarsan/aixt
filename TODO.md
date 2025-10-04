@@ -32,7 +32,6 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] In general API unify the name of the identification I/O parameter from 'name' to 'id', in all the targets for the modules `pin`, `adc` and `pwn` (along with their `_oop` version)
-- [ ] Standardize the way to define the builtin component for board-based targets
 
 
 ### Done ✓make
@@ -56,3 +55,4 @@ Tasks to do in Aixt
 - [x] Change the name of the devices/boards implementation folder from `ports` to `targets` 
 - [x] NXT target API (motor, sensor and button modules) updated to v0.2.0 (OOP)
 - [x] NXT test examples split in 'funcional' and 'struct-based' (object oriented approach)
+- [x] Now the builtin inputs and output require to be manual configured ans initialized
