@@ -24,41 +24,41 @@ module pin
 
 // high puts a logic 1 to a pin
 @[as_macro]
-pub fn high(name u8) {
-    C.GPIO |=  0x01 << name
+pub fn high(id u8) {
+    C.GPIO |=  0x01 << id
 }
 
 // low puts a logic 0 to a pin
 @[as_macro]
-pub fn low(name u8) {
-	C.GPIO  &=  ~(0x01 << name)
+pub fn low(id u8) {
+	C.GPIO  &=  ~(0x01 << id)
 }
 
 // read function reads the logic value of a pin
 @[as_macro]
-pub fn read(name u8) u8 {
-	return	u8( (C.GPIO  >>  name)  &  0x01 )
+pub fn read(id u8) u8 {
+	return	u8( (C.GPIO  >>  id)  &  0x01 )
 }
 
 // setup configures the mode of a pin
 @[as_macro]
-pub fn setup(name u8, mode u8) {
+pub fn setup(id u8, mode u8) {
 	if mode == 1 { // as input (1)
-		C.TRISIO |= (0x01 << name)
+		C.TRISIO |= (0x01 << id)
 	} else { // as output (0)
-		C.TRISIO &= ~(0x01 << name)
+		C.TRISIO &= ~(0x01 << id)
 	}
 }
 
 // toggle function toggles the logic value of a pin
 @[as_macro]
-pub fn toggle(name u8) {
-	C.GPIO  ^=  0x01 << name
+pub fn TOGGLE(id u8) {
+	C.GPIO  ^=  0x01 << id
 }
 
 // write function writes a logic value to a pin
 @[as_macro]
-pub fn write(name u8, value u8) {
-	C.GPIO  &=  (~(0x01 << name))	// clean the bit first	
-	C.GPIO  |=  (value << name)	
+pub fn write(id u8, value u8) {
+	C.GPIO  &=  (~(0x01 << id))	// clean the bit first	
+	C.GPIO  |=  (value << id)	
 }

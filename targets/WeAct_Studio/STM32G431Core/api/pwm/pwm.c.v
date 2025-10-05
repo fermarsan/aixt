@@ -6,4 +6,4 @@
 // Description: PWM functions (Arduino Nano - ATmega328P port)
 module pwm
 
-fn C.analogWrite(name u8, value u8)
+fn C.analogwrite(id u8, value u8)

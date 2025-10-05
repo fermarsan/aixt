@@ -1,1 +1,1 @@
-#define DIGITAL_TOGGLE(NAME)    *portInputRegister(digitalPinToPort(NAME)) = digitalPinToBitMask(NAME);
+#define DIGITAL_TOGGLE(ID)    *portInputRegister(digitalPinToPort(ID)) = digitalPinToBitMask(ID);

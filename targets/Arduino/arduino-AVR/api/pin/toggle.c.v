@@ -8,6 +8,6 @@ module pin
 
 // toggle function toggles the value to a specific pin
 @[as_macro]
-pub fn toggle(name u8) {   
-    C.DIGITAL_TOGGLE(name)
+pub fn toggle(id u8) {   
+    C.DIGITAL_TOGGLE(id)
 }

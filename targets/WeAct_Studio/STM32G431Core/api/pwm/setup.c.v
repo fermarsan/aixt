@@ -8,8 +8,8 @@ module pwm
 
 // setup function configures de PWM hardware
 @[as_macro]
-pub fn write(name u8, value u8) {
-	C.analogWrite(name, value)
+pub fn write(id u8, value u8) {
+	C.analogWrite(id, value)
 } 
 	
 

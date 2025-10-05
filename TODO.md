@@ -33,7 +33,6 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
-- [ ] In general API unify the name of the identification I/O parameter from 'name' to 'id', in all the targets for the modules `pin`, `adc` and `pwn` (along with their `_oop` version)
 
 
 ### Done ✓make
@@ -59,3 +58,4 @@ Tasks to do in Aixt
 - [x] NXT test examples split in 'funcional' and 'struct-based' (object oriented approach)
 - [x] Now the builtin inputs and outputs belong to `pin` module and require to be manual configured ans initialized
 - [x] Issue solved: `/` characters produce errors on Windows. They were replaced by `os.path_separator` and `os.norm_path()`
+- [x] In general API unify the name of the identification I/O parameter from 'name' to 'id', in all the targets for the modules `pin`, `adc` and `pwn` (along with their `_oop` version)

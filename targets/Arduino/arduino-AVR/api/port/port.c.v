@@ -8,25 +8,25 @@ module port
 
 // setup configures bit by bit the pin mode of a 8 bit port
 @[as_macro]
-pub fn setup(name u8, mode u8) {
+pub fn setup(id u8, mode u8) {
 	unsafe { 
-		*(&C.DDRB + (name*3)) = ~mode 
+		*(&C.DDRB + (id*3)) = ~mode 
 	}	
 }
 
 // write function writes an 8 bit value on a port
 @[as_macro]
-pub fn write(name u8, value u8) { 
+pub fn write(id u8, value u8) { 
 	unsafe {
-		*(&C.PORTB + (name*3)) = value
+		*(&C.PORTB + (id*3)) = value
 	}	
 }
 
 // read function reads an 8 bit value from a port
 @[as_macro]
-pub fn read(name u8) u8 {
+pub fn read(id u8) u8 {
 	unsafe {
-		return u8(*(&C.PINB + (name*3)))
+		return u8(*(&C.PINB + (id*3)))
 	}	
 }
 

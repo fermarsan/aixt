@@ -49,4 +49,7 @@ module pin
 @[as_macro]	pub const input		= u8(C.INPUT)
 @[as_macro]	pub const output	= u8(C.OUTPUT)
 @[as_macro]	pub const in_pullup = u8(C.INPUT_PULLUP)
-pub const in_pulldown = u8(C.INPUT_PULLDOWN)
+@[as_macro]	pub const in_pulldown = u8(C.INPUT_PULLDOWN)
+
+// builtin LED
+@[as_macro]	pub const led0 = 17

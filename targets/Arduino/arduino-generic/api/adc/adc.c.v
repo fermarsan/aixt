@@ -6,10 +6,10 @@
 // Description: ADC functions
 module adc
 
-fn C.analogRead(name u8) u16
+fn C.analogread(id u8) u16
 
 //read function reads the value from the specified analog pin
 @[as_macro]
-pub fn read(name u8) u16 {
-	return C.analogRead(name)
+pub fn read(id u8) u16 {
+	return C.analogRead(id)
 }
