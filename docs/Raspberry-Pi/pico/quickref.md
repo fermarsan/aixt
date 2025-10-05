@@ -63,8 +63,8 @@ Use the `pwm` module:
 ```v
 import pwm
 
-pwm.write(pwm.pin.gp7, 40)       // set the duty cycle for gp7 pin
-pwm.write(pwm.pin.gp8, 60)       // set the duty cycle for gp8 pin
+pwm.write(pin.gp7, 40)       // set the duty cycle for gp7 pin
+pwm.write(pin.gp8, 60)       // set the duty cycle for gp8 pin
 ```
 
 ### Functions

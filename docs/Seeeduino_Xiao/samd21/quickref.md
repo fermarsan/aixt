@@ -239,7 +239,7 @@ time.sleep_us(us) //Microseconds
 * Example flashing LED
 
 ```v
-import machine { pin }
+import pin 
 import time { sleep_ms }
 
 pin_mode(IO14, out)
