@@ -75,7 +75,7 @@ pub fn (mut gen Gen) gen(source_path string) string {
 
 	// copy the include files to the output folder
 	for path in gen.include_paths {
-		if !os.exists('${os.dir(source_path)}/${os.file_name(path)}') {
+		if !os.exists(os.dir(source_path) + os.path_separator + os.file_name(path)) {
 			os.cp_all(path, os.dir(source_path), false) or { panic(err) }
 			println("${path}\ncopied to project's folder")
 		}
