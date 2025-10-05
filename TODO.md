@@ -58,4 +58,4 @@ Tasks to do in Aixt
 - [x] NXT target API (motor, sensor and button modules) updated to v0.2.0 (OOP)
 - [x] NXT test examples split in 'funcional' and 'struct-based' (object oriented approach)
 - [x] Now the builtin inputs and outputs belong to `pin` module and require to be manual configured ans initialized
-- [x] Issue solved: `/` characters produce errors on Windows. It is necesary to replace them by `os.path_separator` and `os.norm_path()`
+- [x] Issue solved: `/` characters produce errors on Windows. They were replaced by `os.path_separator` and `os.norm_path()`
