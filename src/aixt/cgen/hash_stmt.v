@@ -10,7 +10,7 @@ import regex
 
 // hash_stmt: code generation for hash statements (C preprocessor).
 fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
-	println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	// println('########### ${node.ct_conds} ###########')
 	mut out := []string{}
 	if node.kind == 'include' {

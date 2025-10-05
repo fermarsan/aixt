@@ -1,6 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2023-2024
+// Date: 2023-2025
 // License: MIT
 // Description: This is the main file of the Aixt project. It works as a makefile too.
 module main
@@ -26,8 +26,7 @@ fn main() {
 				println(help_message())
 			}
 			'version', '--version', '-v' {
-				lines := os.read_lines('${aixt_path}' + os.path_separator + 
-				                       'src' + os.path_separator + 'v.mod') or { [''] }
+				lines := os.read_lines(os.norm_path('${aixt_path}/src/v.mod')) or { [''] }
 				for line in lines {
 					if line.contains('version:') {
 						println('Aixt ${line.replace('\tversion:\t', '')}')
@@ -83,9 +82,8 @@ fn main() {
 							println('\n${base_name}.${ext} compiling finished.\n')
 						}
 						'clean', '-cl' {
-							if os.exists('${os.dir(base_name)}' + os.path_separator + 'Makefile') {
-								println(os.execute('make -f ${os.dir(base_name)}' + os.path_separator + 
-												   'Makefile clean').output)
+							if os.exists(os.norm_path('${os.dir(base_name)}/Makefile')) {
+								println(os.execute('make -f ${os.dir(base_name)}' + os.path_separator + 'Makefile clean').output)
 							}
 							os.rm('${base_name}.c') or {} // clean c-type files
 							os.rm('${base_name}.nxc') or {}
@@ -95,16 +93,15 @@ fn main() {
 							} $else {
 								os.rm('${base_name}') or {}
 							}
-							if os.exists('${os.dir(base_name)}' + os.path_separator + 'build/') {
-								os.rmdir_all('${os.dir(base_name)}' + os.path_separator + 
-											 'build' + os.path_separator) or { panic(err) }
+							if os.exists(os.norm_path(os.dir(base_name) + '/build/')) {
+								os.rmdir_all(os.norm_path(os.dir(base_name) + '/build/')) or { panic(err) }
 							}
 							// Remove all .c, .cpp, .h, hpp files inside the directory
 							files := os.ls(os.dir(base_name)) or { [] }
 							for file in files {
 								if file.ends_with('.c') || file.ends_with('.cpp')
 									|| file.ends_with('.h') || file.ends_with('.hpp') {
-									os.rm('${os.dir(base_name)}/${file}') or {}
+									os.rm(os.norm_path('${os.dir(base_name)}/${file}')) or {}
 								}
 							}
 							println('Output files cleaned.')
@@ -112,31 +109,25 @@ fn main() {
 						'new_project', '-np' {
 							path := os.args[3]
 							name := os.args[4] or { 'project' }
-							if !os.exists('${path}/${name}') {
-								os.mkdir('${path}/${name}') or { panic(err) }
+							if !os.exists(os.norm_path('${path}/${name}')) {
+								os.mkdir(os.norm_path('${path}/${name}')) or { panic(err) }
 							}
-							// os.cp('${aixt_path}' + os.path_separator + 'templates' + os.path_separator + 'main.v', 
-							// 	  '${path}' + os.path_separator + '${name}' + os.path_separator + 'main.v') or {}
-							os.cp_all('${aixt_path}' + os.path_separator + 'templates' + os.path_separator + 
-									  'project' + os.path_separator + '${project_setup.port}' + os.path_separator,
-									  '${path}' + os.path_separator + '${name}' + os.path_separator, true) or { 
+							// os.cp(os.norm_path('${aixt_path}/templates/main.v'), os.norm_path('${path}/${name}/main.v')) or {}
+							os.cp_all(os.norm_path('${aixt_path}/templates/project/${project_setup.port}/'), os.norm_path('${path}/${name}/'), true) or { 
 								panic(err) 
 							}
 							if project_setup.backend == 'arduino' { // arduino-cli sketch name requirement
-								os.rename('${path}' + os.path_separator + '${name}' + os.path_separator + 'main.v', 
-										  '${path}' + os.path_separator + '${name}' + os.path_separator + '${name}.v') or {
+								os.rename(os.norm_path('${path}/${name}/main.v'), os.norm_path('${path}/${name}/${name}.v')) or {
 									panic(err)
 								}
 							}
 							// adds the device name to de Makefile
-							if os.exists('${path}' + os.path_separator + '${name}' + os.path_separator + 'Makefile') { 
-								mut makefile := os.read_file('${path}' + os.path_separator + 
-															 '${name}' + os.path_separator + 'Makefile') or {
+							if os.exists(os.norm_path('${path}/${name}/Makefile')) { 
+								mut makefile := os.read_file(os.norm_path('${path}/${name}/Makefile')) or {
 									panic(err)
 								}
 								makefile = makefile.replace('__device_name__', '${device}')
-								os.write_file('${path}' + os.path_separator + '${name}' + os.path_separator + 
-											  'Makefile', makefile) or {
+								os.write_file(os.norm_path('${path}/${name}/Makefile'), makefile) or {
 									panic(err)
 								}
 							}
