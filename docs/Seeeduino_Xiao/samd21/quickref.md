@@ -52,13 +52,16 @@ Las funciones que contiene la API entradas o salidas digitales y para realizar u
 ### EJEMPLOS
 #### Parpadeo de un LED
 ```v
-pin_mode(5, out)
+import pin
+import time
+
+pin.setup(5, output)
 
 for i in 0..10{   //10 veces
     pin.high(5)
-    sleep_ms(500)
+    time.sleep_ms(500)
     pin.low(5)
-    sleep_ms(500)
+    time.sleep_ms(500)
 }
 ```
 
