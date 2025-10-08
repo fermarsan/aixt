@@ -52,7 +52,7 @@ pub fn setup(id u8, mode u8) {
 
 // toggle function toggles the logic value of a pin
 @[as_macro]
-pub fn TOGGLE(id u8) {
+pub fn toggle(id u8) {
 	C.GPIO  ^=  0x01 << id
 }
 

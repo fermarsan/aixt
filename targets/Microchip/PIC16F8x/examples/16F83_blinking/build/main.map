@@ -1,0 +1,212 @@
+Microchip MPLAB XC8 Compiler V3.00
+
+Linker command line:
+
+-W-3 --edf=/opt/microchip/xc8/v3.00/pic/dat/20241204225717_en.msgs -cn \
+  -h+build/main.sym --cmf=build/main.cmf -z -Q16F83 \
+  -o/tmp/xcXKoOcpd/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
+  --fixupoverflow=error -Mbuild/main.map \
+  --md=/tmp/xcXKoOcpd/driver_tmp_0.dat -E1 -ver=XC8 Compiler \
+  -ACODE=00h-01FFh -ASTRCODE=00h-01FFh -ASTRING=00h-0FFhx2 \
+  -ACONST=00h-0FFhx2 -AENTRY=00h-0FFhx2 -ABANK0=0Ch-02Dh -ARAM=0Ch-02Dh \
+  -AABS1=0Ch-02Fh -ACOMMON=02Eh-02Fh -ASFR0=00h-0Bh -ASFR1=080h-0ADh \
+  -ACONFIG=02007h-02007h -DCONFIG=2 -AIDLOC=02000h-02003h -DIDLOC=2 \
+  -AEEDATA=00h-03Fh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
+  -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
+  -pfunctab=ENTRY -k /tmp/xcXKoOcpd/driver_tmp_12.o build/main.o 
+
+Object code version is 3.11
+
+Machine type is 16F83
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+/tmp/xcXKoOcpd/driver_tmp_12.o
+                end_init                              0        0        1        0       0
+                config                             2007     2007        1        0       4
+build/main.o    cinit                               1FE      1FE        2      3FC       0
+                config                             2007     2007        1        0       4
+                maintext                            1E9      1E9       15      3D2       0
+                cstackBANK0                           C        C        3        C       1
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   CODE           
+                end_init                              0        0        1         0
+                cinit                               1FE      1FE        2         0
+                maintext                            1E9      1E9       15         0
+
+        CLASS   STRCODE        
+
+        CLASS   STRING         
+
+        CLASS   CONST          
+
+        CLASS   ENTRY          
+
+        CLASS   BANK0          
+                cstackBANK0                           C        C        3         1
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               2E       2E        2         1
+
+        CLASS   COMMON         
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   CONFIG         
+                config                             2007     2007        1         4
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+        CLASS   BANK1          
+
+        CLASS   HEAP           
+
+        CLASS   STACK          
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                cstackBANK0                    00000C  000003  00000F         C       1  BANK0       1
+                maintext                       0001E9  000015  0001FE       3D2       0  CODE        2
+                reset_vec                      000000  000001  000001         0       0  CODE        2
+                cinit                          0001FE  000002  000200       3FC       0  CODE        2
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            000F-002D             1F           1
+        CODE             0001-01E8            1E8           2
+        CONST            0001-01E8             FF           2
+        EEDATA           2100-213F             40           2
+        ENTRY            0001-01E8             FF           2
+        IDLOC            2000-2003              4           2
+        RAM              000F-002D             1F           1
+        SFR0             0000-000B              C           1
+        SFR1             0080-00AD             2E           1
+        STRCODE          0001-01E8            1E8           2
+        STRING           0001-01E8             FF           2
+
+                                  Symbol Table
+
+_PORTA                   (abs)        0005
+_TRISA                   (abs)        0085
+__H__absolute__          __absolute__ 0000
+__Habs1                  abs1         0000
+__Hbank0                 bank0        0000
+__Hbank1                 bank1        0000
+__Hcinit                 cinit        0200
+__Hclrtext               clrtext      0000
+__Hcode                  code         0000
+__Hcommon                common       0000
+__Hconfig                config       2008
+__HcstackBANK0           cstackBANK0  0000
+__Heeprom_data           eeprom_data  0000
+__Hend_init              end_init     0001
+__Hfunctab               functab      0000
+__Hheap                  heap         0000
+__Hinit                  init         0000
+__Hintentry              intentry     0000
+__Hmaintext              maintext     0000
+__Hpowerup               powerup      0000
+__Hram                   ram          0000
+__Hreset_vec             reset_vec    0000
+__Hsfr0                  sfr0         0000
+__Hsfr1                  sfr1         0000
+__Hsivt                  sivt         0000
+__Hspace_0               (abs)        0200
+__Hspace_1               (abs)        000F
+__Hspace_2               (abs)        0000
+__Hspace_3               (abs)        0000
+__Hspace_4               (abs)        400F
+__Hstack                 stack        0000
+__Hstrings               strings      0000
+__Htext                  text         0000
+__L__absolute__          __absolute__ 0000
+__Labs1                  abs1         0000
+__Lbank0                 bank0        0000
+__Lbank1                 bank1        0000
+__Lcinit                 cinit        01FE
+__Lclrtext               clrtext      0000
+__Lcode                  code         0000
+__Lcommon                common       0000
+__Lconfig                config       0000
+__LcstackBANK0           cstackBANK0  0000
+__Leeprom_data           eeprom_data  0000
+__Lend_init              end_init     0000
+__Lfunctab               functab      0000
+__Lheap                  heap         0000
+__Linit                  init         0000
+__Lintentry              intentry     0000
+__Lmaintext              maintext     0000
+__Lpowerup               powerup      0000
+__Lram                   ram          0000
+__Lreset_vec             reset_vec    0000
+__Lsfr0                  sfr0         0000
+__Lsfr1                  sfr1         0000
+__Lsivt                  sivt         0000
+__Lspace_0               (abs)        0000
+__Lspace_1               (abs)        0000
+__Lspace_2               (abs)        0000
+__Lspace_3               (abs)        0000
+__Lspace_4               (abs)        0000
+__Lstack                 stack        0000
+__Lstrings               strings      0000
+__Ltext                  text         0000
+__S0                     (abs)        0200
+__S1                     (abs)        000F
+__S3                     (abs)        0000
+___heap_hi               (abs)        0000
+___heap_lo               (abs)        0000
+___int_sp                stack        0000
+___int_stack_hi          stack        0000
+___int_stack_lo          stack        0000
+___latbits               (abs)        0000
+___sp                    stack        0000
+___stack_hi              stack        0000
+___stack_lo              stack        0000
+___stackhi               (abs)        0000
+___stacklo               (abs)        0000
+__end_of__initialization cinit        01FE
+__end_of_main            maintext     01FE
+__initialization         cinit        01FE
+__pcstackBANK0           cstackBANK0  000C
+__pmaintext              maintext     01E9
+_main                    maintext     01E9
+btemp                    (abs)        002E
+end_of_initialization    cinit        01FE
+intlevel0                functab      0000
+intlevel1                functab      0000
+intlevel2                functab      0000
+intlevel3                functab      0000
+intlevel4                functab      0000
+intlevel5                functab      0000
+reset_vec                reset_vec    0000
+start                    init         0000
+start_initialization     cinit        01FE
+wtemp0                   (abs)        002E
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+shared
+		__initialization		CODE           	01FE	0000	1
+
+shared estimated size: 1
+
+main.c
+		_main          		CODE           	01E9	0000	21
+
+main.c estimated size: 21
+

@@ -1,0 +1,276 @@
+
+
+Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
+                                                                                               Tue Oct  7 23:48:07 2025
+
+Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
+     1                           	processor	16F83
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,space=0,merge=1,delta=2
+     5                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     6                           	psect	maintext,global,class=CODE,space=0,split=1,delta=2
+     7                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+     8                           	dabs	1,0x2E,2
+     9     0000                     
+    10                           ; Generated 05/12/2024 GMT
+    11                           ; 
+    12                           ; Copyright © 2024, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    13                           ; All rights reserved.
+    14                           ; 
+    15                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    16                           ; 
+    17                           ; Redistribution and use in source and binary forms, with or without modification, are
+    18                           ; permitted provided that the following conditions are met:
+    19                           ; 
+    20                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    21                           ;        conditions and the following disclaimer.
+    22                           ; 
+    23                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    24                           ;        of conditions and the following disclaimer in the documentation and/or other
+    25                           ;        materials provided with the distribution. Publication is not required when
+    26                           ;        this file is used in an embedded application.
+    27                           ; 
+    28                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    29                           ;        software without specific prior written permission.
+    30                           ; 
+    31                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    32                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    33                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    34                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    35                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    36                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    37                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    38                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    39                           ; 
+    40                           ; 
+    41                           ; Code-generator required, PIC16F83 Definitions
+    42                           ; 
+    43                           ; SFR Addresses
+    44     0004                     fsr             equ	4
+    45     0004                     fsr0            equ	4
+    46     0000                     indf            equ	0
+    47     0000                     indf0           equ	0
+    48     0002                     pc              equ	2
+    49     0002                     pcl             equ	2
+    50     000A                     pclath          equ	10
+    51     0003                     status          equ	3
+    52     0000                     INDF            equ	0	;# 
+    53     0001                     TMR0            equ	1	;# 
+    54     0002                     PCL             equ	2	;# 
+    55     0003                     STATUS          equ	3	;# 
+    56     0004                     FSR             equ	4	;# 
+    57     0005                     PORTA           equ	5	;# 
+    58     0006                     PORTB           equ	6	;# 
+    59     0008                     EEDATA          equ	8	;# 
+    60     0009                     EEADR           equ	9	;# 
+    61     000A                     PCLATH          equ	10	;# 
+    62     000B                     INTCON          equ	11	;# 
+    63     0081                     OPTION_REG      equ	129	;# 
+    64     0085                     TRISA           equ	133	;# 
+    65     0086                     TRISB           equ	134	;# 
+    66     0088                     EECON1          equ	136	;# 
+    67     0089                     EECON2          equ	137	;# 
+    68     0000                     INDF            equ	0	;# 
+    69     0001                     TMR0            equ	1	;# 
+    70     0002                     PCL             equ	2	;# 
+    71     0003                     STATUS          equ	3	;# 
+    72     0004                     FSR             equ	4	;# 
+    73     0005                     PORTA           equ	5	;# 
+    74     0006                     PORTB           equ	6	;# 
+    75     0008                     EEDATA          equ	8	;# 
+    76     0009                     EEADR           equ	9	;# 
+    77     000A                     PCLATH          equ	10	;# 
+    78     000B                     INTCON          equ	11	;# 
+    79     0081                     OPTION_REG      equ	129	;# 
+    80     0085                     TRISA           equ	133	;# 
+    81     0086                     TRISB           equ	134	;# 
+    82     0088                     EECON1          equ	136	;# 
+    83     0089                     EECON2          equ	137	;# 
+    84     0005                     _PORTA          set	5
+    85     0085                     _TRISA          set	133
+    86                           
+    87                           	psect	cinit
+    88     01FE                     start_initialization:	
+    89                           ; #config settings
+    90                           
+    91     01FE                     __initialization:
+    92     01FE                     end_of_initialization:	
+    93                           ;End of C runtime variable initialization code
+    94                           
+    95     01FE                     __end_of__initialization:
+    96     01FE  0183               	clrf	3
+    97     01FF  29E9               	ljmp	_main	;jump to C main() function
+    98                           
+    99                           	psect	cstackBANK0
+   100     000C                     __pcstackBANK0:
+   101     000C                     ?_main:
+   102     000C                     ??_main:	
+   103                           ; 1 bytes @ 0x0
+   104                           
+   105                           
+   106                           ; 1 bytes @ 0x0
+   107     000C                     	ds	3
+   108                           
+   109                           	psect	maintext
+   110     01E9                     __pmaintext:	
+   111 ;;
+   112 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   113 ;;
+   114 ;; *************** function _main *****************
+   115 ;; Defined at:
+   116 ;;		line 109 in file "main.c"
+   117 ;; Parameters:    Size  Location     Type
+   118 ;;		None
+   119 ;; Auto vars:     Size  Location     Type
+   120 ;;		None
+   121 ;; Return value:  Size  Location     Type
+   122 ;;                  1    wreg      void 
+   123 ;; Registers used:
+   124 ;;		wreg, status,2, status,0
+   125 ;; Tracked objects:
+   126 ;;		On entry : B00/0
+   127 ;;		On exit  : 0/0
+   128 ;;		Unchanged: 0/0
+   129 ;; Data sizes:     COMMON   BANK0
+   130 ;;      Params:         0       0
+   131 ;;      Locals:         0       0
+   132 ;;      Temps:          0       3
+   133 ;;      Totals:         0       3
+   134 ;;Total ram usage:        3 bytes
+   135 ;; This function calls:
+   136 ;;		Nothing
+   137 ;; This function is called by:
+   138 ;;		Startup code after reset
+   139 ;; This function uses a non-reentrant model
+   140 ;;
+   141                           
+   142     01E9                     _main:	
+   143                           ;psect for function _main
+   144                           
+   145     01E9                     l568:	
+   146                           ;incstack = 0
+   147                           ; Regs used in _main: [wreg+status,2+status,0]
+   148                           
+   149     01E9                     l572:	
+   150                           ;main.c: 110:  if( 0 == 1 ) { *(&TRISA + (12 / 8)) |= (0x01 << (12 % 8)); } else { *(&TR
+      +                          ISA + (12 / 8)) &= ~(0x01 << (12 % 8)); };;
+   151                           
+   152     01E9  30EF               	movlw	239
+   153     01EA  1683               	bsf	3,5	;RP0=1, select bank1
+   154     01EB  0586               	andwf	6,f	;volatile
+   155     01EC                     l13:	
+   156                           ;main.c: 111:  while( 1 ) {
+   157                           
+   158                           
+   159                           ;main.c: 112:   *(&PORTA + (12 / 8)) ^= 0x01 << (12 % 8);
+   160     01EC  3010               	movlw	16
+   161     01ED  1283               	bcf	3,5	;RP0=0, select bank0
+   162     01EE  0686               	xorwf	6,f	;volatile
+   163     01EF                     l574:
+   164                           
+   165                           ;main.c: 113:   _delay((unsigned long)((250)*(10000000/4000.0)));
+   166     01EF  3004               	movlw	4
+   167     01F0  008E               	movwf	??_main+2
+   168     01F1  302C               	movlw	44
+   169     01F2  008D               	movwf	??_main+1
+   170     01F3  30AB               	movlw	171
+   171     01F4  008C               	movwf	??_main
+   172     01F5                     u17:
+   173     01F5  0B8C               	decfsz	??_main,f
+   174     01F6  29F5               	goto	u17
+   175     01F7  0B8D               	decfsz	??_main+1,f
+   176     01F8  29F5               	goto	u17
+   177     01F9  0B8E               	decfsz	??_main+2,f
+   178     01FA  29F5               	goto	u17
+   179     01FB  29FC               	nop2
+   180     01FC  29EC               	goto	l13
+   181     01FD  2800               	ljmp	start
+   182     01FE                     __end_of_main:
+   183     0000                     ___latbits      equ	0
+   184     002E                     btemp           set	46	;btemp
+   185     002E                     wtemp0          set	46
+   186                           
+   187                           	psect	config
+   188                           
+   189                           ;Config register CONFIG @ 0x2007
+   190                           ;	Oscillator Selection bits
+   191                           ;	FOSC = HS, HS oscillator
+   192                           ;	Watchdog Timer
+   193                           ;	WDTE = OFF, WDT disabled
+   194                           ;	Power-up Timer Enable bit
+   195                           ;	PWRTE = ON, Power-up Timer is enabled
+   196                           ;	Code Protection bit
+   197                           ;	CP = OFF, Code protection disabled
+   198     2007                     	org	8199
+   199     2007  3FF2               	dw	16370
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            34      3       3
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 3     3      0       0
+                                              0 BANK0      3     3      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+Address spaces:
+Name               Size   Autos  Total    Usage
+BITCOMMON            0      0       0      0.0%
+BITBANK0            34      0       0      0.0%
+COMMON               0      0       0      0.0%
+BANK0               34      3       3      8.8%
+STACK                0      0       0      0.0%
+DATA                 0      0       3      0.0%
+
+
+Microchip Technology PIC Macro Assembler V3.00 build 20241204225717 
+Symbol Table                                                                                   Tue Oct  7 23:48:07 2025
+
+                     l13 01EC                       u17 01F5                      l572 01E9  
+                    l574 01EF                      l568 01E9                     _main 01E9  
+                   btemp 002E                     start 0000                    ?_main 000C  
+                  _PORTA 0005                    _TRISA 0085                    status 0003  
+                  wtemp0 002E          __initialization 01FE             __end_of_main 01FE  
+                 ??_main 000C  __end_of__initialization 01FE               __pmaintext 01E9  
+   end_of_initialization 01FE      start_initialization 01FE                ___latbits 0000  
+          __pcstackBANK0 000C  
