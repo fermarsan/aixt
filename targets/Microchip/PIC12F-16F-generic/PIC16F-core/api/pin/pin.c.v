@@ -9,7 +9,7 @@ module pin
 // setup configures the mode of a pin
 @[as_macro]
 pub fn setup(id u8, mode u8) {
-	unsafe { 
+	unsafe {
 		if mode == 1 { // as input (1)
 			*(&C.TRISA + (id / 8))  |=  (0x01 << (id % 8))
 		} else { // as output (0)
