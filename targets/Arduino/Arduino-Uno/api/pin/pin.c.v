@@ -28,11 +28,7 @@ module pin
 @[as_macro] pub const d18 = 18
 @[as_macro] pub const d19 = 19
 
-// pin mode
-@[as_macro] pub const input		= u8(C.INPUT)
-@[as_macro] pub const output	= u8(C.OUTPUT)
-@[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
-@[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
+
 
 // builtin LED
 @[as_macro]	const led0 = 13

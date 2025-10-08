@@ -6,6 +6,10 @@
 // Description: Pin management functions PIC24 Family
 module pin
 
+// pin modes
+@[as_macro] pub const input		= u8(1)
+@[as_macro] pub const output	= u8(0)
+
 // setup configures the mode of a pin
 @[as_macro]
 pub fn setup(id u8, mode u8) {
