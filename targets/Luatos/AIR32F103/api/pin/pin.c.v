@@ -42,8 +42,3 @@ module pin
 @[as_macro] pub const p27 = u8(C.PB14)
 @[as_macro] pub const p28 = u8(C.PB15)
 
-@[as_macro] pub const input		= u8(C.INPUT)
-@[as_macro] pub const output	= u8(C.OUTPUT)
-@[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
-@[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
-

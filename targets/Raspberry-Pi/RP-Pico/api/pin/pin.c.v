@@ -36,9 +36,3 @@ pub const gp25  = 25
 pub const gp26  = 26
 pub const gp27  = 27
 pub const gp28  = 28
-
-// pin modes
-pub const input		= u8(C.INPUT)
-pub const output	= u8(C.OUTPUT)
-pub const in_pullup = u8(C.INPUT_PULLUP)
-pub const in_pulldown = u8(C.INPUT_PULLDOWN)

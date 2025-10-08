@@ -49,12 +49,6 @@ module pin
 @[as_macro] pub const pc14	=	37
 @[as_macro] pub const pc15	=	38
 
-// pin modes
-@[as_macro] pub const input		= u8(C.INPUT)
-@[as_macro] pub const output	= u8(C.OUTPUT)
-@[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
-@[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
-
 
 @[as_macro] const led0 = 33	// builtin LED
 @[as_macro] const sw0 = 36	// builtin Switch

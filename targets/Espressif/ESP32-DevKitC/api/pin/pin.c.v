@@ -46,8 +46,3 @@ pub const gpio35 = 35
 pub const gpio36 = 36 
 pub const gpio39 = 39
 
-// pin modes
-pub const input		= u8(C.INPUT)
-pub const output	= u8(C.OUTPUT)
-pub const in_pullup = u8(C.INPUT_PULLUP)
-

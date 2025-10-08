@@ -24,8 +24,3 @@ pub const gp13 = 13
 
 pub const gp18 = 18
 pub const gp19 = 19
-
-// pin mode
-pub const input		= u8(C.INPUT)
-pub const output	= u8(C.OUTPUT)
-pub const in_pullup = u8(C.INPUT_PULLUP)

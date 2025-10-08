@@ -18,11 +18,3 @@ pub const d7   = u8(C.D7)
 pub const d8   = u8(C.D8)
 pub const d9   = u8(C.D9)
 pub const d10  = u8(C.D10)
-
-
-
-// pin modes
-pub const input		= u8(C.INPUT)
-pub const output	= u8(C.OUTPUT)
-pub const in_pullup = u8(C.INPUT_PULLUP)
-pub const in_pulldown = u8(C.INPUT_PULLDOWN)
