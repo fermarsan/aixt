@@ -15,10 +15,10 @@ fn C.DIGITAL_TOGGLE(id u8)
 // fn C.portInputRegister(name u32)
 
 
-// pin mode
-@[as_macro] pub const input		= u8(C.INPUT)
-@[as_macro] pub const output	= u8(C.OUTPUT)
-@[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
+// pin modes
+@[as_macro] pub const input		  = u8(C.INPUT)
+@[as_macro] pub const output	  = u8(C.OUTPUT)
+@[as_macro] pub const in_pullup   = u8(C.INPUT_PULLUP)
 @[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
 
 // setup configures a pin's input/output mode
