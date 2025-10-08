@@ -1,10 +1,13 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2024-2025
+// Date: 2022-2025
 // License: MIT
 //
-// Description: Pin management functions for 16F family
+// Description: Pin management functions PIC24 Family
 module pin
+
+#include <p24FJ128GA010.h>
+
 
 // high puts a logic 1 to a pin
 @[as_macro]
