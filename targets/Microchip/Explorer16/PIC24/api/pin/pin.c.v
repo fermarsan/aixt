@@ -125,3 +125,20 @@ module pin
 @[as_macro] pub const g13 =  119
 @[as_macro] pub const g14 =  110
 @[as_macro] pub const g15 =  111
+
+
+// Onboard LEDs
+@[as_macro] pub const led3  = 0			
+@[as_macro] pub const led4  = 1
+@[as_macro] pub const led5  = 2
+@[as_macro] pub const led6  = 3
+@[as_macro] pub const led7  = 4
+@[as_macro] pub const led8  = 5
+@[as_macro] pub const led9  = 6
+@[as_macro] pub const led10 = 7
+
+// Onboard switchs
+@[as_macro] pub const sw3	= 54	
+@[as_macro] pub const sw4   = 61
+@[as_macro] pub const sw5   = 7
+@[as_macro] pub const sw6   = 55
