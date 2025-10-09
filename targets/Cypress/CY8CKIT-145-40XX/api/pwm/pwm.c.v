@@ -24,12 +24,10 @@ fn C.pwm2_WriteCompare(val any)
 
 
 fn init() {
-
 	C.pwm1_Start()
 	C.pwm2_Start()
 	C.pwm0_Start()
 	C.clock_Start()
-
 }
 
 

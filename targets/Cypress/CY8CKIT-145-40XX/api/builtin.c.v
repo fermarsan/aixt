@@ -13,20 +13,21 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+
 #include "builtin.c"
 
 fn C.INIT_INTERRUPTS() 
 
 
-@[as_macro] pub const led1 = C.led1
-@[as_macro] pub const led4 = C.led4
-@[as_macro] pub const led5 = C.led5
-@[as_macro] pub const led6 = C.led6
-@[as_macro] pub const led7 = C.led7
-@[as_macro] pub const led8 = C.led8
-@[as_macro] pub const led9 = C.led9
-@[as_macro] pub const led10 =C.led10
-@[as_macro] pub const led11 =C.led11
+@[as_macro] pub const led1 =  C.led1
+@[as_macro] pub const led4 =  C.led4
+@[as_macro] pub const led5 =  C.led5
+@[as_macro] pub const led6 =  C.led6
+@[as_macro] pub const led7 =  C.led7
+@[as_macro] pub const led8 =  C.led8
+@[as_macro] pub const led9 =  C.led9
+@[as_macro] pub const led10 = C.led10
+@[as_macro] pub const led11 = C.led11
 @[as_macro] pub const do0 = 12
 @[as_macro] pub const do1 = 13
 @[as_macro] pub const do2 = 14
