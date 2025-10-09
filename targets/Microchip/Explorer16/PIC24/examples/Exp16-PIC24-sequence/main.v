@@ -1,5 +1,7 @@
-import time {sleep_ms}
+import time
 import port
+
+const leds = port.a
 
 const sequence = [
 	u8(0b00000000),
@@ -15,10 +17,11 @@ const sequence = [
 	0b10000000,
 ]
 
+port.setup(leds, 0xFF00)	// 8 LSB as outputs (LEDs)
+
 for {
-	// for step in sequence {
-	// 	port.write(port.a, step)
 	for i in 0..12 {
-		port.write(port.a, sequence[i])
+		port.write(leds, sequence[i])
+		time.sleep_ms(500)
 	}
 }
