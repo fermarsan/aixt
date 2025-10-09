@@ -1,7 +1,4 @@
-#include <xc.h>
-#include <stdint.h>
-#include <stdbool.h>
-
+#include <libpic30.h> 
 #include <p24FJ128GA010.h>
 
 #define FCY 16000000UL

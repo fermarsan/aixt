@@ -5,29 +5,20 @@ TARGET_NAME ?= main
 
 PART ?= PIC16F83
 
-SRC = \
-	main.c \
+SRC = main.c
 
 ifeq ($(OS),Windows_NT)
-
-XC8_BASE = "C:\Program Files\Microchip\xc8\v"
-XC8 = $(XC8_BASE)$(XCVERSION)
-CC = $(XC8)\bin\xc8-cc
-
-TARGET_PATH = $(BUILD)\$(TARGET_NAME)
-
-MKDIR = mkdir
-
+	XC8_BASE = "C:\Program Files\Microchip\xc8\v"
+	XC8 = $(XC8_BASE)$(XCVERSION)
+	CC = $(XC8)\bin\xc8-cc
+	TARGET_PATH = $(BUILD)\$(TARGET_NAME)
+	MKDIR = mkdir
 else
-
-XC8_BASE = /opt/microchip/xc8/v
-XC8 = $(XC8_BASE)$(XCVERSION)
-CC = $(XC8)/bin/xc8-cc
-
-TARGET_PATH = $(BUILD)/$(TARGET_NAME)
-
-MKDIR = mkdir -p
-
+	XC8_BASE = /opt/microchip/xc8/v
+	XC8 = $(XC8_BASE)$(XCVERSION)
+	CC = $(XC8)/bin/xc8-cc
+	TARGET_PATH = $(BUILD)/$(TARGET_NAME)
+	MKDIR = mkdir -p
 endif
 
 
