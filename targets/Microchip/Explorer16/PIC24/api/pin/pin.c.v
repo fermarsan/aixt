@@ -1,14 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2022-2024
+// Date: 2022-2025
 // License: MIT
 //
 // Description: Pin management functions (Exp16-PIC24 port)
 module pin
 
-
-// @[as_macro] pub const in_pullup = u8(C.INPUT_PULLUP)
-// @[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
 
 @[as_macro] pub const a0 =   0 
 @[as_macro] pub const a1 =   1 
