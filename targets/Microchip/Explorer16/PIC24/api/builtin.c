@@ -1,7 +1,9 @@
-#include <libpic30.h> 
+
 #include <p24FJ128GA010.h>
 
-#define FCY 16000000UL
+#define FCY _const_main__cpu_freq
+
+#include <libpic30.h> 
 
 // CONFIG2
 #pragma config POSCMOD = XT		//Primary Oscillator Select->XT Oscillator mode selected
