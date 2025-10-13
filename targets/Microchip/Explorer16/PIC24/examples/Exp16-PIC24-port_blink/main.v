@@ -1,7 +1,7 @@
 import port
 import time
 
-port.setup(port.a, 0xFF00)
+port.setup(port.a, 0xFF00)	// the 8 LSBs as outputs
 
 for {
 	port.write(port.a, 0x00FF)
