@@ -61,3 +61,4 @@ Tasks to do in Aixt
 - [x] Issue solved: `/` characters produce errors on Windows. They were replaced by `os.path_separator` and `os.norm_path()`
 - [x] In general API unify the name of the identification I/O parameter from 'name' to 'id', in all the targets for the modules `pin`, `adc` and `pwn` (along with their `_oop` version)
 - [x] Pass the definition of pin modes for all the Arduino backend devices to `arduino-generic/api/pin`
+- [x] Folder `Test`deprecated
