@@ -33,7 +33,7 @@ Devices being updated:
 - ESP32-CYD
 - WCH families
 #### Changes and new features
-- Object Oriented Programming enabled
+- Object Oriented Programming enabled (API v0.2.0)
   -  Issue solved: Structs can not be registered twice (due to the double parsing round). Solved clearing the symbol table between parsings
   -  Implement structs
     -  Implement structs declaring
