@@ -12,7 +12,7 @@
 Module {
 	name:	'uart1'
 	description:	'Aixt adc management module for W801.'
-	version:	'0.1.2'
+	version:	'0.2.0'
 	license:	'MIT'
 	dependencies:	[]
 }
