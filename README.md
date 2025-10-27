@@ -123,6 +123,24 @@ for {
 }
 ```
 
+### Blinking LED example (using OOP)
+```v
+// OOP blinking LED on Arduino-Nano
+import time
+import pin_oop as pin   // API v0.2.0
+
+// declare an instance of the Pin struct
+mut ext_led := pin.Pin{ pin.d15 }	// LED on D15
+
+ext_led.setup(pin.output)   // as output
+ext_led.high()  // turn on an external LED
+
+for {
+	ext_led.toggle()		// change the external LED state
+	time.sleep_ms(500)
+}
+```
+
 ### Example for NXT robotics platform
 
 ```v

@@ -5,14 +5,14 @@
 import time
 import pin_oop as pin
 
-// mut ext_led := pin.Pin{ pin.d15 }
+// declare an instance of the Pin struct
+mut ext_led := pin.Pin{ pin.d15 }	// LED on D15
 
-
-// ext_led.high()	// turn on an external LED
+ext_led.high()	// turn on an external LED
 
 for {
-	pin.led0.low()		// turn off the on-board LED
+	ext_led.low()		// turn off the on-board LED
 	time.sleep_ms(500)
-	pin.led0.high()		// turn off the on-board LED
+	ext_led.high()		// turn off the on-board LED
 	time.sleep_ms(500)
 }
