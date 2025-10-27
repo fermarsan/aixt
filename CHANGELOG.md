@@ -1,7 +1,7 @@
 ## v0.2.3
 *26 Oct 2025*
 This _Aixt_ version needs _V_ *0.4.10*.
-#### Devices Supported
+#### Supported Devices
 Devices updated to API v0.2.0 (OOP enabled):
 - Software emulator
 - Mindstorms NXT
