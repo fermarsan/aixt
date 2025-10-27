@@ -15,9 +15,9 @@ for{
 	}
 	time.sleep_ms(2000)
 	oled.clear()
-	oled.size(1)
-	oled.color(oled.white)
-	oled.setcursor(0,0)
+	oled.set_text_size(1)
+	oled.set_text_color(oled.white)
+	oled.set_cursor(0,0)
 	oled.println('HELLO WORLD')
 } 
 
