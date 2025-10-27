@@ -57,7 +57,7 @@ Devices being updated:
 -  Now the builtin inputs and outputs belong to `pin` module and require to be manual configured ans initialized
 -  Issue solved: `/` characters produce errors on Windows. They were replaced by `os.path_separator` and `os.norm_path()`
 -  Pass the definition of pin modes for all the Arduino backend devices to `arduino-generic/api/pin`
--  Folder `Test`deprecated
+-  Folder `Test` deprecated
 #### Available Libraries
 - disp7seg (7 Segments Arduino Shield)
 - lcd (LCD Arduino Shield)
