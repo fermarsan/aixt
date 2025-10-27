@@ -1,3 +1,69 @@
+## v0.2.3
+*26 Oct 2025*
+#### Devices Supported
+Devices updated to API v0.2.0 (OOP enabled):
+- Software emulator
+- Mindstorms NXT
+- PIC16F6xx-14p family
+- PIC16F6xx-18p family
+- PIC16F6xx-20p family
+- PIC16F8x family
+- PIC16F87x family
+- PIC16F88x family
+- Explorer16 (PIC24FJ128GA010)
+- CY8CKIT-049-42xx (PSoC 4)
+- CY8CKIT-145-40xx (PSoC 4)
+- Arduino Uno
+- Arduino Nano
+- Arduino Mega
+- Blue-Pill
+- Nucleo-L031K6
+- STM32G431Core
+- STM32F411Core
+- Raspberry Pi Pico
+- XIAO-SAMD21
+- XIAO-ESP32-xx (C3, C6, S3)
+- ESP32-DevKitC
+- ESP32-C3-CORE
+- ESP32-C3FH4   
+- M5Stack FIRE
+- CH32V103R8T6-EVT-R1
+Devices being updated:
+- ESP32-CYD
+- WCH families
+#### Changes and new features
+- Object Oriented Programming enabled
+  -  Issue solved: Structs can not be registered twice (due to the double parsing round). Solved clearing the symbol table between parsings
+  -  Implement structs
+    -  Implement structs declaring
+    -  Implement struct instances declaring
+    -  Implement struct fields access (`struct_name.struct_field`)
+    -  Support struct methods (using the V standard)
+  -  Add OOP features to the API (Emulator pin module, NXT motor module) 
+  -  new 'pin_oop' object oriented pin module for Arduino backend (API v0.2.0)
+  -  Issue solved: References to 'struct's fail generating C code
+  -  In general API unify the name of the identification I/O parameter from 'name' to 'id', in all the targets for the modules `pin`, `adc` and `pwn` (along with their `_oop` version)
+-  Issue solved: functions that returns pointers fail
+-  Include casting on C generated code for 'return' commands
+-  Change the C generation of commands: `import module { component }`, to reach it more to original V behavior (import all the `module` and enable a short pseudonym for `component`)
+-  Generate the modules `arduino-generic-UARTx` instead of defining them for each target
+-  Change the definition of builtin LEDs ans Switches from `builtin.c.v` to `pin.c.v` 
+-  Unify most the ports implementation in only one file `module.c.v`
+-  `pin_fast` module implemented for PIC16
+-  Change the name of the devices/boards implementation folder from `ports` to `targets` 
+-  NXT target API (motor, sensor and button modules) updated to v0.2.0 (OOP)
+-  NXT test examples split in 'funcional' and 'struct-based' (object oriented approach)
+-  Now the builtin inputs and outputs belong to `pin` module and require to be manual configured ans initialized
+-  Issue solved: `/` characters produce errors on Windows. They were replaced by `os.path_separator` and `os.norm_path()`
+-  Pass the definition of pin modes for all the Arduino backend devices to `arduino-generic/api/pin`
+#### Available Libraries
+- disp7seg (7 Segments Arduino Shield)
+- lcd (LCD Arduino Shield)
+- For Arduino backend:
+  - oled
+  - random
+  - tft_espi
+  
 ## v0.2.2
 *22 Aug 2025*
 #### Devices Supported
