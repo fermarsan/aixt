@@ -40,4 +40,5 @@ Tasks to do in Aixt
 
 - Issue solved: Arduino Mega and Nano `led0` was not public.
 - VSCode `tasks.json` updated to also support pixi environments
+- Change all occurrences of `@[as_macro] const` by `@[as_macro] pub const` 
 

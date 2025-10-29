@@ -5,10 +5,10 @@ import sensor_fn as sensor
 import time
 
 
-@[as_macro] const t_move = 500
-@[as_macro] const t_stop = 500
-@[as_macro] const t_avoid = 1500
-@[as_macro] const pow = 50
+@[as_macro] pub const t_move = 500
+@[as_macro] pub const t_stop = 500
+@[as_macro] pub const t_avoid = 1500
+@[as_macro] pub const pow = 50
 
 fn straight(power i8, tim u32) {
 	motor.write(motor.a, power)

@@ -10,7 +10,7 @@ Quick reference for the Microchip PIC16F8x devices:
 
 ```v
 // by default the CPU oscillation frequency is 10Mhz
-@[as_macro] const cpu_freq = 4_000_000  // change it to 4Mhz
+@[as_macro] pub const cpu_freq = 4_000_000  // change it to 4Mhz
 ```
 
 ## Delay
@@ -102,7 +102,7 @@ Use the `timer0` module:
 ```v
 import timer0
 
-@[as_macro] const cpu_freq = 4_000_000  // 4Mhz
+@[as_macro] pub const cpu_freq = 4_000_000  // 4Mhz
 
 timer0.setup(10_000)    // setup a time of 10ms
 .

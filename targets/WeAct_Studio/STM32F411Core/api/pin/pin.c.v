@@ -46,5 +46,5 @@ module pin
 @[as_macro] pub const pc14	=	32
 @[as_macro] pub const pc15	=	33
 
-@[as_macro] const led0 = 31	// builtin LED
-@[as_macro] const sw0 = 0		// builtin Switch	
+@[as_macro] pub const led0 = 31	// builtin LED
+@[as_macro] pub const sw0 = 0		// builtin Switch	

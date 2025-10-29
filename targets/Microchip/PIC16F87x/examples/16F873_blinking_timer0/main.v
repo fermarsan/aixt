@@ -14,9 +14,9 @@ fn blinking() {
 	int_flag = true
 }
 
-// @[as_macro] const cpu_freq = 8_000_000	// sets fosc to 8 Mhz
-// @[as_macro] const cpu_freq = 12_000_000	// sets fosc to 12 Mhz
-// @[as_macro] const cpu_freq = 20_000_000	// sets fosc to 20 Mhz
+// @[as_macro] pub const cpu_freq = 8_000_000	// sets fosc to 8 Mhz
+// @[as_macro] pub const cpu_freq = 12_000_000	// sets fosc to 12 Mhz
+// @[as_macro] pub const cpu_freq = 20_000_000	// sets fosc to 20 Mhz
 
 mut count := u8(0)
 
