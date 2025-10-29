@@ -79,4 +79,4 @@ module pin
 
 
 // builtin LED
-@[as_macro]	const led0 = 13
+@[as_macro]	pub const led0 = 13

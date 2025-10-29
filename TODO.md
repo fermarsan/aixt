@@ -38,3 +38,5 @@ Tasks to do in Aixt
 
 ### Done ✓make
 
+- Issue solved: Arduino Mega and Nano `led0` was not public.
+
