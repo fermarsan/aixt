@@ -20,13 +20,19 @@ stateDiagram-v2
         direction RL
         Transpiler: Transpiler Core    
         
-        Implementation: Implementation of an X device
+        Implementation: Implementation of device X
         state Implementation {
             API: API (*.v, *.c)
             SF: Setup files (*.json)
         }
+        Implementation2: Implementation of device Y
+        state Implementation2 {
+            API2: API (*.v, *.c)
+            SF2: Setup files (*.json)
+        }
         
         Implementation --> Transpiler
+        Implementation2 --> Transpiler
     }
 
 
@@ -34,7 +40,8 @@ stateDiagram-v2
 
     Compiler: C compiler
     state Compiler {
-        compiler: Compiler compatible with device X
+        compiler1: Compiler for device X
+        compiler2: Compiler for device Y
     }
 
     BF: Binary file
