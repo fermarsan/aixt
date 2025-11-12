@@ -13,17 +13,16 @@ This diagram shows the Aixt blocks and their interactions:
 
 ```mermaid
 stateDiagram-v2
-
     source: Source code (*.v)
 
-    Aixt2C: Aixt Transpiler
+    Aixt2C: Aixt Transpiler (V)
     state Aixt2C {
         direction RL
         Transpiler: Transpiler Core    
         
-        Implementation: Implementation of X device
+        Implementation: Implementation of an X device
         state Implementation {
-            API
+            API: API (*.v, *.c)
             SF: Setup files (*.json)
         }
         
@@ -35,7 +34,7 @@ stateDiagram-v2
 
     Compiler: C compiler
     state Compiler {
-        compiler: Compiler compatible with X device
+        compiler: Compiler compatible with device X
     }
 
     BF: Binary file
