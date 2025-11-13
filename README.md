@@ -149,7 +149,7 @@ for {
 
 ### Blinking LED example by timer interrupt
 ```v
-// PIC16F83 fosc = 10Mhz by default
+// Blinking LED by timer interrupt (PIC16F83 10Mhz)
 import pin
 import timer0
 
