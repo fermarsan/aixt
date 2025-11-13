@@ -69,14 +69,15 @@ The transpiler is written in [_V_](https://vlang.io/) and uses the _V's_ self na
 **Aixt's V** programing language implements a subset of the [_V language_](https://vlang.io/). The main differences are show as follows:
 
 | feature              | V                             | Aixt's V                                                              |
-| -------------------- | ----------------------------- | --------------------------------------------------------------------- |
+|----------------------|-------------------------------|-----------------------------------------------------------------------|
 | strings              | fixed-sized and dynamic-sized | fixed-sized (for now)                                                 |
 | arrays               | fixed-sized and dynamic-sized | fixed-sized (for now)                                                 |
 | structs              | allow functions               | allow functions. Can not declared as reference                        |
 | functions            | multiple return values        | only one return value                                                 |
-| text macros          | not allowed                   | allowed by using '@[as_macro]' attribute, for functions and constants |
-| `C` variables access | not allowed                   | allowed by using 'C.var_name' syntax                                  |
+| text macros          | not allowed                   | allowed by using `@[as_macro]` attribute, for functions and constants |
+| `C` variables access | not allowed                   | allowed by using `C.var_name` syntax                                  |
 | global variables     | disabled by default           | enabled by default                                                    |
+| Interrupts           | not implemented               | allowed by using `@[xxxx_isr]` attribute for ISRs                     |
 
 
 ### Example with `main` function
