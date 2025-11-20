@@ -9,6 +9,7 @@ Tasks to do in Aixt
 - [ ] dynamic memory definition
 - [ ] Implement inline assembly
 - [ ] "40_inline_asm.v" inline asm implementation
+  - [ ] name C.name in asm blocks
 - [ ] Implement uart.input()
 - [ ] Support for arrays and strings initialized inside "for" statement
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
@@ -21,6 +22,7 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
 - [ ] Issue: Transpiler only works with V 0.4.10 or below
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
+- [ ] Enable conditional compilation based on `device.json` properties
 
 
 ### In Progress

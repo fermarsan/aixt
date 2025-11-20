@@ -6,10 +6,10 @@
             "type": "shell",
             "windows": {
                 "command": [
-                    "if exist pixi.toml",
-                    "(pixi run aixt transpile ${config:device} ${file})",
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt transpile ${config:device} ${file} }",
                     "else",
-                    "(${config:aixt_windows} transpile ${config:device} ${file})"
+                    "{ ${config:aixt_windows} transpile ${config:device} ${file} }"
                 ]
             },
             "linux": {
@@ -34,10 +34,10 @@
             "type": "shell",
             "windows": {
                 "command": [
-                    "if exist pixi.toml",
-                    "(pixi run aixt c_compile ${config:device} ${file})",
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt c_compile ${config:device} ${file} }",
                     "else",
-                    "(${config:aixt_windows} c_compile ${config:device} ${file})"
+                    "{ ${config:aixt_windows} c_compile ${config:device} ${file} }"
                 ]
             },
             "linux": {
@@ -62,10 +62,10 @@
             "type": "shell",
             "windows": {
                 "command": [
-                    "if exist pixi.toml",
-                    "(pixi run aixt flash ${config:device} ${file} ${config:port_windows})",
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt flash ${config:device} ${file} ${config:port_windows} }",
                     "else",
-                    "(${config:aixt_windows} flash ${config:device} ${file} ${config:port_windows})"
+                    "{ ${config:aixt_windows} flash ${config:device} ${file} ${config:port_windows} }"
                 ]
             },
             "linux": {
@@ -90,10 +90,10 @@
             "type": "shell",
             "windows": {
                 "command": [
-                    "if exist pixi.toml",
-                    "(pixi run aixt build ${config:device} ${file})",
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt build ${config:device} ${file} }",
                     "else",
-                    "(${config:aixt_windows} build ${config:device} ${file})"
+                    "{ ${config:aixt_windows} build ${config:device} ${file} }"
                 ]
             },
             "linux": {
@@ -133,10 +133,10 @@
             "type": "shell",
             "windows": {
                 "command": [
-                    "if exist pixi.toml",
-                    "(pixi run aixt clean ${config:device} ${file})",
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt clean ${config:device} ${file} }",
                     "else",
-                    "(${config:aixt_windows} clean ${config:device} ${file})"
+                    "{ ${config:aixt_windows} clean ${config:device} ${file} }"
                 ]
             },
             "linux": {
@@ -161,10 +161,10 @@
             "type": "shell",
             "windows": {
                 "command": [
-                    "if exist pixi.toml",
-                    "(pixi run aixt new_project ${config:device} ${input:dirName} ${input:projectName})",
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt new_project ${config:device} ${input:dirName} ${input:projectName} }",
                     "else",
-                    "(${config:aixt_windows} new_project ${config:device} ${input:dirName} ${input:projectName})"
+                    "{ ${config:aixt_windows} new_project ${config:device} ${input:dirName} ${input:projectName} }"
                 ]
             },
             "linux": {
