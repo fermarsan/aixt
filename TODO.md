@@ -23,8 +23,10 @@ Tasks to do in Aixt
 - [ ] Issue: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it)
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
 - [ ] Enable conditional compilation based on `device.json` properties
+  - [ ] Include `$if c_backend {}` syntax from `backend: c` of `device.json`
+  - [ ] Move the `time` module from `api` to `lib`    
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
-- [ ] Add basic language tests examples
+- [ ] Add basic language test examples
 
 
 ### In Progress
