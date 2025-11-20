@@ -209,35 +209,94 @@ cd aixt
 make # make.bat on Windows
 ```
 
+### Installing using `conda` packages
+
+There are implemented `conda` packages of _Aixt_ and some of its dependencies for _Linux_ and _Windows_, which are located in: [https://anaconda.org/fermarsan](https://anaconda.org/fermarsan). The packages are:
+
+- _aixt 0.2.3_ (_Linux_ and _Windows_)
+- _arduino-cli 1.3.1_ (_Linux_ and _Windows_) 
+- _nbc 1.2.1 r5_  (_Linux_ and _Windows_)
+- _libusb 0.1.4_ (_Linux_)
+
+#### Installing using _Anaconda_ or _Miniconda_
+```
+conda create -n <env-name> --channel fermarsan aixt <dependencies>
+conda activate <env-name>
+```
+
+for instance:
+
+```
+conda create -n aixt-env --channel fermarsan aixt arduino-cli
+conda activate aixt-env
+```
+
+#### Installing using _Pixi_ (as workspace package)
+
+```
+pixi workspace channel add https:/conda.anaconda.org/fermarsan
+pixi add aixt <dependencies>
+pixi shell
+```
+
+for instance:
+
+```
+pixi workspace channel add https:/conda.anaconda.org/fermarsan
+pixi add aixt arduino-cli
+pixi shell
+```
+
+
+#### Installing using _Pixi_ (as global package)
+
+```
+pixi global install --environment <env-name> --channel https:/conda.anaconda.org/fermarsan aixt <dependencies>
+```
+
+for instance:
+
+```
+pixi global install --environment aixt-env --channel https:/conda.anaconda.org/fermarsan aixt arduino-cli
+```
+
 ### Running Aixt
-run it in a Linux-based system as:
+run it in a _Linux_-based system as:
 ```
 ./aixt <command> <device_or_board> <source_file>
 ```
-or in Windows:
+or in _Windows_:
 ```
 aixt.exe <command> <device_or_board> <source_file>
 ```
 
+if installed by a `conda` package or after added to the `PATH` (_Linux_ and _Windows_):
+```
+aixt <command> <device_or_board> <source_file>
+```
+
+
 ### Generating a Symbolic Link
 For running the command `aixt` from any folder in the file system you can create a symbolic link of it in this way:
 
-run it in a Linux-based system as:
+run it in a _Linux_-based system as:
 ```
 ./aixt symlink
 ```
-or in Windows:
+or in _Windows_:
 ```
 aixt.exe symlink
 ```
 
+It is not necessary if _Aixt_ was installed by a `conda` package.
+
 ### Running examples:
 
 ```
-./aixt -t Emulator test.v
+aixt -t Emulator test.v
 ```
 ```
-./aixt -b NXT ports/NXT/projects/1_motor.write.v
+aixt -b NXT ports/NXT/projects/1_motor.write.v
 ```
 
 
@@ -248,7 +307,9 @@ This is the complete [list of suported devices/boards](docs/Devices%20and%20Boar
 
 ## Prerequisites
 
-- _The V programming language_ 0.4.9
+- _git_ (for installing from source)
+- _The V programming language 0.4.10_ (for installing from source)
+- _Anaconda_, _Miniconda_ or _Pixi_ (for installing by a `conda` packages)
 - _auduino-cli_ last version (for arduino backend devices only)
 - _specific C compiler_ depending on the device
 
