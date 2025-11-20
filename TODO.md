@@ -23,6 +23,7 @@ Tasks to do in Aixt
 - [ ] Issue: Transpiler only works with V 0.4.10 or below
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
 - [ ] Enable conditional compilation based on `device.json` properties
+- [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
 
 
 ### In Progress
