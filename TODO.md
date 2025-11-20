@@ -24,7 +24,7 @@ Tasks to do in Aixt
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
 - [ ] Enable conditional compilation based on `device.json` properties
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
-- [ ] Add basic language tests
+- [ ] Add basic language tests examples
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
 
 
