@@ -20,7 +20,7 @@ Tasks to do in Aixt
 - [ ] Allow multi-arg functions
 - [ ] Check the convenience of the "generality" of each port implementation
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
-- [ ] Issue: Transpiler only works with V 0.4.10 or below
+- [ ] Issue: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it)
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
 - [ ] Enable conditional compilation based on `device.json` properties
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
