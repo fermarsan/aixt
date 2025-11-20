@@ -25,7 +25,6 @@ Tasks to do in Aixt
 - [ ] Enable conditional compilation based on `device.json` properties
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
 - [ ] Add basic language tests examples
-- [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
 
 
 ### In Progress
@@ -39,6 +38,7 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
+- [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
 
 
 ### Done ✓make
