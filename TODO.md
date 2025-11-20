@@ -24,6 +24,7 @@ Tasks to do in Aixt
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
 - [ ] Enable conditional compilation based on `device.json` properties 
   - [ ] Include `$if c {}` syntax from `backend: c` of `device.json`
+  - [ ] Include `$if xc8 {}` syntax from `cc: { name: xc8 }` of `device.json`
   - [ ] Move the `time` module from `api` to `lib`    
   - [ ] From `device.json` change `port:` by `target:`
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
