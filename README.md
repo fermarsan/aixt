@@ -203,6 +203,7 @@ The [**Aixt API**](docs/API.md) is inspired by _Micropython_, _Arduino_ and _Tin
 ## Using Aixt
 
 ### Installing Aixt from source
+
 ```
 git clone https://github.com/fermarsan/aixt.git
 cd aixt
@@ -219,13 +220,12 @@ There are implemented `conda` packages of _Aixt_ and some of its dependencies fo
 - _libusb 0.1.4_ (_Linux_)
 
 #### Installing using _Anaconda_ or _Miniconda_
+
 ```
 conda create -n <env-name> --channel fermarsan aixt <dependencies>
 conda activate <env-name>
 ```
-
 for instance:
-
 ```
 conda create -n aixt-env --channel fermarsan aixt arduino-cli
 conda activate aixt-env
@@ -238,29 +238,25 @@ pixi workspace channel add https:/conda.anaconda.org/fermarsan
 pixi add aixt <dependencies>
 pixi shell
 ```
-
 for instance:
-
 ```
 pixi workspace channel add https:/conda.anaconda.org/fermarsan
 pixi add aixt arduino-cli
 pixi shell
 ```
 
-
 #### Installing using _Pixi_ (as global package)
 
 ```
 pixi global install --environment <env-name> --channel https:/conda.anaconda.org/fermarsan aixt <dependencies>
 ```
-
 for instance:
-
 ```
 pixi global install --environment aixt-env --channel https:/conda.anaconda.org/fermarsan aixt arduino-cli
 ```
 
 ### Running Aixt
+
 run it in a _Linux_-based system as:
 ```
 ./aixt <command> <device_or_board> <source_file>
@@ -275,8 +271,8 @@ if installed by a `conda` package or after added to the `PATH` (_Linux_ and _Win
 aixt <command> <device_or_board> <source_file>
 ```
 
-
 ### Generating a Symbolic Link
+
 For running the command `aixt` from any folder in the file system you can create a symbolic link of it in this way:
 
 run it in a _Linux_-based system as:
@@ -287,8 +283,8 @@ or in _Windows_:
 ```
 aixt.exe symlink
 ```
-
 It is not necessary if _Aixt_ was installed by a `conda` package.
+
 
 ### Running examples:
 
@@ -318,12 +314,14 @@ This is the complete [list of suported devices/boards](docs/Devices%20and%20Boar
 
 The project's name is inspired in _Veasel_, the Weasel pet of _V Language_, and at the same time is a tribute to _Ticuna_ people who live in the Amazon forest between the borders of _Colombia_, _Brasil_ and _Perú_. Weasels are _mustelids_ just like otters, so the name **Aixt** comes from _Aixtü_, which is a way to say otter in [_Ticuna_](https://www.sil.org/system/files/reapdata/90/20/51/90205190508691852389084667097660892450/tca_Ticuna_Dictionary_2016_web.pdf) language.
 
+
 ## Have questions?
 
 Nice, you can contact me via mail.
 
 Email: fmartinezsanta@gmail.com
 <!-- Discord : https://discord.gg/-->
+
 
 ## Want to contribute?
 
