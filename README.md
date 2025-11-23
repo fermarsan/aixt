@@ -225,10 +225,11 @@ There are implemented `conda` packages of _Aixt_ and some of its dependencies fo
 conda create -n <env-name> --channel fermarsan aixt <dependencies>
 conda activate <env-name>
 ```
-for instance:
+for instance, by using with an AVR-based Arduino board:
 ```
 conda create -n aixt-env --channel fermarsan aixt arduino-cli
 conda activate aixt-env
+arduino-cli core install arduino:avr
 ```
 
 #### Installing using _Pixi_ (as workspace package)
@@ -238,11 +239,12 @@ pixi workspace channel add https:/conda.anaconda.org/fermarsan
 pixi add aixt <dependencies>
 pixi shell
 ```
-for instance:
+for instance, by using with an AVR-based Arduino board:
 ```
 pixi workspace channel add https:/conda.anaconda.org/fermarsan
 pixi add aixt arduino-cli
 pixi shell
+arduino-cli core install arduino:avr
 ```
 
 #### Installing using _Pixi_ (as global package)
@@ -250,9 +252,10 @@ pixi shell
 ```
 pixi global install --environment <env-name> --channel https:/conda.anaconda.org/fermarsan aixt <dependencies>
 ```
-for instance:
+for instance, by using with an AVR-based Arduino board:
 ```
 pixi global install --environment aixt-env --channel https:/conda.anaconda.org/fermarsan aixt arduino-cli
+arduino-cli core install arduino:avr
 ```
 
 ### Running Aixt
@@ -301,7 +304,7 @@ aixt -b NXT ports/NXT/projects/1_motor.write.v
 This is the complete [list of suported devices/boards](docs/Devices%20and%20Boards.md) and their backends and compilers.
 
 
-## Prerequisites
+## Dependencies
 
 - _git_ (for installing from source)
 - _The V programming language 0.4.10_ (for installing from source)
