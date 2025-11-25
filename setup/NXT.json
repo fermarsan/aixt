@@ -2,11 +2,11 @@
     "port": "NXT",
     "board": "LEGO Mindstorms NXT intelligent brick",
     "backend": "nxc",
-    "cc_linux": "/home/fercho/git-projects/aixt/targets/NXT/nbc-linux",
-    "cc_windows": "c:\\aixt\\targets\\NXT\\nbc-windows.exe",
+    "cc_linux": "nbc",
+    "cc_windows": "nbc",
     "cc_flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc",
-    "flasher_linux": "/home/fercho/git-projects/aixt/targets/NXT/nbc-linux",
-    "flasher_windows": "c:\\aixt\\targets\\NXT\\nbc-windows.exe",
+    "flasher_linux": "nbc",
+    "flasher_windows": "nbc",
     "flasher_flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc",
     "api_paths": [
         "NXT"
