@@ -177,7 +177,7 @@ for {
 ```v
 // Draw a square on the floor with a differential platform 
 // using motors A and B
-import motor
+import motor_fn as motor
 import time
 
 for {
@@ -187,6 +187,25 @@ for {
     time.sleep_ms(3000)
     // spin
     motor.write(motor.a, -50)	// reverse
+    time.sleep_ms(500)
+}
+```
+
+### Example for NXT robotics platform (using OOP)
+
+```v
+// Draw a square on the floor with a differential platform 
+// using motors A and B
+import motor
+import time
+
+for {
+    // move forward
+    motor_a.write(50)
+    motor_b.write(-50)	// reverse
+    time.sleep_ms(3000)
+    // spin
+    motor_a.write(-50)	// reverse
     time.sleep_ms(500)
 }
 ```
