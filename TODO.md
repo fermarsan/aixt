@@ -29,6 +29,8 @@ Tasks to do in Aixt
   - [ ] From `device.json` change `port:` by `target:`
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
 - [ ] Add basic language test examples
+- [ ] Define if the default modules use functional or object oriented paradigms
+  - [ ] Define a standard way of naming the modules (`module`, `module_fn`, `module_oop`)
 
 
 ### In Progress
