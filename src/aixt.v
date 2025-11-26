@@ -113,7 +113,7 @@ fn main() {
 								os.mkdir(os.norm_path('${path}/${name}')) or { panic(err) }
 							}
 							// os.cp(os.norm_path('${aixt_path}/templates/main.v'), os.norm_path('${path}/${name}/main.v')) or {}
-							os.cp_all(os.norm_path('${aixt_path}/templates/project/${project_setup.port}/'), os.norm_path('${path}/${name}/'), true) or { 
+							os.cp_all(os.norm_path('${aixt_path}/templates/project/${project_setup.target}/'), os.norm_path('${path}/${name}/'), true) or { 
 								panic(err) 
 							}
 							if project_setup.backend == 'arduino' { // arduino-cli sketch name requirement

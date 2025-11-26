@@ -46,7 +46,6 @@ Tasks to do in Aixt
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
 - [ ] Add documentation about installing by using `conda`/`pixi`
-- [ ] New scheme for `device.json`
 
 
 ### Done ✓make
@@ -55,4 +54,5 @@ Tasks to do in Aixt
 - VSCode `tasks.json` updated to also support pixi environments
 - Change all occurrences of `@[as_macro] const` by `@[as_macro] pub const`
 - Delete `nbc` compiler binaries from the repository (windows and linux versions)
+- Implemente a new scheme for the `device.json` setup files
 

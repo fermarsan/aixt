@@ -18,12 +18,12 @@ import aixt.setup
 pub fn c_compile(path string, project_setup setup.Setup) {
 
 	cc := $if windows { // C compiler depending on the OS
-		project_setup.cc_windows
+		project_setup.cc['windows_path']
 	} $else {
-		project_setup.cc_linux
+		project_setup.cc['linux_path']
 	}
 
-	mut flags := project_setup.cc_make_flags
+	mut flags := project_setup.cc['flags']
 	flags = flags.replace('@{file_no_ext}', '${path}')	
 	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')	
 	flags = flags.replace('@{device}', '${project_setup.device}')
@@ -35,7 +35,7 @@ pub fn c_compile(path string, project_setup setup.Setup) {
 	}
 	flags = flags.replace('@{input_ext}', '${input_ext}')
 
-	output_ext := match project_setup.port {
+	output_ext := match project_setup.target {
 		'Emulator'	{
 			$if windows { '.exe' } $else { '' }
 		}

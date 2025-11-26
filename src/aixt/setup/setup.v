@@ -16,6 +16,7 @@ pub mut:
 	cc					map[string]string
 	flasher		 		map[string]string
 	api_paths			[]string
+	v_defines			[]string
 	default_cpu_freq	int
 	default_string_len	int
 	compiler_setup_path string
