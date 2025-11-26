@@ -5,7 +5,7 @@
 **NOTA:** Este microcontrolador PIC16F cuenta con salidas digitales, entradas digitales, ADC, PWM y comunicación serial.
 
 ## Nombres de los Pines
-Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir [V variable naming rules.] (https://github.com/vlang/v/blob/master/doc/docs.md#variables).
+Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir. [V variable naming rules.] (https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
 ### Nombres de los pines del PIC16F886
 | Puerto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
@@ -17,7 +17,7 @@ Los nombres de los pines se nombran con una letra que indica el puerto y un núm
 
 ![alt text](image-1.png) (https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/40001291H.pdf)
 
-`MCLR` significa Master Clear/Reset, es decir, un pin de reinicio del controlador y se conecta a Vcc (+5 V).
+- `MCLR` significa Master Clear/Reset, es decir, un pin de reinicio del controlador y se conecta a Vcc (+5 V).
 - `VDD` Alimentación positiva y referencia de tierra para los pines lógicos y de E/S, respectivamente. Estos pines cuentan con protección de diodo.
 - `VSS` significa Fuente de Voltaje, Fuente o Fuente de Suministro de Voltaje y es el pin de tierra (GND), también conocido como referencia de voltaje, 0 voltios para todo el circuito.
 
