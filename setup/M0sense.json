@@ -2,12 +2,16 @@
     "port": "M0sense",
     "board": "Sipeed M0sense",
     "backend": "c",
-    "cc_linux": "gcc",
-    "cc_windows": "c:\\v\\thirdparty\\tcc\\tcc.exe",
-    "cc_make_flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c",
-    "flasher_linux": "arduino-cli",
-    "flasher_windows": "arduino-cli.exe",
-    "flasher_flags": "upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32",
+    "cc": {
+        "linux_path": "gcc",
+        "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe",
+        "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
+    },
+    "flasher": {
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32"
+    },
     "api_paths": [
         "M0sense"
     ],

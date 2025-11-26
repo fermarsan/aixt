@@ -2,12 +2,14 @@
     "port": "CY8CKIT-049",
     "board": "CY8CKIT-049-42XX",
     "backend": "c",
-    "cc_linux": "",
-    "cc_windows": "",
-    "cc_make_flags": "",
-    "flasher_linux": "",
-    "flasher_windows": "",
-    "flasher_flags": "",
+    "cc": {
+        "linux_path": "",
+        "windows_path": "",
+        "flags": "",
+        "flasher_linux": "",
+        "windows_path": "",
+        "flags": ""
+    },
     "api_paths": [
         "Cypress/CY8CKIT-049-42XX",
         "Cypress/PSoC-Creator-generic"

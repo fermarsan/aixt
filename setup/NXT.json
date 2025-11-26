@@ -2,12 +2,16 @@
     "port": "NXT",
     "board": "LEGO Mindstorms NXT intelligent brick",
     "backend": "nxc",
-    "cc_linux": "nbc",
-    "cc_windows": "nbc",
-    "cc_flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc",
-    "flasher_linux": "nbc",
-    "flasher_windows": "nbc",
-    "flasher_flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc",
+    "cc": {
+        "linux_path": "nbc",
+        "windows_path": "nbc",
+        "cc_flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc"
+    },
+    "flasher": {
+        "linux_path": "nbc",
+        "windows_path": "nbc",
+        "flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc"
+    },
     "api_paths": [
         "NXT"
     ],

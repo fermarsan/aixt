@@ -26,7 +26,7 @@ pub fn flash(path string, port string, project_setup setup.Setup) {
 	flags = flags.replace('@{file_no_ext}', '${path}')
 	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')
 	flags = flags.replace('@{device}', '${project_setup.device}')
-	flags = flags.replace('@{port}', '${port}')
+	flags = flags.replace('@{target}', '${port}')
 
 	input_ext := match project_setup.backend {
 		'nxc' { '.nxc' }

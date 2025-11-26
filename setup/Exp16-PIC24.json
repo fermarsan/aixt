@@ -2,12 +2,14 @@
     "port": "Exp16-PIC24",
     "board": "Explorer 16",
     "backend": "c",
-    "cc_linux": "",
-    "cc_windows": "",
-    "cc_make_flags": "",
-    "flasher_linux": "",
-    "flasher_windows": "",
-    "flasher_flags": "",
+    "cc": {
+        "linux_path": "",
+        "windows_path": "",
+        "flags": "",
+        "flasher_linux": "",
+        "windows_path": "",
+        "flags": ""
+    },
     "api_paths": [
         "Microchip/Explorer16/PIC24",
         "Microchip/xc16-generic",

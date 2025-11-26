@@ -2,12 +2,14 @@
     "port": "PIC16F6xx-18p",
     "board": "---",
     "backend": "c",
-    "cc_linux": "",
-    "cc_windows": "",
-    "cc_make_flags": "PART=@{device}",
-    "flasher_linux": "",
-    "flasher_windows": "",
-    "flasher_flags": "",
+    "cc": {
+        "linux_path": "",
+        "windows_path": "",
+        "flags": "PART=@{device}",
+        "flasher_linux": "",
+        "windows_path": "",
+        "flags": ""
+    },
     "api_paths": [
         "Microchip/PIC16F6xx-18p",
         "Microchip/xc8-generic",

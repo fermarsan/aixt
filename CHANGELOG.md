@@ -112,7 +112,7 @@ Devices being updated:
 - Update snippets for PIC16F8x, PIC16F6xx-14p and PIC16F6xx-18p
 - PIC12F6xx port implementation (`time`, `timer0`, `pin` and `ext` modules)
 - Add template and "examples" folders for PIC12F6xx
-- Issue solved: "cc_make_flags" write mistake in some `.json` setup files
+- Issue solved: "flags" write mistake in some `.json` setup files
 - Snippets updated for PIC devices (including `time`, `timer0`, `pin`, `port`, `adc`, `pwm` and `ext`)
 - Update snippets for Arduino AVR
 - Make `adc.setup()` automatically set the used pin channels as inputs on PIC devices
@@ -214,7 +214,7 @@ Devices being updated:
 - New names for functions in NXT's `task` module
 - NXT snippets file updated 
 - `port` options added to all `settings.json` project files
-- `flasher_linux`, `flasher_windows`, `flasher_flags` options added to all `setup.json` configuration files
+- `flasher_linux`, `windows_path`, `flags` options added to all `setup.json` configuration files
 - Implement `flash` option, to download the binary file to the device
 - Help message updated
 - Create M5Stack port
