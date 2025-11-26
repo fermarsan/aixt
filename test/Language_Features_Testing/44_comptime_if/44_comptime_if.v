@@ -1,7 +1,7 @@
 import uart
 
-$if xc8 {
-	uart.println('Aixt on Linux')
+$if Emulator ?{
+	uart.println('Aixt on Linux (Emulator target)')
 } $else {
 	uart.println('Aixt on Windows')
 }

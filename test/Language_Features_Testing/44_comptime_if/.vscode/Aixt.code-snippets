@@ -1,0 +1,72 @@
+{
+	// time module
+	"snippet.aixt.time.sleep": {
+		"prefix": "tim",
+		"body": "time.${1|sleep,sleep_ms,sleep_us|}($2:10)",
+		"description": "Time functions"
+	},
+	// pin module
+	"snippet.aixt.pin.high": {
+		"prefix": "hi",
+		"body": "pin.high(pin.${1|a,b,c,d,w,x,y,z|})",
+		"description": "Pin high level function"
+	},
+	"snippet.aixt.pin.low": {
+		"prefix": "lo",
+		"body": "pin.low(pin.${1|a,b,c,d,w,x,y,z|})",
+		"description": "Pin low level function"
+	},
+	"snippet.aixt.pin.toggle": {
+		"prefix": "to",
+		"body": "pin.toggle(pin.${1|a,b,c,d,w,x,y,z|})",
+		"description": "Pin toggle level function"
+	},
+	"snippet.aixt.pin.write": {
+		"prefix": "wr",
+		"body": "pin.write(pin.${1|a,b,c,d,w,x,y,z|}, ${2:1})",
+		"description": "Pin writing function"
+	},
+	"snippet.aixt.pin.read": {
+		"prefix": "rd",
+		"body": "pin.read(pin.${1|a,b,c,d,w,x,y,z|})",
+		"description": "pin reading function"
+	},
+	// adc module
+	"snippet.aixt.adc.read": {
+		"prefix": "rda",
+		"body": "adc.read(adc.${1|ch0,ch1|})",
+		"description": "ADC reading function"
+	},
+	// pwm module
+	"snippet.aixt.pwm.write": {
+		"prefix": "wrpw",
+		"body": "pwm.write(pwm.${1|ch0,ch1|}, ${2:duty})",
+		"description": "PWM writing function"
+	},
+	// uart module
+	"snippet.aixt.uart.write": {
+		"prefix": "wru",
+		"body": "${1|uart,uart1,uart2|}.write($2)",
+		"description": "UART character writing function"
+	},
+	"snippet.aixt.uart.print": {
+		"prefix": "pru",
+		"body": "${1|uart,uart1,uart2|}.print($2)",
+		"description": "UART printing string function"
+	},
+	"snippet.aixt.uart.println": {
+		"prefix": "prlu",
+		"body": "${1|uart,uart1,uart2|}.println($2)",
+		"description": "UART printing string + line new function"
+	},
+	"snippet.aixt.uart.read": {
+		"prefix": "rdu",
+		"body": "${1|uart,uart1,uart2|}.read()",
+		"description": "UART character reading function"
+	},
+	"snippet.aixt.uart.input": {
+		"prefix": "inu",
+		"body": "${1|uart,uart1,uart2|}.input(${2:input : })",
+		"description": "UART capturing string function"
+	},
+  }
