@@ -46,6 +46,7 @@ Tasks to do in Aixt
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
 - [ ] Add documentation about installing by using `conda`/`pixi`
+- [ ] Update all the setup files `*.json`to the new scheme 
 
 
 ### Done ✓make
