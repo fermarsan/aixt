@@ -10,17 +10,12 @@ module setup
 pub struct Setup {
 pub mut:
 	device				string	@[skip]
-	port 				string
+	target 				string
 	board 				string
 	backend 			string
-	cc_linux 			string
-	cc_windows 			string
-	cc_make_flags		string
-	flasher_linux 		string
-	flasher_windows 	string
-	flasher_flags		string
+	cc					map[string]string
+	flasher		 		map[string]string
 	api_paths			[]string
-	v_defines			[]string
 	default_cpu_freq	int
 	default_string_len	int
 	compiler_setup_path string
