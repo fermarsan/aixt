@@ -49,8 +49,7 @@ Tasks to do in Aixt
 - [x] Update all the setup files `*.json`to the new scheme
   - [x] From `device.json` change `port:` by `target:`
 - [x] Add basic language test examples
-  - [x] Create a folder by each test file
-- [x] Conditional compilation 
+  - [x] Create a folder by each test file including the project files
   - [x] Include `$if c ? {}` syntax from `backend: c` of `device.json` 
   - [x] Include `$if xc8 ? {}` syntax from `cc: { name: xc8 }` of `device.json` 
   <!-- - [x] Change the compiler name: 'gcc-tcc' by 'gcc_tcc'  -->
