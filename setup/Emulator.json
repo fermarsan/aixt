@@ -3,6 +3,7 @@
   "board": "Linux, Windows and Android",
   "backend": "c",
   "cc": {
+    "name": "gcc-tcc",
     "linux_path": "gcc",
     "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe",
     "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"

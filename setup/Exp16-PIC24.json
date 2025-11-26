@@ -3,13 +3,13 @@
     "board": "Explorer 16",
     "backend": "c",
     "cc": {
-        "name": "",
+        "name": "xc16",
         "linux_path": "",
         "windows_path": "",
-        "flags": ""
+        "flags": "PART=@{device}"
     },
     "flasher": {
-        "name": "",
+        "name": "MPLAB IPE",
         "linux_path": "",
         "windows_path": "",
         "flags": ""
