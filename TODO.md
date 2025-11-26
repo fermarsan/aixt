@@ -52,5 +52,5 @@ Tasks to do in Aixt
   - [x] Create a folder by each test file including the project files
   - [x] Include `$if c ? {}` syntax from `backend: c` of `device.json` 
   - [x] Include `$if xc8 ? {}` syntax from `cc: { name: xc8 }` of `device.json` 
-  <!-- - [x] Change the compiler name: 'gcc-tcc' by 'gcc_tcc'  -->
+  - [x] Change the compiler name: 'gcc-tcc' by 'gcc_tcc' 
 

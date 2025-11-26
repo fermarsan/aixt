@@ -3,7 +3,7 @@
   "board": "Linux, Windows and Android",
   "backend": "c",
   "cc": {
-    "name": "gcc-tcc",
+    "name": "gcc_tcc",
     "linux_path": "gcc",
     "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe",
     "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
@@ -22,5 +22,5 @@
   ],
   "default_cpu_freq": 4000000,
   "default_string_len": 120,
-  "compiler_setup_path": "setup/gcc-tcc.json"
+  "compiler_setup_path": "setup/gcc_tcc.json"
 }

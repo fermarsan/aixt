@@ -1,9 +1,9 @@
 import uart
 
-$if xc8 {
-	uart.println('Aixt on Linux')
+$if linux && gcc_tcc ? {
+	uart.println('Aixt on Linux (GCC)')
 } $else {
-	uart.println('Aixt on Windows')
+	uart.println('Aixt on Windows (TCC)')
 }
 
 msg := $if flag_1 ? {
