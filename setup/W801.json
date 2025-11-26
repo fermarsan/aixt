@@ -1,13 +1,15 @@
 {
-    "port": "W801",
+    "target": "W801",
     "board": "W801",
     "backend": "arduino",
     "cc": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b w80x_duino:XT804:w801 -v --output-dir ./build "
     },
     "flasher": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b w80x_duino:XT804:w801"

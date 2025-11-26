@@ -1,12 +1,16 @@
 {
-    "port": "Exp16-PIC24",
+    "target": "Exp16-PIC24",
     "board": "Explorer 16",
     "backend": "c",
     "cc": {
+        "name": "",
         "linux_path": "",
         "windows_path": "",
-        "flags": "",
-        "flasher_linux": "",
+        "flags": ""
+    },
+    "flasher": {
+        "name": "",
+        "linux_path": "",
         "windows_path": "",
         "flags": ""
     },

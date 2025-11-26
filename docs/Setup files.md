@@ -6,7 +6,7 @@ The setup files use the `.json` format due to its ubiquitous nature. The followi
 
 ```json
 {
-    "port":      "PIC16F8x",
+    "target":      "PIC16F8x",
     "board":     "---",
     "backend":   "c",
 
@@ -14,7 +14,8 @@ The setup files use the `.json` format due to its ubiquitous nature. The followi
     "windows_path":		"",
     "flags":	"PART=@{device}",
 
-    "flasher_linux":    "arduino-cli",
+    "flasher":{
+"linux_path":    "arduino-cli",
     "windows_path":  "arduino-cli.exe",
 	"flags":	"upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32",
 

@@ -1,13 +1,18 @@
 {
-  "port": "Emulator",
+  "target": "Emulator",
   "board": "Linux, Windows and Android",
   "backend": "c",
-  "linux_path": "gcc",
-  "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe",
-  "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c",
-  "flasher_linux": "",
-  "windows_path": "",
-  "flags": "",
+  "cc": {
+    "linux_path": "gcc",
+    "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe",
+    "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
+  },
+  "flasher": {
+    "name": "none",
+    "linux_path": "",
+    "windows_path": "",
+    "flags": ""
+  },
   "api_paths": [
     "Emulator"
   ],

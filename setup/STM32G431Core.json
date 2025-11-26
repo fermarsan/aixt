@@ -1,13 +1,15 @@
 {
-    "port": "STM32G431Core",
+    "target": "STM32G431Core",
     "board": "STM32G431CoreBoard",
     "backend": "arduino",
     "cc": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_G431C6UX -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_G431C6UX"

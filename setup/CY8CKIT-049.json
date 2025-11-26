@@ -1,12 +1,16 @@
 {
-    "port": "CY8CKIT-049",
+    "target": "CY8CKIT-049",
     "board": "CY8CKIT-049-42XX",
     "backend": "c",
     "cc": {
+        "name": "",
         "linux_path": "",
         "windows_path": "",
-        "flags": "",
-        "flasher_linux": "",
+        "flags": ""
+    },
+    "flasher": {
+        "name": "",
+        "linux_path": "",
         "windows_path": "",
         "flags": ""
     },

@@ -1,13 +1,15 @@
 {
-    "port": "M0sense",
+    "target": "M0sense",
     "board": "Sipeed M0sense",
     "backend": "c",
     "cc": {
+        "name": "gcc",
         "linux_path": "gcc",
         "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe",
         "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
     },
     "flasher": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32"

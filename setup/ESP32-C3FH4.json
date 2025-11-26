@@ -1,13 +1,15 @@
 {
-    "port": "Arduino-Nano",
+    "target": "Arduino-Nano",
     "board": "Arduino Nano",
     "backend": "arduino",
     "cc": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b esp32:esp32:weact_studio_esp32c3 -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:weact_studio_esp32c3"

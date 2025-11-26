@@ -1,13 +1,15 @@
 {
-    "port": "XIAO-ESP32-xx",
+    "target": "XIAO-ESP32-xx",
     "board": "Seeed Studio XIAO ESP32-C3",
     "backend": "arduino",
     "cc": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b esp32:esp32:XIAO_ESP32C3 -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:XIAO_ESP32C3"

@@ -1,11 +1,12 @@
 {
-    "port": "PIC18F452",
+    "target": "PIC18F452",
     "device": "PIC18F452",
     "port_linux": "/dev/ttyUSB0",
     "port_windows": "COM1",
     "board": "Nothing",
     "backend": "c",
     "cc": {
+        "name": "gcc",
         "linux_path": "gcc",
         "windows_path": "C:\\Program Files\\Microchip\\xc8\\v2.40\\bin\\xc8.exe",
         "cc_flags": "-o",

@@ -1,13 +1,15 @@
 {
-    "port": "LQFP32-MiniEVB",
+    "target": "LQFP32-MiniEVB",
     "board": "LGT8F328P",
     "backend": "arduino",
     "cc": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b arduino:avr:nano -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b arduino:avr:nano"

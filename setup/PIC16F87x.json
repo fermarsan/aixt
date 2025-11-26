@@ -1,13 +1,19 @@
 {
-  "port": "PIC16F87x",
+  "target": "PIC16F87x",
   "board": "---",
   "backend": "c",
-  "linux_path": "",
-  "windows_path": "",
-  "flags": "PART=@{device}",
-  "flasher_linux": "",
-  "windows_path": "",
-  "flags": "",
+  "cc": {
+    "name": "xc8",
+    "linux_path": "",
+    "windows_path": "",
+    "flags": "PART=@{device}"
+  },
+  "flasher": {
+    "name": "MPLAB IPE",
+    "linux_path": "",
+    "windows_path": "",
+    "flags": ""
+  },
   "api_paths": [
     "Microchip/PIC16F87x",
     "Microchip/xc8-generic",

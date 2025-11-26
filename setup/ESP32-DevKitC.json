@@ -1,13 +1,15 @@
 {
-    "port": "ESP32-DevKitC",
+    "target": "ESP32-DevKitC",
     "board": "ESP32-WROOM-32",
     "backend": "arduino",
     "cc": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b esp32:esp32:esp32 -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32"

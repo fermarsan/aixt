@@ -1,13 +1,15 @@
 {
-    "port": "Nucleo-L031K6",
+    "target": "Nucleo-L031K6",
     "board": "Nucleo-L031K6",
     "backend": "arduino",
     "cc": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b STMicroelectronics:stm32:GenL0 -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
+        "name": "arduino-cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b STMicroelectronics:stm32:GenL0"
