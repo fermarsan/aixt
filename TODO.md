@@ -21,10 +21,6 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
 - [ ] Issue: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it)
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
-- [ ] Enable conditional compilation based on `device.json` properties 
-  - [ ] Include `$if c {}` syntax from `backend: c` of `device.json`
-  - [ ] Include `$if xc8 {}` syntax from `cc: { name: xc8 }` of `device.json`
-  - [ ] Move the `time` module from `api` to `lib` 
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
 - [ ] Add basic language test examples
 - [ ] Define if the default modules use functional or object oriented paradigms
@@ -44,6 +40,10 @@ Tasks to do in Aixt
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
 - [ ] Add documentation about installing by using `conda`/`pixi` 
+- [ ] Enable conditional compilation based on `device.json` properties 
+  - [ ] Include `$if c {}` syntax from `backend: c` of `device.json`
+  - [ ] Include `$if xc8 {}` syntax from `cc: { name: xc8 }` of `device.json`
+  - [ ] Move the `time` module from `api` to `lib` 
 
 
 ### Done ✓make
