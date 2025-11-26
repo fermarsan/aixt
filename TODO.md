@@ -43,7 +43,6 @@ Tasks to do in Aixt
   - [ ] Include `$if c {}` syntax from `backend: c` of `device.json`
   - [ ] Include `$if xc8 {}` syntax from `cc: { name: xc8 }` of `device.json`
   - [ ] Move the `time` module from `api` to `lib` 
-- [ ] Add basic language test examples
 
 
 ### Done ✓make
@@ -55,4 +54,5 @@ Tasks to do in Aixt
 - [x] Implement a new scheme for the `device.json` setup files
 - [x] Update all the setup files `*.json`to the new scheme
   - [x] From `device.json` change `port:` by `target:`
+- [x] Add basic language test examples
 
