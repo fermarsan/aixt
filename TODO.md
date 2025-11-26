@@ -7,9 +7,6 @@ Tasks to do in Aixt
 
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] dynamic memory definition
-- [ ] Implement inline assembly
-- [ ] "40_inline_asm.v" inline asm implementation
-  - [ ] name C.name in asm blocks
 - [ ] Implement uart.input()
 - [ ] Support for arrays and strings initialized inside "for" statement
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
@@ -43,6 +40,9 @@ Tasks to do in Aixt
   - [ ] Include `$if c {}` syntax from `backend: c` of `device.json`
   - [ ] Include `$if xc8 {}` syntax from `cc: { name: xc8 }` of `device.json`
   - [ ] Move the `time` module from `api` to `lib` 
+- [ ] Implement inline assembly
+- [ ] "40_inline_asm.v" inline asm implementation
+  - [ ] name C.name in asm blocks
 
 
 ### Done ✓make
