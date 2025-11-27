@@ -50,9 +50,10 @@ Tasks to do in Aixt
   - [x] From `device.json` change `port:` by `target:`
 - [x] Add basic language test examples
   - [x] Create a folder by each test file including the project files
+- [ ] 
   - [x] Include `$if c ? {}` syntax from `backend: c` of `device.json` 
   - [x] Include `$if xc8 ? {}` syntax from `cc: { name: xc8 }` of `device.json` 
-- [x] Change all the setup files name that contains '-' by '-_'
-- [x] Change all the setup files content that contains '-' by '_' in the fields: "target", "backend", "name" and "api_paths"
-- [x] In the `targets` folder change all the folders names that contains '-' by '_'
-- [x] In the `targets` folder change all the *.v file names that contains '-' by '_'
+  - [x] Change all the setup files name that contains '-' by '-_'
+  - [x] Change all the setup files content that contains '-' by '_' in the fields: "target", "backend", "name" and "api_paths"
+  - [x] In the `targets` folder change all the folders names that contains '-' by '_'
+  - [x] In the `targets` folder change all the *.v file names that contains '-' by '_'
