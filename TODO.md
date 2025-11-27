@@ -22,7 +22,8 @@ Tasks to do in Aixt
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
 - [ ] Define if the default modules use functional or object oriented paradigms
   - [ ] Define a standard way of naming the modules (`module`, `module_fn`, `module_oop`)
-- [ ] Implement `panic()` function
+- [ ] Implement a `builtin` module similar to the _V's_ one
+  - [ ] Implement `eprint()` function
 
 
 ### In Progress

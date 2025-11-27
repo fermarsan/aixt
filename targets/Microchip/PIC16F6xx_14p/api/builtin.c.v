@@ -1,5 +1,5 @@
 // Project name: Aixt project, https://github.com/fermarsan/aixt.git
-// Author: Cesar Alejandro Roa Acosta and Fernando M. Santa
+// Author: Fernando M. Santa
 // Date: 2024-2025
 // License: MIT
 //
@@ -12,3 +12,8 @@ module main
 #include <stdint.h>
 
 #include "builtin.c"
+
+
+pub fn panic(err string) {
+
+}

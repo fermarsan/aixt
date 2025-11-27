@@ -1,1 +1,1 @@
-panic('Error')
+eprint('Error')

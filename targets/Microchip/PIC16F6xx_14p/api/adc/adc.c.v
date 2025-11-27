@@ -105,5 +105,7 @@ pub fn setup(pins u8, nbits u8) {
 		// ---------- Turn on the ADC ----------
 		C.ADFM = nbits
 		C.ADON = 1	// C.ADCON0 |= 0b0000_0001
+	} $else {
+		eprintln('PIC16F630 does not have ADC module')
 	}
 }
