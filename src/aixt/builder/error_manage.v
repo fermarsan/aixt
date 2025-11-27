@@ -4,6 +4,8 @@
 // License: MIT
 module builder
 
+import v.errors
+
 // err_war_check checks the Aixt transpiler errors and warnings (based on v.ast.file.errors).
 // This defines a list of error exceptions (allowed in Aixt but not in V)
 pub fn (mut b Builder) err_war_check() {
@@ -89,5 +91,12 @@ pub fn (mut b Builder) err_war_clear() {
 	for mut file in b.parsed_files {
 		file.errors.clear()
 		file.warnings.clear()
+	}
+}
+
+// custom_err_new add a custom error to the list of the first parsed file
+pub fn (mut b Builder) custom_err_new(err string) {
+	b.parsed_files[0].errors << errors.Error {
+		message: err
 	}
 }

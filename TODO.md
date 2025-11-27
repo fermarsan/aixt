@@ -59,4 +59,4 @@ Tasks to do in Aixt
   - [x] In the `targets` folder change all the *.v file names that contains '-' by '_'
   - [x] `PIC16F6xx_14p` ADC module modification by using conditional compilation: `$if PIC16F676 ? || PIC16F684 ? {`   
 - [x] Implement a `builtin` module similar to the _V's_ one
-  - [ ] Implement `eprint()` function
+  - [x] Implement `eprint()` function
