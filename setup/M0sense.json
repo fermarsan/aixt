@@ -9,7 +9,7 @@
         "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
     },
     "flasher": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32"

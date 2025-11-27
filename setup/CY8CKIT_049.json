@@ -1,5 +1,5 @@
 {
-    "target": "CY8CKIT-049",
+    "target": "CY8CKIT_049",
     "board": "CY8CKIT-049-42XX",
     "backend": "c",
     "cc": {
@@ -15,11 +15,11 @@
         "flags": ""
     },
     "api_paths": [
-        "Cypress/CY8CKIT-049-42XX",
-        "Cypress/PSoC-Creator-generic"
+        "Cypress/CY8CKIT_049_42XX",
+        "Cypress/PSoC_Creator_generic"
     ],
     "v_defines": [],
     "default_cpu_freq": 20000000,
     "default_string_len": 20,
-    "compiler_setup_path": "setup/PSoC-Creator.json"
+    "compiler_setup_path": "setup/PSoC_Creator.json"
 }

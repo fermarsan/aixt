@@ -1,24 +1,24 @@
 {
-    "target": "XIAO-SAMD21",
+    "target": "XIAO_SAMD21",
     "board": "Seeed Studio XIAO SAMD21",
     "backend": "arduino",
     "cc": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b arduino:samd:nano_33_iot -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b arduino:samd:nano_33_iot"
     },
     "api_paths": [
-        "Seeed-Studio/XIAO-SAMD21",
-        "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART",
-        "Arduino/arduino-generic-i2c"
+        "Seeed-Studio/XIAO_SAMD21",
+        "Arduino/arduino_generic",
+        "Arduino/arduino_generic_UART",
+        "Arduino/arduino_generic_i2c"
     ],
     "v_defines": [],
     "default_cpu_freq": 48000000,

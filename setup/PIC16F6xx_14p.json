@@ -1,5 +1,5 @@
 {
-    "target": "PIC16F6xx-14p",
+    "target": "PIC16F6xx_14p",
     "board": "---",
     "backend": "c",
     "cc": {
@@ -15,13 +15,13 @@
         "flags": ""
     },
     "api_paths": [
-        "Microchip/PIC16F6xx-14p",
-        "Microchip/xc8-generic",
-        "Microchip/PIC12F-16F-generic/PIC16F-core",
-        "Microchip/PIC12F-16F-generic/timer1",
-        "Microchip/PIC12F-16F-generic/timer2",
-        "Microchip/PIC12F-16F-generic/adc",
-        "Microchip/PIC12F-16F-generic/pwm"
+        "Microchip/PIC16F6xx_14p",
+        "Microchip/xc8_generic",
+        "Microchip/PIC12F_16F_generic/PIC16F_core",
+        "Microchip/PIC12F_16F_generic/timer1",
+        "Microchip/PIC12F_16F_generic/timer2",
+        "Microchip/PIC12F_16F_generic/adc",
+        "Microchip/PIC12F_16F_generic/pwm"
     ],
     "v_defines": [],
     "default_cpu_freq": 20000000,

@@ -1,25 +1,25 @@
 {
-    "target": "LQFP32-MiniEVB",
+    "target": "LQFP32_MiniEVB",
     "board": "LGT8F328P",
     "backend": "arduino",
     "cc": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b arduino:avr:nano -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b arduino:avr:nano"
     },
     "api_paths": [
-        "LogicGreen/LQFP32-MiniEVB",
-        "Arduino/arduino-AVR",
-        "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART",
-        "Arduino/arduino-generic-i2c"
+        "LogicGreen/LQFP32_MiniEVB",
+        "Arduino/arduino_AVR",
+        "Arduino/arduino_generic",
+        "Arduino/arduino_generic_UART",
+        "Arduino/arduino_generic_i2c"
     ],
     "v_defines": [],
     "default_cpu_freq": 16000000,

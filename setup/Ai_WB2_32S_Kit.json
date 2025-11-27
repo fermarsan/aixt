@@ -1,24 +1,24 @@
 {
-    "target": "Blue-Pill",
-    "board": "Blue-Pill",
+    "target": "Ai_Thinker",
+    "board": "Ai_Thinker",
     "backend": "arduino",
     "cc": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b STMicroelectronics:stm32:Blues -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b STMicroelectronics:stm32:Blues"
     },
     "api_paths": [
-        "Ai-Thinker/Ai-WB2-32S-Kit",
-        "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART",
-        "Arduino/arduino-generic-i2c"
+        "Ai_Thinker/Ai_WB2_32S_Kit",
+        "Arduino/arduino_generic",
+        "Arduino/arduino_generic_UART",
+        "Arduino/arduino_generic_i2c"
     ],
     "v_defines": [],
     "default_cpu_freq": 72000000,

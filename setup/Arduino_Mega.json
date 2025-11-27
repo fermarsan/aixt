@@ -1,25 +1,25 @@
 {
-    "target": "Arduino-Mega",
+    "target": "Arduino_Mega",
     "board": "Arduino Mega",
     "backend": "arduino",
     "cc": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b arduino:avr:mega -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b arduino:avr:mega"
     },
     "api_paths": [
-        "Arduino/Arduino-Mega",
-        "Arduino/arduino-AVR",
-        "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART",
-        "Arduino/arduino-generic-i2c"
+        "Arduino/Arduino_Mega",
+        "Arduino/arduino_AVR",
+        "Arduino/arduino_generic",
+        "Arduino/arduino_generic_UART",
+        "Arduino/arduino_generic_i2c"
     ],
     "v_defines": [],
     "default_cpu_freq": 16000000,

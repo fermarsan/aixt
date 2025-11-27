@@ -1,5 +1,5 @@
 {
-    "target": "Exp16-PIC24",
+    "target": "Exp16_PIC24",
     "board": "Explorer 16",
     "backend": "c",
     "cc": {
@@ -16,8 +16,8 @@
     },
     "api_paths": [
         "Microchip/Explorer16/PIC24",
-        "Microchip/xc16-generic",
-        "Microchip/PIC24F-dsPIC33-generic"
+        "Microchip/xc16_generic",
+        "Microchip/PIC24F_dsPIC33_generic"
     ],
     "v_defines": [],
     "default_cpu_freq": 16000000,

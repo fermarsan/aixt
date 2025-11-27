@@ -1,25 +1,25 @@
 {
-    "target": "XIAO-ESP32-xx",
+    "target": "XIAO_ESP32_xx",
     "board": "Seeed Studio XIAO ESP32-C3",
     "backend": "arduino",
     "cc": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b esp32:esp32:XIAO_ESP32C3 -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:XIAO_ESP32C3"
     },
     "api_paths": [
-        "Seeed-Studio/XIAO-ESP32-xx",
-        "Arduino/arduino-ESP32",
-        "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART",
-        "Arduino/arduino-generic-i2c"
+        "Seeed-Studio/XIAO_ESP32_xx",
+        "Arduino/Arduino_ESP32",
+        "Arduino/arduino_generic",
+        "Arduino/arduino_generic_UART",
+        "Arduino/arduino_generic_i2c"
     ],
     "v_defines": [],
     "default_cpu_freq": 48000000,

@@ -1,26 +1,26 @@
 {
-    "target": "RP-Pico",
+    "target": "RP_Pico",
     "board": "Raspberry Pi Pico",
     "backend": "arduino",
     "cc": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b arduino:mbed_rp2040:pico -v --output-dir @{file_dir_name}/build"
     },
     "flasher": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b arduino:mbed_rp2040:pico"
     },
     "api_paths": [
         "Raspberry-Pi/RP-Pico",
-        "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART",
-        "Arduino/arduino-generic-UART1",
-        "Arduino/arduino-generic-UART2",
-        "Arduino/arduino-generic-i2c"
+        "Arduino/arduino_generic",
+        "Arduino/arduino_generic_UART",
+        "Arduino/arduino_generic_UART1",
+        "Arduino/arduino_generic_UART2",
+        "Arduino/arduino_generic_i2c"
     ],
     "v_defines": [],
     "default_cpu_freq": 125000000,

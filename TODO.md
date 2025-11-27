@@ -52,5 +52,6 @@ Tasks to do in Aixt
   - [x] Create a folder by each test file including the project files
   - [x] Include `$if c ? {}` syntax from `backend: c` of `device.json` 
   - [x] Include `$if xc8 ? {}` syntax from `cc: { name: xc8 }` of `device.json` 
-- [x] Change all the setup files name that contains '-' by '_'
+- [x] Change all the setup files name that contains '-' by '
+- [x] Change all the setup files content that contains '-' by '_' in the fields: "target", "backend", "name" and "api_paths"
 

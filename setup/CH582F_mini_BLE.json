@@ -1,5 +1,5 @@
 {
-    "target": "CH582F-mini-BLE",
+    "target": "CH582F_mini_BLE",
     "board": "CH582F-mini-BLE",
     "backend": "c",
     "cc": {
@@ -15,7 +15,7 @@
         "flags": ""
     },
     "api_paths": [
-        "WCH/CH582F-mini-BLE"
+        "WCH/CH582F_mini_BLE"
     ],
     "v_defines": [],
     "default_cpu_freq": 4000000,
