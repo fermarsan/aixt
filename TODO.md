@@ -37,8 +37,9 @@ Tasks to do in Aixt
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
 - [ ] Add documentation about installing by using `conda`/`pixi` 
 - [ ] Enable conditional compilation based on `device.json` properties 
+  - [ ] Convert the library `ex_array` to comptime backend mode
+  - [ ] Convert all the libraries to comptime backend mode (Changing the transpiler behavior)
   - [ ] Move the `time` module from `api` to `lib`
-  - [ ] Convert the library `ex_array` to comptime backend mode.
 
 ### Done ✓make
 
