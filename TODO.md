@@ -37,7 +37,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
-- [ ] Add documentation about installing by using `conda`/`pixi`
 
 
 ### Done ✓make
@@ -46,6 +45,7 @@ Tasks to do in Aixt
 - [x] VSCode `tasks.json` updated to also support pixi environments
 - [x] Change all occurrences of `@[as_macro] const` by `@[as_macro] pub const`
 - [x] Delete `nbc` compiler binaries from the repository (Linux and Windows versions)
+- [x] Add documentation about installing by using `conda`/`pixi`
 - [x] Implement a new scheme for the `device.json` setup files
 - [x] Update all the setup files `*.json`to the new scheme
   - [x] From `device.json` change `port:` by `target:`
