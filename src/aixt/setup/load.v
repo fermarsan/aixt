@@ -27,7 +27,7 @@ pub fn (mut stp Setup) load(device string) {
 	dev_setup := os.read_file(os.norm_path('${aixt_path}/setup/${target}.json')) or { panic(err) }
 	setup := json.decode(Setup, dev_setup) or { panic(err) }
 
-	println(setup)
+	// println(setup)
 
 	comp_setup := os.read_file(os.norm_path('${aixt_path}/${setup.compiler_setup_path}')) or { panic(err) }
 	complete_setup :=  dev_setup.all_before_last('}') + ',\n' + comp_setup.all_after_first('{')
