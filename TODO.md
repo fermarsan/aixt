@@ -22,6 +22,7 @@ Tasks to do in Aixt
 - [ ] Define if the default modules use functional or object oriented paradigms
   - [ ] Define a standard way of naming the modules (`module`, `module_fn`, `module_oop`)
 - [ ]  Implement `#preinclude`
+- [ ]  Implement `panic()` function
 
 
 ### In Progress
