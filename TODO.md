@@ -55,4 +55,4 @@ Tasks to do in Aixt
 - [x] Change all the setup files name that contains '-' by '-_'
 - [x] Change all the setup files content that contains '-' by '_' in the fields: "target", "backend", "name" and "api_paths"
 - [x] In the `targets` folder change all the folders names that contains '-' by '_'
-
+- [x] In the `targets` folder change all the *.v file names that contains '-' by '_'
