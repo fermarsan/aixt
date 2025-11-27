@@ -35,11 +35,8 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
-- [ ] Add documentation about installing by using `conda`/`pixi` 
-- [ ] Enable conditional compilation based on `device.json` properties 
-  - [ ] Convert the library `ex_array` to comptime backend mode
-  - [ ] Convert all the libraries to comptime backend mode (Changing the transpiler behavior)
-  - [ ] Move the `time` module from `api` to `lib`
+- [ ] Add documentation about installing by using `conda`/`pixi`
+
 
 ### Done ✓make
 
@@ -52,7 +49,7 @@ Tasks to do in Aixt
   - [x] From `device.json` change `port:` by `target:`
 - [x] Add basic language test examples
   - [x] Create a folder by each test file including the project files
-- [ ] 
+- [x] Enable conditional compilation based on `device.json` properties 
   - [x] Include `$if c ? {}` syntax from `backend: c` of `device.json` 
   - [x] Include `$if xc8 ? {}` syntax from `cc: { name: xc8 }` of `device.json` 
   - [x] Change all the setup files name that contains '-' by '-_'
