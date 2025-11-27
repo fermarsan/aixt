@@ -8,4 +8,4 @@ module builtin
 
 // eprint adds a new error message to stderr (Aixt's table error list).
 // This function does not generate any code
-fn eprint(msg string)
+pub fn eprint(msg string)

@@ -11,4 +11,5 @@ pin.low(pin.led0)				// turn it off
 for {
 	pin.toggle(pin.led0)	
 	time.sleep_ms(500)
+	eprint("Error message")
 }

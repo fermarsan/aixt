@@ -15,8 +15,14 @@ import v.checker
 // directory and parses all the source files inside
 pub fn (mut b Builder) parse_files_dir(path string) {
 
+	// -------------------- Find the builtin source files --------------------
+	// The `builtin` module is implicitly imported
+	mut file_paths := b.v_files_from_dir(os.dir('${b.aixt_path}/lib/builtin/'))
+	println(os.dir('${b.aixt_path}/lib/builtin/'))
+	println(file_paths)
+
 	// -------------------- Find the main source files --------------------
-	mut file_paths := b.v_files_from_dir(os.dir(path))
+	file_paths << b.v_files_from_dir(os.dir(path))
 	// println(path)
 	// println(os.dir(path))
 	// for file in file_paths {
@@ -27,7 +33,7 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	api_base_path := os.norm_path('${b.aixt_path}/targets/${b.setup.api_paths[0]}/api') 
 	// println('>>>>>>>>>>>>>>>>>> ${api_base_path} <<<<<<<<<<<<<<<<<<')
 	if os.exists(os.norm_path('${api_base_path}/builtin.c.v')) {
-		file_paths.insert(0, os.norm_path('${api_base_path}/builtin.c.v'))
+		file_paths.insert(1, os.norm_path('${api_base_path}/builtin.c.v'))
 	} else {
 		panic('"builtin.c.v" in have to exist in "${api_base_path}${os.path_separator}"')
 	}

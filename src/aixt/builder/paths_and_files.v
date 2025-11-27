@@ -76,97 +76,101 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 	return out
 }
 
-// lib_mod_paths function detects all the modules in the `lib` folder
+// get_lib_mod_dirs function detects all the modules in the `lib` folder
 pub fn (mut b Builder) get_lib_mod_dirs() []string {
 	mut out := []string{}
 	// println('\nLibrary modules:')
 	lib_paths := os.ls(os.norm_path('${b.aixt_path}/lib')) or { [] } // modules in the `lib` folder
 	for lib_path in lib_paths {
 		lib_base_dir := os.norm_path('${b.aixt_path}/lib/${lib_path}')
-		lib_backend_path := match b.setup.backend {
-			'arduino' {
-				if os.exists(os.norm_path('${lib_base_dir}/arduino')) {
-					os.norm_path('${lib_base_dir}/arduino')
-				} else {
+		if lib_path != 'builtin' {	// ommit the `builtin`module
+			lib_backend_path := match b.setup.backend {
+				'arduino' {
+					if os.exists(os.norm_path('${lib_base_dir}/arduino')) {
+						os.norm_path('${lib_base_dir}/arduino')
+					} else {
+						os.norm_path('${lib_base_dir}/c')
+					}
+				}
+				'nxc' {
+					if os.exists(os.norm_path('${lib_base_dir}/nxc')) {
+						os.norm_path('${lib_base_dir}/nxc')
+					} else {
+						os.norm_path('${lib_base_dir}/c')	
+					}
+				}
+				else {
 					os.norm_path('${lib_base_dir}/c')
 				}
 			}
-			'nxc' {
-				if os.exists(os.norm_path('${lib_base_dir}/nxc')) {
-					os.norm_path('${lib_base_dir}/nxc')
-				} else {
-					os.norm_path('${lib_base_dir}/c')	
-				}
-			}
-			else {
-				os.norm_path('${lib_base_dir}/c')
-			}
-		}
-		out << lib_backend_path
+			out << lib_backend_path
 		// out << util.get_subdirs(lib_backend_path)	
+		}
 	}
 	return out
 }
 
-// lib_mod_paths function detects all the modules in the `lib` folder
+// get_lib_mod_paths function detects all the modules in the `lib` folder
 pub fn (mut b Builder) get_lib_mod_paths() []string {
 	mut out := []string{}
 	// println('\nLibrary modules:')
 	lib_paths := os.ls(os.norm_path('${b.aixt_path}/lib')) or { [] } // modules in the `lib` folder
 	for lib_path in lib_paths {
-		lib_base_dir := os.norm_path('${b.aixt_path}/lib/${lib_path}')
-		lib_backend_path := match b.setup.backend {
-			'arduino' {
-				if os.exists(os.norm_path('${lib_base_dir}/arduino')) {
-					os.norm_path('${lib_base_dir}/arduino')
-				} else {
+		lib_base_dir := os.norm_path('${b.aixt_path}/lib/${lib_path}')		
+		if lib_path != 'builtin' {	// ommit the `builtin`module
+			lib_backend_path := match b.setup.backend {
+				'arduino' {
+					if os.exists(os.norm_path('${lib_base_dir}/arduino')) {
+						os.norm_path('${lib_base_dir}/arduino')
+					} else {
+						os.norm_path('${lib_base_dir}/c')
+					}
+				}
+				'nxc' {
+					if os.exists(os.norm_path('${lib_base_dir}/nxc')) {
+						os.norm_path('${lib_base_dir}/nxc')
+					} else {
+						os.norm_path('${lib_base_dir}/c')
+					}
+				}
+				else {
 					os.norm_path('${lib_base_dir}/c')
 				}
 			}
-			'nxc' {
-				if os.exists(os.norm_path('${lib_base_dir}/nxc')) {
-					os.norm_path('${lib_base_dir}/nxc')
-				} else {
-					os.norm_path('${lib_base_dir}/c')
-				}
-			}
-			else {
-				os.norm_path('${lib_base_dir}/c')
-			}
-		}
-		mut lib_dirs := [lib_backend_path]
-		lib_dirs << util.get_subdirs(lib_backend_path)	
-		// println('>>>>>>>>>>>>>>>>>> ${lib_dirs} <<<<<<<<<<<<<<<<<<')	
-		for folder in lib_dirs {
-			// println('>>>>>>>>>>>>>>>>>> ${os.base(folder)} <<<<<<<<<<<<<<<<<<')
-			for file in b.parsed_files {
-				for imp in file.imports {
-					lib_name := imp.mod.all_after_last('.')
-					$if windows {
-						if os.base(folder.all_before_last('\\')) == lib_name {
-							mut paths :=  b.v_files_from_dir(folder)
-							// library_name.c.v first
-							for i, path in paths {
-								if path.contains('${lib_name}.c.v') {
-									paths.delete(i)
-									paths.insert(0, path)
-									break
+			mut lib_dirs := [lib_backend_path]
+			lib_dirs << util.get_subdirs(lib_backend_path)	
+			// println('>>>>>>>>>>>>>>>>>> ${lib_dirs} <<<<<<<<<<<<<<<<<<')	
+			for folder in lib_dirs {
+				// println('>>>>>>>>>>>>>>>>>> ${os.base(folder)} <<<<<<<<<<<<<<<<<<')
+				for file in b.parsed_files {
+					for imp in file.imports {
+						lib_name := imp.mod.all_after_last('.')
+						$if windows {
+							if os.base(folder.all_before_last('\\')) == lib_name {
+								mut paths :=  b.v_files_from_dir(folder)
+								// library_name.c.v first
+								for i, path in paths {
+									if path.contains('${lib_name}.c.v') {
+										paths.delete(i)
+										paths.insert(0, path)
+										break
+									}
 								}
+								out << paths
 							}
-							out << paths
-						}
-					} $else {
-						if os.base(folder.all_before_last('/')) == lib_name {
-							mut paths :=  b.v_files_from_dir(folder)
-							// library_name.c.v first
-							for i, path in paths {
-								if path.contains('${lib_name}.c.v') {
-									paths.delete(i)
-									paths.insert(0, path)
-									break
+						} $else {
+							if os.base(folder.all_before_last('/')) == lib_name {
+								mut paths :=  b.v_files_from_dir(folder)
+								// library_name.c.v first
+								for i, path in paths {
+									if path.contains('${lib_name}.c.v') {
+										paths.delete(i)
+										paths.insert(0, path)
+										break
+									}
 								}
+								out << paths
 							}
-							out << paths
 						}
 					}
 				}
