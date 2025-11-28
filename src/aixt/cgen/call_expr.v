@@ -9,13 +9,13 @@ import v.ast
 // call_expr is the code generation function for function calling expressions.
 fn (mut gen Gen) call_expr(node ast.CallExpr) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
-	println("+++++++++++++++ ${node.name} +++++++++++++++")
+	// println("+++++++++++++++ ${node.name} +++++++++++++++")
 	// println("+++++++++++++++\n${node.language}\n+++++++++++++++")
 	// println("+++++++++++++++ ${node.name} +++++++++++++++")
 	// println("+++++++++++++++\n${node.return_type}\n+++++++++++++++")
 	// println("+++++++++++++++\n${node.mod.all_after_last('.')}\n+++++++++++++++")
-	println("+++++++++++++++ ${node.mod} +++++++++++++++")
-	if node.name == 'eprint' && node.mod == 'main' {
+	// println("+++++++++++++++ ${node.mod} +++++++++++++++")
+	if node.name == 'eprint' {
 		gen.custom_err_new(node.args[0].expr.str())
 		return []
 	} else {
