@@ -57,6 +57,6 @@ Tasks to do in Aixt
   - [x] Change all the setup files content that contains '-' by '_' in the fields: "target", "backend", "name" and "api_paths"
   - [x] In the `targets` folder change all the folders names that contains '-' by '_'
   - [x] In the `targets` folder change all the *.v file names that contains '-' by '_'
-  - [x] `PIC16F6xx_14p` ADC module modification by using conditional compilation: `$if PIC16F676 ? || PIC16F684 ? {`   
+  - [x] `PIC16F6xx_14p` ADC module modification by using conditional compilation: `$if PIC16F630 ? {`   
 - [x] Implement a `builtin` module similar to the _V's_ one
   - [x] Implement `eprint()` function
