@@ -1,7 +1,7 @@
-<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
 <item itemtype="Subcircuit" CircId="Nano-32" mainComp="false" Show_id="true" Show_Val="false" Pos="44,-124" rotation="0" hflip="1" vflip="1" label="Nano-32" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
-<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Program="Nano-UART_ADC/build/Nano-UART_ADC.ino.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
 </item>
 
 <item itemtype="Potentiometer" CircId="Potentiometer-53" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="148,-20" rotation="90" hflip="1" vflip="1" label="Potentiometer-53" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="10 kΩ" Value_Ohm="9230 Ω" Slider="false" Scale="1" />

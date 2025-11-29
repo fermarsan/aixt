@@ -14,6 +14,3 @@ module main
 #include "builtin.c"
 
 
-pub fn panic(err string) {
-
-}
