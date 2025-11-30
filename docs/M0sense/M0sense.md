@@ -16,21 +16,21 @@ Below are the ports used and their proper designations for programming:
 
 | No. | Name | Function                                                                                            |
 | --- | ---- | --------------------------------------------------------------------------------------------------- |
-| 1   | IO28 | GPIO28                                                                                              |
+| 1   | io28 | GPIO28                                                                                              |
 | 2   | 3V3  | 3.3V power supply; The output current of the external power supply is recommended to be above 500mA |
 | 3   | GND  | Ground                                                                                              |
 | 4   | VSYS | REF System                                                                                          |
-| 5   | I02  | GPI02/BOOT Button                                                                                   |
-| 6   | IO0  | GPIO0                                                                                               |
-| 7   | IO1  | GPIO1_LCD_CS                                                                                        |
-| 8   | IO9  | GPIO9                                                                                               |
-| 9   | IO27 | GPIO27_SDA                                                                                          |
-| 10  | IO26 | GPIO26_SCL                                                                                          |
-| 11  | IO25 | GPIO25_LEDR_LCD_DC                                                                                  |
-| 12  | IO24 | GPIO25_LEDG_LCD_MOSI                                                                                |
-| 13  | IO23 | GPIO25_LEDB_LCD_SCLK                                                                                |
-| 14  | IO15 | GPIO15                                                                                              |
-| 15  | IO14 | GPIO14                                                                                              |
+| 5   | io2  | GPI02/BOOT Button                                                                                   |
+| 6   | io0  | GPIO0                                                                                               |
+| 7   | io1  | GPIO1_LCD_CS                                                                                        |
+| 8   | io9  | GPIO9                                                                                               |
+| 9   | io27 | GPIO27_SDA                                                                                          |
+| 10  | io26 | GPIO26_SCL                                                                                          |
+| 11  | io25 | GPIO25_LEDR_LCD_DC                                                                                  |
+| 12  | io24 | GPIO25_LEDG_LCD_MOSI                                                                                |
+| 13  | io23 | GPIO25_LEDB_LCD_SCLK                                                                                |
+| 14  | io15 | GPIO15                                                                                              |
+| 15  | io14 | GPio14                                                                                              |
 | 16  | GND  | Ground                                                                                              |
 
 ## Programming in v language
@@ -140,15 +140,15 @@ time.sleep_us(us) //Microseconds
 * Example flashing LED
 
 ```v
-import machine { pin }
+import pin
 import time { sleep_ms }
 
-pin_mode(IO14, out)
+pin_mode(io14, out)
 
 for {   //infinite loop
-    pin.high(IO14)
+    pin.high(io14)
     sleep_ms(500)
-    pin.low(IO14)
+    pin.low(io14)
     sleep_ms(500)
 }
 ```

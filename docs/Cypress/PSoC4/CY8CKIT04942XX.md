@@ -1,197 +1,311 @@
-# Guía rápida PSoC4
-Esta implementación de Aixt para PSoC 4 da soporte a la tarjeta   CY8CKIT-049-42XX; 
+# Quick Guide PSoC4
+This Aixt implementation for PSoC 4 supports the CY8CKIT04942X board. 
 
 
-# Identificación tarjeta CY8CKIT-049-42XX
+# This Aixt implementation for PSoC 4 supports the CY8CKIT-049-42XX board.
 
-## Vista
-![Alt text](Imagenes/CY8CKIT04942XX/CY8CKIT04942XX.jpg)
+## View
 
-## Hoja de datos
-[CY8CKIT-049-42XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-049-4xxx_PSoC_4_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ef17bd002cb)
+![CY8CKIT-049-42XX](Images-CY8CKIT04942XX/View-CY8CKIT04942XX.jpg)
+
+## Datasheet
+[Datasheet CY8CKIT-049-42XX](https://www.infineon.com/dgdl/Infineon-CY8CKIT-049-4xxx_PSoC_4_Prototyping_Kit_Guide-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ef17bd002cb)
 
 
+# General Configuration
+
+The basic microcontroller functions are integrated to generate a general hardware structure, as follows:
+
+- 4 PWMs
+- 1 LEDs
+- 1 push button
+- 2 communication ports (UARTs)
+- 11 digital inputs
+- 11 digital outputs
+- 4 analog inputs
+
+*Visualization in PSoC Creator*
+
+![General_Hardware_Structure.jpg](Images-CY8CKIT04942XX/General_Hardware_Structure_CY8CKIT04942XX.jpg)
+
+## Port Identification
+
+The following table shows the ports used and their assigned names for programming: 
+
+| Port | name      | Type   |
+| ---- | --------- | ------ |
+| 1.6  | led1      | output |
+| 0.7  | sw1       | input  |
+| 0.0  | di0       | input  |
+| 0.1  | di1       | input  |
+| 0.2  | di2       | input  |
+| 0.3  | di3       | input  |
+| 0.4  | di4       | input  |
+| 0.5  | di5       | input  |
+| 0.6  | di6       | input  |
+| 1.1  | di7       | input  |
+| 1.3  | di8       | input  |
+| 1.4  | di9       | input  |
+| 1.5  | di10      | input  |
+| 1.7  | do0       | output |
+| 2.5  | do1       | output |
+| 2.7  | do2       | output |
+| 3.0  | do3       | output |
+| 3.1  | do4       | output |
+| 3.4  | do5       | output |
+| 3.5  | do6       | output |
+| 3.6  | do7       | output |
+| 3.7  | do8       | output |
+| 4.2  | do9       | output |
+| 4.3  | do10      | output |
+| 1.0  | out_pwm0  | output |
+| 1.2  | out_pwm1  | output |
+| 2.4  | out_pwm2  | output |
+| 2.6  | out_pwm3  | output |
+| 2.0  | in0_adc   | input  |
+| 2.1  | in1_adc   | input  |
+| 2.2  | in2_adc   | input  |
+| 2.3  | in3_adc   | input  |
+| 4.0  | \uart:rx\ | output |
+| 4.1  | \uart:tx\ | output |
+
+## Programming in V language
+
+For each of these modules, you will have a file in .c.v format with the same name of the module and in this you will have the text module followed by the name of the module, example:
+
+* module pin
+* module pwm
+* module uart
+* module adc
+
+For each of the following modules, a .c.v file will be generated with the same name as the module.
 
 
-# Configuración general
+### Output port configuration
 
-Se integran las funciones básicas del microcontrolados para generar una estructura hardware general, asi;
-
-- 4 pwms
-- 1 leds
-- 1 pulsador
-- 2 puertos de comunicación
-- 11 entradas digitales
-- 11 salidas digitales
-- 4 entradas análogas
-
-*visualización en PSoC creator*
-
-![!\[Alt text\](Estructura_general_hardware_4942.jpg)](Imagenes/CY8CKIT04942XX/Estructura_general_hardware_4942.jpg)
-
-## Identificación de puertos
-A continuación se muestran los puertos que se usan y sus debidos nombramientos para la programación: 
-
-| Puerto | nombre    | Tipo    |
-| ------ | --------- | ------- |
-| 1.6    | led1      | salida  |
-| 0.7    | sw1       | entrada |
-| 0.0    | di0       | entrada |
-| 0.1    | di1       | entrada |
-| 0.2    | di2       | entrada |
-| 0.3    | di3       | entrada |
-| 0.4    | di4       | entrada |
-| 0.5    | di5       | entrada |
-| 0.6    | di6       | entrada |
-| 1.1    | di7       | entrada |
-| 1.3    | di8       | entrada |
-| 1.4    | di9       | entrada |
-| 1.5    | di10      | entrada |
-| 1.7    | do0       | salida  |
-| 2.5    | do1       | salida  |
-| 2.7    | do2       | salida  |
-| 3.0    | do3       | salida  |
-| 3.1    | do4       | salida  |
-| 3.4    | do5       | salida  |
-| 3.5    | do6       | salida  |
-| 3.6    | do7       | salida  |
-| 3.7    | do8       | salida  |
-| 4.2    | do9       | salida  |
-| 4.3    | do10      | salida  |
-| 1.0    | out_pwm0  | salida  |
-| 1.2    | out_pwm1  | salida  |
-| 2.4    | out_pwm2  | salida  |
-| 2.6    | out_pwm3  | salida  |
-| 2.0    | in0_adc   | entrada |
-| 2.1    | in1_adc   | entrada |
-| 2.2    | in2_adc   | entrada |
-| 2.3    | in3_adc   | entrada |
-| 4.0    | \uart:rx\ | salida  |
-| 4.1    | \uart:tx\ | salida  |
-
-## Programación en lenguaje v
-
-### Configuración puertos de salida
-
-Para activar el puerto que va ha usar;
+To activate an output port;
 ```v
 pin.high(pin_name)
 ```
-*Ejemplo: Si se desea activar el puerto do0;  `pin.high(pin.do0)`.*
+*Example: to activate the output port called led1; ` pin.high(led1)`*
 
-Para desactivar el puerto que se está usando;
+To deactivate an output port;
 ```v
 pin.low(pin_name)
 ```
-*Ejemplo: Si se desea desactivar el puerto do0;  `pin.low(pin.do0)`.*
+*Example: to deactivate the output port called led1; `pin.low(led1)`*
 
-Para desactivar o activar el puerto que se va ha usar;
+To activate or deactivate an output port;
 
 ```v
 pin.write(pin_name, value)
 ```
-*Ejemplo: Si se desea desactivar el puerto do0;  `pin.write(do0, 1)`, y si se desea activar;  `pin.write(pin.do0, 0)`.*
+*Example: to deactivate led1;  `pin.write(led1, 1)`, and to activate it;  `pin.write(led1, 0)`.*
 
-### Detección puertos de entrada
+### Input Port Detection
 
-Si se necesita saber en que estado esta un puerto de entrada:
+To check the state of an input port:
 ```v
 x = pin.read(pin_name)
 ```
 
-*Ejemplo: Si se desea detectar el valor del puerto di0; `x = pin.read(pin.di0)`, y x tomara el valor de 0 o 1, dependiendo el puerto es activo o desactivado.*
-
-### Puertos análogos a digital (ADC)
-
-Para configurar uno de los puertos análogos;
-```v
-adc.setup(channel, setup_value_1, ... )
-```
-*En channel se introduce el nombre del puerto análogo, en setup_value_1 el valor que se le va ha dar ha dicho puerto.*
-
-Para detectar el valor del puerto análogo;
-```v
-x = adc.read(channel)
-```
-*En channel se introduce el nombre del puerto análogo, y x toma el valor que tenga dicho puerto.*
+*Example: to detect the value of port sw2;  `x = pin.read(sw2) `, The variable x will take a value of 0 or 1 depending on whether the port is active or inactive*
 
 ### PWM
 
-Para configurar algún pwm;
+To configure PWM on one of the ports;
 ```v
-pwm.setup(pwm_id, setup_value_1, ... )
+pwm.write(pwm.channel,duty)
 ```
-*En pwm_id se pone el pwm a usar,  y en setup_value_1 el valor al cual se desea configurar dicho pwm.*
+*pwm.channel indicates the channel to control, and duty represents the duty cycle value (from 0 to 10000).*
+
+*Example: to control channel 1 with a PWM signal with duty cycle = 10000, `pwm.write(pwm.ch1, 10000) `*
 
 
-Ahor, para configurar el ciclo de trabajo de un modulador;
+
+### Serial comunication (UART)
+
+To configure a UART communication port;
+
 ```v
-pwm_duty(pwm_id, duty)
+
+uart.setup(), // Initializes and configures the UART with basic parameters
+
 ```
-*En pwm_id se pone el pwm a usar,  y en duty el valor del ciclo (de 0 a 100) en porcentaje.*
+## Serial Transmission
 
-### Serial communication (UART)
+*Since the port is already defined as "uart:tx", this is the only available serial UART communication port. The value you place in "message" will be the data transmitted*
 
-Para configurar un puerto UART;
 ```v
-uart.setup(uart_id, baud_rate)
-```
-*Aquí uart_id es el nombre del puerto que se va ha usar, y baud_rate es el valor de los baudios al cual se va ha usar.*
 
-Si se requiere ingresar un valor a un puerto UART;
+uart.print(message) // Prints text (string or number converted to characters) and sends it to the UART TX register
+```
+
 ```v
-x = uart.input(uart_id)
+
+uart.println(message) // Prints text and appends a newline (\r\n)
+
 ```
-*Donde x es dicho valor.*
 
-En el caso de que se necesite tomar un valor del puerto UART que se esta usando;
-
--Forma lineal
 ```v
-uart.println(uart_id, message)
-```
-*Muestra el mensaje (message) de tal forma que un carácter sigue al otro.*
 
--Forma no lineal
+uart.read() // Receives data from the UART port (reads input on RX pin)
+
+```
+
 ```v
-uart.print(uart_id, message)
+
+uart.write() // Sends data through the UART port (writes directly to TX register)
+
 ```
-*Muestra el mensaje (message) con saltos de renglon.*
 
-### Retardos
+### Analog-to-Digital Converter (ADC)
 
-Uso de tiempos;
+To initialize and configure the ADC module
 
--Segundos
+```v
+
+adc.setup()
+
+```
+
+To read the digital value converted by the ADC on a specific channel.
+
+```v
+
+adc.read()
+
+```
+
+
+### Delays
+
+Using time functions;
+
+* Seconds
 ```v
 time.sleep(s)
 ```
--milisegundos
+
+* Milliseconds
 
 ```v
 time.sleep_ms(ms)
 ```
 
-
--Microsegundos
+* Microseconds
 
 ```v
 time.sleep_us(us)
 ```
-*En cada expresión, el valor del tiempo se pone dentro del parentesis.*
 
-Ejemplo LED parapadeante
+*In each expression, place the desired time value inside the parentheses*
+
+* Example: Blinking LED (high/low functions)
 
 ```v
-import machine { pin }
-import time { sleep_ms }
 
-pin_mode(led1, out)
+import time {sleep_ms}
+import pin
 
-for {   //infinite loop
-    pin.high(led1)
-    sleep_ms(500)
-    pin.low(led1)
-    sleep_ms(500)
+
+for {
+	pin.high(led1)
+	time.sleep_ms(5000)
+	pin.low(led1)
+	time.sleep_ms(5000)
 }
+
+```
+* Example: Blinking LED (write function)
+
+```v
+import time
+import pin
+
+for {
+	pin.write(led_1, 0)
+	time.sleep_ms(500)
+	pin.write(led_1, 1)
+	time.sleep_ms(500)
+}
+
+```
+* Example: LED controlled by button (read function)
+
+```v
+
+import time {sleep_ms}
+import pin
+
+
+for {
+
+    if pin.read(sw2) == 1 {     // If the button is pressed (logic high)
+        pin.high(led1)           // Turn LED on
+    } else {
+        pin.low(led1)            // Turn LED off
+    }
+
+    time.sleep_ms(100)             // Small delay to avoid bouncing
+}
+
+```
+
+* PWM example 
+
+```v
+
+import time {sleep_ms}
+import pwm
+
+for {
+    pwm.write(pwm.ch1, 10000)
+    sleep_ms(500)
+
+    pwm.write(pwm.ch1, 5000)
+    sleep_ms(500)
+
+    pwm.write(pwm.ch1, 0)
+    sleep_ms(500)
+    
+ }
+ 
+  ```
+
+
+* UART example 
+
+```v
+
+import time {sleep_ms}
+import uart
+
+uart.setup()
+for {
+
+uart.print("Sending for UART...\r\n")
+time.sleep_ms(1000) 
+
+}
+
+```
+
+* ADC example 
+
+```v
+
+import time
+import uart
+import adc
+
+adc.setup()
+uart.setup()
+
+for {
+	analog := adc.read(adc.ch0)
+	uart.println('ADC channel 0: ${analog}')
+	time.sleep_ms(1000)
+}
+
 ```

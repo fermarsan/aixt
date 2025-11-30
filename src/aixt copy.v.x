@@ -116,7 +116,7 @@ fn main() {
 								os.mkdir('${path}/${name}') or { panic(err) }
 							}
 							// os.cp('${aixt_path}' + os.path_separator + 'templates' + os.path_separator + 'main.v', '${path}/${name}' + os.path_separator + 'main.v') or {}
-							os.cp_all('${aixt_path}' + os.path_separator + 'templates' + os.path_separator + 'project/${project_setup.port}/',
+							os.cp_all('${aixt_path}' + os.path_separator + 'templates' + os.path_separator + 'project/${project_setup.target}/',
 								'${path}/${name}/', true) or { panic(err) }
 							if project_setup.backend == 'arduino' { // arduino-cli sketch name requirement
 								os.rename('${path}/${name}' + os.path_separator + 'main.v', '${path}/${name}/${name}.v') or {

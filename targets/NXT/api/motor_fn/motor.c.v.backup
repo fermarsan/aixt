@@ -1,0 +1,387 @@
+module motor	// NXC Output
+
+// #################### NXC Output module ####################
+
+// Constants for use with setup_output                                              
+// #define     update_flags_field      UpdateFlagsField                   
+// #define     output_mode_field       OutputModeField                    
+// #define     power_field             PowerField                         
+// #define     actual_speed_field      ActualSpeedField                   
+// #define     tacho_count_field       TachoCountField                    
+// #define     tacho_limit_field       TachoLimitField                    
+// #define     run_state_field         RunStateField                      
+// #define     turn_ratio_field        TurnRatioField                     
+// #define     reg_mode_field          RegModeField                       
+// #define     overload_field          OverloadField                      
+// #define     reg_p_value_field       RegPValueField                     
+// #define     reg_i_value_field       RegIValueField                     
+// #define     reg_d_value_field       RegDValueField                     
+// #define     block_tacho_count_field BlockTachoCountField            
+// #define     rotation_count_field    RotationCountField              
+// #define     output_options_field    OutputOptionsField              
+// #define     max_speed_field         MaxSpeedField                   
+// #define     max_acceleration_field  MaxAccelerationField
+
+// Constant offsets into the Output module IOMAP structure. 
+// #define     offsetup_tacho_count          OutputOffsetTachoCount        
+// #define     offsetup_block_tacho_count    OutputOffsetBlockTachoCount        
+// #define     offsetup_rotation_count       OutputOffsetRotationCount        
+// #define     offsetup_tacho_limit          OutputOffsetTachoLimit        
+// #define     offsetup_motor_rpm            OutputOffsetMotorRPM           
+// #define     output_offsetup_flags         OutputOffsetFlags                
+// #define     motor__offwrite_mode          OutputOffsetMode                
+// #define     offsetup_speed                OutputOffsetSpeed                
+// #define     offsetup_actual_speed         OutputOffsetActualSpeed                
+// #define     offsetup_reg_p_parameter      OutputOffsetRegPParameter        
+// #define     offsetup_reg_i_parameter      OutputOffsetRegIParameter        
+// #define     offsetup_reg_d_parameter      OutputOffsetRegDParameter        
+// #define     offsetup_run_state            OutputOffsetRunState           
+// #define     offsetup_reg_mode             OutputOffsetRegMode            
+// #define     offsetup_overloaded           OutputOffsetOverloaded        
+// #define     offsetup_sync_turn_parameter  OutputOffsetSyncTurnParameter        
+// #define     offsetup_options              OutputOffsetOptions           
+// #define     offsetup_max_speed            OutputOffsetMaxSpeed           
+// #define     offsetup_max_accel            OutputOffsetMaxAccel           
+// #define     offsetup_regulation_time      OutputOffsetRegulationTime            
+// #define     offsetup_regulation_options   OutputOffsetRegulationOptions
+
+// Output port constants are used when calling motor control API functions. 
+@[as_macro] pub const a   = 0x00
+@[as_macro] pub const b   = 0x01	
+@[as_macro] pub const c   = 0x02	
+@[as_macro] pub const ab  = 0x03	
+@[as_macro] pub const ac  = 0x04	
+@[as_macro] pub const bc  = 0x05	
+@[as_macro] pub const abc = 0x06
+
+
+// Use these constants to configure the desired mode for the specified motor                                              : coast, motoron, brake, or regulated.
+// Mode constants can be combined with bitwise OR. 
+// #define     mode_coast      OUT_MODE_COAST       
+// #define     mode_motoron    OUT_MODE_MOTORON    
+// #define     mode_brake      OUT_MODE_BRAKE       
+// #define     mode_regulated  OUT_MODE_REGULATED   
+// #define     mode_regmethod  OUT_MODE_REGMETHOD
+
+// Use these constants to configure the desired options for the specified motor                                              : hold at limit and ramp down to limit.
+// // Option constants can be combined with bitwise OR. 
+// #define 	option_holdatlimit    	OUT_OPTION_HOLDATLIMIT    
+// #define 	option_rampdowntolimit	OUT_OPTION_RAMPDOWNTOLIMIT
+
+// Use these constants to configure the desired regulation mode for the specified motor                                              : none, speed regulation, 
+// multi-motor synchronization, or position regulation                                               . 
+// #define 	regmode_idle    OUT_REGMODE_IDLE  
+// #define 	regmode_speed   OUT_REGMODE_SPEED 
+// #define 	regmode_sync    OUT_REGMODE_SYNC  
+// #define 	regmode_pos     OUT_REGMODE_POS 
+
+// Use these constants to configure the desired run state for the specified motor                                              : 
+// idle, rampup, running, rampdown, or hold. 
+// #define 	runstate_idle       OUT_RUNSTATE_IDLE       
+// #define 	runstate_rampup     OUT_RUNSTATE_RAMPUP     
+// #define 	runstate_running    OUT_RUNSTATE_RUNNING    
+// #define 	runstate_rampdown   OUT_RUNSTATE_RAMPDOWN   
+// #define 	runstate_hold       OUT_RUNSTATE_HOLD
+
+// Use these constants to specify which motor values need to be updated.
+// Update flag constants can be combined with bitwise OR. 
+// #define 	uf_update_mode                  UF_UPDATE_MODE                   
+// #define 	uf_update_speed                 UF_UPDATE_SPEED                  
+// #define 	uf_update_tacho_limit           UF_UPDATE_TACHO_LIMIT            
+// #define 	uf_update_reset_count           UF_UPDATE_reset_COUNT            
+// #define 	uf_update_pid_values            UF_UPDATE_PID_VALUES             
+// #define 	uf_update_reset_block_count     UF_UPDATE_reset_BLOCK_COUNT      
+// #define 	uf_update_reset_rotation_count  UF_UPDATE_reset_ROTATION_COUNT   
+// #define 	uf_pending_updates              UF_PENDING_UPDATES  
+
+// Use these constants to configure the desired options for position regulation. 
+// #define 	regoption_no_saturation		OUT_REGOPTION_NO_SATURATION 
+
+// PID constants are for adjusting the Proportional, Integral, and Derivative motor controller parameters. 
+// #define 	pid_0   PID_0   
+// #define 	pid_1   PID_1   
+// #define 	pid_2   PID_2   
+// #define 	pid_3   PID_3   
+// #define 	pid_4   PID_4   
+// #define 	pid_5   PID_5   
+// #define 	pid_6   PID_6   
+// #define 	pid_7   PID_7   
+
+// Use these constants to specify which of the three tachometer counters should be reset.
+// Reset constants can be combined with bitwise OR. 
+// #define 	reset_none              reset_NONE              
+// #define 	reset_count             reset_COUNT             
+// #define 	reset_block_count       reset_BLOCK_COUNT       
+// #define 	reset_rotation_count    reset_ROTATION_COUNT    
+// #define 	reset_blockandtacho     reset_BLOCKANDTACHO     
+// #define 	reset_all               reset_ALL    
+
+
+// Functions for accessing and modifying output module features. 
+// @[as_macro] 
+pub fn //setup_pwn_freq() {
+// 	C.SetMotorPwnFreq()
+// }
+                 
+@[as_macro] 
+pub fn setup(regu_time u8, regu_options u8) {
+	C.SetMotorRegulationTime(regu_time)
+	C.SetMotorRegulationOptions(regu_options)
+}
+
+@[as_macro] 
+pub fn write_sync_pid(outputs u8, pwr i8, turnpct i8, p u8, i u8, d u8) {
+	C.OnFwdSyncPID(outputs, pwr, turnpct, p, i, d)
+	// 	C.OnRevSyncPID(outputs, pwr, turnpct, p, i, d)
+}
+    
+@[as_macro] 
+pub fn write_sync_rst_pid(outputs u8, pwr i8, turnpct i8, reset u8, p u8, i u8, d u8) {
+	C.OnFwdSyncExPID(outputs, pwr, turnpct, reset, p, i, d)
+	// C.OnRevSyncExPID(outputs, pwr, turnpct, reset, p, i, d)
+}
+         
+@[as_macro] 
+pub fn write_reg_pid(outputs u8, pwr i8, regmode u8, p u8, i u8, d u8) {
+	C.OnFwdRegPID(outputs, pwr, regmode, p, i, d)
+	// C.OnRevRegPID()
+}
+                 
+@[as_macro] 
+pub fn write_reg_rst_pid(outputs u8, pwr i8, regmode u8, reset u8, p u8, i u8, d u8) {
+	C.OnFwdRegExPID(outputs, pwr, regmode, reset, p, i, d)
+	// C.OnRevRegExPID()
+}
+            
+@[as_macro] 
+pub fn off(outputs u8) {
+	C.Off(outputs)
+}
+                       
+@[as_macro] 
+pub fn off_rst(outputs u8, reset u8) {
+	C.OffEx(outputs, reset)
+}
+                     
+@[as_macro] 
+pub fn coast(outputs u8) {
+	C.Coast(outputs)
+}
+                     
+@[as_macro] 
+pub fn coast_rst(outputs u8, reset u8) {
+	C.CoastEx(outputs, reset)
+}
+                   
+@[as_macro] 
+pub fn float(outputs u8) {
+	C.Float(outputs)
+}
+                     
+@[as_macro] 
+pub fn write(outputs u8) {
+	C.OnFwd(outputs)
+	// C.OnRev()
+}
+                     
+@[as_macro] 
+pub fn write_rst(outputs u8, pwr i8, reset u8) {
+	C.OnFwdEx(outputs, pwr, reset)
+	// C.OnRevEx()
+}
+
+@[as_macro] 
+pub fn write_reg(outputs u8, pwr i8, regmode u8) {
+	C.OnFwdReg(outputs, pwr, regmode)
+	// C.OnRevReg()
+}
+                  
+@[as_macro] 
+pub fn write_reg_rst(outputs u8, pwr i8, regmode u8, reset u8) {
+	C.OnFwdRegEx(outputs, pwr, regmode, reset)
+	// C.OnRevRegEx()
+}
+                 
+@[as_macro] 
+pub fn write_sync(outputs u8, pwr i8, turnpct i8) {
+	C.OnFwdSync(outputs, pwr, turnpct)
+	// C.OnRevSync()
+}
+                 
+@[as_macro] 
+pub fn write_sync_rst(outputs u8, pwr i8, turnpct i8, reset u8) {
+	C.OnFwdSyncEx(outputs, pwr, turnpct, reset)
+	// C.OnRevSyncEx()
+}
+                 
+@[as_macro] 
+pub fn rotate(outputs u8, pwr i8, angle int) {
+	C.RotateMotor(outputs, pwr, angle)
+}
+                 
+@[as_macro] 
+pub fn rotate_pid(outputs u8, pwr i8, angle int, p u8, i u8, d u8) {
+	C.RotateMotorPID(outputs, pwr, angle, p, i, d)
+}
+                 
+@[as_macro] 
+pub fn rotate_ex(outputs u8, pwr i8, angle int, turnpct i8, sync bool, stop bool) {
+	C.RotateMotorEx(outputs, pwr, angle, turnpct, sync, stop)
+}
+                 
+@[as_macro] 
+pub fn rotate_rst_pid(outputs u8, pwr i8, angle int, turnpct i8, sync bool, stop bool, p u8, i u8, d u8) {
+	C.RotateMotorExPID(outputs, pwr, angle, turnpct, sync, stop, p, i, d)
+}
+                 
+@[as_macro] 
+pub fn reset_tacho_count(outputs u8) {
+	C.ResetTachoCount(outputs)
+}
+                 
+@[as_macro] 
+pub fn reset_block_tacho_count(outputs u8) {
+	C.ResetBlockTachoCount(outputs)
+}
+                 
+@[as_macro] 
+pub fn reset_rotation_count(outputs u8) {
+	C.ResetRotationCount(outputs)
+}
+                 
+@[as_macro] 
+pub fn reset_all_tacho_counts(outputs u8) {
+	C.ResetAllTachoCounts(outputs)
+}
+               
+@[as_macro] 
+pub fn read_mode(output u8) u8 {
+	return C.MotorMode(output)
+}
+                 
+@[as_macro] 
+pub fn read_power(output u8) i8 {
+	return C.MotorPower(output)
+}
+                 
+@[as_macro] 
+pub fn read_actual_speed(output u8) u8 {
+	return C.MotorActualSpeed(output)
+}
+                 
+@[as_macro] 
+pub fn read_tacho_count(output u8) int {
+	return C.MotorTachoCount(output)
+}
+                 
+@[as_macro] 
+pub fn read_tacho_limit(output u8) int {
+	return C.MotorTachoLimit(output)
+}
+                 
+@[as_macro] 
+pub fn read_run_state(output u8) u8 {
+	return C.MotorRunState(output)
+}
+                 
+@[as_macro] 
+pub fn read_turn_ratio(output u8) i8 {
+	return C.MotorTurnRatio(output)
+}
+                 
+@[as_macro] 
+pub fn read_regulation(output u8) u8 {
+	return C.MotorRegulation(output)
+}
+                 
+@[as_macro] 
+pub fn overload(output u8) bool {
+	return C.MotorOverload(output)
+}
+                 
+@[as_macro] 
+pub fn read_reg_p(output u8) u8 {
+	return C.MotorRegPValue(output)
+}
+                 
+@[as_macro] 
+pub fn read_reg_i(output u8) u8 {
+	return C.MotorRegIValue(output)
+}
+                 
+@[as_macro] 
+pub fn read_reg_d(output u8) u8 {
+	return C.MotorRegDValue(output)
+}
+                 
+@[as_macro] 
+pub fn read_block_tacho_count(output u8) int {
+	return C.MotorBlockTachoCount(output)
+}
+                 
+@[as_macro] 
+pub fn read_rotation_count(output u8) int {
+	return C.MotorRotationCount(output)
+}
+                 
+@[as_macro] 
+pub fn read_output_options(output u8) u8 {
+	return C.MotorOutputOptions(output)
+}
+                 
+@[as_macro] 
+pub fn read_max_speed(output u8) u8 {
+	return C.MotorMaxSpeed(output)
+}
+                 
+@[as_macro] 
+pub fn read_max_accel(output u8) u8 {
+	return C.MotorMaxAcceleration(output)
+}
+                 
+@[as_macro] 
+pub fn read_pwn_freq() u8 {
+	return C.MotorPwnFreq()
+}
+                 
+@[as_macro] 
+pub fn read_regu_time() u8 {
+	return C.MotorRegulationTime()
+}
+                 
+@[as_macro] 
+pub fn read_regu_options() u8 {
+	return C.MotorRegulationOptions()
+}
+
+
+// // @[as_macro] 
+// pub fn  setup_output() {
+// 	return C.SetOutput()
+// }
+    
+// // @[as_macro] 
+// pub fn  get_output() {
+// 	return C.GetOutput()
+// }
+      
+// // @[as_macro] 
+// pub fn  pos_reg_enable() {
+// 	return C.PosRegEnable()
+// }
+            
+// // @[as_macro] 
+// pub fn  pos_reg_setup_angle() {
+// 	return C.PosRegSetAngle()
+// }
+             
+// // @[as_macro] 
+// pub fn pos_reg_add_angle() {
+// 	return C.PosRegAddAngle()
+// }
+                
+// // @[as_macro] 
+// pub fn pos_reg_setup_max() {
+// 	return C.PosRegSetMax()
+// }
+             

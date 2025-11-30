@@ -15,26 +15,37 @@ pub fn (mut stp Setup) load(device string) {
 
 	eq_devices := json.decode(
 		map[string]string,
-		os.read_file('${aixt_path}' + os.path_separator + 'setup' + os.path_separator + 
-					 'equivalent-devices.json') or { panic(err) }
+		os.read_file(os.norm_path('${aixt_path}/setup/equivalent-devices.json')) or { panic(err) }
 	) or { panic(err) }
 	
-	port := if device in eq_devices {
+	target := if device in eq_devices {
 		eq_devices[device]
 	} else {
 		device
 	}
 
-	dev_setup := os.read_file('${aixt_path}' + os.path_separator + 'setup/${port}.json') or { panic(err) }
+	dev_setup := os.read_file(os.norm_path('${aixt_path}/setup/${target}.json')) or { panic(err) }
 	setup := json.decode(Setup, dev_setup) or { panic(err) }
 
-	// println(setup)
+	println(setup)
 
-	comp_setup := os.read_file('${aixt_path}/${setup.compiler_setup_path}') or { panic(err) }
+	comp_setup := os.read_file(os.norm_path('${aixt_path}/${setup.compiler_setup_path}')) or { panic(err) }
 	complete_setup :=  dev_setup.all_before_last('}') + ',\n' + comp_setup.all_after_first('{')
 	stp = json.decode(Setup, complete_setup)  or { panic(err) }
+	
+	// ---------------- Normalize paths --------------------
 	stp.device = device
+	stp.cc['linux_path'] = os.norm_path(stp.cc['linux_path'])
+	stp.cc['windows_path'] = os.norm_path(stp.cc['windows_path'])
+	stp.flasher['linux_path'] = os.norm_path(stp.flasher['linux_path'])
+	stp.flasher['windows_path'] = os.norm_path(stp.flasher['windows_path'])
+	mut temp_paths := []string{}
+	for path in stp.api_paths {
+		temp_paths << os.norm_path(path)
+	}
+	stp.api_paths = temp_paths
+	stp.compiler_setup_path = os.norm_path(stp.compiler_setup_path)
 
-	println('Setup files:\n\t${aixt_path}' + os.path_separator + 'setup/${stp.port}.json')
-	println('\t${aixt_path}/${stp.compiler_setup_path}\n')
+	println('Setup files:\n\t' + os.norm_path('${aixt_path}/setup/${stp.target}.json'))
+	println(os.norm_path('\t${aixt_path}/${stp.compiler_setup_path}\n'))
 }

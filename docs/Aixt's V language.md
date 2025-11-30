@@ -7,21 +7,19 @@ The _V_ grammar was taken from these sources (ordered by importance):
 - _V_ grammar definition in lark:         [(https://github.com/Itay2805/Vork/blob/master/v.lark](https://github.com/Itay2805/Vork/blob/master/v.lark)
 
 #  Diferences between Aixt's V and standard V
-<!-- - **Aixt** supports the semicolon `;` by separating statements in the same line -->
-- As _V_, **Aixt** support function attributes like `@[inline]`, but these attributes include others like `@[task]`  which gives support to multitasking in the transpiling to _NXC_ language and `@[as_macro]` for implementing them as C macro (low-memory devices).
-- `mutex`  variables for giving support to multitasking in _NXC_ transcompiling
+As _V_, **Aixt** support function attributes like `@[inline]`, but it also include others like `@[task]`  which gives support to multitasking in the transpiling to _NXC_ language and `@[as_macro]` for implementing them as C macro (for low-memory devices).
 
 The main differences between **Aixt** and **V**are show as follows:
 
-| feature              | V                                 | Aixt's V                                                              |
-| -------------------- | --------------------------------- | --------------------------------------------------------------------- |
-| strings              | dynamic-sized                     | fixed-sized and dynamic-sized if supported                            |
-| arrays               | dynamic-sized                     | fixed-sized and dynamic-sized if supported                            |
-| structs              | allow functions (object-oriented) | do not allow functions (only structured programming)                  |
-| functions            | multiple return values            | only one return value                                                 |
-| text macros          | not allowed                       | allowed by using '@[as_macro]' attribute, for functions and constants |
-| `C` variables access | not allowed                       | allowed by using 'C.var_name' syntax                                  |
-| global variables     | disabled by default               | enabled by default                                                    |
+| feature              | V                             | Aixt's V                                                              |
+| -------------------- | ----------------------------- | --------------------------------------------------------------------- |
+| strings              | fixed-sized and dynamic-sized | fixed-sized (for now)                                                 |
+| arrays               | fixed-sized and dynamic-sized | fixed-sized (for now)                                                 |
+| structs              | allow functions               | allow functions. Can not declared as reference                        |
+| functions            | multiple return values        | only one return value                                                 |
+| text macros          | not allowed                   | allowed by using '@[as_macro]' attribute, for functions and constants |
+| `C` variables access | not allowed                   | allowed by using 'C.var_name' syntax                                  |
+| global variables     | disabled by default           | enabled by default                                                    |
 
 
 #  V's supported keywords

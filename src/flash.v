@@ -17,16 +17,16 @@ pub fn flash(path string, port string, project_setup setup.Setup) {
 	// println('>>>>>>>>>>>>>>>>>> Flashing by: ${port} <<<<<<<<<<<<<<<<<<')
 
 	flasher := $if windows { // flashing tool depending on the OS
-		project_setup.flasher_windows
+		project_setup.flasher['windows_path']
 	} $else {
-		project_setup.flasher_linux
+		project_setup.flasher['linux_path']
 	}
 
-	mut flags := project_setup.flasher_flags
+	mut flags := project_setup.flasher['flags']
 	flags = flags.replace('@{file_no_ext}', '${path}')
 	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')
 	flags = flags.replace('@{device}', '${project_setup.device}')
-	flags = flags.replace('@{port}', '${port}')
+	flags = flags.replace('@{target}', '${port}')
 
 	input_ext := match project_setup.backend {
 		'nxc' { '.nxc' }

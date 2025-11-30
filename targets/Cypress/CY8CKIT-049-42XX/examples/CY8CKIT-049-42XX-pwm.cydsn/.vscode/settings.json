@@ -1,0 +1,8 @@
+{
+    "aixt_linux": "aixt", // need adding aixt to PATH (symlink)
+    "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
+    "device": "CY8CKIT-049",
+    "port_linux": "/dev/ttyUSB0",
+    "port_windows": "COM1",
+    "files.associations": {}
+}

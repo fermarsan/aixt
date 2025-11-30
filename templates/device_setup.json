@@ -1,26 +1,22 @@
 {
-  "port": "port or device name",
+  "target": "port or device name",
   "board": "board name",
   "backend": "c / arduino / nxc",
-
-  "cc_linux": "c compiler path on linux",
-  "cc_windows": "c compiler path on windows",
-  "cc_make_flags": "c compiler or Makefile flags",
-
-  "flasher_linux": "arduino-cli",
-  "flasher_windows": "arduino-cli.exe",
-  "flasher_flags": "upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32",
-
+  "linux_path": "c compiler path on linux",
+  "windows_path": "c compiler path on windows",
+  "flags": "c compiler or Makefile flags",
+},
+"flasher": {
+  "linux_path": "arduino-cli",
+  "windows_path": "arduino-cli.exe",
+  "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32",
   "api_paths": [
     "API path 1 from aixt/ports",
     "API path 2 from aixt/ports",
     "API path 3 from aixt/ports"
   ],
-
   "v_defines": [],
-
   "default_cpu_freq": 4000000,
   "default_string_len": 50,
-
   "compiler_setup_path": "setup/compiler_name.json"
 }

@@ -1,7 +1,0 @@
-#define SERIAL4_BEGIN(BAUD_RATE)    Serial4.begin(BAUD_RATE)
-#define SERIAL4_WRITE(CHARACTER)    Serial4.write(CHARACTER) 
-#define SERIAL4_READ()              Serial4.read()
-#define SERIAL4_PRINT(MESSAGE)      Serial4.print(MESSAGE)
-#define SERIAL4_PRINTLN(MESSAGE)    Serial4.println(MESSAGE)
-#define SERIAL4_AVAILABLE()         Serial4.available()    
-#define SERIAL4_PINS(tx, rx)        UART Serial4(tx, rx, 0, 0)

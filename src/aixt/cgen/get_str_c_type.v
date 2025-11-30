@@ -46,8 +46,11 @@ fn (mut gen Gen) get_str_c_type(typ ast.Type, is_const bool) (string, string) {
 				'*', gen.table.type_to_str(typ2).replace('[]', '')
 			}
 		}
+		'struct' {
+			ref, var_type.replace('C.', '')
+		}
 		else {
-			ref, var_type.replace('C.', '').replace(' ', '_')
+			ref, var_type.replace('C.', '').replace(' ', '_').replace('.', '__')
 		}
 	}
 }

@@ -13,21 +13,26 @@ This diagram shows the Aixt blocks and their interactions:
 
 ```mermaid
 stateDiagram-v2
-
     source: Source code (*.v)
 
-    Aixt2C: Aixt Transpiler
+    Aixt2C: Aixt Transpiler (V)
     state Aixt2C {
         direction RL
         Transpiler: Transpiler Core    
         
-        Implementation: Implementation of X device
+        Implementation: Implementation of device X
         state Implementation {
-            API
+            API: API (*.v, *.c)
             SF: Setup files (*.json)
+        }
+        Implementation2: Implementation of device Y
+        state Implementation2 {
+            API2: API (*.v, *.c)
+            SF2: Setup files (*.json)
         }
         
         Implementation --> Transpiler
+        Implementation2 --> Transpiler
     }
 
 
@@ -35,7 +40,8 @@ stateDiagram-v2
 
     Compiler: C compiler
     state Compiler {
-        compiler: Compiler compatible with X device
+        compiler1: Compiler for device X
+        compiler2: Compiler for device Y
     }
 
     BF: Binary file
@@ -62,15 +68,16 @@ The transpiler is written in [_V_](https://vlang.io/) and uses the _V's_ self na
 
 **Aixt's V** programing language implements a subset of the [_V language_](https://vlang.io/). The main differences are show as follows:
 
-| feature              | V                                 | Aixt's V                                                              |
-| -------------------- | --------------------------------- | --------------------------------------------------------------------- |
-| strings              | dynamic-sized                     | fixed-sized and dynamic-sized if supported                            |
-| arrays               | dynamic-sized                     | fixed-sized and dynamic-sized if supported                            |
-| structs              | allow functions (object-oriented) | do not allow functions (only structured programming)                  |
-| functions            | multiple return values            | only one return value                                                 |
-| text macros          | not allowed                       | allowed by using `@[as_macro]` attribute, for functions and constants |
-| `C` variables access | not allowed                       | allowed by using `C.var_name` syntax                                  |
-| global variables     | disabled by default               | enabled by default                                                    |
+| feature              | V                             | Aixt's V                                                              |
+|----------------------|-------------------------------|-----------------------------------------------------------------------|
+| strings              | fixed-sized and dynamic-sized | fixed-sized (for now)                                                 |
+| arrays               | fixed-sized and dynamic-sized | fixed-sized (for now)                                                 |
+| structs              | allow functions               | allow functions. Can not declared as reference                        |
+| functions            | multiple return values        | only one return value                                                 |
+| text macros          | not allowed                   | allowed by using `@[as_macro]` attribute, for functions and constants |
+| `C` variables access | not allowed                   | allowed by using `C.var_name` syntax                                  |
+| global variables     | disabled by default           | enabled by default                                                    |
+| Interrupts           | not implemented               | allowed by using `@[xxxx_isr]` attribute for ISRs                     |
 
 
 ### Example with `main` function
@@ -114,11 +121,54 @@ for { // infinite loop
 import time
 import pin
 
-pin.low(led0)	// turn OFF the on-board LED
+pin.setup(pin.led0, pin.output) // set the on-board LED as output
+pin.low(pin.led0)				// turn it off 
 
 for {
-    pin.toggle(led0)    // change the LED state
-    time.sleep_ms(500)  // 500ms delay
+    pin.toggle(pin.led0)    // change the LED state
+    time.sleep_ms(500)      // 500ms delay
+}
+```
+
+### Blinking LED example (using OOP)
+```v
+// OOP blinking LED on Arduino-Nano
+import time
+import pin_oop as pin   // API v0.2.0
+
+// declare an instance of the Pin struct
+mut ext_led := pin.Pin{ pin.d15 }	// LED on D15
+
+ext_led.setup(pin.output)   // as output
+ext_led.high()  // turn on an external LED
+
+for {
+	ext_led.toggle()		// change the external LED state
+	time.sleep_ms(500)
+}
+```
+
+### Blinking LED example by timer interrupt
+```v
+// Blinking LED by timer interrupt (PIC16F83 10Mhz)
+import pin
+import timer0
+
+// interrupt service routine for timer0 overload
+@[timer0_isr]
+fn blinking() {
+	timer0.restart()
+	pin.toggle(pin.b4)
+}
+
+pin.setup(pin.b4, pin.output)
+timer0.setup(100) // configure the timer0 with a period of 10ms (10000us)
+
+pin.low(pin.b4) // reset LED pin
+timer0.irq_enable() // enables timer0 interrupt
+
+for {
+	// empty infinite loop
 }
 ```
 
@@ -127,7 +177,7 @@ for {
 ```v
 // Draw a square on the floor with a differential platform 
 // using motors A and B
-import motor
+import motor_fn as motor
 import time
 
 for {
@@ -137,6 +187,25 @@ for {
     time.sleep_ms(3000)
     // spin
     motor.write(motor.a, -50)	// reverse
+    time.sleep_ms(500)
+}
+```
+
+### Example for NXT robotics platform (using OOP)
+
+```v
+// Draw a square on the floor with a differential platform 
+// using motors A and B
+import motor
+import time
+
+for {
+    // move forward
+    motor_a.write(50)
+    motor_b.write(-50)	// reverse
+    time.sleep_ms(3000)
+    // spin
+    motor_a.write(-50)	// reverse
     time.sleep_ms(500)
 }
 ```
@@ -153,41 +222,99 @@ The [**Aixt API**](docs/API.md) is inspired by _Micropython_, _Arduino_ and _Tin
 ## Using Aixt
 
 ### Installing Aixt from source
-```
+
+```bash
 git clone https://github.com/fermarsan/aixt.git
 cd aixt
 make # make.bat on Windows
 ```
 
-### Running Aixt
-run it in a Linux-based system as:
+### Installing using `conda` packages
+
+There are implemented `conda` packages of _Aixt_ and some of its dependencies for _Linux_ and _Windows_, which are located in: [https://anaconda.org/fermarsan](https://anaconda.org/fermarsan). The packages are:
+
+- _aixt 0.2.3_ (_Linux_ and _Windows_)
+- _arduino-cli 1.3.1_ (_Linux_ and _Windows_) 
+- _nbc 1.2.1 r5_  (_Linux_ and _Windows_)
+- _libusb 0.1.4_ (_Linux_)
+
+#### Installing using _Anaconda_ or _Miniconda_
+
+```bash
+conda create -n <env-name> --channel fermarsan aixt <dependencies>
+conda activate <env-name>
 ```
+for instance, by using with an AVR-based Arduino board:
+```bash
+conda create -n aixt-env --channel fermarsan aixt arduino-cli
+conda activate aixt-env
+arduino-cli core install arduino:avr
+```
+
+#### Installing using _Pixi_ (as workspace package)
+
+```bash
+pixi workspace channel add https:/conda.anaconda.org/fermarsan
+pixi add aixt <dependencies>
+pixi shell
+```
+for instance, by using with an AVR-based Arduino board:
+```bash
+pixi workspace channel add https:/conda.anaconda.org/fermarsan
+pixi add aixt arduino-cli
+pixi shell
+arduino-cli core install arduino:avr
+```
+
+#### Installing using _Pixi_ (as global package)
+
+```bash
+pixi global install --environment <env-name> --channel https:/conda.anaconda.org/fermarsan aixt <dependencies>
+```
+for instance, by using with an AVR-based Arduino board:
+```bash
+pixi global install --environment aixt-env --channel https:/conda.anaconda.org/fermarsan aixt arduino-cli
+arduino-cli core install arduino:avr
+```
+
+### Running Aixt
+
+run it in a _Linux_-based system as:
+```bash
 ./aixt <command> <device_or_board> <source_file>
 ```
-or in Windows:
-```
+or in _Windows_:
+```bash
 aixt.exe <command> <device_or_board> <source_file>
 ```
 
+if installed by a `conda` package or after added to the `PATH` (_Linux_ and _Windows_):
+```bash
+aixt <command> <device_or_board> <source_file>
+```
+
 ### Generating a Symbolic Link
+
 For running the command `aixt` from any folder in the file system you can create a symbolic link of it in this way:
 
-run it in a Linux-based system as:
-```
+run it in a _Linux_-based system as:
+```bash
 ./aixt symlink
 ```
-or in Windows:
-```
+or in _Windows_:
+```bash
 aixt.exe symlink
 ```
+It is not necessary if _Aixt_ was installed by a `conda` package.
+
 
 ### Running examples:
 
+```bash
+aixt -t Emulator test.v
 ```
-./aixt -t Emulator test.v
-```
-```
-./aixt -b NXT ports/NXT/projects/1_motor.write.v
+```bash
+aixt -b NXT ports/NXT/projects/1_motor.write.v
 ```
 
 
@@ -196,9 +323,11 @@ aixt.exe symlink
 This is the complete [list of suported devices/boards](docs/Devices%20and%20Boards.md) and their backends and compilers.
 
 
-## Prerequisites
+## Dependencies
 
-- _The V programming language_ 0.4.9
+- _git_ (for installing from source)
+- _The V programming language 0.4.10_ (for installing from source)
+- _Anaconda_, _Miniconda_ or _Pixi_ (for installing by a `conda` packages)
 - _auduino-cli_ last version (for arduino backend devices only)
 - _specific C compiler_ depending on the device
 
@@ -207,12 +336,14 @@ This is the complete [list of suported devices/boards](docs/Devices%20and%20Boar
 
 The project's name is inspired in _Veasel_, the Weasel pet of _V Language_, and at the same time is a tribute to _Ticuna_ people who live in the Amazon forest between the borders of _Colombia_, _Brasil_ and _Perú_. Weasels are _mustelids_ just like otters, so the name **Aixt** comes from _Aixtü_, which is a way to say otter in [_Ticuna_](https://www.sil.org/system/files/reapdata/90/20/51/90205190508691852389084667097660892450/tca_Ticuna_Dictionary_2016_web.pdf) language.
 
+
 ## Have questions?
 
 Nice, you can contact me via mail.
 
 Email: fmartinezsanta@gmail.com
 <!-- Discord : https://discord.gg/-->
+
 
 ## Want to contribute?
 

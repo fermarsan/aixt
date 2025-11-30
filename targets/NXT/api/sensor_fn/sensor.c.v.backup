@@ -1,0 +1,470 @@
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+// Author: Fernando M. Santa
+// Date: 2024-2025
+// License: MIT
+//
+// Description: Math module for NXT (NXC backend)
+
+module sensor	
+
+
+@[as_macro] pub const s1 = 0
+@[as_macro] pub const s2 = 1
+@[as_macro] pub const s3 = 2
+@[as_macro] pub const s4 = 3
+
+// Use the combined sensor type and mode constants to configure both the sensor mode and type in a single function call. 
+@[as_macro] pub const touch   		= C.SENSOR_TOUCH
+@[as_macro] pub const light   		= C.SENSOR_LIGHT
+@[as_macro] pub const rotation   	= C.SENSOR_ROTATION
+@[as_macro] pub const celsius   	= C.SENSOR_CELSIUS
+@[as_macro] pub const fahrenheit   	= C.SENSOR_FAHRENHEIT
+@[as_macro] pub const pulse   		= C.SENSOR_PULSE
+@[as_macro] pub const edge    		= C.SENSOR_EDGE
+@[as_macro] pub const nxtlight   	= C.SENSOR_NXTLIGHT
+@[as_macro] pub const sound   		= C.SENSOR_SOUND
+@[as_macro] pub const lowspeed_9v  	= C.SENSOR_LOWSPEED_9V
+@[as_macro] pub const lowspeed   	= C.SENSOR_LOWSPEED
+@[as_macro] pub const colorfull   	= C.SENSOR_COLORFULL
+@[as_macro] pub const colorred   	= C.SENSOR_COLORRED
+@[as_macro] pub const colorgreen   	= C.SENSOR_COLORGREEN
+@[as_macro] pub const colorblue   	= C.SENSOR_COLORBLUE
+@[as_macro] pub const colornone   	= C.SENSOR_COLORNONE
+
+// Use sensor mode constants to configure an input port for the desired sensor mode.
+// The constants are intended for use in NBC. 
+// #define 	mode_raw          	IN_MODE_RAW          
+// #define 	mode_boolean      	IN_MODE_BOOLEAN      
+// #define 	mode_transitioncnt	IN_MODE_TRANSITIONCNT
+// #define 	mode_periodcounter	IN_MODE_PERIODCOUNTER
+// #define 	mode_pctfullscale 	IN_MODE_PCTFULLSCALE 
+// #define 	mode_celsius      	IN_MODE_CELSIUS      
+// #define 	mode_fahrenheit   	IN_MODE_FAHRENHEIT   
+// #define 	mode_anglestep    	IN_MODE_ANGLESTEP    
+// #define 	mode_slopemask    	IN_MODE_SLOPEMASK    
+// #define 	mode_modemask     	IN_MODE_MODEMASK     
+
+// Use sensor type constants to configure an input port for a specific type of sensor.
+// These constants are intended for use in NBC. 
+// #define 	type_no_sensor     	IN_TYPE_NO_SENSOR     
+// #define 	type_switch        	IN_TYPE_SWITCH        
+// #define 	type_temperature   	IN_TYPE_TEMPERATURE   
+// #define 	type_reflection    	IN_TYPE_REFLECTION    
+// #define 	type_angle         	IN_TYPE_ANGLE         
+// #define 	type_light_active  	IN_TYPE_LIGHT_ACTIVE  
+// #define 	type_light_inactive	IN_TYPE_LIGHT_INACTIVE
+// #define 	type_sound_db      	IN_TYPE_SOUND_DB      
+// #define 	type_sound_dba     	IN_TYPE_SOUND_DBA     
+// #define 	type_custom        	IN_TYPE_CUSTOM        
+// #define 	type_lowspeed      	IN_TYPE_LOWSPEED      
+// #define 	type_lowspeed_9v   	IN_TYPE_LOWSPEED_9V   
+// #define 	type_hispeed       	IN_TYPE_HISPEED       
+// #define 	type_colorfull     	IN_TYPE_COLORFULL     
+// #define 	type_colorred      	IN_TYPE_COLORRED      
+// #define 	type_colorgreen    	IN_TYPE_COLORGREEN    
+// #define 	type_colorblue     	IN_TYPE_COLORBLUE     
+// #define 	type_colornone     	IN_TYPE_COLORNONE     
+// #define 	type_colorexit     	IN_TYPE_COLOREXIT    
+
+// Use sensor mode constants to configure an input port for the desired sensor mode.  
+// #define 	mode_raw          IN_MODE_RAW
+// #define 	mode_bool         IN_MODE_BOOLEAN
+// #define 	mode_edge         IN_MODE_TRANSITIONCNT
+// #define 	mode_pulse        IN_MODE_PERIODCOUNTER
+// #define 	mode_percent      IN_MODE_PCTFULLSCALE
+// #define 	mode_celsius      IN_MODE_CELSIUS
+// #define 	mode_fahrenheit   IN_MODE_FAHRENHEIT
+// #define 	mode_rotation     IN_MODE_ANGLESTEP
+
+// Use sensor type constants to configure an input port for a specific type of sensor. 
+// #define 	type_none          	IN_TYPE_NO_SENSOR
+// #define 	type_touch         	IN_TYPE_SWITCH
+// #define 	type_temperature   	IN_TYPE_TEMPERATURE
+// #define 	type_light         	IN_TYPE_REFLECTION
+// #define 	type_rotation      	IN_TYPE_ANGLE
+// #define 	type_light_active  	IN_TYPE_LIGHT_ACTIVE
+// #define 	type_light_inactive	IN_TYPE_LIGHT_INACTIVE
+// #define 	type_sound_db      	IN_TYPE_SOUND_DB
+// #define 	type_sound_dba     	IN_TYPE_SOUND_DBA
+// #define 	type_custom        	IN_TYPE_CUSTOM
+// #define 	type_lowspeed      	IN_TYPE_LOWSPEED
+// #define 	type_lowspeed_9v   	IN_TYPE_LOWSPEED_9V
+// #define 	type_highspeed     	IN_TYPE_HISPEED
+// #define 	type_colorfull     	IN_TYPE_COLORFULL
+// #define 	type_colorred      	IN_TYPE_COLORRED
+// #define 	type_colorgreen    	IN_TYPE_COLORGREEN
+// #define 	type_colorblue     	IN_TYPE_COLORBLUE
+// #define 	type_colornone     	IN_TYPE_COLORNONE
+
+// 
+// #define 	custominactive	INPUT_CUSTOMINACTIVE
+// #define 	custom9v      	INPUT_CUSTOM9V      
+// #define 	customactive  	INPUT_CUSTOMACTIVE  
+// #define 	invalid_data  	INPUT_INVALID_DATA 
+
+// Functions for accessing and modifying input module features. 
+
+// @[as_macro]
+// pub fn set_type(port u8, typ u8) {
+// 	C.SetSensorType(port, typ) 
+// }                                                          
+
+// @[as_macro]
+// pub fn set_mode() {
+// 	C.SetSensorMode() 
+// }                                                          
+
+// @[as_macro]
+// pub fn clear() {
+// 	C.ClearSensor() 
+// }                                                          
+
+// @[as_macro]
+// pub fn reset() {
+// 	C.ResetSensor() 
+// }                                                          
+
+@[as_macro]
+pub fn setup(port u8, config u32) {
+	C.SetSensor(port, config) 
+}                                                          
+
+@[as_macro]
+pub fn as_touch(port u8) {
+	C.SetSensorTouch(port) 
+}                                                          
+
+@[as_macro]
+pub fn as_light(port u8, b_active bool) {
+	C.SetSensorLight(port, b_active) 
+}                                                          
+
+@[as_macro]
+pub fn as_sound(port u8, bd_b_scaling bool ) {
+	C.SetSensorSound(port, bd_b_scaling) 
+}                                                          
+
+@[as_macro]
+pub fn as_lowspeed(port u8, bis_powered bool) {
+	C.SetSensorLowspeed(port, bis_powered) 
+}                                                          
+
+@[as_macro]
+pub fn as_ultrasonic(port u8) {
+	C.SetSensorUltrasonic(port)
+}                                                          
+
+// @[as_macro]
+// pub fn as_e_meter(port u8) {
+// 	C.SetSensorEMeter(port) 
+// }                                                          
+
+@[as_macro]
+pub fn as_temperature(port u8) {
+	C.SetSensorTemperature(port) 
+}                                                          
+
+@[as_macro]
+pub fn as_color_full(port u8) {
+	C.SetSensorColorFull(port) 
+}                                                          
+
+// @[as_macro]
+// pub fn as_color_red(port u8) {
+// 	C.SetSensorColorRed(port) 
+// }                                                          
+
+// @[as_macro]
+// pub fn as_color_green(port u8) {
+// 	C.SetSensorColorGreen(port) 
+// }                                                          
+
+// @[as_macro]
+// pub fn as_color_blue(port u8) {
+// 	C.SetSensorColorBlue(port) 
+// }                                                          
+
+// @[as_macro]
+// pub fn as_color_none(port u8) {
+// 	C.SetSensorColorNone(port) 
+// }                                                        
+
+@[as_macro]
+pub fn read(port u8) u32 {
+	return C.Sensor(port) 
+}                                                          
+
+@[as_macro]
+pub fn boolean(port u8) bool {
+	return C.SensorBoolean(port) 
+}                                                          
+
+// @[as_macro]
+// pub fn digi_pins_direction() {
+// 	return C.SensorDigiPinsDirection() 
+// }                                                          
+
+// @[as_macro]
+// pub fn digi_pins_output_level() {
+// 	return C.SensorDigiPinsOutputLevel() 
+// }                                                          
+
+// @[as_macro]
+// pub fn digi_pins_status() {
+// 	return C.SensorDigiPinsStatus() 
+// }                                                          
+
+// @[as_macro]
+// pub fn invalid() {
+// 	return C.SensorInvalid() 
+// }                                                          
+
+// @[as_macro]
+// pub fn mode() {
+// 	return C.SensorMode() 
+// }                                                          
+
+// @[as_macro]
+// pub fn normalized() {
+// 	return C.SensorNormalized() 
+// }                                                          
+
+// @[as_macro]
+// pub fn raw() {
+// 	return C.SensorRaw() 
+// }                                                          
+
+// @[as_macro]
+// pub fn scaled() {
+// 	return C.SensorScaled() 
+// }                                                          
+
+// @[as_macro]
+// pub fn type() {
+// 	return C.SensorType() 
+// }                                                          
+
+// @[as_macro]
+// pub fn value() {
+// 	return C.SensorValue() 
+// }                                                          
+
+// @[as_macro]
+// pub fn value_bool() {
+// 	return C.SensorValueBool() 
+// }                                                          
+
+// @[as_macro]
+// pub fn value_raw() {
+// 	return C.SensorValueRaw() 
+// }                                                          
+
+// @[as_macro]
+// pub fn custom_active_status() {
+// 	return C.CustomSensorActiveStatus() 
+// }                                                          
+
+// @[as_macro]
+// pub fn custom_percent_full_scale() {
+// 	return C.CustomSensorPercentFullScale() 
+// }                                                          
+
+// @[as_macro]
+// pub fn custom_zero_offset() {
+// 	return C.CustomSensorZeroOffset() 
+// }                                                          
+
+// @[as_macro]
+// pub fn set_custom_active_status() {
+// 	return C.SetCustomSensorActiveStatus() 
+// }                                                          
+
+// @[as_macro]
+// pub fn set_custom_percent_full_scale() {
+// 	return C.SetCustomSensorPercentFullScale() 
+// }                                                          
+
+// @[as_macro]
+// pub fn set_custom_zero_offset() {
+// 	return C.SetCustomSensorZeroOffset() 
+// }                                                          
+
+// @[as_macro]
+// pub fn set_boolean() {
+// 	return C.SetSensorBoolean() 
+// }                                                          
+
+// @[as_macro]
+// pub fn set_digi_pins_direction() {
+// 	return C.SetSensorDigiPinsDirection() 
+// }                                                          
+
+// @[as_macro]
+// pub fn set_digi_pins_output_level() {
+// 	return C.SetSensorDigiPinsOutputLevel() 
+// }                                                          
+
+// @[as_macro]
+// pub fn set_digi_pins_status() {
+// 	return C.SetSensorDigiPinsStatus() 
+// }                                                          
+
+// @[as_macro]
+// pub fn sys_color_read() {
+// 	return C.SysColorSensorRead() 
+// }                                                          
+
+// @[as_macro]
+// pub fn read_colors_ex() {
+// 	return C.ReadSensorColorEx() 
+// }                                                          
+
+// @[as_macro]
+// pub fn read_colors_raw() {
+// 	return C.ReadSensorColorRaw() 
+// }                                                         
+
+// @[as_macro]
+// pub fn read_color_raw() {
+// 	return C.ColorSensorRaw() 
+// }                                                          
+
+// @[as_macro]
+// pub fn read_color_value() {
+// 	return C.ColorSensorValue() 
+// }    
+
+// // 
+// @[as_macro]
+// pub fn get_input() {
+// 	return C.GetInput() 
+// }       
+// // 
+// @[as_macro]
+// pub fn set_input() {
+// 	return C.SetInput() 
+// }       
+// // 
+// @[as_macro]
+// pub fn color_ad_raw() {
+// 	return C.ColorAdRaw() 
+// }       
+// // 
+// @[as_macro]
+// pub fn color_boolean() {
+// 	return C.ColorBoolean() 
+// }       
+// // 
+// @[as_macro]
+// pub fn color_calibration() {
+// 	return C.ColorCalibration() 
+// }       
+// // 
+// @[as_macro]
+// pub fn color_calibration_state() {
+// 	return C.ColorCalibrationState() 
+// }       
+// // 
+// @[as_macro]
+// pub fn color_cal_limits() {
+// 	return C.ColorCalLimits() 
+// }
+// // 
+// @[as_macro]
+// pub fn sys_input_pin_function() {
+// 	return C.SysInputPinFunction() 
+// } 
+
+// #################### NXC LowSpeed module ####################
+
+// Constants for use with the e-meter sensor. 
+// #define 	emeter_reg_vin   	EMETER_REG_VIN   
+// #define 	emeter_reg_ain   	EMETER_REG_AIN   
+// #define 	emeter_reg_vout  	EMETER_REG_VOUT  
+// #define 	emeter_reg_aout  	EMETER_REG_AOUT  
+// #define 	emeter_reg_joules	EMETER_REG_JOULES
+// #define 	emeter_reg_win   	EMETER_REG_WIN   
+// #define 	emeter_reg_wout  	EMETER_REG_WOUT  
+
+// Constants for use with the ultrasonic sensor. 
+// #define 	us_cmd_off                  	US_CMD_OFF                  
+// #define 	us_cmd_singleshot           	US_CMD_SINGLESHOT           
+// #define 	us_cmd_continuous           	US_CMD_CONTINUOUS           
+// #define 	us_cmd_eventcapture         	US_CMD_EVENTCAPTURE         
+// #define 	us_cmd_warmreset            	US_CMD_WARMRESET            
+// #define 	us_reg_cm_interval          	US_REG_CM_INTERVAL          
+// #define 	us_reg_actual_zero          	US_REG_ACTUAL_ZERO          
+// #define 	us_reg_scale_factor         	US_REG_SCALE_FACTOR         
+// #define 	us_reg_scale_divisor        	US_REG_SCALE_DIVISOR        
+// #define 	us_reg_factory_actual_zero  	US_REG_FACTORY_ACTUAL_ZERO  
+// #define 	us_reg_factory_scale_factor 	US_REG_FACTORY_SCALE_FACTOR 
+// #define 	us_reg_factory_scale_divisor	US_REG_FACTORY_SCALE_DIVISOR
+// #define 	us_reg_measurement_units    	US_REG_MEASUREMENT_UNITS  
+
+// Constants for use with the LEGO temperature sensor. 
+// #define 	temp_res_9bit     	TEMP_RES_9BIT     
+// #define 	temp_res_10bit    	TEMP_RES_10BIT    
+// #define 	temp_res_11bit    	TEMP_RES_11BIT    
+// #define 	temp_res_12bit    	TEMP_RES_12BIT    
+// #define 	temp_sd_continuous	TEMP_SD_CONTINUOUS
+// #define 	temp_sd_shutdown  	TEMP_SD_SHUTDOWN  
+// #define 	temp_tm_comparator	TEMP_TM_COMPARATOR
+// #define 	temp_tm_interrupt 	TEMP_TM_INTERRUPT 
+// #define 	temp_os_oneshot   	TEMP_OS_ONESHOT   
+// #define 	temp_fq_1         	TEMP_FQ_1         
+// #define 	temp_fq_2         	TEMP_FQ_2         
+// #define 	temp_fq_4         	TEMP_FQ_4         
+// #define 	temp_fq_6         	TEMP_FQ_6         
+// #define 	temp_pol_low      	TEMP_POL_LOW      
+// #define 	temp_pol_high     	TEMP_POL_HIGH     
+// #define 	temp_reg_temp     	TEMP_REG_TEMP     
+// #define 	temp_reg_config   	TEMP_REG_CONFIG   
+// #define 	temp_reg_tlow     	TEMP_REG_TLOW     
+// #define 	temp_reg_thigh    	TEMP_REG_THIGH   
+
+// Functions for accessing and modifying low speed module features. 
+
+@[as_macro]
+pub fn read_us(port u8) u8 {
+	return C.SensorUS(port u8) 
+} 
+
+@[as_macro]
+pub fn read_us_now(port u8) u8 {
+	return C.SensorUS0(port u8) 
+} 
+
+@[as_macro]
+pub fn read_us_wait(port u8, wait u8) {
+	return C.SensorUSWait(port, wait) 
+} 
+
+// @[as_macro]
+// pub fn read_ultrasonic_ex() {
+// 	return C.ReadSensorUSEx() 
+// } 
+
+// @[as_macro]
+// pub fn read_ultrasonic_ex0() {
+// 	return C.ReadSensorUSEx0() 
+// } 
+
+// @[as_macro]
+// pub fn read_ultrasonic_ex_wait() {
+// 	return C.ReadSensorUSExWait() 
+// } 
+
+// @[as_macro]
+// pub fn read_e_meter() {
+// 	return C.ReadSensorEMeter() 
+// } 
+
+@[as_macro]
+pub fn setup_temperature(port u8, config u8) {
+	return C.ConfigureTemperatureSensor(port, config) 
+} 
+
+@[as_macro]
+pub fn read_temperature(port u8) {
+	return C.SensorTemperature(port) 
+}

@@ -6,18 +6,20 @@ The setup files use the `.json` format due to its ubiquitous nature. The followi
 
 ```json
 {
-    "port":      "PIC16F8x",
+    "target":      "PIC16F8x",
     "board":     "---",
     "backend":   "c",
 
-    "cc_linux":			"",             
-    "cc_windows":		"",
-    "cc_make_flags":	"PART=@{device}",
+    "linux_path":			"",             
+    "windows_path":		"",
+    "flags":	"PART=@{device}",
 
-    "flasher_linux":    "arduino-cli",
-    "flasher_windows":  "arduino-cli.exe",
-	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32",
+    "flasher":{
+"linux_path":    "arduino-cli",
+    "windows_path":  "arduino-cli.exe",
+	"flags":	"upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32",
 
+    },
     "api_paths": [
         "Microchip/PIC16F8x",
         "Microchip/xc8-generic",

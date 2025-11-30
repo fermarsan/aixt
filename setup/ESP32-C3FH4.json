@@ -1,16 +1,19 @@
 {
-    "port":    "Arduino-Nano",
-    "board":   "Arduino Nano",
+    "target": "Arduino-Nano",
+    "board": "Arduino Nano",
     "backend": "arduino",
-
-    "cc_linux":			"arduino-cli",
-    "cc_windows":		"arduino-cli.exe",
-    "cc_make_flags":	"compile -b esp32:esp32:weact_studio_esp32c3 -v --output-dir @{file_dir_name}/build",
-
-    "flasher_linux":    "arduino-cli",
-    "flasher_windows":  "arduino-cli.exe",
-	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b esp32:esp32:weact_studio_esp32c3",
-
+    "cc": {
+        "name": "arduino-cli",
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "compile -b esp32:esp32:weact_studio_esp32c3 -v --output-dir @{file_dir_name}/build"
+    },
+    "flasher": {
+        "name": "arduino-cli",
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:weact_studio_esp32c3"
+    },
     "api_paths": [
         "WeAct_Studio/ESP32-C3FH4",
         "Arduino/arduino-ESP32",
@@ -18,11 +21,8 @@
         "Arduino/arduino-generic-UART",
         "Arduino/arduino-generic-i2c"
     ],
-    "v_defines": [
-    ],
-
+    "v_defines": [],
     "default_cpu_freq": 16000000,
     "default_string_len": 50,
-
     "compiler_setup_path": "setup/arduino8.json"
 }

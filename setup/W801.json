@@ -1,27 +1,30 @@
-
 {
-    "port":    "W801",
-    "board":   "W801",
+    "target": "W801",
+    "board": "W801",
     "backend": "arduino",
-
-    "cc_linux":			"arduino-cli",
-    "cc_windows":		"arduino-cli.exe",
-    "cc_make_flags":	"compile -b w80x_duino:XT804:w801 -v --output-dir ./build ",
-
-    "flasher_linux":    "arduino-cli",
-    "flasher_windows":  "arduino-cli.exe",
-	"flasher_flags":	"upload @{file_dir_name} -p @{port} -b w80x_duino:XT804:w801",
-
+    "cc": {
+        "name": "arduino-cli",
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "compile -b w80x_duino:XT804:w801 -v --output-dir ./build "
+    },
+    "flasher": {
+        "name": "arduino-cli",
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "upload @{file_dir_name} -p @{target} -b w80x_duino:XT804:w801"
+    },
     "api_paths": [
         "W801",
         "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART"
+        "Arduino/arduino-generic-UART1",
+        "Arduino/arduino-generic-UART2",
+        "Arduino/arduino-generic-UART3",
+        "Arduino/arduino-generic-UART4",
+        "Arduino/arduino-generic-UART5"
     ],
-    "v_defines": [
-    ],
-
+    "v_defines": [],
     "default_cpu_freq": 4000000,
     "default_string_len": 50,
-    
     "compiler_setup_path": "setup/arduino32.json"
 }

@@ -12,10 +12,10 @@ pub fn get_file_paths(path string) []string {
 	mut paths := []string{}
 	dir_content := os.ls(path) or { [] }
 	for item in dir_content {
-		if os.is_dir('${path}/${item}') {
-			paths << get_file_paths('${path}/${item}')
+		if os.is_dir(os.norm_path('${path}/${item}')) {
+			paths << get_file_paths(os.norm_path('${path}/${item}'))
 		} else {
-			paths << '${path}/${item}'
+			paths << os.norm_path('${path}/${item}')
 		}
 	}
 	return paths
@@ -26,9 +26,9 @@ pub fn get_subdirs(path string) []string {
 	mut paths := []string{}
 	dir_content := os.ls(path) or { [] }
 	for item in dir_content {
-		if os.is_dir('${path}/${item}') {
-			paths << '${path}/${item}'
-			paths << get_subdirs('${path}/${item}')
+		if os.is_dir(os.norm_path('${path}/${item}')) {
+			paths << os.norm_path('${path}/${item}')
+			paths << get_subdirs(os.norm_path('${path}/${item}'))
 		} 
 	}
 	return paths

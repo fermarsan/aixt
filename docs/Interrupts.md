@@ -1,5 +1,5 @@
 # Interrupts
-Aixt gives support to interrupts by means of using the fucntion attribute `@[<block_name>_isr]` as the following example:
+Aixt gives support to interrupts by means of using the function attribute `@[<block_name>_isr]` as the following example:
 
 ```v
 import pin

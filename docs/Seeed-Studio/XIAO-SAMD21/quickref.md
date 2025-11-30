@@ -76,7 +76,6 @@ for i in 0..10{   // 10 times
     pin.low(5)      // Output low (Turn off the LED)
     sleep_ms(500)   // Delay for 0.5s
 }
-for{}       // Infinite loop necessary for compilation
 ```
 
 ### Sequence of 3 LEDs

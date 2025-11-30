@@ -9,6 +9,7 @@ Tasks to do in Aixt
 - [ ] dynamic memory definition
 - [ ] Implement inline assembly
 - [ ] "40_inline_asm.v" inline asm implementation
+  - [ ] name C.name in asm blocks
 - [ ] Implement uart.input()
 - [ ] Support for arrays and strings initialized inside "for" statement
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
@@ -17,8 +18,12 @@ Tasks to do in Aixt
 <!-- - [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO -->
 <!-- - [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO -->
 - [ ] Allow multi-arg functions
-- [ ] Add settings file `port_name.json` inside `/port_name` folder
-- [ ] Check the convenience of the "generality" of each port implementation
+- [ ] Implements sub-modules with the syntax: `import main_module.submodule`
+- [ ] Issue: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it)
+- [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
+- [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
+- [ ] Define if the default modules use functional or object oriented paradigms
+  - [ ] Define a standard way of naming the modules (`module`, `module_fn`, `module_oop`)
 
 
 ### In Progress
@@ -28,20 +33,26 @@ Tasks to do in Aixt
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
 - [ ] Issue: Calling function from string interpolations including casting
-- [ ] `pin.<function>_fast` functions on `pin` module implemented
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
-- [ ] Issue: individual module components importing fails
+- [ ] Update the Explorer16 target
+- [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
+- [ ] Add documentation about installing by using `conda`/`pixi` 
+- [ ] Enable conditional compilation based on `device.json` properties 
+  - [ ] Include `$if c {}` syntax from `backend: c` of `device.json`
+  - [ ] Include `$if xc8 {}` syntax from `cc: { name: xc8 }` of `device.json`
+  - [ ] Move the `time` module from `api` to `lib` 
+- [ ] Add basic language test examples
 
 
 ### Done ✓make
 
-- [x] Issue solved: Structs can not be registered twice (due to the double parsing round). Solved clearing the symbol table between parsings
-- [x] Implement structs
-  - [x] Implement structs declaring
-  - [x] Implement struct instances declaring
-  - [x] Implement struct fields access (`struct_name.struct_field`)
-  - [x] Support struct methods (using the V standard)
-- [x] Add OOP features to the API (Emulator pin module, NXT motor module) 
-- [x] Implements sub-modules with the syntax: `import main_module.submodule`
+- [x] Issue solved: Arduino Mega and Nano `led0` was not public.
+- [x] VSCode `tasks.json` updated to also support pixi environments
+- [x] Change all occurrences of `@[as_macro] const` by `@[as_macro] pub const`
+- [x] Delete `nbc` compiler binaries from the repository (Linux and Windows versions)
+- [x] Implement a new scheme for the `device.json` setup files
+- [x] Update all the setup files `*.json`to the new scheme
+  - [x] From `device.json` change `port:` by `target:`
+

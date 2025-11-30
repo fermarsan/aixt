@@ -1,39 +1,24 @@
-
 {
-"port":    "PIC18F2550",
-"device":		"PIC18F2550",
-    "port_linux":   "/dev/ttyUSB0",
-    "port_windows": "COM1",
-"board":   "Nothing",
-"backend": "c",
-"cc_linux":			"gcc",
-"cc_windows":		"C:\\Program Files\\Microchip\\xc8\\v2.46\\bin\\xc8.exe",
-"cc_flags":   "-o",
-"path": "Microchip/PIC18F2550",
-"fixed_size_arrays": "true",
-"array_default_len": 10,
-"fixed_size_strings": "true",
-"default_cpu_freq": 4000000,
+    "target": "PIC18F2550",
+    "board": "---",
+    "backend": "c",
+    "cc": {
+        "name": "xc8",
+        "linux_path": "",
+        "windows_path": "",
+        "flags": "PART=@{device}"
+    },
+    "flasher": {
+        "name": "MPLAB IPE",
+        "linux_path": "",
+        "windows_path": "",
+        "flags": ""
+    },
+    "api_paths": [
+        "Microchip/"
+    ],
+    "v_defines": [],
+    "default_cpu_freq": 20000000,
     "default_string_len": 20,
-"void":  "void",
-"bool":  "bool",
-"i8":    "signed char",
-"i16":   "signed short",
-"int":   "long",
-"i64":   "NOT SUPPORTED",
-"isize": "signed char",
-"int_literal": "signed char",
-"u8":    "unsigned char",
-"u16":   "unsigned short",
-"u32":   "unsigned long",
-"u64":   "NOT SUPPORTED",
-"usize": "unsigned char",
-"f32": "float",
-"f64": "NOT SUPPORTED",
-"float_literal": "float",
-"rune":  "char",
-"string": "char []",
-"mutex": "NOT SUPPORTED",
-"main_ret_type": "void",
-"main_params":   "void"
+    "compiler_setup_path": "setup/xc8.json"
 }

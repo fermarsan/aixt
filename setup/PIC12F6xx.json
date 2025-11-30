@@ -1,16 +1,19 @@
 {
-    "port":      "PIC12F6xx",
-    "board":     "---",
-    "backend":   "c",
-
-    "cc_linux":			"",             
-    "cc_windows":		"",
-    "cc_make_flags":	"PART=@{device}",
-
-    "flasher_linux":    "",
-    "flasher_windows":  "",
-	"flasher_flags":	"",
-
+    "target": "PIC12F6xx",
+    "board": "---",
+    "backend": "c",
+    "cc": {
+        "name": "xc8",
+        "linux_path": "",
+        "windows_path": "",
+        "flags": "PART=@{device}"
+    },
+    "flasher": {
+        "name": "MPLAB IPE",
+        "linux_path": "",
+        "windows_path": "",
+        "flags": ""
+    },
     "api_paths": [
         "Microchip/PIC12F6xx",
         "Microchip/xc8-generic",
@@ -20,11 +23,8 @@
         "Microchip/PIC12F-16F-generic/adc",
         "Microchip/PIC12F-16F-generic/pwm"
     ],
-    "v_defines": [
-    ],
-
+    "v_defines": [],
     "default_cpu_freq": 20000000,
     "default_string_len": 20,
-
     "compiler_setup_path": "setup/xc8.json"
 }

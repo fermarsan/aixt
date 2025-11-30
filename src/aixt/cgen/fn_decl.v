@@ -42,7 +42,9 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			// -------------------- regular functions and methods --------------------
 			} else {
 				ret, ret_type = gen.get_str_c_type(node.return_type, false)
-				ret_type = ret + ret_type.replace('string', 'char*') + ' '	// type
+				// ret_type = ret + ret_type.replace('string', 'char*') + ' '	// type
+				ret_type = ret_type.replace('string', 'char*') + '${ret} '	// type
+				// ret_type = ret_type.replace('.', '__')
 				if node.is_method {		// methods
 					_, mut struct_type := gen.get_str_c_type(node.params[0].typ, false)
 					struct_type = struct_type.replace('.', '__')

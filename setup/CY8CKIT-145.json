@@ -1,13 +1,19 @@
 {
-  "port": "CY8CKIT-145",
+  "target": "CY8CKIT-145",
   "board": "CY8CKIT-145-40XX",
   "backend": "c",
-  "cc_linux": "",
-  "cc_windows": "",
-  "cc_make_flags": "",
-  "flasher_linux": "",
-  "flasher_windows": "",
-  "flasher_flags": "",
+  "cc": {
+    "name": "PSoC Creator",
+    "linux_path": "",
+    "windows_path": "",
+    "flags": ""
+  },
+  "flasher": {
+    "name": "PSoC Creator",
+    "linux_path": "",
+    "windows_path": "",
+    "flags": ""
+  },
   "api_paths": [
     "Cypress/CY8CKIT-145-40XX",
     "Cypress/PSoC-Creator-generic"

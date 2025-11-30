@@ -26,8 +26,8 @@ The onboard LED is named `led0`
 ```v
 import pin
 
-pin.setup(led0, pin.output)
-pin.high(led0)
+pin.setup(pin.led0, pin.output)
+pin.high(pin.led0)
 ```
 
 
@@ -63,8 +63,8 @@ Use the `pwm` module:
 ```v
 import pwm
 
-pwm.write(pwm.pin.gp7, 40)       // set the duty cycle for gp7 pin
-pwm.write(pwm.pin.gp8, 60)       // set the duty cycle for gp8 pin
+pwm.write(pin.gp7, 40)       // set the duty cycle for gp7 pin
+pwm.write(pin.gp8, 60)       // set the duty cycle for gp8 pin
 ```
 
 ### Functions

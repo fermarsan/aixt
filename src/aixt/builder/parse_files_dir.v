@@ -17,14 +17,19 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 
 	// -------------------- Find the main source files --------------------
 	mut file_paths := b.v_files_from_dir(os.dir(path))
+	// println(path)
+	// println(os.dir(path))
+	// for file in file_paths {
+	// 	println(file)
+	// }
 
 	// -------------------- Add the builtin file first --------------------
-	api_base_path := '${b.aixt_path}' + os.path_separator + 'ports' + os.path_separator +
-					 '${b.setup.api_paths[0]}' + os.path_separator + 'api' 
-	if os.exists('${api_base_path}' + os.path_separator + 'builtin.c.v') {
-		file_paths.insert(0, '${api_base_path}' + os.path_separator + 'builtin.c.v')
+	api_base_path := os.norm_path('${b.aixt_path}/targets/${b.setup.api_paths[0]}/api') 
+	// println('>>>>>>>>>>>>>>>>>> ${api_base_path} <<<<<<<<<<<<<<<<<<')
+	if os.exists(os.norm_path('${api_base_path}/builtin.c.v')) {
+		file_paths.insert(0, os.norm_path('${api_base_path}/builtin.c.v'))
 	} else {
-		panic('"builtin.c.v" in have to exist in "${api_base_path}/"')
+		panic('"builtin.c.v" in have to exist in "${api_base_path}${os.path_separator}"')
 	}
 
 	// println('${b.pref.buildmode}')

@@ -1,26 +1,26 @@
 {
-    "port":    "Exp16-PIC24",
-    "board":   "Explorer 16",
+    "target": "Exp16-PIC24",
+    "board": "Explorer 16",
     "backend": "c",
-
-    "cc_linux":			"", // works with a Makefile
-    "cc_windows":		"", // works with a Makefile
-    "cc_make_flags":	"PART=@{device}",
-
-    "flasher_linux":    "",
-    "flasher_windows":  "",
-	"flasher_flags":	"",
-
+    "cc": {
+        "name": "xc16",
+        "linux_path": "",
+        "windows_path": "",
+        "flags": "PART=@{device}"
+    },
+    "flasher": {
+        "name": "MPLAB IPE",
+        "linux_path": "",
+        "windows_path": "",
+        "flags": ""
+    },
     "api_paths": [
-        "Microchip/PIC24FJ128xxxxx",
+        "Microchip/Explorer16/PIC24",
         "Microchip/xc16-generic",
-        "Microchip/PIC24-generic"
+        "Microchip/PIC24F-dsPIC33-generic"
     ],
-    "v_defines": [
-    ],
-
-    "default_cpu_freq": 32000000,
+    "v_defines": [],
+    "default_cpu_freq": 16000000,
     "default_string_len": 40,
-
     "compiler_setup_path": "setup/xc16.json"
 }

@@ -1,35 +1,28 @@
-
-"port":    "MH-ATtiny88",
-"device":		"Atmel",
-    "port_linux":   "/dev/ttyUSB0",
-    "port_windows": "COM1",
-"board":   "MH-ATtiny88",
-"backend": "arduino",
-"cc_linux":			"-o",
-"cc_windows":		"C:\\Program Files\\Arduino IDE",
-"cc_flags":   "-o",
-"path": "Atmel/MH-ATtiny88",
-"fixed_size_arrays":  "true",
-"fixed_size_strings": "true",
-"void":  "void",
-"bool":  "bool",
-"i8":    "int8_t"  
-"i16":   "int16_t",
-"int":   "int32_t" 
-"i64":   "int64_t",
-"isize": "int8_t",
-"int_literal": "int8_t",
-"u8":    "uint8_t",
-"u16":   "uint16_t",
-"u32":   "uint32_t",
-"u64":   "uint64_t",
-"usize": "uint8_t",
-"f32": "float",
-"f64": "NOT SUPPORTED",
-"float_literal": "float",
-"rune":  "char",
-"string": "char []",
-"mutex": "NOT SUPPORTED",
-"main_ret_type": "int",
-"main_params":   "void "
+{
+    "target": "MH-ATtiny88",
+    "board": "MH-ATtiny88",
+    "backend": "arduino",
+    "cc": {
+        "name": "arduino-cli",
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "compile -b --fqbn MH-ET.menu.avr.ATTiny88:avr:attiny88 -v --output-dir @{file_dir_name}/build"
+    },
+    "flasher": {
+        "name": "arduino-cli",
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "upload @{file_dir_name} -p @{target} -b --fqbn MH-ET.menu.avr.ATTiny88:avr:attiny88"
+    },
+    "api_paths": [
+        "Atmel/MH-ATtiny88",
+        "Arduino/arduino-AVR",
+        "Arduino/arduino-generic",
+        "Arduino/arduino-generic-UART",
+        "Arduino/arduino-generic-i2c"
+    ],
+    "v_defines": [],
+    "default_cpu_freq": 16000000,
+    "default_string_len": 50,
+    "compiler_setup_path": "setup/arduino8.json"
 }

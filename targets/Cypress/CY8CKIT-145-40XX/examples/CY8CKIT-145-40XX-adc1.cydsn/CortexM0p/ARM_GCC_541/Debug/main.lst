@@ -1,0 +1,748 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB34:
+  27              		.file 1 "main.c"
+   1:main.c        **** //adc leer voltaje potenciometro con capsense_ADC
+   2:main.c        **** 
+   3:main.c        **** #include "project.h"
+   4:main.c        **** #include <stdio.h>
+   5:main.c        **** 
+   6:main.c        **** int main(void)
+   7:main.c        **** {
+  28              		.loc 1 7 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 32
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 00B5     		push	{lr}
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 14, -4
+  35 0002 89B0     		sub	sp, sp, #36
+  36              		.cfi_def_cfa_offset 40
+   8:main.c        ****     CyGlobalIntEnable;
+  37              		.loc 1 8 0
+  38              		.syntax divided
+  39              	@ 8 "main.c" 1
+  40 0004 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+   9:main.c        **** 
+  10:main.c        ****     capsense_ADC_Start();  // Inicia el ADC
+  42              		.loc 1 10 0
+  43              		.thumb
+  44              		.syntax unified
+  45 0006 FFF7FEFF 		bl	capsense_ADC_Start
+  46              	.LVL0:
+  11:main.c        ****     uart_Start();          // Inicia UART
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 2
+
+
+  47              		.loc 1 11 0
+  48 000a FFF7FEFF 		bl	uart_Start
+  49              	.LVL1:
+  50              	.L2:
+  51              	.LBB2:
+  12:main.c        **** 
+  13:main.c        ****     for(;;)
+  14:main.c        ****     {
+  15:main.c        ****         // Leer canal 0
+  16:main.c        ****         uint16 valorADC = capsense_ADC_AdcReadResult_mVolts(0); // Valor de 0 a 4095 (12-bit)
+  52              		.loc 1 16 0 discriminator 1
+  53 000e 0020     		movs	r0, #0
+  54 0010 FFF7FEFF 		bl	capsense_ADC_AdcReadResult_mVolts
+  55              	.LVL2:
+  56 0014 0200     		movs	r2, r0
+  57              	.LVL3:
+  17:main.c        ****         
+  18:main.c        ****         // Convertir a texto
+  19:main.c        ****         char buffer[32];
+  20:main.c        ****         sprintf(buffer, "Voltage (mV): %u\r\n", valorADC);
+  58              		.loc 1 20 0 discriminator 1
+  59 0016 0649     		ldr	r1, .L3
+  60 0018 6846     		mov	r0, sp
+  61 001a FFF7FEFF 		bl	sprintf
+  62              	.LVL4:
+  21:main.c        **** 
+  22:main.c        ****         // Enviar por UART
+  23:main.c        ****         uart_UartPutString(buffer);
+  63              		.loc 1 23 0 discriminator 1
+  64 001e 6846     		mov	r0, sp
+  65 0020 FFF7FEFF 		bl	uart_UartPutString
+  66              	.LVL5:
+  24:main.c        **** 
+  25:main.c        ****         // Espera
+  26:main.c        ****         CyDelay(500);
+  67              		.loc 1 26 0 discriminator 1
+  68 0024 FA20     		movs	r0, #250
+  69 0026 4000     		lsls	r0, r0, #1
+  70 0028 FFF7FEFF 		bl	CyDelay
+  71              	.LVL6:
+  72 002c EFE7     		b	.L2
+  73              	.L4:
+  74 002e C046     		.align	2
+  75              	.L3:
+  76 0030 00000000 		.word	.LC0
+  77              	.LBE2:
+  78              		.cfi_endproc
+  79              	.LFE34:
+  80              		.size	main, .-main
+  81              		.section	.rodata.str1.4,"aMS",%progbits,1
+  82              		.align	2
+  83              	.LC0:
+  84 0000 566F6C74 		.ascii	"Voltage (mV): %u\015\012\000"
+  84      61676520 
+  84      286D5629 
+  84      3A202575 
+  84      0D0A00
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 3
+
+
+  85              		.text
+  86              	.Letext0:
+  87              		.file 2 "Generated_Source\\PSoC4/capsense_ADC_Adc.h"
+  88              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  89              		.file 4 "Generated_Source\\PSoC4/uart_SPI_UART.h"
+  90              		.file 5 "Generated_Source\\PSoC4/CyLib.h"
+  91              		.file 6 "Generated_Source\\PSoC4/capsense_ADC_Control.h"
+  92              		.file 7 "Generated_Source\\PSoC4/uart.h"
+  93              		.file 8 "Generated_Source\\PSoC4/cytypes.h"
+  94              		.section	.debug_info,"",%progbits
+  95              	.Ldebug_info0:
+  96 0000 96010000 		.4byte	0x196
+  97 0004 0400     		.2byte	0x4
+  98 0006 00000000 		.4byte	.Ldebug_abbrev0
+  99 000a 04       		.byte	0x4
+ 100 000b 01       		.uleb128 0x1
+ 101 000c 95000000 		.4byte	.LASF22
+ 102 0010 0C       		.byte	0xc
+ 103 0011 29000000 		.4byte	.LASF23
+ 104 0015 57010000 		.4byte	.LASF24
+ 105 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 106 001d 00000000 		.4byte	0
+ 107 0021 00000000 		.4byte	.Ldebug_line0
+ 108 0025 02       		.uleb128 0x2
+ 109 0026 01       		.byte	0x1
+ 110 0027 06       		.byte	0x6
+ 111 0028 89000000 		.4byte	.LASF0
+ 112 002c 02       		.uleb128 0x2
+ 113 002d 01       		.byte	0x1
+ 114 002e 08       		.byte	0x8
+ 115 002f 1B000000 		.4byte	.LASF1
+ 116 0033 02       		.uleb128 0x2
+ 117 0034 02       		.byte	0x2
+ 118 0035 05       		.byte	0x5
+ 119 0036 D4010000 		.4byte	.LASF2
+ 120 003a 02       		.uleb128 0x2
+ 121 003b 02       		.byte	0x2
+ 122 003c 07       		.byte	0x7
+ 123 003d A8010000 		.4byte	.LASF3
+ 124 0041 02       		.uleb128 0x2
+ 125 0042 04       		.byte	0x4
+ 126 0043 05       		.byte	0x5
+ 127 0044 2C010000 		.4byte	.LASF4
+ 128 0048 02       		.uleb128 0x2
+ 129 0049 04       		.byte	0x4
+ 130 004a 07       		.byte	0x7
+ 131 004b 3E010000 		.4byte	.LASF5
+ 132 004f 02       		.uleb128 0x2
+ 133 0050 08       		.byte	0x8
+ 134 0051 05       		.byte	0x5
+ 135 0052 00000000 		.4byte	.LASF6
+ 136 0056 02       		.uleb128 0x2
+ 137 0057 08       		.byte	0x8
+ 138 0058 07       		.byte	0x7
+ 139 0059 72000000 		.4byte	.LASF7
+ 140 005d 03       		.uleb128 0x3
+ 141 005e 04       		.byte	0x4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 4
+
+
+ 142 005f 05       		.byte	0x5
+ 143 0060 696E7400 		.ascii	"int\000"
+ 144 0064 02       		.uleb128 0x2
+ 145 0065 04       		.byte	0x4
+ 146 0066 07       		.byte	0x7
+ 147 0067 0E000000 		.4byte	.LASF8
+ 148 006b 04       		.uleb128 0x4
+ 149 006c BB010000 		.4byte	.LASF25
+ 150 0070 08       		.byte	0x8
+ 151 0071 FD01     		.2byte	0x1fd
+ 152 0073 3A000000 		.4byte	0x3a
+ 153 0077 02       		.uleb128 0x2
+ 154 0078 04       		.byte	0x4
+ 155 0079 04       		.byte	0x4
+ 156 007a CE010000 		.4byte	.LASF9
+ 157 007e 02       		.uleb128 0x2
+ 158 007f 08       		.byte	0x8
+ 159 0080 04       		.byte	0x4
+ 160 0081 50010000 		.4byte	.LASF10
+ 161 0085 02       		.uleb128 0x2
+ 162 0086 01       		.byte	0x1
+ 163 0087 08       		.byte	0x8
+ 164 0088 27010000 		.4byte	.LASF11
+ 165 008c 02       		.uleb128 0x2
+ 166 008d 08       		.byte	0x8
+ 167 008e 04       		.byte	0x4
+ 168 008f C2010000 		.4byte	.LASF12
+ 169 0093 02       		.uleb128 0x2
+ 170 0094 04       		.byte	0x4
+ 171 0095 07       		.byte	0x7
+ 172 0096 F8010000 		.4byte	.LASF13
+ 173 009a 05       		.uleb128 0x5
+ 174 009b 30000000 		.4byte	.LASF26
+ 175 009f 01       		.byte	0x1
+ 176 00a0 06       		.byte	0x6
+ 177 00a1 5D000000 		.4byte	0x5d
+ 178 00a5 00000000 		.4byte	.LFB34
+ 179 00a9 34000000 		.4byte	.LFE34-.LFB34
+ 180 00ad 01       		.uleb128 0x1
+ 181 00ae 9C       		.byte	0x9c
+ 182 00af 46010000 		.4byte	0x146
+ 183 00b3 06       		.uleb128 0x6
+ 184 00b4 0E000000 		.4byte	.LBB2
+ 185 00b8 26000000 		.4byte	.LBE2-.LBB2
+ 186 00bc 33010000 		.4byte	0x133
+ 187 00c0 07       		.uleb128 0x7
+ 188 00c1 35010000 		.4byte	.LASF14
+ 189 00c5 01       		.byte	0x1
+ 190 00c6 10       		.byte	0x10
+ 191 00c7 6B000000 		.4byte	0x6b
+ 192 00cb 00000000 		.4byte	.LLST0
+ 193 00cf 08       		.uleb128 0x8
+ 194 00d0 F1010000 		.4byte	.LASF15
+ 195 00d4 01       		.byte	0x1
+ 196 00d5 13       		.byte	0x13
+ 197 00d6 46010000 		.4byte	0x146
+ 198 00da 02       		.uleb128 0x2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 5
+
+
+ 199 00db 91       		.byte	0x91
+ 200 00dc 58       		.sleb128 -40
+ 201 00dd 09       		.uleb128 0x9
+ 202 00de 14000000 		.4byte	.LVL2
+ 203 00e2 56010000 		.4byte	0x156
+ 204 00e6 F0000000 		.4byte	0xf0
+ 205 00ea 0A       		.uleb128 0xa
+ 206 00eb 01       		.uleb128 0x1
+ 207 00ec 50       		.byte	0x50
+ 208 00ed 01       		.uleb128 0x1
+ 209 00ee 30       		.byte	0x30
+ 210 00ef 00       		.byte	0
+ 211 00f0 09       		.uleb128 0x9
+ 212 00f1 1E000000 		.4byte	.LVL4
+ 213 00f5 61010000 		.4byte	0x161
+ 214 00f9 0D010000 		.4byte	0x10d
+ 215 00fd 0A       		.uleb128 0xa
+ 216 00fe 01       		.uleb128 0x1
+ 217 00ff 50       		.byte	0x50
+ 218 0100 02       		.uleb128 0x2
+ 219 0101 7D       		.byte	0x7d
+ 220 0102 00       		.sleb128 0
+ 221 0103 0A       		.uleb128 0xa
+ 222 0104 01       		.uleb128 0x1
+ 223 0105 51       		.byte	0x51
+ 224 0106 05       		.uleb128 0x5
+ 225 0107 03       		.byte	0x3
+ 226 0108 00000000 		.4byte	.LC0
+ 227 010c 00       		.byte	0
+ 228 010d 09       		.uleb128 0x9
+ 229 010e 24000000 		.4byte	.LVL5
+ 230 0112 6C010000 		.4byte	0x16c
+ 231 0116 21010000 		.4byte	0x121
+ 232 011a 0A       		.uleb128 0xa
+ 233 011b 01       		.uleb128 0x1
+ 234 011c 50       		.byte	0x50
+ 235 011d 02       		.uleb128 0x2
+ 236 011e 7D       		.byte	0x7d
+ 237 011f 00       		.sleb128 0
+ 238 0120 00       		.byte	0
+ 239 0121 0B       		.uleb128 0xb
+ 240 0122 2C000000 		.4byte	.LVL6
+ 241 0126 78010000 		.4byte	0x178
+ 242 012a 0A       		.uleb128 0xa
+ 243 012b 01       		.uleb128 0x1
+ 244 012c 50       		.byte	0x50
+ 245 012d 03       		.uleb128 0x3
+ 246 012e 0A       		.byte	0xa
+ 247 012f F401     		.2byte	0x1f4
+ 248 0131 00       		.byte	0
+ 249 0132 00       		.byte	0
+ 250 0133 0C       		.uleb128 0xc
+ 251 0134 0A000000 		.4byte	.LVL0
+ 252 0138 83010000 		.4byte	0x183
+ 253 013c 0C       		.uleb128 0xc
+ 254 013d 0E000000 		.4byte	.LVL1
+ 255 0141 8E010000 		.4byte	0x18e
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 6
+
+
+ 256 0145 00       		.byte	0
+ 257 0146 0D       		.uleb128 0xd
+ 258 0147 85000000 		.4byte	0x85
+ 259 014b 56010000 		.4byte	0x156
+ 260 014f 0E       		.uleb128 0xe
+ 261 0150 93000000 		.4byte	0x93
+ 262 0154 1F       		.byte	0x1f
+ 263 0155 00       		.byte	0
+ 264 0156 0F       		.uleb128 0xf
+ 265 0157 50000000 		.4byte	.LASF16
+ 266 015b 50000000 		.4byte	.LASF16
+ 267 015f 02       		.byte	0x2
+ 268 0160 49       		.byte	0x49
+ 269 0161 0F       		.uleb128 0xf
+ 270 0162 35000000 		.4byte	.LASF17
+ 271 0166 35000000 		.4byte	.LASF17
+ 272 016a 03       		.byte	0x3
+ 273 016b E7       		.byte	0xe7
+ 274 016c 10       		.uleb128 0x10
+ 275 016d DE010000 		.4byte	.LASF18
+ 276 0171 DE010000 		.4byte	.LASF18
+ 277 0175 04       		.byte	0x4
+ 278 0176 2A03     		.2byte	0x32a
+ 279 0178 0F       		.uleb128 0xf
+ 280 0179 48000000 		.4byte	.LASF19
+ 281 017d 48000000 		.4byte	.LASF19
+ 282 0181 05       		.byte	0x5
+ 283 0182 EC       		.byte	0xec
+ 284 0183 0F       		.uleb128 0xf
+ 285 0184 01020000 		.4byte	.LASF20
+ 286 0188 01020000 		.4byte	.LASF20
+ 287 018c 06       		.byte	0x6
+ 288 018d 3B       		.byte	0x3b
+ 289 018e 0F       		.uleb128 0xf
+ 290 018f 3D000000 		.4byte	.LASF21
+ 291 0193 3D000000 		.4byte	.LASF21
+ 292 0197 07       		.byte	0x7
+ 293 0198 72       		.byte	0x72
+ 294 0199 00       		.byte	0
+ 295              		.section	.debug_abbrev,"",%progbits
+ 296              	.Ldebug_abbrev0:
+ 297 0000 01       		.uleb128 0x1
+ 298 0001 11       		.uleb128 0x11
+ 299 0002 01       		.byte	0x1
+ 300 0003 25       		.uleb128 0x25
+ 301 0004 0E       		.uleb128 0xe
+ 302 0005 13       		.uleb128 0x13
+ 303 0006 0B       		.uleb128 0xb
+ 304 0007 03       		.uleb128 0x3
+ 305 0008 0E       		.uleb128 0xe
+ 306 0009 1B       		.uleb128 0x1b
+ 307 000a 0E       		.uleb128 0xe
+ 308 000b 55       		.uleb128 0x55
+ 309 000c 17       		.uleb128 0x17
+ 310 000d 11       		.uleb128 0x11
+ 311 000e 01       		.uleb128 0x1
+ 312 000f 10       		.uleb128 0x10
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 7
+
+
+ 313 0010 17       		.uleb128 0x17
+ 314 0011 00       		.byte	0
+ 315 0012 00       		.byte	0
+ 316 0013 02       		.uleb128 0x2
+ 317 0014 24       		.uleb128 0x24
+ 318 0015 00       		.byte	0
+ 319 0016 0B       		.uleb128 0xb
+ 320 0017 0B       		.uleb128 0xb
+ 321 0018 3E       		.uleb128 0x3e
+ 322 0019 0B       		.uleb128 0xb
+ 323 001a 03       		.uleb128 0x3
+ 324 001b 0E       		.uleb128 0xe
+ 325 001c 00       		.byte	0
+ 326 001d 00       		.byte	0
+ 327 001e 03       		.uleb128 0x3
+ 328 001f 24       		.uleb128 0x24
+ 329 0020 00       		.byte	0
+ 330 0021 0B       		.uleb128 0xb
+ 331 0022 0B       		.uleb128 0xb
+ 332 0023 3E       		.uleb128 0x3e
+ 333 0024 0B       		.uleb128 0xb
+ 334 0025 03       		.uleb128 0x3
+ 335 0026 08       		.uleb128 0x8
+ 336 0027 00       		.byte	0
+ 337 0028 00       		.byte	0
+ 338 0029 04       		.uleb128 0x4
+ 339 002a 16       		.uleb128 0x16
+ 340 002b 00       		.byte	0
+ 341 002c 03       		.uleb128 0x3
+ 342 002d 0E       		.uleb128 0xe
+ 343 002e 3A       		.uleb128 0x3a
+ 344 002f 0B       		.uleb128 0xb
+ 345 0030 3B       		.uleb128 0x3b
+ 346 0031 05       		.uleb128 0x5
+ 347 0032 49       		.uleb128 0x49
+ 348 0033 13       		.uleb128 0x13
+ 349 0034 00       		.byte	0
+ 350 0035 00       		.byte	0
+ 351 0036 05       		.uleb128 0x5
+ 352 0037 2E       		.uleb128 0x2e
+ 353 0038 01       		.byte	0x1
+ 354 0039 3F       		.uleb128 0x3f
+ 355 003a 19       		.uleb128 0x19
+ 356 003b 03       		.uleb128 0x3
+ 357 003c 0E       		.uleb128 0xe
+ 358 003d 3A       		.uleb128 0x3a
+ 359 003e 0B       		.uleb128 0xb
+ 360 003f 3B       		.uleb128 0x3b
+ 361 0040 0B       		.uleb128 0xb
+ 362 0041 27       		.uleb128 0x27
+ 363 0042 19       		.uleb128 0x19
+ 364 0043 49       		.uleb128 0x49
+ 365 0044 13       		.uleb128 0x13
+ 366 0045 8701     		.uleb128 0x87
+ 367 0047 19       		.uleb128 0x19
+ 368 0048 11       		.uleb128 0x11
+ 369 0049 01       		.uleb128 0x1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 8
+
+
+ 370 004a 12       		.uleb128 0x12
+ 371 004b 06       		.uleb128 0x6
+ 372 004c 40       		.uleb128 0x40
+ 373 004d 18       		.uleb128 0x18
+ 374 004e 9742     		.uleb128 0x2117
+ 375 0050 19       		.uleb128 0x19
+ 376 0051 01       		.uleb128 0x1
+ 377 0052 13       		.uleb128 0x13
+ 378 0053 00       		.byte	0
+ 379 0054 00       		.byte	0
+ 380 0055 06       		.uleb128 0x6
+ 381 0056 0B       		.uleb128 0xb
+ 382 0057 01       		.byte	0x1
+ 383 0058 11       		.uleb128 0x11
+ 384 0059 01       		.uleb128 0x1
+ 385 005a 12       		.uleb128 0x12
+ 386 005b 06       		.uleb128 0x6
+ 387 005c 01       		.uleb128 0x1
+ 388 005d 13       		.uleb128 0x13
+ 389 005e 00       		.byte	0
+ 390 005f 00       		.byte	0
+ 391 0060 07       		.uleb128 0x7
+ 392 0061 34       		.uleb128 0x34
+ 393 0062 00       		.byte	0
+ 394 0063 03       		.uleb128 0x3
+ 395 0064 0E       		.uleb128 0xe
+ 396 0065 3A       		.uleb128 0x3a
+ 397 0066 0B       		.uleb128 0xb
+ 398 0067 3B       		.uleb128 0x3b
+ 399 0068 0B       		.uleb128 0xb
+ 400 0069 49       		.uleb128 0x49
+ 401 006a 13       		.uleb128 0x13
+ 402 006b 02       		.uleb128 0x2
+ 403 006c 17       		.uleb128 0x17
+ 404 006d 00       		.byte	0
+ 405 006e 00       		.byte	0
+ 406 006f 08       		.uleb128 0x8
+ 407 0070 34       		.uleb128 0x34
+ 408 0071 00       		.byte	0
+ 409 0072 03       		.uleb128 0x3
+ 410 0073 0E       		.uleb128 0xe
+ 411 0074 3A       		.uleb128 0x3a
+ 412 0075 0B       		.uleb128 0xb
+ 413 0076 3B       		.uleb128 0x3b
+ 414 0077 0B       		.uleb128 0xb
+ 415 0078 49       		.uleb128 0x49
+ 416 0079 13       		.uleb128 0x13
+ 417 007a 02       		.uleb128 0x2
+ 418 007b 18       		.uleb128 0x18
+ 419 007c 00       		.byte	0
+ 420 007d 00       		.byte	0
+ 421 007e 09       		.uleb128 0x9
+ 422 007f 898201   		.uleb128 0x4109
+ 423 0082 01       		.byte	0x1
+ 424 0083 11       		.uleb128 0x11
+ 425 0084 01       		.uleb128 0x1
+ 426 0085 31       		.uleb128 0x31
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 9
+
+
+ 427 0086 13       		.uleb128 0x13
+ 428 0087 01       		.uleb128 0x1
+ 429 0088 13       		.uleb128 0x13
+ 430 0089 00       		.byte	0
+ 431 008a 00       		.byte	0
+ 432 008b 0A       		.uleb128 0xa
+ 433 008c 8A8201   		.uleb128 0x410a
+ 434 008f 00       		.byte	0
+ 435 0090 02       		.uleb128 0x2
+ 436 0091 18       		.uleb128 0x18
+ 437 0092 9142     		.uleb128 0x2111
+ 438 0094 18       		.uleb128 0x18
+ 439 0095 00       		.byte	0
+ 440 0096 00       		.byte	0
+ 441 0097 0B       		.uleb128 0xb
+ 442 0098 898201   		.uleb128 0x4109
+ 443 009b 01       		.byte	0x1
+ 444 009c 11       		.uleb128 0x11
+ 445 009d 01       		.uleb128 0x1
+ 446 009e 31       		.uleb128 0x31
+ 447 009f 13       		.uleb128 0x13
+ 448 00a0 00       		.byte	0
+ 449 00a1 00       		.byte	0
+ 450 00a2 0C       		.uleb128 0xc
+ 451 00a3 898201   		.uleb128 0x4109
+ 452 00a6 00       		.byte	0
+ 453 00a7 11       		.uleb128 0x11
+ 454 00a8 01       		.uleb128 0x1
+ 455 00a9 31       		.uleb128 0x31
+ 456 00aa 13       		.uleb128 0x13
+ 457 00ab 00       		.byte	0
+ 458 00ac 00       		.byte	0
+ 459 00ad 0D       		.uleb128 0xd
+ 460 00ae 01       		.uleb128 0x1
+ 461 00af 01       		.byte	0x1
+ 462 00b0 49       		.uleb128 0x49
+ 463 00b1 13       		.uleb128 0x13
+ 464 00b2 01       		.uleb128 0x1
+ 465 00b3 13       		.uleb128 0x13
+ 466 00b4 00       		.byte	0
+ 467 00b5 00       		.byte	0
+ 468 00b6 0E       		.uleb128 0xe
+ 469 00b7 21       		.uleb128 0x21
+ 470 00b8 00       		.byte	0
+ 471 00b9 49       		.uleb128 0x49
+ 472 00ba 13       		.uleb128 0x13
+ 473 00bb 2F       		.uleb128 0x2f
+ 474 00bc 0B       		.uleb128 0xb
+ 475 00bd 00       		.byte	0
+ 476 00be 00       		.byte	0
+ 477 00bf 0F       		.uleb128 0xf
+ 478 00c0 2E       		.uleb128 0x2e
+ 479 00c1 00       		.byte	0
+ 480 00c2 3F       		.uleb128 0x3f
+ 481 00c3 19       		.uleb128 0x19
+ 482 00c4 3C       		.uleb128 0x3c
+ 483 00c5 19       		.uleb128 0x19
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 10
+
+
+ 484 00c6 6E       		.uleb128 0x6e
+ 485 00c7 0E       		.uleb128 0xe
+ 486 00c8 03       		.uleb128 0x3
+ 487 00c9 0E       		.uleb128 0xe
+ 488 00ca 3A       		.uleb128 0x3a
+ 489 00cb 0B       		.uleb128 0xb
+ 490 00cc 3B       		.uleb128 0x3b
+ 491 00cd 0B       		.uleb128 0xb
+ 492 00ce 00       		.byte	0
+ 493 00cf 00       		.byte	0
+ 494 00d0 10       		.uleb128 0x10
+ 495 00d1 2E       		.uleb128 0x2e
+ 496 00d2 00       		.byte	0
+ 497 00d3 3F       		.uleb128 0x3f
+ 498 00d4 19       		.uleb128 0x19
+ 499 00d5 3C       		.uleb128 0x3c
+ 500 00d6 19       		.uleb128 0x19
+ 501 00d7 6E       		.uleb128 0x6e
+ 502 00d8 0E       		.uleb128 0xe
+ 503 00d9 03       		.uleb128 0x3
+ 504 00da 0E       		.uleb128 0xe
+ 505 00db 3A       		.uleb128 0x3a
+ 506 00dc 0B       		.uleb128 0xb
+ 507 00dd 3B       		.uleb128 0x3b
+ 508 00de 05       		.uleb128 0x5
+ 509 00df 00       		.byte	0
+ 510 00e0 00       		.byte	0
+ 511 00e1 00       		.byte	0
+ 512              		.section	.debug_loc,"",%progbits
+ 513              	.Ldebug_loc0:
+ 514              	.LLST0:
+ 515 0000 16000000 		.4byte	.LVL3
+ 516 0004 1D000000 		.4byte	.LVL4-1
+ 517 0008 0100     		.2byte	0x1
+ 518 000a 52       		.byte	0x52
+ 519 000b 00000000 		.4byte	0
+ 520 000f 00000000 		.4byte	0
+ 521              		.section	.debug_aranges,"",%progbits
+ 522 0000 1C000000 		.4byte	0x1c
+ 523 0004 0200     		.2byte	0x2
+ 524 0006 00000000 		.4byte	.Ldebug_info0
+ 525 000a 04       		.byte	0x4
+ 526 000b 00       		.byte	0
+ 527 000c 0000     		.2byte	0
+ 528 000e 0000     		.2byte	0
+ 529 0010 00000000 		.4byte	.LFB34
+ 530 0014 34000000 		.4byte	.LFE34-.LFB34
+ 531 0018 00000000 		.4byte	0
+ 532 001c 00000000 		.4byte	0
+ 533              		.section	.debug_ranges,"",%progbits
+ 534              	.Ldebug_ranges0:
+ 535 0000 00000000 		.4byte	.LFB34
+ 536 0004 34000000 		.4byte	.LFE34
+ 537 0008 00000000 		.4byte	0
+ 538 000c 00000000 		.4byte	0
+ 539              		.section	.debug_line,"",%progbits
+ 540              	.Ldebug_line0:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 11
+
+
+ 541 0000 36010000 		.section	.debug_str,"MS",%progbits,1
+ 541      02000C01 
+ 541      00000201 
+ 541      FB0E0D00 
+ 541      01010101 
+ 542              	.LASF6:
+ 543 0000 6C6F6E67 		.ascii	"long long int\000"
+ 543      206C6F6E 
+ 543      6720696E 
+ 543      7400
+ 544              	.LASF8:
+ 545 000e 756E7369 		.ascii	"unsigned int\000"
+ 545      676E6564 
+ 545      20696E74 
+ 545      00
+ 546              	.LASF1:
+ 547 001b 756E7369 		.ascii	"unsigned char\000"
+ 547      676E6564 
+ 547      20636861 
+ 547      7200
+ 548              	.LASF23:
+ 549 0029 6D61696E 		.ascii	"main.c\000"
+ 549      2E6300
+ 550              	.LASF26:
+ 551 0030 6D61696E 		.ascii	"main\000"
+ 551      00
+ 552              	.LASF17:
+ 553 0035 73707269 		.ascii	"sprintf\000"
+ 553      6E746600 
+ 554              	.LASF21:
+ 555 003d 75617274 		.ascii	"uart_Start\000"
+ 555      5F537461 
+ 555      727400
+ 556              	.LASF19:
+ 557 0048 43794465 		.ascii	"CyDelay\000"
+ 557      6C617900 
+ 558              	.LASF16:
+ 559 0050 63617073 		.ascii	"capsense_ADC_AdcReadResult_mVolts\000"
+ 559      656E7365 
+ 559      5F414443 
+ 559      5F416463 
+ 559      52656164 
+ 560              	.LASF7:
+ 561 0072 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 561      206C6F6E 
+ 561      6720756E 
+ 561      7369676E 
+ 561      65642069 
+ 562              	.LASF0:
+ 563 0089 7369676E 		.ascii	"signed char\000"
+ 563      65642063 
+ 563      68617200 
+ 564              	.LASF22:
+ 565 0095 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 565      43313120 
+ 565      352E342E 
+ 565      31203230 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 12
+
+
+ 565      31363036 
+ 566 00c8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 566      20726576 
+ 566      6973696F 
+ 566      6E203233 
+ 566      37373135 
+ 567 00fb 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 567      67202D66 
+ 567      66756E63 
+ 567      74696F6E 
+ 567      2D736563 
+ 568              	.LASF11:
+ 569 0127 63686172 		.ascii	"char\000"
+ 569      00
+ 570              	.LASF4:
+ 571 012c 6C6F6E67 		.ascii	"long int\000"
+ 571      20696E74 
+ 571      00
+ 572              	.LASF14:
+ 573 0135 76616C6F 		.ascii	"valorADC\000"
+ 573      72414443 
+ 573      00
+ 574              	.LASF5:
+ 575 013e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 575      20756E73 
+ 575      69676E65 
+ 575      6420696E 
+ 575      7400
+ 576              	.LASF10:
+ 577 0150 646F7562 		.ascii	"double\000"
+ 577      6C6500
+ 578              	.LASF24:
+ 579 0157 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-145-40XX\\e"
+ 579      6978745C 
+ 579      61697874 
+ 579      5C706F72 
+ 579      74735C43 
+ 580 0184 78616D70 		.ascii	"xamples\\CY8CKIT-145-40XX-adc1.cydsn\000"
+ 580      6C65735C 
+ 580      43593843 
+ 580      4B49542D 
+ 580      3134352D 
+ 581              	.LASF3:
+ 582 01a8 73686F72 		.ascii	"short unsigned int\000"
+ 582      7420756E 
+ 582      7369676E 
+ 582      65642069 
+ 582      6E7400
+ 583              	.LASF25:
+ 584 01bb 75696E74 		.ascii	"uint16\000"
+ 584      313600
+ 585              	.LASF12:
+ 586 01c2 6C6F6E67 		.ascii	"long double\000"
+ 586      20646F75 
+ 586      626C6500 
+ 587              	.LASF9:
+ 588 01ce 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxyhlPy.s 			page 13
+
+
+ 588      7400
+ 589              	.LASF2:
+ 590 01d4 73686F72 		.ascii	"short int\000"
+ 590      7420696E 
+ 590      7400
+ 591              	.LASF18:
+ 592 01de 75617274 		.ascii	"uart_UartPutString\000"
+ 592      5F556172 
+ 592      74507574 
+ 592      53747269 
+ 592      6E6700
+ 593              	.LASF15:
+ 594 01f1 62756666 		.ascii	"buffer\000"
+ 594      657200
+ 595              	.LASF13:
+ 596 01f8 73697A65 		.ascii	"sizetype\000"
+ 596      74797065 
+ 596      00
+ 597              	.LASF20:
+ 598 0201 63617073 		.ascii	"capsense_ADC_Start\000"
+ 598      656E7365 
+ 598      5F414443 
+ 598      5F537461 
+ 598      727400
+ 599              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

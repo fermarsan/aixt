@@ -1,7 +1,0 @@
-#define SERIAL5_BEGIN(BAUD_RATE)    Serial5.begin(BAUD_RATE)
-#define SERIAL5_WRITE(CHARACTER)    Serial5.write(CHARACTER) 
-#define SERIAL5_READ()              Serial5.read()
-#define SERIAL5_PRINT(MESSAGE)      Serial5.print(MESSAGE)
-#define SERIAL5_PRINTLN(MESSAGE)    Serial5.println(MESSAGE)
-#define SERIAL5_AVAILABLE()         Serial5.available()    
-#define SERIAL5_PINS(tx, rx)        UART Serial5(tx, rx, 0, 0)
