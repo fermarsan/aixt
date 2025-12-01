@@ -1,6 +1,6 @@
 # Guia Rápida para PIC16F886
 ## Referencia del PIC16 utilizado de la marca MICROCHIP
-- PIC16F886  
+- PIC16F886 (PIC16F882, PIC16F883, PIC16F884 y PIC16F887) 
 
 **NOTA:** Este microcontrolador PIC16F cuenta con salidas digitales, entradas digitales, ADC, PWM y comunicación serial.
 
@@ -15,16 +15,17 @@ Los nombres de los pines se nombran con una letra que indica el puerto y un núm
 | **C**  | c0| c1| c2| c3| c4| c5| c6| c7|
 | **E**  | - | - | - | e3| - | - | - | - |
 
-![alt text](image-1.png) (https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/40001291H.pdf)
+![alt text](image-1.png) Fuente: (https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/40001291H.pdf)
 
-- `MCLR` significa Master Clear/Reset, es decir, un pin de reinicio del controlador y se conecta a Vcc (+5 V).
+- `MCLR` significa Master Clear/Reset, es decir, un pin de reinicio del controlador y se conecta a Vcc (+5 V), mediante resistencias pull-up de 10k,
+opcional capacitor RC para reset suave.
 - `VDD` Alimentación positiva y referencia de tierra para los pines lógicos y de E/S, respectivamente. Estos pines cuentan con protección de diodo.
 - `VSS` significa Fuente de Voltaje, Fuente o Fuente de Suministro de Voltaje y es el pin de tierra (GND), también conocido como referencia de voltaje, 0 voltios para todo el circuito.
 
 En las familias de microcontroladores del _PIC16_, los registros del puerto se dividen en: 
 
 - `TRIS` Para configurar cada pin del puerto
-- `PORT` Para gestionar los pines como entradas o salidas
+- `PORT` Para gestionar los pines como entradas o salidas, bidireccionales.
 
 Tiene un pin de entrada y ocho de salida al dispositivo digital, el cual recibe el valor converdido del circuito analógico para mostrar el comportamiento ciclico programado de encendido del LED.
 
@@ -33,13 +34,109 @@ Tiene un pin de entrada y ocho de salida al dispositivo digital, el cual recibe 
 | **A**| `a0`| ----| ----| ----| ----|----|----|----|
 | **B**| `b0`| `b1`| `b2`| `b3`| `b4`| `b5`| `b6`| `b7`|
 
-
 ### Componentes Integrados 
-- Cuenta con 24 pines analogos-digitales que se encuentran entre `A0–A7` Entradas/salidas; `B0–B7`, son salidas digitales, que se encuentran conectadas a datos; `C0–C7`, son pines entradas/salidas adicionales y pueden ser programados de forma especial, con funciones especificas; `Vdd` y ``ss`, son alimentación de 0V a 5V y GND; y finalizamos con el pin `MCLR/Vpp`, el cual es el reset, configurado de forma externa.
+Este microcontrolador cuenta con 24 pines de entrada/salida digital (GPIO) distribuidos en los puertos A, B y C. Dentro de estos pines, 11 pueden funcionar como entradas analógicas para el módulo ADC de 10 bits.
+  - PORTA (RA0–RA7): pines de E/S digitales; algunos incluyen funciones analógicas (AN0–AN4) y pines especiales como VREF+/VREF–.
+  - PORTB (RB0–RB7): pines de E/S digitales, compatibles con interrupción por cambio de estado; varios de ellos también son entradas ADC (AN8–AN13).
+  - PORTC (RC0–RC7): pines de E/S digitales con funciones periféricas como UART, I²C/SPI y PWM (CCP/ECCP), pero sin entradas analógicas.
 
+Además, el microcontrolador posee los pines de alimentación VDD (5 V) y VSS (GND), y el pin MCLR/VPP utilizado para reinicio y programación, el cual requiere una resistencia ‘pull-up’ externa.
+
+Por defecto, tras un reinicio, todos los pines se configuran como entrada (TRISx = 0xFF).
+Los pines con función analógica deben configurarse explícitamente como digitales deshabilitando ANSEL y ANSELH
 
 ### Funciones soportadas
 Las funciones que contiene la API entradas o salidas digitales, conversor analogico a digital, modulación pwm y comunicación serial.
+
+## Configuración del Reloj (Clock System)
+
+Puede usar reloj externo o el oscilador interno/externo.
+Esto afecta la velocidad real del microcontrolador y el funcionamiento de temporizadores, ADC, PWM y UART.
+
+ - El registro OSCCON selecciona la frecuencia interna (31 kHz a 8 MHz).
+ - El fusible FOSC define si el PIC usará:
+ - osilador externo (HS/XT/LP)
+ - reloj externo (EC)
+ - oscilador interno (INTOSC) -Si el oscilador es 8 MHz → el PIC ejecuta 2 MIPS-
+
+ ## Configuración de Fusibles (Configuration Bits)
+
+ Los fusibles definen el comportamiento básico del microcontrolador al arrancar.
+
+**FOSC** – Fuente de reloj
+**WDTE** – Watchdog Timer
+**PWRTE** – Power-Up Timer
+**MCLRE** – Habilita el pin **MCLR** como reset externo
+**BOREN** – Brown-out Reset (protección por bajo voltaje)
+**LVP** – Low Voltage Programming
+
+Si LVP está ON, el pin RB3 queda bloqueado como entrada PGM.
+En proyectos normales
+
+```v
+#pragma config LVP = OFF
+```
+*Si LVP está ON, el pin RB3 queda bloqueado como entrada PGM, para proyectos normales.
+
+## Limitaciones del Hardware y Pines Especiales
+
+**RA4 (Open Drain / Open Collector)**
+ - No puede entregar un ‘1’ alto por sí solo
+ - Requiere pull-up externo si se usa como salida alta
+
+**RB0/INT – Interrupción externa**
+
+ - Soporta interrupción por flanco ascendente/descendente
+
+**RB4–RB7 – Interrupt-on-Change (IOC)**
+
+ - Interrupción automática si cambia el estado del pin
+ - Útil para botones, teclados, encoders
+
+**ANSEL y ANSELH**
+
+Para usar RA0–RA4 y RB0–RB5 como pines digitales, primero debes desactivar los canales analógicos:
+```v
+ANSEL = 0;
+ANSELH = 0; // Si no se hace esto → digitalWrite/digitalRead fallarán
+```
+**Estado inicial tras reset**
+
+ - Todos los pines se configuran como entrada.
+ - Debes configurar TRISx manualmente.
+
+ ## Tabla de Pines Especiales
+
+ | Pin Físico | Nombre | Digital I/O | Analógico | PWM / CCP | UART | I2C / SPI | Interrupciones | Notas Especiales |
+|-----------:|--------|-------------|-----------|-----------|-------|-----------|----------------|------------------|
+| 1          | RA2    | Sí          | AN2       | No        | No    | No        | No             | VREF– opcional   |
+| 2          | RA3    | Sí          | AN3       | No        | No    | No        | No             | VREF+ opcional   |
+| 3          | RA4    | Sí          | No        | No        | No    | No        | No             | **Open-Drain**, requiere pull-up |
+| 4          | RA5    | Sí          | AN4       | No        | No    | No        | No             | Puede ser MCLR si fusible lo permite |
+| 5          | RE0    | Sí          | AN5       | No        | No    | No        | No             | Función digital limitada |
+| 6          | RE1    | Sí          | AN6       | No        | No    | No        | No             | Función digital limitada |
+| 7          | RE2    | Sí          | AN7       | No        | No    | No        | No             | Función digital limitada |
+| 8          | VDD    | –           | –         | –         | –     | –         | –              | Alimentación 5V |
+| 9          | VSS    | –           | –         | –         | –     | –         | –              | Tierra GND |
+| 10         | RA0    | Sí          | AN0       | No        | No    | No        | No             | – |
+| 11         | RA1    | Sí          | AN1       | No        | No    | No        | No             | – |
+| 12         | RC0    | Sí          | No        | No        | No    | Sí (T1OSO) | No            | Puede ser reloj del TMR1 |
+| 13         | RC1    | Sí          | No        | CCP2      | No    | Sí        | No             | PWM / CCP2 |
+| 14         | RC2    | Sí          | No        | CCP1      | No    | Sí        | No             | PWM / CCP1 |
+| 15         | RC3    | Sí          | No        | No        | No    | SCK/SCL   | No             | SPI/I2C reloj |
+| 16         | RC4    | Sí          | No        | No        | No    | SDI/SDA   | No             | SPI/I2C datos |
+| 17         | RC5    | Sí          | No        | No        | No    | SDO       | No             | SPI dato salida |
+| 18         | RC6    | Sí          | No        | No        | TX    | No        | No             | UART TX |
+| 19         | RC7    | Sí          | No        | No        | RX    | No        | No             | UART RX |
+| 20         | RB0    | Sí          | AN12      | No        | No    | No        | **INT**        | Interrupción externa |
+| 21         | RB1    | Sí          | AN10      | No        | No    | No        | IOC           | Interrupt‐on‐change |
+| 22         | RB2    | Sí          | AN8       | No        | No    | No        | IOC           | Interrupt‐on‐change |
+| 23         | RB3    | Sí          | AN9       | No        | No    | No        | IOC           | **PGM si LVP=ON (bloqueado)** |
+| 24         | RB4    | Sí          | AN11      | No        | No    | No        | IOC           | Interrupt-on-change |
+| 25         | RB5    | Sí          | AN13      | No        | No    | No        | IOC           | Interrupt-on-change |
+| 26         | RB6    | Sí          | No        | No        | No    | No        | IOC           | También PGC programación |
+| 27         | RB7    | Sí          | No        | No        | No    | No        | IOC           | También PGD programación |
+| 28         | MCLR   | No          | No        | No        | No    | No        | No            | Reset / VPP |
 
 #### Entradas y Salidas Digitales (GPIO)
 Nombre                                | Descripcion

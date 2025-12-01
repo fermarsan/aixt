@@ -18,7 +18,6 @@ At **a4**, the output is open-drain, the input is normal, and no pin supports co
 
 **Aixt uses lowercase pin names, without the "R" prefix: a0, a1, b3, b7…**
 
-
 | Nº | Specification                     | Value  |
 |:--:|------------------------------------|--------|
 |  1 | Program Memory (KB) (KB)           | 0.875  |
@@ -28,7 +27,7 @@ At **a4**, the output is open-drain, the input is normal, and no pin supports co
 |  5 | Minimum Operating Voltage (V)    | 2      |
 |  6 | Maximum Operating Voltage (V)    | 6      |
 
-(https://www.microchip.com/en-us/product/pic16f83)
+Fountain: (https://www.microchip.com/en-us/product/pic16f83)
 
 | Nº | Feature                           | Description / Value                              |
 |:--:|-------------------------------------------|--------------------------------------------------|
@@ -39,7 +38,6 @@ At **a4**, the output is open-drain, the input is normal, and no pin supports co
 |  5 | RAM                                        | 36 to 68 bytes (depending on variant)                   |
 |  6 | Timer                               | 8-bit TMR0                                   |
 |  7 | Available Interrupt Types         | 4                                               |
-
 
 ```v
 import pin
@@ -61,16 +59,13 @@ value := pin.read(pin.a1)
 // Echo (input → output)
 pin.write(pin.b2, pin.read(pin.a1))
 ```
-![alternative text](image.png)(https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/30430D.pdf)
+![alternative text](image.png) Fountain: (https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/30430D.pdf)
 
 It is a simple microcontroller geared towards basic learning. Because it does not incorporate advanced peripherals such as **ADC**, **PWM**, or **UART**, its primary use is digital.
 
 - It is only suitable for testing **I/O**, **TMR0**, **interrupts**, and **EEPROM**.
-
 - It is ideal for introductory exercises, simulation, and understanding the **PIC** architecture.
-
 - It allows for clear study of:
-
   - **Read-Modify-Write (R-M-W)** operations on ports
   - Address configuration using **TRIS**
   - Use of the **prescaler**
@@ -82,18 +77,17 @@ Thanks to its simplicity, this microcontroller is perfect for developing a solid
 
 It is ideal for introductory simulation exercises and for understanding the fundamentals of the PIC architecture.
 
-It allows for the clear study of concepts such as:
+- It allows for the clear study of concepts such as:
+ - Read-Modify-Write **(R-M-W)**
+ - **TRIS** configuration
+ - Interrupt latencies
+ - Prescaler usage
+ - Data **EEPROM** handling
 
-- Read-Modify-Write **(R-M-W)**
-- **TRIS** configuration
-- Interrupt latencies
-- Prescaler usage
-- Data **EEPROM** handling
-
-- **`MCLR`** stands for Master Clear/Reset, a controller reset pin connected to Vcc (+5V).
-- **`OSC`** stands for Oscillator Pins, which controls the system clock and determines program execution speed. In the PIC16F83-1, it is an internal crystal-mode output connected to the second pin (it has one input and one output, OSC1 and OSC2).
-- **`VDD`** Positive power and ground reference for the logic and I/O pins, respectively. These pins have diode protection.
-- **`VSS`** stands for Voltage Source, Source, or Voltage Supply Source and is the ground (GND) pin, also known as the voltage reference, 0 volts for the entire circuit.
+**`MCLR`** stands for Master Clear/Reset, a controller reset pin connected to Vcc (+5V).
+**`OSC`** stands for Oscillator Pins, which controls the system clock and determines program execution speed. In the PIC16F83-1, it is an internal crystal-mode output connected to the second pin (it has one input and one output, OSC1 and OSC2).
+**`VDD`** Positive power and ground reference for the logic and I/O pins, respectively. These pins have diode protection.
+**`VSS`** stands for Voltage Source, Source, or Voltage Supply Source and is the ground (GND) pin, also known as the voltage reference, 0 volts for the entire circuit.
 
 ## General control of $\mu C$
 ```v

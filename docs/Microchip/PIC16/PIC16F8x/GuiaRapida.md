@@ -9,7 +9,6 @@ Los nombres de los pines se componen de una letra que indica el puerto y un núm
 
 Cuenta con dos pines de entrada y salida de circuito digital para mostrar el comportamiento programado de encendido y apagado del LED.
 
-
 | Puerto  | 0    | 1    | 2    | 3    | 4    | 5     | 6     | 7     |
 | :---: | ---- | ---- | ---- | ---- | ---- | ----- | ----- | ----- |
 | **A** | `a0` | `a1` | `a2` | `a3` | `a4` | ----- | ----- | ----- |
@@ -28,7 +27,7 @@ En **a4** la salida es tipo open-drain, entrada normal y ningún pin soporta vol
 |  5 | Voltaje mínimo de operación (V)    | 2      |
 |  6 | Voltaje máximo de operación (V)    | 6      |
 
-(https://www.microchip.com/en-us/product/pic16f83)
+Fuente: (https://www.microchip.com/en-us/product/pic16f83)
 
 | Nº | Característica                           | Descripción / Valor                              |
 |:--:|-------------------------------------------|--------------------------------------------------|
@@ -60,8 +59,7 @@ value := pin.read(pin.a1)
 // Eco (entrada → salida)
 pin.write(pin.b2, pin.read(pin.a1))
 ```
-![texto alternativo](image.png)(https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/30430D.pdf)
-
+![texto alternativo](image.png) Fuente: (https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/30430D.pdf)
 
 Es un microcontrolador sencillo y orientado al aprendizaje básico. Debido a que no incorpora periféricos avanzados como **ADC**, **PWM** o **UART**, su uso principal es digital.
 
@@ -82,15 +80,15 @@ Es ideal para ejercicios de simulación introductorios y para comprender los fun
 Permite estudiar con claridad conceptos como:
 
 - Lectura–Modificación–Escritura **(R-M-W)**
-- Configuración de **TRIS**
-- Latencias de interrupciones
-- Uso del prescaler
-- Manejo de **EEPROM** de datos
+ - Configuración de **TRIS**
+ - Latencias de interrupciones
+ - Uso del prescaler
+ - Manejo de **EEPROM** de datos
 
-- **`MCLR`** significa Master Clear/Reset, es decir, un pin de reinicio del controlador que se conecta a Vcc (+5 V).
-- **`OSC`** significa Oscillator Pins, que controla el reloj del sistema y determina la velocidad de ejecución del programa. En el PIC16F83-1, es una salida interna, en modo cristal, que se conecta al segundo pin (tiene una entrada y una salida, OSC1 y OSC2).
-- **`VDD`** Potencia positiva y referencia de tierra para los pines lógicos y de E/S, respectivamente. Estos pines cuentan con protección de diodo.
-- **`VSS`** significa Voltage Source, Source o Voltage Supply Source y es el pin de tierra (GND), también conocido como referencia de voltaje, 0 voltios para todo el circuito.
+**`MCLR`** significa Master Clear/Reset, es decir, un pin de reinicio del controlador que se conecta a Vcc (+5 V).
+**`OSC`** significa Oscillator Pins, que controla el reloj del sistema y determina la velocidad de ejecución del programa. En el PIC16F83-1, es una salida interna, en modo cristal, que se conecta al segundo pin (tiene una entrada y una salida, OSC1 y OSC2).
+**`VDD`** Potencia positiva y referencia de tierra para los pines lógicos y de E/S, respectivamente. Estos pines cuentan con protección de diodo.
+**`VSS`** significa Voltage Source, Source o Voltage Supply Source y es el pin de tierra (GND), también conocido como referencia de voltaje, 0 voltios para todo el circuito.
 
 ## Control general de $\mu C$
 ```v
