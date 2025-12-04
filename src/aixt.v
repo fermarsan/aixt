@@ -16,7 +16,23 @@ import aixt.setup
 fn main() {
 	mut aixt_cli := cli.Command {
 		name: 			'aixt'
-		description: 	'Microcontrollers programming framework on Vlang.'
+		description: 	'Aixt is a microcontrollers programming framework on Vlang.
+		
+Examples:
+  aixt transpile NXC hello.v       	Transpile the file `hello.v`  and output it as
+                                   	`hello.nxc` .
+  aixt build NXT hello.v           	Transpile, compile and download `hello.v`  to NXT
+                                   	Intelligent brick.
+  aixt transpile RP_Pico hello.v	Transpile the file `hello.v`  and output it as
+                                   	`hello.c` or `hello.ino`  (depending on the Backend).
+  aixt c_compile Emulator hello.v	Compile a previously transpiled `hello.c`  (from
+                            		`hello.v`) and output it as `hello` or `hello.exe`
+  aixt clean NXC hello.v        	Clean all the generated files `hello.*`
+  aixt -help   	                	Print this help message
+  aixt -version	                	Print the Aixt version number
+  aixt flash hello.v /dev/ttyUSB0 	flash the device with the generate binary after 
+                                	transpile and compile `hello.v`
+  aixt new_p NXT /home proj_1		Create the `proj_1` NXT project in `/home`'
 		version:		'0.2.3'
 		execute:	 	fn (cmd cli.Command) ! {
 			println(cmd.help_message())
