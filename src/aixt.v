@@ -109,25 +109,26 @@ fn main() {
 						'new_project', '-np' {
 							path := os.args[3]
 							name := os.args[4] or { 'project' }
-							if !os.exists(os.norm_path('${path}/${name}')) {
-								os.mkdir(os.norm_path('${path}/${name}')) or { panic(err) }
+							src_dir := os.norm_path('${aixt_path}/templates/project/${project_setup.target}/')
+							dest_dir := os.norm_path('${os.abs_path(path)}/${name}/')
+							if !os.exists(dest_dir) {
+								os.mkdir(dest_dir) or { panic(err) }
 							}
-							// os.cp(os.norm_path('${aixt_path}/templates/main.v'), os.norm_path('${path}/${name}/main.v')) or {}
-							os.cp_all(os.norm_path('${aixt_path}/templates/project/${project_setup.target}/'), os.norm_path('${path}/${name}/'), true) or { 
+							os.cp_all(src_dir, dest_dir, true) or { 
 								panic(err) 
 							}
 							if project_setup.backend == 'arduino' { // arduino-cli sketch name requirement
-								os.rename(os.norm_path('${path}/${name}/main.v'), os.norm_path('${path}/${name}/${name}.v')) or {
+								os.rename(os.norm_path('${dest_dir}/main.v'), os.norm_path('${dest_dir}/${name}.v')) or {
 									panic(err)
 								}
 							}
 							// adds the device name to de Makefile
-							if os.exists(os.norm_path('${path}/${name}/Makefile')) { 
-								mut makefile := os.read_file(os.norm_path('${path}/${name}/Makefile')) or {
+							if os.exists(os.norm_path('${dest_dir}/Makefile')) { 
+								mut makefile := os.read_file(os.norm_path('${dest_dir}/Makefile')) or {
 									panic(err)
 								}
 								makefile = makefile.replace('__device_name__', '${device}')
-								os.write_file(os.norm_path('${path}/${name}/Makefile'), makefile) or {
+								os.write_file(os.norm_path('${dest_dir}/Makefile'), makefile) or {
 									panic(err)
 								}
 							}
