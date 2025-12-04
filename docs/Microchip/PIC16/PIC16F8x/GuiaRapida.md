@@ -1,4 +1,4 @@
-# Guía rápida de P16F8X
+# Guía rápida de PIC16F8X
 ## Referencia del PIC16 utilizado por la marca MICROCHIP
 - PIC16F8X (PIC16F83, PIC16F84, PIC16CR83, PIC16CR84)
 

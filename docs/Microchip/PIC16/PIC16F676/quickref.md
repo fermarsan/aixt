@@ -1,201 +1,166 @@
-# Guia Rápida para PIC16F676
-## Referencia del PIC16 utilizado de la marca MICROCHIP
+# Quick Guide to PIC16F676
+## Reference PIC16 microcontroller by MICROCHIP
 - PIC16F676
 
-**NOTA:** Este microcontrolador PIC16F solo cuenta con salidas digitales, entradas digitales y ADC.
+**NOTE:** A quick guide does **NOT** replace the **datasheet** — it only includes the essential information affecting configuration, pin usage, **ADC**, basic peripherals, and important startup values.
 
-## Nombres de los Pines
-Los nombres de los pines se nombran con una letra que indica el puerto y un número que indica el pin. Por ejemplo `a6` indica el pin 6 del puerto A. Todos los nombres en **Aixt** estan escritos en minúsculas, para seguir [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
+## Pin Naming
 
+Pin names consist of a letter indicating the port and a number indicating the pin. For example, **c1** means pin **1** of port **c**. All Aixt pin names are lowercase according to the  [V language variable naming rules](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
-### Nombres de los pines del PIC16F676
-| Puerto | 0   | 1   | 2   | 3   | 4   | 5   |
-| :----: | --- | --- | --- | --- | --- | --- |
-| **A**  | a0  | a1  | a2  | a3  | a4  | a5  |
-| **C**  | c0  | c1  | c2  | c3  | c4  | c5  |
+These pins can function as digital inputs or outputs, analog inputs for the **ADC**, or perform special functions such as clock, interrupt, or comparator functions. Understanding this nomenclature allows you to correctly configure each pin and take full advantage of the microcontroller's capabilities without conflicts between its digital and analog functions.
 
-En las familias de microcontroladores del _PIC16_, los registros del puerto se dividen en: 
+| Port | 0    | 1    | 2    | 3    | 4    | 5    | 6 | 7 |
+|:----:|------|------|------|------|------|------|---|---|
+| **A** | `a0` | `a1` | `a2` | `a3` | `a4` | `a5` | - | - |
+| **C** | `c0` | `c1` | `c2` | `c3` | `c4` | `c5` | - | - |
 
-- `TRIS` Para configurar cada pin del puerto
-- `PORT` Para gestionar los pines como entradas o salidas
+![Pinout](image.png) Source: https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/40039F.pdf
 
-Luego, para facilitar la implementación (y no generar código inncesario) de este port _Aixt_, el nombre de cada pin difiere de su configuración, entrada y salida como en el siguiente ejemplo: 
+## Characteristics
 
-- `a5_s` Nombre del bit para configurar el `a5` pin como entrada o salida 
-- `a5`   Nombre del bit para leer el pin como entrada o salida `a5`
+| Feature | Value |
+|---------|-------|
+| Program memory size (KB) | 1.75 |
+| RAM | 64 |
+| EEPROM (bytes)| 128 |
+| Pin count | 14 |
+| Max operating voltage | 5.5 V |
+| Min operating voltage | 2.0 V |
 
-### Componentes Integrados 
-Cuenta con ocho pines analogicas que se encuentran distribuidas entre en el puerto A y el puerto C.
+Source:https://www.microchip.com/en-us/product/pic16f676
 
-| Puerto | 0   | 1   | 2   | 3   | 4   | 5   |
-| :----: | --- | --- | --- | --- | --- | --- |
-| **A**  | AN0 | AN1 | AN2 | -   | AN3 | -   |
-| **C**  | AN4 | AN5 | AN6 | AN7 | -   | -   |
+## Main Specifications
 
-### Funciones soportadas
-Las funciones que contiene la API entradas o salidas digitales y para realizar una conversión analogico a digital.
+| **Category**              | **Specification**                                   |
+|--------------------------|-----------------------------------------------------|
+| **Architecture**         | 8-bit Mid-Range RISC (35 instructions)              |
+| **Flash Memory**         | 1K program words                                    |
+| **RAM**                  | 64 bytes                                            |
+| **EEPROM**               | 128 bytes                                           |
+| **I/O Ports**            | 12 digital pins (RA0–RA5, RC0–RC5)                  |
+| **ADC Channels**         | 8 analog channels, 10-bit resolution                |
+| **Comparator**           | 1 analog comparator                                 |
+| **Timers**               | Timer0 (8-bit), Timer1 (16-bit)                     |
+| **Internal Oscillator**  | 4 MHz calibrated (OSCCAL)                           |
+| **Operating Voltage**    | 2.0 V to 5.5 V                                      |
+| **Power Consumption**    | Low power with Sleep mode                           |
+| **Interrupts**           | INT, Timer0, Timer1, ADC, IOC                       |
+| **Programming**          | ICSP® (In-Circuit Serial Programming)               |
+| **External Clock**       | OSC1/OSC2 available                                 |
 
-| name                           | description                                |
-| ------------------------------ | ------------------------------------------ |
-| `pin.setup(pin_name, mode)`    | Configura `PIN_NAME` en `PIN_MODE`         |
-| `pin.high(PIN_NAME)`           | Encender `PIN_NAME`                        |
-| `pin.low(PIN_NAME)`            | Apagar `PIN_NAME`                          |
-| `pin.write(PIN_NAME,VAL)`      | Escribe `VAL` en `PIN_NAME`                |
-| `pin.read(PIN_NAME)`           | lee `PIN_NAME`                             |
-| `pin.digital(PIN)`             | Configura I/0 digitales `PIN_NAME`         |
-| `pin (PIN)`                    | Configura `PIN_OUTPUT` o `PIN_INPUT`       |
-| `port`                         | Inicializa `port`                          |
-| `port.read(PORT_NAME)`         | Lee `PORT_NAME`                            |
-| `port.setup(PORT_NAME, VALUE)` | Configura `PORT_NAME` asigna valor `VALUE` |
-| `port.write(PORT_NAME, VALUE)` | Escribe `PORT_NAME` en `VALUE`             |
-| `adc.setup()`                  | Configura el `adc`                         |
-| `adc.read(channel)`            | Configura el canal `channel` del `adc`     |
-| `adc`                          | Inicializa `adc`                           |
-| `time.sleep(time)`             | Retardo en `seg`                           |
-| `time.sleep_us(time)`          | Retardo en `microseg`                      |
-| `time.sleep_ms(time)`          | Retardo en `miliseg`                       |
-| `time`                         | Inicializa el `time`                       |
-
-### Ejemplos de las diferentes funciones de la API en lenguaje _Aixt_v 
-
-## Tiempo
+## General Configuration
 
 ```v
+import pin
+import port
+import adc
+import time
 
-time.sleep(5)	// Tiempo de 5 segundos
-time.sleep_us(10)	// Tiempo de 10 microsegundos
-time.sleep_ms(500)	// Tiempo de 500 milisegundos
+pin.setup(pin.a0, pin.output) // Digital pins
+pin.setup(pin.a1, pin.input)
+pin.setup(pin.a2, pin.output)
+pin.setup(pin.c0, pin.input)
+pin.setup(pin.c3, pin.output)
 
+pin.digital() // Set all pins to digital mode (ANSEL = 0, CMCON = 0x07)
+
+port.setup(port.a, 0b000000)   // Port A as outputs
+port.setup(port.c, 0b000011)   // RC0 & RC1 inputs, others outputs
+
+adc.setup()          // Initialize ADC
+adc.read(0)          // Select AN0 channel
 ```
 
-## Configuración de pines 
+## Electrical Limits
+
+| **Parameter**               | **Value / Range**         | **Description**                         |
+| --------------------------- | ------------------------- | --------------------------------------- |
+| **Operating voltage (VDD)** | **2.0 V – 5.5 V**         | Recommended operating range.            |
+| **Max pin voltage**         | **−0.3 V to VDD + 0.3 V** | Absolute limits to avoid damage.        |
+| **Max current per I/O pin** | **25 mA**                 | Avoid exceeding to prevent overheating. |
+| **Max current per port**    | **80 mA**                 | Total allowed for Port A or C.          |
+| **Total device current**    | **~200 mA (max)**         | Absolute maximum rating.                |
+| **Sleep current**           | **< 1 µA typical**        | Ultra-low power mode.                   |
+| **Internal oscillator**     | **4 MHz**                 | Calibrated with OSCCAL.                 |
+| **MCLR resistor**           | **10 kΩ**                 | Typical pull-up resistor on RA3/MCLR.   |
+| **Max external clock**      | **20 MHz**                | With HS/XT/EC modes.                    |
+
+## Key Records Table (TRIS, PORT, ANSEL, ADCON)
+
+| **Register**           | **Function**         | **Description**                                  |
+| ---------------------- | -------------------- | ------------------------------------------------ |
+| **TRIS** (TRISA/TRISC) | Pin direction        | 1 = Input, 0 = Output.                           |
+| **PORT** (PORTA/PORTC) | Read/write pins      | Inputs read, outputs write according to TRIS.    |
+| **ANSEL**              | Analog configuration | Enables ADC channels. 1 = Analog, 0 = Digital.   |
+| **ADCON0**             | ADC control          | Enables ADC, selects channel, starts conversion. |
+| **ADCON1**             | ADC configuration    | References, ADC clock, justification.            |
+
+## Timer0 and Timer1
+
+| **Timer**  | **Registers**                             | **Function** | **Description**                                                          |
+| ---------- | ----------------------------------------- | ------------ | ------------------------------------------------------------------------ |
+| **Timer0** | `OPTION_REG`, `INTCON` (T0IF, T0IE)       | 8-bit timer  | Internal clock or RA2/T0CKI, prescaler 1:2–1:256, interrupt on overflow. |
+| **Timer1** | `T1CON`, `PIR1 (TMR1IF)`, `PIE1 (TMR1IE)` | 16-bit timer | Internal/external clock (T1CKI), prescaler 1:1–1:8, overflow interrupt.  |
+
+## Interrupts (INTCON, IOCA, PIE1, PIR1)
+
+| **Register** | **Function**                 | **Description**                                       |
+| ------------ | ---------------------------- | ----------------------------------------------------- |
+| **INTCON**   | Core interrupt controller    | Includes GIE, PEIE, Timer0, INT, and RA-change flags. |
+| **IOCA**     | Interrupt-on-change          | Triggers on RA pin state change.                      |
+| **PIE1**     | Peripheral interrupt enables | Enables Timer1, ADC, comparator interrupts.           |
+| **PIR1**     | Peripheral interrupt flags   | Shows which peripheral generated the interrupt.       |
+
+## Oscillator Configuration
+
+| Component / Register   | Function               | Description                                                           |
+| ---------------------- | ---------------------- | --------------------------------------------------------------------- |
+| **OSCCAL**             | Oscillator calibration | Adjusts internal 4 MHz oscillator (factory value).                    |
+| **Oscillator Mode**    | Config bits (fuses)    | INTOSC, LP, XT, HS, EC. INTOSC (4 MHz) is common.                     |
+| **OSC1/CLKIN (RA5)**   | External clock input   | Used when external crystal/clock is selected.                         |
+| **OSC2/CLKOUT (RA4)**  | Clock output           | Outputs system clock in external modes; digital/AN3 in internal mode. |
+| **Internal Frequency** | 4 MHz                  | Default operating frequency.                                          |
+
+## Reset and WDT Modes
+
+| Mode / Register | Function        | Description                                   |
+| --------------- | --------------- | --------------------------------------------- |
+| **POR**         | Power-On Reset  | Ensures stable startup when power is applied. |
+| **MCLR**        | External reset  | RA3/MCLR low resets the PIC.                  |
+| **BOR**         | Brown-Out Reset | Resets on low voltage.                        |
+| **WDT**         | Watchdog Timer  | Resets if software freezes (requires CLRWDT). |
+| **WDTCON**      | WDT control     | Enables/disables WDT, prescaler.              |
+| **PCON**        | Reset cause     | Indicates last reset event.                   |
+| **SLEEP**       | Low-power mode  | Wakes on interrupt or WDT.                    |
+
+## Example, use of pins
 
 ```v
+pin.high(pin.a0) // Write to pins
+pin.low(pin.c3)
 
-pin.setup(pin.a5, pin.output)      // Función para configurar el pin como salida 
-pin.setup(pin.c2, pin.output)      // Función para configurar el pin como salida
-pin.setup(pin.a2, pin.input)    // Función para configurar el pin como entrada
-pin.setup(pin.c4, pin.input)    // Función para configurar el pin como entrada
+pin.toggle(pin.a2) // Toggle pin
 
-pin.high(pin.a5)    // Función para encender el pin           
-pin.low(pin.a5)     // Función para apagar el pin
+value := pin.read(pin.c0) // Read pin
 
-pin.write(pin.a2, 0)  // Función sobre escribir el pin
-pin.write(pin.a2, 1)  // Función sobre escribir el pin
-
-pin.read(pin.a4)      // Función para leer el pin
-pin.read(pin.c3)      // Función para leer el pin
-
+pin.write(pin.a0, pin.read(pin.c0)) // Echo (input → output)
 ```
 
-Ejemplo de prender y apagar un led:
+## Example of ADC
 
 ```v
-      
-for {
+adc_val := adc.read(0)
 
-    pin.high(pin.c1);
-    sleep_us(500);
-    pin.low(pin.c1);
-    sleep_us(500);
-
+if adc_val > 512 {
+    pin.high(pin.c3)
+} else {
+    pin.low(pin.c3)
 }
-
-```
-Ejemplo de prender y apagar un led con una entrada digital:
-
-```v
-
-pin.digital(); // Todas los pin son I/O digitales
-
-for {
-    
-    if(c2 == 1){        // Condición si encuentra un 1 en el c2
-        
-        pin.high(pin.c1);
-        pin.high(pin.c0);
-    }
-    
-    else if(c4 == 1){   // Condición si encuentra un 1 en el c4
-        
-        pin.low(pin.c1);
-        pin.low(pin.c0);
-    }
-
-}
-        
 ```
 
-## Configuración del port
+## Example of time
 
 ```v
-
-port.setup(port.a, ob000000)      // Función para configurar el puerto como salida 
-
-```
-
-Ejemplo de prender y apagar un puerto del microcontrolador:
-
-```v
-      
-for {
-        
-    port.write(port.a,0b010101);
-    sleep_ms(500);
-    port.write(port.a,0b101010);
-    sleep_ms(500);      
-        
-}
-
-```
-
-## Configuración del ADC
-
-```v
-
-adc.setup()     // Inicializa el ADC
-adc.read(0)     // Escoge el pin del canal analogico
-
-```
-
-Ejemplo de prender y apagar leds dependiendo del valor del ADC:
-
-```v
-
-unsigned int adc_result;  // Declaración de variable para almacenar el valor del ADC
-        
-for {
-            
-    adc_result = adc.read(0); // Almacena el valor del ADC
-    
-    if ( adc_result >= 1020 ){
-        
-        pin.high(pin.c0);
-        pin.high(pin.c1);
-        pin.high(pin.c2);           
-    }
-    
-    else if ( adc_result >= 820 ){
-        
-        pin.high(pin.c0);
-        pin.high(pin.c1);
-        pin.low(pin.c2);
-    }
-    
-    else if ( adc_result >= 620 ){
-        
-        pin.high(pin.c0);
-        pin.low(pin.c1);
-        pin.low(pin.c2);   
-    }
-        
-    else {
-        
-        pin.low(pin.c0);
-        pin.low(pin.c1);
-        pin.low(pin.c2);      
-    }
-
-}
-
+time.sleep_ms(500)
 ```
