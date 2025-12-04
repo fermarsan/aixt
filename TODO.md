@@ -22,6 +22,7 @@ Tasks to do in Aixt
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
 - [ ] Define if the default modules use functional or object oriented paradigms
   - [ ] Define a standard way of naming the modules (`module`, `module_fn`, `module_oop`)
+- [] Migrate `aixt.v` file to an V's standard CLI app using `cli`module
 
 
 ### In Progress
