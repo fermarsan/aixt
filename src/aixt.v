@@ -17,7 +17,6 @@ fn main() {
 	mut aixt_cli := cli.Command {
 		name: 			'aixt'
 		description: 	'Microcontrollers programming framework on Vlang.'
-		man_description:	'xxx'
 		version:		'0.2.3'
 		execute:	 	fn (cmd cli.Command) ! {
 			println(cmd.help_message())
