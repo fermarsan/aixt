@@ -110,7 +110,7 @@ fn main() {
 							path := os.args[3]
 							name := os.args[4] or { 'project' }
 							src_dir := os.norm_path('${aixt_path}/templates/project/${project_setup.target}/')
-							dest_dir := os.norm_path('${os.abs_path(path)}/${name}/')
+							dest_dir := os.norm_path('${os.abs_path(path)}/${name}/') 
 							if !os.exists(dest_dir) {
 								os.mkdir(dest_dir) or { panic(err) }
 							}
