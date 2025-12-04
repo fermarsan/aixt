@@ -17,6 +17,7 @@ fn main() {
 	mut aixt_cli := cli.Command {
 		name: 			'aixt'
 		description: 	'Microcontrollers programming framework on Vlang.'
+		man_description:	'xxx'
 		version:		'0.2.3'
 		execute:	 	fn (cmd cli.Command) ! {
 			println(cmd.help_message())
@@ -25,6 +26,7 @@ fn main() {
 		commands: [
 			cli.Command {
 				name:			'transpile'
+				usage:			'input_file'
 				description:	'Transpiles an Aixt source file to C.'
 				execute:		transpile_cmd
 				flags: [
@@ -56,13 +58,17 @@ fn transpile_cmd(cmd cli.Command) ! {
 	// aixt_path := os.dir(os.executable())
 	println('Aixt path:\n\t${os.executable()}\n')
 	device := cmd.flags.get_string('device')!	// device name 
-	input_name := os.abs_path(cmd.args[0])		// and source path input
-	// base_name := input_name.replace('.v', '') 	// input file base name
-	mut project_setup := setup.Setup{}
-	project_setup.load(device)
-	// println('++++++++++++++++\n${project_setup}\n++++++++++++++++')
-	transpile(input_name, project_setup)
-	println('\n${input_name} transpiling finished.\n')
+	if cmd.args.len != 1 {
+		println(cmd.help_message())
+	} else {
+		input_name := os.abs_path(cmd.args[0])		// and source path input
+		// base_name := input_name.replace('.v', '') 	// input file base name
+		mut project_setup := setup.Setup{}
+		project_setup.load(device)
+		// println('++++++++++++++++\n${project_setup}\n++++++++++++++++')
+		transpile(input_name, project_setup)
+		println('\n${input_name} transpiling finished.\n')
+	}
 }
 
 	// if os.args.len < 2 {
