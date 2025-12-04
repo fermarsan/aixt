@@ -1,140 +1,131 @@
+# Quick Guide to the PIC16F8X
+## Reference for the PIC16 used by the MICROCHIP brand
+- PIC16F8X (PIC16F83, PIC16F84, PIC16CR83, PIC16CR84)
 
-Quick reference for the Microchip PIC16F8x devices:
-- PIC16F83
-- PIC16F84
-- PIC16F84A
+**NOTE** This guide does **NOT** include **ADC**, **PWM**, or **UART** modules, as the PIC16F8X does not have these modules.
 
-**NOTE:** This PIC16F8x microcontrollers only has digital outputs and digital inputs
+## Pin Names
+Pin names consist of a letter indicating the port and a number indicating the pin. For example, **a2** indicates pin **2** of port **A**. All names in Aixt are written in lowercase [V Variable Naming Rules]. (https://github.com/vlang/v/blob/master/doc/docs.md#variables)
 
-## General $\mu C$ control
+It has two digital circuit input/output pins to display the programmed on/off behavior of the LED.
 
-```v
-// by default the CPU oscillation frequency is 10Mhz
-@[as_macro] pub const cpu_freq = 4_000_000  // change it to 4Mhz
-```
-
-## Delay
-Use the `time` module:
-
-```v
-import time
-
-time.sleep(2)            // sleep for 2 seconds
-time.sleep_ms(50)        // sleep for 50 milliseconds
-time.sleep_us(100)       // sleep for 100 microseconds
-```
-
-### Functions
-| name                  | description           |
-| --------------------- | --------------------- |
-| `time.sleep(time)`    | Delay in seconds      |
-| `time.sleep_us(time)` | Delay in microseconds |
-| `time.sleep_ms(time)` | Delay in milliseconds |
-
-## Pins
-Use the `pin` module:
-
-```v
-import pin
-
-pin.setup(pin.a1, pin.input)
-pin.high(pin.b0)
-pin.low(pin.a3)
-pin.toggle(pin.b7)
-pin.write(pin.b2, pin.read(pin.a1)) // pin echo
-```
-
-### Functions
-| name                    | description               |
-| ----------------------- | ------------------------- |
-| `pin.setup(pin, mode)`  | Configure `pin` as `mode` |
-| `pin.high(pin)`         | Turn On `pin`             |
-| `pin.low(pin)`          | Turn Off `pin`            |
-| `pin.toggle(pin)`       | Toggle the state of `pin` |
-| `pin.write(pin, value)` | Write `value` in `pin`    |
-| `pin.read(pin)`         | Return the state of `pin` |
-
-
-### Digital pin names
-The pin names are named with a letter indicating the port and a number indicating the pin. For example, `a6` indicates pin 6 of port A. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
-
-
-### Pin names for PIC16F8x
-| Port  | 0    | 1    | 2    | 3    | 4    | 5     | 6     | 7     |
+| Port | 0    | 1    | 2    | 3    | 4    | 5     | 6     | 7     |
 | :---: | ---- | ---- | ---- | ---- | ---- | ----- | ----- | ----- |
 | **A** | `a0` | `a1` | `a2` | `a3` | `a4` | ----- | ----- | ----- |
 | **B** | `b0` | `b1` | `b2` | `b3` | `b4` | `b5`  | `b6`  | `b7`  |
 
+At **a4**, the output is open-drain, the input is normal, and no pin supports continuous analog voltage in ADC mode, as it is digital.
 
-## Pin ports
-Use the `port` module:
+**Aixt uses lowercase pin names, without the "R" prefix: a0, a1, b3, b7…**
 
-```v
-import port
+| Nº | Specification                     | Value  |
+|:--:|------------------------------------|--------|
+|  1 | Program Memory (KB) (KB)           | 0.875  |
+|  2 | RAM (bytes)                        | 36     |
+|  3 | EEPROM (bytes)                     | 64     |
+|  4 | Number of Pins                    | 18     |
+|  5 | Minimum Operating Voltage (V)    | 2      |
+|  6 | Maximum Operating Voltage (V)    | 6      |
 
-port.setup(port.b, port.all_outputs)
-port.setup(port.a, 0x00111111)  // port A bit 7 and 6 as outputs, the rest as inputs
+Fountain: (https://www.microchip.com/en-us/product/pic16f83)
 
-val := port.read(port.a)
-port.write(port.b, val) // port echo
-```
-
-### Functions
-| name                      | description                |
-| ------------------------- | -------------------------- |
-| `port.setup(port, mode)`  | Configure `port` as `mode` |
-| `port.read(port)`         | Return the value of `port` |
-| `port.write(port, value)` | Write `value` to `port`    |
-
-### Digital port names
-The port names are named with a letter indicating the port. All names in **Aixt** are written in lowercase, to follow [V variable naming rules.](https://github.com/vlang/v/blob/master/doc/docs.md#variables).
-
-### Pin names for PIC16F8x
-| Port  | Aixt name |
-| :---: | :-------: |
-| **A** |    `a`    |
-| **B** |    `b`    |
-
-
-## Timer 0
-Use the `timer0` module:
+| Nº | Feature                           | Description / Value                              |
+|:--:|-------------------------------------------|--------------------------------------------------|
+|  1 | Architecture                               | 8-bit RISC Microcontroller                  |
+|  2 | Digital I/O Pins                     | 13 (PORTA + PORTB)                               |
+|  3 |Flash Memory  (program)                   | 512–1K instructions                             |
+|  4 |EEPROM Memory                              | 64 bytes                                         |
+|  5 | RAM                                        | 36 to 68 bytes (depending on variant)                   |
+|  6 | Timer                               | 8-bit TMR0                                   |
+|  7 | Available Interrupt Types         | 4                                               |
 
 ```v
-import timer0
+import pin
 
-@[as_macro] pub const cpu_freq = 4_000_000  // 4Mhz
+// Configuration
+pin.setup(pin.b0, pin.output)
+pin.setup(pin.a1, pin.input)
 
-timer0.setup(10_000)    // setup a time of 10ms
-.
-.
-.
-t1 := timer0.read()
-timer0.restart()
+// Write to pins
+pin.high(pin.b0)
+pin.low(pin.a3)
+
+// Toggle a pin
+pin.toggle(pin.b7)
+
+// Read a pin
+value := pin.read(pin.a1)
+
+// Echo (input → output)
+pin.write(pin.b2, pin.read(pin.a1))
+```
+![alternative text](image.png) Fountain: (https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/30430D.pdf)
+
+It is a simple microcontroller geared towards basic learning. Because it does not incorporate advanced peripherals such as **ADC**, **PWM**, or **UART**, its primary use is digital.
+
+- It is only suitable for testing **I/O**, **TMR0**, **interrupts**, and **EEPROM**.
+- It is ideal for introductory exercises, simulation, and understanding the **PIC** architecture.
+- It allows for clear study of:
+  - **Read-Modify-Write (R-M-W)** operations on ports
+  - Address configuration using **TRIS**
+  - Use of the **prescaler**
+  - Operation of the **TMR0 timer**
+  - **Interrupt** latencies and handling
+  - Reading and writing to **EEPROM**
+
+Thanks to its simplicity, this microcontroller is perfect for developing a solid foundation before moving on to more complex devices.
+
+It is ideal for introductory simulation exercises and for understanding the fundamentals of the PIC architecture.
+
+- It allows for the clear study of concepts such as:
+ - Read-Modify-Write **(R-M-W)**
+ - **TRIS** configuration
+ - Interrupt latencies
+ - Prescaler usage
+ - Data **EEPROM** handling
+
+**`MCLR`** stands for Master Clear/Reset, a controller reset pin connected to Vcc (+5V).
+**`OSC`** stands for Oscillator Pins, which controls the system clock and determines program execution speed. In the PIC16F83-1, it is an internal crystal-mode output connected to the second pin (it has one input and one output, OSC1 and OSC2).
+**`VDD`** Positive power and ground reference for the logic and I/O pins, respectively. These pins have diode protection.
+**`VSS`** stands for Voltage Source, Source, or Voltage Supply Source and is the ground (GND) pin, also known as the voltage reference, 0 volts for the entire circuit.
+
+## General control of $\mu C$
+```v
+// Microcontroller oscillator frequency
+// Adjust according to the crystal used in the hardware or simulation.
+
+@[as_macro]
+pub const CPU_FREQ: u32 = 4_000_000; // 4 MHz
 ```
 
-### Functions
-| name                   | description                               |
-| ---------------------- | ----------------------------------------- |
-| `timer0.setup(period)` | Configure Timer0's `period`               |
-| `timer0.read()`        | Return the value of Timer0                |
-| `timer0.restart()`     | Restart the Timer0 from its initial value |
-| `timer0.irq_enable()`  | Enable Timer0 overflow interrupt          |
-| `timer0.irq_disable()` | Disable Timer0 overflow interrupt         |
+| Hardware | Value for CPU_FREQ |
+|---------------------|---------------------|
+| 4 MHz               | 4_000_000           |
+| 8 MHz               | 8_000_000           |
+| 10 MHz              | 10_000_000          |
+| 20 MHz              | 20_000_000          |
 
+# Delay
 
-## External Interrupt
-Use the `ext` module:
+The **`time`** module allows you to generate delays in seconds, milliseconds, or microseconds.
 
 ```v
-import ext
+import time
 
-ext.setup(ext.falling)	// rising edge for external interrupt
-ext.irq_enable()		// enable the interrupt
+time.sleep(2) // 2-second delay
+time.sleep_ms(50) // 50 ms delay
+time.sleep_us(100) // 100 µs delay
 ```
 
-### Functions
-| name                | description                         |
-| ------------------- | ----------------------------------- |
-| `ext.setup(edge)`   | Configure external interrupt `edge` |
-| `ext.irq_enable()`  | Enable external interrupt           |
-| `ext.irq_disable()` | Disable external interrupt          |
+## Functions
+| Nº | Registro        | Función principal                                   |
+|:--:|-----------------|------------------------------------------------------|
+|  1 | PORTA           | Read/write pins RA0–RA4                  |
+|  2 | PORTB           | Read/write pins RB0–RB7                  |
+|  3 | TRISA           | Port A address configuration             |
+|  4 | TRISB           | Port B Address Configuration             |
+|  5 | TMR0            | 8-bit Timer/Counter                     |
+|  6 | OPTION_REG      | Prescaler, INT Edge, TMR0 Configuration TMR0           |
+|  7 | INTCON          | Interrupt Management (GIE, INTE, T0IE, RBIE)   |
+|  8 | EECON1          | EEPROM Control                                   |
+|  9 | EECON2          | EEPROM Write Sequence                       |
