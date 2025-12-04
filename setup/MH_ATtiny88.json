@@ -1,0 +1,28 @@
+{
+    "target": "MH_ATtiny88",
+    "board": "MH-ATtiny88",
+    "backend": "arduino",
+    "cc": {
+        "name": "arduino_cli",
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "compile -b --fqbn MH-ET.menu.avr.ATTiny88:avr:attiny88 -v --output-dir @{file_dir_name}/build"
+    },
+    "flasher": {
+        "name": "arduino_cli",
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "upload @{file_dir_name} -p @{target} -b --fqbn MH-ET.menu.avr.ATTiny88:avr:attiny88"
+    },
+    "api_paths": [
+        "Atmel/MH_ATtiny88",
+        "Arduino/arduino_AVR",
+        "Arduino/arduino_generic",
+        "Arduino/arduino_generic_UART",
+        "Arduino/arduino_generic_i2c"
+    ],
+    "v_defines": [],
+    "default_cpu_freq": 16000000,
+    "default_string_len": 50,
+    "compiler_setup_path": "setup/arduino8.json"
+}

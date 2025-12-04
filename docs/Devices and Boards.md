@@ -102,12 +102,12 @@ The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR
 | NXT                                               | `time`, `motor`, `sensor`, `button`, `lcd`, `ht_sens`,               |
 |                                                   | `task`, `array`, `math`, `rand`, `str`, `sound`, `comm`,             |
 |                                                   | `file`, `i2c`, `io`, `lowspeed`, `ui`                                |
-| [PIC16F8x](../setup/equivalent-devices.json)      | `time`, `pin`, `port`, `timer0`, `ext`                               |
-| [PIC16F6xx-14p](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `adc`, `timer0`, `ext`                        |
-| [PIC16F6xx-18p](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `timer0`, `ext`                               |
-| [PIC16F6xx-20p](../setup/equivalent-devices.json) | `time`, `pin`, `port`, `timer0`, `ext`                               |
-| [PIC16F87x](../setup/equivalent-devices.json)     | `time`, `pin`, `port`, `timer0`, `ext`                               |
-| [PIC16F88x](../setup/equivalent-devices.json)     | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext`                |
+| [PIC16F8x](../setup/equivalent_devices.json)      | `time`, `pin`, `port`, `timer0`, `ext`                               |
+| [PIC16F6xx-14p](../setup/equivalent_devices.json) | `time`, `pin`, `port`, `adc`, `timer0`, `ext`                        |
+| [PIC16F6xx-18p](../setup/equivalent_devices.json) | `time`, `pin`, `port`, `timer0`, `ext`                               |
+| [PIC16F6xx-20p](../setup/equivalent_devices.json) | `time`, `pin`, `port`, `timer0`, `ext`                               |
+| [PIC16F87x](../setup/equivalent_devices.json)     | `time`, `pin`, `port`, `timer0`, `ext`                               |
+| [PIC16F88x](../setup/equivalent_devices.json)     | `time`, `pin`, `port`, `adc`, `uart`, `timer0`, `ext`                |
 | Exp16-PIC24                                       | `time`, `pin`, `port`                                                |
 | CY8CKIT-049-42xx                                  | `time`, `pin`, `adc`, `pwm`                                          |
 | CY8CKIT-145-40xx                                  | `time`, `pin`, `adc`, `pwm`                                          |
@@ -119,7 +119,7 @@ The external interrupts module is available for PIC16F (xc8 compiler), Atmel AVR
 | ESP32-C3FH4                                       | `time`, `pin`, `adc`, `pwm`, `uart`                                  |
 | FIRE                                              | `time`, `pin`, `adc`, `pwm`, `uart`, `button`, `lcd`, `power`, `imu` |
 | XIAO-SAMD21                                       | `time`, `pin`, `adc`, `pwm`, `uart`                                  |
-| [XIAO-ESP32-xx](../setup/equivalent-devices.json) | `time`, `pin`, `adc`, `pwm`, `uart`                                  |
+| [XIAO-ESP32-xx](../setup/equivalent_devices.json) | `time`, `pin`, `adc`, `pwm`, `uart`                                  |
 | Blue-Pill                                         | `time`, `pin`, `adc`, `pwm`, `uart`                                  |
 | Nucleo-L031K6                                     | `time`, `pin`, `adc`, `pwm`, `uart`                                  |
 | RP-Pico                                           | `time`, `pin`, `adc`, `pwm`, `uart`                                  |

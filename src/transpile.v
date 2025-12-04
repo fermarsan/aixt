@@ -17,8 +17,14 @@ import aixt.cgen
 // transpile transpiles an Aixt project (single or multiple file) into C.
 pub fn transpile(path string, project_setup setup.Setup) {
 
-	// set de defines from the port's json file
+	// set de defines from the target's json file
 	mut defines := ['']
+	defines << ['-d', project_setup.target]
+	defines << ['-d', project_setup.backend]
+	defines << ['-d', project_setup.cc['name']]
+	if project_setup.target != project_setup.device {
+		defines << ['-d', project_setup.device]
+	}
 	for define in project_setup.v_defines {
 		defines << ['-d', define]
 	}

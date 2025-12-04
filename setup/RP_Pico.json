@@ -1,0 +1,29 @@
+{
+    "target": "RP_Pico",
+    "board": "Raspberry Pi Pico",
+    "backend": "arduino",
+    "cc": {
+        "name": "arduino_cli",
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "compile -b arduino:mbed_rp2040:pico -v --output-dir @{file_dir_name}/build"
+    },
+    "flasher": {
+        "name": "arduino_cli",
+        "linux_path": "arduino-cli",
+        "windows_path": "arduino-cli.exe",
+        "flags": "upload @{file_dir_name} -p @{target} -b arduino:mbed_rp2040:pico"
+    },
+    "api_paths": [
+        "Raspberry-Pi/RP_Pico",
+        "Arduino/arduino_generic",
+        "Arduino/arduino_generic_UART",
+        "Arduino/arduino_generic_UART1",
+        "Arduino/arduino_generic_UART2",
+        "Arduino/arduino_generic_i2c"
+    ],
+    "v_defines": [],
+    "default_cpu_freq": 125000000,
+    "default_string_len": 50,
+    "compiler_setup_path": "setup/arduino32.json"
+}

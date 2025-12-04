@@ -7,9 +7,6 @@ Tasks to do in Aixt
 
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] dynamic memory definition
-- [ ] Implement inline assembly
-- [ ] "40_inline_asm.v" inline asm implementation
-  - [ ] name C.name in asm blocks
 - [ ] Implement uart.input()
 - [ ] Support for arrays and strings initialized inside "for" statement
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
@@ -21,6 +18,7 @@ Tasks to do in Aixt
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
 - [ ] Issue: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it)
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
+- [ ] Implement `#preinclude`
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
 - [ ] Define if the default modules use functional or object oriented paradigms
   - [ ] Define a standard way of naming the modules (`module`, `module_fn`, `module_oop`)
@@ -38,12 +36,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
-- [ ] Add documentation about installing by using `conda`/`pixi` 
-- [ ] Enable conditional compilation based on `device.json` properties 
-  - [ ] Include `$if c {}` syntax from `backend: c` of `device.json`
-  - [ ] Include `$if xc8 {}` syntax from `cc: { name: xc8 }` of `device.json`
-  - [ ] Move the `time` module from `api` to `lib` 
-- [ ] Add basic language test examples
 
 
 ### Done ✓make
@@ -52,7 +44,19 @@ Tasks to do in Aixt
 - [x] VSCode `tasks.json` updated to also support pixi environments
 - [x] Change all occurrences of `@[as_macro] const` by `@[as_macro] pub const`
 - [x] Delete `nbc` compiler binaries from the repository (Linux and Windows versions)
+- [x] Add documentation about installing by using `conda`/`pixi`
 - [x] Implement a new scheme for the `device.json` setup files
 - [x] Update all the setup files `*.json`to the new scheme
   - [x] From `device.json` change `port:` by `target:`
-
+- [x] Add basic language test examples
+  - [x] Create a folder by each test file including the project files
+- [x] Enable conditional compilation based on `device.json` properties 
+  - [x] Include `$if c ? {}` syntax from `backend: c` of `device.json` 
+  - [x] Include `$if xc8 ? {}` syntax from `cc: { name: xc8 }` of `device.json` 
+  - [x] Change all the setup files name that contains '-' by '-_'
+  - [x] Change all the setup files content that contains '-' by '_' in the fields: "target", "backend", "name" and "api_paths"
+  - [x] In the `targets` folder change all the folders names that contains '-' by '_'
+  - [x] In the `targets` folder change all the *.v file names that contains '-' by '_'
+  - [x] `PIC16F6xx_14p` ADC module modification by using conditional compilation: `$if PIC16F630 ? {`   
+- [x] Implement a `builtin` module similar to the _V's_ one
+  - [x] Implement `eprint()` function

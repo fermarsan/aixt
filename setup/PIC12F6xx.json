@@ -16,12 +16,12 @@
     },
     "api_paths": [
         "Microchip/PIC12F6xx",
-        "Microchip/xc8-generic",
-        "Microchip/PIC12F-16F-generic/PIC12F-core",
-        "Microchip/PIC12F-16F-generic/timer1",
-        "Microchip/PIC12F-16F-generic/timer2",
-        "Microchip/PIC12F-16F-generic/adc",
-        "Microchip/PIC12F-16F-generic/pwm"
+        "Microchip/xc8_generic",
+        "Microchip/PIC12F_16F_generic/PIC12F_core",
+        "Microchip/PIC12F_16F_generic/timer1",
+        "Microchip/PIC12F_16F_generic/timer2",
+        "Microchip/PIC12F_16F_generic/adc",
+        "Microchip/PIC12F_16F_generic/pwm"
     ],
     "v_defines": [],
     "default_cpu_freq": 20000000,

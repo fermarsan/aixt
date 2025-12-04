@@ -3,25 +3,25 @@
     "board": "W801",
     "backend": "arduino",
     "cc": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "compile -b w80x_duino:XT804:w801 -v --output-dir ./build "
     },
     "flasher": {
-        "name": "arduino-cli",
+        "name": "arduino_cli",
         "linux_path": "arduino-cli",
         "windows_path": "arduino-cli.exe",
         "flags": "upload @{file_dir_name} -p @{target} -b w80x_duino:XT804:w801"
     },
     "api_paths": [
         "W801",
-        "Arduino/arduino-generic",
-        "Arduino/arduino-generic-UART1",
-        "Arduino/arduino-generic-UART2",
-        "Arduino/arduino-generic-UART3",
-        "Arduino/arduino-generic-UART4",
-        "Arduino/arduino-generic-UART5"
+        "Arduino/arduino_generic",
+        "Arduino/arduino_generic_UART1",
+        "Arduino/arduino_generic_UART2",
+        "Arduino/arduino_generic_UART3",
+        "Arduino/arduino_generic_UART4",
+        "Arduino/arduino_generic_UART5"
     ],
     "v_defines": [],
     "default_cpu_freq": 4000000,
