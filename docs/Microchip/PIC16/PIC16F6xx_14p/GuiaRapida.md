@@ -1,6 +1,6 @@
 # Guía rápida de PIC16F676
 ## Referencia del PIC16 utilizado por la marca MICROCHIP
-- PIC16F676
+- PIC16F676 y los que aplican adicional...pte informacion
 
 **NOTA** Una guía rápida **NO** incluye el **datasheet**, solo lo esencial que afecta la configuración, el uso de pines, el **ADC**, los periféricos básicos, y los valores iniciales importantes.
 
