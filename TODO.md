@@ -37,6 +37,7 @@ Tasks to do in Aixt
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
 - [ ] Implement the `init` command
+- [ ] Interactive mode for `init` and `new` 
 
 
 ### Done ✓make
