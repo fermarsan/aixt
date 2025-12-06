@@ -32,7 +32,6 @@ fn main() {
 						name: 			'device'
 						abbrev:			'd' 
 						description: 	'Target device or board.'
-						global: 		true
 						required:		true
 					}
 				]
@@ -52,7 +51,6 @@ fn main() {
 						name: 			'device'
 						abbrev:			'd' 
 						description: 	'Target device or board.'
-						global: 		true
 						required:		true
 					}
 				]
@@ -72,7 +70,6 @@ fn main() {
 						name: 			'port'
 						abbrev:			'p' 
 						description: 	'Flashing port.'
-						global: 		true
 						required:		true
 					}
 				]
@@ -92,7 +89,6 @@ fn main() {
 						name: 			'device'
 						abbrev:			'd' 
 						description: 	'Target device or board.'
-						global: 		true
 						required:		true
 					}
 				]
@@ -121,7 +117,6 @@ fn main() {
 						name: 			'device'
 						abbrev:			'd' 
 						description: 	'Target device or board.'
-						global: 		true
 						required:		true
 					},
 					cli.Flag {
@@ -129,7 +124,6 @@ fn main() {
 						name: 			'folder'
 						abbrev:			'f' 
 						description: 	'Project folder.'
-						global: 		true
 						required:		true
 					},
 					cli.Flag {
@@ -137,7 +131,6 @@ fn main() {
 						name: 			'name'
 						abbrev:			'n' 
 						description: 	'Project name.'
-						global: 		true
 						required:		true
 					}
 				]

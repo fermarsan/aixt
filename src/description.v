@@ -12,7 +12,9 @@ Examples:
   aixt transpile -d NXC hello.v   Transpile the file `hello.v` and output it as
                                   `hello.nxc`
   aixt transpile -d FIRE hello.v  Transpile the file `hello.v` and output it as
-                                  `hello.c` or `hello.ino` (depends on the Backend)
+                                  `hello.ino`
+  aixt transpile -d Emu hello.v   Transpile the file `hello.v` and output it as
+                                  `hello.c`
   aixt c_compile -d NXT hello.v   Compile a previously transpiled `hello.c`  (from
                                   `hello.v`) and output it as `hello` or `hello.exe`
   aixt build -d NXT hello.v       Transpile, compile and download `hello.v` to NXT
