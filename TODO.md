@@ -35,7 +35,8 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
-- [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
+- [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
+- [ ] Implement the `init` command
 
 
 ### Done ✓make
