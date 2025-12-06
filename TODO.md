@@ -36,7 +36,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
-- [] Migrate `aixt.v` file to an V's standard CLI app using `cli` module
 
 
 ### Done ✓make
@@ -61,3 +60,4 @@ Tasks to do in Aixt
   - [x] `PIC16F6xx_14p` ADC module modification by using conditional compilation: `$if PIC16F630 ? {`   
 - [x] Implement a `builtin` module similar to the _V's_ one
   - [x] Implement `eprint()` function
+- [x] Migrate `aixt.v` file to an V's standard CLI app using `cli` module
