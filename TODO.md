@@ -15,7 +15,6 @@ Tasks to do in Aixt
 <!-- - [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO -->
 - [ ] Allow multi-arg functions
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
-- [ ] Issue: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it)
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
 - [ ] Implement `#preinclude`
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
@@ -65,3 +64,4 @@ Tasks to do in Aixt
 - [x] Aixt's `new` command has now an interactive mode (by flag)
 - [x] Add a `v.mod` file inside each project folder in order including 'device' and 'port' fields
   - [x] `transpile` command use the `v.mod` file if the flag `device` is not explicitly passed
+- [x] Issue solved: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it)
