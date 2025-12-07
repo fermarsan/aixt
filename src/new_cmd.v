@@ -15,20 +15,20 @@ import aixt.setup
 fn new_cmd(cmd cli.Command) ! {
 	println('Aixt path:\n\t${os.executable()}\n')
 	aixt_path := os.dir(os.executable())
-	device := if cmd.flags.get_string('device')! == '' {	
-		os.input('Input the target device: ')
-	} else {
+	device := if cmd.flags.get_string('device')! != '' {	
 		cmd.flags.get_string('device')!
+	} else {
+		os.input('Input the target device: ')
 	}
-	path := if cmd.flags.get_string('folder')! == '' {	
+	path := if cmd.flags.get_string('folder')! != '' {
+		os.abs_path(cmd.flags.get_string('folder')!)	
+	} else {
 		os.abs_path(os.input('Input your project folder: '))
-	} else {
-		os.abs_path(cmd.flags.get_string('folder')!)
 	}
-	name := if cmd.flags.get_string('name')! == '' {	
-		os.input('Input your project name: ')
+	name := if cmd.flags.get_string('name')! != '' {
+		cmd.flags.get_string('name')!	
 	} else {
-		cmd.flags.get_string('name')!
+		os.input('Input your project name: ')
 	}
 	if cmd.args.len != 0 {
 		println(cmd.help_message())
