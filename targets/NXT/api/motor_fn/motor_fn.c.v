@@ -5,7 +5,7 @@
 //
 // Description: Motor module for NXT (NXC backend)
 
-module motor	// NXC Output
+module motor_fn	// NXC Output
 
 // Output port constants are used when calling motor control API functions. 
 @[as_macro] pub const a   = 0x00
