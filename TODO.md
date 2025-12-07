@@ -37,7 +37,6 @@ Tasks to do in Aixt
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
 - [ ] Implement the `init` command
 - [ ] Interactive mode for `init` and `new`
-- [ ] Add a `v.mod` file inside each project folder in order to use it as setup file
 
 
 ### Done ✓make
@@ -64,3 +63,4 @@ Tasks to do in Aixt
   - [x] Implement `eprint()` function
 - [x] Migrate `aixt.v` file to an V's standard CLI app using `cli` module
 - [x] Aixt's `new` command has now an interactive mode (by flag)
+- [x] Add a `v.mod` file inside each project folder in order including 'device' and 'port' fields

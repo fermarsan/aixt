@@ -8,6 +8,7 @@ module main
 // Aixt transpiler
 import cli
 import os
+import v.vmod
 import aixt.setup
 
 // new_cmd is called after command `aixt new [flags]`
@@ -20,9 +21,9 @@ fn new_cmd(cmd cli.Command) ! {
 		cmd.flags.get_string('device')!
 	}
 	path := if cmd.flags.get_string('folder')! == '' {	
-		os.input('Input your project folder: ')
+		os.abs_path(os.input('Input your project folder: '))
 	} else {
-		cmd.flags.get_string('folder')!
+		os.abs_path(cmd.flags.get_string('folder')!)
 	}
 	name := if cmd.flags.get_string('name')! == '' {	
 		os.input('Input your project name: ')
@@ -56,6 +57,18 @@ fn new_cmd(cmd cli.Command) ! {
 			os.write_file(os.norm_path('${dest_dir}/Makefile'), makefile) or {
 				panic(err)
 			}
+		}
+		mut project_vmod := vmod.Manifest {
+			name:			name
+			// description:	os.input('Input your project description: ')
+			// version:		'0.0.0'
+			unknown:		{
+				'device':	[device]
+				'port':		$if linux { ['/dev/ttyUSB0'] } $else { ['COM1'] }
+			}
+		}
+		os.write_file(os.norm_path('${dest_dir}/v.mod'), vmod.encode(project_vmod)) or {
+			panic(err)
 		}
 	}
 }
