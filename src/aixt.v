@@ -117,21 +117,18 @@ fn main() {
 						name: 			'device'
 						abbrev:			'd' 
 						description: 	'Target device or board.'
-						required:		true
 					},
 					cli.Flag {
 						flag:			cli.FlagType.string
 						name: 			'folder'
 						abbrev:			'f' 
 						description: 	'Project folder.'
-						required:		true
 					},
 					cli.Flag {
 						flag:			cli.FlagType.string
 						name: 			'name'
 						abbrev:			'n' 
 						description: 	'Project name.'
-						required:		true
 					}
 				]
 				required_args:	0

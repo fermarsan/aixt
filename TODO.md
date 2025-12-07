@@ -63,3 +63,4 @@ Tasks to do in Aixt
 - [x] Implement a `builtin` module similar to the _V's_ one
   - [x] Implement `eprint()` function
 - [x] Migrate `aixt.v` file to an V's standard CLI app using `cli` module
+- [x] Aixt's `new` command has now an interactive mode
