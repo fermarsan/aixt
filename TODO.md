@@ -63,5 +63,5 @@ Tasks to do in Aixt
 - [x] Migrate `aixt.v` file to an V's standard CLI app using `cli` module
 - [x] Aixt's `new` command has now an interactive mode (by flag)
 - [x] Add a `v.mod` file inside each project folder in order including `device` and `port` fields
-  - [x] `transpile` and `c_compile` commands use the `v.mod` file if the flag `device` is not explicitly passed
+  - [x] `transpile`, `c_compile` and `build` commands use the `v.mod` file if the flag `device` is not explicitly passed
 - [x] Issue solved: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it). Fully tested on v 0.4.12.

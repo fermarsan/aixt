@@ -87,7 +87,6 @@ fn main() {
 						name: 			'device'
 						abbrev:			'd' 
 						description: 	'Target device or board.'
-						required:		true
 					}
 				]
 				required_args:	1
