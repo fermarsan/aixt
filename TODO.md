@@ -37,6 +37,7 @@ Tasks to do in Aixt
 - [ ] Implement the `init` command
 - [ ] Interactive mode for `init` and `new`
 - [ ] Remove the fields `device` and `port` of `.vscode/settings.json`
+- [ ] Modify `.vscode/tasks.json` according to the new `v.mod` file
 
 
 ### Done ✓make
