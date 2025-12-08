@@ -65,3 +65,4 @@ Tasks to do in Aixt
 - [x] Issue solved: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it). Fully tested on v 0.4.12.
 - [x] Add a `v.mod` file inside each project folder in order including `device` and `port` fields
   - [x] `transpile`, `c_compile` and `build` commands use the `v.mod` file if the flag `device` is not explicitly passed
+  - [x] `flash` command use the `v.mod` file if the flag `port` is not explicitly passed

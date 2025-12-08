@@ -8,25 +8,27 @@ module main
 // Aixt transpiler
 import cli
 import os
+import v.vmod
 import aixt.setup
 
 // flash_cmd is called after command `aixt flash [flags] source_file`
-fn flash_cmd(cmd cli.Command) ! {
-	println('Aixt path:\n\t${os.executable()}\n')
-	port := cmd.flags.get_string('port')!	// port name 		
+fn flash_cmd(cmd cli.Command) ! {		
 	input_name := os.abs_path(cmd.args[0])		// and source path input
+	path := os.dir(input_name)
 	base_name := input_name.replace('.v', '') 	// input file base name
-	mut project_setup := setup.Setup{}
-	if cmd.args.len != 1 {
-		println(cmd.help_message())
+	port := if cmd.flags.get_string('port')! != '' {	// port name
+		cmd.flags.get_string('port')!
 	} else {
-		ext := match project_setup.backend {
-			'nxc' { '' }
-			'arduino' { '' }
-			else { 'hex' }
-		}
-		name := if ext == '' { base_name } else { '${base_name}.${ext}' }
-		flash(name, port, project_setup)
-		println('\n${name} flashing finished.\n')
+		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['port'][0]
 	}
+	mut project_setup := setup.Setup{}
+	ext := match project_setup.backend {
+		'nxc' { '' }
+		'arduino' { '' }
+		else { 'hex' }
+	}
+	name := if ext == '' { base_name } else { '${base_name}.${ext}' }
+	println('Aixt path:\n\t${os.executable()}\n')
+	flash(name, port, project_setup)
+	println('\n${name} flashing finished.\n')
 }

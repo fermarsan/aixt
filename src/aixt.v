@@ -68,7 +68,6 @@ fn main() {
 						name: 			'port'
 						abbrev:			'p' 
 						description: 	'Flashing port.'
-						required:		true
 					}
 				]
 				required_args:	1
