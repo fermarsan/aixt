@@ -36,6 +36,7 @@ Tasks to do in Aixt
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
 - [ ] Implement the `init` command
 - [ ] Interactive mode for `init` and `new`
+- [ ] Remove the fields `device` and `port` of `.vscode/settings.json`
 
 
 ### Done ✓make
