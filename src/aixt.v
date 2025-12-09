@@ -105,7 +105,7 @@ fn main() {
 			},
 			cli.Command {
 				name:			'new'
-				description:	'Create new project (main.v and editor setup files).'
+				description:	'Create new project (v and editor files).'
 				execute:		new_cmd
 				flags: [
 					cli.Flag {
@@ -125,6 +125,23 @@ fn main() {
 						name: 			'name'
 						abbrev:			'n' 
 						description: 	'Project name.'
+					}
+				]
+				required_args:	0
+				defaults: 		struct {
+					man: false
+				}
+			},
+			cli.Command {
+				name:			'init'
+				description:	'Initialize a project (v and editor files).'
+				execute:		init_cmd
+				flags: [
+					cli.Flag {
+						flag:			cli.FlagType.string
+						name: 			'device'
+						abbrev:			'd' 
+						description: 	'Target device or board.'
 					}
 				]
 				required_args:	0

@@ -34,7 +34,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
-- [ ] Implement the `init` command
 - [ ] Interactive mode for `init` and `new`
 
 
@@ -68,3 +67,4 @@ Tasks to do in Aixt
   - [x] `flash` command use the `v.mod` file if the flag `port` is not explicitly passed
 - [x] Remove the fields `device` and `port` of `.vscode/settings.json`
 - [x] Modify `.vscode/tasks.json` according to the new `v.mod` file
+- [x] Implement the `init` command
