@@ -36,7 +36,6 @@ Tasks to do in Aixt
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
 - [ ] Implement the `init` command
 - [ ] Interactive mode for `init` and `new`
-- [ ] Modify `.vscode/tasks.json` according to the new `v.mod` file
 
 
 ### Done ✓make
@@ -68,3 +67,4 @@ Tasks to do in Aixt
   - [x] `transpile`, `c_compile` and `build` commands use the `v.mod` file if the flag `device` is not explicitly passed
   - [x] `flash` command use the `v.mod` file if the flag `port` is not explicitly passed
 - [x] Remove the fields `device` and `port` of `.vscode/settings.json`
+- [x] Modify `.vscode/tasks.json` according to the new `v.mod` file
