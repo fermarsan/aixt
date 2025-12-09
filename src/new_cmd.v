@@ -44,7 +44,8 @@ fn new_cmd(cmd cli.Command) ! {
 			panic(err) 
 		}
 		if project_setup.backend == 'arduino' { // arduino-cli sketch name requirement
-			os.rename(os.norm_path('${dest_dir}/main.v'), os.norm_path('${dest_dir}/${name}.v')) or {
+			os.rename(os.norm_path('${dest_dir}/main.v'),
+					  os.norm_path('${dest_dir}/${name}.v')) or {
 				panic(err)
 			}
 		}
@@ -67,7 +68,8 @@ fn new_cmd(cmd cli.Command) ! {
 				'port':		$if linux { ['/dev/ttyUSB0'] } $else { ['COM1'] }
 			}
 		}
-		os.write_file(os.norm_path('${dest_dir}/v.mod'), vmod.encode(project_vmod)) or {
+		os.write_file(os.norm_path('${dest_dir}/v.mod'), 
+					  vmod.encode(project_vmod)) or {
 			panic(err)
 		}
 	}

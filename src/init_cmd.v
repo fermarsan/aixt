@@ -27,7 +27,6 @@ fn init_cmd(cmd cli.Command) ! {
 		project_setup.load(device)
 		src_dir := os.norm_path('${aixt_path}/templates/project/${project_setup.target}/')
 		dest_dir := os.norm_path(os.getwd()) 
-		// println('+++++++++++++++++++++++++ ${dest_dir} +++++++++++++++++++++++++')
 		name := os.base(dest_dir)
 		// println('+++++++++++++++++++++++++ ${name} +++++++++++++++++++++++++')
 		list := os.ls(dest_dir) or {
@@ -69,7 +68,8 @@ fn init_cmd(cmd cli.Command) ! {
 				'port':		$if linux { ['/dev/ttyUSB0'] } $else { ['COM1'] }
 			}
 		}
-		os.write_file(os.norm_path('${dest_dir}/v.mod'), vmod.encode(project_vmod)) or {
+		os.write_file(os.norm_path('${dest_dir}/v.mod'), 
+					  vmod.encode(project_vmod)) or {
 			panic(err)
 		}
 	}
