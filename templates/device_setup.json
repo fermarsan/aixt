@@ -1,22 +1,26 @@
 {
-  "target": "port or device name",
-  "board": "board name",
-  "backend": "c / arduino / nxc",
-  "linux_path": "c compiler path on linux",
-  "windows_path": "c compiler path on windows",
-  "flags": "c compiler or Makefile flags",
-},
-"flasher": {
-  "linux_path": "arduino-cli",
-  "windows_path": "arduino-cli.exe",
-  "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32",
+  "target": "Emulator",
+  "board": "Linux, Windows and Android",
+  "backend": "c",
+  "cc": {
+    "name": "gcc_tcc",
+    "linux_path": "gcc",
+    "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe",
+    "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
+  },
+  "flasher": {
+    "name": "none",
+    "linux_path": "",
+    "windows_path": "",
+    "flags": ""
+  },
   "api_paths": [
-    "API path 1 from aixt/ports",
-    "API path 2 from aixt/ports",
-    "API path 3 from aixt/ports"
+    "Emulator"
   ],
-  "v_defines": [],
+  "v_defines": [
+    "flag_1"
+  ],
   "default_cpu_freq": 4000000,
-  "default_string_len": 50,
-  "compiler_setup_path": "setup/compiler_name.json"
+  "default_string_len": 120,
+  "compiler_setup_path": "setup/gcc_tcc.json"
 }
