@@ -15,8 +15,8 @@ import aixt.setup
 fn transpile_cmd(cmd cli.Command) ! {
 	input_name := os.abs_path(cmd.args[0])		// and source path input
 	path := os.dir(input_name)
-	device := if cmd.flags.get_string('device')! != '' {	// device name
-		cmd.flags.get_string('device')!
+	device := if cmd.flags.get_string('target')! != '' {	// device name
+		cmd.flags.get_string('target')!
 	} else {
 		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0]
 	}

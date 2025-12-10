@@ -15,8 +15,8 @@ import aixt.setup
 fn init_cmd(cmd cli.Command) ! {
 	println('Aixt path:\n\t${os.executable()}\n')
 	aixt_path := os.dir(os.executable())
-	device := if cmd.flags.get_string('device')! != '' {	
-		cmd.flags.get_string('device')!
+	device := if cmd.flags.get_string('target')! != '' {	
+		cmd.flags.get_string('target')!
 	} else {
 		os.input('Input the target device: ')
 	}

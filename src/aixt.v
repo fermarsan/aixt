@@ -29,8 +29,8 @@ fn main() {
 				flags: [
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'device'
-						abbrev:			'd' 
+						name: 			'target'
+						abbrev:			't' 
 						description: 	'Target device or board.'
 					}
 				]
@@ -47,8 +47,8 @@ fn main() {
 				flags: [
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'device'
-						abbrev:			'd' 
+						name: 			'target'
+						abbrev:			't' 
 						description: 	'Target device or board.'
 					}
 				]
@@ -83,8 +83,8 @@ fn main() {
 				flags: [
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'device'
-						abbrev:			'd' 
+						name: 			'target'
+						abbrev:			't' 
 						description: 	'Target device or board.'
 					}
 				]
@@ -110,8 +110,8 @@ fn main() {
 				flags: [
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'device'
-						abbrev:			'd' 
+						name: 			'target'
+						abbrev:			't' 
 						description: 	'Target device or board.'
 					},
 					cli.Flag {
@@ -139,8 +139,8 @@ fn main() {
 				flags: [
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'device'
-						abbrev:			'd' 
+						name: 			'target'
+						abbrev:			't' 
 						description: 	'Target device or board.'
 					}
 				]

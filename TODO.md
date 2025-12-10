@@ -34,7 +34,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
-- [ ] change `device` flag by `target` 
 
 
 ### Done ✓make
@@ -69,3 +68,4 @@ Tasks to do in Aixt
 - [x] Modify `.vscode/tasks.json` according to the new `v.mod` file
 - [x] Implement the `init` command
 - [x] Interactive mode for `init` and `new`
+- [x] change `device` flag by `target` 
