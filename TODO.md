@@ -34,6 +34,7 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
+- [ ] change `device` flag by `target` 
 
 
 ### Done ✓make
