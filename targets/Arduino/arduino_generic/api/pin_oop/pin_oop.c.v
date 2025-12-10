@@ -6,11 +6,6 @@
 // Description: Pin management functions for Arduino devices (OOP)
 module pin_oop
 
-// Pin is a struct that represents a digital pin
-pub struct Pin {
-    id  u8
-}
-
 fn C.pinMode(id u8, mode u8) // uncomment if not included in api/builtin.c.v
 fn C.digitalWrite(id u8, val u8) // uncomment if not included in api/builtin.c.v
 fn C.digitalRead(id u8) u8
@@ -19,6 +14,17 @@ fn C.DIGITAL_TOGGLE(id u8)
 // fn C.digitalPinToBitMask(id u8)
 // fn C.portInputRegister(id u32)
 
+// pin modes
+@[as_macro] pub const input		  = u8(C.INPUT)
+@[as_macro] pub const output	  = u8(C.OUTPUT)
+@[as_macro] pub const in_pullup   = u8(C.INPUT_PULLUP)
+@[as_macro] pub const in_pulldown = u8(C.INPUT_PULLDOWN)
+
+// Pin is a struct that represents a digital pin
+pub struct Pin {
+pub:
+    id  u8
+}
 
 // new returns a new Pin instance
 pub fn new(id u8, mode u8) &Pin {

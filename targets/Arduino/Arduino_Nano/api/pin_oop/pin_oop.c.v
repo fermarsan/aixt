@@ -33,4 +33,5 @@ module pin_oop
 
 
 // builtin LED
-pub const led0 = Pin.new(pin_oop.d13, pin_oop.input)
+// pub const led0 = Pin.new(pin_oop.d13, pin_oop.input)
+pub const led0 = Pin{ pin_oop.d13 }
