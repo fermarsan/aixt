@@ -8,11 +8,10 @@ Tasks to do in Aixt
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] dynamic memory definition
 - [ ] Implement uart.input()
-- [ ] Support for arrays and strings initialized inside "for" statement
+- [ ] Support for arrays and strings initialized inside `for` statement
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Implement an equivalent to Arduino's `millis()`
-<!-- - [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO -->
 - [ ] Allow multi-arg functions
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
