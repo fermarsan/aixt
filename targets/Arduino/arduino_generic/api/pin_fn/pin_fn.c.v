@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions Arduino devices
-module pin
+module pin_fn
 
 fn C.pinMode(id u8, mode u8)	 
 fn C.digitalWrite(id u8, val u8) 

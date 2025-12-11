@@ -69,4 +69,4 @@ Tasks to do in Aixt
 - [x] change `device` flag by `target` 
 - [x] Define as default the object oriented modules (`pin`, `motor`, etc) less in low memory devices like PICs
   - [x] Define as standard module's name `module` for unique and OOP versions and `module_fn` for only-funcional ones
-  - [x] Update according that the Emulator target
+  - [x] Update according the new names, the targets: Emulator, (arduino backend devices)
