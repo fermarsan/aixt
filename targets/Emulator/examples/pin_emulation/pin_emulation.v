@@ -1,10 +1,9 @@
-import pin_oop as pin { Pin }
+import pin { Pin }
 import time 
 
 fn main() {
-    mut green_led := pin.Pin { pin.a }
+    mut green_led := Pin { pin.a }
     mut red_led := Pin.new(pin.w)
-    pin.update()
     time.sleep_ms(1000)
     green_led.high()
     red_led.write(1)

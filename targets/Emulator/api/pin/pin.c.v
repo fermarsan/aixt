@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: This is a module to emulate digital pines in console.
-module pin_oop
+module pin
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,12 +22,6 @@ __global (
 	pin__pins = [0, 0, 0, 0, 0, 0, 0, 0] // virtual pin array
 	pin__input_value = 0
 )
-
-pub struct Pin {
-pub:
-	id	int
-}
-
 
 // pin_update prints the pins table in the command line
 pub fn update() {
@@ -59,7 +53,13 @@ pub fn update() {
 }
 
 fn init() {
-	pin_oop.update()
+	update()
+}
+
+
+pub struct Pin {
+pub:
+	id	int
 }
 
 //new returns a new Pin instance
@@ -72,48 +72,48 @@ pub fn Pin.new(id u8) Pin {
 
 // high function puts a high value (logic 1) to a specific pin
 @[inline]
-pub fn (mut pin Pin) high() {	
-    pin__pins[pin.id] = 1
-    pin_oop.update()
+pub fn (mut p Pin) high() {	
+    pin__pins[p.id] = 1
+    update()
 }
 
 // high function puts a low value (logic 0) to a specific pin
 @[inline]
-pub fn (mut pin Pin) low() {	
-    pin__pins[pin.id] = 0
-    pin_oop.update()
+pub fn (mut p Pin) low() {	
+    pin__pins[p.id] = 0
+    update()
 }
 
 // write puts a logic value to a specific pin
 @[inline]
-pub fn (mut pin Pin) read() int {  
+pub fn (mut p Pin) read() int {  
 	pin__input_value = 0
     $if linux {
         C.system("clear")
     } $else {
         C.system("cls")
     }
-	C.printf(' Aixt virtual pins input	  pin %d : ', pin.id)
+	C.printf(' Aixt virtual pins input	  pin %d : ', p.id)
     C.scanf('%ld', &pin__input_value)
 	if pin__input_value == 0 {
-        pin__pins[pin.id] = 0
+        pin__pins[p.id] = 0
     } else {
-        pin__pins[pin.id] = 1
+        pin__pins[p.id] = 1
     }
-    pin_oop.update()
+    update()
     return pin__input_value
 }
 
 // toggle function toggles the logic value of a specific pin
 @[inline]
-pub fn (mut pin Pin) toggle() {	
-    pin__pins[pin.id] ^= int(1)
-    pin_oop.update()
+pub fn (mut p Pin) toggle() {	
+    pin__pins[p.id] ^= int(1)
+    update()
 }
 
 // write puts a logic value to a specific pin
 @[inline]
-pub fn (mut pin Pin) write(val int) {  
-    pin__pins[pin.id] = val
-    pin_oop.update()
+pub fn (mut p Pin) write(val int) {  
+    pin__pins[p.id] = val
+    update()
 }
