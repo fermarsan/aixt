@@ -1,5 +1,5 @@
 import time { sleep }
-import pin
+import pin_fn as pin
 
 for _ in 0..5 {
 	pin.high(pin.a)
