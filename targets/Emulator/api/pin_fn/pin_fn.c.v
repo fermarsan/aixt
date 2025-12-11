@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: This is a module to emulate digital pines in console.
-module pin
+module pin_fn
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -54,21 +54,21 @@ pub fn update() {
 
 // init function initialize the module
 fn init() {
-	pin.update()
+	pin_fn.update()
 }
 
 // high function puts a high value (logic 1) to a specific pin
 @[inline]
 pub fn high(pin_id int) {
     pin__pins[pin_id] = 1
-    pin.update()
+    pin_fn.update()
 }
 
 // low function puts a low value (logic 0) to a specific pin
 @[inline]
 pub fn low(pin_id int) {
     pin__pins[pin_id] = 0
-    pin.update()
+    pin_fn.update()
 }
 
 // read puts a logic value to a specific pin
@@ -87,7 +87,7 @@ pub fn read(pin_id int) int {
     } else {
         pin__pins[pin_id] = 1
     }
-    pin.update()
+    pin_fn.update()
     return pin__input_value
 }
 
@@ -95,12 +95,12 @@ pub fn read(pin_id int) int {
 @[inline]
 pub fn toggle(pin_id int) {
     pin__pins[pin_id] ^= int(1)
-    pin.update()
+    pin_fn.update()
 }
 
 // write puts a logic value to a specific pin
 @[inline]
 pub fn write(pin_id int, val int) {  
     pin__pins[pin_id] = val
-    pin.update()
+    pin_fn.update()
 }

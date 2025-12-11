@@ -17,8 +17,6 @@ Tasks to do in Aixt
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
 - [ ] Implement `#preinclude`
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
-- [ ] Define if the default modules use functional or object oriented paradigms
-  - [ ] Define a standard way of naming the modules (`module`, `module_fn`, `module_oop`)
 
 
 ### In Progress
@@ -33,6 +31,8 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
+- [ ] Define if the default modules use functional or object oriented paradigms
+  - [ ] Define a standard way of naming the modules (`module`, `module_fn`, `module_oop`)
 
 
 ### Done ✓make
@@ -68,3 +68,4 @@ Tasks to do in Aixt
 - [x] Implement the `init` command
 - [x] Interactive mode for `init` and `new`
 - [x] change `device` flag by `target` 
+- [x] Define as default the object oriented modules (`pin`, `motor`, etc) less in low memory devices like PICs
