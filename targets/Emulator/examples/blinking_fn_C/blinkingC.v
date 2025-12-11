@@ -1,5 +1,5 @@
 import time { sleep }
-import pin {
+import pin_fn as pin {
 	high
 	low
 }
