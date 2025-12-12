@@ -58,7 +58,7 @@ fn init() {
 
 
 pub struct Pin {
-pub:
+pub mut:
 	id	int
 }
 

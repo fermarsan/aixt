@@ -7,7 +7,8 @@ module pin
 #include "toggle.c"
 
 // toggle function toggles the value to a specific pin
-@[as_macro]
-pub fn toggle(id u8) {   
-    C.DIGITAL_TOGGLE(id)
+// @[as_macro]
+@[inline]
+pub fn (mut p Pin) toggle() {   
+    C.DIGITAL_TOGGLE(p.id)
 }
