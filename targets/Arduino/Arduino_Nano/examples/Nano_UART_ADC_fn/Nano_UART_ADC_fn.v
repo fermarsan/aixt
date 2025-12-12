@@ -5,13 +5,12 @@
 
 import time
 import uart
-import adc { ADC }
+import adc_fn as adc
 
 uart.setup(9600)
-mut an_input := ADC.new(adc.ch5)
 
 for {
-	analog := an_input.read()
+	analog := adc.read(adc.ch5)
 	uart.println('ADC channel 0: ${analog}')
 	time.sleep_ms(1000)
 }
