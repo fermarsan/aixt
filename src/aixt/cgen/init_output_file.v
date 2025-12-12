@@ -19,6 +19,8 @@ fn (mut gen Gen) init_output_file() {
 	gen.out << '// Board = ${gen.setup.board}'
 	gen.out << '// Backend = ${gen.setup.backend}\n'
 
+	gen.out << '\n___preincludes___' 
+	gen.out << '\n___includes___' 
 	gen.out << '\n___preprocessor_block___' 
 
 	for v_type, c_type in gen.setup.compiler_types {	// type definitions

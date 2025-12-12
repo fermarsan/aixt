@@ -63,6 +63,8 @@ pub fn transpile(path string, project_setup setup.Setup) {
 		source_paths: 		[]string{}
 		out: 				[]string{}
 		c_preproc_cmds:		[]string{}
+		preincludes:		[]string{}
+		includes:			[]string{}
 		// api_mod_paths:		map[string][]string{}
 		// lib_mod_paths:		map[string][]string{}
 		include_paths:	    []string{}

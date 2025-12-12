@@ -24,6 +24,8 @@ fn (mut gen Gen) out_format() string{
 	out = gen.out.join('\n')
 
 	// do the replacements
+	out = out.replace('___preincludes___', gen.preincludes.join('\n'))
+	out = out.replace('___includes___', gen.includes.join('\n'))
 	out = out.replace('___preprocessor_block___', gen.c_preproc_cmds.join('\n'))
 	// out = out.replace('___includes_block___', gen.includes.join(''))
 	// out = out.replace('___macros_block___', gen.macros.join(''))
