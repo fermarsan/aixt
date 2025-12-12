@@ -29,7 +29,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
-- [ ] Issue: Global struct instances fails
   
 
 
@@ -70,6 +69,7 @@ Tasks to do in Aixt
 - [x] `#preinclude` command fully implemented and tested
 - [x] Issue solved: defining structs and use them in multiples files fails depending on the compiling order
   - [x] Add to the `c_gen` struct the field `typedefs` 
+- [x] Issue solved: Global struct instances fails
 - [x] Define as default the object oriented modules (`pin`, `motor`, etc) less in low memory devices like PICs
   - [x] Define as standard module's name `module` for unique and OOP versions and `module_fn` for only-funcional ones
   - [x] Update according the new names, the targets: Emulator, (arduino backend devices)

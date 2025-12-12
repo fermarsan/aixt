@@ -33,7 +33,7 @@ fn (mut gen Gen) out_format() string{
 	}
 	gen.definitions.insert(0, '#define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000')
 	out = out.replace('___definitions_block___', gen.definitions.join('\n'))
-	out = out.replace('___initialization_block___', gen.init_cmds.join('\n'))
+	// out = out.replace('___initialization_block___', gen.init_cmds.join('\n'))
 
 	// delete multiple unnecessary new-line characteres
 	re.compile_opt('\n\n+') or { panic(err) }
