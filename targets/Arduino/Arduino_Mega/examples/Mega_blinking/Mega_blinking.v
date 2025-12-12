@@ -4,15 +4,11 @@
 // Arduino-Mega board
 
 import time
-import pin { Pin }
+import pin
 
-// mut led := Pin { pin.led0 }	// set the on-board LED as output
-mut led := Pin.new(pin.led0)	// set the on-board LED as output
-
-led.setup(pin.output)
-led.low()	// turn it off 
+led0.low()	// turn the builtin LED off 
 
 for {
-	led.toggle()
+	led0.toggle()
 	time.sleep_ms(500)
 }

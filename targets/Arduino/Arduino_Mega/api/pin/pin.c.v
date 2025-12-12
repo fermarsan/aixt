@@ -78,4 +78,10 @@ module pin
 
 
 // builtin LED
-@[as_macro]	pub const led0 = 13
+__global (
+	led0 = pin.Pin{ pin.d13 }
+)
+
+fn init() {
+	led0.setup(pin.output)
+}

@@ -31,9 +31,7 @@ module pin
 @[as_macro] pub const d21 = 21
 
 
-
 // builtin LED
-// pub const led0 = Pin.new(pin.d13, pin.input)
 __global (
 	led0 = pin.Pin{ pin.d13 }
 )

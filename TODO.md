@@ -65,7 +65,7 @@ Tasks to do in Aixt
 - [x] Implement the `init` command
 - [x] Interactive mode for `init` and `new`
 - [x] change `device` flag by `target` 
-- [x] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
+- [x] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition (functions and constants)
 - [x] `#preinclude` command fully implemented and tested
 - [x] Issue solved: defining structs and use them in multiples files fails depending on the compiling order
   - [x] Add to the `c_gen` struct the field `typedefs` 
