@@ -6,8 +6,10 @@
 import time
 import uart
 import adc
+import pin_fn as pin
 
 uart.setup(9600)
+pin.setup(adc.ch5, pin.input)
 
 for {
 	analog := adc.read(adc.ch5)

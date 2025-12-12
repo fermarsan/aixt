@@ -58,6 +58,34 @@
             }
         },
         {
+            "label": "Aixt: Flash",
+            "type": "shell",
+            "windows": {
+                "command": [
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt flash ${file} ${config:port_windows} }",
+                    "else",
+                    "{ ${config:aixt_windows} flash ${file} ${config:port_windows} }"
+                ]
+            },
+            "linux": {
+                "command": [
+                    "if [ -f pixi.toml ]; then",
+                    "pixi run aixt flash ${file} ${config:port_linux};",
+                    "else",
+                    "${config:aixt_linux} flash ${file} ${config:port_linux};",
+                    "fi"
+                ]
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": "build",
+            "presentation": {
+                "showReuseMessage": false
+            }
+        },
+        {
             "label": "Aixt: Build",
             "type": "shell",
             "windows": {
@@ -77,6 +105,21 @@
                     "fi"
                 ]
             },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": "build",
+            "presentation": {
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Build & Flash",
+            "dependsOn": [
+                "Aixt: Build",
+                "Aixt: Flash"
+            ],
+            "dependsOrder": "sequence",
             "problemMatcher": [
                 "$tsc"
             ],
@@ -126,6 +169,6 @@
             "id": "dirName",
             "description": "Directory name.",
             "default": "."
-        },
+        }
     ]
 }
