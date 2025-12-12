@@ -24,14 +24,12 @@ fn C.DIGITAL_TOGGLE(id u8)
 pub struct Pin {
 pub mut:
     id      u8
-    mode    u8
 }
 
 // new returns a new Pin instance
-pub fn Pin.new(id u8, mode u8) Pin {
+pub fn Pin.new(id u8) Pin {
     return Pin {
         id:     id
-        mode:   mode
     }
 }
 
@@ -39,8 +37,7 @@ pub fn Pin.new(id u8, mode u8) Pin {
 // @[as_macro]
 @[inline]
 pub fn (mut p Pin) setup(mode u8) {   
-    p.mode = mode
-    C.pinMode(p.id, p.mode)
+    C.pinMode(p.id, mode)
 }
 
 // write puts a logic value to a specific pin

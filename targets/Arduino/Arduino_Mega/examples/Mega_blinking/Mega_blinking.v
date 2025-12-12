@@ -6,8 +6,10 @@
 import time
 import pin { Pin }
 
-// mut led := Pin { pin.led0, pin.output }	// set the on-board LED as output
-mut led := Pin.new(pin.led0, pin.output)	// set the on-board LED as output
+// mut led := Pin { pin.led0 }	// set the on-board LED as output
+mut led := Pin.new(pin.led0)	// set the on-board LED as output
+
+led.setup(pin.output)
 led.low()	// turn it off 
 
 for {

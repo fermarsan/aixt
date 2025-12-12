@@ -10,8 +10,7 @@ import regex
 
 // hash_stmt: code generation for hash statements (C preprocessor).
 fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
-	println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
-	// println('########### ${node.ct_conds} ###########')
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	mut out := []string{}
 	match node.kind {
 		'preinclude' {
