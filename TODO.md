@@ -15,7 +15,6 @@ Tasks to do in Aixt
 - [ ] Allow multi-arg functions
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
 - [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
-- [ ] Implement `#preinclude`
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
 
 
@@ -31,6 +30,8 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
+- [ ] Implement `#preinclude`
+- [ ] Issue: defining structs and use them in multiples files fails depending on the compiling order
   
 
 
