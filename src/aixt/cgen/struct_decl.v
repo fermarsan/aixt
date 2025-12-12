@@ -22,7 +22,7 @@ fn (mut gen Gen) struct_decl(node ast.StructDecl) []string {
 			for field in node.fields {
 				fields << gen.ast_node(field)
 			}
-			out << $tmpl('c_templates/struct_decl.tmpl.c')
+			gen.typedefs << $tmpl('c_templates/struct_decl.tmpl.c')
 		}
 		else {
 			out = ['']

@@ -29,8 +29,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
-- [ ] Issue: defining structs and use them in multiples files fails depending on the compiling order
-  - [x] Add to the `c_gen` struct the field `typedefs` 
   
 
 
@@ -72,3 +70,5 @@ Tasks to do in Aixt
   - [x] Update according the new names, the targets: Emulator, (arduino backend devices)
 - [x] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
 - [x] `#preinclude` command fully implemented and tested
+- [x] Issue solved: defining structs and use them in multiples files fails depending on the compiling order
+  - [x] Add to the `c_gen` struct the field `typedefs` 
