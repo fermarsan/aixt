@@ -4,16 +4,16 @@
 // Arduino-Mega board
 
 import time
-import pin_fn as pin
-import adc
-import pwm
+import adc { ADC }
+import pwm { PWM }
 
-pin.setup(adc.ch5, pin.input)
-pin.setup(pwm.ch3, pin.output)
+mut an_input := ADC.new(adc.ch5)
+mut pwm_output := PWM.new(pwm.ch3)
+pwm_output.setup_pin()
 
 for {
-	value := adc.read(adc.ch5)
-	pwm.write(pwm.ch3, u8(value/4))
+	value := an_input.read()
+	pwm_output.write(u8(value/4))
 	time.sleep_ms(100)
 }
 

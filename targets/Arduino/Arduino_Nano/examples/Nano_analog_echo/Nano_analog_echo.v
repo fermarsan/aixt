@@ -4,15 +4,16 @@
 // Arduino-Nano board
 
 import time
-import pin_fn as pin
-import adc
-import pwm
+import adc { ADC }
+import pwm { PWM }
 
-pin.setup(pwm.ch0, pin.output)
+mut an_input := ADC.new(adc.ch5)
+mut pwm_output := PWM.new(pwm.ch3)
+pwm_output.setup_pin()
 
 for {
-	value := adc.read(adc.ch0)
-	pwm.write(pwm.ch0, u8(value/4))	// pwm.write(pwm.ch0, u8(value>>2))
+	value := an_input.read()
+	pwm_output.write(u8(value/4))
 	time.sleep_ms(100)
 }
 

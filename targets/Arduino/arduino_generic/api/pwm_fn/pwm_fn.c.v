@@ -14,7 +14,7 @@ pub fn write(id u8, value u8) {
 	C.analogWrite(id, value)
 } 
 
-//Writes an analog value (PWM wave) to a pin
+// setup_pin function configures as output a PWM pin
 @[as_macro]
 pub fn setup_pin(id u8) {
 	C.pinMode(id, C.OUTPUT)
