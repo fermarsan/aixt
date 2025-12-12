@@ -6,13 +6,6 @@
 // Description: Pin management functions for Arduino devices (OOP)
 module pin
 
-fn C.pinMode(id u8, mode u8) // uncomment if not included in api/builtin.c.v
-fn C.digitalWrite(id u8, val u8) // uncomment if not included in api/builtin.c.v
-fn C.digitalRead(id u8) u8
-fn C.DIGITAL_TOGGLE(id u8)
-// fn C.digitalPinToPort(id u8)
-// fn C.digitalPinToBitMask(id u8)
-// fn C.portInputRegister(id u32)
 
 // pin modes
 @[as_macro] pub const input		  = u8(C.INPUT)

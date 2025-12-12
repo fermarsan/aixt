@@ -1,0 +1,101 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="LedBar" CircId="LedBar-4" mainComp="false" Show_id="false" Show_Val="false" Pos="-36,-68" rotation="0" hflip="-1" vflip="1" label="LedBar-4" idLabPos="-16,-44" labelrot="0" valLabPos="-16,-56" valLabRot="0" Color="Yellow" Size="8 _Leds" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="ResistorDip" CircId="ResistorDip-6" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="4,-68" rotation="0" hflip="-1" vflip="1" label="ResistorDip-6" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" Resistance="100 Ω" Size="8" PullUp="false" PuVolt="5 V" />
+
+<item itemtype="Ground" CircId="Ground-8" mainComp="false" Show_id="false" Show_Val="false" Pos="-60,-4" rotation="0" hflip="1" vflip="1" label="Ground-8" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Subcircuit" CircId="Nano-32" mainComp="false" Show_id="true" Show_Val="false" Pos="44,-124" rotation="0" hflip="1" vflip="1" label="Nano-32" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
+<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Program="Nano-ADC_LEDS/build/Nano-ADC_LEDS.ino.hex" Auto_Load="false" saveEepr="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Potentiometer" CircId="Potentiometer-53" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="148,-20" rotation="90" hflip="1" vflip="1" label="Potentiometer-53" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="10 kΩ" Value_Ohm="10000 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Ground" CircId="Ground-54" mainComp="false" Show_id="false" Show_Val="false" Pos="148,36" rotation="0" hflip="1" vflip="1" label="Ground-54" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Rail" CircId="Rail-55" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="148,-76" rotation="90" hflip="1" vflip="1" label="Rail-55" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="Node" CircId="Node-46" mainComp="false" Pos="-60,-84" />
+
+<item itemtype="Node" CircId="Node-47" mainComp="false" Pos="-60,-76" />
+
+<item itemtype="Node" CircId="Node-48" mainComp="false" Pos="-60,-68" />
+
+<item itemtype="Node" CircId="Node-49" mainComp="false" Pos="-60,-60" />
+
+<item itemtype="Node" CircId="Node-50" mainComp="false" Pos="-60,-52" />
+
+<item itemtype="Node" CircId="Node-51" mainComp="false" Pos="-60,-44" />
+
+<item itemtype="Node" CircId="Node-52" mainComp="false" Pos="-60,-36" />
+
+<item itemtype="Connector" uid="Connector-171" startpinid="LedBar-4-led0-pinP" endpinid="ResistorDip-6-resistor0-ePin1" pointList="-20,-92,-12,-92" />
+
+<item itemtype="Connector" uid="Connector-172" startpinid="LedBar-4-led1-pinP" endpinid="ResistorDip-6-resistor1-ePin3" pointList="-20,-84,-12,-84" />
+
+<item itemtype="Connector" uid="Connector-173" startpinid="LedBar-4-led2-pinP" endpinid="ResistorDip-6-resistor2-ePin5" pointList="-20,-76,-12,-76" />
+
+<item itemtype="Connector" uid="Connector-174" startpinid="LedBar-4-led3-pinP" endpinid="ResistorDip-6-resistor3-ePin7" pointList="-20,-68,-12,-68" />
+
+<item itemtype="Connector" uid="Connector-175" startpinid="LedBar-4-led4-pinP" endpinid="ResistorDip-6-resistor4-ePin9" pointList="-20,-60,-12,-60" />
+
+<item itemtype="Connector" uid="Connector-176" startpinid="LedBar-4-led5-pinP" endpinid="ResistorDip-6-resistor5-ePin11" pointList="-20,-52,-12,-52" />
+
+<item itemtype="Connector" uid="Connector-177" startpinid="LedBar-4-led6-pinP" endpinid="ResistorDip-6-resistor6-ePin13" pointList="-20,-44,-12,-44" />
+
+<item itemtype="Connector" uid="Connector-178" startpinid="LedBar-4-led7-pinP" endpinid="ResistorDip-6-resistor7-ePin15" pointList="-20,-36,-12,-36" />
+
+<item itemtype="Connector" uid="Connector-187" startpinid="Nano-32-2" endpinid="ResistorDip-6-resistor2-ePin4" pointList="52,-76,20,-76" />
+
+<item itemtype="Connector" uid="Connector-188" startpinid="Nano-32-0" endpinid="ResistorDip-6-resistor0-ePin0" pointList="52,-100,28,-100,28,-92,20,-92" />
+
+<item itemtype="Connector" uid="Connector-189" startpinid="ResistorDip-6-resistor1-ePin2" endpinid="Nano-32-1" pointList="20,-84,36,-84,36,-108,52,-108" />
+
+<item itemtype="Connector" uid="Connector-190" startpinid="Nano-32-3" endpinid="ResistorDip-6-resistor3-ePin6" pointList="52,-68,20,-68" />
+
+<item itemtype="Connector" uid="Connector-191" startpinid="ResistorDip-6-resistor4-ePin8" endpinid="Nano-32-4" pointList="20,-60,52,-60" />
+
+<item itemtype="Connector" uid="Connector-192" startpinid="Nano-32-5" endpinid="ResistorDip-6-resistor5-ePin10" pointList="52,-52,20,-52" />
+
+<item itemtype="Connector" uid="Connector-193" startpinid="ResistorDip-6-resistor6-ePin12" endpinid="Nano-32-6" pointList="20,-44,52,-44" />
+
+<item itemtype="Connector" uid="Connector-194" startpinid="Nano-32-7" endpinid="ResistorDip-6-resistor7-ePin14" pointList="52,-36,20,-36" />
+
+<item itemtype="Connector" uid="Connector-197" startpinid="LedBar-4-led1-pinN" endpinid="Node-46-1" pointList="-52,-84,-60,-84" />
+
+<item itemtype="Connector" uid="Connector-198" startpinid="LedBar-4-led0-pinN" endpinid="Node-46-0" pointList="-52,-92,-60,-92,-60,-84" />
+
+<item itemtype="Connector" uid="Connector-200" startpinid="LedBar-4-led2-pinN" endpinid="Node-47-1" pointList="-52,-76,-60,-76" />
+
+<item itemtype="Connector" uid="Connector-201" startpinid="Node-46-2" endpinid="Node-47-0" pointList="-60,-84,-60,-76" />
+
+<item itemtype="Connector" uid="Connector-203" startpinid="LedBar-4-led3-pinN" endpinid="Node-48-1" pointList="-52,-68,-60,-68" />
+
+<item itemtype="Connector" uid="Connector-204" startpinid="Node-47-2" endpinid="Node-48-0" pointList="-60,-76,-60,-68" />
+
+<item itemtype="Connector" uid="Connector-206" startpinid="LedBar-4-led4-pinN" endpinid="Node-49-1" pointList="-52,-60,-60,-60" />
+
+<item itemtype="Connector" uid="Connector-207" startpinid="Node-48-2" endpinid="Node-49-0" pointList="-60,-68,-60,-60" />
+
+<item itemtype="Connector" uid="Connector-209" startpinid="LedBar-4-led5-pinN" endpinid="Node-50-1" pointList="-52,-52,-60,-52" />
+
+<item itemtype="Connector" uid="Connector-210" startpinid="Node-49-2" endpinid="Node-50-0" pointList="-60,-60,-60,-52" />
+
+<item itemtype="Connector" uid="Connector-212" startpinid="LedBar-4-led6-pinN" endpinid="Node-51-1" pointList="-52,-44,-60,-44" />
+
+<item itemtype="Connector" uid="Connector-213" startpinid="Node-50-2" endpinid="Node-51-0" pointList="-60,-52,-60,-44" />
+
+<item itemtype="Connector" uid="Connector-215" startpinid="LedBar-4-led7-pinN" endpinid="Node-52-1" pointList="-52,-36,-60,-36" />
+
+<item itemtype="Connector" uid="Connector-216" startpinid="Node-51-2" endpinid="Node-52-0" pointList="-60,-44,-60,-36" />
+
+<item itemtype="Connector" uid="Connector-217" startpinid="Node-52-2" endpinid="Ground-8-Gnd" pointList="-60,-36,-60,-20" />
+
+<item itemtype="Connector" uid="Connector-218" startpinid="Nano-32-A0" endpinid="Potentiometer-53-PinM" pointList="100,-20,132,-20" />
+
+<item itemtype="Connector" uid="Connector-219" startpinid="Rail-55-outnod" endpinid="Potentiometer-53-PinA" pointList="148,-60,148,-36" />
+
+<item itemtype="Connector" uid="Connector-220" startpinid="Potentiometer-53-PinB" endpinid="Ground-54-Gnd" pointList="148,-4,148,20" />
+
+</circuit>

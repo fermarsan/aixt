@@ -6,10 +6,10 @@
 // Description: Pin management functions Arduino devices
 module pin_fn
 
-fn C.pinMode(id u8, mode u8)	 
-fn C.digitalWrite(id u8, val u8) 
-fn C.digitalRead(id u8) u8
-fn C.DIGITAL_TOGGLE(id u8)
+// fn C.pinMode(id u8, mode u8)	 
+// fn C.digitalWrite(id u8, val u8) 
+// fn C.digitalRead(id u8) u8
+// fn C.DIGITAL_TOGGLE(id u8)
 // fn C.digitalPinToPort(name u8)
 // fn C.digitalPinToBitMask(name u8)
 // fn C.portInputRegister(name u32)
