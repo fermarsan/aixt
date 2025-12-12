@@ -1,7 +1,7 @@
 // Project Name: UART ADC
 // Author: Fernando M. Santa
 // Date: 09/09/2024
-// Arduino-Uno board
+// Arduino-Mega board
 
 import time
 import uart
