@@ -72,4 +72,5 @@ Tasks to do in Aixt
 - [x] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition (functions and constants)
 - [x] Define as default the object oriented modules (`pin`, `motor`, etc) less in low memory devices like PICs
   - [x] Define as standard module's name `module` for unique and OOP versions and `module_fn` for only-funcional ones
-  - [x] Update according the new names, the targets: NXT, Emulator, arduino devices (tested on Uno, Nano and Mega)
+  - [x] Update according the new names, the targets: NXT, Emulator and arduino devices (tested on Uno, Nano and Mega).
+  - [x] Create both functional and OOP version of modules `pin`, `adc`, `pwm`, `motor`, `sensor` and `button`  
