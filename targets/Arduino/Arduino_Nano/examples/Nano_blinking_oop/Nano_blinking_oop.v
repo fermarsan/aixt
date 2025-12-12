@@ -3,10 +3,11 @@
 // Date: 2024-2025
 // Arduino-Nano board
 import time
-import pin_oop as pin
+import pin
 
 // declare an instance of the Pin struct
 mut ext_led := pin.Pin{ pin.d15 }	// LED on D15
+ext_led.setup(pin.output)
 
 ext_led.high()	// turn on an external LED
 

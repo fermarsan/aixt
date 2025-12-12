@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions Arduino devices
-module pin_oop
+module pin_fn
 
 // pin names 
 @[as_macro] pub const d0 = 0 
@@ -30,8 +30,5 @@ module pin_oop
 @[as_macro] pub const d20 = 20
 @[as_macro] pub const d21 = 21
 
-
-
 // builtin LED
-// pub const led0 = Pin.new(pin_oop.d13, pin_oop.input)
-pub const led0 = Pin{ pin_oop.d13 }
+@[as_macro]	pub const led0 = 13
