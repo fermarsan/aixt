@@ -1,13 +1,15 @@
 // Project name: UART ADC
 // Author: Fernando M. Santa
-// Date: 09/09/2024
+// Date: 2024-2025
 // Arduino-Uno board
 
 import time
 import uart
 import adc
+import pin_fn as pin
 
 uart.setup(9600)
+pin.setup(adc.ch5, pin.input)
 
 for {
 	analog := adc.read(adc.ch5)

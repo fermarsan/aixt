@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions Arduino devices
-module pin
+module pin_fn
 
 // pin names 
 @[as_macro] pub const d0 = 0 

@@ -1,6 +1,6 @@
 // Project name: Blinking
 // Author: Fernando M. Santa
-// Date: 08/09/2024
+// Date: 2024-2025
 // Arduino-Nano board
 
 import time
@@ -8,7 +8,7 @@ import pin_fn as pin
 import adc
 import pwm
 
-pin.setup(pin.d3, pin.output)
+pin.setup(pwm.ch0, pin.output)
 
 for {
 	value := adc.read(adc.ch0)

@@ -3,10 +3,9 @@
 // Date: 2024-2025
 // Arduino-Uno board
 import time
-import pin
+import pin_fn as pin
 
-pin.setup(pin.led0, pin.output)	// set the on-board LED as output
-pin.low(pin.led0)				// turn it off 
+pin.low(pin.led0)				// turn the on-board off 
 
 for {
 	pin.toggle(pin.led0)
