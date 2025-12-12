@@ -6,8 +6,8 @@
 // Description: This is a module to emulate digital pines in console.
 module pin_fn
 
-#include <stdio.h>
 #include <stdlib.h>
+#preinclude <stdio.h>
 
 pub const a = 0	// pin names
 pub const b = 1

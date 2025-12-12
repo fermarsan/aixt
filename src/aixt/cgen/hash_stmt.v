@@ -18,10 +18,14 @@ fn (mut gen Gen) hash_stmt(node ast.HashStmt) []string {
 			if '#include ${node.main}' !in gen.preincludes {
 				gen.preincludes << '#include ${node.main}'
 			}
+			if '#include ${node.main}' in gen.includes {
+				gen.includes.delete(gen.includes.index('#include ${node.main}'))
+			}
 		}
 		'include' {
 			if node.val.contains('<') && node.val.contains('>') {	// if it is a standard header
-				if '#include ${node.main}' !in gen.includes {
+				if '#include ${node.main}' !in gen.includes &&
+				   '#include ${node.main}' !in gen.preincludes {
 					gen.includes << '#include ${node.main}'
 				}
 			} else {	// if it is a custom header

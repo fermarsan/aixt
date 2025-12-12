@@ -29,9 +29,7 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
-- [ ] Implement `#preinclude`
 - [ ] Issue: defining structs and use them in multiples files fails depending on the compiling order
-- [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
   
 
 
@@ -71,3 +69,5 @@ Tasks to do in Aixt
 - [x] Define as default the object oriented modules (`pin`, `motor`, etc) less in low memory devices like PICs
   - [x] Define as standard module's name `module` for unique and OOP versions and `module_fn` for only-funcional ones
   - [x] Update according the new names, the targets: Emulator, (arduino backend devices)
+- [x] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
+- [x] `#preinclude` command fully implemented and tested
