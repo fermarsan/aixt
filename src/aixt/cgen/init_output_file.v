@@ -39,5 +39,4 @@ fn (mut gen Gen) init_output_file() {
 	gen.out << '\n___typedefs_block___'
 	gen.out << '\n___preprocessor_block___'
 	gen.out << '\n___definitions_block___\n'
-	// gen.out << '\n___initialization_block___\n'
 }

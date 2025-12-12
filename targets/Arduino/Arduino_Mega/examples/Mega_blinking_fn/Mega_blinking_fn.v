@@ -6,8 +6,7 @@
 import time
 import pin_fn as pin
 
-// pin.setup(pin.led0, pin.output)	// set the on-board LED as output
-pin.low(pin.led0)				// turn it off 
+pin.low(pin.led0)	// turn the on-board LED off 
 
 for {
 	pin.toggle(pin.led0)

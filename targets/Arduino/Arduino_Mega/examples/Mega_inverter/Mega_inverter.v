@@ -6,13 +6,13 @@
 import time
 import pin { Pin }
 
-mut sw := Pin.new(pin.d8);		sw.setup(pin.input)
-mut led := Pin.new(pin.d13);	led.setup(pin.output)	// builtin LED
+mut sw := Pin.new(pin.d8)	// define an input switch
+sw.setup(pin.input)
 
 for {
 	if sw.read() == 1 {
-		led.low()	
+		led0.low()	
 	} else {
-		led.high()
+		led0.high()
 	}
 }

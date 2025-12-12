@@ -80,9 +80,9 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 						stmt = stmt.replace('(${names})', '(__VA_ARGS__)')	
 						names = '...'		
 					}	
-					out << $tmpl('c_templates/fn_decl_as_macro.tmpl.c')#[..-1].replace('return', '')
+					gen.c_preproc_cmds << $tmpl('c_templates/fn_decl_as_macro.tmpl.c')#[..-1].replace('return', '')
 				} else {
-					out << $tmpl('c_templates/fn_decl_as_multi_macro.tmpl.c')#[..-2].replace('return', '')
+					gen.c_preproc_cmds << $tmpl('c_templates/fn_decl_as_multi_macro.tmpl.c')#[..-2].replace('return', '')
 				}
 			// ---------- functions as Interrupt Service Routines ----------
 			} else if attrs.contains('_isr') {
