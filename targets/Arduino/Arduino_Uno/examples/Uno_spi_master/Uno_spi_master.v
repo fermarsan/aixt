@@ -9,7 +9,7 @@
 module main
 
 import spi
-import pin
+import pin_fn as pin
 import uart
 import time
 

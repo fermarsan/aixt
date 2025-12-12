@@ -7,7 +7,7 @@
 // Date: 10/03/2025
 // Arduino-Uno board
 import spi
-import pin
+import pin_fn as pin
 import uart
 import time
 
