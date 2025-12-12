@@ -3,7 +3,7 @@
 // Date: 17/06/2025
 // Arduino Nano board
 
-import pin
+import pin_fn as pin
 import ext
 
 @[ext_isr:'pin.d2']	// interrupt service routine

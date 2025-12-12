@@ -81,5 +81,5 @@ module pin_fn
 @[as_macro]	pub const led0 = 13
 
 fn init() {
-	setup(led0, pin_fn.output)
+	setup(led0, output)
 }

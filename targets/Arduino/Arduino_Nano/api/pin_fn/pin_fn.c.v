@@ -32,3 +32,7 @@ module pin_fn
 
 // builtin LED
 @[as_macro]	pub const led0 = 13
+
+fn init() {
+	setup(led0, output)
+}
