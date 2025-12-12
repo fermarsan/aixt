@@ -24,11 +24,10 @@ fn (mut gen Gen) out_format() string{
 	out = gen.out.join('\n')
 
 	// do the replacements
-	out = out.replace('___preincludes___', gen.preincludes.join('\n'))
-	out = out.replace('___includes___', gen.includes.join('\n'))
+	out = out.replace('___preincludes_block___', gen.preincludes.join('\n'))
+	out = out.replace('___includes_block___', gen.includes.join('\n'))
+	out = out.replace('___typedefs_block___', gen.typedefs.join('\n'))
 	out = out.replace('___preprocessor_block___', gen.c_preproc_cmds.join('\n'))
-	// out = out.replace('___includes_block___', gen.includes.join(''))
-	// out = out.replace('___macros_block___', gen.macros.join(''))
 	if !gen.cpu_freq_defined {
 		gen.definitions.insert(0, '#define _const_main__cpu_freq  ${gen.setup.default_cpu_freq}')
 	}

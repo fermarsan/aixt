@@ -30,6 +30,7 @@ Tasks to do in Aixt
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
 - [ ] Issue: defining structs and use them in multiples files fails depending on the compiling order
+  - [x] Add to the `c_gen` struct the field `typedefs` 
   
 
 

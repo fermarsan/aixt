@@ -14,7 +14,7 @@ fn (mut gen Gen) struct_decl(node ast.StructDecl) []string {
 		.v {
 			name := node.name.replace('.', '__')
 			if gen.setup.backend != 'nxc' {
-				gen.definitions << 'typedef struct ${name} ${name};'
+				gen.typedefs << 'typedef struct ${name} ${name};'
 			}
 			// type_def := if gen.setup.backend == 'nxc' {''} else {'typedef'}
 			attrs := node.attrs.map(it.name).join(' ')
