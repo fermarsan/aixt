@@ -29,8 +29,7 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
-- [ ] Issue: interrupts examples for arduino backend fail
-  
+- [ ] Issue: interrupts examples for arduino backend fail  
 
 
 ### Done ✓make
