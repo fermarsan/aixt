@@ -1,6 +1,6 @@
 # Guía rápida de PIC16F8X
 ## Referencia del PIC16 utilizado por la marca MICROCHIP
-- PIC16F8X (PIC16F83, PIC16F84, PIC16CR83, PIC16CR84)
+- PIC16F8X (Incluye PIC16F83, PIC16F84 y PIC16F84A)
 
 **NOTA** Esta guía **NO** incluye módulos **ADC**, **PWM** o **UART**, ya que el PIC16F8x no tiene estos módulos.
 
