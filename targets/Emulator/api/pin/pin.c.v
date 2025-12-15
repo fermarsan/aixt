@@ -23,7 +23,7 @@ __global (
 	pin__input_value = 0
 )
 
-// update function prints the pins table in the command line
+// pin_update prints the pins table in the command line
 pub fn update() {
 	$if linux {
 		C.system('clear')
@@ -52,55 +52,68 @@ pub fn update() {
 	C.printf("'-----'-----'-----'-----'-----'-----'-----'-----'\n")
 }
 
-// init function initialize the module
 fn init() {
-	pin.update()
+	update()
+}
+
+
+pub struct Pin {
+pub mut:
+	id	int
+}
+
+//new returns a new Pin instance
+@[inline]
+pub fn Pin.new(id u8) Pin {
+    return Pin {
+		id: id
+	}
 }
 
 // high function puts a high value (logic 1) to a specific pin
 @[inline]
-pub fn high(pin_id int) {
-    pin__pins[pin_id] = 1
-    pin.update()
+pub fn (mut p Pin) high() {	
+    pin__pins[p.id] = 1
+    update()
 }
 
-// low function puts a low value (logic 0) to a specific pin
+// high function puts a low value (logic 0) to a specific pin
 @[inline]
-pub fn low(pin_id int) {
-    pin__pins[pin_id] = 0
-    pin.update()
+pub fn (mut p Pin) low() {	
+    pin__pins[p.id] = 0
+    update()
 }
 
-// read puts a logic value to a specific pin
+// write puts a logic value to a specific pin
 @[inline]
-pub fn read(pin_id int) int { 
+pub fn (mut p Pin) read() int {  
 	pin__input_value = 0
     $if linux {
         C.system("clear")
     } $else {
         C.system("cls")
     }
-	C.printf(' Aixt virtual pins input\t  pin %d : ', pin_id)
+	C.printf(' Aixt virtual pins input	  pin %d : ', p.id)
     C.scanf('%ld', &pin__input_value)
 	if pin__input_value == 0 {
-        pin__pins[pin_id] = 0
+        pin__pins[p.id] = 0
     } else {
-        pin__pins[pin_id] = 1
+        pin__pins[p.id] = 1
     }
-    pin.update()
+    update()
     return pin__input_value
 }
 
 // toggle function toggles the logic value of a specific pin
 @[inline]
-pub fn toggle(pin_id int) {
-    pin__pins[pin_id] ^= int(1)
-    pin.update()
+pub fn (mut p Pin) toggle() {	
+    pin__pins[p.id] ^= int(1)
+    update()
 }
 
 // write puts a logic value to a specific pin
 @[inline]
-pub fn write(pin_id int, val int) {  
-    pin__pins[pin_id] = val
-    pin.update()
+pub fn (mut p Pin) write(val int) {  
+    pin__pins[p.id] = val
+    update()
 }

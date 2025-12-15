@@ -25,6 +25,9 @@ pub mut:
 	// imports				[]string
 	source_paths		[]string
 	out           		[]string
+	preincludes			[]string
+	includes			[]string
+	typedefs			[]string
 	c_preproc_cmds		[]string
 	// api_mod_paths  		map[string][]string
 	// lib_mod_paths		map[string][]string

@@ -1,19 +1,18 @@
 // Project Name: Logic inverter
 // Author: Fernando M. Santa
-// Date: 09/09/2024
-// Arduino-Uno board
+// Date: 2024-2025
+// Arduino-Mega board
 
 import time
-import pin
-import adc
-import pwm
+import pin { Pin }
 
-pin.setup(pin.d8, pin.input)
+mut sw := Pin.new(pin.d8)	// define an input switch
+sw.setup(pin.input)
 
 for {
-	if pin.read(pin.d8) == 1 {
-		pin.low(pin.led0)	// builtin LED
+	if sw.read() == 1 {
+		led0.low()	
 	} else {
-		pin.high(pin.led0)
+		led0.high()
 	}
 }

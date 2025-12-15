@@ -32,7 +32,7 @@ fn (mut gen Gen) const_field(node ast.ConstField) []string {
 	
 	if node.attrs.contains('as_macro') {
 		var_value := gen.ast_node(node.expr).join('')
-		out << $tmpl('c_templates/constant_as_macro.tmpl.c')#[..-1]
+		gen.c_preproc_cmds << $tmpl('c_templates/constant_as_macro.tmpl.c')#[..-1]
 	} else {
 		match var_type {
 			'array' {

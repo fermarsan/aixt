@@ -4,7 +4,7 @@
 // Arduino-Nano board breathing LED by PWM
 
 import time
-import pin
+import pin_fn as pin
 import pwm
 
 pin.setup(pwm.ch0, pin.output)

@@ -7,24 +7,26 @@
             "windows": {
                 "command": [
                     "if (Test-Path -Path 'pixi.toml')",
-                    "{ pixi run aixt transpile ${config:device} ${file} }",
+                    "{ pixi run aixt transpile ${file} }",
                     "else",
-                    "{ ${config:aixt_windows} transpile ${config:device} ${file} }"
+                    "{ ${config:aixt_windows} transpile ${file} }"
                 ]
             },
             "linux": {
                 "command": [
                     "if [ -f pixi.toml ]; then",
-                    "pixi run aixt transpile ${config:device} ${file};",
+                    "pixi run aixt transpile ${file};",
                     "else",
-                    "${config:aixt_linux} transpile ${config:device} ${file};",
+                    "${config:aixt_linux} transpile ${file};",
                     "fi"
                 ]
             },
-            "problemMatcher": ["$tsc"],
+            "problemMatcher": [
+                "$tsc"
+            ],
             "group": "build",
             "presentation": {
-            "showReuseMessage": false
+                "showReuseMessage": false
             }
         },
         {
@@ -33,24 +35,26 @@
             "windows": {
                 "command": [
                     "if (Test-Path -Path 'pixi.toml')",
-                    "{ pixi run aixt c_compile ${config:device} ${file} }",
+                    "{ pixi run aixt c_compile ${file} }",
                     "else",
-                    "{ ${config:aixt_windows} c_compile ${config:device} ${file} }"
+                    "{ ${config:aixt_windows} c_compile ${file} }"
                 ]
             },
             "linux": {
                 "command": [
                     "if [ -f pixi.toml ]; then",
-                    "pixi run aixt c_compile ${config:device} ${file};",
+                    "pixi run aixt c_compile ${file};",
                     "else",
-                    "${config:aixt_linux} c_compile ${config:device} ${file};",
+                    "${config:aixt_linux} c_compile ${file};",
                     "fi"
                 ]
             },
-            "problemMatcher": ["$tsc"],
+            "problemMatcher": [
+                "$tsc"
+            ],
             "group": "build",
             "presentation": {
-            "showReuseMessage": false
+                "showReuseMessage": false
             }
         },
         {
@@ -59,24 +63,26 @@
             "windows": {
                 "command": [
                     "if (Test-Path -Path 'pixi.toml')",
-                    "{ pixi run aixt build ${config:device} ${file} }",
+                    "{ pixi run aixt build ${file} }",
                     "else",
-                    "{ ${config:aixt_windows} build ${config:device} ${file} }"
+                    "{ ${config:aixt_windows} build ${file} }"
                 ]
             },
             "linux": {
                 "command": [
                     "if [ -f pixi.toml ]; then",
-                    "pixi run aixt build ${config:device} ${file};",
+                    "pixi run aixt build ${file};",
                     "else",
-                    "${config:aixt_linux} build ${config:device} ${file};",
+                    "${config:aixt_linux} build ${file};",
                     "fi"
                 ]
             },
-            "problemMatcher": ["$tsc"],
+            "problemMatcher": [
+                "$tsc"
+            ],
             "group": "build",
             "presentation": {
-            "showReuseMessage": false
+                "showReuseMessage": false
             }
         },
         {
@@ -85,52 +91,67 @@
             "windows": {
                 "command": [
                     "if (Test-Path -Path 'pixi.toml')",
-                    "{ pixi run aixt clean ${config:device} ${file} }",
+                    "{ pixi run aixt clean ${file} }",
                     "else",
-                    "{ ${config:aixt_windows} clean ${config:device} ${file} }"
+                    "{ ${config:aixt_windows} clean ${file} }"
                 ]
             },
             "linux": {
                 "command": [
                     "if [ -f pixi.toml ]; then",
-                    "pixi run aixt clean ${config:device} ${file};",
+                    "pixi run aixt clean ${file};",
                     "else",
-                    "${config:aixt_linux} clean ${config:device} ${file};",
+                    "${config:aixt_linux} clean ${file};",
                     "fi"
                 ]
             },
-            "problemMatcher": ["$tsc"],
+            "problemMatcher": [
+                "$tsc"
+            ],
             "group": "build",
             "presentation": {
-            "showReuseMessage": false
+                "showReuseMessage": false
             }
         },
         {
             "label": "Aixt: Run",
             "type": "shell",
             "windows": {
-                "command": [ "${fileDirname}\\${fileBasenameNoExtension}.exe" ],
+                "command": [
+                    "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                ],
             },
             "linux": {
-                "command": [ "${fileDirname}/${fileBasenameNoExtension}" ],
+                "command": [
+                    "${fileDirname}/${fileBasenameNoExtension}"
+                ],
             },
-            "problemMatcher": ["$tsc"],
+            "problemMatcher": [
+                "$tsc"
+            ],
             "group": "build",
             "presentation": {
-            "showReuseMessage": false
-            }  
-        },,
+                "showReuseMessage": false
+            }
+        },
+        ,
         {
             "label": "Aixt: Compile & Run",
             "group": "build",
             "dependsOrder": "sequence",
-            "dependsOn": ["Aixt: Compile", "Aixt: Run"]
+            "dependsOn": [
+                "Aixt: Compile",
+                "Aixt: Run"
+            ]
         }
         {
             "label": "Aixt: Build & Run",
             "group": "build",
             "dependsOrder": "sequence",
-            "dependsOn": ["Aixt: Build", "Aixt: Run"]
+            "dependsOn": [
+                "Aixt: Build",
+                "Aixt: Run"
+            ]
         }
     ]
 }

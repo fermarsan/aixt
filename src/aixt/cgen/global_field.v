@@ -13,7 +13,7 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 	mut out := []string{}
 	mut ref, mut var_type := gen.get_str_c_type(node.typ, false)
 
-	// println('>>>>>>>>>>>>>>>>>> global: ${var_type} <<<<<<<<<<<<<<<<<<')
+	println('>>>>>>>>>>>>>>>>>> global: ${var_type} <<<<<<<<<<<<<<<<<<')
 	var_name := node.name.replace('.', '__')
 	expr := node.expr
 	match expr {
@@ -45,8 +45,14 @@ fn (mut gen Gen) global_field(node ast.GlobalField) []string {
 				out << $tmpl('c_templates/decl_assign_array.tmpl.c')
 			}
 		}
+		ast.StructInit {
+			var_value := gen.ast_node(node.expr).join('')
+			println('>>>>>>>>>>>>>>>>>> global: ${var_value} <<<<<<<<<<<<<<<<<<')
+			out << $tmpl('c_templates/decl_assign_struct.tmpl.c')
+		}
 		else {
 			var_value := gen.ast_node(node.expr).join('')
+			// println('>>>>>>>>>>>>>>>>>> global: ${var_value} <<<<<<<<<<<<<<<<<<')
 			if var_type == 'string' {
 				len := ''
 				out << $tmpl('c_templates/decl_assign_string.tmpl.c')

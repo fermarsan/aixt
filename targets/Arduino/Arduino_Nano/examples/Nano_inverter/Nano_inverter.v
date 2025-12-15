@@ -1,19 +1,19 @@
 // Project name: Logic inverter
 // Author: Fernando M. Santa
-// Date: 08/09/2024
+// Date: 2024-2025
 // Arduino-Nano board
 
 import time
 import pin
 
-pin.setup(pin.d13, pin.output)
-pin.setup(pin.d12, pin.input)
+mut sw := pin.Pin { pin.d8 }	// define an input switch
+sw.setup(pin.input)
 
 for {
-	if pin.read(pin.d12) == 1 {
-		pin.low(pin.d13)
+	if sw.read() == 1 {
+		led0.low()	
 	} else {
-		pin.high(pin.d13)
+		led0.high()
 	}
 }
 

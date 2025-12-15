@@ -15,7 +15,7 @@ fn C.scanf(args ...any)
 fn C.system(args ...any)
 
 // init function call setup or initialization code
-pub fn init() {
+fn init() {
     C.printf('\033[1;37m')    // white bold text in terminal
 }
 

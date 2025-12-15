@@ -1,5 +1,5 @@
 import time
-import pin
+import pin_fn as pin
 import port
 import adc
 

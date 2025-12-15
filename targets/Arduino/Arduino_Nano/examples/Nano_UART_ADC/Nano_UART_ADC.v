@@ -1,16 +1,17 @@
 // Project name: UART ADC
 // Author: Fernando M. Santa
-// Date: 08/09/2024
+// Date: 2024-2025
 // Arduino-Nano board
 
 import time
 import uart
-import adc
+import adc { ADC }
 
 uart.setup(9600)
+mut an_input := ADC.new(adc.ch5)
 
 for {
-	analog := adc.read(adc.ch0)
+	analog := an_input.read()
 	uart.println('ADC channel 0: ${analog}')
 	time.sleep_ms(1000)
 }

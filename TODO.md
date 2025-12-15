@@ -8,20 +8,13 @@ Tasks to do in Aixt
 - [ ] Implement variable swapping (by using temporal vars) #feat
 - [ ] dynamic memory definition
 - [ ] Implement uart.input()
-- [ ] Support for arrays and strings initialized inside "for" statement
+- [ ] Support for arrays and strings initialized inside `for` statement
 - [ ] Implement `lock` and `rlock` keywords (initially for NXT port)
 - [ ] Implement float formatting on string interpolations (`${x:.2}`)
 - [ ] Implement an equivalent to Arduino's `millis()`
-<!-- - [ ] Implement CH32V and CH5xx families on Arduino through PlatformIO -->
-<!-- - [ ] Add a configuration file inside each project folder in order to make it easy to integrate Aixt to and IDE like PlatformIO -->
 - [ ] Allow multi-arg functions
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
-- [ ] Issue: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it)
-- [ ] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition
-- [ ] Implement `#preinclude`
 - [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
-- [ ] Define if the default modules use functional or object oriented paradigms
-  - [ ] Define a standard way of naming the modules (`module`, `module_fn`, `module_oop`)
 
 
 ### In Progress
@@ -35,7 +28,8 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
-- [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod) 
+- [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
+- [ ] Issue: interrupts examples for arduino backend fail  
 
 
 ### Done ✓make
@@ -60,3 +54,23 @@ Tasks to do in Aixt
   - [x] `PIC16F6xx_14p` ADC module modification by using conditional compilation: `$if PIC16F630 ? {`   
 - [x] Implement a `builtin` module similar to the _V's_ one
   - [x] Implement `eprint()` function
+- [x] Migrate `aixt.v` file to an V's standard CLI app using `cli` module
+- [x] Aixt's `new` command has now an interactive mode (by flag)
+- [x] Issue solved: Transpiler only works with V 0.4.10 or below (check if "-" in names affects it). Fully tested on v 0.4.12.
+- [x] Add a `v.mod` file inside each project folder in order including `device` and `port` fields
+  - [x] `transpile`, `c_compile` and `build` commands use the `v.mod` file if the flag `device` is not explicitly passed
+  - [x] `flash` command use the `v.mod` file if the flag `port` is not explicitly passed
+- [x] Remove the fields `device` and `port` of `.vscode/settings.json`
+- [x] Modify `.vscode/tasks.json` according to the new `v.mod` file
+- [x] Implement the `init` command
+- [x] Interactive mode for `init` and `new`
+- [x] change `device` flag by `target` 
+- [x] `#preinclude` command fully implemented and tested
+- [x] Issue solved: defining structs and use them in multiples files fails depending on the compiling order
+  - [x] Add to the `c_gen` struct the field `typedefs` 
+- [x] Issue solved: Global struct instances fails
+- [x] Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition (functions and constants)
+- [x] Define as default the object oriented modules (`pin`, `motor`, etc) less in low memory devices like PICs
+  - [x] Define as standard module's name `module` for unique and OOP versions and `module_fn` for only-funcional ones
+  - [x] Update according the new names, the targets: NXT, Emulator and arduino devices (tested on Uno, Nano and Mega).
+  - [x] Create both functional and OOP version of modules `pin`, `adc`, `pwm`, `motor`, `sensor` and `button`  
