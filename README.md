@@ -86,7 +86,7 @@ The transpiler is written in [_V_](https://vlang.io/) and uses the _V's_ self na
 /* Turning ON the pin B7 by 5.5 seconds on a
 PIC16F84A microcontroller (XC8 compiler) */
 import time
-import pin
+import pin_fn as pin
 
 fn main() {
     pin.setup(pin.b7, pin.output)
@@ -119,7 +119,7 @@ for { // infinite loop
 ```v
 // blinking LED on Arduino-Nano
 import time
-import pin
+import pin_fn as pin
 
 pin.setup(pin.led0, pin.output) // set the on-board LED as output
 pin.low(pin.led0)				// turn it off 
@@ -134,11 +134,10 @@ for {
 ```v
 // OOP blinking LED on Arduino-Nano
 import time
-import pin_oop as pin   // API v0.2.0
+import pin { Pin }
 
 // declare an instance of the Pin struct
-mut ext_led := pin.Pin{ pin.d15 }	// LED on D15
-
+mut ext_led := Pin.new(pin.d15) // LED on D15
 ext_led.setup(pin.output)   // as output
 ext_led.high()  // turn on an external LED
 
@@ -151,7 +150,7 @@ for {
 ### Blinking LED example by timer interrupt
 ```v
 // Blinking LED by timer interrupt (PIC16F83 10Mhz)
-import pin
+import pin_fn as pin
 import timer0
 
 // interrupt service routine for timer0 overload
