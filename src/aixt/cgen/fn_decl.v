@@ -89,14 +89,16 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				mut attr_arg := ''
 				if node.attrs[0].has_arg {
 					defined_const := gen.table.global_scope.find_const(node.attrs[0].arg) or { 
-						&ast.ConstField {
-							name: ''
+						gen.table.global_scope.find_const(node.attrs[0].arg.replace('pin', 'pin_fn')) or { 
+							&ast.ConstField {
+								name: ''
+							}
 						}
 					}
 					attr_arg = if defined_const.name != '' { 
-						'_${defined_const.expr.str()}'  
+						'_${defined_const.expr.str()}'  // for the c backend (pin name)
 					} else {
-						'_${node.attrs[0].arg}'
+						'_${node.attrs[0].arg}'			// for arduino backend (pin number)
 					}
 				} 
 				gen.definitions.insert(0, '\nvoid (*ptr_${attrs}${attr_arg})(void);')

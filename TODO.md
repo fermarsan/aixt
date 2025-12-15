@@ -29,7 +29,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
-- [ ] Issue: interrupts examples for arduino backend fail  
 
 
 ### Done ✓make
@@ -74,3 +73,4 @@ Tasks to do in Aixt
   - [x] Define as standard module's name `module` for unique and OOP versions and `module_fn` for only-funcional ones
   - [x] Update according the new names, the targets: NXT, Emulator and arduino devices (tested on Uno, Nano and Mega).
   - [x] Create both functional and OOP version of modules `pin`, `adc`, `pwm`, `motor`, `sensor` and `button`  
+- [x] Issue solved: interrupts examples for arduino backend already work  with `pin` y `pin_fn`
