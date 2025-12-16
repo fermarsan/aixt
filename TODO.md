@@ -75,4 +75,4 @@ Tasks to do in Aixt
   - [x] Create both functional and OOP version of modules `pin`, `adc`, `pwm`, `motor`, `sensor` and `button`  
   - [x] Update all the Microchip targets to `pin_fn` 
 - [x] Issue solved: interrupts examples for arduino backend already work  with `pin` y `pin_fn`
-- [ ] Update the `v.mod` file in all the Microchip targets 
+- [x] Update the `v.mod` file in all the Microchip targets 
