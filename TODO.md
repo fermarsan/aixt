@@ -61,6 +61,7 @@ Tasks to do in Aixt
   - [x] `flash` command use the `v.mod` file if the flag `port` is not explicitly passed
 - [x] Remove the fields `device` and `port` of `.vscode/settings.json`
 - [x] Modify `.vscode/tasks.json` according to the new `v.mod` file
+- [x] Modify `.zed/tasks.json` according to the new `v.mod` file
 - [x] Implement the `init` command
 - [x] Interactive mode for `init` and `new`
 - [x] change `device` flag by `target` 
