@@ -73,5 +73,6 @@ Tasks to do in Aixt
   - [x] Define as standard module's name `module` for unique and OOP versions and `module_fn` for only-funcional ones
   - [x] Update according the new names, the targets: NXT, Emulator and arduino devices (tested on Uno, Nano and Mega).
   - [x] Create both functional and OOP version of modules `pin`, `adc`, `pwm`, `motor`, `sensor` and `button`  
-  - [x] Update all the Microchip target to `pin_fn` 
+  - [x] Update all the Microchip targets to `pin_fn` 
 - [x] Issue solved: interrupts examples for arduino backend already work  with `pin` y `pin_fn`
+- [ ] Update the `v.mod` file in all the Microchip targets 
