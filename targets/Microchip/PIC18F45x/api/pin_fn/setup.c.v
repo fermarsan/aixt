@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: SETUP (PIC18F452)
-module pin
+module pin_fn
 
 @[inline]
 pub fn setup(PIN_NAME, PIN_MODE) {

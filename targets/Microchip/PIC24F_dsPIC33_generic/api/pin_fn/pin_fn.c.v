@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions PIC24 Family
-module pin
+module pin_fn
 
 // pin modes
 @[as_macro] pub const input		= u8(1)

@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: LOW (PIC18F452)
-module pin
+module pin_fn
 @[inline]
 pub fn low(PIN_NAME) {
 	C.PIN_NAME = 0          // LATBbits.LB0 = 0

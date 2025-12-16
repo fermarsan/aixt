@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions (Exp16-PIC24 port)
-module pin
+module pin_fn
 
 
 @[as_macro] pub const a0 =   0 

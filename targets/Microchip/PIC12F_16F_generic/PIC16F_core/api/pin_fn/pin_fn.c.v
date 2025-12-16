@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions for 16F family
-module pin
+module pin_fn
 
 // setup configures the mode of a pin
 @[as_macro]

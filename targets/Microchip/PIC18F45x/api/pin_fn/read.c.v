@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: READ (PIC18F452)
-module pin
+module pin_fn
 @[inline]
 pub fn read(PIN_NAME) {
 	C.PIN_NAME ##_i             // PORTBbits.RB0 

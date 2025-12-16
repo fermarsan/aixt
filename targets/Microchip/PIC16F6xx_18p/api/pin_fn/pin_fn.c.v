@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions for 16F62x-648
-module pin
+module pin_fn
 
 // pin names as macros
 @[as_macro] pub const a0 = 0

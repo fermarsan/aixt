@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions for 12F family
-module pin
+module pin_fn
 
 // pin names as macros
 @[as_macro] pub const io0 = 0

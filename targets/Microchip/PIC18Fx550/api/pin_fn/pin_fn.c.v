@@ -5,7 +5,7 @@
 //
 // Description: PIN management functions  (PIC18F2550 port)
 
-module pin
+module pin_fn
 
 #include <xc.h>
 

@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: Pin management functions (PIC18F452)
-module pin
+module pin_fn
 
 #include <xc.h>
 

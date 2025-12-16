@@ -4,7 +4,7 @@
 // License: MIT
 //
 // Description: WRITE (PIC18F452)
-module pin
+module pin_fn
 @[inline]
 pub fn write(PIN_NAME,VAL) {
 	C.PIN_NAME = VAL    // LATBbits.LB0 = 0
