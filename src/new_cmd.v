@@ -15,7 +15,7 @@ import aixt.setup
 fn new_cmd(cmd cli.Command) ! {
 	println('Aixt path:\n\t${os.executable()}\n')
 	aixt_path := os.dir(os.executable())
-	device := if cmd.flags.get_string('target')! != '' {	
+	target := if cmd.flags.get_string('target')! != '' {	
 		cmd.flags.get_string('target')!
 	} else {
 		os.input('Input the target device: ')
@@ -34,7 +34,7 @@ fn new_cmd(cmd cli.Command) ! {
 		println(cmd.help_message())
 	} else {
 		mut project_setup := setup.Setup{}
-		project_setup.load(device)
+		project_setup.load(target)
 		src_dir := os.norm_path('${aixt_path}/templates/project/${project_setup.target}/')
 		dest_dir := os.norm_path('${os.abs_path(path)}/${name}/') 
 		if !os.exists(dest_dir) {
@@ -54,7 +54,7 @@ fn new_cmd(cmd cli.Command) ! {
 			mut makefile := os.read_file(os.norm_path('${dest_dir}/Makefile')) or {
 				panic(err)
 			}
-			makefile = makefile.replace('__device_name__', '${device}')
+			makefile = makefile.replace('__device_name__', '${project_setup.device}')
 			os.write_file(os.norm_path('${dest_dir}/Makefile'), makefile) or {
 				panic(err)
 			}
@@ -64,7 +64,7 @@ fn new_cmd(cmd cli.Command) ! {
 			// description:	os.input('Input your project description: ')
 			// version:		'0.0.0'
 			unknown:		{
-				'device':	[device]
+				'device':	[project_setup.device]
 				'port':		$if linux { ['/dev/ttyUSB0'] } $else { ['COM1'] }
 			}
 		}
