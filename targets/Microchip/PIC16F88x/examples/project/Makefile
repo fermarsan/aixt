@@ -1,4 +1,4 @@
-XCVERSION ?= 3.00
+XCVERSION ?= 3.10
 
 BUILD ?= build
 TARGET_NAME ?= firmware
