@@ -78,4 +78,5 @@ Tasks to do in Aixt
 - [x] Issue solved: interrupts examples for arduino backend already work  with `pin` y `pin_fn`
 - [x] Update the `v.mod` file in all the Microchip targets
 - [x] Issue solved: Makefiles __device_name__ already works well
-- [x] Update `.zed/tasks.json` and `.zed/settings.json` according to the new `v.mod` file
+- [x] Update `tasks.json` and `settings.json` according to the new `v.mod` file
+- [x] Change `aixt_linux` and `aixt_windows` by a single `aixt` in `settings.json`

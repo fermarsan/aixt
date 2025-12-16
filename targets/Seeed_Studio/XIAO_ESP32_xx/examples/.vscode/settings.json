@@ -1,5 +1,7 @@
 {
-    "aixt_linux": "../../../../src",
-    "aixt_windows": "..\\..\\..\\..\\src",
-    "files.associations": {}
+    "aixt": "aixt",
+    "files.associations": {
+        "*.nxc": "c",
+        "*.ino": "c"
+    }
 }
