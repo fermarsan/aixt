@@ -1,9 +1,9 @@
 Module {
-	name: 'PIC16F873_blinking'
+	name: 'PIC16F874_inverter'
 	description: ''
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['PIC16F873']
+	device: ['PIC16F874']
 	port: ['/dev/ttyUSB0']
 }
