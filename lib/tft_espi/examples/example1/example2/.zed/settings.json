@@ -1,13 +1,14 @@
 {
   "file_types": {
-    "V": ["v"],
-    "C": ["ino", "nxc"],
-    "XML": ["sim1"]
-  },
-  "terminal": {
-    "env": {
-      "DEVICE": "ESP32-CYD",
-      "PORT": "/dev/ttyUSB0"
-    }
+    "V": [
+      "v"
+    ],
+    "C": [
+      "ino",
+      "nxc"
+    ],
+    "XML": [
+      "sim1"
+    ]
   }
 }
