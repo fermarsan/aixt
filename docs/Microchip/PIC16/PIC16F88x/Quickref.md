@@ -1,21 +1,22 @@
-# Quick guide to PIC16F886
+# Quick guide to PIC16F88x
 ## Reference of the PIC16 used by the brand MICROCHIP 
-- PIC16F886 (PIC16F882, PIC16F883, PIC16F884 and PIC16F887)
+- PIC16F88x (Includes PIC16F882, PIC16F883, PIC16F884, PIC16F886 and PIC16F887)
 
 **NOTE:** This PIC16F microcontroller has digital outputs, digital inputs, ADC, PWM and serial communication.
 
 ## Pin Names
 Pin names are designated by a letter indicating the port and a number indicating the pin. For example, `a6` indicates pin 6 of port A. All names in **Aixt** are written in lowercase, as follows. [V variable naming rules.] (https://github.com/vlang/v/blob/master/doc/docs.md#variables).
 
-### PIC16F886 pin names
-| PORT   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-|:------:|---|---|---|---|---|---|---|---|
-| **A**  | a0| a1| a2| a3| a4| a5| - | - |
-| **B**  | b0| b1| b2| b3| b4| b5| b6| b7|
-| **C**  | c0| c1| c2| c3| c4| c5| c6| c7|
-| **E**  | - | - | - | e3| - | - | - | - |
+### PIC16F88x pin names
+| Port | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  |
+| :----: | -- | -- | -- | -- | -- | -- | -- | -- |
+|  **A** | a0 | a1 | a2 | a3 | a4 | a5 | a6 | a7 |
+|  **B** | b0 | b1 | b2 | b3 | b4 | b5 | b6 | b7 |
+|  **C** | c0 | c1 | c2 | c3 | c4 | c5 | c6 | c7 |
+|  **E** | e0 | e1 | e2 | e3 | -  | -  | -  | -  |
 
-![alt text](image-1.png) Fountain: (https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/40001291H.pdf)
+![alt text](image-1.png) 
+![alt text](image-3.png)Fountain: (https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/40001291H.pdf)
 
 - `MCLR` stands for Master Clear/Reset, a controller reset pin, and is connected to Vcc (+5 V), using 10k pull-up resistors,
 optional RC capacitor for soft reset.

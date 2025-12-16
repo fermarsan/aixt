@@ -1,8 +1,16 @@
-# Quick Guide for PIC16F62X
+# Quick Guide for PIC16F6xx_18p
 ## Reference of the PIC16 used from the MICROCHIP brand
-- PIC16F62X (PIC16F627, PIC16F627A, PIC16F628 and PIC16F628A)
+- PIC16F6xx_18p (Includes PIC16F627, PIC16F627A, PIC16F628, PIC16F628A and PIC16F648A)
 
-**NOTE:** An 8-bit, RISC microcontroller, the PIC16F62x family is the only one in its category that combines pin-to-pin compatibility with the older PIC16F84, but adds three more peripherals (**USART, PWM-CCP and comparators**), in addition to allowing the disabling of analog modules to recover all digital pins.
+**NOTE:** The 8-bit, RISC microcontroller, the PIC16F6xx_18p family, is pin-compatible with the PIC16F84, but adds advanced peripherals such as **USART**, **PWM**, **CCP1**, and analog comparators, as well as allowing the deactivation of analog modules to recover all pins as digital.
+
+| Model | Flash | USART | PWM (CCP1) | Osc. internal |
+| ---------- | ----- | ----- | ---------- | ------------ |
+| PIC16F627 | 1K | NOT | NOT | NOT |
+| PIC16F627A | 1K | YES | NOT | NOT |
+| PIC16F628 | 2K | NOT | YES | NOT |
+| PIC16F628A | 2K | YES | YES | YES |
+| PIC16F648A | 4K | YES | YES | YES |
 
 ## Pin Names
 Pin names are designated with a letter indicating the port and a number indicating the pin. For example, `b6` indicates pin 6 of port B. All names in **Aixt** are written in lowercase, for clarity. [V variable naming rules.] (https://github.com/vlang/v/blob/master/doc/docs.md#variables).
@@ -16,45 +24,72 @@ Pin names are designated with a letter indicating the port and a number indicati
 - **a0–a3** → can function as comparator inputs **(CMCON)**.
 - **b0** → interrupt input **INT**.
 - **b4–b7** → interrupts on state change **(Port Change)**.
+- **a5** → can function as **MCLR** or digital input (configurable, A models).
 
 **PDIP, SOIC (Plastic Dual In-line Package, Small Outline Integrated Circuit)**
 
 - **Plastic Dual In-line Package:** This is the large package, with pins on the sides, used for prototypes and breadboards. It is easy to solder and fits on a breadboard.
 - **Small Outline Integrated Circuit:** SMD (surface mount) package, medium size, compact, cannot be used on a breadboard without an adapter.
-![alt text](image-1.png)
+![alt text](image-3.png)
+Fountain: (https://ww1.microchip.com/downloads/en/DeviceDoc/40044E.pdf)
+![alt text](image-6.png)
+Fountain: (https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/40300C.pdf)
 
 **SSOP (Shrink Small Outline Package)** Small version, very fine pins, compact, ideal for portable equipment, requires specialized soldering.
-![alt text](image-2.png)Fountain: (https://ww1.microchip.com/downloads/en/DeviceDoc/40300c.pdf)
+![alt text](image-4.png) 
+Fountain: (https://ww1.microchip.com/downloads/en/DeviceDoc/40044E.pdf)
+![alt text](image-7.png)
+Fountain: (https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/40300C.pdf) 
 
 ## Main Specifications
 
-| Nº | Specification       | Typical Value                               |
-| -- | -------------------- | ------------------------------------------ |
-| 1  | Program Memory  | 1K to 4K instructions (depends on the model) |
-| 2  | RAM                  | 224 bytes                                  |
-| 3  | EEPROM               | **128 bytes (all PIC16F62x)**        |
-| 4  | Total Pins        | 18-20                                         |
-| 5  | Operating Voltage | 2.0 V – 5.5 V                              |
-| 6  | Maximum Frequency     | 20 MHz                                     |
+| Feature (PIC16F627A*/628A/648A) | Value |
+----------------------------------- | ----- |
+Program Memory Size (KB) | 1.75* |
+RAM (bytes) | 224 |
+Data EEPROM (bytes) | 128 |
+Number of Pins | 18 |
+Maximum Operating Voltage (V) | 5.5 |
+Minimum Operating Voltage (V) | 2.0 |
+
+Source: (https://www.microchip.com/en-us/product/pic16f627a)
+
+| Feature (PIC16F627/28) | Value |
+---------------------------------------- | ----- |
+Maximum ADC Resolution (bits) | 0 |
+Number of Comparators | 2 |
+Data EEPROM (bytes) | 128 |
+Data Signal Modulator (DSM) | 0 |
+Numerically Controlled Oscillator (NCO) | 0 |
+Maximum Operating Voltage (V) | 5.5 |
+
+Source: (https://www.microchip.com/en-us/product/pic16f627)
 
 ## Features
 
-| Nº | Feature          | Description / Value                |
-| -- | ----------------------- | ---------------------------------- |
-| 1  | Architecture            | M8-bit RISC Microcontroller       |
-| 2  | Digital Pins | 15 (PORTA + PORTB) |
-| 3 | EEPROM | 128 bytes |
-| 4 | PWM | Available on 628(A) and 648A (CCP1) |
-| 5 | USART (Serial) | Yes, on 627A/628A/648A |
-| 6 | Analog Comparators | Yes, with CMCON disable |
-| 7 | Timers | TMR0, TMR1, TMR2 |
-| 8 | Interrupts | 12 available sources |
-| 9 | Watchdog Timer | Yes |
-| 10 | Sleep Mode | Yes |
-| 11 | Maximum Frequency | Up to 20 MHz (200 ns per cycle) |
-| 12 | Program Memory | 1K words (16F627) / 2K words (16F628/628A) |
-| 13 | RAM | 224 bytes |
-| 14 | Operating Voltage | 3.0–5.5 V (F62x) / 2.0–5.5 V (LF62x)                                |
+They have 18 pins, up to 4K words of program memory, 224 bytes of RAM, 128 bytes of EEPROM, operate between 2.0 and 5.5 V, and reach up to 20 MHz, making them suitable for simple control, serial communication, and compact embedded systems.
+
+| Feature | Description |
+----------------------- | --------------------------------------------- |
+| Architecture | **8-bit RISC** Microcontroller |
+| Supported Models | PIC16F627, 627A, 628, 628A, 648A |
+| Packages | **PDIP-18, SOIC-18, SSOP-18** |
+| Compatibility | **Pin-to-pin compatible with PIC16F84** |
+| Program Memory | **1K / 2K / 4K words** (depending on model) |
+| RAM | **224 bytes** |
+| Data EEPROM | **128 bytes** |
+| I/O Pins | **15 digital pins** (PORTA + PORTB) |
+| Operating Voltage | **2.0–5.5 V (LF) / 3.0–5.5 V (F)** |
+| Maximum Frequency | **20 MHz** |
+| Internal Oscillator | **628A and 648A only** |
+| Timers | **TMR0 (8-bit), TMR1 (16-bit), TMR2 (8-bit)** |
+| PWM (CCP1) | **628 / 628A / 648A** |
+| USART | **627A / 628A / 648A** |
+| Analog Comparators | **2 comparators**, disableable |
+| Interrupts | **External INT + change on RB4–RB7** |
+| Watchdog Timer | Yes |
+| Sleep Mode | Yes |
+| ADC | **Not available** |
 
 ## Aixt Base Code (I/O)
 
@@ -81,22 +116,30 @@ pin.write(pin.b2, pin.read(pin.a1))
 
 ## Oscillator and MCLR
 
-- **`MCLR`** configurable as a digital input (only in A versions), adjustable according to the oscilloscope = the constant **CPU_FREQ** depends on the frequency of the external oscillator connected to the PIC.
-- Oscillator Modes:
-  - LP, XT, HS (oscilloscope), 
-  - RC
-  - xternal oscillator connects to pins **OSC1/OSC2**
-  - - **INTOSC (internal oscillator)** → only on 628A/648A
+`MCLR/a5` can be configured as a digital input only on A models (PIC16F627A, 628A, and 648A) using the configuration bits; on non-A models, it functions exclusively as an external reset.
+
+The constant **CPU_FREQ** must match the actual frequency of the oscillator (internal or external) for the delays and timings to be correct.
+
+External oscillator modes:
+- **LP**, **XT**, **HS** (crystal or resonator),
+- **RC**.
+
+The external oscillator is connected to the OSC1/OSC2 pins.
+
+The internal oscillator **INTOSC** is available only on the PIC16F628/28A and PIC16F648A, allowing operation without an external oscillator.
 
 ## Timers
 
-| Timer | Bits | Function |
-| -- | ----------------------- | ---------------------------------- |
-| **TMR0** | 8 bits  | general/counter, prescaler |
-| **TMR1** | 16 bits | timer with prescaler  |
-| **TMR2** | 8 bits  | time base for PWM     |
+| Timer | Size | Description |
+------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+**TMR0** | 8 bits | General-purpose timer/counter with a shared **prescaler** with the Watchdog Timer; can count external or internal pulses. |
+**TMR1** | 16 bits | High-resolution timer with a configurable prescaler, ideal for precise measurements and generating periodic interrupts. |
+**TMR2** | 8 bits | Timer with a **postscaler**, used as the time base for the **PWM module (CCP1)** in models that include it. |
 
 ## Delays
+
+Delays are implemented by software and are suitable for simple tasks; for more precise or non-blocking timings, the use of **TMR0, TMR1 or TMR2** type timers is recommended.
+
 ```v
 import time
 
@@ -109,9 +152,10 @@ pub const CPU_FREQ: u32 = 4_000_000 // 4 MHz
 ```
 
 ## Integrated Modules
-- **USART (Serial) - Universal Synchronous/Asynchronous Transmitter/Receiver**
-- Available in 16F627A / 628A / 648A.
-- Enables asynchronous transmission and reception (9600, 19200, etc.).
+- **USART (Serial) - Universal Asynchronous Transmitter/Receiver**
+  - Available in 16F627A / 628A / 648A.
+  - It supports asynchronous serial communication (e.g., 9600, 19200 bps).
+   - It uses dedicated hardware, reducing the CPU load.
 
 | Register | Function |
 | -- | --------------------------------------------- |
@@ -120,7 +164,7 @@ pub const CPU_FREQ: u32 = 4_000_000 // 4 MHz
 | **SPBRG** | Baud Rate Generator |
 
 - **PWM (CCP1) - Baud Rate Generator**
-  - Available on 16F628(A) and 648A.
+  - Available on 16F628/28A and 648A.
   - Resolution: 10 bits for the duty cycle.
   - Works in conjunction with TMR2; does not require the CPU to manually generate the signal.
 
@@ -132,24 +176,24 @@ pub const CPU_FREQ: u32 = 4_000_000 // 4 MHz
 |**CCPR1L** | Adjusts the Duty Cycle |
 
 - **Comparators**
-  - Two comparators that can be disabled with **(CMCON = 0x07)** to use **RA0–RA3** as digital inputs.
-  - Does not measure voltage.
-  - Available on the entire PIC16F62X family.
+  - Two analog comparators are available across the entire **PIC16F6xx_18p** family.
+  - They can be disabled using `CMCON = 0x07` to use pins **a0–a3** as digital inputs/outputs.
+  - They do not perform analog-to-digital conversion (they do not measure voltage, they only compare levels).
   - Inputs: V+ and V- (two voltages to compare).
   - Output: (1 (high) → if V+ > V-) and (0 (low) → if V+ < V-)
-  - The output can be internally connected to peripherals, such as the TMR0 timer, interrupts, or even the corresponding digital pin.
+  - The output can be routed internally to peripherals as interrupts or used as a logic signal, without the need for external hardware.
 
 | Register | Function |
 | ----------- |  --------------------------------------------------------- |
-| **CMCON** | Configures and enables/disables the comparators. |
-| **VREF** | Programmable voltage reference for the comparisons. |
+| **CMCON** | Configures and enables comparators. |
+**VRCON** | Generates an internal voltage reference. |
 
 ## EEPROM (Electrically Erasable Programmable Read-Only Memory)
 
 - 128 bytes of non-volatile memory.
 - Writing is done using registers EECON1, EECON2, EEADR, and EEDATA.
 - Write process with unlock protection.
-- Data is retained; data is lost in RAM upon power-off.
+- It retains data even without power; RAM loses its contents when turned off.
 - Stores configuration or counters.
 
 | Register | Function |
@@ -161,29 +205,22 @@ pub const CPU_FREQ: u32 = 4_000_000 // 4 MHz
 
 ## Main Registers
 
-| No. | Register | Function |
-| -- | --------------- | ------------------------------ |
-| 1  | PORTA           | Inputs/Outputs RA0–RA5 |
-| 2 | PORTB | Inputs/Outputs RB0–RB7 |
-| 3 | TRISA | Port A Address |
-|4 | TRISB | Port B Address |
-|5 | TMR0 | Timer 0 |
-|6 | TMR1/T1CON | Timer 1 |
-|7 | TMR2/T2CON | Timer 2 |
-|8 | CMCON | Comparators |
-|9 | CCP1CON | PWM Control (models with CCP1) |
-|10 | TXSTA / RCSTA | USART Control |
-|11 | INTCON | Main Interrupts |
-|12 | PIE1 / PIR1 | Peripheral Flags |
-|13 | EECON1 / EECON2 | EEPROM Control                 |
+| Register | Function |
+| ------------------ | ----------------- |
+| PORTA / PORTB | I/O |
+| TRISA / TRISB | Address |
+| INTCON | Interrupts |
+| PIE1 / PIR1 | Peripheral Flags |
+| TMR0 / TMR1 / TMR2 | Timers |
+| CMCON | Comparators |
+| CCP1CON | PWM |
+| TXSTA / RCSTA | USART |
 
 ## Typical Uses
 
-The PIC16F62x is ideal for:
-
-- Replacing the older **PIC16F84** with more features.
-- Controlling small motors with PWM.
+- Replace the older **PIC16F84** with more features.
+- Control small motors with PWM.
 - Serial communication in simple projects.
-- Digital metering with interrupts on RB0 or ​​switching on RB4–RB7.
-- Digital inputs with interrupt-driven debouncing.
+- Digital measurement with interrupts `b0` or changes in `b4–b7`.
+- Digital inputs with interrupt-based debouncing (debouncing is not done automatically by the hardware, it is implemented by software).
 - Low-power systems in Sleep mode.
