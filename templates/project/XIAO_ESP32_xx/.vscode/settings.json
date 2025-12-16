@@ -1,3 +1,8 @@
 {
-    "aixt_linux":   "aixt", // need adding aixt to PATH (symlink)
-    "aixt_windows": "aixt", // need adding aixt to PATH (symlink)
+    "aixt": "aixt",
+    "files.associations": {
+        "*.nxc": "c",
+        "*.ino": "c",
+        "*.sim1": "xml"
+    }
+}

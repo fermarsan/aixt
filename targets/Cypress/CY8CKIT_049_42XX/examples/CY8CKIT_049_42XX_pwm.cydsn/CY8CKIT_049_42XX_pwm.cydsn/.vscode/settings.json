@@ -1,10 +1,16 @@
 {
-    "aixt": "aixt", // need adding aixt to PATH \(symlink\)
-    "device": "CY8CKIT-049",
-    "port_linux": "/dev/ttyUSB0",
-    "port_windows": "COM1",
+    "aixt": "aixt",
     "files.associations": {
         "*.nxc": "c",
-        "*.ino": "c"
+        "*.ino": "c",
+        "*.sim1": "xml"
     }
+}
+    "device": "CY8CKIT-049",
+"port_linux": "/dev/ttyUSB0",
+"port_windows": "COM1",
+"files.associations": {
+    "*.nxc": "c",
+    "*.ino": "c"
+}
 }
