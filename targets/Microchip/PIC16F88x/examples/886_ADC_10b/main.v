@@ -4,7 +4,7 @@
 // PIC16F886 fosc = 10Mhz
 
 import time
-import pin
+import pin_fn as pin
 import port
 import adc
 

@@ -1,6 +1,6 @@
 /* Blinking LED on the Explorer16 board with 
 a PIC24FJ microcontroller (XC16 compiler)*/
-import pin
+import pin_fn as pin
 import time
 
 pin.setup(pin.led6, pin.output)

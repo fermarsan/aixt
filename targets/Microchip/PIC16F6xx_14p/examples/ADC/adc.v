@@ -1,5 +1,5 @@
 import adc
-import pin
+import pin_fn as pin
 
 x := u16 (0)
 

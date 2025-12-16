@@ -1,4 +1,4 @@
-import pin
+import pin_fn as pin
 import adc
 
 a := u16 (0)

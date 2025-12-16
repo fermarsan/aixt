@@ -1,4 +1,4 @@
-import pin
+import pin_fn as pin
 import time{sleep_ms}
 
 pin.setup (pin.b4, pin.output)

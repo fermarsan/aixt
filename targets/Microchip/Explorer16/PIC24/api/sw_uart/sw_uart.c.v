@@ -1,7 +1,7 @@
 module sw_uart
 
 import time
-import pin
+import pin_fn as pin
 
 #define sw_uart.baudrate   19200   //74880   //57600   //38400   //19200
 

@@ -5,7 +5,7 @@
 // PIC16F627 fosc = 20Mhz
 
 import time
-import pin
+import pin_fn as pin
 
 pin.setup(pin.b3, pin.input)
 pin.setup(pin.b4, pin.output)

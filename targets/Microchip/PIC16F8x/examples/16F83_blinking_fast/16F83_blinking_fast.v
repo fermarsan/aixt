@@ -3,7 +3,7 @@
 // Date: 2024-2025
 // PIC16F83 fosc = 4Mhz
 import time
-import pin
+import pin_fn as pin
 import pin.fast as  pin_fast
 
 @[as_macro]

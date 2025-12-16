@@ -3,7 +3,7 @@
 // Date: 2025
 // PIC16F627A fosc = 20Mhz
 
-import pin
+import pin_fn as pin
 import uart
 import time
 

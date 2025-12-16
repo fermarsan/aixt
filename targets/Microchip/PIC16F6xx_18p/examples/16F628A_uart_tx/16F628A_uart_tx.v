@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 2025
 // PIC16F628A fosc = 20Mhz
-import pin
+import pin_fn as pin
 import uart
 import time
 

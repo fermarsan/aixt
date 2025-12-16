@@ -1,7 +1,7 @@
 module sw_uart
 
 import time
-import pin
+import pin_fn as pin
 
 fn read() u8 {
     mask := u8(0x00)

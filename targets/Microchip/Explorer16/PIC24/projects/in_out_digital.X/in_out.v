@@ -1,4 +1,4 @@
-import pin
+import pin_fn as pin
 import time { sleep }
 
 pin.setup(pin.a0, pin.output)	// LED3

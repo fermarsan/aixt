@@ -6,7 +6,7 @@
 //  1  1  1
 
 import time {sleep_ms}
-import pin
+import pin_fn as pin
 
 pin.setup(pin.a0, pin.output) 
 pin.setup(pin.a1, pin.output)

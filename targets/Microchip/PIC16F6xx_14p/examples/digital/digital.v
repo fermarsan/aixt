@@ -1,4 +1,4 @@
-import pin
+import pin_fn as pin
 
 pin.setup (pin.c2, pin.input)
 pin.setup (pin.c4, pin.input)

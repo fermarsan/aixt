@@ -1,5 +1,5 @@
 import adc
-import pin
+import pin_fn as pin
 
 for {
 	if adc.read(pot) > 512 {

@@ -1,6 +1,6 @@
 import port
 import uart
-import pin
+import pin_fn as pin
 
 port.setup(port.b, pin.port.output)
 port.write(port.b, 0b00000000)

@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 2024-2025
 // PIC16F83 fosc = 20Mhz by default
-import pin
+import pin_fn as pin
 import timer0
 
 __global int_flag = false

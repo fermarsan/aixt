@@ -2,7 +2,7 @@
 // Author: Fernando M. Santa
 // Date: 2024-2025
 // PIC16F83 fosc = 10Mhz by default
-import pin
+import pin_fn as pin
 import timer0
 
 // @[as_macro] pub const cpu_freq = 8_000_000	// sets fosc to 8 Mhz

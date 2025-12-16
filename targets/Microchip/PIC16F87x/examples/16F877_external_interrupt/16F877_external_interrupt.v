@@ -4,7 +4,7 @@
 // Changing a LED state by using the external interrupt
 // PIC16F84 fosc = 20Mhz
 
-import pin
+import pin_fn as pin
 import ext
 
 @[ext_isr]

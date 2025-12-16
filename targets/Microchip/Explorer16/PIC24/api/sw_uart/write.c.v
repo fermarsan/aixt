@@ -1,7 +1,7 @@
 module sw_uart
 
 import time
-import pin
+import pin_fn as pin
 
 fn write(data u8) {
     // sw_uart.bitperiod = 1e6 / sw_uart.baudrate

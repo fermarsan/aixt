@@ -1,5 +1,5 @@
 import time
-import pin
+import pin_fn as pin
 
 pin.setup(pin.d6, pin.input)
 pin.setup(pin.a0, pin.output)
