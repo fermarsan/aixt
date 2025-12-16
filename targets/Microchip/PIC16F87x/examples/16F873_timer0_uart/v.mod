@@ -1,9 +1,9 @@
 Module {
-	name: 'Exp16_PIC24_Blinking'
+	name: 'PIC16F873_timer0_uart'
 	description: ''
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['Exp16_PIC24']
+	device: ['PIC16F873']
 	port: ['/dev/ttyUSB0']
 }

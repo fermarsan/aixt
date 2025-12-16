@@ -1,9 +1,9 @@
 Module {
-	name: 'Exp16_PIC24_Blinking'
+	name: 'PIC16F876_echo'
 	description: ''
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['Exp16_PIC24']
+	device: ['PIC16F876']
 	port: ['/dev/ttyUSB0']
 }
