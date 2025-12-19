@@ -10,4 +10,4 @@
 
 ### Optionally
 
-- MPLABX v6.10
+- MPLABX v6.20
