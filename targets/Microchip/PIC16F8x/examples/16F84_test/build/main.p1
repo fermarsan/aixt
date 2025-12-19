@@ -1,0 +1,86 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+[v F164 `(v ~T0 @X0 1 tf1`ul ]
+"20 /opt/microchip/xc8/v3.00/pic/include/builtins.h
+[v __delay `JF164 ~T0 @X0 0 e ]
+[p i __delay ]
+"52 /opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 52: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"59
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 59: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"66
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 66: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"73
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 73: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"159
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 159: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"166
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 166: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"210
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 210: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"272
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 272: __asm("EEDATA equ 08h");
+[; <" EEDATA equ 08h ;# ">
+"279
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 279: __asm("EEADR equ 09h");
+[; <" EEADR equ 09h ;# ">
+"286
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 286: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"306
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 306: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"384
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 384: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"454
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 454: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"498
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 498: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"560
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 560: __asm("EECON1 equ 088h");
+[; <" EECON1 equ 088h ;# ">
+"604
+[; ;/opt/microchip/xc8/v3.00/pic/include/proc/pic16f84.h: 604: __asm("EECON2 equ 089h");
+[; <" EECON2 equ 089h ;# ">
+"36 main.c
+[p x FOSC  =  HS         ]
+"37
+[p x WDTE  =  OFF        ]
+"38
+[p x PWRTE  =  ON        ]
+"39
+[p x CP  =  OFF          ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"69
+[; ;main.c: 69: void main(void) {
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"70
+[; ;main.c: 70:  while( 1 ) {
+[e :U 29 ]
+{
+"71
+[; ;main.c: 71:   _delay((unsigned long)((500)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"72
+[; ;main.c: 72:  }
+}
+[e :U 28 ]
+[e $U 29  ]
+[e :U 30 ]
+"73
+[; ;main.c: 73: }
+[e :UE 27 ]
+}
