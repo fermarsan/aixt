@@ -6,7 +6,7 @@
 // Description: Timer0 functions for 16F family
 module timer0
 
-#define TIMER0_IRQ_IN_USE
+#preinclude "timer0.c"
 
 __global (
 	timer0__initial = u8(0)
@@ -62,8 +62,8 @@ pub fn setup(period u32) {
 	if period <= max_t_fosc(1024) {
 		C.PSA =  1	// without prescaler
 		timer0__initial = init_value(period, 2)
-	} else { 
-		C.PSA =  0 	 
+	} else {
+		C.PSA =  0
 		C.OPTION_REG &= 0b11111000			// deletes 3 LSBs
 		if period <= max_t_fosc(2048) {
 			C.OPTION_REG |= 0b000	// 2 prescaler
