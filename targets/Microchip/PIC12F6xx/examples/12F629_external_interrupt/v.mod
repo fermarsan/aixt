@@ -1,9 +1,9 @@
 Module {
-	name: 'Exp16_PIC24_Blinking'
+	name: 'External interrupt'
 	description: ''
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['Exp16_PIC24']
+	device: ['PIC12F629']
 	port: ['/dev/ttyUSB0']
 }

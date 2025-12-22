@@ -83,3 +83,4 @@ Tasks to do in Aixt
 - [x] Issue solved: Interrupts on PIC16F work back.
 - [x] Issue solved: unknown PIC12 fuses
 - [x] Test and include in documentation the module `pin_fast` for PIC16 targets
+- [x] Update the PIC12Fxx examples
