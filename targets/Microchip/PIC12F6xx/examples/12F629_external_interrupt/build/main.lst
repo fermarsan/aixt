@@ -1,0 +1,531 @@
+
+
+Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
+                                                                                               Mon Dec 22 12:58:00 2025
+
+Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
+     1                           	processor	12F629
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	nvBANK0,global,class=BANK0,space=1,delta=1,noexec
+     5                           	psect	cinit,global,class=CODE,space=0,merge=1,delta=2
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,space=0,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,space=0,merge=1,delta=2
+    10                           	psect	intentry,global,class=CODE,space=0,delta=2
+    11                           	psect	text2,local,class=CODE,space=0,merge=1,delta=2
+    12                           	psect	functab,global,class=ENTRY,space=0,delta=2
+    13                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    14                           	dabs	1,0x5E,2
+    15     0000                     
+    16                           ; Generated 05/12/2024 GMT
+    17                           ; 
+    18                           ; Copyright © 2024, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    19                           ; All rights reserved.
+    20                           ; 
+    21                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    22                           ; 
+    23                           ; Redistribution and use in source and binary forms, with or without modification, are
+    24                           ; permitted provided that the following conditions are met:
+    25                           ; 
+    26                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    27                           ;        conditions and the following disclaimer.
+    28                           ; 
+    29                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    30                           ;        of conditions and the following disclaimer in the documentation and/or other
+    31                           ;        materials provided with the distribution. Publication is not required when
+    32                           ;        this file is used in an embedded application.
+    33                           ; 
+    34                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    35                           ;        software without specific prior written permission.
+    36                           ; 
+    37                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    38                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    39                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    40                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    41                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    42                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    43                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    44                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    45                           ; 
+    46                           ; 
+    47                           ; Code-generator required, PIC12F629 Definitions
+    48                           ; 
+    49                           ; SFR Addresses
+    50     0004                     fsr             equ	4
+    51     0004                     fsr0            equ	4
+    52     0000                     indf            equ	0
+    53     0000                     indf0           equ	0
+    54     0002                     pc              equ	2
+    55     0002                     pcl             equ	2
+    56     000A                     pclath          equ	10
+    57     0003                     status          equ	3
+    58     0000                     INDF            equ	0	;# 
+    59     0001                     TMR0            equ	1	;# 
+    60     0002                     PCL             equ	2	;# 
+    61     0003                     STATUS          equ	3	;# 
+    62     0004                     FSR             equ	4	;# 
+    63     0005                     GPIO            equ	5	;# 
+    64     000A                     PCLATH          equ	10	;# 
+    65     000B                     INTCON          equ	11	;# 
+    66     000C                     PIR1            equ	12	;# 
+    67     000E                     TMR1            equ	14	;# 
+    68     000E                     TMR1L           equ	14	;# 
+    69     000F                     TMR1H           equ	15	;# 
+    70     0010                     T1CON           equ	16	;# 
+    71     0019                     CMCON           equ	25	;# 
+    72     0081                     OPTION_REG      equ	129	;# 
+    73     0085                     TRISIO          equ	133	;# 
+    74     008C                     PIE1            equ	140	;# 
+    75     008E                     PCON            equ	142	;# 
+    76     0090                     OSCCAL          equ	144	;# 
+    77     0095                     WPU             equ	149	;# 
+    78     0096                     IOC             equ	150	;# 
+    79     0096                     IOCB            equ	150	;# 
+    80     0099                     VRCON           equ	153	;# 
+    81     009A                     EEDATA          equ	154	;# 
+    82     009A                     EEDAT           equ	154	;# 
+    83     009B                     EEADR           equ	155	;# 
+    84     009C                     EECON1          equ	156	;# 
+    85     009D                     EECON2          equ	157	;# 
+    86     0000                     INDF            equ	0	;# 
+    87     0001                     TMR0            equ	1	;# 
+    88     0002                     PCL             equ	2	;# 
+    89     0003                     STATUS          equ	3	;# 
+    90     0004                     FSR             equ	4	;# 
+    91     0005                     GPIO            equ	5	;# 
+    92     000A                     PCLATH          equ	10	;# 
+    93     000B                     INTCON          equ	11	;# 
+    94     000C                     PIR1            equ	12	;# 
+    95     000E                     TMR1            equ	14	;# 
+    96     000E                     TMR1L           equ	14	;# 
+    97     000F                     TMR1H           equ	15	;# 
+    98     0010                     T1CON           equ	16	;# 
+    99     0019                     CMCON           equ	25	;# 
+   100     0081                     OPTION_REG      equ	129	;# 
+   101     0085                     TRISIO          equ	133	;# 
+   102     008C                     PIE1            equ	140	;# 
+   103     008E                     PCON            equ	142	;# 
+   104     0090                     OSCCAL          equ	144	;# 
+   105     0095                     WPU             equ	149	;# 
+   106     0096                     IOC             equ	150	;# 
+   107     0096                     IOCB            equ	150	;# 
+   108     0099                     VRCON           equ	153	;# 
+   109     009A                     EEDATA          equ	154	;# 
+   110     009A                     EEDAT           equ	154	;# 
+   111     009B                     EEADR           equ	155	;# 
+   112     009C                     EECON1          equ	156	;# 
+   113     009D                     EECON2          equ	157	;# 
+   114                           
+   115                           	psect	nvBANK0
+   116     0023                     __pnvBANK0:
+   117     0023                     _ptr_ext_isr:
+   118     0023                     	ds	1
+   119     0005                     _GPIO           set	5
+   120     005C                     _INTE           set	92
+   121     005F                     _GIE            set	95
+   122     0059                     _INTF           set	89
+   123     0085                     _TRISIO         set	133
+   124     040E                     _INTEDG         set	1038
+   125                           
+   126                           	psect	cinit
+   127     000E                     start_initialization:	
+   128                           ; #config settings
+   129                           
+   130     000E                     __initialization:
+   131     000E                     end_of_initialization:	
+   132                           ;End of C runtime variable initialization code
+   133                           
+   134     000E                     __end_of__initialization:
+   135     000E  0183               	clrf	3
+   136     000F  2818               	ljmp	_main	;jump to C main() function
+   137                           
+   138                           	psect	cstackCOMMON
+   139     0000                     __pcstackCOMMON:
+   140     0000                     ??_main__toggle_led:
+   141     0000                     ??_main:	
+   142                           ; 1 bytes @ 0x0
+   143                           
+   144                           
+   145                           	psect	cstackBANK0
+   146     0020                     __pcstackBANK0:	
+   147                           ; 1 bytes @ 0x0
+   148                           
+   149     0020                     ?_Global_ISR:
+   150     0020                     ?_main__toggle_led:	
+   151                           ; 1 bytes @ 0x0
+   152                           
+   153     0020                     ?_main:	
+   154                           ; 1 bytes @ 0x0
+   155                           
+   156     0020                     ??_Global_ISR:	
+   157                           ; 1 bytes @ 0x0
+   158                           
+   159                           
+   160                           ; 1 bytes @ 0x0
+   161     0020                     	ds	3
+   162                           
+   163                           	psect	maintext
+   164     0018                     __pmaintext:	
+   165 ;;
+   166 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   167 ;;
+   168 ;; *************** function _main *****************
+   169 ;; Defined at:
+   170 ;;		line 105 in file "main.c"
+   171 ;; Parameters:    Size  Location     Type
+   172 ;;		None
+   173 ;; Auto vars:     Size  Location     Type
+   174 ;;		None
+   175 ;; Return value:  Size  Location     Type
+   176 ;;                  1    wreg      void 
+   177 ;; Registers used:
+   178 ;;		wreg, status,2, status,0
+   179 ;; Tracked objects:
+   180 ;;		On entry : B00/0
+   181 ;;		On exit  : 0/0
+   182 ;;		Unchanged: 0/0
+   183 ;; Data sizes:     COMMON   BANK0
+   184 ;;      Params:         0       0
+   185 ;;      Locals:         0       0
+   186 ;;      Temps:          0       0
+   187 ;;      Totals:         0       0
+   188 ;;Total ram usage:        0 bytes
+   189 ;; Hardware stack levels required when called: 2
+   190 ;; This function calls:
+   191 ;;		Nothing
+   192 ;; This function is called by:
+   193 ;;		Startup code after reset
+   194 ;; This function uses a non-reentrant model
+   195 ;;
+   196                           
+   197     0018                     _main:	
+   198                           ;psect for function _main
+   199                           
+   200     0018                     l613:	
+   201                           ;incstack = 0
+   202                           ; Regs used in _main: [wreg+status,2+status,0]
+   203                           
+   204                           
+   205                           ;main.c: 106:  ptr_ext_isr = main__toggle_led;
+   206     0018  3001               	movlw	(low (fp__main__toggle_led-i1fpbase))& (0+255)
+   207     0019  1283               	bcf	3,5	;RP0=0, select bank0
+   208     001A  00A3               	movwf	_ptr_ext_isr
+   209     001B                     l617:	
+   210                           ;main.c: 107:  if( 0 == 1 ) { TRISIO |= (0x01 << 1); } else { TRISIO &= ~(0x01 << 1); };
+      +                          ;
+   211                           
+   212     001B  30FD               	movlw	253
+   213     001C  1683               	bsf	3,5	;RP0=1, select bank1
+   214     001D  0585               	andwf	5,f	;volatile
+   215     001E                     l31:
+   216                           
+   217                           ;main.c: 109:  if( 1 == 1 ) { TRISIO |= (0x01 << 2); } else { TRISIO &= ~(0x01 << 2); };
+      +                          ;
+   218     001E  30FD               	movlw	253
+   219     001F  1283               	bcf	3,5	;RP0=0, select bank0
+   220     0020  0585               	andwf	5,f	;volatile
+   221     0021                     l619:
+   222     0021  1683               	bsf	3,5	;RP0=1, select bank1
+   223     0022  1505               	bsf	5,2	;volatile
+   224     0023                     l623:
+   225                           
+   226                           ;main.c: 110:  INTEDG = 0;
+   227     0023  1301               	bcf	1,6	;volatile
+   228     0024                     l625:
+   229                           
+   230                           ;main.c: 111:  GIE = 1; INTE = 1;;
+   231     0024  178B               	bsf	11,7	;volatile
+   232     0025                     l627:
+   233     0025  160B               	bsf	11,4	;volatile
+   234     0026                     l34:	
+   235                           ;main.c: 112:  while( 1 ) {
+   236                           
+   237     0026                     l35:	
+   238                           ;main.c: 113:  }
+   239                           
+   240     0026  2826               	goto	l34
+   241     0027  280D               	ljmp	start
+   242     0028                     __end_of_main:
+   243                           
+   244                           	psect	text1
+   245     0028                     __ptext1:	
+   246 ;; *************** function _Global_ISR *****************
+   247 ;; Defined at:
+   248 ;;		line 83 in file "main.c"
+   249 ;; Parameters:    Size  Location     Type
+   250 ;;		None
+   251 ;; Auto vars:     Size  Location     Type
+   252 ;;		None
+   253 ;; Return value:  Size  Location     Type
+   254 ;;                  1    wreg      void 
+   255 ;; Registers used:
+   256 ;;		wreg, status,2, status,0, pclath, cstack
+   257 ;; Tracked objects:
+   258 ;;		On entry : 0/0
+   259 ;;		On exit  : 0/0
+   260 ;;		Unchanged: 0/0
+   261 ;; Data sizes:     COMMON   BANK0
+   262 ;;      Params:         0       0
+   263 ;;      Locals:         0       0
+   264 ;;      Temps:          0       3
+   265 ;;      Totals:         0       3
+   266 ;;Total ram usage:        3 bytes
+   267 ;; Hardware stack levels used: 1
+   268 ;; Hardware stack levels required when called: 1
+   269 ;; This function calls:
+   270 ;;		NULL
+   271 ;;		_main__toggle_led
+   272 ;; This function is called by:
+   273 ;;		Interrupt level 1
+   274 ;; This function uses a non-reentrant model
+   275 ;;
+   276                           
+   277     0028                     _Global_ISR:	
+   278                           ;psect for function _Global_ISR
+   279                           
+   280     0028                     i1l607:
+   281     0028  1C8B               	btfss	11,1	;volatile
+   282     0029  282B               	goto	u2_21
+   283     002A  282C               	goto	u2_20
+   284     002B                     u2_21:
+   285     002B  282F               	goto	i1l22
+   286     002C                     u2_20:
+   287     002C                     i1l609:
+   288     002C  0823               	movf	_ptr_ext_isr,w
+   289     002D  2011               	fcall	i1fptable
+   290     002E                     i1l611:
+   291     002E  108B               	bcf	11,1	;volatile
+   292     002F                     i1l22:
+   293     002F  1283               	bcf	3,5	;RP0=0, select bank0
+   294     0030  0822               	movf	??_Global_ISR+2,w
+   295     0031  0821               	movf	??_Global_ISR+1,w
+   296     0032  008A               	movwf	10
+   297     0033  0E20               	swapf	??_Global_ISR,w
+   298     0034  0083               	movwf	3
+   299     0035  0EDE               	swapf	btemp,f
+   300     0036  0E5E               	swapf	btemp,w
+   301     0037  0009               	retfie
+   302     0038                     __end_of_Global_ISR:
+   303                           
+   304                           	psect	intentry
+   305     0004                     __pintentry:	
+   306                           ;incstack = 0
+   307                           ; Regs used in _Global_ISR: [wreg+status,2+status,0+pclath+cstack]
+   308                           
+   309     0004                     interrupt_function:
+   310     005E                     saved_w         set	btemp
+   311     0004  00DE               	movwf	btemp
+   312     0005  0E03               	swapf	3,w
+   313     0006  1283               	bcf	3,5	;RP0=0, select bank0
+   314     0007  00A0               	movwf	??_Global_ISR
+   315     0008  080A               	movf	10,w
+   316     0009  00A1               	movwf	??_Global_ISR+1
+   317     000A  085F               	movf	btemp+1,w
+   318     000B  00A2               	movwf	??_Global_ISR+2
+   319     000C  2828               	ljmp	_Global_ISR
+   320                           
+   321                           	psect	text2
+   322     0038                     __ptext2:	
+   323 ;; *************** function _main__toggle_led *****************
+   324 ;; Defined at:
+   325 ;;		line 101 in file "main.c"
+   326 ;; Parameters:    Size  Location     Type
+   327 ;;		None
+   328 ;; Auto vars:     Size  Location     Type
+   329 ;;		None
+   330 ;; Return value:  Size  Location     Type
+   331 ;;                  1    wreg      void 
+   332 ;; Registers used:
+   333 ;;		wreg, status,2, status,0
+   334 ;; Tracked objects:
+   335 ;;		On entry : 0/0
+   336 ;;		On exit  : 0/0
+   337 ;;		Unchanged: 0/0
+   338 ;; Data sizes:     COMMON   BANK0
+   339 ;;      Params:         0       0
+   340 ;;      Locals:         0       0
+   341 ;;      Temps:          0       0
+   342 ;;      Totals:         0       0
+   343 ;;Total ram usage:        0 bytes
+   344 ;; Hardware stack levels used: 1
+   345 ;; This function calls:
+   346 ;;		Nothing
+   347 ;; This function is called by:
+   348 ;;		_main
+   349 ;;		_Global_ISR
+   350 ;; This function uses a non-reentrant model
+   351 ;;
+   352                           
+   353     0038                     _main__toggle_led:	
+   354                           ;psect for function _main__toggle_led
+   355                           
+   356     0038                     i1l605:	
+   357                           ;incstack = 0
+   358                           ; Regs used in _main__toggle_led: [wreg+status,2+status,0]
+   359                           
+   360                           
+   361                           ;main.c: 102:  GPIO ^= 0x01 << 1;
+   362     0038  3002               	movlw	2
+   363     0039  1283               	bcf	3,5	;RP0=0, select bank0
+   364     003A  0685               	xorwf	5,f	;volatile
+   365     003B                     i1l25:
+   366     003B  0008               	return
+   367     003C                     __end_of_main__toggle_led:
+   368     0000                     ___latbits      equ	0
+   369     0000                     fptotal         equ	0
+   370     0002                     i1fptotal       equ	2
+   371                           
+   372                           	psect	functab
+   373     0010                     __pfunctab:
+   374     0000                     fpbase          equ	0
+   375     0010                     fptable:
+   376     0010  2810               	goto	fptable	;no entries
+   377     0011                     __i1fptable:
+   378     0011                     i1fptable:
+   379     0011  00DF               	movwf	(btemp+1)& (0+127)
+   380     0012  3000               	movlw	high i1fptable
+   381     0013  008A               	movwf	10
+   382     0014  085F               	movf	(btemp+1)& (0+127),w
+   383     0015  0782               	addwf	2,f
+   384     0016                     i1fpbase:
+   385     0016  2816               	goto	i1fpbase	; Call via a null pointer and you will get stuck here.
+   386     0017                     fp__main__toggle_led:
+   387     0017  2838               	ljmp	_main__toggle_led
+   388     0018                     __end_of__i1fptable:
+   389     0007                     __size_of__i1fptable equ	__end_of__i1fptable-__i1fptable
+   390     005E                     btemp           set	94	;btemp
+   391     005E                     wtemp0          set	94
+   392                           
+   393                           	psect	config
+   394                           
+   395                           ;Config register CONFIG @ 0x2007
+   396                           ;	Oscillator Selection bits
+   397                           ;	FOSC = INTRCIO, INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function o
+      +                          n GP5/OSC1/CLKIN
+   398                           ;	Watchdog Timer Enable bit
+   399                           ;	WDTE = OFF, WDT disabled
+   400                           ;	Power-Up Timer Enable bit
+   401                           ;	PWRTE = ON, PWRT enabled
+   402                           ;	GP3/MCLR pin function select
+   403                           ;	MCLRE = OFF, GP3/MCLR pin function is digital I/O, MCLR internally tied to VDD
+   404                           ;	Brown-out Detect Enable bit
+   405                           ;	BOREN = OFF, BOD disabled
+   406                           ;	Code Protection bit
+   407                           ;	CP = OFF, Program Memory code protection is disabled
+   408                           ;	Data Code Protection bit
+   409                           ;	CPD = 0x1, unprogrammed default
+   410     2007                     	org	8199
+   411     2007  3184               	dw	12676
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  1
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            62      3       4
+
+Pointer List with Targets:
+
+    ptr_ext_isr	PTR FTN()void  size(1) Largest target is 1
+		 -> main__toggle_led(), NULL(), 
+
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _Global_ISR in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _Global_ISR in BANK0
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (1) _Global_ISR                                           3     3      0       0
+                                              0 BANK0      3     3      0
+                                NULL *
+                   _main__toggle_led *
+ ---------------------------------------------------------------------------------
+ (2) _main__toggle_led                                     0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) NULL(Fake)                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+ _Global_ISR (ROOT)
+   NULL(Fake) *
+   _main__toggle_led *
+
+Address spaces:
+Name               Size   Autos  Total    Usage
+BITCOMMON            0      0       0      0.0%
+BITBANK0            62      0       0      0.0%
+COMMON               0      0       0      0.0%
+BANK0               62      3       4      6.5%
+STACK                0      0       0      0.0%
+DATA                 0      0       4      0.0%
+
+
+Microchip Technology PIC Macro Assembler V3.00 build 20241204225717 
+Symbol Table                                                                                   Mon Dec 22 12:58:00 2025
+
+             _ptr_ext_isr 0023                         pc 0002                        l31 001E  
+                      l34 0026                        l35 0026                       l613 0018  
+                     l623 0023                       l625 0024                       l617 001B  
+                     l627 0025                       l619 0021                       _GIE 005F  
+                    _GPIO 0005                      _INTE 005C                      i1l22 002F  
+                    _INTF 0059                      i1l25 003B                      u2_20 002C  
+                    u2_21 002B                      _main 0018                      btemp 005E  
+                    start 000D                     ?_main 0020                     i1l611 002E  
+                   i1l605 0038                     i1l607 0028                     i1l609 002C  
+              _Global_ISR 0028                     fpbase 0000                     pclath 000A  
+       ?_main__toggle_led 0020                     status 0003                     wtemp0 005E  
+      ??_main__toggle_led 0000           __initialization 000E              __end_of_main 0028  
+                  ??_main 0000                    _INTEDG 040E                __i1fptable 0011  
+                  _TRISIO 0085                    fptable 0010                    fptotal 0000  
+                  saved_w 005E               ?_Global_ISR 0020   __end_of__initialization 000E  
+          __pcstackCOMMON 0000                __pmaintext 0018                __pintentry 0004  
+                 i1fpbase 0016                   __ptext1 0028                   __ptext2 0038  
+     __size_of__i1fptable 0007      end_of_initialization 000E              ??_Global_ISR 0020  
+      __end_of_Global_ISR 0038       start_initialization 000E          _main__toggle_led 0038  
+      __end_of__i1fptable 0018                 ___latbits 0000             __pcstackBANK0 0020  
+               __pnvBANK0 0023                 __pfunctab 0010         interrupt_function 0004  
+                i1fptable 0011                  i1fptotal 0002       fp__main__toggle_led 0017  
+__end_of_main__toggle_led 003C                  intlevel1 0010  
