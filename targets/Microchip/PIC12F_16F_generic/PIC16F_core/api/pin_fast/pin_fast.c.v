@@ -3,7 +3,8 @@
 // Date: 2025
 // License: MIT
 //
-// Description: Pin management functions for 16F family
+// Description: Pin management functions for 16F family,
+// this is the fast version that uses also the port name
 module pin_fast
 
 #include "pin_fast.c"
