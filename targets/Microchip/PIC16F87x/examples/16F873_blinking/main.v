@@ -9,5 +9,5 @@ pin.setup(pin.c7, pin.output)
 
 for {
 	pin.toggle(pin.c7)
-	time.sleep_ms(100)
+	time.sleep_ms(200)
 }

@@ -149,6 +149,7 @@ for {
 
 ### Blinking LED example for PIC16F83 (fast version)
 ```v
+// Blinking LED "fast" (PIC16F83 4Mhz)
 import time
 import pin_fast as  pin
 

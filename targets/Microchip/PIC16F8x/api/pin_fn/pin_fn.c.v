@@ -12,6 +12,9 @@ module pin_fn
 @[as_macro] pub const a2 = 2
 @[as_macro] pub const a3 = 3
 @[as_macro] pub const a4 = 4
+// @[as_macro] pub const a5 = 5
+// @[as_macro] pub const a6 = 6
+// @[as_macro] pub const a7 = 7
 
 @[as_macro] pub const b0 = 8
 @[as_macro] pub const b1 = 9
@@ -28,7 +31,3 @@ module pin_fn
 // pin modes as macros
 @[as_macro] pub const output = 0
 @[as_macro] pub const input = 1
-
-// port names as macros
-@[as_macro] pub const port_a = C.A
-@[as_macro] pub const port_b = C.B 
