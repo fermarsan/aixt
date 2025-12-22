@@ -1,1 +1,0 @@
-#define _const_timer0__irq_in_use

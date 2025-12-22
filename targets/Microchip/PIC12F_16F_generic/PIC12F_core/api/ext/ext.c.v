@@ -6,7 +6,7 @@
 // Description: External interrupts management functions for 12F family
 module ext
 
-#include "ext.c"
+@[as_macro] const irq_in_use = true
 
 @[as_macro] pub const rising  = 1
 @[as_macro] pub const falling = 0

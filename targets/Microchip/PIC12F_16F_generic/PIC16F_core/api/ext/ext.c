@@ -1,1 +1,0 @@
-#define _const_ext__irq_in_use

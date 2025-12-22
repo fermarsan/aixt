@@ -6,7 +6,6 @@
 // Description: Timer0 functions for 16F family
 module timer0
 
-// #include "timer0.c"
 @[as_macro] const irq_in_use = true
 
 __global (
