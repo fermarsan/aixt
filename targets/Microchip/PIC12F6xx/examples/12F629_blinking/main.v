@@ -8,6 +8,6 @@ import pin_fn as pin
 pin.setup(pin.io2, pin.output)
 
 for {
-	pin.toggle(pin.io2)
+  pin.toggle(pin.io2)
 	time.sleep_ms(250)
 }

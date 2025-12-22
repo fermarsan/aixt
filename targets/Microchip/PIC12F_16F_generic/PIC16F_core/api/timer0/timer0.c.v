@@ -100,6 +100,6 @@ fn init_value(period u32, shift u8) u8 {
 }
 
 @[as_macro]
-fn max_t_fosc(time u32) u32{
+fn max_t_fosc(time u32) u32 {
 	return u32(time / u8(C._const_main__cpu_freq_mhz))
 }
