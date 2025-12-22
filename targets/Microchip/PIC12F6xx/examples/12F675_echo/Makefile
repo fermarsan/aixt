@@ -3,7 +3,7 @@ XCVERSION ?= 3.00
 BUILD ?= build
 TARGET_NAME ?= main
 
-PART ?= PIC16F84
+PART ?= PIC12F629
 
 SRC = \
 	main.c \
