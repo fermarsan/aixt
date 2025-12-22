@@ -1,0 +1,43 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Resistor" CircId="Resistor-8" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="4,-20" rotation="0" hflip="1" vflip="1" label="Resistor-8" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="330 Ω" />
+
+<item itemtype="Ground" CircId="Ground-9" mainComp="false" Show_id="false" Show_Val="false" Pos="36,60" rotation="0" hflip="1" vflip="1" label="Ground-9" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Led" CircId="Led-10" mainComp="false" Show_id="false" Show_Val="false" Pos="36,12" rotation="90" hflip="1" vflip="1" label="Led-10" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Push" CircId="Push-11" mainComp="false" Show_id="false" Show_Val="false" Pos="-164,-72" rotation="90" hflip="1" vflip="1" label="Push-11" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
+
+<item itemtype="Resistor" CircId="Resistor-12" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-164,-8" rotation="90" hflip="1" vflip="1" label="Resistor-12" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="10 kΩ" />
+
+<item itemtype="Ground" CircId="Ground-14" mainComp="false" Show_id="false" Show_Val="false" Pos="-164,40" rotation="0" hflip="1" vflip="1" label="Ground-14" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Rail" CircId="Rail-15" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-164,-136" rotation="90" hflip="1" vflip="1" label="Rail-15" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="MCU" CircId="p16F877-21" mainComp="false" Show_id="true" Show_Val="false" Pos="-92,-108" rotation="0" hflip="1" vflip="1" label="p16F877-21" idLabPos="0,172.193" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="20 MHz" Program="build/main.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="true" SerialMon="-1" />
+
+<item itemtype="Node" CircId="Node-22" mainComp="false" Pos="-164,-36" />
+
+<item itemtype="Node" CircId="Node-23" mainComp="false" Pos="-164,-100" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="Ground-9-Gnd" endpinid="Led-10-rPin" pointList="36,44,36,28" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="Resistor-8-rPin" endpinid="Led-10-lPin" pointList="20,-20,36,-20,36,-4" />
+
+<item itemtype="Connector" uid="Connector-15" startpinid="Resistor-12-rPin" endpinid="Ground-14-Gnd" pointList="-164,8,-164,24" />
+
+<item itemtype="Connector" uid="Connector-45" startpinid="Resistor-8-lPin" endpinid="p16F877-21-PORTD7" pointList="-12,-20,-36,-20" />
+
+<item itemtype="Connector" uid="Connector-47" startpinid="p16F877-21-PORTB0" endpinid="Node-22-1" pointList="-36,-44,-28,-44,-28,-116,-128,-116,-128,-36,-164,-36" />
+
+<item itemtype="Connector" uid="Connector-48" startpinid="Resistor-12-lPin" endpinid="Node-22-0" pointList="-164,-24,-164,-36" />
+
+<item itemtype="Connector" uid="Connector-49" startpinid="Node-22-2" endpinid="Push-11-switch0pinN" pointList="-164,-36,-164,-56" />
+
+<item itemtype="Connector" uid="Connector-50" startpinid="p16F877-21-MCLR" endpinid="Node-23-1" pointList="-100,-100,-164,-100" />
+
+<item itemtype="Connector" uid="Connector-51" startpinid="Push-11-pinP0" endpinid="Node-23-0" pointList="-164,-88,-164,-100" />
+
+<item itemtype="Connector" uid="Connector-52" startpinid="Node-23-2" endpinid="Rail-15-outnod" pointList="-164,-100,-164,-120" />
+
+</circuit>

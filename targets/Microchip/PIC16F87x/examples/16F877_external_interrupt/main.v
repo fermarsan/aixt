@@ -9,11 +9,11 @@ import ext
 
 @[ext_isr]
 fn toggle_led() {
-	pin.toggle(pin.b4)	// changes the pin state
+	pin.toggle(pin.d7)	// changes the pin state
 }
 
-pin.setup(pin.b4, pin.output)	// as output
-pin.low(pin.b4)					// reset the pin
+pin.setup(pin.d7, pin.output)	// as output
+pin.low(pin.d7)					// reset the pin
 
 pin.setup(pin.irq, pin.input)	// as input
 ext.setup(ext.falling)			// rising edge for external interrupt
