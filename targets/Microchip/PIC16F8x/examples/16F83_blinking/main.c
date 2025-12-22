@@ -51,12 +51,12 @@ if( mode == 1 ) { \
 } \
 else { \
 	*(&TRISA + (id / 8)) &= ~(0x01 << (id % 8));  \
-}; 
+};
 #define pin_fn__high(id) *(&PORTA + (id / 8)) |= 0x01 << (id % 8)
 #define pin_fn__low(id) *(&PORTA + (id / 8)) &= ~(0x01 << (id % 8))
 #define pin_fn__write(id, value) \
 *(&PORTA + (id >> 3)) &= (~(0x01 << (id % 8))); \
-*(&PORTA + (id >> 3)) |= (value << (id % 8)); 
+*(&PORTA + (id >> 3)) |= (value << (id % 8));
 #define pin_fn__toggle(id) *(&PORTA + (id / 8)) ^= 0x01 << (id % 8)
 #define pin_fn__read(id)  ((u8) (u8)((*(&PORTA + (id / 8)) >> (id % 8)) & 0x01))
 
@@ -70,39 +70,38 @@ else { \
 #pragma config PWRTE = ON       // Power-up Timer Enable bit (Power-up Timer is disabled)
 #pragma config CP = OFF         // Code Protection bit (Code protection disabled)
 
-#if defined(TIMER0_IRQ_IN_USE) || defined(EXT_IRQ_IN_USE)   // if any interrupt source is activated
+#if defined(_const_timer0__irq_in_use) || defined(_const_ext__irq_in_use)   // if any interrupt source is activated
 
-// #ifdef EXT_IRQ_IN_USE    
+// #ifdef _const_ext__irq_in_use
 // void (*ptr_ext_isr)(void);      // Interrupt Service Routine pointer
-// #endif  // EXT_IRQ_IN_USE 
+// #endif  // _const_ext__irq_in_use
 
-// #ifdef TIMER0_IRQ_IN_USE    
+// #ifdef _const_timer0__irq_in_use
 // void (*ptr_timer0_isr)(void);   // Interrupt Service Routine pointer
-// #endif  // TIMER0_IRQ_IN_USE 
+// #endif  // _const_timer0__irq_in_use
 
 void __interrupt() Global_ISR() {
-	#ifdef EXT_IRQ_IN_USE    
+	#ifdef _const_ext__irq_in_use
 	if(INTF == 1) {
 		ptr_ext_isr();
 		INTF = 0;
 	}
-	#endif  // EXT_IRQ_IN_USE 
-	
-	#ifdef TIMER0_IRQ_IN_USE    
+	#endif  // _const_ext__irq_in_use
+
+	#ifdef _const_timer0__irq_in_use
 	if(T0IF == 1) {
 		ptr_timer0_isr();
 		T0IF = 0;
 	}
-	#endif  // TIMER0_IRQ_IN_USE 
+	#endif  // _const_timer0__irq_in_use
 }
 
-#endif  // defined(TIMER0_IRQ_IN_USE) || defined(EXT_IRQ_IN_USE)
+#endif  // defined(_const_timer0__irq_in_use) || defined(_const_ext__irq_in_use)
 
 void main(void) {
-	pin_fn__setup(_const_pin_fn__b4, _const_pin_fn__output); 
+	pin_fn__setup(_const_pin_fn__b4, _const_pin_fn__output);
 	while( true ) {
-		pin_fn__toggle(_const_pin_fn__b4); 
-		time__sleep_ms(250); 
-	} 
+		pin_fn__toggle(_const_pin_fn__b4);
+		time__sleep_ms(250);
+	}
 }
-

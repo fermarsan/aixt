@@ -1,1 +1,1 @@
-#define TIMER0_IRQ_IN_USE
+#define _const_timer0__irq_in_use

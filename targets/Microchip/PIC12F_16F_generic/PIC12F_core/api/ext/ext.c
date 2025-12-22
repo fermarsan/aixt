@@ -1,1 +1,1 @@
-#define EXT_IRQ_IN_USE
+#define _const_ext__irq_in_use

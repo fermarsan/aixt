@@ -6,7 +6,8 @@
 // Description: Timer0 functions for 16F family
 module timer0
 
-#preinclude "timer0.c"
+// #include "timer0.c"
+@[as_macro] const irq_in_use = true
 
 __global (
 	timer0__initial = u8(0)
@@ -58,7 +59,7 @@ pub fn restart() {
 // | 20         | 13107      |
 @[as_macro]
 pub fn setup(period u32) {
-	C.T0CS = 0
+	C.T0CS = 0  // internal instruction cycle clock
 	if period <= max_t_fosc(1024) {
 		C.PSA =  1	// without prescaler
 		timer0__initial = init_value(period, 2)

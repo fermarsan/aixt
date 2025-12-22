@@ -1,5 +1,5 @@
-// #if defined(EXT_IRQ_IN_USE) || defined(TIMER0_IRQ_IN_USE)  // if any interrupt source is activated
+// #if defined(_const_ext__irq_in_use) || defined(_const_timer0__irq_in_use)  // if any interrupt source is activated
 
 
 
-// #endif  // defined(EXT_IRQ_IN_USE)  ||  defined(TIMER0_IRQ_IN_USE)
+// #endif  // defined(_const_ext__irq_in_use)  ||  defined(_const_timer0__irq_in_use)

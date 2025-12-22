@@ -6,7 +6,8 @@
 // Description: External interrupts management functions for 16F family
 module ext
 
-#include "ext.c"
+// #include "ext.c"
+@[as_macro] const irq_in_use = true
 
 @[as_macro] pub const rising  = 1
 @[as_macro] pub const falling = 0
