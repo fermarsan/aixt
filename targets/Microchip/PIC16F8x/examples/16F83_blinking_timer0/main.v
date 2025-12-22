@@ -14,10 +14,8 @@ fn blinking() {
 	pin.toggle(pin.b4)
 }
 
-// test_var := u8(0x55)
-
 pin.setup(pin.b4, pin.output)
-timer0.setup(10) // configure the timer0 with a period of 10ms (10000us)
+timer0.setup(10_000) // timer0 period of 10ms (10000us)
 
 pin.low(pin.b4) // reset LED pin
 timer0.irq_enable() // enables timer0 interrupt

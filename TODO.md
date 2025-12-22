@@ -29,7 +29,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
-- [ ] Issue: Interrupts with timer0 on PIC16 target fail
 
 
 ### Done ✓make
