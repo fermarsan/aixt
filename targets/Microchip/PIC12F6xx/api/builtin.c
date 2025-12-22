@@ -10,13 +10,13 @@
 
 #if defined(_const_timer0__irq_in_use) || defined(_const_ext__irq_in_use)   // if any interrupt source is activated
 
-// #ifdef _const_ext__irq_in_use
-// void (*ptr_ext_isr)(void);      // Interrupt Service Routine pointer
-// #endif  // _const_ext__irq_in_use
+#ifdef _const_ext__irq_in_use
+void (*ptr_ext_isr)(void);      // Interrupt Service Routine pointer
+#endif  // _const_ext__irq_in_use
 
-// #ifdef _const_timer0__irq_in_use
-// void (*ptr_timer0_isr)(void);   // Interrupt Service Routine pointer
-// #endif  // _const_timer0__irq_in_use
+#ifdef _const_timer0__irq_in_use
+void (*ptr_timer0_isr)(void);   // Interrupt Service Routine pointer
+#endif  // _const_timer0__irq_in_use
 
 void __interrupt() Global_ISR() {
     #ifdef _const_ext__irq_in_use
