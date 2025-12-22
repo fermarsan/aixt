@@ -6,8 +6,8 @@ import pin_fn as pin
 import timer0
 import uart
 
-__global ( 
-	int_flag = false 
+__global (
+	int_flag = false
 )
 
 const led = pin.b7
@@ -21,12 +21,12 @@ fn blinking() {
 
 mut count := u8(0)
 
-pin.setup(led, pin.output)	// LED 
+pin.setup(led, pin.output)	// LED
 pin.setup(pin.c6, pin.output)	// RC6 = TX
 timer0.setup(10_000) // configure the timer0 with a period of 10ms (10000us)
 uart.setup(115200) // Initialize serial communication to 115200 bps
 
-pin.low(pin.c7) // reset LED pin
+pin.low(led) // reset LED pin
 timer0.irq_enable() // enables timer0 interrupt
 
 for {
