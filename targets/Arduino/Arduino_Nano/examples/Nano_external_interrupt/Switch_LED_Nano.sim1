@@ -15,7 +15,7 @@
 <item itemtype="Rail" CircId="Rail-15" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-164,-140" rotation="90" hflip="1" vflip="1" label="Rail-15" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
 
 <item itemtype="Subcircuit" CircId="Nano-17" mainComp="false" Show_id="true" Show_Val="false" Pos="-84,-172" rotation="0" hflip="1" vflip="1" label="Nano-17" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
-<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Program="build/Nano-external_interrupt.ino.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
+<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Program="build/Nano_external_interrupt.ino.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
 </item>
 
 <item itemtype="Node" CircId="Node-20" mainComp="false" Pos="-164,-44" />

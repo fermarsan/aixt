@@ -14,7 +14,7 @@ fn blink() {
 pin.setup(pin.d2, pin.input)
 pin.low(pin.led0)
 
-ext.irq_enable(pin.d2, ext.change)	// interrupt request enabled
+ext.irq_enable(pin.d2, ext.rising)	// interrupt request enabled
 
 for {
 	// Empty infinite loop
