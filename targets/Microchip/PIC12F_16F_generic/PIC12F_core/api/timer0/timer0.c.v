@@ -6,7 +6,7 @@
 // Description: Timer0 functions for 12F family
 module timer0
 
-#define _const_timer0__irq_in_use
+@[as_macro] const irq_in_use = true
 
 __global (
 	timer0__initial = u8(0)
