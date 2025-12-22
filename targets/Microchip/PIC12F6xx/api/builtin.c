@@ -1,12 +1,12 @@
 
 #define _XTAL_FREQ _const_main__cpu_freq
 
-#pragma config FCMEN = OFF     // Fail-Safe Clock Monitor Enable
-#pragma config IESO = OFF      // Internal/External Switchover
-#pragma config MCLRE = OFF     // Master Clear Enable
-#pragma config CP = OFF        // Code Protection
-#pragma config BOREN = OFF     // Brown-out Reset Enable
-#pragma config WDT = OFF       // Watchdog Timer Enable
+#pragma config MCLRE = OFF      // Master Clear Enable
+#pragma config CP = OFF         // Code Protection
+#pragma config BOREN = OFF      // Brown-out Reset Enable
+#pragma config WDTE = OFF       // Watchdog Timer Enable
+#pragma config FOSC = INTRCIO   // Internal RC oscilator
+#pragma config PWRTE = ON       // Power-up timer
 
 #if defined(_const_timer0__irq_in_use) || defined(_const_ext__irq_in_use)   // if any interrupt source is activated
 

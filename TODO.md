@@ -81,3 +81,4 @@ Tasks to do in Aixt
 - [x] Update `tasks.json` and `settings.json` according to the new `v.mod` file
 - [x] Change `aixt_linux` and `aixt_windows` by a single `aixt` in `settings.json`
 - [x] Issue solved: Interrupts on PIC16F work back.
+- [x] Issue solved: unknown PIC12 fuses
