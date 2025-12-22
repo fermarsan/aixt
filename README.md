@@ -147,6 +147,22 @@ for {
 }
 ```
 
+### Blinking LED example for PIC16F83 (fast version)
+```v
+import time
+import pin_fast as  pin
+
+@[as_macro] const cpu_freq = 4_000_000 // 4 Mhz
+
+pin.setup(pin.port_b, 4, pin.output)
+pin.low(pin.port_b, 4)
+
+for {
+	pin.toggle(pin.port_b, 4)
+	time.sleep_ms(250)
+}
+```
+
 ### Blinking LED example by timer interrupt
 ```v
 // Blinking LED by timer interrupt (PIC16F83 10Mhz)

@@ -29,7 +29,6 @@ Tasks to do in Aixt
 - [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
-- [ ] Test and include in documentation the module `pin_fast`
 
 
 ### Done ✓make
@@ -83,3 +82,4 @@ Tasks to do in Aixt
 - [x] Change `aixt_linux` and `aixt_windows` by a single `aixt` in `settings.json`
 - [x] Issue solved: Interrupts on PIC16F work back.
 - [x] Issue solved: unknown PIC12 fuses
+- [x] Test and include in documentation the module `pin_fast` for PIC16 targets

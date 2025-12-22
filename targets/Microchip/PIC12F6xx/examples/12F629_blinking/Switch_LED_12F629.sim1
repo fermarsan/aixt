@@ -14,7 +14,7 @@
 
 <item itemtype="Rail" CircId="Rail-15" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-116,-140" rotation="90" hflip="1" vflip="1" label="Rail-15" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
 
-<item itemtype="MCU" CircId="p12F629-17" mainComp="false" Show_id="true" Show_Val="false" Pos="-68,-76" rotation="0" hflip="1" vflip="1" label="p12F629-17" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="20 MHz" Auto_Load="false" saveEepr="true" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" MainMcu="true" />
+<item itemtype="MCU" CircId="p12F629-17" mainComp="false" Show_id="true" Show_Val="false" Pos="-68,-76" rotation="0" hflip="1" vflip="1" label="p12F629-17" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="20 MHz" Program="build/main.hex" Auto_Load="false" saveEepr="true" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" MainMcu="true" />
 
 <item itemtype="Node" CircId="Node-19" mainComp="false" Pos="-116,-44" />
 
