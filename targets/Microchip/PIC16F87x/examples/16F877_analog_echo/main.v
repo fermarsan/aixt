@@ -1,5 +1,9 @@
+// Project name:
+// Author:
+// Date:
+// PIC16F87x fosc = 10Mhz
 import adc
-import pwm 
+import pwm
 
 adc.setup()     //Configuramos el ADC
 pwm.setup()     //Configuramos el modulo CCP(PWM)
@@ -7,5 +11,5 @@ pwm.setup()     //Configuramos el modulo CCP(PWM)
 for {
 	x := u16(0)
 	x = adc.read(0)  //Retornamos la lectura de la conversión a la variable adc_value
-	pwm.write(x)      
+	pwm.write(x)
 }

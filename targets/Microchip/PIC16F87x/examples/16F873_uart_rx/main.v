@@ -1,6 +1,10 @@
+// Project name:
+// Author:
+// Date:
+// PIC16F87x fosc = 10Mhz
 import port
 import uart
-import pin 
+import pin
 
 port.setup(port.b, 0b00000000)
 port.write(port.b, 0b00000000)

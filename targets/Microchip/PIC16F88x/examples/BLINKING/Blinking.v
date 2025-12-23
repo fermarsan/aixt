@@ -1,5 +1,5 @@
 import pin_fn as pin
-import time{sleep_ms}
+import time
 
 pin.setup (pin.b4, pin.output)
 pin.setup (pin.b5, pin.output)
