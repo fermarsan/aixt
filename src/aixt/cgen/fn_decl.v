@@ -22,7 +22,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 	ret_stmt := ''
 	if node.is_main {	// main function
 		out << gen.fn_decl_main(node)
-	} else {	
+	} else {
 		// ignore function declaration without body and the enum init functions
 		if node.no_body == false && !node.name.contains('__static__from') {
 			module_short_name := node.mod.all_after_last('.')
@@ -32,7 +32,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			gen.cur_fn = node.name
 			mut nxc_task := false
 			for a in node.attrs {
-				if a.name == 'task' { 
+				if a.name == 'task' {
 					nxc_task = true
 				}
 			}
@@ -57,13 +57,14 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				for pr in node.params {
 					params += '${gen.ast_node(pr).join('')}, '
 				}
-				params = params#[..-2] 
+				params = params#[..-2]
 			}
 			for st in node.stmts {
 				stmts << gen.ast_node(st).join('\n').split('\n')	// separate line by line
 			}
-			// -------------------- functions as C macros -------------------- 
-			if attrs == 'as_macro' {	
+	    // println('>>>>>>>>>>>>>>>>>> ${stmts} <<<<<<<<<<<<<<<<<<')
+			// -------------------- functions as C macros --------------------
+			if attrs == 'as_macro' {
 				mut names := ''
 				for param in node.params {
 					names += '${param.name}, '
@@ -77,9 +78,9 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				if stmts.len == 1 {
 					mut stmt := stmts.pop()#[..-1]	// remove the last ";"
 					if node.is_variadic {	// variable number of arguments
-						stmt = stmt.replace('(${names})', '(__VA_ARGS__)')	
-						names = '...'		
-					}	
+						stmt = stmt.replace('(${names})', '(__VA_ARGS__)')
+						names = '...'
+					}
 					gen.c_preproc_cmds << $tmpl('c_templates/fn_decl_as_macro.tmpl.c')#[..-1].replace('return', '')
 				} else {
 					gen.c_preproc_cmds << $tmpl('c_templates/fn_decl_as_multi_macro.tmpl.c')#[..-2].replace('return', '')
@@ -88,19 +89,19 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			} else if attrs.contains('_isr') {
 				mut attr_arg := ''
 				if node.attrs[0].has_arg {
-					defined_const := gen.table.global_scope.find_const(node.attrs[0].arg) or { 
-						gen.table.global_scope.find_const(node.attrs[0].arg.replace('pin', 'pin_fn')) or { 
+					defined_const := gen.table.global_scope.find_const(node.attrs[0].arg) or {
+						gen.table.global_scope.find_const(node.attrs[0].arg.replace('pin', 'pin_fn')) or {
 							&ast.ConstField {
 								name: ''
 							}
 						}
 					}
-					attr_arg = if defined_const.name != '' { 
+					attr_arg = if defined_const.name != '' {
 						'_${defined_const.expr.str()}'  // for the c backend (pin name)
 					} else {
 						'_${node.attrs[0].arg}'			// for arduino backend (pin number)
 					}
-				} 
+				}
 				gen.definitions.insert(0, '\nvoid (*ptr_${attrs}${attr_arg})(void);')
 				gen.init_cmds << 'ptr_${attrs}${attr_arg} = ${name};'
 				// isr_name := attrs.replace('_isr', '')
@@ -116,7 +117,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 				// 			// '''#define enable_ext_irq_${node.attrs[0].arg.replace('.', '__')} \\
 				// 			// attachInterrupt(digitalPinToInterrupt(_const_${node.attrs[0].arg.replace('.', '__')}), ${name}, _const_ext__${node.attrs[1].name})'''
 				// 		} else {
-				// 			gen.init_cmds << 'ptr_${isr_name}_isr = ${name};' 
+				// 			gen.init_cmds << 'ptr_${isr_name}_isr = ${name};'
 				// 		}
 				// 	}
 				// 	else {
@@ -132,7 +133,7 @@ fn (mut gen Gen) fn_decl(node ast.FnDecl) []string {
 			}
 		}
 	}
-	return out	
+	return out
 }
 
 // fn_decl_main is the code generation function for the main function declaration.
@@ -156,7 +157,7 @@ fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 		'c' {
 			ret_type = gen.setup.main_ret_type
 			params = gen.setup.main_params
-			if ret_type == 'int' {	// return value 
+			if ret_type == 'int' {	// return value
 				ret_stmt = 'return 0;'
 			}
 		}
@@ -174,5 +175,5 @@ fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 	}
 	out << $tmpl('c_templates/fn_decl.tmpl.c')#[..-1]
 	out << ending
-	return out	
+	return out
 }

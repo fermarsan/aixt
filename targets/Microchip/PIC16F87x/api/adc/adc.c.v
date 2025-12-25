@@ -42,7 +42,7 @@ module adc
 @[as_macro] pub const ch6 	= 6
 @[as_macro] pub const ch7 	= 7
 
-@[inline]
+@[as_macro]
 pub fn setup(pins u8, n_bits u8) {
   C.ADFM = n_bits
   C.ADCON1_PCFG = pins

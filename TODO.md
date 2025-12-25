@@ -84,3 +84,4 @@ Tasks to do in Aixt
 - [x] Issue solved: unknown PIC12 fuses
 - [x] Test and include in documentation the module `pin_fast` for PIC16 targets
 - [x] Update the PIC12Fxxx, PIC16F8x and PIC16F87x examples
+- [x] Issue solved: `match` already works well with `C.variables`
