@@ -48,27 +48,20 @@ pub fn setup(pins u8, n_bits u8) {
     all_analogs,
     all_analogs_rp,
     all_analogs_rp_rn   { C.TRISA |= 0b00_1_0_1111;   C.TRISE |= 0b00000_111 }
-
-    in0_to_in4,
-    in0_to_in4_rp,
-    in0_to_in4_rp_rn    { C.TRISA |= 0b00_1_0_1111;   C.TRISE |= 0b00000_000 }
-
-    in0_in1_in3,
-    in0_in1_rp          { C.TRISA |= 0b00_0_0_1011;   C.TRISE |= 0b00000_000 }
-
     in0_to_in5,
     in0_to_in5_rp,
     in0_to_in5_rp_rn    { C.TRISA |= 0b00_1_0_1111;   C.TRISE |= 0b00000_001 }
+    in0_to_in4,
+    in0_to_in4_rp,
+    in0_to_in4_rp_rn    { C.TRISA |= 0b00_1_0_1111 }
+    in0_in1_in3,
+    in0_in1_rp          { C.TRISA |= 0b00_0_0_1011 }
+    in0_in1_rp_rn       { C.TRISA |= 0b00_0_0_1111 }
+    in0_rp_rn           { C.TRISA |= 0b00_0_0_1101 }
+    in0                 { C.TRISA |= 0b00_0_0_0001 }
 
-    in0_in1_rp_rn       { C.TRISA |= 0b00_0_0_1111;   C.TRISE |= 0b00000_000 }
-
-    in0                 { C.TRISA |= 0b00_0_0_0001;   C.TRISE |= 0b00000_000 }
-
-    in0_rp_rn           { C.TRISA |= 0b00_0_0_1101;   C.TRISE |= 0b00000_000 }
-
-    else                { C.TRISA |= 0b00_0_0_0000;   C.TRISE |= 0b00000_000 } // all_digitals
+    else                {  } // all_digitals
   }
-
   C.ADFM = n_bits
   C.ADCON1_PCFG = pins
   C.ADCON0_ADCS = match C._const_main__cpu_freq_mhz { // depends on CPU frequency
