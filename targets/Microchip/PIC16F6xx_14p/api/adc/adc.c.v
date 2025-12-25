@@ -77,5 +77,5 @@ pub fn setup(pins u8, nbits u8) {
 			else										{ 0b0_000_0000 }	// Fosc/2
 	// ---------- Turn on the ADC ----------
 	C.ADFM = nbits
-	C.ADCON0bits.ADON = 1	// C.ADCON0 |= 0b0000_0001
+	C.ADON = 1	// C.ADCON0 |= 0b0000_0001
 }

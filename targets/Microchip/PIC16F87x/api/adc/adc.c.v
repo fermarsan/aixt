@@ -46,16 +46,10 @@ module adc
 pub fn setup(pins u8, n_bits u8) {
   C.ADFM = n_bits
   C.ADCON1_PCFG = pins
-  match C._const_main__cpu_freq_mhz { // depends on CPU frequency
-    6 ... 20 {
-      C.ADCON0_ADCS = 0b10
-    }
-    2 ... 5 {
-      C.ADCON0_ADCS = 0b01
-    }
-    else {
-      C.ADCON0_ADCS = 0b00
-    }
+  C.ADCON0_ADCS = match C._const_main__cpu_freq_mhz { // depends on CPU frequency
+    6 ... 20  { 0b10 }
+    2 ... 5   { 0b01 }
+    else      { 0b00 }
   }
   C.ADON = 1
 }

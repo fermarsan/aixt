@@ -26,7 +26,6 @@ Tasks to do in Aixt
 - [ ] Issue: Calling function from string interpolations including casting
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
-- [ ] Issue: assignment using `match` fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
 
@@ -85,3 +84,4 @@ Tasks to do in Aixt
 - [x] Test and include in documentation the module `pin_fast` for PIC16 targets
 - [x] Update the PIC12Fxxx, PIC16F8x and PIC16F87x examples
 - [x] Issue solved: `match` already works well with `C.variables`
+- [x] Issue solved: assignment using `match` already works
