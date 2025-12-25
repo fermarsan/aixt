@@ -1,0 +1,61 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Push" CircId="Push-11" mainComp="false" Show_id="false" Show_Val="false" Pos="-164,-72" rotation="90" hflip="1" vflip="1" label="Push-11" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
+
+<item itemtype="Resistor" CircId="Resistor-12" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-164,-8" rotation="90" hflip="1" vflip="1" label="Resistor-12" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="10 kΩ" />
+
+<item itemtype="Ground" CircId="Ground-14" mainComp="false" Show_id="false" Show_Val="false" Pos="-164,40" rotation="0" hflip="1" vflip="1" label="Ground-14" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Rail" CircId="Rail-15" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-164,-136" rotation="90" hflip="1" vflip="1" label="Rail-15" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="MCU" CircId="p16F877-21" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,-108" rotation="0" hflip="1" vflip="1" label="p16F877-21" idLabPos="0,172.193" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="20 MHz" Program="build/main.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="true" SerialMon="-1" />
+
+<item itemtype="ResistorDip" CircId="ResistorDip-24" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-20,-76" rotation="0" hflip="1" vflip="1" label="ResistorDip-24" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" Resistance="100 Ω" Size="8" PullUp="false" PuVolt="5 V" />
+
+<item itemtype="LedBar" CircId="LedBar-25" mainComp="false" Show_id="false" Show_Val="false" Pos="28,-76" rotation="0" hflip="1" vflip="1" label="LedBar-25" idLabPos="-16,-44" labelrot="0" valLabPos="-16,-56" valLabRot="0" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Node" CircId="Node-23" mainComp="false" Pos="-164,-100" />
+
+<item itemtype="Connector" uid="Connector-15" startpinid="Resistor-12-rPin" endpinid="Ground-14-Gnd" pointList="-164,8,-164,24" />
+
+<item itemtype="Connector" uid="Connector-50" startpinid="p16F877-21-MCLR" endpinid="Node-23-1" pointList="-116,-100,-164,-100" />
+
+<item itemtype="Connector" uid="Connector-51" startpinid="Push-11-pinP0" endpinid="Node-23-0" pointList="-164,-88,-164,-100" />
+
+<item itemtype="Connector" uid="Connector-52" startpinid="Node-23-2" endpinid="Rail-15-outnod" pointList="-164,-100,-164,-120" />
+
+<item itemtype="Connector" uid="Connector-53" startpinid="Resistor-12-lPin" endpinid="Push-11-switch0pinN" pointList="-164,-24,-164,-56" />
+
+<item itemtype="Connector" uid="Connector-54" startpinid="ResistorDip-24-resistor0-ePin0" endpinid="p16F877-21-PORTB7" pointList="-36,-100,-52,-100" />
+
+<item itemtype="Connector" uid="Connector-55" startpinid="ResistorDip-24-resistor1-ePin2" endpinid="p16F877-21-PORTB6" pointList="-36,-92,-52,-92" />
+
+<item itemtype="Connector" uid="Connector-56" startpinid="ResistorDip-24-resistor2-ePin4" endpinid="p16F877-21-PORTB5" pointList="-36,-84,-52,-84" />
+
+<item itemtype="Connector" uid="Connector-57" startpinid="ResistorDip-24-resistor3-ePin6" endpinid="p16F877-21-PORTB4" pointList="-36,-76,-52,-76" />
+
+<item itemtype="Connector" uid="Connector-58" startpinid="ResistorDip-24-resistor4-ePin8" endpinid="p16F877-21-PORTB3" pointList="-36,-68,-52,-68" />
+
+<item itemtype="Connector" uid="Connector-59" startpinid="ResistorDip-24-resistor5-ePin10" endpinid="p16F877-21-PORTB2" pointList="-36,-60,-52,-60" />
+
+<item itemtype="Connector" uid="Connector-60" startpinid="ResistorDip-24-resistor6-ePin12" endpinid="p16F877-21-PORTB1" pointList="-36,-52,-52,-52" />
+
+<item itemtype="Connector" uid="Connector-61" startpinid="ResistorDip-24-resistor7-ePin14" endpinid="p16F877-21-PORTB0" pointList="-36,-44,-52,-44" />
+
+<item itemtype="Connector" uid="Connector-62" startpinid="LedBar-25-led0-pinP" endpinid="ResistorDip-24-resistor0-ePin1" pointList="12,-100,-4,-100" />
+
+<item itemtype="Connector" uid="Connector-63" startpinid="LedBar-25-led1-pinP" endpinid="ResistorDip-24-resistor1-ePin3" pointList="12,-92,-4,-92" />
+
+<item itemtype="Connector" uid="Connector-64" startpinid="LedBar-25-led2-pinP" endpinid="ResistorDip-24-resistor2-ePin5" pointList="12,-84,-4,-84" />
+
+<item itemtype="Connector" uid="Connector-65" startpinid="LedBar-25-led3-pinP" endpinid="ResistorDip-24-resistor3-ePin7" pointList="12,-76,-4,-76" />
+
+<item itemtype="Connector" uid="Connector-66" startpinid="LedBar-25-led4-pinP" endpinid="ResistorDip-24-resistor4-ePin9" pointList="12,-68,-4,-68" />
+
+<item itemtype="Connector" uid="Connector-67" startpinid="LedBar-25-led5-pinP" endpinid="ResistorDip-24-resistor5-ePin11" pointList="12,-60,-4,-60" />
+
+<item itemtype="Connector" uid="Connector-68" startpinid="LedBar-25-led6-pinP" endpinid="ResistorDip-24-resistor6-ePin13" pointList="12,-52,-4,-52" />
+
+<item itemtype="Connector" uid="Connector-69" startpinid="LedBar-25-led7-pinP" endpinid="ResistorDip-24-resistor7-ePin15" pointList="12,-44,-4,-44" />
+
+</circuit>

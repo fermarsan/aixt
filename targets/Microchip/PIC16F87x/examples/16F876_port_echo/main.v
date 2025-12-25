@@ -3,7 +3,6 @@
 // Date: 2024-2025
 // Echo from the 4 LSBs of PORTC to the 4 LSBs of PORTB
 // PIC16F876 fosc = 20Mhz
-
 import time
 import port
 
