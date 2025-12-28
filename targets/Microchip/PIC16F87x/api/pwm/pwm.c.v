@@ -15,6 +15,8 @@ module pwm
 @[as_macro] pub const f_high	= 0b000000_00
 @[as_macro] pub const f_med	  = 0b000000_01 // div by 4
 @[as_macro] pub const f_low	  = 0b000000_10 // div by 16
+
+// setup function configures the PWM
 // |        |            res = 100            |            res = 250            |
 // | fosc   | f_high   | f_med     | f_low    | f_high   | f_med     | f_low    |
 // |--------|----------|-----------|----------|----------|-----------|----------|
@@ -24,8 +26,6 @@ module pwm
 // | 10 Mhz | 25 khz   | 6.25 khz  | 1563 hz  | 10 khz   | 2.5 khz   | 625 hz   |
 // | 8 Mhz  | 20 khz   | 5 khz     | 1250 hz  | 8 khz    | 2 khz     | 500 hz   |
 // | 4 Mhz  | 10 khz   | 2.5 khz   | 625 hz   | 4 khz    | 1 khz     | 250 hz   |
-
-// setup function configures the PWM
 @[as_macro]
 pub fn setup(channel u8, res u8, freq u8) {
   C.TRISC &= channel

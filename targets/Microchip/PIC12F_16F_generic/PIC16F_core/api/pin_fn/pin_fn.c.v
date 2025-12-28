@@ -6,7 +6,9 @@
 // Description: Pin management functions for 16F family
 module pin_fn
 
-// setup configures the mode of a pin
+// setup function configures the mode of a pin.
+// `id` is the pin id for example `pin.c7`
+// `mode` is the pin mode, `pin.input` or `pin.output`
 @[as_macro]
 pub fn setup(id u8, mode u8) {
 	unsafe {
@@ -18,7 +20,7 @@ pub fn setup(id u8, mode u8) {
 	}
 }
 
-// high puts a logic 1 to a pin
+// high function puts a logic `1` to a pin through its `id`
 @[as_macro]
 pub fn high(id u8) {
     unsafe {
@@ -26,7 +28,7 @@ pub fn high(id u8) {
 	}
 }
 
-// low puts a logic 0 to a pin
+// low function puts a logic `0` to a pin through its `id`
 @[as_macro]
 pub fn low(id u8) {
 	unsafe {
@@ -34,7 +36,7 @@ pub fn low(id u8) {
 	}
 }
 
-// write function writes a logic value to a pin
+// write function writes a logic `value` to a pin through its `id`
 @[as_macro]
 pub fn write(id u8, value u8) {
 	unsafe {
@@ -43,7 +45,7 @@ pub fn write(id u8, value u8) {
 	}
 }
 
-// toggle function toggles the logic value of a pin
+// toggle function toggles the logic `value` of a pin through its `id`
 @[as_macro]
 pub fn toggle(id u8) {
 	unsafe {
@@ -51,7 +53,7 @@ pub fn toggle(id u8) {
 	}
 }
 
-// read function reads the logic value of a pin
+// read function reads the logic value of a pin pin through its `id`
 @[as_macro]
 pub fn read(id u8) u8 {
 	unsafe {
