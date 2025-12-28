@@ -4,7 +4,7 @@
 
 <item itemtype="MCU" CircId="p16F876-25" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,-212" rotation="0" hflip="1" vflip="1" label="p16F876-25" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="20 MHz" Program="build/main.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="true" SerialMon="-1" />
 
-<item itemtype="Oscope" CircId="Oscope-31" mainComp="false" Show_id="false" Show_Val="false" Pos="-32,-8" rotation="0" hflip="1" vflip="1" label="Oscope-31" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="600000" connectGnd="true" InputImped="10 MΩ" TimDiv="64640000" TimPos="0,0,1303225,1303225," VolDiv="0.499998,0.499998,0.490048,0.490048," Tunnels=",,,," Trigger="0" Filter="0.1 V" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="-2.49999,-2.49999,-2.50499,-2.50499," />
+<item itemtype="Oscope" CircId="Oscope-31" mainComp="false" Show_id="false" Show_Val="false" Pos="-32,-8" rotation="0" hflip="1" vflip="1" label="Oscope-31" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="600000" connectGnd="true" InputImped="10 MΩ" TimDiv="64640000" TimPos="0,0,1303225,1303225," VolDiv="1.25,1.25,0.490048,0.490048," Tunnels=",,,," Trigger="0" Filter="0.1 V" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="0.25,-5.25,-2.50499,-2.50499," />
 
 <item itemtype="Connector" uid="Connector-52" startpinid="p16F876-25-MCLR" endpinid="Rail-15-outnod" pointList="-116,-204,-140,-204,-140,-220" />
 

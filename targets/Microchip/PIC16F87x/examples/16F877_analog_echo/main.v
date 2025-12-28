@@ -5,10 +5,10 @@
 import adc
 import pwm
 
-adc.setup(adc.in0, adc.bits8)     //Configuramos el ADC
-pwm.setup()     //Configuramos el modulo CCP(PWM)
+adc.setup(adc.in0, adc.bits_8)
+pwm.setup(pwm.ch1, 255, pwm.f_low)
 
 for {
-	x := adc.read_byte(0)  //Retornamos la lectura de la conversión a la variable adc_value
-	pwm.write(x)
+	x := adc.read_byte(0)
+	pwm.write(pwm.ch1, x)
 }
