@@ -97,9 +97,10 @@ build/* linguist-vendored=true
 **/clib/** linguist-vendored=true
 
 
-# Ignore HTML generated files
+# Ignore HTML an Markdown generated files
 *.html linguist-vendored=true
 *.xml linguist-vendored=true
 *.js linguist-vendored=true
 *.css linguist-vendored=true
 *.webmanifest linguist-vendored=true
+*.md linguist-vendored=true
