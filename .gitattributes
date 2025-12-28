@@ -43,7 +43,6 @@
 *.P linguist-vendored=true
 *.sdc linguist-vendored=true
 *.ctl linguist-vendored=true
-*.html linguist-vendored=true
 *.syntax linguist-vendored=true
 *.sim1 linguist-vendored=true
 
@@ -96,3 +95,11 @@ build/* linguist-vendored=true
 
 # Ignore c libraries
 **/clib/** linguist-vendored=true
+
+
+# Ignore HTML generated files
+*.html linguist-vendored=true
+*.xml linguist-vendored=true
+*.js linguist-vendored=true
+*.css linguist-vendored=true
+*.webmanifest linguist-vendored=true

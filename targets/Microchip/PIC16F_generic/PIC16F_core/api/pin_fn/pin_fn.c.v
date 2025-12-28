@@ -1,11 +1,8 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
+// File name: Aixt project, https://github.com/fermarsan/aixt.git/targets/Microchip/PIC12F_16F_generic/PIC16F_core/api/pin_fn/pin_fn.c.v
 //
 // Author: Fernando M. Santa
 //
-// Date: 2024-2025
-//
-// License: MIT
-//
+// Date: 2024-2025//
 //
 // Description: Pin management functions for 16F family
 module pin_fn
