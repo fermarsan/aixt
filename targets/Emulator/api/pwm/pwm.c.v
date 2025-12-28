@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
-// Date: 2023-2024
-// License: MIT
 //
-// Description: This is a module to emulate a PWM output in console.
+// _Author:_ Fernando Martínez Santa
+//
+// _Date:_ 2023-2024
+//
+// ## Description
+// This is a module to emulate a PWM output in console.
 module pwm
 
 #include <stdio.h>

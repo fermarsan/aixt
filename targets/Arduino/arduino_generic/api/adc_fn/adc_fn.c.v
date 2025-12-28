@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: ADC functions
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// ADC functions
 module adc_fn
 
 fn C.analogRead(id u8) u16

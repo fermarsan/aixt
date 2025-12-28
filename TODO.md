@@ -85,3 +85,4 @@ Tasks to do in Aixt
 - [x] Update the PIC12Fxxx, PIC16F8x and PIC16F87x examples
 - [x] Issue solved: `match` already works well with `C.variables`
 - [x] Issue solved: assignment using `match` already works
+- [x] Update the source files header to improve the visualization of the automatic documentation

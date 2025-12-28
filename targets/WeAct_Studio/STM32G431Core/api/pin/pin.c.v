@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: Pin management STM32G431Core
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// Pin management STM32G431Core
 module pin
 
 // pin names A

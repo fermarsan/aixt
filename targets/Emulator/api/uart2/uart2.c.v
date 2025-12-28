@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2023-2024
-// License: MIT
 //
-// Description: input and printing functions.
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2023-2024
+//
+// ## Description
+// input and printing functions.
 module uart2
 
 #include <stdio.h>

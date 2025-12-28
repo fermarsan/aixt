@@ -3,7 +3,8 @@
 //  - Arley Junco
 //  - Luis Quevedo
 //  - Fernando M. Santa
-// Date: 2024
+//
+// _Date:_ 2024
 // License : MIT
 
 module pwm

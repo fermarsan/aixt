@@ -1,6 +1,8 @@
 // Project name:
-// Author: 
-// Date: 
+//
+// _Author:_ 
+//
+// _Date:_ 
 // Arduino Uno board
 import time
 import pin

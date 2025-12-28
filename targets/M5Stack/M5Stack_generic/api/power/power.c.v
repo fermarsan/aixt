@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2025
-// License: MIT
 //
-// Description: Power module for M5Stack (arduino backend)
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2025
+//
+// ## Description
+// Power module for M5Stack (arduino backend)
 
 module power	// M5Stack power module
 

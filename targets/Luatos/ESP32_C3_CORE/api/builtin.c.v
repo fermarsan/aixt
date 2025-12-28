@@ -3,7 +3,8 @@
 //	- Farith Ochoa Leon
 //	- Felipe Cardozo
 //	- Fernando M. Santa
-// Date: 2024-2025
+//
+// _Date:_ 2024-2025
 // License : MIT
 //
 //Description: Builtin definitions (ESP32-C3FH4)      

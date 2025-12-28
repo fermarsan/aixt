@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando Martínez Santa
-// Date: 2023-2025
-// License: MIT
 //
-// Description: This is a module to emulate digital pines in console.
+// _Author:_ Fernando Martínez Santa
+//
+// _Date:_ 2023-2025
+//
+// ## Description
+// This is a module to emulate digital pines in console.
 module pin
 
 #include <stdio.h>

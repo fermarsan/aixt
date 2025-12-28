@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: PWM functions W801
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// PWM functions W801
 module pwm
 
 pub const ch0_0 = u8(C.PA2)

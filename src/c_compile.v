@@ -1,6 +1,8 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2023-2025
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2023-2025
 // License: MIT
 module main
 
@@ -11,9 +13,9 @@ import aixt.setup
 // example:
 // ``` v
 // build.compile_file('example.v', project_setup)
-// ``` 
+// ```
 // Calls the compiler with `example.c` file, previously generated from `example.v` .
-// If inside the containing folder of `example.v` a `Makefile`  exits, it calls the 
+// If inside the containing folder of `example.v` a `Makefile`  exits, it calls the
 // `make`  command instead.
 pub fn c_compile(path string, project_setup setup.Setup) {
 
@@ -24,13 +26,13 @@ pub fn c_compile(path string, project_setup setup.Setup) {
 	}
 
 	mut flags := project_setup.cc['flags']
-	flags = flags.replace('@{file_no_ext}', '${path}')	
-	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')	
+	flags = flags.replace('@{file_no_ext}', '${path}')
+	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')
 	flags = flags.replace('@{device}', '${project_setup.device}')
 
 	input_ext := match project_setup.backend {
 		'nxc' 		{ '.nxc' }
-		'arduino'	{ '.ino' } 
+		'arduino'	{ '.ino' }
 		else 		{ '.c' }
 	}
 	flags = flags.replace('@{input_ext}', '${input_ext}')
@@ -41,7 +43,7 @@ pub fn c_compile(path string, project_setup setup.Setup) {
 		}
 		else	{ '' }
 	}
-	flags = flags.replace('@{output_ext}', '${output_ext}')	
+	flags = flags.replace('@{output_ext}', '${output_ext}')
 
 	// println('-------- ${os.dir(path)} --------')
 	if os.exists('${os.dir(path)}' + os.path_separator + 'Makefile') {		// calling compiler through Makefile

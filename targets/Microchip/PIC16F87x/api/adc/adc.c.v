@@ -1,10 +1,12 @@
 // Project name: Aixt,
 // https://github.com/fermarsan/aixt.git
-// Author: Cesar Alejandro Roa Acosta and Fernando M. Santa
-// Date: 2024-2025
-// License: MIT
 //
-// Description: ADC management functions
+// _Author:_ Cesar Alejandro Roa Acosta and Fernando M. Santa
+//
+// _Date:_ 2024-2025
+//
+// ## Description
+// ADC management functions
 //              (PIC16F87x port)
 module adc
 

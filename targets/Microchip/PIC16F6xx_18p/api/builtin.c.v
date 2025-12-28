@@ -1,11 +1,12 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	- Luis Alfredo Pinto Medina
 //	- Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: Builtin definitions (PIC16F8x port)
+// _Date:_ 2024
+//
+// ## Description
+// Builtin definitions (PIC16F8x port)
 
 module main
 

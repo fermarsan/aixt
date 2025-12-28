@@ -1,9 +1,11 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
-// Date: 2022-2024
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// Description: pin functions (Ai_Thinker_Ai-WB2-32S-Kit)
+// _Author:_ Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+//
+// _Date:_ 2022-2024
+//
+// ## Description
+// pin functions (Ai_Thinker_Ai-WB2-32S-Kit)
 
 module pin
 
@@ -17,4 +19,3 @@ pub const gpio5  = 5
 pub const gpio7  = 7
 pub const gpio16 = 16
 pub const gpio12 = 12
-

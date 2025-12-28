@@ -1,9 +1,11 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// Description: Pin management functions for 12F family
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2025
+//
+// ## Description
+// Pin management functions for 12F family
 module pin_fn
 
 // pin names as macros
@@ -47,8 +49,8 @@ pub fn low(id u8) {
 // write function writes a logic value to a pin
 @[as_macro]
 pub fn write(id u8, value u8) {
-	C.GPIO  &=  (~(0x01 << id))	// clean the bit first	
-	C.GPIO  |=  (value << id)	
+	C.GPIO  &=  (~(0x01 << id))	// clean the bit first
+	C.GPIO  |=  (value << id)
 }
 
 // toggle function toggles the logic value of a pin

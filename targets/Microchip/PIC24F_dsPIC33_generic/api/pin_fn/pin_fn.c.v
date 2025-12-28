@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2022-2025
-// License: MIT
 //
-// Description: Pin management functions PIC24 Family
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2022-2025
+//
+// ## Description
+// Pin management functions PIC24 Family
 module pin_fn
 
 // pin modes

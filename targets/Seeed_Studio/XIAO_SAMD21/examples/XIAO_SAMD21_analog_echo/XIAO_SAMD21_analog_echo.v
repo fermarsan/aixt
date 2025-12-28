@@ -1,6 +1,8 @@
 // Project name: Analog echo
-// Author: Fernando M. Santa
-// Date: 14/01/2025
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 14/01/2025
 // Raspberry XIAO-SAMD21 board
 
 import time

@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2022-2023
-// License: MIT
 //
-// Description: Builtin definitions (Exp16-PIC24 port)
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2022-2023
+//
+// ## Description
+// Builtin definitions (Exp16-PIC24 port)
 #define led3    a0  // Onboard LEDs            
 #define led4    a1        
 #define led5    a2        

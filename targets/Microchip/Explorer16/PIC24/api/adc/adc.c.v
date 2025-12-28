@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa & Santiago Orjuela R.
-// Date: 2022-2024
-// License: MIT
 //
-// Description: ADC functions (Exp16-PIC24 port)
+// _Author:_ Fernando M. Santa & Santiago Orjuela R.
+//
+// _Date:_ 2022-2024
+//
+// ## Description
+// ADC functions (Exp16-PIC24 port)
 module adc
 
 #include <p24FJ128GA010.h>
@@ -50,11 +52,13 @@ module adc
 fn C.init()
 
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa & Santiago Orjuela R.
-// Date: 2022-2024
-// License: MIT
 //
-// Description: ADC functions (Exp16-PIC24 port)
+// _Author:_ Fernando M. Santa & Santiago Orjuela R.
+//
+// _Date:_ 2022-2024
+//
+// ## Description
+// ADC functions (Exp16-PIC24 port)
 
 
 #include <libpic30.h>
@@ -62,11 +66,13 @@ fn C.init()
 fn C.read(channel u8) u16 
 
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2022-2024
-// License: MIT
 //
-// Description: ADC setup (Exp16-PIC24 port)
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2022-2024
+//
+// ## Description
+// ADC setup (Exp16-PIC24 port)
 
 
 // setup receive the pins to be configured as analog and the sampling-converting frequency

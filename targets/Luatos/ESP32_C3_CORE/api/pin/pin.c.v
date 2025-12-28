@@ -1,9 +1,12 @@
 // Project Name : Aixt: http://github.com/fermansan/aixt.git
-// Author: Fernando M. Santa 
-// License : MIT
-// Date: 2025
 //
-// Description: Pin management functions ESP32C3-CORE
+// _Author:_ Fernando M. Santa 
+// License : MIT
+//
+// _Date:_ 2025
+//
+// ## Description
+// Pin management functions ESP32C3-CORE
 module pin
 
 // pin names 

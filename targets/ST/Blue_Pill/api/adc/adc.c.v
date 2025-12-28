@@ -1,12 +1,13 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	 - Julian Camilo Guzmán Zambrano
 //	 - Juan Pablo Gonzalez Penagos
 //	 - Fernando M. Santa
-// Date: 2022-2025
-// License: MIT
 //
-// Description: ADC functions
+// _Date:_ 2022-2025
+//
+// ## Description
+// ADC functions
 module adc
 
 // adc channels

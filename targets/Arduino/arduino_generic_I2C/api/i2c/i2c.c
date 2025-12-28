@@ -3,7 +3,8 @@
 //        - Juan Pablo Bernal
 //        - Daniela Mendoza Deantonio
 //        - Fernando M. Santa
-// Date: 2024
+//
+// _Date:_ 2024
 
 #define WIRE_BEGIN(...)                         Wire.begin(__VA_ARGS__)  
 #define WIRE_END()                              Wire.end()

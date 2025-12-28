@@ -1,6 +1,8 @@
 // Project name: Timer Interrupt Test with Percent Compare (3 LEDs)
-// Author: Fernando M. Santa & Santiago Farfán
-// Date: 09/05/2025
+//
+// _Author:_ Fernando M. Santa & Santiago Farfán
+//
+// _Date:_ 09/05/2025
 // Board: STM32G431Coreboard
 
 import timer16

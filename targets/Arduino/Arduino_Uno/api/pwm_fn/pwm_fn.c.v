@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: PWM functions (Arduino Uno - ATmega328P port)
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// PWM functions (Arduino Uno - ATmega328P port)
 module pwm_fn
 
 @[as_macro] pub const ch0 = 3

@@ -1,8 +1,10 @@
-// Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
-// Date: 2022-2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// // Description: pwm write functions (CY8CKIT-049-42XX)
+// _Author:_ Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+//
+// _Date:_ 2022-2025
+//
+// // ## Description
+// pwm write functions (CY8CKIT-049-42XX)
 
 // #define PWM_WRITE(PIN_NAME, VAL)    PIN_NAME##_WriteCompare(VAL)

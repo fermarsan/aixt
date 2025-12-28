@@ -1,11 +1,11 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	 - Julian Camilo Guzmán Zambrano
 //	 - Juan Pablo Gonzalez Penagos
 //	 - Fernando M. Santa
-// Date: 2022-2025
-// License: MIT
 //
-// Description: Builtin definitions (Blue-Pill port) 
+// _Date:_ 2022-2025
+//
+// ## Description
+// Builtin definitions (Blue-Pill port)
 module main
-

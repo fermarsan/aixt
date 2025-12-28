@@ -1,6 +1,8 @@
 // Project name:
-// Author: 
-// Date: 
+//
+// _Author:_ 
+//
+// _Date:_ 
 // Exp16-PIC24FJ128GA010 fosc = 32Mhz (8Mhz + PLL)
 
 import time

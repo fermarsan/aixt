@@ -1,9 +1,11 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
-// Date: 2022-2024
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// // Description: Serial Port UART functions (Ai-Thinker_Ai-WB2-32S-Kit)
+// _Author:_ Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+//
+// _Date:_ 2022-2024
+//
+// // ## Description
+// Serial Port UART functions (Ai-Thinker_Ai-WB2-32S-Kit)
 
 import time {sleep_ms}
 import pin
@@ -30,7 +32,7 @@ for {
   x:=0
   x=uart.any()
   if  x> 0 {
-  command := ` ` 
+  command := ` `
 	command = uart.read()
 
     if command==`A`  {
@@ -61,7 +63,7 @@ for {
 
         pin.low(io12)
         sleep_ms(1000)
-      
+
     }
   }
 }

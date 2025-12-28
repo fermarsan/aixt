@@ -1,9 +1,11 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
-// Authors: Fernando M. Santa
-// Date: 2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// Description: Builtin definitions PIC12F6xx
+// _Authors:_ Fernando M. Santa
+//
+// _Date:_ 2025
+//
+// ## Description
+// Builtin definitions PIC12F6xx
 
 module main
 

@@ -1,7 +1,8 @@
-// Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
-// Date: 2022-2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
+//
+// _Author:_ Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+//
+// _Date:_ 2022-2025
 //
 
 

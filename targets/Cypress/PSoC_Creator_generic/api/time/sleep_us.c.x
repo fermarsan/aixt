@@ -3,10 +3,11 @@
 //	- Javier Leon
 //	- Camilo Lucas
 //	- Fernando M. Santa
-// Date: 2023
-// License: MIT
 //
-// Description: Microseconds delay function
+// _Date:_ 2023
+//
+// ## Description
+// Microseconds delay function
 //              (CY8CKIT-145-40XX)
 
 #define sleep_us(TIME)    CyDelayUs(TIME)

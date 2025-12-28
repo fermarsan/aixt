@@ -1,6 +1,8 @@
 // Project name:
-// Author: 
-// Date: 
+//
+// _Author:_ 
+//
+// _Date:_ 
 // Blue-Pill board
 
 import time

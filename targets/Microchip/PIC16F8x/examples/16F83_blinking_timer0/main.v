@@ -1,6 +1,8 @@
 // Project name: Blinking
-// Author: Fernando M. Santa
-// Date: 2024-2025
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024-2025
 // PIC16F83 fosc = 10Mhz by default
 import pin_fn as pin
 import timer0

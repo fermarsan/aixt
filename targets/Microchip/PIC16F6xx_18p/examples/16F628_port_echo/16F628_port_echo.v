@@ -1,6 +1,8 @@
 // Project name: Port echo
-// Author: Fernando M. Santa
-// Date: 05/09/2024
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 05/09/2024
 // Echo from the 4 LSBs of PORTA to the 4 LSBs of PORTB
 // PIC16F628 fosc = 20Mhz
 

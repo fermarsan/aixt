@@ -1,13 +1,14 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	 - Julian Camilo Guzmán Zambrano
 //	 - Juan Pablo Gonzalez Penagos
 //	 - Fernando M. Santa
-// Date: 2022-2024
-// License: MIT
 //
-// // Description: PWM functions (Blue Pill_STM32F103C)
-//              (PC port) 
+// _Date:_ 2022-2024
+//
+// // ## Description
+// PWM functions (Blue Pill_STM32F103C)
+//              (PC port)
 
 module pwm
 
@@ -20,4 +21,3 @@ pub fn write(PIN_NAME, MODE) {
 pub fn map(MODE, VALUE,VALUE1,VALUE2,VALUE3) {
 	C.map(MODE, VALUE,VALUE1,VALUE2,VALUE3)
 }
-

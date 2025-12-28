@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2023-2024
-// License: MIT
 //
-// Description: This is a module to emulate ADC inputs in console.
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2023-2024
+//
+// ## Description
+// This is a module to emulate ADC inputs in console.
 module adc  
 
 #include <stdio.h>

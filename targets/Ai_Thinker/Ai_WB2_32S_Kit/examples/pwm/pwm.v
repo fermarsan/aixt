@@ -1,9 +1,11 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
-// Date: 2022-2024
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// // Description: pwm Ouput functions (Ai-Thinker_Ai-WB2-32S-Kit)
+// _Author:_ Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+//
+// _Date:_ 2022-2024
+//
+// // ## Description
+// pwm Ouput functions (Ai-Thinker_Ai-WB2-32S-Kit)
 
 import time {sleep_ms}
 import pin
@@ -18,6 +20,6 @@ for {
     sleep_ms(250)
     val=val+10
     if val==250{
-		val=0  
+		val=0
     }
-} 
+}

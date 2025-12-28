@@ -1,9 +1,11 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024-2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// Description: Pin management functions for 16F62x-648
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024-2025
+//
+// ## Description
+// Pin management functions for 16F62x-648
 module pin_fn
 
 // pin names as macros
@@ -34,4 +36,4 @@ module pin_fn
 
 // port names as macros
 @[as_macro] pub const port_a = C.A
-@[as_macro] pub const port_b = C.B 
+@[as_macro] pub const port_b = C.B

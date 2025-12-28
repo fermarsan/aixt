@@ -1,6 +1,8 @@
 // Project name: 4-bit echo
-// Author: Fernando M. Santa
-// Date: 09/09/2024
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 09/09/2024
 // Arduino-Uno board
 // 4-bit echo, from PORTB LSBs to PORTC LSBs
 

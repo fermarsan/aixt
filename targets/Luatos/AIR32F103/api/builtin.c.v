@@ -1,17 +1,18 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	 - Julian Camilo Guzmán Zambrano
 //	 - Juan Pablo Gonzalez Penagos
 //	 - Fernando M. Santa
-// Date: 2022-2023
-// License: MIT
 //
-// Description: Builtin definitions
-//              (PC port) 
+// _Date:_ 2022-2023
+//
+// ## Description
+// Builtin definitions
+//              (PC port)
 module main
 
 enum __pin_names {    // enumerated type for the pin names
- 
+
     rx=PA9
     tx=PA10
     p1=PA0
@@ -47,7 +48,3 @@ recibe_dato
 dato
 envia_dato
 }
-
-
-
-

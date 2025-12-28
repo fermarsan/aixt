@@ -1,13 +1,10 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
-// Date: 2022-2024
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// // Description: Builtin definitions
+// _Author:_ Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+//
+// _Date:_ 2022-2024
+//
+// // ## Description
+// Builtin definitions
 
 module main
-
-
-
-
-

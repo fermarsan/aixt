@@ -1,6 +1,8 @@
 // Project name: IMU test
-// Author: Fernando M
-// Date: 22/01/2025
+//
+// _Author:_ Fernando M
+//
+// _Date:_ 22/01/2025
 // M5Stack FIRE IoT development kit
 
 import lcd 

@@ -1,13 +1,14 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	 - Julian Camilo Guzmán Zambrano
 //	 - Juan Pablo Gonzalez Penagos
 //	 - Fernando M. Santa
-// Date: 2022-2024
-// License: MIT
 //
-// // Description: PIN functions (Blue Pill_STM32F103C)
-//              (PC port) 
+// _Date:_ 2022-2024
+//
+// // ## Description
+// PIN functions (Blue Pill_STM32F103C)
+//              (PC port)
 
 module pin
 
@@ -41,4 +42,3 @@ module pin
 @[as_macro] pub const p26 = u8(C.PB13)
 @[as_macro] pub const p27 = u8(C.PB14)
 @[as_macro] pub const p28 = u8(C.PB15)
-

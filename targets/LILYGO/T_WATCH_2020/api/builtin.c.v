@@ -1,8 +1,10 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: Builtin definitions (ESP32-DevKitC port)
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// Builtin definitions (ESP32-DevKitC port)
 module main
 

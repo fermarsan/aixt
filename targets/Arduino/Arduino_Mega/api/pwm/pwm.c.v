@@ -1,9 +1,11 @@
 // Project Name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: PWM functions (Arduino Mega - ATmega2560 port)
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// PWM functions (Arduino Mega - ATmega2560 port)
 module pwm
 
 @[as_macro] pub const ch0 = 2

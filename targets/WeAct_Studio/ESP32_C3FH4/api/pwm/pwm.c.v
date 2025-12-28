@@ -1,7 +1,9 @@
 // Project Name : Aixt: http://github.com/fermansan/aixt.git
-// Author: Farith Ochoa León, Delipe Cardozo and Fernando M. Santa 
+//
+// _Author:_ Farith Ochoa León, Delipe Cardozo and Fernando M. Santa 
 // License : MIT
-// Date: 2024-2025
+//
+// _Date:_ 2024-2025
 
 module pwm 
 

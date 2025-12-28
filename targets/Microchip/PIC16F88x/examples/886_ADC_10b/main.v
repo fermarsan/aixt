@@ -1,6 +1,8 @@
 // Project name: 10-bit ADC
-// Author: Fernando M. Santa
-// Date: 13/11/2024
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 13/11/2024
 // PIC16F886 fosc = 10Mhz
 
 import time

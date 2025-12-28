@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2025
-// License: MIT
 //
-// Description: adc functions (CY8CKIT-049-42XX)
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2025
+//
+// ## Description
+// adc functions (CY8CKIT-049-42XX)
 module adc
 
 @[as_macro]

@@ -1,6 +1,8 @@
 // Project name: PWM signal
-// Author: Fernando M. Santa
-// Date: 06/01/2025
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 06/01/2025
 // STM32F411Core
 
 import time

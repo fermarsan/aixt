@@ -1,22 +1,24 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt
+// _File:_ https://github.com/fermarsan/aixt
 
-// Author: Yahir Gracia
-// Date: 2024
-// License: MIT
 //
-// Description: Pin(M0sense)
+// _Author:_ Yahir Gracia
+//
+// _Date:_ 2024
+//
+// ## Description
+// Pin(M0sense)
 #define LED_B_PIN   a0 // Onboard LEDs
 #define LED_G_PIN   a1
 #define LED_R_PIN   a2
 
-#define BTN_PIN     d6_i  // Onboard switchs  
+#define BTN_PIN     d6_i  // Onboard switchs
 
 @[as_macro] pub const a0 =_s    TRISAbits.TRISA0
 
 
 
 
-// Onboard ADC  
+// Onboard ADC
 #define ADC_CLK_DIV_1, /*!< ADC clock:on 32M clock is 32M */
 #define ADC_CLK_DIV_4, /*!< ADC clock:on 32M clock is 8M */
 #define ADC_CLK_DIV_8, /*!< ADC clock:on 32M clock is 4M */

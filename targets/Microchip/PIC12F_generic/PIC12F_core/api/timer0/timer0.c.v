@@ -1,9 +1,11 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// Description: Timer0 functions for 12F family
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2025
+//
+// ## Description
+// Timer0 functions for 12F family
 module timer0
 
 @[as_macro] const irq_in_use = true

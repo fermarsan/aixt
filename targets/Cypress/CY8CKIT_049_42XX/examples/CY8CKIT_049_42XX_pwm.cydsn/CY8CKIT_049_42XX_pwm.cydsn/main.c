@@ -25,12 +25,14 @@ typedef char rune;
 #define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000
 #define _const_main__cpu_freq  20000000
 
-// Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
-// Date: 2022-2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// // Description: builtin (CY8CKIT-049-42XX)
+// _Author:_ Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+//
+// _Date:_ 2022-2025
+//
+// // ## Description
+// builtin (CY8CKIT-049-42XX)
 
 #include "project.h"
 
@@ -66,7 +68,7 @@ void  pwm__init();
 #define _const_main__di10 30
 
 void  main__init() {
-	INIT_INTERRUPTS(); 
+	INIT_INTERRUPTS();
 }
 
 #define _const_pwm__ch0 17
@@ -74,10 +76,10 @@ void  main__init() {
 #define _const_pwm__ch2 16
 
 void  pwm__init() {
-	pwm1_Start(); 
-	pwm2_Start(); 
-	pwm0_Start(); 
-	clock_Start(); 
+	pwm1_Start();
+	pwm2_Start();
+	pwm0_Start();
+	clock_Start();
 }
 
 #define pwm__write(channel, val) \
@@ -100,7 +102,7 @@ switch (channel) { \
 	default: { \
 		break; \
 	}  \
-}; 
+};
 
 #define time__sleep_ms(tms) CyDelay(tms)
 
@@ -110,13 +112,12 @@ int main() {
 	main__init();
 	pwm__init();
 	while( true ) {
-		pwm__write(_const_pwm__ch0, 10000); 
-		time__sleep_ms(500); 
-		pwm__write(_const_pwm__ch0, 5000); 
-		time__sleep_ms(500); 
-		pwm__write(_const_pwm__ch0, 0); 
-		time__sleep_ms(500); 
-	} 
+		pwm__write(_const_pwm__ch0, 10000);
+		time__sleep_ms(500);
+		pwm__write(_const_pwm__ch0, 5000);
+		time__sleep_ms(500);
+		pwm__write(_const_pwm__ch0, 0);
+		time__sleep_ms(500);
+	}
 	return 0;
 }
-

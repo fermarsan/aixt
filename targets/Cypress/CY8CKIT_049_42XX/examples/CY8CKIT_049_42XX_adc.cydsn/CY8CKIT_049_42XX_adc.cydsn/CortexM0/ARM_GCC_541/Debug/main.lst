@@ -52,26 +52,29 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
   22:main.c        **** typedef double f64;
   23:main.c        **** typedef double float_literal;
   24:main.c        **** typedef char rune;
-  25:main.c        **** 
+  25:main.c        ****
   26:main.c        **** #define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000
   27:main.c        **** #define _const_main__cpu_freq  20000000
-  28:main.c        **** 
-  29:main.c        **** // Project Name: Aixt https://github.com/fermarsan/aixt.git
-  30:main.c        **** // Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+  28:main.c        ****
+  29:main.c        **** // _File:_ https://github.com/fermarsan/aixt/blob/main/
+  30:main.c        **** //
+// _Author:_ Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
 ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 2
 
 
-  31:main.c        **** // Date: 2022-2025
+  31:main.c        **** //
+// _Date:_ 2022-2025
   32:main.c        **** // License: MIT
   33:main.c        **** //
-  34:main.c        **** // // Description: builtin (CY8CKIT-049-42XX)
-  35:main.c        **** 
+  34:main.c        **** // // ## Description
+// builtin (CY8CKIT-049-42XX)
+  35:main.c        ****
   36:main.c        **** #define INIT_INTERRUPTS()   CyGlobalIntEnable
-  37:main.c        **** 
+  37:main.c        ****
   38:main.c        **** void  main__init();
   39:main.c        **** u16  adc__read(i32 channel);
   40:main.c        **** char __temp_str[20];
-  41:main.c        **** 
+  41:main.c        ****
   42:main.c        **** #define _const_main__led1 led1
   43:main.c        **** #define _const_main___led2 led2
   44:main.c        **** #define _const_main__do0 3
@@ -97,14 +100,14 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
   64:main.c        **** #define _const_main__di8 28
   65:main.c        **** #define _const_main__di9 29
   66:main.c        **** #define _const_main__di10 30
-  67:main.c        **** 
+  67:main.c        ****
   68:main.c        **** void  main__init() {
   28              		.loc 1 68 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-  69:main.c        **** 	INIT_INTERRUPTS(); 
+  69:main.c        **** 	INIT_INTERRUPTS();
   33              		.loc 1 69 0
   34              		.syntax divided
   35              	@ 69 "main.c" 1
@@ -130,12 +133,12 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
   51              		.type	adc__read, %function
   52              	adc__read:
   53              	.LFB34:
-  71:main.c        **** 
+  71:main.c        ****
   72:main.c        **** #define _const_adc__ch0 0
   73:main.c        **** #define _const_adc__ch1 1
   74:main.c        **** #define _const_adc__ch2 2
   75:main.c        **** #define _const_adc__ch3 3
-  76:main.c        **** 
+  76:main.c        ****
   77:main.c        **** inline u16  adc__read(i32 channel) {
   54              		.loc 1 77 0
   55              		.cfi_startproc
@@ -146,35 +149,35 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
   60              		.cfi_def_cfa_offset 8
   61              		.cfi_offset 4, -8
   62              		.cfi_offset 14, -4
-  78:main.c        **** 	amux_FastSelect(channel); 
+  78:main.c        **** 	amux_FastSelect(channel);
   63              		.loc 1 78 0
   64 0002 C0B2     		uxtb	r0, r0
   65              	.LVL1:
   66 0004 FFF7FEFF 		bl	amux_FastSelect
   67              	.LVL2:
-  79:main.c        **** 	CyDelay(5); 
+  79:main.c        **** 	CyDelay(5);
   68              		.loc 1 79 0
   69 0008 0520     		movs	r0, #5
   70 000a FFF7FEFF 		bl	CyDelay
   71              	.LVL3:
-  80:main.c        **** 	adc_StartConvert(); 
+  80:main.c        **** 	adc_StartConvert();
   72              		.loc 1 80 0
   73 000e FFF7FEFF 		bl	adc_StartConvert
   74              	.LVL4:
   75              	.L3:
-  81:main.c        **** 	while( !adc_IsEndConversion(adc_RETURN_STATUS) ) { 
+  81:main.c        **** 	while( !adc_IsEndConversion(adc_RETURN_STATUS) ) {
   76              		.loc 1 81 0 discriminator 1
   77 0012 0120     		movs	r0, #1
   78 0014 FFF7FEFF 		bl	adc_IsEndConversion
   79              	.LVL5:
   80 0018 0028     		cmp	r0, #0
   81 001a FAD0     		beq	.L3
-  82:main.c        **** 	} 
-  83:main.c        **** 	adc_StopConvert(); 
+  82:main.c        **** 	}
+  83:main.c        **** 	adc_StopConvert();
   82              		.loc 1 83 0
   83 001c FFF7FEFF 		bl	adc_StopConvert
   84              	.LVL6:
-  84:main.c        **** 	return adc_GetResult16(0); 
+  84:main.c        **** 	return adc_GetResult16(0);
   85              		.loc 1 84 0
   86 0020 0020     		movs	r0, #0
   87 0022 FFF7FEFF 		bl	adc_GetResult16
@@ -198,28 +201,28 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
  101              		.type	main, %function
  102              	main:
  103              	.LFB35:
-  86:main.c        **** 
+  86:main.c        ****
   87:main.c        **** #define adc__setup() \
   88:main.c        **** adc_Start(); \
-  89:main.c        **** amux_Start(); 
-  90:main.c        **** 
+  89:main.c        **** amux_Start();
+  90:main.c        ****
   91:main.c        **** #define uart__print(message) uart_UartPutString(message)
-  92:main.c        **** 
+  92:main.c        ****
   93:main.c        **** #define uart__println(message) \
   94:main.c        **** uart_UartPutString(message); \
   95:main.c        **** uart_UartPutChar(0x0D); \
-  96:main.c        **** uart_UartPutChar(0x0A); 
-  97:main.c        **** 
+  96:main.c        **** uart_UartPutChar(0x0A);
+  97:main.c        ****
   98:main.c        **** #define uart__read()  uart_UartGetChar()
-  99:main.c        **** 
+  99:main.c        ****
  100:main.c        **** #define uart__setup() uart_Start()
- 101:main.c        **** 
+ 101:main.c        ****
  102:main.c        **** #define uart__write(character) uart_UartPutChar(character)
- 103:main.c        **** 
+ 103:main.c        ****
  104:main.c        **** #define time__sleep_ms(tms) CyDelay(tms)
- 105:main.c        **** 
+ 105:main.c        ****
  106:main.c        **** #define time__sleep_us(tus) CyDelayUs(tus)
- 107:main.c        **** 
+ 107:main.c        ****
  108:main.c        **** int main() {
  104              		.loc 1 108 0
  105              		.cfi_startproc
@@ -233,11 +236,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
  112              		.loc 1 109 0
  113 0002 FFF7FEFF 		bl	main__init
  114              	.LVL8:
- 110:main.c        **** 	uart__setup(); 
+ 110:main.c        **** 	uart__setup();
  115              		.loc 1 110 0
  116 0006 FFF7FEFF 		bl	uart_Start
  117              	.LVL9:
- 111:main.c        **** 	adc__setup(); 
+ 111:main.c        **** 	adc__setup();
 ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 5
 
 
@@ -250,29 +253,29 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
  124              	.LBB5:
  125              	.LBB6:
  126              	.LBB7:
-  78:main.c        **** 	CyDelay(5); 
+  78:main.c        **** 	CyDelay(5);
  127              		.loc 1 78 0 discriminator 1
  128 0012 0020     		movs	r0, #0
  129 0014 FFF7FEFF 		bl	amux_FastSelect
  130              	.LVL12:
-  79:main.c        **** 	adc_StartConvert(); 
+  79:main.c        **** 	adc_StartConvert();
  131              		.loc 1 79 0 discriminator 1
  132 0018 0520     		movs	r0, #5
  133 001a FFF7FEFF 		bl	CyDelay
  134              	.LVL13:
-  80:main.c        **** 	while( !adc_IsEndConversion(adc_RETURN_STATUS) ) { 
+  80:main.c        **** 	while( !adc_IsEndConversion(adc_RETURN_STATUS) ) {
  135              		.loc 1 80 0 discriminator 1
  136 001e FFF7FEFF 		bl	adc_StartConvert
  137              	.LVL14:
  138              	.L5:
-  81:main.c        **** 	} 
+  81:main.c        **** 	}
  139              		.loc 1 81 0
  140 0022 0120     		movs	r0, #1
  141 0024 FFF7FEFF 		bl	adc_IsEndConversion
  142              	.LVL15:
  143 0028 0028     		cmp	r0, #0
  144 002a FAD0     		beq	.L5
-  83:main.c        **** 	return adc_GetResult16(0); 
+  83:main.c        **** 	return adc_GetResult16(0);
  145              		.loc 1 83 0
  146 002c FFF7FEFF 		bl	adc_StopConvert
  147              	.LVL16:
@@ -286,7 +289,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
  154              	.LBE7:
  155              	.LBE6:
  112:main.c        **** 	while( true ) {
- 113:main.c        **** 		u16 analog = (u16)(adc__read(_const_adc__ch0)); 
+ 113:main.c        **** 		u16 analog = (u16)(adc__read(_const_adc__ch0));
  114:main.c        **** 		sprintf(__temp_str, "ADC channel 0: %u", (unsigned int)analog);
  156              		.loc 1 114 0
  157 0038 094C     		ldr	r4, .L7
@@ -294,7 +297,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
  159 003c 2000     		movs	r0, r4
  160 003e FFF7FEFF 		bl	sprintf
  161              	.LVL19:
- 115:main.c        **** 		uart__println(__temp_str); 
+ 115:main.c        **** 		uart__println(__temp_str);
  162              		.loc 1 115 0
  163 0042 2000     		movs	r0, r4
  164 0044 FFF7FEFF 		bl	uart_UartPutString
@@ -308,14 +311,14 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
  169 004e 0A20     		movs	r0, #10
  170 0050 FFF7FEFF 		bl	uart_SpiUartWriteTxData
  171              	.LVL22:
- 116:main.c        **** 		time__sleep_ms(1000); 
+ 116:main.c        **** 		time__sleep_ms(1000);
  172              		.loc 1 116 0
  173 0054 FA20     		movs	r0, #250
  174 0056 8000     		lsls	r0, r0, #2
  175 0058 FFF7FEFF 		bl	CyDelay
  176              	.LVL23:
  177              	.LBE5:
- 117:main.c        **** 	} 
+ 117:main.c        **** 	}
  178              		.loc 1 117 0
  179 005c D9E7     		b	.L6
  180              	.L8:
@@ -331,9 +334,9 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
  190              		.align	2
  191              	.LC0:
  192 0000 41444320 		.ascii	"ADC channel 0: %u\000"
- 192      6368616E 
- 192      6E656C20 
- 192      303A2025 
+ 192      6368616E
+ 192      6E656C20
+ 192      303A2025
  192      7500
  193              		.text
  194              	.Letext0:
@@ -1191,88 +1194,88 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
  1004              		.section	.debug_line,"",%progbits
  1005              	.Ldebug_line0:
  1006 0000 4C020000 		.section	.debug_str,"MS",%progbits,1
- 1006      0200EC01 
- 1006      00000201 
- 1006      FB0E0D00 
- 1006      01010101 
+ 1006      0200EC01
+ 1006      00000201
+ 1006      FB0E0D00
+ 1006      01010101
  1007              	.LASF27:
  1008 0000 75617274 		.ascii	"uart_SpiUartWriteTxData\000"
- 1008      5F537069 
+ 1008      5F537069
 ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 21
 
 
- 1008      55617274 
- 1008      57726974 
- 1008      65547844 
+ 1008      55617274
+ 1008      57726974
+ 1008      65547844
  1009              	.LASF39:
  1010 0018 5F5F7465 		.ascii	"__temp_str\000"
- 1010      6D705F73 
+ 1010      6D705F73
  1010      747200
  1011              	.LASF28:
  1012 0023 75617274 		.ascii	"uart_Start\000"
- 1012      5F537461 
+ 1012      5F537461
  1012      727400
  1013              	.LASF36:
  1014 002e 6368616E 		.ascii	"channel\000"
- 1014      6E656C00 
+ 1014      6E656C00
  1015              	.LASF33:
  1016 0036 433A5C61 		.ascii	"C:\\aixt\\aixt\\ports\\Cypress\\CY8CKIT-049-42XX\\e"
- 1016      6978745C 
- 1016      61697874 
- 1016      5C706F72 
- 1016      74735C43 
+ 1016      6978745C
+ 1016      61697874
+ 1016      5C706F72
+ 1016      74735C43
  1017 0063 78616D70 		.ascii	"xamples\\CY8CKIT-049-42XX-adc.cydsn\000"
- 1017      6C65735C 
- 1017      43593843 
- 1017      4B49542D 
- 1017      3034392D 
+ 1017      6C65735C
+ 1017      43593843
+ 1017      4B49542D
+ 1017      3034392D
  1018              	.LASF38:
  1019 0086 616E616C 		.ascii	"analog\000"
  1019      6F6700
  1020              	.LASF5:
  1021 008d 5F5F696E 		.ascii	"__int32_t\000"
- 1021      7433325F 
+ 1021      7433325F
  1021      7400
  1022              	.LASF14:
  1023 0097 666C6F61 		.ascii	"float\000"
  1023      7400
  1024              	.LASF1:
  1025 009d 756E7369 		.ascii	"unsigned char\000"
- 1025      676E6564 
- 1025      20636861 
+ 1025      676E6564
+ 1025      20636861
  1025      7200
  1026              	.LASF7:
  1027 00ab 6C6F6E67 		.ascii	"long unsigned int\000"
- 1027      20756E73 
- 1027      69676E65 
- 1027      6420696E 
+ 1027      20756E73
+ 1027      69676E65
+ 1027      6420696E
  1027      7400
  1028              	.LASF3:
  1029 00bd 73686F72 		.ascii	"short unsigned int\000"
- 1029      7420756E 
- 1029      7369676E 
- 1029      65642069 
+ 1029      7420756E
+ 1029      7369676E
+ 1029      65642069
  1029      6E7400
  1030              	.LASF21:
  1031 00d0 6164635F 		.ascii	"adc_StartConvert\000"
- 1031      53746172 
- 1031      74436F6E 
- 1031      76657274 
+ 1031      53746172
+ 1031      74436F6E
+ 1031      76657274
 ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 22
 
 
  1031      00
  1032              	.LASF26:
  1033 00e1 75617274 		.ascii	"uart_UartPutString\000"
- 1033      5F556172 
- 1033      74507574 
- 1033      53747269 
+ 1033      5F556172
+ 1033      74507574
+ 1033      53747269
  1033      6E6700
  1034              	.LASF24:
  1035 00f4 6164635F 		.ascii	"adc_GetResult16\000"
- 1035      47657452 
- 1035      6573756C 
- 1035      74313600 
+ 1035      47657452
+ 1035      6573756C
+ 1035      74313600
  1036              	.LASF15:
  1037 0104 646F7562 		.ascii	"double\000"
  1037      6C6500
@@ -1284,53 +1287,53 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
  1041      333200
  1042              	.LASF10:
  1043 0117 756E7369 		.ascii	"unsigned int\000"
- 1043      676E6564 
- 1043      20696E74 
+ 1043      676E6564
+ 1043      20696E74
  1043      00
  1044              	.LASF9:
  1045 0124 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1045      206C6F6E 
- 1045      6720756E 
- 1045      7369676E 
- 1045      65642069 
+ 1045      206C6F6E
+ 1045      6720756E
+ 1045      7369676E
+ 1045      65642069
  1046              	.LASF35:
  1047 013b 6164635F 		.ascii	"adc__read\000"
- 1047      5F726561 
+ 1047      5F726561
  1047      6400
  1048              	.LASF31:
  1049 0145 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1049      43313120 
- 1049      352E342E 
- 1049      31203230 
- 1049      31363036 
+ 1049      43313120
+ 1049      352E342E
+ 1049      31203230
+ 1049      31363036
  1050 0178 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 1050      20726576 
- 1050      6973696F 
- 1050      6E203233 
- 1050      37373135 
+ 1050      20726576
+ 1050      6973696F
+ 1050      6E203233
+ 1050      37373135
  1051 01ab 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1051      66756E63 
- 1051      74696F6E 
- 1051      2D736563 
- 1051      74696F6E 
+ 1051      66756E63
+ 1051      74696F6E
+ 1051      2D736563
+ 1051      74696F6E
  1052              	.LASF12:
  1053 01d3 696E7433 		.ascii	"int32_t\000"
- 1053      325F7400 
+ 1053      325F7400
  1054              	.LASF18:
  1055 01db 73697A65 		.ascii	"sizetype\000"
 ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 23
 
 
- 1055      74797065 
+ 1055      74797065
  1055      00
  1056              	.LASF34:
  1057 01e4 6D61696E 		.ascii	"main__init\000"
- 1057      5F5F696E 
+ 1057      5F5F696E
  1057      697400
  1058              	.LASF8:
  1059 01ef 6C6F6E67 		.ascii	"long long int\000"
- 1059      206C6F6E 
- 1059      6720696E 
+ 1059      206C6F6E
+ 1059      6720696E
  1059      7400
  1060              	.LASF32:
  1061 01fd 6D61696E 		.ascii	"main.c\000"
@@ -1340,59 +1343,59 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
  1063      00
  1064              	.LASF2:
  1065 0209 73686F72 		.ascii	"short int\000"
- 1065      7420696E 
+ 1065      7420696E
  1065      7400
  1066              	.LASF4:
  1067 0213 5F5F7569 		.ascii	"__uint16_t\000"
- 1067      6E743136 
+ 1067      6E743136
  1067      5F7400
  1068              	.LASF11:
  1069 021e 75696E74 		.ascii	"uint16_t\000"
- 1069      31365F74 
+ 1069      31365F74
  1069      00
  1070              	.LASF29:
  1071 0227 6164635F 		.ascii	"adc_Start\000"
- 1071      53746172 
+ 1071      53746172
  1071      7400
  1072              	.LASF23:
  1073 0231 6164635F 		.ascii	"adc_StopConvert\000"
- 1073      53746F70 
- 1073      436F6E76 
- 1073      65727400 
+ 1073      53746F70
+ 1073      436F6E76
+ 1073      65727400
  1074              	.LASF6:
  1075 0241 6C6F6E67 		.ascii	"long int\000"
- 1075      20696E74 
+ 1075      20696E74
  1075      00
  1076              	.LASF22:
  1077 024a 6164635F 		.ascii	"adc_IsEndConversion\000"
- 1077      4973456E 
- 1077      64436F6E 
- 1077      76657273 
- 1077      696F6E00 
+ 1077      4973456E
+ 1077      64436F6E
+ 1077      76657273
+ 1077      696F6E00
  1078              	.LASF17:
  1079 025e 6C6F6E67 		.ascii	"long double\000"
- 1079      20646F75 
- 1079      626C6500 
+ 1079      20646F75
+ 1079      626C6500
  1080              	.LASF19:
  1081 026a 616D7578 		.ascii	"amux_FastSelect\000"
- 1081      5F466173 
- 1081      7453656C 
- 1081      65637400 
+ 1081      5F466173
+ 1081      7453656C
+ 1081      65637400
 ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 24
 
 
  1082              	.LASF0:
  1083 027a 7369676E 		.ascii	"signed char\000"
- 1083      65642063 
- 1083      68617200 
+ 1083      65642063
+ 1083      68617200
  1084              	.LASF30:
  1085 0286 616D7578 		.ascii	"amux_Start\000"
- 1085      5F537461 
+ 1085      5F537461
  1085      727400
  1086              	.LASF25:
  1087 0291 73707269 		.ascii	"sprintf\000"
- 1087      6E746600 
+ 1087      6E746600
  1088              	.LASF20:
  1089 0299 43794465 		.ascii	"CyDelay\000"
- 1089      6C617900 
+ 1089      6C617900
  1090              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

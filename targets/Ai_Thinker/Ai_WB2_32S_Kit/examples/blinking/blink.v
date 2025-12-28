@@ -1,9 +1,11 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
-// Date: 2022-2024
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// // Description: Blinking led RED functions (Ai-Thinker_Ai-WB2-32S-Kit)
+// _Author:_ Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+//
+// _Date:_ 2022-2024
+//
+// // ## Description
+// Blinking led RED functions (Ai-Thinker_Ai-WB2-32S-Kit)
 
 import time {sleep_ms}
 import pin

@@ -1,6 +1,8 @@
 // Project name: Blinking
-// Author: Fernando M. Santa
-// Date: 05/03/2025
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 05/03/2025
 // W801 board
 
 import time

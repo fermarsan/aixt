@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: UART module (Arduino Nano - ATmega328P port)
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// UART module (Arduino Nano - ATmega328P port)
 module uart3
 
 #include "uart3.c"

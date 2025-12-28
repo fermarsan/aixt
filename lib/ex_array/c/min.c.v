@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 29/01/2025
-// License: MIT
 //
-// Description: Example of a Library module (array).
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 29/01/2025
+//
+// ## Description
+// Example of a Library module (array).
 //
 module ex_array
 

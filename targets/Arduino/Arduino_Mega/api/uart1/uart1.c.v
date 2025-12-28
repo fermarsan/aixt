@@ -1,13 +1,14 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	- Johann Escobar Guzmán
 //	- Daniel Andrés Vásquez Gómez
 //	- Fernando M. Santa
-// Date: 2023-2024
-// License: MIT
 //
-// // Description: SLEEP_ms functions (W801)
-//              (PC port) 
+// _Date:_ 2023-2024
+//
+// // ## Description
+// SLEEP_ms functions (W801)
+//              (PC port)
 
 module uart1
 

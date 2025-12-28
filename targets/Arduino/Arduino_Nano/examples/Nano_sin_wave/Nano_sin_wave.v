@@ -1,6 +1,8 @@
 // Project name: sin wave signal
-// Author: Fernando M. Santa
-// Date: 29/11/2024
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 29/11/2024
 // Arduino-Nano board
 // sin wave signal through the PORTD 
 // (parallel 8 bits for using an external DAC) 

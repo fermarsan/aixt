@@ -1,6 +1,8 @@
 // Project name: Inverter
-// Author: Fernando M. Santa
-// Date: 2025
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2025
 // Echo from GPIO3 to GPIO2
 // PIC12F675 fosc = 4Mhz
 import time

@@ -1,6 +1,8 @@
 // Project name: LCD Keypad Shield with ADC
-// Author: 
-// Date: 
+//
+// _Author:_ 
+//
+// _Date:_ 
 // Arduino Uno board
 
 import time

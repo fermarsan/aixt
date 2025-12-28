@@ -1,12 +1,13 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 // Authors:
-//	- Johann Escobar Guzmán 
+//	- Johann Escobar Guzmán
 //	- Daniel Andrés Vásquez Gómez
 //	- Fernando M. Santa
-// Date: 2023-2024
-// License: MIT
 //
-// Description: Builtin definitions (W801 port) 
+// _Date:_ 2023-2024
+//
+// ## Description
+// Builtin definitions (W801 port)
 module main
 
 // builtin LEDs

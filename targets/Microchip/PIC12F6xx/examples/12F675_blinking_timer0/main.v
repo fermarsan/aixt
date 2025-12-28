@@ -1,6 +1,8 @@
 // Project name: Blinking timer0
-// Author: Fernando M. Santa
-// Date: 2024-2025
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024-2025
 // PIC12F675 fosc = 4Mhz by default
 import pin_fn as pin
 import timer0

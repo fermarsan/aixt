@@ -25,12 +25,14 @@ typedef char rune;
 #define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000
 #define _const_main__cpu_freq  20000000
 
-// Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
-// Date: 2022-2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// // Description: builtin (CY8CKIT-145-40XX)
+// _Author:_ Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+//
+// _Date:_ 2022-2025
+//
+// // ## Description
+// builtin (CY8CKIT-145-40XX)
 
 #include "project.h"
 
@@ -64,7 +66,7 @@ void  main__init();
 #define _const_main__sld4 30
 
  void  main__init() {
-	INIT_INTERRUPTS(); 
+	INIT_INTERRUPTS();
 }
 
 #define uart__print(message) uart_UartPutString(message)
@@ -86,11 +88,10 @@ UartPutCRLF(); \
 
  int main() {
 	main__init();
-	uart__setup(); 
+	uart__setup();
 	while( true ) {
-		uart__print("Hola mundo...\r\n"); 
-		time__sleep_ms(1000); 
-	} 
+		uart__print("Hola mundo...\r\n");
+		time__sleep_ms(1000);
+	}
 	return 0;
 }
-

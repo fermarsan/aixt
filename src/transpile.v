@@ -1,6 +1,8 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2025
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2025
 // License: MIT
 module main
 
@@ -44,7 +46,7 @@ pub fn transpile(path string, project_setup setup.Setup) {
 
 	// parse source files
 	aixt_b.parse_files_dir(path)
-	
+
 	aixt_b.sym_table_print()
 	aixt_b.err_war_check()
 	aixt_b.err_war_print()

@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024-2025
-// License: MIT
 //
-// Description: Sensor module for NXT (NXC backend)
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024-2025
+//
+// ## Description
+// Sensor module for NXT (NXC backend)
 
 module sensor	
 

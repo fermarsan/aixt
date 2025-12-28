@@ -1,9 +1,11 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024-2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// Description: Builtin definitions
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024-2025
+//
+// ## Description
+// Builtin definitions
 //              (PIC16F676)
 module main
 
@@ -12,5 +14,3 @@ module main
 #include <stdint.h>
 
 #include "builtin.c"
-
-

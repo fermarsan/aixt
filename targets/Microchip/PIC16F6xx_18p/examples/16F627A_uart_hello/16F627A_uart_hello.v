@@ -1,6 +1,8 @@
 // Project name: Hello world by UART
-// Author: Fernando M. Santa
-// Date: 2025
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2025
 // PIC16F627A fosc = 20Mhz
 
 import pin_fn as pin

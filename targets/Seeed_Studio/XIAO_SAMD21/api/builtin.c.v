@@ -1,7 +1,9 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2022-2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// Description: Builtin definitions (XIAO-SAMD21 port) 
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2022-2025
+//
+// ## Description
+// Builtin definitions (XIAO-SAMD21 port)
 module main

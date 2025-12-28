@@ -1,6 +1,8 @@
 // Project name: W801
-// Author: Fernando M. Santa
-// Date: 08/09/2024
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 08/09/2024
 // Arduino-W801 board
 
 import time

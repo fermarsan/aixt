@@ -26,12 +26,14 @@ typedef char rune;
 #define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000
 #define _const_main__cpu_freq  20000000
 
-// Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
-// Date: 2022-2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// // Description: builtin (CY8CKIT-049-42XX)
+// _Author:_ Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+//
+// _Date:_ 2022-2025
+//
+// // ## Description
+// builtin (CY8CKIT-049-42XX)
 
 #define INIT_INTERRUPTS()   CyGlobalIntEnable
 
@@ -66,7 +68,7 @@ char __temp_str[20];
 #define _const_main__di10 30
 
 void  main__init() {
-	INIT_INTERRUPTS(); 
+	INIT_INTERRUPTS();
 }
 
 #define _const_adc__ch0 0
@@ -75,25 +77,25 @@ void  main__init() {
 #define _const_adc__ch3 3
 
 inline u16  adc__read(i32 channel) {
-	amux_FastSelect(channel); 
-	CyDelay(5); 
-	adc_StartConvert(); 
-	while( !adc_IsEndConversion(adc_RETURN_STATUS) ) { 
-	} 
-	adc_StopConvert(); 
-	return adc_GetResult16(0); 
+	amux_FastSelect(channel);
+	CyDelay(5);
+	adc_StartConvert();
+	while( !adc_IsEndConversion(adc_RETURN_STATUS) ) {
+	}
+	adc_StopConvert();
+	return adc_GetResult16(0);
 }
 
 #define adc__setup() \
 adc_Start(); \
-amux_Start(); 
+amux_Start();
 
 #define uart__print(message) uart_UartPutString(message)
 
 #define uart__println(message) \
 uart_UartPutString(message); \
 uart_UartPutChar(0x0D); \
-uart_UartPutChar(0x0A); 
+uart_UartPutChar(0x0A);
 
 #define uart__read()  uart_UartGetChar()
 
@@ -107,14 +109,13 @@ uart_UartPutChar(0x0A);
 
 int main() {
 	main__init();
-	uart__setup(); 
-	adc__setup(); 
+	uart__setup();
+	adc__setup();
 	while( true ) {
-		u16 analog = (u16)(adc__read(_const_adc__ch0)); 
+		u16 analog = (u16)(adc__read(_const_adc__ch0));
 		sprintf(__temp_str, "ADC channel 0: %u", (unsigned int)analog);
-		uart__println(__temp_str); 
-		time__sleep_ms(1000); 
-	} 
+		uart__println(__temp_str);
+		time__sleep_ms(1000);
+	}
 	return 0;
 }
-

@@ -1,7 +1,9 @@
 // Project Name : Aixt: http://github.com/fermansan/aixt.git
-// Author: Fernando M. Santa 
+//
+// _Author:_ Fernando M. Santa 
 // License : MIT
-// Date: 2025
+//
+// _Date:_ 2025
 
 module pwm 
 

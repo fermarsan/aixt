@@ -1,9 +1,11 @@
-// Project name: Aixt project, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2024-2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// Description: External interrupts management functions for 16F family
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2024-2025
+//
+// ## Description
+// External interrupts management functions for the PIC16F family.
 module ext
 
 @[as_macro] const irq_in_use = true

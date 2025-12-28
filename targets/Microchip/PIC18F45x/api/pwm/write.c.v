@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Jan Carlo Peñuela Jurado and Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: PWM WRITE
+// _Author:_ Jan Carlo Peñuela Jurado and Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// PWM WRITE
 //              (PIC18F452)
 module pwm
 fn write(duty int)    

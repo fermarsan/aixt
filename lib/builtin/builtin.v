@@ -1,9 +1,11 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa
-// Date: 2025
-// License: MIT
 //
-// Description: Aixt's builtin components module
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2025
+//
+// ## Description
+// Aixt's builtin components module
 module builtin
 
 // eprint adds a new error message to stderr (Aixt's table error list).

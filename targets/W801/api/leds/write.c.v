@@ -1,9 +1,11 @@
-// Project name: Aixt https://github.com/fermarsan/aixt.git
-// Authors: Fernando M. Santa
-// Date: 2025
-// License: MIT
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
 //
-// Description: Builtin LEDs
+// _Authors:_ Fernando M. Santa
+//
+// _Date:_ 2025
+//
+// ## Description
+// Builtin LEDs
 module leds
 
 import pin
@@ -15,4 +17,3 @@ pub fn write(value u8) {
 		pin.write( led_array[n], ~( value & (mask << n) ) >> n)
 	}
 }
-

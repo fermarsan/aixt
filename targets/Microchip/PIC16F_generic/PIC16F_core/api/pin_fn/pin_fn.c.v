@@ -1,10 +1,11 @@
-// File name: Aixt project, https://github.com/fermarsan/aixt.git/targets/Microchip/PIC12F_16F_generic/PIC16F_core/api/pin_fn/pin_fn.c.v
+// _File:_ https://github.com/fermarsan/aixt/blob/main/targets/Microchip/PIC16F_generic/PIC16F_core/api/pin_fn/pin_fn.c.v
 //
-// Author: Fernando M. Santa
+// _Author:_ Fernando M. Santa
 //
-// Date: 2024-2025//
+// _Date:_ 2024-2025
 //
-// Description: Pin management functions for 16F family
+// ## Description
+// Pin management functions for the PIC16F family.
 module pin_fn
 
 // setup function configures the mode of a pin.

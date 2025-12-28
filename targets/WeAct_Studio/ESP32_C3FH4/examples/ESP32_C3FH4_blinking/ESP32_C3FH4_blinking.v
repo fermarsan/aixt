@@ -1,6 +1,8 @@
 // Project name: Blinking
-// Author: Fernando M. Santa
-// Date: 03/03/2025
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 03/03/2025
 // ESP32-C3FH4 board
 
 import time

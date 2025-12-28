@@ -3,8 +3,10 @@
 //        - Juan Pablo Bernal
 //        - Daniela Mendoza Deantonio
 //        - Fernando M. Santa
-// Date: 2024
-// Description: I2C module.
+//
+// _Date:_ 2024
+// ## Description
+// I2C module.
 
 // Functions for the I2C communication module library
 #include <Wire.h>0

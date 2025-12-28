@@ -1,6 +1,8 @@
 // Project name: Analog echo
-// Author: Fernando M. Santa
-// Date: 01/07/2025
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 01/07/2025
 // PIC16F676 fosc = 20Mhz
 import time
 import port 

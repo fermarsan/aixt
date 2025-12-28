@@ -1,9 +1,11 @@
-// Project Name: Aixt https://github.com/fermarsan/aixt.git
-// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
-// Date: 2022-2025
-// License: MIT
-// Description: Builtin definitions (CY8CKIT-049-42XX)
-//              
+// _File:_ https://github.com/fermarsan/aixt/blob/main/
+//
+// _Author:_ Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+//
+// _Date:_ 2022-2025
+// ## Description
+// Builtin definitions (CY8CKIT-049-42XX)
+//
 #include <stdint.h>
 #include <stdbool.h>
 #include "builtin.c"
@@ -39,5 +41,5 @@ fn C.INIT_INTERRUPTS()
 
 
 pub fn init() {
-    C.INIT_INTERRUPTS() 
+    C.INIT_INTERRUPTS()
 }

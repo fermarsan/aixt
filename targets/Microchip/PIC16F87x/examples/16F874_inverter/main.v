@@ -1,6 +1,8 @@
 // Project name: Inverter
-// Author: Fernando M. Santa
-// Date: 05/09/2024
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 05/09/2024
 // Inverted echo from PORTC0 to PORTC7
 // PIC16F876 fosc = 20Mhz
 

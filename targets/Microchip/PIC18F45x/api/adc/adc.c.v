@@ -1,19 +1,23 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Jan Carlo Peñuela Jurado and Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: ADC
+// _Author:_ Jan Carlo Peñuela Jurado and Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// ADC
 //              (PIC18F452)
 module adc
 #include <xc.h>
 
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Jan Carlo Peñuela Jurado and Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: adc.read
+// _Author:_ Jan Carlo Peñuela Jurado and Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// adc.read
 //              (PIC18F452)
 
 fn read(channel u8) int { 
@@ -24,11 +28,13 @@ fn read(channel u8) int {
 }
 
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-// Author: Jan Carlo Peñuela Jurado and Fernando M. Santa
-// Date: 2024
-// License: MIT
 //
-// Description: ADC SETUP
+// _Author:_ Jan Carlo Peñuela Jurado and Fernando M. Santa
+//
+// _Date:_ 2024
+//
+// ## Description
+// ADC SETUP
 //              (PIC18F452)
 
 fn setup() {
