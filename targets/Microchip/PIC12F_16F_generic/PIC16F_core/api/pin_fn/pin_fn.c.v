@@ -1,14 +1,18 @@
 // Project name: Aixt project, https://github.com/fermarsan/aixt.git
+//
 // Author: Fernando M. Santa
+//
 // Date: 2024-2025
+//
 // License: MIT
+//
 //
 // Description: Pin management functions for 16F family
 module pin_fn
 
 // setup function configures the mode of a pin.
-// `id` is the pin id for example `pin.c7`
-// `mode` is the pin mode, `pin.input` or `pin.output`
+// `id` is the pin id for example `pin.c7` and
+// `mode` is the pin mode, `pin.input` or `pin.output`.
 @[as_macro]
 pub fn setup(id u8, mode u8) {
 	unsafe {
