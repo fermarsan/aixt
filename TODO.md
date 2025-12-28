@@ -19,7 +19,6 @@ Tasks to do in Aixt
 
 ### In Progress
 
-- [ ] generates documentation from code
 - [ ] implement maps
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
@@ -85,4 +84,5 @@ Tasks to do in Aixt
 - [x] Update the PIC12Fxxx, PIC16F8x and PIC16F87x examples
 - [x] Issue solved: `match` already works well with `C.variables`
 - [x] Issue solved: assignment using `match` already works
-- [x] Update the source files header to improve the visualization of the automatic documentation
+- [ ] generates documentation from code
+  - [x] Update the source files header to improve the visualization of the automatic documentation
