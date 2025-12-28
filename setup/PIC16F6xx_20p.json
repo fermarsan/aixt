@@ -1,31 +1,31 @@
 {
-    "target": "PIC16F6xx_20p",
-    "board": "---",
-    "backend": "c",
-    "cc": {
-        "name": "xc8",
-        "linux_path": "",
-        "windows_path": "",
-        "flags": "PART=@{device}"
-    },
-    "flasher": {
-        "name": "MPLAB IPE",
-        "linux_path": "",
-        "windows_path": "",
-        "flags": ""
-    },
-    "api_paths": [
-        "Microchip/PIC16F6xx_20p",
-        "Microchip/xc8_generic",
-        "Microchip/PIC12F_16F_generic/PIC16F_core",
-        "Microchip/PIC12F_16F_generic/timer1",
-        "Microchip/PIC12F_16F_generic/timer2",
-        "Microchip/PIC12F_16F_generic/adc",
-        "Microchip/PIC12F_16F_generic/pwm",
-        "Microchip/PIC12F_16F_generic/uart"
-    ],
-    "v_defines": [],
-    "default_cpu_freq": 20000000,
-    "default_string_len": 20,
-    "compiler_setup_path": "setup/xc8.json"
+  "target": "PIC16F6xx_20p",
+  "board": "---",
+  "backend": "c",
+  "cc": {
+    "name": "xc8",
+    "linux_path": "",
+    "windows_path": "",
+    "flags": "PART=@{device}"
+  },
+  "flasher": {
+    "name": "MPLAB IPE",
+    "linux_path": "",
+    "windows_path": "",
+    "flags": ""
+  },
+  "api_paths": [
+    "Microchip/PIC16F6xx_20p",
+    "Microchip/xc8_generic",
+    "Microchip/PIC16F_generic/PIC16F_core",
+    "Microchip/PIC16F_generic/timer1",
+    "Microchip/PIC16F_generic/timer2",
+    "Microchip/PIC16F_generic/adc",
+    "Microchip/PIC16F_generic/pwm",
+    "Microchip/PIC16F_generic/uart"
+  ],
+  "v_defines": [],
+  "default_cpu_freq": 20000000,
+  "default_string_len": 20,
+  "compiler_setup_path": "setup/xc8.json"
 }
