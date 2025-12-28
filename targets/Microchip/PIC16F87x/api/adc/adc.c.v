@@ -59,7 +59,6 @@ pub fn setup(pins u8, n_bits u8) {
     in0_in1_rp_rn       { C.TRISA |= 0b00_0_0_1111 }
     in0_rp_rn           { C.TRISA |= 0b00_0_0_1101 }
     in0                 { C.TRISA |= 0b00_0_0_0001 }
-
     else                {  } // all_digitals
   }
   C.ADFM = n_bits

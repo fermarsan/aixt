@@ -35,7 +35,7 @@ pub fn println(msg string) {
 }
 
 
-// @[as_macro]
+@[inline]
 pub fn read() u8 {
 	for C.RCIF == 0 {} // wait for data receive
 	if C.OERR == 1 { // if there is overrun error
@@ -47,16 +47,16 @@ pub fn read() u8 {
 
 @[as_macro]
 pub fn setup(baudrate u32) {
+  C.TRISC |= 0b10_000000  // RX pin
+  C.TRISC &= 0b10_111111  // TX pin
 	mut x := u16((u32(C._const_main__cpu_freq) / 16) / baudrate) - 1 // X = (FOSC / (16 * BaudRate)) – 1
 	mut rem := (u32(C._const_main__cpu_freq) / 16) % baudrate
 	if rem >= (baudrate / 2) { // rem >= (baudrate * 16) / 2  "for rounding x using integer operations"
 		x++
 	}
-
 	if x < 0 {
 		x = 0
 	}
-
 	if x > 255 { // low speed
 		x = u16((u32(C._const_main__cpu_freq) / 64) / baudrate) - 1 // X = (FOSC / (64 * BaudRate)) – 1
 		rem = (u32(C._const_main__cpu_freq) / 64) % baudrate

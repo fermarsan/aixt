@@ -1,9 +1,7 @@
-import pin_fn as pin
 import uart
 import time
 import adc
 
-pin.setup(pin.c6, pin.output) // RC6 = TX
 uart.setup(115200) // Initialize serial communication to 115200 bps
 adc.setup(adc.in0, adc.bits_10) // only one input and 10-bit resolution
 
