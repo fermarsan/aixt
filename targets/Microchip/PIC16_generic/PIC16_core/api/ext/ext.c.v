@@ -1,4 +1,4 @@
-// _File:_ https://github.com/fermarsan/aixt/blob/main/targets/Microchip/PIC16F_generic/PIC16F_core/api/ext/ext.c.v
+// _File:_ https://github.com/fermarsan/aixt/blob/main/targets/Microchip/PIC16_generic/PIC16_core/api/ext/ext.c.v
 //
 // _Author:_ Fernando M. Santa
 //

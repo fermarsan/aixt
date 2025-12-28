@@ -50,6 +50,7 @@ pub fn restart() {
 }
 
 // setup configures the period of the Timer0 in microseconds
+//
 // | fosc [Mhz] | max period |
 // |------------|------------|
 // | 4          | 65536      |
