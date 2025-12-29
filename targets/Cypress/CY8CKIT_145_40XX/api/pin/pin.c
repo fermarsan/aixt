@@ -8,6 +8,6 @@
 // pin functions (CY8CKIT-145-40XX)
 
 #define PIN_WRITE(PIN_NAME, VAL)    PIN_NAME##_Write(VAL)
-#define PIN_HIGH(PIN_NAME)   PIN_NAME##_Write(1)
-#define PIN_LOW(PIN_NAME)   PIN_NAME##_Write(0)
-#define PIN_READ(PIN_NAME)    PIN_NAME##_Read()
+#define PIN_HIGH(id u8)   PIN_NAME##_Write(1)
+#define PIN_LOW(id u8)   PIN_NAME##_Write(0)
+#define PIN_READ(id u8)    PIN_NAME##_Read()

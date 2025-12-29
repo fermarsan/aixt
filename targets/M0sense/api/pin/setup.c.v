@@ -1,6 +1,6 @@
 module pin
 
 @[inline]
-pub fn setup(PIN,  MODE) {
-	C.gpio_set_mode(PIN, MODE)
+pub fn setup(pin u8, mode u8) {
+	C.gpio_set_mode(pin, mode)
 }

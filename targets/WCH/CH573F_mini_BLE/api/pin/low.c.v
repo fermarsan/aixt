@@ -14,6 +14,6 @@ pub fn low_(port, ...) {
 }
 
 @[inline]
-pub fn low(PIN_NAME) {
-	C.pin.low_(PIN_NAME)
+pub fn low(id u8) {
+	C.pin.low_(id u8)
 }

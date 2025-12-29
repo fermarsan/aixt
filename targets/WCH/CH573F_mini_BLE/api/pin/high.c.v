@@ -14,6 +14,6 @@ pub fn high_(port, ...) {
 }
 
 @[inline]
-pub fn high(PIN_NAME) {
-	C.pin.high_(PIN_NAME)
+pub fn high(id u8) {
+	C.pin.high_(id u8)
 }

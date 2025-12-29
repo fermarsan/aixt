@@ -10,6 +10,6 @@
 module pin_fn
 
 @[inline]
-pub fn read(PIN_NAME) {
-	C.PIN_NAME ## _i             // PORTBbits.RB0 
+pub fn read(id u8) {
+	C.PIN_NAME //## _i             // PORTBbits.RB0
 }

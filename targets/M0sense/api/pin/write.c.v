@@ -1,6 +1,6 @@
 module pin
 
 @[inline]
-pub fn write(PIN, VALUE) {
-	C.gpio_write(PIN, VALUE)
+pub fn write(pin u8, value u8) {
+	C.gpio_write(pin, value)
 }

@@ -14,6 +14,6 @@ pub fn toggle_(port, ...) {
 }
 
 @[inline]
-pub fn toggle(PIN_NAME) {
-	C.pin.toggle_(PIN_NAME)
+pub fn toggle(id u8) {
+	C.pin.toggle_(id u8)
 }

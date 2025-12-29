@@ -6,9 +6,7 @@
 //
 // ## Description
 // Strings module for NXT (NXC backend)
-
 module str
-
 
 fn C.StrToNum(args ...any) any
 fn C.StrIndex(args ...any) u8
@@ -28,72 +26,72 @@ fn C.LowerCase(args ...any) string
 
 // cstring.h
 @[as_macro]
-pub fn to_num[T](args ..any) T {
-	return C.StrToNum(...args) 
+pub fn to_num[T](args ...any) T {
+	return C.StrToNum(...args)
 }
 
 @[as_macro]
-pub fn index(args ..any) u8 {
-	return C.StrIndex(...args) 
+pub fn index(args ...any) u8 {
+	return C.StrIndex(...args)
 }
 
 @[as_macro]
-pub fn sub(args ..any) string {
-	return C.SubStr(...args) 
+pub fn sub(args ...any) string {
+	return C.SubStr(...args)
 }
 
 @[as_macro]
-pub fn replace(args ..any) string {
-	return C.StrReplace(...args) 
+pub fn replace(args ...any) string {
+	return C.StrReplace(...args)
 }
 
 @[as_macro]
-pub fn pos(args ..any) i16 {
-	return C.Pos(...args) 
+pub fn pos(args ...any) i16 {
+	return C.Pos(...args)
 }
 
 @[as_macro]
-pub fn from_byte_array(args ..any) string {
-	return C.ByteArrayToStr(...args) 
+pub fn from_byte_array(args ...any) string {
+	return C.ByteArrayToStr(...args)
 }
 
 @[as_macro]
-pub fn to_byte_array(args ..any) {
-	C.StrToByteArray(...args) 
+pub fn to_byte_array(args ...any) {
+	C.StrToByteArray(...args)
 }
 
 @[as_macro]
-pub fn copy(args ..any) string {
-	return C.Copy(...args) 
+pub fn copy(args ...any) string {
+	return C.Copy(...args)
 }
 
 @[as_macro]
-pub fn mid(args ..any) string {
-	return C.MidStr(...args) 
+pub fn mid(args ...any) string {
+	return C.MidStr(...args)
 }
 
 @[as_macro]
-pub fn right(args ..any) string {
-	return C.RightStr(...args) 
+pub fn right(args ...any) string {
+	return C.RightStr(...args)
 }
 
 @[as_macro]
-pub fn left(args ..any) string {
-	return C.LeftStr(...args) 
+pub fn left(args ...any) string {
+	return C.LeftStr(...args)
 }
 
 @[as_macro]
-pub fn len(args ..any) i16 {
-	return C.strlen(...args) 
+pub fn len(args ...any) i16 {
+	return C.strlen(...args)
 }
 
 // Functions for use with NXC array types.
 @[as_macro]
-pub fn to_upper(args ..any) string {
-	return C.UpperCase(...args) 
+pub fn to_upper(args ...any) string {
+	return C.UpperCase(...args)
 }
- 
+
 @[as_macro]
-pub fn to_lower(args ..any) string {
-	return C.LowerCase(...args) 
+pub fn to_lower(args ...any) string {
+	return C.LowerCase(...args)
 }

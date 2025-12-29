@@ -14,6 +14,6 @@ pub fn setup_(port, pin, ...) {
 }
 
 @[inline]
-pub fn setup(PIN_NAME, PIN_MODE) {
-	C.pin.setup_(PIN_NAME, PIN_MODE)
+pub fn setup(id u8, mode u8) {
+	C.pin.setup_(id u8, mode u8)
 }

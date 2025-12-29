@@ -10,6 +10,6 @@
 module pin_fn
 
 @[inline]
-pub fn write(PIN_NAME,VAL) {
+pub fn write(id u8, value u8) {
 	C.PIN_NAME = VAL        // LATBbits.LB0 = 0
 }

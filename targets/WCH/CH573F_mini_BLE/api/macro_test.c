@@ -11,8 +11,8 @@ pub fn high_(port, ...) {
 }
 
 @[inline]
-pub fn high(PIN_NAME) {
-	C.pin.high_(PIN_NAME)
+pub fn high(id u8) {
+	C.pin.high_(id u8)
 }
 
 //@[inline]
@@ -25,8 +25,8 @@ pub fn setup_(port, pin, ...) {
 }
 
 @[inline]
-pub fn setup(PIN_NAME, PIN_MODE) {
-	C.pin.setup_(PIN_NAME, PIN_MODE)
+pub fn setup(id u8, mode u8) {
+	C.pin.setup_(id u8, mode u8)
 }
 
 
@@ -39,7 +39,7 @@ pub fn low(a11) {
 	C.GPIOA_ResetBits(GPIO_Pin_11)
 }
 
-int main() 
+int main()
 {
     //printf(pin.setup(pin.a11, pin.output));
     printf(pin.setup(4, 10));
@@ -47,20 +47,20 @@ int main()
     return 0;
 }
 
-// #include "CH57x_common.h"                                
+// #include "CH57x_common.h"
 
-// int main(void) {                                
+// int main(void) {
 
-//     SetSysClock(CLK_SOURCE_PLL_60MHz);          
-                                                
+//     SetSysClock(CLK_SOURCE_PLL_60MHz);
+
 //     GPIOA_ModeCfg(GPIO_Pin_11, GPIO_ModeOut_PP_5mA);
 //     GPIO_ModeIN_PD
-//     while(1){                                  
+//     while(1){
 //         GPIOA_SetBits(GPIO_Pin_11);
 //         DelayMs(500);
 //         GPIOA_ResetBits(GPIO_Pin_11);
 //         DelayMs(500);
 //         }
-//         DelayMs(1);                           
+//         DelayMs(1);
 //     }
 // }

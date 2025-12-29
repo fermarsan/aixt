@@ -10,6 +10,6 @@
 module pin_fn
 
 @[inline]
-pub fn high(PIN_NAME) {
+pub fn high(id u8) {
 	C.PIN_NAME = 1          // LATBbits.LB0 = 1
 }

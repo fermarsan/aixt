@@ -14,6 +14,6 @@ pub fn read_(port, ...) {
 }
 
 @[inline]
-pub fn read(PIN_NAME) {
-	C.pin.read_(PIN_NAME)
+pub fn read(id u8) {
+	C.pin.read_(id u8)
 }

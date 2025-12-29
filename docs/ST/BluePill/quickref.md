@@ -157,13 +157,13 @@ pin.setup(pin_name, mode)
 ```
 To activate the port to use
 ```v
-pin.high(PIN_NAME)
+pin.high(id u8)
 ```
 * *Example: If you want to activate the port 17;  `pin.high(17)`.*
 
 To disable the port being used
 ```v
-pin.low(PIN_NAME)
+pin.low(id u8)
 ```
 * *Example: If you want to disable the port 17;  `pin.low(17)`.*
 
@@ -187,7 +187,7 @@ adc.setup(PIN_NAME, SETUP_VALUE, ... )
 
 To detect the analog port VALUE
 ```v
-x = adc.read(PIN_NAME)
+x = adc.read(id u8)
 ```
 * *In `PIN_NAME` the name of the analog port is entered, and `x` takes the VALUE of said port..*
 

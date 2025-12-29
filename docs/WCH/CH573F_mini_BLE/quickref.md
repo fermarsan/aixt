@@ -81,13 +81,13 @@ pin.setup(pin_name, mode)
 
 To activate the pin to use
 ```v
-pin.high(PIN_NAME)
+pin.high(id u8)
 ```
 * *Example: If you want to activate pin 7 of port B;  `pin.high(pin.b7)`.*
 
 To disable the pin being used
 ```v
-pin.low(PIN_NAME)
+pin.low(id u8)
 ```
 * *Example: If you want to disable pin 7 of port B;  `pin.low(pin.b7)`.*
 

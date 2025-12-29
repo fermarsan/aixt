@@ -1,0 +1,19 @@
+// Project name: Aixt, https://github.com/fermarsan/aixt.git
+//
+// _Author:_ Cristian Garzón
+//
+// _Date:_ 2023 - 2024
+// ## Description
+// PIN functions (WCH-CH582F)
+
+module pin
+
+@[inline]
+pub fn read_(port, ...) {
+	C.GPIO##port##_ReadPortPin(GPIO_Pin_##__VA_ARGS__)
+}
+
+@[inline]
+pub fn read(id u8) {
+	C.pin.read_(id u8)
+}

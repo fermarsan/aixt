@@ -161,13 +161,13 @@ The descriptive functions contained in the API as inputs or outputs that perform
 
 | DEFINITION AIXT                                      | DEFINITION ARDUINO              |
 | ---------------------------------------------------- | ------------------------------- |
-| `adc.read(PIN_NAME)`                                 | `analogRead(PIN_NAME)`          |
-| `pin.high(PIN_NAME)`                                 | `digitalWrite(PIN_NAME, HIGH)`  |
-| `pin.low(PIN_NAME)`                                  | `digitalWrite(PIN_NAME, LOW)`   |
+| `adc.read(id u8)`                                 | `analogRead(id u8)`          |
+| `pin.high(id u8)`                                 | `digitalWrite(PIN_NAME, HIGH)`  |
+| `pin.low(id u8)`                                  | `digitalWrite(PIN_NAME, LOW)`   |
 | `output`                                             | `OUTPUT`                        |
 | `input`                                              | `INPUT`                         |
 | `input_pullup	INPUT_PULLUP`                          |
-| `pin.read(PIN_NAME)`                                 | `digitalRead(PIN_NAME)`         |
+| `pin.read(id u8)`                                 | `digitalRead(id u8)`         |
 | `pin.setup(pin_name, mode)`                          | `pinMode(PIN_NAME, MODE)`       |
 | `pin.write(PIN_NAME, VALUE)`                         | `digitalWrite(PIN_NAME, VALUE)` |
 | `pwm.write(PIN, VALUE)`                              | `analogWrite(PIN, VALUE)`       |

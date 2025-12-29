@@ -10,12 +10,12 @@ module adc
 @[inline]
 pub fn read(channel int) u16 {
 
-	C.capsense_ADC_AdcReadResult_mVolts(channel int) //Select the channel
+	C.capsense_ADC_AdcReadResult_mVolts(channel) //Select the channel
 	C.CyDelay(5)
 	C.capsense_ADC_AdcStartConvert()
 	for !C.capsense_ADC_AdcReadResult_mVolts(0) {}
 	C.capsense_ADC_AdcStop()
 
 
-	return C.capsense_ADC_AdcGetResult_mVolts(channel int) // read the ADC
+	return C.capsense_ADC_AdcGetResult_mVolts(channel) // read the ADC
 }

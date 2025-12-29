@@ -4,13 +4,13 @@ module irq
 
 @[inline]
 pub fn enable()	{
-	C.INTCONbits.GIE = 1	
+	C.INTCONbits.GIE = 1
 }
 
 @[inline]
 pub fn disable() {
 	C.INTCONbits.GIE = 0
-}	
+}
 
 // external interrupt
 
@@ -37,18 +37,19 @@ pub fn external_falling() {
 }
 
 @[inline]
-pub fn external(FN_NAME) {
-	void isr_external(void)
+pub fn external(fn_name bool) {
+	isr_external(void)
+}
 
-// 
+//
 @[inline]
-pub fn uart_rx(FN_NAME) {
+pub fn uart_rx(fn_name bool) {
 	isr_external()
 }
 // timer 0 interrupt
 
 @[inline]
-pub fn timer0(FN_NAME) {
+pub fn timer0(fn_name bool) {
 	isr_timer0()
 }
 

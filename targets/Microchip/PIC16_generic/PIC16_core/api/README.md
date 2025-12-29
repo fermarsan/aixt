@@ -1,3 +1,8 @@
+---
+page: index
+title: PIC16 core modules documentation
+index: PIC16_core
+---
 # PIC16 core modules
 
 The API for the PIC16 core includes the modules:

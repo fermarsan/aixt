@@ -1,0 +1,13 @@
+module uart
+
+@[inline]
+pub fn println(MSG) {
+	C.uart.print(MSG);  uart.write('\n');  uart.write('\r')
+}
+
+
+
+@[inline]
+pub fn any() {
+	C.U1STAbits.URXDA
+}

@@ -15,6 +15,6 @@ module port
 //	          +-->	x = PORTA
 
 @[inline]
-pub fn read(PORT_NAME) {
-C.PORT ## PORT_NAME
+pub fn read(id u8) {
+C.PORT //## PORT_NAME
 }

@@ -15,6 +15,6 @@ module port
 //	          +-->	TRISA = value
 
 @[inline]
-pub fn setup(PORT_NAME, VALUE) {
-	C.TRIS ## PORT_NAME = VALUE
+pub fn setup(id u8, value u8) {
+	C.TRIS //## PORT_NAME = VALUE
 }

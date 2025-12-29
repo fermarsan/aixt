@@ -278,15 +278,15 @@ for {
 #define pin__write_(PORT_NAME, PIN, VALUE)   PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = VALUE
 #define pin__write(PIN_NAME, VALUE)  pin__write_(PIN_NAME, VALUE)
 #define pin__high_(PORT_NAME, PIN)   PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = 1
-#define pin__high(PIN_NAME)  pin__high_(PIN_NAME)
+#define pin__high(id u8)  pin__high_(id u8)
 #define pin__setup_(PORT_NAME, PIN, MODE)   TRIS ## PORT_NAME ## bits.TRIS ## PORT_NAME ## PIN = MODE
-#define pin__setup(PIN_NAME, PIN_MODE)  pin__setup_(PIN_NAME, PIN_MODE)
+#define pin__setup(id u8, mode u8)  pin__setup_(id u8, mode u8)
 #define pin__toggle_(PORT_NAME, PIN)   PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN ^= 1
-#define pin__toggle(PIN_NAME)  pin__toggle_(PIN_NAME)
+#define pin__toggle(id u8)  pin__toggle_(id u8)
 #define pin__read_(PORT_NAME, PIN)	PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN
-#define pin__read(PIN_NAME)  pin__read_(PIN_NAME)
+#define pin__read(id u8)  pin__read_(id u8)
 #define pin__low_(PORT_NAME, PIN)   PORT ## PORT_NAME ## bits.R ## PORT_NAME ## PIN = 0
-#define pin__low(PIN_NAME)  pin__low_(PIN_NAME)
+#define pin__low(id u8)  pin__low_(id u8)
 #define port__a		A	// port name constants
 #define port__b		B
 #define port__c		C
