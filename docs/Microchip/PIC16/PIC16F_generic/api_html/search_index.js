@@ -1,4 +1,5 @@
 var searchModuleIndex = [
+"README",
 "ext",
 "extb",
 "pin_fast",
@@ -37,6 +38,7 @@ var searchIndex = [
 ];
 
 var searchModuleData = [
+["The API for the PIC16 core includes the modules:","index.html"],
 ["","ext.html"],
 ["","extb.html"],
 ["","pin_fast.html"],
@@ -49,8 +51,8 @@ var searchData = [
 ["ext","setup function set the falling or rising `edge` of the external interrupt. `edge","ext.html#setup","fn "],
 ["ext","irq_enable function enables the external interrupt","ext.html#irq_enable","fn "],
 ["ext","irq_disable function disables the external interrupt","ext.html#irq_disable","fn "],
-["extb","irq_disable disables the external interrupt by changes of PORTB","extb.html#irq_disable","fn "],
-["extb","irq_enable enables the external interrupt by changes of PORTB","extb.html#irq_enable","fn "],
+["extb","irq_disable disables the external interrupt by changes of RB7-RB4 pins.","extb.html#irq_disable","fn "],
+["extb","irq_enable enables the external interrupt by changes of RB7-RB4 pins.","extb.html#irq_enable","fn "],
 ["pin_fast","high function puts a logic `1` to a pin faster than the regular high function. `","pin_fast.html#high","fn "],
 ["pin_fast","low function puts a logic `0` to a pin faster than the regular low function. `po","pin_fast.html#low","fn "],
 ["pin_fast","read reads the logic `value` of a pin faster than the regular read function. `po","pin_fast.html#read","fn "],
@@ -67,10 +69,10 @@ var searchData = [
 ["port","write function writes an 8-bit `value` on a port. `id` is the port id, for examp","port.html#write","fn "],
 ["port","read function reads an 8-bit `value` from a port. `id` is the port id, for examp","port.html#read","fn "],
 ["port","b_pullups function enable or disable the pull up resistors of PORTB `enable` mus","port.html#b_pullups","fn "],
-["timer0","irq_disable disables the external interrupt","timer0.html#irq_disable","fn "],
-["timer0","irq_enable enables the Timer0 overflow interrupt","timer0.html#irq_enable","fn "],
-["timer0","read reads the current value of Timer0","timer0.html#read","fn "],
-["timer0","restart the Timer0 with the predefined starting value","timer0.html#restart","fn "],
-["timer0","setup configures the period of the Timer0 in microseconds","timer0.html#setup","fn "],
+["timer0","irq_disable function disables the the Timer0 overflow interrupt","timer0.html#irq_disable","fn "],
+["timer0","irq_enable function enables the Timer0 overflow interrupt","timer0.html#irq_enable","fn "],
+["timer0","read function reads the current value of Timer0","timer0.html#read","fn "],
+["timer0","restart fucntion re-start the Timer0 with the predefined starting value","timer0.html#restart","fn "],
+["timer0","setup function configures the `period` of the Timer0 in microseconds. The maximu","timer0.html#setup","fn "],
 ];
 
