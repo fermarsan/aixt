@@ -28,7 +28,6 @@ Tasks to do in Aixt
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without `api`, `examples` and `docs` to make it lightweight for the Conda package (include src/v.mod)
 - [ ] generates documentation from code
-  - [ ] Remove `/api/` from the end of targets implementation path
   - [ ] Create 'dummy' modules as workspaces in API targets folders
 
 
@@ -89,5 +88,6 @@ Tasks to do in Aixt
 - [x] Issue solved: assignment using `match` already works
 - [ ] generates documentation from code
   - [x] Update the source files header to improve the visualization of the automatic documentation
+  - [x] Remove `/api/` from the end of targets implementation path
 - [x] Split the examples from the API in all the targets
 - [x] Change `targets` folder name by `api`

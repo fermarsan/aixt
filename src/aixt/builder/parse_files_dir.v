@@ -30,7 +30,7 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// }
 
 	// -------------------- Add the builtin file first --------------------
-	api_base_path := os.norm_path('${b.aixt_path}/api/${b.setup.api_paths[0]}/api')
+	api_base_path := os.norm_path('${b.aixt_path}/api/${b.setup.api_paths[0]}')
 	// println('>>>>>>>>>>>>>>>>>> ${api_base_path} <<<<<<<<<<<<<<<<<<')
 	if os.exists(os.norm_path('${api_base_path}/builtin.c.v')) {
 		file_paths.insert(1, os.norm_path('${api_base_path}/builtin.c.v'))
