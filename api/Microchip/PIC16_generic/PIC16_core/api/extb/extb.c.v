@@ -1,0 +1,24 @@
+// _File:_ https://github.com/fermarsan/aixt/blob/main/api/Microchip/PIC16_generic/PIC16_core/api/extb/extb.c.v
+//
+// _Author:_ Fernando M. Santa
+//
+// _Date:_ 2025
+//
+// ## Description
+// External interrupts management functions for the PIC16F family.
+module extb
+
+#include "extb.c"
+
+// irq_disable disables the external interrupt by changes of RB7-RB4 pins.
+@[as_macro]
+pub fn irq_disable() {
+	C.RBIE = 0
+}
+
+// irq_enable enables the external interrupt by changes of RB7-RB4 pins.
+@[as_macro]
+pub fn irq_enable() {
+	C.GIE = 1
+	C.RBIE = 1
+}

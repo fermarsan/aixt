@@ -72,21 +72,21 @@
 
 #include <xc.h>
 #define _XTAL_FREQ 8000000
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/builtin.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/machine/pin.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/time/sleep_ms.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/time/sleep_us.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/builtin.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/machine/pin.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/time/sleep_ms.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/time/sleep_us.c"
 
 
 /*void main(void) {
     ADCON1bits.PCFG = 0x0F;     //TODAS LOS PINES COMO DIGITALES
     TRISBbits.RB0 = 0;          //CONFIGURAMOS EL PIN B0 COMO SALIDA
     LATBbits.LB0  = 0;          //LIMPIAMOS EL BIT B0
-    while(1){ 
+    while(1){
         LATBbits.LB0 = 1;       //pin.high
-          __delay_ms(1000);   
+          __delay_ms(1000);
         LATBbits.LB0 = 0;       //pin.low
-          __delay_ms(1000);   
+          __delay_ms(1000);
     }
   return;
 }*/
@@ -95,11 +95,11 @@ void main(void) {
     ADCON1bits.PCFG = 0x0F;     //TODAS LOS PINES COMO DIGITALES
     pin.setup(pin.b0_s, out);       //CONFIGURAMOS EL PIN B0 COMO SALIDA
     pin.write(pin.b0, 0);           //LIMPIAMOS EL BIT B0
-    while(1){ 
+    while(1){
         pin.high(pin.b0);       //pin.high
-          sleep_ms(1000);   
+          sleep_ms(1000);
         pin.low(pin.b0);        //pin.low
-          sleep_ms(1000);   
+          sleep_ms(1000);
     }
-  return;   
+  return;
 }

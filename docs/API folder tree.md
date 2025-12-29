@@ -2,17 +2,17 @@
 
 The _Aixt_ API for each microcontroller port has to be located in the folder:
 ```
-aixt/targets/brand/microcontroller_or_board/api
+aixt/api/brand/microcontroller_or_board/api
 ```
 ```
-aixt/targets/brand/brand/microcontroller_or_board/api
+aixt/api/brand/brand/microcontroller_or_board/api
 ```
 for instance:
 ```
-aixt/targets/Microchip/Explorer-16/PIC24/api
+aixt/api/Microchip/Explorer-16/PIC24/api
 ```
 ```
-aixt/targets/Emulator/api
+aixt/api/Emulator/api
 ```
 All the API implementations have to follow this basic folder tree:
 
@@ -50,4 +50,3 @@ api
 
 <!-- ## Optimization levels
 _Aixt_ projects uses _C_ code optimization levels according to the way of describing each API function on _C_ language. The optimization level is specified with the ending `_n`, where `n` is the optimization level starting from `0` (**WIP**).  -->
-

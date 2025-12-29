@@ -14,7 +14,7 @@ Tasks to do in Aixt
 - [ ] Implement an equivalent to Arduino's `millis()`
 - [ ] Allow multi-arg functions
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
-- [ ] ISSUE: D:\git-projects\aixt\targets\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
+- [ ] ISSUE: D:\git-projects\aixt\api\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
 
 
 ### In Progress
@@ -26,10 +26,10 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
-- [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
+- [ ] Clone Aixt without `api`, `examples` and `docs` to make it lightweight for the Conda package (include src/v.mod)
 - [ ] generates documentation from code
-  - [ ] Remove `/api/` from the targets implementation path
-  - [ ] Create 'dummy' modules as workspaces in target folders
+  - [ ] Remove `/api/` from the end of targets implementation path
+  - [ ] Create 'dummy' modules as workspaces in API targets folders
 
 
 ### Done ✓make
@@ -49,8 +49,8 @@ Tasks to do in Aixt
   - [x] Include `$if xc8 ? {}` syntax from `cc: { name: xc8 }` of `device.json` 
   - [x] Change all the setup files name that contains '-' by '-_'
   - [x] Change all the setup files content that contains '-' by '_' in the fields: "target", "backend", "name" and "api_paths"
-  - [x] In the `targets` folder change all the folders names that contains '-' by '_'
-  - [x] In the `targets` folder change all the *.v file names that contains '-' by '_'
+  - [x] In the `api` folder change all the folders names that contains '-' by '_'
+  - [x] In the `api` folder change all the *.v file names that contains '-' by '_'
   - [x] `PIC16F6xx_14p` ADC module modification by using conditional compilation: `$if PIC16F630 ? {`   
 - [x] Implement a `builtin` module similar to the _V's_ one
   - [x] Implement `eprint()` function
@@ -90,3 +90,4 @@ Tasks to do in Aixt
 - [ ] generates documentation from code
   - [x] Update the source files header to improve the visualization of the automatic documentation
 - [x] Split the examples from the API in all the targets
+- [x] Change `targets` folder name by `api`

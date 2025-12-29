@@ -11,7 +11,7 @@ import v.checker
 // import aixt.util
 
 // parse_files_dir parses one or more Aixt's V sources files,
-// this receives the path of an individual source file or a 
+// this receives the path of an individual source file or a
 // directory and parses all the source files inside
 pub fn (mut b Builder) parse_files_dir(path string) {
 
@@ -30,7 +30,7 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// }
 
 	// -------------------- Add the builtin file first --------------------
-	api_base_path := os.norm_path('${b.aixt_path}/targets/${b.setup.api_paths[0]}/api') 
+	api_base_path := os.norm_path('${b.aixt_path}/api/${b.setup.api_paths[0]}/api')
 	// println('>>>>>>>>>>>>>>>>>> ${api_base_path} <<<<<<<<<<<<<<<<<<')
 	if os.exists(os.norm_path('${api_base_path}/builtin.c.v')) {
 		file_paths.insert(1, os.norm_path('${api_base_path}/builtin.c.v'))
@@ -48,7 +48,7 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 
 	// -------------------- Load the used API modules' files --------------------
 	// b.module_search_paths << b.get_api_mod_dirs()
-	// b.module_search_paths << b.get_lib_mod_dirs()			
+	// b.module_search_paths << b.get_lib_mod_dirs()
 	file_paths.insert(1, b.get_api_mod_paths())
 	file_paths.insert(1, b.get_lib_mod_paths())
 
@@ -64,7 +64,7 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 
 	b.checker = checker.new_checker(b.table, b.pref)
 	b.checker.check_files(b.parsed_files)
-		
+
 	// println('Table imports:')
 	// for imp in b.table.imports {
 	// 	println('\t${imp}')

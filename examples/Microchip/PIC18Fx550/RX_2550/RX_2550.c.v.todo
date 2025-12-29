@@ -71,10 +71,10 @@
 
 #define _XTAL_FREQ 8000000
 #include <xc.h>
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/builtin.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/machine/pin.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/machine/uart.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/time/sleep_ms.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/builtin.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/machine/pin.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/machine/uart.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/time/sleep_ms.c"
 
 /*void main(void) {
     TRISB=0x00;
@@ -107,16 +107,16 @@ void main(void) {
     pin.write(pin.b4, 0);
     pin.write(pin.b5, 0);
     pin.write(pin.b6, 0);
-    pin.write(pin.b7, 0);  
-   
+    pin.write(pin.b7, 0);
+
    // CONFIGURAMOS EL PIN C7 PARA LA RECEPCIÓN DE DATOS
     pin.setup(pin.c7_s,1); //;
 
    // INICIALIZAMOS LA COMUNICACION SERIAL EN 9600 BAUDIOS
-    uart.setup();               
+    uart.setup();
 
      while (1) {
          val=rx_read();   // port.write (port.b_o, val)
      }
     return;
-} 
+}

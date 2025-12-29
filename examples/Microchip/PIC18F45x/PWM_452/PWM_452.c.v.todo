@@ -58,16 +58,16 @@
 
 #define _XTAL_FREQ 8000000
 #include <xc.h>
-#include "/home/aixt-project/targets/Microchip/PIC18F452/api/builtin.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F452/api/machine/pin.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F452/api/machine/adc.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F452/api/machine/pwm.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F452/api/time/sleep_ms.c"
+#include "/home/aixt-project/api/Microchip/PIC18F452/api/builtin.c"
+#include "/home/aixt-project/api/Microchip/PIC18F452/api/machine/pin.c"
+#include "/home/aixt-project/api/Microchip/PIC18F452/api/machine/adc.c"
+#include "/home/aixt-project/api/Microchip/PIC18F452/api/machine/pwm.c"
+#include "/home/aixt-project/api/Microchip/PIC18F452/api/time/sleep_ms.c"
 
 void main()
 {
 /*  ADCON1 = 0x8E;                        // Configura el pin RA0 como analogico
-    ADCON0 = 0xC0;                          // Selecciona el canal 0 del ADC                           
+    ADCON0 = 0xC0;                          // Selecciona el canal 0 del ADC
     ADCON0bits.ADON = 1;                    // Habilita el conversor */
     adc.setup();
 
@@ -79,8 +79,8 @@ void main()
     TMR2 = 0;                               // Timer 2 en 0
     T2CONbits.TMR2ON = 1;                   // Timer 2 ON
     */
-    pwm.setup(1,2);    
-    
+    pwm.setup(1,2);
+
     while(1)
     {
         /* ADCON0bits.GO_DONE = 1;

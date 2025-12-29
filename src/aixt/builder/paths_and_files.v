@@ -15,11 +15,11 @@ pub fn (mut b Builder) get_api_mod_dirs() []string {
 	mut out := []string{}
 	for api_path in b.setup.api_paths {
 		// api_base_dir := os.join_path(
-		// 	aixt_path, os.path_separator, 
-		// 	'targets', os.path_separator, 
+		// 	aixt_path, os.path_separator,
+		// 	'api', os.path_separator,
 		// 	api_path, os.path_separator, 'api'
 		// )
-		api_base_dir := os.norm_path('${b.aixt_path}/targets/${api_path}/api')
+		api_base_dir := os.norm_path('${b.aixt_path}/api/${api_path}/api')
 		out << api_base_dir
 		// out << util.get_subdirs(api_base_dir)
 	}
@@ -32,7 +32,7 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 	for api_path in b.setup.api_paths {
 		// api_path_sub := api_path.replace('.', os.path_separator)
 		// println('>>>>>>>>>>>>>>>>>> ${api_path_sub} <<<<<<<<<<<<<<<<<<')
-		api_base_dir := os.norm_path('${b.aixt_path}/targets/${api_path}/api')
+		api_base_dir := os.norm_path('${b.aixt_path}/api/${api_path}/api')
 		mut api_dirs := [api_base_dir]
 		api_dirs << util.get_subdirs(api_base_dir)
 		// println('>>>>>>>>>>>>>>>>>> ${api_dirs} <<<<<<<<<<<<<<<<<<')
@@ -53,7 +53,7 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 						complete_folder := if mod_subname == mod_main_name {
 							folder
 						} else {
-							folder + os.path_separator + mod_subname 
+							folder + os.path_separator + mod_subname
 						}
 						mut paths :=  b.v_files_from_dir(complete_folder)
 						// module_name.c.v first
@@ -69,7 +69,7 @@ pub fn (mut b Builder) get_api_mod_paths() []string {
 					}
 				}
 			}
-			
+
 		}
 	}
 	// println('>>>>>>>>>>>>>>>>>> ${b.api_mod_paths} <<<<<<<<<<<<<<<<<<')
@@ -96,7 +96,7 @@ pub fn (mut b Builder) get_lib_mod_dirs() []string {
 					if os.exists(os.norm_path('${lib_base_dir}/nxc')) {
 						os.norm_path('${lib_base_dir}/nxc')
 					} else {
-						os.norm_path('${lib_base_dir}/c')	
+						os.norm_path('${lib_base_dir}/c')
 					}
 				}
 				else {
@@ -104,7 +104,7 @@ pub fn (mut b Builder) get_lib_mod_dirs() []string {
 				}
 			}
 			out << lib_backend_path
-		// out << util.get_subdirs(lib_backend_path)	
+		// out << util.get_subdirs(lib_backend_path)
 		}
 	}
 	return out
@@ -116,7 +116,7 @@ pub fn (mut b Builder) get_lib_mod_paths() []string {
 	// println('\nLibrary modules:')
 	lib_paths := os.ls(os.norm_path('${b.aixt_path}/lib')) or { [] } // modules in the `lib` folder
 	for lib_path in lib_paths {
-		lib_base_dir := os.norm_path('${b.aixt_path}/lib/${lib_path}')		
+		lib_base_dir := os.norm_path('${b.aixt_path}/lib/${lib_path}')
 		if lib_path != 'builtin' {	// ommit the `builtin`module
 			lib_backend_path := match b.setup.backend {
 				'arduino' {
@@ -138,8 +138,8 @@ pub fn (mut b Builder) get_lib_mod_paths() []string {
 				}
 			}
 			mut lib_dirs := [lib_backend_path]
-			lib_dirs << util.get_subdirs(lib_backend_path)	
-			// println('>>>>>>>>>>>>>>>>>> ${lib_dirs} <<<<<<<<<<<<<<<<<<')	
+			lib_dirs << util.get_subdirs(lib_backend_path)
+			// println('>>>>>>>>>>>>>>>>>> ${lib_dirs} <<<<<<<<<<<<<<<<<<')
 			for folder in lib_dirs {
 				// println('>>>>>>>>>>>>>>>>>> ${os.base(folder)} <<<<<<<<<<<<<<<<<<')
 				for file in b.parsed_files {

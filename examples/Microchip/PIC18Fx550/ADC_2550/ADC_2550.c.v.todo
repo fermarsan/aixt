@@ -72,10 +72,10 @@
 
 #define _XTAL_FREQ 8000000
 #include <xc.h>
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/builtin.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/machine/pin.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/machine/adc.c"
-#include "/home/aixt-project/targets/Microchip/PIC18F2550/api/time/sleep_ms.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/builtin.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/machine/pin.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/machine/adc.c"
+#include "/home/aixt-project/api/Microchip/PIC18F2550/api/time/sleep_ms.c"
 
 void main(void) {
 
@@ -86,12 +86,12 @@ void main(void) {
 
     adc.setup();
 
-    
+
 /*  TRISB = 0x00;
     TRISC = 0x00;
     LATB = 0x00;
     LATC = 0X00;  */
-    
+
 // CONFIGURAMOS EL PUERTO B COMO SALIDA
 
     pin.setup(pin.b0_s, out);
@@ -135,7 +135,7 @@ void main(void) {
     pin.write(pin.c5, 0);
     pin.write(pin.c6, 0);
     pin.write(pin.c7, 0);
-   
+
 
     while(1)
     {
