@@ -27,6 +27,9 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without targets/../examples and docs to make it lightweight for the Conda package (include src/v.mod)
+- [ ] generates documentation from code
+  - [ ] Remove `/api/` from the targets implementation path
+  - [ ] Create 'dummy' modules as workspaces in target folders
 
 
 ### Done ✓make
