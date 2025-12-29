@@ -19,15 +19,28 @@ module pwm
 @[as_macro] pub const f_low	  = 0b000000_10 // div by 16
 
 // setup function configures the PWM
-// |        |            res = 100            |            res = 250            |
-// | fosc   | f_high   | f_med     | f_low    | f_high   | f_med     | f_low    |
-// |--------|----------|-----------|----------|----------|-----------|----------|
-// | 20 Mhz | 50 khz   | 12.5 khz  | 3125 hz  | 20 khz   | 5 khz     | 1.25 khz |
-// | 16 Mhz | 40 khz   | 10 khz    | 2500 hz  | 16 khz   | 4 khz     | 1 khz    |
-// | 12 Mhz | 30 khz   | 7.5 khz   | 1875 hz  | 12 khz   | 3 khz     | 750 hz   |
-// | 10 Mhz | 25 khz   | 6.25 khz  | 1563 hz  | 10 khz   | 2.5 khz   | 625 hz   |
-// | 8 Mhz  | 20 khz   | 5 khz     | 1250 hz  | 8 khz    | 2 khz     | 500 hz   |
-// | 4 Mhz  | 10 khz   | 2.5 khz   | 625 hz   | 4 khz    | 1 khz     | 250 hz   |
+//
+// for a resolution of 100 steps by period (res = 100):
+//
+// | fosc   | f_high   | f_med     | f_low    |
+// |--------|----------|-----------|----------|
+// | 20 Mhz | 50 khz   | 12.5 khz  | 3125 hz  |
+// | 16 Mhz | 40 khz   | 10 khz    | 2500 hz  |
+// | 12 Mhz | 30 khz   | 7.5 khz   | 1875 hz  |
+// | 10 Mhz | 25 khz   | 6.25 khz  | 1563 hz  |
+// | 8 Mhz  | 20 khz   | 5 khz     | 1250 hz  |
+// | 4 Mhz  | 10 khz   | 2.5 khz   | 625 hz   |
+//
+// for a resolution of 100 steps by period (res = 250):
+//
+// | fosc   | f_high   | f_med     | f_low    |
+// |--------|----------|-----------|----------|
+// | 20 Mhz | 20 khz   | 5 khz     | 1.25 khz |
+// | 16 Mhz | 16 khz   | 4 khz     | 1 khz    |
+// | 12 Mhz | 12 khz   | 3 khz     | 750 hz   |
+// | 10 Mhz | 10 khz   | 2.5 khz   | 625 hz   |
+// | 8 Mhz  | 8 khz    | 2 khz     | 500 hz   |
+// | 4 Mhz  | 4 khz    | 1 khz     | 250 hz   |
 @[as_macro]
 pub fn setup(channel u8, res u8, freq u8) {
   C.TRISC &= channel

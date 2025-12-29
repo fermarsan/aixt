@@ -8,8 +8,8 @@
 
 module pwm
 
-// There are two types of PWM ---> High_Level or Low_Level 
-// There are two state of PWM ---> ENABLE or DISABLE 
+// There are two types of PWM ---> High_Level or Low_Level
+// There are two state of PWM ---> ENABLE or DISABLE
 
 @[inline]
 pub fn write(channel, value, ...) {

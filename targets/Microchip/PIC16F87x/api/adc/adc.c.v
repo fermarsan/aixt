@@ -12,15 +12,15 @@ module adc
 
 #include "adc.c"
 
-// ADC analog pins
-@[as_macro] pub const all_analogs       = u8(0b0000)
+
+@[as_macro] pub const all_analogs       = u8(0b0000)    // ADC analog pins
 @[as_macro] pub const all_analogs_rp    = u8(0b0001)
 @[as_macro] pub const in0_to_in4	      = u8(0b0010)
 @[as_macro] pub const in0_to_in4_rp     = u8(0b0011)
 @[as_macro] pub const in0_in1_in3	      = u8(0b0100)
 @[as_macro] pub const in0_in1_rp	      = u8(0b0101)
 @[as_macro] pub const all_digitals	    = u8(0b0110)
-// @[as_macro] pub const all_digitals      = u8(0b0111)
+
 @[as_macro] pub const all_analogs_rp_rn = u8(0b1000)
 @[as_macro] pub const in0_to_in5	      = u8(0b1001)
 @[as_macro] pub const in0_to_in5_rp     = u8(0b1010)
@@ -30,12 +30,11 @@ module adc
 @[as_macro] pub const in0			          = u8(0b1110)
 @[as_macro] pub const in0_rp_rn	        = u8(0b1111)
 
-// ADC conversion bits
-@[as_macro] pub const bits_8	= u8(0)
+@[as_macro] pub const bits_8	= u8(0)                   // ADC conversion bits
 @[as_macro] pub const bits_10	= u8(1)
 
-// ADC input channels
-@[as_macro] pub const ch0 	= 0
+
+@[as_macro] pub const ch0 	= 0                         // ADC input channels
 @[as_macro] pub const ch1 	= 1
 @[as_macro] pub const ch2 	= 2
 @[as_macro] pub const ch3 	= 3
@@ -44,6 +43,9 @@ module adc
 @[as_macro] pub const ch6 	= 6
 @[as_macro] pub const ch7 	= 7
 
+// setup function configures the ADC.
+// `pins` configures the analog pins and
+// `n_bits` sets the 8-bit or 10-bit modes
 @[as_macro]
 pub fn setup(pins u8, n_bits u8) {
   match pins {
@@ -80,12 +82,14 @@ fn start_conversion(channel u8) {
   for C.GO_DONE == 1 {}	// Waits for conversion to end
 }
 
+// read function reads the full-bit ADC conversion in `channel`
 @[inline]
 pub fn read(channel u8) u16 {
   start_conversion(channel)
   return u16((C.ADRESH << 8) | C.ADRESL )  // Return the ADC value
 }
 
+// read_byte function reads a byte from the ADC conversion in `channel`
 @[inline]
 pub fn read_byte(channel u8) u8 {
   start_conversion(channel)

@@ -6,17 +6,16 @@
 //
 // ## Description
 // This is a module to emulate ADC inputs in console.
-module adc  
+module adc
 
 #include <stdio.h>
 #include <stdlib.h>
 
-// ADC cannel names
-pub const ch0 = 0 
-pub const ch1 = 1    
+pub const ch0 = 0 // ADC channel ids
+pub const ch1 = 1
 
-// read is the reading function for emulated ADC
-// receive as parameter the ADC channel 
+// read is the reading function for the emulated ADC.
+// This receives as parameter the ADC `channel` id
 pub fn read(channel int) int {
     adc_value := 0
     $if linux {

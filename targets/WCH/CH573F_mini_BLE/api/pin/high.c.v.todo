@@ -9,8 +9,8 @@
 module pin
 
 @[inline]
-pub fn high_(port, ...) {
-	C.GPIO##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
+pub fn high_(port, ...any) {
+	C.GPIO//##port##_SetBits(GPIO_Pin_##__VA_ARGS__)
 }
 
 @[inline]

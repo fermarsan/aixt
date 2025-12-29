@@ -9,7 +9,7 @@
 module adc
 
 // define analog pins
-@[as_macro] pub const a0 =  A0  
+@[as_macro] pub const a0 =  A0
 @[as_macro] pub const a1 =  A1
 @[as_macro] pub const a2 =  A2
 @[as_macro] pub const a3 =  A3
