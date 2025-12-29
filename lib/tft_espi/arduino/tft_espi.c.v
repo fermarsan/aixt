@@ -2,8 +2,7 @@
 // Authors:
 //		- Jahn Delgado
 //		- Fernando M. Santa
-//
-// _Date:_ 01/04/2025
+// Date: 01/04/2025
 //
 // ## Description
 // Example of a Library module.

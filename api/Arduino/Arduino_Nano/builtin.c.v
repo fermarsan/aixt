@@ -4,8 +4,7 @@
 //	- Fabián A. Rojas Acosta
 //	- Alberto Pinzón Valero
 //	- Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Date: 2024-2025
 //
 // ## Description
 // Builtin definitions (Arduino Nano - ATmega328P port)

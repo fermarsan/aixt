@@ -3,8 +3,7 @@
 //	- Javier Leon
 //	- Camilo Lucas
 //	- Fernando M. Santa
-//
-// _Date:_ 2023
+// Date: 2023
 //
 // ## Description
 // Milliseconds delay function

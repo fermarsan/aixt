@@ -3,8 +3,7 @@
 //  - Arley Junco
 //  - Luis Quevedo
 //  - Fernando M. Santa
-//
-// _Date:_ 2024
+// Date: 2024
 // License : MIT
 //
 //Description: Builtin definitions
@@ -18,7 +17,7 @@ fn init () {
 
 //#define led		0
 
-//enum __pin_names {    //enumerated type for the pin names 
+//enum __pin_names {    //enumerated type for the pin names
 
 // GPIO general propouse input output
 
@@ -46,15 +45,14 @@ fn init () {
 //14		//D14
 //15		//D15
 //16		//D16
-//17 		//D19 
-//18		//D20 
-//19		//D21 
-//20		//D22 
-//21		//D23  
-//22		//D24  
-//23		//D17 
-//24		//D18 
+//17 		//D19
+//18		//D20
+//19		//D21
+//20		//D22
+//21		//D23
+//22		//D24
+//23		//D17
+//24		//D18
 //25      //
 
-//}  
-
+//}

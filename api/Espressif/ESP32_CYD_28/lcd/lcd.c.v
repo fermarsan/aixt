@@ -2,8 +2,7 @@
 // Authors:
 //		- Jahn Delgado
 //		- Fernando M. Santa
-//
-// _Date:_ 22/05/2025
+// Date: 22/05/2025
 //
 // ## Description
 // LCD module for ESP32-CYD 2.8 inch

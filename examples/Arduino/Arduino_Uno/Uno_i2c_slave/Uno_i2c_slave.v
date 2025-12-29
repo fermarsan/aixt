@@ -3,8 +3,7 @@
 //        - Juan Pablo Bernal
 //        - Daniela Mendoza Deantonio
 //        - Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Date: 2024-2025
 // Arduino Uno board
 
 import i2c

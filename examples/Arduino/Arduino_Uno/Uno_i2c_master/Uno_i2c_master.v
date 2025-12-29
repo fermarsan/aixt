@@ -3,8 +3,7 @@
 //        - Juan Pablo Bernal
 //        - Daniela Mendoza Deantonio
 //        - Fernando M. Santa
-//
-// _Date:_ 2024
+// Date: 2024
 
 import i2c
 import time

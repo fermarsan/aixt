@@ -29,6 +29,7 @@ Tasks to do in Aixt
 - [ ] Clone Aixt without `api`, `examples` and `docs` to make it lightweight for the Conda package (include src/v.mod)
 - [ ] generates documentation from code
   - [ ] Create 'dummy' modules as workspaces in API targets folders
+  - [ ] Change redundant targets API folders
 
 
 ### Done ✓make

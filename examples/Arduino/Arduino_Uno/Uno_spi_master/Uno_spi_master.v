@@ -4,8 +4,7 @@
 //        - Daniela Mendoza Deantonio
 //        - Fernando M. Santa
 // Translated form: https://circuitdigest.com/microcontroller-projects/arduino-spi-communication-tutorial
-//
-// _Date:_ 10/03/2025
+// Date: 10/03/2025
 // Arduino-Uno board
 module main
 
