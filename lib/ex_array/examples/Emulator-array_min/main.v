@@ -1,8 +1,6 @@
 // Project name: Example for ex_array library
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 29/01/2025
+// Author: Fernando M. Santa
+// Date: 29/01/2025
 // CLI emulator (Windows, Linux and Android-Termux) 
 
 import uart

@@ -1,8 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024
+// Author: Fernando M. Santa
+// Date: 2024
 //
 // ## Description
 // PWM functions (Arduino Nano - ATmega328P port)
@@ -27,10 +25,10 @@ pub fn PWM.new(id u8) PWM {
 @[inline]
 pub fn (mut p PWM) write(value u8) {
 	C.analogWrite(p.id, value)
-} 
+}
 
 // setup_pin function configures as output a PWM pin
 @[inline]
 pub fn (mut p PWM) setup_pin() {
 	C.pinMode(p.id, C.OUTPUT)
-} 
+}

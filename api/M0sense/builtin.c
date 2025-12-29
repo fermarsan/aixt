@@ -1,8 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2022-2023
+// Author: Fernando M. Santa
+// Date: 2022-2023
 //
 // ## Description
 // Builtin definitions (Exp16-PIC24 port)

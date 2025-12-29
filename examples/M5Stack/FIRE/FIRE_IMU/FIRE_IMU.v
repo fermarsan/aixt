@@ -1,11 +1,9 @@
 // Project name: IMU test
-//
-// _Author:_ Fernando M
-//
-// _Date:_ 22/01/2025
+// Author: Fernando M
+// Date: 22/01/2025
 // M5Stack FIRE IoT development kit
 
-import lcd 
+import lcd
 import imu
 import power
 import time
@@ -54,5 +52,5 @@ for {
     lcd.cursor(0, 175)
     lcd.print('Temperature : ${temp} C')
 
-    time.sleep_ms(10)  // Delay 10ms  
+    time.sleep_ms(10)  // Delay 10ms
 }

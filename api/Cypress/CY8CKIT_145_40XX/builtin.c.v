@@ -1,4 +1,4 @@
-// _File:_ https://github.com/fermarsan/aixt/blob/main/
+// File: https://github.com/fermarsan/aixt/blob/main/
 //
 // _Author:_
 //  - Daniel Polo
@@ -6,8 +6,7 @@
 //  - Fernando M. Santa
 //  - Javier Leon
 //  - Camilo Lucas
-//
-// _Date:_ 2022-2025
+// Date: 2022-2025
 //
 // ## Description
 // Builtin definitions (CY8CKIT-145-40XX)

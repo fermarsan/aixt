@@ -1,8 +1,6 @@
 // Project name: Port echo
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Author: Fernando M. Santa
+// Date: 2024-2025
 // Blinking PORTB
 // PIC16F877 fosc = 20Mhz
 import port

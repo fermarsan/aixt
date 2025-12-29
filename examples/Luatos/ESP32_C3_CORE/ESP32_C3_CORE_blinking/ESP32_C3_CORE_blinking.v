@@ -1,8 +1,6 @@
 // Project name: Blinking
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 03/03/2025
+// Author: Fernando M. Santa
+// Date: 03/03/2025
 // Arduino-Nano board
 
 import time

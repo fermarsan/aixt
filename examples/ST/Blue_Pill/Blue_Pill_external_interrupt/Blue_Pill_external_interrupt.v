@@ -1,8 +1,6 @@
 // Project name: External Interrupt example
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 19/02/2025
+// Author: Fernando M. Santa
+// Date: 19/02/2025
 // Blue Pill board
 
 import pin

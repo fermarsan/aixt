@@ -1,8 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 11/06/2025
+// Author: Fernando M. Santa
+// Date: 11/06/2025
 //
 // ## Description
 // Pin management Blue-Pill

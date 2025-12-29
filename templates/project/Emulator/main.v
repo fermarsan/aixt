@@ -1,8 +1,6 @@
 // Project name:
-//
-// _Author:_ 
-//
-// _Date:_ 
+// Author: 
+// Date: 
 // CLI emulator (Windows, Linux and Android-Termux) 
 
 import time

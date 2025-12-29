@@ -1,8 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2025
+// Author: Fernando M. Santa
+// Date: 2025
 //
 // ## Description
 // Pin management STM32G431Core
@@ -11,7 +9,7 @@ module timer2
 #include "timer2.c"
 
 @[as_macro] pub const tick  = C.TICK_FORMAT
-@[as_macro] pub const ms    = C.MICROSEC_FORMAT   
+@[as_macro] pub const ms    = C.MICROSEC_FORMAT
 @[as_macro] pub const hz    = C.HERTZ_FORMAT
 @[as_macro] pub const pwm1  = C.TIMER_OUTPUT_COMPARE_PWM1
 
@@ -22,8 +20,8 @@ module timer2
 
 fn C.TIMER2_SETOVERFLOW(value f32, format int)
 fn C.TIMER2_ATTACHINTERRUPT(handler fn())
-fn C.TIMER2_COMPARE_ATTACHINTERRUPT(channel int, handler fn()) 
-fn C.TIMER2_RESUME() 
+fn C.TIMER2_COMPARE_ATTACHINTERRUPT(channel int, handler fn())
+fn C.TIMER2_RESUME()
 fn C.ptr_timer2_isr()
 fn C.TIMER2_WRITE_PERCENT_CHANNEL(channel int, val int)
 fn C.TIMER2_WRITE_PERCENT(val int)
@@ -34,7 +32,7 @@ fn C.TIMER2_COMPARE_CHANNEL_ISR(channel int, handler fn()) fn()
 @[as_macro]
 pub fn compare_irq_enable(ch int) {
 	C.TIMER2_COMPARE_ATTACHINTERRUPT(
-		ch, 
+		ch,
 		C.TIMER2_COMPARE_CHANNEL_ISR(ch, C.ptr_timer2_isr)
 	)
 }
@@ -56,7 +54,7 @@ pub fn write_percent_channel(channel int, val int) {
 
 @[as_macro]
 pub fn restart() {
-	C.TIMER2_RESUME() 
+	C.TIMER2_RESUME()
 }
 
 @[as_macro]

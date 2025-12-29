@@ -1,8 +1,6 @@
-// _File:_ https://github.com/fermarsan/aixt/blob/main/
-//
-// _Author:_ Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
-//
-// _Date:_ 2022-2025
+// File: https://github.com/fermarsan/aixt/blob/main/
+// Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+// Date: 2022-2025
 //
 // // ## Description
 // pwm write (CY8CKIT-145-40XX)

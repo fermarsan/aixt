@@ -1,8 +1,6 @@
 // Project name: Light and deep sleep example
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 22/01/2025
+// Author: Fernando M. Santa
+// Date: 22/01/2025
 // M5Stack FIRE IoT development kit
 
 import lcd 

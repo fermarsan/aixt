@@ -1,8 +1,6 @@
-// Project name: UARt-ADC		
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 14/01/2025
+// Project name: UARt-ADC
+// Author: Fernando M. Santa
+// Date: 14/01/2025
 // Blue-Pill board
 
 import time

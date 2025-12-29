@@ -1,8 +1,6 @@
 // Project name:
-//
-// _Author:_ 
-//
-// _Date:_ 
+// Author: 
+// Date: 
 // PIC16F886 fosc = 10Mhz
 
 import time

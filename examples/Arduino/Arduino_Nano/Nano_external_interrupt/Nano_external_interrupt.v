@@ -1,8 +1,6 @@
 // Project name: External Interrupt example
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 17/06/2025
+// Author: Fernando M. Santa
+// Date: 17/06/2025
 // Arduino Nano board
 
 import pin_fn as pin

@@ -1,8 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2022-2025
+// Author: Fernando M. Santa
+// Date: 2022-2025
 //
 // ## Description
 // Pin management functions PIC24 Family
@@ -15,12 +13,12 @@ module pin_fn
 // setup configures the mode of a pin
 @[as_macro]
 pub fn setup(id u8, mode u8) {
-	unsafe { 
+	unsafe {
 		if mode == 1 { // as input (1)
 			*(&C.TRISA + u16(id / 16)*3)  |=  (0x0001 << (id % 16))
-		} else {  // as output (0)    
+		} else {  // as output (0)
 			*(&C.TRISA + u16(id / 16)*3)  &=  ~(0x0001 << (id % 16))
-		}	
+		}
 	}
 }
 

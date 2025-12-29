@@ -1,8 +1,6 @@
 // Project name: ADC_External_DAC
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Author: Fernando M. Santa
+// Date: 2024-2025
 // Arduino-Nano board
 
 import time

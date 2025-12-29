@@ -1,8 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2025
+// Author: Fernando M. Santa
+// Date: 2025
 //
 // ## Description
 // lcd module (Arduino Nano - ATmega328P port)

@@ -1,19 +1,17 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Jan Carlo Peñuela Jurado and Fernando M. Santa
-//
-// _Date:_ 2024
+// Author: Jan Carlo Peñuela Jurado and Fernando M. Santa
+// Date: 2024
 //
 // ## Description
 // PWM SETUP
 //              (PIC18F452)
 module pwm
 fn setup() {
-    PR2 = 0x0C                             /* Valor del periodo */  
-    CCPR1L = 0                             /* Inicia el CCP1 en 0 */  
-    TRISCbits.TRISC2 = 0                   /* Pin C2 como salida */  
-    T2CON = 0x03                           /* Configuracion del timer 2 */  
-    CCP1CON = 0x0C                         /* Configura el CCP1 en modo PWM */ 
-    TMR2 = 0                               /* Timer 2 en 0 */  
+    PR2 = 0x0C                             /* Valor del periodo */
+    CCPR1L = 0                             /* Inicia el CCP1 en 0 */
+    TRISCbits.TRISC2 = 0                   /* Pin C2 como salida */
+    T2CON = 0x03                           /* Configuracion del timer 2 */
+    CCP1CON = 0x0C                         /* Configura el CCP1 en modo PWM */
+    TMR2 = 0                               /* Timer 2 en 0 */
     T2CONbits.TMR2ON = 1                   /* Timer 2 ON */
-}                           
+}

@@ -1,8 +1,6 @@
 // Project name: Inverter
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Author: Fernando M. Santa
+// Date: 2024-2025
 // PWM 2-channel test
 // PIC16F876 fosc = 20Mhz
 import pwm

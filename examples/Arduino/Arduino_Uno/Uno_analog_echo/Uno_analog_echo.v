@@ -1,8 +1,6 @@
 // Project name: Blinking
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Author: Fernando M. Santa
+// Date: 2024-2025
 // Arduino-Uno board
 
 import time
@@ -18,4 +16,3 @@ for {
 	pwm_output.write(u8(value/4))
 	time.sleep_ms(100)
 }
-

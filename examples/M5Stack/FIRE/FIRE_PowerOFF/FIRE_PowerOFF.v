@@ -1,11 +1,9 @@
 // Project name: Power Off example
-//
-// _Author:_ Fernando M. Santa	
-//
-// _Date:_ 21/01/2025
+// Author: Fernando M. Santa
+// Date: 21/01/2025
 // M5Stack FIRE IoT development kit
 
-import lcd 
+import lcd
 import button
 import power
 import time
@@ -21,10 +19,10 @@ power.light_sleep(power.sec(5))  // Sleep for 5 seconds, then continue the progr
 
 lcd.print('press ButtonA: shutdown,  use ') // Screen printing
 lcd.println('power button to turn  back on')// formatted string.
-                                                         
+
 for {
     update()  // Read the press state of the key. A, B, C
-    if button.was_pressed(button.a) {  // check if the A key is pressed. 
+    if button.was_pressed(button.a) {  // check if the A key is pressed.
 	    power.power_off()	// turn off power.
     }
 }

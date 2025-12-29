@@ -1,8 +1,7 @@
 // Project name:
+// Author:
 //
-// _Author:_ 
-//
-// _Date:_ 
+// _Date:_
 // Arduino Uno board
 
 import time
@@ -36,6 +35,6 @@ for {
 			time.sleep_ms(5000)
 			disp7seg.blank(false)
 			disp7seg.leading_zeros(true)
-        } 
+        }
 	}
 }

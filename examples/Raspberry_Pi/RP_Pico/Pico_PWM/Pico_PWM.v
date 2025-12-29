@@ -1,8 +1,6 @@
 // Project name: PWM signal
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 17/09/2024
+// Author: Fernando M. Santa
+// Date: 17/09/2024
 // Raspberry Pi Pico board
 
 import time

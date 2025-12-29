@@ -1,9 +1,7 @@
 // Project Name : Aixt: http://github.com/fermansan/aixt.git
-//
-// _Author:_ Fernando M. Santa 
+// Author: Fernando M. Santa 
 // License : MIT
-//
-// _Date:_ 2025
+// Date: 2025
 //
 // ## Description
 // ADC functions for ESP32C3-CORE

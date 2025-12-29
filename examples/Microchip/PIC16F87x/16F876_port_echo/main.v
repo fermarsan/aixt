@@ -1,8 +1,6 @@
 // Project name: Port echo
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Author: Fernando M. Santa
+// Date: 2024-2025
 // Echo from the 4 LSBs of PORTC to the 4 LSBs of PORTB
 // PIC16F876 fosc = 20Mhz
 import time

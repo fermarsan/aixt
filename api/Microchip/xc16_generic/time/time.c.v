@@ -1,8 +1,6 @@
-// _File:_ https://github.com/fermarsan/aixt/blob/main/
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024
+// File: https://github.com/fermarsan/aixt/blob/main/
+// Author: Fernando M. Santa
+// Date: 2024
 //
 // ## Description
 // delay functions for XC8 compiler

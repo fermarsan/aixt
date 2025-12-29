@@ -1,8 +1,6 @@
 // Project name: Analog echo
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 14/01/2025
+// Author: Fernando M. Santa
+// Date: 14/01/2025
 // Raspberry XIAO-ESP32-xx board
 
 import time

@@ -1,16 +1,14 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024
+// Author: Fernando M. Santa
+// Date: 2024
 //
 // ## Description
 // ADC functions
 module adc
 
-@[as_macro]	pub const ch0 = 0	
-@[as_macro]	pub const ch1 = 1	
-@[as_macro]	pub const ch2 = 2	
+@[as_macro]	pub const ch0 = 0
+@[as_macro]	pub const ch1 = 1
+@[as_macro]	pub const ch2 = 2
 @[as_macro]	pub const ch3 = 3
 
 fn C.capsense_ADC_Start()

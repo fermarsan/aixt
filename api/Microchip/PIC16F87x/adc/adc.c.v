@@ -1,9 +1,7 @@
 // Project name: Aixt,
 // https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Cesar Alejandro Roa Acosta and Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Author: Cesar Alejandro Roa Acosta and Fernando M. Santa
+// Date: 2024-2025
 //
 // ## Description
 // ADC management functions

@@ -1,8 +1,6 @@
 // Project name:
-//
-// _Author:_ 
-//
-// _Date:_ 
+// Author: 
+// Date: 
 // Arduino Uno board
 
 import time

@@ -1,8 +1,7 @@
 // Project name:
+// Author:
 //
-// _Author:_ 
-//
-// _Date:_ 
+// _Date:_
 // Arduino Mega board
 import time
 import lcd
@@ -19,14 +18,14 @@ const btn_none   = 5
 
 // 📌 Función para leer los buttones del shield LCD
 fn read_lcd_buttons() int {
-    adc_value := adc.read(adc.ch0)  
+    adc_value := adc.read(adc.ch0)
     match true {
         adc_value < 50  { return btn_right }
         adc_value < 195 { return btn_up }
         adc_value < 380 { return btn_down }
         adc_value < 555 { return btn_left }
         adc_value < 790 { return btn_select }
-        else            { return btn_none }  
+        else            { return btn_none }
     }
 }
 
@@ -39,16 +38,16 @@ fn main() {
         val := adc.read(adc.ch5)
         voltage := f32(f32(5.00)*val)/1024 // Calcular el voltaje
 
-        lcd.set_cursor(0, 1)  // Mover cursor a la segunda línea        
-        button := read_lcd_buttons()  // Leer el botón presionado  
+        lcd.set_cursor(0, 1)  // Mover cursor a la segunda línea
+        button := read_lcd_buttons()  // Leer el botón presionado
 
         match button {
             btn_right {
                 lcd.clear()
                 time.sleep_ms(700)
-                lcd.set_cursor(1, 0)  
+                lcd.set_cursor(1, 0)
                 lcd.println("ADC Value:")
-                lcd.set_cursor(11, 0) 
+                lcd.set_cursor(11, 0)
                 lcd.print(val)
                 time.sleep_ms(500)
                 break
@@ -56,9 +55,9 @@ fn main() {
             btn_left {
                 lcd.clear()
                 time.sleep_ms(700)
-                lcd.set_cursor(1, 0)  
-                lcd.println("Voltage")  
-				lcd.set_cursor(11, 0) 
+                lcd.set_cursor(1, 0)
+                lcd.println("Voltage")
+				lcd.set_cursor(11, 0)
                 lcd.print(voltage)
                 time.sleep_ms(500)
                 break
@@ -68,4 +67,3 @@ fn main() {
         time.sleep_ms(500)  // Pequeño retraso para evitar rebotes
     }
 }
-

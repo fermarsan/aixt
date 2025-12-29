@@ -1,8 +1,6 @@
 // Project name: Logic inverter
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Author: Fernando M. Santa
+// Date: 2024-2025
 // Arduino-Uno board
 
 import time
@@ -13,7 +11,7 @@ sw.setup(pin.input)
 
 for {
 	if sw.read() == 1 {
-		led0.low()	
+		led0.low()
 	} else {
 		led0.high()
 	}

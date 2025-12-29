@@ -1,8 +1,6 @@
 // Project name: UART TX
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2025
+// Author: Fernando M. Santa
+// Date: 2025
 // PIC16F628A fosc = 20Mhz
 import pin_fn as pin
 import uart

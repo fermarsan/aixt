@@ -1,8 +1,6 @@
-// _File:_ https://github.com/fermarsan/aixt/blob/main/api/Microchip/PIC16_generic/PIC16_core/api/port/port.c.v
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024
+// File: https://github.com/fermarsan/aixt/blob/main/api/Microchip/PIC16_generic/PIC16_core/api/port/port.c.v
+// Author: Fernando M. Santa
+// Date: 2024
 //
 // ## Description
 // Pin-port functions for the PIC16F family.

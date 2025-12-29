@@ -1,16 +1,14 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Author: Fernando M. Santa
+// Date: 2024-2025
 //
 // ## Description
 // Sound module for NXT (NXC backend)
 
 module sound
- 
 
-// Constants for use in the sound__play_tone() api function. 
+
+// Constants for use in the sound__play_tone() api function.
 @[as_macro] pub const tone_c3	= C.TONE_C3
 @[as_macro] pub const tone_cs3	= C.TONE_CS3
 @[as_macro] pub const tone_d3	= C.TONE_D3
@@ -76,12 +74,12 @@ fn C.PlayFile(args ...any) i8
 fn C.PlayTone(args ...any) i8
 fn C.PlayFileEx(args ...any) i8
 fn C.PlayToneEx(args ...any) i8
-fn C.StopSound() 
-fn C.SoundFrequency() u16 
-fn C.SoundDuration() u16 
-fn C.SoundSampleRate() u16 
-fn C.SoundMode() u8 
-fn C.SoundVolume() u8 
+fn C.StopSound()
+fn C.SoundFrequency() u16
+fn C.SoundDuration() u16
+fn C.SoundSampleRate() u16
+fn C.SoundMode() u8
+fn C.SoundVolume() u8
 fn C.SetSoundDuration(args ...any)
 fn C.SetSoundFlags(args ...any)
 fn C.SetSoundFrequency(args ...any)
@@ -93,99 +91,98 @@ fn C.PlaySound(args ...any)
 fn C.PlayTones(args ...any)
 
 
-// Functions for accessing and modifying sound module features. 
+// Functions for accessing and modifying sound module features.
 @[as_macro]
 pub fn play_file(args ...any) i8 {
-	return C.PlayFile(...args) 
+	return C.PlayFile(...args)
 }
 
 @[as_macro]
 pub fn play_tone(args ...any) i8 {
-	return C.PlayTone(...args) 
+	return C.PlayTone(...args)
 }
 
-@[as_macro] 
-pub fn play_file_ex(args ...any) i8 { 
+@[as_macro]
+pub fn play_file_ex(args ...any) i8 {
 	return C.PlayFileEx(...args)
 }
 
-@[as_macro] 
-pub fn play_tone_ex(args ...any) i8 { 
+@[as_macro]
+pub fn play_tone_ex(args ...any) i8 {
 	return C.PlayToneEx(...args)
 }
 
 @[as_macro]
 pub fn stop() {
-	C.StopSound() 
+	C.StopSound()
 }
 
 @[as_macro]
 pub fn frequency() u16 {
-	return C.SoundFrequency() 
+	return C.SoundFrequency()
 }
 
 @[as_macro]
 pub fn duration() u16 {
-	return C.SoundDuration() 
+	return C.SoundDuration()
 }
 
 @[as_macro]
 pub fn sample_rate() u16 {
-	return C.SoundSampleRate() 
+	return C.SoundSampleRate()
 }
 
 @[as_macro]
 pub fn mode() u8 {
-	return C.SoundMode() 
+	return C.SoundMode()
 }
 
 @[as_macro]
 pub fn volume() u8 {
-	return C.SoundVolume() 
+	return C.SoundVolume()
 }
 
 @[as_macro]
 pub fn set_duration(args ...any) {
-	C.SetSoundDuration(...args) 
+	C.SetSoundDuration(...args)
 }
 
 @[as_macro]
 pub fn set_flags(args ...any) {
-	C.SetSoundFlags(...args) 
+	C.SetSoundFlags(...args)
 }
 
 @[as_macro]
 pub fn set_frequency(args ...any) {
-	C.SetSoundFrequency(...args) 
+	C.SetSoundFrequency(...args)
 }
 
 @[as_macro]
 pub fn set_mode(args ...any) {
-	C.SetSoundMode(...args) 
+	C.SetSoundMode(...args)
 }
 
 @[as_macro]
 pub fn set_module_state(args ...any) {
-	C.SetSoundModuleState(...args) 
+	C.SetSoundModuleState(...args)
 }
 
 @[as_macro]
 pub fn set_sample_rate(args ...any) {
-	C.SetSoundSampleRate(...args) 
+	C.SetSoundSampleRate(...args)
 }
 
 @[as_macro]
 pub fn set_volume(args ...any) {
-	C.SetSoundVolume(...args) 
+	C.SetSoundVolume(...args)
 }
 
 @[as_macro]
 pub fn play(args ...any) {
-	C.PlaySound(...args) 
+	C.PlaySound(...args)
 }
 
 @[as_macro]
 pub fn play_tones(args ...any) {
-	C.PlayTones(...args) 
+	C.PlayTones(...args)
 }
-

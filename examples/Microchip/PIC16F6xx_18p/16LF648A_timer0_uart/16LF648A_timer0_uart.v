@@ -1,15 +1,13 @@
 // Project name: Blinking
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2025
+// Author: Fernando M. Santa
+// Date: 2025
 // PIC16LF648A fosc = 20Mhz by default
 import pin_fn as pin
 import timer0
 import uart
 
-__global ( 
-	int_flag = false 
+__global (
+	int_flag = false
 )
 
 const led = pin.b7
@@ -23,7 +21,7 @@ fn blinking() {
 
 mut count := u8(0)
 
-pin.setup(led, pin.output)	// LED 
+pin.setup(led, pin.output)	// LED
 pin.setup(pin.b2, pin.output)	// RB2 = TX
 timer0.setup(10_000) // configure the timer0 with a period of 10ms (10000us)
 uart.setup(115200) // Initialize serial communication to 115200 bps

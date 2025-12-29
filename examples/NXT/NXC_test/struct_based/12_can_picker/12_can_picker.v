@@ -1,8 +1,6 @@
 // Project name: Line follower
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Author: Fernando M. Santa
+// Date: 2024-2025
 
 import motor
 import sensor { Sensor }
@@ -21,6 +19,6 @@ for {
 		motor_a.off()	// off
 		time.sleep_ms(300)
 		motor_a.write(-75)	// reverse
-		time.sleep_ms(500)	
+		time.sleep_ms(500)
 	}
 }

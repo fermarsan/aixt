@@ -1,8 +1,6 @@
 // Project name: Sequence
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024
+// Author: Fernando M. Santa
+// Date: 2024
 // 4-bit LED sequence on LSBs of PORTB
 // PIC16F874 fosc = 20Mhz
 

@@ -1,8 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa (modified from https://github.com/vlang/v/blob/master/cmd/tools/vsymlink.v)
-//
-// _Date:_ 2024
+// Author: Fernando M. Santa (modified from https://github.com/vlang/v/blob/master/cmd/tools/vsymlink.v)
+// Date: 2024
 // ## Description
 // It is a modification of the original Vlang simlink tool, from the file:
 //				https://github.com/vlang/v/blob/master/cmd/tools/vsymlink.v

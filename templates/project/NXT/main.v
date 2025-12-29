@@ -1,11 +1,10 @@
 // Project name:
+// Author:
 //
-// _Author:_ 
-//
-// _Date:_ 
+// _Date:_
 // NXT Intelligent Brick
 
-import time 
+import time
 import motor
 import sensor
 

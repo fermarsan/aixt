@@ -1,8 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa & Santiago Orjuela R.
-//
-// _Date:_ 2022-2024
+// Author: Fernando M. Santa & Santiago Orjuela R.
+// Date: 2022-2024
 //
 // ## Description
 // ADC functions (Exp16-PIC24 port)
@@ -52,10 +50,8 @@ module adc
 fn C.init()
 
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa & Santiago Orjuela R.
-//
-// _Date:_ 2022-2024
+// Author: Fernando M. Santa & Santiago Orjuela R.
+// Date: 2022-2024
 //
 // ## Description
 // ADC functions (Exp16-PIC24 port)
@@ -66,10 +62,8 @@ fn C.init()
 fn C.read(channel u8) u16
 
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2022-2024
+// Author: Fernando M. Santa
+// Date: 2022-2024
 //
 // ## Description
 // ADC setup (Exp16-PIC24 port)

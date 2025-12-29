@@ -1,8 +1,6 @@
 // Project name:
-//
-// _Author:_ 
-//
-// _Date:_ 
+// Author: 
+// Date: 
 // M5Stack FIRE IoT development kit
 
 import lcd 

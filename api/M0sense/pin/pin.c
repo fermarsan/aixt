@@ -1,9 +1,7 @@
-// _File:_ https://github.com/fermarsan/aixt
+// File: https://github.com/fermarsan/aixt
 
-//
-// _Author:_ Yahir Gracia
-//
-// _Date:_ 2024
+// Author: Yahir Gracia
+// Date: 2024
 //
 // ## Description
 // Pin(M0sense)

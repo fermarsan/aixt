@@ -1,8 +1,6 @@
 // Project name: Sequence
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024-2025
+// Author: Fernando M. Santa
+// Date: 2024-2025
 // 6-bit LED sequence on LSBs of GPIO
 // PIC12F675 fosc = 4Mhz
 

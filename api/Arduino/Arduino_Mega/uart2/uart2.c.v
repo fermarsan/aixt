@@ -1,10 +1,9 @@
-// _File:_ https://github.com/fermarsan/aixt/blob/main/
+// File: https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	- Johann Escobar Guzmán
 //	- Daniel Andrés Vásquez Gómez
 //	- Fernando M. Santa
-//
-// _Date:_ 2023-2024
+// Date: 2023-2024
 //
 // // ## Description
 // SLEEP_ms functions (W801)

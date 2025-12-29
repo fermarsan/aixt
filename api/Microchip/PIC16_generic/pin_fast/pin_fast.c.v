@@ -1,8 +1,6 @@
-// _File:_ https://github.com/fermarsan/aixt/blob/main/api/Microchip/PIC16_generic/PIC16_core/api/pin_fast/pin_fast.c.v
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2025
+// File: https://github.com/fermarsan/aixt/blob/main/api/Microchip/PIC16_generic/PIC16_core/api/pin_fast/pin_fast.c.v
+// Author: Fernando M. Santa
+// Date: 2025
 //
 // ## Description
 // Pin management functions for the PIC16F family.

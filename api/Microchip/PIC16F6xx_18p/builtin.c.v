@@ -1,9 +1,8 @@
-// _File:_ https://github.com/fermarsan/aixt/blob/main/
+// File: https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	- Luis Alfredo Pinto Medina
 //	- Fernando M. Santa
-//
-// _Date:_ 2024
+// Date: 2024
 //
 // ## Description
 // Builtin definitions (PIC16F8x port)

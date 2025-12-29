@@ -1,8 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ ernando Martínez Santa
-//
-// _Date:_ 2024
+// Author: ernando Martínez Santa
+// Date: 2024
 // License: MIT
 module uart
 

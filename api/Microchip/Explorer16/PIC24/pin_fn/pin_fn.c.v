@@ -1,24 +1,22 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2022-2025
+// Author: Fernando M. Santa
+// Date: 2022-2025
 //
 // ## Description
 // Pin management functions (Exp16-PIC24 port)
 module pin_fn
 
 
-@[as_macro] pub const a0 =   0 
-@[as_macro] pub const a1 =   1 
-@[as_macro] pub const a2 =   2 
-@[as_macro] pub const a3 =   3  
-@[as_macro] pub const a4 =   4  
-@[as_macro] pub const a5 =   5  
-@[as_macro] pub const a6 =   6  
-@[as_macro] pub const a7 =   7  
-// @[as_macro] pub const a8 =   8  
-@[as_macro] pub const a9 =   9  
+@[as_macro] pub const a0 =   0
+@[as_macro] pub const a1 =   1
+@[as_macro] pub const a2 =   2
+@[as_macro] pub const a3 =   3
+@[as_macro] pub const a4 =   4
+@[as_macro] pub const a5 =   5
+@[as_macro] pub const a6 =   6
+@[as_macro] pub const a7 =   7
+// @[as_macro] pub const a8 =   8
+@[as_macro] pub const a9 =   9
 @[as_macro] pub const a10 =  10
 // @[as_macro] pub const a11 =  11
 // @[as_macro] pub const a12 =  12
@@ -30,10 +28,10 @@ module pin_fn
 @[as_macro] pub const b1 =   17
 @[as_macro] pub const b2 =   18
 @[as_macro] pub const b3 =   19
-@[as_macro] pub const b4 =   20 
-@[as_macro] pub const b5 =   21 
-@[as_macro] pub const b6 =   22 
-@[as_macro] pub const b7 =   23 
+@[as_macro] pub const b4 =   20
+@[as_macro] pub const b5 =   21
+@[as_macro] pub const b6 =   22
+@[as_macro] pub const b7 =   23
 @[as_macro] pub const b8 =   24
 @[as_macro] pub const b9 =   25
 @[as_macro] pub const b10 =  26
@@ -61,7 +59,7 @@ module pin_fn
 @[as_macro] pub const c15 =  47
 
 @[as_macro] pub const d0 =   48
-@[as_macro] pub const d1 =   49 
+@[as_macro] pub const d1 =   49
 @[as_macro] pub const d2 =   50
 @[as_macro] pub const d3 =   51
 @[as_macro] pub const d4 =   52
@@ -83,10 +81,10 @@ module pin_fn
 @[as_macro] pub const e3 =   67
 @[as_macro] pub const e4 =   68
 @[as_macro] pub const e5 =   69
-@[as_macro] pub const e6 =   70  
-@[as_macro] pub const e7 =   71  
-@[as_macro] pub const e8 =   72 
-@[as_macro] pub const e9 =   73 
+@[as_macro] pub const e6 =   70
+@[as_macro] pub const e7 =   71
+@[as_macro] pub const e8 =   72
+@[as_macro] pub const e9 =   73
 // @[as_macro] pub const e10 =  74
 // @[as_macro] pub const e11 =  75
 // @[as_macro] pub const e12 =  76
@@ -94,16 +92,16 @@ module pin_fn
 // @[as_macro] pub const e14 =  78
 // @[as_macro] pub const e15 =  79
 
-@[as_macro] pub const f0 =   80 
-@[as_macro] pub const f1 =   81 
-@[as_macro] pub const f2 =   82 
-@[as_macro] pub const f3 =   83  
-@[as_macro] pub const f4 =   84  
-@[as_macro] pub const f5 =   85  
-@[as_macro] pub const f6 =   86  
-@[as_macro] pub const f7 =   87  
-@[as_macro] pub const f8 =   88  
-// @[as_macro] pub const f9 =   89  
+@[as_macro] pub const f0 =   80
+@[as_macro] pub const f1 =   81
+@[as_macro] pub const f2 =   82
+@[as_macro] pub const f3 =   83
+@[as_macro] pub const f4 =   84
+@[as_macro] pub const f5 =   85
+@[as_macro] pub const f6 =   86
+@[as_macro] pub const f7 =   87
+@[as_macro] pub const f8 =   88
+// @[as_macro] pub const f9 =   89
 // @[as_macro] pub const f10 =  90
 // @[as_macro] pub const f11 =  91
 @[as_macro] pub const f12 =  92
@@ -130,7 +128,7 @@ module pin_fn
 
 
 // Onboard LEDs
-@[as_macro] pub const led3  = 0			
+@[as_macro] pub const led3  = 0
 @[as_macro] pub const led4  = 1
 @[as_macro] pub const led5  = 2
 @[as_macro] pub const led6  = 3
@@ -140,7 +138,7 @@ module pin_fn
 @[as_macro] pub const led10 = 7
 
 // Onboard switchs
-@[as_macro] pub const sw3	= 54	
+@[as_macro] pub const sw3	= 54
 @[as_macro] pub const sw4   = 61
 @[as_macro] pub const sw5   = 7
 @[as_macro] pub const sw6   = 55

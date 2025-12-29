@@ -1,8 +1,6 @@
 // Project name: PWM signal
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 13/01/2025
+// Author: Fernando M. Santa
+// Date: 13/01/2025
 // Blue-Pill
 
 import time

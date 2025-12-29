@@ -1,8 +1,6 @@
 // Project name: Blinking
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2025
+// Author: Fernando M. Santa
+// Date: 2025
 // PIC12F629 fosc = 20Mhz
 import time
 import pin_fn as pin

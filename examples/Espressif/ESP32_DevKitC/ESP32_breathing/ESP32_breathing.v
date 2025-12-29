@@ -1,8 +1,6 @@
 // Project name: Blinking
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 21/09/2024
+// Author: Fernando M. Santa
+// Date: 21/09/2024
 // ESP32-DevKitC board
 
 import time
@@ -14,12 +12,11 @@ pin.setup(pin.gpio2, pin.output)
 for {
 	for level in 0 .. 256 {
 		pwm.write(pin.gpio2, level)
-		time.sleep_ms(5) 
+		time.sleep_ms(5)
 	}
 	for level in 0 .. 256 {
 		pwm.write(pin.gpio2, 255-level)
-		time.sleep_ms(5) 
+		time.sleep_ms(5)
 	}
-    time.sleep_ms(100)   
+    time.sleep_ms(100)
 }
-

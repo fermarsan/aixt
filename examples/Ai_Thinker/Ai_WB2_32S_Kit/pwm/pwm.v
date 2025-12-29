@@ -1,8 +1,6 @@
-// _File:_ https://github.com/fermarsan/aixt/blob/main/
-//
-// _Author:_ Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
-//
-// _Date:_ 2022-2024
+// File: https://github.com/fermarsan/aixt/blob/main/
+// Author: Fernando M. Santa - Stiven Cortázar Cortázar - Yesid Reyes Tique
+// Date: 2022-2024
 //
 // // ## Description
 // pwm Ouput functions (Ai-Thinker_Ai-WB2-32S-Kit)

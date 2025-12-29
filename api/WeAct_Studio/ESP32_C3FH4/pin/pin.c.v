@@ -1,9 +1,7 @@
 // Project Name : Aixt: http://github.com/fermansan/aixt.git
-//
-// _Author:_ Farith Ochoa León, Delipe Cardozo and Fernando M. Santa 
+// Author: Farith Ochoa León, Delipe Cardozo and Fernando M. Santa 
 // License : MIT
-//
-// _Date:_ 2024-2025
+// Date: 2024-2025
 //
 // ## Description
 // Pin management functions Arduino devices

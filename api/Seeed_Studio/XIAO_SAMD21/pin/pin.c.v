@@ -1,15 +1,13 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2024
+// Author: Fernando M. Santa
+// Date: 2024
 //
 // ## Description
 // Pin management XIAO-SAMD21
 module pin
 
 // pin names
-pub const d0   = u8(C.D0)    
+pub const d0   = u8(C.D0)
 pub const d1   = u8(C.D1)
 pub const d2   = u8(C.D2)
 pub const d3   = u8(C.D3)

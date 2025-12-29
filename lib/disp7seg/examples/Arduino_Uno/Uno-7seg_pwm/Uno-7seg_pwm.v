@@ -1,9 +1,8 @@
 
 // Project name:
+// Author:
 //
-// _Author:_ 
-//
-// _Date:_ 
+// _Date:_
 // Arduino Uno board
 
 import time
@@ -27,5 +26,3 @@ for {
   disp7seg.write(led_brightness)
   time.sleep_ms(100)
 }
-
-

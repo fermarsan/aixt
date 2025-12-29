@@ -1,8 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
-//
-// _Author:_ Fernando M. Santa
-//
-// _Date:_ 2023-2025
+// Author: Fernando M. Santa
+// Date: 2023-2025
 // License: MIT
 module main
 
