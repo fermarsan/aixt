@@ -86,3 +86,4 @@ Tasks to do in Aixt
 - [x] Issue solved: assignment using `match` already works
 - [ ] generates documentation from code
   - [x] Update the source files header to improve the visualization of the automatic documentation
+- [x] Split the examples from the API in all the targets
