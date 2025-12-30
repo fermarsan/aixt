@@ -10,7 +10,7 @@ module pin_fn
 @[as_macro] pub const input		= u8(1)
 @[as_macro] pub const output	= u8(0)
 
-// setup configures the mode of a pin
+// setup configures the `mode` of a pin (by `id`)
 @[as_macro]
 pub fn setup(id u8, mode u8) {
 	unsafe {
@@ -38,7 +38,7 @@ pub fn low(id u8) {
 	}
 }
 
-// write function writes a logic value to a pin
+// write function writes a logical `value` to a pin by its `ìd`
 @[as_macro]
 pub fn write(id u8, value u8) {
 	unsafe {

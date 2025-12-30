@@ -22,26 +22,26 @@ __global (
 // @[as_macro] pub const pre_128 = u8(0b110)
 // @[as_macro] pub const pre_256 = u8(0b111)
 
-// irq_disable disables the external interrupt
+// irq_disable function disables the external interrupt
 @[as_macro]
 pub fn irq_disable() {
 	C.T0IE = 0
 }
 
-// irq_enable enables the Timer0 overflow interrupt
+// irq_enable function enables the Timer0 overflow interrupt
 @[as_macro]
 pub fn irq_enable() {
 	C.GIE = 1
 	C.T0IE = 1
 }
 
-// read reads the current value of Timer0
+// read function reads the current value of Timer0
 @[as_macro]
 pub fn read() u8 {
 	return u8(C.TMR0)
 }
 
-// restart the Timer0 with the predefined starting value
+// restart function re-start the Timer0 with the predefined starting value
 @[as_macro]
 pub fn restart() {
 	C.TMR0 = u8(timer0__initial)

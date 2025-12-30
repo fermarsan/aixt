@@ -40,7 +40,7 @@ pub fn read(port_id u8, pin_id u8) u8 {
 	return C.READ_FAST(port_id, pin_id)
 }
 
-// setup configures the mode of a pin faster than the regular setup function.
+// setup configures the `mode` of a pin (by `id`) faster than the regular setup function.
 // `port_id` is the port id, for example `pin_fast.port_a`,
 // `pin_id` is the pin id, for example `pin_fast.b3`
 // `mode` is the pin mode, `pin.input` or `pin.output`.

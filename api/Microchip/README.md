@@ -1,14 +1,26 @@
----
-page: index
-title: PIC16 core modules documentation
-index: PIC16_core
----
+## Description
 
-# Description
+This is a workspace for the Microchip devices API. Some of functions are shared by most of devices.
+The API is split in several folders:
 
-This is a workspace for the Microchip devices.
- 
- 
+### Compiler related modules
+
+- [xc8](Microchip.xc8.html)
+
+- [xc16](Microchip.xc16.html)
+
+
+### Device family related modules
+
+- [PIC12](Microchip.PIC12.html)
+
+- [PIC16](Microchip.PIC16.html)
+
+- [PIC18](Microchip.PIC18.html)
+
+- [PIC24-dsPIC33](Microchip.PIC24_dsPIC33.html)
+
+
 ## Supported family devices
  
 - PIC12F6xx
