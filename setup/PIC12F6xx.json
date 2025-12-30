@@ -14,15 +14,7 @@
     "windows_path": "",
     "flags": ""
   },
-  "api_paths": [
-    "Microchip/PIC12F6xx",
-    "Microchip/xc8_generic",
-    "Microchip/PIC12F_generic/PIC12F_core",
-    "Microchip/PIC12F_generic/timer1",
-    "Microchip/PIC12F_generic/timer2",
-    "Microchip/PIC12F_generic/adc",
-    "Microchip/PIC12F_generic/pwm"
-  ],
+  "api_paths": ["Microchip/PIC12F6xx", "Microchip/xc8", "Microchip/PIC12"],
   "v_defines": [],
   "default_cpu_freq": 4000000,
   "default_string_len": 20,

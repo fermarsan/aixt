@@ -16,8 +16,10 @@
   },
   "api_paths": [
     "Microchip/PIC16F87x",
-    "Microchip/xc8_generic",
-    "Microchip/PIC16_generic"
+    "Microchip/xc8",
+    "Microchip/PIC16",
+    "Microchip/PIC16_uart",
+    "Microchip/PIC16_pwm"
   ],
   "v_defines": [],
   "default_cpu_freq": 20000000,
