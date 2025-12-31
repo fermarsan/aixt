@@ -8,10 +8,8 @@ module pwm
 #include <stdio.h>
 #include <stdlib.h>
 
-//PWM names
 pub const ch0 = 0
 pub const ch1 = 1
-
 
 __global (
     pwm__duty = [0, 0]

@@ -16,17 +16,17 @@ $if linux {
 // sleep is a delay function in seconds for the Aixt PC port.
 pub fn sleep(ts int) {
 	$if linux {
-        C.sleep(ts)
+    C.sleep(ts)
 	} $else {
-        C.Sleep(ts*1000)
+    C.Sleep(ts*1000)
 	}
 }
 
 // sleep_ms is a delay function in milliseconds for the Aixt PC port.
 pub fn sleep_ms(tms int) {
 	$if linux {
-		C.usleep(tms*1000)
+		  C.usleep(tms*1000)
     } $else {
-        C.Sleep(tms)
+      C.Sleep(tms)
 	}
 }
