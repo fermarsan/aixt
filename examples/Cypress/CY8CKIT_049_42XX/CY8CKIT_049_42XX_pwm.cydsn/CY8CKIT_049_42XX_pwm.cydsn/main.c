@@ -25,11 +25,10 @@ typedef char rune;
 #define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000
 #define _const_main__cpu_freq  20000000
 
-// File: https://github.com/fermarsan/aixt/blob/main/
 // Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
 // Date: 2022-2025
 //
-// // ## Description
+// ## Description
 // builtin (CY8CKIT-049-42XX)
 
 #include "project.h"

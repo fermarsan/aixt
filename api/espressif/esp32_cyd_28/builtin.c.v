@@ -1,4 +1,3 @@
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Authors:
 //		- Jahn Delgado
 //		- Fernando M. Santa

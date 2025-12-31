@@ -1,7 +1,6 @@
-// File: https://github.com/fermarsan/aixt/blob/main/
 // Author: Fernando M. Santa
 // Date: 2023-2025
-// License: MIT
+
 module main
 
 import os

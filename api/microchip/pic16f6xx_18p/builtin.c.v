@@ -1,4 +1,3 @@
-// File: https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	- Luis Alfredo Pinto Medina
 //	- Fernando M. Santa

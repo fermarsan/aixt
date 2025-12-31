@@ -1,8 +1,7 @@
-// File: https://github.com/fermarsan/aixt/blob/main/
 // Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
 // Date: 2022-2025
 //
-// // ## Description
+// ## Description
 // pwm write functions (CY8CKIT-049-42XX)
 
 // #define PWM_WRITE(PIN_NAME, VAL)    PIN_NAME##_WriteCompare(VAL)

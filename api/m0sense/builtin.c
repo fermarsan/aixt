@@ -1,4 +1,3 @@
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2022-2023
 //

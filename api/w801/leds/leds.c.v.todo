@@ -1,4 +1,3 @@
-// File: https://github.com/fermarsan/aixt/blob/main/
 //
 // _Authors:_ Fernando M. Santa
 // Date: 2025

@@ -1,7 +1,6 @@
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2024
-// License: MIT
+
 module uart
 
 pub fn input(msg string) string

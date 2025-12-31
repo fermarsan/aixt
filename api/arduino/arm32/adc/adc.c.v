@@ -1,4 +1,3 @@
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2024
 //
@@ -6,7 +5,7 @@
 // ADC functions
 module adc
 
-fn C.analogReadResolution(res any)	
+fn C.analogReadResolution(res any)
 
 // setup function sets the ADC resolution
 @[as_macro]

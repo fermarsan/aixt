@@ -1,4 +1,3 @@
-// File: https://github.com/fermarsan/aixt/blob/main/
 //
 // _Author:_
 //  - Daniel Polo

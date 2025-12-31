@@ -56,15 +56,14 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 1
   26:main.c        **** #define _const_main__cpu_freq_mhz	_const_main__cpu_freq/1000000
   27:main.c        **** #define _const_main__cpu_freq  20000000
   28:main.c        ****
-  29:main.c        **** // File: https://github.com/fermarsan/aixt/blob/main/
-  30:main.c        **** // Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
+  29:main.c        ****   30:main.c        **** // Author: Fernando M. Santa - Daniel Polo - Edwin Barrera - Javier Leon - Camilo Lucas
 ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccAOduKb.s 			page 2
 
 
   31:main.c        **** // Date: 2022-2025
-  32:main.c        **** // License: MIT
+  32:main.c        ****
   33:main.c        **** //
-  34:main.c        **** // // ## Description
+  34:main.c        **** // ## Description
 // builtin (CY8CKIT-049-42XX)
   35:main.c        ****
   36:main.c        **** #define INIT_INTERRUPTS()   CyGlobalIntEnable

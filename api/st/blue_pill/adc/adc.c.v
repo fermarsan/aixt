@@ -1,4 +1,3 @@
-// File: https://github.com/fermarsan/aixt/blob/main/
 // Authors:
 //	 - Julian Camilo Guzmán Zambrano
 //	 - Juan Pablo Gonzalez Penagos

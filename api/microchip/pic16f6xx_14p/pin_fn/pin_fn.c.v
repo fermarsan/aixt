@@ -1,11 +1,10 @@
-// File: https://github.com/fermarsan/aixt/blob/main/
 // Author: Fernando M. Santa
 // Date: 2024-2025
 //
 // ## Description
 // Pin management functions for 16F630-676
 module pin_fn
-as macros
+
 @[as_macro] pub const a0 = 0
 @[as_macro] pub const a1 = 1
 @[as_macro] pub const a2 = 2

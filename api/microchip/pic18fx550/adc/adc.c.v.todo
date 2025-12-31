@@ -1,4 +1,3 @@
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Andrés Felipe Fajardo Duarte and Fernando M. Santa
 // Date: 2024
 //
@@ -8,7 +7,6 @@
 module adc
 #include <xc.h>
 
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Andrés Felipe Fajardo Duarte and Fernando M. Santa
 // Date: 2024
 //
@@ -23,7 +21,6 @@ fn read(channel u8) int {
     return ADRES
 }
 
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Andrés Felipe Fajardo Duarte and Fernando M. Santa
 // Date: 2024
 //

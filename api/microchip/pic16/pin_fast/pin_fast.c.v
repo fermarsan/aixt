@@ -1,4 +1,3 @@
-// File: https://github.com/fermarsan/aixt/blob/main/api/Microchip/pic16_generic/pic16_core/api/pin_fast/pin_fast.c.v
 // Author: Fernando M. Santa
 // Date: 2025
 //

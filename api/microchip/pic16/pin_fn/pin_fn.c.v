@@ -1,4 +1,3 @@
-// File: https://github.com/fermarsan/aixt/blob/main/api/Microchip/pic16_generic/pic16_core/api/pin_fn/pin_fn.c.v
 // Author: Fernando M. Santa
 // Date: 2024-2025
 //

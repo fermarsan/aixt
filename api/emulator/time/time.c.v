@@ -1,7 +1,6 @@
-// Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
 // Date: 2022-2024
-// License: MIT
+
 module time
 
 fn C.sleep(ts any)
@@ -14,7 +13,7 @@ $if linux {
 	#include <windows.h>
 }
 
-// sleep is a delay function in seconds for the Aixt PC port. 
+// sleep is a delay function in seconds for the Aixt PC port.
 pub fn sleep(ts int) {
 	$if linux {
         C.sleep(ts)
@@ -23,7 +22,7 @@ pub fn sleep(ts int) {
 	}
 }
 
-// sleep_ms is a delay function in milliseconds for the Aixt PC port. 
+// sleep_ms is a delay function in milliseconds for the Aixt PC port.
 pub fn sleep_ms(tms int) {
 	$if linux {
 		C.usleep(tms*1000)

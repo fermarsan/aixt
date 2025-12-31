@@ -1,4 +1,3 @@
-// Project Name: Aixt, https://github.com/fermarsan/aixt.git
 // Authors:
 //        - Juan Pablo Bernal
 //        - Daniela Mendoza Deantonio
