@@ -14,12 +14,8 @@
     "windows_path": "",
     "flags": ""
   },
-  "api_paths": [
-    "Emulator"
-  ],
-  "v_defines": [
-    "flag_1"
-  ],
+  "api_paths": ["emulator"],
+  "v_defines": ["flag_1"],
   "default_cpu_freq": 4000000,
   "default_string_len": 120,
   "compiler_setup_path": "setup/gcc_tcc.json"

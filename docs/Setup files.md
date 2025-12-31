@@ -2,7 +2,7 @@
 
 The **_Aixt_** project uses setup files for each supported microcontroller and compiler. These files configure the specific configuration parameters of the board or device such as: clock frequency, default hardware modules, header files etc., as well as other transpiler parameters such as variable type correspondence. The setup files are located in `setup` folder.
 
-The setup files use the `.json` format due to its ubiquitous nature. The following sample code shows the content of `setup/PIC16F8x.json`:
+The setup files use the `.json` format due to its ubiquitous nature. The following sample code shows the content of `setup/pic16f8x.json`:
 
 ```json
 {
@@ -21,9 +21,9 @@ The setup files use the `.json` format due to its ubiquitous nature. The followi
 
     },
     "api_paths": [
-        "Microchip/PIC16F8x",
-        "Microchip/xc8-generic",
-        "Microchip/PIC12F-16F-generic"
+        "microchip/pic16f8x",
+        "microchip/xc8-generic",
+        "microchip/PIC12F-16F-generic"
     ],
     "v_defines": [
     ],
@@ -75,5 +75,3 @@ The **_Aixt_** transpiler reads the `port_name.json` and  `compiler.json` and do
 | c            | for the native _C_ compiler of the device        |
 | arduino      | for the ports that use _Arduino_ API             |
 | nxc          | for LEGO Mindstorms NXT robots on _NXC_ language |
-
-

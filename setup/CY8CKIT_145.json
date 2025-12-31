@@ -14,10 +14,7 @@
     "windows_path": "",
     "flags": ""
   },
-  "api_paths": [
-    "Cypress/CY8CKIT_145_40XX",
-    "Cypress/PSoC_Creator_generic"
-  ],
+  "api_paths": ["cypress/cy8ckit_145_40xx", "cypress/psoc_creator"],
   "v_defines": [],
   "default_cpu_freq": 20000000,
   "default_string_len": 20,

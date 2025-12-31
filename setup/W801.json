@@ -1,30 +1,30 @@
 {
-    "target": "W801",
-    "board": "W801",
-    "backend": "arduino",
-    "cc": {
-        "name": "arduino_cli",
-        "linux_path": "arduino-cli",
-        "windows_path": "arduino-cli.exe",
-        "flags": "compile -b w80x_duino:XT804:w801 -v --output-dir ./build "
-    },
-    "flasher": {
-        "name": "arduino_cli",
-        "linux_path": "arduino-cli",
-        "windows_path": "arduino-cli.exe",
-        "flags": "upload @{file_dir_name} -p @{target} -b w80x_duino:XT804:w801"
-    },
-    "api_paths": [
-        "W801",
-        "Arduino/arduino_generic",
-        "Arduino/arduino_generic_UART1",
-        "Arduino/arduino_generic_UART2",
-        "Arduino/arduino_generic_UART3",
-        "Arduino/arduino_generic_UART4",
-        "Arduino/arduino_generic_UART5"
-    ],
-    "v_defines": [],
-    "default_cpu_freq": 4000000,
-    "default_string_len": 50,
-    "compiler_setup_path": "setup/arduino32.json"
+  "target": "W801",
+  "board": "W801",
+  "backend": "arduino",
+  "cc": {
+    "name": "arduino_cli",
+    "linux_path": "arduino-cli",
+    "windows_path": "arduino-cli.exe",
+    "flags": "compile -b w80x_duino:XT804:w801 -v --output-dir ./build "
+  },
+  "flasher": {
+    "name": "arduino_cli",
+    "linux_path": "arduino-cli",
+    "windows_path": "arduino-cli.exe",
+    "flags": "upload @{file_dir_name} -p @{target} -b w80x_duino:XT804:w801"
+  },
+  "api_paths": [
+    "w801",
+    "arduino/core",
+    "arduino/arduino_UART1",
+    "arduino/arduino_UART2",
+    "arduino/arduino_UART3",
+    "arduino/arduino_UART4",
+    "arduino/arduino_UART5"
+  ],
+  "v_defines": [],
+  "default_cpu_freq": 4000000,
+  "default_string_len": 50,
+  "compiler_setup_path": "setup/arduino32.json"
 }

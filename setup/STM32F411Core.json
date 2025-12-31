@@ -1,27 +1,27 @@
 {
-    "target": "STM32F411Core",
-    "board": "STM32F411CoreBoard",
-    "backend": "arduino",
-    "cc": {
-        "name": "arduino_cli",
-        "linux_path": "arduino-cli",
-        "windows_path": "arduino-cli.exe",
-        "flags": "compile -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_F411CEUx -v --output-dir @{file_dir_name}/build"
-    },
-    "flasher": {
-        "name": "arduino_cli",
-        "linux_path": "arduino-cli",
-        "windows_path": "arduino-cli.exe",
-        "flags": "upload @{file_dir_name} -p @{target} -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_F411CEUx"
-    },
-    "api_paths": [
-        "WeAct_Studio/STM32F411Core",
-        "Arduino/arduino_generic",
-        "Arduino/arduino_generic_UART",
-        "Arduino/arduino_generic_i2c"
-    ],
-    "v_defines": [],
-    "default_cpu_freq": 170000000,
-    "default_string_len": 50,
-    "compiler_setup_path": "setup/arduino32.json"
+  "target": "STM32F411Core",
+  "board": "STM32F411CoreBoard",
+  "backend": "arduino",
+  "cc": {
+    "name": "arduino_cli",
+    "linux_path": "arduino-cli",
+    "windows_path": "arduino-cli.exe",
+    "flags": "compile -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_F411CEUx -v --output-dir @{file_dir_name}/build"
+  },
+  "flasher": {
+    "name": "arduino_cli",
+    "linux_path": "arduino-cli",
+    "windows_path": "arduino-cli.exe",
+    "flags": "upload @{file_dir_name} -p @{target} -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_F411CEUx"
+  },
+  "api_paths": [
+    "weact_studio/stm32f411core",
+    "arduino/core",
+    "arduino/uart",
+    "arduino/i2c"
+  ],
+  "v_defines": [],
+  "default_cpu_freq": 170000000,
+  "default_string_len": 50,
+  "compiler_setup_path": "setup/arduino32.json"
 }

@@ -1,0 +1,28 @@
+{
+  "target": "Uno",
+  "board": "Arduino Uno",
+  "backend": "arduino",
+  "cc": {
+    "name": "arduino_cli",
+    "linux_path": "arduino-cli",
+    "windows_path": "arduino-cli.exe",
+    "flags": "compile -b arduino:avr:uno -v --output-dir @{file_dir_name}/build"
+  },
+  "flasher": {
+    "name": "arduino_cli",
+    "linux_path": "arduino-cli",
+    "windows_path": "arduino-cli.exe",
+    "flags": "upload @{file_dir_name} -p @{target} -b arduino:avr:uno"
+  },
+  "api_paths": [
+    "arduino/uno",
+    "arduino/avr",
+    "arduino/core",
+    "arduino/uart",
+    "arduino/i2c"
+  ],
+  "v_defines": [],
+  "default_cpu_freq": 16000000,
+  "default_string_len": 50,
+  "compiler_setup_path": "setup/arduino8.json"
+}
