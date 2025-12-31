@@ -6,8 +6,7 @@
 // Pin management functions Arduino devices
 module pin_fn
 
-// pin names 
-@[as_macro] pub const d0 = 0 
+@[as_macro] pub const d0 = 0
 @[as_macro] pub const d1 = 1
 @[as_macro] pub const d2 = 2
 @[as_macro] pub const d3 = 3
@@ -27,7 +26,7 @@ module pin_fn
 @[as_macro] pub const d17 = 17
 @[as_macro] pub const d18 = 18
 @[as_macro] pub const d19 = 19
-@[as_macro] pub const d22 = 22 
+@[as_macro] pub const d22 = 22
 @[as_macro] pub const d23 = 23
 @[as_macro] pub const d24 = 24
 @[as_macro] pub const d25 = 25

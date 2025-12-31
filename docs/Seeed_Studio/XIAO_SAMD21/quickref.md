@@ -49,7 +49,7 @@ The functions contained in the API for digital input or output and for performin
 | `adc.read(pin)`            | Analog read `pin` for `adc`                    | val=**adc.read**(3) // Read analog value of pin 3 and store in val                      |
 | `pwm.write(pin, val)`      | PWM output `pin` with duty cycle `val`         | **pwm.write**(4, 125) // Write PWM signal with duty cycle of 125 to pin 3               |
 | `uart.setup(baud_rate)`    | Serial Communication initiation at `Baud.rate` | **uart.setup**(9600) // Initialize serial communication at 9600 baud rate               |
-| `uart.any()`               | Get the number of bytes to read                | val=**uart.any()** // Get the number of bytes to read from serial port and store in val |
+| `uart.any()`               | Get the number of bytes to read                | val=**uart.any()** // any function gets the number of bytes to read from serial port and store in val |
 | `uart.read()`              | Serial Communication read                      | lec=**uart.read()** // Read from serial port and store in lec                           |
 | `uart.println("message")`  | Print `message` through Serial Communication   | **uart.println**("Hello world") // Print "Hello world" through serial port              |
 | `time.sleep(time)`         | Retardo en `seg`                               | **time.sleep**(5) // **5** seconds delay                                                |
@@ -225,4 +225,3 @@ for {
     }
 }
 ```
- 

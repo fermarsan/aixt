@@ -1,8 +1,4 @@
----
-page: Arduino_Mega
-title: API modules for Arduino Mega
-index: Targets API
----
+
 
 # Quick reference for the Arduino Uno board
 

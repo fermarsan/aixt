@@ -5,8 +5,7 @@
 // ## Description
 // Pin management functions for 16F6xx-20p
 module pin_fn
-
-// pin names as macros
+as macros
 @[as_macro] pub const a0 = 0
 @[as_macro] pub const a1 = 1
 @[as_macro] pub const a2 = 2

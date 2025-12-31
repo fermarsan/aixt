@@ -6,7 +6,6 @@
 // ADC functions Arduinio Uno
 module adc
 
-// ADC pin names
 @[as_macro] pub const ch0 = 54
 @[as_macro] pub const ch1 = 55
 @[as_macro] pub const ch2 = 56

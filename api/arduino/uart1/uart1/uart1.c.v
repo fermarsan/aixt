@@ -9,7 +9,7 @@ module uart1
 #include "uart1.c"
 
 fn C.SERIAL1_BEGIN(baud_rate int)
-fn C.SERIAL1_WRITE(character u8) 
+fn C.SERIAL1_WRITE(character u8)
 fn C.SERIAL1_READ() u8
 fn C.SERIAL1_READSTRING() string
 fn C.SERIAL1_PRINT(message string)
@@ -30,19 +30,19 @@ pub fn any() int {
 
 // write function sends a single byte to the serial port
 @[as_macro]
-pub fn write(character u8) {  
+pub fn write(character u8) {
 	C.SERIAL1_WRITE(character)
 }
 
 // print function prints data to the serial port as human-readable ASCII text
 @[as_macro]
-pub fn print(message string) {  
+pub fn print(message string) {
 	C.SERIAL1_PRINT(message)
 }
 
-// print function prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
+// println function prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
 @[as_macro]
-pub fn println(message string) {  
+pub fn println(message string) {
 	C.SERIAL1_PRINTLN(message)
 }
 

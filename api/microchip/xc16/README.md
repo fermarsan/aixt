@@ -1,7 +1,8 @@
 ## Description
 
-This is a workspace for the xc8 compiler devices API. 
+`xc16` is not a module by itself, but a namespace for the API modules of XC16 compiler  supported devices.
+
 
 ### XC16 compiler modules
 
-- [time](Microchip.xc16.time.html)
+- [time](microchip.xc16.time.html)

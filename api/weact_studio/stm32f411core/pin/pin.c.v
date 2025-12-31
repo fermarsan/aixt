@@ -5,8 +5,7 @@
 // ## Description
 // Pin management STM32F411Core
 module pin
-
-// pin names A
+A
 @[as_macro] pub const pa0	=	0
 @[as_macro] pub const pa1	=	1
 @[as_macro] pub const pa2	=	2
@@ -47,4 +46,4 @@ module pin
 @[as_macro] pub const pc15	=	33
 
 @[as_macro] pub const led0 = 31	// builtin LED
-@[as_macro] pub const sw0 = 0		// builtin Switch	
+@[as_macro] pub const sw0 = 0		// builtin Switch

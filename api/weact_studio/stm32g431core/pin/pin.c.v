@@ -5,8 +5,7 @@
 // ## Description
 // Pin management STM32G431Core
 module pin
-
-// pin names A
+A
 @[as_macro] pub const pa0	=	192
 @[as_macro] pub const pa1	=	193
 @[as_macro] pub const pa2	=	194

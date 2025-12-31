@@ -6,7 +6,7 @@
 // ADC functions
 module adc_fn
 
-// ADC pin names
+
 @[as_macro] pub const ch0 = 14
 @[as_macro] pub const ch1 = 15
 @[as_macro] pub const ch2 = 16

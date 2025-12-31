@@ -6,8 +6,7 @@
 // Pin management functions Arduino devices
 module pin
 
-// pin names 
-@[as_macro] pub const d0 = 0 
+@[as_macro] pub const d0 = 0    // pin ids
 @[as_macro] pub const d1 = 1
 @[as_macro] pub const d2 = 2
 @[as_macro] pub const d3 = 3
@@ -30,10 +29,8 @@ module pin
 @[as_macro] pub const d20 = 20
 @[as_macro] pub const d21 = 21
 
-
-// builtin LED
 __global (
-	led0 = pin.Pin{ pin.d13 }
+	led0 = pin.Pin{ pin.d13 } // builtin LED
 )
 
 fn init() {

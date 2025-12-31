@@ -1,9 +1,9 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 //
 // _Author:_
+//	- Fernando M. Santa
 //	- Fabián A. Rojas Acosta
 //	- Alberto Pinzón Valero
-//	- Fernando M. Santa
 // Date: 2024-2025
 //
 // ## Description
@@ -18,5 +18,3 @@ fn C.digitalRead(id u8) u8
 fn C.digitalPinToPort(id u8)
 fn C.digitalPinToBitMask(id u8)
 fn C.portInputRegister(id u32)
-
-pub const my_const = 45
