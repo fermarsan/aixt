@@ -29,13 +29,13 @@ pub fn (mut b Builder) parse_files_dir(path string) {
 	// 	println(file)
 	// }
 
-	// -------------------- Add the builtin file first --------------------
+	// -------------------- Add the main file first --------------------
 	api_base_path := os.norm_path('${b.aixt_path}/api/${b.setup.api_paths[0]}')
 	// println('>>>>>>>>>>>>>>>>>> ${api_base_path} <<<<<<<<<<<<<<<<<<')
-	if os.exists(os.norm_path('${api_base_path}/builtin.c.v')) {
-		file_paths.insert(1, os.norm_path('${api_base_path}/builtin.c.v'))
+	if os.exists(os.norm_path('${api_base_path}/main/main.c.v')) {
+		file_paths.insert(1, os.norm_path('${api_base_path}/main/main.c.v'))
 	} else {
-		panic('"builtin.c.v" in have to exist in "${api_base_path}${os.path_separator}"')
+		panic('"main.c.v" in have to exist in "${api_base_path + '/main'}${os.path_separator}"')
 	}
 
 	// println('${b.pref.buildmode}')
