@@ -1,4 +1,4 @@
-// Author: Fernando Martínez Santa
+// Author: Fernando M. Santa
 // Date: 2023-2025
 //
 // ## Description
@@ -72,7 +72,7 @@ pub fn low(pin_id int) {
 
 // read puts a logic value to a specific pin
 @[inline]
-pub fn read(pin_id int) int { 
+pub fn read(pin_id int) int {
 	pin__input_value = 0
     $if linux {
         C.system("clear")
@@ -99,7 +99,7 @@ pub fn toggle(pin_id int) {
 
 // write puts a logic value to a specific pin
 @[inline]
-pub fn write(pin_id int, val int) {  
+pub fn write(pin_id int, val int) {
     pin__pins[pin_id] = val
     pin_fn.update()
 }

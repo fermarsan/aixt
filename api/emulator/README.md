@@ -1,4 +1,10 @@
-## Description
+---
+page: Emulator
+title: API for the software Emulator
+index: emulator
+---
+
+# Description
 
 `emulator` is not a module by itself, but a namespace for the API modules of the software Emulator target.
 

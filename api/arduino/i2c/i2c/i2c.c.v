@@ -5,9 +5,9 @@
 // Date: 2024
 // ## Description
 // I2C module.
+module i2c
 
-// Functions for the I2C communication module library
-#include <Wire.h>0
+#include <Wire.h>  // Functions for the I2C communication module library
 #include “i2c.c”
 
 fn C.WIRE_BEGIN(args ...any) //Initialize the I2C bus “define communication” //Initialize the I2C bus “define communication”.

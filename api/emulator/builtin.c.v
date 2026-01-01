@@ -1,4 +1,4 @@
-// Author: Fernando Martínez Santa
+// Author: Fernando M. Santa
 // Date: 2022-2024
 
 module main

@@ -3,7 +3,7 @@
 `pic12` is not a module by itself, but a namespace for the API modules of Microchip PIC12 target devices. Some of functions are shared by most of targets. The API for the PIC12 includes the core modules and the additional ones.
 
 
-### PIC12-core modules
+### Emulator modules
 
 - [pin_fn](microchip.pic12.pin_fn.html) for the pin management.
 - [port](microchip.pic12.port.html) for the pin port management.

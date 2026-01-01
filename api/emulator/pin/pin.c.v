@@ -1,4 +1,4 @@
-// Author: Fernando Martínez Santa
+// Author: Fernando M. Santa
 // Date: 2023-2025
 //
 // ## Description
@@ -71,21 +71,21 @@ pub fn Pin.new(id u8) Pin {
 
 // high function puts a high value (logic 1) to a specific pin
 @[inline]
-pub fn (mut p Pin) high() {	
+pub fn (mut p Pin) high() {
     pin__pins[p.id] = 1
     update()
 }
 
 // high function puts a low value (logic 0) to a specific pin
 @[inline]
-pub fn (mut p Pin) low() {	
+pub fn (mut p Pin) low() {
     pin__pins[p.id] = 0
     update()
 }
 
 // write puts a logic value to a specific pin
 @[inline]
-pub fn (mut p Pin) read() int {  
+pub fn (mut p Pin) read() int {
 	pin__input_value = 0
     $if linux {
         C.system("clear")
@@ -105,14 +105,14 @@ pub fn (mut p Pin) read() int {
 
 // toggle function toggles the logic value of a specific pin
 @[inline]
-pub fn (mut p Pin) toggle() {	
+pub fn (mut p Pin) toggle() {
     pin__pins[p.id] ^= int(1)
     update()
 }
 
 // write puts a logic value to a specific pin
 @[inline]
-pub fn (mut p Pin) write(val int) {  
+pub fn (mut p Pin) write(val int) {
     pin__pins[p.id] = val
     update()
 }
