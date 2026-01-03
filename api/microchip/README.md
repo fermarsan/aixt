@@ -18,7 +18,7 @@ The API is split in several folders:
 - [PIC24](microchip.pic24.html)
 
 
-## Supported targets
+### Supported targets
  
 - [PIC12F6xx family](microchip.pic12f6xx.pwm.html)
 - [PIC16F6xx_14p family](microchip.pic16f6xx_14p.pin_fn.html)

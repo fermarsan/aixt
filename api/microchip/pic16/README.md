@@ -22,46 +22,11 @@
 - [timer2](microchip.pic16_timer2.timer2.html) for the timer2.
 
 
-### Supported target devices
+### Supported target family devices
   
-PIC16F6xx_14p:
-
-  - PIC16F630
-  - PIC16F676
-  - PIC16F684
-  
-PIC16F6xx_18p:
-
-  - PIC16F627(A)
-  - PIC16F628(A)
-  - PIC16F648A
-  - PIC16LF627A
-  - PIC16LF628A
-  - PIC16LF648A
-
-PIC16F6xx_20p:
-
-  - PIC16F685
-  - PIC16F687
-  - PIC16F689
-  - PIC16F690
-
-PIC16F8x:
-
-  - PIC16F83
-  - PIC16F84(A)
-
-PIC16F87x:
-
-  - PIC16F873(A)
-  - PIC16F874(A)
-  - PIC16F876(A)
-  - PIC16F877(A)
-  
-PIC16F88x: 
-
-  - PIC16F882
-  - PIC16F883
-  - PIC16F884
-  - PIC16F886
-  - PIC16F887
+- [PIC16F6xx_14p](microchip.pic16f6xx_14p.html)  
+- [PIC16F6xx_18p](microchip.pic16f6xx_18p.html)
+- [PIC16F6xx_20p](microchip.pic16f6xx_20p.html)
+- [PIC16F8x](microchip.pic16f8x.html)
+- [PIC16F87x](microchip.pic16f87x.html)
+- [PIC16F88x](microchip.pic16f88x.html)

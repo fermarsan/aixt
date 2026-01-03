@@ -19,10 +19,6 @@
 - [timer2](microchip.pic12_timer2.timer2.html) for the timer0.
 
 
-### Supported target devices
-
-PIC12F6xx:
-
-  - PIC12F629
-  - PIC12F675
-  - PIC12F683
+### Supported target family devices
+  
+- [PIC12F6xx](microchip.pic12f6xx.html)
