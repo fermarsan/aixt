@@ -9,7 +9,7 @@
 // Builtin definitions (Arduino Nano - ATmega328P port)
 module main
 
-#include "builtin.c"
+#include "main.c"
 
 fn C.pinMode(id u8, mode u8)
 fn C.digitalWrite(id u8, val u8)
