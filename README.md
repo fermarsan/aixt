@@ -239,7 +239,7 @@ The [**Aixt API**](docs/API.md) is inspired by _Micropython_, _Arduino_ and _Tin
 
 ### Installing Aixt from source
 
-```bash
+```
 git clone https://github.com/fermarsan/aixt.git
 cd aixt
 make # make.bat on Windows
@@ -256,12 +256,12 @@ There are implemented `conda` packages of _Aixt_ and some of its dependencies fo
 
 #### Installing using _Anaconda_ or _Miniconda_
 
-```bash
+```
 conda create -n <env-name> --channel fermarsan aixt <dependencies>
 conda activate <env-name>
 ```
 for instance, by using with an AVR-based Arduino board:
-```bash
+```
 conda create -n aixt-env --channel fermarsan aixt arduino-cli
 conda activate aixt-env
 arduino-cli core install arduino:avr
@@ -269,13 +269,13 @@ arduino-cli core install arduino:avr
 
 #### Installing using _Pixi_ (as workspace package)
 
-```bash
+```
 pixi workspace channel add https:/conda.anaconda.org/fermarsan
 pixi add aixt <dependencies>
 pixi shell
 ```
 for instance, by using with an AVR-based Arduino board:
-```bash
+```
 pixi workspace channel add https:/conda.anaconda.org/fermarsan
 pixi add aixt arduino-cli
 pixi shell
@@ -284,11 +284,11 @@ arduino-cli core install arduino:avr
 
 #### Installing using _Pixi_ (as global package)
 
-```bash
+```
 pixi global install --environment <env-name> --channel https:/conda.anaconda.org/fermarsan aixt <dependencies>
 ```
 for instance, by using with an AVR-based Arduino board:
-```bash
+```
 pixi global install --environment aixt-env --channel https:/conda.anaconda.org/fermarsan aixt arduino-cli
 arduino-cli core install arduino:avr
 ```
@@ -296,16 +296,16 @@ arduino-cli core install arduino:avr
 ### Running Aixt
 
 run it in a _Linux_-based system as:
-```bash
+```
 ./aixt <command> <device_or_board> <source_file>
 ```
 or in _Windows_:
-```bash
+```
 aixt.exe <command> <device_or_board> <source_file>
 ```
 
 if installed by a `conda` package or after added to the `PATH` (_Linux_ and _Windows_):
-```bash
+```
 aixt <command> <device_or_board> <source_file>
 ```
 
@@ -314,11 +314,11 @@ aixt <command> <device_or_board> <source_file>
 For running the command `aixt` from any folder in the file system you can create a symbolic link of it in this way:
 
 run it in a _Linux_-based system as:
-```bash
+```
 ./aixt symlink
 ```
 or in _Windows_:
-```bash
+```
 aixt.exe symlink
 ```
 It is not necessary if _Aixt_ was installed by a `conda` package.
@@ -326,10 +326,10 @@ It is not necessary if _Aixt_ was installed by a `conda` package.
 
 ### Running examples:
 
-```bash
+```
 aixt -t Emulator test.v
 ```
-```bash
+```
 aixt -b NXT ports/NXT/projects/1_motor.write.v
 ```
 
