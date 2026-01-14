@@ -28,7 +28,6 @@ Tasks to do in Aixt
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without `api`, `examples` and `docs` to make it lightweight for the Conda package (include src/v.mod)
 - [ ] generates documentation from code
-  - [ ] Change `/docs/` folders to lowercase
 
 
 ### Done ✓make
@@ -92,6 +91,7 @@ Tasks to do in Aixt
   - [x] Create 'dummy' modules as workspaces in API targets folders (Microchip targets)
   - [x] Change redundant targets API folders (Microchip targets)
   - [x] Change `/api/` folders to lowercase
+  - [x] Change `/docs/` folders to lowercase
 - [x] Split the examples from the API in all the targets
 - [x] Change `targets` folder name by `api`
 - [x] change in all of the targets  `builtin.c.v` to `main/main.c.v`
