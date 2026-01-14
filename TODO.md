@@ -95,3 +95,4 @@ Tasks to do in Aixt
   - [x] Change redundant targets API folders (Microchip targets)
   - [x] Change `/api/` folders to lowercase
   - [x] Change `/docs/` folders to lowercase
+  - [x] Change `/setup/` folders to lowercase
