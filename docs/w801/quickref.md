@@ -1,5 +1,5 @@
 # **Fast guide W801*
-This Aixt implementation that supports the card W801
+This Aixt implementation that supports the W801 board
 
 # **ID card W801**
 

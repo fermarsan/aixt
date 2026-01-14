@@ -85,6 +85,9 @@ Tasks to do in Aixt
 - [x] Update the PIC12Fxxx, PIC16F8x and PIC16F87x examples
 - [x] Issue solved: `match` already works well with `C.variables`
 - [x] Issue solved: assignment using `match` already works
+- [x] Split the examples from the API in all the targets
+- [x] Change `targets` folder name by `api`
+- [x] change in all of the targets  `builtin.c.v` to `main/main.c.v`
 - [ ] generates documentation from code
   - [x] Update the source files header to improve the visualization of the automatic documentation
   - [x] Remove `/api/` from the end of targets implementation path  
@@ -92,6 +95,3 @@ Tasks to do in Aixt
   - [x] Change redundant targets API folders (Microchip targets)
   - [x] Change `/api/` folders to lowercase
   - [x] Change `/docs/` folders to lowercase
-- [x] Split the examples from the API in all the targets
-- [x] Change `targets` folder name by `api`
-- [x] change in all of the targets  `builtin.c.v` to `main/main.c.v`
