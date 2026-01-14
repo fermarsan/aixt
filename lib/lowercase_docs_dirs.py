@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Script to recursively lowercase all directory names under the `docs` directory.
+Script to recursively lowercase directory names under a given root.
 
 Behavior:
-- Walks the `docs` tree bottom-up so children are renamed before parents.
+- Walks the tree bottom-up so children are renamed before parents.
 - For each directory whose name is not already lowercase:
   - If the lowercase target does not exist: rename directly.
   - If the lowercase target exists:
@@ -15,10 +15,16 @@ Behavior:
       - Skip conflicting entries and report them.
       - Remove the source directory if empty after move.
 - Supports a dry-run mode (default) and a `--apply` flag to actually perform changes.
-- Prints a summary of changes, conflicts and errors.
+- Adds a `--max-depth N` option to limit the depth of directories to process.
+  Depth semantics:
+    - root directory has depth 0
+    - immediate children of root have depth 1
+    - and so on.
+  A negative value (default -1) means unlimited depth.
+- The script operates on directories only (it does not rename files).
 
 Usage:
-    python3 aixt/lib/lowercase_docs_dirs.py [--apply] [--root PATH]
+    python3 aixt/lib/lowercase_docs_dirs.py [--apply] [--root PATH] [--max-depth N]
 
 Notes:
 - It's recommended to run this in a git repository so you can inspect changes
@@ -32,7 +38,6 @@ import argparse
 import os
 import shutil
 import sys
-import tempfile
 import uuid
 from typing import Tuple
 
@@ -53,7 +58,6 @@ def safe_rename_case_only(src: str, dst: str, apply: bool) -> Tuple[bool, str]:
     or when the filesystem forbids direct rename to change only case.
     Returns (success, message).
     """
-    # Use a temporary name in the same parent directory
     parent = os.path.dirname(dst)
     tmp_name = os.path.join(parent, f".tmp_lowercase_{uuid.uuid4().hex}")
     if not apply:
@@ -114,9 +118,32 @@ def merge_directories(src: str, dst: str, apply: bool) -> Tuple[int, int, int]:
     return moved, skipped, errors
 
 
-def process_tree(root: str, apply: bool) -> Tuple[int, int, int]:
+def compute_depth(root: str, path: str) -> int:
+    """
+    Compute depth of `path` relative to `root`.
+    Depth semantics:
+      - root => 0
+      - immediate children => 1
+      - deeper levels increment accordingly
+    """
+    if os.path.abspath(root) == os.path.abspath(path):
+        return 0
+    rel = os.path.relpath(path, root)
+    if rel == ".":
+        return 0
+    # Normalize separators and count components
+    parts = rel.split(os.sep)
+    # Filter out empty components (shouldn't normally happen)
+    parts = [p for p in parts if p]
+    return len(parts)
+
+
+def process_tree(root: str, apply: bool, max_depth: int = -1) -> Tuple[int, int, int]:
     """
     Walk the directory tree under `root` and rename directories to lowercase.
+    Only directories whose depth (relative to `root`) is <= max_depth are considered.
+    If max_depth < 0, there is no depth limit.
+
     Returns totals: (renamed_count, moved_count (from merges), error_count)
     """
     renamed = 0
@@ -129,8 +156,17 @@ def process_tree(root: str, apply: bool) -> Tuple[int, int, int]:
 
     # Walk bottom-up so children are handled before parents
     for dirpath, dirnames, _ in os.walk(root, topdown=False):
+        # Compute depth of the current dirpath relative to root
+        curr_depth = compute_depth(root, dirpath)
+        # The entries in dirnames are immediate children of dirpath; their depth is curr_depth + 1
+        child_depth = curr_depth + 1
+
         # We'll iterate over a copy because we might change the list on disk
         for d in list(dirnames):
+            # Skip processing if this child's depth exceeds max_depth (when max_depth >= 0)
+            if max_depth >= 0 and child_depth > max_depth:
+                continue
+
             old = os.path.join(dirpath, d)
             new = os.path.join(dirpath, d.lower())
 
@@ -187,8 +223,6 @@ def process_tree(root: str, apply: bool) -> Tuple[int, int, int]:
                     )
                 else:
                     # If merge succeeded and src removed, count as a rename/merge
-                    # Note: merge_directories already attempts to remove the source
-                    # and reports; we'll increment renamed if src no longer exists.
                     if not os.path.exists(old):
                         renamed += 1
 
@@ -197,7 +231,7 @@ def process_tree(root: str, apply: bool) -> Tuple[int, int, int]:
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(
-        description="Lowercase directory names under the docs directory."
+        description="Lowercase directory names under a directory tree."
     )
     p.add_argument(
         "--apply",
@@ -209,6 +243,15 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_ROOT,
         help=f"Root directory to process (default: '{DEFAULT_ROOT}').",
     )
+    p.add_argument(
+        "--max-depth",
+        type=int,
+        default=-1,
+        help=(
+            "Maximum depth (relative to root) of directories to process. "
+            "root has depth 0. Negative value means no limit. Default: -1 (unlimited)."
+        ),
+    )
     return p.parse_args()
 
 
@@ -216,9 +259,18 @@ def main() -> int:
     args = parse_args()
     apply = args.apply
     root = args.root
+    max_depth = args.max_depth
 
-    print(f"{'APPLYING' if apply else 'DRY-RUN'} mode. Root: {root}")
-    renamed, moved, errors = process_tree(root, apply)
+    if max_depth >= 0:
+        print(
+            f"{'APPLYING' if apply else 'DRY-RUN'} mode. Root: {root} (max-depth={max_depth})"
+        )
+    else:
+        print(
+            f"{'APPLYING' if apply else 'DRY-RUN'} mode. Root: {root} (no depth limit)"
+        )
+
+    renamed, moved, errors = process_tree(root, apply, max_depth)
     print("Summary:")
     print(f"  Directories renamed/removed via merge: {renamed}")
     print(f"  Entries moved during merges: {moved}")

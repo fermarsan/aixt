@@ -28,6 +28,7 @@ Tasks to do in Aixt
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without `api`, `examples` and `docs` to make it lightweight for the Conda package (include src/v.mod)
 - [ ] generates documentation from code
+  - [ ] Change `/examples/` folders to lowercase
 
 
 ### Done ✓make
