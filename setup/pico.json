@@ -15,7 +15,7 @@
     "flags": "upload @{file_dir_name} -p @{target} -b arduino:mbed_rp2040:pico"
   },
   "api_paths": [
-    "Raspberry-Pi/RP_Pico",
+    "raspberry-pi/pico",
     "arduino/core",
     "arduino/uart",
     "arduino/arduino_UART1",
