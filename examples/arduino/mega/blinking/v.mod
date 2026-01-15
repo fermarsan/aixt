@@ -1,9 +1,9 @@
 Module {
-	name: 'Nano_blinking_fn'
+	name: 'blinking'
 	description: ''
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['Mega']
+	device: ['mega']
 	port: ['/dev/ttyUSB0']
 }

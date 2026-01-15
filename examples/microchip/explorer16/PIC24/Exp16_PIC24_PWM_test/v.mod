@@ -4,6 +4,6 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['Exp16_PIC24']
+	device: ['exp16_pic24']
 	port: ['/dev/ttyUSB0']
 }

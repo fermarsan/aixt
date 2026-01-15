@@ -4,6 +4,6 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['Emulator']
+	device: ['emulator']
 	port: ['/dev/ttyUSB0']
 }

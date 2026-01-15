@@ -97,3 +97,4 @@ Tasks to do in Aixt
   - [x] Change `/api/`,`/docs/` and `/setup/` folders to lowercase
 - [x] Change `/rp-pico/` by `/pico/`
 - [x] Change redundant names in `/examples/` folders
+- [x] Change target names to lowercase

@@ -4,6 +4,6 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['Mega']
+	device: ['mega']
 	port: ['/dev/ttyUSB0']
 }
