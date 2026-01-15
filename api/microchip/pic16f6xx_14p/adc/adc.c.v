@@ -56,7 +56,7 @@ pub fn read(channel u8) u16 {
 // of the ADC.
 @[as_macro]
 pub fn setup(pins u8, nbits u8) {
-	$if PIC16F630 ? {
+	$if pic16f630 ? {
 		eprint('PIC16F630 does not have ADC module')
 	}
 	// ---------- Select the analog pins ----------

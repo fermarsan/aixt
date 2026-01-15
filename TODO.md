@@ -46,7 +46,7 @@ Tasks to do in Aixt
 - [x] Enable conditional compilation based on `device.json` properties 
   - [x] Include `$if c ? {}` syntax from `backend: c` of `device.json` 
   - [x] Include `$if xc8 ? {}` syntax from `cc: { name: xc8 }` of `device.json` 
-  - [x] Change all the setup files name that contains '-' by '-_'
+  - [x] Change all the setup files name that contains '-' by '_'
   - [x] Change all the setup files content that contains '-' by '_' in the fields: "target", "backend", "name" and "api_paths"
   - [x] In the `api` folder change all the folders names that contains '-' by '_'
   - [x] In the `api` folder change all the *.v file names that contains '-' by '_'
@@ -92,10 +92,16 @@ Tasks to do in Aixt
 - [ ] generates documentation from code
   - [x] Update the source files header to improve the visualization of the automatic documentation
   - [x] Remove `/api/` from the end of targets implementation path  
+<<<<<<< HEAD
   - [x] Create 'dummy' modules as workspaces in API targets folders (Microchip targets)
   - [x] Change redundant targets API folders (Microchip targets)
   - [x] Change `/api/` folders to lowercase
   - [x] Change `/docs/` folders to lowercase
   - [x] Change `/setup/` folders to lowercase
+=======
+  - [x] Create 'dummy' modules as workspaces in API targets folders (Microchip and Arduino targets)
+  - [x] Change redundant targets API folders (Microchip and Arduino targets)
+  - [x] Change `/api/`,`/docs/` and `/setup/` folders to lowercase
+>>>>>>> main
 - [x] Change `/rp-pico/` by `/pico/`
 - [x] Change redundant names in `/examples/` folders
