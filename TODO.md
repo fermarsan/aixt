@@ -28,6 +28,7 @@ Tasks to do in Aixt
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without `api`, `examples` and `docs` to make it lightweight for the Conda package (include src/v.mod)
 - [ ] generates documentation from code
+  - [ ] Change `/examples/` folders to lowercase
 
 
 ### Done ✓make
@@ -45,7 +46,7 @@ Tasks to do in Aixt
 - [x] Enable conditional compilation based on `device.json` properties 
   - [x] Include `$if c ? {}` syntax from `backend: c` of `device.json` 
   - [x] Include `$if xc8 ? {}` syntax from `cc: { name: xc8 }` of `device.json` 
-  - [x] Change all the setup files name that contains '-' by '-_'
+  - [x] Change all the setup files name that contains '-' by '_'
   - [x] Change all the setup files content that contains '-' by '_' in the fields: "target", "backend", "name" and "api_paths"
   - [x] In the `api` folder change all the folders names that contains '-' by '_'
   - [x] In the `api` folder change all the *.v file names that contains '-' by '_'
@@ -85,12 +86,14 @@ Tasks to do in Aixt
 - [x] Update the PIC12Fxxx, PIC16F8x and PIC16F87x examples
 - [x] Issue solved: `match` already works well with `C.variables`
 - [x] Issue solved: assignment using `match` already works
-- [ ] generates documentation from code
-  - [x] Update the source files header to improve the visualization of the automatic documentation
-  - [x] Remove `/api/` from the end of targets implementation path  
-  - [x] Create 'dummy' modules as workspaces in API targets folders (Microchip targets)
-  - [x] Change redundant targets API folders (Microchip targets)
-  - [x] Change `/api/` folders to lowercase
 - [x] Split the examples from the API in all the targets
 - [x] Change `targets` folder name by `api`
 - [x] change in all of the targets  `builtin.c.v` to `main/main.c.v`
+- [ ] generates documentation from code
+  - [x] Update the source files header to improve the visualization of the automatic documentation
+  - [x] Remove `/api/` from the end of targets implementation path  
+  - [x] Create 'dummy' modules as workspaces in API targets folders (Microchip and Arduino targets)
+  - [x] Change redundant targets API folders (Microchip and Arduino targets)
+  - [x] Change `/api/`,`/docs/` and `/setup/` folders to lowercase
+- [x] Change `/rp-pico/` by `/pico/`
+- [x] Change redundant names in `/examples/` folders
