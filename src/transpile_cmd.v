@@ -14,11 +14,12 @@ import aixt.setup
 fn transpile_cmd(cmd cli.Command) ! {
 	input_name := os.abs_path(cmd.args[0])		// and source path input
 	path := os.dir(input_name)
-	device := if cmd.flags.get_string('target')! != '' {	// device name
+	mut device := if cmd.flags.get_string('target')! != '' {	// device name
 		cmd.flags.get_string('target')!
 	} else {
 		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0]
 	}
+	device = device.to_lower()
 	mut project_setup := setup.Setup{}
 	project_setup.load(device)		
 	println('Aixt path:\n\t${os.executable()}\n')

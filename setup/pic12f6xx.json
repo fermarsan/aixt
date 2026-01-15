@@ -1,5 +1,5 @@
 {
-  "target": "PIC12F6xx",
+  "target": "pic12f6xx",
   "board": "---",
   "backend": "c",
   "cc": {
@@ -14,7 +14,11 @@
     "windows_path": "",
     "flags": ""
   },
-  "api_paths": ["microchip/pic12f6xx", "microchip/xc8", "microchip/pic12"],
+  "api_paths": [
+    "microchip/pic12f6xx",
+    "microchip/xc8",
+    "microchip/pic12"
+  ],
   "v_defines": [],
   "default_cpu_freq": 4000000,
   "default_string_len": 20,

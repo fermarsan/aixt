@@ -1,5 +1,5 @@
 {
-  "target": "PIC18F452",
+  "target": "pic18f452",
   "board": "---",
   "backend": "c",
   "cc": {
@@ -14,7 +14,9 @@
     "windows_path": "",
     "flags": ""
   },
-  "api_paths": ["microchip/"],
+  "api_paths": [
+    "microchip/"
+  ],
   "v_defines": [],
   "default_cpu_freq": 20000000,
   "default_string_len": 20,

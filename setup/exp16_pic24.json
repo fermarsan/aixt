@@ -1,5 +1,5 @@
 {
-  "target": "Exp16_PIC24",
+  "target": "exp16_pic24",
   "board": "Explorer 16",
   "backend": "c",
   "cc": {
@@ -14,7 +14,11 @@
     "windows_path": "",
     "flags": ""
   },
-  "api_paths": ["microchip/exp16_pic24", "microchip/xc16", "microchip/pic24f"],
+  "api_paths": [
+    "microchip/exp16_pic24",
+    "microchip/xc16",
+    "microchip/pic24f"
+  ],
   "v_defines": [],
   "default_cpu_freq": 16000000,
   "default_string_len": 40,

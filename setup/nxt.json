@@ -1,5 +1,5 @@
 {
-  "target": "NXT",
+  "target": "nxt",
   "board": "LEGO Mindstorms NXT intelligent brick",
   "backend": "nxc",
   "cc": {
@@ -14,7 +14,9 @@
     "windows_path": "nbc",
     "flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc"
   },
-  "api_paths": ["nxt"],
+  "api_paths": [
+    "nxt"
+  ],
   "v_defines": [],
   "default_cpu_freq": 4000000,
   "default_string_len": 80,

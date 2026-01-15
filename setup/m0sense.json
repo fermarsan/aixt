@@ -1,5 +1,5 @@
 {
-  "target": "M0sense",
+  "target": "m0sense",
   "board": "Sipeed M0sense",
   "backend": "c",
   "cc": {
@@ -14,7 +14,9 @@
     "windows_path": "arduino-cli.exe",
     "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32"
   },
-  "api_paths": ["m0sense"],
+  "api_paths": [
+    "m0sense"
+  ],
   "v_defines": [],
   "default_cpu_freq": 4000000,
   "default_string_len": 80,
