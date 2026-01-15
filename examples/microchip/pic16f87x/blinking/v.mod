@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F873_blinking'
+	name: 'blinking'
 	description: ''
 	version: ''
 	license: ''

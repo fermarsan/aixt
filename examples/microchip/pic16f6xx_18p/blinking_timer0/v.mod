@@ -1,5 +1,5 @@
 Module {
-	name: '16F628_blinking_timer0'
+	name: 'blinking_timer0'
 	description: ''
 	version: ''
 	license: ''

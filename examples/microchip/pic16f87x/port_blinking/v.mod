@@ -1,5 +1,5 @@
 Module {
-	name: '16F877_port_blinking'
+	name: 'port_blinking'
 	description: ''
 	version: ''
 	license: ''

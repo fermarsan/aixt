@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F873_blinking_timer0'
+	name: 'blinking_timer0'
 	description: ''
 	version: ''
 	license: ''

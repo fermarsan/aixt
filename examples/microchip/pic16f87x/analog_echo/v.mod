@@ -1,5 +1,5 @@
 Module {
-	name: '16F877_analog_echo'
+	name: 'analog_echo'
 	description: ''
 	version: ''
 	license: ''

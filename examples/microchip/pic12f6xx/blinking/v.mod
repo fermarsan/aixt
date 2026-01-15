@@ -1,5 +1,5 @@
 Module {
-	name: '12F629_blinking'
+	name: 'blinking'
 	description: ''
 	version: ''
 	license: ''

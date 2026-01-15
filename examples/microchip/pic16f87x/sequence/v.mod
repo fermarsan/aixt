@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F874_sequence'
+	name: 'sequence'
 	description: ''
 	version: ''
 	license: ''

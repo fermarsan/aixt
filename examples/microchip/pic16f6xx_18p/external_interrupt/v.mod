@@ -1,5 +1,5 @@
 Module {
-	name: '16F648A_external_interrupt'
+	name: 'external_interrupt'
 	description: ''
 	version: ''
 	license: ''

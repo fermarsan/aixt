@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F876_port_echo'
+	name: 'port_echo'
 	description: ''
 	version: ''
 	license: ''

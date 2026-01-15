@@ -1,5 +1,5 @@
 Module {
-	name: '16F628_port_echo'
+	name: 'port_echo'
 	description: ''
 	version: ''
 	license: ''

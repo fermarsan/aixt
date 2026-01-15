@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking_fn'
+	name: 'blinking_fn'
 	description: ''
 	version: ''
 	license: ''

@@ -1,5 +1,5 @@
 Module {
-	name: '16F83_inverter'
+	name: 'inverter'
 	description: ''
 	version: ''
 	license: ''

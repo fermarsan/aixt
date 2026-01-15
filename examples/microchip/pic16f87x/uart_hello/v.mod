@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F873_uart_hello'
+	name: 'uart_hello'
 	description: ''
 	version: ''
 	license: ''

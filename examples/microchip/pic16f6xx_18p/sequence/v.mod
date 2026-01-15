@@ -1,5 +1,5 @@
 Module {
-	name: '16F648A_sequence'
+	name: 'sequence'
 	description: ''
 	version: ''
 	license: ''

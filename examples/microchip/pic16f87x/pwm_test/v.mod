@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F876_pwm_test'
+	name: 'pwm_test'
 	description: ''
 	version: ''
 	license: ''

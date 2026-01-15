@@ -1,5 +1,5 @@
 Module {
-	name: 'Exp16_PIC24_Blinking'
+	name: 'Blinking'
 	description: ''
 	version: ''
 	license: ''

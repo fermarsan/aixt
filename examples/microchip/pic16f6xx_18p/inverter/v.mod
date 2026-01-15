@@ -1,5 +1,5 @@
 Module {
-	name: '16F627_inverter'
+	name: 'inverter'
 	description: ''
 	version: ''
 	license: ''

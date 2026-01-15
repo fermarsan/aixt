@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F873_timer0_uart'
+	name: 'timer0_uart'
 	description: ''
 	version: ''
 	license: ''

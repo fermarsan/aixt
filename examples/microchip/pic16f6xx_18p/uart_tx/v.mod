@@ -1,5 +1,5 @@
 Module {
-	name: '16F628A_uart_tx'
+	name: 'uart_tx'
 	description: ''
 	version: ''
 	license: ''

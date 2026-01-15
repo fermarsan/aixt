@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F876_echo'
+	name: 'echo'
 	description: ''
 	version: ''
 	license: ''

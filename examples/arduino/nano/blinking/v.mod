@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking_oop'
+	name: 'blinking_oop'
 	description: ''
 	version: ''
 	license: ''

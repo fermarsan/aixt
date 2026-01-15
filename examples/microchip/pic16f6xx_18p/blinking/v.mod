@@ -1,5 +1,5 @@
 Module {
-	name: '16F627A_uart_hello'
+	name: 'uart_hello'
 	description: ''
 	version: ''
 	license: ''

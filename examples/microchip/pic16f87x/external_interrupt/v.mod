@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F877_external_interrupt'
+	name: 'external_interrupt'
 	description: ''
 	version: ''
 	license: ''

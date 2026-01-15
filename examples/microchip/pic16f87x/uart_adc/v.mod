@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F874_uart_adc'
+	name: 'uart_adc'
 	description: ''
 	version: ''
 	license: ''

@@ -1,5 +1,5 @@
 Module {
-	name: '16F84_echo'
+	name: 'echo'
 	description: ''
 	version: ''
 	license: ''

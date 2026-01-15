@@ -1,5 +1,5 @@
 Module {
-	name: '16F873_uart_rx'
+	name: 'uart_rx'
 	description: ''
 	version: ''
 	license: ''

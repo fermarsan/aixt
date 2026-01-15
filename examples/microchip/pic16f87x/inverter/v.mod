@@ -1,5 +1,5 @@
 Module {
-	name: 'PIC16F876_inverter'
+	name: 'inverter'
 	description: ''
 	version: ''
 	license: ''
