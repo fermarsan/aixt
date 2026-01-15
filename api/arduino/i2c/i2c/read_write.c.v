@@ -2,7 +2,7 @@
 //        - Juan Pablo Bernal
 //        - Daniela Mendoza Deantonio
 //        - Fernando M. Santa
-// Date: 2024
+// Date: 2024-2025
 
 module i2c
 
