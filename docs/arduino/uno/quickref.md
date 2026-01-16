@@ -1,11 +1,9 @@
 # Quick reference for the Arduino Uno board
 
-## CONFIGURATION OF PINS AND THEIR RESPECTIVE FUNCTIONS
-
-![Alt text](Arduino-Uno.jpg)
+The original pin names can be shown in the [Arduino Uno Pinout](https://docs.arduino.cc/resources/pinouts/A000066-full-pinout.pdf).
 
 
-## Delay
+## Delay and Timing
 Use the `time` module:
 
 ```v
@@ -18,14 +16,14 @@ time.sleep_us(100)       // sleep for 100 microseconds
 
 ### Functions
 | name                  | description           |
-| --------------------- | --------------------- |
+|-----------------------|-----------------------|
 | `time.sleep(time)`    | Delay in seconds      |
 | `time.sleep_us(time)` | Delay in microseconds |
 | `time.sleep_ms(time)` | Delay in milliseconds |
 
 
-## Internal LEDs
-The onboard LED is named `led0` 
+## Onboard Hardware
+The onboard LED is named `led0`:
 
 ```v
 import pin
@@ -35,7 +33,7 @@ pin.high(pin.led0)
 ```
 
 
-## Pins
+## Pin module
 Use the `pin` module:
 
 ```v
@@ -49,7 +47,7 @@ pin.write(pin.d8, pin.read(pin.d0)) // pin echo
 
 ### Functions
 | name                    | description               |
-| ----------------------- | ------------------------- |
+|-------------------------|---------------------------|
 | `pin.setup(pin, mode)`  | Configure `pin` as `mode` |
 | `pin.high(pin)`         | Turn On `pin`             |
 | `pin.low(pin)`          | Turn Off `pin`            |
@@ -60,8 +58,16 @@ pin.write(pin.d8, pin.read(pin.d0)) // pin echo
 ### Digital pin names
 The digital pin names are named from `d0` to `d19`.
 
+| name  | original name |
+|:-----:|:-------------:|
+| `d0`  |      D0       |
+| `d1`  |      D1       |
+|  ...  |      ...      |
+| `d18` |      D18      |
+| `d19` |      D19      |
 
-## Pin ports
+
+## Pin port module
 Use the `port` module:
 
 ```v
@@ -76,17 +82,17 @@ port.write(port.b, val) // port echo
 
 ### Functions
 | name                      | description                |
-| ------------------------- | -------------------------- |
+|---------------------------|----------------------------|
 | `port.setup(port, mode)`  | Configure `port` as `mode` |
 | `port.read(port)`         | Return the value of `port` |
 | `port.write(port, value)` | Write `value` to `port`    |
 
 ### Digital port names
-| Port  | Aixt name |
-| :---: | :-------: |
-| **B** |    `b`    |
-| **C** |    `c`    |
-| **D** |    `d`    |
+| name | original name |
+|:----:|:-------------:|
+| `b`  |       B       |
+| `c`  |       C       |
+| `d`  |       D       |
 
 
 ## PWM (Pulse Width Modulation)
@@ -100,12 +106,22 @@ pwm.write(pwm.ch1, 60)       // set the duty cycle for PWM channel 1
 ```
 
 ### Functions
+
 | name                        | description                        |
-| --------------------------- | ---------------------------------- |
+|-----------------------------|------------------------------------|
 | `pwm.write(channel, value)` | Write `value` in the PWM `channel` |
 
 ### PWM pin names
 The PWM channels are named from `ch0` to `ch5`.
+
+| name  | original name |
+|:-----:|:-------------:|
+| `ch0` |      D3       |
+| `ch1` |      D5       |
+| `ch2` |      D6       |
+| `ch3` |      D9       |
+| `ch4` |      D10      |
+| `ch5` |      D11      |
 
 
 ## ADC (Analog to Digital Converter)
@@ -114,17 +130,26 @@ Use the `adc` module:
 ```v
 import adc
 
-val1 := adc.read(ch0)       // read de ADC channel 0
-val2 := adc.read(ch1)       // read de ADC channel 1
+val1 := adc.read(adc.ch0)       // read de ADC channel 0
+val2 := adc.read(adc.ch1)       // read de ADC channel 1
 ```
 
 ### Functions
 | name                | description                       |
-| ------------------- | --------------------------------- |
+|---------------------|-----------------------------------|
 | `adc.read(channel)` | Return the ADC value in `channel` |
 
 ### Analog channels
 The PWM channels are named from `ch0` to `ch5`.
+
+| name  | original name |
+|:-----:|:-------------:|
+| `ch0` |    A0/D14     |
+| `ch1` |    A1/D15     |
+| `ch2` |    A2/D16     |
+| `ch3` |    A3/D17     |
+| `ch4` |    A4/D18     |
+| `ch5` |    A5/D19     |
 
 
 ## UART (serial port)
@@ -139,7 +164,7 @@ uart.println('World...')
 
 ### Functions
 | name                    | description                                                    |
-| ----------------------- | -------------------------------------------------------------- |
+|-------------------------|----------------------------------------------------------------|
 | `uart.setup(baud_rate)` | Configure the `baud_rate` of the UART                          |
 | `uart.read()`           | Return one character received by UART                          |
 | `uart.input(message)`   | Send the `message` and then return the string received by UART |
@@ -147,3 +172,55 @@ uart.println('World...')
 | `uart.print(message)`   | Send the `message` by UART                                     |
 | `uart.println(message)` | Send the `message` plus a new line by UART                     |
 | `uart.any()`            | Return the number uf characters in the UART's buffer           |
+
+
+## Examples
+
+### LED Blinking
+```v
+import time
+import pin
+
+pin.low(pin.led0)	// turn off the on-board LED
+
+for {
+	pin.toggle(pin.led0)    // LED toggle 
+	time.sleep_ms(500)  // delay
+}
+
+```
+
+### ADC value sent by UART
+```v
+import time
+import uart
+import adc
+
+uart.setup(9600)	// set the baudrate
+
+for {
+	analog := adc.read(adc.ch0)
+	uart.println('ADC channel 0: ${analog}')
+	time.sleep_ms(1000)
+}
+```
+
+### LED Blinking by Interrupt
+```v
+import pin
+import ext
+
+@[ext_isr:'pin.d2']	// interrupt service routine
+fn blink() {
+	pin.toggle(pin.led0)
+}
+
+pin.setup(pin.d2, pin.input)
+pin.low(pin.led0)
+
+ext.irq_enable(pin.d2, ext.change)	// interrupt request enabled
+
+for {
+	// Empty infinite loop
+}
+```
