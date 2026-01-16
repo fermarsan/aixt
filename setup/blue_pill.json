@@ -12,7 +12,7 @@
     "name": "arduino_cli",
     "linux_path": "arduino-cli",
     "windows_path": "arduino-cli.exe",
-    "flags": "upload @{file_dir_name} -p @{target} -b STMicroelectronics:stm32:Blues"
+    "flags": "upload @{file_dir_name} -p @{port} -b STMicroelectronics:stm32:Blues"
   },
   "api_paths": [
     "st/blue_pill",

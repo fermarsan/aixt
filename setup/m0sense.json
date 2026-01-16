@@ -12,7 +12,7 @@
     "name": "arduino_cli",
     "linux_path": "arduino-cli",
     "windows_path": "arduino-cli.exe",
-    "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32"
+    "flags": "upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32"
   },
   "api_paths": [
     "m0sense"

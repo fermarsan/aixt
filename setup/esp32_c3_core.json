@@ -12,7 +12,7 @@
     "name": "arduino_cli",
     "linux_path": "arduino-cli",
     "windows_path": "arduino-cli.exe",
-    "flags": "upload @{file_dir_name} -p @{target} -b esp32:esp32:AirM2M_CORE_ESP32C3"
+    "flags": "upload @{file_dir_name} -p @{port} -b esp32:esp32:AirM2M_CORE_ESP32C3"
   },
   "api_paths": [
     "luatos/esp32_c3_core",

@@ -17,7 +17,7 @@ The setup files use the `.json` format due to its ubiquitous nature. The followi
     "flasher":{
 "linux_path":    "arduino-cli",
     "windows_path":  "arduino-cli.exe",
-	"flags":	"upload @{file_dir_name} -p @{target} -b esp32:esp32:esp32",
+	"flags":	"upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32",
 
     },
     "api_paths": [

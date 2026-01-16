@@ -12,7 +12,7 @@
     "name": "arduino_cli",
     "linux_path": "arduino-cli",
     "windows_path": "arduino-cli.exe",
-    "flags": "upload @{file_dir_name} -p @{target} -b arduino:avr:mega"
+    "flags": "upload @{file_dir_name} -p @{port} -b arduino:avr:mega"
   },
   "api_paths": [
     "arduino/mega",

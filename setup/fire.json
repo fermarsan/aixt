@@ -12,7 +12,7 @@
     "name": "arduino_cli",
     "linux_path": "arduino-cli",
     "windows_path": "arduino-cli.exe",
-    "flags": "upload @{file_dir_name} -p @{target} -b m5stack:esp32:m5stack_fire"
+    "flags": "upload @{file_dir_name} -p @{port} -b m5stack:esp32:m5stack_fire"
   },
   "api_paths": [
     "m5stack/fire",

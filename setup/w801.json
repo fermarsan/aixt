@@ -12,7 +12,7 @@
     "name": "arduino_cli",
     "linux_path": "arduino-cli",
     "windows_path": "arduino-cli.exe",
-    "flags": "upload @{file_dir_name} -p @{target} -b w80x_duino:XT804:w801"
+    "flags": "upload @{file_dir_name} -p @{port} -b w80x_duino:XT804:w801"
   },
   "api_paths": [
     "w801",

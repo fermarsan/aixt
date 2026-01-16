@@ -12,7 +12,7 @@
     "name": "arduino_cli",
     "linux_path": "arduino-cli",
     "windows_path": "arduino-cli.exe",
-    "flags": "upload @{file_dir_name} -p @{target} -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_G431C6UX"
+    "flags": "upload @{file_dir_name} -p @{port} -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_G431C6UX"
   },
   "api_paths": [
     "weact_studio/stm32g431core",

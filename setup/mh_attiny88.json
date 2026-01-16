@@ -12,7 +12,7 @@
     "name": "arduino_cli",
     "linux_path": "arduino-cli",
     "windows_path": "arduino-cli.exe",
-    "flags": "upload @{file_dir_name} -p @{target} -b --fqbn MH-ET.menu.avr.ATTiny88:avr:attiny88"
+    "flags": "upload @{file_dir_name} -p @{port} -b --fqbn MH-ET.menu.avr.ATTiny88:avr:attiny88"
   },
   "api_paths": [
     "atmel/mh_attiny88",

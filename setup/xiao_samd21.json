@@ -12,7 +12,7 @@
     "name": "arduino_cli",
     "linux_path": "arduino-cli",
     "windows_path": "arduino-cli.exe",
-    "flags": "upload @{file_dir_name} -p @{target} -b arduino:samd:nano_33_iot"
+    "flags": "upload @{file_dir_name} -p @{port} -b arduino:samd:nano_33_iot"
   },
   "api_paths": [
     "seeed-studio/xiao_samd21",

@@ -12,7 +12,7 @@
     "name": "arduino_cli",
     "linux_path": "arduino-cli",
     "windows_path": "arduino-cli.exe",
-    "flags": "upload @{file_dir_name} -p @{target} -b arduino:mbed_rp2040:pico"
+    "flags": "upload @{file_dir_name} -p @{port} -b arduino:mbed_rp2040:pico"
   },
   "api_paths": [
     "raspberry-pi/pico",
