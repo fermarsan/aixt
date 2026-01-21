@@ -1,18 +1,18 @@
 ## Description
 
-`mega` is not a module by itself, but a namespace for the Arduino Mega API modules.
+`uno` is not a module by itself, but a namespace for the Arduino Uno API modules. 
 
 The API is split in several folders:
 
 - [core](arduino.core.pin.html)
-- [mega](arduino.mega.port.html)
+- [uno](arduino.uno.adc.html)
 - [avr](arduino.avr.pin.html)
 - [i2c](arduino.i2c.i2c.html)
 - [uart](arduino.uart.uart.html)
 
-# Quick reference for the Arduino Mega board
+# Quick reference for the Arduino Uno board
 
-The original pin names can be shown in the [Arduino Mega Pinout](https://docs.arduino.cc/resources/pinouts/A000067-full-pinout.pdf).
+The original pin names can be shown in the [Arduino Uno Pinout](https://docs.arduino.cc/resources/pinouts/A000066-full-pinout.pdf).
 
 
 ## Delay and Timing
@@ -68,15 +68,15 @@ pin.write(pin.d8, pin.read(pin.d0)) // pin echo
 
 
 ### Digital pin names
-The digital pin names are named from `d0` to `d69`.
+The digital pin names are named from `d0` to `d19`.
 
 | name  | original name |
 |:-----:|:-------------:|
 | `d0`  |      D0       |
 | `d1`  |      D1       |
 |  ...  |      ...      |
-| `d68` |      D68      |
-| `d69` |      D69      |
+| `d18` |      D18      |
+| `d19` |      D19      |
 
 
 ## Pin port module
@@ -105,13 +105,6 @@ port.write(port.b, val) // port echo
 | `b`  |       B       |
 | `c`  |       C       |
 | `d`  |       D       |
-| `e`  |       E       |
-| `f`  |       F       |
-| `g`  |       G       |
-| `h`  |       H       |
-| `i`  |       I       |
-| `j`  |       J       |
-| `k`  |       K       |
 
 
 ## PWM (Pulse Width Modulation)
@@ -131,24 +124,16 @@ pwm.write(pwm.ch1, 60)       // set the duty cycle for PWM channel 1
 | `pwm.write(channel, value)` | Write `value` in the PWM `channel` |
 
 ### PWM pin names
-The PWM channels are named from `ch0` to `ch13`.
+The PWM channels are named from `ch0` to `ch5`.
 
-|  name  | original name |
-|:------:|:-------------:|
-| `ch0`  |      D0       |
-| `ch1`  |      D1       |
-| `ch2`  |      D2       |
-| `ch3`  |      D3       |
-| `ch4`  |      D4       |
-| `ch5`  |      D5       |
-| `ch6`  |      D6       |
-| `ch7`  |      D7       |
-| `ch8`  |      D8       |
-| `ch9`  |      D9       |
-| `ch10` |      D10      |
-| `ch11` |      D11      |
-| `ch12` |      D12      |
-| `ch13` |      D13      |
+| name  | original name |
+|:-----:|:-------------:|
+| `ch0` |      D3       |
+| `ch1` |      D5       |
+| `ch2` |      D6       |
+| `ch3` |      D9       |
+| `ch4` |      D10      |
+| `ch5` |      D11      |
 
 
 ## ADC (Analog to Digital Converter)
@@ -167,26 +152,16 @@ val2 := adc.read(adc.ch1)       // read de ADC channel 1
 | `adc.read(channel)` | Return the ADC value in `channel` |
 
 ### Analog channels
-The PWM channels are named from `ch0` to `ch7`.
+The PWM channels are named from `ch0` to `ch5`.
 
-|  name  | original name |
-|:------:|:-------------:|
-| `ch0`  |    A0/D54     |
-| `ch1`  |    A1/D55     |
-| `ch2`  |    A2/D56     |
-| `ch3`  |    A3/D57     |
-| `ch4`  |    A4/D58     |
-| `ch5`  |    A5/D59     |
-| `ch6`  |    A6/D60     |
-| `ch7`  |    A7/D61     |
-| `ch8`  |    A8/D62     |
-| `ch9`  |    A9/D63     |
-| `ch10` |    A10/D64    |
-| `ch11` |    A11/D65    |
-| `ch12` |    A12/D66    |
-| `ch13` |    A13/D67    |
-| `ch14` |    A14/D68    |
-| `ch15` |    A15/D69    |
+| name  | original name |
+|:-----:|:-------------:|
+| `ch0` |    A0/D14     |
+| `ch1` |    A1/D15     |
+| `ch2` |    A2/D16     |
+| `ch3` |    A3/D17     |
+| `ch4` |    A4/D18     |
+| `ch5` |    A5/D19     |
 
 
 ## UART (serial port)

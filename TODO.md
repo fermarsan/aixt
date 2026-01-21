@@ -95,6 +95,7 @@ Tasks to do in Aixt
   - [x] Create 'dummy' modules as workspaces in API targets folders (Microchip and Arduino targets)
   - [x] Change redundant targets API folders (Microchip and Arduino targets)
   - [x] Change `/api/`,`/docs/`, `/setup/` and `/templates/project/` folders to lowercase
+  - [x] New script to generate `api/.../README.md` files, from `docs/.../quickref.md` and `api/.../header.md` 
 - [x] Change `/rp-pico/` by `/pico/`
 - [x] Change redundant names in `/examples/` folders
 - [x] Target names are case-insensitive now but the Aixt related files and folders are always lowercase  

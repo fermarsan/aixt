@@ -11,9 +11,9 @@ The API is split in several folders:
 
 ### Device family related modules
 
-- [Uno](arduino.uno.adc.html)
-- [Nano](arduino.nano.pwm.html)
-- [Mega](arduino.mega.port.html)
+- [uno](arduino.uno.adc.html)
+- [nano](arduino.nano.pwm.html)
+- [mega](arduino.mega.port.html)
 
 
 ### Generic modules

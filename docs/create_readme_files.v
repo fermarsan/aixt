@@ -44,10 +44,8 @@ fn main() {
 	println('Found ${quickref_paths.len} quickref.md files. Processing...')
 
 	for qpath in quickref_paths {
-		println(qpath)
 		// Compute relative path from docs_root
 		rel := path_relative_to_root(qpath, docs_root)
-		// println(rel)
 		// Ensure rel ends with 'quickref.md'
 		if !rel.ends_with('quickref.md') {
 			// Shouldn't happen, but skip if it does
@@ -61,8 +59,6 @@ fn main() {
 		// Compose target README path: api_root + '/' + dir_under_docs + 'README.md'
 		target_dir := os.norm_path(api_root + '/' + dir_under_docs)
 		target_readme := os.norm_path(target_dir + '/README.md')
-		println(header_path)
-		println(target_readme)
 
 		// Read quickref contents
 		quickref_content := os.read_file(qpath) or {
