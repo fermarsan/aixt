@@ -26,7 +26,7 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
-- [ ] Clone Aixt without `api`, `examples` and `docs` to make it lightweight for the Conda package (include src/v.mod)
+- [ ] Clone Aixt with `--depth=1` to make it lightweight for the Conda package
 
 
 ### Done ✓make
