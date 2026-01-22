@@ -27,8 +27,6 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
 - [ ] Clone Aixt without `api`, `examples` and `docs` to make it lightweight for the Conda package (include src/v.mod)
-- [ ] generates documentation from code
-  - [ ] Change `/examples/` folders to lowercase
 
 
 ### Done ✓make
@@ -89,12 +87,13 @@ Tasks to do in Aixt
 - [x] Split the examples from the API in all the targets
 - [x] Change `targets` folder name by `api`
 - [x] change in all of the targets  `builtin.c.v` to `main/main.c.v`
-- [ ] generates documentation from code
+- [x] generates documentation from code
   - [x] Update the source files header to improve the visualization of the automatic documentation
   - [x] Remove `/api/` from the end of targets implementation path  
   - [x] Create 'dummy' modules as workspaces in API targets folders (Microchip and Arduino targets)
   - [x] Change redundant targets API folders (Microchip and Arduino targets)
-  - [x] Change `/api/`,`/docs/`, `/setup/` and `/templates/project/` folders to lowercase
+  - [x] Change `/api/`,`/docs/`, `/setup/`, `examples/` and `/templates/project/` folders to lowercase
+  - [x] New script to generate `api/.../README.md` files, from `docs/.../quickref.md` and `api/.../header.md` 
 - [x] Change `/rp-pico/` by `/pico/`
 - [x] Change redundant names in `/examples/` folders
 - [x] Target names are case-insensitive now but the Aixt related files and folders are always lowercase  
