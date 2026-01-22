@@ -26,7 +26,6 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
-- [ ] Clone Aixt with `--depth=1` to make it lightweight for the Conda package
 
 
 ### Done ✓make
@@ -97,3 +96,6 @@ Tasks to do in Aixt
 - [x] Change `/rp-pico/` by `/pico/`
 - [x] Change redundant names in `/examples/` folders
 - [x] Target names are case-insensitive now but the Aixt related files and folders are always lowercase  
+- [ ] Clone partially the Aixt repository to make it lightweight for the Conda package
+  - [x] Clone with `--depth=1`
+  - [x] Clone only `api`, `docs`, `lib`, `setup`, `src`, `templates`, `examples/microchip`, `examples/arduino`, `examples/nxt`, `make.bat`, `Makefile` 
