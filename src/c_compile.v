@@ -22,10 +22,13 @@ pub fn c_compile(path string, cc_path string, project_setup setup.Setup) {
 	// 	project_setup.cc['linux_path']
 	// }
 	
-	cc := if cc_path == '' {
+	cc := if cc_path != '' {
+		cc_path
+	} else if project_setup.cc['default_path'] != '' {
 		project_setup.cc['default_path']
 	} else {
-		cc_path
+		''
+		panic('The C compiler path has to be specified as a flag or inside the `setup/<target>.json` file.')
 	}
 
 	mut flags := project_setup.cc['flags']

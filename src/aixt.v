@@ -73,6 +73,12 @@ fn main() {
 						name: 			'port'
 						abbrev:			'p' 
 						description: 	'Flashing port.'
+					},
+					cli.Flag {
+						flag:			cli.FlagType.string
+						name: 			'flasher'
+						abbrev:			'f' 
+						description: 	'Flasher path.'
 					}
 				]
 				required_args:	1
