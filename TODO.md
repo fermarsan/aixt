@@ -26,6 +26,7 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
+- [ ] make the executable receive `-cc CC_PATH` flag for the C compiler path
 
 
 ### Done ✓make
