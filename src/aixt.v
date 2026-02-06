@@ -70,15 +70,15 @@ fn main() {
 				flags: [
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'port'
-						abbrev:			'p' 
-						description: 	'Flashing port.'
-					},
-					cli.Flag {
-						flag:			cli.FlagType.string
 						name: 			'flasher'
 						abbrev:			'f' 
 						description: 	'Flasher path.'
+					},
+					cli.Flag {
+						flag:			cli.FlagType.string
+						name: 			'port'
+						abbrev:			'p' 
+						description: 	'Flashing port.'
 					}
 				]
 				required_args:	1

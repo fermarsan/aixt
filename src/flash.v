@@ -9,10 +9,10 @@ import aixt.setup
 // flash downloads (uploads) the binary file to the device.
 // example:
 // ``` v
-// build.flash_file('example.hex', '/dev/ttyUSB0', setup)
+// flash('example.v', '~/nbc/nbc', '/dev/ttyUSB0', setup)
 // ```
 // Calls the flashing tool to pass the binary file to the device
-pub fn flash(path string, port string, project_setup setup.Setup) {
+pub fn flash(path string, flasher_path string, port string, project_setup setup.Setup) {
 	// println('>>>>>>>>>>>>>>>>>> Flashing by: ${port} <<<<<<<<<<<<<<<<<<')
 
 	// flasher := $if windows { // flashing tool depending on the OS
@@ -20,7 +20,15 @@ pub fn flash(path string, port string, project_setup setup.Setup) {
 	// } $else {
 	// 	project_setup.flasher['linux_path']
 	// }
-	flasher := project_setup.flasher['linux_path']
+
+	flasher := if flasher_path != '' {
+		flasher_path
+	} else if project_setup.flasher['default_path'] != '' {
+		project_setup.flasher['default_path']
+	} else {
+		''
+		panic('The flasher path has to be specified as a flag or inside the `setup/<target>.json` file.')
+	}
 
 	mut flags := project_setup.flasher['flags']
 	flags = flags.replace('@{file_no_ext}', '${path}')
