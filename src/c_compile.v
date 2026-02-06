@@ -6,22 +6,27 @@ module main
 import os
 import aixt.setup
 
-// c_compile calls the port's defined compiler to compile a previous transpiled Aixt source code.
+// c_compile calls the port's defined compiler to compile a previously transpiled Aixt source code.
 // example:
 // ``` v
-// build.compile_file('example.v', project_setup)
+// build.compile_file('example.v', '~/nbc/nbc', project_setup)
 // ```
-// Calls the compiler with `example.c` file, previously generated from `example.v` .
+// Calls the `nbc` compiler with `example.c` file, previously generated from `example.v` .
 // If inside the containing folder of `example.v` a `Makefile`  exits, it calls the
 // `make`  command instead.
-pub fn c_compile(path string, project_setup setup.Setup) {
+pub fn c_compile(path string, cc_path string, project_setup setup.Setup) {
 
 	// cc := $if windows { // C compiler depending on the OS
 	// 	project_setup.cc['windows_path']
 	// } $else {
 	// 	project_setup.cc['linux_path']
 	// }
-	cc := project_setup.cc['default_path']
+	
+	cc := if cc_path == '' {
+		project_setup.cc['default_path']
+	} else {
+		cc_path
+	}
 
 	mut flags := project_setup.cc['flags']
 	flags = flags.replace('@{file_no_ext}', '${path}')
@@ -44,11 +49,11 @@ pub fn c_compile(path string, project_setup setup.Setup) {
 	flags = flags.replace('@{output_ext}', '${output_ext}')
 
 	// println('-------- ${os.dir(path)} --------')
-	if os.exists('${os.dir(path)}' + os.path_separator + 'Makefile') {		// calling compiler through Makefile
-		println('make -f ${os.dir(path)}' + os.path_separator + 'Makefile ${flags}')
-		println(os.execute('make -f ${os.dir(path)}' + os.path_separator + 'Makefile ${flags}').output)
+	if os.exists(os.norm_path('${os.dir(path)}/Makefile')) {		// calling compiler through Makefile
+		println(os.norm_path('make -f ${os.dir(path)}/Makefile ${flags}'))
+		println(os.execute(os.norm_path('make -f ${os.dir(path)}/Makefile ${flags}')).output)
 	} else {
-		println('${cc} ${flags}')
-		println(os.execute('${cc} ${flags}').output)
+		println(os.norm_path('${cc} ${flags}'))
+		println(os.execute(os.norm_path('${cc} ${flags}')).output)
 	}
 }

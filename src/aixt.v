@@ -49,9 +49,15 @@ fn main() {
 						name: 			'target'
 						abbrev:			't' 
 						description: 	'Target device or board.'
+					},
+					cli.Flag {
+						flag:			cli.FlagType.string
+						name: 			'compiler'
+						abbrev:			'cc' 
+						description: 	'Target device or board.'
 					}
 				]
-				required_args:	1
+				required_args:	2
 				defaults: 		struct {
 					man: false
 				}
@@ -85,9 +91,15 @@ fn main() {
 						name: 			'target'
 						abbrev:			't' 
 						description: 	'Target device or board.'
+					},
+					cli.Flag {
+						flag:			cli.FlagType.string
+						name: 			'compiler'
+						abbrev:			'cc' 
+						description: 	'Target device or board.'
 					}
 				]
-				required_args:	1
+				required_args:	2
 				defaults: 		struct {
 					man: false
 				}
