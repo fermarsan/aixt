@@ -15,19 +15,18 @@ fn flash_cmd(cmd cli.Command) ! {
 	input_name := os.abs_path(cmd.args[0])		// and source path input
 	path := os.dir(input_name)
 	base_name := input_name.replace('.v', '') 	// input file base name
-	flasher := if cmd.flags.get_string('flasher')! != '' {	// Flasher path
-		cmd.flags.get_string('flasher')!
+	mut flasher := ''
+	if cmd.flags.get_string('flasher')! != '' {	// Flasher path
+		flasher = cmd.flags.get_string('flasher')!
 	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][0] != '' {
-		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][0]
-	} else {
-		''
+		flasher = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][0]
 	}
-	port := if cmd.flags.get_string('port')! != '' {	// port name
-		cmd.flags.get_string('port')!
+	mut port := ''
+	if cmd.flags.get_string('port')! != '' {	// port name
+		port = cmd.flags.get_string('port')!
 	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['port'][0] != '' {
-		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['port'][0]
+		port = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['port'][0]
 	} else {
-		''
 		panic('The flashing port has to be specified as a flag or inside the `v.mod` file.')
 	}
 	mut project_setup := setup.Setup{}

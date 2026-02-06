@@ -21,12 +21,12 @@ pub fn flash(path string, flasher_path string, port string, project_setup setup.
 	// 	project_setup.flasher['linux_path']
 	// }
 
-	flasher := if flasher_path != '' {
-		flasher_path
+	mut flasher := ''
+	if flasher_path != '' {
+		flasher = flasher_path
 	} else if project_setup.flasher['default_path'] != '' {
-		project_setup.flasher['default_path']
+		flasher = project_setup.flasher['default_path']
 	} else {
-		''
 		panic('The flasher path has to be specified as a flag or inside the `setup/<target>.json` file.')
 	}
 

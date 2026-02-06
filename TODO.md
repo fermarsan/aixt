@@ -26,8 +26,6 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
-- [ ] make the executable receive `-cc CC_PATH` flag for the C compiler path
-- [ ] make the executable receive `-f FLASHER_PATH` flag for the flasher path
 
 
 ### Done ✓make
@@ -103,3 +101,5 @@ Tasks to do in Aixt
   - [x] Clone only `api`, `docs`, `lib`, `setup`, `src`, `templates`, `examples/microchip`, `examples/arduino`, `examples/nxt`, `make.bat`, `Makefile` 
 - [x] Split the `docs` directory into `docs/api` and `docs/lib`
 - [x] Change the field `cc` of `setup.json` file, from `cc[windows_path, linux_path]` to `cc[default_path]` 
+- [x] make the executable receive `-cc CC_PATH` flag for the C compiler path
+- [x] make the executable receive `-f FLASHER_PATH` flag for the flasher path

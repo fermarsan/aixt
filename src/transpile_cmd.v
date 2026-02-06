@@ -14,12 +14,12 @@ import aixt.setup
 fn transpile_cmd(cmd cli.Command) ! {
 	input_name := os.abs_path(cmd.args[0])		// and source path input
 	path := os.dir(input_name)
-	mut device := if cmd.flags.get_string('target')! != '' {	// device name
-		cmd.flags.get_string('target')!
+	mut device := ''
+	if cmd.flags.get_string('target')! != '' {	// device name
+		device = cmd.flags.get_string('target')!
 	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0] != '' {
-		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0]
+		device = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0]
 	} else {
-		''
 		panic('A target device has to be specified as a flag or inside the `v.mod` file.')
 	}
 	device = device.to_lower()
