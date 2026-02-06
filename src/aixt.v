@@ -54,10 +54,10 @@ fn main() {
 						flag:			cli.FlagType.string
 						name: 			'compiler'
 						abbrev:			'cc' 
-						description: 	'Target device or board.'
+						description: 	'C compiler path.'
 					}
 				]
-				required_args:	2
+				required_args:	1
 				defaults: 		struct {
 					man: false
 				}
@@ -96,10 +96,10 @@ fn main() {
 						flag:			cli.FlagType.string
 						name: 			'compiler'
 						abbrev:			'cc' 
-						description: 	'Target device or board.'
+						description: 	'C compiler path.'
 					}
 				]
-				required_args:	2
+				required_args:	1
 				defaults: 		struct {
 					man: false
 				}

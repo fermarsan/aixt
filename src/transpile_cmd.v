@@ -16,8 +16,10 @@ fn transpile_cmd(cmd cli.Command) ! {
 	path := os.dir(input_name)
 	mut device := if cmd.flags.get_string('target')! != '' {	// device name
 		cmd.flags.get_string('target')!
-	} else {
+	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0] != '' {
 		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0]
+	} else {
+		panic('A target device has to be specified.')
 	}
 	device = device.to_lower()
 	mut project_setup := setup.Setup{}
