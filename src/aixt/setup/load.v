@@ -35,10 +35,12 @@ pub fn (mut stp Setup) load(device string) {
 	
 	// ---------------- Normalize paths --------------------
 	stp.device = device
-	stp.cc['linux_path'] = os.norm_path(stp.cc['linux_path'])
-	stp.cc['windows_path'] = os.norm_path(stp.cc['windows_path'])
-	stp.flasher['linux_path'] = os.norm_path(stp.flasher['linux_path'])
-	stp.flasher['windows_path'] = os.norm_path(stp.flasher['windows_path'])
+	// stp.cc['linux_path'] = os.norm_path(stp.cc['linux_path'])
+	// stp.cc['windows_path'] = os.norm_path(stp.cc['windows_path'])
+	stp.cc['default_path'] = os.norm_path(stp.cc['default_path'])
+	// stp.flasher['linux_path'] = os.norm_path(stp.flasher['linux_path'])
+	// stp.flasher['windows_path'] = os.norm_path(stp.flasher['windows_path'])
+	stp.flasher['default_path'] = os.norm_path(stp.flasher['default_path'])
 	mut temp_paths := []string{}
 	for path in stp.api_paths {
 		temp_paths << os.norm_path(path)

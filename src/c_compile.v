@@ -16,11 +16,12 @@ import aixt.setup
 // `make`  command instead.
 pub fn c_compile(path string, project_setup setup.Setup) {
 
-	cc := $if windows { // C compiler depending on the OS
-		project_setup.cc['windows_path']
-	} $else {
-		project_setup.cc['linux_path']
-	}
+	// cc := $if windows { // C compiler depending on the OS
+	// 	project_setup.cc['windows_path']
+	// } $else {
+	// 	project_setup.cc['linux_path']
+	// }
+	cc := project_setup.cc['default_path']
 
 	mut flags := project_setup.cc['flags']
 	flags = flags.replace('@{file_no_ext}', '${path}')

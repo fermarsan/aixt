@@ -15,11 +15,12 @@ import aixt.setup
 pub fn flash(path string, port string, project_setup setup.Setup) {
 	// println('>>>>>>>>>>>>>>>>>> Flashing by: ${port} <<<<<<<<<<<<<<<<<<')
 
-	flasher := $if windows { // flashing tool depending on the OS
-		project_setup.flasher['windows_path']
-	} $else {
-		project_setup.flasher['linux_path']
-	}
+	// flasher := $if windows { // flashing tool depending on the OS
+	// 	project_setup.flasher['windows_path']
+	// } $else {
+	// 	project_setup.flasher['linux_path']
+	// }
+	flasher := project_setup.flasher['linux_path']
 
 	mut flags := project_setup.flasher['flags']
 	flags = flags.replace('@{file_no_ext}', '${path}')
