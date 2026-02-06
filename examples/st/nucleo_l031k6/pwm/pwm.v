@@ -1,19 +1,16 @@
-// Project name: PWM signal
-// Author: Fernando M. Santa
-// Date: 06/01/2025
-// Nucleo-L031K6
-
-import time
-import pin
 import pwm
+import pin
+import adc
 
-const duty_table = [u8(25), 60, 120, 180, 205]
+__global (
+  val = 0
+)
 
-pin.setup(pin.d3, pin.output)	// for PWM
+pin.setup(gp10, pin.output)
 
 for {
-	for duty in duty_table {
-		pwm.write(pin.d3, duty*256)
-		time.sleep_ms(250)
-	}
+
+val = adc.read(gp28)
+pwm.write(gp10, val)
+
 }

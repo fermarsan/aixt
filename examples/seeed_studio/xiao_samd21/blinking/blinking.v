@@ -1,16 +1,19 @@
-// Project name: On-board LED blinking
-// Author:	Fernando M. Santa
-// Date:	14/01/2025
-// XIAO-SAMD21 board
-
 import time
 import pin
 
-pin.setup(pin.d0, pin.output)
+pin.setup(2, pin.output)
+pin.setup(3, pin.output)
+
+for _ in 0 .. 10 { // 10 times
+	pin.high(2)
+	time.sleep_ms(250)
+	pin.low(2)
+	time.sleep_ms(250)
+}
 
 for {
-	pin.high(pin.d0)
-	time.sleep_ms(250)
-	pin.low(pin.d0)
-	time.sleep_ms(250)
+	pin.high(3)
+	time.sleep(1)
+	pin.low(3)
+	time.sleep(2)
 }
