@@ -19,7 +19,7 @@ fn transpile_cmd(cmd cli.Command) ! {
 	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0] != '' {
 		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0]
 	} else {
-		panic('A target device has to be specified.')
+		panic('Missing target device.')
 	}
 	device = device.to_lower()
 	mut project_setup := setup.Setup{}
