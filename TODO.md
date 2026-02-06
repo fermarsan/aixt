@@ -27,6 +27,7 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
 - [ ] make the executable receive `-cc CC_PATH` flag for the C compiler path
+- [ ] make the executable receive `-f FLASHER_PATH` flag for the flasher path
 
 
 ### Done ✓make
