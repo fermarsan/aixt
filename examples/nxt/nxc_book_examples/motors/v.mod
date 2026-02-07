@@ -6,4 +6,6 @@ Module {
 	dependencies: []
 	target: [nxt]
 	port: ['/dev/ttyUSB0']
+	cc: ['', '']
+	flasher: ['', '']
 }

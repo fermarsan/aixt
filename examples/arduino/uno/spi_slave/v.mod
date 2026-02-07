@@ -6,4 +6,6 @@ Module {
 	dependencies: []
 	target: [uno]
 	port: ['/dev/ttyUSB0']
+	cc: ['', '']
+	flasher: ['', '']
 }

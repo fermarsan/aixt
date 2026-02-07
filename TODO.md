@@ -106,3 +106,4 @@ Tasks to do in Aixt
 - [x] Change the fields `cc` and `flasher` of `setup.json` file, from `[windows_path]` `[linux_path]` to `[path]` and `[windows_path]` as optional
 - [x] Change the fields `cc` and `flasher` of `setup.json` file, from `[flags]` to `[args]`
 - [x] Change `device:` by `target:` in the project's `v.mod` files
+- [x] Add the fields `cc:` and `flasher:` to the project's `v.mod` files

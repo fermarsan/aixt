@@ -6,4 +6,6 @@ Module {
 	dependencies: []
 	target: [pic16f628]
 	port: ['/dev/ttyUSB0']
+	cc: ['', '']
+	flasher: ['', '']
 }
