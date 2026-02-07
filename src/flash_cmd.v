@@ -15,11 +15,12 @@ fn flash_cmd(cmd cli.Command) ! {
 	input_name := os.abs_path(cmd.args[0])		// and source path input
 	path := os.dir(input_name)
 	base_name := input_name.replace('.v', '') 	// input file base name
-	mut flasher := ''
-	if cmd.flags.get_string('flasher')! != '' {	// Flasher path
-		flasher = cmd.flags.get_string('flasher')!
+	flasher := if cmd.flags.get_string('flasher')! != '' {	// Flasher path
+		cmd.flags.get_string('flasher')!
 	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][0] != '' {
-		flasher = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][0]
+		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][0]
+	} else {
+		''
 	}
 	mut port := ''
 	if cmd.flags.get_string('port')! != '' {	// port name

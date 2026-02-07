@@ -23,21 +23,13 @@ fn c_compile_cmd(cmd cli.Command) ! {
 	} else {
 		panic('A target device has to be specified as a flag or inside the `v.mod` file.')
 	}
-	mut cc := ''
-	if cmd.flags.get_string('compiler')! != '' {	// C compiler path
-		cc = cmd.flags.get_string('compiler')!
+	cc := if cmd.flags.get_string('compiler')! != '' {	// C compiler path
+		cmd.flags.get_string('compiler')!
 	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0] != '' {
-		cc = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0]
+		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0]
+	} else {
+		''
 	}
-	
-	// // This way produces an error
-	// cc := if cmd.flags.get_string('compiler')! != '' {	// C compiler path
-	// 	cmd.flags.get_string('compiler')!
-	// } else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0] != '' {
-	// 	vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0]
-	// } else {
-	// 	''
-	// }
 
 	mut project_setup := setup.Setup{}
 	project_setup.load(device)
