@@ -15,17 +15,21 @@ import aixt.setup
 pub fn flash(path string, flasher_path string, port string, project_setup setup.Setup) {
 	// println('>>>>>>>>>>>>>>>>>> Flashing by: ${port} <<<<<<<<<<<<<<<<<<')
 
-	// flasher := $if windows { // flashing tool depending on the OS
-	// 	project_setup.flasher['windows_path']
-	// } $else {
-	// 	project_setup.flasher['linux_path']
-	// }
+	flasher_os := $if windows {
+		if project_setup.flasher['windows_path'] != '' {
+			project_setup.flasher['windows_path']
+		} else {
+			project_setup.flasher['default_path']
+		}
+	} $else {
+		project_setup.flasher['default_path']
+	}
 
 	mut flasher := ''
 	if flasher_path != '' {
 		flasher = flasher_path
-	} else if project_setup.flasher['default_path'] != '' {
-		flasher = project_setup.flasher['default_path']
+	} else if flasher_os != '' {
+		flasher = flasher_os
 	} else {
 		panic('The flasher path has to be specified as a flag or inside the `setup/<target>.json` file.')
 	}

@@ -4,14 +4,13 @@
   "backend": "c",
   "cc": {
     "name": "gcc_tcc",
-    "linux_path": "gcc",
-    "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe",
+    "default_path": "gcc",
+    "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe",  // optional
     "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
   },
   "flasher": {
     "name": "none",
-    "linux_path": "",
-    "windows_path": "",
+    "default_path": "",
     "flags": ""
   },
   "api_paths": [

@@ -30,6 +30,15 @@ fn c_compile_cmd(cmd cli.Command) ! {
 		cc = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0]
 	}
 	
+	// // This way produces an error
+	// cc := if cmd.flags.get_string('compiler')! != '' {	// C compiler path
+	// 	cmd.flags.get_string('compiler')!
+	// } else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0] != '' {
+	// 	vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0]
+	// } else {
+	// 	''
+	// }
+
 	mut project_setup := setup.Setup{}
 	project_setup.load(device)
 	println('Aixt path:\n\t${os.executable()}\n')

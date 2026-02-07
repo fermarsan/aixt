@@ -10,13 +10,12 @@ The setup files use the `.json` format due to its ubiquitous nature. The followi
     "board":     "---",
     "backend":   "c",
 
-    "linux_path":			"",             
-    "windows_path":		"",
+    "default_path":			"",             
+    "windows_path":		"",     // optional
     "flags":	"PART=@{device}",
 
     "flasher":{
-"linux_path":    "arduino-cli",
-    "windows_path":  "arduino-cli.exe",
+    "default_path":    "arduino-cli",
 	"flags":	"upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32",
 
     },

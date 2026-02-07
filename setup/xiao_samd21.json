@@ -4,14 +4,12 @@
   "backend": "arduino",
   "cc": {
     "name": "arduino_cli",
-    "linux_path": "arduino-cli",
-    "windows_path": "arduino-cli.exe",
+    "default_path": "arduino-cli",
     "flags": "compile -b arduino:samd:nano_33_iot -v --output-dir @{file_dir_name}/build"
   },
   "flasher": {
     "name": "arduino_cli",
-    "linux_path": "arduino-cli",
-    "windows_path": "arduino-cli.exe",
+    "default_path": "arduino-cli",
     "flags": "upload @{file_dir_name} -p @{port} -b arduino:samd:nano_33_iot"
   },
   "api_paths": [

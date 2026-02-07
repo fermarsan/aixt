@@ -16,17 +16,20 @@ import aixt.setup
 // `make`  command instead.
 pub fn c_compile(path string, cc_path string, project_setup setup.Setup) {
 
-	// cc := $if windows { // C compiler depending on the OS
-	// 	project_setup.cc['windows_path']
-	// } $else {
-	// 	project_setup.cc['linux_path']
-	// }
-	
+	cc_os := $if windows {
+		if project_setup.cc['windows_path'] != '' {
+			project_setup.cc['windows_path']
+		} else {
+			project_setup.cc['default_path']
+		}
+	} $else {
+		project_setup.cc['default_path']
+	}
 	mut cc := ''
 	if cc_path != '' {
 		cc = cc_path
-	} else if project_setup.cc['default_path'] != '' {
-		cc = project_setup.cc['default_path']
+	} else if cc_os != '' {
+		cc = cc_os
 	} else {
 		panic('The C compiler path has to be specified as a flag or inside the `setup/<target>.json` file.')
 	}
