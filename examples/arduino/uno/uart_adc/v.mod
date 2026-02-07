@@ -4,6 +4,6 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['uno']
+	target: [uno]
 	port: ['/dev/ttyUSB0']
 }

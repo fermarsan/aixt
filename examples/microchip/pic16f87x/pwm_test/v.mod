@@ -4,6 +4,6 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['pic16f876']
+	target: [pic16f876]
 	port: ['/dev/ttyUSB0']
 }

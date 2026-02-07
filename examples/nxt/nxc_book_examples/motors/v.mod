@@ -4,6 +4,6 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['nxt']
+	target: [nxt]
 	port: ['/dev/ttyUSB0']
 }

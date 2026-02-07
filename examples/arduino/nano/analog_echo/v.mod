@@ -4,6 +4,6 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	device: ['nano']
+	target: [nano]
 	port: ['/dev/ttyUSB0']
 }
