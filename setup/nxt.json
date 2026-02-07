@@ -10,7 +10,7 @@
   "flasher": {
     "name": "nbc",
     "path": "nbc",
-    "flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc"
+    "args": " -T:NXT -S:usb -d @{file_no_extension}.nxc"
   },
   "api_paths": [
     "nxt"

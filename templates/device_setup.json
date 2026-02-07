@@ -6,12 +6,12 @@
     "name": "gcc_tcc",
     "path": "gcc",
     "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe", // optional
-    "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
+    "args": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
   },
   "flasher": {
     "name": "none",
     "path": "",
-    "flags": ""
+    "args": ""
   },
   "api_paths": [
     "Emulator"

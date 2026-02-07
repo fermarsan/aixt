@@ -5,12 +5,12 @@
   "cc": {
     "name": "arduino_cli",
     "path": "arduino-cli",
-    "flags": "compile -b esp32:esp32:AirM2M_CORE_ESP32C3 -v --output-dir @{file_dir_name}/build"
+    "args": "compile -b esp32:esp32:AirM2M_CORE_ESP32C3 -v --output-dir @{file_dir_name}/build"
   },
   "flasher": {
     "name": "arduino_cli",
     "path": "arduino-cli",
-    "flags": "upload @{file_dir_name} -p @{port} -b esp32:esp32:AirM2M_CORE_ESP32C3"
+    "args": "upload @{file_dir_name} -p @{port} -b esp32:esp32:AirM2M_CORE_ESP32C3"
   },
   "api_paths": [
     "luatos/esp32_c3_core",

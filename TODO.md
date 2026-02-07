@@ -104,3 +104,4 @@ Tasks to do in Aixt
 - [x] make the executable receive `-f FLASHER_PATH` flag for the flasher path
 - [x] Aixt compiles with `V 0.5`
 - [x] Change the fields `cc` and `flasher` of `setup.json` file, from `[windows_path]` `[linux_path]` to `[path]` and `[windows_path]` as optional
+- [x] Change the fields `cc` and `flasher` of `setup.json` file, from `[flags]` to `[args]`

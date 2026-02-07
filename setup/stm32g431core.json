@@ -5,12 +5,12 @@
   "cc": {
     "name": "arduino_cli",
     "path": "arduino-cli",
-    "flags": "compile -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_G431C6UX -v --output-dir @{file_dir_name}/build"
+    "args": "compile -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_G431C6UX -v --output-dir @{file_dir_name}/build"
   },
   "flasher": {
     "name": "arduino_cli",
     "path": "arduino-cli",
-    "flags": "upload @{file_dir_name} -p @{port} -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_G431C6UX"
+    "args": "upload @{file_dir_name} -p @{port} -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_G431C6UX"
   },
   "api_paths": [
     "weact_studio/stm32g431core",

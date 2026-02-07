@@ -9,33 +9,14 @@ import aixt.setup
 // c_compile calls the port's defined compiler to compile a previously transpiled Aixt source code.
 // example:
 // ``` v
-// build.compile_file('example.v', '~/nbc/nbc', project_setup)
+// c_compile('example.v', '~/nbc/nbc', '-T:NXT', project_setup)
 // ```
 // Calls the `nbc` compiler with `example.c` file, previously generated from `example.v` .
 // If inside the containing folder of `example.v` a `Makefile`  exits, it calls the
 // `make`  command instead.
-pub fn c_compile(path string, cc_path string, project_setup setup.Setup) {
+pub fn c_compile(path string, cc_path string, cc_flags string, project_setup setup.Setup) {
 
-	cc_os := $if windows {
-		if project_setup.cc['windows_path'] != '' {
-			project_setup.cc['windows_path']
-		} else {
-			project_setup.cc['path']
-		}
-	} $else {
-		project_setup.cc['path']
-	}
-	
-	mut cc := ''
-	if cc_path != '' {
-		cc = cc_path
-	} else if cc_os != '' {
-		cc = cc_os
-	} else {
-		panic('The C compiler path has to be specified as a flag or inside the `setup/<target>.json` file.')
-	}
-
-	mut flags := project_setup.cc['flags']
+	mut flags := cc_flags
 	flags = flags.replace('@{file_no_ext}', '${path}')
 	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')
 	flags = flags.replace('@{device}', '${project_setup.device}')
@@ -60,7 +41,7 @@ pub fn c_compile(path string, cc_path string, project_setup setup.Setup) {
 		println(os.norm_path('make -f ${os.dir(path)}/Makefile ${flags}'))
 		println(os.execute(os.norm_path('make -f ${os.dir(path)}/Makefile ${flags}')).output)
 	} else {
-		println(os.norm_path('${cc} ${flags}'))
-		println(os.execute(os.norm_path('${cc} ${flags}')).output)
+		println(os.norm_path('${cc_path} ${flags}'))
+		println(os.execute(os.norm_path('${cc_path} ${flags}')).output)
 	}
 }

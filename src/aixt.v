@@ -52,9 +52,15 @@ fn main() {
 					},
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'compiler'
+						name: 			'c_compiler'
 						abbrev:			'cc' 
 						description: 	'C compiler path.'
+					},
+					cli.Flag {
+						flag:			cli.FlagType.string
+						name: 			'cc_flags'
+						abbrev:			'ccf' 
+						description: 	'C compiler flags.'
 					}
 				]
 				required_args:	1
@@ -70,9 +76,21 @@ fn main() {
 				flags: [
 					cli.Flag {
 						flag:			cli.FlagType.string
+						name: 			'target'
+						abbrev:			't' 
+						description: 	'Target device or board.'
+					},
+					cli.Flag {
+						flag:			cli.FlagType.string
 						name: 			'flasher'
 						abbrev:			'f' 
 						description: 	'Flasher path.'
+					},
+					cli.Flag {
+						flag:			cli.FlagType.string
+						name: 			'f_flags'
+						abbrev:			'ff' 
+						description: 	'Flasher flags.'
 					},
 					cli.Flag {
 						flag:			cli.FlagType.string
@@ -100,9 +118,15 @@ fn main() {
 					},
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'compiler'
+						name: 			'c_compiler'
 						abbrev:			'cc' 
 						description: 	'C compiler path.'
+					},
+					cli.Flag {
+						flag:			cli.FlagType.string
+						name: 			'cc_flags'
+						abbrev:			'ccf' 
+						description: 	'C compiler flags.'
 					}
 				]
 				required_args:	1

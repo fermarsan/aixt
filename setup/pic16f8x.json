@@ -5,12 +5,12 @@
   "cc": {
     "name": "xc8",
     "path": "",
-    "flags": "PART=@{device}"
+    "args": "PART=@{device}"
   },
   "flasher": {
     "name": "MPLAB IPE",
     "path": "",
-    "flags": ""
+    "args": ""
   },
   "api_paths": [
     "microchip/pic16f8x",

@@ -5,12 +5,12 @@
   "cc": {
     "name": "arduino_cli",
     "path": "arduino-cli",
-    "flags": "compile -b arduino:avr:nano -v --output-dir @{file_dir_name}/build"
+    "args": "compile -b arduino:avr:nano -v --output-dir @{file_dir_name}/build"
   },
   "flasher": {
     "name": "arduino_cli",
     "path": "arduino-cli",
-    "flags": "upload @{file_dir_name} -p @{port} -b arduino:avr:nano"
+    "args": "upload @{file_dir_name} -p @{port} -b arduino:avr:nano"
   },
   "api_paths": [
     "logicgreen/lqfp32_minievb",

@@ -12,7 +12,7 @@ import aixt.setup
 // flash('example.v', '~/nbc/nbc', '/dev/ttyUSB0', setup)
 // ```
 // Calls the flashing tool to pass the binary file to the device
-pub fn flash(path string, flasher_path string, port string, project_setup setup.Setup) {
+pub fn flash(path string, flasher_path string, flasher_flags string, port string, project_setup setup.Setup) {
 	// println('>>>>>>>>>>>>>>>>>> Flashing by: ${port} <<<<<<<<<<<<<<<<<<')
 
 	flasher_os := $if windows {
@@ -33,7 +33,7 @@ pub fn flash(path string, flasher_path string, port string, project_setup setup.
 	} else {
 		panic('The flasher path has to be specified as a flag or inside the `setup/<target>.json` file.')
 	}
-	mut flags := project_setup.flasher['flags']
+	mut flags := project_setup.flasher['args']
 	flags = flags.replace('@{file_no_ext}', '${path}')
 	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')
 	flags = flags.replace('@{device}', '${project_setup.device}')

@@ -5,12 +5,12 @@
   "cc": {
     "name": "arduino_cli",
     "path": "arduino-cli",
-    "flags": "compile -b esp32:esp32:esp32 -v --output-dir @{file_dir_name}/build"
+    "args": "compile -b esp32:esp32:esp32 -v --output-dir @{file_dir_name}/build"
   },
   "flasher": {
     "name": "arduino_cli",
     "path": "arduino-cli",
-    "flags": "upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32"
+    "args": "upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32"
   },
   "api_paths": [
     "lilygo/t_watch_2020",
