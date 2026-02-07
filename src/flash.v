@@ -19,10 +19,10 @@ pub fn flash(path string, flasher_path string, port string, project_setup setup.
 		if project_setup.flasher['windows_path'] != '' {
 			project_setup.flasher['windows_path']
 		} else {
-			project_setup.flasher['default_path']
+			project_setup.flasher['path']
 		}
 	} $else {
-		project_setup.flasher['default_path']
+		project_setup.flasher['path']
 	}
 
 	mut flasher := ''
@@ -33,7 +33,6 @@ pub fn flash(path string, flasher_path string, port string, project_setup setup.
 	} else {
 		panic('The flasher path has to be specified as a flag or inside the `setup/<target>.json` file.')
 	}
-
 	mut flags := project_setup.flasher['flags']
 	flags = flags.replace('@{file_no_ext}', '${path}')
 	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')

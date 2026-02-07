@@ -6,6 +6,8 @@
 import time
 import adc_fn as adc
 import pwm_fn as pwm
+import pin_fn as pin
+
 
 pin.setup(pwm.ch0, pin.output)
 

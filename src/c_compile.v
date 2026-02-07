@@ -20,11 +20,12 @@ pub fn c_compile(path string, cc_path string, project_setup setup.Setup) {
 		if project_setup.cc['windows_path'] != '' {
 			project_setup.cc['windows_path']
 		} else {
-			project_setup.cc['default_path']
+			project_setup.cc['path']
 		}
 	} $else {
-		project_setup.cc['default_path']
+		project_setup.cc['path']
 	}
+	
 	mut cc := ''
 	if cc_path != '' {
 		cc = cc_path

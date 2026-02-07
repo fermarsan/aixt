@@ -4,12 +4,12 @@
   "backend": "c",
   "cc": {
     "name": "xc16",
-    "default_path": "",
+    "path": "",
     "flags": "PART=@{device}"
   },
   "flasher": {
     "name": "MPLAB IPE",
-    "default_path": "",
+    "path": "",
     "flags": ""
   },
   "api_paths": [

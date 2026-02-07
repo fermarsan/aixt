@@ -4,12 +4,12 @@
   "backend": "arduino",
   "cc": {
     "name": "arduino_cli",
-    "default_path": "arduino-cli",
+    "path": "arduino-cli",
     "flags": "compile -b --fqbn MH-ET.menu.avr.ATTiny88:avr:attiny88 -v --output-dir @{file_dir_name}/build"
   },
   "flasher": {
     "name": "arduino_cli",
-    "default_path": "arduino-cli",
+    "path": "arduino-cli",
     "flags": "upload @{file_dir_name} -p @{port} -b --fqbn MH-ET.menu.avr.ATTiny88:avr:attiny88"
   },
   "api_paths": [

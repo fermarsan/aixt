@@ -4,12 +4,12 @@
   "backend": "arduino",
   "cc": {
     "name": "arduino_cli",
-    "default_path": "arduino-cli",
+    "path": "arduino-cli",
     "flags": "compile -b m5stack:esp32:m5stack_fire -v --output-dir @{file_dir_name}/build"
   },
   "flasher": {
     "name": "arduino_cli",
-    "default_path": "arduino-cli",
+    "path": "arduino-cli",
     "flags": "upload @{file_dir_name} -p @{port} -b m5stack:esp32:m5stack_fire"
   },
   "api_paths": [

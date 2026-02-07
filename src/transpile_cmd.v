@@ -14,17 +14,19 @@ import aixt.setup
 fn transpile_cmd(cmd cli.Command) ! {
 	input_name := os.abs_path(cmd.args[0])		// and source path input
 	path := os.dir(input_name)
-	mut device := ''
-	if cmd.flags.get_string('target')! != '' {	// device name
-		device = cmd.flags.get_string('target')!
-	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0] != '' {
-		device = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0]
+
+	mut target := ''
+	if cmd.flags.get_string('target')! != '' {	// target name
+		target = cmd.flags.get_string('target')!
+	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['target'][0] != '' {
+		target = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['target'][0]
 	} else {
-		panic('A target device has to be specified as a flag or inside the `v.mod` file.')
+		panic('A target name has to be specified as a flag or inside the `v.mod` file.')
 	}
-	device = device.to_lower()
+	target = target.to_lower()
 	mut project_setup := setup.Setup{}
-	project_setup.load(device)		
+	project_setup.load(target)		
+	
 	println('Aixt path:\n\t${os.executable()}\n')
 	transpile(input_name, project_setup)
 	println('\n${input_name} transpiling finished.\n')

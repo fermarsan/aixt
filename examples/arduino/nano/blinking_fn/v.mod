@@ -1,9 +1,10 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'main'
 	description: ''
 	version: ''
 	license: ''
 	dependencies: []
 	device: ['nano']
 	port: ['/dev/ttyUSB0']
+	cc: ['']
 }

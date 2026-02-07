@@ -4,12 +4,12 @@
   "backend": "c",
   "cc": {
     "name": "gcc",
-    "default_path": "gcc",
+    "path": "gcc",
     "flags": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
   },
   "flasher": {
     "name": "arduino_cli",
-    "default_path": "arduino-cli",
+    "path": "arduino-cli",
     "flags": "upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32"
   },
   "api_paths": [

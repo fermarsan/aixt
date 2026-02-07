@@ -5,7 +5,7 @@ Module {
 	license: ''
 	dependencies: []
 	device: ['nano']
+	cc: ['', '']
+	flasher: ['', '']
 	port: ['/dev/ttyUSB0']
-	cc: ['']
-	flasher: ['']
 }

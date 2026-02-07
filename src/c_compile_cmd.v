@@ -15,14 +15,7 @@ fn c_compile_cmd(cmd cli.Command) ! {
 	input_name := os.abs_path(cmd.args[0])		// and source path input
 	path := os.dir(input_name)
 	base_name := input_name.replace('.v', '') 	// input file base name
-	mut device := ''
-	if cmd.flags.get_string('target')! != '' {	// device name
-		device = cmd.flags.get_string('target')!
-	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0] != '' {
-		device = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['device'][0]
-	} else {
-		panic('A target device has to be specified as a flag or inside the `v.mod` file.')
-	}
+
 	cc := if cmd.flags.get_string('compiler')! != '' {	// C compiler path
 		cmd.flags.get_string('compiler')!
 	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0] != '' {
@@ -31,8 +24,17 @@ fn c_compile_cmd(cmd cli.Command) ! {
 		''
 	}
 
+	mut target := ''
+	if cmd.flags.get_string('target')! != '' {	// target name
+		target = cmd.flags.get_string('target')!
+	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['target'][0] != '' {
+		target = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['target'][0]
+	} else {
+		panic('A target name has to be specified as a flag or inside the `v.mod` file.')
+	}
 	mut project_setup := setup.Setup{}
-	project_setup.load(device)
+	project_setup.load(target)
+
 	println('Aixt path:\n\t${os.executable()}\n')
 	c_compile(base_name, cc, project_setup)
 	ext := match project_setup.backend {

@@ -4,12 +4,12 @@
   "backend": "arduino",
   "cc": {
     "name": "arduino_cli",
-    "default_path": "arduino-cli",
+    "path": "arduino-cli",
     "flags": "compile -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_G431C6UX -v --output-dir @{file_dir_name}/build"
   },
   "flasher": {
     "name": "arduino_cli",
-    "default_path": "arduino-cli",
+    "path": "arduino-cli",
     "flags": "upload @{file_dir_name} -p @{port} -b STMicroelectronics:stm32:GenG4:pnum=GENERIC_G431C6UX"
   },
   "api_paths": [

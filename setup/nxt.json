@@ -4,12 +4,12 @@
   "backend": "nxc",
   "cc": {
     "name": "nbc",
-    "default_path": "nbc",
+    "path": "nbc",
     "cc_flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc"
   },
   "flasher": {
     "name": "nbc",
-    "default_path": "nbc",
+    "path": "nbc",
     "flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc"
   },
   "api_paths": [
