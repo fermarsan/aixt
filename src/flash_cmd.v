@@ -67,7 +67,6 @@ fn flash_cmd(cmd cli.Command) ! {
 		panic('The flashing port has to be specified as a flag or inside the `v.mod` file.')
 	}
 
-	mut project_setup := setup.Setup{}
 	ext := match project_setup.backend {
 		'nxc' { '' }
 		'arduino' { '' }
