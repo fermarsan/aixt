@@ -50,7 +50,7 @@ fn c_compile_cmd(cmd cli.Command) ! {
 		}
 	}
 
-	cc_args := if cmd.flags.get_string('cc_args')! != '' {	// C compiler flags
+	cc_args := if cmd.flags.get_string('cc_args')! != '' {	// C compiler args
 		cmd.flags.get_string('cc_args')!
 	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][1] != '' {
 		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][1]

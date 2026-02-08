@@ -60,7 +60,7 @@ fn main() {
 						flag:			cli.FlagType.string
 						name: 			'cc_args'
 						abbrev:			'cca' 
-						description: 	'C compiler flags.'
+						description: 	'C compiler args.'
 					}
 				]
 				required_args:	1
@@ -90,7 +90,7 @@ fn main() {
 						flag:			cli.FlagType.string
 						name: 			'f_args'
 						abbrev:			'ff' 
-						description: 	'Flasher flags.'
+						description: 	'Flasher args.'
 					},
 					cli.Flag {
 						flag:			cli.FlagType.string
@@ -126,7 +126,7 @@ fn main() {
 						flag:			cli.FlagType.string
 						name: 			'cc_args'
 						abbrev:			'cca' 
-						description: 	'C compiler flags.'
+						description: 	'C compiler args.'
 					}
 				]
 				required_args:	1
