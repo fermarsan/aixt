@@ -4,7 +4,7 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	target: [nxt]
+	target: ['nxt']
 	port: ['/dev/ttyUSB0']
 	cc: ['', '']
 	flasher: ['', '']

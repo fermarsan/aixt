@@ -4,7 +4,7 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	target: [mega]
+	target: ['mega']
 	port: ['/dev/ttyUSB0']
 	cc: ['', '']
 	flasher: ['', '']

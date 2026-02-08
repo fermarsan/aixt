@@ -4,7 +4,7 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	target: [uno]
+	target: ['uno']
 	port: ['/dev/ttyUSB0']
 	cc: ['', '']
 	flasher: ['', '']

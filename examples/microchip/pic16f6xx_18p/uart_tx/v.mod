@@ -4,7 +4,7 @@ Module {
 	version: ''
 	license: ''
 	dependencies: []
-	target: [pic16f628a]
+	target: ['pic16f628a']
 	port: ['/dev/ttyUSB0']
 	cc: ['', '']
 	flasher: ['', '']
