@@ -52,8 +52,8 @@ fn flash_cmd(cmd cli.Command) ! {
 
 	f_args := if cmd.flags.get_string('f_args')! != '' {	// C compiler flags
 		cmd.flags.get_string('f_args')!
-	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][1] != '' {
-		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][1]
+	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][1] != '' {
+		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][1]
 	} else {
 		project_setup.flasher['args']
 	}
