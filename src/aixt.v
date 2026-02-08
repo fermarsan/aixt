@@ -58,8 +58,8 @@ fn main() {
 					},
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'cc_flags'
-						abbrev:			'ccf' 
+						name: 			'cc_args'
+						abbrev:			'cca' 
 						description: 	'C compiler flags.'
 					}
 				]
@@ -88,7 +88,7 @@ fn main() {
 					},
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'f_flags'
+						name: 			'f_args'
 						abbrev:			'ff' 
 						description: 	'Flasher flags.'
 					},
@@ -124,8 +124,8 @@ fn main() {
 					},
 					cli.Flag {
 						flag:			cli.FlagType.string
-						name: 			'cc_flags'
-						abbrev:			'ccf' 
+						name: 			'cc_args'
+						abbrev:			'cca' 
 						description: 	'C compiler flags.'
 					}
 				]

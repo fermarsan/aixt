@@ -5,7 +5,7 @@
   "cc": {
     "name": "nbc",
     "path": "nbc",
-    "cc_flags": " -T:NXT -S:usb -d @{file_no_extension}.nxc"
+    "args": " -T:NXT -S:usb -d @{file_no_extension}.nxc"
   },
   "flasher": {
     "name": "nbc",

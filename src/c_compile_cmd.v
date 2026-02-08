@@ -50,8 +50,8 @@ fn c_compile_cmd(cmd cli.Command) ! {
 		}
 	}
 
-	cc_flags := if cmd.flags.get_string('cc_flags')! != '' {	// C compiler flags
-		cmd.flags.get_string('cc_flags')!
+	cc_args := if cmd.flags.get_string('cc_args')! != '' {	// C compiler flags
+		cmd.flags.get_string('cc_args')!
 	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][1] != '' {
 		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][1]
 	} else {
@@ -59,7 +59,7 @@ fn c_compile_cmd(cmd cli.Command) ! {
 	}
 
 	println('Aixt path:\n\t${os.executable()}\n')
-	c_compile(base_name, cc, cc_flags, project_setup)
+	c_compile(base_name, cc, cc_args, project_setup)
 	ext := match project_setup.backend {
 		'nxc' { 'nxc' }
 		'arduino' { 'ino' }

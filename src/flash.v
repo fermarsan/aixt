@@ -12,40 +12,22 @@ import aixt.setup
 // flash('example.v', '~/nbc/nbc', '/dev/ttyUSB0', setup)
 // ```
 // Calls the flashing tool to pass the binary file to the device
-pub fn flash(path string, flasher_path string, flasher_flags string, port string, project_setup setup.Setup) {
+pub fn flash(path string, flasher_path string, flasher_args string, port string, project_setup setup.Setup) {
 	// println('>>>>>>>>>>>>>>>>>> Flashing by: ${port} <<<<<<<<<<<<<<<<<<')
 
-	flasher_os := $if windows {
-		if project_setup.flasher['windows_path'] != '' {
-			project_setup.flasher['windows_path']
-		} else {
-			project_setup.flasher['path']
-		}
-	} $else {
-		project_setup.flasher['path']
-	}
-
-	mut flasher := ''
-	if flasher_path != '' {
-		flasher = flasher_path
-	} else if flasher_os != '' {
-		flasher = flasher_os
-	} else {
-		panic('The flasher path has to be specified as a flag or inside the `setup/<target>.json` file.')
-	}
-	mut flags := project_setup.flasher['args']
-	flags = flags.replace('@{file_no_ext}', '${path}')
-	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')
-	flags = flags.replace('@{device}', '${project_setup.device}')
-	flags = flags.replace('@{port}', '${port}')
+	mut args := flasher_args
+	args = args.replace('@{file_no_ext}', '${path}')
+	args = args.replace('@{file_dir_name}', '${os.dir(path)}')
+	args = args.replace('@{device}', '${project_setup.device}')
+	args = args.replace('@{port}', '${port}')
 
 	input_ext := match project_setup.backend {
 		'nxc' { '.nxc' }
 		'arduino' { '.ino' }
 		else { '.c' }
 	}
-	flags = flags.replace('@{input_ext}', '${input_ext}')
+	args = args.replace('@{input_ext}', '${input_ext}')
 
-	println('${flasher} ${flags}')
-	println(os.execute('${flasher} ${flags}').output)
+	println('${flasher_args} ${args}')
+	println(os.execute('${flasher_args} ${args}').output)
 }

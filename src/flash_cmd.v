@@ -16,12 +16,46 @@ fn flash_cmd(cmd cli.Command) ! {
 	path := os.dir(input_name)
 	base_name := input_name.replace('.v', '') 	// input file base name
 
-	flasher := if cmd.flags.get_string('flasher')! != '' {	// Flasher path
-		cmd.flags.get_string('flasher')!
-	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][0] != '' {
-		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][0]
+	mut target := ''
+	if cmd.flags.get_string('target')! != '' {	// target name
+		target = cmd.flags.get_string('target')!
+	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['target'][0] != '' {
+		target = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['target'][0]
 	} else {
-		''
+		panic('A target name has to be specified as a flag or inside the `v.mod` file.')
+	}
+	mut project_setup := setup.Setup{}
+	project_setup.load(target)
+
+	mut flasher := ''
+	if cmd.flags.get_string('flasher')! != '' {	// as a flag
+		flasher = cmd.flags.get_string('flasher')!
+	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][0] != '' {	// inside `v.mod`
+		flasher = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['flasher'][0]
+	} else {	// inside `setup/<target_name>.json`
+		$if windows {
+			if project_setup.flasher['windows_path'] != '' {
+				flasher = project_setup.flasher['windows_path']
+			} else if project_setup.flasher['path'] != ''{
+				flasher = project_setup.flasher['path']
+			} else {
+				panic('The flasher path has to be specified as a flag or inside the `setup/<target>.json` file.')
+			}
+		} $else {
+			if project_setup.flasher['path'] != ''{
+				flasher = project_setup.flasher['path']
+			} else {
+				panic('The flasher path has to be specified as a flag or inside the `setup/<target>.json` file.')
+			}
+		}
+	}
+
+	f_args := if cmd.flags.get_string('f_args')! != '' {	// C compiler flags
+		cmd.flags.get_string('f_args')!
+	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][1] != '' {
+		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][1]
+	} else {
+		project_setup.flasher['args']
 	}
 
 	mut port := ''
@@ -42,6 +76,6 @@ fn flash_cmd(cmd cli.Command) ! {
 	
 	name := if ext == '' { base_name } else { '${base_name}.${ext}' }
 	println('Aixt path:\n\t${os.executable()}\n')
-	flash(name, flasher, port, project_setup)
+	flash(name, flasher, f_args, port, project_setup)
 	println('\n${name} flashing finished.\n')
 }

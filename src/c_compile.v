@@ -14,19 +14,19 @@ import aixt.setup
 // Calls the `nbc` compiler with `example.c` file, previously generated from `example.v` .
 // If inside the containing folder of `example.v` a `Makefile`  exits, it calls the
 // `make`  command instead.
-pub fn c_compile(path string, cc_path string, cc_flags string, project_setup setup.Setup) {
+pub fn c_compile(path string, cc_path string, cc_args string, project_setup setup.Setup) {
 
-	mut flags := cc_flags
-	flags = flags.replace('@{file_no_ext}', '${path}')
-	flags = flags.replace('@{file_dir_name}', '${os.dir(path)}')
-	flags = flags.replace('@{device}', '${project_setup.device}')
+	mut args := cc_args
+	args = args.replace('@{file_no_ext}', '${path}')
+	args = args.replace('@{file_dir_name}', '${os.dir(path)}')
+	args = args.replace('@{device}', '${project_setup.device}')
 
 	input_ext := match project_setup.backend {
 		'nxc' 		{ '.nxc' }
 		'arduino'	{ '.ino' }
 		else 		{ '.c' }
 	}
-	flags = flags.replace('@{input_ext}', '${input_ext}')
+	args = args.replace('@{input_ext}', '${input_ext}')
 
 	output_ext := match project_setup.target {
 		'Emulator'	{
@@ -34,14 +34,14 @@ pub fn c_compile(path string, cc_path string, cc_flags string, project_setup set
 		}
 		else	{ '' }
 	}
-	flags = flags.replace('@{output_ext}', '${output_ext}')
+	args = args.replace('@{output_ext}', '${output_ext}')
 
 	// println('-------- ${os.dir(path)} --------')
 	if os.exists(os.norm_path('${os.dir(path)}/Makefile')) {		// calling compiler through Makefile
-		println(os.norm_path('make -f ${os.dir(path)}/Makefile ${flags}'))
-		println(os.execute(os.norm_path('make -f ${os.dir(path)}/Makefile ${flags}')).output)
+		println(os.norm_path('make -f ${os.dir(path)}/Makefile ${args}'))
+		println(os.execute(os.norm_path('make -f ${os.dir(path)}/Makefile ${args}')).output)
 	} else {
-		println(os.norm_path('${cc_path} ${flags}'))
-		println(os.execute(os.norm_path('${cc_path} ${flags}')).output)
+		println(os.norm_path('${cc_path} ${args}'))
+		println(os.execute(os.norm_path('${cc_path} ${args}')).output)
 	}
 }
