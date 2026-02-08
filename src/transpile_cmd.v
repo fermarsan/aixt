@@ -15,11 +15,27 @@ fn transpile_cmd(cmd cli.Command) ! {
 	input_name := os.abs_path(cmd.args[0])		// and source path input
 	path := os.dir(input_name)
 
+	v_mod := vmod.from_file(os.norm_path('${path}/v.mod')) or { 
+		vmod.Manifest {
+			name: ''
+			description: ''
+			version: ''
+			license: ''
+			dependencies: []
+			unknown: { 
+				'target': [''], 
+				'port': ['/dev/ttyUSB0'], 
+				'cc': ['', ''],
+				'flasher': ['', '']
+			}
+		}
+	}
+
 	mut target := ''
 	if cmd.flags.get_string('target')! != '' {	// target name
 		target = cmd.flags.get_string('target')!
-	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['target'][0] != '' {
-		target = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['target'][0]
+	} else if v_mod.unknown['target'][0] != '' {
+		target = v_mod.unknown['target'][0]
 	} else {
 		panic('A target name has to be specified as a flag or inside the `v.mod` file.')
 	}

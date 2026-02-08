@@ -20,6 +20,6 @@ Examples:
   aixt -version                           Print the Aixt version number
   aixt flash -p COM1 hello.v              Flash the device with the generate binary
                                           after transpile and compile `hello.v`
-  aixt new -t NXT -f . -n proj_1          Create an NXT project named `proj_1` at
+  aixt new -t NXT -f . -n proj_1          Create an NXT project named `proj_1` at the
                                           current folder'
 }

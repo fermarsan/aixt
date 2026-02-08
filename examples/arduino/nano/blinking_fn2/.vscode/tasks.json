@@ -1,0 +1,174 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Aixt: Transpile",
+            "type": "shell",
+            "windows": {
+                "command": [
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt transpile ${file} }",
+                    "else",
+                    "{ ${config:aixt} transpile ${file} }"
+                ]
+            },
+            "linux": {
+                "command": [
+                    "if [ -f pixi.toml ]; then",
+                    "pixi run aixt transpile ${file};",
+                    "else",
+                    "${config:aixt} transpile ${file};",
+                    "fi"
+                ]
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": "build",
+            "presentation": {
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: C Compile",
+            "type": "shell",
+            "windows": {
+                "command": [
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt c_compile ${file} }",
+                    "else",
+                    "{ ${config:aixt} c_compile ${file} }"
+                ]
+            },
+            "linux": {
+                "command": [
+                    "if [ -f pixi.toml ]; then",
+                    "pixi run aixt c_compile ${file};",
+                    "else",
+                    "${config:aixt} c_compile ${file};",
+                    "fi"
+                ]
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": "build",
+            "presentation": {
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Flash",
+            "type": "shell",
+            "windows": {
+                "command": [
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt flash ${file} ${config:port_windows} }",
+                    "else",
+                    "{ ${config:aixt} flash ${file} ${config:port_windows} }"
+                ]
+            },
+            "linux": {
+                "command": [
+                    "if [ -f pixi.toml ]; then",
+                    "pixi run aixt flash ${file} ${config:port_linux};",
+                    "else",
+                    "${config:aixt} flash ${file} ${config:port_linux};",
+                    "fi"
+                ]
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": "build",
+            "presentation": {
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Build",
+            "type": "shell",
+            "windows": {
+                "command": [
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt build ${file} }",
+                    "else",
+                    "{ ${config:aixt} build ${file} }"
+                ]
+            },
+            "linux": {
+                "command": [
+                    "if [ -f pixi.toml ]; then",
+                    "pixi run aixt build ${file};",
+                    "else",
+                    "${config:aixt} build ${file};",
+                    "fi"
+                ]
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": "build",
+            "presentation": {
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Build & Flash",
+            "dependsOn": [
+                "Aixt: Build",
+                "Aixt: Flash"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": "build",
+            "presentation": {
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Aixt: Clean",
+            "type": "shell",
+            "windows": {
+                "command": [
+                    "if (Test-Path -Path 'pixi.toml')",
+                    "{ pixi run aixt clean ${file} }",
+                    "else",
+                    "{ ${config:aixt} clean ${file} }"
+                ]
+            },
+            "linux": {
+                "command": [
+                    "if [ -f pixi.toml ]; then",
+                    "pixi run aixt clean ${file};",
+                    "else",
+                    "${config:aixt} clean ${file};",
+                    "fi"
+                ]
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": "build",
+            "presentation": {
+                "showReuseMessage": false
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "projectName",
+            "description": "Project name.",
+            "default": "project"
+        },
+        {
+            "type": "promptString",
+            "id": "dirName",
+            "description": "Directory name.",
+            "default": "."
+        }
+    ]
+}

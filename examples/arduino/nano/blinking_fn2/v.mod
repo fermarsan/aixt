@@ -6,6 +6,9 @@ Module {
 	dependencies: []
 	target: ['nano']
 	port: ['/dev/ttyUSB0']
-	cc: ['', '']
+	cc: [
+		'/home/fercho/.local/bin/arduino-cli', 
+		'compile -b arduino:avr:nano -v --output-dir ~/blinking_fn2/build'
+		]
 	flasher: ['', '']
 }

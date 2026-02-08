@@ -16,11 +16,27 @@ fn c_compile_cmd(cmd cli.Command) ! {
 	path := os.dir(input_name)
 	base_name := input_name.replace('.v', '') 	// input file base name
 
+	v_mod := vmod.from_file(os.norm_path('${path}/v.mod')) or { 
+		vmod.Manifest {
+			name: ''
+			description: ''
+			version: ''
+			license: ''
+			dependencies: []
+			unknown: { 
+				'target': [''], 
+				'port': ['/dev/ttyUSB0'], 
+				'cc': ['', ''],
+				'flasher': ['', '']
+			}
+		}
+	}
+
 	mut target := ''
 	if cmd.flags.get_string('target')! != '' {	// target name
 		target = cmd.flags.get_string('target')!
-	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['target'][0] != '' {
-		target = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['target'][0]
+	} else if v_mod.unknown['target'][0] != '' {
+		target = v_mod.unknown['target'][0]
 	} else {
 		panic('A target name has to be specified as a flag or inside the `v.mod` file.')
 	}
@@ -30,8 +46,8 @@ fn c_compile_cmd(cmd cli.Command) ! {
 	mut cc := ''
 	if cmd.flags.get_string('c_compiler')! != '' {	// as a flag
 		cc = cmd.flags.get_string('c_compiler')!
-	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0] != '' {	// inside `v.mod`
-		cc = vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][0]
+	} else if v_mod.unknown['cc'][0] != '' {	// inside `v.mod`
+		cc = v_mod.unknown['cc'][0]
 	} else {	// inside `setup/<target_name>.json`
 		$if windows {
 			if project_setup.cc['windows_path'] != '' {
@@ -52,8 +68,8 @@ fn c_compile_cmd(cmd cli.Command) ! {
 
 	cc_args := if cmd.flags.get_string('cc_args')! != '' {	// C compiler args
 		cmd.flags.get_string('cc_args')!
-	} else if vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][1] != '' {
-		vmod.from_file(os.norm_path('${path}/v.mod'))!.unknown['cc'][1]
+	} else if v_mod.unknown['cc'][1] != '' {
+		v_mod.unknown['cc'][1]
 	} else {
 		project_setup.cc['args']
 	}
