@@ -1,3 +1,140 @@
+## v0.3
+*9 Feb 2026*
+This _Aixt_ version needs _Vlang_ *v0.5*.
+#### Supported Devices
+- Software emulator
+- Mindstorms NXT
+- PIC16F6xx-14p family
+- PIC16F6xx-18p family
+- PIC16F6xx-20p family
+- PIC16F8x family
+- PIC16F87x family
+- PIC16F88x family
+- Explorer16 (PIC24FJ128GA010)
+- CY8CKIT-049-42xx (PSoC 4)
+- CY8CKIT-145-40xx (PSoC 4)
+- Arduino Uno
+- Arduino Nano
+- Arduino Mega
+- Blue-Pill
+- Nucleo-L031K6
+- STM32G431Core
+- STM32F411Core
+- Raspberry Pi Pico
+- XIAO-SAMD21
+- XIAO-ESP32-xx (C3, C6, S3)
+- ESP32-DevKitC
+- ESP32-C3-CORE
+- ESP32-C3FH4   
+- M5Stack FIRE
+- CH32V103R8T6-EVT-R1
+Devices being updated:
+- ESP32-CYD
+- WCH families
+  
+#### Changes and new features
+**Aixt CLI update**
+- Migrate `aixt.v` file to an V's standard CLI app using `cli` module
+- Aixt's `new` command has now an interactive mode (by flag)
+- Implement the `init` command
+- Interactive mode for `init` and `new`
+- change `device` flag by `-target` (`-t`)
+- make the Aixt executable receive `-c_compiler <cc_path>` (`-cc <cc_path>`) flag for the C compiler path
+- make the Aixt executable receive `-flasher <flasher_path>` (`-f <flasher_path>`) flag for the flasher path
+  
+**Folder organization update**
+- Split the examples from the API in all the targets creating `examples` folder
+- Change `targets` folder name by `api`
+- Change in all of the targets  `builtin.c.v` to `main/main.c.v`
+- Change `/rp-pico/` by `/pico/`
+- Change redundant names in `/examples/` folders
+- Target names are case-insensitive now but the Aixt related files and folders are always lowercase 
+- Add basic language test examples in `/test` folder
+  - Create a folder by each test file including the project files
+- Split the `docs` directory into `docs/api` and `docs/lib`
+  
+**API update**
+- Object Oriented Programming enabled in the API for most of targets
+- API and Aixt compiler now are number the same (0.3)
+- Define as default the object oriented modules (`pin`, `motor`, etc) less in low memory devices like PICs
+  - Define as standard module's name `module` for unique and OOP versions and `module_fn` for only-funcional ones
+  - Update according the new names, the targets: NXT, Emulator and arduino devices (tested on Uno, Nano and Mega).
+  - Create both functional and OOP version of modules `pin`, `adc`, `pwm`, `motor`, `sensor` and `button`  
+  - Update all the Microchip targets to `pin_fn` 
+  
+**Editors update**
+- VSCode `tasks.json` updated to also support Aixt as a Pixi workspace package
+- Remove the fields `device` and `port` of `.vscode/settings.json`
+- Modify `.vscode/tasks.json` according to the new `v.mod` file
+- Modify `.zed/tasks.json` according to the new `v.mod` file
+- Update `tasks.json` and `settings.json` according to the new `v.mod` file
+  
+**Solved issues**
+- Arduino Mega and Nano `led0` is now public.
+- Change all occurrences of `@[as_macro] const` by `@[as_macro] pub const`
+- Aixt failed with V 0.4.12 or above ("-" in names affected it). Now it works on V 0.4.12 and 0.5
+- Defining structs and use them in multiples files failed depending on the compiling order
+  - Add to the `c_gen` struct the field `typedefs` 
+- Global struct instances now work well
+- Interrupts examples for `arduino` backend already work with `pin` y `pin_fn`
+- Makefiles __device_name__ already works well
+- Interrupts on PIC16F work back
+- unknown PIC12 fuses solved
+- `match` already works well with `C.variables`
+- assignment using `match` already works
+  
+**README.md update**
+- Add documentation about installing by using `conda`/`pixi`
+  
+**Configuration files update**
+- Implement a new scheme for the `device.json` setup files
+- Add a `v.mod` file inside each project folder in order including `device` and `port` fields
+  - `transpile`, `c_compile` and `build` commands use the `v.mod` file if the flag `device` is not explicitly passed
+  - `flash` command use the `v.mod` file if the flag `port` is not explicitly passed
+- Update the `v.mod` file in all the Microchip targets
+- Remove `aixt_linux` and `aixt_windows` from `settings.json`
+- Change the fields `cc` and `flasher` of `setup/<target_name>.json` file, from `[windows_path]` `[linux_path]` to `[path]` and `[windows_path]` as optional
+- Update all the setup files `*.json`to the new scheme
+  - From `device.json` change `port:` by `target:`
+- Change the fields `cc` and `flasher` of `setup.json` file, from `[flags]` to `[args]`
+- Change `device:` by `target:` in the project's `v.mod` files
+- Add the fields `cc:` and `flasher:` to the project's `v.mod` files
+- Aixt executable now works using data from: direct flags, the `v.mod` file or default `setup/<target_name>.json` file, following this priority order.
+- Change `aixt/AIXT` by `aixt_path/AIXT_PATH` in all the VSCode and Zed setup files.
+  
+**New features**
+- Delete `nbc` compiler binaries from the repository (Linux and Windows versions)
+- Enable conditional compilation based on `device.json` properties 
+  - Include `$if c ? {}` syntax from `backend: c` of `device.json` 
+  - Include `$if xc8 ? {}` syntax from `cc: { name: xc8 }` of `device.json` 
+  - Change all the setup files name that contains '-' by '_'
+  - Change all the setup files content that contains '-' by '_' in the fields: "target", "backend", "name" and "api_paths"
+  - In the `api` folder change all the folders names that contains '-' by '_'
+  - In the `api` folder change all the *.v file names that contains '-' by '_'
+  - `PIC16F6xx_14p` ADC module modification by using conditional compilation: `$if PIC16F630 ? {`   
+- Implement a `builtin` module similar to the _V's_ one
+  - Implement `eprint()` function
+- `#preinclude` command fully implemented and tested
+- Generate the C macros (`@[as_macro]`) before de rest of constants and functions definition (functions and constants)
+- Test and include in documentation the module `pin_fast` for PIC16 targets
+- Update the PIC12Fxxx, PIC16F8x and PIC16F87x examples 
+- generates documentation from code
+  - Update the source files header to improve the visualization of the automatic documentation
+  - Remove `/api/` from the end of targets implementation path  
+  - Create 'dummy' modules as workspaces in API targets folders (Microchip and Arduino targets)
+  - Change redundant targets API folders (Microchip and Arduino targets)
+  - Change `/api/`,`/docs/`, `/setup/`, `examples/` and `/templates/project/` folders to lowercase
+  - New script to generate `api/.../README.md` files, from `docs/.../quickref.md` and `api/.../header.md` 
+  - Add the guide `Generate documentation from code.md`
+
+#### Available Libraries
+- disp7seg (7 Segments Arduino Shield)
+- lcd (LCD Arduino Shield)
+- For Arduino backend:
+  - oled
+  - random
+  - tft_espi
+  
 ## v0.2.3
 *26 Oct 2025*
 This _Aixt_ version needs _V_ *0.4.10*.
