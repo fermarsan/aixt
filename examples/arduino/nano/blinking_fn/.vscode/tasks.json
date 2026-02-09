@@ -6,6 +6,7 @@
             "type": "shell",
             "windows": {
                 "command": [
+                    "conda activate ${config:conda_env}",
                     "if (Test-Path -Path 'pixi.toml')",
                     "{ pixi run aixt transpile ${file} }",
                     "else",
@@ -14,6 +15,7 @@
             },
             "linux": {
                 "command": [
+                    "source activate ${config:conda_env};",
                     "if [ -f pixi.toml ]; then",
                     "pixi run aixt transpile ${file};",
                     "else",
