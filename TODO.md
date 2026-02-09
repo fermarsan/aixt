@@ -15,13 +15,13 @@ Tasks to do in Aixt
 - [ ] Allow multi-arg functions
 - [ ] Implements sub-modules with the syntax: `import main_module.submodule`
 - [ ] ISSUE: D:\git-projects\aixt\api\Microchip\Explorer16\PIC24\examples\Exp16-PIC24-Port_blink conflict
+- [ ] implement maps
+- [ ] Start a vscode extension for Aixt
+- [ ] Give support to reference and dereference
 
 
 ### In Progress
 
-- [ ] implement maps
-- [ ] Start a vscode extension for Aixt
-- [ ] Give support to reference and dereference
 - [ ] Issue: Calling function from string interpolations including casting
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
