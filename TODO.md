@@ -108,4 +108,4 @@ Tasks to do in Aixt
 - [x] Change `device:` by `target:` in the project's `v.mod` files
 - [x] Add the fields `cc:` and `flasher:` to the project's `v.mod` files
 - [x] Aixt executable now works using data from: direct flags, the `v.mod` file or default `setup/<target_name>.json` file, following this priority order.
-- [x] Change 'aixt/AIXT' by 'aixt_path/AIXT_PATH' in all the VSCode and Zed setup files.
+- [x] Change `aixt/AIXT` by `aixt_path/AIXT_PATH` in all the VSCode and Zed setup files.
