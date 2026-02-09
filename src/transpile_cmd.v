@@ -1,13 +1,11 @@
 // Author: Fernando M. Santa
-// Date: 2025
+// Date: 2025-2026
 // ## Description
-// This is the main file of the Aixt project.
 module main
 
 // Aixt transpiler
 import cli
 import os
-import v.vmod
 import aixt.setup
 
 // transpile_cmd is called after command `aixt transpile [flags] source_file`
@@ -15,21 +13,7 @@ fn transpile_cmd(cmd cli.Command) ! {
 	input_name := os.abs_path(cmd.args[0])		// and source path input
 	path := os.dir(input_name)
 
-	v_mod := vmod.from_file(os.norm_path('${path}/v.mod')) or { 
-		vmod.Manifest {
-			name: ''
-			description: ''
-			version: ''
-			license: ''
-			dependencies: []
-			unknown: { 
-				'target': [''], 
-				'port': ['/dev/ttyUSB0'], 
-				'cc': ['', ''],
-				'flasher': ['', '']
-			}
-		}
-	}
+	v_mod := aixt_vmod_load(path)
 
 	mut target := ''
 	if cmd.flags.get_string('target')! != '' {	// target name
