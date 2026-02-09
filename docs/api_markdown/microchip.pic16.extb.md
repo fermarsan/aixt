@@ -23,4 +23,4 @@ irq_enable enables the external interrupt by changes of RB7-RB4 pins.
 
 [[Return to contents]](#Contents)
 
-#### Powered by vdoc. Generated on: 9 Feb 2026 16:33:31
+#### Powered by vdoc. Generated on: 9 Feb 2026 18:05:26

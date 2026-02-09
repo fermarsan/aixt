@@ -61,4 +61,4 @@ setup configures the period of the Timer0 in microseconds| fosc [Mhz] | max peri
 
 [[Return to contents]](#Contents)
 
-#### Powered by vdoc. Generated on: 9 Feb 2026 16:33:31
+#### Powered by vdoc. Generated on: 9 Feb 2026 18:05:26

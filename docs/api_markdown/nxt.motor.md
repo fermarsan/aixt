@@ -498,4 +498,4 @@ fn (mut m Motor) set_max_pos_reg(max_speed u8, max_acceleration u8)
 
 [[Return to contents]](#Contents)
 
-#### Powered by vdoc. Generated on: 9 Feb 2026 16:33:31
+#### Powered by vdoc. Generated on: 9 Feb 2026 18:05:26

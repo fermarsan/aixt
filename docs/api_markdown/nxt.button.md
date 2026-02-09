@@ -3,26 +3,28 @@
 
 ## Contents
 - [Constants](#Constants)
-- [count](#count)
-- [long_press_count](#long_press_count)
-- [long_release_count](#long_release_count)
-- [press_count](#press_count)
-- [read](#read)
-- [read_ex](#read_ex)
 - [read_sys](#read_sys)
-- [release_count](#release_count)
-- [set_long_press_count](#set_long_press_count)
-- [set_long_release_count](#set_long_release_count)
-- [set_press_count](#set_press_count)
-- [set_release_count](#set_release_count)
-- [set_short_release_count](#set_short_release_count)
-- [set_state](#set_state)
-- [short_release_count](#short_release_count)
-- [state](#state)
+- [Button.new](#Button.new)
+- [Button](#Button)
+  - [read](#read)
+  - [count](#count)
+  - [read_ex](#read_ex)
+  - [press_count](#press_count)
+  - [long_press_count](#long_press_count)
+  - [short_release_count](#short_release_count)
+  - [long_release_count](#long_release_count)
+  - [release_count](#release_count)
+  - [state](#state)
+  - [set_long_press_count](#set_long_press_count)
+  - [set_long_release_count](#set_long_release_count)
+  - [set_press_count](#set_press_count)
+  - [set_release_count](#set_release_count)
+  - [set_short_release_count](#set_short_release_count)
+  - [set_state](#set_state)
 
 ## Constants
 ```v
-const btn1 = 0
+const btn1 = u8(0)
 ```
 
 Constants that are part of the NXT firmware's Button module.
@@ -30,49 +32,49 @@ Constants that are part of the NXT firmware's Button module.
 [[Return to contents]](#Contents)
 
 ```v
-const btn2 = 1
+const btn2 = u8(1)
 ```
 
 [[Return to contents]](#Contents)
 
 ```v
-const btn3 = 2
+const btn3 = u8(2)
 ```
 
 [[Return to contents]](#Contents)
 
 ```v
-const btn4 = 3
+const btn4 = u8(3)
 ```
 
 [[Return to contents]](#Contents)
 
 ```v
-const no_btns = 4
+const no_btns = u8(4)
 ```
 
 [[Return to contents]](#Contents)
 
 ```v
-const exit = 0
+const exit = u8(0)
 ```
 
 [[Return to contents]](#Contents)
 
 ```v
-const right = 1
+const right = u8(1)
 ```
 
 [[Return to contents]](#Contents)
 
 ```v
-const left = 2
+const left = u8(2)
 ```
 
 [[Return to contents]](#Contents)
 
 ```v
-const center = 3
+const center = u8(3)
 ```
 
 [[Return to contents]](#Contents)
@@ -115,50 +117,6 @@ const _none = 0x10
 
 [[Return to contents]](#Contents)
 
-## count
-```v
-fn count(args ...any) u8
-```
-
-[[Return to contents]](#Contents)
-
-## long_press_count
-```v
-fn long_press_count(args ...any) u8
-```
-
-[[Return to contents]](#Contents)
-
-## long_release_count
-```v
-fn long_release_count(args ...any) u8
-```
-
-[[Return to contents]](#Contents)
-
-## press_count
-```v
-fn press_count(args ...any) u8
-```
-
-[[Return to contents]](#Contents)
-
-## read
-```v
-fn read(args ...any) bool
-```
-
-Functions for accessing and modifying Button module features.
-
-[[Return to contents]](#Contents)
-
-## read_ex
-```v
-fn read_ex(args ...any) i8
-```
-
-[[Return to contents]](#Contents)
-
 ## read_sys
 ```v
 fn read_sys(args ...any)
@@ -166,67 +124,132 @@ fn read_sys(args ...any)
 
 [[Return to contents]](#Contents)
 
-## release_count
+## Button.new
 ```v
-fn release_count(args ...any) u8
+fn Button.new(id u8) Sensor
+```
+
+new returns a new Sensor instance
+
+[[Return to contents]](#Contents)
+
+## Button
+```v
+struct Button {
+mut:
+	id u8
+}
+```
+
+Button struct
+
+[[Return to contents]](#Contents)
+
+## read
+```v
+fn (mut b Button) read(reset_count bool) bool
+```
+
+Functions for accessing and modifying Button module features.
+
+[[Return to contents]](#Contents)
+
+## count
+```v
+fn (mut b Button) count(reset_count bool) u8
 ```
 
 [[Return to contents]](#Contents)
 
-## set_long_press_count
+## read_ex
 ```v
-fn set_long_press_count(args ...any)
+fn (mut b Button) read_ex(reset bool, pressed &bool, count &u32) i8
 ```
 
 [[Return to contents]](#Contents)
 
-## set_long_release_count
+## press_count
 ```v
-fn set_long_release_count(args ...any)
+fn (mut b Button) press_count() u8
 ```
 
 [[Return to contents]](#Contents)
 
-## set_press_count
+## long_press_count
 ```v
-fn set_press_count(args ...any)
-```
-
-[[Return to contents]](#Contents)
-
-## set_release_count
-```v
-fn set_release_count(args ...any)
-```
-
-[[Return to contents]](#Contents)
-
-## set_short_release_count
-```v
-fn set_short_release_count(args ...any)
-```
-
-[[Return to contents]](#Contents)
-
-## set_state
-```v
-fn set_state(args ...any)
+fn (mut b Button) long_press_count() u8
 ```
 
 [[Return to contents]](#Contents)
 
 ## short_release_count
 ```v
-fn short_release_count(args ...any) u8
+fn (mut b Button) short_release_count() u8
+```
+
+[[Return to contents]](#Contents)
+
+## long_release_count
+```v
+fn (mut b Button) long_release_count() u8
+```
+
+[[Return to contents]](#Contents)
+
+## release_count
+```v
+fn (mut b Button) release_count() u8
 ```
 
 [[Return to contents]](#Contents)
 
 ## state
 ```v
-fn state(args ...any) u8
+fn (mut b Button) state() u8
 ```
 
 [[Return to contents]](#Contents)
 
-#### Powered by vdoc. Generated on: 9 Feb 2026 16:33:31
+## set_long_press_count
+```v
+fn (mut b Button) set_long_press_count(n u8)
+```
+
+[[Return to contents]](#Contents)
+
+## set_long_release_count
+```v
+fn (mut b Button) set_long_release_count(n u8)
+```
+
+[[Return to contents]](#Contents)
+
+## set_press_count
+```v
+fn (mut b Button) set_press_count(n u8)
+```
+
+[[Return to contents]](#Contents)
+
+## set_release_count
+```v
+fn (mut b Button) set_release_count(n u8)
+```
+
+[[Return to contents]](#Contents)
+
+## set_short_release_count
+```v
+fn (mut b Button) set_short_release_count(n u8)
+```
+
+[[Return to contents]](#Contents)
+
+## set_state
+```v
+fn (mut b Button) set_state(state u8)
+```
+
+[[Return to contents]](#Contents)
+
+#### Powered by vdoc. Generated on: 9 Feb 2026 18:05:26
