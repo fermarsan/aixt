@@ -1,7 +1,7 @@
 [
   {
     "label": "Aixt: Transpile",
-    "command": "$AIXT",
+    "command": "$AIXT_PATH",
     "args": [
       "transpile",
       "$ZED_FILE"
@@ -12,7 +12,7 @@
   },
   {
     "label": "Aixt: Compile",
-    "command": "$AIXT",
+    "command": "$AIXT_PATH",
     "args": [
       "compile",
       "$ZED_FILE"
@@ -23,7 +23,7 @@
   },
   {
     "label": "Aixt: Build",
-    "command": "$AIXT",
+    "command": "$AIXT_PATH",
     "args": [
       "build",
       "$ZED_FILE"
@@ -34,7 +34,7 @@
   },
   {
     "label": "Aixt: Flash",
-    "command": "$AIXT",
+    "command": "$AIXT_PATH",
     "args": [
       "flash",
       "$ZED_FILE"
@@ -45,7 +45,7 @@
   },
   {
     "label": "Aixt: Clean",
-    "command": "$AIXT",
+    "command": "$AIXT_PATH",
     "args": [
       "clean",
       "$ZED_FILE"
