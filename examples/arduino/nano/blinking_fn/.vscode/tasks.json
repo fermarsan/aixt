@@ -6,7 +6,6 @@
             "type": "shell",
             "windows": {
                 "command": [
-                    "conda activate ${config:conda_env}",
                     "if (Test-Path -Path 'pixi.toml')",
                     "{ pixi run aixt transpile ${file} }",
                     "else",
@@ -15,19 +14,24 @@
             },
             "linux": {
                 "command": [
-                    "source activate ${config:conda_env};",
                     "if [ -f pixi.toml ]; then",
                     "pixi run aixt transpile ${file};",
                     "else",
                     "${config:aixt_path} transpile ${file};",
                     "fi"
                 ]
-            },
+            },        
+            "dependsOn": [
+                "Aixt: Activate conda env"
+            ],
             "problemMatcher": [
                 "$tsc"
             ],
             "group": "build",
             "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true,
                 "showReuseMessage": false
             }
         },
@@ -56,6 +60,9 @@
             ],
             "group": "build",
             "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true,
                 "showReuseMessage": false
             }
         },
