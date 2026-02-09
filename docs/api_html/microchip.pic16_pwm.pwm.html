@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="x-ua-compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>microchip.pic16_pwm.pwm | vdoc</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+		<link rel="manifest" href="site.webmanifest" />
+		<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+		<meta name="msapplication-TileColor" content="#da532c" />
+		<meta name="theme-color" content="#ffffff" />
+		<link rel="stylesheet" href="doc.css" />
+		<link rel="stylesheet" href="normalize.css" />
+		<script src="dark-mode.js"></script>
+	</head>
+
+	<body>
+		<div><a id="skip-to-content-link" href="#main-content">Skip to content</a></div>
+		<div id="page">
+			<header class="doc-nav hidden">
+				<div class="heading-container">
+					<div class="heading">
+						<div class="info">
+							<div class="module">api</div>
+							<div class="toggle-version-container">
+								<span>0.3 fe6162e</span>
+								<div
+									id="dark-mode-toggle"
+									role="switch"
+									aria-checked="false"
+									aria-label="Toggle dark mode"
+								>
+									<svg xmlns="http://www.w3.org/2000/svg" class="light-icon" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" class="dark-icon" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M11.1,12.08C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12c0,0.14,0.02,0.28,0.02,0.42 C2.62,12.15,3.29,12,4,12c1.66,0,3.18,0.83,4.1,2.15C9.77,14.63,11,16.17,11,18c0,1.52-0.87,2.83-2.12,3.51 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C18,17.72,13.38,16.52,11.1,12.08z"/></g><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>
+
+								</div>
+							</div>
+							<svg xmlns="http://www.w3.org/2000/svg" id="toggle-menu" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+
+						</div>
+						<div id="search">
+							<input type="text" placeholder="Search... (beta)" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+				<nav class="search hidden"></nav>
+				<nav class="content hidden">
+					<ul>
+						<li class="open">
+<div class="menu-row"><a href="./index.html">API reference</a></div>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="./arduino.html">arduino</a></div>
+<ul>
+<li><a href="./arduino.arm32.adc.html">arm32.adc</a></li>
+<li><a href="./arduino.avr.html">avr</a></li>
+<li><a href="./arduino.avr.pin.html">avr.pin</a></li>
+<li><a href="./arduino.avr.pin_fn.html">avr.pin_fn</a></li>
+<li><a href="./arduino.avr.port.html">avr.port</a></li>
+<li><a href="./arduino.avr.spi.html">avr.spi</a></li>
+<li><a href="./arduino.core.html">core</a></li>
+<li><a href="./arduino.core.adc.html">core.adc</a></li>
+<li><a href="./arduino.core.adc_fn.html">core.adc_fn</a></li>
+<li><a href="./arduino.core.ext.html">core.ext</a></li>
+<li><a href="./arduino.core.pin.html">core.pin</a></li>
+<li><a href="./arduino.core.pin_fn.html">core.pin_fn</a></li>
+<li><a href="./arduino.core.pwm.html">core.pwm</a></li>
+<li><a href="./arduino.core.pwm_fn.html">core.pwm_fn</a></li>
+<li><a href="./arduino.core.time.html">core.time</a></li>
+<li><a href="./arduino.esp32.adc2.html">esp32.adc2</a></li>
+<li><a href="./arduino.i2c.i2c.html">i2c.i2c</a></li>
+<li><a href="./arduino.mega.html">mega</a></li>
+<li><a href="./arduino.mega.adc.html">mega.adc</a></li>
+<li><a href="./arduino.mega.adc_fn.html">mega.adc_fn</a></li>
+<li><a href="./arduino.mega.pin.html">mega.pin</a></li>
+<li><a href="./arduino.mega.pin_fn.html">mega.pin_fn</a></li>
+<li><a href="./arduino.mega.port.html">mega.port</a></li>
+<li><a href="./arduino.mega.pwm.html">mega.pwm</a></li>
+<li><a href="./arduino.mega.pwm_fn.html">mega.pwm_fn</a></li>
+<li><a href="./arduino.mega.uart1.html">mega.uart1</a></li>
+<li><a href="./arduino.mega.uart2.html">mega.uart2</a></li>
+<li><a href="./arduino.mega.uart3.html">mega.uart3</a></li>
+<li><a href="./arduino.nano.html">nano</a></li>
+<li><a href="./arduino.nano.adc.html">nano.adc</a></li>
+<li><a href="./arduino.nano.adc_fn.html">nano.adc_fn</a></li>
+<li><a href="./arduino.nano.pin.html">nano.pin</a></li>
+<li><a href="./arduino.nano.pin_fn.html">nano.pin_fn</a></li>
+<li><a href="./arduino.nano.port.html">nano.port</a></li>
+<li><a href="./arduino.nano.pwm.html">nano.pwm</a></li>
+<li><a href="./arduino.nano.pwm_fn.html">nano.pwm_fn</a></li>
+<li><a href="./arduino.spi.spi.html">spi.spi</a></li>
+<li><a href="./arduino.uart.uart.html">uart.uart</a></li>
+<li><a href="./arduino.uart1.uart1.html">uart1.uart1</a></li>
+<li><a href="./arduino.uart2.uart2.html">uart2.uart2</a></li>
+<li><a href="./arduino.uart3.uart3.html">uart3.uart3</a></li>
+<li><a href="./arduino.uart4.uart4.html">uart4.uart4</a></li>
+<li><a href="./arduino.uart5.uart5.html">uart5.uart5</a></li>
+<li><a href="./arduino.uno.html">uno</a></li>
+<li><a href="./arduino.uno.adc.html">uno.adc</a></li>
+<li><a href="./arduino.uno.adc_fn.html">uno.adc_fn</a></li>
+<li><a href="./arduino.uno.pin.html">uno.pin</a></li>
+<li><a href="./arduino.uno.pin_fn.html">uno.pin_fn</a></li>
+<li><a href="./arduino.uno.port.html">uno.port</a></li>
+<li><a href="./arduino.uno.pwm.html">uno.pwm</a></li>
+<li><a href="./arduino.uno.pwm_fn.html">uno.pwm_fn</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="./cypress.html">cypress</a></div>
+<ul>
+<li><a href="./cypress.cy8ckit_049_42xx.adc.html">cy8ckit_049_42xx.adc</a></li>
+<li><a href="./cypress.cy8ckit_049_42xx.pin.html">cy8ckit_049_42xx.pin</a></li>
+<li><a href="./cypress.cy8ckit_049_42xx.pwm.html">cy8ckit_049_42xx.pwm</a></li>
+<li><a href="./cypress.cy8ckit_145_40xx.adc.html">cy8ckit_145_40xx.adc</a></li>
+<li><a href="./cypress.cy8ckit_145_40xx.pin.html">cy8ckit_145_40xx.pin</a></li>
+<li><a href="./cypress.cy8ckit_145_40xx.pwm.html">cy8ckit_145_40xx.pwm</a></li>
+<li><a href="./cypress.psoc_creator.time.html">psoc_creator.time</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><a href="./main.html">main</a></div>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="./emulator.html">emulator</a></div>
+<ul>
+<li><a href="./emulator.adc.html">adc</a></li>
+<li><a href="./emulator.pin.html">pin</a></li>
+<li><a href="./emulator.pin_fn.html">pin_fn</a></li>
+<li><a href="./emulator.pwm.html">pwm</a></li>
+<li><a href="./emulator.time.html">time</a></li>
+<li><a href="./emulator.uart.html">uart</a></li>
+<li><a href="./emulator.uart2.html">uart2</a></li>
+<li><a href="./emulator.uart3.html">uart3</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="#">espressif</a></div>
+<ul>
+<li><a href="./espressif.esp32_cyd_28.adc.html">esp32_cyd_28.adc</a></li>
+<li><a href="./espressif.esp32_cyd_28.adc2.html">esp32_cyd_28.adc2</a></li>
+<li><a href="./espressif.esp32_cyd_28.lcd.html">esp32_cyd_28.lcd</a></li>
+<li><a href="./espressif.esp32_cyd_28.pin.html">esp32_cyd_28.pin</a></li>
+<li><a href="./espressif.esp32_cyd_28.pwm.html">esp32_cyd_28.pwm</a></li>
+<li><a href="./espressif.esp32_devkitc.adc.html">esp32_devkitc.adc</a></li>
+<li><a href="./espressif.esp32_devkitc.adc2.html">esp32_devkitc.adc2</a></li>
+<li><a href="./espressif.esp32_devkitc.pin.html">esp32_devkitc.pin</a></li>
+<li><a href="./espressif.esp32_devkitc.pwm.html">esp32_devkitc.pwm</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="#">luatos</a></div>
+<ul>
+<li><a href="./luatos.esp32_c3_core.adc.html">esp32_c3_core.adc</a></li>
+<li><a href="./luatos.esp32_c3_core.pin.html">esp32_c3_core.pin</a></li>
+<li><a href="./luatos.esp32_c3_core.pwm.html">esp32_c3_core.pwm</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="#">m5stack</a></div>
+<ul>
+<li><a href="./m5stack.core.button.html">core.button</a></li>
+<li><a href="./m5stack.core.imu.html">core.imu</a></li>
+<li><a href="./m5stack.core.lcd.html">core.lcd</a></li>
+<li><a href="./m5stack.core.power.html">core.power</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="./microchip.html">microchip</a></div>
+<ul>
+<li><a href="./microchip.dspic33.port.html">dspic33.port</a></li>
+<li><a href="./microchip.exp16_pic24.html">exp16_pic24</a></li>
+<li><a href="./microchip.exp16_pic24.pin_fn.html">exp16_pic24.pin_fn</a></li>
+<li><a href="./microchip.exp16_pic24.port.html">exp16_pic24.port</a></li>
+<li><a href="./microchip.exp16_pic24.uart.html">exp16_pic24.uart</a></li>
+<li><a href="./microchip.exp16_pic24.uart2.html">exp16_pic24.uart2</a></li>
+<li><a href="./microchip.nxt.html">nxt</a></li>
+<li><a href="./microchip.nxt.array.html">nxt.array</a></li>
+<li><a href="./microchip.nxt.button.html">nxt.button</a></li>
+<li><a href="./microchip.nxt.button.html">nxt.button</a></li>
+<li><a href="./microchip.nxt.ht_sens.html">nxt.ht_sens</a></li>
+<li><a href="./microchip.nxt.lcd.html">nxt.lcd</a></li>
+<li><a href="./microchip.nxt.math.html">nxt.math</a></li>
+<li><a href="./microchip.nxt.motor.html">nxt.motor</a></li>
+<li><a href="./microchip.nxt.motor_fn.html">nxt.motor_fn</a></li>
+<li><a href="./microchip.nxt.rand.html">nxt.rand</a></li>
+<li><a href="./microchip.nxt.rune.html">nxt.rune</a></li>
+<li><a href="./microchip.nxt.sensor.html">nxt.sensor</a></li>
+<li><a href="./microchip.nxt.sensor.html">nxt.sensor</a></li>
+<li><a href="./microchip.nxt.sound.html">nxt.sound</a></li>
+<li><a href="./microchip.nxt.str.html">nxt.str</a></li>
+<li><a href="./microchip.nxt.task.html">nxt.task</a></li>
+<li><a href="./microchip.nxt.time.html">nxt.time</a></li>
+<li><a href="./microchip.pic12.html">pic12</a></li>
+<li><a href="./microchip.pic12.ext.html">pic12.ext</a></li>
+<li><a href="./microchip.pic12.pin_fn.html">pic12.pin_fn</a></li>
+<li><a href="./microchip.pic12.port.html">pic12.port</a></li>
+<li><a href="./microchip.pic12.timer0.html">pic12.timer0</a></li>
+<li><a href="./microchip.pic12_adc.adc.html">pic12_adc.adc</a></li>
+<li><a href="./microchip.pic12_pwm.pwm.html">pic12_pwm.pwm</a></li>
+<li><a href="./microchip.pic12f6xx.html">pic12f6xx</a></li>
+<li><a href="./microchip.pic12f6xx.pwm.html">pic12f6xx.pwm</a></li>
+<li><a href="./microchip.pic16.html">pic16</a></li>
+<li><a href="./microchip.pic16.ext.html">pic16.ext</a></li>
+<li><a href="./microchip.pic16.extb.html">pic16.extb</a></li>
+<li><a href="./microchip.pic16.pin_fast.html">pic16.pin_fast</a></li>
+<li><a href="./microchip.pic16.pin_fn.html">pic16.pin_fn</a></li>
+<li><a href="./microchip.pic16.port.html">pic16.port</a></li>
+<li><a href="./microchip.pic16.timer0.html">pic16.timer0</a></li>
+<li><a href="./microchip.pic16_euart.uart.html">pic16_euart.uart</a></li>
+<li class="active"><a href="./microchip.pic16_pwm.pwm.html">pic16_pwm.pwm</a></li>
+<li><a href="./microchip.pic16_uart.uart.html">pic16_uart.uart</a></li>
+<li><a href="./microchip.pic16f6xx_14p.html">pic16f6xx_14p</a></li>
+<li><a href="./microchip.pic16f6xx_14p.adc.html">pic16f6xx_14p.adc</a></li>
+<li><a href="./microchip.pic16f6xx_14p.pin_fn.html">pic16f6xx_14p.pin_fn</a></li>
+<li><a href="./microchip.pic16f6xx_14p.port.html">pic16f6xx_14p.port</a></li>
+<li><a href="./microchip.pic16f6xx_18p.html">pic16f6xx_18p</a></li>
+<li><a href="./microchip.pic16f6xx_18p.pin_fn.html">pic16f6xx_18p.pin_fn</a></li>
+<li><a href="./microchip.pic16f6xx_18p.port.html">pic16f6xx_18p.port</a></li>
+<li><a href="./microchip.pic16f6xx_20p.html">pic16f6xx_20p</a></li>
+<li><a href="./microchip.pic16f6xx_20p.pin_fn.html">pic16f6xx_20p.pin_fn</a></li>
+<li><a href="./microchip.pic16f6xx_20p.port.html">pic16f6xx_20p.port</a></li>
+<li><a href="./microchip.pic16f87x.html">pic16f87x</a></li>
+<li><a href="./microchip.pic16f87x.adc.html">pic16f87x.adc</a></li>
+<li><a href="./microchip.pic16f87x.pin_fast.html">pic16f87x.pin_fast</a></li>
+<li><a href="./microchip.pic16f87x.pin_fn.html">pic16f87x.pin_fn</a></li>
+<li><a href="./microchip.pic16f87x.port.html">pic16f87x.port</a></li>
+<li><a href="./microchip.pic16f87x.pwm.html">pic16f87x.pwm</a></li>
+<li><a href="./microchip.pic16f88x.html">pic16f88x</a></li>
+<li><a href="./microchip.pic16f88x.adc.html">pic16f88x.adc</a></li>
+<li><a href="./microchip.pic16f88x.irq.html">pic16f88x.irq</a></li>
+<li><a href="./microchip.pic16f8x.html">pic16f8x</a></li>
+<li><a href="./microchip.pic16f8x.pin_fast.html">pic16f8x.pin_fast</a></li>
+<li><a href="./microchip.pic16f8x.pin_fn.html">pic16f8x.pin_fn</a></li>
+<li><a href="./microchip.pic16f8x.port.html">pic16f8x.port</a></li>
+<li><a href="./microchip.pic18.html">pic18</a></li>
+<li><a href="./microchip.pic24.html">pic24</a></li>
+<li><a href="./microchip.pic24.pin_fn.html">pic24.pin_fn</a></li>
+<li><a href="./microchip.pic24.port.html">pic24.port</a></li>
+<li><a href="./microchip.xc16.html">xc16</a></li>
+<li><a href="./microchip.xc16.time.html">xc16.time</a></li>
+<li><a href="./microchip.xc8.html">xc8</a></li>
+<li><a href="./microchip.xc8.time.html">xc8.time</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="./nxt.html">nxt</a></div>
+<ul>
+<li><a href="./nxt.array.html">array</a></li>
+<li><a href="./nxt.button.html">button</a></li>
+<li><a href="./nxt.button.html">button</a></li>
+<li><a href="./nxt.ht_sens.html">ht_sens</a></li>
+<li><a href="./nxt.lcd.html">lcd</a></li>
+<li><a href="./nxt.math.html">math</a></li>
+<li><a href="./nxt.motor.html">motor</a></li>
+<li><a href="./nxt.motor_fn.html">motor_fn</a></li>
+<li><a href="./nxt.rand.html">rand</a></li>
+<li><a href="./nxt.rune.html">rune</a></li>
+<li><a href="./nxt.sensor.html">sensor</a></li>
+<li><a href="./nxt.sensor.html">sensor</a></li>
+<li><a href="./nxt.sound.html">sound</a></li>
+<li><a href="./nxt.str.html">str</a></li>
+<li><a href="./nxt.task.html">task</a></li>
+<li><a href="./nxt.time.html">time</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="#">raspberry_pi</a></div>
+<ul>
+<li><a href="./raspberry_pi.pico.adc.html">pico.adc</a></li>
+<li><a href="./raspberry_pi.pico.pin.html">pico.pin</a></li>
+<li><a href="./raspberry_pi.pico.pwm.html">pico.pwm</a></li>
+<li><a href="./raspberry_pi.pico.uart1.html">pico.uart1</a></li>
+<li><a href="./raspberry_pi.pico.uart2.html">pico.uart2</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="#">seeed_studio</a></div>
+<ul>
+<li><a href="./seeed_studio.xiao_esp32_xx.adc.html">xiao_esp32_xx.adc</a></li>
+<li><a href="./seeed_studio.xiao_esp32_xx.pin.html">xiao_esp32_xx.pin</a></li>
+<li><a href="./seeed_studio.xiao_esp32_xx.pwm.html">xiao_esp32_xx.pwm</a></li>
+<li><a href="./seeed_studio.xiao_samd21.adc.html">xiao_samd21.adc</a></li>
+<li><a href="./seeed_studio.xiao_samd21.pin.html">xiao_samd21.pin</a></li>
+<li><a href="./seeed_studio.xiao_samd21.pwm.html">xiao_samd21.pwm</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="#">st</a></div>
+<ul>
+<li><a href="./st.blue_pill.adc.html">blue_pill.adc</a></li>
+<li><a href="./st.blue_pill.pin.html">blue_pill.pin</a></li>
+<li><a href="./st.blue_pill.pwm.html">blue_pill.pwm</a></li>
+<li><a href="./st.nucleo_l031k6.adc.html">nucleo_l031k6.adc</a></li>
+<li><a href="./st.nucleo_l031k6.pin.html">nucleo_l031k6.pin</a></li>
+<li><a href="./st.nucleo_l031k6.pwm.html">nucleo_l031k6.pwm</a></li>
+</ul>
+</li>
+<li class="open">
+<div class="menu-row"><svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg><a href="#">weact_studio</a></div>
+<ul>
+<li><a href="./weact_studio.esp32_c3fh4.adc.html">esp32_c3fh4.adc</a></li>
+<li><a href="./weact_studio.esp32_c3fh4.adc2.html">esp32_c3fh4.adc2</a></li>
+<li><a href="./weact_studio.esp32_c3fh4.pin.html">esp32_c3fh4.pin</a></li>
+<li><a href="./weact_studio.esp32_c3fh4.pwm.html">esp32_c3fh4.pwm</a></li>
+<li><a href="./weact_studio.stm32f411core.adc.html">stm32f411core.adc</a></li>
+<li><a href="./weact_studio.stm32f411core.pin.html">stm32f411core.pin</a></li>
+<li><a href="./weact_studio.stm32f411core.pwm.html">stm32f411core.pwm</a></li>
+<li><a href="./weact_studio.stm32f411core.timer1.html">stm32f411core.timer1</a></li>
+<li><a href="./weact_studio.stm32f411core.timer10.html">stm32f411core.timer10</a></li>
+<li><a href="./weact_studio.stm32f411core.timer11.html">stm32f411core.timer11</a></li>
+<li><a href="./weact_studio.stm32f411core.timer2.html">stm32f411core.timer2</a></li>
+<li><a href="./weact_studio.stm32f411core.timer3.html">stm32f411core.timer3</a></li>
+<li><a href="./weact_studio.stm32f411core.timer4.html">stm32f411core.timer4</a></li>
+<li><a href="./weact_studio.stm32f411core.timer9.html">stm32f411core.timer9</a></li>
+<li><a href="./weact_studio.stm32g431core.adc.html">stm32g431core.adc</a></li>
+<li><a href="./weact_studio.stm32g431core.pin.html">stm32g431core.pin</a></li>
+<li><a href="./weact_studio.stm32g431core.pwm.html">stm32g431core.pwm</a></li>
+<li><a href="./weact_studio.stm32g431core.timer1.html">stm32g431core.timer1</a></li>
+<li><a href="./weact_studio.stm32g431core.timer15.html">stm32g431core.timer15</a></li>
+<li><a href="./weact_studio.stm32g431core.timer16.html">stm32g431core.timer16</a></li>
+<li><a href="./weact_studio.stm32g431core.timer17.html">stm32g431core.timer17</a></li>
+<li><a href="./weact_studio.stm32g431core.timer2.html">stm32g431core.timer2</a></li>
+<li><a href="./weact_studio.stm32g431core.timer3.html">stm32g431core.timer3</a></li>
+<li><a href="./weact_studio.stm32g431core.timer4.html">stm32g431core.timer4</a></li>
+<li><a href="./weact_studio.stm32g431core.timer6.html">stm32g431core.timer6</a></li>
+<li><a href="./weact_studio.stm32g431core.timer7.html">stm32g431core.timer7</a></li>
+<li><a href="./weact_studio.stm32g431core.timer8.html">stm32g431core.timer8</a></li>
+</ul>
+</li>
+
+					</ul>
+				</nav>
+			</header>
+			<div class="doc-scrollview" tabindex="-1" id="main-content">
+				<div class="doc-container">
+					<div class="doc-content">
+								<section id="readme_microchip.pic16_pwm.pwm" class="doc-node">
+			<div class="title"><h1> microchip.pic16_pwm.pwm <a href="#readme_microchip.pic16_pwm.pwm">#</a></h1></div>
+
+
+</section>
+
+		<section id="Constants" class="doc-node const">
+			<div class="title"><h2>Constants <a href="#Constants">#</a></h2></div>
+
+
+</section>
+
+		<section id="" class="doc-node const">
+<pre class="signature">
+<code><span class="token keyword">const</span> ch1 <span class="token operator">=</span> 0b<span class="token number">0b11111011</span></code></pre>
+<p>PWM channels</p>
+
+</section>
+
+		<section id="" class="doc-node const">
+<pre class="signature">
+<code><span class="token keyword">const</span> ch2 <span class="token operator">=</span> 0b<span class="token number">0b11111101</span></code></pre>
+
+
+</section>
+
+		<section id="" class="doc-node const">
+<pre class="signature">
+<code><span class="token keyword">const</span> f_high <span class="token operator">=</span> 0<span class="token number">0b00000000</span></code></pre>
+<p>PWM frecuency</p>
+
+</section>
+
+		<section id="" class="doc-node const">
+<pre class="signature">
+<code><span class="token keyword">const</span> f_med <span class="token operator">=</span> 0<span class="token number">0b00000001</span> <span class="token comment">// div by 4</span></code></pre>
+
+
+</section>
+
+		<section id="" class="doc-node const">
+<pre class="signature">
+<code><span class="token keyword">const</span> f_low <span class="token operator">=</span> 0<span class="token number">0b00000010</span> <span class="token comment">// div by 16</span></code></pre>
+
+
+</section>
+
+		<section id="setup" class="doc-node">
+			<div class="title"><h2>fn setup <a href="#setup">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/fermarsan/aixt/blob/master/api/microchip/pic16_pwm/pwm/pwm.c.v#L42"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div>
+<pre class="signature">
+<code><span class="token keyword">fn</span> <span class="token function">setup</span><span class="token punctuation">(</span>channel <span class="token builtin">u8</span><span class="token punctuation">,</span> res <span class="token builtin">u8</span><span class="token punctuation">,</span> freq <span class="token builtin">u8</span><span class="token punctuation">)</span></code></pre>
+<p>setup function configures the PWM</p>
+<p>for a resolution of 100 steps by period (res = 100):</p>
+<table>
+<thead>
+<tr>
+<th>fosc</th>
+<th>f_high</th>
+<th>f_med</th>
+<th>f_low</th></tr></thead>
+<tbody>
+<tr>
+<td>20 Mhz</td>
+<td>50 khz</td>
+<td>12.5 khz</td>
+<td>3125 hz</td></tr>
+<tr>
+<td>16 Mhz</td>
+<td>40 khz</td>
+<td>10 khz</td>
+<td>2500 hz</td></tr>
+<tr>
+<td>12 Mhz</td>
+<td>30 khz</td>
+<td>7.5 khz</td>
+<td>1875 hz</td></tr>
+<tr>
+<td>10 Mhz</td>
+<td>25 khz</td>
+<td>6.25 khz</td>
+<td>1563 hz</td></tr>
+<tr>
+<td>8 Mhz</td>
+<td>20 khz</td>
+<td>5 khz</td>
+<td>1250 hz</td></tr>
+<tr>
+<td>4 Mhz</td>
+<td>10 khz</td>
+<td>2.5 khz</td>
+<td>625 hz</td></tr></tbody></table>
+<p>for a resolution of 100 steps by period (res = 250):</p>
+<table>
+<thead>
+<tr>
+<th>fosc</th>
+<th>f_high</th>
+<th>f_med</th>
+<th>f_low</th></tr></thead>
+<tbody>
+<tr>
+<td>20 Mhz</td>
+<td>20 khz</td>
+<td>5 khz</td>
+<td>1.25 khz</td></tr>
+<tr>
+<td>16 Mhz</td>
+<td>16 khz</td>
+<td>4 khz</td>
+<td>1 khz</td></tr>
+<tr>
+<td>12 Mhz</td>
+<td>12 khz</td>
+<td>3 khz</td>
+<td>750 hz</td></tr>
+<tr>
+<td>10 Mhz</td>
+<td>10 khz</td>
+<td>2.5 khz</td>
+<td>625 hz</td></tr>
+<tr>
+<td>8 Mhz</td>
+<td>8 khz</td>
+<td>2 khz</td>
+<td>500 hz</td></tr>
+<tr>
+<td>4 Mhz</td>
+<td>4 khz</td>
+<td>1 khz</td>
+<td>250 hz</td></tr></tbody></table>
+
+</section>
+
+		<section id="write" class="doc-node">
+			<div class="title"><h2>fn write <a href="#write">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/fermarsan/aixt/blob/master/api/microchip/pic16_pwm/pwm/pwm.c.v#L58"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div>
+<pre class="signature">
+<code><span class="token keyword">fn</span> <span class="token function">write</span><span class="token punctuation">(</span>channel <span class="token builtin">u8</span><span class="token punctuation">,</span> duty <span class="token builtin">u8</span><span class="token punctuation">)</span></code></pre>
+<p>write function sets the 8-bit duty cycle to a PWM channel</p>
+
+</section>
+
+
+						<div class="footer">Powered by vdoc. Generated on: 9 Feb 2026 16:32:49</div>
+					</div>
+					<div class="doc-toc"><ul><li class="open"><a href="#Constants">Constants</a></li>
+<li class="open"><a href="#setup">fn setup</a>        <ul>
+</ul>
+</li>
+<li class="open"><a href="#write">fn write</a>        <ul>
+</ul>
+</li>
+</ul></div>
+				</div>
+			</div>
+		</div>
+		<script src="doc.js"></script>
+		<script async src="search_index.js"></script>
+	</body>
+</html>
