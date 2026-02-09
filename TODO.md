@@ -109,3 +109,4 @@ Tasks to do in Aixt
   - [x] Change redundant targets API folders (Microchip and Arduino targets)
   - [x] Change `/api/`,`/docs/`, `/setup/`, `examples/` and `/templates/project/` folders to lowercase
   - [x] New script to generate `api/.../README.md` files, from `docs/.../quickref.md` and `api/.../header.md` 
+  - [x] Add the guide `Generate documentation from code.md`
