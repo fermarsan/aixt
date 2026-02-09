@@ -27,25 +27,24 @@ fn flash_cmd(cmd cli.Command) ! {
 	mut project_setup := setup.Setup{}
 	project_setup.load(target)
 
-	mut flasher := ''
-	if cmd.flags.get_string('flasher')! != '' {	// as a flag
-		flasher = cmd.flags.get_string('flasher')!
+	flasher := if cmd.flags.get_string('flasher')! != '' {	// as a flag
+		cmd.flags.get_string('flasher')!
 	} else if v_mod.unknown['flasher'][0] != '' {	// inside `v.mod`
-		flasher = v_mod.unknown['flasher'][0]
+		v_mod.unknown['flasher'][0]
 	} else {	// inside `setup/<target_name>.json`
 		$if windows {
 			if project_setup.flasher['windows_path'] != '' {
-				flasher = project_setup.flasher['windows_path']
+				project_setup.flasher['windows_path']
 			} else if project_setup.flasher['path'] != ''{
-				flasher = project_setup.flasher['path']
+				project_setup.flasher['path']
 			} else {
-				panic('The flasher path has to be specified as a flag or inside the `setup/<target>.json` file.')
+				''
 			}
 		} $else {
 			if project_setup.flasher['path'] != ''{
-				flasher = project_setup.flasher['path']
+				project_setup.flasher['path']
 			} else {
-				panic('The flasher path has to be specified as a flag or inside the `setup/<target>.json` file.')
+				''
 			}
 		}
 	}

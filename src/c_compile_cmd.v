@@ -28,25 +28,24 @@ fn c_compile_cmd(cmd cli.Command) ! {
 	mut project_setup := setup.Setup{}
 	project_setup.load(target)
 
-	mut cc := ''
-	if cmd.flags.get_string('c_compiler')! != '' {	// as a flag
-		cc = cmd.flags.get_string('c_compiler')!
+	cc := if cmd.flags.get_string('c_compiler')! != '' {	// as a flag
+		cmd.flags.get_string('c_compiler')!
 	} else if v_mod.unknown['cc'][0] != '' {	// inside `v.mod`
-		cc = v_mod.unknown['cc'][0]
+		v_mod.unknown['cc'][0]
 	} else {	// inside `setup/<target_name>.json`
 		$if windows {
 			if project_setup.cc['windows_path'] != '' {
-				cc = project_setup.cc['windows_path']
+				project_setup.cc['windows_path']
 			} else if project_setup.cc['path'] != ''{
-				cc = project_setup.cc['path']
+				project_setup.cc['path']
 			} else {
-				panic('The C compiler path has to be specified as a flag or inside the `setup/<target>.json` file.')
+				''
 			}
 		} $else {
 			if project_setup.cc['path'] != ''{
-				cc = project_setup.cc['path']
+				project_setup.cc['path']
 			} else {
-				panic('The C compiler path has to be specified as a flag or inside the `setup/<target>.json` file.')
+				''
 			}
 		}
 	}
