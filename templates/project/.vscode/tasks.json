@@ -9,7 +9,7 @@
           "if (Test-Path -Path 'pixi.toml')",
           "{ pixi run aixt transpile ${file} }",
           "else",
-          "{ ${config:aixt} transpile ${file} }"
+          "{ ${config:aixt_path} transpile ${file} }"
         ]
       },
       "linux": {
@@ -17,7 +17,7 @@
           "if [ -f pixi.toml ]; then",
           "pixi run aixt transpile ${file};",
           "else",
-          "${config:aixt} transpile ${file};",
+          "${config:aixt_path} transpile ${file};",
           "fi"
         ]
       },
@@ -37,7 +37,7 @@
           "if (Test-Path -Path 'pixi.toml')",
           "{ pixi run aixt c_compile ${file} }",
           "else",
-          "{ ${config:aixt} c_compile ${file} }"
+          "{ ${config:aixt_path} c_compile ${file} }"
         ]
       },
       "linux": {
@@ -45,7 +45,7 @@
           "if [ -f pixi.toml ]; then",
           "pixi run aixt c_compile ${file};",
           "else",
-          "${config:aixt} c_compile ${file};",
+          "${config:aixt_path} c_compile ${file};",
           "fi"
         ]
       },
@@ -65,7 +65,7 @@
           "if (Test-Path -Path 'pixi.toml')",
           "{ pixi run aixt build ${file} }",
           "else",
-          "{ ${config:aixt} build ${file} }"
+          "{ ${config:aixt_path} build ${file} }"
         ]
       },
       "linux": {
@@ -73,7 +73,7 @@
           "if [ -f pixi.toml ]; then",
           "pixi run aixt build ${file};",
           "else",
-          "${config:aixt} build ${file};",
+          "${config:aixt_path} build ${file};",
           "fi"
         ]
       },
@@ -93,7 +93,7 @@
           "if (Test-Path -Path 'pixi.toml')",
           "{ pixi run aixt clean ${file} }",
           "else",
-          "{ ${config:aixt} clean ${file} }"
+          "{ ${config:aixt_path} clean ${file} }"
         ]
       },
       "linux": {
@@ -101,7 +101,7 @@
           "if [ -f pixi.toml ]; then",
           "pixi run aixt clean ${file};",
           "else",
-          "${config:aixt} clean ${file};",
+          "${config:aixt_path} clean ${file};",
           "fi"
         ]
       },
@@ -151,7 +151,7 @@
           "if (Test-Path -Path 'pixi.toml')",
           "{ pixi run aixt new -d ${config:device} -f ${input:dirName} -n ${input:projectName} }",
           "else",
-          "{ ${config:aixt} new -d ${config:device} -f ${input:dirName} -n ${input:projectName} }"
+          "{ ${config:aixt_path} new -d ${config:device} -f ${input:dirName} -n ${input:projectName} }"
         ]
       },
       "linux": {
@@ -159,7 +159,7 @@
           "if [ -f pixi.toml ]; then",
           "pixi run aixt new -d ${config:device} -f ${input:dirName} -n ${input:projectName};",
           "else",
-          "${config:aixt} new -d ${config:device} -f ${input:dirName} -n ${input:projectName};",
+          "${config:aixt_path} new -d ${config:device} -f ${input:dirName} -n ${input:projectName};",
           "fi"
         ]
       },
