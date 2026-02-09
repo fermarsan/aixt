@@ -6,19 +6,19 @@ The API is split in several folders:
 
 ### Compiler related modules
 
-- [core](arduino.core.pin.html)
+- [core](arduino.core.html)
 
 
 ### Device family related modules
 
-- [uno](arduino.uno.adc.html)
-- [nano](arduino.nano.pwm.html)
-- [mega](arduino.mega.port.html)
+- [uno](arduino.uno.html)
+- [nano](arduino.nano.html)
+- [mega](arduino.mega.html)
 
 
 ### Generic modules
 
-- [avr](arduino.avr.pin.html)
+- [avr](arduino.avr.html)
 - [arm32](arduino.arm32.adc.html)
 - [esp32](arduino.esp32.adc2.html)
 - [i2c](arduino.i2c.i2c.html)

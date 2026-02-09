@@ -14,7 +14,7 @@ fn main() {
 		name: 			'aixt'
 		usage:			'[arguments]'
 		description: 	description()
-		version:		'0.2.3'
+		version:		'0.3'
 		execute:	 	fn (cmd cli.Command) ! {
 			println(cmd.help_message())
 			return
