@@ -63,17 +63,17 @@
             "windows": {
                 "command": [
                     "if (Test-Path -Path 'pixi.toml')",
-                    "{ pixi run aixt flash ${file} ${config:port_windows} }",
+                    "{ pixi run aixt flash ${file} }",
                     "else",
-                    "{ ${config:aixt_path} flash ${file} ${config:port_windows} }"
+                    "{ ${config:aixt_path} flash ${file} }"
                 ]
             },
             "linux": {
                 "command": [
                     "if [ -f pixi.toml ]; then",
-                    "pixi run aixt flash ${file} ${config:port_linux};",
+                    "pixi run aixt flash ${file};",
                     "else",
-                    "${config:aixt_path} flash ${file} ${config:port_linux};",
+                    "${config:aixt_path} flash ${file};",
                     "fi"
                 ]
             },
