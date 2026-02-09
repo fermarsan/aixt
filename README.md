@@ -270,13 +270,15 @@ arduino-cli core install arduino:avr
 #### Installing using _Pixi_ (as workspace package)
 
 ```
-pixi workspace channel add https:/conda.anaconda.org/fermarsan
+pixi init
+pixi workspace channel add fermarsan
 pixi add aixt <dependencies>
 pixi shell
 ```
 for instance, by using with an AVR-based Arduino board:
 ```
-pixi workspace channel add https:/conda.anaconda.org/fermarsan
+pixi init
+pixi workspace channel add fermarsan
 pixi add aixt arduino-cli
 pixi shell
 arduino-cli core install arduino:avr
@@ -285,11 +287,11 @@ arduino-cli core install arduino:avr
 #### Installing using _Pixi_ (as global package)
 
 ```
-pixi global install --environment <env-name> --channel https:/conda.anaconda.org/fermarsan aixt <dependencies>
+pixi global install --environment <env-name> --channel fermarsan aixt <dependencies>
 ```
 for instance, by using with an AVR-based Arduino board:
 ```
-pixi global install --environment aixt-env --channel https:/conda.anaconda.org/fermarsan aixt arduino-cli
+pixi global install --environment aixt-env --channel fermarsan aixt arduino-cli
 arduino-cli core install arduino:avr
 ```
 
