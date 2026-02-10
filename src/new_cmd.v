@@ -63,12 +63,13 @@ fn new_cmd(cmd cli.Command) ! {
 			// description:	os.input('Input your project description: ')
 			// version:		'0.0.0'
 			unknown:		{
-				'device':	[project_setup.device]
+				'target':	[project_setup.device]
 				'port':		$if linux { ['/dev/ttyUSB0'] } $else { ['COM1'] }
+				'cc': 		['', '']
+				'flasher': 	['', '']
 			}
 		}
-		os.write_file(os.norm_path('${dest_dir}/v.mod'), 
-					  vmod.encode(project_vmod)) or {
+		os.write_file(os.norm_path('${dest_dir}/v.mod'), vmod.encode(project_vmod)) or {
 			panic(err)
 		}
 	}
