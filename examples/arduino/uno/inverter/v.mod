@@ -1,5 +1,5 @@
 Module {
-	name: 'blinking_fn'
+	name: 'inverter'
 	description: ''
 	version: ''
 	license: ''

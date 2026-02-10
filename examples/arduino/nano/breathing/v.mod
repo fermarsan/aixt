@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'breathing'
 	description: ''
 	version: ''
 	license: ''

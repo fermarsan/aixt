@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'port_echo'
 	description: ''
 	version: ''
 	license: ''

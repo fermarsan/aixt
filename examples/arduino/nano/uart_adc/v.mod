@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'uart_adc'
 	description: ''
 	version: ''
 	license: ''

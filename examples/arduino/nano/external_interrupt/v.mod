@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'external_interrupt'
 	description: ''
 	version: ''
 	license: ''

@@ -1,5 +1,5 @@
 Module {
-	name: 'blinking_fn'
+	name: 'analog_echo_fn'
 	description: ''
 	version: ''
 	license: ''

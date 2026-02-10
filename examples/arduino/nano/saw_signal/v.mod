@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'saw_signal'
 	description: ''
 	version: ''
 	license: ''

@@ -1,5 +1,5 @@
 Module {
-	name: 'blinking_fn'
+	name: 'uart_adc'
 	description: ''
 	version: ''
 	license: ''

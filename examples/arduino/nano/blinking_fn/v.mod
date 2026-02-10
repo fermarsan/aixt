@@ -1,5 +1,5 @@
 Module {
-	name: 'main'
+	name: 'blinking_fn'
 	description: ''
 	version: ''
 	license: ''

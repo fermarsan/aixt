@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'diff_equation'
 	description: ''
 	version: ''
 	license: ''

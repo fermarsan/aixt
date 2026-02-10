@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'adc_leds_fn'
 	description: ''
 	version: ''
 	license: ''

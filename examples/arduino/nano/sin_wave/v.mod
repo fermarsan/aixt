@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'sin_wave'
 	description: ''
 	version: ''
 	license: ''

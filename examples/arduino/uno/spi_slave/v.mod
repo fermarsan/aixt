@@ -1,5 +1,5 @@
 Module {
-	name: 'blinking_fn'
+	name: 'spi_slave'
 	description: ''
 	version: ''
 	license: ''

@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'inverter'
 	description: ''
 	version: ''
 	license: ''

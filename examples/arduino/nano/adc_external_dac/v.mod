@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_blinking'
+	name: 'adc_external_dac'
 	description: ''
 	version: ''
 	license: ''

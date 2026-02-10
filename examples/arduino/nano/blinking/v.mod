@@ -8,6 +8,4 @@ Module {
 	port: ['/dev/ttyUSB0']
 	cc: ['', '']
 	flasher: ['', '']
-	cc: ['', '']
-	flasher: ['', '']
 }

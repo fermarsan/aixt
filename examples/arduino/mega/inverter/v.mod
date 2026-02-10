@@ -1,5 +1,5 @@
 Module {
-	name: 'Nano_inverter'
+	name: 'inverter'
 	description: ''
 	version: ''
 	license: ''

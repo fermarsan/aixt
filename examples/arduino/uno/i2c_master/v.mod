@@ -1,5 +1,5 @@
 Module {
-	name: 'blinking_fn'
+	name: 'i2c_master'
 	description: ''
 	version: ''
 	license: ''

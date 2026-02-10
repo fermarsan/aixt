@@ -1,5 +1,5 @@
 Module {
-	name: 'blinking_fn'
+	name: 'port_echo'
 	description: ''
 	version: ''
 	license: ''
