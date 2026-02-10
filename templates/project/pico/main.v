@@ -4,7 +4,7 @@
 // Raspberry Pi Pico board
 
 import time
-import pin
+import pin_fn as pin
 
 pin.setup(gp25, pin.output)
 

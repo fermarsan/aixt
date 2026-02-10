@@ -9,7 +9,7 @@ import motor
 import sensor
 
 for {
-	motor.write(motor.ab, 50)
+	motor_ab.write(50)
 	time.sleep(2)
-	motor.off(motor.ab)
+	motor_ab.off()
 }

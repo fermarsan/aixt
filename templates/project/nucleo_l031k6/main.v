@@ -4,7 +4,7 @@
 // Nucleo-L031K6 board
 
 import time
-import pin
+import pin_fn as pin
 
 pin.setup(d13, pin.output)
 

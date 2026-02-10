@@ -5,7 +5,7 @@
 // W801 board
 
 import time
-import pin
+import pin_fn as pin
 
 pin.setup(2, pin.output)
 

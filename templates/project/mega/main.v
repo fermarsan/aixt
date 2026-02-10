@@ -4,7 +4,7 @@
 // Arduino Mega board
 
 import time
-import pin
+import pin_fn as pin
 
 pin.setup(pin.d13, pin.output)
 
