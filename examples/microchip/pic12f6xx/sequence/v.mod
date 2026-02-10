@@ -1,5 +1,5 @@
 Module {
-	name: 'Sequence'
+	name: 'sequence'
 	description: ''
 	version: ''
 	license: ''

@@ -1,5 +1,5 @@
 Module {
-	name: 'Timer 0'
+	name: 'blinking_timer0'
 	description: ''
 	version: ''
 	license: ''

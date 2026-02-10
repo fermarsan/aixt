@@ -1,5 +1,5 @@
 Module {
-	name: 'uart_hello'
+	name: 'blinking'
 	description: ''
 	version: ''
 	license: ''

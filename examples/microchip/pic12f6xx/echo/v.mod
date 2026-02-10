@@ -1,5 +1,5 @@
 Module {
-	name: 'inverter'
+	name: 'echo'
 	description: ''
 	version: ''
 	license: ''

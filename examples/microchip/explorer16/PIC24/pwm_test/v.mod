@@ -1,5 +1,5 @@
 Module {
-	name: 'Blinking'
+	name: 'pwm_testg'
 	description: ''
 	version: ''
 	license: ''

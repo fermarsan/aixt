@@ -1,5 +1,5 @@
 Module {
-	name: 'Blinking'
+	name: 'sequence'
 	description: ''
 	version: ''
 	license: ''

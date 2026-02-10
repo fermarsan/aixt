@@ -1,5 +1,5 @@
 Module {
-	name: 'Blinking'
+	name: 'blinking'
 	description: ''
 	version: ''
 	license: ''

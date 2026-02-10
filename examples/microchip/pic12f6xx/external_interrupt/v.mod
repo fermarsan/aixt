@@ -1,5 +1,5 @@
 Module {
-	name: 'External interrupt'
+	name: 'external_interrupt'
 	description: ''
 	version: ''
 	license: ''
