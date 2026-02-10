@@ -30,6 +30,4 @@ Tasks to do in Aixt
 
 ### Done ✓make
 
-- [ ] Clone partially the Aixt repository to make it lightweight for the Conda package
-  - [x] Clone with `--depth=1`
-  - [x] Clone only `api`, `docs`, `lib`, `setup`, `src`, `templates`, `examples/microchip`, `examples/arduino`, `examples/nxt`, `make.bat`, `Makefile` 
+- [x] Modify in `README.md` including the flag `--depth=1` when installing Aixt.
