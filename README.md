@@ -240,7 +240,7 @@ The [**Aixt API**](docs/API.md) is inspired by _Micropython_, _Arduino_ and _Tin
 ### Installing Aixt from source
 
 ```
-git clone https://github.com/fermarsan/aixt.git
+git clone --depth=1 https://github.com/fermarsan/aixt.git
 cd aixt
 make # make.bat on Windows
 ```
