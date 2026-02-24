@@ -18,8 +18,7 @@ for total_time < 20000 {
 	motor_c.write(-75)
 	time.sleep_ms(turn_time)
 
-	total_time += move_time
-	total_time += turn_time
+	total_time += move_time + turn_time
  }
 
 motor_ac.off()
