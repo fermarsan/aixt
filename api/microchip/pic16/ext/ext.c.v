@@ -8,8 +8,8 @@ module ext
 // flag to enables the interrupt service code
 @[as_macro] const irq_in_use = true
 
-@[as_macro] pub const rising  = 1 // edge of the external interrut
-@[as_macro] pub const falling = 0
+@[as_macro]	pub const rising = u8(1) // edge of the external interrut
+@[as_macro]	pub const falling = u8(0)
 
 // setup function set the falling or rising `edge` of the external interrupt.
 // `edge` can be `ext.falling` or `ext.rising`.

@@ -20,11 +20,11 @@ module pin_fn
 @[as_macro] pub const c5 = 21
 
 // IRQ (INT) pin
-@[as_macro] pub const irq = 2
+@[as_macro] pub const irq = u8(2)
 
 // pin modes as macros
-@[as_macro] pub const output = 0
-@[as_macro] pub const input = 1
+@[as_macro] pub const output = u8(0)
+@[as_macro] pub const input = u8(1)
 
 // port names as macros
 @[as_macro] pub const port_a = C.A

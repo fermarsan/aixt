@@ -31,24 +31,24 @@ module pin_fast
 @[as_macro] pub const c6 = 22
 @[as_macro] pub const c7 = 23
 
-@[as_macro] pub const d0 = 24
-@[as_macro] pub const d1 = 25
-@[as_macro] pub const d2 = 26
-@[as_macro] pub const d3 = 27
-@[as_macro] pub const d4 = 28
-@[as_macro] pub const d5 = 29
-@[as_macro] pub const d6 = 30
-@[as_macro] pub const d7 = 31
+@[as_macro] pub const d0 = u8(24)
+@[as_macro] pub const d1 = u8(25)
+@[as_macro] pub const d2 = u8(26)
+@[as_macro] pub const d3 = u8(27)
+@[as_macro] pub const d4 = u8(28)
+@[as_macro] pub const d5 = u8(29)
+@[as_macro] pub const d6 = u8(30)
+@[as_macro] pub const d7 = u8(31)
 
 @[as_macro] pub const e0 = 32
 @[as_macro] pub const e1 = 33
 @[as_macro] pub const e2 = 34
 
 // IRQ (INT) pin
-@[as_macro] pub const irq = 8
+@[as_macro] pub const irq = u8(8)
 
-@[as_macro] pub const output = 0    // port modes
-@[as_macro] pub const input = 1
+@[as_macro] pub const output = u8(0)    // port modes
+@[as_macro] pub const input = u8(1)
 
 @[as_macro] pub const port_a = C.A  // port ids as macros
 @[as_macro] pub const port_b = C.B

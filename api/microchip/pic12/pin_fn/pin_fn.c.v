@@ -5,18 +5,18 @@
 // Pin management functions for 12F family
 module pin_fn
 
-@[as_macro] pub const io0 = 0     // pin `id`s as macros
-@[as_macro] pub const io1 = 1
-@[as_macro] pub const io2 = 2
-@[as_macro] pub const io3 = 3
-@[as_macro] pub const io4 = 4
-@[as_macro] pub const io5 = 5
+@[as_macro] pub const io0 = u8(0)     // pin `id`s as macros
+@[as_macro] pub const io1 = u8(1)
+@[as_macro] pub const io2 = u8(2)
+@[as_macro] pub const io3 = u8(3)
+@[as_macro] pub const io4 = u8(4)
+@[as_macro] pub const io5 = u8(5)
 
-@[as_macro] pub const irq = 2     // IRQ (INT) pin
+@[as_macro] pub const irq = u8(2)     // IRQ (INT) pin
 
 
-@[as_macro] pub const output = 0  // pin `mode`s as macros
-@[as_macro] pub const input  = 1
+@[as_macro] pub const output = u8(0)  // pin `mode`s as macros
+@[as_macro] pub const input  = u8(1)
 
 // setup fucntion configures the `mode` of a pin (by `id`)
 @[as_macro]

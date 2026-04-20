@@ -21,7 +21,7 @@ module pin_fn
 @[as_macro] pub const b7 = 15
 
 // IRQ (INT) pin
-@[as_macro] pub const irq = 8
+@[as_macro] pub const irq = u8(8)
 
-@[as_macro] pub const output = 0    // pin modes
-@[as_macro] pub const input = 1
+@[as_macro] pub const output = u8(0)    // pin modes
+@[as_macro] pub const input = u8(1)

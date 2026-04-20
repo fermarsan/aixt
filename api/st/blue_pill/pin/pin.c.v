@@ -44,4 +44,4 @@ module pin
 @[as_macro]	pub const c15	=	19
 
 // builtin LED
-@[as_macro]	pub const led0 = 17
+@[as_macro]	pub const led0 = u8(17)

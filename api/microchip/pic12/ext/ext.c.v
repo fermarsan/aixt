@@ -7,8 +7,8 @@ module ext
 
 @[as_macro] const irq_in_use = true
 
-@[as_macro] pub const rising  = 1
-@[as_macro] pub const falling = 0
+@[as_macro]	pub const rising = u8(1)
+@[as_macro]	pub const falling = u8(0)
 
 // setup set the falling or rising edge of the external interrupt
 @[as_macro]
