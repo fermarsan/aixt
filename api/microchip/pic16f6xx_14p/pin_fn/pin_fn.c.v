@@ -5,19 +5,19 @@
 // Pin management functions for 16F630-676
 module pin_fn
 
-@[as_macro] pub const a0 = 0
-@[as_macro] pub const a1 = 1
-@[as_macro] pub const a2 = 2
-@[as_macro] pub const a3 = 3
-@[as_macro] pub const a4 = 4
-@[as_macro] pub const a5 = 5
+@[as_macro] pub const a0 = u8(0)
+@[as_macro] pub const a1 = u8(1)
+@[as_macro] pub const a2 = u8(2)
+@[as_macro] pub const a3 = u8(3)
+@[as_macro] pub const a4 = u8(4)
+@[as_macro] pub const a5 = u8(5)
 
-@[as_macro] pub const c0 = 16
-@[as_macro] pub const c1 = 17
-@[as_macro] pub const c2 = 18
-@[as_macro] pub const c3 = 19
-@[as_macro] pub const c4 = 20
-@[as_macro] pub const c5 = 21
+@[as_macro] pub const c0 = u8(16)
+@[as_macro] pub const c1 = u8(17)
+@[as_macro] pub const c2 = u8(18)
+@[as_macro] pub const c3 = u8(19)
+@[as_macro] pub const c4 = u8(20)
+@[as_macro] pub const c5 = u8(21)
 
 // IRQ (INT) pin
 @[as_macro] pub const irq = u8(2)
@@ -27,5 +27,5 @@ module pin_fn
 @[as_macro] pub const input = u8(1)
 
 // port names as macros
-@[as_macro] pub const port_a = C.A
-@[as_macro] pub const port_c = C.C
+@[as_macro] pub const port_a = u8(C.A)
+@[as_macro] pub const port_c = u8(C.C)
