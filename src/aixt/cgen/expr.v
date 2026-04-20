@@ -7,6 +7,11 @@ module cgen
 import v.ast
 
 // expr is the code generation function for expressions.
+// EBNF notation:
+// Expr =  IfExpr | MatchExpr | CallExpr | ParExpr | InfixExpr | PrefixExpr | PostfixExpr | 
+//         IndexExpr | CastExpr | ArrayInit | Ident | StringLiteral | StringInterLiteral | 
+//		   CharLiteral | FloatLiteral | IntegerLiteral | BoolLiteral | EnumVal | ComptimeSelector | 
+//		   UnsafeExpr | RangeExpr | SelectorExpr | ArrayDecompose | StructInit ;
 fn (mut gen Gen) expr(node ast.Expr) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	println('${node.type_name().after('v.ast.')}:\t\t${node}')

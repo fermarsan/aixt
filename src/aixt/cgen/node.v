@@ -8,6 +8,11 @@ module cgen
 import v.ast
 
 // ast_node is the Code generation function for AST nodes.
+// EBNF notation:
+// Node =  File | Stmt | Expr | ConstField | GlobalField | EnumField | IfBranch |
+// 		   MatchBranch | CallArg | Param | StructField | StructInitField ;
+
+
 fn (mut gen Gen) ast_node(node ast.Node) []string {
 	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	if node.type_name() == 'v.ast.File' {

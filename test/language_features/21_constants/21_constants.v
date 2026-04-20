@@ -1,6 +1,7 @@
 // constants definition
-const pi = 3.141592			// block of constants
-const e  = f32(2.718281)
+const (
+	pi = 3.141592	e  = f32(2.718281)
+)
 
 const r = 1.76
 const msg = 'message 1'
