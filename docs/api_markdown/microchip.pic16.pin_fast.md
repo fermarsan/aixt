@@ -11,7 +11,7 @@
 
 ## high
 ```v
-fn high(port_id u8, pin_id u8)
+fn high(port_id any, pin_id any)
 ```
 
 high function puts a logic `1` to a pin faster than the regular high function. `port_id` is the port id, for example `pin_fast.port_a` and `pin_id` is the pin id, for example `pin_fast.b3`.
@@ -20,7 +20,7 @@ high function puts a logic `1` to a pin faster than the regular high function. `
 
 ## low
 ```v
-fn low(port_id u8, pin_id u8)
+fn low(port_id any, pin_id any)
 ```
 
 low function puts a logic `0` to a pin faster than the regular low function. `port_id` is the port id, for example `pin_fast.port_a` and `pin_id` is the pin id, for example `pin_fast.b3`v.
@@ -29,7 +29,7 @@ low function puts a logic `0` to a pin faster than the regular low function. `po
 
 ## read
 ```v
-fn read(port_id u8, pin_id u8) u8
+fn read(port_id any, pin_id any) u8
 ```
 
 read reads the logic `value` of a pin faster than the regular read function. `port_id` is the port id, for example `pin_fast.port_a` and `pin_id` is the pin id, for example `pin_fast.b3`
@@ -38,7 +38,7 @@ read reads the logic `value` of a pin faster than the regular read function. `po
 
 ## setup
 ```v
-fn setup(port_id u8, pin_id u8, mode u8)
+fn setup(port_id any, pin_id any, mode u8)
 ```
 
 setup configures the `mode` of a pin (by `id`) faster than the regular setup function. `port_id` is the port id, for example `pin_fast.port_a`, `pin_id` is the pin id, for example `pin_fast.b3` `mode` is the pin mode, `pin.input` or `pin.output`.
@@ -47,7 +47,7 @@ setup configures the `mode` of a pin (by `id`) faster than the regular setup fun
 
 ## toggle
 ```v
-fn toggle(port_id u8, pin_id u8)
+fn toggle(port_id any, pin_id any)
 ```
 
 toggle toggles the logic `value` of a pin faster than the regular toggle function. `port_id` is the port id, for example `pin_fast.port_a` and `pin_id` is the pin id, for example `pin_fast.b3`
@@ -56,7 +56,7 @@ toggle toggles the logic `value` of a pin faster than the regular toggle functio
 
 ## write
 ```v
-fn write(port_id u8, pin_id u8, value u8)
+fn write(port_id any, pin_id any, value u8)
 ```
 
 write writes a logic `value` to a pin faster than the regular write function. `port_id` is the port id, for example `pin_fast.port_a` and `pin_id` is the pin id, for example `pin_fast.b3`
