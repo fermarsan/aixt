@@ -35,3 +35,4 @@ Tasks to do in Aixt
 - [x] Update `v.mod` files the Arduino AVR and Microchip examples
 - [x] Update the `main.v` files in the `templates` folder, according to OOP and functional modules
 - [x] Issue solved: `pin_fast` module already works well on `pic16` devices
+- [x] Issue solved: `adc` module already works well on PIC16F873 and PIC16F876 

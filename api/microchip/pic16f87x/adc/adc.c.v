@@ -49,10 +49,16 @@ pub fn setup(pins u8, n_bits u8) {
   match pins {
     all_analogs,
     all_analogs_rp,
-    all_analogs_rp_rn   { C.TRISA |= 0b00_1_0_1111;   C.TRISE |= 0b00000_111 }
+    all_analogs_rp_rn   { 
+      C.TRISA |= 0b00_1_0_1111   
+      $if pic16f874 ? || pic16f877 ? { C.TRISE |= 0b00000_111 }
+    }
     in0_to_in5,
     in0_to_in5_rp,
-    in0_to_in5_rp_rn    { C.TRISA |= 0b00_1_0_1111;   C.TRISE |= 0b00000_001 }
+    in0_to_in5_rp_rn    { 
+      C.TRISA |= 0b00_1_0_1111   
+      $if pic16f874 ? || pic16f877 ? { C.TRISE |= 0b00000_001 }
+    }
     in0_to_in4,
     in0_to_in4_rp,
     in0_to_in4_rp_rn    { C.TRISA |= 0b00_1_0_1111 }
