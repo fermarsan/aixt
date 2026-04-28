@@ -38,3 +38,4 @@ Tasks to do in Aixt
 - [x] Issue solved: `adc` module already works well on PIC16F873 and PIC16F876 
 - [x] Update ADC functions in PIC16F6xx_14p targets
 - [x] Issue solved: Generic implementations of PWM and UART modules failed on some PIC devices, so they were changed by specific target implementations.
+- [x] Update all the `settings.json` files
