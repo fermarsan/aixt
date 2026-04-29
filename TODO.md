@@ -26,6 +26,7 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
+- [ ] Issue: assignment along with `match` fails
 
 
 ### Done ✓make
