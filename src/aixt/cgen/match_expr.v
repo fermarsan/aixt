@@ -71,6 +71,15 @@ fn (mut gen Gen) match_assign(node ast.MatchExpr) []string {
 	}
 	mut assign := gen.single_assign(gen.cur_left, gen.cur_left_type, gen.cur_op, ast.empty_expr).join('')
 	// println('>>>>>>>>>>>>>>>>>> ${assign} <<<<<<<<<<<<<<<<<<')
-	assign = '${assign#[..-1]}( ${total} );'
+	// println('>>>>>>>>>>>>>>>>>> ${gen.cur_op.str()} <<<<<<<<<<<<<<<<<<')
+	assign = match gen.cur_op {
+		.decl_assign {
+			'${assign#[..-1]} = ( ${total} );'
+		}
+		else {
+			'${assign#[..-1]} ( ${total} );'
+		} 
+	}
+	 
 	return [assign]
 }

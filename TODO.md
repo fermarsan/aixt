@@ -26,7 +26,6 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
-- [ ] Issue: assignment along with `match` fails
 - [ ] Enable "verbosity" option
 
 
@@ -41,3 +40,4 @@ Tasks to do in Aixt
 - [x] Update ADC functions in PIC16F6xx_14p targets
 - [x] Issue solved: Generic implementations of PWM and UART modules failed on some PIC devices, so they were changed by specific target implementations.
 - [x] Update all the `settings.json` files
+- [x] Issue solved: assignment and declaration/assignment using with `match` already works
