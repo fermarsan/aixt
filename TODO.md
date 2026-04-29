@@ -27,6 +27,7 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
 - [ ] Issue: assignment along with `match` fails
+- [ ] Enable "verbosity" option
 
 
 ### Done ✓make
