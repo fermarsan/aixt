@@ -17,6 +17,8 @@ Tasks to do in Aixt
 - [ ] implement maps
 - [ ] Start a vscode extension for Aixt
 - [ ] Give support to reference and dereference
+- [ ] Enable "verbosity" option
+- [ ] Create `make8()` style functions
 
 
 ### In Progress
@@ -26,7 +28,6 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
-- [ ] Enable "verbosity" option
 
 
 ### Done ✓make
