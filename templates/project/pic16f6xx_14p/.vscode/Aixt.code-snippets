@@ -78,6 +78,16 @@
 		"body": "timer0.irq_disable()",
 		"description": "Timer 0 interrupt disable function"
 	},
+	"snippet.aixt.timer0.isr": {
+		"prefix": "ist0",
+		"body": [
+			"@[timer0_isr]",
+			"fn ${1:name}() {",
+			"	${2:code}",
+			"}"
+		],
+		"description": "Timer 0 interrupt service routine"
+	},
 	// ext module
 	"snippet.aixt.ext.setup": {
 		"prefix": "stex",
@@ -93,6 +103,16 @@
 		"prefix": "idex",
 		"body": "ext.irq_disable()",
 		"description": "External interrrupt interrupt disable function"
+	},
+	"snippet.aixt.ext.isr": {
+		"prefix": "isex",
+		"body": [
+			"@[ext_isr]",
+			"fn ${1:name}() {",
+			"	${2:code}",
+			"}"
+		],
+		"description": "External interrupt service routine"
 	},
 	// adc module
 	"snippet.aixt.adc.setup": {
@@ -110,4 +130,4 @@
 		"body": "adc.read_byte(adc.${1|ch0,ch1,ch2,ch3,ch4,ch5,ch6,ch7|})",
 		"description": "ADC byte reading function"
 	}
-  }
+}

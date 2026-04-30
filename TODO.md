@@ -42,3 +42,4 @@ Tasks to do in Aixt
 - [x] Issue solved: Generic implementations of PWM and UART modules failed on some PIC devices, so they were changed by specific target implementations.
 - [x] Update all the `settings.json` files
 - [x] Issue solved: assignment and declaration/assignment using with `match` already works
+- [x] Append ISR code snippets on VScode for PIC microcontrollers
