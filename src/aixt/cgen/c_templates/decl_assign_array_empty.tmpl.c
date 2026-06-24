@@ -1,1 +1,1 @@
-@var_type @var_name[ @len ];
+@var_type @{var_name}[@len];

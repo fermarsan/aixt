@@ -1,1 +1,1 @@
-strcat( @var_name, @var_value );
+strcat(@var_name, @var_value);

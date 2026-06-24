@@ -1,1 +1,1 @@
-char @var_name[@len];
+char @{var_name}[@len];

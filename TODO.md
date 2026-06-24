@@ -44,3 +44,4 @@ Tasks to do in Aixt
 - [x] Update all the `settings.json` files
 - [x] Issue solved: assignment and declaration/assignment using with `match` already works well
 - [x] Append ISR code snippets on VScode for PIC microcontrollers
+- [ ] Issue solved: templates `$tmpl` fails in `V 0.5.1`
