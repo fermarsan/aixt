@@ -1,0 +1,25 @@
+{
+  "target": "nucleo_c031c6",
+  "board": "Nucleo-c031c6",
+  "backend": "arduino",
+  "cc": {
+    "name": "arduino_cli",
+    "path": "arduino-cli",
+    "args": "compile -b STMicroelectronics:stm32:GenL0 -v --output-dir @{file_dir_name}/build"
+  },
+  "flasher": {
+    "name": "arduino_cli",
+    "path": "arduino-cli",
+    "args": "upload @{file_dir_name} -p @{port} -b STMicroelectronics:stm32:GenL0"
+  },
+  "api_paths": [
+    "st/nucleo_c031c6",
+    "arduino/core",
+    "arduino/uart",
+    "arduino/i2c"
+  ],
+  "v_defines": [],
+  "default_cpu_freq": 32000000,
+  "default_string_len": 50,
+  "compiler_setup_path": "setup/arduino32.json"
+}
