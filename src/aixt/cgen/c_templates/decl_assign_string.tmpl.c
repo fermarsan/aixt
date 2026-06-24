@@ -1,1 +1,1 @@
-char @var_name[@len] = @var_value;
+char @var_name [ @len ] = @var_value;

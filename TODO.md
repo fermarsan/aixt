@@ -28,6 +28,7 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
+- [ ] Issue: templates `$tmpl` fails in `V 0.5.1`
 
 
 ### Done ✓make
