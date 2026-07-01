@@ -6,11 +6,7 @@
 module adc_fn
 
 
-@[as_macro] pub const ch0 = 14
-@[as_macro] pub const ch1 = 15
-@[as_macro] pub const ch2 = 16
-@[as_macro] pub const ch3 = 17
-@[as_macro] pub const ch4 = 18
-@[as_macro] pub const ch5 = 19
-@[as_macro] pub const ch6 = 20
-@[as_macro] pub const ch7 = 21
+@[as_macro] pub const ch0 = 11
+@[as_macro] pub const ch1 = 14
+@[as_macro] pub const ch2 = 15
+@[as_macro] pub const ch3 = 32
