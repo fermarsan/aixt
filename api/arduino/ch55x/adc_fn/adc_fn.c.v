@@ -1,5 +1,8 @@
-// Author: Fernando M. Santa
-// Date: 2024
+// _Author:_
+//	- Fernando M. Santa
+//	- Katalina Guzman
+//	- Paola Carreño
+// Date: 2024-2026
 //
 // ## Description
 // ADC functions
