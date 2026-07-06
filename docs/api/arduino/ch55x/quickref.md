@@ -1,6 +1,6 @@
 # Quick reference for the CH551 / CH552 boards
 
-The original pin names can be found in the CH551/CH552 Datasheet.(https://akizukidenshi.com/goodsaffix/CH552.pdf)
+The original pin names can be found in the CH551/CH552 [Datasheet](https://akizukidenshi.com/goodsaffix/CH552.pdf)
 
 ---
 
