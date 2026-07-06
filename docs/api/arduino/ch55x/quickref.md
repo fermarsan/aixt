@@ -1,13 +1,14 @@
-# Quick reference for the Arduino Nano board
+# Quick reference for the CH551 / CH552 boards
 
-The original pin names can be shown in the [Arduino Nano Pinout](https://docs.arduino.cc/resources/pinouts/A000005-full-pinout.pdf).
+The original pin names can be found in the CH551/CH552 Datasheet.
 
+---
 
 ## Delay and Timing
+
 Use the `time` module:
+
 ```v
-
-
 import time
 
 time.sleep(2)            // sleep for 2 seconds
@@ -16,15 +17,18 @@ time.sleep_us(100)       // sleep for 100 microseconds
 ```
 
 ### Functions
-| name                  | description           |
+
+| name | description |
 |-----------------------|-----------------------|
-| `time.sleep(time)`    | Delay in seconds      |
+| `time.sleep(time)` | Delay in seconds |
 | `time.sleep_us(time)` | Delay in microseconds |
 | `time.sleep_ms(time)` | Delay in milliseconds |
 
+---
 
 ## Onboard Hardware
-The onboard LED is named `led0`:
+
+The onboard LED is named `led0`.
 
 ```v
 import pin
@@ -33,197 +37,231 @@ pin.setup(pin.led0, pin.output)
 pin.high(pin.led0)
 ```
 
+---
 
 ## Pin module
+
 Use the `pin` module:
 
 ```v
 import pin
 
-pin.setup(pin.d0, pin.input)
-pin.high(pin.d13)
-pin.low(pin.d3)
-pin.write(pin.d8, pin.read(pin.d0)) // pin echo
+pin.setup(pin.p30, pin.output)
+
+pin.high(pin.p30)
+pin.low(pin.p30)
+
+pin.write(pin.p30, pin.read(pin.p11))
 ```
 
 ### Functions
-| name                    | description               |
-|-------------------------|---------------------------|
-| `pin.setup(pin, mode)`  | Configure `pin` as `mode` |
-| `pin.high(pin)`         | Turn On `pin`             |
-| `pin.low(pin)`          | Turn Off `pin`            |
-| `pin.write(pin, value)` | Write `value` in `pin`    |
-| `pin.read(pin)`         | Return the state of `pin` |
 
+| name | description |
+|-------------------------|---------------------------|
+| `pin.setup(pin, mode)` | Configure `pin` as `mode` |
+| `pin.high(pin)` | Turn On `pin` |
+| `pin.low(pin)` | Turn Off `pin` |
+| `pin.toggle(pin)` | Toggle `pin` |
+| `pin.write(pin, value)` | Write `value` in `pin` |
+| `pin.read(pin)` | Return the state of `pin` |
 
 ### Digital pin names
-The digital pin names are named from `d0` to `d19`.
 
-| name  | original name |
-|:-----:|:-------------:|
-| `d0`  |      D0       |
-| `d1`  |      D1       |
-|  ...  |      ...      |
-| `d18` |      D18      |
-| `d19` |      D19      |
+The digital GPIO supported by Aixt are:
 
+| name | CH551 Pin |
+|:----:|:---------:|
+| `p11` | P1.1 |
+| `p14` | P1.4 |
+| `p15` | P1.5 |
+| `p16` | P1.6 |
+| `p17` | P1.7 |
+| `p30` | P3.0 |
+| `p31` | P3.1 |
+| `p32` | P3.2 |
+| `p33` | P3.3 |
+| `p34` | P3.4 |
 
-## Pin port module
-Use the `port` module:
-
-```v
-import port
-
-port.setup(port.b, port.all_outputs)
-port.setup(port.c, port.all_inputs)  // port A bit 7 and 6 as outputs, the rest as inputs
-
-val := port.read(port.c)
-port.write(port.b, val) // port echo
-```
-
-### Functions
-| name                      | description                |
-|---------------------------|----------------------------|
-| `port.setup(port, mode)`  | Configure `port` as `mode` |
-| `port.read(port)`         | Return the value of `port` |
-| `port.write(port, value)` | Write `value` to `port`    |
-
-### Digital port names
-| name | original name |
-|:----:|:-------------:|
-| `b`  |       B       |
-| `c`  |       C       |
-| `d`  |       D       |
-
+---
 
 ## PWM (Pulse Width Modulation)
+
 Use the `pwm` module:
 
 ```v
-import pwm
+import pwm_fn as pwm
 
-pwm.write(pwm.ch0, 40)       // set the duty cycle for PWM channel 0
-pwm.write(pwm.ch1, 60)       // set the duty cycle for PWM channel 1
+pwm.write(pwm.ch1_1,128)
+pwm.write(pwm.ch2_1,64)
 ```
 
 ### Functions
 
-| name                        | description                        |
+| name | description |
 |-----------------------------|------------------------------------|
-| `pwm.write(channel, value)` | Write `value` in the PWM `channel` |
+| `pwm.write(channel,value)` | Write `value` to the PWM `channel` |
 
-### PWM pin names
-The PWM channels are named from `ch0` to `ch5`.
+### PWM channel names
 
-| name  | original name |
-|:-----:|:-------------:|
-| `ch0` |      D3       |
-| `ch1` |      D5       |
-| `ch2` |      D6       |
-| `ch3` |      D9       |
-| `ch4` |      D10      |
-| `ch5` |      D11      |
+| name | GPIO |
+|:----:|:----:|
+| `ch1_1` | P1.5 |
+| `ch1_2` | P3.0 |
+| `ch2_1` | P3.1 |
+| `ch2_2` | P3.4 |
 
+---
 
 ## ADC (Analog to Digital Converter)
+
 Use the `adc` module:
 
 ```v
-import adc
+import adc_fn as adc
 
-val1 := adc.read(adc.ch0)       // read de ADC channel 0
-val2 := adc.read(adc.ch1)       // read de ADC channel 1
+val1:=adc.read(adc.ch0)
+val2:=adc.read(adc.ch1)
 ```
 
 ### Functions
-| name                | description                       |
+
+| name | description |
 |---------------------|-----------------------------------|
-| `adc.read(channel)` | Return the ADC value in `channel` |
+| `adc.read(channel)` | Return the ADC value |
 
 ### Analog channels
-The PWM channels are named from `ch0` to `ch7`.
 
-| name  | original name |
-|:-----:|:-------------:|
-| `ch0` |    A0/D14     |
-| `ch1` |    A1/D15     |
-| `ch2` |    A2/D16     |
-| `ch3` |    A3/D17     |
-| `ch4` |    A4/D18     |
-| `ch5` |    A5/D19     |
-| `ch6` |      A6       |
-| `ch7` |      A7       |
+| name | GPIO |
+|:----:|:----:|
+| `ch0` | P1.1 |
+| `ch1` | P1.4 |
+| `ch2` | P1.5 |
+| `ch3` | P3.2 |
 
+---
 
-## UART (serial port)
+## UART (Serial Port)
+
 Use the `uart` module:
 
 ```v
 import uart
 
-uart.print('Hello ')
-uart.println('World...')
+uart.setup(115200)
+
+uart.println('Hello CH551')
 ```
 
 ### Functions
-| name                    | description                                                    |
-|-------------------------|----------------------------------------------------------------|
-| `uart.setup(baud_rate)` | Configure the `baud_rate` of the UART                          |
-| `uart.read()`           | Return one character received by UART                          |
-| `uart.input(message)`   | Send the `message` and then return the string received by UART |
-| `uart.write(character)` | Send one character by UART                                     |
-| `uart.print(message)`   | Send the `message` by UART                                     |
-| `uart.println(message)` | Send the `message` plus a new line by UART                     |
-| `uart.any()`            | Return the number uf characters in the UART's buffer           |
 
+| name | description |
+|-------------------------|----------------------------------------------------------------|
+| `uart.setup(baud)` | Configure UART baud rate |
+| `uart.read()` | Read one byte |
+| `uart.write(ch)` | Send one character |
+| `uart.print(msg)` | Send string |
+| `uart.println(msg)` | Send string plus newline |
+| `uart.available()` | Return bytes available |
+
+---
+
+## Timer
+
+Use the `timer` module:
+
+```v
+import timer
+
+timer.delay_ms(500)
+timer.delay_us(100)
+```
+
+### Functions
+
+| name | description |
+|-----------------------------|---------------------------|
+| `timer.init()` | Initialize timer |
+| `timer.start()` | Start timer |
+| `timer.stop()` | Stop timer |
+| `timer.reset()` | Reset timer |
+| `timer.delay_ms()` | Delay in milliseconds |
+| `timer.delay_us()` | Delay in microseconds |
+
+---
 
 ## Examples
 
 ### LED Blinking
+
 ```v
 import time
 import pin
 
-pin.low(pin.led0)	// turn off the on-board LED
+pin.setup(pin.led0,pin.output)
 
-for {
-	pin.toggle(pin.led0)    // LED toggle 
-	time.sleep_ms(500)  // delay
+for{
+    pin.toggle(pin.led0)
+    time.sleep_ms(500)
 }
-
 ```
 
+---
+
 ### ADC value sent by UART
+
 ```v
 import time
 import uart
-import adc
+import adc_fn as adc
 
-uart.setup(9600)	// set the baudrate
+uart.setup(9600)
 
-for {
-	analog := adc.read(adc.ch0)
-	uart.println('ADC channel 0: ${analog}')
-	time.sleep_ms(1000)
+for{
+    value:=adc.read(adc.ch0)
+    uart.println('ADC channel 0: ${value}')
+    time.sleep_ms(1000)
 }
 ```
 
-### LED Blinking by Interrupt
+---
+
+### UART Echo
+
+```v
+import uart
+
+uart.setup(115200)
+
+for{
+    if uart.available()>0{
+        c:=uart.read()
+        uart.write(c)
+    }
+}
+```
+
+---
+
+### PWM Example
+
+```v
+import pwm_fn as pwm
+
+pwm.write(pwm.ch1_1,128)
+```
+
+---
+
+### Timer Example
+
 ```v
 import pin
-import ext
+import timer
 
-@[ext_isr:'pin.d2']	// interrupt service routine
-fn blink() {
-	pin.toggle(pin.led0)
-}
+pin.setup(pin.led0,pin.output)
 
-pin.setup(pin.d2, pin.input)
-pin.low(pin.led0)
-
-ext.irq_enable(pin.d2, ext.change)	// interrupt request enabled
-
-for {
-	// Empty infinite loop
+for{
+    pin.toggle(pin.led0)
+    timer.delay_ms(500)
 }
 ```
