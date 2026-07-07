@@ -8,5 +8,6 @@ import v.ast
 
 // import_stmt is the code generation function for import statements.
 fn (mut gen Gen) import_stmt(node ast.Import) []string {
+  println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
 	return []
 }
