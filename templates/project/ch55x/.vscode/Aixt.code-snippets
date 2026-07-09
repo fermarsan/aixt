@@ -8,32 +8,32 @@
 	// pin module
 	"snippet.aixt.pin.setup": {
 		"prefix": "st",
-		"body": "pin.setup(pin.${1|d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21|}, pin.${2|input,output,in_pullup,in_pulldown|})",
+		"body": "pin.setup(pin.${1|p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21|}, pin.${2|input,output,in_pullup,in_pulldown|})",
 		"description": "Pin setup level function"
 	},
 	"snippet.aixt.pin.high": {
 		"prefix": "hi",
-		"body": "pin.high(pin.${1|d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21|})",
+		"body": "pin.high(pin.${1|p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21|})",
 		"description": "Pin high level function"
 	},
 	"snippet.aixt.pin.low": {
 		"prefix": "lo",
-		"body": "pin.low(pin.${1|d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21|})",
+		"body": "pin.low(pin.${1|p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21|})",
 		"description": "Pin low level function"
 	},
 	"snippet.aixt.pin.toggle": {
 		"prefix": "to",
-		"body": "pin.toggle(pin.${1|d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21|})",
+		"body": "pin.toggle(pin.${1|p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21|})",
 		"description": "Pin toggle level function"
 	},
 	"snippet.aixt.pin.write": {
 		"prefix": "wr",
-		"body": "pin.write(pin.${1|d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21|}, ${2|0,1|})",
+		"body": "pin.write(pin.${1|p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21|}, ${2|0,1|})",
 		"description": "Pin writing function"
 	},
 	"snippet.aixt.pin.read": {
 		"prefix": "rd",
-		"body": "pin.read(pin.${1|d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21|})",
+		"body": "pin.read(pin.${1|p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21|})",
 		"description": "pin reading function"
 	},
 	// port module
