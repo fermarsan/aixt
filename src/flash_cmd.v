@@ -69,7 +69,7 @@ fn flash_cmd(cmd cli.Command) ! {
 	ext := match project_setup.backend {
 		'nxc' { '' }
 		'arduino' { '' }
-		else { 'hex' }
+		else { 'hex' }	// "c" and "esp-idf"	
 	}
 	
 	name := if ext == '' { base_name } else { '${base_name}.${ext}' }

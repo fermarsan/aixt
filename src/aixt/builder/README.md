@@ -4,7 +4,7 @@
 
 ## Example:
 
-```v cgen
+```v
 import aixt.build
 
 fn main() {
@@ -19,7 +19,7 @@ fn main() {
     ext := match setup.value('backend').string() {
     	'nxc' { 'nxc' }
     	'arduino' { 'ino' }
-    	else { 'c' }
+    	else { 'c' }    // "c" and "esp-idf"	
     }
     println('\n${base_name}.${ext} compiling finished.\n')
 }

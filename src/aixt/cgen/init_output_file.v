@@ -25,6 +25,7 @@ fn (mut gen Gen) init_output_file() {
     c_line += match gen.setup.backend {
 		'nxc' 		{ 'NXC ' }
 		'arduino'	{ 'Arduino ' }  
+		'esp_idf'	{ 'C (ESP-IDF) ' }  
 		else 		{ 'C ' }
 	}
 

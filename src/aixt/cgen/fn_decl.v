@@ -169,6 +169,11 @@ fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 			name = 'setup'
 			ending = '\nvoid loop(){\n}'
 		}
+		'esp_idf' {
+			ret_type = gen.setup.main_ret_type
+			params = gen.setup.main_params
+			name = 'app_main'
+		}
 		else{
 			print('Invalid "Backend" in setup file.' )
 		}

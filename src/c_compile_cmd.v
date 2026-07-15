@@ -63,7 +63,7 @@ fn c_compile_cmd(cmd cli.Command) ! {
 	ext := match project_setup.backend {
 		'nxc' { 'nxc' }
 		'arduino' { 'ino' }
-		else { 'c' }		
+		else { 'c' }	// "c" and "esp-idf"	
 	}
 	println('\n${base_name}.${ext} compiling finished.\n')
 }
