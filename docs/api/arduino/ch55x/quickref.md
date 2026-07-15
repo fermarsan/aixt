@@ -2,7 +2,7 @@
 
 The original pin names can be found in the CH551/CH552 [Datasheet](https://akizukidenshi.com/goodsaffix/CH552.pdf)
 
----
+se realiza transcopilacion y copiar en arduino ide momentaneamente no funciona con arduino cli---
 
 ## Delay and Timing
 
