@@ -1,0 +1,24 @@
+{
+  "target": "ch55x",
+  "board": "CH55x",
+  "backend": "arduino",
+  "cc": {
+    "name": "arduino_cli",
+    "path": "arduino-cli",
+    "args": "compile -b CH55xDuino:mcs51:ch551 -v --output-dir @{file_dir_name}/build"
+  },
+  "flasher": {
+    "name": "arduino_cli",
+    "path": "arduino-cli",
+    "args": "upload @{file_dir_name} -p @{port} -b CH55xDuino:mcs51:ch551"
+  },
+  "api_paths": [
+    "arduino/ch55x",
+    "arduino/core",
+    "arduino/uart"
+  ],
+  "v_defines": [],
+  "default_cpu_freq": 6000000,
+  "default_string_len": 50,
+  "compiler_setup_path": "setup/arduino8.json"
+}
