@@ -1,6 +1,6 @@
 TARGET = ./aixt
 
-VC = v
+VC = ~/v_050/v
 
 VFLAGS = -o
 
