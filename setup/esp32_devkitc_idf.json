@@ -1,0 +1,23 @@
+{
+  "target": "esp32_devkitc_idf",
+  "board": "ESP32-WROOM-32",
+  "backend": "esp_idf",
+  "cc": {
+    "name": "arduino_cli",
+    "path": "arduino-cli",
+    "args": "compile -b esp32:esp32:esp32 -v --output-dir @{file_dir_name}/build"
+  },
+  "flasher": {
+    "name": "arduino_cli",
+    "path": "arduino-cli",
+    "args": "upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32"
+  },
+  "api_paths": [
+    "espressif/esp32_devkitc_idf",
+    "espressif/esp_idf/core",
+  ],
+  "v_defines": [],
+  "default_cpu_freq": 4000000,
+  "default_string_len": 50,
+  "compiler_setup_path": "setup/esp_idf.json"
+}
