@@ -99,6 +99,13 @@ pub fn (mut b Builder) get_lib_mod_dirs() []string {
 						os.norm_path('${lib_base_dir}/c')
 					}
 				}
+				'esp_idf' {
+					if os.exists(os.norm_path('${lib_base_dir}/esp_idf')) {
+						os.norm_path('${lib_base_dir}/esp_idf')
+					} else {
+						os.norm_path('${lib_base_dir}/c')
+					}
+				}
 				else {
 					os.norm_path('${lib_base_dir}/c')
 				}
@@ -129,6 +136,13 @@ pub fn (mut b Builder) get_lib_mod_paths() []string {
 				'nxc' {
 					if os.exists(os.norm_path('${lib_base_dir}/nxc')) {
 						os.norm_path('${lib_base_dir}/nxc')
+					} else {
+						os.norm_path('${lib_base_dir}/c')
+					}
+				}
+				'esp_idf' {
+					if os.exists(os.norm_path('${lib_base_dir}/esp_idf')) {
+						os.norm_path('${lib_base_dir}/esp_idf')
 					} else {
 						os.norm_path('${lib_base_dir}/c')
 					}

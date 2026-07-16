@@ -24,7 +24,7 @@ pub fn flash(path string, flasher_path string, flasher_args string, port string,
 	input_ext := match project_setup.backend {
 		'nxc' { '.nxc' }
 		'arduino' { '.ino' }
-		else { '.c' }
+		else { '.c' }	// "c" and "esp-idf"	
 	}
 	args = args.replace('@{input_ext}', '${input_ext}')
 

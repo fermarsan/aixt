@@ -24,7 +24,7 @@ pub fn c_compile(path string, cc_path string, cc_args string, project_setup setu
 	input_ext := match project_setup.backend {
 		'nxc' 		{ '.nxc' }
 		'arduino'	{ '.ino' }
-		else 		{ '.c' }
+		else 		{ '.c' }	// "c" and "esp-idf"	
 	}
 	args = args.replace('@{input_ext}', '${input_ext}')
 

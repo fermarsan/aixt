@@ -86,7 +86,7 @@ pub fn transpile(path string, project_setup setup.Setup) {
 		output_ext := match c_gen.setup.backend {
 			'nxc' 		{ '.nxc' }
 			'arduino'	{ '.ino' }
-			else 		{ '.c' }
+			else 		{ '.c' }	// "c" and "esp-idf"	
 		}
 
 		mut output_path := ''

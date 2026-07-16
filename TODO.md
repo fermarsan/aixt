@@ -28,7 +28,9 @@ Tasks to do in Aixt
 - [ ] Issue: `match` can not work with functions
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
-- [ ] Issue: templates `$tmpl` fails in `V 0.5.1`
+- [ ] Issue: Aixt compilation fails in `V 0.5.1`
+- [ ] Generate a new backend for Espressif devices on ESP-IDF framework: esp_idf 
+- [ ] Starting new device: "esp32_devkitc_idf" on "esp_idf" backend
 
 
 ### Done ✓make

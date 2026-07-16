@@ -1,5 +1,5 @@
 // Author: Fernando M. Santa
-// Date: 2024
+// Date: 2024-2026
 //
 // ## Description
 // Pin management functions ESP32 devices
