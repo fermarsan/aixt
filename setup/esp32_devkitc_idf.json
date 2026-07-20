@@ -3,18 +3,21 @@
   "board": "ESP32-WROOM-32",
   "backend": "esp_idf",
   "cc": {
-    "name": "arduino_cli",
-    "path": "arduino-cli",
-    "args": "compile -b esp32:esp32:esp32 -v --output-dir @{file_dir_name}/build"
+    "name": "ESP-IDF",
+    "path": "python idf.py",
+    "args": [
+      "set-target esp32",
+      "build"
+    ]
   },
   "flasher": {
-    "name": "arduino_cli",
-    "path": "arduino-cli",
-    "args": "upload @{file_dir_name} -p @{port} -b esp32:esp32:esp32"
+    "name": "ESP-IDF",
+    "path": "python idf.py",
+    "args": "flash"
   },
   "api_paths": [
     "espressif/esp32_devkitc_idf",
-    "espressif/esp_idf/core",
+    "espressif/esp_idf/core"
   ],
   "v_defines": [],
   "default_cpu_freq": 4000000,

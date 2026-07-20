@@ -18,31 +18,31 @@ fn C.gpio_reset_pin(id u8)
 
 
 // setup configures a pin's input/output mode
-// @[as_macro]
-@[inline]
+// @[inline]
+@[as_macro]
 pub fn setup(id u8, mode u8) {   
     C.gpio_reset_pin(id)
     C.gpio_set_direction(id, mode)
 }
 
 // write puts a logic value to a specific pin
-// @[as_macro]
-@[inline]
+// @[inline]
+@[as_macro]
 pub fn write(id u8, val u8) {  
     C.gpio_set_level(id, val)
 }
 
 
 // high puts a high value (logic 1) to a specific pin
-// @[as_macro]
-@[inline]
+// @[inline]
+@[as_macro]
 pub fn high(id u8) {   
     C.gpio_set_level(id, 1)
 }
 
 // low puts a low value (logic 0) to a specific pin
-// @[as_macro]
-@[inline]
+// @[inline]
+@[as_macro]
 pub fn low(id u8) {   
     C.gpio_set_level(id, 0)
 }
