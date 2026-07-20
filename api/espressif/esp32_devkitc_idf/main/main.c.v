@@ -1,5 +1,5 @@
 // Author: Fernando M. Santa
-// Date: 2025
+// Date: 2026
 //
 // ## Description
 // Builtin definitions for ESP32-DevKitC (ESP-IDF)
