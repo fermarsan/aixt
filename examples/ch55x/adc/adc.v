@@ -10,21 +10,19 @@ import adc
 import adc_fn
 import pin_fn as pin
 
-fn main() {
-    // Configuración del LED integrado
-    pin.setup(pin.led0, pin.output)
+pin.setup(pin.led0, pin.output)
 
-    for {
-        // Leer ADC (P1.1)
-        value := adc_fn.read(adc.ch0)
+for {
+    // Leer el canal ADC0 (P1.1)
+    value := adc_fn.read(adc.ch0)
 
-        // Comparar el valor leído
-        if value > 127 {
-            pin.high(pin.led0)
-        } else {
-            pin.low(pin.led0)
-        }
-
-        time.sleep_ms(20)
+    // Comparar el valor leído
+    if value > 127 {
+        pin.high(pin.led0)
+    } else {
+        pin.low(pin.led0)
     }
+
+    // Esperar 20 ms
+    time.sleep_ms(20)
 }
