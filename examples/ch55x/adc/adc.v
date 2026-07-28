@@ -6,15 +6,14 @@
 // Date: 2024-2026 
 // ch55x boards
 import time
-import adc
-import adc_fn
+import adc_fn as adc
 import pin_fn as pin
 
 pin.setup(pin.led0, pin.output)
 
 for {
     // Leer el canal ADC0 (P1.1)
-    value := adc_fn.read(adc.ch0)
+    value := adc.read(adc.ch0)
 
     // Comparar el valor leído
     if value > 127 {
