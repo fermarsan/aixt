@@ -9,16 +9,16 @@ import time
 import adc_fn as adc
 import pwm_fn as pwm
 
-// Configurar el pin PWM (P3.4)
+// Configure the PWM pin (P3.4)
 pwm.setup_pin(pwm.ch2_2)
 
 for {
-    // Leer el valor analógico del canal ADC0 (P1.1)
+    // Read the analog value from channel ADC0 (P1.1)
     value := adc.read(adc.ch0)
 
-    // Enviar el valor leído al módulo PWM
+    // Send the read value to the PWM module
     pwm.write(pwm.ch2_2, u8(value))
 
-    // Esperar 10 ms
+    // Wait 10 ms
     time.sleep_ms(10)
 }

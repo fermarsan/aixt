@@ -12,16 +12,16 @@ import pin_fn as pin
 pin.setup(pin.led0, pin.output)
 
 for {
-    // Leer el canal ADC0 (P1.1)
+    // Read the ADC0 channel (P1.1)
     value := adc.read(adc.ch0)
 
-    // Comparar el valor leído
+    // Compare the read value
     if value > 127 {
         pin.high(pin.led0)
     } else {
         pin.low(pin.led0)
     }
 
-    // Esperar 20 ms
+    // Wait 20 ms
     time.sleep_ms(20)
 }
