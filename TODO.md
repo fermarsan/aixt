@@ -20,7 +20,7 @@ Tasks to do in Aixt
 - [ ] Enable "verbosity" option
 - [ ] Create `make8()` style functions
 - [ ] Evaluate to unify the `device.json`, `compiler.json` and project's `v.mod`
-- [ ] Evaluate to create `main.c.tmpl` for the different backends.
+- [ ] Evaluate to create `main.tmpl.c` for the different backends.
 
 
 ### In Progress
