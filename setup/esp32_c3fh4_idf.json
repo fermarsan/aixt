@@ -1,26 +1,26 @@
 {
-  "target": "esp32_devkitc_idf",
-  "board": "ESP32-WROOM-32",
+  "target": "esp32_c3fh4_idf",
+  "board": "ESP32 C3FH4",
   "backend": "esp_idf",
   "cc": {
     "name": "idf",
     "path": "idf.py",
-    "args": [
-      "set-target esp32",
+       "args": [
+      "set-target esp32c3",
       "build"
     ]
   },
   "flasher": {
     "name": "idf",
     "path": "idf.py",
-    "args": "flash"
+    "args": "-p @{port} flash"
   },
   "api_paths": [
-    "espressif/esp32_devkitc_idf",
+    "weact_studio/esp32_c3fh4_idf",
     "espressif/esp_idf/core"
   ],
   "v_defines": [],
-  "default_cpu_freq": 4000000,
+  "default_cpu_freq": 16000000,
   "default_string_len": 50,
   "compiler_setup_path": "setup/esp_idf.json"
 }
