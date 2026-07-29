@@ -1,76 +1,58 @@
-# Quick reference for the CH551 / CH552 boards
+# Quick reference for the CH551 / CH552 board
 
-The original pin names can be found in the CH551/CH552 [Datasheet](https://akizukidenshi.com/goodsaffix/CH552.pdf)
+The CH551 support in AIxt is based on the **CH55xDuino** core. AIxt transpiles V source code into an Arduino `.ino` sketch, which must be opened with the Arduino IDE for compilation and programming.
 
-se realiza transcopilacion y copiar en arduino ide momentaneamente no funciona con arduino cli---
+The original pin names can be found in the CH552/CH551 [Datasheet](https://akizukidenshi.com/goodsaffix/CH552.pdf) published by WCH.
+
 
 ## Delay and Timing
 
-Use the `time` module:
-
-```v
-import time
-
-time.sleep(2)            // sleep for 2 seconds
-time.sleep_ms(50)        // sleep for 50 milliseconds
-time.sleep_us(100)       // sleep for 100 microseconds
-```
-
 ### Functions
 
-| name | description |
+| name                  | description           |
 |-----------------------|-----------------------|
-| `time.sleep(time)` | Delay in seconds |
-| `time.sleep_us(time)` | Delay in microseconds |
+| `time.sleep(time)`    | Delay in seconds      |
 | `time.sleep_ms(time)` | Delay in milliseconds |
+| `time.sleep_us(time)` | Delay in microseconds |
 
----
 
 ## Onboard Hardware
 
 The onboard LED is named `led0`.
 
 ```v
-import pin
+import pin_fn as pin
 
 pin.setup(pin.led0, pin.output)
 pin.high(pin.led0)
 ```
-
----
+The onboard LED is connected to **P3.0**
 
 ## Pin module
 
-Use the `pin` module:
-
-```v
-import pin
-
-pin.setup(pin.p30, pin.output)
-
-pin.high(pin.p30)
-pin.low(pin.p30)
-
-pin.write(pin.p30, pin.read(pin.p11))
-```
-
 ### Functions
 
-| name | description |
+| name                    | description               |
 |-------------------------|---------------------------|
-| `pin.setup(pin, mode)` | Configure `pin` as `mode` |
-| `pin.high(pin)` | Turn On `pin` |
-| `pin.low(pin)` | Turn Off `pin` |
-| `pin.toggle(pin)` | Toggle `pin` |
-| `pin.write(pin, value)` | Write `value` in `pin` |
-| `pin.read(pin)` | Return the state of `pin` |
+| `pin.setup(pin, mode)`  | Configure `pin` as `mode` |
+| `pin.high(pin)`         | Turn on `pin`             |
+| `pin.low(pin)`          | Turn off `pin`            |
+| `pin.write(pin, value)` | Write `value` to `pin`    |
+| `pin.read(pin)`         | Return the state of `pin` |
 
-### Digital pin names
+### Modes
 
-The digital GPIO supported by Aixt are:
+| name | description |
+|------|-------------|
+| `input` | Digital input |
+| `output` | Digital output |
+| `in_pullup` | Input with pull-up resistor |
+| `in_pulldown` | Input with pull-down resistor (if supported) |
 
-| name | CH551 Pin |
-|:----:|:---------:|
+### Digital names
+
+| name | pin CH55X |
+|:----:|:------------:|
 | `p11` | P1.1 |
 | `p14` | P1.4 |
 | `p15` | P1.5 |
@@ -81,113 +63,69 @@ The digital GPIO supported by Aixt are:
 | `p32` | P3.2 |
 | `p33` | P3.3 |
 | `p34` | P3.4 |
+| `led0` | P3.0 (onboard LED) |
 
----
 
 ## PWM (Pulse Width Modulation)
-
-Use the `pwm` module:
-
-```v
-import pwm_fn as pwm
-
-pwm.write(pwm.ch1_1,128)
-pwm.write(pwm.ch2_1,64)
-```
 
 ### Functions
 
 | name | description |
-|-----------------------------|------------------------------------|
-| `pwm.write(channel,value)` | Write `value` to the PWM `channel` |
+|------|-------------|
+| `pwm.setup_pin(channel)` | Configure PWM output pin |
+| `pwm.write(channel, value)` | Write PWM duty cycle |
 
-### PWM channel names
+### Channels
 
-| name | GPIO |
-|:----:|:----:|
+| name | pin CH55X |
+|:----:|:------------:|
 | `ch1_1` | P1.5 |
 | `ch1_2` | P3.0 |
 | `ch2_1` | P3.1 |
 | `ch2_2` | P3.4 |
 
----
 
 ## ADC (Analog to Digital Converter)
-
-Use the `adc` module:
-
-```v
-import adc_fn as adc
-
-val1:=adc.read(adc.ch0)
-val2:=adc.read(adc.ch1)
-```
 
 ### Functions
 
 | name | description |
-|---------------------|-----------------------------------|
-| `adc.read(channel)` | Return the ADC value |
+|------|-------------|
+| `adc.read(channel)` | Read the ADC value from `channel` |
 
-### Analog channels
+### channels
 
-| name | GPIO |
-|:----:|:----:|
+| name | pin CH55X |
+|:----:|:------------:|
 | `ch0` | P1.1 |
 | `ch1` | P1.4 |
 | `ch2` | P1.5 |
 | `ch3` | P3.2 |
 
----
+> **Note**
+>
+> The CH55xDuino implementation returns an 8-bit ADC value (0–255).
 
-## UART (Serial Port)
 
-Use the `uart` module:
-
-```v
-import uart
-
-uart.setup(115200)
-
-uart.println('Hello CH551')
-```
+## UART (USB Serial)
 
 ### Functions
 
 | name | description |
-|-------------------------|----------------------------------------------------------------|
-| `uart.setup(baud)` | Configure UART baud rate |
-| `uart.read()` | Read one byte |
-| `uart.write(ch)` | Send one character |
-| `uart.print(msg)` | Send string |
-| `uart.println(msg)` | Send string plus newline |
-| `uart.available()` | Return bytes available |
+|------|-------------|
+| `uart.setup(baud_rate)` | Initialize USB Serial |
+| `uart.read()` | Read one received byte |
+| `uart.write(character)` | Send one byte |
+| `uart.print(message)` | Send a string |
+| `uart.println(message)` | Send a string followed by CR (Carriage Return) /LF (Line Feed) |
+| `uart.any()` | Return the number of received bytes |
 
----
+> **Note**
+>
+> The `uart` module uses the **USBSerial** interface provided by the [**CH55xDuino**](https://github.com/DeqingSun/ch55xduino/blob/ch55xduino/ch55xduino/ch55x/cores/ch55xduino/HardwareSerial.h) core.
 
-## Timer
+> Unlike standard Arduino boards, USB communication is **not** implemented through the `Serial` object.
 
-Use the `timer` module:
-
-```v
-import timer
-
-timer.delay_ms(500)
-timer.delay_us(100)
-```
-
-### Functions
-
-| name | description |
-|-----------------------------|---------------------------|
-| `timer.init()` | Initialize timer |
-| `timer.start()` | Start timer |
-| `timer.stop()` | Stop timer |
-| `timer.reset()` | Reset timer |
-| `timer.delay_ms()` | Delay in milliseconds |
-| `timer.delay_us()` | Delay in microseconds |
-
----
 
 ## Examples
 
@@ -195,73 +133,131 @@ timer.delay_us(100)
 
 ```v
 import time
-import pin
+import pin_fn as pin
 
-pin.setup(pin.led0,pin.output)
+pin.setup(pin.p30, pin.output)
 
-for{
-    pin.toggle(pin.led0)
+for {
+    pin.high(pin.p30)
+    time.sleep_ms(500)
+
+    pin.low(pin.p30)
     time.sleep_ms(500)
 }
 ```
 
 ---
 
-### ADC value sent by UART
+### Inverter (Digital Input )
 
 ```v
-import time
-import uart
-import adc_fn as adc
+import pin_fn as pin
 
-uart.setup(9600)
+pin.setup(pin.p14, pin.input)
 
-for{
-    value:=adc.read(adc.ch0)
-    uart.println('ADC channel 0: ${value}')
-    time.sleep_ms(1000)
-}
-```
-
----
-
-### UART Echo
-
-```v
-import uart
-
-uart.setup(115200)
-
-for{
-    if uart.available()>0{
-        c:=uart.read()
-        uart.write(c)
+for {
+    if pin.read(pin.p14) == 1 {
+        pin.low(pin.led0)
+    } else {
+        pin.high(pin.led0)
     }
 }
 ```
 
 ---
 
-### PWM Example
+### ADC
 
 ```v
-import pwm_fn as pwm
+import time
+import adc_fn as adc
+import pin_fn as pin
 
-pwm.write(pwm.ch1_1,128)
+pin.setup(pin.led0, pin.output)
+
+for {
+    value := adc.read(adc.ch0)
+
+    if value > 127 {
+        pin.high(pin.led0)
+    } else {
+        pin.low(pin.led0)
+    }
+
+    time.sleep_ms(20)
+}
 ```
 
 ---
 
-### Timer Example
+### Analog Echo
 
 ```v
-import pin
-import timer
+import time
+import adc_fn as adc
+import pwm_fn as pwm
 
-pin.setup(pin.led0,pin.output)
+pwm.setup_pin(pwm.ch2_2)
 
-for{
-    pin.toggle(pin.led0)
-    timer.delay_ms(500)
+for {
+    value := adc.read(adc.ch0)
+
+    pwm.write(pwm.ch2_2, u8(value))
+
+    time.sleep_ms(10)
 }
 ```
+
+---
+
+### Breathing (PWM - LED)
+
+```v
+import time
+import pin_fn as pin
+import pwm_fn as pwm
+
+pin.setup(pwm.ch1_1, pin.output)
+
+for {
+    for level in 0 .. 256 {
+        pwm.write(pwm.ch1_1, level)
+        time.sleep_ms(5)
+    }
+
+    for level in 0 .. 256 {
+        pwm.write(pwm.ch1_1, 255 - level)
+        time.sleep_ms(5)
+    }
+
+    time.sleep_ms(100)
+}
+```
+
+---
+
+### Message (USB Serial)
+
+```v
+import time
+import uart
+
+for {
+    uart.println("ch551")
+    time.sleep_ms(500)
+}
+```
+
+## Notes
+
+- AIxt transpiles V source files into an Arduino `.ino` sketch.
+- The generated `.ino` file must be opened in the Arduino IDE.
+- The current CH551 implementation is based on the **CH55xDuino** core.
+- Compilation and programming are performed using the Arduino IDE with the CH55xDuino board package.
+- USB serial communication is implemented through the **USBSerial** interface provided by CH55xDuino.
+
+## References
+
+- CH551/CH552 Datasheet
+- CH55xDuino
+- CH55xDuino HardwareSerial (`USBSerial`)
