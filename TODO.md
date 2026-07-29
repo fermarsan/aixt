@@ -31,6 +31,7 @@ Tasks to do in Aixt
 - [ ] Issue: Aixt compilation fails in `V 0.5.1`
 - [ ] Generate a new backend for Espressif devices on ESP-IDF framework: esp_idf 
 - [ ] Starting new device: "esp32_devkitc_idf" on "esp_idf" backend
+- [ ] Starting new device: "esp32_c3fh4_idf" on "esp_idf" backend
 
 
 ### Done ✓make
