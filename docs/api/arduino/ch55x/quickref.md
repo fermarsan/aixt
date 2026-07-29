@@ -258,6 +258,6 @@ for {
 
 ## References
 
-- CH551/CH552 Datasheet
-- CH55xDuino
-- CH55xDuino HardwareSerial (`USBSerial`)
+- [CH551/CH552 Datasheet] (https://akizukidenshi.com/goodsaffix/CH552.pdf)
+- [CH55xDuino] (https://github.com/DeqingSun/ch55xduino/blob/ch55xduino/README.md)
+- [CH55xDuino HardwareSerial (`USBSerial`)](https://github.com/DeqingSun/ch55xduino/blob/ch55xduino/ch55xduino/ch55x/cores/ch55xduino/HardwareSerial.h)
