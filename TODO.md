@@ -20,7 +20,6 @@ Tasks to do in Aixt
 - [ ] Enable "verbosity" option
 - [ ] Create `make8()` style functions
 - [ ] Evaluate to unify the `device.json`, `compiler.json` and project's `v.mod`
-- [ ] Evaluate to create `main.tmpl.c` for the different backends.
 
 
 ### In Progress
@@ -34,6 +33,7 @@ Tasks to do in Aixt
 - [ ] Generate a new backend for Espressif devices on ESP-IDF framework: esp_idf 
 - [ ] Starting new device: "esp32_devkitc_idf" on "esp_idf" backend
 - [ ] Starting new device: "esp32_c3fh4_idf" on "esp_idf" backend
+- [ ] Create `main.tmpl.c` for the different backends.
 
 
 ### Done ✓make
