@@ -34,7 +34,6 @@ Tasks to do in Aixt
 - [ ] Starting new device: "esp32_devkitc_idf" on "esp_idf" backend
 - [ ] Starting new device: "esp32_c3fh4_idf" on "esp_idf" backend
 - [ ] Create `main.tmpl.c` for the different backends.
-- [ ] Compile executable into `/build` folder
 
 
 ### Done ✓make
@@ -51,3 +50,4 @@ Tasks to do in Aixt
 - [x] Issue solved: assignment and declaration/assignment using with `match` already works well
 - [x] Append ISR code snippets on VScode for PIC microcontrollers
 - [x] Issue solved: templates `$tmpl` fails in `V 0.5.1` (change `@var` by `@{var}` when it is follow by `[` or `(`)
+- [x] Now the executable is compiled into `/build` folder
