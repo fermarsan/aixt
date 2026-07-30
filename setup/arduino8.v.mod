@@ -1,0 +1,22 @@
+Module {
+    main_ret_type:      ['']
+    main_params:        ['']
+
+    type_void:          ['void']
+    type_bool:          ['bool']
+    type_i8:            ['int8_t']
+    type_i16:           ['int16_t']
+    type_int:           ['int32_t']
+    type_i64:           ['int64_t']
+    type_isize:         ['int8_t']
+    type_int_literal:   ['int32_t']
+    type_u8:            ['uint8_t']
+    type_u16:           ['uint16_t']
+    type_u32:           ['uint32_t']
+    type_u64:           ['uint64_t']
+    type_usize:         ['uint8_t']
+    type_f32:           ['float']
+    type_f64:           ['double']
+    type_float_literal: ['double']
+    type_rune:          ['char']
+}

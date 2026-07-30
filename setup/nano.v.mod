@@ -1,5 +1,5 @@
 Module {
-  target: 'nano'
+  target: ['nano']
   board: ['Arduino Nano']
   backend: ['arduino']
 
