@@ -1,6 +1,9 @@
 // Project name:
 // Author: 
-// Date: 
+//	- Fernando M. Santa
+//	- Katalina Guzman
+//	- Paola Carreño
+// Date: 2024-2026 
 // ch55x boards
 
 import time

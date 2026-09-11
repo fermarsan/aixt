@@ -5,7 +5,7 @@
 // Date: 2024-2026
 //
 // ## Description
-// PWM functions (Arduino Nano - ATmega328P port)
+// PWM functions (ch55x boards)
 module pwm
 
 @[as_macro] pub const ch1_1 = 15

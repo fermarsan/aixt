@@ -5,5 +5,5 @@
 The API is split in several folders:
 
 - [core](arduino.core.pin.html)
-- [ch55x](arduino.ch55x.pwm.html)
-- [uart](arduino.uart.uart.html)
+- [ch55x](arduino.ch55x.port.html)
+- [uart](arduino.uart1.uart1.html)
