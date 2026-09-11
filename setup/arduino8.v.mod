@@ -1,7 +1,6 @@
 Module {
     main_ret_type:      ['']
     main_params:        ['']
-
     type_void:          ['void']
     type_bool:          ['bool']
     type_i8:            ['int8_t']
