@@ -15,7 +15,7 @@ pub fn (mut stp Setup) load(device string, proj_path string) {
 
 	eq_devices := json.decode(
 		map[string]string,
-		os.read_file(os.norm_path('${aixt_path}/setup/equivalent_devices.json')) or { panic(err) }
+		os.read_file(os.norm_path('${aixt_path}/setup/aliases.json')) or { panic(err) }
 	) or { panic(err) }
 	
 	target := if device in eq_devices {
@@ -59,7 +59,7 @@ pub fn (mut stp Setup) load_from_project(device string, proj_path string) {
 
 	eq_devices := json.decode(
 		map[string]string,
-		os.read_file(os.norm_path('${aixt_path}/setup/equivalent_devices.json')) or { panic(err) }
+		os.read_file(os.norm_path('${aixt_path}/setup/aliases.json')) or { panic(err) }
 	) or { panic(err) }
 	
 	target := if device in eq_devices {

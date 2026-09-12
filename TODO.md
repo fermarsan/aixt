@@ -33,7 +33,6 @@ Tasks to do in Aixt
 - [ ] Starting new device: "esp32_devkitc_idf" on "esp_idf" backend
 - [ ] Starting new device: "esp32_c3fh4_idf" on "esp_idf" backend
 - [ ] Create `main.tmpl.c` for the different backends
-- [ ] Change the `/setup/equivalent_devices.json` folder by `/setup/aliases.json`
 
 
 ### Done ✓make
@@ -52,6 +51,7 @@ Tasks to do in Aixt
 - [x] Issue solved: templates `$tmpl` fails in `V 0.5.1` (change `@var` by `@{var}` when it is follow by `[` or `(`)
 - [x] Now the executable is compiled into `/build` folder
 - [x] Change the location of the `aixt` executable to `./build/` folder 
+- [x] Change the `/setup/aliases.json` folder by `/setup/aliases.json`
 - [ ] Add a copy of the `device.json` and `compiler.json` files to the project's folder
     - [x] Remove `cc` and `flasher` commands from the project's v.mod file
     - [x] Modify `new_cmd` to copy the `device.json` and `compiler.json` files to the project's folder
