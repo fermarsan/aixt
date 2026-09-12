@@ -68,5 +68,25 @@ fn new_cmd(cmd cli.Command) ! {
 		os.write_file(os.norm_path('${dest_dir}/v.mod'), vmod.encode(project_vmod)) or {
 			panic(err)
 		}
+		// copy the 'device.json' and 'compiler.json' files to the '.setup' directory
+		// setup_src_dir := os.norm_path('${aixt_path}/setup/')
+		// setup_dest_dir := os.norm_path('${dest_dir}/.setup/') 
+		if !os.exists(os.norm_path('${dest_dir}/.setup/') ) {
+			os.mkdir(os.norm_path('${dest_dir}/.setup/') ) or { panic(err) }
+		}
+		os.cp(
+			os.norm_path('${aixt_path}/setup/${project_setup.target}.json'),
+			os.norm_path('${dest_dir}/.setup/'),
+			fail_if_exists: false
+		    ) or { 
+			panic(err) 
+		}
+		os.cp(
+			os.norm_path('${aixt_path}/${project_setup.compiler_setup_path}'),
+			os.norm_path('${dest_dir}/.setup/'),
+			fail_if_exists: false
+		    ) or { 
+			panic(err) 
+		}
 	}
 }

@@ -33,6 +33,7 @@ Tasks to do in Aixt
 - [ ] Starting new device: "esp32_devkitc_idf" on "esp_idf" backend
 - [ ] Starting new device: "esp32_c3fh4_idf" on "esp_idf" backend
 - [ ] Create `main.tmpl.c` for the different backends
+- [ ] Change the location of the `aixt` executable to `./build/` folder 
 
 
 ### Done ✓make

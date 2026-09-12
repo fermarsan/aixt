@@ -2,7 +2,7 @@ OUTPUT_FOLDER = ./build
 
 TARGET = $(OUTPUT_FOLDER)/aixt
 
-VC = v #~/v_050/v
+VC = ~/v_050/v
 
 VFLAGS = -o
 
