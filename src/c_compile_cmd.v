@@ -30,7 +30,7 @@ fn c_compile_cmd(cmd cli.Command) ! {
 
 	cc := if cmd.flags.get_string('c_compiler')! != '' {	// as a flag
 		cmd.flags.get_string('c_compiler')!
-	} else if v_mod.unknown['cc'][0] != '' {	// inside `v.mod`
+	} else if project_setup.cc['path'] v_mod.unknown['cc'][0] != '' {	// inside `v.mod`
 		v_mod.unknown['cc'][0]
 	} else {	// inside `setup/<target_name>.json`
 		$if windows {

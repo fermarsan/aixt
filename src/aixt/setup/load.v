@@ -8,8 +8,8 @@ module setup
 import os
 import json
 
-// load function loads the setup files for the device and the compiler
-pub fn (mut stp Setup) load(device string) {
+// load function loads the device and the compiler setup files (from aixt path)
+pub fn (mut stp Setup) load(device string, proj_path string) {
 
 	aixt_path := os.dir(os.dir(os.executable()))
 
@@ -27,20 +27,19 @@ pub fn (mut stp Setup) load(device string) {
 	dev_setup := os.read_file(os.norm_path('${aixt_path}/setup/${target}.json')) or { panic(err) }
 	setup := json.decode(Setup, dev_setup) or { panic(err) }
 
-	// println(setup)
-
 	comp_setup := os.read_file(os.norm_path('${aixt_path}/${setup.compiler_setup_path}')) or { panic(err) }
 	complete_setup :=  dev_setup.all_before_last('}') + ',\n' + comp_setup.all_after_first('{')
-	stp = json.decode(Setup, complete_setup)  or { panic(err) }
+	stp = json.decode(Setup, complete_setup) or { panic(err) }
 	
+
+	if os.exists(os.norm_path('${path}/.setup/${target}.json')) $$
+	   os.exists(os.norm_path('${path}/.setup/${target}.json')) $$	// inside
+
+
 	// ---------------- Normalize paths --------------------
 	stp.device = device
-	// stp.cc['linux_path'] = os.norm_path(stp.cc['linux_path'])
-	// stp.cc['windows_path'] = os.norm_path(stp.cc['windows_path'])
-	stp.cc['default_path'] = os.norm_path(stp.cc['default_path'])
-	// stp.flasher['linux_path'] = os.norm_path(stp.flasher['linux_path'])
-	// stp.flasher['windows_path'] = os.norm_path(stp.flasher['windows_path'])
-	stp.flasher['default_path'] = os.norm_path(stp.flasher['default_path'])
+	stp.cc['path'] = os.norm_path(stp.cc['path'])
+	stp.flasher['path'] = os.norm_path(stp.flasher['path'])
 	mut temp_paths := []string{}
 	for path in stp.api_paths {
 		temp_paths << os.norm_path(path)
@@ -53,9 +52,8 @@ pub fn (mut stp Setup) load(device string) {
 }
 
 
-
-// load function loads the setup files for the device and the compiler
-pub fn (mut stp Setup) load2(device string) {
+// load_from_project function loads the device and the compiler setup files (from the project's path)
+pub fn (mut stp Setup) load_from_project(device string, proj_path string) {
 
 	aixt_path := os.dir(os.dir(os.executable()))
 
@@ -70,23 +68,17 @@ pub fn (mut stp Setup) load2(device string) {
 		device
 	}
 
-	dev_setup := os.read_file(os.norm_path('${aixt_path}/setup/${target}.json')) or { panic(err) }
+	dev_setup := os.read_file(os.norm_path('${proj_path}/.setup/${target}.json')) or { panic(err) }
 	setup := json.decode(Setup, dev_setup) or { panic(err) }
 
-	// println(setup)
-
-	comp_setup := os.read_file(os.norm_path('${aixt_path}/${setup.compiler_setup_path}')) or { panic(err) }
+	comp_setup := os.read_file(os.norm_path('${proj_path}/.${setup.compiler_setup_path}')) or { panic(err) }
 	complete_setup :=  dev_setup.all_before_last('}') + ',\n' + comp_setup.all_after_first('{')
-	stp = json.decode(Setup, complete_setup)  or { panic(err) }
+	stp = json.decode(Setup, complete_setup) or { panic(err) }
 	
 	// ---------------- Normalize paths --------------------
 	stp.device = device
-	// stp.cc['linux_path'] = os.norm_path(stp.cc['linux_path'])
-	// stp.cc['windows_path'] = os.norm_path(stp.cc['windows_path'])
-	stp.cc['default_path'] = os.norm_path(stp.cc['default_path'])
-	// stp.flasher['linux_path'] = os.norm_path(stp.flasher['linux_path'])
-	// stp.flasher['windows_path'] = os.norm_path(stp.flasher['windows_path'])
-	stp.flasher['default_path'] = os.norm_path(stp.flasher['default_path'])
+	stp.cc['path'] = os.norm_path(stp.cc['path'])
+	stp.flasher['path'] = os.norm_path(stp.flasher['path'])
 	mut temp_paths := []string{}
 	for path in stp.api_paths {
 		temp_paths << os.norm_path(path)

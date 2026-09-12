@@ -10,11 +10,11 @@ import v.vmod
 fn aixt_vmod_load(path string) vmod.Manifest {
 	v_mod := vmod.from_file(os.norm_path('${path}/v.mod')) or { 
 		vmod.Manifest {
-			// name: ''
-			// description: ''
-			// version: ''
-			// license: ''
-			// dependencies: []
+			name: ''
+			description: ''
+			version: ''
+			license: ''
+			dependencies: []
 			unknown: { 
 				'target': [''], 
 				'port': $if linux { ['/dev/ttyUSB0'] } $else { ['COM1'] }, 
