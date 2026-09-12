@@ -6,6 +6,4 @@ Module {
 	dependencies: []
 	target: ['ch55x']
 	port: ['/dev/ttyUSB0']
-	cc: ['', '']
-	flasher: ['', '']
 }

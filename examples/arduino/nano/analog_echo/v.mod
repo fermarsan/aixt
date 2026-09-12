@@ -6,6 +6,4 @@ Module {
 	dependencies: []
 	target: ['nano']
 	port: ['/dev/ttyUSB0']
-	cc: ['', '']
-	flasher: ['', '']
 }

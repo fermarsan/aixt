@@ -60,13 +60,9 @@ fn new_cmd(cmd cli.Command) ! {
 		}
 		mut project_vmod := vmod.Manifest {
 			name:			name
-			// description:	os.input('Input your project description: ')
-			// version:		'0.0.0'
 			unknown:		{
 				'target':	[project_setup.device]
 				'port':		$if linux { ['/dev/ttyUSB0'] } $else { ['COM1'] }
-				'cc': 		['', '']
-				'flasher': 	['', '']
 			}
 		}
 		os.write_file(os.norm_path('${dest_dir}/v.mod'), vmod.encode(project_vmod)) or {

@@ -6,6 +6,4 @@ Module {
 	dependencies: []
 	target: ['mega']
 	port: ['/dev/ttyUSB0']
-	cc: ['', '']
-	flasher: ['', '']
 }

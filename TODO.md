@@ -19,7 +19,6 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Enable "verbosity" option
 - [ ] Create `make8()` style functions
-- [ ] Add a copy of the `device.json` and `compiler.json` files to the project's folder.
 
 
 ### In Progress
@@ -33,7 +32,7 @@ Tasks to do in Aixt
 - [ ] Generate a new backend for Espressif devices on ESP-IDF framework: esp_idf 
 - [ ] Starting new device: "esp32_devkitc_idf" on "esp_idf" backend
 - [ ] Starting new device: "esp32_c3fh4_idf" on "esp_idf" backend
-- [ ] Create `main.tmpl.c` for the different backends.
+- [ ] Create `main.tmpl.c` for the different backends
 
 
 ### Done ✓make
@@ -51,3 +50,5 @@ Tasks to do in Aixt
 - [x] Append ISR code snippets on VScode for PIC microcontrollers
 - [x] Issue solved: templates `$tmpl` fails in `V 0.5.1` (change `@var` by `@{var}` when it is follow by `[` or `(`)
 - [x] Now the executable is compiled into `/build` folder
+- [ ] Add a copy of the `device.json` and `compiler.json` files to the project's folder
+    - [x] Remove 'cc' and 'flasher' commands from the project's v.mod file

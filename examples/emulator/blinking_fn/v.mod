@@ -6,6 +6,4 @@ Module {
 	dependencies: []
 	target: ['emulator']
 	port: ['/dev/ttyUSB0']
-	cc: ['', '']
-	flasher: ['', '']
 }
