@@ -13,13 +13,15 @@ pub fn (mut stp Setup) load(device string, proj_path string) {
 
 	aixt_path := os.dir(os.dir(os.executable()))
 
-	eq_devices := json.decode(
+	// load the device aliases 
+	aliases := json.decode(
 		map[string]string,
 		os.read_file(os.norm_path('${aixt_path}/setup/aliases.json')) or { panic(err) }
 	) or { panic(err) }
 	
-	target := if device in eq_devices {
-		eq_devices[device]
+	// for defining the right target name
+	target := if device in aliases {
+		aliases[device]
 	} else {
 		device
 	}
@@ -57,13 +59,13 @@ pub fn (mut stp Setup) load_from_project(device string, proj_path string) {
 
 	aixt_path := os.dir(os.dir(os.executable()))
 
-	eq_devices := json.decode(
+	aliases := json.decode(
 		map[string]string,
 		os.read_file(os.norm_path('${aixt_path}/setup/aliases.json')) or { panic(err) }
 	) or { panic(err) }
 	
-	target := if device in eq_devices {
-		eq_devices[device]
+	target := if device in aliases {
+		aliases[device]
 	} else {
 		device
 	}
