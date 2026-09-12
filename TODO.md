@@ -19,7 +19,7 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Enable "verbosity" option
 - [ ] Create `make8()` style functions
-- [ ] Evaluate to unify the `device.json`, `compiler.json` and project's `v.mod`
+- [ ] Add a copy of the `device.json` and `compiler.json` files to the project's folder.
 
 
 ### In Progress
