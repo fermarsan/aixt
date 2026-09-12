@@ -23,16 +23,17 @@ fn c_compile_cmd(cmd cli.Command) ! {
 	} else if v_mod.unknown['target'][0] != '' {
 		target = v_mod.unknown['target'][0]
 	} else {
-		panic('A target name has to be specified as a flag or inside the `v.mod` file.')
+		panic('A target name has to be specified as a flag or in the `v.mod` file.')
 	}
+
+	// load the project setup files
 	mut project_setup := setup.Setup{}
 	project_setup.load(target, path)
 
+	// C compiler path
 	cc := if cmd.flags.get_string('c_compiler')! != '' {	// as a flag
 		cmd.flags.get_string('c_compiler')!
-	} else if project_setup.cc['path'] v_mod.unknown['cc'][0] != '' {	// inside `v.mod`
-		v_mod.unknown['cc'][0]
-	} else {	// inside `setup/<target_name>.json`
+	} else {	// in `setup/<target_name>.json`
 		$if windows {
 			if project_setup.cc['windows_path'] != '' {
 				project_setup.cc['windows_path']
@@ -50,20 +51,21 @@ fn c_compile_cmd(cmd cli.Command) ! {
 		}
 	}
 
+	// C compiler arguments
 	cc_args := if cmd.flags.get_string('cc_args')! != '' {	// C compiler args
 		cmd.flags.get_string('cc_args')!
-	} else if v_mod.unknown['cc'][1] != '' {
-		v_mod.unknown['cc'][1]
 	} else {
 		project_setup.cc['args']
 	}
 
 	println('Aixt path:\n\t${os.executable()}\n')
+
 	c_compile(base_name, cc, cc_args, project_setup)
 	ext := match project_setup.backend {
 		'nxc' { 'nxc' }
 		'arduino' { 'ino' }
 		else { 'c' }	// "c" and "esp-idf"	
 	}
+	
 	println('\n${base_name}.${ext} compiling finished.\n')
 }
