@@ -11,7 +11,7 @@ import os
 // symlink_cmd is called after command `aixt symlink [flags]`
 fn symlink_cmd(cmd cli.Command) ! {
 	println('Aixt path:\n\t${os.executable()}\n')
-	aixt_path := os.dir(os.executable())
+	aixt_path := os.dir(os.dir(os.executable()))
 	if cmd.args.len != 0 {
 		println(cmd.help_message())
 	} else {		

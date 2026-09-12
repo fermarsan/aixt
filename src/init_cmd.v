@@ -13,7 +13,7 @@ import aixt.setup
 // init_cmd is called after command `aixt init [flags]`
 fn init_cmd(cmd cli.Command) ! {
 	println('Aixt path:\n\t${os.executable()}\n')
-	aixt_path := os.dir(os.executable())
+	aixt_path := os.dir(os.dir(os.executable()))
 	target := if cmd.flags.get_string('target')! != '' {	
 		cmd.flags.get_string('target')!
 	} else {

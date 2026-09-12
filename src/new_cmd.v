@@ -1,5 +1,5 @@
 // Author: Fernando M. Santa
-// Date: 2025
+// Date: 2025-2026
 // ## Description
 // This is the main file of the Aixt project.
 module main
@@ -12,8 +12,10 @@ import aixt.setup
 
 // new_cmd is called after command `aixt new [flags]`
 fn new_cmd(cmd cli.Command) ! {
-	println('Aixt path:\n\t${os.executable()}\n')
-	aixt_path := os.dir(os.executable())
+
+	aixt_path := os.dir(os.dir(os.executable()))
+	print('Aixt_path:\n\t${aixt_path}\n')
+
 	target := if cmd.flags.get_string('target')! != '' {	
 		cmd.flags.get_string('target')!
 	} else {
@@ -69,19 +71,17 @@ fn new_cmd(cmd cli.Command) ! {
 			panic(err)
 		}
 		// copy the 'device.json' and 'compiler.json' files to the '.setup' directory
-		// setup_src_dir := os.norm_path('${aixt_path}/setup/')
-		// setup_dest_dir := os.norm_path('${dest_dir}/.setup/') 
 		if !os.exists(os.norm_path('${dest_dir}/.setup/') ) {
 			os.mkdir(os.norm_path('${dest_dir}/.setup/') ) or { panic(err) }
 		}
-		os.cp(
+		os.cp(	// device.json
 			os.norm_path('${aixt_path}/setup/${project_setup.target}.json'),
 			os.norm_path('${dest_dir}/.setup/'),
 			fail_if_exists: false
 		    ) or { 
 			panic(err) 
 		}
-		os.cp(
+		os.cp(	// compiler.json
 			os.norm_path('${aixt_path}/${project_setup.compiler_setup_path}'),
 			os.norm_path('${dest_dir}/.setup/'),
 			fail_if_exists: false
