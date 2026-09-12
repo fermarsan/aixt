@@ -26,7 +26,7 @@ fn c_compile_cmd(cmd cli.Command) ! {
 		panic('A target name has to be specified as a flag or inside the `v.mod` file.')
 	}
 	mut project_setup := setup.Setup{}
-	project_setup.load(target)
+	project_setup.load(target, path)
 
 	cc := if cmd.flags.get_string('c_compiler')! != '' {	// as a flag
 		cmd.flags.get_string('c_compiler')!
