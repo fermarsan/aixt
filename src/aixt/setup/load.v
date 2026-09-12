@@ -1,6 +1,6 @@
 // Project name: Aixt, https://github.com/fermarsan/aixt.git
 // Author: Fernando M. Santa
-// Date: 2024
+// Date: 2024-2026
 // License: MIT
 // Description: setup files loading for the device and the compiler
 module setup
