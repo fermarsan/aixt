@@ -10,7 +10,7 @@
 import time
 import pin_fn as pin
 
-pin.high(pin.x)
+pin.low(pin.x)
 
 for _ in 1..10 {
 	pin.toggle(pin.x)

@@ -58,5 +58,5 @@ Tasks to do in Aixt
     - [ ] Modify all the commands to load setup files from the project's folder, otherwise from the Aixt folder
 - [ ] Create examples for the 3 different type of projects
     - [x] single file
-    - [ ] with v.mod
+    - [x] with v.mod
     - [ ] with v.mod + .setup folder (`<target_device>.json` + `<target_compiler>.json`)

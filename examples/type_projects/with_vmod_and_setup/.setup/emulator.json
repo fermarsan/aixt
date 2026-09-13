@@ -1,0 +1,25 @@
+{
+  "target": "emulator",
+  "board": "Linux, Windows and Android",
+  "backend": "c",
+  "cc": {
+    "name": "gcc_tcc",
+    "path": "gcc",
+    "windows_path": "c:\\v\\thirdparty\\tcc\\tcc.exe",
+    "args": "-o @{file_no_ext}@{output_ext} @{file_no_ext}.c"
+  },
+  "flasher": {
+    "name": "none",
+    "path": "",
+    "args": ""
+  },
+  "api_paths": [
+    "emulator"
+  ],
+  "v_defines": [
+    "flag_1"
+  ],
+  "default_cpu_freq": 4000000,
+  "default_string_len": 120,
+  "compiler_setup_path": "setup/gcc_tcc.json"
+}
