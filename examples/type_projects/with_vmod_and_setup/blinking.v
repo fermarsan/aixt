@@ -1,7 +1,8 @@
-// Project with v.mod file
+// Project name:
 // Author: Fernando M. Santa
 // Date: 2026
-// Description: Project example with v.mod file (for the emulator).
+// CLI emulator (Windows, Linux and Android-Termux) 
+// Description: Project example with v.mod file and .setup folder.
 //   To build it you can run from a terminal the command:
 //     `aixt build blinking.v`
 

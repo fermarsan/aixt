@@ -52,11 +52,11 @@ Tasks to do in Aixt
 - [x] Now the executable is compiled into `/build` folder
 - [x] Change the location of the `aixt` executable to `./build/` folder 
 - [x] Change the `/setup/aliases.json` folder by `/setup/aliases.json`
+- [x] Create examples for the 3 different type of projects
+    - [x] single file
+    - [x] with v.mod
+    - [x] with v.mod + .setup folder (`<target_device>.json` + `<target_compiler>.json`)
 - [ ] Add a copy of the `<target_device>.json` and `<target_compiler>.json` files to the project's folder
     - [x] Remove `cc` and `flasher` commands from the project's v.mod file
     - [x] Modify `new_cmd` to copy the `<target_device.json>` and `<target_compiler>.json` files to the project's folder
     - [ ] Modify all the commands to load setup files from the project's folder, otherwise from the Aixt folder
-- [ ] Create examples for the 3 different type of projects
-    - [x] single file
-    - [x] with v.mod
-    - [ ] with v.mod + .setup folder (`<target_device>.json` + `<target_compiler>.json`)
