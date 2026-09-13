@@ -29,8 +29,6 @@ fn flash_cmd(cmd cli.Command) ! {
 
 	flasher := if cmd.flags.get_string('flasher')! != '' {	// as a flag
 		cmd.flags.get_string('flasher')!
-	} else if v_mod.unknown['flasher'][0] != '' {	// inside `v.mod`
-		v_mod.unknown['flasher'][0]
 	} else {	// inside `setup/<target_name>.json`
 		$if windows {
 			if project_setup.flasher['windows_path'] != '' {
@@ -51,8 +49,6 @@ fn flash_cmd(cmd cli.Command) ! {
 
 	f_args := if cmd.flags.get_string('f_args')! != '' {	// C compiler args
 		cmd.flags.get_string('f_args')!
-	} else if v_mod.unknown['flasher'][1] != '' {
-		v_mod.unknown['flasher'][1]
 	} else {
 		project_setup.flasher['args']
 	}

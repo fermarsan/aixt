@@ -57,7 +57,7 @@ Tasks to do in Aixt
     - [x] single file
     - [x] with v.mod
     - [x] with v.mod + .setup folder (`<target_device>.json` + `<target_compiler>.json`)
-- [ ] Add a copy of the `<target_device>.json` and `<target_compiler>.json` files to the project's folder
+- [x] Add a copy of the `<target_device>.json` and `<target_compiler>.json` files to the project's folder
     - [x] Remove `cc` and `flasher` commands from the project's v.mod file
     - [x] Modify `new_cmd` to copy the `<target_device.json>` and `<target_compiler>.json` files to the project's folder
-    - [ ] Modify all the commands to load setup files from the project's folder, otherwise from the Aixt folder
+    - [x] Modify all the commands to load setup files from the project's folder, otherwise from the Aixt folder
