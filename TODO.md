@@ -19,6 +19,7 @@ Tasks to do in Aixt
 - [ ] Give support to reference and dereference
 - [ ] Enable "verbosity" option
 - [ ] Create `make8()` style functions
+- [ ] Include the command `init` to the exe description
 
 
 ### In Progress
