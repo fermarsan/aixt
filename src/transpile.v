@@ -37,7 +37,7 @@ pub fn transpile(path string, project_setup setup.Setup) {
 	mut aixt_b := aixt_builder.Builder {
 		Builder:	v_builder.new_builder(aixt_pref)
 		setup:		project_setup
-		aixt_path:	os.dir(os.executable())
+		aixt_path:	os.dir(os.dir(os.executable()))
 	}
 	aixt_b.table = ast.new_table()
 
@@ -52,7 +52,7 @@ pub fn transpile(path string, project_setup setup.Setup) {
 	mut c_gen := cgen.Gen {
 		Builder:			aixt_b
 		// setup:				project_setup
-		// aixt_path:			os.dir(os.executable())
+		// aixt_path:			os.dir(os.dir(os.executable()))
 		cur_scope: 			&ast.Scope{}
 		cur_left:			ast.Nil{}
 		cur_left_type:		0
