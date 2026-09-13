@@ -22,10 +22,10 @@ fn init_cmd(cmd cli.Command) ! {
 	if cmd.args.len != 0 {
 		println(cmd.help_message())
 	} else {
-		mut project_setup := setup.Setup{}
-		project_setup.load(target)
-		src_dir := os.norm_path('${aixt_path}/templates/project/${project_setup.target}/')
 		dest_dir := os.norm_path(os.getwd()) 
+		mut project_setup := setup.Setup{}
+		project_setup.load(target, dest_dir)
+		src_dir := os.norm_path('${aixt_path}/templates/project/${project_setup.target}/')
 		name := os.base(dest_dir)
 		// println('+++++++++++++++++++++++++ ${name} +++++++++++++++++++++++++')
 		list := os.ls(dest_dir) or {

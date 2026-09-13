@@ -25,7 +25,7 @@ fn transpile_cmd(cmd cli.Command) ! {
 	}
 	target = target.to_lower()
 	mut project_setup := setup.Setup{}
-	project_setup.load(target)		
+	project_setup.load(target, path)		
 	
 	println('Aixt path:\n\t${os.executable()}\n')
 	transpile(input_name, project_setup)

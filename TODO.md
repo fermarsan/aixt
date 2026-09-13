@@ -55,4 +55,4 @@ Tasks to do in Aixt
 - [ ] Add a copy of the `device.json` and `compiler.json` files to the project's folder
     - [x] Remove `cc` and `flasher` commands from the project's v.mod file
     - [x] Modify `new_cmd` to copy the `device.json` and `compiler.json` files to the project's folder
-    - [ ] Modify `c_compile_cmd` to load setup files from the project's folder as well as the Aixt folder
+    - [ ] Modify all the commands to load setup files from the project's folder, otherwise from the Aixt folder
