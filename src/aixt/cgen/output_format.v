@@ -6,6 +6,11 @@ module cgen
 
 import regex
 
+const query1 = r'
+ ([A-Za-z_]+)\('
+const res1 = r'
+\0('
+
 // out_format formats the output file.
 fn (mut gen Gen) out_format() string{
 	mut re := regex.new()
@@ -13,10 +18,10 @@ fn (mut gen Gen) out_format() string{
 	mut ind_count := 0
 
 	// join all the output C blocks
-	mut out := gen.out.join('\n')
+	mut out := ''	// gen.out.join('\n')
 
 	// split in single lines
-	gen.out = out.split('\n')
+	//gen.out = out.split('\n')
 	
 	gen.insert_c_lines()	//lines pending for inserting
 
@@ -39,6 +44,8 @@ fn (mut gen Gen) out_format() string{
 	re.compile_opt('\n\n+') or { panic(err) }
 	out = re.replace(out, '\n\n')
 
+	// println('-------- ${out} --------')
+
 	// re.compile_opt(';\n+') or { panic(err) }
 	// out = re.replace(out, ';\n')
 
@@ -47,6 +54,15 @@ fn (mut gen Gen) out_format() string{
 	out = out.replace('\\\n\n', '\\\n')
 	out = out.replace('#endif;', '#endif')
 	out = out.replace('\n ', '\n')
+	out = out.replace('\n;\n', '')
+
+	// remove multiple spaces before the functions' name 
+	re.compile_opt(r'  +([A-Za-z_]+)\(') or { panic(err) }
+	out = re.replace(out, r' \0(')
+	re.compile_opt(query1) or { panic(err) }
+	out = re.replace(out, res1)
+
+	// println('-------- ${out} --------')
 
 	// add inner-block commands indentation 
 	for c in out {

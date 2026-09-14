@@ -143,6 +143,53 @@ fn (mut gen Gen) fn_decl_main(node ast.FnDecl) []string {
 	mut out := []string{}
 	gen.cur_fn = 'main'
 	mut attrs := ''
+	if node.attrs.len != 0 {
+		for attr in node.attrs {
+			attrs += '${attr} '
+		}
+	}
+	ret_type := '${gen.setup.main_ret_type} '
+	params := gen.setup.main_params
+	init_block := '___initialization_block___'
+	mut stmts := []string{}
+	for st in node.stmts {	// inner statements
+		stmts << gen.ast_node(st).join('')
+	}
+	ret_stmt := if ret_type == 'int' {	// return value
+					'return 0;'
+				} else {
+					''
+				}
+	match gen.setup.backend {
+		'c' {
+			out << $tmpl('c_templates/main_fn_decl_c.tmpl.c')#[..-1]
+		}
+		'nxc' {
+			attrs = 'task'
+			out << $tmpl('c_templates/main_fn_decl_nxc.tmpl.c')#[..-1]
+		}
+		'arduino' {
+			out << $tmpl('c_templates/main_fn_decl_ino.tmpl.c')#[..-1]
+		}
+		'esp_idf' {
+			out << $tmpl('c_templates/main_fn_decl_idf.tmpl.c')#[..-1]
+		}
+		else{
+			print('Invalid "Backend" in setup file.' )
+		}
+	}
+	
+	return out
+}
+
+
+// fn_decl_main is the code generation function for the main function declaration.
+fn (mut gen Gen) fn_decl_main_backup(node ast.FnDecl) []string {
+	// println('>>>>>>>>>>>>>>>>>> ${node} <<<<<<<<<<<<<<<<<<')
+	// println('------------------ ${node.name} ------------------------')
+	mut out := []string{}
+	gen.cur_fn = 'main'
+	mut attrs := ''
 	mut ret_type := ''
 	mut name := 'main'
 	mut params := ''

@@ -30,10 +30,6 @@ Tasks to do in Aixt
 - [ ] Issue: the Makefile for PIC12F6xx fails
 - [ ] Update the Explorer16 target
 - [ ] Issue: Aixt compilation fails in `V 0.5.1`
-- [ ] Generate a new backend for Espressif devices on ESP-IDF framework: esp_idf 
-- [ ] Starting new device: "esp32_devkitc_idf" on "esp_idf" backend
-- [ ] Starting new device: "esp32_c3fh4_idf" on "esp_idf" backend
-- [ ] Create `main.tmpl.c` for the different backends
 
 
 ### Done ✓make
@@ -61,3 +57,7 @@ Tasks to do in Aixt
     - [x] Remove `cc` and `flasher` commands from the project's v.mod file
     - [x] Modify `new_cmd` to copy the `<target_device.json>` and `<target_compiler>.json` files to the project's folder
     - [x] Modify all the commands to load setup files from the project's folder, otherwise from the Aixt folder
+- [x] Generate a new backend for Espressif devices on ESP-IDF framework: esp_idf 
+- [x] Starting new device: "esp32_devkitc_idf" on "esp_idf" backend
+- [x] Starting new device: "esp32_c3fh4_idf" on "esp_idf" backend
+- [x] Create `main.tmpl.c` for the different backends

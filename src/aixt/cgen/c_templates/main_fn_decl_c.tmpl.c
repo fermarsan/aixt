@@ -1,4 +1,4 @@
-@attrs @ret_type main(@params) {
+@attrs@ret_type main(@params) {
 @init_block
 @for stmt in stmts 
 @stmt 
